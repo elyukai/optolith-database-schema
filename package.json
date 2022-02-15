@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "cd tsjsonschemamd && npm start -- --tsdir \"../src/entity\" --jsondir \"../schema\" --mddir \"../docs\"",
+    "build": "cd tsjsonschemamd && npm start -- --tsdir \"../src/entity\" --jsondir \"../schema\" --mddir \"../docs/reference\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Lukas Obermann",
