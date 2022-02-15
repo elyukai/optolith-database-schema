@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "C:/Users/lukas/Repositories/Optolith/optolith-database-schema/schema/_ImprovementCost.schema.json",
+  "$ref": "#/definitions/ImprovementCost",
+  "definitions": {
+    "ImprovementCost": {
+      "title": "Improvement Cost",
+      "enum": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ]
+    }
+  }
+}
