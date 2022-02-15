@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "C:/Users/lukas/Repositories/Optolith/optolith-database-schema/schema/Locale.schema.json",
+  "$ref": "#/definitions/Locales",
+  "definitions": {
+    "Locales": {
+      "title": "Supported locales",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Locale"
+      }
+    },
+    "Locale": {
+      "title": "Supported locale",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "IETF language tag (BCP47)",
+          "type": "string",
+          "pattern": "^[a-z]{2}-[A-Z]{2}$"
+        },
+        "name": {
+          "description": "Name of the language in it's language.",
+          "type": "string",
+          "minLength": 1
+        },
+        "region": {
+          "description": "Region in which the language is spoken in it's language.",
+          "type": "string",
+          "minLength": 1
+        },
+        "is_missing_implementation": {
+          "description": "The language is not (fully) implemented and thus needs to be excluded from stable releases.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "region"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

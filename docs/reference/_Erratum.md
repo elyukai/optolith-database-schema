@@ -31,6 +31,7 @@ Key | Description | Details
 The date when the change was confirmed and applied to the entry.
 
 - **Type:** String
+- **Format:** `date`
 
 #### <a name="Erratum/description"></a> `description`
 
