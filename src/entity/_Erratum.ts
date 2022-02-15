@@ -21,6 +21,7 @@ export type Erratum = {
 
   /**
    * A description of what changed.
+   * @markdown
    * @minLength 1
    */
   description: string

@@ -39,6 +39,7 @@ type Translation = {
 
   /**
    * The description of the state.
+   * @markdown
    * @minLength 1
    */
   description: string
