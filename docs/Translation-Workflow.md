@@ -2,7 +2,7 @@
 
 This page aims at people who want to translate existing content into another, possible new, language.
 
-**Note:** If you want to *add* new content, please check out [Insertion Workflow](./Insertion-Workflow) instead.
+**Note:** If you want to *add* new content, please check out [Insertion Workflow](./Insertion-Workflow.md) instead.
 
 ***Disclaimer:** It is not as complicated as it may sound, it also does not require any coding! Feel free to ask me any questions!*
 

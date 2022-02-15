@@ -2,7 +2,7 @@
 
 This guide covers how you can get started inserting new content into Optolith as well as some best practises we discovered over the past years. (Feel free to tell us yours!)
 
-**Note:** If you want to *translate* existing content, please check out [Translation Workflow](./Translation-Workflow) instead.
+**Note:** If you want to *translate* existing content, please check out [Translation Workflow](./Translation-Workflow.md) instead.
 
 ## Basics
 

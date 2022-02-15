@@ -80,7 +80,7 @@ git clone https://github.com/elyukai/optolith-data.git .
 
 ## Install and configure VSCode
 
-Follow the [Setting Up an Editor guide](./Setting-Up-an-Editor).
+Follow the [Setting Up an Editor guide](./Setting-Up-an-Editor.md).
 
 ## Begin your Work
 
