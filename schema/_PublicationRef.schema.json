@@ -1,0 +1,250 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "C:/Users/lukas/Repositories/Optolith/optolith-database-schema/schema/_PublicationRef.schema.json",
+  "$ref": "#/definitions/PublicationRefs",
+  "definitions": {
+    "PublicationRefs": {
+      "title": "Publication References",
+      "description": "The publications where you can find the entry.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/PublicationRef"
+      },
+      "minItems": 1
+    },
+    "PublicationRef": {
+      "title": "Source Reference",
+      "description": "A source reference. It contains the book's publisher identifier and the page where it occurs. If an entry spans multiple pages, provide the last page as well.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The publication's identifier.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "occurrences": {
+          "description": "All occurrences of the entry, identified by IETF language tag (BCP47).",
+          "$ref": "#/definitions/Occurrences"
+        }
+      },
+      "required": [
+        "id",
+        "occurrences"
+      ],
+      "additionalProperties": false
+    },
+    "Occurrences": {
+      "description": "All occurrences of the entry, identified by IETF language tag (BCP47).",
+      "type": "object",
+      "patternProperties": {
+        "^[a-z]{2}-[A-Z]{2}$": {
+          "$ref": "#/definitions/Occurrence"
+        }
+      },
+      "minProperties": 1,
+      "additionalProperties": false
+    },
+    "Occurrence": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/SimpleOccurrence"
+        },
+        {
+          "$ref": "#/definitions/SimpleOccurrences"
+        },
+        {
+          "$ref": "#/definitions/VersionedOccurrence"
+        }
+      ]
+    },
+    "SimpleOccurrences": {
+      "title": "Simple Occurrences",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/SimpleOccurrence"
+      },
+      "minItems": 1
+    },
+    "SimpleOccurrence": {
+      "title": "Simple Occurrence",
+      "type": "object",
+      "properties": {
+        "first_page": {
+          "description": "The page where it occurs. If the entry spans multiple pages, use this as the first page and `last_page` as the last page.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "last_page": {
+          "description": "The last page where it occurs. If there is only one page, set this to the same as `first_page` oder remove it.",
+          "type": "integer",
+          "minimum": 2
+        }
+      },
+      "required": [
+        "first_page"
+      ],
+      "additionalProperties": false
+    },
+    "VersionedOccurrence": {
+      "title": "Versioned Occurrence",
+      "type": "object",
+      "properties": {
+        "initial": {
+          "description": "The initial occurrence of the entry.",
+          "$ref": "#/definitions/Initial"
+        },
+        "revisions": {
+          "description": "Revisions of the entry, resulting in either changed page references or re-addition or removal of an entry.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Revision"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "initial"
+      ],
+      "additionalProperties": false
+    },
+    "Initial": {
+      "title": "Initial",
+      "description": "The initial occurrence of the entry.",
+      "type": "object",
+      "properties": {
+        "printing": {
+          "description": "The publication's printing since which the entry is present. Leave empty if present since the beginning.",
+          "type": "integer",
+          "minimum": 2
+        },
+        "pages": {
+          "description": "The initial page references.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PageRange"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "pages"
+      ],
+      "additionalProperties": false
+    },
+    "Revision": {
+      "title": "Revision",
+      "description": "A revision of the entry, resulting in either changed page references or re-addition or removal of an entry.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Since"
+            },
+            "printing": {
+              "description": "The publication's printing since which the entry is present again or has changed page references.",
+              "type": "integer",
+              "minimum": 2
+            },
+            "pages": {
+              "description": "The changed or new page references.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PageRange"
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "tag",
+            "printing",
+            "pages"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Deprecated"
+            },
+            "printing": {
+              "description": "The publication's printing since which the entry has been removed.",
+              "type": "integer",
+              "minimum": 2
+            }
+          },
+          "required": [
+            "tag",
+            "printing"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "PageRange": {
+      "title": "Page Range",
+      "type": "object",
+      "properties": {
+        "first_page": {
+          "description": "The page where it occurs. If the entry spans multiple pages, use this as the first page and `last_page` as the last page.",
+          "$ref": "#/definitions/Page"
+        },
+        "last_page": {
+          "description": "The last page where it occurs. If there is only one page, set this to the same as `first_page` oder remove it.",
+          "$ref": "#/definitions/Page"
+        }
+      },
+      "required": [
+        "first_page"
+      ],
+      "additionalProperties": false
+    },
+    "Page": {
+      "title": "Page",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "InsideCoverFront"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "InsideCoverBack"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Numbered"
+            },
+            "number": {
+              "description": "The page number.",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "tag",
+            "number"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}

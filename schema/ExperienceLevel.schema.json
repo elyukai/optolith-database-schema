@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "C:/Users/lukas/Repositories/Optolith/optolith-database-schema/schema/ExperienceLevel.schema.json",
+  "$ref": "#/definitions/ExperienceLevel",
+  "definitions": {
+    "ExperienceLevel": {
+      "title": "Experience Level",
+      "description": "Adventure Points and maximum values at hero creation.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "adventure_points": {
+          "description": "The AP value you get.",
+          "type": "integer"
+        },
+        "max_attribute_value": {
+          "description": "The highest possible attribute value.",
+          "type": "integer"
+        },
+        "max_skill_rating": {
+          "description": "The highest possible skill rating.",
+          "type": "integer"
+        },
+        "max_combat_technique_rating": {
+          "description": "The highest possible combat technique rating.",
+          "type": "integer"
+        },
+        "max_attribute_total": {
+          "description": "The limit for the sum of all attribute values.",
+          "type": "integer"
+        },
+        "max_number_of_spells_liturgical_chants": {
+          "description": "The maximum of spells/chants you can activate.",
+          "type": "integer"
+        },
+        "max_number_of_unfamiliar_spells": {
+          "description": "The maximum of spells of an unfamiliar tradition you can activate.",
+          "type": "integer"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/definitions/Translation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "adventure_points",
+        "max_attribute_value",
+        "max_skill_rating",
+        "max_combat_technique_rating",
+        "max_attribute_total",
+        "max_number_of_spells_liturgical_chants",
+        "max_number_of_unfamiliar_spells",
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "Translation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the experience level.",
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
