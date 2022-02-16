@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "C:/Users/lukas/Repositories/Optolith/optolith-database-schema/schema/DerivedCharacteristic.schema.json",
+  "$ref": "#/definitions/DerivedCharacteristic",
+  "definitions": {
+    "DerivedCharacteristic": {
+      "title": "Derived Characteristic",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "prerequisites": {
+          "$ref": "#/definitions/DerivedCharacteristic"
+        },
+        "src": {
+          "$ref": "./_PublicationRef.schema.json#/definitions/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/definitions/Translation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "Translation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The characteristic's name.",
+          "type": "string",
+          "minLength": 1
+        },
+        "abbreviation": {
+          "description": "The characteristic's abbreviation.",
+          "type": "string",
+          "minLength": 1
+        },
+        "calculation": {
+          "description": "Possible calculation strings for the final value.",
+          "$ref": "#/definitions/Calculation"
+        }
+      },
+      "required": [
+        "name",
+        "abbreviation"
+      ],
+      "additionalProperties": false
+    },
+    "Calculation": {
+      "description": "Possible calculation strings for the final value.",
+      "type": "object",
+      "properties": {
+        "default": {
+          "description": "The default calculation string.",
+          "type": "string",
+          "minLength": 1
+        },
+        "half_primary": {
+          "description": "The calculation string if only half of the primary attribute is used.",
+          "type": "string",
+          "minLength": 1
+        },
+        "no_primary": {
+          "description": "The calculation string if no primary attribute is used.",
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "default"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

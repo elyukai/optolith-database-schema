@@ -36,7 +36,7 @@ The primary attribute(s).
 - **Type:** List
 - **Minimum Items:** `1`
 - **Maximum Items:** `2`
-- **Unique Items:** `true`
+- **Unique Items:** Yes
 
 ##### Items
 
@@ -62,7 +62,7 @@ The *Breaking Point Rating* of the respective combat technique.
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Patterns:** `^[a-z]{2}-[A-Z]{2}$`
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ##### Values matching `^[a-z]{2}-[A-Z]{2}$`

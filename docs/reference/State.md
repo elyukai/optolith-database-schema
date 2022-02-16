@@ -28,7 +28,7 @@ An unique, increasing integer.
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Patterns:** `^[a-z]{2}-[A-Z]{2}$`
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ##### Values matching `^[a-z]{2}-[A-Z]{2}$`
