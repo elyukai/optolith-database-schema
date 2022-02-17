@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "C:/Users/lukas/Repositories/Optolith/optolith-database-schema/schema/_Erratum.schema.json",
+  "$id": "schema/_Erratum.schema.json",
   "$ref": "#/definitions/Errata",
   "definitions": {
     "Errata": {

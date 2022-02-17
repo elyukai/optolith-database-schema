@@ -1,0 +1,164 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "schema/_Prerequisite.schema.json",
+  "definitions": {
+    "Single": {
+      "DisplayOption": {
+        "Type": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Hide"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "ReplaceWith"
+                },
+                "value": {
+                  "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                  "type": "object",
+                  "patternProperties": {
+                    "^[a-z]{2}-[A-Z]{2}$": {
+                      "type": "string"
+                    }
+                  },
+                  "minProperties": 1,
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "tag",
+                "value"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "Rule": {
+        "Type": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Rule"
+            },
+            "id": {
+              "$ref": "#/definitions/Rule/Single/Identifier"
+            },
+            "display_option": {
+              "$ref": "#/definitions/DisplayOption/Single/Type"
+            }
+          },
+          "required": [
+            "tag",
+            "id",
+            "display_option"
+          ],
+          "additionalProperties": false
+        },
+        "Identifier": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "FocusRule"
+                },
+                "value": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "tag",
+                "value"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "OptionalRule"
+                },
+                "value": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "tag",
+                "value"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "Publication": {
+        "Type": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Publication"
+            },
+            "id": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "display_option": {
+              "$ref": "#/definitions/DisplayOption/Single/Type"
+            }
+          },
+          "required": [
+            "tag",
+            "id",
+            "display_option"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "Group": {
+      "DerivedCharacteristic": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/Rule/Single/Type"
+          }
+        ]
+      },
+      "Publication": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/Publication/Single/Type"
+          }
+        ]
+      }
+    },
+    "Collection": {},
+    "GroupCollection": {
+      "DerivedCharacteristic": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/Group/DerivedCharacteristic"
+        }
+      },
+      "Publication": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/Group/Publication"
+        }
+      }
+    }
+  }
+}

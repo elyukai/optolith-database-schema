@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "C:/Users/lukas/Repositories/Optolith/optolith-database-schema/schema/Publication.schema.json",
+  "$id": "schema/Publication.schema.json",
   "$ref": "#/definitions/Publication",
   "definitions": {
     "Publication": {

@@ -22,7 +22,7 @@ An unique, increasing integer.
 
 #### <a name="DerivedCharacteristic/prerequisites"></a> `prerequisites?`
 
-- **Type:** <a href="#DerivedCharacteristic">DerivedCharacteristic</a>
+- **Type:** <a href="#GroupCollection/DerivedCharacteristic">DerivedCharacteristic</a>
 
 #### <a name="DerivedCharacteristic/src"></a> `src`
 

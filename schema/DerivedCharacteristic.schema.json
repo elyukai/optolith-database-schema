@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "C:/Users/lukas/Repositories/Optolith/optolith-database-schema/schema/DerivedCharacteristic.schema.json",
+  "$id": "schema/DerivedCharacteristic.schema.json",
   "$ref": "#/definitions/DerivedCharacteristic",
   "definitions": {
     "DerivedCharacteristic": {
@@ -13,7 +13,7 @@
           "minimum": 1
         },
         "prerequisites": {
-          "$ref": "#/definitions/DerivedCharacteristic"
+          "$ref": "#/definitions/GroupCollection/DerivedCharacteristic"
         },
         "src": {
           "$ref": "./_PublicationRef.schema.json#/definitions/PublicationRefs"
