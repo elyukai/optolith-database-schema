@@ -1,0 +1,724 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "schema/Race.schema.json",
+  "$ref": "#/definitions/Race",
+  "definitions": {
+    "Race": {
+      "title": "Race",
+      "description": "A playable race with stats and skills.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "ap_value": {
+          "description": "How many Adventure Points does the race cost during character creation?",
+          "type": "integer",
+          "minimum": 0
+        },
+        "base_values": {
+          "description": "The race’s base values.",
+          "$ref": "#/definitions/BaseValues"
+        },
+        "attribute_adjustments": {
+          "description": "Describes how to raise or lower maximum attribute values during character creation.",
+          "$ref": "#/definitions/AttributeAdjustments/Config"
+        },
+        "automatic_advantages": {
+          "description": "A list of automatically applied advantages. This does only work for advantages with no further configuration such as level or special selection.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AutomaticAdvantage"
+          },
+          "minItems": 1
+        },
+        "strongly_recommended_advantages": {
+          "description": "A list of strongly recommended advantages.",
+          "type": "array",
+          "items": {
+            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/definitions/CommonnessRatedAdvantageDisadvantage"
+          },
+          "minItems": 1
+        },
+        "strongly_recommended_disadvantages": {
+          "description": "A list of strongly recommended disadvantages.",
+          "type": "array",
+          "items": {
+            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/definitions/CommonnessRatedAdvantageDisadvantage"
+          },
+          "minItems": 1
+        },
+        "common_advantages": {
+          "description": "A list of common advantages. If common advantages are defined by race variants, leave this field empty. It is overridden by the same field in race variants.",
+          "type": "array",
+          "items": {
+            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/definitions/CommonnessRatedAdvantageDisadvantage"
+          },
+          "minItems": 1
+        },
+        "common_disadvantages": {
+          "description": "A list of common disadvantages. If common disadvantages are defined by race variants, leave this field empty. It is overridden by the same field in race variants.",
+          "type": "array",
+          "items": {
+            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/definitions/CommonnessRatedAdvantageDisadvantage"
+          },
+          "minItems": 1
+        },
+        "uncommon_advantages": {
+          "description": "A list of uncommon advantages. If uncommon advantages are defined by race variants, leave this field empty. It is overridden by the same field in race variants.",
+          "type": "array",
+          "items": {
+            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/definitions/CommonnessRatedAdvantageDisadvantage"
+          },
+          "minItems": 1
+        },
+        "uncommon_disadvantages": {
+          "description": "A list of uncommon disadvantages. If uncommon disadvantages are defined by race variants, leave this field empty. It is overridden by the same field in race variants.",
+          "type": "array",
+          "items": {
+            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/definitions/CommonnessRatedAdvantageDisadvantage"
+          },
+          "minItems": 1
+        },
+        "weight": {
+          "description": "Configuration for random weight generation.",
+          "$ref": "#/definitions/Weight/Config"
+        },
+        "starting_age": {
+          "description": "Defines the starting ages for the race. It depends on the selected experience level.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StartingAgeConfigForExperienceLevel"
+          },
+          "minItems": 7,
+          "maxItems": 7
+        },
+        "variant_dependent": {
+          "description": "The race may have variants and associated configuration for each variant. If the race is plain (has no variants), the values that would otherwise be defined in the variant configuration need to be set for the whole race. This excludes common and uncommon advantages and disadvantages, since they may be defined for the whole race even if variants exist.",
+          "$ref": "#/definitions/VariantDependent"
+        },
+        "src": {
+          "$ref": "./_PublicationRef.schema.json#/definitions/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/definitions/RaceTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "ap_value",
+        "base_values",
+        "attribute_adjustments",
+        "weight",
+        "starting_age",
+        "variant_dependent",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "BaseValues": {
+      "description": "The race’s base values.",
+      "type": "object",
+      "properties": {
+        "life_points": {
+          "description": "The race’s life point base value.",
+          "type": "integer"
+        },
+        "spirit": {
+          "description": "The race’s Spirit base value.",
+          "type": "integer"
+        },
+        "toughness": {
+          "description": "The race’s Toughness base value.",
+          "type": "integer"
+        },
+        "movement": {
+          "description": "The race’s tactical movement rate.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "life_points",
+        "spirit",
+        "toughness",
+        "movement"
+      ],
+      "additionalProperties": false
+    },
+    "AttributeAdjustments": {
+      "Config": {
+        "description": "Describes how to raise or lower maximum attribute values during character creation.",
+        "type": "object",
+        "properties": {
+          "fix": {
+            "description": "An array of attribute maximum modifiers. The value will be added to the current maximum of the ID-specified attribute (negative values will lower the maximum).",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/AttributeAdjustments/Fix"
+            },
+            "minItems": 1
+          },
+          "selection": {
+            "description": "Used if the player has to choose between different modifiers.",
+            "$ref": "#/definitions/AttributeAdjustments/Selection"
+          }
+        },
+        "required": [
+          "selection"
+        ],
+        "additionalProperties": false
+      },
+      "Fix": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "The attribute's identifier.",
+            "type": "integer",
+            "maximum": 8,
+            "minimum": 1
+          },
+          "value": {
+            "description": "The value by which the attribute's maximum is modified (negative values will lower the maximum).",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "value"
+        ],
+        "additionalProperties": false
+      },
+      "Selection": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "description": "The value by which the selected attribute's maximum is modified (negative values will lower the maximum).",
+            "type": "integer"
+          },
+          "list": {
+            "description": "A list of attributes the player has to choose from.",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/AttributeAdjustments/SelectionItem"
+            },
+            "minItems": 2
+          }
+        },
+        "required": [
+          "value",
+          "list"
+        ],
+        "additionalProperties": false
+      },
+      "SelectionItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "The attribute's identifier.",
+            "type": "integer",
+            "maximum": 8,
+            "minimum": 1
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "AutomaticAdvantage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The advantage's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "Weight": {
+      "Config": {
+        "description": "Configuration for random weight generation.",
+        "type": "object",
+        "properties": {
+          "base": {
+            "description": "The base value used for random weight. The height subtrahend; in case of `Height - 110 + 2D6` it is `110`.",
+            "type": "integer",
+            "minimum": 1
+          },
+          "random": {
+            "description": "The dice used for random weight.",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Weight/Die"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "base",
+          "random"
+        ],
+        "additionalProperties": false
+      },
+      "Die": {
+        "type": "object",
+        "properties": {
+          "number": {
+            "description": "Number of dice of the same type. Example: 2 in 2D6.",
+            "type": "integer",
+            "minimum": 1
+          },
+          "sides": {
+            "description": "Number of sides on every die. Example: 6 in 2D6.",
+            "$ref": "#/definitions/DieType"
+          },
+          "offset_strategy": {
+            "description": "The strategy how to offset the randomly generated values against the base value. Either they are all added or subtracted or even results are added and odd results are subtracted.",
+            "$ref": "#/definitions/Weight/OffsetStrategy"
+          }
+        },
+        "required": [
+          "number",
+          "sides",
+          "offset_strategy"
+        ],
+        "additionalProperties": false
+      },
+      "OffsetStrategy": {
+        "description": "The strategy how to offset the randomly generated values against the base value. Either they are all added or subtracted or even results are added and odd results are subtracted.",
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "Add"
+              }
+            },
+            "required": [
+              "tag"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "Subtract"
+              }
+            },
+            "required": [
+              "tag"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "AddEvenSubtractOdd"
+              }
+            },
+            "required": [
+              "tag"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    "StartingAgeConfigForExperienceLevel": {
+      "type": "object",
+      "properties": {
+        "experience_level_id": {
+          "description": "The selected experience level's identifier.",
+          "type": "integer",
+          "maximum": 7,
+          "minimum": 1
+        },
+        "base": {
+          "description": "The base value for the selected experience level.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "random": {
+          "description": "The random value for the selected experience level. It is going to be added to the base value.",
+          "$ref": "#/definitions/Die"
+        }
+      },
+      "required": [
+        "experience_level_id",
+        "base",
+        "random"
+      ],
+      "additionalProperties": false
+    },
+    "VariantDependent": {
+      "description": "The race may have variants and associated configuration for each variant. If the race is plain (has no variants), the values that would otherwise be defined in the variant configuration need to be set for the whole race. This excludes common and uncommon advantages and disadvantages, since they may be defined for the whole race even if variants exist.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "HasVariants"
+            },
+            "variants": {
+              "description": "A list of available race variants.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RaceVariant"
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "tag",
+            "variants"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Plain"
+            },
+            "common_cultures": {
+              "description": "The list of common cultures.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CommonCulture"
+              },
+              "minItems": 1
+            },
+            "hair_color": {
+              "description": "An array containing 20 (numeric) hair color identifiers. The array also represents the 20-sided die for a random hair color.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/HairColor"
+              },
+              "minItems": 20,
+              "maxItems": 20
+            },
+            "eye_color": {
+              "description": "An array containing 20 (numeric) eye color identifiers. The array also represents the 20-sided die for a random eye color.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/EyeColor"
+              },
+              "minItems": 20,
+              "maxItems": 20
+            },
+            "height": {
+              "description": "Configuration for random height generation.",
+              "$ref": "#/definitions/Height"
+            }
+          },
+          "required": [
+            "tag",
+            "common_cultures",
+            "hair_color",
+            "eye_color",
+            "height"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "RaceVariant": {
+      "title": "Race Variant",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "common_cultures": {
+          "description": "The list of common cultures.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CommonCulture"
+          },
+          "minItems": 1
+        },
+        "common_advantages": {
+          "description": "A list of common advantages. If common advantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.",
+          "type": "array",
+          "items": {
+            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/definitions/CommonnessRatedAdvantageDisadvantage"
+          },
+          "minItems": 1
+        },
+        "common_disadvantages": {
+          "description": "A list of common disadvantages. If common disadvantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.",
+          "type": "array",
+          "items": {
+            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/definitions/CommonnessRatedAdvantageDisadvantage"
+          },
+          "minItems": 1
+        },
+        "uncommon_advantages": {
+          "description": "A list of uncommon advantages. If uncommon advantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.",
+          "type": "array",
+          "items": {
+            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/definitions/CommonnessRatedAdvantageDisadvantage"
+          },
+          "minItems": 1
+        },
+        "uncommon_disadvantages": {
+          "description": "A list of uncommon disadvantages. If uncommon disadvantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.",
+          "type": "array",
+          "items": {
+            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/definitions/CommonnessRatedAdvantageDisadvantage"
+          },
+          "minItems": 1
+        },
+        "hair_color": {
+          "description": "An array containing 20 (numeric) hair color identifiers. The array also represents the 20-sided die for a random hair color.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/HairColor"
+          },
+          "minItems": 20,
+          "maxItems": 20
+        },
+        "eye_color": {
+          "description": "An array containing 20 (numeric) eye color identifiers. The array also represents the 20-sided die for a random eye color.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EyeColor"
+          },
+          "minItems": 20,
+          "maxItems": 20
+        },
+        "height": {
+          "description": "Configuration for random height generation.",
+          "$ref": "#/definitions/Height"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/definitions/RaceVariantTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "common_cultures",
+        "hair_color",
+        "eye_color",
+        "height",
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "CommonCulture": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The culture's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "HairColor": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The hair color's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "EyeColor": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The hair color's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "Height": {
+      "description": "Configuration for random height generation.",
+      "type": "object",
+      "properties": {
+        "base": {
+          "description": "The base value used for random height.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "random": {
+          "description": "The dice used for random height.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Die"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "base",
+        "random"
+      ],
+      "additionalProperties": false
+    },
+    "RaceVariantTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The race variant's name.",
+          "type": "string",
+          "minLength": 1
+        },
+        "common_advantages": {
+          "description": "The respective common advantages text from the source book. If common advantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.",
+          "type": "string",
+          "minLength": 1
+        },
+        "common_disadvantages": {
+          "description": "The respective common disadvantages text from the source book. If common disadvantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.",
+          "type": "string",
+          "minLength": 1
+        },
+        "uncommon_advantages": {
+          "description": "The respective uncommon advantages text from the source book. If uncommon advantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.",
+          "type": "string",
+          "minLength": 1
+        },
+        "uncommon_disadvantages": {
+          "description": "The respective uncommon disadvantages text from the source book. If uncommon disadvantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.",
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "RaceTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The race's name.",
+          "type": "string",
+          "minLength": 1
+        },
+        "attribute_adjustments": {
+          "description": "The respective attribute adjustments text from the source book.",
+          "type": "string",
+          "minLength": 1
+        },
+        "automatic_advantages": {
+          "description": "The respective automatic advantages text from the source book.",
+          "type": "string",
+          "minLength": 1
+        },
+        "strongly_recommended_advantages": {
+          "description": "The respective strongly recommended advantages text from the source book.",
+          "type": "string",
+          "minLength": 1
+        },
+        "strongly_recommended_disadvantages": {
+          "description": "The respective strongly recommended disadvantages text from the source book.",
+          "type": "string",
+          "minLength": 1
+        },
+        "common_advantages": {
+          "description": "The respective common advantages text from the source book. If common advantages are defined by race variants, leave this field empty. It is overridden by the same field in race variants.",
+          "type": "string",
+          "minLength": 1
+        },
+        "common_disadvantages": {
+          "description": "The respective common disadvantages text from the source book. If common disadvantages are defined by race variants, leave this field empty. It is overridden by the same field in race variants.",
+          "type": "string",
+          "minLength": 1
+        },
+        "uncommon_advantages": {
+          "description": "The respective uncommon advantages text from the source book. If uncommon advantages are defined by race variants, leave this field empty. It is overridden by the same field in race variants.",
+          "type": "string",
+          "minLength": 1
+        },
+        "uncommon_disadvantages": {
+          "description": "The respective uncommon disadvantages text from the source book. If uncommon disadvantages are defined by race variants, leave this field empty. It is overridden by the same field in race variants.",
+          "type": "string",
+          "minLength": 1
+        },
+        "errata": {
+          "$ref": "./_Erratum.schema.json#/definitions/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "attribute_adjustments"
+      ],
+      "additionalProperties": false
+    },
+    "Die": {
+      "title": "Die",
+      "type": "object",
+      "properties": {
+        "number": {
+          "description": "Number of dice of the same type. Example: 2 in 2D6.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "sides": {
+          "description": "Number of sides on every die. Example: 6 in 2D6.",
+          "$ref": "#/definitions/DieType"
+        }
+      },
+      "required": [
+        "number",
+        "sides"
+      ],
+      "additionalProperties": false
+    },
+    "DieType": {
+      "description": "Number of sides on every dice. Example: 6 in 2D6.",
+      "enum": [
+        3,
+        6,
+        20
+      ]
+    }
+  }
+}

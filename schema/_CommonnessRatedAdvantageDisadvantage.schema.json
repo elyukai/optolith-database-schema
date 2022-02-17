@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "schema/_CommonnessRatedAdvantageDisadvantage.schema.json",
+  "$ref": "#/definitions/CommonnessRatedAdvantageDisadvantage",
+  "definitions": {
+    "CommonnessRatedAdvantageDisadvantage": {
+      "title": "Commonness-rated Advantage/Disadvantage",
+      "description": "Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The advantage's or disadvantage's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
