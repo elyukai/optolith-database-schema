@@ -37,5 +37,5 @@ The date when the change was confirmed and applied to the entry.
 
 A description of what changed.
 
-- **Type:** String
+- **Type:** Markdown-formatted String
 - **Minimum Length:** `1`

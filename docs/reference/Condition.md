@@ -59,7 +59,7 @@ The name of the condition.
 
 Additional rules for the condition, if applicable.
 
-- **Type:** String
+- **Type:** Markdown-formatted String
 - **Minimum Length:** `1`
 
 #### <a name="Translation/effects"></a> `effects`
@@ -102,5 +102,5 @@ The effects on levels 1 to 4.
 
 The effect on a level.
 
-- **Type:** String
+- **Type:** Markdown-formatted String
 - **Minimum Length:** `1`

@@ -151,7 +151,7 @@ The name of the condition.
 
 Additional rules for the condition, if applicable.
 
-- **Type:** String
+- **Type:** Markdown-formatted String
 - **Minimum Length:** `1`
 
 #### <a name="Translation/errata"></a> `errata?`

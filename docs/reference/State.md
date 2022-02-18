@@ -58,7 +58,7 @@ The name of the state.
 
 The description of the state.
 
-- **Type:** String
+- **Type:** Markdown-formatted String
 - **Minimum Length:** `1`
 
 #### <a name="Translation/errata"></a> `errata?`
