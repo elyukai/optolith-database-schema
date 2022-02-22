@@ -53,10 +53,10 @@
               "const": "Rule"
             },
             "id": {
-              "$ref": "#/definitions/Rule/Single/Identifier"
+              "$ref": "#/definitions/Single/Rule/Identifier"
             },
             "display_option": {
-              "$ref": "#/definitions/DisplayOption/Single/Type"
+              "$ref": "#/definitions/Single/DisplayOption/Type"
             }
           },
           "required": [
@@ -117,7 +117,7 @@
               "minimum": 1
             },
             "display_option": {
-              "$ref": "#/definitions/DisplayOption/Single/Type"
+              "$ref": "#/definitions/Single/DisplayOption/Type"
             }
           },
           "required": [
@@ -133,14 +133,14 @@
       "DerivedCharacteristic": {
         "oneOf": [
           {
-            "$ref": "#/definitions/Rule/Single/Type"
+            "$ref": "#/definitions/Single/Rule/Type"
           }
         ]
       },
       "Publication": {
         "oneOf": [
           {
-            "$ref": "#/definitions/Publication/Single/Type"
+            "$ref": "#/definitions/Single/Publication/Type"
           }
         ]
       }

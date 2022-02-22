@@ -2,7 +2,7 @@
 
 ## Definitions
 
-### <a name="RangedCombatTechnique"></a> Ranged Combat Technique
+### <a name="RangedCombatTechnique"></a> Ranged Combat Technique (`RangedCombatTechnique`)
 
 - **Type:** Object
 
@@ -27,13 +27,10 @@ An unique, increasing integer.
 The primary attribute(s).
 
 - **Type:** List
+- **Items:** <a href="#RangedCombatTechnique/primary_attribute[]">RangedCombatTechnique/primary_attribute[]</a>
 - **Minimum Items:** `1`
 - **Maximum Items:** `2`
 - **Unique Items:** Yes
-
-##### Items
-
-- **Type:** <a href="#PrimaryAttribute">PrimaryAttribute</a>
 
 #### <a name="RangedCombatTechnique/breaking_point_rating"></a> `breaking_point_rating`
 
@@ -55,16 +52,25 @@ The *Breaking Point Rating* of the respective combat technique.
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
+- **Property Values:** <a href="#RangedCombatTechnique/translations[key]">RangedCombatTechnique/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
-##### Values matching `^[a-z]{2}-[A-Z]{2}$`
+---
+
+### <a name="RangedCombatTechnique/primary_attribute[]"></a> `RangedCombatTechnique/primary_attribute[]`
+
+- **Type:** <a href="#PrimaryAttribute">PrimaryAttribute</a>
+
+---
+
+### <a name="RangedCombatTechnique/translations[key]"></a> `RangedCombatTechnique/translations[key]`
 
 - **Type:** <a href="#Translation">Translation</a>
 
 ---
 
-### <a name="PrimaryAttribute"></a> PrimaryAttribute
+### <a name="PrimaryAttribute"></a> `PrimaryAttribute`
 
 The attribute's identifier.
 
@@ -73,7 +79,7 @@ The attribute's identifier.
 
 ---
 
-### <a name="Translation"></a> Translation
+### <a name="Translation"></a> `Translation`
 
 - **Type:** Object
 
@@ -94,7 +100,7 @@ The name of the condition.
 
 Additional rules for the condition, if applicable.
 
-- **Type:** Markdown-formatted String
+- **Type:** Markdown-formatted text
 - **Minimum Length:** `1`
 
 #### <a name="Translation/errata"></a> `errata?`

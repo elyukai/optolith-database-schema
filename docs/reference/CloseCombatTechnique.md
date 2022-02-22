@@ -2,7 +2,7 @@
 
 ## Definitions
 
-### <a name="CloseCombatTechnique"></a> Close Combat Technique
+### <a name="CloseCombatTechnique"></a> Close Combat Technique (`CloseCombatTechnique`)
 
 - **Type:** Object
 
@@ -34,13 +34,10 @@ Special rules for the combat technique that apply to all weapons in this categor
 The primary attribute(s).
 
 - **Type:** List
+- **Items:** <a href="#CloseCombatTechnique/primary_attribute[]">CloseCombatTechnique/primary_attribute[]</a>
 - **Minimum Items:** `1`
 - **Maximum Items:** `2`
 - **Unique Items:** Yes
-
-##### Items
-
-- **Type:** <a href="#PrimaryAttribute">PrimaryAttribute</a>
 
 #### <a name="CloseCombatTechnique/breaking_point_rating"></a> `breaking_point_rating`
 
@@ -62,16 +59,25 @@ The *Breaking Point Rating* of the respective combat technique.
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
+- **Property Values:** <a href="#CloseCombatTechnique/translations[key]">CloseCombatTechnique/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
-##### Values matching `^[a-z]{2}-[A-Z]{2}$`
+---
+
+### <a name="CloseCombatTechnique/primary_attribute[]"></a> `CloseCombatTechnique/primary_attribute[]`
+
+- **Type:** <a href="#PrimaryAttribute">PrimaryAttribute</a>
+
+---
+
+### <a name="CloseCombatTechnique/translations[key]"></a> `CloseCombatTechnique/translations[key]`
 
 - **Type:** <a href="#Translation">Translation</a>
 
 ---
 
-### <a name="Special"></a> Special
+### <a name="Special"></a> `Special`
 
 Special rules for the combat technique that apply to all weapons in this category.
 
@@ -89,39 +95,44 @@ Is parrying possible with this combat technique?
 
 ---
 
-### <a name="Parrying"></a> Parrying
+### <a name="Parrying"></a> `Parrying`
 
 Is parrying possible with this combat technique?
 
 - **Type:** Union
+- **Cases:** <a href="Parrying'Possible">Parrying'Possible</a> | <a href="Parrying'Impossible">Parrying'Impossible</a>
 
-#### Case: Possible
+---
+
+### <a name="Parrying'Possible"></a> `Parrying'Possible`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Parrying`0/tag">See details</a>
+`tag` |  | <a href="#Parrying'Possible/tag">See details</a>
 
-##### <a name="Parrying`0/tag"></a> `tag`
+#### <a name="Parrying'Possible/tag"></a> `tag`
 
 - **Constant:** `"Possible"`
 
-#### Case: Impossible
+---
+
+### <a name="Parrying'Impossible"></a> `Parrying'Impossible`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Parrying`1/tag">See details</a>
+`tag` |  | <a href="#Parrying'Impossible/tag">See details</a>
 
-##### <a name="Parrying`1/tag"></a> `tag`
+#### <a name="Parrying'Impossible/tag"></a> `tag`
 
 - **Constant:** `"Impossible"`
 
 ---
 
-### <a name="PrimaryAttribute"></a> PrimaryAttribute
+### <a name="PrimaryAttribute"></a> `PrimaryAttribute`
 
 The attribute's identifier.
 
@@ -130,7 +141,7 @@ The attribute's identifier.
 
 ---
 
-### <a name="Translation"></a> Translation
+### <a name="Translation"></a> `Translation`
 
 - **Type:** Object
 
@@ -151,7 +162,7 @@ The name of the condition.
 
 Additional rules for the condition, if applicable.
 
-- **Type:** Markdown-formatted String
+- **Type:** Markdown-formatted text
 - **Minimum Length:** `1`
 
 #### <a name="Translation/errata"></a> `errata?`

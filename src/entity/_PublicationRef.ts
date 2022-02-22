@@ -13,7 +13,7 @@ export type PublicationRefs = PublicationRef[]
   * A source reference. It contains the book's publisher identifier and the page
   * where it occurs. If an entry spans multiple pages, provide the last page as
   * well.
-  * @title Source Reference
+  * @title Publication Reference
   */
 export type PublicationRef = {
   /**
@@ -75,8 +75,23 @@ type SimpleOccurrence = {
 type VersionedOccurrence = {
   /**
    * The initial occurrence of the entry.
+   * @title Initial
    */
-  initial: Initial
+  initial: {
+    /**
+     * The publication's printing since which the entry is present. Leave
+     * empty if present since the beginning.
+     * @integer
+     * @minimum 2
+     */
+    printing?: number
+
+    /**
+     * The initial page references.
+     * @minItems 1
+     */
+    pages: PageRange[]
+  }
 
   /**
    * Revisions of the entry, resulting in either changed page references or
@@ -84,26 +99,6 @@ type VersionedOccurrence = {
    * @minItems 1
    */
   revisions?: Revision[]
-}
-
-/**
- * The initial occurrence of the entry.
- * @title Initial
- */
-type Initial = {
-  /**
-   * The publication's printing since which the entry is present. Leave
-   * empty if present since the beginning.
-   * @integer
-   * @minimum 2
-   */
-  printing?: number
-
-  /**
-   * The initial page references.
-   * @minItems 1
-   */
-  pages: PageRange[]
 }
 
 /**

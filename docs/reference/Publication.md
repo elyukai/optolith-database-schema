@@ -2,7 +2,7 @@
 
 ## Definitions
 
-### <a name="Publication"></a> Publication
+### <a name="Publication"></a> Publication (`Publication`)
 
 - **Type:** Object
 
@@ -45,114 +45,134 @@ The publication is not (fully) implemented and thus needs to be excluded from * 
 The specific other publications this publication depends on data from.
 
 - **Type:** List
-
-##### Items
-
-- **Type:** <a href="#Prerequisite">Prerequisite</a>
+- **Items:** <a href="#Publication/prerequisites[]">Publication/prerequisites[]</a>
 
 #### <a name="Publication/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
+- **Property Values:** <a href="#Publication/translations[key]">Publication/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
-##### Values matching `^[a-z]{2}-[A-Z]{2}$`
+---
+
+### <a name="Publication/prerequisites[]"></a> `Publication/prerequisites[]`
+
+- **Type:** <a href="#Prerequisite">Prerequisite</a>
+
+---
+
+### <a name="Publication/translations[key]"></a> `Publication/translations[key]`
 
 - **Type:** <a href="#Translation">Translation</a>
 
 ---
 
-### <a name="Category"></a> Category
+### <a name="Category"></a> `Category`
 
 The publication category.
 
 - **Type:** Union
+- **Cases:** <a href="Category'CoreRules">Category'CoreRules</a> | <a href="Category'ExpansionRules">Category'ExpansionRules</a> | <a href="Category'Sourcebook">Category'Sourcebook</a> | <a href="Category'RegionalSourcebook">Category'RegionalSourcebook</a>
 
-#### Case: CoreRules
+---
+
+### <a name="Category'CoreRules"></a> `Category'CoreRules`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Category`0/tag">See details</a>
+`tag` |  | <a href="#Category'CoreRules/tag">See details</a>
 
-##### <a name="Category`0/tag"></a> `tag`
+#### <a name="Category'CoreRules/tag"></a> `tag`
 
 - **Constant:** `"CoreRules"`
 
-#### Case: ExpansionRules
+---
+
+### <a name="Category'ExpansionRules"></a> `Category'ExpansionRules`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Category`1/tag">See details</a>
+`tag` |  | <a href="#Category'ExpansionRules/tag">See details</a>
 
-##### <a name="Category`1/tag"></a> `tag`
+#### <a name="Category'ExpansionRules/tag"></a> `tag`
 
 - **Constant:** `"ExpansionRules"`
 
-#### Case: Sourcebook
+---
+
+### <a name="Category'Sourcebook"></a> `Category'Sourcebook`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Category`2/tag">See details</a>
+`tag` |  | <a href="#Category'Sourcebook/tag">See details</a>
 
-##### <a name="Category`2/tag"></a> `tag`
+#### <a name="Category'Sourcebook/tag"></a> `tag`
 
 - **Constant:** `"Sourcebook"`
 
-#### Case: RegionalSourcebook
+---
+
+### <a name="Category'RegionalSourcebook"></a> `Category'RegionalSourcebook`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Category`3/tag">See details</a>
+`tag` |  | <a href="#Category'RegionalSourcebook/tag">See details</a>
 
-##### <a name="Category`3/tag"></a> `tag`
+#### <a name="Category'RegionalSourcebook/tag"></a> `tag`
 
 - **Constant:** `"RegionalSourcebook"`
 
 ---
 
-### <a name="AgeRestriction"></a> AgeRestriction
+### <a name="AgeRestriction"></a> `AgeRestriction`
 
 The age the content is restricted to.
 
 - **Type:** Union
+- **Cases:** <a href="AgeRestriction'Adult">AgeRestriction'Adult</a> | <a href="AgeRestriction'None">AgeRestriction'None</a>
 
-#### Case: Adult
+---
+
+### <a name="AgeRestriction'Adult"></a> `AgeRestriction'Adult`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#AgeRestriction`0/tag">See details</a>
+`tag` |  | <a href="#AgeRestriction'Adult/tag">See details</a>
 
-##### <a name="AgeRestriction`0/tag"></a> `tag`
+#### <a name="AgeRestriction'Adult/tag"></a> `tag`
 
 - **Constant:** `"Adult"`
 
-#### Case: None
+---
+
+### <a name="AgeRestriction'None"></a> `AgeRestriction'None`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#AgeRestriction`1/tag">See details</a>
+`tag` |  | <a href="#AgeRestriction'None/tag">See details</a>
 
-##### <a name="AgeRestriction`1/tag"></a> `tag`
+#### <a name="AgeRestriction'None/tag"></a> `tag`
 
 - **Constant:** `"None"`
 
 ---
 
-### <a name="Prerequisite"></a> Prerequisite
+### <a name="Prerequisite"></a> `Prerequisite`
 
 - **Type:** Object
 
@@ -169,7 +189,7 @@ The publication identifier.
 
 ---
 
-### <a name="Translation"></a> Translation
+### <a name="Translation"></a> `Translation`
 
 - **Type:** Object
 

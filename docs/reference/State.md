@@ -2,7 +2,7 @@
 
 ## Definitions
 
-### <a name="State"></a> State
+### <a name="State"></a> State (`State`)
 
 - **Type:** Object
 
@@ -28,16 +28,19 @@ An unique, increasing integer.
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
+- **Property Values:** <a href="#State/translations[key]">State/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
-##### Values matching `^[a-z]{2}-[A-Z]{2}$`
+---
+
+### <a name="State/translations[key]"></a> `State/translations[key]`
 
 - **Type:** <a href="#Translation">Translation</a>
 
 ---
 
-### <a name="Translation"></a> Translation
+### <a name="Translation"></a> `Translation`
 
 - **Type:** Object
 
@@ -58,7 +61,7 @@ The name of the state.
 
 The description of the state.
 
-- **Type:** Markdown-formatted String
+- **Type:** Markdown-formatted text
 - **Minimum Length:** `1`
 
 #### <a name="Translation/errata"></a> `errata?`

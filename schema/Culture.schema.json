@@ -258,7 +258,7 @@
               "description": "The list of professions.",
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Plain/CommonProfessions/Constraint"
+                "$ref": "#/definitions/CommonProfessions/Plain/Constraint"
               },
               "minItems": 1
             }
@@ -286,7 +286,7 @@
               },
               "weight": {
                 "description": "The \"weight\" difference compared to other variants. Some variants are simply more common (Mostly), but sometimes only specific variants are used (Only).",
-                "$ref": "#/definitions/Grouped/CommonProfessions/Weight"
+                "$ref": "#/definitions/CommonProfessions/Grouped/Weight"
               }
             },
             "required": [
@@ -308,11 +308,11 @@
               },
               "weighted_variants": {
                 "description": "Some profession variants are more common than others. There may be cultures where some variants are not represented at all.",
-                "$ref": "#/definitions/Constraints/Grouped/CommonProfessions/WeightedVariants"
+                "$ref": "#/definitions/CommonProfessions/Grouped/Constraints/WeightedVariants"
               },
               "rarity": {
                 "description": "Some professions may be found in a culture, but are not that common.",
-                "$ref": "#/definitions/Grouped/CommonProfessions/Rarity"
+                "$ref": "#/definitions/CommonProfessions/Grouped/Rarity"
               }
             },
             "required": [
@@ -425,7 +425,7 @@
           "Constraint": {
             "oneOf": [
               {
-                "$ref": "#/definitions/Constraints/Grouped/CommonProfessions/Profession"
+                "$ref": "#/definitions/CommonProfessions/Grouped/Constraints/Profession"
               },
               {
                 "type": "object",
@@ -434,7 +434,7 @@
                     "const": "ProfessionSubgroup"
                   },
                   "subgroup": {
-                    "$ref": "#/definitions/Mundane/Grouped/CommonProfessions/ProfessionSubgroup"
+                    "$ref": "#/definitions/CommonProfessions/Grouped/Mundane/ProfessionSubgroup"
                   }
                 },
                 "required": [
@@ -482,13 +482,13 @@
                 "description": "The list of professions.",
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/Mundane/Grouped/CommonProfessions/Constraint"
+                  "$ref": "#/definitions/CommonProfessions/Grouped/Mundane/Constraint"
                 },
                 "minItems": 1
               },
               "operation": {
                 "description": "This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints (include) or only the professions are kept that are different from the constraints (exclude).",
-                "$ref": "#/definitions/Mundane/Grouped/CommonProfessions/Operation"
+                "$ref": "#/definitions/CommonProfessions/Grouped/Mundane/Operation"
               }
             },
             "required": [
@@ -513,7 +513,7 @@
               },
               "weight": {
                 "description": "The \"weight\" difference compared to other professions. Some professions are simply more common (Mostly), but sometimes only specific professions are used (Only).",
-                "$ref": "#/definitions/Grouped/CommonProfessions/Weight"
+                "$ref": "#/definitions/CommonProfessions/Grouped/Weight"
               }
             },
             "required": [
@@ -537,11 +537,11 @@
                   },
                   "weighted_professions": {
                     "description": "Some professions are more common than others. There may be cultures where some professions are not represented at all.",
-                    "$ref": "#/definitions/Magic/Grouped/CommonProfessions/WeightedProfessions"
+                    "$ref": "#/definitions/CommonProfessions/Grouped/Magic/WeightedProfessions"
                   },
                   "rarity": {
                     "description": "Some traditions may be found in a culture, but are not that common.",
-                    "$ref": "#/definitions/Grouped/CommonProfessions/Rarity"
+                    "$ref": "#/definitions/CommonProfessions/Grouped/Rarity"
                   }
                 },
                 "required": [
@@ -563,7 +563,7 @@
                 "additionalProperties": false
               },
               {
-                "$ref": "#/definitions/Constraints/Grouped/CommonProfessions/Profession"
+                "$ref": "#/definitions/CommonProfessions/Grouped/Constraints/Profession"
               }
             ]
           },
@@ -574,7 +574,7 @@
                 "description": "The list of professions.",
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/Magic/Grouped/CommonProfessions/Constraint"
+                  "$ref": "#/definitions/CommonProfessions/Grouped/Magic/Constraint"
                 },
                 "minItems": 1
               }
@@ -599,7 +599,7 @@
               },
               "rarity": {
                 "description": "Some traditions may be found in a culture, but are not that common.",
-                "$ref": "#/definitions/Grouped/CommonProfessions/Rarity"
+                "$ref": "#/definitions/CommonProfessions/Grouped/Rarity"
               }
             },
             "required": [
@@ -615,7 +615,7 @@
                 "description": "The list of professions.",
                 "type": "array",
                 "items": {
-                  "$ref": "#/definitions/Blessed/Grouped/CommonProfessions/Constraint"
+                  "$ref": "#/definitions/CommonProfessions/Grouped/Blessed/Constraint"
                 },
                 "minItems": 1
               }
@@ -635,13 +635,13 @@
             },
             "mundane": {
               "description": "A list of professions. The filter specifies how the list is applied to all mundane professions.",
-              "$ref": "#/definitions/Mundane/Grouped/CommonProfessions/T"
+              "$ref": "#/definitions/CommonProfessions/Grouped/Mundane/T"
             },
             "magic": {
-              "$ref": "#/definitions/Magic/Grouped/CommonProfessions/T"
+              "$ref": "#/definitions/CommonProfessions/Grouped/Magic/T"
             },
             "blessed": {
-              "$ref": "#/definitions/Blessed/Grouped/CommonProfessions/T"
+              "$ref": "#/definitions/CommonProfessions/Grouped/Blessed/T"
             }
           },
           "required": [
@@ -655,10 +655,10 @@
         "description": "A list of professions that are typical for the culture, as well as professions that are rarely practiced or encountered in the culture. The list is either defined by group (as multiple lists) or plain (as a single list).",
         "oneOf": [
           {
-            "$ref": "#/definitions/Plain/CommonProfessions/T"
+            "$ref": "#/definitions/CommonProfessions/Plain/T"
           },
           {
-            "$ref": "#/definitions/Grouped/CommonProfessions/T"
+            "$ref": "#/definitions/CommonProfessions/Grouped/T"
           }
         ]
       }

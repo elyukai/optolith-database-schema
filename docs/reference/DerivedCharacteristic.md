@@ -2,7 +2,7 @@
 
 ## Definitions
 
-### <a name="DerivedCharacteristic"></a> Derived Characteristic
+### <a name="DerivedCharacteristic"></a> Derived Characteristic (`DerivedCharacteristic`)
 
 - **Type:** Object
 
@@ -22,7 +22,7 @@ An unique, increasing integer.
 
 #### <a name="DerivedCharacteristic/prerequisites"></a> `prerequisites?`
 
-- **Type:** <a href="#GroupCollection/DerivedCharacteristic">DerivedCharacteristic</a>
+- **Type:** <a href="#GroupCollection/DerivedCharacteristic">GroupCollection/DerivedCharacteristic</a>
 
 #### <a name="DerivedCharacteristic/src"></a> `src`
 
@@ -33,16 +33,19 @@ An unique, increasing integer.
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
+- **Property Values:** <a href="#DerivedCharacteristic/translations[key]">DerivedCharacteristic/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
-##### Values matching `^[a-z]{2}-[A-Z]{2}$`
+---
+
+### <a name="DerivedCharacteristic/translations[key]"></a> `DerivedCharacteristic/translations[key]`
 
 - **Type:** <a href="#Translation">Translation</a>
 
 ---
 
-### <a name="Translation"></a> Translation
+### <a name="Translation"></a> `Translation`
 
 - **Type:** Object
 
@@ -74,7 +77,7 @@ Possible calculation strings for the final value.
 
 ---
 
-### <a name="Calculation"></a> Calculation
+### <a name="Calculation"></a> `Calculation`
 
 Possible calculation strings for the final value.
 

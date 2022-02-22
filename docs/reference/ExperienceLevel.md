@@ -4,7 +4,7 @@ Adventure Points and maximum values at hero creation.
 
 ## Definitions
 
-### <a name="ExperienceLevel"></a> Experience Level
+### <a name="ExperienceLevel"></a> Experience Level (`ExperienceLevel`)
 
 Adventure Points and maximum values at hero creation.
 
@@ -76,16 +76,19 @@ The maximum of spells of an unfamiliar tradition you can activate.
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
+- **Property Values:** <a href="#ExperienceLevel/translations[key]">ExperienceLevel/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
-##### Values matching `^[a-z]{2}-[A-Z]{2}$`
+---
+
+### <a name="ExperienceLevel/translations[key]"></a> `ExperienceLevel/translations[key]`
 
 - **Type:** <a href="#Translation">Translation</a>
 
 ---
 
-### <a name="Translation"></a> Translation
+### <a name="Translation"></a> `Translation`
 
 - **Type:** Object
 

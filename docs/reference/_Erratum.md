@@ -4,20 +4,23 @@ A list of errata for the entry in the specific language.
 
 ## Definitions
 
-### <a name="Errata"></a> Errata
+### <a name="Errata"></a> Errata (`Errata`)
 
 A list of errata for the entry in the specific language.
 
 - **Type:** List
+- **Items:** <a href="#Errata[]">Errata[]</a>
 - **Minimum Items:** `1`
 
-#### Items
+---
+
+### <a name="Errata[]"></a> `Errata[]`
 
 - **Type:** <a href="#Erratum">Erratum</a>
 
 ---
 
-### <a name="Erratum"></a> Erratum
+### <a name="Erratum"></a> Erratum (`Erratum`)
 
 - **Type:** Object
 
@@ -37,5 +40,5 @@ The date when the change was confirmed and applied to the entry.
 
 A description of what changed.
 
-- **Type:** Markdown-formatted String
+- **Type:** Markdown-formatted text
 - **Minimum Length:** `1`

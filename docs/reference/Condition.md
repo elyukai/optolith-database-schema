@@ -2,7 +2,7 @@
 
 ## Definitions
 
-### <a name="Condition"></a> Condition
+### <a name="Condition"></a> Condition (`Condition`)
 
 - **Type:** Object
 
@@ -28,16 +28,19 @@ An unique, increasing integer.
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
+- **Property Values:** <a href="#Condition/translations[key]">Condition/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
-##### Values matching `^[a-z]{2}-[A-Z]{2}$`
+---
+
+### <a name="Condition/translations[key]"></a> `Condition/translations[key]`
 
 - **Type:** <a href="#Translation">Translation</a>
 
 ---
 
-### <a name="Translation"></a> Translation
+### <a name="Translation"></a> `Translation`
 
 - **Type:** Object
 
@@ -59,7 +62,7 @@ The name of the condition.
 
 Additional rules for the condition, if applicable.
 
-- **Type:** Markdown-formatted String
+- **Type:** Markdown-formatted text
 - **Minimum Length:** `1`
 
 #### <a name="Translation/effects"></a> `effects`
@@ -74,33 +77,42 @@ The effects for level 1 to 4.
 
 ---
 
-### <a name="Effects"></a> Effects
+### <a name="Effects"></a> `Effects`
 
 The effects on levels 1 to 4.
 
 - **Type:** Tuple
+- **Items:** [<a href="Effects[0]">Effects[0]</a>, <a href="Effects[1]">Effects[1]</a>, <a href="Effects[2]">Effects[2]</a>, <a href="Effects[3]">Effects[3]</a>]
 
-#### Index 0
+---
 
-- **Type:** <a href="#Effect">Effect</a>
-
-#### Index 1
-
-- **Type:** <a href="#Effect">Effect</a>
-
-#### Index 2
-
-- **Type:** <a href="#Effect">Effect</a>
-
-#### Index 3
+### <a name="Effects[0]"></a> `Effects[0]`
 
 - **Type:** <a href="#Effect">Effect</a>
 
 ---
 
-### <a name="Effect"></a> Effect
+### <a name="Effects[1]"></a> `Effects[1]`
+
+- **Type:** <a href="#Effect">Effect</a>
+
+---
+
+### <a name="Effects[2]"></a> `Effects[2]`
+
+- **Type:** <a href="#Effect">Effect</a>
+
+---
+
+### <a name="Effects[3]"></a> `Effects[3]`
+
+- **Type:** <a href="#Effect">Effect</a>
+
+---
+
+### <a name="Effect"></a> `Effect`
 
 The effect on a level.
 
-- **Type:** Markdown-formatted String
+- **Type:** Markdown-formatted text
 - **Minimum Length:** `1`

@@ -2,17 +2,20 @@
 
 ## Definitions
 
-### <a name="Locales"></a> Supported locales
+### <a name="Locales"></a> Supported locales (`Locales`)
 
 - **Type:** List
+- **Items:** <a href="#Locales[]">Locales[]</a>
 
-#### Items
+---
+
+### <a name="Locales[]"></a> `Locales[]`
 
 - **Type:** <a href="#Locale">Locale</a>
 
 ---
 
-### <a name="Locale"></a> Supported locale
+### <a name="Locale"></a> Supported locale (`Locale`)
 
 - **Type:** Object
 

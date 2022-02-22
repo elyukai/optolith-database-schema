@@ -2,7 +2,7 @@
 
 ## Definitions
 
-### <a name="Culture"></a> Culture
+### <a name="Culture"></a> Culture (`Culture`)
 
 - **Type:** Object
 
@@ -36,22 +36,16 @@ An unique, increasing integer.
 A list of native languages (usually it is only one).
 
 - **Type:** List
+- **Items:** <a href="#Culture/language[]">Culture/language[]</a>
 - **Minimum Items:** `1`
-
-##### Items
-
-- **Type:** <a href="#Language">Language</a>
 
 #### <a name="Culture/script"></a> `script?`
 
 A list of native scripts (usually it is only one). If the culture does not use any script, leave this field empty.
 
 - **Type:** List
+- **Items:** <a href="#Culture/script[]">Culture/script[]</a>
 - **Minimum Items:** `1`
-
-##### Items
-
-- **Type:** <a href="#Script">Script</a>
 
 #### <a name="Culture/area_knowledge"></a> `area_knowledge`
 
@@ -64,94 +58,70 @@ If the area knowledge has a fixed value or can be adjusted.
 A list of possible social status in the respective culture.
 
 - **Type:** List
+- **Items:** <a href="#Culture/social_status[]">Culture/social_status[]</a>
 - **Minimum Items:** `1`
-
-##### Items
-
-- **Type:** <a href="#SocialStatus">SocialStatus</a>
 
 #### <a name="Culture/common_professions"></a> `common_professions`
 
 A list of professions that are typical for the culture, as well as professions that are rarely practiced or encountered in the culture. The list is either defined by group (as multiple lists) or plain (as a single list).
 
-- **Type:** <a href="#CommonProfessions/Config">Config</a>
+- **Type:** <a href="#CommonProfessions/Config">CommonProfessions/Config</a>
 
 #### <a name="Culture/common_advantages"></a> `common_advantages?`
 
 A list of common advantages.
 
 - **Type:** List
+- **Items:** <a href="#Culture/common_advantages[]">Culture/common_advantages[]</a>
 - **Minimum Items:** `1`
-
-##### Items
-
-- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
 
 #### <a name="Culture/common_disadvantages"></a> `common_disadvantages?`
 
 A list of common disadvantages.
 
 - **Type:** List
+- **Items:** <a href="#Culture/common_disadvantages[]">Culture/common_disadvantages[]</a>
 - **Minimum Items:** `1`
-
-##### Items
-
-- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
 
 #### <a name="Culture/uncommon_advantages"></a> `uncommon_advantages?`
 
 A list of uncommon advantages.
 
 - **Type:** List
+- **Items:** <a href="#Culture/uncommon_advantages[]">Culture/uncommon_advantages[]</a>
 - **Minimum Items:** `1`
-
-##### Items
-
-- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
 
 #### <a name="Culture/uncommon_disadvantages"></a> `uncommon_disadvantages?`
 
 A list of uncommon disadvantages.
 
 - **Type:** List
+- **Items:** <a href="#Culture/uncommon_disadvantages[]">Culture/uncommon_disadvantages[]</a>
 - **Minimum Items:** `1`
-
-##### Items
-
-- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
 
 #### <a name="Culture/common_skills"></a> `common_skills`
 
 A list of common skills.
 
 - **Type:** List
+- **Items:** <a href="#Culture/common_skills[]">Culture/common_skills[]</a>
 - **Minimum Items:** `1`
-
-##### Items
-
-- **Type:** <a href="#CommonnessRatedSkill">CommonnessRatedSkill</a>
 
 #### <a name="Culture/uncommon_skills"></a> `uncommon_skills?`
 
 A list of uncommon skills.
 
 - **Type:** List
+- **Items:** <a href="#Culture/uncommon_skills[]">Culture/uncommon_skills[]</a>
 - **Minimum Items:** `1`
-
-##### Items
-
-- **Type:** <a href="#CommonnessRatedSkill">CommonnessRatedSkill</a>
 
 #### <a name="Culture/cultural_package"></a> `cultural_package`
 
 The skill points you get for buying the culture package.
 
 - **Type:** List
+- **Items:** <a href="#Culture/cultural_package[]">Culture/cultural_package[]</a>
 - **Minimum Items:** `1`
-
-##### Items
-
-- **Type:** <a href="#CulturalPackageItem">CulturalPackageItem</a>
 
 #### <a name="Culture/src"></a> `src`
 
@@ -162,16 +132,79 @@ The skill points you get for buying the culture package.
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
+- **Property Values:** <a href="#Culture/translations[key]">Culture/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
-##### Values matching `^[a-z]{2}-[A-Z]{2}$`
+---
+
+### <a name="Culture/language[]"></a> `Culture/language[]`
+
+- **Type:** <a href="#Language">Language</a>
+
+---
+
+### <a name="Culture/script[]"></a> `Culture/script[]`
+
+- **Type:** <a href="#Script">Script</a>
+
+---
+
+### <a name="Culture/social_status[]"></a> `Culture/social_status[]`
+
+- **Type:** <a href="#SocialStatus">SocialStatus</a>
+
+---
+
+### <a name="Culture/common_advantages[]"></a> `Culture/common_advantages[]`
+
+- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
+
+---
+
+### <a name="Culture/common_disadvantages[]"></a> `Culture/common_disadvantages[]`
+
+- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
+
+---
+
+### <a name="Culture/uncommon_advantages[]"></a> `Culture/uncommon_advantages[]`
+
+- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
+
+---
+
+### <a name="Culture/uncommon_disadvantages[]"></a> `Culture/uncommon_disadvantages[]`
+
+- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
+
+---
+
+### <a name="Culture/common_skills[]"></a> `Culture/common_skills[]`
+
+- **Type:** <a href="#CommonnessRatedSkill">CommonnessRatedSkill</a>
+
+---
+
+### <a name="Culture/uncommon_skills[]"></a> `Culture/uncommon_skills[]`
+
+- **Type:** <a href="#CommonnessRatedSkill">CommonnessRatedSkill</a>
+
+---
+
+### <a name="Culture/cultural_package[]"></a> `Culture/cultural_package[]`
+
+- **Type:** <a href="#CulturalPackageItem">CulturalPackageItem</a>
+
+---
+
+### <a name="Culture/translations[key]"></a> `Culture/translations[key]`
 
 - **Type:** <a href="#Translation">Translation</a>
 
 ---
 
-### <a name="Language"></a> Language
+### <a name="Language"></a> `Language`
 
 - **Type:** Object
 
@@ -188,7 +221,7 @@ The language's identifier.
 
 ---
 
-### <a name="Script"></a> Script
+### <a name="Script"></a> `Script`
 
 - **Type:** Object
 
@@ -205,39 +238,44 @@ The script's identifier.
 
 ---
 
-### <a name="AreaKnowledge"></a> AreaKnowledge
+### <a name="AreaKnowledge"></a> `AreaKnowledge`
 
 If the area knowledge has a fixed value or can be adjusted.
 
 - **Type:** Union
+- **Cases:** <a href="AreaKnowledge'Fixed">AreaKnowledge'Fixed</a> | <a href="AreaKnowledge'Adjustable">AreaKnowledge'Adjustable</a>
 
-#### Case: Fixed
+---
+
+### <a name="AreaKnowledge'Fixed"></a> `AreaKnowledge'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#AreaKnowledge`0/tag">See details</a>
+`tag` |  | <a href="#AreaKnowledge'Fixed/tag">See details</a>
 
-##### <a name="AreaKnowledge`0/tag"></a> `tag`
+#### <a name="AreaKnowledge'Fixed/tag"></a> `tag`
 
 - **Constant:** `"Fixed"`
 
-#### Case: Adjustable
+---
+
+### <a name="AreaKnowledge'Adjustable"></a> `AreaKnowledge'Adjustable`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#AreaKnowledge`1/tag">See details</a>
+`tag` |  | <a href="#AreaKnowledge'Adjustable/tag">See details</a>
 
-##### <a name="AreaKnowledge`1/tag"></a> `tag`
+#### <a name="AreaKnowledge'Adjustable/tag"></a> `tag`
 
 - **Constant:** `"Adjustable"`
 
 ---
 
-### <a name="SocialStatus"></a> SocialStatus
+### <a name="SocialStatus"></a> `SocialStatus`
 
 - **Type:** Object
 
@@ -254,7 +292,7 @@ The social status's identifier.
 
 ---
 
-### <a name="CommonProfessions"></a> Common Professions
+### <a name="CommonProfessions/Profession"></a> `CommonProfessions/Profession`
 
 - **Type:** Object
 
@@ -269,6 +307,10 @@ The profession's identifier.
 - **Type:** Integer
 - **Minimum:** `1`
 
+---
+
+### <a name="CommonProfessions/ProfessionVariant"></a> `CommonProfessions/ProfessionVariant`
+
 - **Type:** Object
 
 Key | Description | Details
@@ -281,6 +323,10 @@ The profession variant's identifier.
 
 - **Type:** Integer
 - **Minimum:** `1`
+
+---
+
+### <a name="CommonProfessions/Plain/Constraint"></a> `CommonProfessions/Plain/Constraint`
 
 - **Type:** Object
 
@@ -300,6 +346,12 @@ The profession's identifier.
 - **Type:** Integer
 - **Minimum:** `1`
 
+---
+
+### <a name="CommonProfessions/Plain/T"></a> `CommonProfessions/Plain/T`
+
+A plain list of professions.
+
 - **Type:** Object
 
 Key | Description | Details
@@ -316,11 +368,20 @@ Key | Description | Details
 The list of professions.
 
 - **Type:** List
+- **Items:** <a href="#CommonProfessions/Plain/T/constraints[]">CommonProfessions/Plain/T/constraints[]</a>
 - **Minimum Items:** `1`
 
-##### Items
+---
 
-- **Type:** <a href="#Plain/CommonProfessions/Constraint">Constraint</a>
+### <a name="CommonProfessions/Plain/T/constraints[]"></a> `CommonProfessions/Plain/T/constraints[]`
+
+- **Type:** <a href="#CommonProfessions/Plain/Constraint">CommonProfessions/Plain/Constraint</a>
+
+---
+
+### <a name="CommonProfessions/Grouped/Constraints/WeightedVariants"></a> `CommonProfessions/Grouped/Constraints/WeightedVariants`
+
+Some profession variants are more common than others. There may be cultures where some variants are not represented at all.
 
 - **Type:** Object
 
@@ -334,17 +395,24 @@ Key | Description | Details
 The list of more common variants.
 
 - **Type:** List
+- **Items:** <a href="#CommonProfessions/Grouped/Constraints/WeightedVariants/variants[]">CommonProfessions/Grouped/Constraints/WeightedVariants/variants[]</a>
 - **Minimum Items:** `1`
-
-##### Items
-
-- **Type:** <a href="#CommonProfessions/ProfessionVariant">ProfessionVariant</a>
 
 #### <a name="CommonProfessions/Grouped/Constraints/WeightedVariants/weight"></a> `weight`
 
 The "weight" difference compared to other variants. Some variants are simply more common (Mostly), but sometimes only specific variants are used (Only).
 
-- **Type:** <a href="#Grouped/CommonProfessions/Weight">Weight</a>
+- **Type:** <a href="#CommonProfessions/Grouped/Weight">CommonProfessions/Grouped/Weight</a>
+
+---
+
+### <a name="CommonProfessions/Grouped/Constraints/WeightedVariants/variants[]"></a> `CommonProfessions/Grouped/Constraints/WeightedVariants/variants[]`
+
+- **Type:** <a href="#CommonProfessions/ProfessionVariant">CommonProfessions/ProfessionVariant</a>
+
+---
+
+### <a name="CommonProfessions/Grouped/Constraints/Profession"></a> `CommonProfessions/Grouped/Constraints/Profession`
 
 - **Type:** Object
 
@@ -370,152 +438,213 @@ The profession's identifier.
 
 Some profession variants are more common than others. There may be cultures where some variants are not represented at all.
 
-- **Type:** <a href="#Constraints/Grouped/CommonProfessions/WeightedVariants">WeightedVariants</a>
+- **Type:** <a href="#CommonProfessions/Grouped/Constraints/WeightedVariants">CommonProfessions/Grouped/Constraints/WeightedVariants</a>
 
 #### <a name="CommonProfessions/Grouped/Constraints/Profession/rarity"></a> `rarity?`
 
 Some professions may be found in a culture, but are not that common.
 
-- **Type:** <a href="#Grouped/CommonProfessions/Rarity">Rarity</a>
+- **Type:** <a href="#CommonProfessions/Grouped/Rarity">CommonProfessions/Grouped/Rarity</a>
+
+---
+
+### <a name="CommonProfessions/Grouped/Weight"></a> `CommonProfessions/Grouped/Weight`
+
+The "weight" difference compared to other variants. Some variants are simply more common (Mostly), but sometimes only specific variants are used (Only).
 
 - **Type:** Union
+- **Cases:** <a href="CommonProfessions/Grouped/Weight'Mostly">CommonProfessions/Grouped/Weight'Mostly</a> | <a href="CommonProfessions/Grouped/Weight'Only">CommonProfessions/Grouped/Weight'Only</a>
 
-#### Case: Mostly
+---
+
+### <a name="CommonProfessions/Grouped/Weight'Mostly"></a> `CommonProfessions/Grouped/Weight'Mostly`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#CommonProfessions/Grouped/Weight`0/tag">See details</a>
+`tag` |  | <a href="#CommonProfessions/Grouped/Weight'Mostly/tag">See details</a>
 
-##### <a name="CommonProfessions/Grouped/Weight`0/tag"></a> `tag`
+#### <a name="CommonProfessions/Grouped/Weight'Mostly/tag"></a> `tag`
 
 - **Constant:** `"Mostly"`
 
-#### Case: Only
+---
+
+### <a name="CommonProfessions/Grouped/Weight'Only"></a> `CommonProfessions/Grouped/Weight'Only`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#CommonProfessions/Grouped/Weight`1/tag">See details</a>
+`tag` |  | <a href="#CommonProfessions/Grouped/Weight'Only/tag">See details</a>
 
-##### <a name="CommonProfessions/Grouped/Weight`1/tag"></a> `tag`
+#### <a name="CommonProfessions/Grouped/Weight'Only/tag"></a> `tag`
 
 - **Constant:** `"Only"`
 
-- **Type:** Union
+---
 
-#### Case: Rare
+### <a name="CommonProfessions/Grouped/Rarity"></a> `CommonProfessions/Grouped/Rarity`
+
+Some professions may be found in a culture, but are not that common.
+
+- **Type:** Union
+- **Cases:** <a href="CommonProfessions/Grouped/Rarity'Rare">CommonProfessions/Grouped/Rarity'Rare</a> | <a href="CommonProfessions/Grouped/Rarity'VeryRare">CommonProfessions/Grouped/Rarity'VeryRare</a>
+
+---
+
+### <a name="CommonProfessions/Grouped/Rarity'Rare"></a> `CommonProfessions/Grouped/Rarity'Rare`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#CommonProfessions/Grouped/Rarity`0/tag">See details</a>
+`tag` |  | <a href="#CommonProfessions/Grouped/Rarity'Rare/tag">See details</a>
 
-##### <a name="CommonProfessions/Grouped/Rarity`0/tag"></a> `tag`
+#### <a name="CommonProfessions/Grouped/Rarity'Rare/tag"></a> `tag`
 
 - **Constant:** `"Rare"`
 
-#### Case: VeryRare
+---
+
+### <a name="CommonProfessions/Grouped/Rarity'VeryRare"></a> `CommonProfessions/Grouped/Rarity'VeryRare`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#CommonProfessions/Grouped/Rarity`1/tag">See details</a>
+`tag` |  | <a href="#CommonProfessions/Grouped/Rarity'VeryRare/tag">See details</a>
 
-##### <a name="CommonProfessions/Grouped/Rarity`1/tag"></a> `tag`
+#### <a name="CommonProfessions/Grouped/Rarity'VeryRare/tag"></a> `tag`
 
 - **Constant:** `"VeryRare"`
 
-- **Type:** Union
+---
 
-#### Case: Profane
+### <a name="CommonProfessions/Grouped/Mundane/ProfessionSubgroup"></a> `CommonProfessions/Grouped/Mundane/ProfessionSubgroup`
+
+Some professions may be found in a culture, but are not that common.
+
+- **Type:** Union
+- **Cases:** <a href="CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Profane">CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Profane</a> | <a href="CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Fighter">CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Fighter</a> | <a href="CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Religious">CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Religious</a>
+
+---
+
+### <a name="CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Profane"></a> `CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Profane`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#CommonProfessions/Grouped/Mundane/ProfessionSubgroup`0/tag">See details</a>
+`tag` |  | <a href="#CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Profane/tag">See details</a>
 
-##### <a name="CommonProfessions/Grouped/Mundane/ProfessionSubgroup`0/tag"></a> `tag`
+#### <a name="CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Profane/tag"></a> `tag`
 
 - **Constant:** `"Profane"`
 
-#### Case: Fighter
+---
+
+### <a name="CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Fighter"></a> `CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Fighter`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#CommonProfessions/Grouped/Mundane/ProfessionSubgroup`1/tag">See details</a>
+`tag` |  | <a href="#CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Fighter/tag">See details</a>
 
-##### <a name="CommonProfessions/Grouped/Mundane/ProfessionSubgroup`1/tag"></a> `tag`
+#### <a name="CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Fighter/tag"></a> `tag`
 
 - **Constant:** `"Fighter"`
 
-#### Case: Religious
+---
+
+### <a name="CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Religious"></a> `CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Religious`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#CommonProfessions/Grouped/Mundane/ProfessionSubgroup`2/tag">See details</a>
+`tag` |  | <a href="#CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Religious/tag">See details</a>
 
-##### <a name="CommonProfessions/Grouped/Mundane/ProfessionSubgroup`2/tag"></a> `tag`
+#### <a name="CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Religious/tag"></a> `tag`
 
 - **Constant:** `"Religious"`
 
+---
+
+### <a name="CommonProfessions/Grouped/Mundane/Constraint"></a> `CommonProfessions/Grouped/Mundane/Constraint`
+
 - **Type:** Union
+- **Cases:** <a href="CommonProfessions/Grouped/Mundane/Constraint'Profession">CommonProfessions/Grouped/Mundane/Constraint'Profession</a> | <a href="CommonProfessions/Grouped/Mundane/Constraint'ProfessionSubgroup">CommonProfessions/Grouped/Mundane/Constraint'ProfessionSubgroup</a>
 
-#### Case: Profession
+---
 
-- **Type:** <a href="#Constraints/Grouped/CommonProfessions/Profession">Profession</a>
+### <a name="CommonProfessions/Grouped/Mundane/Constraint'Profession"></a> `CommonProfessions/Grouped/Mundane/Constraint'Profession`
 
-#### Case: ProfessionSubgroup
+- **Type:** <a href="#CommonProfessions/Grouped/Constraints/Profession">CommonProfessions/Grouped/Constraints/Profession</a>
+
+---
+
+### <a name="CommonProfessions/Grouped/Mundane/Constraint'ProfessionSubgroup"></a> `CommonProfessions/Grouped/Mundane/Constraint'ProfessionSubgroup`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#CommonProfessions/Grouped/Mundane/Constraint`1/tag">See details</a>
-`subgroup` |  | <a href="#CommonProfessions/Grouped/Mundane/Constraint`1/subgroup">See details</a>
+`tag` |  | <a href="#CommonProfessions/Grouped/Mundane/Constraint'ProfessionSubgroup/tag">See details</a>
+`subgroup` |  | <a href="#CommonProfessions/Grouped/Mundane/Constraint'ProfessionSubgroup/subgroup">See details</a>
 
-##### <a name="CommonProfessions/Grouped/Mundane/Constraint`1/tag"></a> `tag`
+#### <a name="CommonProfessions/Grouped/Mundane/Constraint'ProfessionSubgroup/tag"></a> `tag`
 
 - **Constant:** `"ProfessionSubgroup"`
 
-##### <a name="CommonProfessions/Grouped/Mundane/Constraint`1/subgroup"></a> `subgroup`
+#### <a name="CommonProfessions/Grouped/Mundane/Constraint'ProfessionSubgroup/subgroup"></a> `subgroup`
 
-- **Type:** <a href="#Mundane/Grouped/CommonProfessions/ProfessionSubgroup">ProfessionSubgroup</a>
+- **Type:** <a href="#CommonProfessions/Grouped/Mundane/ProfessionSubgroup">CommonProfessions/Grouped/Mundane/ProfessionSubgroup</a>
+
+---
+
+### <a name="CommonProfessions/Grouped/Mundane/Operation"></a> `CommonProfessions/Grouped/Mundane/Operation`
+
+This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints (include) or only the professions are kept that are different from the constraints (exclude).
 
 - **Type:** Union
+- **Cases:** <a href="CommonProfessions/Grouped/Mundane/Operation'Intersection">CommonProfessions/Grouped/Mundane/Operation'Intersection</a> | <a href="CommonProfessions/Grouped/Mundane/Operation'Difference">CommonProfessions/Grouped/Mundane/Operation'Difference</a>
 
-#### Case: Intersection
+---
+
+### <a name="CommonProfessions/Grouped/Mundane/Operation'Intersection"></a> `CommonProfessions/Grouped/Mundane/Operation'Intersection`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#CommonProfessions/Grouped/Mundane/Operation`0/tag">See details</a>
+`tag` |  | <a href="#CommonProfessions/Grouped/Mundane/Operation'Intersection/tag">See details</a>
 
-##### <a name="CommonProfessions/Grouped/Mundane/Operation`0/tag"></a> `tag`
+#### <a name="CommonProfessions/Grouped/Mundane/Operation'Intersection/tag"></a> `tag`
 
 - **Constant:** `"Intersection"`
 
-#### Case: Difference
+---
+
+### <a name="CommonProfessions/Grouped/Mundane/Operation'Difference"></a> `CommonProfessions/Grouped/Mundane/Operation'Difference`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#CommonProfessions/Grouped/Mundane/Operation`1/tag">See details</a>
+`tag` |  | <a href="#CommonProfessions/Grouped/Mundane/Operation'Difference/tag">See details</a>
 
-##### <a name="CommonProfessions/Grouped/Mundane/Operation`1/tag"></a> `tag`
+#### <a name="CommonProfessions/Grouped/Mundane/Operation'Difference/tag"></a> `tag`
 
 - **Constant:** `"Difference"`
+
+---
+
+### <a name="CommonProfessions/Grouped/Mundane/T"></a> `CommonProfessions/Grouped/Mundane/T`
+
+A list of professions. The filter specifies how the list is applied to all mundane professions.
 
 - **Type:** Object
 
@@ -529,17 +658,26 @@ Key | Description | Details
 The list of professions.
 
 - **Type:** List
+- **Items:** <a href="#CommonProfessions/Grouped/Mundane/T/constraints[]">CommonProfessions/Grouped/Mundane/T/constraints[]</a>
 - **Minimum Items:** `1`
-
-##### Items
-
-- **Type:** <a href="#Mundane/Grouped/CommonProfessions/Constraint">Constraint</a>
 
 #### <a name="CommonProfessions/Grouped/Mundane/T/operation"></a> `operation`
 
 This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints (include) or only the professions are kept that are different from the constraints (exclude).
 
-- **Type:** <a href="#Mundane/Grouped/CommonProfessions/Operation">Operation</a>
+- **Type:** <a href="#CommonProfessions/Grouped/Mundane/Operation">CommonProfessions/Grouped/Mundane/Operation</a>
+
+---
+
+### <a name="CommonProfessions/Grouped/Mundane/T/constraints[]"></a> `CommonProfessions/Grouped/Mundane/T/constraints[]`
+
+- **Type:** <a href="#CommonProfessions/Grouped/Mundane/Constraint">CommonProfessions/Grouped/Mundane/Constraint</a>
+
+---
+
+### <a name="CommonProfessions/Grouped/Magic/WeightedProfessions"></a> `CommonProfessions/Grouped/Magic/WeightedProfessions`
+
+Some professions are more common than others. There may be cultures where some professions are not represented at all.
 
 - **Type:** Object
 
@@ -553,69 +691,87 @@ Key | Description | Details
 The list of more common variants.
 
 - **Type:** List
+- **Items:** <a href="#CommonProfessions/Grouped/Magic/WeightedProfessions/professions[]">CommonProfessions/Grouped/Magic/WeightedProfessions/professions[]</a>
 - **Minimum Items:** `1`
-
-##### Items
-
-- **Type:** <a href="#CommonProfessions/Profession">Profession</a>
 
 #### <a name="CommonProfessions/Grouped/Magic/WeightedProfessions/weight"></a> `weight`
 
 The "weight" difference compared to other professions. Some professions are simply more common (Mostly), but sometimes only specific professions are used (Only).
 
-- **Type:** <a href="#Grouped/CommonProfessions/Weight">Weight</a>
+- **Type:** <a href="#CommonProfessions/Grouped/Weight">CommonProfessions/Grouped/Weight</a>
+
+---
+
+### <a name="CommonProfessions/Grouped/Magic/WeightedProfessions/professions[]"></a> `CommonProfessions/Grouped/Magic/WeightedProfessions/professions[]`
+
+- **Type:** <a href="#CommonProfessions/Profession">CommonProfessions/Profession</a>
+
+---
+
+### <a name="CommonProfessions/Grouped/Magic/Constraint"></a> `CommonProfessions/Grouped/Magic/Constraint`
 
 - **Type:** Union
+- **Cases:** <a href="CommonProfessions/Grouped/Magic/Constraint'Tradition">CommonProfessions/Grouped/Magic/Constraint'Tradition</a> | <a href="CommonProfessions/Grouped/Magic/Constraint'MagicDilettante">CommonProfessions/Grouped/Magic/Constraint'MagicDilettante</a> | <a href="CommonProfessions/Grouped/Magic/Constraint'Profession">CommonProfessions/Grouped/Magic/Constraint'Profession</a>
 
-#### Case: Tradition
+---
+
+### <a name="CommonProfessions/Grouped/Magic/Constraint'Tradition"></a> `CommonProfessions/Grouped/Magic/Constraint'Tradition`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#CommonProfessions/Grouped/Magic/Constraint`0/tag">See details</a>
-`id` | The magical tradition's identifier. | <a href="#CommonProfessions/Grouped/Magic/Constraint`0/id">See details</a>
-`weighted_professions?` | Some professions are more common than others. There may be cultures where some professions are not represented at all. | <a href="#CommonProfessions/Grouped/Magic/Constraint`0/weighted_professions">See details</a>
-`rarity?` | Some traditions may be found in a culture, but are not that common. | <a href="#CommonProfessions/Grouped/Magic/Constraint`0/rarity">See details</a>
+`tag` |  | <a href="#CommonProfessions/Grouped/Magic/Constraint'Tradition/tag">See details</a>
+`id` | The magical tradition's identifier. | <a href="#CommonProfessions/Grouped/Magic/Constraint'Tradition/id">See details</a>
+`weighted_professions?` | Some professions are more common than others. There may be cultures where some professions are not represented at all. | <a href="#CommonProfessions/Grouped/Magic/Constraint'Tradition/weighted_professions">See details</a>
+`rarity?` | Some traditions may be found in a culture, but are not that common. | <a href="#CommonProfessions/Grouped/Magic/Constraint'Tradition/rarity">See details</a>
 
-##### <a name="CommonProfessions/Grouped/Magic/Constraint`0/tag"></a> `tag`
+#### <a name="CommonProfessions/Grouped/Magic/Constraint'Tradition/tag"></a> `tag`
 
 - **Constant:** `"Tradition"`
 
-##### <a name="CommonProfessions/Grouped/Magic/Constraint`0/id"></a> `id`
+#### <a name="CommonProfessions/Grouped/Magic/Constraint'Tradition/id"></a> `id`
 
 The magical tradition's identifier.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-##### <a name="CommonProfessions/Grouped/Magic/Constraint`0/weighted_professions"></a> `weighted_professions?`
+#### <a name="CommonProfessions/Grouped/Magic/Constraint'Tradition/weighted_professions"></a> `weighted_professions?`
 
 Some professions are more common than others. There may be cultures where some professions are not represented at all.
 
-- **Type:** <a href="#Magic/Grouped/CommonProfessions/WeightedProfessions">WeightedProfessions</a>
+- **Type:** <a href="#CommonProfessions/Grouped/Magic/WeightedProfessions">CommonProfessions/Grouped/Magic/WeightedProfessions</a>
 
-##### <a name="CommonProfessions/Grouped/Magic/Constraint`0/rarity"></a> `rarity?`
+#### <a name="CommonProfessions/Grouped/Magic/Constraint'Tradition/rarity"></a> `rarity?`
 
 Some traditions may be found in a culture, but are not that common.
 
-- **Type:** <a href="#Grouped/CommonProfessions/Rarity">Rarity</a>
+- **Type:** <a href="#CommonProfessions/Grouped/Rarity">CommonProfessions/Grouped/Rarity</a>
 
-#### Case: MagicDilettante
+---
+
+### <a name="CommonProfessions/Grouped/Magic/Constraint'MagicDilettante"></a> `CommonProfessions/Grouped/Magic/Constraint'MagicDilettante`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#CommonProfessions/Grouped/Magic/Constraint`1/tag">See details</a>
+`tag` |  | <a href="#CommonProfessions/Grouped/Magic/Constraint'MagicDilettante/tag">See details</a>
 
-##### <a name="CommonProfessions/Grouped/Magic/Constraint`1/tag"></a> `tag`
+#### <a name="CommonProfessions/Grouped/Magic/Constraint'MagicDilettante/tag"></a> `tag`
 
 - **Constant:** `"MagicDilettante"`
 
-#### Case: Profession
+---
 
-- **Type:** <a href="#Constraints/Grouped/CommonProfessions/Profession">Profession</a>
+### <a name="CommonProfessions/Grouped/Magic/Constraint'Profession"></a> `CommonProfessions/Grouped/Magic/Constraint'Profession`
+
+- **Type:** <a href="#CommonProfessions/Grouped/Constraints/Profession">CommonProfessions/Grouped/Constraints/Profession</a>
+
+---
+
+### <a name="CommonProfessions/Grouped/Magic/T"></a> `CommonProfessions/Grouped/Magic/T`
 
 - **Type:** Object
 
@@ -628,11 +784,18 @@ Key | Description | Details
 The list of professions.
 
 - **Type:** List
+- **Items:** <a href="#CommonProfessions/Grouped/Magic/T/constraints[]">CommonProfessions/Grouped/Magic/T/constraints[]</a>
 - **Minimum Items:** `1`
 
-##### Items
+---
 
-- **Type:** <a href="#Magic/Grouped/CommonProfessions/Constraint">Constraint</a>
+### <a name="CommonProfessions/Grouped/Magic/T/constraints[]"></a> `CommonProfessions/Grouped/Magic/T/constraints[]`
+
+- **Type:** <a href="#CommonProfessions/Grouped/Magic/Constraint">CommonProfessions/Grouped/Magic/Constraint</a>
+
+---
+
+### <a name="CommonProfessions/Grouped/Blessed/Constraint"></a> `CommonProfessions/Grouped/Blessed/Constraint`
 
 - **Type:** Object
 
@@ -657,7 +820,11 @@ The blessed tradition's identifier.
 
 Some traditions may be found in a culture, but are not that common.
 
-- **Type:** <a href="#Grouped/CommonProfessions/Rarity">Rarity</a>
+- **Type:** <a href="#CommonProfessions/Grouped/Rarity">CommonProfessions/Grouped/Rarity</a>
+
+---
+
+### <a name="CommonProfessions/Grouped/Blessed/T"></a> `CommonProfessions/Grouped/Blessed/T`
 
 - **Type:** Object
 
@@ -670,11 +837,20 @@ Key | Description | Details
 The list of professions.
 
 - **Type:** List
+- **Items:** <a href="#CommonProfessions/Grouped/Blessed/T/constraints[]">CommonProfessions/Grouped/Blessed/T/constraints[]</a>
 - **Minimum Items:** `1`
 
-##### Items
+---
 
-- **Type:** <a href="#Blessed/Grouped/CommonProfessions/Constraint">Constraint</a>
+### <a name="CommonProfessions/Grouped/Blessed/T/constraints[]"></a> `CommonProfessions/Grouped/Blessed/T/constraints[]`
+
+- **Type:** <a href="#CommonProfessions/Grouped/Blessed/Constraint">CommonProfessions/Grouped/Blessed/Constraint</a>
+
+---
+
+### <a name="CommonProfessions/Grouped/T"></a> `CommonProfessions/Grouped/T`
+
+Lists of professions by group.
 
 - **Type:** Object
 - **Minimum Properties:** `2`
@@ -694,29 +870,40 @@ Key | Description | Details
 
 A list of professions. The filter specifies how the list is applied to all mundane professions.
 
-- **Type:** <a href="#Mundane/Grouped/CommonProfessions/T">T</a>
+- **Type:** <a href="#CommonProfessions/Grouped/Mundane/T">CommonProfessions/Grouped/Mundane/T</a>
 
 #### <a name="CommonProfessions/Grouped/T/magic"></a> `magic?`
 
-- **Type:** <a href="#Magic/Grouped/CommonProfessions/T">T</a>
+- **Type:** <a href="#CommonProfessions/Grouped/Magic/T">CommonProfessions/Grouped/Magic/T</a>
 
 #### <a name="CommonProfessions/Grouped/T/blessed"></a> `blessed?`
 
-- **Type:** <a href="#Blessed/Grouped/CommonProfessions/T">T</a>
-
-- **Type:** Union
-
-#### Case: T
-
-- **Type:** <a href="#Plain/CommonProfessions/T">T</a>
-
-#### Case: T
-
-- **Type:** <a href="#Grouped/CommonProfessions/T">T</a>
+- **Type:** <a href="#CommonProfessions/Grouped/Blessed/T">CommonProfessions/Grouped/Blessed/T</a>
 
 ---
 
-### <a name="CommonnessRatedSkill"></a> CommonnessRatedSkill
+### <a name="CommonProfessions/Config"></a> `CommonProfessions/Config`
+
+A list of professions that are typical for the culture, as well as professions that are rarely practiced or encountered in the culture. The list is either defined by group (as multiple lists) or plain (as a single list).
+
+- **Type:** Union
+- **Cases:** <a href="CommonProfessions/Config'T">CommonProfessions/Config'T</a> | <a href="CommonProfessions/Config'T">CommonProfessions/Config'T</a>
+
+---
+
+### <a name="CommonProfessions/Config'T"></a> `CommonProfessions/Config'T`
+
+- **Type:** <a href="#CommonProfessions/Plain/T">CommonProfessions/Plain/T</a>
+
+---
+
+### <a name="CommonProfessions/Config'T"></a> `CommonProfessions/Config'T`
+
+- **Type:** <a href="#CommonProfessions/Grouped/T">CommonProfessions/Grouped/T</a>
+
+---
+
+### <a name="CommonnessRatedSkill"></a> `CommonnessRatedSkill`
 
 - **Type:** Object
 
@@ -733,7 +920,7 @@ The skill's identifier.
 
 ---
 
-### <a name="CulturalPackageItem"></a> CulturalPackageItem
+### <a name="CulturalPackageItem"></a> `CulturalPackageItem`
 
 - **Type:** Object
 
@@ -759,7 +946,7 @@ The skill points for the respective skill you get for buying the cultural packag
 
 ---
 
-### <a name="Translation"></a> Translation
+### <a name="Translation"></a> `Translation`
 
 - **Type:** Object
 
@@ -827,7 +1014,7 @@ Structured description of common names.
 
 ---
 
-### <a name="AreaKnowledgeTranslation"></a> AreaKnowledgeTranslation
+### <a name="AreaKnowledgeTranslation"></a> `AreaKnowledgeTranslation`
 
 Description and examples of the area knowledge.
 
@@ -858,22 +1045,25 @@ A shorter version of the description, used in input fields and other UI elements
 Examples of areas, if applicable.
 
 - **Type:** List
+- **Items:** <a href="#AreaKnowledgeTranslation/examples[]">AreaKnowledgeTranslation/examples[]</a>
 - **Minimum Items:** `1`
 
-##### Items
+---
+
+### <a name="AreaKnowledgeTranslation/examples[]"></a> `AreaKnowledgeTranslation/examples[]`
 
 - **Type:** <a href="#AreaKnowledgeExample">AreaKnowledgeExample</a>
 
 ---
 
-### <a name="AreaKnowledgeExample"></a> AreaKnowledgeExample
+### <a name="AreaKnowledgeExample"></a> `AreaKnowledgeExample`
 
 - **Type:** String
 - **Minimum Length:** `1`
 
 ---
 
-### <a name="CommonNames"></a> CommonNames
+### <a name="CommonNames"></a> `CommonNames`
 
 Structured description of common names.
 
@@ -891,22 +1081,16 @@ Key | Description | Details
 First names can be gender-neutral, but they can also be for a specific binary sex. They are sorted into groups.
 
 - **Type:** List
+- **Items:** <a href="#CommonNames/first_name_groups[]">CommonNames/first_name_groups[]</a>
 - **Minimum Items:** `1`
-
-##### Items
-
-- **Type:** <a href="#NameGroup">NameGroup</a>
 
 #### <a name="CommonNames/last_name_groups"></a> `last_name_groups?`
 
 Last names can be gender-neutral, like family names, but they can also be for a specific binary sex. They are sorted into groups.
 
 - **Type:** List
+- **Items:** <a href="#CommonNames/last_name_groups[]">CommonNames/last_name_groups[]</a>
 - **Minimum Items:** `1`
-
-##### Items
-
-- **Type:** <a href="#NameGroup">NameGroup</a>
 
 #### <a name="CommonNames/naming_rules"></a> `naming_rules?`
 
@@ -917,7 +1101,19 @@ Special naming rules.
 
 ---
 
-### <a name="NameGroup"></a> NameGroup
+### <a name="CommonNames/first_name_groups[]"></a> `CommonNames/first_name_groups[]`
+
+- **Type:** <a href="#NameGroup">NameGroup</a>
+
+---
+
+### <a name="CommonNames/last_name_groups[]"></a> `CommonNames/last_name_groups[]`
+
+- **Type:** <a href="#NameGroup">NameGroup</a>
+
+---
+
+### <a name="NameGroup"></a> `NameGroup`
 
 - **Type:** Object
 
@@ -945,15 +1141,18 @@ The binary sex if the group is only for a certain binary sex.
 The names from the group.
 
 - **Type:** List
+- **Items:** <a href="#NameGroup/names[]">NameGroup/names[]</a>
 - **Minimum Items:** `1`
 
-##### Items
+---
+
+### <a name="NameGroup/names[]"></a> `NameGroup/names[]`
 
 - **Type:** <a href="#Name">Name</a>
 
 ---
 
-### <a name="Name"></a> Name
+### <a name="Name"></a> `Name`
 
 - **Type:** Object
 

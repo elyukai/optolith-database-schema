@@ -2,30 +2,35 @@
 
 ## Definitions
 
-### <a name="Sex"></a> Sex
+### <a name="Sex"></a> Sex (`Sex`)
 
 - **Type:** Union
+- **Cases:** <a href="Sex'Male">Sex'Male</a> | <a href="Sex'Female">Sex'Female</a>
 
-#### Case: Male
+---
+
+### <a name="Sex'Male"></a> `Sex'Male`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Sex`0/tag">See details</a>
+`tag` |  | <a href="#Sex'Male/tag">See details</a>
 
-##### <a name="Sex`0/tag"></a> `tag`
+#### <a name="Sex'Male/tag"></a> `tag`
 
 - **Constant:** `"Male"`
 
-#### Case: Female
+---
+
+### <a name="Sex'Female"></a> `Sex'Female`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Sex`1/tag">See details</a>
+`tag` |  | <a href="#Sex'Female/tag">See details</a>
 
-##### <a name="Sex`1/tag"></a> `tag`
+#### <a name="Sex'Female/tag"></a> `tag`
 
 - **Constant:** `"Female"`

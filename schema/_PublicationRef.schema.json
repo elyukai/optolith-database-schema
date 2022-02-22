@@ -13,7 +13,7 @@
       "minItems": 1
     },
     "PublicationRef": {
-      "title": "Source Reference",
+      "title": "Publication Reference",
       "description": "A source reference. It contains the book's publisher identifier and the page where it occurs. If an entry spans multiple pages, provide the last page as well.",
       "type": "object",
       "properties": {
@@ -90,8 +90,28 @@
       "type": "object",
       "properties": {
         "initial": {
+          "title": "Initial",
           "description": "The initial occurrence of the entry.",
-          "$ref": "#/definitions/Initial"
+          "type": "object",
+          "properties": {
+            "printing": {
+              "description": "The publication's printing since which the entry is present. Leave empty if present since the beginning.",
+              "type": "integer",
+              "minimum": 2
+            },
+            "pages": {
+              "description": "The initial page references.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PageRange"
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "pages"
+          ],
+          "additionalProperties": false
         },
         "revisions": {
           "description": "Revisions of the entry, resulting in either changed page references or re-addition or removal of an entry.",
@@ -104,30 +124,6 @@
       },
       "required": [
         "initial"
-      ],
-      "additionalProperties": false
-    },
-    "Initial": {
-      "title": "Initial",
-      "description": "The initial occurrence of the entry.",
-      "type": "object",
-      "properties": {
-        "printing": {
-          "description": "The publication's printing since which the entry is present. Leave empty if present since the beginning.",
-          "type": "integer",
-          "minimum": 2
-        },
-        "pages": {
-          "description": "The initial page references.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/PageRange"
-          },
-          "minItems": 1
-        }
-      },
-      "required": [
-        "pages"
       ],
       "additionalProperties": false
     },

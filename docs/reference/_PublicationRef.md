@@ -4,20 +4,23 @@ The publications where you can find the entry.
 
 ## Definitions
 
-### <a name="PublicationRefs"></a> Publication References
+### <a name="PublicationRefs"></a> Publication References (`PublicationRefs`)
 
 The publications where you can find the entry.
 
 - **Type:** List
+- **Items:** <a href="#PublicationRefs[]">PublicationRefs[]</a>
 - **Minimum Items:** `1`
 
-#### Items
+---
+
+### <a name="PublicationRefs[]"></a> `PublicationRefs[]`
 
 - **Type:** <a href="#PublicationRef">PublicationRef</a>
 
 ---
 
-### <a name="PublicationRef"></a> Source Reference
+### <a name="PublicationRef"></a> Publication Reference (`PublicationRef`)
 
 A source reference. It contains the book's publisher identifier and the page where it occurs. If an entry spans multiple pages, provide the last page as well.
 
@@ -43,50 +46,63 @@ All occurrences of the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="Occurrences"></a> Occurrences
+### <a name="Occurrences"></a> `Occurrences`
 
 All occurrences of the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
+- **Property Values:** <a href="#Occurrences[key]">Occurrences[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
-#### Values matching `^[a-z]{2}-[A-Z]{2}$`
+---
+
+### <a name="Occurrences[key]"></a> `Occurrences[key]`
 
 - **Type:** <a href="#Occurrence">Occurrence</a>
 
 ---
 
-### <a name="Occurrence"></a> Occurrence
+### <a name="Occurrence"></a> `Occurrence`
 
 - **Type:** Union
+- **Cases:** <a href="Occurrence'SimpleOccurrence">Occurrence'SimpleOccurrence</a> | <a href="Occurrence'SimpleOccurrences">Occurrence'SimpleOccurrences</a> | <a href="Occurrence'VersionedOccurrence">Occurrence'VersionedOccurrence</a>
 
-#### Case: SimpleOccurrence
+---
+
+### <a name="Occurrence'SimpleOccurrence"></a> `Occurrence'SimpleOccurrence`
 
 - **Type:** <a href="#SimpleOccurrence">SimpleOccurrence</a>
 
-#### Case: SimpleOccurrences
+---
+
+### <a name="Occurrence'SimpleOccurrences"></a> `Occurrence'SimpleOccurrences`
 
 - **Type:** <a href="#SimpleOccurrences">SimpleOccurrences</a>
 
-#### Case: VersionedOccurrence
+---
+
+### <a name="Occurrence'VersionedOccurrence"></a> `Occurrence'VersionedOccurrence`
 
 - **Type:** <a href="#VersionedOccurrence">VersionedOccurrence</a>
 
 ---
 
-### <a name="SimpleOccurrences"></a> Simple Occurrences
+### <a name="SimpleOccurrences"></a> Simple Occurrences (`SimpleOccurrences`)
 
 - **Type:** List
+- **Items:** <a href="#SimpleOccurrences[]">SimpleOccurrences[]</a>
 - **Minimum Items:** `1`
 
-#### Items
+---
+
+### <a name="SimpleOccurrences[]"></a> `SimpleOccurrences[]`
 
 - **Type:** <a href="#SimpleOccurrence">SimpleOccurrence</a>
 
 ---
 
-### <a name="SimpleOccurrence"></a> Simple Occurrence
+### <a name="SimpleOccurrence"></a> Simple Occurrence (`SimpleOccurrence`)
 
 - **Type:** Object
 
@@ -111,7 +127,7 @@ The last page where it occurs. If there is only one page, set this to the same a
 
 ---
 
-### <a name="VersionedOccurrence"></a> Versioned Occurrence
+### <a name="VersionedOccurrence"></a> Versioned Occurrence (`VersionedOccurrence`)
 
 - **Type:** Object
 
@@ -124,22 +140,19 @@ Key | Description | Details
 
 The initial occurrence of the entry.
 
-- **Type:** <a href="#Initial">Initial</a>
+- **Type:** <a href="#VersionedOccurrence/initial">Object</a>
 
 #### <a name="VersionedOccurrence/revisions"></a> `revisions?`
 
 Revisions of the entry, resulting in either changed page references or re-addition or removal of an entry.
 
 - **Type:** List
+- **Items:** <a href="#VersionedOccurrence/revisions[]">VersionedOccurrence/revisions[]</a>
 - **Minimum Items:** `1`
-
-##### Items
-
-- **Type:** <a href="#Revision">Revision</a>
 
 ---
 
-### <a name="Initial"></a> Initial
+### <a name="VersionedOccurrence/initial"></a> Initial (`VersionedOccurrence/initial`)
 
 The initial occurrence of the entry.
 
@@ -147,81 +160,98 @@ The initial occurrence of the entry.
 
 Key | Description | Details
 :-- | :-- | :--
-`printing?` | The publication's printing since which the entry is present. Leave empty if present since the beginning. | <a href="#Initial/printing">See details</a>
-`pages` | The initial page references. | <a href="#Initial/pages">See details</a>
+`printing?` | The publication's printing since which the entry is present. Leave empty if present since the beginning. | <a href="#VersionedOccurrence/initial/printing">See details</a>
+`pages` | The initial page references. | <a href="#VersionedOccurrence/initial/pages">See details</a>
 
-#### <a name="Initial/printing"></a> `printing?`
+#### <a name="VersionedOccurrence/initial/printing"></a> `printing?`
 
 The publication's printing since which the entry is present. Leave empty if present since the beginning.
 
 - **Type:** Integer
 - **Minimum:** `2`
 
-#### <a name="Initial/pages"></a> `pages`
+#### <a name="VersionedOccurrence/initial/pages"></a> `pages`
 
 The initial page references.
 
 - **Type:** List
+- **Items:** <a href="#VersionedOccurrence/initial/pages[]">VersionedOccurrence/initial/pages[]</a>
 - **Minimum Items:** `1`
 
-##### Items
+---
+
+### <a name="VersionedOccurrence/initial/pages[]"></a> `VersionedOccurrence/initial/pages[]`
 
 - **Type:** <a href="#PageRange">PageRange</a>
 
 ---
 
-### <a name="Revision"></a> Revision
+### <a name="VersionedOccurrence/revisions[]"></a> `VersionedOccurrence/revisions[]`
+
+- **Type:** <a href="#Revision">Revision</a>
+
+---
+
+### <a name="Revision"></a> Revision (`Revision`)
 
 A revision of the entry, resulting in either changed page references or re-addition or removal of an entry.
 
 - **Type:** Union
+- **Cases:** <a href="Revision'Since">Revision'Since</a> | <a href="Revision'Deprecated">Revision'Deprecated</a>
 
-#### Case: Since
+---
+
+### <a name="Revision'Since"></a> `Revision'Since`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Revision`0/tag">See details</a>
-`printing` | The publication's printing since which the entry is present again or has changed page references. | <a href="#Revision`0/printing">See details</a>
-`pages` | The changed or new page references. | <a href="#Revision`0/pages">See details</a>
+`tag` |  | <a href="#Revision'Since/tag">See details</a>
+`printing` | The publication's printing since which the entry is present again or has changed page references. | <a href="#Revision'Since/printing">See details</a>
+`pages` | The changed or new page references. | <a href="#Revision'Since/pages">See details</a>
 
-##### <a name="Revision`0/tag"></a> `tag`
+#### <a name="Revision'Since/tag"></a> `tag`
 
 - **Constant:** `"Since"`
 
-##### <a name="Revision`0/printing"></a> `printing`
+#### <a name="Revision'Since/printing"></a> `printing`
 
 The publication's printing since which the entry is present again or has changed page references.
 
 - **Type:** Integer
 - **Minimum:** `2`
 
-##### <a name="Revision`0/pages"></a> `pages`
+#### <a name="Revision'Since/pages"></a> `pages`
 
 The changed or new page references.
 
 - **Type:** List
+- **Items:** <a href="#Revision'Since/pages[]">Revision'Since/pages[]</a>
 - **Minimum Items:** `1`
 
-###### Items
+---
+
+### <a name="Revision'Since/pages[]"></a> `Revision'Since/pages[]`
 
 - **Type:** <a href="#PageRange">PageRange</a>
 
-#### Case: Deprecated
+---
+
+### <a name="Revision'Deprecated"></a> `Revision'Deprecated`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Revision`1/tag">See details</a>
-`printing` | The publication's printing since which the entry has been removed. | <a href="#Revision`1/printing">See details</a>
+`tag` |  | <a href="#Revision'Deprecated/tag">See details</a>
+`printing` | The publication's printing since which the entry has been removed. | <a href="#Revision'Deprecated/printing">See details</a>
 
-##### <a name="Revision`1/tag"></a> `tag`
+#### <a name="Revision'Deprecated/tag"></a> `tag`
 
 - **Constant:** `"Deprecated"`
 
-##### <a name="Revision`1/printing"></a> `printing`
+#### <a name="Revision'Deprecated/printing"></a> `printing`
 
 The publication's printing since which the entry has been removed.
 
@@ -230,7 +260,7 @@ The publication's printing since which the entry has been removed.
 
 ---
 
-### <a name="PageRange"></a> Page Range
+### <a name="PageRange"></a> Page Range (`PageRange`)
 
 - **Type:** Object
 
@@ -253,48 +283,55 @@ The last page where it occurs. If there is only one page, set this to the same a
 
 ---
 
-### <a name="Page"></a> Page
+### <a name="Page"></a> Page (`Page`)
 
 - **Type:** Union
+- **Cases:** <a href="Page'InsideCoverFront">Page'InsideCoverFront</a> | <a href="Page'InsideCoverBack">Page'InsideCoverBack</a> | <a href="Page'Numbered">Page'Numbered</a>
 
-#### Case: InsideCoverFront
+---
+
+### <a name="Page'InsideCoverFront"></a> `Page'InsideCoverFront`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Page`0/tag">See details</a>
+`tag` |  | <a href="#Page'InsideCoverFront/tag">See details</a>
 
-##### <a name="Page`0/tag"></a> `tag`
+#### <a name="Page'InsideCoverFront/tag"></a> `tag`
 
 - **Constant:** `"InsideCoverFront"`
 
-#### Case: InsideCoverBack
+---
+
+### <a name="Page'InsideCoverBack"></a> `Page'InsideCoverBack`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Page`1/tag">See details</a>
+`tag` |  | <a href="#Page'InsideCoverBack/tag">See details</a>
 
-##### <a name="Page`1/tag"></a> `tag`
+#### <a name="Page'InsideCoverBack/tag"></a> `tag`
 
 - **Constant:** `"InsideCoverBack"`
 
-#### Case: Numbered
+---
+
+### <a name="Page'Numbered"></a> `Page'Numbered`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Page`2/tag">See details</a>
-`number` | The page number. | <a href="#Page`2/number">See details</a>
+`tag` |  | <a href="#Page'Numbered/tag">See details</a>
+`number` | The page number. | <a href="#Page'Numbered/number">See details</a>
 
-##### <a name="Page`2/tag"></a> `tag`
+#### <a name="Page'Numbered/tag"></a> `tag`
 
 - **Constant:** `"Numbered"`
 
-##### <a name="Page`2/number"></a> `number`
+#### <a name="Page'Numbered/number"></a> `number`
 
 The page number.
 
