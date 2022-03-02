@@ -125,7 +125,7 @@ The skill points you get for buying the culture package.
 
 #### <a name="Culture/src"></a> `src`
 
-- **Type:** <a href="./_PublicationRef.md#PublicationRefs">PublicationRefs</a>
+- **Type:** <a href="./source/_PublicationRef.md#PublicationRefs">PublicationRefs</a>
 
 #### <a name="Culture/translations"></a> `translations`
 
@@ -243,7 +243,7 @@ The script's identifier.
 If the area knowledge has a fixed value or can be adjusted.
 
 - **Type:** Union
-- **Cases:** <a href="AreaKnowledge'Fixed">AreaKnowledge'Fixed</a> | <a href="AreaKnowledge'Adjustable">AreaKnowledge'Adjustable</a>
+- **Cases:** <a href="#AreaKnowledge'Fixed">AreaKnowledge'Fixed</a> | <a href="#AreaKnowledge'Adjustable">AreaKnowledge'Adjustable</a>
 
 ---
 
@@ -453,7 +453,7 @@ Some professions may be found in a culture, but are not that common.
 The "weight" difference compared to other variants. Some variants are simply more common (Mostly), but sometimes only specific variants are used (Only).
 
 - **Type:** Union
-- **Cases:** <a href="CommonProfessions/Grouped/Weight'Mostly">CommonProfessions/Grouped/Weight'Mostly</a> | <a href="CommonProfessions/Grouped/Weight'Only">CommonProfessions/Grouped/Weight'Only</a>
+- **Cases:** <a href="#CommonProfessions/Grouped/Weight'Mostly">CommonProfessions/Grouped/Weight'Mostly</a> | <a href="#CommonProfessions/Grouped/Weight'Only">CommonProfessions/Grouped/Weight'Only</a>
 
 ---
 
@@ -490,7 +490,7 @@ Key | Description | Details
 Some professions may be found in a culture, but are not that common.
 
 - **Type:** Union
-- **Cases:** <a href="CommonProfessions/Grouped/Rarity'Rare">CommonProfessions/Grouped/Rarity'Rare</a> | <a href="CommonProfessions/Grouped/Rarity'VeryRare">CommonProfessions/Grouped/Rarity'VeryRare</a>
+- **Cases:** <a href="#CommonProfessions/Grouped/Rarity'Rare">CommonProfessions/Grouped/Rarity'Rare</a> | <a href="#CommonProfessions/Grouped/Rarity'VeryRare">CommonProfessions/Grouped/Rarity'VeryRare</a>
 
 ---
 
@@ -527,7 +527,7 @@ Key | Description | Details
 Some professions may be found in a culture, but are not that common.
 
 - **Type:** Union
-- **Cases:** <a href="CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Profane">CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Profane</a> | <a href="CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Fighter">CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Fighter</a> | <a href="CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Religious">CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Religious</a>
+- **Cases:** <a href="#CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Profane">CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Profane</a> | <a href="#CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Fighter">CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Fighter</a> | <a href="#CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Religious">CommonProfessions/Grouped/Mundane/ProfessionSubgroup'Religious</a>
 
 ---
 
@@ -576,7 +576,7 @@ Key | Description | Details
 ### <a name="CommonProfessions/Grouped/Mundane/Constraint"></a> `CommonProfessions/Grouped/Mundane/Constraint`
 
 - **Type:** Union
-- **Cases:** <a href="CommonProfessions/Grouped/Mundane/Constraint'Profession">CommonProfessions/Grouped/Mundane/Constraint'Profession</a> | <a href="CommonProfessions/Grouped/Mundane/Constraint'ProfessionSubgroup">CommonProfessions/Grouped/Mundane/Constraint'ProfessionSubgroup</a>
+- **Cases:** <a href="#CommonProfessions/Grouped/Mundane/Constraint'Profession">CommonProfessions/Grouped/Mundane/Constraint'Profession</a> | <a href="#CommonProfessions/Grouped/Mundane/Constraint'ProfessionSubgroup">CommonProfessions/Grouped/Mundane/Constraint'ProfessionSubgroup</a>
 
 ---
 
@@ -610,7 +610,7 @@ Key | Description | Details
 This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints (include) or only the professions are kept that are different from the constraints (exclude).
 
 - **Type:** Union
-- **Cases:** <a href="CommonProfessions/Grouped/Mundane/Operation'Intersection">CommonProfessions/Grouped/Mundane/Operation'Intersection</a> | <a href="CommonProfessions/Grouped/Mundane/Operation'Difference">CommonProfessions/Grouped/Mundane/Operation'Difference</a>
+- **Cases:** <a href="#CommonProfessions/Grouped/Mundane/Operation'Intersection">CommonProfessions/Grouped/Mundane/Operation'Intersection</a> | <a href="#CommonProfessions/Grouped/Mundane/Operation'Difference">CommonProfessions/Grouped/Mundane/Operation'Difference</a>
 
 ---
 
@@ -711,7 +711,7 @@ The "weight" difference compared to other professions. Some professions are simp
 ### <a name="CommonProfessions/Grouped/Magic/Constraint"></a> `CommonProfessions/Grouped/Magic/Constraint`
 
 - **Type:** Union
-- **Cases:** <a href="CommonProfessions/Grouped/Magic/Constraint'Tradition">CommonProfessions/Grouped/Magic/Constraint'Tradition</a> | <a href="CommonProfessions/Grouped/Magic/Constraint'MagicDilettante">CommonProfessions/Grouped/Magic/Constraint'MagicDilettante</a> | <a href="CommonProfessions/Grouped/Magic/Constraint'Profession">CommonProfessions/Grouped/Magic/Constraint'Profession</a>
+- **Cases:** <a href="#CommonProfessions/Grouped/Magic/Constraint'Tradition">CommonProfessions/Grouped/Magic/Constraint'Tradition</a> | <a href="#CommonProfessions/Grouped/Magic/Constraint'MagicDilettante">CommonProfessions/Grouped/Magic/Constraint'MagicDilettante</a> | <a href="#CommonProfessions/Grouped/Magic/Constraint'Profession">CommonProfessions/Grouped/Magic/Constraint'Profession</a>
 
 ---
 
@@ -887,7 +887,7 @@ A list of professions. The filter specifies how the list is applied to all munda
 A list of professions that are typical for the culture, as well as professions that are rarely practiced or encountered in the culture. The list is either defined by group (as multiple lists) or plain (as a single list).
 
 - **Type:** Union
-- **Cases:** <a href="CommonProfessions/Config'T">CommonProfessions/Config'T</a> | <a href="CommonProfessions/Config'T">CommonProfessions/Config'T</a>
+- **Cases:** <a href="#CommonProfessions/Config'T">CommonProfessions/Config'T</a> | <a href="#CommonProfessions/Config'T">CommonProfessions/Config'T</a>
 
 ---
 
@@ -1010,7 +1010,7 @@ Structured description of common names.
 
 #### <a name="Translation/errata"></a> `errata?`
 
-- **Type:** <a href="./_Erratum.md#Errata">Errata</a>
+- **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
 
 ---
 
@@ -1134,7 +1134,7 @@ The group label.
 
 The binary sex if the group is only for a certain binary sex.
 
-- **Type:** <a href="./_Sex.md#Sex">Sex</a>
+- **Type:** <a href="./_Sex.md#BinarySex">BinarySex</a>
 
 #### <a name="NameGroup/names"></a> `names`
 

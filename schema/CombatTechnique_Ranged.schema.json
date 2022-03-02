@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "CombatTechnique_Ranged.schema.json",
+  "$ref": "#/definitions/RangedCombatTechnique",
+  "definitions": {
+    "RangedCombatTechnique": {
+      "title": "Ranged Combat Technique",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The ranged combat technique's identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "primary_attribute": {
+          "description": "The primary attribute(s).",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PrimaryAttribute"
+          },
+          "minItems": 1,
+          "maxItems": 2,
+          "uniqueItems": true
+        },
+        "breaking_point_rating": {
+          "description": "The *Breaking Point Rating* of the respective combat technique.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "improvement_cost": {
+          "$ref": "./_ImprovementCost.schema.json#/definitions/ImprovementCost"
+        },
+        "src": {
+          "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "The name of the condition.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "special": {
+                  "description": "Additional rules for the condition, if applicable.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "errata": {
+                  "$ref": "./source/_Erratum.schema.json#/definitions/Errata"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "primary_attribute",
+        "breaking_point_rating",
+        "improvement_cost",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "PrimaryAttribute": {
+      "description": "The attribute's identifier.",
+      "type": "integer",
+      "minimum": 1
+    }
+  }
+}

@@ -8,12 +8,12 @@
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | An unique, increasing integer. | <a href="#Attribute/id">See details</a>
+`id` | The attribute's identifier. An unique, increasing integer. | <a href="#Attribute/id">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Attribute/translations">See details</a>
 
 #### <a name="Attribute/id"></a> `id`
 
-An unique, increasing integer.
+The attribute's identifier. An unique, increasing integer.
 
 - **Type:** Integer
 - **Minimum:** `1`
@@ -31,35 +31,29 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Attribute/translations[key]"></a> `Attribute/translations[key]`
 
-- **Type:** <a href="#Translation">Translation</a>
-
----
-
-### <a name="Translation"></a> `Translation`
-
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the attribute. | <a href="#Translation/name">See details</a>
-`abbreviation` | The abbreviation of the attribute's name. | <a href="#Translation/abbreviation">See details</a>
-`description` | The description of the attribute. | <a href="#Translation/description">See details</a>
+`name` | The attribute's name. | <a href="#Attribute/translations[key]/name">See details</a>
+`abbreviation` | The abbreviation of the attribute's name. | <a href="#Attribute/translations[key]/abbreviation">See details</a>
+`description` | The description of the attribute. | <a href="#Attribute/translations[key]/description">See details</a>
 
-#### <a name="Translation/name"></a> `name`
+#### <a name="Attribute/translations[key]/name"></a> `name`
 
-The name of the attribute.
+The attribute's name.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
-#### <a name="Translation/abbreviation"></a> `abbreviation`
+#### <a name="Attribute/translations[key]/abbreviation"></a> `abbreviation`
 
 The abbreviation of the attribute's name.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
-#### <a name="Translation/description"></a> `description`
+#### <a name="Attribute/translations[key]/description"></a> `description`
 
 The description of the attribute.
 

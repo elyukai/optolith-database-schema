@@ -22,11 +22,11 @@ An unique, increasing integer.
 
 #### <a name="DerivedCharacteristic/prerequisites"></a> `prerequisites?`
 
-- **Type:** <a href="#GroupCollection/DerivedCharacteristic">GroupCollection/DerivedCharacteristic</a>
+- **Type:** <a href="./_Prerequisite.md#GroupCollection/DerivedCharacteristic">GroupCollection/DerivedCharacteristic</a>
 
 #### <a name="DerivedCharacteristic/src"></a> `src`
 
-- **Type:** <a href="./_PublicationRef.md#PublicationRefs">PublicationRefs</a>
+- **Type:** <a href="./source/_PublicationRef.md#PublicationRefs">PublicationRefs</a>
 
 #### <a name="DerivedCharacteristic/translations"></a> `translations`
 

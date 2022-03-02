@@ -1,0 +1,167 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "magicalActions/ElvenMagicalSong.schema.json",
+  "$ref": "#/definitions/ElvenMagicalSong",
+  "definitions": {
+    "ElvenMagicalSong": {
+      "title": "Elven Magical Song",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The elven magical song's identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "check": {
+          "description": "Lists the linked three attributes used to make a skill check.",
+          "$ref": "../_SkillCheck.schema.json#/definitions/SkillCheck"
+        },
+        "check_penalty": {
+          "description": "In some cases, the target's Spirit or Toughness is applied as a penalty.",
+          "$ref": "../_SkillCheck.schema.json#/definitions/SkillCheckPenalty"
+        },
+        "skill": {
+          "description": "To enhance their songs, elves can make a check on either *Singing (Two-Voiced Singing)* or *Music (appropriate application)* before making the check for the song.",
+          "type": "array",
+          "items": {
+            "$ref": "./_SkillReference.schema.json#/definitions/SkillReference"
+          },
+          "minItems": 1,
+          "maxItems": 2,
+          "uniqueItems": true
+        },
+        "parameters": {
+          "description": "Measurable parameters of an elven magical song.",
+          "$ref": "#/definitions/PerformanceParameters"
+        },
+        "property_id": {
+          "description": "The property's identifier.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "improvement_cost": {
+          "description": "States which column is used to improve the skill.",
+          "$ref": "../_ImprovementCost.schema.json#/definitions/ImprovementCost"
+        },
+        "src": {
+          "$ref": "../source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "The name of the elven magical song.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "effect": {
+                  "description": "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
+                  "$ref": "../_ActivatableSkill.schema.json#/definitions/Effect/T"
+                },
+                "cost": {
+                  "type": "object",
+                  "properties": {
+                    "full": {
+                      "type": "string"
+                    },
+                    "abbr": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "full",
+                    "abbr"
+                  ],
+                  "additionalProperties": false
+                },
+                "errata": {
+                  "$ref": "../source/_Erratum.schema.json#/definitions/Errata"
+                }
+              },
+              "required": [
+                "name",
+                "effect",
+                "cost"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "check",
+        "skill",
+        "parameters",
+        "property_id",
+        "improvement_cost",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "PerformanceParameters": {
+      "description": "Measurable parameters of an elven magical song.",
+      "type": "object",
+      "properties": {
+        "cost": {
+          "description": "The AE cost.",
+          "type": "object",
+          "properties": {
+            "temporary": {
+              "description": "The (temporary) AE cost value.",
+              "type": "integer",
+              "minimum": 1
+            },
+            "interval": {
+              "description": "Specified if the AE cost `value` have to paid for each time interval.",
+              "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/UnitValue"
+            },
+            "permanent": {
+              "description": "A permanent AE cost, independent from a possible interval.",
+              "type": "integer",
+              "minimum": 1
+            },
+            "translations": {
+              "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+              "type": "object",
+              "patternProperties": {
+                "^[a-z]{2}-[A-Z]{2}$": {
+                  "type": "object",
+                  "properties": {
+                    "permanent": {
+                      "description": "A replacement string for the permanent cost. It must contain `$1`, which is going to be replaced with the generated permanent cost string, so additional information can be provided without duplicating concrete numeric values.",
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "\\$1"
+                    }
+                  },
+                  "required": [
+                    "permanent"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "minProperties": 1,
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "temporary"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "cost"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

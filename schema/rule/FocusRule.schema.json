@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "rule/FocusRule.schema.json",
+  "$ref": "#/definitions/FocusRule",
+  "definitions": {
+    "FocusRule": {
+      "title": "Focus Rule",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The focus rule's identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "subject_id": {
+          "description": "The focus rule's subject's identifier.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "level": {
+          "description": "The focus rule's level.",
+          "type": "integer",
+          "maximum": 4,
+          "minimum": 1
+        },
+        "src": {
+          "$ref": "../source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "The name of the focus rule.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "description": {
+                  "description": "The description of the focus rule.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "errata": {
+                  "$ref": "../source/_Erratum.schema.json#/definitions/Errata"
+                }
+              },
+              "required": [
+                "name",
+                "description"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "subject_id",
+        "level",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

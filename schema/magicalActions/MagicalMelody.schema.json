@@ -1,0 +1,254 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "magicalActions/MagicalMelody.schema.json",
+  "$ref": "#/definitions/MagicalMelody",
+  "definitions": {
+    "MagicalMelody": {
+      "title": "Magical Melody",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The magical melody's identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "check": {
+          "description": "Lists the linked three attributes used to make a skill check.",
+          "$ref": "../_SkillCheck.schema.json#/definitions/SkillCheck"
+        },
+        "check_penalty": {
+          "description": "In some cases, the target's Spirit or Toughness is applied as a penalty.",
+          "$ref": "../_SkillCheck.schema.json#/definitions/SkillCheckPenalty"
+        },
+        "skill": {
+          "description": "Arcane bards must make a *Singing (area of application)* or *Music (area of application)* check for each magical melody.",
+          "type": "array",
+          "items": {
+            "$ref": "./_SkillReference.schema.json#/definitions/SkillReference"
+          },
+          "minItems": 1,
+          "maxItems": 2,
+          "uniqueItems": true
+        },
+        "parameters": {
+          "description": "Measurable parameters of a magical melody.",
+          "$ref": "#/definitions/PerformanceParameters"
+        },
+        "property_id": {
+          "description": "The property's identifier.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "music_tradition": {
+          "description": "The music tradition(s) the magical melody is available for. This also defines the different names in each music tradition.",
+          "type": "array",
+          "items": {
+            "$ref": "./_MusicTradition.schema.json#/definitions/MusicTraditionReference"
+          },
+          "minItems": 1
+        },
+        "improvement_cost": {
+          "description": "States which column is used to improve the skill.",
+          "$ref": "../_ImprovementCost.schema.json#/definitions/ImprovementCost"
+        },
+        "src": {
+          "$ref": "../source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "The name of the magical melody.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "effect": {
+                  "description": "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
+                  "$ref": "../_ActivatableSkill.schema.json#/definitions/Effect/T"
+                },
+                "duration": {
+                  "type": "object",
+                  "properties": {
+                    "full": {
+                      "type": "string"
+                    },
+                    "abbr": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "full",
+                    "abbr"
+                  ],
+                  "additionalProperties": false
+                },
+                "cost": {
+                  "type": "object",
+                  "properties": {
+                    "full": {
+                      "type": "string"
+                    },
+                    "abbr": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "full",
+                    "abbr"
+                  ],
+                  "additionalProperties": false
+                },
+                "errata": {
+                  "$ref": "../source/_Erratum.schema.json#/definitions/Errata"
+                }
+              },
+              "required": [
+                "name",
+                "effect",
+                "duration",
+                "cost"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "check",
+        "skill",
+        "parameters",
+        "property_id",
+        "music_tradition",
+        "improvement_cost",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "PerformanceParameters": {
+      "description": "Measurable parameters of a magical melody.",
+      "type": "object",
+      "properties": {
+        "duration": {
+          "type": "object",
+          "properties": {
+            "length": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tag": {
+                      "const": "Long"
+                    }
+                  },
+                  "required": [
+                    "tag"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "tag": {
+                      "const": "Short"
+                    }
+                  },
+                  "required": [
+                    "tag"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            "reusability": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tag": {
+                      "const": "OneTime"
+                    }
+                  },
+                  "required": [
+                    "tag"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "tag": {
+                      "const": "Sustainable"
+                    }
+                  },
+                  "required": [
+                    "tag"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "required": [
+            "length",
+            "reusability"
+          ],
+          "additionalProperties": false
+        },
+        "cost": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Flat"
+                },
+                "temporary": {
+                  "description": "The (temporary) AE cost value.",
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "tag",
+                "temporary"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "FirstPerson"
+                },
+                "temporary": {
+                  "description": "The (temporary) AE cost value for the first targeted person. The AE cost for each additional person is half this value.",
+                  "type": "integer",
+                  "minimum": 1,
+                  "multipleOf": 2
+                }
+              },
+              "required": [
+                "tag",
+                "temporary"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "required": [
+        "duration",
+        "cost"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

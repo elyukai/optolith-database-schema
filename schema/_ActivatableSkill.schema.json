@@ -1,0 +1,1307 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "_ActivatableSkill.schema.json",
+  "definitions": {
+    "Effect": {
+      "T": {
+        "description": "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "Plain"
+              },
+              "text": {
+                "description": "The effect description.",
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "tag",
+              "text"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "ForEachQualityLevel"
+              },
+              "text_before": {
+                "description": "The effect description before the list of effects for each quality level.",
+                "type": "string",
+                "minLength": 1
+              },
+              "quality_levels": {
+                "description": "The list of effects for each quality level.",
+                "type": "array",
+                "items": [
+                  {
+                    "$ref": "#/definitions/Effect/QualityLevel1"
+                  },
+                  {
+                    "$ref": "#/definitions/Effect/QualityLevel2"
+                  },
+                  {
+                    "$ref": "#/definitions/Effect/QualityLevel3"
+                  },
+                  {
+                    "$ref": "#/definitions/Effect/QualityLevel4"
+                  },
+                  {
+                    "$ref": "#/definitions/Effect/QualityLevel5"
+                  },
+                  {
+                    "$ref": "#/definitions/Effect/QualityLevel6"
+                  }
+                ],
+                "minItems": 6,
+                "maxItems": 6,
+                "additionalItems": false
+              },
+              "text_after": {
+                "description": "The effect description after the list of effects for each quality level.",
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "tag",
+              "text_before",
+              "quality_levels"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "ForEachTwoQualityLevels"
+              },
+              "text_before": {
+                "description": "The effect description before the list of effects for each quality level.",
+                "type": "string",
+                "minLength": 1
+              },
+              "quality_levels": {
+                "description": "The list of effects for each two quality levels.",
+                "type": "array",
+                "items": [
+                  {
+                    "$ref": "#/definitions/Effect/QualityLevel1To2"
+                  },
+                  {
+                    "$ref": "#/definitions/Effect/QualityLevel3To4"
+                  },
+                  {
+                    "$ref": "#/definitions/Effect/QualityLevel5To6"
+                  }
+                ],
+                "minItems": 3,
+                "maxItems": 3,
+                "additionalItems": false
+              },
+              "text_after": {
+                "description": "The effect description after the list of effects for each quality level.",
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "tag",
+              "text_before",
+              "quality_levels"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "QualityLevel1": {
+        "description": "Effect at QL 1.",
+        "type": "string",
+        "minLength": 1
+      },
+      "QualityLevel2": {
+        "description": "Effect at QL 2.",
+        "type": "string",
+        "minLength": 1
+      },
+      "QualityLevel3": {
+        "description": "Effect at QL 3.",
+        "type": "string",
+        "minLength": 1
+      },
+      "QualityLevel4": {
+        "description": "Effect at QL 4.",
+        "type": "string",
+        "minLength": 1
+      },
+      "QualityLevel5": {
+        "description": "Effect at QL 5.",
+        "type": "string",
+        "minLength": 1
+      },
+      "QualityLevel6": {
+        "description": "Effect at QL 6.",
+        "type": "string",
+        "minLength": 1
+      },
+      "QualityLevel1To2": {
+        "description": "Effect at QL 1–2.",
+        "type": "string",
+        "minLength": 1
+      },
+      "QualityLevel3To4": {
+        "description": "Effect at QL 3–4.",
+        "type": "string",
+        "minLength": 1
+      },
+      "QualityLevel5To6": {
+        "description": "Effect at QL 5–6.",
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "PerformanceParameters": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "OneTime"
+            },
+            "casting_time": {
+              "$ref": "#/definitions/CastingTime/T"
+            },
+            "cost": {
+              "$ref": "#/definitions/Cost/OneTime/T"
+            },
+            "range": {
+              "$ref": "#/definitions/Range/T"
+            },
+            "duration": {
+              "$ref": "#/definitions/Duration/OneTime/T"
+            }
+          },
+          "required": [
+            "tag",
+            "casting_time",
+            "cost",
+            "range",
+            "duration"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Sustained"
+            },
+            "casting_time": {
+              "$ref": "#/definitions/CastingTime/T"
+            },
+            "cost": {
+              "$ref": "#/definitions/Cost/Sustained/T"
+            },
+            "range": {
+              "$ref": "#/definitions/Range/T"
+            },
+            "duration": {
+              "$ref": "#/definitions/Duration/Sustained/T"
+            }
+          },
+          "required": [
+            "tag",
+            "casting_time",
+            "cost",
+            "range",
+            "duration"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "CastingTime": {
+      "T": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/CastingTime/DefaultCastingTime"
+          },
+          {
+            "$ref": "#/definitions/CastingTime/AventurianIntimacyCastingTime"
+          }
+        ]
+      },
+      "DefaultCastingTime": {
+        "description": "The default casting time definition.",
+        "type": "object",
+        "properties": {
+          "tag": {
+            "const": "Default"
+          },
+          "modification_id": {
+            "description": "The skill modification increment identifier/level.",
+            "type": "integer",
+            "maximum": 6,
+            "minimum": 1
+          },
+          "is_modifiable": {
+            "description": "Is the casting time modifiable?",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "tag",
+          "modification_id",
+          "is_modifiable"
+        ],
+        "additionalProperties": false
+      },
+      "AventurianIntimacyCastingTime": {
+        "description": "In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking.",
+        "type": "object",
+        "properties": {
+          "tag": {
+            "const": "Intimacy"
+          },
+          "before_lovemaking": {
+            "description": "The casting time before lovemaking (the normal casting time).",
+            "$ref": "#/definitions/CastingTime/CastingTimeBeforeLovemaking"
+          },
+          "during_lovemaking": {
+            "description": "The casting time during lovemaking.",
+            "$ref": "#/definitions/CastingTime/CastingTimeDuringLovemaking"
+          }
+        },
+        "required": [
+          "tag",
+          "before_lovemaking",
+          "during_lovemaking"
+        ],
+        "additionalProperties": false
+      },
+      "CastingTimeBeforeLovemaking": {
+        "description": "The casting time before lovemaking (the normal casting time).",
+        "type": "object",
+        "properties": {
+          "modification_id": {
+            "description": "The skill modification increment identifier/level.",
+            "type": "integer",
+            "maximum": 6,
+            "minimum": 1
+          },
+          "is_modifiable": {
+            "description": "Is the casting time modifiable?",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "modification_id",
+          "is_modifiable"
+        ],
+        "additionalProperties": false
+      },
+      "CastingTimeDuringLovemaking": {
+        "description": "The casting time during lovemaking.",
+        "type": "object",
+        "properties": {
+          "value": {
+            "description": "The (unitless) duration value.",
+            "type": "integer",
+            "minimum": 1
+          },
+          "unit": {
+            "description": "The unit of the `value`.",
+            "$ref": "#/definitions/CastingTime/CastingTimeDuringLovemakingUnit"
+          }
+        },
+        "required": [
+          "value",
+          "unit"
+        ],
+        "additionalProperties": false
+      },
+      "CastingTimeDuringLovemakingUnit": {
+        "enum": [
+          "SeductionActions",
+          "Rounds"
+        ]
+      }
+    },
+    "Cost": {
+      "Minimum": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/Cost/RelativeMinimum"
+          },
+          {
+            "$ref": "#/definitions/Cost/AbsoluteMinimum"
+          }
+        ]
+      },
+      "RelativeMinimum": {
+        "description": "The cost `value` represents a minimum value, so that the minimum value itself may be modified by other cost display modifiers. E.g., it may be rendered as `at least 1 AE per person`.",
+        "type": "object",
+        "properties": {
+          "tag": {
+            "const": "Relative"
+          }
+        },
+        "required": [
+          "tag"
+        ],
+        "additionalProperties": false
+      },
+      "AbsoluteMinimum": {
+        "description": "There is an absolute minimum value that is not influenced by other cost modifications. E.g., it may be rendered as `1 AE per person, at least 4 AE`.",
+        "type": "object",
+        "properties": {
+          "tag": {
+            "const": "Absolute"
+          },
+          "value": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "tag",
+          "value"
+        ],
+        "additionalProperties": false
+      },
+      "OneTime": {
+        "T": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Single"
+                },
+                "value": {
+                  "$ref": "#/definitions/Cost/OneTime/Single"
+                }
+              },
+              "required": [
+                "tag",
+                "value"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Conjunction"
+                },
+                "list": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Cost/OneTime/Single"
+                  },
+                  "minItems": 2
+                }
+              },
+              "required": [
+                "tag",
+                "list"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Disjunction"
+                },
+                "list": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Cost/OneTime/Single"
+                  },
+                  "minItems": 2
+                }
+              },
+              "required": [
+                "tag",
+                "list"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Map"
+                },
+                "map": {
+                  "$ref": "#/definitions/Cost/OneTime/Map"
+                }
+              },
+              "required": [
+                "tag",
+                "map"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "Single": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Modifiable"
+                },
+                "modification_id": {
+                  "description": "The skill modification increment identifier/level.",
+                  "type": "integer",
+                  "maximum": 6,
+                  "minimum": 1
+                },
+                "permanent": {
+                  "description": "The part of the cost value that has to be spent permanently.",
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "tag",
+                "modification_id"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "NonModifiable"
+                },
+                "minimum": {
+                  "description": "A minimum cost value. It may be rendered relative to the actual cost `value` or may be an absolute value, not affected by other modifications of this cost value.",
+                  "$ref": "#/definitions/Cost/Minimum"
+                },
+                "value": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "permanent": {
+                  "description": "The part of the cost value that has to be spent permanently.",
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "translations": {
+                  "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                  "type": "object",
+                  "patternProperties": {
+                    "^[a-z]{2}-[A-Z]{2}$": {
+                      "type": "object",
+                      "properties": {
+                        "per": {
+                          "description": "The cost have to be per a specific countable entity, e.g. `8 KP per person`",
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "note": {
+                          "description": "A note, appended to the generated string in parenthesis.",
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [],
+                      "minProperties": 1,
+                      "additionalProperties": false
+                    }
+                  },
+                  "minProperties": 1,
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "tag",
+                "value"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Indefinite"
+                },
+                "translations": {
+                  "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                  "type": "object",
+                  "patternProperties": {
+                    "^[a-z]{2}-[A-Z]{2}$": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "description": "A description of where the cost come from.",
+                          "type": "object",
+                          "properties": {
+                            "default": {
+                              "description": "The full description of where the cost come from.",
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "compressed": {
+                              "description": "A compressed description of where the cost come from for use in small areas (e.g. on character sheet).",
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "default",
+                            "compressed"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "description"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "minProperties": 1,
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "tag",
+                "translations"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "Map": {
+          "description": "A content that is `2/4/8/16 AE for an item the size of a cup/chest/door/castle gate` may be respresented as the following map:\n\n```yaml options:   - value: 2     label: \"cup\"   - value: 4     label: \"chest\"   - value: 8     label: \"door\"   - value: 16     label: \"castle gate\" for_append: \"an item the size of a\" ```\n\nThis will generate the exact same string as seen above – given it is set for a spellwork and thus `AE` is used.",
+          "type": "object",
+          "properties": {
+            "options": {
+              "description": "The possible costs and associated labels.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Cost/OneTime/MapOption"
+              },
+              "minItems": 2
+            },
+            "for_append": {
+              "description": "Place a string between the `for` and the grouped map option labels.",
+              "type": "string"
+            },
+            "replacement": {
+              "description": "If the string from the book cannot be generated using the default generation technique, use this string. All options still need to be inserted propertly, since it may be used by in-game tools to provide a selection to players.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "options"
+          ],
+          "additionalProperties": false
+        },
+        "MapOption": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "description": "The full cost value for this option.",
+              "type": "integer",
+              "minimum": 1
+            },
+            "permanent": {
+              "description": "The part of the `value` that has to be paid permanently.",
+              "type": "integer",
+              "minimum": 0
+            },
+            "label": {
+              "description": "The description of the option.",
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "value",
+            "label"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "Sustained": {
+        "T": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Modifiable"
+                },
+                "modification_id": {
+                  "description": "The skill modification increment identifier/level.",
+                  "type": "integer",
+                  "maximum": 6,
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "tag",
+                "modification_id"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "NonModifiable"
+                },
+                "minimum": {
+                  "description": "A minimum cost value. It may be rendered relative to the actual cost `value` and cost interval or may be an absolute value, affecting the sum of the initial cost and the cost per interval.",
+                  "$ref": "#/definitions/Cost/Minimum"
+                },
+                "value": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "tag",
+                "value"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
+      }
+    },
+    "Range": {
+      "T": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/definitions/Range/RangeValue"
+          },
+          "translations": {
+            "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+            "type": "object",
+            "patternProperties": {
+              "^[a-z]{2}-[A-Z]{2}$": {
+                "type": "object",
+                "properties": {
+                  "note": {
+                    "description": "A note, appended to the generated string in parenthesis.",
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "note"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "minProperties": 1,
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "value"
+        ],
+        "additionalProperties": false
+      },
+      "RangeValue": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "Modifiable"
+              },
+              "modification_id": {
+                "description": "The skill modification increment identifier/level.",
+                "type": "integer",
+                "maximum": 6,
+                "minimum": 1
+              },
+              "is_modifiable": {
+                "description": "Is the casting time modifiable?",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "tag",
+              "modification_id",
+              "is_modifiable"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "Sight"
+              }
+            },
+            "required": [
+              "tag"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "Self"
+              }
+            },
+            "required": [
+              "tag"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "description": "German: *dereumfassend*",
+                "const": "Global"
+              }
+            },
+            "required": [
+              "tag"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "Constant"
+              },
+              "value": {
+                "description": "The (unitless) range value.",
+                "type": "integer",
+                "minimum": 1
+              },
+              "unit": {
+                "description": "The unit of the `value`.",
+                "$ref": "#/definitions/Range/Unit"
+              }
+            },
+            "required": [
+              "tag",
+              "value",
+              "unit"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "MultipliedQualityLevel"
+              },
+              "multiplier": {
+                "description": "The value that multiplies the quality level to form the final (unitless) range value.",
+                "type": "integer",
+                "minimum": 1
+              },
+              "unit": {
+                "description": "The unit of the value resulting from multiplying the quality level with the `multiplier`.",
+                "$ref": "#/definitions/Range/Unit"
+              }
+            },
+            "required": [
+              "tag",
+              "multiplier",
+              "unit"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "Unit": {
+        "enum": [
+          "Steps",
+          "Miles"
+        ]
+      }
+    },
+    "Duration": {
+      "OneTime": {
+        "T": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Immediate"
+                },
+                "maximum": {
+                  "description": "Specified if the duration has a maximum time span.",
+                  "$ref": "#/definitions/Duration/UnitValue"
+                },
+                "translations": {
+                  "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                  "type": "object",
+                  "patternProperties": {
+                    "^[a-z]{2}-[A-Z]{2}$": {
+                      "type": "object",
+                      "properties": {
+                        "replacement": {
+                          "description": "A replacement string.",
+                          "type": "object",
+                          "properties": {
+                            "default": {
+                              "description": "The full replacement string. It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.",
+                              "type": "string",
+                              "minLength": 1,
+                              "pattern": "\\$1"
+                            },
+                            "compressed": {
+                              "description": "A compressed replacement string for use in small areas (e.g. on character sheet). It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.",
+                              "type": "string",
+                              "minLength": 1,
+                              "pattern": "\\$1"
+                            }
+                          },
+                          "required": [
+                            "default",
+                            "compressed"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "replacement"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "minProperties": 1,
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Permanent"
+                },
+                "translations": {
+                  "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                  "type": "object",
+                  "patternProperties": {
+                    "^[a-z]{2}-[A-Z]{2}$": {
+                      "type": "object",
+                      "properties": {
+                        "replacement": {
+                          "description": "A replacement string.",
+                          "type": "object",
+                          "properties": {
+                            "default": {
+                              "description": "The full replacement string. It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.",
+                              "type": "string",
+                              "minLength": 1,
+                              "pattern": "\\$1"
+                            },
+                            "compressed": {
+                              "description": "A compressed replacement string for use in small areas (e.g. on character sheet). It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.",
+                              "type": "string",
+                              "minLength": 1,
+                              "pattern": "\\$1"
+                            }
+                          },
+                          "required": [
+                            "default",
+                            "compressed"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "replacement"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "minProperties": 1,
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Numeric"
+                },
+                "value": {
+                  "description": "The duration value. If `check_result` is defined and this is `1`, it is used as the unit for the value derived from the check result in rendered text output.",
+                  "$ref": "#/definitions/Duration/UnitValue"
+                },
+                "check_result": {
+                  "description": "If defined, the check result affects the duration in the defined way.",
+                  "$ref": "#/definitions/Duration/CheckResult"
+                },
+                "is_maximum": {
+                  "description": "Is the duration indefinite, but has a maximum time span?",
+                  "type": "boolean"
+                },
+                "translations": {
+                  "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                  "type": "object",
+                  "patternProperties": {
+                    "^[a-z]{2}-[A-Z]{2}$": {
+                      "type": "object",
+                      "properties": {
+                        "replacement": {
+                          "description": "A replacement string.",
+                          "type": "object",
+                          "properties": {
+                            "default": {
+                              "description": "The full replacement string. It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.",
+                              "type": "string",
+                              "minLength": 1,
+                              "pattern": "\\$1"
+                            },
+                            "compressed": {
+                              "description": "A compressed replacement string for use in small areas (e.g. on character sheet). It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.",
+                              "type": "string",
+                              "minLength": 1,
+                              "pattern": "\\$1"
+                            }
+                          },
+                          "required": [
+                            "default",
+                            "compressed"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "replacement"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "minProperties": 1,
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "tag",
+                "value"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Indefinite"
+                },
+                "translations": {
+                  "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                  "type": "object",
+                  "patternProperties": {
+                    "^[a-z]{2}-[A-Z]{2}$": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "description": "A description of the duration.",
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "description"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "minProperties": 1,
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "tag",
+                "translations"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "CheckResult": {
+        "description": "Defines how the check result affects the duration in the defined way.",
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/definitions/Duration/CheckResultValue"
+          },
+          "arithmetic": {
+            "$ref": "#/definitions/Duration/CheckResultArithmetic"
+          }
+        },
+        "required": [
+          "value",
+          "arithmetic"
+        ],
+        "additionalProperties": false
+      },
+      "CheckResultValue": {
+        "description": "Defines the derived (unitless) value.",
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "QualityLevels"
+              }
+            },
+            "required": [
+              "tag"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "SkillPoints"
+              }
+            },
+            "required": [
+              "tag"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "CheckResultArithmetic": {
+        "description": "Defines how the the `value` is set off against the check result.",
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "Multiply"
+              }
+            },
+            "required": [
+              "tag"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "Divide"
+              }
+            },
+            "required": [
+              "tag"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "Sustained": {
+        "T": {
+          "type": "object",
+          "properties": {
+            "interval": {
+              "description": "The interval.",
+              "$ref": "#/definitions/Duration/UnitValue"
+            },
+            "maximum": {
+              "description": "Specified if the sustained skill can be active a maximum amount of time.",
+              "$ref": "#/definitions/Duration/UnitValue"
+            }
+          },
+          "required": [
+            "interval"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "Unit": {
+        "enum": [
+          "Seconds",
+          "Minutes",
+          "Hours",
+          "Days",
+          "Weeks",
+          "Months",
+          "Years",
+          "CombatRounds"
+        ]
+      },
+      "UnitValue": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "description": "The (unitless) duration value.",
+            "type": "integer",
+            "minimum": 1
+          },
+          "unit": {
+            "description": "The unit of the `value`.",
+            "$ref": "#/definitions/Duration/Unit"
+          }
+        },
+        "required": [
+          "value",
+          "unit"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "TargetCategory": {
+      "T": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "All"
+              }
+            },
+            "required": [
+              "tag"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "Specific"
+              },
+              "list": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "$ref": "#/definitions/TargetCategory/Identifier"
+                    },
+                    "translations": {
+                      "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                      "type": "object",
+                      "patternProperties": {
+                        "^[a-z]{2}-[A-Z]{2}$": {
+                          "type": "object",
+                          "properties": {
+                            "note": {
+                              "description": "A note, appended to the generated string in parenthesis.",
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "note"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "minProperties": 1,
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "tag",
+              "list"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "Identifier": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "Self"
+              }
+            },
+            "required": [
+              "tag"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "Zone"
+              }
+            },
+            "required": [
+              "tag"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "LiturgicalChantsAndCeremonies"
+              }
+            },
+            "required": [
+              "tag"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "Predefined"
+              },
+              "id": {
+                "description": "The target category reference identifier.",
+                "type": "integer",
+                "maximum": 24,
+                "minimum": 1
+              }
+            },
+            "required": [
+              "tag",
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  }
+}

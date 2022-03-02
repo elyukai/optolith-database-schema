@@ -1,0 +1,278 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "Skill.schema.json",
+  "$ref": "#/definitions/Skill",
+  "definitions": {
+    "Skill": {
+      "title": "Skill",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The skill's identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "check": {
+          "description": "Lists the linked three attributes used to make a skill check.",
+          "$ref": "./_SkillCheck.schema.json#/definitions/SkillCheck"
+        },
+        "applications": {
+          "description": "Lists applications for the skill, if any. This does not necessarily include all possible applications. There may also be new applications that could be purchased via certain advantages or special abilities.",
+          "$ref": "#/definitions/Applications"
+        },
+        "encumbrance": {
+          "description": "Indicates whether encumbrance gives a penalty for checks with the skill.",
+          "$ref": "#/definitions/Encumbrance"
+        },
+        "improvement_cost": {
+          "description": "States which column is used to improve the skill.",
+          "$ref": "./_ImprovementCost.schema.json#/definitions/ImprovementCost"
+        },
+        "group_id": {
+          "description": "The identifier of the skill group this skill belongs to.",
+          "type": "number"
+        },
+        "src": {
+          "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "The name of the skill.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "applications_input_label": {
+                  "description": "If there are options available that can not be put into a selection list (like different cults), provide the label text for the input element here. Otherwise leave empty.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "encumbrance_description": {
+                  "description": "The text listing the certain circumstances in which the encumbrance may count. This text must be used if `encumbrance` is set to `\"Maybe\"`, otherwise it is ignored if defined.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "tools": {
+                  "description": "Mentions any tools from the equipment list that are necessary to employ the skill.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "quality": {
+                  "description": "Gives examples of the effects that various QL might provide.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "failed": {
+                  "description": "Lists examples of results for a failed check.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "critical": {
+                  "description": "Lists examples of results for a critical success.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "botch": {
+                  "description": "Lists examples of results for botches.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "errata": {
+                  "$ref": "./source/_Erratum.schema.json#/definitions/Errata"
+                }
+              },
+              "required": [
+                "name",
+                "quality",
+                "failed",
+                "critical",
+                "botch"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "check",
+        "applications",
+        "encumbrance",
+        "improvement_cost",
+        "group_id",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "ApplicationCategory": {
+      "description": "A category. All available entries from the specified category will be included as separate applications.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "BlessedTraditions"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Diseases"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Regions"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "Applications": {
+      "description": "The skill's applications.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Derived"
+            },
+            "category": {
+              "description": "A category. All available entries from the specified category will be included as separate applications.",
+              "$ref": "#/definitions/ApplicationCategory"
+            }
+          },
+          "required": [
+            "tag",
+            "category"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Explicit"
+            },
+            "list": {
+              "description": "A list of explicit applications.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Application"
+              }
+            }
+          },
+          "required": [
+            "tag",
+            "list"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "Application": {
+      "description": "An explicit skill application.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The skill application's identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "The skill application's name.",
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "Encumbrance": {
+      "description": "Indicates whether encumbrance gives a penalty for checks with the skill.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "True"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "False"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Maybe"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}

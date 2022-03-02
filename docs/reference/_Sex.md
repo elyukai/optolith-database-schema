@@ -1,36 +1,36 @@
-# Sex
+# Binary Sex
 
 ## Definitions
 
-### <a name="Sex"></a> Sex (`Sex`)
+### <a name="BinarySex"></a> Binary Sex (`BinarySex`)
 
 - **Type:** Union
-- **Cases:** <a href="Sex'Male">Sex'Male</a> | <a href="Sex'Female">Sex'Female</a>
+- **Cases:** <a href="#BinarySex'Male">BinarySex'Male</a> | <a href="#BinarySex'Female">BinarySex'Female</a>
 
 ---
 
-### <a name="Sex'Male"></a> `Sex'Male`
+### <a name="BinarySex'Male"></a> `BinarySex'Male`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Sex'Male/tag">See details</a>
+`tag` |  | <a href="#BinarySex'Male/tag">See details</a>
 
-#### <a name="Sex'Male/tag"></a> `tag`
+#### <a name="BinarySex'Male/tag"></a> `tag`
 
 - **Constant:** `"Male"`
 
 ---
 
-### <a name="Sex'Female"></a> `Sex'Female`
+### <a name="BinarySex'Female"></a> `BinarySex'Female`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Sex'Female/tag">See details</a>
+`tag` |  | <a href="#BinarySex'Female/tag">See details</a>
 
-#### <a name="Sex'Female/tag"></a> `tag`
+#### <a name="BinarySex'Female/tag"></a> `tag`
 
 - **Constant:** `"Female"`

@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "SexPractice.schema.json",
+  "$ref": "#/definitions/SexPractice",
+  "definitions": {
+    "SexPractice": {
+      "title": "Sex Practice",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The sex practice's identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "src": {
+          "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "The sex practice's name.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "rules": {
+                  "description": "The rules of the sex practice.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "duration": {
+                  "description": "How long a round of this sex practice takes.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "prerequisites": {
+                  "description": "Prerequisites of participants and environment. Do not specify if the sex practice has no prerequisites.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "failed": {
+                  "description": "Effects of a failed *Seduction* check.",
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "name",
+                "rules",
+                "duration",
+                "failed"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

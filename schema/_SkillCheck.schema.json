@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "_SkillCheck.schema.json",
+  "definitions": {
+    "SkillCheck": {
+      "title": "Skill Check",
+      "description": "The attributes' identifiers of the skill check.",
+      "type": "array",
+      "items": [
+        {
+          "$ref": "#/definitions/Attribute"
+        },
+        {
+          "$ref": "#/definitions/Attribute"
+        },
+        {
+          "$ref": "#/definitions/Attribute"
+        }
+      ],
+      "minItems": 3,
+      "maxItems": 3,
+      "additionalItems": false
+    },
+    "Attribute": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The attribute's identifier.",
+          "type": "integer",
+          "maximum": 8,
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "SkillCheckPenalty": {
+      "title": "Skill Check Penalty",
+      "description": "A specific value that represents a penalty for the associated skill check.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "SPI"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "SPI/2"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "TOU"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "SPI/TOU"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}

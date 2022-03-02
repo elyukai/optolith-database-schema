@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "schema/DerivedCharacteristic.schema.json",
+  "$id": "DerivedCharacteristic.schema.json",
   "$ref": "#/definitions/DerivedCharacteristic",
   "definitions": {
     "DerivedCharacteristic": {
@@ -13,10 +13,10 @@
           "minimum": 1
         },
         "prerequisites": {
-          "$ref": "#/definitions/GroupCollection/DerivedCharacteristic"
+          "$ref": "./_Prerequisite.schema.json#/definitions/GroupCollection/DerivedCharacteristic"
         },
         "src": {
-          "$ref": "./_PublicationRef.schema.json#/definitions/PublicationRefs"
+          "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",

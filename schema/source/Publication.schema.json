@@ -1,0 +1,165 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "source/Publication.schema.json",
+  "$ref": "#/definitions/Publication",
+  "definitions": {
+    "Publication": {
+      "title": "Publication",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The publication's identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "category": {
+          "description": "The publication category.",
+          "$ref": "#/definitions/Category"
+        },
+        "age_restriction": {
+          "description": "The age the content is restricted to.",
+          "$ref": "#/definitions/AgeRestriction"
+        },
+        "is_missing_implementation": {
+          "description": "The publication is not (fully) implemented and thus needs to be excluded from * stable releases.",
+          "type": "boolean"
+        },
+        "prerequisites": {
+          "description": "The specific other publications this publication depends on data from.",
+          "$ref": "../_Prerequisite.schema.json#/definitions/GroupCollection/Publication"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "description": "The publisher's publication identifier.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "name": {
+                  "description": "The publication's name.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "abbreviation": {
+                  "description": "The publication's abbreviation.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "release_date": {
+                  "description": "The publication's release date.",
+                  "type": "string",
+                  "format": "date"
+                },
+                "is_missing_implementation": {
+                  "description": "This publication translation is not (fully) implemented and thus needs to be excluded from stable releases.",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "name",
+                "abbreviation"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "category",
+        "age_restriction",
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "Category": {
+      "description": "The publication category.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "CoreRules"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "ExpansionRules"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Sourcebook"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "RegionalSourcebook"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "AgeRestriction": {
+      "description": "The age the content is restricted to.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Adult"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "None"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}

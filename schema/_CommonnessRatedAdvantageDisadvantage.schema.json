@@ -1,7 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "schema/_CommonnessRatedAdvantageDisadvantage.schema.json",
-  "$ref": "#/definitions/CommonnessRatedAdvantageDisadvantage",
+  "$id": "_CommonnessRatedAdvantageDisadvantage.schema.json",
   "definitions": {
     "CommonnessRatedAdvantageDisadvantage": {
       "title": "Commonness-rated Advantage/Disadvantage",

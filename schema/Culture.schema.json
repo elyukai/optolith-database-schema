@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "schema/Culture.schema.json",
+  "$id": "Culture.schema.json",
   "$ref": "#/definitions/Culture",
   "definitions": {
     "Culture": {
@@ -101,7 +101,7 @@
           "minItems": 1
         },
         "src": {
-          "$ref": "./_PublicationRef.schema.json#/definitions/PublicationRefs"
+          "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -735,7 +735,7 @@
           "$ref": "#/definitions/CommonNames"
         },
         "errata": {
-          "$ref": "./_Erratum.schema.json#/definitions/Errata"
+          "$ref": "./source/_Erratum.schema.json#/definitions/Errata"
         }
       },
       "required": [
@@ -818,7 +818,7 @@
         },
         "sex": {
           "description": "The binary sex if the group is only for a certain binary sex.",
-          "$ref": "./_Sex.schema.json#/definitions/Sex"
+          "$ref": "./_Sex.schema.json#/definitions/BinarySex"
         },
         "names": {
           "description": "The names from the group.",

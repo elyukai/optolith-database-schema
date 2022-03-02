@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "MetaCondition.schema.json",
+  "$ref": "#/definitions/MetaCondition",
+  "definitions": {
+    "MetaCondition": {
+      "title": "Meta Condition",
+      "description": "Meta Conditions are rule elements that work like conditions in the sense that they have four levels with different effects, but which are not explicitly listed as conditions.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The meta condition's identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "src": {
+          "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "The meta condition's name.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "rules": {
+                  "description": "Additional rules for the meta condition, if applicable.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "effects": {
+                  "description": "The effects for level 1 to 4.",
+                  "type": "array",
+                  "items": [
+                    {
+                      "$ref": "#/definitions/Effect"
+                    },
+                    {
+                      "$ref": "#/definitions/Effect"
+                    },
+                    {
+                      "$ref": "#/definitions/Effect"
+                    },
+                    {
+                      "$ref": "#/definitions/Effect"
+                    }
+                  ],
+                  "minItems": 4,
+                  "maxItems": 4,
+                  "additionalItems": false
+                },
+                "errata": {
+                  "$ref": "./source/_Erratum.schema.json#/definitions/Errata"
+                }
+              },
+              "required": [
+                "name",
+                "effects"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "Effect": {
+      "description": "The effect on a level.",
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

@@ -12,7 +12,7 @@ A playable race with stats and skills.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | An unique, increasing integer. | <a href="#Race/id">See details</a>
+`id` | The race's identifier. An unique, increasing integer. | <a href="#Race/id">See details</a>
 `ap_value` | How many Adventure Points does the race cost during character creation? | <a href="#Race/ap_value">See details</a>
 `base_values` | The race’s base values. | <a href="#Race/base_values">See details</a>
 `attribute_adjustments` | Describes how to raise or lower maximum attribute values during character creation. | <a href="#Race/attribute_adjustments">See details</a>
@@ -31,7 +31,7 @@ Key | Description | Details
 
 #### <a name="Race/id"></a> `id`
 
-An unique, increasing integer.
+The race's identifier. An unique, increasing integer.
 
 - **Type:** Integer
 - **Minimum:** `1`
@@ -134,7 +134,7 @@ The race may have variants and associated configuration for each variant. If the
 
 #### <a name="Race/src"></a> `src`
 
-- **Type:** <a href="./_PublicationRef.md#PublicationRefs">PublicationRefs</a>
+- **Type:** <a href="./source/_PublicationRef.md#PublicationRefs">PublicationRefs</a>
 
 #### <a name="Race/translations"></a> `translations`
 
@@ -435,7 +435,7 @@ The strategy how to offset the randomly generated values against the base value.
 The strategy how to offset the randomly generated values against the base value. Either they are all added or subtracted or even results are added and odd results are subtracted.
 
 - **Type:** Union
-- **Cases:** <a href="Weight/OffsetStrategy'Add">Weight/OffsetStrategy'Add</a> | <a href="Weight/OffsetStrategy'Subtract">Weight/OffsetStrategy'Subtract</a> | <a href="Weight/OffsetStrategy'AddEvenSubtractOdd">Weight/OffsetStrategy'AddEvenSubtractOdd</a>
+- **Cases:** <a href="#Weight/OffsetStrategy'Add">Weight/OffsetStrategy'Add</a> | <a href="#Weight/OffsetStrategy'Subtract">Weight/OffsetStrategy'Subtract</a> | <a href="#Weight/OffsetStrategy'AddEvenSubtractOdd">Weight/OffsetStrategy'AddEvenSubtractOdd</a>
 
 ---
 
@@ -519,7 +519,7 @@ The random value for the selected experience level. It is going to be added to t
 The race may have variants and associated configuration for each variant. If the race is plain (has no variants), the values that would otherwise be defined in the variant configuration need to be set for the whole race. This excludes common and uncommon advantages and disadvantages, since they may be defined for the whole race even if variants exist.
 
 - **Type:** Union
-- **Cases:** <a href="VariantDependent'HasVariants">VariantDependent'HasVariants</a> | <a href="VariantDependent'Plain">VariantDependent'Plain</a>
+- **Cases:** <a href="#VariantDependent'HasVariants">VariantDependent'HasVariants</a> | <a href="#VariantDependent'Plain">VariantDependent'Plain</a>
 
 ---
 
@@ -983,7 +983,7 @@ The respective uncommon disadvantages text from the source book. If uncommon dis
 
 #### <a name="RaceTranslation/errata"></a> `errata?`
 
-- **Type:** <a href="./_Erratum.md#Errata">Errata</a>
+- **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
 
 ---
 

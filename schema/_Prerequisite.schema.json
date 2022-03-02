@@ -1,10 +1,11 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "schema/_Prerequisite.schema.json",
+  "$id": "_Prerequisite.schema.json",
   "definitions": {
     "Single": {
       "DisplayOption": {
-        "Type": {
+        "T": {
+          "title": "Display Option",
           "oneOf": [
             {
               "type": "object",
@@ -45,8 +46,124 @@
           ]
         }
       },
+      "Sex": {
+        "T": {
+          "title": "Sex Prerequisite",
+          "description": "Requires a specific sex.",
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Sex"
+            },
+            "id": {
+              "$ref": "./_Sex.schema.json#/definitions/BinarySex"
+            },
+            "display_option": {
+              "$ref": "#/definitions/Single/DisplayOption/T"
+            }
+          },
+          "required": [
+            "tag",
+            "id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "Race": {
+        "T": {
+          "title": "Race Prerequisite",
+          "description": "Requires a specific culture or one of a specific set of cultures.",
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Culture"
+            },
+            "id": {
+              "$ref": "#/definitions/Single/Race/Identifier"
+            },
+            "active": {
+              "type": "boolean"
+            },
+            "display_option": {
+              "$ref": "#/definitions/Single/DisplayOption/T"
+            }
+          },
+          "required": [
+            "tag",
+            "id",
+            "active"
+          ],
+          "additionalProperties": false
+        },
+        "Identifier": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Single/Race/SingleIdentifier"
+            },
+            {
+              "$ref": "#/definitions/Single/Race/MultipleIdentifiers"
+            }
+          ]
+        },
+        "SingleIdentifier": {
+          "type": "number",
+          "minimum": 1
+        },
+        "MultipleIdentifiers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Single/Race/SingleIdentifier"
+          },
+          "minItems": 2
+        }
+      },
+      "Culture": {
+        "T": {
+          "title": "Culture Prerequisite",
+          "description": "Requires a specific race or one of a specific set of races. You can also provide an object to say whether the hero must meet one of the races or if the entry does not allow one of the races.",
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Culture"
+            },
+            "id": {
+              "$ref": "#/definitions/Single/Culture/Identifier"
+            },
+            "display_option": {
+              "$ref": "#/definitions/Single/DisplayOption/T"
+            }
+          },
+          "required": [
+            "tag",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "Identifier": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Single/Culture/SingleIdentifier"
+            },
+            {
+              "$ref": "#/definitions/Single/Culture/MultipleIdentifiers"
+            }
+          ]
+        },
+        "SingleIdentifier": {
+          "type": "number",
+          "minimum": 1
+        },
+        "MultipleIdentifiers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Single/Culture/SingleIdentifier"
+          },
+          "minItems": 2
+        }
+      },
       "Rule": {
-        "Type": {
+        "T": {
+          "title": "Rule Prerequisite",
           "type": "object",
           "properties": {
             "tag": {
@@ -56,13 +173,12 @@
               "$ref": "#/definitions/Single/Rule/Identifier"
             },
             "display_option": {
-              "$ref": "#/definitions/Single/DisplayOption/Type"
+              "$ref": "#/definitions/Single/DisplayOption/T"
             }
           },
           "required": [
             "tag",
-            "id",
-            "display_option"
+            "id"
           ],
           "additionalProperties": false
         },
@@ -106,7 +222,8 @@
         }
       },
       "Publication": {
-        "Type": {
+        "T": {
+          "title": "Publication Prerequisite",
           "type": "object",
           "properties": {
             "tag": {
@@ -117,13 +234,137 @@
               "minimum": 1
             },
             "display_option": {
-              "$ref": "#/definitions/Single/DisplayOption/Type"
+              "$ref": "#/definitions/Single/DisplayOption/T"
             }
           },
           "required": [
             "tag",
-            "id",
-            "display_option"
+            "id"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "PrimaryAttribute": {
+        "T": {
+          "title": "Primary Attribute Prerequisite",
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PrimaryAttribute"
+            },
+            "category": {
+              "description": "Is the required primary attribute for spellcasters or blessed ones?",
+              "$ref": "#/definitions/Single/PrimaryAttribute/Category"
+            },
+            "value": {
+              "description": "Required value of the attribute",
+              "type": "integer",
+              "minimum": 9
+            },
+            "display_option": {
+              "$ref": "#/definitions/Single/DisplayOption/T"
+            }
+          },
+          "required": [
+            "tag",
+            "category",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        "Category": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Blessed"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Magical"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "Pact": {
+        "T": {
+          "title": "Pact Prerequisite",
+          "description": "Requires a specific pact.",
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Pact"
+            },
+            "category_id": {
+              "description": "The required pact category's identifier.",
+              "type": "integer",
+              "minimum": 1
+            },
+            "domain_id": {
+              "description": "The required domains' identifiers.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Single/Pact/DomainId"
+              }
+            },
+            "level": {
+              "description": "The required pact level.",
+              "type": "integer",
+              "minimum": 1
+            },
+            "display_option": {
+              "$ref": "#/definitions/Single/DisplayOption/T"
+            }
+          },
+          "required": [
+            "tag",
+            "category_id"
+          ],
+          "additionalProperties": false
+        },
+        "DomainId": {
+          "description": "A domain's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "SocialStatus": {
+        "T": {
+          "title": "Social Status Prerequisite",
+          "description": "Requires a minimum social status.",
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "SocialStatus"
+            },
+            "id": {
+              "description": "The minimum social status' identifier.",
+              "type": "integer",
+              "maximum": 5,
+              "minimum": 2
+            },
+            "display_option": {
+              "$ref": "#/definitions/Single/DisplayOption/T"
+            }
+          },
+          "required": [
+            "tag",
+            "id"
           ],
           "additionalProperties": false
         }
@@ -133,14 +374,24 @@
       "DerivedCharacteristic": {
         "oneOf": [
           {
-            "$ref": "#/definitions/Single/Rule/Type"
+            "$ref": "#/definitions/Single/Rule/T"
           }
         ]
       },
       "Publication": {
         "oneOf": [
           {
-            "$ref": "#/definitions/Single/Publication/Type"
+            "$ref": "#/definitions/Single/Publication/T"
+          }
+        ]
+      },
+      "ArcaneTradition": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/Single/Sex/T"
+          },
+          {
+            "$ref": "#/definitions/Single/Culture/T"
           }
         ]
       }
@@ -157,6 +408,12 @@
         "type": "array",
         "items": {
           "$ref": "#/definitions/Group/Publication"
+        }
+      },
+      "ArcaneTradition": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/Group/ArcaneTradition"
         }
       }
     }

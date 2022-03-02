@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "schema/Attribute.schema.json",
+  "$id": "Attribute.schema.json",
   "$ref": "#/definitions/Attribute",
   "definitions": {
     "Attribute": {
@@ -8,7 +8,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "An unique, increasing integer.",
+          "description": "The attribute's identifier. An unique, increasing integer.",
           "type": "integer",
           "minimum": 1
         },
@@ -17,7 +17,30 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "$ref": "#/definitions/Translation"
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "The attribute's name.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "abbreviation": {
+                  "description": "The abbreviation of the attribute's name.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "description": {
+                  "description": "The description of the attribute.",
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "name",
+                "abbreviation",
+                "description"
+              ],
+              "additionalProperties": false
             }
           },
           "minProperties": 1,
@@ -27,32 +50,6 @@
       "required": [
         "id",
         "translations"
-      ],
-      "additionalProperties": false
-    },
-    "Translation": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "description": "The name of the attribute.",
-          "type": "string",
-          "minLength": 1
-        },
-        "abbreviation": {
-          "description": "The abbreviation of the attribute's name.",
-          "type": "string",
-          "minLength": 1
-        },
-        "description": {
-          "description": "The description of the attribute.",
-          "type": "string",
-          "minLength": 1
-        }
-      },
-      "required": [
-        "name",
-        "abbreviation",
-        "description"
       ],
       "additionalProperties": false
     }

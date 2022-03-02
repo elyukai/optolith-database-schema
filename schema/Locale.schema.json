@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "schema/Locale.schema.json",
+  "$id": "Locale.schema.json",
   "$ref": "#/definitions/Locales",
   "definitions": {
     "Locales": {
@@ -15,7 +15,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "IETF language tag (BCP47)",
+          "description": "The locale's identifier. An IETF language tag (BCP47).",
           "type": "string",
           "pattern": "^[a-z]{2}-[A-Z]{2}$"
         },
