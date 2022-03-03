@@ -1,14 +1,14 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "magicalActions/JesterTrick.schema.json",
-  "$ref": "#/definitions/JesterTrick",
+  "$id": "magicalActions/GeodeRitual.schema.json",
+  "$ref": "#/definitions/GeodeRitual",
   "definitions": {
-    "JesterTrick": {
-      "title": "Jester Trick",
+    "GeodeRitual": {
+      "title": "Geode Ritual",
       "type": "object",
       "properties": {
         "id": {
-          "description": "The jester trick's identifier. An unique, increasing integer.",
+          "description": "The geode ritual's identifier. An unique, increasing integer.",
           "type": "integer",
           "minimum": 1
         },
@@ -16,12 +16,8 @@
           "description": "Lists the linked three attributes used to make a skill check.",
           "$ref": "../_SkillCheck.schema.json#/definitions/SkillCheck"
         },
-        "check_penalty": {
-          "description": "In some cases, the target's Spirit or Toughness is applied as a penalty.",
-          "$ref": "../_SkillCheck.schema.json#/definitions/SkillCheckPenalty"
-        },
         "parameters": {
-          "description": "Measurable parameters of a jester trick.",
+          "description": "Measurable parameters of a geode ritual.",
           "$ref": "#/definitions/PerformanceParameters"
         },
         "target": {
@@ -33,9 +29,8 @@
           "type": "integer",
           "minimum": 1
         },
-        "improvement_cost": {
-          "description": "States which column is used to improve the skill.",
-          "$ref": "../_ImprovementCost.schema.json#/definitions/ImprovementCost"
+        "prerequisites": {
+          "$ref": "../_Prerequisite.schema.json#/definitions/GroupCollection/GeodeRitual"
         },
         "src": {
           "$ref": "../source/_PublicationRef.schema.json#/definitions/PublicationRefs"
@@ -48,7 +43,7 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "description": "The name of the jester trick.",
+                  "description": "The name of the geode ritual.",
                   "type": "string",
                   "minLength": 1
                 },
@@ -149,41 +144,74 @@
         "parameters",
         "target",
         "property_id",
-        "improvement_cost",
         "src",
         "translations"
       ],
       "additionalProperties": false
     },
     "PerformanceParameters": {
-      "description": "Measurable parameters of a jester trick.",
+      "description": "Measurable parameters of a geode ritual.",
       "type": "object",
       "properties": {
         "casting_time": {
           "description": "The casting time.",
-          "type": "integer",
-          "minimum": 1
+          "type": "object",
+          "properties": {
+            "modification_id": {
+              "description": "The skill modification increment identifier/level.",
+              "type": "integer",
+              "maximum": 6,
+              "minimum": 1
+            }
+          },
+          "required": [
+            "modification_id"
+          ],
+          "additionalProperties": false
         },
         "cost": {
           "description": "The AE cost.",
-          "type": "integer",
-          "minimum": 1
-        },
-        "range": {
-          "description": "The range.",
           "oneOf": [
             {
               "type": "object",
               "properties": {
                 "tag": {
-                  "const": "Touch"
+                  "const": "Single"
+                },
+                "modification_id": {
+                  "description": "The skill modification increment identifier/level.",
+                  "type": "integer",
+                  "maximum": 6,
+                  "minimum": 1
                 }
               },
               "required": [
-                "tag"
+                "tag",
+                "modification_id"
               ],
               "additionalProperties": false
             },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Map"
+                },
+                "map": {
+                  "$ref": "../_ActivatableSkill.schema.json#/definitions/Cost/OneTime/Map"
+                }
+              },
+              "required": [
+                "tag",
+                "map"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "range": {
+          "description": "The range.",
+          "oneOf": [
             {
               "type": "object",
               "properties": {
@@ -205,7 +233,7 @@
                 "value": {
                   "description": "The range in steps/m.",
                   "type": "integer",
-                  "minimum": 2
+                  "minimum": 1
                 }
               },
               "required": [
@@ -260,10 +288,46 @@
                 "tag": {
                   "const": "QualityLevels"
                 },
-                "multiplier": {
-                  "description": "A value that multiplies the resulting quality levels.",
-                  "type": "integer",
-                  "minimum": 2
+                "modifier": {
+                  "description": "A value that modifies the resulting quality levels.",
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "tag": {
+                          "const": "Multiply"
+                        },
+                        "value": {
+                          "description": "A value that multiplies the resulting quality levels.",
+                          "type": "integer",
+                          "minimum": 2
+                        }
+                      },
+                      "required": [
+                        "tag",
+                        "value"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "tag": {
+                          "const": "Divide"
+                        },
+                        "value": {
+                          "description": "A value that divides the resulting quality levels.",
+                          "type": "integer",
+                          "minimum": 2
+                        }
+                      },
+                      "required": [
+                        "tag",
+                        "value"
+                      ],
+                      "additionalProperties": false
+                    }
+                  ]
                 },
                 "unit": {
                   "description": "The duration unit.",

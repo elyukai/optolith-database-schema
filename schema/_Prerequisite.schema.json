@@ -368,6 +368,35 @@
           ],
           "additionalProperties": false
         }
+      },
+      "Influence": {
+        "T": {
+          "title": "Influence Prerequisite",
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Influence"
+            },
+            "id": {
+              "description": "The influence' identifier.",
+              "type": "integer",
+              "minimum": 1
+            },
+            "active": {
+              "description": "If the referenced influence must or must not be chosen.",
+              "type": "boolean"
+            },
+            "display_option": {
+              "$ref": "#/definitions/Single/DisplayOption/T"
+            }
+          },
+          "required": [
+            "tag",
+            "id",
+            "active"
+          ],
+          "additionalProperties": false
+        }
       }
     },
     "Group": {
@@ -394,27 +423,96 @@
             "$ref": "#/definitions/Single/Culture/T"
           }
         ]
+      },
+      "GeodeRitual": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/Single/Influence/T"
+          }
+        ]
       }
     },
     "Collection": {},
     "GroupCollection": {
       "DerivedCharacteristic": {
-        "type": "array",
-        "items": {
-          "$ref": "#/definitions/Group/DerivedCharacteristic"
-        }
+        "type": "object",
+        "properties": {
+          "tag": {
+            "const": "Plain"
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Group/DerivedCharacteristic"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "tag",
+          "value"
+        ],
+        "additionalProperties": false
       },
       "Publication": {
-        "type": "array",
-        "items": {
-          "$ref": "#/definitions/Group/Publication"
-        }
+        "type": "object",
+        "properties": {
+          "tag": {
+            "const": "Plain"
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Group/Publication"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "tag",
+          "value"
+        ],
+        "additionalProperties": false
       },
       "ArcaneTradition": {
-        "type": "array",
-        "items": {
-          "$ref": "#/definitions/Group/ArcaneTradition"
-        }
+        "type": "object",
+        "properties": {
+          "tag": {
+            "const": "Plain"
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Group/ArcaneTradition"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "tag",
+          "value"
+        ],
+        "additionalProperties": false
+      },
+      "GeodeRitual": {
+        "type": "object",
+        "properties": {
+          "tag": {
+            "const": "Plain"
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Group/GeodeRitual"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "tag",
+          "value"
+        ],
+        "additionalProperties": false
       }
     }
   }

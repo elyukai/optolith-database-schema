@@ -208,7 +208,7 @@
                       "type": "object",
                       "properties": {
                         "per": {
-                          "description": "The cost have to be per a specific countable entity, e.g. `8 AE per person`",
+                          "description": "The cost have to be per a specific countable entity, e.g. `8 AE per person`.",
                           "type": "object",
                           "properties": {
                             "default": {

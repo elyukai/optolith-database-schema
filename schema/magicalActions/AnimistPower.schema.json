@@ -1,0 +1,443 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "magicalActions/AnimistPower.schema.json",
+  "$ref": "#/definitions/AnimistPower",
+  "definitions": {
+    "AnimistPower": {
+      "title": "Animist Power",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The animist power's identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "check": {
+          "description": "Lists the linked three attributes used to make a skill check.",
+          "$ref": "../_SkillCheck.schema.json#/definitions/SkillCheck"
+        },
+        "parameters": {
+          "description": "Measurable parameters of a animist power.",
+          "$ref": "#/definitions/PerformanceParameters"
+        },
+        "property_id": {
+          "description": "The property's identifier.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "tribe_tradition": {
+          "description": "The tribe traditions the animist power is available to. It may be available to all or only specific tribes.",
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "General"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Specific"
+                },
+                "list": {
+                  "description": "The specific tribe traditions this animist power is available to.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "description": "The tribe's identifier.",
+                        "type": "integer",
+                        "maximum": 6,
+                        "minimum": 1
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                }
+              },
+              "required": [
+                "tag",
+                "list"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "improvement_cost": {
+          "description": "States which column is used to improve the skill. It is a fixed value or depends on the primary patron.",
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Flat"
+                },
+                "value": {
+                  "$ref": "../_ImprovementCost.schema.json#/definitions/ImprovementCost"
+                }
+              },
+              "required": [
+                "tag",
+                "value"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "ByPrimaryPatron"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "levels": {
+          "description": "The animist power can have multiple levels. Each level is skilled separately. A previous level must be on at least 10 so that the next higher level can be activated and skilled. A higher level cannot be skilled higher than a lower level. Each level also adds an effect text to the text of the first level.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "level": {
+                "description": "The level number.",
+                "type": "integer",
+                "minimum": 2
+              },
+              "src": {
+                "description": "The source references, if different than the references for level 1.",
+                "$ref": "../source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+              },
+              "translations": {
+                "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                "type": "object",
+                "patternProperties": {
+                  "^[a-z]{2}-[A-Z]{2}$": {
+                    "type": "object",
+                    "properties": {
+                      "effect": {
+                        "description": "An additional effect description for this level.",
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "effect"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "minProperties": 1,
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "level",
+              "translations"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "src": {
+          "$ref": "../source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "The name of the animist power.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "name_in_library": {
+                  "description": "The full name of the entry as stated in the sources. Only use when `name` needs to be different from full name for text generation purposes.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "effect": {
+                  "description": "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
+                  "$ref": "../_ActivatableSkill.schema.json#/definitions/Effect/T"
+                },
+                "cost": {
+                  "type": "object",
+                  "properties": {
+                    "full": {
+                      "type": "string"
+                    },
+                    "abbr": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "full",
+                    "abbr"
+                  ],
+                  "additionalProperties": false
+                },
+                "duration": {
+                  "type": "object",
+                  "properties": {
+                    "full": {
+                      "type": "string"
+                    },
+                    "abbr": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "full",
+                    "abbr"
+                  ],
+                  "additionalProperties": false
+                },
+                "errata": {
+                  "$ref": "../source/_Erratum.schema.json#/definitions/Errata"
+                }
+              },
+              "required": [
+                "name",
+                "effect",
+                "cost",
+                "duration"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "check",
+        "parameters",
+        "property_id",
+        "tribe_tradition",
+        "improvement_cost",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "PerformanceParameters": {
+      "description": "Measurable parameters of a animist power.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "OneTime"
+            },
+            "cost": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "description": "The AE cost value, either a flat value or defined dynamically by the primary patron.",
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "tag": {
+                          "const": "Flat"
+                        },
+                        "value": {
+                          "description": "The AE cost value.",
+                          "type": "integer",
+                          "minimum": 1
+                        }
+                      },
+                      "required": [
+                        "tag",
+                        "value"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "tag": {
+                          "const": "ByPrimaryPatron"
+                        }
+                      },
+                      "required": [
+                        "tag"
+                      ],
+                      "additionalProperties": false
+                    }
+                  ]
+                },
+                "interval": {
+                  "description": "If defined, half of the AE cost `value` has to be paid each interval.",
+                  "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/UnitValue"
+                }
+              },
+              "required": [
+                "value"
+              ],
+              "additionalProperties": false
+            },
+            "duration": {
+              "description": "The duration.",
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tag": {
+                      "const": "Immediate"
+                    }
+                  },
+                  "required": [
+                    "tag"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "tag": {
+                      "const": "Flat"
+                    },
+                    "value": {
+                      "description": "The (unitless) duration.",
+                      "type": "integer",
+                      "minimum": 2
+                    },
+                    "unit": {
+                      "description": "The duration unit.",
+                      "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/Unit"
+                    },
+                    "is_maximum": {
+                      "description": "If the duration is the maximum duration, so it may end earlier.",
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "tag",
+                    "value",
+                    "unit"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "tag": {
+                      "const": "QualityLevels"
+                    },
+                    "multiplier": {
+                      "description": "A value that multiplies the resulting quality levels.",
+                      "type": "integer",
+                      "minimum": 2
+                    },
+                    "unit": {
+                      "description": "The duration unit.",
+                      "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/Unit"
+                    },
+                    "is_maximum": {
+                      "description": "If the duration is the maximum duration, so it may end earlier.",
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "tag",
+                    "unit"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "required": [
+            "tag",
+            "cost",
+            "duration"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Sustained"
+            },
+            "cost": {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "description": "The AE cost value, either a flat value or defined dynamically by the primary patron.",
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "tag": {
+                          "const": "Flat"
+                        },
+                        "value": {
+                          "description": "The AE cost value.",
+                          "type": "integer",
+                          "minimum": 1
+                        }
+                      },
+                      "required": [
+                        "tag",
+                        "value"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "tag": {
+                          "const": "ByPrimaryPatron"
+                        }
+                      },
+                      "required": [
+                        "tag"
+                      ],
+                      "additionalProperties": false
+                    }
+                  ]
+                },
+                "interval": {
+                  "description": "Half of the AE cost `value` has to be paid each interval.",
+                  "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/UnitValue"
+                }
+              },
+              "required": [
+                "value",
+                "interval"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "tag",
+            "cost"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}

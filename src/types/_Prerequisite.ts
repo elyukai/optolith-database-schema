@@ -262,17 +262,29 @@ export namespace Single {
 //         "required": ["tag", "id"],
 //         "additionalProperties": false
 //       },
-//       "Influence": {
-//         "type": "object",
-//         "properties": {
-//           "tag": { "const": "Influence" },
-//           "id": { "type": "integer", "minimum": 1 },
-//           "active": { "type": "boolean" },
-//           "display_option": { "$ref": "#/definitions/Single/DisplayOption" }
-//         },
-//         "required": ["tag", "id"],
-//         "additionalProperties": false
-//       },
+
+  export namespace Influence {
+    /**
+     * @title Influence Prerequisite
+     */
+    export type T = {
+      tag: "Influence"
+
+      /**
+       * The influence' identifier.
+       * @integer
+       * @minimum 1
+       */
+      id: number
+
+      /**
+       * If the referenced influence must or must not be chosen.
+       */
+      active: boolean
+
+      display_option?: DisplayOption.T
+    }
+  }
 //       "Activatable": {
 //         "title": "Activatable Prerequisite",
 //         "description": "Requires a specific advantage, disadvantage, special ability.",
@@ -770,12 +782,7 @@ namespace Group {
   export type ArcaneTradition =
     | Single.Sex.T
     | Single.Culture.T
-//       "ArcaneTradition": {
-//         "oneOf": [
-//           { "$ref": "#/definitions/Single/Sex" },
-//           { "$ref": "#/definitions/Single/Culture" }
-//         ]
-//       },
+
 //       "PersonalityTrait": {
 //         "oneOf": [
 //           { "$ref": "#/definitions/Single/Culture" },
@@ -811,21 +818,39 @@ namespace Group {
 //           { "$ref": "#/definitions/Single/AnimistPower" }
 //         ]
 //       }
+
+  export type GeodeRitual =
+    | Single.Influence.T
 }
 
 /**
  * @title Prerequisite Collection Types
  */
 namespace Collection {
-  export type Plain<T> = T[]
+  export type Plain<T> = {
+    tag: "Plain"
+
+    /**
+     * @minItems 1
+     */
+    value: T[]
+  }
 
   export type ByLevel<T> =
     | {
       tag: "Plain"
+
+      /**
+       * @minItems 1
+       */
       value: T[]
     }
     | {
       tag: "ByLevel"
+
+      /**
+       * @minItems 1
+       */
       value: {
         /**
          * @integer
@@ -1081,4 +1106,8 @@ export namespace GroupCollection {
 //         "required": ["tag", "value"],
 //         "additionalProperties": false
 //       },
+  /**
+   * @title Geode Ritual Prerequisites
+   */
+  export type GeodeRitual = Collection.Plain<Group.GeodeRitual>
 }

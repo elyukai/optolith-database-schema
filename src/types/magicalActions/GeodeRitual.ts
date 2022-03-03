@@ -1,19 +1,19 @@
 /**
- * @main JesterTrick
+ * @main GeodeRitual
  */
 
 import { Errata } from "../source/_Erratum"
 import { PublicationRefs } from "../source/_PublicationRef"
-import { Duration, Effect, TargetCategory } from "../_ActivatableSkill"
-import { ImprovementCost } from "../_ImprovementCost"
-import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck"
+import { Cost, Duration, Effect, TargetCategory } from "../_ActivatableSkill"
+import { GroupCollection } from "../_Prerequisite"
+import { SkillCheck } from "../_SkillCheck"
 
 /**
- * @title Jester Trick
+ * @title Geode Ritual
  */
-export type JesterTrick = {
+export type GeodeRitual = {
   /**
-   * The jester trick's identifier. An unique, increasing integer.
+   * The geode ritual's identifier. An unique, increasing integer.
    * @integer
    * @minimum 1
    */
@@ -25,12 +25,7 @@ export type JesterTrick = {
   check: SkillCheck
 
   /**
-   * In some cases, the target's Spirit or Toughness is applied as a penalty.
-   */
-  check_penalty?: SkillCheckPenalty
-
-  /**
-   * Measurable parameters of a jester trick.
+   * Measurable parameters of a geode ritual.
    */
   parameters: PerformanceParameters
 
@@ -46,10 +41,7 @@ export type JesterTrick = {
    */
   property_id: number
 
-  /**
-   * States which column is used to improve the skill.
-   */
-  improvement_cost: ImprovementCost
+  prerequisites?: GroupCollection.GeodeRitual
 
   src: PublicationRefs
 
@@ -63,7 +55,7 @@ export type JesterTrick = {
      */
     [localeId: string]: {
       /**
-       * The name of the jester trick.
+       * The name of the geode ritual.
        * @minLength 1
        */
       name: string
@@ -106,28 +98,49 @@ export type JesterTrick = {
 }
 
 /**
- * Measurable parameters of a jester trick.
+ * Measurable parameters of a geode ritual.
  */
 type PerformanceParameters = {
   /**
    * The casting time.
-   * @integer
-   * @minimum 1
    */
-  casting_time: number
+  casting_time: {
+    /**
+     * The skill modification increment identifier/level.
+     * @integer
+     * @minimum 1
+     * @maximum 6
+     */
+    modification_id: number
+  }
 
   /**
    * The AE cost.
    * @integer
    * @minimum 1
    */
-  cost: number
+  cost:
+    | {
+      tag: "Single"
+
+      /**
+       * The skill modification increment identifier/level.
+       * @integer
+       * @minimum 1
+       * @maximum 6
+       */
+      modification_id: number
+    }
+    | {
+      tag: "Map"
+
+      map: Cost.OneTime.Map
+    }
 
   /**
    * The range.
    */
   range:
-    | { tag: "Touch" }
     | { tag: "Self" }
     | {
       tag: "Steps"
@@ -135,7 +148,7 @@ type PerformanceParameters = {
       /**
        * The range in steps/m.
        * @integer
-       * @minimum 2
+       * @minimum 1
        */
       value: number
     }
@@ -164,12 +177,31 @@ type PerformanceParameters = {
       tag: "QualityLevels"
 
       /**
-       * A value that multiplies the resulting quality levels.
-       * @integer
-       * @minimum 2
-       * @default 1
+       * A value that modifies the resulting quality levels.
        */
-      multiplier?: number
+      modifier?:
+        | {
+          tag: "Multiply"
+
+          /**
+           * A value that multiplies the resulting quality levels.
+           * @integer
+           * @minimum 2
+           * @default 1
+           */
+          value: number
+        }
+        | {
+          tag: "Divide"
+
+          /**
+           * A value that divides the resulting quality levels.
+           * @integer
+           * @minimum 2
+           * @default 1
+           */
+          value: number
+        }
 
       /**
        * The duration unit.

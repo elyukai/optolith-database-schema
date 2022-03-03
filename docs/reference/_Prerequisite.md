@@ -471,6 +471,40 @@ The minimum social status' identifier.
 
 ---
 
+### <a name="Single/Influence/T"></a> Influence Prerequisite (`Single/Influence/T`)
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Single/Influence/T/tag">See details</a>
+`id` | The influence' identifier. | <a href="#Single/Influence/T/id">See details</a>
+`active` | If the referenced influence must or must not be chosen. | <a href="#Single/Influence/T/active">See details</a>
+`display_option?` |  | <a href="#Single/Influence/T/display_option">See details</a>
+
+#### <a name="Single/Influence/T/tag"></a> `tag`
+
+- **Constant:** `"Influence"`
+
+#### <a name="Single/Influence/T/id"></a> `id`
+
+The influence' identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="Single/Influence/T/active"></a> `active`
+
+If the referenced influence must or must not be chosen.
+
+- **Type:** Boolean
+
+#### <a name="Single/Influence/T/display_option"></a> `display_option?`
+
+- **Type:** <a href="#Single/DisplayOption/T">Single/DisplayOption/T</a>
+
+---
+
 ### <a name="Group/DerivedCharacteristic"></a> `Group/DerivedCharacteristic`
 
 - **Type:** Union
@@ -516,14 +550,41 @@ The minimum social status' identifier.
 
 ---
 
-### <a name="GroupCollection/DerivedCharacteristic"></a> `GroupCollection/DerivedCharacteristic`
+### <a name="Group/GeodeRitual"></a> `Group/GeodeRitual`
 
-- **Type:** List
-- **Items:** <a href="#GroupCollection/DerivedCharacteristic[]">GroupCollection/DerivedCharacteristic[]</a>
+- **Type:** Union
+- **Cases:** <a href="#Group/GeodeRitual'T">Group/GeodeRitual'T</a>
 
 ---
 
-### <a name="GroupCollection/DerivedCharacteristic[]"></a> `GroupCollection/DerivedCharacteristic[]`
+### <a name="Group/GeodeRitual'T"></a> `Group/GeodeRitual'T`
+
+- **Type:** <a href="#Single/Influence/T">Single/Influence/T</a>
+
+---
+
+### <a name="GroupCollection/DerivedCharacteristic"></a> `GroupCollection/DerivedCharacteristic`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#GroupCollection/DerivedCharacteristic/tag">See details</a>
+`value` |  | <a href="#GroupCollection/DerivedCharacteristic/value">See details</a>
+
+#### <a name="GroupCollection/DerivedCharacteristic/tag"></a> `tag`
+
+- **Constant:** `"Plain"`
+
+#### <a name="GroupCollection/DerivedCharacteristic/value"></a> `value`
+
+- **Type:** List
+- **Items:** <a href="#GroupCollection/DerivedCharacteristic/value[]">GroupCollection/DerivedCharacteristic/value[]</a>
+- **Minimum Items:** `1`
+
+---
+
+### <a name="GroupCollection/DerivedCharacteristic/value[]"></a> `GroupCollection/DerivedCharacteristic/value[]`
 
 - **Type:** <a href="#Group/DerivedCharacteristic">Group/DerivedCharacteristic</a>
 
@@ -531,12 +592,26 @@ The minimum social status' identifier.
 
 ### <a name="GroupCollection/Publication"></a> `GroupCollection/Publication`
 
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#GroupCollection/Publication/tag">See details</a>
+`value` |  | <a href="#GroupCollection/Publication/value">See details</a>
+
+#### <a name="GroupCollection/Publication/tag"></a> `tag`
+
+- **Constant:** `"Plain"`
+
+#### <a name="GroupCollection/Publication/value"></a> `value`
+
 - **Type:** List
-- **Items:** <a href="#GroupCollection/Publication[]">GroupCollection/Publication[]</a>
+- **Items:** <a href="#GroupCollection/Publication/value[]">GroupCollection/Publication/value[]</a>
+- **Minimum Items:** `1`
 
 ---
 
-### <a name="GroupCollection/Publication[]"></a> `GroupCollection/Publication[]`
+### <a name="GroupCollection/Publication/value[]"></a> `GroupCollection/Publication/value[]`
 
 - **Type:** <a href="#Group/Publication">Group/Publication</a>
 
@@ -544,11 +619,52 @@ The minimum social status' identifier.
 
 ### <a name="GroupCollection/ArcaneTradition"></a> `GroupCollection/ArcaneTradition`
 
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#GroupCollection/ArcaneTradition/tag">See details</a>
+`value` |  | <a href="#GroupCollection/ArcaneTradition/value">See details</a>
+
+#### <a name="GroupCollection/ArcaneTradition/tag"></a> `tag`
+
+- **Constant:** `"Plain"`
+
+#### <a name="GroupCollection/ArcaneTradition/value"></a> `value`
+
 - **Type:** List
-- **Items:** <a href="#GroupCollection/ArcaneTradition[]">GroupCollection/ArcaneTradition[]</a>
+- **Items:** <a href="#GroupCollection/ArcaneTradition/value[]">GroupCollection/ArcaneTradition/value[]</a>
+- **Minimum Items:** `1`
 
 ---
 
-### <a name="GroupCollection/ArcaneTradition[]"></a> `GroupCollection/ArcaneTradition[]`
+### <a name="GroupCollection/ArcaneTradition/value[]"></a> `GroupCollection/ArcaneTradition/value[]`
 
 - **Type:** <a href="#Group/ArcaneTradition">Group/ArcaneTradition</a>
+
+---
+
+### <a name="GroupCollection/GeodeRitual"></a> `GroupCollection/GeodeRitual`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#GroupCollection/GeodeRitual/tag">See details</a>
+`value` |  | <a href="#GroupCollection/GeodeRitual/value">See details</a>
+
+#### <a name="GroupCollection/GeodeRitual/tag"></a> `tag`
+
+- **Constant:** `"Plain"`
+
+#### <a name="GroupCollection/GeodeRitual/value"></a> `value`
+
+- **Type:** List
+- **Items:** <a href="#GroupCollection/GeodeRitual/value[]">GroupCollection/GeodeRitual/value[]</a>
+- **Minimum Items:** `1`
+
+---
+
+### <a name="GroupCollection/GeodeRitual/value[]"></a> `GroupCollection/GeodeRitual/value[]`
+
+- **Type:** <a href="#Group/GeodeRitual">Group/GeodeRitual</a>

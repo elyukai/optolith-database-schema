@@ -293,11 +293,11 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 Key | Description | Details
 :-- | :-- | :--
-`per?` | The cost have to be per a specific countable entity, e.g. `8 AE per person` | <a href="#PerformanceParameters/cost'Flat/translations[key]/per">See details</a>
+`per?` | The cost have to be per a specific countable entity, e.g. `8 AE per person`. | <a href="#PerformanceParameters/cost'Flat/translations[key]/per">See details</a>
 
 #### <a name="PerformanceParameters/cost'Flat/translations[key]/per"></a> `per?`
 
-The cost have to be per a specific countable entity, e.g. `8 AE per person`
+The cost have to be per a specific countable entity, e.g. `8 AE per person`.
 
 - **Type:** <a href="#PerformanceParameters/cost'Flat/translations[key]/per">Object</a>
 
@@ -305,7 +305,7 @@ The cost have to be per a specific countable entity, e.g. `8 AE per person`
 
 ### <a name="PerformanceParameters/cost'Flat/translations[key]/per"></a> `PerformanceParameters/cost'Flat/translations[key]/per`
 
-The cost have to be per a specific countable entity, e.g. `8 AE per person`
+The cost have to be per a specific countable entity, e.g. `8 AE per person`.
 
 - **Type:** Object
 

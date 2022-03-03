@@ -415,7 +415,7 @@ export namespace Cost {
      * This will generate the exact same string as seen above – given it is set
      * for a spellwork and thus `AE` is used.
      */
-    type Map = {
+    export type Map = {
       /**
        * The possible costs and associated labels.
        * @minItems 2
@@ -425,7 +425,12 @@ export namespace Cost {
       /**
        * Place a string between the `for` and the grouped map option labels.
        */
-      for_append?: string
+      list_prepend?: string
+
+      /**
+       * Place a string after the grouped map option labels.
+       */
+      list_append?: string
 
       /**
        * If the string from the book cannot be generated using the default
@@ -436,7 +441,7 @@ export namespace Cost {
       replacement?: string
     }
 
-    type MapOption = {
+    export type MapOption = {
       /**
        * The full cost value for this option.
        * @integer
@@ -452,10 +457,17 @@ export namespace Cost {
       permanent?: number
 
       /**
-       * The description of the option.
+       * The description of the option for cost string generation.
        * @minLength 1
        */
       label: string
+
+      /**
+       * The description of the option if used standalone. Only used if
+       * different from `label`.
+       * @minLength 1
+       */
+      label_standalone?: string
     }
   }
 

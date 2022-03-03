@@ -1,19 +1,19 @@
 /**
- * @main JesterTrick
+ * @main ZibiljaRitual
  */
 
 import { Errata } from "../source/_Erratum"
 import { PublicationRefs } from "../source/_PublicationRef"
-import { Duration, Effect, TargetCategory } from "../_ActivatableSkill"
+import { Effect, PerformanceParameters, TargetCategory } from "../_ActivatableSkill"
 import { ImprovementCost } from "../_ImprovementCost"
 import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck"
 
 /**
- * @title Jester Trick
+ * @title Zibilja Ritual
  */
-export type JesterTrick = {
+export type ZibiljaRitual = {
   /**
-   * The jester trick's identifier. An unique, increasing integer.
+   * The zibilja ritual's identifier. An unique, increasing integer.
    * @integer
    * @minimum 1
    */
@@ -30,7 +30,7 @@ export type JesterTrick = {
   check_penalty?: SkillCheckPenalty
 
   /**
-   * Measurable parameters of a jester trick.
+   * Measurable parameters of a zibilja ritual.
    */
   parameters: PerformanceParameters
 
@@ -63,7 +63,7 @@ export type JesterTrick = {
      */
     [localeId: string]: {
       /**
-       * The name of the jester trick.
+       * The name of the zibilja ritual.
        * @minLength 1
        */
       name: string
@@ -103,77 +103,4 @@ export type JesterTrick = {
       errata?: Errata
     }
   }
-}
-
-/**
- * Measurable parameters of a jester trick.
- */
-type PerformanceParameters = {
-  /**
-   * The casting time.
-   * @integer
-   * @minimum 1
-   */
-  casting_time: number
-
-  /**
-   * The AE cost.
-   * @integer
-   * @minimum 1
-   */
-  cost: number
-
-  /**
-   * The range.
-   */
-  range:
-    | { tag: "Touch" }
-    | { tag: "Self" }
-    | {
-      tag: "Steps"
-
-      /**
-       * The range in steps/m.
-       * @integer
-       * @minimum 2
-       */
-      value: number
-    }
-
-  /**
-   * The duration.
-   */
-  duration:
-    | { tag: "Immediate" }
-    | {
-      tag: "Flat"
-
-      /**
-       * The (unitless) duration.
-       * @integer
-       * @minimum 2
-       */
-      value: number
-
-      /**
-       * The duration unit.
-       */
-      unit: Duration.Unit
-    }
-    | {
-      tag: "QualityLevels"
-
-      /**
-       * A value that multiplies the resulting quality levels.
-       * @integer
-       * @minimum 2
-       * @default 1
-       */
-      multiplier?: number
-
-      /**
-       * The duration unit.
-       */
-      unit: Duration.Unit
-    }
 }

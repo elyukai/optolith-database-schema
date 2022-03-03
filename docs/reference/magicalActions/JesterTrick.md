@@ -209,6 +209,8 @@ Key | Description | Details
 
 ### <a name="PerformanceParameters"></a> `PerformanceParameters`
 
+Measurable parameters of a jester trick.
+
 - **Type:** Object
 
 Key | Description | Details
@@ -216,7 +218,7 @@ Key | Description | Details
 `casting_time` | The casting time. | <a href="#PerformanceParameters/casting_time">See details</a>
 `cost` | The AE cost. | <a href="#PerformanceParameters/cost">See details</a>
 `range` | The range. | <a href="#PerformanceParameters/range">See details</a>
-`duration` | The range. | <a href="#PerformanceParameters/duration">See details</a>
+`duration` | The duration. | <a href="#PerformanceParameters/duration">See details</a>
 
 #### <a name="PerformanceParameters/casting_time"></a> `casting_time`
 
@@ -241,9 +243,10 @@ The range.
 
 #### <a name="PerformanceParameters/duration"></a> `duration`
 
-The range.
+The duration.
 
-- **Type:** <a href="#PerformanceParameters/duration">Object</a>
+- **Type:** Union
+- **Cases:** <a href="#PerformanceParameters/duration'Immediate">PerformanceParameters/duration'Immediate</a> | <a href="#PerformanceParameters/duration'Flat">PerformanceParameters/duration'Flat</a> | <a href="#PerformanceParameters/duration'QualityLevels">PerformanceParameters/duration'QualityLevels</a>
 
 ---
 
@@ -297,80 +300,72 @@ The range in steps/m.
 
 ---
 
-### <a name="PerformanceParameters/duration"></a> `PerformanceParameters/duration`
-
-The range.
+### <a name="PerformanceParameters/duration'Immediate"></a> `PerformanceParameters/duration'Immediate`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`value` |  | <a href="#PerformanceParameters/duration/value">See details</a>
-`unit` |  | <a href="#PerformanceParameters/duration/unit">See details</a>
+`tag` |  | <a href="#PerformanceParameters/duration'Immediate/tag">See details</a>
 
-#### <a name="PerformanceParameters/duration/value"></a> `value`
-
-- **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/duration/value'Immediate">PerformanceParameters/duration/value'Immediate</a> | <a href="#PerformanceParameters/duration/value'Flat">PerformanceParameters/duration/value'Flat</a> | <a href="#PerformanceParameters/duration/value'QualityLevels">PerformanceParameters/duration/value'QualityLevels</a>
-
-#### <a name="PerformanceParameters/duration/unit"></a> `unit`
-
-- **Type:** <a href="../_ActivatableSkill.md#Duration/Unit">Duration/Unit</a>
-
----
-
-### <a name="PerformanceParameters/duration/value'Immediate"></a> `PerformanceParameters/duration/value'Immediate`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration/value'Immediate/tag">See details</a>
-
-#### <a name="PerformanceParameters/duration/value'Immediate/tag"></a> `tag`
+#### <a name="PerformanceParameters/duration'Immediate/tag"></a> `tag`
 
 - **Constant:** `"Immediate"`
 
 ---
 
-### <a name="PerformanceParameters/duration/value'Flat"></a> `PerformanceParameters/duration/value'Flat`
+### <a name="PerformanceParameters/duration'Flat"></a> `PerformanceParameters/duration'Flat`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration/value'Flat/tag">See details</a>
-`value` | The (unitless) duration. | <a href="#PerformanceParameters/duration/value'Flat/value">See details</a>
+`tag` |  | <a href="#PerformanceParameters/duration'Flat/tag">See details</a>
+`value` | The (unitless) duration. | <a href="#PerformanceParameters/duration'Flat/value">See details</a>
+`unit` | The duration unit. | <a href="#PerformanceParameters/duration'Flat/unit">See details</a>
 
-#### <a name="PerformanceParameters/duration/value'Flat/tag"></a> `tag`
+#### <a name="PerformanceParameters/duration'Flat/tag"></a> `tag`
 
 - **Constant:** `"Flat"`
 
-#### <a name="PerformanceParameters/duration/value'Flat/value"></a> `value`
+#### <a name="PerformanceParameters/duration'Flat/value"></a> `value`
 
 The (unitless) duration.
 
 - **Type:** Integer
 - **Minimum:** `2`
 
+#### <a name="PerformanceParameters/duration'Flat/unit"></a> `unit`
+
+The duration unit.
+
+- **Type:** <a href="../_ActivatableSkill.md#Duration/Unit">Duration/Unit</a>
+
 ---
 
-### <a name="PerformanceParameters/duration/value'QualityLevels"></a> `PerformanceParameters/duration/value'QualityLevels`
+### <a name="PerformanceParameters/duration'QualityLevels"></a> `PerformanceParameters/duration'QualityLevels`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration/value'QualityLevels/tag">See details</a>
-`multiplier?` | A value that multiplies the resulting quality levels. | <a href="#PerformanceParameters/duration/value'QualityLevels/multiplier">See details</a>
+`tag` |  | <a href="#PerformanceParameters/duration'QualityLevels/tag">See details</a>
+`multiplier?` | A value that multiplies the resulting quality levels. | <a href="#PerformanceParameters/duration'QualityLevels/multiplier">See details</a>
+`unit` | The duration unit. | <a href="#PerformanceParameters/duration'QualityLevels/unit">See details</a>
 
-#### <a name="PerformanceParameters/duration/value'QualityLevels/tag"></a> `tag`
+#### <a name="PerformanceParameters/duration'QualityLevels/tag"></a> `tag`
 
 - **Constant:** `"QualityLevels"`
 
-#### <a name="PerformanceParameters/duration/value'QualityLevels/multiplier"></a> `multiplier?`
+#### <a name="PerformanceParameters/duration'QualityLevels/multiplier"></a> `multiplier?`
 
 A value that multiplies the resulting quality levels.
 
 - **Type:** Integer
 - **Minimum:** `2`
+
+#### <a name="PerformanceParameters/duration'QualityLevels/unit"></a> `unit`
+
+The duration unit.
+
+- **Type:** <a href="../_ActivatableSkill.md#Duration/Unit">Duration/Unit</a>

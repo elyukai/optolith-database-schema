@@ -123,8 +123,7 @@ type PerformanceParameters = {
         [localeId: string]: {
           /**
            * The cost have to be per a specific countable entity, e.g. `8 AE per
-           * person`
-           * @minLength 1
+           * person`.
            */
           per?: {
             /**

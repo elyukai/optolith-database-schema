@@ -1,14 +1,14 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "magicalActions/JesterTrick.schema.json",
-  "$ref": "#/definitions/JesterTrick",
+  "$id": "magicalActions/ZibiljaRitual.schema.json",
+  "$ref": "#/definitions/ZibiljaRitual",
   "definitions": {
-    "JesterTrick": {
-      "title": "Jester Trick",
+    "ZibiljaRitual": {
+      "title": "Zibilja Ritual",
       "type": "object",
       "properties": {
         "id": {
-          "description": "The jester trick's identifier. An unique, increasing integer.",
+          "description": "The zibilja ritual's identifier. An unique, increasing integer.",
           "type": "integer",
           "minimum": 1
         },
@@ -21,8 +21,8 @@
           "$ref": "../_SkillCheck.schema.json#/definitions/SkillCheckPenalty"
         },
         "parameters": {
-          "description": "Measurable parameters of a jester trick.",
-          "$ref": "#/definitions/PerformanceParameters"
+          "description": "Measurable parameters of a zibilja ritual.",
+          "$ref": "../_ActivatableSkill.schema.json#/definitions/PerformanceParameters"
         },
         "target": {
           "description": "The target category – the kind of creature or object – the skill affects.",
@@ -48,7 +48,7 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "description": "The name of the jester trick.",
+                  "description": "The name of the zibilja ritual.",
                   "type": "string",
                   "minLength": 1
                 },
@@ -152,138 +152,6 @@
         "improvement_cost",
         "src",
         "translations"
-      ],
-      "additionalProperties": false
-    },
-    "PerformanceParameters": {
-      "description": "Measurable parameters of a jester trick.",
-      "type": "object",
-      "properties": {
-        "casting_time": {
-          "description": "The casting time.",
-          "type": "integer",
-          "minimum": 1
-        },
-        "cost": {
-          "description": "The AE cost.",
-          "type": "integer",
-          "minimum": 1
-        },
-        "range": {
-          "description": "The range.",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Touch"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Self"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Steps"
-                },
-                "value": {
-                  "description": "The range in steps/m.",
-                  "type": "integer",
-                  "minimum": 2
-                }
-              },
-              "required": [
-                "tag",
-                "value"
-              ],
-              "additionalProperties": false
-            }
-          ]
-        },
-        "duration": {
-          "description": "The duration.",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Immediate"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Flat"
-                },
-                "value": {
-                  "description": "The (unitless) duration.",
-                  "type": "integer",
-                  "minimum": 2
-                },
-                "unit": {
-                  "description": "The duration unit.",
-                  "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/Unit"
-                }
-              },
-              "required": [
-                "tag",
-                "value",
-                "unit"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "QualityLevels"
-                },
-                "multiplier": {
-                  "description": "A value that multiplies the resulting quality levels.",
-                  "type": "integer",
-                  "minimum": 2
-                },
-                "unit": {
-                  "description": "The duration unit.",
-                  "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/Unit"
-                }
-              },
-              "required": [
-                "tag",
-                "unit"
-              ],
-              "additionalProperties": false
-            }
-          ]
-        }
-      },
-      "required": [
-        "casting_time",
-        "cost",
-        "range",
-        "duration"
       ],
       "additionalProperties": false
     }
