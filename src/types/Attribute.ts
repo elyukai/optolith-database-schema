@@ -2,7 +2,7 @@
  * @main Attribute
  */
 
-import { getReferencialIntegrityErrorsForTranslatable, ReferencialIntegrityValidators } from "../Integrity"
+import { getReferencialIntegrityErrorsForTranslatable, ReferencialIntegrityValidators } from "../validation/integrity"
 
 /**
  * @title Attribute

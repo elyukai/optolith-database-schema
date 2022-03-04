@@ -10,6 +10,8 @@
     "target": "ESNext",
     "allowSyntheticDefaultImports": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedIndexedAccess": true
+    "noUncheckedIndexedAccess": true,
+    "declaration": true,
+    "outDir": "lib"
   }
 }

@@ -1,8 +1,15 @@
 {
   "name": "optolith-database-schema",
-  "version": "2.0.0-alpha.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "Definitions and utilities for the flat-file database of Optolith, a character creation tool for the Pen and Paper RPG “The Dark Eye 5”, and its external integrations into other software.",
+  "keywords": [
+    "tde",
+    "thedarkeye",
+    "dsa",
+    "dasschwarzeauge"
+  ],
+  "main": "./lib/main.js",
+  "types": "./lib/main.d.ts",
   "scripts": {
     "build:ts": "tsc",
     "build:gen": "node ./build/generate.js",
