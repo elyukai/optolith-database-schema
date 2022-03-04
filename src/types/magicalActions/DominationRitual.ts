@@ -83,19 +83,17 @@ export type DominationRitual = {
  * Measurable parameters of a curse.
  */
 type PerformanceParameters = {
+  /**
+   * The AE cost.
+   */
   cost: {
     /**
-     * The (temporary) AE cost value.
+     * The initial skill modification identifier/level.
+     * @integer
+     * @minimum 1
+     * @maximum 6
      */
-    temporary: {
-      /**
-       * The skill modification increment identifier/level.
-       * @integer
-       * @minimum 1
-       * @maximum 6
-       */
-      modification_id: number
-    }
+    initial_modification_level: number
 
     /**
      * All translations for the entry, identified by IETF language tag (BCP47).
@@ -127,41 +125,50 @@ type PerformanceParameters = {
       }
     }
   }
+
+  /**
+   * The duration.
+   */
   duration:
     | {
-      tag: "Numeric"
+      tag: "Fixed"
 
       /**
-       * If defined, the check result affects the duration in the defined way.
+       * The (unitless) duration value.
+       * @integer
+       * @minimum 1
        */
-      check_result?: Duration.CheckResult
+      value: number
 
       /**
-       * The duration value. If `check_result` is defined and this is `1`, it
-       * is used as the unit for the value derived from the check result in
-       * rendered text output.
+       * The unit of the `value`.
        */
-      value: Duration.UnitValue
+      unit: Duration.Unit
     }
+    | Duration.CheckResultBasedTagged
     | {
       tag: "Indefinite"
 
       /**
        * Specified if the duration has a maximum time span.
        */
-      maximum?: {
-        /**
-         * The duration value. If `check_result` is defined and this is `1`, it
-         * is used as the unit for the value derived from the check result in
-         * rendered text output.
-         */
-        value: Duration.UnitValue
+      maximum?:
+        | {
+          tag: "Fixed"
 
-        /**
-         * If defined, the check result affects the duration in the defined way.
-         */
-        check_result?: Duration.CheckResult
-      }
+          /**
+           * The (unitless) maximum duration value.
+           * @integer
+           * @minimum 1
+           */
+          value: number
+
+          /**
+           * The unit of the `value`.
+           */
+          unit: Duration.Unit
+        }
+        | Duration.CheckResultBasedTagged
 
       /**
        * All translations for the entry, identified by IETF language tag (BCP47).
@@ -174,7 +181,6 @@ type PerformanceParameters = {
         [localeId: string]: {
           /**
            * A description of the duration.
-           * @minLength 1
            */
           description: {
             /**

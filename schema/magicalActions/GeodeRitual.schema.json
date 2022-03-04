@@ -157,15 +157,19 @@
           "description": "The casting time.",
           "type": "object",
           "properties": {
-            "modification_id": {
-              "description": "The skill modification increment identifier/level.",
+            "value": {
+              "description": "The (unitless) casting time.",
               "type": "integer",
-              "maximum": 6,
               "minimum": 1
+            },
+            "unit": {
+              "description": "The casting time unit.",
+              "$ref": "../_ActivatableSkill.schema.json#/definitions/CastingTime/SlowSkillCastingTimeUnit"
             }
           },
           "required": [
-            "modification_id"
+            "value",
+            "unit"
           ],
           "additionalProperties": false
         },
@@ -176,18 +180,17 @@
               "type": "object",
               "properties": {
                 "tag": {
-                  "const": "Single"
+                  "const": "Fixed"
                 },
-                "modification_id": {
-                  "description": "The skill modification increment identifier/level.",
+                "value": {
+                  "description": "The AE cost value.",
                   "type": "integer",
-                  "maximum": 6,
                   "minimum": 1
                 }
               },
               "required": [
                 "tag",
-                "modification_id"
+                "value"
               ],
               "additionalProperties": false
             },
@@ -228,7 +231,7 @@
               "type": "object",
               "properties": {
                 "tag": {
-                  "const": "Steps"
+                  "const": "Fixed"
                 },
                 "value": {
                   "description": "The range in steps/m.",
@@ -263,7 +266,7 @@
               "type": "object",
               "properties": {
                 "tag": {
-                  "const": "Flat"
+                  "const": "Fixed"
                 },
                 "value": {
                   "description": "The (unitless) duration.",
@@ -283,62 +286,7 @@
               "additionalProperties": false
             },
             {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "QualityLevels"
-                },
-                "modifier": {
-                  "description": "A value that modifies the resulting quality levels.",
-                  "oneOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "tag": {
-                          "const": "Multiply"
-                        },
-                        "value": {
-                          "description": "A value that multiplies the resulting quality levels.",
-                          "type": "integer",
-                          "minimum": 2
-                        }
-                      },
-                      "required": [
-                        "tag",
-                        "value"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "tag": {
-                          "const": "Divide"
-                        },
-                        "value": {
-                          "description": "A value that divides the resulting quality levels.",
-                          "type": "integer",
-                          "minimum": 2
-                        }
-                      },
-                      "required": [
-                        "tag",
-                        "value"
-                      ],
-                      "additionalProperties": false
-                    }
-                  ]
-                },
-                "unit": {
-                  "description": "The duration unit.",
-                  "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/Unit"
-                }
-              },
-              "required": [
-                "tag",
-                "unit"
-              ],
-              "additionalProperties": false
+              "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/CheckResultBasedTagged"
             }
           ]
         }

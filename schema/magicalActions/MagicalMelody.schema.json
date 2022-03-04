@@ -208,9 +208,9 @@
               "type": "object",
               "properties": {
                 "tag": {
-                  "const": "Flat"
+                  "const": "Fixed"
                 },
-                "temporary": {
+                "value": {
                   "description": "The (temporary) AE cost value.",
                   "type": "integer",
                   "minimum": 1
@@ -218,7 +218,7 @@
               },
               "required": [
                 "tag",
-                "temporary"
+                "value"
               ],
               "additionalProperties": false
             },
@@ -228,7 +228,7 @@
                 "tag": {
                   "const": "FirstPerson"
                 },
-                "temporary": {
+                "value": {
                   "description": "The (temporary) AE cost value for the first targeted person. The AE cost for each additional person is half this value.",
                   "type": "integer",
                   "minimum": 1,
@@ -237,7 +237,7 @@
               },
               "required": [
                 "tag",
-                "temporary"
+                "value"
               ],
               "additionalProperties": false
             }

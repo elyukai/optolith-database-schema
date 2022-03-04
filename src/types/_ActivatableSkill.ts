@@ -148,124 +148,62 @@ export type PerformanceParameters =
     casting_time: CastingTime.T
     cost: Cost.Sustained.T
     range: Range.T
-    duration: Duration.Sustained.T
+    duration?: Duration.Sustained.T
   }
 
 export namespace CastingTime {
-  export type T =
-    | DefaultCastingTime
-    | AventurianIntimacyCastingTime
+  export type T = {
+    /**
+     * The default casting time definition.
+     */
+    default: {
+      /**
+       * The initial skill modification identifier/level.
+       * @integer
+       * @minimum 1
+       * @maximum 6
+       */
+      initial_modification_level: number
 
-  /**
-   * The default casting time definition.
-   */
-  export type DefaultCastingTime = {
-    tag: "Default"
+      /**
+       * Is the casting time modifiable?
+       * @default true
+       */
+      is_modifiable: boolean
+    }
 
     /**
-     * The skill modification increment identifier/level.
-     * @integer
-     * @minimum 1
-     * @maximum 6
+     * The casting time during lovemaking. In Aventurian Intimacy, you may only
+     * use an activatable skill during lovemaking if it has a casting time used
+     * during lovemaking.
      */
-    modification_id: number
+    during_lovemaking?: {
+      /**
+       * The (unitless) duration value.
+       * @integer
+       * @minimum 1
+       */
+      value: number
 
-    /**
-     * Is the casting time modifiable?
-     * @default true
-     */
-    is_modifiable: boolean
-  }
-
-  /**
-   * In Aventurian Intimacy, you may only use an activatable skill during
-   * lovemaking if it has a casting time used during lovemaking.
-   */
-  export type AventurianIntimacyCastingTime = {
-    tag: "Intimacy"
-
-    /**
-     * The casting time before lovemaking (the normal casting time).
-     */
-    before_lovemaking: CastingTimeBeforeLovemaking
-
-    /**
-     * The casting time during lovemaking.
-     */
-    during_lovemaking: CastingTimeDuringLovemaking
-  }
-
-    /**
-     * The casting time before lovemaking (the normal casting time).
-     */
-  export type CastingTimeBeforeLovemaking = {
-    /**
-     * The skill modification increment identifier/level.
-     * @integer
-     * @minimum 1
-     * @maximum 6
-     */
-    modification_id: number
-
-    /**
-     * Is the casting time modifiable?
-     * @default true
-     */
-    is_modifiable: boolean
-  }
-
-  /**
-   * The casting time during lovemaking.
-   */
-  export type CastingTimeDuringLovemaking = {
-    /**
-     * The (unitless) duration value.
-     * @integer
-     * @minimum 1
-     */
-    value: number
-
-    /**
-     * The unit of the `value`.
-     */
-    unit: CastingTimeDuringLovemakingUnit
+      /**
+       * The unit of the `value`.
+       */
+      unit: CastingTimeDuringLovemakingUnit
+    }
   }
 
   export enum CastingTimeDuringLovemakingUnit {
     SeductionActions = "SeductionActions",
     Rounds = "Rounds",
   }
+
+  export enum SlowSkillCastingTimeUnit {
+    Minutes = "Minutes",
+    Hours = "Hours",
+  }
 }
 
 export namespace Cost {
-  export type Minimum =
-    | RelativeMinimum
-    | AbsoluteMinimum
-
-  /**
-   * The cost `value` represents a minimum value, so that the minimum value
-   * itself may be modified by other cost display modifiers. E.g., it may be
-   * rendered as `at least 1 AE per person`.
-   */
-  export type RelativeMinimum = {
-    tag: "Relative"
-  }
-
-  /**
-   * There is an absolute minimum value that is not influenced by other cost
-   * modifications. E.g., it may be rendered as `1 AE per person, at least 4
-   * AE`.
-   */
-  export type AbsoluteMinimum = {
-    tag: "Absolute"
-
-    /**
-     * @integer
-     * @minimum 1
-     */
-    value: number
-  }
-
   export namespace OneTime {
     export type T =
       | {
@@ -300,31 +238,30 @@ export namespace Cost {
         tag: "Modifiable"
 
         /**
-         * The skill modification increment identifier/level.
+         * The initial skill modification identifier/level.
          * @integer
          * @minimum 1
          * @maximum 6
          */
-        modification_id: number
+        initial_modification_level: number
 
         /**
          * The part of the cost value that has to be spent permanently.
          * @integer
          * @minimum 1
          */
-        permanent?: number
+        permanent_value?: number
       }
       | {
         tag: "NonModifiable"
 
         /**
-         * A minimum cost value. It may be rendered relative to the actual cost
-         * `value` or may be an absolute value, not affected by other
-         * modifications of this cost value.
+         * If `true`, the non-modifiable value is a minimum value.
          */
-        minimum?: Minimum
+        is_minimum?: boolean
 
         /**
+         * The AE cost value.
          * @integer
          * @minimum 1
          */
@@ -335,10 +272,43 @@ export namespace Cost {
          * @integer
          * @minimum 1
          */
-        permanent?: number
+        permanent_value?: number
+
+        per?: {
+          /**
+           * If defined, the minimum total AE that have to be spent casting the
+           * skill.
+           */
+          minimum_total?: number
+
+          /**
+           * All translations for the entry, identified by IETF language tag
+           * (BCP47).
+           * @minProperties 1
+           */
+          translations: {
+            /**
+             * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+             */
+            [localeId: string]: {
+              /**
+               * The full countable entity name.
+               * @minLength 1
+               */
+              default: string
+
+              /**
+               * The compressed countable entity name.
+               * @minLength 1
+               */
+              compressed: string
+            }
+          }
+        }
 
         /**
-         * All translations for the entry, identified by IETF language tag (BCP47).
+         * All translations for the entry, identified by IETF language tag
+         * (BCP47).
          * @minProperties 1
          */
         translations?: {
@@ -348,17 +318,22 @@ export namespace Cost {
            */
           [localeId: string]: {
             /**
-             * The cost have to be per a specific countable entity, e.g. `8 KP
-             * per person`
-             * @minLength 1
-             */
-            per?: string
-
-            /**
              * A note, appended to the generated string in parenthesis.
-             * @minLength 1
              */
-            note?: string
+            note?: {
+              /**
+               * The full note.
+               * @minLength 1
+               */
+              default: string
+
+              /**
+               * A compressed note, if applicable. If not specified it should not
+               * be displayed in small location.
+               * @minLength 1
+               */
+              compressed?: string
+            }
           }
         }
       }
@@ -454,7 +429,7 @@ export namespace Cost {
        * @integer
        * @minimum 0
        */
-      permanent?: number
+      permanent_value?: number
 
       /**
        * The description of the option for cost string generation.
@@ -477,28 +452,37 @@ export namespace Cost {
         tag: "Modifiable"
 
         /**
-         * The skill modification increment identifier/level.
+         * The initial skill modification identifier/level.
          * @integer
          * @minimum 1
          * @maximum 6
          */
-        modification_id: number
+        initial_modification_level: number
+
+        /**
+         * The sustain interval.
+         */
+        interval: Duration.UnitValue
       }
       | {
         tag: "NonModifiable"
 
         /**
-         * A minimum cost value. It may be rendered relative to the actual cost
-         * `value` and cost interval or may be an absolute value, affecting the
-         * sum of the initial cost and the cost per interval.
+         * If `true`, the non-modifiable value is a minimum value.
          */
-        minimum?: Minimum
+        is_minimum?: boolean
 
         /**
+         * The AE cost value.
          * @integer
          * @minimum 1
          */
         value: number
+
+        /**
+         * The sustain interval.
+         */
+        interval: Duration.UnitValue
       }
   }
 }
@@ -518,9 +502,21 @@ export namespace Range {
       [localeId: string]: {
         /**
          * A note, appended to the generated string in parenthesis.
-         * @minLength 1
          */
-        note: string
+        note: {
+          /**
+           * The full note.
+           * @minLength 1
+           */
+          default: string
+
+          /**
+           * A compressed note, if applicable. If not specified it should not
+           * be displayed in small location.
+           * @minLength 1
+           */
+          compressed?: string
+        }
       }
     }
   }
@@ -530,18 +526,12 @@ export namespace Range {
       tag: "Modifiable"
 
       /**
-       * The skill modification increment identifier/level.
+       * The initial skill modification identifier/level.
        * @integer
        * @minimum 1
        * @maximum 6
        */
-      modification_id: number
-
-      /**
-       * Is the casting time modifiable?
-       * @default true
-       */
-      is_modifiable: boolean
+      initial_modification_level: number
     }
     | { tag: "Sight" }
     | { tag: "Self" }
@@ -552,7 +542,7 @@ export namespace Range {
       tag: "Global"
     }
     | {
-      tag: "Constant"
+      tag: "Fixed"
 
       /**
        * The (unitless) range value.
@@ -567,19 +557,32 @@ export namespace Range {
       unit: Unit
     }
     | {
-      tag: "MultipliedQualityLevel"
+      tag: "CheckResultBased"
 
       /**
-       * The value that multiplies the quality level to form the final (unitless)
-       * range value.
-       * @integer
-       * @minimum 1
+       * The base value that is derived from the check result.
        */
-      multiplier: number
+      base: Duration.CheckResultValue
 
       /**
-       * The unit of the value resulting from multiplying the quality level with
-       * the `multiplier`.
+       * If defined, it modifies the base value.
+       */
+      modifier?: {
+        /**
+         * The arithmetic how to apply the `value` to the `base`.
+         */
+        arithmetic: Duration.CheckResultArithmetic
+
+        /**
+         * The value that is applied to the `base` using the defined `arithmetic`.
+         * @integer
+         * @minimum 2
+         */
+        value: number
+      }
+
+      /**
+       * The range unit.
        */
       unit: Unit
     }
@@ -679,24 +682,97 @@ export namespace Duration {
         }
       }
       | {
-        tag: "Numeric"
+        tag: "Fixed"
 
         /**
-         * The duration value. If `check_result` is defined and this is `1`, it
-         * is used as the unit for the value derived from the check result in
-         * rendered text output.
-         */
-        value: UnitValue
-
-        /**
-         * If defined, the check result affects the duration in the defined way.
-         */
-        check_result?: CheckResult
-
-        /**
-         * Is the duration indefinite, but has a maximum time span?
+         * If the duration is the maximum duration, so it may end earlier.
          */
         is_maximum?: boolean
+
+        /**
+         * The (unitless) duration.
+         * @integer
+         * @minimum 2
+         */
+        value: number
+
+        /**
+         * The duration unit.
+         */
+        unit: Duration.Unit
+
+        /**
+         * All translations for the entry, identified by IETF language tag (BCP47).
+         * @minProperties 1
+         */
+        translations?: {
+          /**
+           * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+           */
+          [localeId: string]: {
+            /**
+             * A replacement string.
+             */
+            replacement: {
+              /**
+               * The full replacement string. It must contain `$1`, which is
+               * going to be replaced with the generated duration string, so
+               * additional information can be provided without duplicating
+               * concrete numeric values.
+               * @minLength 1
+               * @pattern \$1
+               */
+              default: string
+
+              /**
+               * A compressed replacement string for use in small areas (e.g. on
+               * character sheet). It must contain `$1`, which is going to be
+               * replaced with the generated duration string, so additional
+               * information can be provided without duplicating concrete
+               * numeric values.
+               * @minLength 1
+               * @pattern \$1
+               */
+              compressed: string
+            }
+          }
+        }
+      }
+      | {
+        tag: "CheckResultBased"
+
+        /**
+         * If the duration is the maximum duration, so it may end earlier.
+         */
+        is_maximum?: boolean
+
+        /**
+         * The base value that is derived from the check result.
+         */
+        base: Duration.CheckResultValue
+
+        /**
+         * If defined, it modifies the base value.
+         */
+        modifier?: {
+          /**
+           * The arithmetic how to apply the `value` to the `base`.
+           */
+          arithmetic: Duration.CheckResultArithmetic
+
+          /**
+           * The value that is applied to the `base` using the defined
+           * `arithmetic`.
+           * @integer
+           * @minimum 2
+           */
+          value: number
+        }
+
+        /**
+         * The duration unit.
+         */
+        unit: Duration.Unit
 
         /**
          * All translations for the entry, identified by IETF language tag (BCP47).
@@ -749,20 +825,127 @@ export namespace Duration {
           [localeId: string]: {
             /**
              * A description of the duration.
-             * @minLength 1
              */
-            description: string
+            description: {
+              /**
+               * The full description of the duration.
+               * @minLength 1
+               */
+              default: string
+
+              /**
+               * A compressed description of the duration for use in small areas
+               * (e.g. on character sheet).
+               * @minLength 1
+               */
+              compressed: string
+            }
           }
         }
       }
   }
 
   /**
-   * Defines how the check result affects the duration in the defined way.
+   * Defines the duration being based on a check result.
    */
-  export type CheckResult = {
-    value: CheckResultValue
-    arithmetic: CheckResultArithmetic
+  export type CheckResultBased = {
+    /**
+     * The base value that is derived from the check result.
+     */
+    base: CheckResultValue
+
+    /**
+     * If defined, it modifies the base value.
+     */
+    modifier?: {
+      /**
+       * The arithmetic how to apply the `value` to the `base`.
+       */
+      arithmetic: CheckResultArithmetic
+
+      /**
+       * The value that is applied to the `base` using the defined `arithmetic`.
+       * @integer
+       * @minimum 2
+       */
+      value: number
+    }
+
+    /**
+     * The duration unit.
+     */
+    unit: Unit
+  }
+
+  /**
+   * Defines the duration being based on a check result.
+   */
+  export type CheckResultBasedTagged = {
+    tag: "CheckResultBased"
+
+    /**
+     * The base value that is derived from the check result.
+     */
+    base: CheckResultValue
+
+    /**
+     * If defined, it modifies the base value.
+     */
+    modifier?: {
+      /**
+       * The arithmetic how to apply the `value` to the `base`.
+       */
+      arithmetic: CheckResultArithmetic
+
+      /**
+       * The value that is applied to the `base` using the defined `arithmetic`.
+       * @integer
+       * @minimum 2
+       */
+      value: number
+    }
+
+    /**
+     * The duration unit.
+     */
+    unit: Unit
+  }
+
+  export type CheckResultBasedTaggedAnimistPower = {
+    tag: "CheckResultBased"
+
+    /**
+     * If the duration is the maximum duration, so it may end earlier.
+     */
+    is_maximum?: boolean
+
+    /**
+     * The base value that is derived from the check result.
+     */
+    base: Duration.CheckResultValue
+
+    /**
+     * If defined, it modifies the base value.
+     */
+    modifier?: {
+      /**
+       * The arithmetic how to apply the `value` to the `base`.
+       */
+      arithmetic: Duration.CheckResultArithmetic
+
+      /**
+       * The value that is applied to the `base` using the defined
+       * `arithmetic`.
+       * @integer
+       * @minimum 2
+       */
+      value: number
+    }
+
+    /**
+     * The duration unit.
+     */
+    unit: Duration.Unit
   }
 
   /**
@@ -782,15 +965,9 @@ export namespace Duration {
   export namespace Sustained {
     export type T = {
       /**
-       * The interval.
+       * The sustained skill can be active a maximum amount of time.
        */
-      interval: UnitValue
-
-      /**
-       * Specified if the sustained skill can be active a maximum amount of
-       * time.
-       */
-      maximum?: UnitValue
+      maximum: UnitValue
     }
   }
 

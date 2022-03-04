@@ -340,7 +340,8 @@ Key | Description | Details
 
 The AE cost.
 
-- **Type:** <a href="#PerformanceParameters/cost">Object</a>
+- **Type:** Union
+- **Cases:** <a href="#PerformanceParameters/cost'Single">PerformanceParameters/cost'Single</a> | <a href="#PerformanceParameters/cost'Disjunction">PerformanceParameters/cost'Disjunction</a>
 
 #### <a name="PerformanceParameters/crafting_time"></a> `crafting_time`
 
@@ -356,113 +357,56 @@ The duration.
 
 ---
 
-### <a name="PerformanceParameters/cost"></a> `PerformanceParameters/cost`
-
-The AE cost.
+### <a name="PerformanceParameters/cost'Single"></a> `PerformanceParameters/cost'Single`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`value` |  | <a href="#PerformanceParameters/cost/value">See details</a>
-`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PerformanceParameters/cost/translations">See details</a>
+`tag` |  | <a href="#PerformanceParameters/cost'Single/tag">See details</a>
+`value` | The AE cost value. | <a href="#PerformanceParameters/cost'Single/value">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PerformanceParameters/cost'Single/translations">See details</a>
 
-#### <a name="PerformanceParameters/cost/value"></a> `value`
+#### <a name="PerformanceParameters/cost'Single/tag"></a> `tag`
 
-- **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/cost/value'Flat">PerformanceParameters/cost/value'Flat</a> | <a href="#PerformanceParameters/cost/value'Disjunction">PerformanceParameters/cost/value'Disjunction</a>
+- **Constant:** `"Single"`
 
-#### <a name="PerformanceParameters/cost/translations"></a> `translations?`
+#### <a name="PerformanceParameters/cost'Single/value"></a> `value`
+
+The AE cost value.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="PerformanceParameters/cost'Single/translations"></a> `translations?`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#PerformanceParameters/cost/translations[key]">PerformanceParameters/cost/translations[key]</a>
+- **Property Values:** <a href="#PerformanceParameters/cost'Single/translations[key]">PerformanceParameters/cost'Single/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="PerformanceParameters/cost/value'Flat"></a> `PerformanceParameters/cost/value'Flat`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/cost/value'Flat/tag">See details</a>
-`value` | The AE cost value. | <a href="#PerformanceParameters/cost/value'Flat/value">See details</a>
-
-#### <a name="PerformanceParameters/cost/value'Flat/tag"></a> `tag`
-
-- **Constant:** `"Flat"`
-
-#### <a name="PerformanceParameters/cost/value'Flat/value"></a> `value`
-
-The AE cost value.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="PerformanceParameters/cost/value'Disjunction"></a> `PerformanceParameters/cost/value'Disjunction`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/cost/value'Disjunction/tag">See details</a>
-`list` | A set of possible AE cost values. | <a href="#PerformanceParameters/cost/value'Disjunction/list">See details</a>
-
-#### <a name="PerformanceParameters/cost/value'Disjunction/tag"></a> `tag`
-
-- **Constant:** `"Disjunction"`
-
-#### <a name="PerformanceParameters/cost/value'Disjunction/list"></a> `list`
-
-A set of possible AE cost values.
-
-- **Type:** List
-- **Items:** <a href="#PerformanceParameters/cost/value'Disjunction/list[]">PerformanceParameters/cost/value'Disjunction/list[]</a>
-- **Minimum Items:** `2`
-
----
-
-### <a name="PerformanceParameters/cost/value'Disjunction/list[]"></a> `PerformanceParameters/cost/value'Disjunction/list[]`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`value` | The AE cost value. | <a href="#PerformanceParameters/cost/value'Disjunction/list[]/value">See details</a>
-
-#### <a name="PerformanceParameters/cost/value'Disjunction/list[]/value"></a> `value`
-
-The AE cost value.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="PerformanceParameters/cost/translations[key]"></a> `PerformanceParameters/cost/translations[key]`
+### <a name="PerformanceParameters/cost'Single/translations[key]"></a> `PerformanceParameters/cost'Single/translations[key]`
 
 - **Type:** Object
 - **Minimum Properties:** `1`
 
 Key | Description | Details
 :-- | :-- | :--
-`note?` | A note, appended to the generated string in parenthesis. | <a href="#PerformanceParameters/cost/translations[key]/note">See details</a>
+`note?` | A note, appended to the generated string in parenthesis. | <a href="#PerformanceParameters/cost'Single/translations[key]/note">See details</a>
 
-#### <a name="PerformanceParameters/cost/translations[key]/note"></a> `note?`
+#### <a name="PerformanceParameters/cost'Single/translations[key]/note"></a> `note?`
 
 A note, appended to the generated string in parenthesis.
 
-- **Type:** <a href="#PerformanceParameters/cost/translations[key]/note">Object</a>
+- **Type:** <a href="#PerformanceParameters/cost'Single/translations[key]/note">Object</a>
 
 ---
 
-### <a name="PerformanceParameters/cost/translations[key]/note"></a> `PerformanceParameters/cost/translations[key]/note`
+### <a name="PerformanceParameters/cost'Single/translations[key]/note"></a> `PerformanceParameters/cost'Single/translations[key]/note`
 
 A note, appended to the generated string in parenthesis.
 
@@ -470,22 +414,62 @@ A note, appended to the generated string in parenthesis.
 
 Key | Description | Details
 :-- | :-- | :--
-`default` | The full note. | <a href="#PerformanceParameters/cost/translations[key]/note/default">See details</a>
-`compressed?` | A compressed note, if applicable. | <a href="#PerformanceParameters/cost/translations[key]/note/compressed">See details</a>
+`default` | The full note. | <a href="#PerformanceParameters/cost'Single/translations[key]/note/default">See details</a>
+`compressed?` | A compressed note, if applicable. If not specified it should not be displayed in small location. | <a href="#PerformanceParameters/cost'Single/translations[key]/note/compressed">See details</a>
 
-#### <a name="PerformanceParameters/cost/translations[key]/note/default"></a> `default`
+#### <a name="PerformanceParameters/cost'Single/translations[key]/note/default"></a> `default`
 
 The full note.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
-#### <a name="PerformanceParameters/cost/translations[key]/note/compressed"></a> `compressed?`
+#### <a name="PerformanceParameters/cost'Single/translations[key]/note/compressed"></a> `compressed?`
 
-A compressed note, if applicable.
+A compressed note, if applicable. If not specified it should not be displayed in small location.
 
 - **Type:** String
 - **Minimum Length:** `1`
+
+---
+
+### <a name="PerformanceParameters/cost'Disjunction"></a> `PerformanceParameters/cost'Disjunction`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#PerformanceParameters/cost'Disjunction/tag">See details</a>
+`list` | A set of possible AE cost values. | <a href="#PerformanceParameters/cost'Disjunction/list">See details</a>
+
+#### <a name="PerformanceParameters/cost'Disjunction/tag"></a> `tag`
+
+- **Constant:** `"Disjunction"`
+
+#### <a name="PerformanceParameters/cost'Disjunction/list"></a> `list`
+
+A set of possible AE cost values.
+
+- **Type:** List
+- **Items:** <a href="#PerformanceParameters/cost'Disjunction/list[]">PerformanceParameters/cost'Disjunction/list[]</a>
+- **Minimum Items:** `2`
+
+---
+
+### <a name="PerformanceParameters/cost'Disjunction/list[]"></a> `PerformanceParameters/cost'Disjunction/list[]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`value` | The AE cost value. | <a href="#PerformanceParameters/cost'Disjunction/list[]/value">See details</a>
+
+#### <a name="PerformanceParameters/cost'Disjunction/list[]/value"></a> `value`
+
+The AE cost value.
+
+- **Type:** Integer
+- **Minimum:** `1`
 
 ---
 
@@ -543,11 +527,11 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 Key | Description | Details
 :-- | :-- | :--
-`per?` | The cost have to be per a specific countable entity, e.g. `8 AE per person`. | <a href="#PerformanceParameters/crafting_time/translations[key]/per">See details</a>
+`per?` | The crafting time has to be per a specific countable entity, e.g. `8 action per person`. | <a href="#PerformanceParameters/crafting_time/translations[key]/per">See details</a>
 
 #### <a name="PerformanceParameters/crafting_time/translations[key]/per"></a> `per?`
 
-The cost have to be per a specific countable entity, e.g. `8 AE per person`.
+The crafting time has to be per a specific countable entity, e.g. `8 action per person`.
 
 - **Type:** <a href="#PerformanceParameters/crafting_time/translations[key]/per">Object</a>
 
@@ -555,7 +539,7 @@ The cost have to be per a specific countable entity, e.g. `8 AE per person`.
 
 ### <a name="PerformanceParameters/crafting_time/translations[key]/per"></a> `PerformanceParameters/crafting_time/translations[key]/per`
 
-The cost have to be per a specific countable entity, e.g. `8 AE per person`.
+The crafting time has to be per a specific countable entity, e.g. `8 action per person`.
 
 - **Type:** Object
 
@@ -588,159 +572,17 @@ The duration.
 
 Key | Description | Details
 :-- | :-- | :--
-`slow` |  | <a href="#PerformanceParameters/duration/slow">See details</a>
-`fast` |  | <a href="#PerformanceParameters/duration/fast">See details</a>
+`slow` | The duration on slow rune application. | <a href="#PerformanceParameters/duration/slow">See details</a>
+`fast` | The duration on fast rune application. | <a href="#PerformanceParameters/duration/fast">See details</a>
 
 #### <a name="PerformanceParameters/duration/slow"></a> `slow`
 
-- **Type:** <a href="#PerformanceParameters/duration/slow">Object</a>
+The duration on slow rune application.
+
+- **Type:** <a href="../_ActivatableSkill.md#Duration/CheckResultBased">Duration/CheckResultBased</a>
 
 #### <a name="PerformanceParameters/duration/fast"></a> `fast`
 
-- **Type:** <a href="#PerformanceParameters/duration/fast">Object</a>
+The duration on fast rune application.
 
----
-
-### <a name="PerformanceParameters/duration/slow"></a> `PerformanceParameters/duration/slow`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration/slow/tag">See details</a>
-`modifier?` | A value that modifies the resulting quality levels. | <a href="#PerformanceParameters/duration/slow/modifier">See details</a>
-`unit` | The duration unit. | <a href="#PerformanceParameters/duration/slow/unit">See details</a>
-
-#### <a name="PerformanceParameters/duration/slow/tag"></a> `tag`
-
-- **Constant:** `"QualityLevels"`
-
-#### <a name="PerformanceParameters/duration/slow/modifier"></a> `modifier?`
-
-A value that modifies the resulting quality levels.
-
-- **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/duration/slow/modifier'Multiply">PerformanceParameters/duration/slow/modifier'Multiply</a> | <a href="#PerformanceParameters/duration/slow/modifier'Divide">PerformanceParameters/duration/slow/modifier'Divide</a>
-
-#### <a name="PerformanceParameters/duration/slow/unit"></a> `unit`
-
-The duration unit.
-
-- **Type:** <a href="../_ActivatableSkill.md#Duration/Unit">Duration/Unit</a>
-
----
-
-### <a name="PerformanceParameters/duration/slow/modifier'Multiply"></a> `PerformanceParameters/duration/slow/modifier'Multiply`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration/slow/modifier'Multiply/tag">See details</a>
-`value` | A value that multiplies the resulting quality levels. | <a href="#PerformanceParameters/duration/slow/modifier'Multiply/value">See details</a>
-
-#### <a name="PerformanceParameters/duration/slow/modifier'Multiply/tag"></a> `tag`
-
-- **Constant:** `"Multiply"`
-
-#### <a name="PerformanceParameters/duration/slow/modifier'Multiply/value"></a> `value`
-
-A value that multiplies the resulting quality levels.
-
-- **Type:** Integer
-- **Minimum:** `2`
-
----
-
-### <a name="PerformanceParameters/duration/slow/modifier'Divide"></a> `PerformanceParameters/duration/slow/modifier'Divide`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration/slow/modifier'Divide/tag">See details</a>
-`value` | A value that divides the resulting quality levels. | <a href="#PerformanceParameters/duration/slow/modifier'Divide/value">See details</a>
-
-#### <a name="PerformanceParameters/duration/slow/modifier'Divide/tag"></a> `tag`
-
-- **Constant:** `"Divide"`
-
-#### <a name="PerformanceParameters/duration/slow/modifier'Divide/value"></a> `value`
-
-A value that divides the resulting quality levels.
-
-- **Type:** Integer
-- **Minimum:** `2`
-
----
-
-### <a name="PerformanceParameters/duration/fast"></a> `PerformanceParameters/duration/fast`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration/fast/tag">See details</a>
-`modifier?` | A value that modifies the resulting quality levels. | <a href="#PerformanceParameters/duration/fast/modifier">See details</a>
-`unit` | The duration unit. | <a href="#PerformanceParameters/duration/fast/unit">See details</a>
-
-#### <a name="PerformanceParameters/duration/fast/tag"></a> `tag`
-
-- **Constant:** `"QualityLevels"`
-
-#### <a name="PerformanceParameters/duration/fast/modifier"></a> `modifier?`
-
-A value that modifies the resulting quality levels.
-
-- **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/duration/fast/modifier'Multiply">PerformanceParameters/duration/fast/modifier'Multiply</a> | <a href="#PerformanceParameters/duration/fast/modifier'Divide">PerformanceParameters/duration/fast/modifier'Divide</a>
-
-#### <a name="PerformanceParameters/duration/fast/unit"></a> `unit`
-
-The duration unit.
-
-- **Type:** <a href="../_ActivatableSkill.md#Duration/Unit">Duration/Unit</a>
-
----
-
-### <a name="PerformanceParameters/duration/fast/modifier'Multiply"></a> `PerformanceParameters/duration/fast/modifier'Multiply`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration/fast/modifier'Multiply/tag">See details</a>
-`value` | A value that multiplies the resulting quality levels. | <a href="#PerformanceParameters/duration/fast/modifier'Multiply/value">See details</a>
-
-#### <a name="PerformanceParameters/duration/fast/modifier'Multiply/tag"></a> `tag`
-
-- **Constant:** `"Multiply"`
-
-#### <a name="PerformanceParameters/duration/fast/modifier'Multiply/value"></a> `value`
-
-A value that multiplies the resulting quality levels.
-
-- **Type:** Integer
-- **Minimum:** `2`
-
----
-
-### <a name="PerformanceParameters/duration/fast/modifier'Divide"></a> `PerformanceParameters/duration/fast/modifier'Divide`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration/fast/modifier'Divide/tag">See details</a>
-`value` | A value that divides the resulting quality levels. | <a href="#PerformanceParameters/duration/fast/modifier'Divide/value">See details</a>
-
-#### <a name="PerformanceParameters/duration/fast/modifier'Divide/tag"></a> `tag`
-
-- **Constant:** `"Divide"`
-
-#### <a name="PerformanceParameters/duration/fast/modifier'Divide/value"></a> `value`
-
-A value that divides the resulting quality levels.
-
-- **Type:** Integer
-- **Minimum:** `2`
+- **Type:** <a href="../_ActivatableSkill.md#Duration/CheckResultBased">Duration/CheckResultBased</a>

@@ -173,7 +173,7 @@ Key | Description | Details
 #### <a name="PerformanceParameters/cost"></a> `cost`
 
 - **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/cost'Flat">PerformanceParameters/cost'Flat</a> | <a href="#PerformanceParameters/cost'Indefinite">PerformanceParameters/cost'Indefinite</a>
+- **Cases:** <a href="#PerformanceParameters/cost'Fixed">PerformanceParameters/cost'Fixed</a> | <a href="#PerformanceParameters/cost'Indefinite">PerformanceParameters/cost'Indefinite</a>
 
 ---
 
@@ -254,56 +254,56 @@ Key | Description | Details
 
 ---
 
-### <a name="PerformanceParameters/cost'Flat"></a> `PerformanceParameters/cost'Flat`
+### <a name="PerformanceParameters/cost'Fixed"></a> `PerformanceParameters/cost'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/cost'Flat/tag">See details</a>
-`temporary` | The (temporary) AE cost value. | <a href="#PerformanceParameters/cost'Flat/temporary">See details</a>
-`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PerformanceParameters/cost'Flat/translations">See details</a>
+`tag` |  | <a href="#PerformanceParameters/cost'Fixed/tag">See details</a>
+`value` | The (temporary) AE cost value. | <a href="#PerformanceParameters/cost'Fixed/value">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PerformanceParameters/cost'Fixed/translations">See details</a>
 
-#### <a name="PerformanceParameters/cost'Flat/tag"></a> `tag`
+#### <a name="PerformanceParameters/cost'Fixed/tag"></a> `tag`
 
-- **Constant:** `"Flat"`
+- **Constant:** `"Fixed"`
 
-#### <a name="PerformanceParameters/cost'Flat/temporary"></a> `temporary`
+#### <a name="PerformanceParameters/cost'Fixed/value"></a> `value`
 
 The (temporary) AE cost value.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="PerformanceParameters/cost'Flat/translations"></a> `translations?`
+#### <a name="PerformanceParameters/cost'Fixed/translations"></a> `translations?`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#PerformanceParameters/cost'Flat/translations[key]">PerformanceParameters/cost'Flat/translations[key]</a>
+- **Property Values:** <a href="#PerformanceParameters/cost'Fixed/translations[key]">PerformanceParameters/cost'Fixed/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="PerformanceParameters/cost'Flat/translations[key]"></a> `PerformanceParameters/cost'Flat/translations[key]`
+### <a name="PerformanceParameters/cost'Fixed/translations[key]"></a> `PerformanceParameters/cost'Fixed/translations[key]`
 
 - **Type:** Object
 - **Minimum Properties:** `1`
 
 Key | Description | Details
 :-- | :-- | :--
-`per?` | The cost have to be per a specific countable entity, e.g. `8 AE per person`. | <a href="#PerformanceParameters/cost'Flat/translations[key]/per">See details</a>
+`per?` | The cost have to be per a specific countable entity, e.g. `8 AE per person`. | <a href="#PerformanceParameters/cost'Fixed/translations[key]/per">See details</a>
 
-#### <a name="PerformanceParameters/cost'Flat/translations[key]/per"></a> `per?`
+#### <a name="PerformanceParameters/cost'Fixed/translations[key]/per"></a> `per?`
 
 The cost have to be per a specific countable entity, e.g. `8 AE per person`.
 
-- **Type:** <a href="#PerformanceParameters/cost'Flat/translations[key]/per">Object</a>
+- **Type:** <a href="#PerformanceParameters/cost'Fixed/translations[key]/per">Object</a>
 
 ---
 
-### <a name="PerformanceParameters/cost'Flat/translations[key]/per"></a> `PerformanceParameters/cost'Flat/translations[key]/per`
+### <a name="PerformanceParameters/cost'Fixed/translations[key]/per"></a> `PerformanceParameters/cost'Fixed/translations[key]/per`
 
 The cost have to be per a specific countable entity, e.g. `8 AE per person`.
 
@@ -311,17 +311,17 @@ The cost have to be per a specific countable entity, e.g. `8 AE per person`.
 
 Key | Description | Details
 :-- | :-- | :--
-`default` | The full countable entity name. | <a href="#PerformanceParameters/cost'Flat/translations[key]/per/default">See details</a>
-`compressed` | The compressed countable entity name. | <a href="#PerformanceParameters/cost'Flat/translations[key]/per/compressed">See details</a>
+`default` | The full countable entity name. | <a href="#PerformanceParameters/cost'Fixed/translations[key]/per/default">See details</a>
+`compressed` | The compressed countable entity name. | <a href="#PerformanceParameters/cost'Fixed/translations[key]/per/compressed">See details</a>
 
-#### <a name="PerformanceParameters/cost'Flat/translations[key]/per/default"></a> `default`
+#### <a name="PerformanceParameters/cost'Fixed/translations[key]/per/default"></a> `default`
 
 The full countable entity name.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
-#### <a name="PerformanceParameters/cost'Flat/translations[key]/per/compressed"></a> `compressed`
+#### <a name="PerformanceParameters/cost'Fixed/translations[key]/per/compressed"></a> `compressed`
 
 The compressed countable entity name.
 
@@ -337,19 +337,18 @@ The compressed countable entity name.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#PerformanceParameters/cost'Indefinite/tag">See details</a>
-`multiply?` | Specified if the indefinite description's result value is to be multiplied by a certain number. | <a href="#PerformanceParameters/cost'Indefinite/multiply">See details</a>
+`modifier?` | Specified if the indefinite description's result value is to be modified by a certain number. | <a href="#PerformanceParameters/cost'Indefinite/modifier">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PerformanceParameters/cost'Indefinite/translations">See details</a>
 
 #### <a name="PerformanceParameters/cost'Indefinite/tag"></a> `tag`
 
 - **Constant:** `"Indefinite"`
 
-#### <a name="PerformanceParameters/cost'Indefinite/multiply"></a> `multiply?`
+#### <a name="PerformanceParameters/cost'Indefinite/modifier"></a> `modifier?`
 
-Specified if the indefinite description's result value is to be multiplied by a certain number.
+Specified if the indefinite description's result value is to be modified by a certain number.
 
-- **Type:** Integer
-- **Minimum:** `2`
+- **Type:** <a href="#PerformanceParameters/cost'Indefinite/modifier">Object</a>
 
 #### <a name="PerformanceParameters/cost'Indefinite/translations"></a> `translations`
 
@@ -359,6 +358,32 @@ All translations for the entry, identified by IETF language tag (BCP47).
 - **Property Values:** <a href="#PerformanceParameters/cost'Indefinite/translations[key]">PerformanceParameters/cost'Indefinite/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
+
+---
+
+### <a name="PerformanceParameters/cost'Indefinite/modifier"></a> `PerformanceParameters/cost'Indefinite/modifier`
+
+Specified if the indefinite description's result value is to be modified by a certain number.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`arithmetic` | The arithmetic how to apply the `value` to the indefinite value. | <a href="#PerformanceParameters/cost'Indefinite/modifier/arithmetic">See details</a>
+`value` | The value that is applied to the indefinite value using the defined `arithmetic`. | <a href="#PerformanceParameters/cost'Indefinite/modifier/value">See details</a>
+
+#### <a name="PerformanceParameters/cost'Indefinite/modifier/arithmetic"></a> `arithmetic`
+
+The arithmetic how to apply the `value` to the indefinite value.
+
+- **Type:** <a href="../_ActivatableSkill.md#Duration/CheckResultArithmetic">Duration/CheckResultArithmetic</a>
+
+#### <a name="PerformanceParameters/cost'Indefinite/modifier/value"></a> `value`
+
+The value that is applied to the indefinite value using the defined `arithmetic`.
+
+- **Type:** Integer
+- **Minimum:** `2`
 
 ---
 

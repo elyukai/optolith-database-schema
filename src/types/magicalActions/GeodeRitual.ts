@@ -4,7 +4,7 @@
 
 import { Errata } from "../source/_Erratum"
 import { PublicationRefs } from "../source/_PublicationRef"
-import { Cost, Duration, Effect, TargetCategory } from "../_ActivatableSkill"
+import { CastingTime, Cost, Duration, Effect, TargetCategory } from "../_ActivatableSkill"
 import { GroupCollection } from "../_Prerequisite"
 import { SkillCheck } from "../_SkillCheck"
 
@@ -106,30 +106,31 @@ type PerformanceParameters = {
    */
   casting_time: {
     /**
-     * The skill modification increment identifier/level.
+     * The (unitless) casting time.
      * @integer
      * @minimum 1
-     * @maximum 6
      */
-    modification_id: number
+    value: number
+
+    /**
+     * The casting time unit.
+     */
+    unit: CastingTime.SlowSkillCastingTimeUnit
   }
 
   /**
    * The AE cost.
-   * @integer
-   * @minimum 1
    */
   cost:
     | {
-      tag: "Single"
+      tag: "Fixed"
 
       /**
-       * The skill modification increment identifier/level.
+       * The AE cost value.
        * @integer
        * @minimum 1
-       * @maximum 6
        */
-      modification_id: number
+      value: number
     }
     | {
       tag: "Map"
@@ -143,7 +144,7 @@ type PerformanceParameters = {
   range:
     | { tag: "Self" }
     | {
-      tag: "Steps"
+      tag: "Fixed"
 
       /**
        * The range in steps/m.
@@ -159,7 +160,7 @@ type PerformanceParameters = {
   duration:
     | { tag: "Immediate" }
     | {
-      tag: "Flat"
+      tag: "Fixed"
 
       /**
        * The (unitless) duration.
@@ -173,39 +174,5 @@ type PerformanceParameters = {
        */
       unit: Duration.Unit
     }
-    | {
-      tag: "QualityLevels"
-
-      /**
-       * A value that modifies the resulting quality levels.
-       */
-      modifier?:
-        | {
-          tag: "Multiply"
-
-          /**
-           * A value that multiplies the resulting quality levels.
-           * @integer
-           * @minimum 2
-           * @default 1
-           */
-          value: number
-        }
-        | {
-          tag: "Divide"
-
-          /**
-           * A value that divides the resulting quality levels.
-           * @integer
-           * @minimum 2
-           * @default 1
-           */
-          value: number
-        }
-
-      /**
-       * The duration unit.
-       */
-      unit: Duration.Unit
-    }
+    | Duration.CheckResultBasedTagged
 }

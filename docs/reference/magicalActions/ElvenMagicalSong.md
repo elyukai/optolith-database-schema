@@ -166,12 +166,11 @@ The AE cost.
 
 Key | Description | Details
 :-- | :-- | :--
-`temporary` | The (temporary) AE cost value. | <a href="#PerformanceParameters/cost/temporary">See details</a>
+`value` | The (temporary) AE cost value. | <a href="#PerformanceParameters/cost/value">See details</a>
 `interval?` | Specified if the AE cost `value` have to paid for each time interval. | <a href="#PerformanceParameters/cost/interval">See details</a>
 `permanent?` | A permanent AE cost, independent from a possible interval. | <a href="#PerformanceParameters/cost/permanent">See details</a>
-`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PerformanceParameters/cost/translations">See details</a>
 
-#### <a name="PerformanceParameters/cost/temporary"></a> `temporary`
+#### <a name="PerformanceParameters/cost/value"></a> `value`
 
 The (temporary) AE cost value.
 
@@ -188,31 +187,77 @@ Specified if the AE cost `value` have to paid for each time interval.
 
 A permanent AE cost, independent from a possible interval.
 
-- **Type:** Integer
-- **Minimum:** `1`
-
-#### <a name="PerformanceParameters/cost/translations"></a> `translations?`
-
-All translations for the entry, identified by IETF language tag (BCP47).
-
-- **Type:** Dictionary
-- **Property Values:** <a href="#PerformanceParameters/cost/translations[key]">PerformanceParameters/cost/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="#PerformanceParameters/cost/permanent">Object</a>
 
 ---
 
-### <a name="PerformanceParameters/cost/translations[key]"></a> `PerformanceParameters/cost/translations[key]`
+### <a name="PerformanceParameters/cost/permanent"></a> `PerformanceParameters/cost/permanent`
+
+A permanent AE cost, independent from a possible interval.
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`permanent` | A replacement string for the permanent cost. It must contain `$1`, which is going to be replaced with the generated permanent cost string, so additional information can be provided without duplicating concrete numeric values. | <a href="#PerformanceParameters/cost/translations[key]/permanent">See details</a>
+`value` | The permanent AE cost value. | <a href="#PerformanceParameters/cost/permanent/value">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PerformanceParameters/cost/permanent/translations">See details</a>
 
-#### <a name="PerformanceParameters/cost/translations[key]/permanent"></a> `permanent`
+#### <a name="PerformanceParameters/cost/permanent/value"></a> `value`
 
-A replacement string for the permanent cost. It must contain `$1`, which is going to be replaced with the generated permanent cost string, so additional information can be provided without duplicating concrete numeric values.
+The permanent AE cost value.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="PerformanceParameters/cost/permanent/translations"></a> `translations?`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#PerformanceParameters/cost/permanent/translations[key]">PerformanceParameters/cost/permanent/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="PerformanceParameters/cost/permanent/translations[key]"></a> `PerformanceParameters/cost/permanent/translations[key]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`replacement` | A replacement string for the permanent cost. | <a href="#PerformanceParameters/cost/permanent/translations[key]/replacement">See details</a>
+
+#### <a name="PerformanceParameters/cost/permanent/translations[key]/replacement"></a> `replacement`
+
+A replacement string for the permanent cost.
+
+- **Type:** <a href="#PerformanceParameters/cost/permanent/translations[key]/replacement">Object</a>
+
+---
+
+### <a name="PerformanceParameters/cost/permanent/translations[key]/replacement"></a> `PerformanceParameters/cost/permanent/translations[key]/replacement`
+
+A replacement string for the permanent cost.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`default` | The full replacement string. It must contain `$1`, which is going to be replaced with the generated AE cost string, so additional information can be provided without duplicating concrete numeric values. | <a href="#PerformanceParameters/cost/permanent/translations[key]/replacement/default">See details</a>
+`compressed` | A compressed replacement string for use in small areas (e.g. on character sheet). It must contain `$1`, which is going to be replaced with the generated AE cost string, so additional information can be provided without duplicating concrete numeric values. | <a href="#PerformanceParameters/cost/permanent/translations[key]/replacement/compressed">See details</a>
+
+#### <a name="PerformanceParameters/cost/permanent/translations[key]/replacement/default"></a> `default`
+
+The full replacement string. It must contain `$1`, which is going to be replaced with the generated AE cost string, so additional information can be provided without duplicating concrete numeric values.
+
+- **Type:** String
+- **Minimum Length:** `1`
+- **Pattern:** `\$1`
+
+#### <a name="PerformanceParameters/cost/permanent/translations[key]/replacement/compressed"></a> `compressed`
+
+A compressed replacement string for use in small areas (e.g. on character sheet). It must contain `$1`, which is going to be replaced with the generated AE cost string, so additional information can be provided without duplicating concrete numeric values.
 
 - **Type:** String
 - **Minimum Length:** `1`

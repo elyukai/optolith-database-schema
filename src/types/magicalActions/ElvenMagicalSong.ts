@@ -104,7 +104,7 @@ type PerformanceParameters = {
      * @integer
      * @minimum 1
      */
-    temporary: number
+    value: number
 
     /**
      * Specified if the AE cost `value` have to paid for each time interval.
@@ -113,29 +113,50 @@ type PerformanceParameters = {
 
     /**
      * A permanent AE cost, independent from a possible interval.
-     * @integer
-     * @minimum 1
      */
-    permanent?: number
-
-    /**
-     * All translations for the entry, identified by IETF language tag (BCP47).
-     * @minProperties 1
-     */
-    translations?: {
+    permanent?: {
       /**
-       * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+       * The permanent AE cost value.
+       * @integer
+       * @minimum 1
        */
-      [localeId: string]: {
+      value: number
+
+      /**
+       * All translations for the entry, identified by IETF language tag (BCP47).
+       * @minProperties 1
+       */
+      translations?: {
         /**
-         * A replacement string for the permanent cost. It must contain `$1`,
-         * which is going to be replaced with the generated permanent cost
-         * string, so additional information can be provided without
-         * duplicating concrete numeric values.
-         * @minLength 1
-         * @pattern \$1
+         * @patternProperties ^[a-z]{2}-[A-Z]{2}$
          */
-        permanent: string
+        [localeId: string]: {
+          /**
+           * A replacement string for the permanent cost.
+           */
+          replacement: {
+            /**
+             * The full replacement string. It must contain `$1`, which is
+             * going to be replaced with the generated AE cost string, so
+             * additional information can be provided without duplicating
+             * concrete numeric values.
+             * @minLength 1
+             * @pattern \$1
+             */
+            default: string
+
+            /**
+             * A compressed replacement string for use in small areas (e.g. on
+             * character sheet). It must contain `$1`, which is going to be
+             * replaced with the generated AE cost string, so additional
+             * information can be provided without duplicating concrete
+             * numeric values.
+             * @minLength 1
+             * @pattern \$1
+             */
+            compressed: string
+          }
+        }
       }
     }
   }

@@ -148,34 +148,42 @@ Measurable parameters of a curse.
 
 Key | Description | Details
 :-- | :-- | :--
-`cost` |  | <a href="#PerformanceParameters/cost">See details</a>
-`duration` |  | <a href="#PerformanceParameters/duration">See details</a>
+`cost` | The AE cost. | <a href="#PerformanceParameters/cost">See details</a>
+`duration` | The duration. | <a href="#PerformanceParameters/duration">See details</a>
 
 #### <a name="PerformanceParameters/cost"></a> `cost`
+
+The AE cost.
 
 - **Type:** <a href="#PerformanceParameters/cost">Object</a>
 
 #### <a name="PerformanceParameters/duration"></a> `duration`
 
+The duration.
+
 - **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/duration'Numeric">PerformanceParameters/duration'Numeric</a> | <a href="#PerformanceParameters/duration'Indefinite">PerformanceParameters/duration'Indefinite</a>
+- **Cases:** <a href="#PerformanceParameters/duration'Fixed">PerformanceParameters/duration'Fixed</a> | <a href="#PerformanceParameters/duration'CheckResultBasedTagged">PerformanceParameters/duration'CheckResultBasedTagged</a> | <a href="#PerformanceParameters/duration'Indefinite">PerformanceParameters/duration'Indefinite</a>
 
 ---
 
 ### <a name="PerformanceParameters/cost"></a> `PerformanceParameters/cost`
 
+The AE cost.
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`temporary` | The (temporary) AE cost value. | <a href="#PerformanceParameters/cost/temporary">See details</a>
+`initial_modification_level` | The initial skill modification identifier/level. | <a href="#PerformanceParameters/cost/initial_modification_level">See details</a>
 `translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PerformanceParameters/cost/translations">See details</a>
 
-#### <a name="PerformanceParameters/cost/temporary"></a> `temporary`
+#### <a name="PerformanceParameters/cost/initial_modification_level"></a> `initial_modification_level`
 
-The (temporary) AE cost value.
+The initial skill modification identifier/level.
 
-- **Type:** <a href="#PerformanceParameters/cost/temporary">Object</a>
+- **Type:** Integer
+- **Minimum:** `1`
+- **Maximum:** `6`
 
 #### <a name="PerformanceParameters/cost/translations"></a> `translations?`
 
@@ -185,26 +193,6 @@ All translations for the entry, identified by IETF language tag (BCP47).
 - **Property Values:** <a href="#PerformanceParameters/cost/translations[key]">PerformanceParameters/cost/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
-
----
-
-### <a name="PerformanceParameters/cost/temporary"></a> `PerformanceParameters/cost/temporary`
-
-The (temporary) AE cost value.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`modification_id` | The skill modification increment identifier/level. | <a href="#PerformanceParameters/cost/temporary/modification_id">See details</a>
-
-#### <a name="PerformanceParameters/cost/temporary/modification_id"></a> `modification_id`
-
-The skill modification increment identifier/level.
-
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `6`
 
 ---
 
@@ -252,31 +240,38 @@ A compressed description of where the cost come from for use in small areas (e.g
 
 ---
 
-### <a name="PerformanceParameters/duration'Numeric"></a> `PerformanceParameters/duration'Numeric`
+### <a name="PerformanceParameters/duration'Fixed"></a> `PerformanceParameters/duration'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration'Numeric/tag">See details</a>
-`check_result?` | If defined, the check result affects the duration in the defined way. | <a href="#PerformanceParameters/duration'Numeric/check_result">See details</a>
-`value` | The duration value. If `check_result` is defined and this is `1`, it is used as the unit for the value derived from the check result in rendered text output. | <a href="#PerformanceParameters/duration'Numeric/value">See details</a>
+`tag` |  | <a href="#PerformanceParameters/duration'Fixed/tag">See details</a>
+`value` | The (unitless) duration value. | <a href="#PerformanceParameters/duration'Fixed/value">See details</a>
+`unit` | The unit of the `value`. | <a href="#PerformanceParameters/duration'Fixed/unit">See details</a>
 
-#### <a name="PerformanceParameters/duration'Numeric/tag"></a> `tag`
+#### <a name="PerformanceParameters/duration'Fixed/tag"></a> `tag`
 
-- **Constant:** `"Numeric"`
+- **Constant:** `"Fixed"`
 
-#### <a name="PerformanceParameters/duration'Numeric/check_result"></a> `check_result?`
+#### <a name="PerformanceParameters/duration'Fixed/value"></a> `value`
 
-If defined, the check result affects the duration in the defined way.
+The (unitless) duration value.
 
-- **Type:** <a href="../_ActivatableSkill.md#Duration/CheckResult">Duration/CheckResult</a>
+- **Type:** Integer
+- **Minimum:** `1`
 
-#### <a name="PerformanceParameters/duration'Numeric/value"></a> `value`
+#### <a name="PerformanceParameters/duration'Fixed/unit"></a> `unit`
 
-The duration value. If `check_result` is defined and this is `1`, it is used as the unit for the value derived from the check result in rendered text output.
+The unit of the `value`.
 
-- **Type:** <a href="../_ActivatableSkill.md#Duration/UnitValue">Duration/UnitValue</a>
+- **Type:** <a href="../_ActivatableSkill.md#Duration/Unit">Duration/Unit</a>
+
+---
+
+### <a name="PerformanceParameters/duration'CheckResultBasedTagged"></a> `PerformanceParameters/duration'CheckResultBasedTagged`
+
+- **Type:** <a href="../_ActivatableSkill.md#Duration/CheckResultBasedTagged">Duration/CheckResultBasedTagged</a>
 
 ---
 
@@ -298,7 +293,8 @@ Key | Description | Details
 
 Specified if the duration has a maximum time span.
 
-- **Type:** <a href="#PerformanceParameters/duration'Indefinite/maximum">Object</a>
+- **Type:** Union
+- **Cases:** <a href="#PerformanceParameters/duration'Indefinite/maximum'Fixed">PerformanceParameters/duration'Indefinite/maximum'Fixed</a> | <a href="#PerformanceParameters/duration'Indefinite/maximum'CheckResultBasedTagged">PerformanceParameters/duration'Indefinite/maximum'CheckResultBasedTagged</a>
 
 #### <a name="PerformanceParameters/duration'Indefinite/translations"></a> `translations`
 
@@ -311,28 +307,38 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="PerformanceParameters/duration'Indefinite/maximum"></a> `PerformanceParameters/duration'Indefinite/maximum`
-
-Specified if the duration has a maximum time span.
+### <a name="PerformanceParameters/duration'Indefinite/maximum'Fixed"></a> `PerformanceParameters/duration'Indefinite/maximum'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`value` | The duration value. If `check_result` is defined and this is `1`, it is used as the unit for the value derived from the check result in rendered text output. | <a href="#PerformanceParameters/duration'Indefinite/maximum/value">See details</a>
-`check_result?` | If defined, the check result affects the duration in the defined way. | <a href="#PerformanceParameters/duration'Indefinite/maximum/check_result">See details</a>
+`tag` |  | <a href="#PerformanceParameters/duration'Indefinite/maximum'Fixed/tag">See details</a>
+`value` | The (unitless) maximum duration value. | <a href="#PerformanceParameters/duration'Indefinite/maximum'Fixed/value">See details</a>
+`unit` | The unit of the `value`. | <a href="#PerformanceParameters/duration'Indefinite/maximum'Fixed/unit">See details</a>
 
-#### <a name="PerformanceParameters/duration'Indefinite/maximum/value"></a> `value`
+#### <a name="PerformanceParameters/duration'Indefinite/maximum'Fixed/tag"></a> `tag`
 
-The duration value. If `check_result` is defined and this is `1`, it is used as the unit for the value derived from the check result in rendered text output.
+- **Constant:** `"Fixed"`
 
-- **Type:** <a href="../_ActivatableSkill.md#Duration/UnitValue">Duration/UnitValue</a>
+#### <a name="PerformanceParameters/duration'Indefinite/maximum'Fixed/value"></a> `value`
 
-#### <a name="PerformanceParameters/duration'Indefinite/maximum/check_result"></a> `check_result?`
+The (unitless) maximum duration value.
 
-If defined, the check result affects the duration in the defined way.
+- **Type:** Integer
+- **Minimum:** `1`
 
-- **Type:** <a href="../_ActivatableSkill.md#Duration/CheckResult">Duration/CheckResult</a>
+#### <a name="PerformanceParameters/duration'Indefinite/maximum'Fixed/unit"></a> `unit`
+
+The unit of the `value`.
+
+- **Type:** <a href="../_ActivatableSkill.md#Duration/Unit">Duration/Unit</a>
+
+---
+
+### <a name="PerformanceParameters/duration'Indefinite/maximum'CheckResultBasedTagged"></a> `PerformanceParameters/duration'Indefinite/maximum'CheckResultBasedTagged`
+
+- **Type:** <a href="../_ActivatableSkill.md#Duration/CheckResultBasedTagged">Duration/CheckResultBasedTagged</a>
 
 ---
 

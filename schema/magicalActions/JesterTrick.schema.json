@@ -161,13 +161,33 @@
       "properties": {
         "casting_time": {
           "description": "The casting time.",
-          "type": "integer",
-          "minimum": 1
+          "type": "object",
+          "properties": {
+            "value": {
+              "description": "The casting time in actions.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "value"
+          ],
+          "additionalProperties": false
         },
         "cost": {
           "description": "The AE cost.",
-          "type": "integer",
-          "minimum": 1
+          "type": "object",
+          "properties": {
+            "value": {
+              "description": "The AE cost value.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "value"
+          ],
+          "additionalProperties": false
         },
         "range": {
           "description": "The range.",
@@ -200,7 +220,7 @@
               "type": "object",
               "properties": {
                 "tag": {
-                  "const": "Steps"
+                  "const": "Fixed"
                 },
                 "value": {
                   "description": "The range in steps/m.",
@@ -235,7 +255,7 @@
               "type": "object",
               "properties": {
                 "tag": {
-                  "const": "Flat"
+                  "const": "Fixed"
                 },
                 "value": {
                   "description": "The (unitless) duration.",
@@ -255,26 +275,7 @@
               "additionalProperties": false
             },
             {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "QualityLevels"
-                },
-                "multiplier": {
-                  "description": "A value that multiplies the resulting quality levels.",
-                  "type": "integer",
-                  "minimum": 2
-                },
-                "unit": {
-                  "description": "The duration unit.",
-                  "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/Unit"
-                }
-              },
-              "required": [
-                "tag",
-                "unit"
-              ],
-              "additionalProperties": false
+              "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/CheckResultBasedTagged"
             }
           ]
         }

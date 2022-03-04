@@ -218,8 +218,7 @@
             "tag",
             "casting_time",
             "cost",
-            "range",
-            "duration"
+            "range"
           ],
           "additionalProperties": false
         }
@@ -227,101 +226,52 @@
     },
     "CastingTime": {
       "T": {
-        "oneOf": [
-          {
-            "$ref": "#/definitions/CastingTime/DefaultCastingTime"
-          },
-          {
-            "$ref": "#/definitions/CastingTime/AventurianIntimacyCastingTime"
-          }
-        ]
-      },
-      "DefaultCastingTime": {
-        "description": "The default casting time definition.",
         "type": "object",
         "properties": {
-          "tag": {
-            "const": "Default"
-          },
-          "modification_id": {
-            "description": "The skill modification increment identifier/level.",
-            "type": "integer",
-            "maximum": 6,
-            "minimum": 1
-          },
-          "is_modifiable": {
-            "description": "Is the casting time modifiable?",
-            "type": "boolean"
-          }
-        },
-        "required": [
-          "tag",
-          "modification_id",
-          "is_modifiable"
-        ],
-        "additionalProperties": false
-      },
-      "AventurianIntimacyCastingTime": {
-        "description": "In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking.",
-        "type": "object",
-        "properties": {
-          "tag": {
-            "const": "Intimacy"
-          },
-          "before_lovemaking": {
-            "description": "The casting time before lovemaking (the normal casting time).",
-            "$ref": "#/definitions/CastingTime/CastingTimeBeforeLovemaking"
+          "default": {
+            "description": "The default casting time definition.",
+            "type": "object",
+            "properties": {
+              "initial_modification_level": {
+                "description": "The initial skill modification identifier/level.",
+                "type": "integer",
+                "maximum": 6,
+                "minimum": 1
+              },
+              "is_modifiable": {
+                "description": "Is the casting time modifiable?",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "initial_modification_level",
+              "is_modifiable"
+            ],
+            "additionalProperties": false
           },
           "during_lovemaking": {
-            "description": "The casting time during lovemaking.",
-            "$ref": "#/definitions/CastingTime/CastingTimeDuringLovemaking"
+            "description": "The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking.",
+            "type": "object",
+            "properties": {
+              "value": {
+                "description": "The (unitless) duration value.",
+                "type": "integer",
+                "minimum": 1
+              },
+              "unit": {
+                "description": "The unit of the `value`.",
+                "$ref": "#/definitions/CastingTime/CastingTimeDuringLovemakingUnit"
+              }
+            },
+            "required": [
+              "value",
+              "unit"
+            ],
+            "additionalProperties": false
           }
         },
         "required": [
-          "tag",
-          "before_lovemaking",
-          "during_lovemaking"
-        ],
-        "additionalProperties": false
-      },
-      "CastingTimeBeforeLovemaking": {
-        "description": "The casting time before lovemaking (the normal casting time).",
-        "type": "object",
-        "properties": {
-          "modification_id": {
-            "description": "The skill modification increment identifier/level.",
-            "type": "integer",
-            "maximum": 6,
-            "minimum": 1
-          },
-          "is_modifiable": {
-            "description": "Is the casting time modifiable?",
-            "type": "boolean"
-          }
-        },
-        "required": [
-          "modification_id",
-          "is_modifiable"
-        ],
-        "additionalProperties": false
-      },
-      "CastingTimeDuringLovemaking": {
-        "description": "The casting time during lovemaking.",
-        "type": "object",
-        "properties": {
-          "value": {
-            "description": "The (unitless) duration value.",
-            "type": "integer",
-            "minimum": 1
-          },
-          "unit": {
-            "description": "The unit of the `value`.",
-            "$ref": "#/definitions/CastingTime/CastingTimeDuringLovemakingUnit"
-          }
-        },
-        "required": [
-          "value",
-          "unit"
+          "default"
         ],
         "additionalProperties": false
       },
@@ -330,50 +280,15 @@
           "SeductionActions",
           "Rounds"
         ]
+      },
+      "SlowSkillCastingTimeUnit": {
+        "enum": [
+          "Minutes",
+          "Hours"
+        ]
       }
     },
     "Cost": {
-      "Minimum": {
-        "oneOf": [
-          {
-            "$ref": "#/definitions/Cost/RelativeMinimum"
-          },
-          {
-            "$ref": "#/definitions/Cost/AbsoluteMinimum"
-          }
-        ]
-      },
-      "RelativeMinimum": {
-        "description": "The cost `value` represents a minimum value, so that the minimum value itself may be modified by other cost display modifiers. E.g., it may be rendered as `at least 1 AE per person`.",
-        "type": "object",
-        "properties": {
-          "tag": {
-            "const": "Relative"
-          }
-        },
-        "required": [
-          "tag"
-        ],
-        "additionalProperties": false
-      },
-      "AbsoluteMinimum": {
-        "description": "There is an absolute minimum value that is not influenced by other cost modifications. E.g., it may be rendered as `1 AE per person, at least 4 AE`.",
-        "type": "object",
-        "properties": {
-          "tag": {
-            "const": "Absolute"
-          },
-          "value": {
-            "type": "integer",
-            "minimum": 1
-          }
-        },
-        "required": [
-          "tag",
-          "value"
-        ],
-        "additionalProperties": false
-      },
       "OneTime": {
         "T": {
           "oneOf": [
@@ -459,13 +374,13 @@
                 "tag": {
                   "const": "Modifiable"
                 },
-                "modification_id": {
-                  "description": "The skill modification increment identifier/level.",
+                "initial_modification_level": {
+                  "description": "The initial skill modification identifier/level.",
                   "type": "integer",
                   "maximum": 6,
                   "minimum": 1
                 },
-                "permanent": {
+                "permanent_value": {
                   "description": "The part of the cost value that has to be spent permanently.",
                   "type": "integer",
                   "minimum": 1
@@ -473,7 +388,7 @@
               },
               "required": [
                 "tag",
-                "modification_id"
+                "initial_modification_level"
               ],
               "additionalProperties": false
             },
@@ -483,18 +398,60 @@
                 "tag": {
                   "const": "NonModifiable"
                 },
-                "minimum": {
-                  "description": "A minimum cost value. It may be rendered relative to the actual cost `value` or may be an absolute value, not affected by other modifications of this cost value.",
-                  "$ref": "#/definitions/Cost/Minimum"
+                "is_minimum": {
+                  "description": "If `true`, the non-modifiable value is a minimum value.",
+                  "type": "boolean"
                 },
                 "value": {
+                  "description": "The AE cost value.",
                   "type": "integer",
                   "minimum": 1
                 },
-                "permanent": {
+                "permanent_value": {
                   "description": "The part of the cost value that has to be spent permanently.",
                   "type": "integer",
                   "minimum": 1
+                },
+                "per": {
+                  "type": "object",
+                  "properties": {
+                    "minimum_total": {
+                      "description": "If defined, the minimum total AE that have to be spent casting the skill.",
+                      "type": "number"
+                    },
+                    "translations": {
+                      "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                      "type": "object",
+                      "patternProperties": {
+                        "^[a-z]{2}-[A-Z]{2}$": {
+                          "type": "object",
+                          "properties": {
+                            "default": {
+                              "description": "The full countable entity name.",
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "compressed": {
+                              "description": "The compressed countable entity name.",
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "default",
+                            "compressed"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "minProperties": 1,
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "translations"
+                  ],
+                  "additionalProperties": false
                 },
                 "translations": {
                   "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -503,15 +460,25 @@
                     "^[a-z]{2}-[A-Z]{2}$": {
                       "type": "object",
                       "properties": {
-                        "per": {
-                          "description": "The cost have to be per a specific countable entity, e.g. `8 KP per person`",
-                          "type": "string",
-                          "minLength": 1
-                        },
                         "note": {
                           "description": "A note, appended to the generated string in parenthesis.",
-                          "type": "string",
-                          "minLength": 1
+                          "type": "object",
+                          "properties": {
+                            "default": {
+                              "description": "The full note.",
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "compressed": {
+                              "description": "A compressed note, if applicable. If not specified it should not be displayed in small location.",
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "default"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [],
@@ -620,7 +587,7 @@
               "type": "integer",
               "minimum": 1
             },
-            "permanent": {
+            "permanent_value": {
               "description": "The part of the `value` that has to be paid permanently.",
               "type": "integer",
               "minimum": 0
@@ -652,16 +619,21 @@
                 "tag": {
                   "const": "Modifiable"
                 },
-                "modification_id": {
-                  "description": "The skill modification increment identifier/level.",
+                "initial_modification_level": {
+                  "description": "The initial skill modification identifier/level.",
                   "type": "integer",
                   "maximum": 6,
                   "minimum": 1
+                },
+                "interval": {
+                  "description": "The sustain interval.",
+                  "$ref": "#/definitions/Duration/UnitValue"
                 }
               },
               "required": [
                 "tag",
-                "modification_id"
+                "initial_modification_level",
+                "interval"
               ],
               "additionalProperties": false
             },
@@ -671,18 +643,24 @@
                 "tag": {
                   "const": "NonModifiable"
                 },
-                "minimum": {
-                  "description": "A minimum cost value. It may be rendered relative to the actual cost `value` and cost interval or may be an absolute value, affecting the sum of the initial cost and the cost per interval.",
-                  "$ref": "#/definitions/Cost/Minimum"
+                "is_minimum": {
+                  "description": "If `true`, the non-modifiable value is a minimum value.",
+                  "type": "boolean"
                 },
                 "value": {
+                  "description": "The AE cost value.",
                   "type": "integer",
                   "minimum": 1
+                },
+                "interval": {
+                  "description": "The sustain interval.",
+                  "$ref": "#/definitions/Duration/UnitValue"
                 }
               },
               "required": [
                 "tag",
-                "value"
+                "value",
+                "interval"
               ],
               "additionalProperties": false
             }
@@ -706,8 +684,23 @@
                 "properties": {
                   "note": {
                     "description": "A note, appended to the generated string in parenthesis.",
-                    "type": "string",
-                    "minLength": 1
+                    "type": "object",
+                    "properties": {
+                      "default": {
+                        "description": "The full note.",
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "compressed": {
+                        "description": "A compressed note, if applicable. If not specified it should not be displayed in small location.",
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "default"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "required": [
@@ -733,21 +726,16 @@
               "tag": {
                 "const": "Modifiable"
               },
-              "modification_id": {
-                "description": "The skill modification increment identifier/level.",
+              "initial_modification_level": {
+                "description": "The initial skill modification identifier/level.",
                 "type": "integer",
                 "maximum": 6,
                 "minimum": 1
-              },
-              "is_modifiable": {
-                "description": "Is the casting time modifiable?",
-                "type": "boolean"
               }
             },
             "required": [
               "tag",
-              "modification_id",
-              "is_modifiable"
+              "initial_modification_level"
             ],
             "additionalProperties": false
           },
@@ -792,7 +780,7 @@
             "type": "object",
             "properties": {
               "tag": {
-                "const": "Constant"
+                "const": "Fixed"
               },
               "value": {
                 "description": "The (unitless) range value.",
@@ -815,21 +803,40 @@
             "type": "object",
             "properties": {
               "tag": {
-                "const": "MultipliedQualityLevel"
+                "const": "CheckResultBased"
               },
-              "multiplier": {
-                "description": "The value that multiplies the quality level to form the final (unitless) range value.",
-                "type": "integer",
-                "minimum": 1
+              "base": {
+                "description": "The base value that is derived from the check result.",
+                "$ref": "#/definitions/Duration/CheckResultValue"
+              },
+              "modifier": {
+                "description": "If defined, it modifies the base value.",
+                "type": "object",
+                "properties": {
+                  "arithmetic": {
+                    "description": "The arithmetic how to apply the `value` to the `base`.",
+                    "$ref": "#/definitions/Duration/CheckResultArithmetic"
+                  },
+                  "value": {
+                    "description": "The value that is applied to the `base` using the defined `arithmetic`.",
+                    "type": "integer",
+                    "minimum": 2
+                  }
+                },
+                "required": [
+                  "arithmetic",
+                  "value"
+                ],
+                "additionalProperties": false
               },
               "unit": {
-                "description": "The unit of the value resulting from multiplying the quality level with the `multiplier`.",
+                "description": "The range unit.",
                 "$ref": "#/definitions/Range/Unit"
               }
             },
             "required": [
               "tag",
-              "multiplier",
+              "base",
               "unit"
             ],
             "additionalProperties": false
@@ -959,19 +966,20 @@
               "type": "object",
               "properties": {
                 "tag": {
-                  "const": "Numeric"
-                },
-                "value": {
-                  "description": "The duration value. If `check_result` is defined and this is `1`, it is used as the unit for the value derived from the check result in rendered text output.",
-                  "$ref": "#/definitions/Duration/UnitValue"
-                },
-                "check_result": {
-                  "description": "If defined, the check result affects the duration in the defined way.",
-                  "$ref": "#/definitions/Duration/CheckResult"
+                  "const": "Fixed"
                 },
                 "is_maximum": {
-                  "description": "Is the duration indefinite, but has a maximum time span?",
+                  "description": "If the duration is the maximum duration, so it may end earlier.",
                   "type": "boolean"
+                },
+                "value": {
+                  "description": "The (unitless) duration.",
+                  "type": "integer",
+                  "minimum": 2
+                },
+                "unit": {
+                  "description": "The duration unit.",
+                  "$ref": "#/definitions/Duration/Unit"
                 },
                 "translations": {
                   "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -1016,7 +1024,94 @@
               },
               "required": [
                 "tag",
-                "value"
+                "value",
+                "unit"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "CheckResultBased"
+                },
+                "is_maximum": {
+                  "description": "If the duration is the maximum duration, so it may end earlier.",
+                  "type": "boolean"
+                },
+                "base": {
+                  "description": "The base value that is derived from the check result.",
+                  "$ref": "#/definitions/Duration/CheckResultValue"
+                },
+                "modifier": {
+                  "description": "If defined, it modifies the base value.",
+                  "type": "object",
+                  "properties": {
+                    "arithmetic": {
+                      "description": "The arithmetic how to apply the `value` to the `base`.",
+                      "$ref": "#/definitions/Duration/CheckResultArithmetic"
+                    },
+                    "value": {
+                      "description": "The value that is applied to the `base` using the defined `arithmetic`.",
+                      "type": "integer",
+                      "minimum": 2
+                    }
+                  },
+                  "required": [
+                    "arithmetic",
+                    "value"
+                  ],
+                  "additionalProperties": false
+                },
+                "unit": {
+                  "description": "The duration unit.",
+                  "$ref": "#/definitions/Duration/Unit"
+                },
+                "translations": {
+                  "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                  "type": "object",
+                  "patternProperties": {
+                    "^[a-z]{2}-[A-Z]{2}$": {
+                      "type": "object",
+                      "properties": {
+                        "replacement": {
+                          "description": "A replacement string.",
+                          "type": "object",
+                          "properties": {
+                            "default": {
+                              "description": "The full replacement string. It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.",
+                              "type": "string",
+                              "minLength": 1,
+                              "pattern": "\\$1"
+                            },
+                            "compressed": {
+                              "description": "A compressed replacement string for use in small areas (e.g. on character sheet). It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.",
+                              "type": "string",
+                              "minLength": 1,
+                              "pattern": "\\$1"
+                            }
+                          },
+                          "required": [
+                            "default",
+                            "compressed"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "replacement"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "minProperties": 1,
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "tag",
+                "base",
+                "unit"
               ],
               "additionalProperties": false
             },
@@ -1035,8 +1130,24 @@
                       "properties": {
                         "description": {
                           "description": "A description of the duration.",
-                          "type": "string",
-                          "minLength": 1
+                          "type": "object",
+                          "properties": {
+                            "default": {
+                              "description": "The full description of the duration.",
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "compressed": {
+                              "description": "A compressed description of the duration for use in small areas (e.g. on character sheet).",
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "default",
+                            "compressed"
+                          ],
+                          "additionalProperties": false
                         }
                       },
                       "required": [
@@ -1058,20 +1169,131 @@
           ]
         }
       },
-      "CheckResult": {
-        "description": "Defines how the check result affects the duration in the defined way.",
+      "CheckResultBased": {
+        "description": "Defines the duration being based on a check result.",
         "type": "object",
         "properties": {
-          "value": {
+          "base": {
+            "description": "The base value that is derived from the check result.",
             "$ref": "#/definitions/Duration/CheckResultValue"
           },
-          "arithmetic": {
-            "$ref": "#/definitions/Duration/CheckResultArithmetic"
+          "modifier": {
+            "description": "If defined, it modifies the base value.",
+            "type": "object",
+            "properties": {
+              "arithmetic": {
+                "description": "The arithmetic how to apply the `value` to the `base`.",
+                "$ref": "#/definitions/Duration/CheckResultArithmetic"
+              },
+              "value": {
+                "description": "The value that is applied to the `base` using the defined `arithmetic`.",
+                "type": "integer",
+                "minimum": 2
+              }
+            },
+            "required": [
+              "arithmetic",
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "unit": {
+            "description": "The duration unit.",
+            "$ref": "#/definitions/Duration/Unit"
           }
         },
         "required": [
-          "value",
-          "arithmetic"
+          "base",
+          "unit"
+        ],
+        "additionalProperties": false
+      },
+      "CheckResultBasedTagged": {
+        "description": "Defines the duration being based on a check result.",
+        "type": "object",
+        "properties": {
+          "tag": {
+            "const": "CheckResultBased"
+          },
+          "base": {
+            "description": "The base value that is derived from the check result.",
+            "$ref": "#/definitions/Duration/CheckResultValue"
+          },
+          "modifier": {
+            "description": "If defined, it modifies the base value.",
+            "type": "object",
+            "properties": {
+              "arithmetic": {
+                "description": "The arithmetic how to apply the `value` to the `base`.",
+                "$ref": "#/definitions/Duration/CheckResultArithmetic"
+              },
+              "value": {
+                "description": "The value that is applied to the `base` using the defined `arithmetic`.",
+                "type": "integer",
+                "minimum": 2
+              }
+            },
+            "required": [
+              "arithmetic",
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "unit": {
+            "description": "The duration unit.",
+            "$ref": "#/definitions/Duration/Unit"
+          }
+        },
+        "required": [
+          "tag",
+          "base",
+          "unit"
+        ],
+        "additionalProperties": false
+      },
+      "CheckResultBasedTaggedAnimistPower": {
+        "type": "object",
+        "properties": {
+          "tag": {
+            "const": "CheckResultBased"
+          },
+          "is_maximum": {
+            "description": "If the duration is the maximum duration, so it may end earlier.",
+            "type": "boolean"
+          },
+          "base": {
+            "description": "The base value that is derived from the check result.",
+            "$ref": "#/definitions/Duration/CheckResultValue"
+          },
+          "modifier": {
+            "description": "If defined, it modifies the base value.",
+            "type": "object",
+            "properties": {
+              "arithmetic": {
+                "description": "The arithmetic how to apply the `value` to the `base`.",
+                "$ref": "#/definitions/Duration/CheckResultArithmetic"
+              },
+              "value": {
+                "description": "The value that is applied to the `base` using the defined `arithmetic`.",
+                "type": "integer",
+                "minimum": 2
+              }
+            },
+            "required": [
+              "arithmetic",
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "unit": {
+            "description": "The duration unit.",
+            "$ref": "#/definitions/Duration/Unit"
+          }
+        },
+        "required": [
+          "tag",
+          "base",
+          "unit"
         ],
         "additionalProperties": false
       },
@@ -1137,17 +1359,13 @@
         "T": {
           "type": "object",
           "properties": {
-            "interval": {
-              "description": "The interval.",
-              "$ref": "#/definitions/Duration/UnitValue"
-            },
             "maximum": {
-              "description": "Specified if the sustained skill can be active a maximum amount of time.",
+              "description": "The sustained skill can be active a maximum amount of time.",
               "$ref": "#/definitions/Duration/UnitValue"
             }
           },
           "required": [
-            "interval"
+            "maximum"
           ],
           "additionalProperties": false
         }

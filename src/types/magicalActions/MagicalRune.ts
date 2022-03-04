@@ -140,64 +140,64 @@ type PerformanceParameters = {
   /**
    * The AE cost.
    */
-  cost: {
-    value:
-      | {
-        tag: "Flat"
+  cost:
+    | {
+      tag: "Single"
 
-        /**
-         * The AE cost value.
-         * @integer
-         * @minimum 1
-         */
-        value: number
-      }
-      | {
-        tag: "Disjunction"
-
-        /**
-         * A set of possible AE cost values.
-         * @minItems 2
-         */
-        list: {
-          /**
-            * The AE cost value.
-            * @integer
-            * @minimum 1
-            */
-          value: number
-        }[]
-      }
-
-    /**
-     * All translations for the entry, identified by IETF language tag (BCP47).
-     * @minProperties 1
-     */
-    translations?: {
       /**
-       * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+       * The AE cost value.
+       * @integer
+       * @minimum 1
+       */
+      value: number
+
+      /**
+       * All translations for the entry, identified by IETF language tag
+       * (BCP47).
        * @minProperties 1
        */
-      [localeId: string]: {
+      translations?: {
         /**
-         * A note, appended to the generated string in parenthesis.
+         * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+         * @minProperties 1
          */
-        note?: {
+        [localeId: string]: {
           /**
-           * The full note.
-           * @minLength 1
+           * A note, appended to the generated string in parenthesis.
            */
-          default: string
+          note?: {
+            /**
+             * The full note.
+             * @minLength 1
+             */
+            default: string
 
-          /**
-           * A compressed note, if applicable.
-           * @minLength 1
-           */
-          compressed?: string
+            /**
+             * A compressed note, if applicable. If not specified it should not
+             * be displayed in small location.
+             * @minLength 1
+             */
+            compressed?: string
+          }
         }
       }
     }
-  }
+    | {
+      tag: "Disjunction"
+
+      /**
+       * A set of possible AE cost values.
+       * @minItems 2
+       */
+      list: {
+        /**
+          * The AE cost value.
+          * @integer
+          * @minimum 1
+          */
+        value: number
+      }[]
+    }
 
   /**
    * The crafting time.
@@ -219,8 +219,8 @@ type PerformanceParameters = {
        */
       [localeId: string]: {
         /**
-         * The cost have to be per a specific countable entity, e.g. `8 AE per
-         * person`.
+         * The crafting time has to be per a specific countable entity, e.g. `8
+         * action per person`.
          */
         per?: {
           /**
@@ -243,76 +243,14 @@ type PerformanceParameters = {
    * The duration.
    */
   duration: {
-    slow: {
-      tag: "QualityLevels"
+    /**
+     * The duration on slow rune application.
+     */
+    slow: Duration.CheckResultBased
 
-      /**
-       * A value that modifies the resulting quality levels.
-       */
-      modifier?:
-        | {
-          tag: "Multiply"
-
-          /**
-           * A value that multiplies the resulting quality levels.
-           * @integer
-           * @minimum 2
-           * @default 1
-           */
-          value: number
-        }
-        | {
-          tag: "Divide"
-
-          /**
-           * A value that divides the resulting quality levels.
-           * @integer
-           * @minimum 2
-           * @default 1
-           */
-          value: number
-        }
-
-      /**
-       * The duration unit.
-       */
-      unit: Duration.Unit
-    }
-
-    fast: {
-      tag: "QualityLevels"
-
-      /**
-       * A value that modifies the resulting quality levels.
-       */
-      modifier?:
-        | {
-          tag: "Multiply"
-
-          /**
-           * A value that multiplies the resulting quality levels.
-           * @integer
-           * @minimum 2
-           * @default 1
-           */
-          value: number
-        }
-        | {
-          tag: "Divide"
-
-          /**
-           * A value that divides the resulting quality levels.
-           * @integer
-           * @minimum 2
-           * @default 1
-           */
-          value: number
-        }
-
-      /**
-       * The duration unit.
-       */
-      unit: Duration.Unit
-    }
+    /**
+     * The duration on fast rune application.
+     */
+    fast: Duration.CheckResultBased
   }
 }

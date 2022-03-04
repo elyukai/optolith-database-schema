@@ -114,14 +114,28 @@ type PerformanceParameters = {
    * @integer
    * @minimum 1
    */
-  casting_time: number
+  casting_time: {
+    /**
+     * The casting time in actions.
+     * @integer
+     * @minimum 1
+     */
+    value: number
+  }
 
   /**
    * The AE cost.
    * @integer
    * @minimum 1
    */
-  cost: number
+  cost: {
+    /**
+     * The AE cost value.
+     * @integer
+     * @minimum 1
+     */
+    value: number
+  }
 
   /**
    * The range.
@@ -130,7 +144,7 @@ type PerformanceParameters = {
     | { tag: "Touch" }
     | { tag: "Self" }
     | {
-      tag: "Steps"
+      tag: "Fixed"
 
       /**
        * The range in steps/m.
@@ -146,7 +160,7 @@ type PerformanceParameters = {
   duration:
     | { tag: "Immediate" }
     | {
-      tag: "Flat"
+      tag: "Fixed"
 
       /**
        * The (unitless) duration.
@@ -160,20 +174,5 @@ type PerformanceParameters = {
        */
       unit: Duration.Unit
     }
-    | {
-      tag: "QualityLevels"
-
-      /**
-       * A value that multiplies the resulting quality levels.
-       * @integer
-       * @minimum 2
-       * @default 1
-       */
-      multiplier?: number
-
-      /**
-       * The duration unit.
-       */
-      unit: Duration.Unit
-    }
+    | Duration.CheckResultBasedTagged
 }

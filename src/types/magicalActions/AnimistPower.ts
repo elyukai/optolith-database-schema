@@ -173,29 +173,36 @@ type PerformanceParameters =
   | {
     tag: "OneTime"
 
-    cost: {
-      /**
-       * The AE cost value, either a flat value or defined dynamically by the
-       * primary patron.
-       */
-      value:
-        | {
-          tag: "Flat"
+    /**
+     * The AE cost value, either a flat value or defined dynamically by the
+     * primary patron.
+     */
+    cost:
+      | {
+        tag: "Fixed"
 
-          /**
-           * The AE cost value.
-           * @integer
-           * @minimum 1
-           */
-          value: number
-        }
-        | { tag: "ByPrimaryPatron" }
+        /**
+         * The AE cost value.
+         * @integer
+         * @minimum 1
+         */
+        value: number
 
-      /**
-       * If defined, half of the AE cost `value` has to be paid each interval.
-       */
-      interval?: Duration.UnitValue
-    }
+        /**
+         * If defined, half of the AE cost `value` has to be paid each
+         * interval.
+         */
+        interval?: Duration.UnitValue
+      }
+      | {
+        tag: "ByPrimaryPatron"
+
+        /**
+         * If defined, half of the AE cost `value` has to be paid each
+         * interval.
+         */
+        interval?: Duration.UnitValue
+      }
 
     /**
      * The duration.
@@ -203,7 +210,12 @@ type PerformanceParameters =
     duration:
       | { tag: "Immediate" }
       | {
-        tag: "Flat"
+        tag: "Fixed"
+
+        /**
+         * If the duration is the maximum duration, so it may end earlier.
+         */
+        is_maximum?: boolean
 
         /**
          * The (unitless) duration.
@@ -216,58 +228,38 @@ type PerformanceParameters =
          * The duration unit.
          */
         unit: Duration.Unit
-
-        /**
-         * If the duration is the maximum duration, so it may end earlier.
-         */
-        is_maximum?: boolean
       }
-      | {
-        tag: "QualityLevels"
-
-        /**
-         * A value that multiplies the resulting quality levels.
-         * @integer
-         * @minimum 2
-         * @default 1
-         */
-        multiplier?: number
-
-        /**
-         * The duration unit.
-         */
-        unit: Duration.Unit
-
-        /**
-         * If the duration is the maximum duration, so it may end earlier.
-         */
-        is_maximum?: boolean
-      }
+      | Duration.CheckResultBasedTaggedAnimistPower
   }
   | {
     tag: "Sustained"
 
-    cost: {
-      /**
-       * The AE cost value, either a flat value or defined dynamically by the
-       * primary patron.
-       */
-      value:
-        | {
-          tag: "Flat"
+    /**
+     * The AE cost value, either a flat value or defined dynamically by the
+     * primary patron.
+     */
+    cost:
+      | {
+        tag: "Fixed"
 
-          /**
-           * The AE cost value.
-           * @integer
-           * @minimum 1
-           */
-          value: number
-        }
-        | { tag: "ByPrimaryPatron" }
+        /**
+         * The AE cost value.
+         * @integer
+         * @minimum 1
+         */
+        value: number
 
-      /**
-       * Half of the AE cost `value` has to be paid each interval.
-       */
-      interval: Duration.UnitValue
-    }
+        /**
+         * Half of the AE cost `value` has to be paid each interval.
+         */
+        interval: Duration.UnitValue
+      }
+      | {
+        tag: "ByPrimaryPatron"
+
+        /**
+         * Half of the AE cost `value` has to be paid each interval.
+         */
+        interval: Duration.UnitValue
+      }
   }

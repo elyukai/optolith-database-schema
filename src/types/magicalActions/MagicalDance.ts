@@ -4,7 +4,7 @@
 
 import { Errata } from "../source/_Erratum"
 import { PublicationRefs } from "../source/_PublicationRef"
-import { Effect } from "../_ActivatableSkill"
+import { Duration, Effect } from "../_ActivatableSkill"
 import { ImprovementCost } from "../_ImprovementCost"
 import { SkillCheck } from "../_SkillCheck"
 import { MusicTraditionReference } from "./_MusicTradition"
@@ -102,14 +102,14 @@ type PerformanceParameters = {
   }
   cost:
     | {
-      tag: "Flat"
+      tag: "Fixed"
 
       /**
        * The (temporary) AE cost value.
        * @integer
        * @minimum 1
        */
-      temporary: number
+      value: number
 
       /**
        * All translations for the entry, identified by IETF language tag (BCP47).
@@ -146,11 +146,22 @@ type PerformanceParameters = {
 
       /**
        * Specified if the indefinite description's result value is to be
-       * multiplied by a certain number.
-       * @integer
-       * @minimum 2
+       * modified by a certain number.
        */
-      multiply?: number
+      modifier?: {
+        /**
+         * The arithmetic how to apply the `value` to the indefinite value.
+         */
+        arithmetic: Duration.CheckResultArithmetic
+
+        /**
+         * The value that is applied to the indefinite value using the defined
+         * `arithmetic`.
+         * @integer
+         * @minimum 2
+         */
+        value: number
+      }
 
       /**
        * All translations for the entry, identified by IETF language tag (BCP47).

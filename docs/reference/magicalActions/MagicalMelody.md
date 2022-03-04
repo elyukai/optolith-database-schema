@@ -197,7 +197,7 @@ Key | Description | Details
 #### <a name="PerformanceParameters/cost"></a> `cost`
 
 - **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/cost'Flat">PerformanceParameters/cost'Flat</a> | <a href="#PerformanceParameters/cost'FirstPerson">PerformanceParameters/cost'FirstPerson</a>
+- **Cases:** <a href="#PerformanceParameters/cost'Fixed">PerformanceParameters/cost'Fixed</a> | <a href="#PerformanceParameters/cost'FirstPerson">PerformanceParameters/cost'FirstPerson</a>
 
 ---
 
@@ -278,20 +278,20 @@ Key | Description | Details
 
 ---
 
-### <a name="PerformanceParameters/cost'Flat"></a> `PerformanceParameters/cost'Flat`
+### <a name="PerformanceParameters/cost'Fixed"></a> `PerformanceParameters/cost'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/cost'Flat/tag">See details</a>
-`temporary` | The (temporary) AE cost value. | <a href="#PerformanceParameters/cost'Flat/temporary">See details</a>
+`tag` |  | <a href="#PerformanceParameters/cost'Fixed/tag">See details</a>
+`value` | The (temporary) AE cost value. | <a href="#PerformanceParameters/cost'Fixed/value">See details</a>
 
-#### <a name="PerformanceParameters/cost'Flat/tag"></a> `tag`
+#### <a name="PerformanceParameters/cost'Fixed/tag"></a> `tag`
 
-- **Constant:** `"Flat"`
+- **Constant:** `"Fixed"`
 
-#### <a name="PerformanceParameters/cost'Flat/temporary"></a> `temporary`
+#### <a name="PerformanceParameters/cost'Fixed/value"></a> `value`
 
 The (temporary) AE cost value.
 
@@ -307,13 +307,13 @@ The (temporary) AE cost value.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#PerformanceParameters/cost'FirstPerson/tag">See details</a>
-`temporary` | The (temporary) AE cost value for the first targeted person. The AE cost for each additional person is half this value. | <a href="#PerformanceParameters/cost'FirstPerson/temporary">See details</a>
+`value` | The (temporary) AE cost value for the first targeted person. The AE cost for each additional person is half this value. | <a href="#PerformanceParameters/cost'FirstPerson/value">See details</a>
 
 #### <a name="PerformanceParameters/cost'FirstPerson/tag"></a> `tag`
 
 - **Constant:** `"FirstPerson"`
 
-#### <a name="PerformanceParameters/cost'FirstPerson/temporary"></a> `temporary`
+#### <a name="PerformanceParameters/cost'FirstPerson/value"></a> `value`
 
 The (temporary) AE cost value for the first targeted person. The AE cost for each additional person is half this value.
 

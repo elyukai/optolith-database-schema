@@ -117,14 +117,14 @@ type PerformanceParameters = {
   }
   cost:
     | {
-      tag: "Flat"
+      tag: "Fixed"
 
       /**
        * The (temporary) AE cost value.
        * @integer
        * @minimum 1
        */
-      temporary: number
+      value: number
     }
     | {
       tag: "FirstPerson"
@@ -136,6 +136,6 @@ type PerformanceParameters = {
        * @minimum 1
        * @multipleOf 2
        */
-      temporary: number
+      value: number
     }
 }

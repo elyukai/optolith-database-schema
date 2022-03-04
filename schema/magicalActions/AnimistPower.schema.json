@@ -250,52 +250,47 @@
               "const": "OneTime"
             },
             "cost": {
-              "type": "object",
-              "properties": {
-                "value": {
-                  "description": "The AE cost value, either a flat value or defined dynamically by the primary patron.",
-                  "oneOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "tag": {
-                          "const": "Flat"
-                        },
-                        "value": {
-                          "description": "The AE cost value.",
-                          "type": "integer",
-                          "minimum": 1
-                        }
-                      },
-                      "required": [
-                        "tag",
-                        "value"
-                      ],
-                      "additionalProperties": false
+              "description": "The AE cost value, either a flat value or defined dynamically by the primary patron.",
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tag": {
+                      "const": "Fixed"
                     },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "tag": {
-                          "const": "ByPrimaryPatron"
-                        }
-                      },
-                      "required": [
-                        "tag"
-                      ],
-                      "additionalProperties": false
+                    "value": {
+                      "description": "The AE cost value.",
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "interval": {
+                      "description": "If defined, half of the AE cost `value` has to be paid each interval.",
+                      "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/UnitValue"
                     }
-                  ]
+                  },
+                  "required": [
+                    "tag",
+                    "value"
+                  ],
+                  "additionalProperties": false
                 },
-                "interval": {
-                  "description": "If defined, half of the AE cost `value` has to be paid each interval.",
-                  "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/UnitValue"
+                {
+                  "type": "object",
+                  "properties": {
+                    "tag": {
+                      "const": "ByPrimaryPatron"
+                    },
+                    "interval": {
+                      "description": "If defined, half of the AE cost `value` has to be paid each interval.",
+                      "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/UnitValue"
+                    }
+                  },
+                  "required": [
+                    "tag"
+                  ],
+                  "additionalProperties": false
                 }
-              },
-              "required": [
-                "value"
-              ],
-              "additionalProperties": false
+              ]
             },
             "duration": {
               "description": "The duration.",
@@ -316,7 +311,11 @@
                   "type": "object",
                   "properties": {
                     "tag": {
-                      "const": "Flat"
+                      "const": "Fixed"
+                    },
+                    "is_maximum": {
+                      "description": "If the duration is the maximum duration, so it may end earlier.",
+                      "type": "boolean"
                     },
                     "value": {
                       "description": "The (unitless) duration.",
@@ -326,10 +325,6 @@
                     "unit": {
                       "description": "The duration unit.",
                       "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/Unit"
-                    },
-                    "is_maximum": {
-                      "description": "If the duration is the maximum duration, so it may end earlier.",
-                      "type": "boolean"
                     }
                   },
                   "required": [
@@ -340,30 +335,7 @@
                   "additionalProperties": false
                 },
                 {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "QualityLevels"
-                    },
-                    "multiplier": {
-                      "description": "A value that multiplies the resulting quality levels.",
-                      "type": "integer",
-                      "minimum": 2
-                    },
-                    "unit": {
-                      "description": "The duration unit.",
-                      "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/Unit"
-                    },
-                    "is_maximum": {
-                      "description": "If the duration is the maximum duration, so it may end earlier.",
-                      "type": "boolean"
-                    }
-                  },
-                  "required": [
-                    "tag",
-                    "unit"
-                  ],
-                  "additionalProperties": false
+                  "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/CheckResultBasedTaggedAnimistPower"
                 }
               ]
             }
@@ -382,53 +354,49 @@
               "const": "Sustained"
             },
             "cost": {
-              "type": "object",
-              "properties": {
-                "value": {
-                  "description": "The AE cost value, either a flat value or defined dynamically by the primary patron.",
-                  "oneOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "tag": {
-                          "const": "Flat"
-                        },
-                        "value": {
-                          "description": "The AE cost value.",
-                          "type": "integer",
-                          "minimum": 1
-                        }
-                      },
-                      "required": [
-                        "tag",
-                        "value"
-                      ],
-                      "additionalProperties": false
+              "description": "The AE cost value, either a flat value or defined dynamically by the primary patron.",
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tag": {
+                      "const": "Fixed"
                     },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "tag": {
-                          "const": "ByPrimaryPatron"
-                        }
-                      },
-                      "required": [
-                        "tag"
-                      ],
-                      "additionalProperties": false
+                    "value": {
+                      "description": "The AE cost value.",
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "interval": {
+                      "description": "Half of the AE cost `value` has to be paid each interval.",
+                      "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/UnitValue"
                     }
-                  ]
+                  },
+                  "required": [
+                    "tag",
+                    "value",
+                    "interval"
+                  ],
+                  "additionalProperties": false
                 },
-                "interval": {
-                  "description": "Half of the AE cost `value` has to be paid each interval.",
-                  "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/UnitValue"
+                {
+                  "type": "object",
+                  "properties": {
+                    "tag": {
+                      "const": "ByPrimaryPatron"
+                    },
+                    "interval": {
+                      "description": "Half of the AE cost `value` has to be paid each interval.",
+                      "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/UnitValue"
+                    }
+                  },
+                  "required": [
+                    "tag",
+                    "interval"
+                  ],
+                  "additionalProperties": false
                 }
-              },
-              "required": [
-                "value",
-                "interval"
-              ],
-              "additionalProperties": false
+              ]
             }
           },
           "required": [

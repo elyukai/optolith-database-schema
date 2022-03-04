@@ -83,16 +83,19 @@ export type Curse = {
  * Measurable parameters of a curse.
  */
 type PerformanceParameters = {
+  /**
+   * The AE cost.
+   */
   cost:
     | {
-      tag: "Numeric"
+      tag: "Fixed"
 
       /**
        * The (temporary) AE cost value.
        * @integer
        * @minimum 1
        */
-      temporary: number
+      value: number
 
       /**
        * All translations for the entry, identified by IETF language tag (BCP47).
@@ -107,15 +110,38 @@ type PerformanceParameters = {
           /**
            * The cost have to be per a specific countable entity, e.g. `8 KP
            * per person`
-           * @minLength 1
            */
-          per?: string
+          per?: {
+            /**
+             * The full countable entity name.
+             * @minLength 1
+             */
+            default: string
+
+            /**
+             * The compressed countable entity name.
+             * @minLength 1
+             */
+            compressed: string
+          }
 
           /**
            * A note, appended to the generated string in parenthesis.
-           * @minLength 1
            */
-          note?: string
+          note?: {
+            /**
+             * The full note.
+             * @minLength 1
+             */
+            default: string
+
+            /**
+             * A compressed note, if applicable. If not specified it should not
+             * be displayed in small location.
+             * @minLength 1
+             */
+            compressed?: string
+          }
         }
       }
     }
@@ -151,42 +177,51 @@ type PerformanceParameters = {
         }
       }
     }
+
+  /**
+   * The duration.
+   */
   duration:
     | { tag: "Immediate" }
     | {
-      tag: "Numeric"
+      tag: "Fixed"
 
       /**
-       * The duration value. If `check_result` is defined and this is `1`, it
-       * is used as the unit for the value derived from the check result in
-       * rendered text output.
+       * The (unitless) duration value.
+       * @integer
+       * @minimum 1
        */
-      value: Duration.UnitValue
+      value: number
 
       /**
-       * If defined, the check result affects the duration in the defined way.
+       * The unit of the `value`.
        */
-      check_result?: Duration.CheckResult
+      unit: Duration.Unit
     }
+    | Duration.CheckResultBasedTagged
     | {
       tag: "Indefinite"
 
       /**
        * Specified if the duration has a maximum time span.
        */
-      maximum?: {
-        /**
-         * The duration value. If `check_result` is defined and this is `1`, it
-         * is used as the unit for the value derived from the check result in
-         * rendered text output.
-         */
-        value: Duration.UnitValue
+      maximum?:
+        | {
+          tag: "Fixed"
 
-        /**
-         * If defined, the check result affects the duration in the defined way.
-         */
-        check_result?: Duration.CheckResult
-      }
+          /**
+           * The (unitless) maximum duration value.
+           * @integer
+           * @minimum 1
+           */
+          value: number
+
+          /**
+           * The unit of the `value`.
+           */
+          unit: Duration.Unit
+        }
+        | Duration.CheckResultBasedTagged
 
       /**
        * All translations for the entry, identified by IETF language tag (BCP47).
@@ -199,7 +234,6 @@ type PerformanceParameters = {
         [localeId: string]: {
           /**
            * A description of the duration.
-           * @minLength 1
            */
           description: {
             /**

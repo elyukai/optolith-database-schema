@@ -148,73 +148,129 @@ Measurable parameters of a curse.
 
 Key | Description | Details
 :-- | :-- | :--
-`cost` |  | <a href="#PerformanceParameters/cost">See details</a>
-`duration` |  | <a href="#PerformanceParameters/duration">See details</a>
+`cost` | The AE cost. | <a href="#PerformanceParameters/cost">See details</a>
+`duration` | The duration. | <a href="#PerformanceParameters/duration">See details</a>
 
 #### <a name="PerformanceParameters/cost"></a> `cost`
 
+The AE cost.
+
 - **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/cost'Numeric">PerformanceParameters/cost'Numeric</a> | <a href="#PerformanceParameters/cost'Indefinite">PerformanceParameters/cost'Indefinite</a>
+- **Cases:** <a href="#PerformanceParameters/cost'Fixed">PerformanceParameters/cost'Fixed</a> | <a href="#PerformanceParameters/cost'Indefinite">PerformanceParameters/cost'Indefinite</a>
 
 #### <a name="PerformanceParameters/duration"></a> `duration`
 
+The duration.
+
 - **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/duration'Immediate">PerformanceParameters/duration'Immediate</a> | <a href="#PerformanceParameters/duration'Numeric">PerformanceParameters/duration'Numeric</a> | <a href="#PerformanceParameters/duration'Indefinite">PerformanceParameters/duration'Indefinite</a>
+- **Cases:** <a href="#PerformanceParameters/duration'Immediate">PerformanceParameters/duration'Immediate</a> | <a href="#PerformanceParameters/duration'Fixed">PerformanceParameters/duration'Fixed</a> | <a href="#PerformanceParameters/duration'CheckResultBasedTagged">PerformanceParameters/duration'CheckResultBasedTagged</a> | <a href="#PerformanceParameters/duration'Indefinite">PerformanceParameters/duration'Indefinite</a>
 
 ---
 
-### <a name="PerformanceParameters/cost'Numeric"></a> `PerformanceParameters/cost'Numeric`
+### <a name="PerformanceParameters/cost'Fixed"></a> `PerformanceParameters/cost'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/cost'Numeric/tag">See details</a>
-`temporary` | The (temporary) AE cost value. | <a href="#PerformanceParameters/cost'Numeric/temporary">See details</a>
-`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PerformanceParameters/cost'Numeric/translations">See details</a>
+`tag` |  | <a href="#PerformanceParameters/cost'Fixed/tag">See details</a>
+`value` | The (temporary) AE cost value. | <a href="#PerformanceParameters/cost'Fixed/value">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PerformanceParameters/cost'Fixed/translations">See details</a>
 
-#### <a name="PerformanceParameters/cost'Numeric/tag"></a> `tag`
+#### <a name="PerformanceParameters/cost'Fixed/tag"></a> `tag`
 
-- **Constant:** `"Numeric"`
+- **Constant:** `"Fixed"`
 
-#### <a name="PerformanceParameters/cost'Numeric/temporary"></a> `temporary`
+#### <a name="PerformanceParameters/cost'Fixed/value"></a> `value`
 
 The (temporary) AE cost value.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="PerformanceParameters/cost'Numeric/translations"></a> `translations?`
+#### <a name="PerformanceParameters/cost'Fixed/translations"></a> `translations?`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#PerformanceParameters/cost'Numeric/translations[key]">PerformanceParameters/cost'Numeric/translations[key]</a>
+- **Property Values:** <a href="#PerformanceParameters/cost'Fixed/translations[key]">PerformanceParameters/cost'Fixed/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="PerformanceParameters/cost'Numeric/translations[key]"></a> `PerformanceParameters/cost'Numeric/translations[key]`
+### <a name="PerformanceParameters/cost'Fixed/translations[key]"></a> `PerformanceParameters/cost'Fixed/translations[key]`
 
 - **Type:** Object
 - **Minimum Properties:** `1`
 
 Key | Description | Details
 :-- | :-- | :--
-`per?` | The cost have to be per a specific countable entity, e.g. `8 KP per person` | <a href="#PerformanceParameters/cost'Numeric/translations[key]/per">See details</a>
-`note?` | A note, appended to the generated string in parenthesis. | <a href="#PerformanceParameters/cost'Numeric/translations[key]/note">See details</a>
+`per?` | The cost have to be per a specific countable entity, e.g. `8 KP per person` | <a href="#PerformanceParameters/cost'Fixed/translations[key]/per">See details</a>
+`note?` | A note, appended to the generated string in parenthesis. | <a href="#PerformanceParameters/cost'Fixed/translations[key]/note">See details</a>
 
-#### <a name="PerformanceParameters/cost'Numeric/translations[key]/per"></a> `per?`
+#### <a name="PerformanceParameters/cost'Fixed/translations[key]/per"></a> `per?`
 
 The cost have to be per a specific countable entity, e.g. `8 KP per person`
+
+- **Type:** <a href="#PerformanceParameters/cost'Fixed/translations[key]/per">Object</a>
+
+#### <a name="PerformanceParameters/cost'Fixed/translations[key]/note"></a> `note?`
+
+A note, appended to the generated string in parenthesis.
+
+- **Type:** <a href="#PerformanceParameters/cost'Fixed/translations[key]/note">Object</a>
+
+---
+
+### <a name="PerformanceParameters/cost'Fixed/translations[key]/per"></a> `PerformanceParameters/cost'Fixed/translations[key]/per`
+
+The cost have to be per a specific countable entity, e.g. `8 KP per person`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`default` | The full countable entity name. | <a href="#PerformanceParameters/cost'Fixed/translations[key]/per/default">See details</a>
+`compressed` | The compressed countable entity name. | <a href="#PerformanceParameters/cost'Fixed/translations[key]/per/compressed">See details</a>
+
+#### <a name="PerformanceParameters/cost'Fixed/translations[key]/per/default"></a> `default`
+
+The full countable entity name.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
-#### <a name="PerformanceParameters/cost'Numeric/translations[key]/note"></a> `note?`
+#### <a name="PerformanceParameters/cost'Fixed/translations[key]/per/compressed"></a> `compressed`
+
+The compressed countable entity name.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+---
+
+### <a name="PerformanceParameters/cost'Fixed/translations[key]/note"></a> `PerformanceParameters/cost'Fixed/translations[key]/note`
 
 A note, appended to the generated string in parenthesis.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`default` | The full note. | <a href="#PerformanceParameters/cost'Fixed/translations[key]/note/default">See details</a>
+`compressed?` | A compressed note, if applicable. If not specified it should not be displayed in small location. | <a href="#PerformanceParameters/cost'Fixed/translations[key]/note/compressed">See details</a>
+
+#### <a name="PerformanceParameters/cost'Fixed/translations[key]/note/default"></a> `default`
+
+The full note.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+#### <a name="PerformanceParameters/cost'Fixed/translations[key]/note/compressed"></a> `compressed?`
+
+A compressed note, if applicable. If not specified it should not be displayed in small location.
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -302,31 +358,38 @@ Key | Description | Details
 
 ---
 
-### <a name="PerformanceParameters/duration'Numeric"></a> `PerformanceParameters/duration'Numeric`
+### <a name="PerformanceParameters/duration'Fixed"></a> `PerformanceParameters/duration'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration'Numeric/tag">See details</a>
-`value` | The duration value. If `check_result` is defined and this is `1`, it is used as the unit for the value derived from the check result in rendered text output. | <a href="#PerformanceParameters/duration'Numeric/value">See details</a>
-`check_result?` | If defined, the check result affects the duration in the defined way. | <a href="#PerformanceParameters/duration'Numeric/check_result">See details</a>
+`tag` |  | <a href="#PerformanceParameters/duration'Fixed/tag">See details</a>
+`value` | The (unitless) duration value. | <a href="#PerformanceParameters/duration'Fixed/value">See details</a>
+`unit` | The unit of the `value`. | <a href="#PerformanceParameters/duration'Fixed/unit">See details</a>
 
-#### <a name="PerformanceParameters/duration'Numeric/tag"></a> `tag`
+#### <a name="PerformanceParameters/duration'Fixed/tag"></a> `tag`
 
-- **Constant:** `"Numeric"`
+- **Constant:** `"Fixed"`
 
-#### <a name="PerformanceParameters/duration'Numeric/value"></a> `value`
+#### <a name="PerformanceParameters/duration'Fixed/value"></a> `value`
 
-The duration value. If `check_result` is defined and this is `1`, it is used as the unit for the value derived from the check result in rendered text output.
+The (unitless) duration value.
 
-- **Type:** <a href="../_ActivatableSkill.md#Duration/UnitValue">Duration/UnitValue</a>
+- **Type:** Integer
+- **Minimum:** `1`
 
-#### <a name="PerformanceParameters/duration'Numeric/check_result"></a> `check_result?`
+#### <a name="PerformanceParameters/duration'Fixed/unit"></a> `unit`
 
-If defined, the check result affects the duration in the defined way.
+The unit of the `value`.
 
-- **Type:** <a href="../_ActivatableSkill.md#Duration/CheckResult">Duration/CheckResult</a>
+- **Type:** <a href="../_ActivatableSkill.md#Duration/Unit">Duration/Unit</a>
+
+---
+
+### <a name="PerformanceParameters/duration'CheckResultBasedTagged"></a> `PerformanceParameters/duration'CheckResultBasedTagged`
+
+- **Type:** <a href="../_ActivatableSkill.md#Duration/CheckResultBasedTagged">Duration/CheckResultBasedTagged</a>
 
 ---
 
@@ -348,7 +411,8 @@ Key | Description | Details
 
 Specified if the duration has a maximum time span.
 
-- **Type:** <a href="#PerformanceParameters/duration'Indefinite/maximum">Object</a>
+- **Type:** Union
+- **Cases:** <a href="#PerformanceParameters/duration'Indefinite/maximum'Fixed">PerformanceParameters/duration'Indefinite/maximum'Fixed</a> | <a href="#PerformanceParameters/duration'Indefinite/maximum'CheckResultBasedTagged">PerformanceParameters/duration'Indefinite/maximum'CheckResultBasedTagged</a>
 
 #### <a name="PerformanceParameters/duration'Indefinite/translations"></a> `translations`
 
@@ -361,28 +425,38 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="PerformanceParameters/duration'Indefinite/maximum"></a> `PerformanceParameters/duration'Indefinite/maximum`
-
-Specified if the duration has a maximum time span.
+### <a name="PerformanceParameters/duration'Indefinite/maximum'Fixed"></a> `PerformanceParameters/duration'Indefinite/maximum'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`value` | The duration value. If `check_result` is defined and this is `1`, it is used as the unit for the value derived from the check result in rendered text output. | <a href="#PerformanceParameters/duration'Indefinite/maximum/value">See details</a>
-`check_result?` | If defined, the check result affects the duration in the defined way. | <a href="#PerformanceParameters/duration'Indefinite/maximum/check_result">See details</a>
+`tag` |  | <a href="#PerformanceParameters/duration'Indefinite/maximum'Fixed/tag">See details</a>
+`value` | The (unitless) maximum duration value. | <a href="#PerformanceParameters/duration'Indefinite/maximum'Fixed/value">See details</a>
+`unit` | The unit of the `value`. | <a href="#PerformanceParameters/duration'Indefinite/maximum'Fixed/unit">See details</a>
 
-#### <a name="PerformanceParameters/duration'Indefinite/maximum/value"></a> `value`
+#### <a name="PerformanceParameters/duration'Indefinite/maximum'Fixed/tag"></a> `tag`
 
-The duration value. If `check_result` is defined and this is `1`, it is used as the unit for the value derived from the check result in rendered text output.
+- **Constant:** `"Fixed"`
 
-- **Type:** <a href="../_ActivatableSkill.md#Duration/UnitValue">Duration/UnitValue</a>
+#### <a name="PerformanceParameters/duration'Indefinite/maximum'Fixed/value"></a> `value`
 
-#### <a name="PerformanceParameters/duration'Indefinite/maximum/check_result"></a> `check_result?`
+The (unitless) maximum duration value.
 
-If defined, the check result affects the duration in the defined way.
+- **Type:** Integer
+- **Minimum:** `1`
 
-- **Type:** <a href="../_ActivatableSkill.md#Duration/CheckResult">Duration/CheckResult</a>
+#### <a name="PerformanceParameters/duration'Indefinite/maximum'Fixed/unit"></a> `unit`
+
+The unit of the `value`.
+
+- **Type:** <a href="../_ActivatableSkill.md#Duration/Unit">Duration/Unit</a>
+
+---
+
+### <a name="PerformanceParameters/duration'Indefinite/maximum'CheckResultBasedTagged"></a> `PerformanceParameters/duration'Indefinite/maximum'CheckResultBasedTagged`
+
+- **Type:** <a href="../_ActivatableSkill.md#Duration/CheckResultBasedTagged">Duration/CheckResultBasedTagged</a>
 
 ---
 

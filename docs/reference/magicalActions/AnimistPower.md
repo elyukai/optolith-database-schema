@@ -322,7 +322,7 @@ Measurable parameters of a animist power.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#PerformanceParameters'OneTime/tag">See details</a>
-`cost` |  | <a href="#PerformanceParameters'OneTime/cost">See details</a>
+`cost` | The AE cost value, either a flat value or defined dynamically by the primary patron. | <a href="#PerformanceParameters'OneTime/cost">See details</a>
 `duration` | The duration. | <a href="#PerformanceParameters'OneTime/duration">See details</a>
 
 #### <a name="PerformanceParameters'OneTime/tag"></a> `tag`
@@ -331,34 +331,42 @@ Key | Description | Details
 
 #### <a name="PerformanceParameters'OneTime/cost"></a> `cost`
 
-- **Type:** <a href="#PerformanceParameters'OneTime/cost">Object</a>
+The AE cost value, either a flat value or defined dynamically by the primary patron.
+
+- **Type:** Union
+- **Cases:** <a href="#PerformanceParameters'OneTime/cost'Fixed">PerformanceParameters'OneTime/cost'Fixed</a> | <a href="#PerformanceParameters'OneTime/cost'ByPrimaryPatron">PerformanceParameters'OneTime/cost'ByPrimaryPatron</a>
 
 #### <a name="PerformanceParameters'OneTime/duration"></a> `duration`
 
 The duration.
 
 - **Type:** Union
-- **Cases:** <a href="#PerformanceParameters'OneTime/duration'Immediate">PerformanceParameters'OneTime/duration'Immediate</a> | <a href="#PerformanceParameters'OneTime/duration'Flat">PerformanceParameters'OneTime/duration'Flat</a> | <a href="#PerformanceParameters'OneTime/duration'QualityLevels">PerformanceParameters'OneTime/duration'QualityLevels</a>
+- **Cases:** <a href="#PerformanceParameters'OneTime/duration'Immediate">PerformanceParameters'OneTime/duration'Immediate</a> | <a href="#PerformanceParameters'OneTime/duration'Fixed">PerformanceParameters'OneTime/duration'Fixed</a> | <a href="#PerformanceParameters'OneTime/duration'CheckResultBasedTaggedAnimistPower">PerformanceParameters'OneTime/duration'CheckResultBasedTaggedAnimistPower</a>
 
 ---
 
-### <a name="PerformanceParameters'OneTime/cost"></a> `PerformanceParameters'OneTime/cost`
+### <a name="PerformanceParameters'OneTime/cost'Fixed"></a> `PerformanceParameters'OneTime/cost'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`value` | The AE cost value, either a flat value or defined dynamically by the primary patron. | <a href="#PerformanceParameters'OneTime/cost/value">See details</a>
-`interval?` | If defined, half of the AE cost `value` has to be paid each interval. | <a href="#PerformanceParameters'OneTime/cost/interval">See details</a>
+`tag` |  | <a href="#PerformanceParameters'OneTime/cost'Fixed/tag">See details</a>
+`value` | The AE cost value. | <a href="#PerformanceParameters'OneTime/cost'Fixed/value">See details</a>
+`interval?` | If defined, half of the AE cost `value` has to be paid each interval. | <a href="#PerformanceParameters'OneTime/cost'Fixed/interval">See details</a>
 
-#### <a name="PerformanceParameters'OneTime/cost/value"></a> `value`
+#### <a name="PerformanceParameters'OneTime/cost'Fixed/tag"></a> `tag`
 
-The AE cost value, either a flat value or defined dynamically by the primary patron.
+- **Constant:** `"Fixed"`
 
-- **Type:** Union
-- **Cases:** <a href="#PerformanceParameters'OneTime/cost/value'Flat">PerformanceParameters'OneTime/cost/value'Flat</a> | <a href="#PerformanceParameters'OneTime/cost/value'ByPrimaryPatron">PerformanceParameters'OneTime/cost/value'ByPrimaryPatron</a>
+#### <a name="PerformanceParameters'OneTime/cost'Fixed/value"></a> `value`
 
-#### <a name="PerformanceParameters'OneTime/cost/interval"></a> `interval?`
+The AE cost value.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="PerformanceParameters'OneTime/cost'Fixed/interval"></a> `interval?`
 
 If defined, half of the AE cost `value` has to be paid each interval.
 
@@ -366,39 +374,24 @@ If defined, half of the AE cost `value` has to be paid each interval.
 
 ---
 
-### <a name="PerformanceParameters'OneTime/cost/value'Flat"></a> `PerformanceParameters'OneTime/cost/value'Flat`
+### <a name="PerformanceParameters'OneTime/cost'ByPrimaryPatron"></a> `PerformanceParameters'OneTime/cost'ByPrimaryPatron`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters'OneTime/cost/value'Flat/tag">See details</a>
-`value` | The AE cost value. | <a href="#PerformanceParameters'OneTime/cost/value'Flat/value">See details</a>
+`tag` |  | <a href="#PerformanceParameters'OneTime/cost'ByPrimaryPatron/tag">See details</a>
+`interval?` | If defined, half of the AE cost `value` has to be paid each interval. | <a href="#PerformanceParameters'OneTime/cost'ByPrimaryPatron/interval">See details</a>
 
-#### <a name="PerformanceParameters'OneTime/cost/value'Flat/tag"></a> `tag`
-
-- **Constant:** `"Flat"`
-
-#### <a name="PerformanceParameters'OneTime/cost/value'Flat/value"></a> `value`
-
-The AE cost value.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="PerformanceParameters'OneTime/cost/value'ByPrimaryPatron"></a> `PerformanceParameters'OneTime/cost/value'ByPrimaryPatron`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters'OneTime/cost/value'ByPrimaryPatron/tag">See details</a>
-
-#### <a name="PerformanceParameters'OneTime/cost/value'ByPrimaryPatron/tag"></a> `tag`
+#### <a name="PerformanceParameters'OneTime/cost'ByPrimaryPatron/tag"></a> `tag`
 
 - **Constant:** `"ByPrimaryPatron"`
+
+#### <a name="PerformanceParameters'OneTime/cost'ByPrimaryPatron/interval"></a> `interval?`
+
+If defined, half of the AE cost `value` has to be paid each interval.
+
+- **Type:** <a href="../_ActivatableSkill.md#Duration/UnitValue">Duration/UnitValue</a>
 
 ---
 
@@ -416,75 +409,45 @@ Key | Description | Details
 
 ---
 
-### <a name="PerformanceParameters'OneTime/duration'Flat"></a> `PerformanceParameters'OneTime/duration'Flat`
+### <a name="PerformanceParameters'OneTime/duration'Fixed"></a> `PerformanceParameters'OneTime/duration'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters'OneTime/duration'Flat/tag">See details</a>
-`value` | The (unitless) duration. | <a href="#PerformanceParameters'OneTime/duration'Flat/value">See details</a>
-`unit` | The duration unit. | <a href="#PerformanceParameters'OneTime/duration'Flat/unit">See details</a>
-`is_maximum?` | If the duration is the maximum duration, so it may end earlier. | <a href="#PerformanceParameters'OneTime/duration'Flat/is_maximum">See details</a>
+`tag` |  | <a href="#PerformanceParameters'OneTime/duration'Fixed/tag">See details</a>
+`is_maximum?` | If the duration is the maximum duration, so it may end earlier. | <a href="#PerformanceParameters'OneTime/duration'Fixed/is_maximum">See details</a>
+`value` | The (unitless) duration. | <a href="#PerformanceParameters'OneTime/duration'Fixed/value">See details</a>
+`unit` | The duration unit. | <a href="#PerformanceParameters'OneTime/duration'Fixed/unit">See details</a>
 
-#### <a name="PerformanceParameters'OneTime/duration'Flat/tag"></a> `tag`
+#### <a name="PerformanceParameters'OneTime/duration'Fixed/tag"></a> `tag`
 
-- **Constant:** `"Flat"`
+- **Constant:** `"Fixed"`
 
-#### <a name="PerformanceParameters'OneTime/duration'Flat/value"></a> `value`
+#### <a name="PerformanceParameters'OneTime/duration'Fixed/is_maximum"></a> `is_maximum?`
+
+If the duration is the maximum duration, so it may end earlier.
+
+- **Type:** Boolean
+
+#### <a name="PerformanceParameters'OneTime/duration'Fixed/value"></a> `value`
 
 The (unitless) duration.
 
 - **Type:** Integer
 - **Minimum:** `2`
 
-#### <a name="PerformanceParameters'OneTime/duration'Flat/unit"></a> `unit`
+#### <a name="PerformanceParameters'OneTime/duration'Fixed/unit"></a> `unit`
 
 The duration unit.
 
 - **Type:** <a href="../_ActivatableSkill.md#Duration/Unit">Duration/Unit</a>
-
-#### <a name="PerformanceParameters'OneTime/duration'Flat/is_maximum"></a> `is_maximum?`
-
-If the duration is the maximum duration, so it may end earlier.
-
-- **Type:** Boolean
 
 ---
 
-### <a name="PerformanceParameters'OneTime/duration'QualityLevels"></a> `PerformanceParameters'OneTime/duration'QualityLevels`
+### <a name="PerformanceParameters'OneTime/duration'CheckResultBasedTaggedAnimistPower"></a> `PerformanceParameters'OneTime/duration'CheckResultBasedTaggedAnimistPower`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters'OneTime/duration'QualityLevels/tag">See details</a>
-`multiplier?` | A value that multiplies the resulting quality levels. | <a href="#PerformanceParameters'OneTime/duration'QualityLevels/multiplier">See details</a>
-`unit` | The duration unit. | <a href="#PerformanceParameters'OneTime/duration'QualityLevels/unit">See details</a>
-`is_maximum?` | If the duration is the maximum duration, so it may end earlier. | <a href="#PerformanceParameters'OneTime/duration'QualityLevels/is_maximum">See details</a>
-
-#### <a name="PerformanceParameters'OneTime/duration'QualityLevels/tag"></a> `tag`
-
-- **Constant:** `"QualityLevels"`
-
-#### <a name="PerformanceParameters'OneTime/duration'QualityLevels/multiplier"></a> `multiplier?`
-
-A value that multiplies the resulting quality levels.
-
-- **Type:** Integer
-- **Minimum:** `2`
-
-#### <a name="PerformanceParameters'OneTime/duration'QualityLevels/unit"></a> `unit`
-
-The duration unit.
-
-- **Type:** <a href="../_ActivatableSkill.md#Duration/Unit">Duration/Unit</a>
-
-#### <a name="PerformanceParameters'OneTime/duration'QualityLevels/is_maximum"></a> `is_maximum?`
-
-If the duration is the maximum duration, so it may end earlier.
-
-- **Type:** Boolean
+- **Type:** <a href="../_ActivatableSkill.md#Duration/CheckResultBasedTaggedAnimistPower">Duration/CheckResultBasedTaggedAnimistPower</a>
 
 ---
 
@@ -495,7 +458,7 @@ If the duration is the maximum duration, so it may end earlier.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#PerformanceParameters'Sustained/tag">See details</a>
-`cost` |  | <a href="#PerformanceParameters'Sustained/cost">See details</a>
+`cost` | The AE cost value, either a flat value or defined dynamically by the primary patron. | <a href="#PerformanceParameters'Sustained/cost">See details</a>
 
 #### <a name="PerformanceParameters'Sustained/tag"></a> `tag`
 
@@ -503,27 +466,35 @@ Key | Description | Details
 
 #### <a name="PerformanceParameters'Sustained/cost"></a> `cost`
 
-- **Type:** <a href="#PerformanceParameters'Sustained/cost">Object</a>
+The AE cost value, either a flat value or defined dynamically by the primary patron.
+
+- **Type:** Union
+- **Cases:** <a href="#PerformanceParameters'Sustained/cost'Fixed">PerformanceParameters'Sustained/cost'Fixed</a> | <a href="#PerformanceParameters'Sustained/cost'ByPrimaryPatron">PerformanceParameters'Sustained/cost'ByPrimaryPatron</a>
 
 ---
 
-### <a name="PerformanceParameters'Sustained/cost"></a> `PerformanceParameters'Sustained/cost`
+### <a name="PerformanceParameters'Sustained/cost'Fixed"></a> `PerformanceParameters'Sustained/cost'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`value` | The AE cost value, either a flat value or defined dynamically by the primary patron. | <a href="#PerformanceParameters'Sustained/cost/value">See details</a>
-`interval` | Half of the AE cost `value` has to be paid each interval. | <a href="#PerformanceParameters'Sustained/cost/interval">See details</a>
+`tag` |  | <a href="#PerformanceParameters'Sustained/cost'Fixed/tag">See details</a>
+`value` | The AE cost value. | <a href="#PerformanceParameters'Sustained/cost'Fixed/value">See details</a>
+`interval` | Half of the AE cost `value` has to be paid each interval. | <a href="#PerformanceParameters'Sustained/cost'Fixed/interval">See details</a>
 
-#### <a name="PerformanceParameters'Sustained/cost/value"></a> `value`
+#### <a name="PerformanceParameters'Sustained/cost'Fixed/tag"></a> `tag`
 
-The AE cost value, either a flat value or defined dynamically by the primary patron.
+- **Constant:** `"Fixed"`
 
-- **Type:** Union
-- **Cases:** <a href="#PerformanceParameters'Sustained/cost/value'Flat">PerformanceParameters'Sustained/cost/value'Flat</a> | <a href="#PerformanceParameters'Sustained/cost/value'ByPrimaryPatron">PerformanceParameters'Sustained/cost/value'ByPrimaryPatron</a>
+#### <a name="PerformanceParameters'Sustained/cost'Fixed/value"></a> `value`
 
-#### <a name="PerformanceParameters'Sustained/cost/interval"></a> `interval`
+The AE cost value.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="PerformanceParameters'Sustained/cost'Fixed/interval"></a> `interval`
 
 Half of the AE cost `value` has to be paid each interval.
 
@@ -531,36 +502,21 @@ Half of the AE cost `value` has to be paid each interval.
 
 ---
 
-### <a name="PerformanceParameters'Sustained/cost/value'Flat"></a> `PerformanceParameters'Sustained/cost/value'Flat`
+### <a name="PerformanceParameters'Sustained/cost'ByPrimaryPatron"></a> `PerformanceParameters'Sustained/cost'ByPrimaryPatron`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters'Sustained/cost/value'Flat/tag">See details</a>
-`value` | The AE cost value. | <a href="#PerformanceParameters'Sustained/cost/value'Flat/value">See details</a>
+`tag` |  | <a href="#PerformanceParameters'Sustained/cost'ByPrimaryPatron/tag">See details</a>
+`interval` | Half of the AE cost `value` has to be paid each interval. | <a href="#PerformanceParameters'Sustained/cost'ByPrimaryPatron/interval">See details</a>
 
-#### <a name="PerformanceParameters'Sustained/cost/value'Flat/tag"></a> `tag`
-
-- **Constant:** `"Flat"`
-
-#### <a name="PerformanceParameters'Sustained/cost/value'Flat/value"></a> `value`
-
-The AE cost value.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="PerformanceParameters'Sustained/cost/value'ByPrimaryPatron"></a> `PerformanceParameters'Sustained/cost/value'ByPrimaryPatron`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters'Sustained/cost/value'ByPrimaryPatron/tag">See details</a>
-
-#### <a name="PerformanceParameters'Sustained/cost/value'ByPrimaryPatron/tag"></a> `tag`
+#### <a name="PerformanceParameters'Sustained/cost'ByPrimaryPatron/tag"></a> `tag`
 
 - **Constant:** `"ByPrimaryPatron"`
+
+#### <a name="PerformanceParameters'Sustained/cost'ByPrimaryPatron/interval"></a> `interval`
+
+Half of the AE cost `value` has to be paid each interval.
+
+- **Type:** <a href="../_ActivatableSkill.md#Duration/UnitValue">Duration/UnitValue</a>

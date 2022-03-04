@@ -222,21 +222,21 @@ The casting time.
 The AE cost.
 
 - **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/cost'Single">PerformanceParameters/cost'Single</a> | <a href="#PerformanceParameters/cost'Map">PerformanceParameters/cost'Map</a>
+- **Cases:** <a href="#PerformanceParameters/cost'Fixed">PerformanceParameters/cost'Fixed</a> | <a href="#PerformanceParameters/cost'Map">PerformanceParameters/cost'Map</a>
 
 #### <a name="PerformanceParameters/range"></a> `range`
 
 The range.
 
 - **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/range'Self">PerformanceParameters/range'Self</a> | <a href="#PerformanceParameters/range'Steps">PerformanceParameters/range'Steps</a>
+- **Cases:** <a href="#PerformanceParameters/range'Self">PerformanceParameters/range'Self</a> | <a href="#PerformanceParameters/range'Fixed">PerformanceParameters/range'Fixed</a>
 
 #### <a name="PerformanceParameters/duration"></a> `duration`
 
 The duration.
 
 - **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/duration'Immediate">PerformanceParameters/duration'Immediate</a> | <a href="#PerformanceParameters/duration'Flat">PerformanceParameters/duration'Flat</a> | <a href="#PerformanceParameters/duration'QualityLevels">PerformanceParameters/duration'QualityLevels</a>
+- **Cases:** <a href="#PerformanceParameters/duration'Immediate">PerformanceParameters/duration'Immediate</a> | <a href="#PerformanceParameters/duration'Fixed">PerformanceParameters/duration'Fixed</a> | <a href="#PerformanceParameters/duration'CheckResultBasedTagged">PerformanceParameters/duration'CheckResultBasedTagged</a>
 
 ---
 
@@ -248,38 +248,43 @@ The casting time.
 
 Key | Description | Details
 :-- | :-- | :--
-`modification_id` | The skill modification increment identifier/level. | <a href="#PerformanceParameters/casting_time/modification_id">See details</a>
+`value` | The (unitless) casting time. | <a href="#PerformanceParameters/casting_time/value">See details</a>
+`unit` | The casting time unit. | <a href="#PerformanceParameters/casting_time/unit">See details</a>
 
-#### <a name="PerformanceParameters/casting_time/modification_id"></a> `modification_id`
+#### <a name="PerformanceParameters/casting_time/value"></a> `value`
 
-The skill modification increment identifier/level.
+The (unitless) casting time.
 
 - **Type:** Integer
 - **Minimum:** `1`
-- **Maximum:** `6`
+
+#### <a name="PerformanceParameters/casting_time/unit"></a> `unit`
+
+The casting time unit.
+
+- **Type:** <a href="../_ActivatableSkill.md#CastingTime/SlowSkillCastingTimeUnit">CastingTime/SlowSkillCastingTimeUnit</a>
 
 ---
 
-### <a name="PerformanceParameters/cost'Single"></a> `PerformanceParameters/cost'Single`
+### <a name="PerformanceParameters/cost'Fixed"></a> `PerformanceParameters/cost'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/cost'Single/tag">See details</a>
-`modification_id` | The skill modification increment identifier/level. | <a href="#PerformanceParameters/cost'Single/modification_id">See details</a>
+`tag` |  | <a href="#PerformanceParameters/cost'Fixed/tag">See details</a>
+`value` | The AE cost value. | <a href="#PerformanceParameters/cost'Fixed/value">See details</a>
 
-#### <a name="PerformanceParameters/cost'Single/tag"></a> `tag`
+#### <a name="PerformanceParameters/cost'Fixed/tag"></a> `tag`
 
-- **Constant:** `"Single"`
+- **Constant:** `"Fixed"`
 
-#### <a name="PerformanceParameters/cost'Single/modification_id"></a> `modification_id`
+#### <a name="PerformanceParameters/cost'Fixed/value"></a> `value`
 
-The skill modification increment identifier/level.
+The AE cost value.
 
 - **Type:** Integer
 - **Minimum:** `1`
-- **Maximum:** `6`
 
 ---
 
@@ -316,20 +321,20 @@ Key | Description | Details
 
 ---
 
-### <a name="PerformanceParameters/range'Steps"></a> `PerformanceParameters/range'Steps`
+### <a name="PerformanceParameters/range'Fixed"></a> `PerformanceParameters/range'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/range'Steps/tag">See details</a>
-`value` | The range in steps/m. | <a href="#PerformanceParameters/range'Steps/value">See details</a>
+`tag` |  | <a href="#PerformanceParameters/range'Fixed/tag">See details</a>
+`value` | The range in steps/m. | <a href="#PerformanceParameters/range'Fixed/value">See details</a>
 
-#### <a name="PerformanceParameters/range'Steps/tag"></a> `tag`
+#### <a name="PerformanceParameters/range'Fixed/tag"></a> `tag`
 
-- **Constant:** `"Steps"`
+- **Constant:** `"Fixed"`
 
-#### <a name="PerformanceParameters/range'Steps/value"></a> `value`
+#### <a name="PerformanceParameters/range'Fixed/value"></a> `value`
 
 The range in steps/m.
 
@@ -352,28 +357,28 @@ Key | Description | Details
 
 ---
 
-### <a name="PerformanceParameters/duration'Flat"></a> `PerformanceParameters/duration'Flat`
+### <a name="PerformanceParameters/duration'Fixed"></a> `PerformanceParameters/duration'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration'Flat/tag">See details</a>
-`value` | The (unitless) duration. | <a href="#PerformanceParameters/duration'Flat/value">See details</a>
-`unit` | The duration unit. | <a href="#PerformanceParameters/duration'Flat/unit">See details</a>
+`tag` |  | <a href="#PerformanceParameters/duration'Fixed/tag">See details</a>
+`value` | The (unitless) duration. | <a href="#PerformanceParameters/duration'Fixed/value">See details</a>
+`unit` | The duration unit. | <a href="#PerformanceParameters/duration'Fixed/unit">See details</a>
 
-#### <a name="PerformanceParameters/duration'Flat/tag"></a> `tag`
+#### <a name="PerformanceParameters/duration'Fixed/tag"></a> `tag`
 
-- **Constant:** `"Flat"`
+- **Constant:** `"Fixed"`
 
-#### <a name="PerformanceParameters/duration'Flat/value"></a> `value`
+#### <a name="PerformanceParameters/duration'Fixed/value"></a> `value`
 
 The (unitless) duration.
 
 - **Type:** Integer
 - **Minimum:** `2`
 
-#### <a name="PerformanceParameters/duration'Flat/unit"></a> `unit`
+#### <a name="PerformanceParameters/duration'Fixed/unit"></a> `unit`
 
 The duration unit.
 
@@ -381,73 +386,6 @@ The duration unit.
 
 ---
 
-### <a name="PerformanceParameters/duration'QualityLevels"></a> `PerformanceParameters/duration'QualityLevels`
+### <a name="PerformanceParameters/duration'CheckResultBasedTagged"></a> `PerformanceParameters/duration'CheckResultBasedTagged`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration'QualityLevels/tag">See details</a>
-`modifier?` | A value that modifies the resulting quality levels. | <a href="#PerformanceParameters/duration'QualityLevels/modifier">See details</a>
-`unit` | The duration unit. | <a href="#PerformanceParameters/duration'QualityLevels/unit">See details</a>
-
-#### <a name="PerformanceParameters/duration'QualityLevels/tag"></a> `tag`
-
-- **Constant:** `"QualityLevels"`
-
-#### <a name="PerformanceParameters/duration'QualityLevels/modifier"></a> `modifier?`
-
-A value that modifies the resulting quality levels.
-
-- **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/duration'QualityLevels/modifier'Multiply">PerformanceParameters/duration'QualityLevels/modifier'Multiply</a> | <a href="#PerformanceParameters/duration'QualityLevels/modifier'Divide">PerformanceParameters/duration'QualityLevels/modifier'Divide</a>
-
-#### <a name="PerformanceParameters/duration'QualityLevels/unit"></a> `unit`
-
-The duration unit.
-
-- **Type:** <a href="../_ActivatableSkill.md#Duration/Unit">Duration/Unit</a>
-
----
-
-### <a name="PerformanceParameters/duration'QualityLevels/modifier'Multiply"></a> `PerformanceParameters/duration'QualityLevels/modifier'Multiply`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration'QualityLevels/modifier'Multiply/tag">See details</a>
-`value` | A value that multiplies the resulting quality levels. | <a href="#PerformanceParameters/duration'QualityLevels/modifier'Multiply/value">See details</a>
-
-#### <a name="PerformanceParameters/duration'QualityLevels/modifier'Multiply/tag"></a> `tag`
-
-- **Constant:** `"Multiply"`
-
-#### <a name="PerformanceParameters/duration'QualityLevels/modifier'Multiply/value"></a> `value`
-
-A value that multiplies the resulting quality levels.
-
-- **Type:** Integer
-- **Minimum:** `2`
-
----
-
-### <a name="PerformanceParameters/duration'QualityLevels/modifier'Divide"></a> `PerformanceParameters/duration'QualityLevels/modifier'Divide`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration'QualityLevels/modifier'Divide/tag">See details</a>
-`value` | A value that divides the resulting quality levels. | <a href="#PerformanceParameters/duration'QualityLevels/modifier'Divide/value">See details</a>
-
-#### <a name="PerformanceParameters/duration'QualityLevels/modifier'Divide/tag"></a> `tag`
-
-- **Constant:** `"Divide"`
-
-#### <a name="PerformanceParameters/duration'QualityLevels/modifier'Divide/value"></a> `value`
-
-A value that divides the resulting quality levels.
-
-- **Type:** Integer
-- **Minimum:** `2`
+- **Type:** <a href="../_ActivatableSkill.md#Duration/CheckResultBasedTagged">Duration/CheckResultBasedTagged</a>

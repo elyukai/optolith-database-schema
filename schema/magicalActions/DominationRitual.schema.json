@@ -112,23 +112,14 @@
       "type": "object",
       "properties": {
         "cost": {
+          "description": "The AE cost.",
           "type": "object",
           "properties": {
-            "temporary": {
-              "description": "The (temporary) AE cost value.",
-              "type": "object",
-              "properties": {
-                "modification_id": {
-                  "description": "The skill modification increment identifier/level.",
-                  "type": "integer",
-                  "maximum": 6,
-                  "minimum": 1
-                }
-              },
-              "required": [
-                "modification_id"
-              ],
-              "additionalProperties": false
+            "initial_modification_level": {
+              "description": "The initial skill modification identifier/level.",
+              "type": "integer",
+              "maximum": 6,
+              "minimum": 1
             },
             "translations": {
               "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -169,32 +160,38 @@
             }
           },
           "required": [
-            "temporary"
+            "initial_modification_level"
           ],
           "additionalProperties": false
         },
         "duration": {
+          "description": "The duration.",
           "oneOf": [
             {
               "type": "object",
               "properties": {
                 "tag": {
-                  "const": "Numeric"
-                },
-                "check_result": {
-                  "description": "If defined, the check result affects the duration in the defined way.",
-                  "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/CheckResult"
+                  "const": "Fixed"
                 },
                 "value": {
-                  "description": "The duration value. If `check_result` is defined and this is `1`, it is used as the unit for the value derived from the check result in rendered text output.",
-                  "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/UnitValue"
+                  "description": "The (unitless) duration value.",
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "unit": {
+                  "description": "The unit of the `value`.",
+                  "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/Unit"
                 }
               },
               "required": [
                 "tag",
-                "value"
+                "value",
+                "unit"
               ],
               "additionalProperties": false
+            },
+            {
+              "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/CheckResultBasedTagged"
             },
             {
               "type": "object",
@@ -204,21 +201,34 @@
                 },
                 "maximum": {
                   "description": "Specified if the duration has a maximum time span.",
-                  "type": "object",
-                  "properties": {
-                    "value": {
-                      "description": "The duration value. If `check_result` is defined and this is `1`, it is used as the unit for the value derived from the check result in rendered text output.",
-                      "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/UnitValue"
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "tag": {
+                          "const": "Fixed"
+                        },
+                        "value": {
+                          "description": "The (unitless) maximum duration value.",
+                          "type": "integer",
+                          "minimum": 1
+                        },
+                        "unit": {
+                          "description": "The unit of the `value`.",
+                          "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/Unit"
+                        }
+                      },
+                      "required": [
+                        "tag",
+                        "value",
+                        "unit"
+                      ],
+                      "additionalProperties": false
                     },
-                    "check_result": {
-                      "description": "If defined, the check result affects the duration in the defined way.",
-                      "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/CheckResult"
+                    {
+                      "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/CheckResultBasedTagged"
                     }
-                  },
-                  "required": [
-                    "value"
-                  ],
-                  "additionalProperties": false
+                  ]
                 },
                 "translations": {
                   "description": "All translations for the entry, identified by IETF language tag (BCP47).",

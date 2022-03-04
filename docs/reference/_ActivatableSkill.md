@@ -295,7 +295,7 @@ Key | Description | Details
 `casting_time` |  | <a href="#PerformanceParameters'Sustained/casting_time">See details</a>
 `cost` |  | <a href="#PerformanceParameters'Sustained/cost">See details</a>
 `range` |  | <a href="#PerformanceParameters'Sustained/range">See details</a>
-`duration` |  | <a href="#PerformanceParameters'Sustained/duration">See details</a>
+`duration?` |  | <a href="#PerformanceParameters'Sustained/duration">See details</a>
 
 #### <a name="PerformanceParameters'Sustained/tag"></a> `tag`
 
@@ -313,7 +313,7 @@ Key | Description | Details
 
 - **Type:** <a href="#Range/T">Range/T</a>
 
-#### <a name="PerformanceParameters'Sustained/duration"></a> `duration`
+#### <a name="PerformanceParameters'Sustained/duration"></a> `duration?`
 
 - **Type:** <a href="#Duration/Sustained/T">Duration/Sustained/T</a>
 
@@ -321,24 +321,28 @@ Key | Description | Details
 
 ### <a name="CastingTime/T"></a> `CastingTime/T`
 
-- **Type:** Union
-- **Cases:** <a href="#CastingTime/T'DefaultCastingTime">CastingTime/T'DefaultCastingTime</a> | <a href="#CastingTime/T'AventurianIntimacyCastingTime">CastingTime/T'AventurianIntimacyCastingTime</a>
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`default` | The default casting time definition. | <a href="#CastingTime/T/default">See details</a>
+`during_lovemaking?` | The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking. | <a href="#CastingTime/T/during_lovemaking">See details</a>
+
+#### <a name="CastingTime/T/default"></a> `default`
+
+The default casting time definition.
+
+- **Type:** <a href="#CastingTime/T/default">Object</a>
+
+#### <a name="CastingTime/T/during_lovemaking"></a> `during_lovemaking?`
+
+The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking.
+
+- **Type:** <a href="#CastingTime/T/during_lovemaking">Object</a>
 
 ---
 
-### <a name="CastingTime/T'DefaultCastingTime"></a> `CastingTime/T'DefaultCastingTime`
-
-- **Type:** <a href="#CastingTime/DefaultCastingTime">CastingTime/DefaultCastingTime</a>
-
----
-
-### <a name="CastingTime/T'AventurianIntimacyCastingTime"></a> `CastingTime/T'AventurianIntimacyCastingTime`
-
-- **Type:** <a href="#CastingTime/AventurianIntimacyCastingTime">CastingTime/AventurianIntimacyCastingTime</a>
-
----
-
-### <a name="CastingTime/DefaultCastingTime"></a> `CastingTime/DefaultCastingTime`
+### <a name="CastingTime/T/default"></a> `CastingTime/T/default`
 
 The default casting time definition.
 
@@ -346,23 +350,18 @@ The default casting time definition.
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#CastingTime/DefaultCastingTime/tag">See details</a>
-`modification_id` | The skill modification increment identifier/level. | <a href="#CastingTime/DefaultCastingTime/modification_id">See details</a>
-`is_modifiable` | Is the casting time modifiable? | <a href="#CastingTime/DefaultCastingTime/is_modifiable">See details</a>
+`initial_modification_level` | The initial skill modification identifier/level. | <a href="#CastingTime/T/default/initial_modification_level">See details</a>
+`is_modifiable` | Is the casting time modifiable? | <a href="#CastingTime/T/default/is_modifiable">See details</a>
 
-#### <a name="CastingTime/DefaultCastingTime/tag"></a> `tag`
+#### <a name="CastingTime/T/default/initial_modification_level"></a> `initial_modification_level`
 
-- **Constant:** `"Default"`
-
-#### <a name="CastingTime/DefaultCastingTime/modification_id"></a> `modification_id`
-
-The skill modification increment identifier/level.
+The initial skill modification identifier/level.
 
 - **Type:** Integer
 - **Minimum:** `1`
 - **Maximum:** `6`
 
-#### <a name="CastingTime/DefaultCastingTime/is_modifiable"></a> `is_modifiable`
+#### <a name="CastingTime/T/default/is_modifiable"></a> `is_modifiable`
 
 Is the casting time modifiable?
 
@@ -370,82 +369,25 @@ Is the casting time modifiable?
 
 ---
 
-### <a name="CastingTime/AventurianIntimacyCastingTime"></a> `CastingTime/AventurianIntimacyCastingTime`
+### <a name="CastingTime/T/during_lovemaking"></a> `CastingTime/T/during_lovemaking`
 
-In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#CastingTime/AventurianIntimacyCastingTime/tag">See details</a>
-`before_lovemaking` | The casting time before lovemaking (the normal casting time). | <a href="#CastingTime/AventurianIntimacyCastingTime/before_lovemaking">See details</a>
-`during_lovemaking` | The casting time during lovemaking. | <a href="#CastingTime/AventurianIntimacyCastingTime/during_lovemaking">See details</a>
-
-#### <a name="CastingTime/AventurianIntimacyCastingTime/tag"></a> `tag`
-
-- **Constant:** `"Intimacy"`
-
-#### <a name="CastingTime/AventurianIntimacyCastingTime/before_lovemaking"></a> `before_lovemaking`
-
-The casting time before lovemaking (the normal casting time).
-
-- **Type:** <a href="#CastingTime/CastingTimeBeforeLovemaking">CastingTime/CastingTimeBeforeLovemaking</a>
-
-#### <a name="CastingTime/AventurianIntimacyCastingTime/during_lovemaking"></a> `during_lovemaking`
-
-The casting time during lovemaking.
-
-- **Type:** <a href="#CastingTime/CastingTimeDuringLovemaking">CastingTime/CastingTimeDuringLovemaking</a>
-
----
-
-### <a name="CastingTime/CastingTimeBeforeLovemaking"></a> `CastingTime/CastingTimeBeforeLovemaking`
-
-The casting time before lovemaking (the normal casting time).
+The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking.
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`modification_id` | The skill modification increment identifier/level. | <a href="#CastingTime/CastingTimeBeforeLovemaking/modification_id">See details</a>
-`is_modifiable` | Is the casting time modifiable? | <a href="#CastingTime/CastingTimeBeforeLovemaking/is_modifiable">See details</a>
+`value` | The (unitless) duration value. | <a href="#CastingTime/T/during_lovemaking/value">See details</a>
+`unit` | The unit of the `value`. | <a href="#CastingTime/T/during_lovemaking/unit">See details</a>
 
-#### <a name="CastingTime/CastingTimeBeforeLovemaking/modification_id"></a> `modification_id`
-
-The skill modification increment identifier/level.
-
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `6`
-
-#### <a name="CastingTime/CastingTimeBeforeLovemaking/is_modifiable"></a> `is_modifiable`
-
-Is the casting time modifiable?
-
-- **Type:** Boolean
-
----
-
-### <a name="CastingTime/CastingTimeDuringLovemaking"></a> `CastingTime/CastingTimeDuringLovemaking`
-
-The casting time during lovemaking.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`value` | The (unitless) duration value. | <a href="#CastingTime/CastingTimeDuringLovemaking/value">See details</a>
-`unit` | The unit of the `value`. | <a href="#CastingTime/CastingTimeDuringLovemaking/unit">See details</a>
-
-#### <a name="CastingTime/CastingTimeDuringLovemaking/value"></a> `value`
+#### <a name="CastingTime/T/during_lovemaking/value"></a> `value`
 
 The (unitless) duration value.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="CastingTime/CastingTimeDuringLovemaking/unit"></a> `unit`
+#### <a name="CastingTime/T/during_lovemaking/unit"></a> `unit`
 
 The unit of the `value`.
 
@@ -459,60 +401,9 @@ The unit of the `value`.
 
 ---
 
-### <a name="Cost/Minimum"></a> `Cost/Minimum`
+### <a name="CastingTime/SlowSkillCastingTimeUnit"></a> `CastingTime/SlowSkillCastingTimeUnit`
 
-- **Type:** Union
-- **Cases:** <a href="#Cost/Minimum'RelativeMinimum">Cost/Minimum'RelativeMinimum</a> | <a href="#Cost/Minimum'AbsoluteMinimum">Cost/Minimum'AbsoluteMinimum</a>
-
----
-
-### <a name="Cost/Minimum'RelativeMinimum"></a> `Cost/Minimum'RelativeMinimum`
-
-- **Type:** <a href="#Cost/RelativeMinimum">Cost/RelativeMinimum</a>
-
----
-
-### <a name="Cost/Minimum'AbsoluteMinimum"></a> `Cost/Minimum'AbsoluteMinimum`
-
-- **Type:** <a href="#Cost/AbsoluteMinimum">Cost/AbsoluteMinimum</a>
-
----
-
-### <a name="Cost/RelativeMinimum"></a> `Cost/RelativeMinimum`
-
-The cost `value` represents a minimum value, so that the minimum value itself may be modified by other cost display modifiers. E.g., it may be rendered as `at least 1 AE per person`.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Cost/RelativeMinimum/tag">See details</a>
-
-#### <a name="Cost/RelativeMinimum/tag"></a> `tag`
-
-- **Constant:** `"Relative"`
-
----
-
-### <a name="Cost/AbsoluteMinimum"></a> `Cost/AbsoluteMinimum`
-
-There is an absolute minimum value that is not influenced by other cost modifications. E.g., it may be rendered as `1 AE per person, at least 4 AE`.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Cost/AbsoluteMinimum/tag">See details</a>
-`value` |  | <a href="#Cost/AbsoluteMinimum/value">See details</a>
-
-#### <a name="Cost/AbsoluteMinimum/tag"></a> `tag`
-
-- **Constant:** `"Absolute"`
-
-#### <a name="Cost/AbsoluteMinimum/value"></a> `value`
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Possible values:** `"Minutes"`, `"Hours"`
 
 ---
 
@@ -629,22 +520,22 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#Cost/OneTime/Single'Modifiable/tag">See details</a>
-`modification_id` | The skill modification increment identifier/level. | <a href="#Cost/OneTime/Single'Modifiable/modification_id">See details</a>
-`permanent?` | The part of the cost value that has to be spent permanently. | <a href="#Cost/OneTime/Single'Modifiable/permanent">See details</a>
+`initial_modification_level` | The initial skill modification identifier/level. | <a href="#Cost/OneTime/Single'Modifiable/initial_modification_level">See details</a>
+`permanent_value?` | The part of the cost value that has to be spent permanently. | <a href="#Cost/OneTime/Single'Modifiable/permanent_value">See details</a>
 
 #### <a name="Cost/OneTime/Single'Modifiable/tag"></a> `tag`
 
 - **Constant:** `"Modifiable"`
 
-#### <a name="Cost/OneTime/Single'Modifiable/modification_id"></a> `modification_id`
+#### <a name="Cost/OneTime/Single'Modifiable/initial_modification_level"></a> `initial_modification_level`
 
-The skill modification increment identifier/level.
+The initial skill modification identifier/level.
 
 - **Type:** Integer
 - **Minimum:** `1`
 - **Maximum:** `6`
 
-#### <a name="Cost/OneTime/Single'Modifiable/permanent"></a> `permanent?`
+#### <a name="Cost/OneTime/Single'Modifiable/permanent_value"></a> `permanent_value?`
 
 The part of the cost value that has to be spent permanently.
 
@@ -660,32 +551,39 @@ The part of the cost value that has to be spent permanently.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#Cost/OneTime/Single'NonModifiable/tag">See details</a>
-`minimum?` | A minimum cost value. It may be rendered relative to the actual cost `value` or may be an absolute value, not affected by other modifications of this cost value. | <a href="#Cost/OneTime/Single'NonModifiable/minimum">See details</a>
-`value` |  | <a href="#Cost/OneTime/Single'NonModifiable/value">See details</a>
-`permanent?` | The part of the cost value that has to be spent permanently. | <a href="#Cost/OneTime/Single'NonModifiable/permanent">See details</a>
+`is_minimum?` | If `true`, the non-modifiable value is a minimum value. | <a href="#Cost/OneTime/Single'NonModifiable/is_minimum">See details</a>
+`value` | The AE cost value. | <a href="#Cost/OneTime/Single'NonModifiable/value">See details</a>
+`permanent_value?` | The part of the cost value that has to be spent permanently. | <a href="#Cost/OneTime/Single'NonModifiable/permanent_value">See details</a>
+`per?` |  | <a href="#Cost/OneTime/Single'NonModifiable/per">See details</a>
 `translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Cost/OneTime/Single'NonModifiable/translations">See details</a>
 
 #### <a name="Cost/OneTime/Single'NonModifiable/tag"></a> `tag`
 
 - **Constant:** `"NonModifiable"`
 
-#### <a name="Cost/OneTime/Single'NonModifiable/minimum"></a> `minimum?`
+#### <a name="Cost/OneTime/Single'NonModifiable/is_minimum"></a> `is_minimum?`
 
-A minimum cost value. It may be rendered relative to the actual cost `value` or may be an absolute value, not affected by other modifications of this cost value.
+If `true`, the non-modifiable value is a minimum value.
 
-- **Type:** <a href="#Cost/Minimum">Cost/Minimum</a>
+- **Type:** Boolean
 
 #### <a name="Cost/OneTime/Single'NonModifiable/value"></a> `value`
+
+The AE cost value.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="Cost/OneTime/Single'NonModifiable/permanent"></a> `permanent?`
+#### <a name="Cost/OneTime/Single'NonModifiable/permanent_value"></a> `permanent_value?`
 
 The part of the cost value that has to be spent permanently.
 
 - **Type:** Integer
 - **Minimum:** `1`
+
+#### <a name="Cost/OneTime/Single'NonModifiable/per"></a> `per?`
+
+- **Type:** <a href="#Cost/OneTime/Single'NonModifiable/per">Object</a>
 
 #### <a name="Cost/OneTime/Single'NonModifiable/translations"></a> `translations?`
 
@@ -698,6 +596,57 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
+### <a name="Cost/OneTime/Single'NonModifiable/per"></a> `Cost/OneTime/Single'NonModifiable/per`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`minimum_total?` | If defined, the minimum total AE that have to be spent casting the skill. | <a href="#Cost/OneTime/Single'NonModifiable/per/minimum_total">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Cost/OneTime/Single'NonModifiable/per/translations">See details</a>
+
+#### <a name="Cost/OneTime/Single'NonModifiable/per/minimum_total"></a> `minimum_total?`
+
+If defined, the minimum total AE that have to be spent casting the skill.
+
+- **Type:** Number
+
+#### <a name="Cost/OneTime/Single'NonModifiable/per/translations"></a> `translations`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#Cost/OneTime/Single'NonModifiable/per/translations[key]">Cost/OneTime/Single'NonModifiable/per/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="Cost/OneTime/Single'NonModifiable/per/translations[key]"></a> `Cost/OneTime/Single'NonModifiable/per/translations[key]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`default` | The full countable entity name. | <a href="#Cost/OneTime/Single'NonModifiable/per/translations[key]/default">See details</a>
+`compressed` | The compressed countable entity name. | <a href="#Cost/OneTime/Single'NonModifiable/per/translations[key]/compressed">See details</a>
+
+#### <a name="Cost/OneTime/Single'NonModifiable/per/translations[key]/default"></a> `default`
+
+The full countable entity name.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+#### <a name="Cost/OneTime/Single'NonModifiable/per/translations[key]/compressed"></a> `compressed`
+
+The compressed countable entity name.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+---
+
 ### <a name="Cost/OneTime/Single'NonModifiable/translations[key]"></a> `Cost/OneTime/Single'NonModifiable/translations[key]`
 
 - **Type:** Object
@@ -705,19 +654,37 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 Key | Description | Details
 :-- | :-- | :--
-`per?` | The cost have to be per a specific countable entity, e.g. `8 KP per person` | <a href="#Cost/OneTime/Single'NonModifiable/translations[key]/per">See details</a>
 `note?` | A note, appended to the generated string in parenthesis. | <a href="#Cost/OneTime/Single'NonModifiable/translations[key]/note">See details</a>
-
-#### <a name="Cost/OneTime/Single'NonModifiable/translations[key]/per"></a> `per?`
-
-The cost have to be per a specific countable entity, e.g. `8 KP per person`
-
-- **Type:** String
-- **Minimum Length:** `1`
 
 #### <a name="Cost/OneTime/Single'NonModifiable/translations[key]/note"></a> `note?`
 
 A note, appended to the generated string in parenthesis.
+
+- **Type:** <a href="#Cost/OneTime/Single'NonModifiable/translations[key]/note">Object</a>
+
+---
+
+### <a name="Cost/OneTime/Single'NonModifiable/translations[key]/note"></a> `Cost/OneTime/Single'NonModifiable/translations[key]/note`
+
+A note, appended to the generated string in parenthesis.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`default` | The full note. | <a href="#Cost/OneTime/Single'NonModifiable/translations[key]/note/default">See details</a>
+`compressed?` | A compressed note, if applicable. If not specified it should not be displayed in small location. | <a href="#Cost/OneTime/Single'NonModifiable/translations[key]/note/compressed">See details</a>
+
+#### <a name="Cost/OneTime/Single'NonModifiable/translations[key]/note/default"></a> `default`
+
+The full note.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+#### <a name="Cost/OneTime/Single'NonModifiable/translations[key]/note/compressed"></a> `compressed?`
+
+A compressed note, if applicable. If not specified it should not be displayed in small location.
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -849,7 +816,7 @@ If the string from the book cannot be generated using the default generation tec
 Key | Description | Details
 :-- | :-- | :--
 `value` | The full cost value for this option. | <a href="#Cost/OneTime/MapOption/value">See details</a>
-`permanent?` | The part of the `value` that has to be paid permanently. | <a href="#Cost/OneTime/MapOption/permanent">See details</a>
+`permanent_value?` | The part of the `value` that has to be paid permanently. | <a href="#Cost/OneTime/MapOption/permanent_value">See details</a>
 `label` | The description of the option for cost string generation. | <a href="#Cost/OneTime/MapOption/label">See details</a>
 `label_standalone?` | The description of the option if used standalone. Only used if different from `label`. | <a href="#Cost/OneTime/MapOption/label_standalone">See details</a>
 
@@ -860,7 +827,7 @@ The full cost value for this option.
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="Cost/OneTime/MapOption/permanent"></a> `permanent?`
+#### <a name="Cost/OneTime/MapOption/permanent_value"></a> `permanent_value?`
 
 The part of the `value` that has to be paid permanently.
 
@@ -897,19 +864,26 @@ The description of the option if used standalone. Only used if different from `l
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#Cost/Sustained/T'Modifiable/tag">See details</a>
-`modification_id` | The skill modification increment identifier/level. | <a href="#Cost/Sustained/T'Modifiable/modification_id">See details</a>
+`initial_modification_level` | The initial skill modification identifier/level. | <a href="#Cost/Sustained/T'Modifiable/initial_modification_level">See details</a>
+`interval` | The sustain interval. | <a href="#Cost/Sustained/T'Modifiable/interval">See details</a>
 
 #### <a name="Cost/Sustained/T'Modifiable/tag"></a> `tag`
 
 - **Constant:** `"Modifiable"`
 
-#### <a name="Cost/Sustained/T'Modifiable/modification_id"></a> `modification_id`
+#### <a name="Cost/Sustained/T'Modifiable/initial_modification_level"></a> `initial_modification_level`
 
-The skill modification increment identifier/level.
+The initial skill modification identifier/level.
 
 - **Type:** Integer
 - **Minimum:** `1`
 - **Maximum:** `6`
+
+#### <a name="Cost/Sustained/T'Modifiable/interval"></a> `interval`
+
+The sustain interval.
+
+- **Type:** <a href="#Duration/UnitValue">Duration/UnitValue</a>
 
 ---
 
@@ -920,23 +894,32 @@ The skill modification increment identifier/level.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#Cost/Sustained/T'NonModifiable/tag">See details</a>
-`minimum?` | A minimum cost value. It may be rendered relative to the actual cost `value` and cost interval or may be an absolute value, affecting the sum of the initial cost and the cost per interval. | <a href="#Cost/Sustained/T'NonModifiable/minimum">See details</a>
-`value` |  | <a href="#Cost/Sustained/T'NonModifiable/value">See details</a>
+`is_minimum?` | If `true`, the non-modifiable value is a minimum value. | <a href="#Cost/Sustained/T'NonModifiable/is_minimum">See details</a>
+`value` | The AE cost value. | <a href="#Cost/Sustained/T'NonModifiable/value">See details</a>
+`interval` | The sustain interval. | <a href="#Cost/Sustained/T'NonModifiable/interval">See details</a>
 
 #### <a name="Cost/Sustained/T'NonModifiable/tag"></a> `tag`
 
 - **Constant:** `"NonModifiable"`
 
-#### <a name="Cost/Sustained/T'NonModifiable/minimum"></a> `minimum?`
+#### <a name="Cost/Sustained/T'NonModifiable/is_minimum"></a> `is_minimum?`
 
-A minimum cost value. It may be rendered relative to the actual cost `value` and cost interval or may be an absolute value, affecting the sum of the initial cost and the cost per interval.
+If `true`, the non-modifiable value is a minimum value.
 
-- **Type:** <a href="#Cost/Minimum">Cost/Minimum</a>
+- **Type:** Boolean
 
 #### <a name="Cost/Sustained/T'NonModifiable/value"></a> `value`
 
+The AE cost value.
+
 - **Type:** Integer
 - **Minimum:** `1`
+
+#### <a name="Cost/Sustained/T'NonModifiable/interval"></a> `interval`
+
+The sustain interval.
+
+- **Type:** <a href="#Duration/UnitValue">Duration/UnitValue</a>
 
 ---
 
@@ -976,6 +959,32 @@ Key | Description | Details
 
 A note, appended to the generated string in parenthesis.
 
+- **Type:** <a href="#Range/T/translations[key]/note">Object</a>
+
+---
+
+### <a name="Range/T/translations[key]/note"></a> `Range/T/translations[key]/note`
+
+A note, appended to the generated string in parenthesis.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`default` | The full note. | <a href="#Range/T/translations[key]/note/default">See details</a>
+`compressed?` | A compressed note, if applicable. If not specified it should not be displayed in small location. | <a href="#Range/T/translations[key]/note/compressed">See details</a>
+
+#### <a name="Range/T/translations[key]/note/default"></a> `default`
+
+The full note.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+#### <a name="Range/T/translations[key]/note/compressed"></a> `compressed?`
+
+A compressed note, if applicable. If not specified it should not be displayed in small location.
+
 - **Type:** String
 - **Minimum Length:** `1`
 
@@ -984,7 +993,7 @@ A note, appended to the generated string in parenthesis.
 ### <a name="Range/RangeValue"></a> `Range/RangeValue`
 
 - **Type:** Union
-- **Cases:** <a href="#Range/RangeValue'Modifiable">Range/RangeValue'Modifiable</a> | <a href="#Range/RangeValue'Sight">Range/RangeValue'Sight</a> | <a href="#Range/RangeValue'Self">Range/RangeValue'Self</a> | <a href="#Range/RangeValue'Global">Range/RangeValue'Global</a> | <a href="#Range/RangeValue'Constant">Range/RangeValue'Constant</a> | <a href="#Range/RangeValue'MultipliedQualityLevel">Range/RangeValue'MultipliedQualityLevel</a>
+- **Cases:** <a href="#Range/RangeValue'Modifiable">Range/RangeValue'Modifiable</a> | <a href="#Range/RangeValue'Sight">Range/RangeValue'Sight</a> | <a href="#Range/RangeValue'Self">Range/RangeValue'Self</a> | <a href="#Range/RangeValue'Global">Range/RangeValue'Global</a> | <a href="#Range/RangeValue'Fixed">Range/RangeValue'Fixed</a> | <a href="#Range/RangeValue'CheckResultBased">Range/RangeValue'CheckResultBased</a>
 
 ---
 
@@ -995,26 +1004,19 @@ A note, appended to the generated string in parenthesis.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#Range/RangeValue'Modifiable/tag">See details</a>
-`modification_id` | The skill modification increment identifier/level. | <a href="#Range/RangeValue'Modifiable/modification_id">See details</a>
-`is_modifiable` | Is the casting time modifiable? | <a href="#Range/RangeValue'Modifiable/is_modifiable">See details</a>
+`initial_modification_level` | The initial skill modification identifier/level. | <a href="#Range/RangeValue'Modifiable/initial_modification_level">See details</a>
 
 #### <a name="Range/RangeValue'Modifiable/tag"></a> `tag`
 
 - **Constant:** `"Modifiable"`
 
-#### <a name="Range/RangeValue'Modifiable/modification_id"></a> `modification_id`
+#### <a name="Range/RangeValue'Modifiable/initial_modification_level"></a> `initial_modification_level`
 
-The skill modification increment identifier/level.
+The initial skill modification identifier/level.
 
 - **Type:** Integer
 - **Minimum:** `1`
 - **Maximum:** `6`
-
-#### <a name="Range/RangeValue'Modifiable/is_modifiable"></a> `is_modifiable`
-
-Is the casting time modifiable?
-
-- **Type:** Boolean
 
 ---
 
@@ -1062,28 +1064,28 @@ German: *dereumfassend*
 
 ---
 
-### <a name="Range/RangeValue'Constant"></a> `Range/RangeValue'Constant`
+### <a name="Range/RangeValue'Fixed"></a> `Range/RangeValue'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Range/RangeValue'Constant/tag">See details</a>
-`value` | The (unitless) range value. | <a href="#Range/RangeValue'Constant/value">See details</a>
-`unit` | The unit of the `value`. | <a href="#Range/RangeValue'Constant/unit">See details</a>
+`tag` |  | <a href="#Range/RangeValue'Fixed/tag">See details</a>
+`value` | The (unitless) range value. | <a href="#Range/RangeValue'Fixed/value">See details</a>
+`unit` | The unit of the `value`. | <a href="#Range/RangeValue'Fixed/unit">See details</a>
 
-#### <a name="Range/RangeValue'Constant/tag"></a> `tag`
+#### <a name="Range/RangeValue'Fixed/tag"></a> `tag`
 
-- **Constant:** `"Constant"`
+- **Constant:** `"Fixed"`
 
-#### <a name="Range/RangeValue'Constant/value"></a> `value`
+#### <a name="Range/RangeValue'Fixed/value"></a> `value`
 
 The (unitless) range value.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="Range/RangeValue'Constant/unit"></a> `unit`
+#### <a name="Range/RangeValue'Fixed/unit"></a> `unit`
 
 The unit of the `value`.
 
@@ -1091,32 +1093,64 @@ The unit of the `value`.
 
 ---
 
-### <a name="Range/RangeValue'MultipliedQualityLevel"></a> `Range/RangeValue'MultipliedQualityLevel`
+### <a name="Range/RangeValue'CheckResultBased"></a> `Range/RangeValue'CheckResultBased`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Range/RangeValue'MultipliedQualityLevel/tag">See details</a>
-`multiplier` | The value that multiplies the quality level to form the final (unitless) range value. | <a href="#Range/RangeValue'MultipliedQualityLevel/multiplier">See details</a>
-`unit` | The unit of the value resulting from multiplying the quality level with the `multiplier`. | <a href="#Range/RangeValue'MultipliedQualityLevel/unit">See details</a>
+`tag` |  | <a href="#Range/RangeValue'CheckResultBased/tag">See details</a>
+`base` | The base value that is derived from the check result. | <a href="#Range/RangeValue'CheckResultBased/base">See details</a>
+`modifier?` | If defined, it modifies the base value. | <a href="#Range/RangeValue'CheckResultBased/modifier">See details</a>
+`unit` | The range unit. | <a href="#Range/RangeValue'CheckResultBased/unit">See details</a>
 
-#### <a name="Range/RangeValue'MultipliedQualityLevel/tag"></a> `tag`
+#### <a name="Range/RangeValue'CheckResultBased/tag"></a> `tag`
 
-- **Constant:** `"MultipliedQualityLevel"`
+- **Constant:** `"CheckResultBased"`
 
-#### <a name="Range/RangeValue'MultipliedQualityLevel/multiplier"></a> `multiplier`
+#### <a name="Range/RangeValue'CheckResultBased/base"></a> `base`
 
-The value that multiplies the quality level to form the final (unitless) range value.
+The base value that is derived from the check result.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="#Duration/CheckResultValue">Duration/CheckResultValue</a>
 
-#### <a name="Range/RangeValue'MultipliedQualityLevel/unit"></a> `unit`
+#### <a name="Range/RangeValue'CheckResultBased/modifier"></a> `modifier?`
 
-The unit of the value resulting from multiplying the quality level with the `multiplier`.
+If defined, it modifies the base value.
+
+- **Type:** <a href="#Range/RangeValue'CheckResultBased/modifier">Object</a>
+
+#### <a name="Range/RangeValue'CheckResultBased/unit"></a> `unit`
+
+The range unit.
 
 - **Type:** <a href="#Range/Unit">Range/Unit</a>
+
+---
+
+### <a name="Range/RangeValue'CheckResultBased/modifier"></a> `Range/RangeValue'CheckResultBased/modifier`
+
+If defined, it modifies the base value.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`arithmetic` | The arithmetic how to apply the `value` to the `base`. | <a href="#Range/RangeValue'CheckResultBased/modifier/arithmetic">See details</a>
+`value` | The value that is applied to the `base` using the defined `arithmetic`. | <a href="#Range/RangeValue'CheckResultBased/modifier/value">See details</a>
+
+#### <a name="Range/RangeValue'CheckResultBased/modifier/arithmetic"></a> `arithmetic`
+
+The arithmetic how to apply the `value` to the `base`.
+
+- **Type:** <a href="#Duration/CheckResultArithmetic">Duration/CheckResultArithmetic</a>
+
+#### <a name="Range/RangeValue'CheckResultBased/modifier/value"></a> `value`
+
+The value that is applied to the `base` using the defined `arithmetic`.
+
+- **Type:** Integer
+- **Minimum:** `2`
 
 ---
 
@@ -1129,7 +1163,7 @@ The unit of the value resulting from multiplying the quality level with the `mul
 ### <a name="Duration/OneTime/T"></a> `Duration/OneTime/T`
 
 - **Type:** Union
-- **Cases:** <a href="#Duration/OneTime/T'Immediate">Duration/OneTime/T'Immediate</a> | <a href="#Duration/OneTime/T'Permanent">Duration/OneTime/T'Permanent</a> | <a href="#Duration/OneTime/T'Numeric">Duration/OneTime/T'Numeric</a> | <a href="#Duration/OneTime/T'Indefinite">Duration/OneTime/T'Indefinite</a>
+- **Cases:** <a href="#Duration/OneTime/T'Immediate">Duration/OneTime/T'Immediate</a> | <a href="#Duration/OneTime/T'Permanent">Duration/OneTime/T'Permanent</a> | <a href="#Duration/OneTime/T'Fixed">Duration/OneTime/T'Fixed</a> | <a href="#Duration/OneTime/T'CheckResultBased">Duration/OneTime/T'CheckResultBased</a> | <a href="#Duration/OneTime/T'Indefinite">Duration/OneTime/T'Indefinite</a>
 
 ---
 
@@ -1278,68 +1312,69 @@ A compressed replacement string for use in small areas (e.g. on character sheet)
 
 ---
 
-### <a name="Duration/OneTime/T'Numeric"></a> `Duration/OneTime/T'Numeric`
+### <a name="Duration/OneTime/T'Fixed"></a> `Duration/OneTime/T'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Duration/OneTime/T'Numeric/tag">See details</a>
-`value` | The duration value. If `check_result` is defined and this is `1`, it is used as the unit for the value derived from the check result in rendered text output. | <a href="#Duration/OneTime/T'Numeric/value">See details</a>
-`check_result?` | If defined, the check result affects the duration in the defined way. | <a href="#Duration/OneTime/T'Numeric/check_result">See details</a>
-`is_maximum?` | Is the duration indefinite, but has a maximum time span? | <a href="#Duration/OneTime/T'Numeric/is_maximum">See details</a>
-`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Duration/OneTime/T'Numeric/translations">See details</a>
+`tag` |  | <a href="#Duration/OneTime/T'Fixed/tag">See details</a>
+`is_maximum?` | If the duration is the maximum duration, so it may end earlier. | <a href="#Duration/OneTime/T'Fixed/is_maximum">See details</a>
+`value` | The (unitless) duration. | <a href="#Duration/OneTime/T'Fixed/value">See details</a>
+`unit` | The duration unit. | <a href="#Duration/OneTime/T'Fixed/unit">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Duration/OneTime/T'Fixed/translations">See details</a>
 
-#### <a name="Duration/OneTime/T'Numeric/tag"></a> `tag`
+#### <a name="Duration/OneTime/T'Fixed/tag"></a> `tag`
 
-- **Constant:** `"Numeric"`
+- **Constant:** `"Fixed"`
 
-#### <a name="Duration/OneTime/T'Numeric/value"></a> `value`
+#### <a name="Duration/OneTime/T'Fixed/is_maximum"></a> `is_maximum?`
 
-The duration value. If `check_result` is defined and this is `1`, it is used as the unit for the value derived from the check result in rendered text output.
-
-- **Type:** <a href="#Duration/UnitValue">Duration/UnitValue</a>
-
-#### <a name="Duration/OneTime/T'Numeric/check_result"></a> `check_result?`
-
-If defined, the check result affects the duration in the defined way.
-
-- **Type:** <a href="#Duration/CheckResult">Duration/CheckResult</a>
-
-#### <a name="Duration/OneTime/T'Numeric/is_maximum"></a> `is_maximum?`
-
-Is the duration indefinite, but has a maximum time span?
+If the duration is the maximum duration, so it may end earlier.
 
 - **Type:** Boolean
 
-#### <a name="Duration/OneTime/T'Numeric/translations"></a> `translations?`
+#### <a name="Duration/OneTime/T'Fixed/value"></a> `value`
+
+The (unitless) duration.
+
+- **Type:** Integer
+- **Minimum:** `2`
+
+#### <a name="Duration/OneTime/T'Fixed/unit"></a> `unit`
+
+The duration unit.
+
+- **Type:** <a href="#Duration/Unit">Duration/Unit</a>
+
+#### <a name="Duration/OneTime/T'Fixed/translations"></a> `translations?`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#Duration/OneTime/T'Numeric/translations[key]">Duration/OneTime/T'Numeric/translations[key]</a>
+- **Property Values:** <a href="#Duration/OneTime/T'Fixed/translations[key]">Duration/OneTime/T'Fixed/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="Duration/OneTime/T'Numeric/translations[key]"></a> `Duration/OneTime/T'Numeric/translations[key]`
+### <a name="Duration/OneTime/T'Fixed/translations[key]"></a> `Duration/OneTime/T'Fixed/translations[key]`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`replacement` | A replacement string. | <a href="#Duration/OneTime/T'Numeric/translations[key]/replacement">See details</a>
+`replacement` | A replacement string. | <a href="#Duration/OneTime/T'Fixed/translations[key]/replacement">See details</a>
 
-#### <a name="Duration/OneTime/T'Numeric/translations[key]/replacement"></a> `replacement`
+#### <a name="Duration/OneTime/T'Fixed/translations[key]/replacement"></a> `replacement`
 
 A replacement string.
 
-- **Type:** <a href="#Duration/OneTime/T'Numeric/translations[key]/replacement">Object</a>
+- **Type:** <a href="#Duration/OneTime/T'Fixed/translations[key]/replacement">Object</a>
 
 ---
 
-### <a name="Duration/OneTime/T'Numeric/translations[key]/replacement"></a> `Duration/OneTime/T'Numeric/translations[key]/replacement`
+### <a name="Duration/OneTime/T'Fixed/translations[key]/replacement"></a> `Duration/OneTime/T'Fixed/translations[key]/replacement`
 
 A replacement string.
 
@@ -1347,10 +1382,10 @@ A replacement string.
 
 Key | Description | Details
 :-- | :-- | :--
-`default` | The full replacement string. It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values. | <a href="#Duration/OneTime/T'Numeric/translations[key]/replacement/default">See details</a>
-`compressed` | A compressed replacement string for use in small areas (e.g. on character sheet). It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values. | <a href="#Duration/OneTime/T'Numeric/translations[key]/replacement/compressed">See details</a>
+`default` | The full replacement string. It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values. | <a href="#Duration/OneTime/T'Fixed/translations[key]/replacement/default">See details</a>
+`compressed` | A compressed replacement string for use in small areas (e.g. on character sheet). It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values. | <a href="#Duration/OneTime/T'Fixed/translations[key]/replacement/compressed">See details</a>
 
-#### <a name="Duration/OneTime/T'Numeric/translations[key]/replacement/default"></a> `default`
+#### <a name="Duration/OneTime/T'Fixed/translations[key]/replacement/default"></a> `default`
 
 The full replacement string. It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.
 
@@ -1358,7 +1393,130 @@ The full replacement string. It must contain `$1`, which is going to be replaced
 - **Minimum Length:** `1`
 - **Pattern:** `\$1`
 
-#### <a name="Duration/OneTime/T'Numeric/translations[key]/replacement/compressed"></a> `compressed`
+#### <a name="Duration/OneTime/T'Fixed/translations[key]/replacement/compressed"></a> `compressed`
+
+A compressed replacement string for use in small areas (e.g. on character sheet). It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.
+
+- **Type:** String
+- **Minimum Length:** `1`
+- **Pattern:** `\$1`
+
+---
+
+### <a name="Duration/OneTime/T'CheckResultBased"></a> `Duration/OneTime/T'CheckResultBased`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Duration/OneTime/T'CheckResultBased/tag">See details</a>
+`is_maximum?` | If the duration is the maximum duration, so it may end earlier. | <a href="#Duration/OneTime/T'CheckResultBased/is_maximum">See details</a>
+`base` | The base value that is derived from the check result. | <a href="#Duration/OneTime/T'CheckResultBased/base">See details</a>
+`modifier?` | If defined, it modifies the base value. | <a href="#Duration/OneTime/T'CheckResultBased/modifier">See details</a>
+`unit` | The duration unit. | <a href="#Duration/OneTime/T'CheckResultBased/unit">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Duration/OneTime/T'CheckResultBased/translations">See details</a>
+
+#### <a name="Duration/OneTime/T'CheckResultBased/tag"></a> `tag`
+
+- **Constant:** `"CheckResultBased"`
+
+#### <a name="Duration/OneTime/T'CheckResultBased/is_maximum"></a> `is_maximum?`
+
+If the duration is the maximum duration, so it may end earlier.
+
+- **Type:** Boolean
+
+#### <a name="Duration/OneTime/T'CheckResultBased/base"></a> `base`
+
+The base value that is derived from the check result.
+
+- **Type:** <a href="#Duration/CheckResultValue">Duration/CheckResultValue</a>
+
+#### <a name="Duration/OneTime/T'CheckResultBased/modifier"></a> `modifier?`
+
+If defined, it modifies the base value.
+
+- **Type:** <a href="#Duration/OneTime/T'CheckResultBased/modifier">Object</a>
+
+#### <a name="Duration/OneTime/T'CheckResultBased/unit"></a> `unit`
+
+The duration unit.
+
+- **Type:** <a href="#Duration/Unit">Duration/Unit</a>
+
+#### <a name="Duration/OneTime/T'CheckResultBased/translations"></a> `translations?`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#Duration/OneTime/T'CheckResultBased/translations[key]">Duration/OneTime/T'CheckResultBased/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="Duration/OneTime/T'CheckResultBased/modifier"></a> `Duration/OneTime/T'CheckResultBased/modifier`
+
+If defined, it modifies the base value.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`arithmetic` | The arithmetic how to apply the `value` to the `base`. | <a href="#Duration/OneTime/T'CheckResultBased/modifier/arithmetic">See details</a>
+`value` | The value that is applied to the `base` using the defined `arithmetic`. | <a href="#Duration/OneTime/T'CheckResultBased/modifier/value">See details</a>
+
+#### <a name="Duration/OneTime/T'CheckResultBased/modifier/arithmetic"></a> `arithmetic`
+
+The arithmetic how to apply the `value` to the `base`.
+
+- **Type:** <a href="#Duration/CheckResultArithmetic">Duration/CheckResultArithmetic</a>
+
+#### <a name="Duration/OneTime/T'CheckResultBased/modifier/value"></a> `value`
+
+The value that is applied to the `base` using the defined `arithmetic`.
+
+- **Type:** Integer
+- **Minimum:** `2`
+
+---
+
+### <a name="Duration/OneTime/T'CheckResultBased/translations[key]"></a> `Duration/OneTime/T'CheckResultBased/translations[key]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`replacement` | A replacement string. | <a href="#Duration/OneTime/T'CheckResultBased/translations[key]/replacement">See details</a>
+
+#### <a name="Duration/OneTime/T'CheckResultBased/translations[key]/replacement"></a> `replacement`
+
+A replacement string.
+
+- **Type:** <a href="#Duration/OneTime/T'CheckResultBased/translations[key]/replacement">Object</a>
+
+---
+
+### <a name="Duration/OneTime/T'CheckResultBased/translations[key]/replacement"></a> `Duration/OneTime/T'CheckResultBased/translations[key]/replacement`
+
+A replacement string.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`default` | The full replacement string. It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values. | <a href="#Duration/OneTime/T'CheckResultBased/translations[key]/replacement/default">See details</a>
+`compressed` | A compressed replacement string for use in small areas (e.g. on character sheet). It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values. | <a href="#Duration/OneTime/T'CheckResultBased/translations[key]/replacement/compressed">See details</a>
+
+#### <a name="Duration/OneTime/T'CheckResultBased/translations[key]/replacement/default"></a> `default`
+
+The full replacement string. It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.
+
+- **Type:** String
+- **Minimum Length:** `1`
+- **Pattern:** `\$1`
+
+#### <a name="Duration/OneTime/T'CheckResultBased/translations[key]/replacement/compressed"></a> `compressed`
 
 A compressed replacement string for use in small areas (e.g. on character sheet). It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.
 
@@ -1404,29 +1562,223 @@ Key | Description | Details
 
 A description of the duration.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="#Duration/OneTime/T'Indefinite/translations[key]/description">Object</a>
 
 ---
 
-### <a name="Duration/CheckResult"></a> `Duration/CheckResult`
+### <a name="Duration/OneTime/T'Indefinite/translations[key]/description"></a> `Duration/OneTime/T'Indefinite/translations[key]/description`
 
-Defines how the check result affects the duration in the defined way.
+A description of the duration.
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`value` |  | <a href="#Duration/CheckResult/value">See details</a>
-`arithmetic` |  | <a href="#Duration/CheckResult/arithmetic">See details</a>
+`default` | The full description of the duration. | <a href="#Duration/OneTime/T'Indefinite/translations[key]/description/default">See details</a>
+`compressed` | A compressed description of the duration for use in small areas (e.g. on character sheet). | <a href="#Duration/OneTime/T'Indefinite/translations[key]/description/compressed">See details</a>
 
-#### <a name="Duration/CheckResult/value"></a> `value`
+#### <a name="Duration/OneTime/T'Indefinite/translations[key]/description/default"></a> `default`
+
+The full description of the duration.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+#### <a name="Duration/OneTime/T'Indefinite/translations[key]/description/compressed"></a> `compressed`
+
+A compressed description of the duration for use in small areas (e.g. on character sheet).
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+---
+
+### <a name="Duration/CheckResultBased"></a> `Duration/CheckResultBased`
+
+Defines the duration being based on a check result.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`base` | The base value that is derived from the check result. | <a href="#Duration/CheckResultBased/base">See details</a>
+`modifier?` | If defined, it modifies the base value. | <a href="#Duration/CheckResultBased/modifier">See details</a>
+`unit` | The duration unit. | <a href="#Duration/CheckResultBased/unit">See details</a>
+
+#### <a name="Duration/CheckResultBased/base"></a> `base`
+
+The base value that is derived from the check result.
 
 - **Type:** <a href="#Duration/CheckResultValue">Duration/CheckResultValue</a>
 
-#### <a name="Duration/CheckResult/arithmetic"></a> `arithmetic`
+#### <a name="Duration/CheckResultBased/modifier"></a> `modifier?`
+
+If defined, it modifies the base value.
+
+- **Type:** <a href="#Duration/CheckResultBased/modifier">Object</a>
+
+#### <a name="Duration/CheckResultBased/unit"></a> `unit`
+
+The duration unit.
+
+- **Type:** <a href="#Duration/Unit">Duration/Unit</a>
+
+---
+
+### <a name="Duration/CheckResultBased/modifier"></a> `Duration/CheckResultBased/modifier`
+
+If defined, it modifies the base value.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`arithmetic` | The arithmetic how to apply the `value` to the `base`. | <a href="#Duration/CheckResultBased/modifier/arithmetic">See details</a>
+`value` | The value that is applied to the `base` using the defined `arithmetic`. | <a href="#Duration/CheckResultBased/modifier/value">See details</a>
+
+#### <a name="Duration/CheckResultBased/modifier/arithmetic"></a> `arithmetic`
+
+The arithmetic how to apply the `value` to the `base`.
 
 - **Type:** <a href="#Duration/CheckResultArithmetic">Duration/CheckResultArithmetic</a>
+
+#### <a name="Duration/CheckResultBased/modifier/value"></a> `value`
+
+The value that is applied to the `base` using the defined `arithmetic`.
+
+- **Type:** Integer
+- **Minimum:** `2`
+
+---
+
+### <a name="Duration/CheckResultBasedTagged"></a> `Duration/CheckResultBasedTagged`
+
+Defines the duration being based on a check result.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Duration/CheckResultBasedTagged/tag">See details</a>
+`base` | The base value that is derived from the check result. | <a href="#Duration/CheckResultBasedTagged/base">See details</a>
+`modifier?` | If defined, it modifies the base value. | <a href="#Duration/CheckResultBasedTagged/modifier">See details</a>
+`unit` | The duration unit. | <a href="#Duration/CheckResultBasedTagged/unit">See details</a>
+
+#### <a name="Duration/CheckResultBasedTagged/tag"></a> `tag`
+
+- **Constant:** `"CheckResultBased"`
+
+#### <a name="Duration/CheckResultBasedTagged/base"></a> `base`
+
+The base value that is derived from the check result.
+
+- **Type:** <a href="#Duration/CheckResultValue">Duration/CheckResultValue</a>
+
+#### <a name="Duration/CheckResultBasedTagged/modifier"></a> `modifier?`
+
+If defined, it modifies the base value.
+
+- **Type:** <a href="#Duration/CheckResultBasedTagged/modifier">Object</a>
+
+#### <a name="Duration/CheckResultBasedTagged/unit"></a> `unit`
+
+The duration unit.
+
+- **Type:** <a href="#Duration/Unit">Duration/Unit</a>
+
+---
+
+### <a name="Duration/CheckResultBasedTagged/modifier"></a> `Duration/CheckResultBasedTagged/modifier`
+
+If defined, it modifies the base value.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`arithmetic` | The arithmetic how to apply the `value` to the `base`. | <a href="#Duration/CheckResultBasedTagged/modifier/arithmetic">See details</a>
+`value` | The value that is applied to the `base` using the defined `arithmetic`. | <a href="#Duration/CheckResultBasedTagged/modifier/value">See details</a>
+
+#### <a name="Duration/CheckResultBasedTagged/modifier/arithmetic"></a> `arithmetic`
+
+The arithmetic how to apply the `value` to the `base`.
+
+- **Type:** <a href="#Duration/CheckResultArithmetic">Duration/CheckResultArithmetic</a>
+
+#### <a name="Duration/CheckResultBasedTagged/modifier/value"></a> `value`
+
+The value that is applied to the `base` using the defined `arithmetic`.
+
+- **Type:** Integer
+- **Minimum:** `2`
+
+---
+
+### <a name="Duration/CheckResultBasedTaggedAnimistPower"></a> `Duration/CheckResultBasedTaggedAnimistPower`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Duration/CheckResultBasedTaggedAnimistPower/tag">See details</a>
+`is_maximum?` | If the duration is the maximum duration, so it may end earlier. | <a href="#Duration/CheckResultBasedTaggedAnimistPower/is_maximum">See details</a>
+`base` | The base value that is derived from the check result. | <a href="#Duration/CheckResultBasedTaggedAnimistPower/base">See details</a>
+`modifier?` | If defined, it modifies the base value. | <a href="#Duration/CheckResultBasedTaggedAnimistPower/modifier">See details</a>
+`unit` | The duration unit. | <a href="#Duration/CheckResultBasedTaggedAnimistPower/unit">See details</a>
+
+#### <a name="Duration/CheckResultBasedTaggedAnimistPower/tag"></a> `tag`
+
+- **Constant:** `"CheckResultBased"`
+
+#### <a name="Duration/CheckResultBasedTaggedAnimistPower/is_maximum"></a> `is_maximum?`
+
+If the duration is the maximum duration, so it may end earlier.
+
+- **Type:** Boolean
+
+#### <a name="Duration/CheckResultBasedTaggedAnimistPower/base"></a> `base`
+
+The base value that is derived from the check result.
+
+- **Type:** <a href="#Duration/CheckResultValue">Duration/CheckResultValue</a>
+
+#### <a name="Duration/CheckResultBasedTaggedAnimistPower/modifier"></a> `modifier?`
+
+If defined, it modifies the base value.
+
+- **Type:** <a href="#Duration/CheckResultBasedTaggedAnimistPower/modifier">Object</a>
+
+#### <a name="Duration/CheckResultBasedTaggedAnimistPower/unit"></a> `unit`
+
+The duration unit.
+
+- **Type:** <a href="#Duration/Unit">Duration/Unit</a>
+
+---
+
+### <a name="Duration/CheckResultBasedTaggedAnimistPower/modifier"></a> `Duration/CheckResultBasedTaggedAnimistPower/modifier`
+
+If defined, it modifies the base value.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`arithmetic` | The arithmetic how to apply the `value` to the `base`. | <a href="#Duration/CheckResultBasedTaggedAnimistPower/modifier/arithmetic">See details</a>
+`value` | The value that is applied to the `base` using the defined `arithmetic`. | <a href="#Duration/CheckResultBasedTaggedAnimistPower/modifier/value">See details</a>
+
+#### <a name="Duration/CheckResultBasedTaggedAnimistPower/modifier/arithmetic"></a> `arithmetic`
+
+The arithmetic how to apply the `value` to the `base`.
+
+- **Type:** <a href="#Duration/CheckResultArithmetic">Duration/CheckResultArithmetic</a>
+
+#### <a name="Duration/CheckResultBasedTaggedAnimistPower/modifier/value"></a> `value`
+
+The value that is applied to the `base` using the defined `arithmetic`.
+
+- **Type:** Integer
+- **Minimum:** `2`
 
 ---
 
@@ -1510,18 +1862,11 @@ Key | Description | Details
 
 Key | Description | Details
 :-- | :-- | :--
-`interval` | The interval. | <a href="#Duration/Sustained/T/interval">See details</a>
-`maximum?` | Specified if the sustained skill can be active a maximum amount of time. | <a href="#Duration/Sustained/T/maximum">See details</a>
+`maximum` | The sustained skill can be active a maximum amount of time. | <a href="#Duration/Sustained/T/maximum">See details</a>
 
-#### <a name="Duration/Sustained/T/interval"></a> `interval`
+#### <a name="Duration/Sustained/T/maximum"></a> `maximum`
 
-The interval.
-
-- **Type:** <a href="#Duration/UnitValue">Duration/UnitValue</a>
-
-#### <a name="Duration/Sustained/T/maximum"></a> `maximum?`
-
-Specified if the sustained skill can be active a maximum amount of time.
+The sustained skill can be active a maximum amount of time.
 
 - **Type:** <a href="#Duration/UnitValue">Duration/UnitValue</a>
 

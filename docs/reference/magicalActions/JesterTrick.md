@@ -224,29 +224,65 @@ Key | Description | Details
 
 The casting time.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="#PerformanceParameters/casting_time">Object</a>
 
 #### <a name="PerformanceParameters/cost"></a> `cost`
 
 The AE cost.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="#PerformanceParameters/cost">Object</a>
 
 #### <a name="PerformanceParameters/range"></a> `range`
 
 The range.
 
 - **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/range'Touch">PerformanceParameters/range'Touch</a> | <a href="#PerformanceParameters/range'Self">PerformanceParameters/range'Self</a> | <a href="#PerformanceParameters/range'Steps">PerformanceParameters/range'Steps</a>
+- **Cases:** <a href="#PerformanceParameters/range'Touch">PerformanceParameters/range'Touch</a> | <a href="#PerformanceParameters/range'Self">PerformanceParameters/range'Self</a> | <a href="#PerformanceParameters/range'Fixed">PerformanceParameters/range'Fixed</a>
 
 #### <a name="PerformanceParameters/duration"></a> `duration`
 
 The duration.
 
 - **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/duration'Immediate">PerformanceParameters/duration'Immediate</a> | <a href="#PerformanceParameters/duration'Flat">PerformanceParameters/duration'Flat</a> | <a href="#PerformanceParameters/duration'QualityLevels">PerformanceParameters/duration'QualityLevels</a>
+- **Cases:** <a href="#PerformanceParameters/duration'Immediate">PerformanceParameters/duration'Immediate</a> | <a href="#PerformanceParameters/duration'Fixed">PerformanceParameters/duration'Fixed</a> | <a href="#PerformanceParameters/duration'CheckResultBasedTagged">PerformanceParameters/duration'CheckResultBasedTagged</a>
+
+---
+
+### <a name="PerformanceParameters/casting_time"></a> `PerformanceParameters/casting_time`
+
+The casting time.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`value` | The casting time in actions. | <a href="#PerformanceParameters/casting_time/value">See details</a>
+
+#### <a name="PerformanceParameters/casting_time/value"></a> `value`
+
+The casting time in actions.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="PerformanceParameters/cost"></a> `PerformanceParameters/cost`
+
+The AE cost.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`value` | The AE cost value. | <a href="#PerformanceParameters/cost/value">See details</a>
+
+#### <a name="PerformanceParameters/cost/value"></a> `value`
+
+The AE cost value.
+
+- **Type:** Integer
+- **Minimum:** `1`
 
 ---
 
@@ -278,20 +314,20 @@ Key | Description | Details
 
 ---
 
-### <a name="PerformanceParameters/range'Steps"></a> `PerformanceParameters/range'Steps`
+### <a name="PerformanceParameters/range'Fixed"></a> `PerformanceParameters/range'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/range'Steps/tag">See details</a>
-`value` | The range in steps/m. | <a href="#PerformanceParameters/range'Steps/value">See details</a>
+`tag` |  | <a href="#PerformanceParameters/range'Fixed/tag">See details</a>
+`value` | The range in steps/m. | <a href="#PerformanceParameters/range'Fixed/value">See details</a>
 
-#### <a name="PerformanceParameters/range'Steps/tag"></a> `tag`
+#### <a name="PerformanceParameters/range'Fixed/tag"></a> `tag`
 
-- **Constant:** `"Steps"`
+- **Constant:** `"Fixed"`
 
-#### <a name="PerformanceParameters/range'Steps/value"></a> `value`
+#### <a name="PerformanceParameters/range'Fixed/value"></a> `value`
 
 The range in steps/m.
 
@@ -314,28 +350,28 @@ Key | Description | Details
 
 ---
 
-### <a name="PerformanceParameters/duration'Flat"></a> `PerformanceParameters/duration'Flat`
+### <a name="PerformanceParameters/duration'Fixed"></a> `PerformanceParameters/duration'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration'Flat/tag">See details</a>
-`value` | The (unitless) duration. | <a href="#PerformanceParameters/duration'Flat/value">See details</a>
-`unit` | The duration unit. | <a href="#PerformanceParameters/duration'Flat/unit">See details</a>
+`tag` |  | <a href="#PerformanceParameters/duration'Fixed/tag">See details</a>
+`value` | The (unitless) duration. | <a href="#PerformanceParameters/duration'Fixed/value">See details</a>
+`unit` | The duration unit. | <a href="#PerformanceParameters/duration'Fixed/unit">See details</a>
 
-#### <a name="PerformanceParameters/duration'Flat/tag"></a> `tag`
+#### <a name="PerformanceParameters/duration'Fixed/tag"></a> `tag`
 
-- **Constant:** `"Flat"`
+- **Constant:** `"Fixed"`
 
-#### <a name="PerformanceParameters/duration'Flat/value"></a> `value`
+#### <a name="PerformanceParameters/duration'Fixed/value"></a> `value`
 
 The (unitless) duration.
 
 - **Type:** Integer
 - **Minimum:** `2`
 
-#### <a name="PerformanceParameters/duration'Flat/unit"></a> `unit`
+#### <a name="PerformanceParameters/duration'Fixed/unit"></a> `unit`
 
 The duration unit.
 
@@ -343,29 +379,6 @@ The duration unit.
 
 ---
 
-### <a name="PerformanceParameters/duration'QualityLevels"></a> `PerformanceParameters/duration'QualityLevels`
+### <a name="PerformanceParameters/duration'CheckResultBasedTagged"></a> `PerformanceParameters/duration'CheckResultBasedTagged`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration'QualityLevels/tag">See details</a>
-`multiplier?` | A value that multiplies the resulting quality levels. | <a href="#PerformanceParameters/duration'QualityLevels/multiplier">See details</a>
-`unit` | The duration unit. | <a href="#PerformanceParameters/duration'QualityLevels/unit">See details</a>
-
-#### <a name="PerformanceParameters/duration'QualityLevels/tag"></a> `tag`
-
-- **Constant:** `"QualityLevels"`
-
-#### <a name="PerformanceParameters/duration'QualityLevels/multiplier"></a> `multiplier?`
-
-A value that multiplies the resulting quality levels.
-
-- **Type:** Integer
-- **Minimum:** `2`
-
-#### <a name="PerformanceParameters/duration'QualityLevels/unit"></a> `unit`
-
-The duration unit.
-
-- **Type:** <a href="../_ActivatableSkill.md#Duration/Unit">Duration/Unit</a>
+- **Type:** <a href="../_ActivatableSkill.md#Duration/CheckResultBasedTagged">Duration/CheckResultBasedTagged</a>
