@@ -1,6 +1,7 @@
 // @ts-check
 
-import { defaultRenderers, generate } from "optolith-tsjsonschemamd"
+import { generate } from "optolith-tsjsonschemamd"
+import { jsonSchema, markdown } from "optolith-tsjsonschemamd/renderers"
 import { dirname, join } from "path"
 import { fileURLToPath } from "url"
 
@@ -11,12 +12,12 @@ generate({
   sourceDir: join(root, "src", "types"),
   outputs: [
     {
-      renderer: defaultRenderers.jsonSchema,
-      folder: join(root, "schema")
+      targetDir: join(root, "schema"),
+      renderer: jsonSchema,
     },
     {
-      renderer: defaultRenderers.markdown,
-      folder: join(root, "docs", "reference")
+      targetDir: join(root, "docs", "reference"),
+      renderer: markdown,
     }
   ],
   clean: true
