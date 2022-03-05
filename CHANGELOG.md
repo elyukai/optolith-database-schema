@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/elyukai/optolith-database-schema/compare/v0.0.2...v0.0.3) (2022-03-05)
+
+
+### Features
+
+* blessings ([8586a40](https://github.com/elyukai/optolith-database-schema/commit/8586a4026615ff6ebdc6cfb1e988d71828e5cd23))
+* cantrips ([50397e8](https://github.com/elyukai/optolith-database-schema/commit/50397e83c9322dd36ef0cd28d2924128a6133a27))
+* pact categories ([7b9cbc6](https://github.com/elyukai/optolith-database-schema/commit/7b9cbc66a5f13b40536d03a90f726fd9aff8c15a))
+
+
+### Bug Fixes
+
+* liturgies do not have properties ([9b2c41d](https://github.com/elyukai/optolith-database-schema/commit/9b2c41dd9996abeac627b652cdb6ce0226760f2a))
+
 ### [0.0.2](https://github.com/elyukai/optolith-database-schema/compare/v0.0.1...v0.0.2) (2022-03-05)
 
 
