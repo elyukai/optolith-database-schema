@@ -164,7 +164,7 @@
             },
             "unit": {
               "description": "The casting time unit.",
-              "$ref": "../_ActivatableSkill.schema.json#/definitions/CastingTime/SlowSkillCastingTimeUnit"
+              "$ref": "../SkillModificationLevel.schema.json#/definitions/SlowSkillCastingTimeUnit"
             }
           },
           "required": [

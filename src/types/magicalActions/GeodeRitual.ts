@@ -2,9 +2,10 @@
  * @main GeodeRitual
  */
 
+import { SlowSkillCastingTimeUnit } from "../SkillModificationLevel"
 import { Errata } from "../source/_Erratum"
 import { PublicationRefs } from "../source/_PublicationRef"
-import { CastingTime, Cost, Duration, Effect, TargetCategory } from "../_ActivatableSkill"
+import { Cost, Duration, Effect, TargetCategory } from "../_ActivatableSkill"
 import { GroupCollection } from "../_Prerequisite"
 import { SkillCheck } from "../_SkillCheck"
 
@@ -115,7 +116,7 @@ type PerformanceParameters = {
     /**
      * The casting time unit.
      */
-    unit: CastingTime.SlowSkillCastingTimeUnit
+    unit: SlowSkillCastingTimeUnit
   }
 
   /**

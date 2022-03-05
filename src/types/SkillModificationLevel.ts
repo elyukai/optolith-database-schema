@@ -1,30 +1,80 @@
 /**
- * @main SkillModificationIncrement
+ * @main SkillModificationLevel
  */
 
 /**
- * @title Skill Modification Increment
+ * @title Skill Modification Level
  */
-type SkillModificationIncrement = {
+export type SkillModificationLevel = {
   /**
-   * The skill modification increment's identifier. It also represents the
-   * increment level.
+   * The skill modification level's identifier.
    * @integer
    * @minimum 1
    * @maximum 6
-   *
    */
   id: number
 
   /**
    * Configuration for this level for fast skills (spells, liturgical chants).
    */
-  fast: LevelTypeConfig
+  fast: {
+    /**
+     * The casting time in actions.
+     * @integer
+     * @minimum 1
+     */
+    casting_time: number
+
+    /**
+     * The range in meters.
+     * @integer
+     * @minimum 1
+     */
+    range: number
+
+    /**
+     * The cost in AE/KP.
+     * @integer
+     * @minimum 1
+     */
+    cost: number
+  }
 
   /**
    * Configuration for this level for slow skills (rituals, ceremonies).
    */
-  slow: LevelTypeConfig
+  slow: {
+    /**
+     * The casting time.
+     */
+    casting_time: {
+      /**
+       * The (unitless) casting time.
+       * @integer
+       * @minimum 1
+       */
+      value: number
+
+      /**
+       * The unit for the `value`.
+       */
+      unit: SlowSkillCastingTimeUnit
+    }
+
+    /**
+     * The range in meters.
+     * @integer
+     * @minimum 1
+     */
+    range: number
+
+    /**
+     * The cost in AE/KP.
+     * @integer
+     * @minimum 1
+     */
+    cost: number
+  }
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
@@ -53,30 +103,9 @@ type SkillModificationIncrement = {
   }
 }
 
-/**
- * Configuration of a type for a level.
- */
-type LevelTypeConfig = {
-  /**
-   * Casting time in actions.
-   * @integer
-   * @minimum 1
-   */
-  casting_time: number
-
-  /**
-   * Range in meters.
-   * @integer
-   * @minimum 1
-   */
-  range: number
-
-  /**
-   * Cost in AE/KP.
-   * @integer
-   * @minimum 1
-   */
-  cost: number
+export enum SlowSkillCastingTimeUnit {
+  Minutes = "Minutes",
+  Hours = "Hours",
 }
 
 /**

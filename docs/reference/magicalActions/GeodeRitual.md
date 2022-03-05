@@ -262,7 +262,7 @@ The (unitless) casting time.
 
 The casting time unit.
 
-- **Type:** <a href="../_ActivatableSkill.md#CastingTime/SlowSkillCastingTimeUnit">CastingTime/SlowSkillCastingTimeUnit</a>
+- **Type:** <a href="../SkillModificationLevel.md#SlowSkillCastingTimeUnit">SlowSkillCastingTimeUnit</a>
 
 ---
 

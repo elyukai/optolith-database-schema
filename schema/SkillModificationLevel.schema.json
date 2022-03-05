@@ -1,0 +1,138 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "SkillModificationLevel.schema.json",
+  "$ref": "#/definitions/SkillModificationLevel",
+  "definitions": {
+    "SkillModificationLevel": {
+      "title": "Skill Modification Level",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The skill modification level's identifier.",
+          "type": "integer",
+          "maximum": 6,
+          "minimum": 1
+        },
+        "fast": {
+          "description": "Configuration for this level for fast skills (spells, liturgical chants).",
+          "type": "object",
+          "properties": {
+            "casting_time": {
+              "description": "The casting time in actions.",
+              "type": "integer",
+              "minimum": 1
+            },
+            "range": {
+              "description": "The range in meters.",
+              "type": "integer",
+              "minimum": 1
+            },
+            "cost": {
+              "description": "The cost in AE/KP.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "casting_time",
+            "range",
+            "cost"
+          ],
+          "additionalProperties": false
+        },
+        "slow": {
+          "description": "Configuration for this level for slow skills (rituals, ceremonies).",
+          "type": "object",
+          "properties": {
+            "casting_time": {
+              "description": "The casting time.",
+              "type": "object",
+              "properties": {
+                "value": {
+                  "description": "The (unitless) casting time.",
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "unit": {
+                  "description": "The unit for the `value`.",
+                  "$ref": "#/definitions/SlowSkillCastingTimeUnit"
+                }
+              },
+              "required": [
+                "value",
+                "unit"
+              ],
+              "additionalProperties": false
+            },
+            "range": {
+              "description": "The range in meters.",
+              "type": "integer",
+              "minimum": 1
+            },
+            "cost": {
+              "description": "The cost in AE/KP.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "casting_time",
+            "range",
+            "cost"
+          ],
+          "additionalProperties": false
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "object",
+              "properties": {
+                "fast": {
+                  "description": "Configuration for this level for fast skills (spells, liturgical chants). Values set here override the default generated text.",
+                  "$ref": "#/definitions/LevelTypeConfigTranslation"
+                },
+                "slow": {
+                  "description": "Configuration for this level for slow skills (rituals, ceremonies). Values set here override the default generated text.",
+                  "$ref": "#/definitions/LevelTypeConfigTranslation"
+                }
+              },
+              "required": [],
+              "minProperties": 1,
+              "additionalProperties": false
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "fast",
+        "slow"
+      ],
+      "additionalProperties": false
+    },
+    "SlowSkillCastingTimeUnit": {
+      "enum": [
+        "Minutes",
+        "Hours"
+      ]
+    },
+    "LevelTypeConfigTranslation": {
+      "description": "Configuration translation of a type for a level. Values set here override the default generated text.",
+      "type": "object",
+      "properties": {
+        "range": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "range"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
