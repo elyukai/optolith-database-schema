@@ -42,13 +42,6 @@ export type Ceremony = {
   target: TargetCategory.T
 
   /**
-   * The property's identifier.
-   * @integer
-   * @minimum 1
-   */
-  property_id: number
-
-  /**
    * The tradition(s) the ceremony is available for. Note that general aspects
    * do not have an associated tradition and thus need to be defined in a
    * special way.

@@ -28,11 +28,6 @@
           "description": "The target category – the kind of creature or object – the skill affects.",
           "$ref": "./_ActivatableSkill.schema.json#/definitions/TargetCategory/T"
         },
-        "property_id": {
-          "description": "The property's identifier.",
-          "type": "integer",
-          "minimum": 1
-        },
         "traditions": {
           "description": "The tradition(s) the liturgical chant is available for. Note that general aspects do not have an associated tradition and thus need to be defined in a special way.",
           "type": "array",
@@ -167,7 +162,6 @@
         "check",
         "parameters",
         "target",
-        "property_id",
         "traditions",
         "improvement_cost",
         "src",

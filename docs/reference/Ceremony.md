@@ -13,7 +13,6 @@ Key | Description | Details
 `check_penalty?` | In some cases, the target's Spirit or Toughness is applied as a penalty. | <a href="#Ceremony/check_penalty">See details</a>
 `parameters` | Measurable parameters of a ceremony. | <a href="#Ceremony/parameters">See details</a>
 `target` | The target category – the kind of creature or object – the skill affects. | <a href="#Ceremony/target">See details</a>
-`property_id` | The property's identifier. | <a href="#Ceremony/property_id">See details</a>
 `traditions` | The tradition(s) the ceremony is available for. Note that general aspects do not have an associated tradition and thus need to be defined in a special way. | <a href="#Ceremony/traditions">See details</a>
 `improvement_cost` | States which column is used to improve the skill. | <a href="#Ceremony/improvement_cost">See details</a>
 `prerequisites?` |  | <a href="#Ceremony/prerequisites">See details</a>
@@ -51,13 +50,6 @@ Measurable parameters of a ceremony.
 The target category – the kind of creature or object – the skill affects.
 
 - **Type:** <a href="./_ActivatableSkill.md#TargetCategory/T">TargetCategory/T</a>
-
-#### <a name="Ceremony/property_id"></a> `property_id`
-
-The property's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
 
 #### <a name="Ceremony/traditions"></a> `traditions`
 
