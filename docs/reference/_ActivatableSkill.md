@@ -244,116 +244,243 @@ Effect at QL 5–6.
 
 ---
 
-### <a name="PerformanceParameters"></a> `PerformanceParameters`
+### <a name="FastPerformanceParameters"></a> `FastPerformanceParameters`
 
 - **Type:** Union
-- **Cases:** <a href="#PerformanceParameters'OneTime">PerformanceParameters'OneTime</a> | <a href="#PerformanceParameters'Sustained">PerformanceParameters'Sustained</a>
+- **Cases:** <a href="#FastPerformanceParameters'OneTime">FastPerformanceParameters'OneTime</a> | <a href="#FastPerformanceParameters'Sustained">FastPerformanceParameters'Sustained</a>
 
 ---
 
-### <a name="PerformanceParameters'OneTime"></a> `PerformanceParameters'OneTime`
+### <a name="FastPerformanceParameters'OneTime"></a> `FastPerformanceParameters'OneTime`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters'OneTime/tag">See details</a>
-`casting_time` |  | <a href="#PerformanceParameters'OneTime/casting_time">See details</a>
-`cost` |  | <a href="#PerformanceParameters'OneTime/cost">See details</a>
-`range` |  | <a href="#PerformanceParameters'OneTime/range">See details</a>
-`duration` |  | <a href="#PerformanceParameters'OneTime/duration">See details</a>
+`tag` |  | <a href="#FastPerformanceParameters'OneTime/tag">See details</a>
+`casting_time` |  | <a href="#FastPerformanceParameters'OneTime/casting_time">See details</a>
+`cost` |  | <a href="#FastPerformanceParameters'OneTime/cost">See details</a>
+`range` |  | <a href="#FastPerformanceParameters'OneTime/range">See details</a>
+`duration` |  | <a href="#FastPerformanceParameters'OneTime/duration">See details</a>
 
-#### <a name="PerformanceParameters'OneTime/tag"></a> `tag`
+#### <a name="FastPerformanceParameters'OneTime/tag"></a> `tag`
 
 - **Constant:** `"OneTime"`
 
-#### <a name="PerformanceParameters'OneTime/casting_time"></a> `casting_time`
+#### <a name="FastPerformanceParameters'OneTime/casting_time"></a> `casting_time`
 
-- **Type:** <a href="#CastingTime/T">CastingTime/T</a>
+- **Type:** <a href="#CastingTime/Fast">CastingTime/Fast</a>
 
-#### <a name="PerformanceParameters'OneTime/cost"></a> `cost`
+#### <a name="FastPerformanceParameters'OneTime/cost"></a> `cost`
 
 - **Type:** <a href="#Cost/OneTime/T">Cost/OneTime/T</a>
 
-#### <a name="PerformanceParameters'OneTime/range"></a> `range`
+#### <a name="FastPerformanceParameters'OneTime/range"></a> `range`
 
 - **Type:** <a href="#Range/T">Range/T</a>
 
-#### <a name="PerformanceParameters'OneTime/duration"></a> `duration`
+#### <a name="FastPerformanceParameters'OneTime/duration"></a> `duration`
 
 - **Type:** <a href="#Duration/OneTime/T">Duration/OneTime/T</a>
 
 ---
 
-### <a name="PerformanceParameters'Sustained"></a> `PerformanceParameters'Sustained`
+### <a name="FastPerformanceParameters'Sustained"></a> `FastPerformanceParameters'Sustained`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters'Sustained/tag">See details</a>
-`casting_time` |  | <a href="#PerformanceParameters'Sustained/casting_time">See details</a>
-`cost` |  | <a href="#PerformanceParameters'Sustained/cost">See details</a>
-`range` |  | <a href="#PerformanceParameters'Sustained/range">See details</a>
-`duration?` |  | <a href="#PerformanceParameters'Sustained/duration">See details</a>
+`tag` |  | <a href="#FastPerformanceParameters'Sustained/tag">See details</a>
+`casting_time` |  | <a href="#FastPerformanceParameters'Sustained/casting_time">See details</a>
+`cost` |  | <a href="#FastPerformanceParameters'Sustained/cost">See details</a>
+`range` |  | <a href="#FastPerformanceParameters'Sustained/range">See details</a>
+`duration?` |  | <a href="#FastPerformanceParameters'Sustained/duration">See details</a>
 
-#### <a name="PerformanceParameters'Sustained/tag"></a> `tag`
+#### <a name="FastPerformanceParameters'Sustained/tag"></a> `tag`
 
 - **Constant:** `"Sustained"`
 
-#### <a name="PerformanceParameters'Sustained/casting_time"></a> `casting_time`
+#### <a name="FastPerformanceParameters'Sustained/casting_time"></a> `casting_time`
 
-- **Type:** <a href="#CastingTime/T">CastingTime/T</a>
+- **Type:** <a href="#CastingTime/Fast">CastingTime/Fast</a>
 
-#### <a name="PerformanceParameters'Sustained/cost"></a> `cost`
+#### <a name="FastPerformanceParameters'Sustained/cost"></a> `cost`
 
 - **Type:** <a href="#Cost/Sustained/T">Cost/Sustained/T</a>
 
-#### <a name="PerformanceParameters'Sustained/range"></a> `range`
+#### <a name="FastPerformanceParameters'Sustained/range"></a> `range`
 
 - **Type:** <a href="#Range/T">Range/T</a>
 
-#### <a name="PerformanceParameters'Sustained/duration"></a> `duration?`
+#### <a name="FastPerformanceParameters'Sustained/duration"></a> `duration?`
 
 - **Type:** <a href="#Duration/Sustained/T">Duration/Sustained/T</a>
 
 ---
 
-### <a name="CastingTime/T"></a> `CastingTime/T`
+### <a name="SlowPerformanceParameters"></a> `SlowPerformanceParameters`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`default` | The default casting time definition. | <a href="#CastingTime/T/default">See details</a>
-`during_lovemaking?` | The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking. | <a href="#CastingTime/T/during_lovemaking">See details</a>
-
-#### <a name="CastingTime/T/default"></a> `default`
-
-The default casting time definition.
-
-- **Type:** <a href="#CastingTime/T/default">Object</a>
-
-#### <a name="CastingTime/T/during_lovemaking"></a> `during_lovemaking?`
-
-The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking.
-
-- **Type:** <a href="#CastingTime/T/during_lovemaking">Object</a>
+- **Type:** Union
+- **Cases:** <a href="#SlowPerformanceParameters'OneTime">SlowPerformanceParameters'OneTime</a> | <a href="#SlowPerformanceParameters'Sustained">SlowPerformanceParameters'Sustained</a>
 
 ---
 
-### <a name="CastingTime/T/default"></a> `CastingTime/T/default`
-
-The default casting time definition.
+### <a name="SlowPerformanceParameters'OneTime"></a> `SlowPerformanceParameters'OneTime`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`initial_modification_level` | The initial skill modification identifier/level. | <a href="#CastingTime/T/default/initial_modification_level">See details</a>
-`is_modifiable` | Is the casting time modifiable? | <a href="#CastingTime/T/default/is_modifiable">See details</a>
+`tag` |  | <a href="#SlowPerformanceParameters'OneTime/tag">See details</a>
+`casting_time` |  | <a href="#SlowPerformanceParameters'OneTime/casting_time">See details</a>
+`cost` |  | <a href="#SlowPerformanceParameters'OneTime/cost">See details</a>
+`range` |  | <a href="#SlowPerformanceParameters'OneTime/range">See details</a>
+`duration` |  | <a href="#SlowPerformanceParameters'OneTime/duration">See details</a>
 
-#### <a name="CastingTime/T/default/initial_modification_level"></a> `initial_modification_level`
+#### <a name="SlowPerformanceParameters'OneTime/tag"></a> `tag`
+
+- **Constant:** `"OneTime"`
+
+#### <a name="SlowPerformanceParameters'OneTime/casting_time"></a> `casting_time`
+
+- **Type:** <a href="#CastingTime/Slow">CastingTime/Slow</a>
+
+#### <a name="SlowPerformanceParameters'OneTime/cost"></a> `cost`
+
+- **Type:** <a href="#Cost/OneTime/T">Cost/OneTime/T</a>
+
+#### <a name="SlowPerformanceParameters'OneTime/range"></a> `range`
+
+- **Type:** <a href="#Range/T">Range/T</a>
+
+#### <a name="SlowPerformanceParameters'OneTime/duration"></a> `duration`
+
+- **Type:** <a href="#Duration/OneTime/T">Duration/OneTime/T</a>
+
+---
+
+### <a name="SlowPerformanceParameters'Sustained"></a> `SlowPerformanceParameters'Sustained`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#SlowPerformanceParameters'Sustained/tag">See details</a>
+`casting_time` |  | <a href="#SlowPerformanceParameters'Sustained/casting_time">See details</a>
+`cost` |  | <a href="#SlowPerformanceParameters'Sustained/cost">See details</a>
+`range` |  | <a href="#SlowPerformanceParameters'Sustained/range">See details</a>
+`duration?` |  | <a href="#SlowPerformanceParameters'Sustained/duration">See details</a>
+
+#### <a name="SlowPerformanceParameters'Sustained/tag"></a> `tag`
+
+- **Constant:** `"Sustained"`
+
+#### <a name="SlowPerformanceParameters'Sustained/casting_time"></a> `casting_time`
+
+- **Type:** <a href="#CastingTime/Slow">CastingTime/Slow</a>
+
+#### <a name="SlowPerformanceParameters'Sustained/cost"></a> `cost`
+
+- **Type:** <a href="#Cost/Sustained/T">Cost/Sustained/T</a>
+
+#### <a name="SlowPerformanceParameters'Sustained/range"></a> `range`
+
+- **Type:** <a href="#Range/T">Range/T</a>
+
+#### <a name="SlowPerformanceParameters'Sustained/duration"></a> `duration?`
+
+- **Type:** <a href="#Duration/Sustained/T">Duration/Sustained/T</a>
+
+---
+
+### <a name="CastingTime/FastSkillCastingTime"></a> `CastingTime/FastSkillCastingTime`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CastingTime/FastSkillCastingTime/tag">See details</a>
+`value` | The casting time value in actions. | <a href="#CastingTime/FastSkillCastingTime/value">See details</a>
+
+#### <a name="CastingTime/FastSkillCastingTime/tag"></a> `tag`
+
+- **Constant:** `"NonModifiable"`
+
+#### <a name="CastingTime/FastSkillCastingTime/value"></a> `value`
+
+The casting time value in actions.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="CastingTime/SlowSkillCastingTime"></a> `CastingTime/SlowSkillCastingTime`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CastingTime/SlowSkillCastingTime/tag">See details</a>
+`value` | The (unitless) casting time value. | <a href="#CastingTime/SlowSkillCastingTime/value">See details</a>
+`unit` |  | <a href="#CastingTime/SlowSkillCastingTime/unit">See details</a>
+
+#### <a name="CastingTime/SlowSkillCastingTime/tag"></a> `tag`
+
+- **Constant:** `"NonModifiable"`
+
+#### <a name="CastingTime/SlowSkillCastingTime/value"></a> `value`
+
+The (unitless) casting time value.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="CastingTime/SlowSkillCastingTime/unit"></a> `unit`
+
+- **Type:** <a href="./SkillModificationLevel.md#SlowSkillCastingTimeUnit">SlowSkillCastingTimeUnit</a>
+
+---
+
+### <a name="CastingTime/Fast"></a> `CastingTime/Fast`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`default` | The default casting time definition. | <a href="#CastingTime/Fast/default">See details</a>
+`during_lovemaking?` | The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking. | <a href="#CastingTime/Fast/during_lovemaking">See details</a>
+
+#### <a name="CastingTime/Fast/default"></a> `default`
+
+The default casting time definition.
+
+- **Type:** Union
+- **Cases:** <a href="#CastingTime/Fast/default'Modifiable">CastingTime/Fast/default'Modifiable</a> | <a href="#CastingTime/Fast/default'FastSkillCastingTime">CastingTime/Fast/default'FastSkillCastingTime</a>
+
+#### <a name="CastingTime/Fast/during_lovemaking"></a> `during_lovemaking?`
+
+The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking.
+
+- **Type:** <a href="#CastingTime/Fast/during_lovemaking">Object</a>
+
+---
+
+### <a name="CastingTime/Fast/default'Modifiable"></a> `CastingTime/Fast/default'Modifiable`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CastingTime/Fast/default'Modifiable/tag">See details</a>
+`initial_modification_level` | The initial skill modification identifier/level. | <a href="#CastingTime/Fast/default'Modifiable/initial_modification_level">See details</a>
+
+#### <a name="CastingTime/Fast/default'Modifiable/tag"></a> `tag`
+
+- **Constant:** `"Modifiable"`
+
+#### <a name="CastingTime/Fast/default'Modifiable/initial_modification_level"></a> `initial_modification_level`
 
 The initial skill modification identifier/level.
 
@@ -361,15 +488,15 @@ The initial skill modification identifier/level.
 - **Minimum:** `1`
 - **Maximum:** `6`
 
-#### <a name="CastingTime/T/default/is_modifiable"></a> `is_modifiable`
+---
 
-Is the casting time modifiable?
+### <a name="CastingTime/Fast/default'FastSkillCastingTime"></a> `CastingTime/Fast/default'FastSkillCastingTime`
 
-- **Type:** Boolean
+- **Type:** <a href="#CastingTime/FastSkillCastingTime">CastingTime/FastSkillCastingTime</a>
 
 ---
 
-### <a name="CastingTime/T/during_lovemaking"></a> `CastingTime/T/during_lovemaking`
+### <a name="CastingTime/Fast/during_lovemaking"></a> `CastingTime/Fast/during_lovemaking`
 
 The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking.
 
@@ -377,17 +504,96 @@ The casting time during lovemaking. In Aventurian Intimacy, you may only use an 
 
 Key | Description | Details
 :-- | :-- | :--
-`value` | The (unitless) duration value. | <a href="#CastingTime/T/during_lovemaking/value">See details</a>
-`unit` | The unit of the `value`. | <a href="#CastingTime/T/during_lovemaking/unit">See details</a>
+`value` | The (unitless) casting time value. | <a href="#CastingTime/Fast/during_lovemaking/value">See details</a>
+`unit` | The unit of the `value`. | <a href="#CastingTime/Fast/during_lovemaking/unit">See details</a>
 
-#### <a name="CastingTime/T/during_lovemaking/value"></a> `value`
+#### <a name="CastingTime/Fast/during_lovemaking/value"></a> `value`
 
-The (unitless) duration value.
+The (unitless) casting time value.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="CastingTime/T/during_lovemaking/unit"></a> `unit`
+#### <a name="CastingTime/Fast/during_lovemaking/unit"></a> `unit`
+
+The unit of the `value`.
+
+- **Type:** <a href="#CastingTime/CastingTimeDuringLovemakingUnit">CastingTime/CastingTimeDuringLovemakingUnit</a>
+
+---
+
+### <a name="CastingTime/Slow"></a> `CastingTime/Slow`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`default` | The default casting time definition. | <a href="#CastingTime/Slow/default">See details</a>
+`during_lovemaking?` | The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking. | <a href="#CastingTime/Slow/during_lovemaking">See details</a>
+
+#### <a name="CastingTime/Slow/default"></a> `default`
+
+The default casting time definition.
+
+- **Type:** Union
+- **Cases:** <a href="#CastingTime/Slow/default'Modifiable">CastingTime/Slow/default'Modifiable</a> | <a href="#CastingTime/Slow/default'SlowSkillCastingTime">CastingTime/Slow/default'SlowSkillCastingTime</a>
+
+#### <a name="CastingTime/Slow/during_lovemaking"></a> `during_lovemaking?`
+
+The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking.
+
+- **Type:** <a href="#CastingTime/Slow/during_lovemaking">Object</a>
+
+---
+
+### <a name="CastingTime/Slow/default'Modifiable"></a> `CastingTime/Slow/default'Modifiable`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CastingTime/Slow/default'Modifiable/tag">See details</a>
+`initial_modification_level` | The initial skill modification identifier/level. | <a href="#CastingTime/Slow/default'Modifiable/initial_modification_level">See details</a>
+
+#### <a name="CastingTime/Slow/default'Modifiable/tag"></a> `tag`
+
+- **Constant:** `"Modifiable"`
+
+#### <a name="CastingTime/Slow/default'Modifiable/initial_modification_level"></a> `initial_modification_level`
+
+The initial skill modification identifier/level.
+
+- **Type:** Integer
+- **Minimum:** `1`
+- **Maximum:** `6`
+
+---
+
+### <a name="CastingTime/Slow/default'SlowSkillCastingTime"></a> `CastingTime/Slow/default'SlowSkillCastingTime`
+
+- **Type:** <a href="#CastingTime/SlowSkillCastingTime">CastingTime/SlowSkillCastingTime</a>
+
+---
+
+### <a name="CastingTime/Slow/during_lovemaking"></a> `CastingTime/Slow/during_lovemaking`
+
+The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`value` | The (unitless) casting time value. | <a href="#CastingTime/Slow/during_lovemaking/value">See details</a>
+`unit` | The unit of the `value`. | <a href="#CastingTime/Slow/during_lovemaking/unit">See details</a>
+
+#### <a name="CastingTime/Slow/during_lovemaking/value"></a> `value`
+
+The (unitless) casting time value.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="CastingTime/Slow/during_lovemaking/unit"></a> `unit`
 
 The unit of the `value`.
 
@@ -398,12 +604,6 @@ The unit of the `value`.
 ### <a name="CastingTime/CastingTimeDuringLovemakingUnit"></a> `CastingTime/CastingTimeDuringLovemakingUnit`
 
 - **Possible values:** `"SeductionActions"`, `"Rounds"`
-
----
-
-### <a name="CastingTime/SlowSkillCastingTimeUnit"></a> `CastingTime/SlowSkillCastingTimeUnit`
-
-- **Possible values:** `"Minutes"`, `"Hours"`
 
 ---
 

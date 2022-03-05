@@ -1,44 +1,100 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "magicalActions/ZibiljaRitual.schema.json",
-  "$ref": "#/definitions/ZibiljaRitual",
+  "$id": "Spell.schema.json",
+  "$ref": "#/definitions/Spell",
   "definitions": {
-    "ZibiljaRitual": {
-      "title": "Zibilja Ritual",
+    "Spell": {
+      "title": "Spell",
       "type": "object",
       "properties": {
         "id": {
-          "description": "The zibilja ritual's identifier. An unique, increasing integer.",
+          "description": "The spell's identifier. An unique, increasing integer.",
           "type": "integer",
           "minimum": 1
         },
         "check": {
           "description": "Lists the linked three attributes used to make a skill check.",
-          "$ref": "../_SkillCheck.schema.json#/definitions/SkillCheck"
+          "$ref": "./_SkillCheck.schema.json#/definitions/SkillCheck"
         },
         "check_penalty": {
           "description": "In some cases, the target's Spirit or Toughness is applied as a penalty.",
-          "$ref": "../_SkillCheck.schema.json#/definitions/SkillCheckPenalty"
+          "$ref": "./_SkillCheck.schema.json#/definitions/SkillCheckPenalty"
         },
         "parameters": {
-          "description": "Measurable parameters of a zibilja ritual.",
-          "$ref": "../_ActivatableSkill.schema.json#/definitions/SlowPerformanceParameters"
+          "description": "Measurable parameters of a spell.",
+          "$ref": "./_ActivatableSkill.schema.json#/definitions/FastPerformanceParameters"
         },
         "target": {
           "description": "The target category – the kind of creature or object – the skill affects.",
-          "$ref": "../_ActivatableSkill.schema.json#/definitions/TargetCategory/T"
+          "$ref": "./_ActivatableSkill.schema.json#/definitions/TargetCategory/T"
         },
         "property_id": {
           "description": "The property's identifier.",
           "type": "integer",
           "minimum": 1
         },
+        "traditions": {
+          "description": "The tradition(s) the spell is available for. It may be *generally* available to all traditions or it may be only familiar in specific traditions.",
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "General"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Specific"
+                },
+                "list": {
+                  "description": "A list of specific traditions.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "description": "The magical tradition's identifier. If `is_placeholder` is `true` then this is the magical tradition's placeholder identifier instead.",
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "is_placeholder": {
+                        "description": "If set to `true`, the tradition is not available as a special ability yet.",
+                        "const": true
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1
+                }
+              },
+              "required": [
+                "tag",
+                "list"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
         "improvement_cost": {
           "description": "States which column is used to improve the skill.",
-          "$ref": "../_ImprovementCost.schema.json#/definitions/ImprovementCost"
+          "$ref": "./_ImprovementCost.schema.json#/definitions/ImprovementCost"
+        },
+        "prerequisites": {
+          "$ref": "./_Prerequisite.schema.json#/definitions/GroupCollection/Spellwork"
         },
         "src": {
-          "$ref": "../source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+          "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -48,13 +104,13 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "description": "The name of the zibilja ritual.",
+                  "description": "The name of the spell.",
                   "type": "string",
                   "minLength": 1
                 },
                 "effect": {
                   "description": "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
-                  "$ref": "../_ActivatableSkill.schema.json#/definitions/Effect/T"
+                  "$ref": "./_ActivatableSkill.schema.json#/definitions/Effect/T"
                 },
                 "casting_time": {
                   "type": "object",
@@ -124,7 +180,7 @@
                   "type": "string"
                 },
                 "errata": {
-                  "$ref": "../source/_Erratum.schema.json#/definitions/Errata"
+                  "$ref": "./source/_Erratum.schema.json#/definitions/Errata"
                 }
               },
               "required": [
@@ -141,6 +197,9 @@
           },
           "minProperties": 1,
           "additionalProperties": false
+        },
+        "enhancements": {
+          "$ref": "./_Enhancements.schema.json#/definitions/Enhancements"
         }
       },
       "required": [
@@ -149,6 +208,7 @@
         "parameters",
         "target",
         "property_id",
+        "traditions",
         "improvement_cost",
         "src",
         "translations"

@@ -378,7 +378,7 @@
               "const": "Influence"
             },
             "id": {
-              "description": "The influence' identifier.",
+              "description": "The influence's identifier.",
               "type": "integer",
               "minimum": 1
             },
@@ -394,6 +394,120 @@
             "tag",
             "id",
             "active"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "Rated": {
+        "T": {
+          "title": "Rated Prerequisite",
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Rated"
+            },
+            "id": {
+              "description": "The rated entry's identifier.",
+              "$ref": "./_Identifier.schema.json#/definitions/Identifier/Group/Rated"
+            },
+            "value": {
+              "description": "The required minimum value.",
+              "type": "integer",
+              "minimum": 0
+            },
+            "display_option": {
+              "$ref": "#/definitions/Single/DisplayOption/T"
+            }
+          },
+          "required": [
+            "tag",
+            "id",
+            "value"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "Enhancement": {
+        "T": {
+          "title": "Enhancement Prerequisite",
+          "description": "Requires a specific enhancement from a skill.",
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Enhancement"
+            },
+            "skill": {
+              "description": "The required skill's identifier.",
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "$ref": "#/definitions/Single/Enhancement/SkillCategoryWithEnhancements"
+                },
+                "id": {
+                  "description": "The skill's identifier.",
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "tag",
+                "id"
+              ],
+              "additionalProperties": false
+            },
+            "enhancement": {
+              "description": "The required enhancement's identifier.",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "description": "The enhancement's identifier.",
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "additionalProperties": false
+            },
+            "display_option": {
+              "$ref": "#/definitions/Single/DisplayOption/T"
+            }
+          },
+          "required": [
+            "tag",
+            "skill",
+            "enhancement"
+          ],
+          "additionalProperties": false
+        },
+        "SkillCategoryWithEnhancements": {
+          "enum": [
+            "Spell",
+            "Ritual",
+            "LiturgicalChant",
+            "Ceremony"
+          ]
+        }
+      },
+      "EnhancementInternal": {
+        "T": {
+          "title": "Internal Enhancement Prerequisite",
+          "description": "Requires a specific enhancement from a skill. This can only be used by an enhancement to require another enhancement from the same skill.",
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "EnhancementInternal"
+            },
+            "id": {
+              "description": "The enhancement's identifier.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "tag",
+            "id"
           ],
           "additionalProperties": false
         }
@@ -424,10 +538,34 @@
           }
         ]
       },
+      "Spellwork": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/Single/Rule/T"
+          },
+          {
+            "$ref": "#/definitions/Single/Rated/T"
+          }
+        ]
+      },
+      "Liturgy": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/Single/Rule/T"
+          }
+        ]
+      },
       "GeodeRitual": {
         "oneOf": [
           {
             "$ref": "#/definitions/Single/Influence/T"
+          }
+        ]
+      },
+      "Enhancement": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/Single/EnhancementInternal/T"
           }
         ]
       }
@@ -494,6 +632,46 @@
         ],
         "additionalProperties": false
       },
+      "Spellwork": {
+        "type": "object",
+        "properties": {
+          "tag": {
+            "const": "Plain"
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Group/Spellwork"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "tag",
+          "value"
+        ],
+        "additionalProperties": false
+      },
+      "Liturgy": {
+        "type": "object",
+        "properties": {
+          "tag": {
+            "const": "Plain"
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Group/Liturgy"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "tag",
+          "value"
+        ],
+        "additionalProperties": false
+      },
       "GeodeRitual": {
         "type": "object",
         "properties": {
@@ -504,6 +682,26 @@
             "type": "array",
             "items": {
               "$ref": "#/definitions/Group/GeodeRitual"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "tag",
+          "value"
+        ],
+        "additionalProperties": false
+      },
+      "Enhancement": {
+        "type": "object",
+        "properties": {
+          "tag": {
+            "const": "Plain"
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Group/Enhancement"
             },
             "minItems": 1
           }

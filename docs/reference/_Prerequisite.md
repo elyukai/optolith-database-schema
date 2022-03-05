@@ -478,7 +478,7 @@ The minimum social status' identifier.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#Single/Influence/T/tag">See details</a>
-`id` | The influence' identifier. | <a href="#Single/Influence/T/id">See details</a>
+`id` | The influence's identifier. | <a href="#Single/Influence/T/id">See details</a>
 `active` | If the referenced influence must or must not be chosen. | <a href="#Single/Influence/T/active">See details</a>
 `display_option?` |  | <a href="#Single/Influence/T/display_option">See details</a>
 
@@ -488,7 +488,7 @@ Key | Description | Details
 
 #### <a name="Single/Influence/T/id"></a> `id`
 
-The influence' identifier.
+The influence's identifier.
 
 - **Type:** Integer
 - **Minimum:** `1`
@@ -502,6 +502,148 @@ If the referenced influence must or must not be chosen.
 #### <a name="Single/Influence/T/display_option"></a> `display_option?`
 
 - **Type:** <a href="#Single/DisplayOption/T">Single/DisplayOption/T</a>
+
+---
+
+### <a name="Single/Rated/T"></a> Rated Prerequisite (`Single/Rated/T`)
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Single/Rated/T/tag">See details</a>
+`id` | The rated entry's identifier. | <a href="#Single/Rated/T/id">See details</a>
+`value` | The required minimum value. | <a href="#Single/Rated/T/value">See details</a>
+`display_option?` |  | <a href="#Single/Rated/T/display_option">See details</a>
+
+#### <a name="Single/Rated/T/tag"></a> `tag`
+
+- **Constant:** `"Rated"`
+
+#### <a name="Single/Rated/T/id"></a> `id`
+
+The rated entry's identifier.
+
+- **Type:** <a href="./_Identifier.md#Identifier/Group/Rated">Identifier/Group/Rated</a>
+
+#### <a name="Single/Rated/T/value"></a> `value`
+
+The required minimum value.
+
+- **Type:** Integer
+- **Minimum:** `0`
+
+#### <a name="Single/Rated/T/display_option"></a> `display_option?`
+
+- **Type:** <a href="#Single/DisplayOption/T">Single/DisplayOption/T</a>
+
+---
+
+### <a name="Single/Enhancement/T"></a> Enhancement Prerequisite (`Single/Enhancement/T`)
+
+Requires a specific enhancement from a skill.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Single/Enhancement/T/tag">See details</a>
+`skill` | The required skill's identifier. | <a href="#Single/Enhancement/T/skill">See details</a>
+`enhancement` | The required enhancement's identifier. | <a href="#Single/Enhancement/T/enhancement">See details</a>
+`display_option?` |  | <a href="#Single/Enhancement/T/display_option">See details</a>
+
+#### <a name="Single/Enhancement/T/tag"></a> `tag`
+
+- **Constant:** `"Enhancement"`
+
+#### <a name="Single/Enhancement/T/skill"></a> `skill`
+
+The required skill's identifier.
+
+- **Type:** <a href="#Single/Enhancement/T/skill">Object</a>
+
+#### <a name="Single/Enhancement/T/enhancement"></a> `enhancement`
+
+The required enhancement's identifier.
+
+- **Type:** <a href="#Single/Enhancement/T/enhancement">Object</a>
+
+#### <a name="Single/Enhancement/T/display_option"></a> `display_option?`
+
+- **Type:** <a href="#Single/DisplayOption/T">Single/DisplayOption/T</a>
+
+---
+
+### <a name="Single/Enhancement/T/skill"></a> `Single/Enhancement/T/skill`
+
+The required skill's identifier.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Single/Enhancement/T/skill/tag">See details</a>
+`id` | The skill's identifier. | <a href="#Single/Enhancement/T/skill/id">See details</a>
+
+#### <a name="Single/Enhancement/T/skill/tag"></a> `tag`
+
+- **Type:** <a href="#Single/Enhancement/SkillCategoryWithEnhancements">Single/Enhancement/SkillCategoryWithEnhancements</a>
+
+#### <a name="Single/Enhancement/T/skill/id"></a> `id`
+
+The skill's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="Single/Enhancement/T/enhancement"></a> `Single/Enhancement/T/enhancement`
+
+The required enhancement's identifier.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The enhancement's identifier. | <a href="#Single/Enhancement/T/enhancement/id">See details</a>
+
+#### <a name="Single/Enhancement/T/enhancement/id"></a> `id`
+
+The enhancement's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="Single/Enhancement/SkillCategoryWithEnhancements"></a> `Single/Enhancement/SkillCategoryWithEnhancements`
+
+- **Possible values:** `"Spell"`, `"Ritual"`, `"LiturgicalChant"`, `"Ceremony"`
+
+---
+
+### <a name="Single/EnhancementInternal/T"></a> Internal Enhancement Prerequisite (`Single/EnhancementInternal/T`)
+
+Requires a specific enhancement from a skill. This can only be used by an enhancement to require another enhancement from the same skill.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Single/EnhancementInternal/T/tag">See details</a>
+`id` | The enhancement's identifier. | <a href="#Single/EnhancementInternal/T/id">See details</a>
+
+#### <a name="Single/EnhancementInternal/T/tag"></a> `tag`
+
+- **Constant:** `"EnhancementInternal"`
+
+#### <a name="Single/EnhancementInternal/T/id"></a> `id`
+
+The enhancement's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
 
 ---
 
@@ -550,6 +692,38 @@ If the referenced influence must or must not be chosen.
 
 ---
 
+### <a name="Group/Spellwork"></a> `Group/Spellwork`
+
+- **Type:** Union
+- **Cases:** <a href="#Group/Spellwork'T">Group/Spellwork'T</a> | <a href="#Group/Spellwork'T">Group/Spellwork'T</a>
+
+---
+
+### <a name="Group/Spellwork'T"></a> `Group/Spellwork'T`
+
+- **Type:** <a href="#Single/Rule/T">Single/Rule/T</a>
+
+---
+
+### <a name="Group/Spellwork'T"></a> `Group/Spellwork'T`
+
+- **Type:** <a href="#Single/Rated/T">Single/Rated/T</a>
+
+---
+
+### <a name="Group/Liturgy"></a> `Group/Liturgy`
+
+- **Type:** Union
+- **Cases:** <a href="#Group/Liturgy'T">Group/Liturgy'T</a>
+
+---
+
+### <a name="Group/Liturgy'T"></a> `Group/Liturgy'T`
+
+- **Type:** <a href="#Single/Rule/T">Single/Rule/T</a>
+
+---
+
 ### <a name="Group/GeodeRitual"></a> `Group/GeodeRitual`
 
 - **Type:** Union
@@ -560,6 +734,19 @@ If the referenced influence must or must not be chosen.
 ### <a name="Group/GeodeRitual'T"></a> `Group/GeodeRitual'T`
 
 - **Type:** <a href="#Single/Influence/T">Single/Influence/T</a>
+
+---
+
+### <a name="Group/Enhancement"></a> `Group/Enhancement`
+
+- **Type:** Union
+- **Cases:** <a href="#Group/Enhancement'T">Group/Enhancement'T</a>
+
+---
+
+### <a name="Group/Enhancement'T"></a> `Group/Enhancement'T`
+
+- **Type:** <a href="#Single/EnhancementInternal/T">Single/EnhancementInternal/T</a>
 
 ---
 
@@ -644,6 +831,60 @@ Key | Description | Details
 
 ---
 
+### <a name="GroupCollection/Spellwork"></a> `GroupCollection/Spellwork`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#GroupCollection/Spellwork/tag">See details</a>
+`value` |  | <a href="#GroupCollection/Spellwork/value">See details</a>
+
+#### <a name="GroupCollection/Spellwork/tag"></a> `tag`
+
+- **Constant:** `"Plain"`
+
+#### <a name="GroupCollection/Spellwork/value"></a> `value`
+
+- **Type:** List
+- **Items:** <a href="#GroupCollection/Spellwork/value[]">GroupCollection/Spellwork/value[]</a>
+- **Minimum Items:** `1`
+
+---
+
+### <a name="GroupCollection/Spellwork/value[]"></a> `GroupCollection/Spellwork/value[]`
+
+- **Type:** <a href="#Group/Spellwork">Group/Spellwork</a>
+
+---
+
+### <a name="GroupCollection/Liturgy"></a> `GroupCollection/Liturgy`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#GroupCollection/Liturgy/tag">See details</a>
+`value` |  | <a href="#GroupCollection/Liturgy/value">See details</a>
+
+#### <a name="GroupCollection/Liturgy/tag"></a> `tag`
+
+- **Constant:** `"Plain"`
+
+#### <a name="GroupCollection/Liturgy/value"></a> `value`
+
+- **Type:** List
+- **Items:** <a href="#GroupCollection/Liturgy/value[]">GroupCollection/Liturgy/value[]</a>
+- **Minimum Items:** `1`
+
+---
+
+### <a name="GroupCollection/Liturgy/value[]"></a> `GroupCollection/Liturgy/value[]`
+
+- **Type:** <a href="#Group/Liturgy">Group/Liturgy</a>
+
+---
+
 ### <a name="GroupCollection/GeodeRitual"></a> `GroupCollection/GeodeRitual`
 
 - **Type:** Object
@@ -668,3 +909,30 @@ Key | Description | Details
 ### <a name="GroupCollection/GeodeRitual/value[]"></a> `GroupCollection/GeodeRitual/value[]`
 
 - **Type:** <a href="#Group/GeodeRitual">Group/GeodeRitual</a>
+
+---
+
+### <a name="GroupCollection/Enhancement"></a> `GroupCollection/Enhancement`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#GroupCollection/Enhancement/tag">See details</a>
+`value` |  | <a href="#GroupCollection/Enhancement/value">See details</a>
+
+#### <a name="GroupCollection/Enhancement/tag"></a> `tag`
+
+- **Constant:** `"Plain"`
+
+#### <a name="GroupCollection/Enhancement/value"></a> `value`
+
+- **Type:** List
+- **Items:** <a href="#GroupCollection/Enhancement/value[]">GroupCollection/Enhancement/value[]</a>
+- **Minimum Items:** `1`
+
+---
+
+### <a name="GroupCollection/Enhancement/value[]"></a> `GroupCollection/Enhancement/value[]`
+
+- **Type:** <a href="#Group/Enhancement">Group/Enhancement</a>

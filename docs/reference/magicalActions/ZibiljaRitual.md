@@ -41,7 +41,7 @@ In some cases, the target's Spirit or Toughness is applied as a penalty.
 
 Measurable parameters of a zibilja ritual.
 
-- **Type:** <a href="../_ActivatableSkill.md#PerformanceParameters">PerformanceParameters</a>
+- **Type:** <a href="../_ActivatableSkill.md#SlowPerformanceParameters">SlowPerformanceParameters</a>
 
 #### <a name="ZibiljaRitual/target"></a> `target`
 

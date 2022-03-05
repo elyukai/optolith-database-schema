@@ -165,7 +165,7 @@
         "minLength": 1
       }
     },
-    "PerformanceParameters": {
+    "FastPerformanceParameters": {
       "oneOf": [
         {
           "type": "object",
@@ -174,7 +174,7 @@
               "const": "OneTime"
             },
             "casting_time": {
-              "$ref": "#/definitions/CastingTime/T"
+              "$ref": "#/definitions/CastingTime/Fast"
             },
             "cost": {
               "$ref": "#/definitions/Cost/OneTime/T"
@@ -202,7 +202,66 @@
               "const": "Sustained"
             },
             "casting_time": {
-              "$ref": "#/definitions/CastingTime/T"
+              "$ref": "#/definitions/CastingTime/Fast"
+            },
+            "cost": {
+              "$ref": "#/definitions/Cost/Sustained/T"
+            },
+            "range": {
+              "$ref": "#/definitions/Range/T"
+            },
+            "duration": {
+              "$ref": "#/definitions/Duration/Sustained/T"
+            }
+          },
+          "required": [
+            "tag",
+            "casting_time",
+            "cost",
+            "range"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "SlowPerformanceParameters": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "OneTime"
+            },
+            "casting_time": {
+              "$ref": "#/definitions/CastingTime/Slow"
+            },
+            "cost": {
+              "$ref": "#/definitions/Cost/OneTime/T"
+            },
+            "range": {
+              "$ref": "#/definitions/Range/T"
+            },
+            "duration": {
+              "$ref": "#/definitions/Duration/OneTime/T"
+            }
+          },
+          "required": [
+            "tag",
+            "casting_time",
+            "cost",
+            "range",
+            "duration"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Sustained"
+            },
+            "casting_time": {
+              "$ref": "#/definitions/CastingTime/Slow"
             },
             "cost": {
               "$ref": "#/definitions/Cost/Sustained/T"
@@ -225,36 +284,138 @@
       ]
     },
     "CastingTime": {
-      "T": {
+      "FastSkillCastingTime": {
+        "type": "object",
+        "properties": {
+          "tag": {
+            "const": "NonModifiable"
+          },
+          "value": {
+            "description": "The casting time value in actions.",
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "tag",
+          "value"
+        ],
+        "additionalProperties": false
+      },
+      "SlowSkillCastingTime": {
+        "type": "object",
+        "properties": {
+          "tag": {
+            "const": "NonModifiable"
+          },
+          "value": {
+            "description": "The (unitless) casting time value.",
+            "type": "integer",
+            "minimum": 1
+          },
+          "unit": {
+            "$ref": "./SkillModificationLevel.schema.json#/definitions/SlowSkillCastingTimeUnit"
+          }
+        },
+        "required": [
+          "tag",
+          "value",
+          "unit"
+        ],
+        "additionalProperties": false
+      },
+      "Fast": {
         "type": "object",
         "properties": {
           "default": {
             "description": "The default casting time definition.",
-            "type": "object",
-            "properties": {
-              "initial_modification_level": {
-                "description": "The initial skill modification identifier/level.",
-                "type": "integer",
-                "maximum": 6,
-                "minimum": 1
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "tag": {
+                    "const": "Modifiable"
+                  },
+                  "initial_modification_level": {
+                    "description": "The initial skill modification identifier/level.",
+                    "type": "integer",
+                    "maximum": 6,
+                    "minimum": 1
+                  }
+                },
+                "required": [
+                  "tag",
+                  "initial_modification_level"
+                ],
+                "additionalProperties": false
               },
-              "is_modifiable": {
-                "description": "Is the casting time modifiable?",
-                "type": "boolean"
+              {
+                "$ref": "#/definitions/CastingTime/FastSkillCastingTime"
               }
-            },
-            "required": [
-              "initial_modification_level",
-              "is_modifiable"
-            ],
-            "additionalProperties": false
+            ]
           },
           "during_lovemaking": {
             "description": "The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking.",
             "type": "object",
             "properties": {
               "value": {
-                "description": "The (unitless) duration value.",
+                "description": "The (unitless) casting time value.",
+                "type": "integer",
+                "minimum": 1
+              },
+              "unit": {
+                "description": "The unit of the `value`.",
+                "$ref": "#/definitions/CastingTime/CastingTimeDuringLovemakingUnit"
+              }
+            },
+            "required": [
+              "value",
+              "unit"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "default"
+        ],
+        "additionalProperties": false
+      },
+      "Slow": {
+        "type": "object",
+        "properties": {
+          "default": {
+            "description": "The default casting time definition.",
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "tag": {
+                    "const": "Modifiable"
+                  },
+                  "initial_modification_level": {
+                    "description": "The initial skill modification identifier/level.",
+                    "type": "integer",
+                    "maximum": 6,
+                    "minimum": 1
+                  }
+                },
+                "required": [
+                  "tag",
+                  "initial_modification_level"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "$ref": "#/definitions/CastingTime/SlowSkillCastingTime"
+              }
+            ]
+          },
+          "during_lovemaking": {
+            "description": "The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking.",
+            "type": "object",
+            "properties": {
+              "value": {
+                "description": "The (unitless) casting time value.",
                 "type": "integer",
                 "minimum": 1
               },
@@ -279,12 +440,6 @@
         "enum": [
           "SeductionActions",
           "Rounds"
-        ]
-      },
-      "SlowSkillCastingTimeUnit": {
-        "enum": [
-          "Minutes",
-          "Hours"
         ]
       }
     },

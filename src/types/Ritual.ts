@@ -1,19 +1,21 @@
 /**
- * @main ZibiljaRitual
+ * @main Ritual
  */
 
-import { Errata } from "../source/_Erratum"
-import { PublicationRefs } from "../source/_PublicationRef"
-import { Effect, SlowPerformanceParameters, TargetCategory } from "../_ActivatableSkill"
-import { ImprovementCost } from "../_ImprovementCost"
-import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck"
+import { Errata } from "./source/_Erratum"
+import { PublicationRefs } from "./source/_PublicationRef"
+import { Effect, SlowPerformanceParameters, TargetCategory } from "./_ActivatableSkill"
+import { Enhancements } from "./_Enhancements"
+import { ImprovementCost } from "./_ImprovementCost"
+import { GroupCollection } from "./_Prerequisite"
+import { SkillCheck, SkillCheckPenalty } from "./_SkillCheck"
 
 /**
- * @title Zibilja Ritual
+ * @title Ritual
  */
-export type ZibiljaRitual = {
+export type Ritual = {
   /**
-   * The zibilja ritual's identifier. An unique, increasing integer.
+   * The ritual's identifier. An unique, increasing integer.
    * @integer
    * @minimum 1
    */
@@ -30,7 +32,7 @@ export type ZibiljaRitual = {
   check_penalty?: SkillCheckPenalty
 
   /**
-   * Measurable parameters of a zibilja ritual.
+   * Measurable parameters of a ritual.
    */
   parameters: SlowPerformanceParameters
 
@@ -47,9 +49,43 @@ export type ZibiljaRitual = {
   property_id: number
 
   /**
+   * The tradition(s) the ritual is available for. It may be *generally*
+   * available to all traditions or it may be only familiar in specific
+   * traditions.
+   */
+  traditions:
+    | { tag: "General" }
+    | {
+      tag: "Specific"
+
+      /**
+       * A list of specific traditions.
+       * @minItems 1
+       */
+      list: {
+        /**
+         * The magical tradition's identifier. If `is_placeholder` is `true`
+         * then this is the magical tradition's placeholder identifier
+         * instead.
+         * @integer
+         * @minimum 1
+         */
+        id: number
+
+        /**
+         * If set to `true`, the tradition is not available as a special ability
+         * yet.
+         */
+        is_placeholder?: true
+      }[]
+    }
+
+  /**
    * States which column is used to improve the skill.
    */
   improvement_cost: ImprovementCost
+
+  prerequisites?: GroupCollection.Spellwork
 
   src: PublicationRefs
 
@@ -63,7 +99,7 @@ export type ZibiljaRitual = {
      */
     [localeId: string]: {
       /**
-       * The name of the zibilja ritual.
+       * The name of the ritual.
        * @minLength 1
        */
       name: string
@@ -103,4 +139,6 @@ export type ZibiljaRitual = {
       errata?: Errata
     }
   }
+
+  enhancements?: Enhancements
 }

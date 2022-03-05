@@ -2,6 +2,8 @@
  * @title Activatable Skill
  */
 
+import { SlowSkillCastingTimeUnit } from "./SkillModificationLevel"
+
 /**
  *
  */
@@ -135,42 +137,56 @@ export namespace Effect {
   type QualityLevel5To6 = string
 }
 
-export type PerformanceParameters =
+export type FastPerformanceParameters =
   | {
     tag: "OneTime"
-    casting_time: CastingTime.T
+    casting_time: CastingTime.Fast
     cost: Cost.OneTime.T
     range: Range.T
     duration: Duration.OneTime.T
   }
   | {
     tag: "Sustained"
-    casting_time: CastingTime.T
+    casting_time: CastingTime.Fast
+    cost: Cost.Sustained.T
+    range: Range.T
+    duration?: Duration.Sustained.T
+  }
+
+export type SlowPerformanceParameters =
+  | {
+    tag: "OneTime"
+    casting_time: CastingTime.Slow
+    cost: Cost.OneTime.T
+    range: Range.T
+    duration: Duration.OneTime.T
+  }
+  | {
+    tag: "Sustained"
+    casting_time: CastingTime.Slow
     cost: Cost.Sustained.T
     range: Range.T
     duration?: Duration.Sustained.T
   }
 
 export namespace CastingTime {
-  export type T = {
+  export type T<NonModifiable extends FastSkillCastingTime | SlowSkillCastingTime> = {
     /**
      * The default casting time definition.
      */
-    default: {
-      /**
-       * The initial skill modification identifier/level.
-       * @integer
-       * @minimum 1
-       * @maximum 6
-       */
-      initial_modification_level: number
+    default:
+      | {
+        tag: "Modifiable"
 
-      /**
-       * Is the casting time modifiable?
-       * @default true
-       */
-      is_modifiable: boolean
-    }
+        /**
+         * The initial skill modification identifier/level.
+         * @integer
+         * @minimum 1
+         * @maximum 6
+         */
+        initial_modification_level: number
+      }
+      | NonModifiable
 
     /**
      * The casting time during lovemaking. In Aventurian Intimacy, you may only
@@ -179,7 +195,7 @@ export namespace CastingTime {
      */
     during_lovemaking?: {
       /**
-       * The (unitless) duration value.
+       * The (unitless) casting time value.
        * @integer
        * @minimum 1
        */
@@ -192,14 +208,37 @@ export namespace CastingTime {
     }
   }
 
+  export type FastSkillCastingTime = {
+    tag: "NonModifiable"
+
+    /**
+     * The casting time value in actions.
+     * @integer
+     * @minimum 1
+     */
+    value: number
+  }
+
+  export type SlowSkillCastingTime = {
+    tag: "NonModifiable"
+
+    /**
+     * The (unitless) casting time value.
+     * @integer
+     * @minimum 1
+     */
+    value: number
+
+    unit: SlowSkillCastingTimeUnit
+  }
+
+  export type Fast = T<FastSkillCastingTime>
+
+  export type Slow = T<SlowSkillCastingTime>
+
   export enum CastingTimeDuringLovemakingUnit {
     SeductionActions = "SeductionActions",
     Rounds = "Rounds",
-  }
-
-  export enum SlowSkillCastingTimeUnit {
-    Minutes = "Minutes",
-    Hours = "Hours",
   }
 }
 

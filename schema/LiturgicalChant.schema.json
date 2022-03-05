@@ -1,44 +1,55 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "magicalActions/ZibiljaRitual.schema.json",
-  "$ref": "#/definitions/ZibiljaRitual",
+  "$id": "LiturgicalChant.schema.json",
+  "$ref": "#/definitions/LiturgicalChant",
   "definitions": {
-    "ZibiljaRitual": {
-      "title": "Zibilja Ritual",
+    "LiturgicalChant": {
+      "title": "Liturgical Chant",
       "type": "object",
       "properties": {
         "id": {
-          "description": "The zibilja ritual's identifier. An unique, increasing integer.",
+          "description": "The liturgical chant's identifier. An unique, increasing integer.",
           "type": "integer",
           "minimum": 1
         },
         "check": {
           "description": "Lists the linked three attributes used to make a skill check.",
-          "$ref": "../_SkillCheck.schema.json#/definitions/SkillCheck"
+          "$ref": "./_SkillCheck.schema.json#/definitions/SkillCheck"
         },
         "check_penalty": {
           "description": "In some cases, the target's Spirit or Toughness is applied as a penalty.",
-          "$ref": "../_SkillCheck.schema.json#/definitions/SkillCheckPenalty"
+          "$ref": "./_SkillCheck.schema.json#/definitions/SkillCheckPenalty"
         },
         "parameters": {
-          "description": "Measurable parameters of a zibilja ritual.",
-          "$ref": "../_ActivatableSkill.schema.json#/definitions/SlowPerformanceParameters"
+          "description": "Measurable parameters of a liturgical chant.",
+          "$ref": "./_ActivatableSkill.schema.json#/definitions/FastPerformanceParameters"
         },
         "target": {
           "description": "The target category – the kind of creature or object – the skill affects.",
-          "$ref": "../_ActivatableSkill.schema.json#/definitions/TargetCategory/T"
+          "$ref": "./_ActivatableSkill.schema.json#/definitions/TargetCategory/T"
         },
         "property_id": {
           "description": "The property's identifier.",
           "type": "integer",
           "minimum": 1
         },
+        "traditions": {
+          "description": "The tradition(s) the liturgical chant is available for. Note that general aspects do not have an associated tradition and thus need to be defined in a special way.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Tradition"
+          },
+          "minItems": 1
+        },
         "improvement_cost": {
           "description": "States which column is used to improve the skill.",
-          "$ref": "../_ImprovementCost.schema.json#/definitions/ImprovementCost"
+          "$ref": "./_ImprovementCost.schema.json#/definitions/ImprovementCost"
+        },
+        "prerequisites": {
+          "$ref": "./_Prerequisite.schema.json#/definitions/GroupCollection/Liturgy"
         },
         "src": {
-          "$ref": "../source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+          "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -48,13 +59,18 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "description": "The name of the zibilja ritual.",
+                  "description": "The name of the liturgical chant.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "name_compressed": {
+                  "description": "A compressed name of the liturgical chant for use in small areas (e.g. on character sheet). Should only be defined if the `name` does not fit on character sheet.",
                   "type": "string",
                   "minLength": 1
                 },
                 "effect": {
                   "description": "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
-                  "$ref": "../_ActivatableSkill.schema.json#/definitions/Effect/T"
+                  "$ref": "./_ActivatableSkill.schema.json#/definitions/Effect/T"
                 },
                 "casting_time": {
                   "type": "object",
@@ -124,7 +140,7 @@
                   "type": "string"
                 },
                 "errata": {
-                  "$ref": "../source/_Erratum.schema.json#/definitions/Errata"
+                  "$ref": "./source/_Erratum.schema.json#/definitions/Errata"
                 }
               },
               "required": [
@@ -141,6 +157,9 @@
           },
           "minProperties": 1,
           "additionalProperties": false
+        },
+        "enhancements": {
+          "$ref": "./_Enhancements.schema.json#/definitions/Enhancements"
         }
       },
       "required": [
@@ -149,11 +168,72 @@
         "parameters",
         "target",
         "property_id",
+        "traditions",
         "improvement_cost",
         "src",
         "translations"
       ],
       "additionalProperties": false
+    },
+    "Tradition": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "GeneralAspect"
+            },
+            "id": {
+              "description": "A general aspect's identifier.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "tag",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Tradition"
+            },
+            "id": {
+              "description": "The blessed tradition's identifier.",
+              "type": "integer",
+              "minimum": 1
+            },
+            "aspects": {
+              "description": "The aspect(s) from the tradition the ceremony belongs to. Note that not all traditions have aspects.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "description": "The aspect's identifier.",
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 2
+            }
+          },
+          "required": [
+            "tag",
+            "id"
+          ],
+          "additionalProperties": false
+        }
+      ]
     }
   }
 }

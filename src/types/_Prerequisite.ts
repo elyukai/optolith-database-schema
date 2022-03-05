@@ -2,6 +2,7 @@
  * @title Prerequisites
  */
 
+import { Identifier } from "./_Identifier"
 import { BinarySex } from "./_Sex"
 
 /**
@@ -271,7 +272,7 @@ export namespace Single {
       tag: "Influence"
 
       /**
-       * The influence' identifier.
+       * The influence's identifier.
        * @integer
        * @minimum 1
        */
@@ -487,31 +488,31 @@ export namespace Single {
 //         "required": ["tag"],
 //         "additionalProperties": false
 //       },
-//       "Increasable": {
-//         "title": "Increasable Prerequisite",
-//         "description": "Requires a specific attribute, skill, combat technique, spell or chant to be on a minimum value. Note that liturgical chants are required to be active automatically, so to require them to be active you can set the value to 0.",
-//         "type": "object",
-//         "properties": {
-//           "tag": { "const": "Increasable" },
-//           "id": {
-//             "type": "object",
-//             "properties": {
-//               "tag": { "$ref": "_Id.schema.json#/definitions/Rated" },
-//               "value": { "type": "integer", "minimum": 1 }
-//             },
-//             "required": ["tag", "value"],
-//             "additionalProperties": false
-//           },
-//           "value": {
-//             "description": "The required minimum value.",
-//             "type": "integer",
-//             "minimum": 0
-//           },
-//           "display_option": { "$ref": "#/definitions/Single/DisplayOption" }
-//         },
-//         "required": ["tag", "id", "value"],
-//         "additionalProperties": false
-//       },
+
+  export namespace Rated {
+    /**
+     * @title Rated Prerequisite
+     */
+    export type T = {
+      tag: "Rated"
+
+      /**
+       * The rated entry's identifier.
+       * @integer
+       * @minimum 1
+       */
+      id: Identifier.Group.Rated
+
+      /**
+       * The required minimum value.
+       * @integer
+       * @minimum 0
+       */
+      value: number
+
+      display_option?: DisplayOption.T
+    }
+  }
 //       "IncreasableMultiEntry": {
 //         "title": "Increasable Prerequisite",
 //         "description": "Require a specific attribute, skill, combat technique, spell or chant from a set to be on a minimum value. Note that liturgical chants are required to be active automatically, so to require them to be active you can set the value to 0.",
@@ -629,42 +630,70 @@ export namespace Single {
 //         "required": ["tag", "number", "value", "targets"],
 //         "additionalProperties": false
 //       },
-//       "Enhancement": {
-//         "title": "Enhancement Prerequisite",
-//         "description": "Requires a specific enhancement from a spellwork.",
-//         "type": "object",
-//         "properties": {
-//           "tag": { "const": "Enhancement" },
-//           "spellwork": {
-//             "type": "object",
-//             "properties": {
-//               "tag": {
-//                 "oneOf": [
-//                   { "const": "Spell" },
-//                   { "const": "Ritual" }
-//                 ]
-//               },
-//               "value": { "type": "integer", "minimum": 1 }
-//             },
-//             "required": ["tag", "value"],
-//             "additionalProperties": false
-//           },
-//           "enhancement": { "type": "integer", "minimum": 1 }
-//         },
-//         "required": ["tag", "spellwork", "enhancement"],
-//         "additionalProperties": false
-//       },
-//       "EnhancementInternal": {
-//         "title": "Enhancement Prerequisite",
-//         "description": "Requires a specific enhancement from a spellwork. This can only be used by an enhancement to require another enhancement from the same spellwork.",
-//         "type": "object",
-//         "properties": {
-//           "tag": { "const": "Enhancement" },
-//           "id": { "type": "integer", "minimum": 1 }
-//         },
-//         "required": ["tag", "id"],
-//         "additionalProperties": false
-//       },
+
+  export namespace Enhancement {
+    /**
+     * Requires a specific enhancement from a skill.
+     * @title Enhancement Prerequisite
+     */
+    export type T = {
+      tag: "Enhancement"
+
+      /**
+       * The required skill's identifier.
+       */
+      skill: {
+        tag: SkillCategoryWithEnhancements
+
+        /**
+         * The skill's identifier.
+         * @integer
+         * @minimum 1
+         */
+        id: number
+      }
+
+      /**
+       * The required enhancement's identifier.
+       */
+      enhancement: {
+        /**
+         * The enhancement's identifier.
+         * @integer
+         * @minimum 1
+         */
+        id: number
+      }
+
+      display_option?: DisplayOption.T
+    }
+
+    export enum SkillCategoryWithEnhancements {
+      Spell = "Spell",
+      Ritual = "Ritual",
+      LiturgicalChant = "LiturgicalChant",
+      Ceremony = "Ceremony",
+    }
+  }
+
+  export namespace EnhancementInternal {
+    /**
+     * Requires a specific enhancement from a skill. This can only be used by an
+     * enhancement to require another enhancement from the same skill.
+     * @title Internal Enhancement Prerequisite
+     */
+    export type T = {
+      tag: "EnhancementInternal"
+
+      /**
+       * The enhancement's identifier.
+       * @integer
+       * @minimum 1
+       */
+      id: number
+    }
+  }
+
 //       "CommonSuggestedByRCP": {
 //         "type": "object",
 //         "properties": {
@@ -789,17 +818,13 @@ namespace Group {
 //           { "$ref": "#/definitions/Single/Special" }
 //         ]
 //       },
-//       "Spellwork": {
-//         "oneOf": [
-//           { "$ref": "#/definitions/Single/Rule" },
-//           { "$ref": "#/definitions/Single/Increasable" }
-//         ]
-//       },
-//       "LiturgicalChant": {
-//         "oneOf": [
-//           { "$ref": "#/definitions/Single/Rule" }
-//         ]
-//       },
+
+  export type Spellwork =
+    | Single.Rule.T
+    | Single.Rated.T
+
+  export type Liturgy =
+    | Single.Rule.T
 //       "Influence": {
 //         "oneOf": [
 //           { "$ref": "#/definitions/Single/Influence" },
@@ -821,6 +846,9 @@ namespace Group {
 
   export type GeodeRitual =
     | Single.Influence.T
+
+  export type Enhancement =
+    | Single.EnhancementInternal.T
 }
 
 /**
@@ -993,34 +1021,15 @@ export namespace GroupCollection {
 //         "required": ["tag", "value"],
 //         "additionalProperties": false
 //       },
-//       "Spellwork": {
-//         "title": "Spellwork Prerequisites",
-//         "type": "object",
-//         "properties": {
-//           "tag": { "const": "Plain" },
-//           "value": {
-//             "type": "array",
-//             "minItems": 1,
-//             "items": { "$ref": "#/definitions/Group/Spellwork" }
-//           }
-//         },
-//         "required": ["tag", "value"],
-//         "additionalProperties": false
-//       },
-//       "LiturgicalChant": {
-//         "title": "Liturgical Chant Prerequisites",
-//         "type": "object",
-//         "properties": {
-//           "tag": { "const": "Plain" },
-//           "value": {
-//             "type": "array",
-//             "minItems": 1,
-//             "items": { "$ref": "#/definitions/Group/LiturgicalChant" }
-//           }
-//         },
-//         "required": ["tag", "value"],
-//         "additionalProperties": false
-//       },
+  /**
+   * @title Spellwork Prerequisites
+   */
+  export type Spellwork = Collection.Plain<Group.Spellwork>
+
+  /**
+   * @title Liturgy Prerequisites
+   */
+  export type Liturgy = Collection.Plain<Group.Liturgy>
 //       "Influence": {
 //         "title": "Influence Prerequisites",
 //         "type": "object",
@@ -1110,4 +1119,9 @@ export namespace GroupCollection {
    * @title Geode Ritual Prerequisites
    */
   export type GeodeRitual = Collection.Plain<Group.GeodeRitual>
+
+  /**
+   * @title Enhancement Prerequisites
+   */
+  export type Enhancement = Collection.Plain<Group.Enhancement>
 }

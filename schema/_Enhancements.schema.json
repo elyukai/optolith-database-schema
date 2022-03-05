@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "_Enhancements.schema.json",
+  "definitions": {
+    "Enhancements": {
+      "description": "A list of enhancements.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Enhancement"
+      },
+      "minItems": 3,
+      "maxItems": 5
+    },
+    "Enhancement": {
+      "title": "Enhancement",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The enhancement's identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "skill_rating": {
+          "description": "The skill rating required to learn this enhancement.",
+          "type": "integer",
+          "maximum": 16,
+          "minimum": 8
+        },
+        "adventure_points_modifier": {
+          "description": "The value to multiply with the numeric representation of the associated skill's improvement cost to form the final AP cost of this enhancement.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "prerequisites": {
+          "$ref": "./_Prerequisite.schema.json#/definitions/GroupCollection/Enhancement"
+        },
+        "src": {
+          "description": "Only defined if different than the associated skill.",
+          "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "The name of the enhancement.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "effect": {
+                  "description": "The effect description.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "errata": {
+                  "$ref": "./source/_Erratum.schema.json#/definitions/Errata"
+                }
+              },
+              "required": [
+                "name",
+                "effect"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "skill_rating",
+        "adventure_points_modifier",
+        "translations"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

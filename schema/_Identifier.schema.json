@@ -1,0 +1,185 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "_Identifier.schema.json",
+  "definitions": {
+    "Identifier": {
+      "Tagged": {
+        "Attribute": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Attribute"
+            },
+            "value": {
+              "description": "The attribute's numeric identifier.",
+              "type": "integer",
+              "maximum": 8,
+              "minimum": 1
+            }
+          },
+          "required": [
+            "tag",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        "Skill": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Skill"
+            },
+            "value": {
+              "description": "The skill's numeric identifier.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "tag",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        "CloseCombatTechnique": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "CloseCombatTechnique"
+            },
+            "value": {
+              "description": "The close combat technique's numeric identifier.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "tag",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        "RangedCombatTechnique": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "RangedCombatTechnique"
+            },
+            "value": {
+              "description": "The ranged combat technique's numeric identifier.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "tag",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        "Spell": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Spell"
+            },
+            "value": {
+              "description": "The spell's numeric identifier.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "tag",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        "Ritual": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Ritual"
+            },
+            "value": {
+              "description": "The ritual's numeric identifier.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "tag",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        "LiturgicalChant": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "LiturgicalChant"
+            },
+            "value": {
+              "description": "The liturgical chant's numeric identifier.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "tag",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        "Ceremony": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Ceremony"
+            },
+            "value": {
+              "description": "The ceremony's numeric identifier.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "tag",
+            "value"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "Group": {
+        "Rated": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Identifier/Tagged/Attribute"
+            },
+            {
+              "$ref": "#/definitions/Identifier/Tagged/Skill"
+            },
+            {
+              "$ref": "#/definitions/Identifier/Tagged/CloseCombatTechnique"
+            },
+            {
+              "$ref": "#/definitions/Identifier/Tagged/RangedCombatTechnique"
+            },
+            {
+              "$ref": "#/definitions/Identifier/Tagged/Spell"
+            },
+            {
+              "$ref": "#/definitions/Identifier/Tagged/Ritual"
+            },
+            {
+              "$ref": "#/definitions/Identifier/Tagged/LiturgicalChant"
+            },
+            {
+              "$ref": "#/definitions/Identifier/Tagged/Ceremony"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
