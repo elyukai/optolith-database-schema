@@ -1,0 +1,227 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "Blessing.schema.json",
+  "$ref": "#/definitions/Blessing",
+  "definitions": {
+    "Blessing": {
+      "title": "Blessing",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The blessing's identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "parameters": {
+          "description": "Measurable parameters of a blessing.",
+          "$ref": "#/definitions/PerformanceParameters"
+        },
+        "target": {
+          "description": "The target category – the kind of creature or object – the skill affects.",
+          "$ref": "./_ActivatableSkill.schema.json#/definitions/TargetCategory/T"
+        },
+        "src": {
+          "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "The name of the blessing.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "effect": {
+                  "description": "The effect description.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "range": {
+                  "type": "string"
+                },
+                "duration": {
+                  "type": "string"
+                },
+                "target": {
+                  "type": "string"
+                },
+                "errata": {
+                  "$ref": "./source/_Erratum.schema.json#/definitions/Errata"
+                }
+              },
+              "required": [
+                "name",
+                "effect",
+                "range",
+                "duration",
+                "target"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "parameters",
+        "target",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "PerformanceParameters": {
+      "description": "Measurable parameters of a blessing.",
+      "type": "object",
+      "properties": {
+        "range": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Self"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Touch"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Fixed"
+                },
+                "value": {
+                  "description": "The range in steps/m.",
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "tag",
+                "value"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "duration": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Immediate"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Fixed"
+                },
+                "value": {
+                  "description": "The (unitless) duration.",
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "unit": {
+                  "description": "The duration unit.",
+                  "$ref": "./_ActivatableSkill.schema.json#/definitions/Duration/Unit"
+                }
+              },
+              "required": [
+                "tag",
+                "value",
+                "unit"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Indefinite"
+                },
+                "translations": {
+                  "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                  "type": "object",
+                  "patternProperties": {
+                    "^[a-z]{2}-[A-Z]{2}$": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "description": "A description of the duration.",
+                          "type": "object",
+                          "properties": {
+                            "default": {
+                              "description": "The full description of the duration.",
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "compressed": {
+                              "description": "A compressed description of the duration for use in small areas (e.g. on character sheet).",
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": [
+                            "default",
+                            "compressed"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "description"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "minProperties": 1,
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "tag",
+                "translations"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "required": [
+        "range",
+        "duration"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
