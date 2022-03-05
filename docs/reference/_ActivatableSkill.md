@@ -971,9 +971,7 @@ This will generate the exact same string as seen above – given it is set for a
 Key | Description | Details
 :-- | :-- | :--
 `options` | The possible costs and associated labels. | <a href="#Cost/OneTime/Map/options">See details</a>
-`list_prepend?` | Place a string between the `for` and the grouped map option labels. | <a href="#Cost/OneTime/Map/list_prepend">See details</a>
-`list_append?` | Place a string after the grouped map option labels. | <a href="#Cost/OneTime/Map/list_append">See details</a>
-`replacement?` | If the string from the book cannot be generated using the default generation technique, use this string. All options still need to be inserted propertly, since it may be used by in-game tools to provide a selection to players. | <a href="#Cost/OneTime/Map/replacement">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Cost/OneTime/Map/translations">See details</a>
 
 #### <a name="Cost/OneTime/Map/options"></a> `options`
 
@@ -983,29 +981,50 @@ The possible costs and associated labels.
 - **Items:** <a href="#Cost/OneTime/Map/options[]">Cost/OneTime/Map/options[]</a>
 - **Minimum Items:** `2`
 
-#### <a name="Cost/OneTime/Map/list_prepend"></a> `list_prepend?`
+#### <a name="Cost/OneTime/Map/translations"></a> `translations?`
 
-Place a string between the `for` and the grouped map option labels.
+All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** String
-
-#### <a name="Cost/OneTime/Map/list_append"></a> `list_append?`
-
-Place a string after the grouped map option labels.
-
-- **Type:** String
-
-#### <a name="Cost/OneTime/Map/replacement"></a> `replacement?`
-
-If the string from the book cannot be generated using the default generation technique, use this string. All options still need to be inserted propertly, since it may be used by in-game tools to provide a selection to players.
-
-- **Type:** String
+- **Type:** Dictionary
+- **Property Values:** <a href="#Cost/OneTime/Map/translations[key]">Cost/OneTime/Map/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
 
 ---
 
 ### <a name="Cost/OneTime/Map/options[]"></a> `Cost/OneTime/Map/options[]`
 
 - **Type:** <a href="#Cost/OneTime/MapOption">Cost/OneTime/MapOption</a>
+
+---
+
+### <a name="Cost/OneTime/Map/translations[key]"></a> `Cost/OneTime/Map/translations[key]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`list_prepend?` | Place a string between the `for` and the grouped map option labels. | <a href="#Cost/OneTime/Map/translations[key]/list_prepend">See details</a>
+`list_append?` | Place a string after the grouped map option labels. | <a href="#Cost/OneTime/Map/translations[key]/list_append">See details</a>
+`replacement?` | If the string from the book cannot be generated using the default generation technique, use this string. All options still need to be inserted propertly, since it may be used by in-game tools to provide a selection to players. | <a href="#Cost/OneTime/Map/translations[key]/replacement">See details</a>
+
+#### <a name="Cost/OneTime/Map/translations[key]/list_prepend"></a> `list_prepend?`
+
+Place a string between the `for` and the grouped map option labels.
+
+- **Type:** String
+
+#### <a name="Cost/OneTime/Map/translations[key]/list_append"></a> `list_append?`
+
+Place a string after the grouped map option labels.
+
+- **Type:** String
+
+#### <a name="Cost/OneTime/Map/translations[key]/replacement"></a> `replacement?`
+
+If the string from the book cannot be generated using the default generation technique, use this string. All options still need to be inserted propertly, since it may be used by in-game tools to provide a selection to players.
+
+- **Type:** String
 
 ---
 
@@ -1017,8 +1036,7 @@ Key | Description | Details
 :-- | :-- | :--
 `value` | The full cost value for this option. | <a href="#Cost/OneTime/MapOption/value">See details</a>
 `permanent_value?` | The part of the `value` that has to be paid permanently. | <a href="#Cost/OneTime/MapOption/permanent_value">See details</a>
-`label` | The description of the option for cost string generation. | <a href="#Cost/OneTime/MapOption/label">See details</a>
-`label_standalone?` | The description of the option if used standalone. Only used if different from `label`. | <a href="#Cost/OneTime/MapOption/label_standalone">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Cost/OneTime/MapOption/translations">See details</a>
 
 #### <a name="Cost/OneTime/MapOption/value"></a> `value`
 
@@ -1034,14 +1052,34 @@ The part of the `value` that has to be paid permanently.
 - **Type:** Integer
 - **Minimum:** `0`
 
-#### <a name="Cost/OneTime/MapOption/label"></a> `label`
+#### <a name="Cost/OneTime/MapOption/translations"></a> `translations?`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#Cost/OneTime/MapOption/translations[key]">Cost/OneTime/MapOption/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="Cost/OneTime/MapOption/translations[key]"></a> `Cost/OneTime/MapOption/translations[key]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`label` | The description of the option for cost string generation. | <a href="#Cost/OneTime/MapOption/translations[key]/label">See details</a>
+`label_standalone?` | The description of the option if used standalone. Only used if different from `label`. | <a href="#Cost/OneTime/MapOption/translations[key]/label_standalone">See details</a>
+
+#### <a name="Cost/OneTime/MapOption/translations[key]/label"></a> `label`
 
 The description of the option for cost string generation.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
-#### <a name="Cost/OneTime/MapOption/label_standalone"></a> `label_standalone?`
+#### <a name="Cost/OneTime/MapOption/translations[key]/label_standalone"></a> `label_standalone?`
 
 The description of the option if used standalone. Only used if different from `label`.
 

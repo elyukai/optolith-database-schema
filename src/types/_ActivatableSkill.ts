@@ -437,22 +437,33 @@ export namespace Cost {
       options: MapOption[]
 
       /**
-       * Place a string between the `for` and the grouped map option labels.
+       * All translations for the entry, identified by IETF language tag (BCP47).
+       * @minProperties 1
        */
-      list_prepend?: string
+      translations?: {
+        /**
+         * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+         */
+        [localeId: string]: {
+          /**
+           * Place a string between the `for` and the grouped map option labels.
+           */
+          list_prepend?: string
 
-      /**
-       * Place a string after the grouped map option labels.
-       */
-      list_append?: string
+          /**
+           * Place a string after the grouped map option labels.
+           */
+          list_append?: string
 
-      /**
-       * If the string from the book cannot be generated using the default
-       * generation technique, use this string. All options still need to be
-       * inserted propertly, since it may be used by in-game tools to provide a
-       * selection to players.
-       */
-      replacement?: string
+          /**
+           * If the string from the book cannot be generated using the default
+           * generation technique, use this string. All options still need to be
+           * inserted propertly, since it may be used by in-game tools to provide a
+           * selection to players.
+           */
+          replacement?: string
+        }
+      }
     }
 
     export type MapOption = {
@@ -471,17 +482,28 @@ export namespace Cost {
       permanent_value?: number
 
       /**
-       * The description of the option for cost string generation.
-       * @minLength 1
+       * All translations for the entry, identified by IETF language tag (BCP47).
+       * @minProperties 1
        */
-      label: string
+      translations?: {
+        /**
+         * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+         */
+        [localeId: string]: {
+          /**
+           * The description of the option for cost string generation.
+           * @minLength 1
+           */
+          label: string
 
-      /**
-       * The description of the option if used standalone. Only used if
-       * different from `label`.
-       * @minLength 1
-       */
-      label_standalone?: string
+          /**
+           * The description of the option if used standalone. Only used if
+           * different from `label`.
+           * @minLength 1
+           */
+          label_standalone?: string
+        }
+      }
     }
   }
 
