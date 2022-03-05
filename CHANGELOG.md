@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.2](https://github.com/elyukai/optolith-database-schema/compare/v0.0.1...v0.0.2) (2022-03-05)
+
+
+### Features
+
+* finish basic activatable skills ([ede33df](https://github.com/elyukai/optolith-database-schema/commit/ede33df9e897cb58f19f58c4e8d5619c2f9be0e0))
+
 ### 0.0.1 (2022-03-05)
 
 
