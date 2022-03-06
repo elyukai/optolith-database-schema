@@ -30,24 +30,24 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#Single/DisplayOption/T'ReplaceWith/tag">See details</a>
-`value` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Single/DisplayOption/T'ReplaceWith/value">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Single/DisplayOption/T'ReplaceWith/translations">See details</a>
 
 #### <a name="Single/DisplayOption/T'ReplaceWith/tag"></a> `tag`
 
 - **Constant:** `"ReplaceWith"`
 
-#### <a name="Single/DisplayOption/T'ReplaceWith/value"></a> `value`
+#### <a name="Single/DisplayOption/T'ReplaceWith/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#Single/DisplayOption/T'ReplaceWith/value[key]">Single/DisplayOption/T'ReplaceWith/value[key]</a>
+- **Property Values:** <a href="#Single/DisplayOption/T'ReplaceWith/translations[key]">Single/DisplayOption/T'ReplaceWith/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="Single/DisplayOption/T'ReplaceWith/value[key]"></a> `Single/DisplayOption/T'ReplaceWith/value[key]`
+### <a name="Single/DisplayOption/T'ReplaceWith/translations[key]"></a> `Single/DisplayOption/T'ReplaceWith/translations[key]`
 
 - **Type:** String
 
@@ -507,6 +507,49 @@ If the referenced influence must or must not be chosen.
 
 ---
 
+### <a name="Single/Activatable/T"></a> Activatable Prerequisite (`Single/Activatable/T`)
+
+Requires a specific advantage, disadvantage, special ability.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Single/Activatable/T/tag">See details</a>
+`id` | The activatable entry's identifier. | <a href="#Single/Activatable/T/id">See details</a>
+`active` | If the required entry should be required to be active or inactive. | <a href="#Single/Activatable/T/active">See details</a>
+`level?` | The required minimum level of the entry. | <a href="#Single/Activatable/T/level">See details</a>
+`display_option?` |  | <a href="#Single/Activatable/T/display_option">See details</a>
+
+#### <a name="Single/Activatable/T/tag"></a> `tag`
+
+- **Constant:** `"Activatable"`
+
+#### <a name="Single/Activatable/T/id"></a> `id`
+
+The activatable entry's identifier.
+
+- **Type:** <a href="./_Identifier.md#Identifier/Group/Activatable">Identifier/Group/Activatable</a>
+
+#### <a name="Single/Activatable/T/active"></a> `active`
+
+If the required entry should be required to be active or inactive.
+
+- **Type:** Boolean
+
+#### <a name="Single/Activatable/T/level"></a> `level?`
+
+The required minimum level of the entry.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="Single/Activatable/T/display_option"></a> `display_option?`
+
+- **Type:** <a href="#Single/DisplayOption/T">Single/DisplayOption/T</a>
+
+---
+
 ### <a name="Single/Rated/T"></a> Rated Prerequisite (`Single/Rated/T`)
 
 - **Type:** Object
@@ -650,6 +693,31 @@ The enhancement's identifier.
 
 ---
 
+### <a name="Single/Ineligible/T"></a> Ineligible Prerequisite (`Single/Ineligible/T`)
+
+This is a placeholder for required things that can never happen with the
+current set of crunch elements and rules, e. g. if a race is required
+that does not yet exist as a crunch element.
+
+A display option must be set.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Single/Ineligible/T/tag">See details</a>
+`display_option` |  | <a href="#Single/Ineligible/T/display_option">See details</a>
+
+#### <a name="Single/Ineligible/T/tag"></a> `tag`
+
+- **Constant:** `"Ineligible"`
+
+#### <a name="Single/Ineligible/T/display_option"></a> `display_option`
+
+- **Type:** <a href="#Single/DisplayOption/T">Single/DisplayOption/T</a>
+
+---
+
 ### <a name="Group/DerivedCharacteristic"></a> `Group/DerivedCharacteristic`
 
 - **Type:** Union
@@ -724,6 +792,31 @@ The enhancement's identifier.
 ### <a name="Group/Liturgy'T"></a> `Group/Liturgy'T`
 
 - **Type:** <a href="#Single/Rule/T">Single/Rule/T</a>
+
+---
+
+### <a name="Group/Language"></a> `Group/Language`
+
+- **Type:** Union
+- **Cases:** <a href="#Group/Language'T">Group/Language'T</a> | <a href="#Group/Language'T">Group/Language'T</a> | <a href="#Group/Language'T">Group/Language'T</a>
+
+---
+
+### <a name="Group/Language'T"></a> `Group/Language'T`
+
+- **Type:** <a href="#Single/Ineligible/T">Single/Ineligible/T</a>
+
+---
+
+### <a name="Group/Language'T"></a> `Group/Language'T`
+
+- **Type:** <a href="#Single/Race/T">Single/Race/T</a>
+
+---
+
+### <a name="Group/Language'T"></a> `Group/Language'T`
+
+- **Type:** <a href="#Single/Activatable/T">Single/Activatable/T</a>
 
 ---
 
@@ -885,6 +978,88 @@ Key | Description | Details
 ### <a name="GroupCollection/Liturgy/value[]"></a> `GroupCollection/Liturgy/value[]`
 
 - **Type:** <a href="#Group/Liturgy">Group/Liturgy</a>
+
+---
+
+### <a name="GroupCollection/Language"></a> `GroupCollection/Language`
+
+- **Type:** Union
+- **Cases:** <a href="#GroupCollection/Language'Plain">GroupCollection/Language'Plain</a> | <a href="#GroupCollection/Language'ByLevel">GroupCollection/Language'ByLevel</a>
+
+---
+
+### <a name="GroupCollection/Language'Plain"></a> `GroupCollection/Language'Plain`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#GroupCollection/Language'Plain/tag">See details</a>
+`value` |  | <a href="#GroupCollection/Language'Plain/value">See details</a>
+
+#### <a name="GroupCollection/Language'Plain/tag"></a> `tag`
+
+- **Constant:** `"Plain"`
+
+#### <a name="GroupCollection/Language'Plain/value"></a> `value`
+
+- **Type:** List
+- **Items:** <a href="#GroupCollection/Language'Plain/value[]">GroupCollection/Language'Plain/value[]</a>
+- **Minimum Items:** `1`
+
+---
+
+### <a name="GroupCollection/Language'Plain/value[]"></a> `GroupCollection/Language'Plain/value[]`
+
+- **Type:** <a href="#Group/Language">Group/Language</a>
+
+---
+
+### <a name="GroupCollection/Language'ByLevel"></a> `GroupCollection/Language'ByLevel`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#GroupCollection/Language'ByLevel/tag">See details</a>
+`value` |  | <a href="#GroupCollection/Language'ByLevel/value">See details</a>
+
+#### <a name="GroupCollection/Language'ByLevel/tag"></a> `tag`
+
+- **Constant:** `"ByLevel"`
+
+#### <a name="GroupCollection/Language'ByLevel/value"></a> `value`
+
+- **Type:** List
+- **Items:** <a href="#GroupCollection/Language'ByLevel/value[]">GroupCollection/Language'ByLevel/value[]</a>
+- **Minimum Items:** `1`
+
+---
+
+### <a name="GroupCollection/Language'ByLevel/value[]"></a> `GroupCollection/Language'ByLevel/value[]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`level` |  | <a href="#GroupCollection/Language'ByLevel/value[]/level">See details</a>
+`prerequisites` |  | <a href="#GroupCollection/Language'ByLevel/value[]/prerequisites">See details</a>
+
+#### <a name="GroupCollection/Language'ByLevel/value[]/level"></a> `level`
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="GroupCollection/Language'ByLevel/value[]/prerequisites"></a> `prerequisites`
+
+- **Type:** List
+- **Items:** <a href="#GroupCollection/Language'ByLevel/value[]/prerequisites[]">GroupCollection/Language'ByLevel/value[]/prerequisites[]</a>
+
+---
+
+### <a name="GroupCollection/Language'ByLevel/value[]/prerequisites[]"></a> `GroupCollection/Language'ByLevel/value[]/prerequisites[]`
+
+- **Type:** <a href="#Group/Language">Group/Language</a>
 
 ---
 

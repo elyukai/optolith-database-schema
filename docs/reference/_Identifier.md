@@ -2,22 +2,34 @@
 
 ## Definitions
 
-### <a name="Identifier/Tagged/Attribute"></a> `Identifier/Tagged/Attribute`
+### <a name="Identifier/Tag/Activatable"></a> `Identifier/Tag/Activatable`
+
+- **Possible values:** `"Advantage"`, `"Disadvantage"`, `"GeneralSpecialAbility"`, `"FatePointSpecialAbility"`, `"CombatSpecialAbility"`, `"MagicalSpecialAbility"`, `"StaffEnchantment"`, `"FamiliarSpecialAbility"`, `"KarmaSpecialAbility"`, `"ProtectiveWardingCircleSpecialAbility"`, `"CombatStyleSpecialAbility"`, `"AdvancedCombatSpecialAbility"`, `"CommandSpecialAbility"`, `"MagicStyleSpecialAbility"`, `"AdvancedMagicalSpecialAbility"`, `"SpellSwordEnchantment"`, `"DaggerRitual"`, `"InstrumentEnchantment"`, `"AttireEnchantment"`, `"OrbEnchantment"`, `"WandEnchantment"`, `"BrawlingSpecialAbility"`, `"AncestorGlyph"`, `"CeremonialItemSpecialAbility"`, `"Sermon"`, `"LiturgicalStyleSpecialAbility"`, `"AdvancedKarmaSpecialAbility"`, `"Vision"`, `"MagicalTradition"`, `"BlessedTradition"`, `"PactGift"`, `"SikaryanDrainSpecialAbility"`, `"LycantropicGift"`, `"SkillStyleSpecialAbility"`, `"AdvancedSkillSpecialAbility"`, `"ArcaneOrbEnchantment"`, `"CauldronEnchantment"`, `"FoolsHatEnchantment"`, `"ToyEnchantment"`, `"BowlEnchantment"`, `"FatePointSexSpecialAbility"`, `"SexSpecialAbility"`, `"WeaponEnchantment"`, `"SickleRitual"`, `"RingEnchantment"`, `"ChronicleEnchantment"`
+
+---
+
+### <a name="Identifier/Tag/Rated"></a> `Identifier/Tag/Rated`
+
+- **Possible values:** `"Attribute"`, `"Skill"`, `"CloseCombatTechnique"`, `"RangedCombatTechnique"`, `"Spell"`, `"Ritual"`, `"LiturgicalChant"`, `"Ceremony"`
+
+---
+
+### <a name="Identifier/Group/Activatable"></a> `Identifier/Group/Activatable`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Identifier/Tagged/Attribute/tag">See details</a>
-`value` | The attribute's numeric identifier. | <a href="#Identifier/Tagged/Attribute/value">See details</a>
+`tag` |  | <a href="#Identifier/Group/Activatable/tag">See details</a>
+`value` | The referenced entry's numeric identifier. | <a href="#Identifier/Group/Activatable/value">See details</a>
 
-#### <a name="Identifier/Tagged/Attribute/tag"></a> `tag`
+#### <a name="Identifier/Group/Activatable/tag"></a> `tag`
 
-- **Constant:** `"Attribute"`
+- **Type:** <a href="#Identifier/Tag/Activatable">Identifier/Tag/Activatable</a>
 
-#### <a name="Identifier/Tagged/Attribute/value"></a> `value`
+#### <a name="Identifier/Group/Activatable/value"></a> `value`
 
-The attribute's numeric identifier.
+The referenced entry's numeric identifier.
 
 - **Type:** Integer
 - **Minimum:** `1`
@@ -25,209 +37,23 @@ The attribute's numeric identifier.
 
 ---
 
-### <a name="Identifier/Tagged/Skill"></a> `Identifier/Tagged/Skill`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Identifier/Tagged/Skill/tag">See details</a>
-`value` | The skill's numeric identifier. | <a href="#Identifier/Tagged/Skill/value">See details</a>
-
-#### <a name="Identifier/Tagged/Skill/tag"></a> `tag`
-
-- **Constant:** `"Skill"`
-
-#### <a name="Identifier/Tagged/Skill/value"></a> `value`
-
-The skill's numeric identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="Identifier/Tagged/CloseCombatTechnique"></a> `Identifier/Tagged/CloseCombatTechnique`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Identifier/Tagged/CloseCombatTechnique/tag">See details</a>
-`value` | The close combat technique's numeric identifier. | <a href="#Identifier/Tagged/CloseCombatTechnique/value">See details</a>
-
-#### <a name="Identifier/Tagged/CloseCombatTechnique/tag"></a> `tag`
-
-- **Constant:** `"CloseCombatTechnique"`
-
-#### <a name="Identifier/Tagged/CloseCombatTechnique/value"></a> `value`
-
-The close combat technique's numeric identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="Identifier/Tagged/RangedCombatTechnique"></a> `Identifier/Tagged/RangedCombatTechnique`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Identifier/Tagged/RangedCombatTechnique/tag">See details</a>
-`value` | The ranged combat technique's numeric identifier. | <a href="#Identifier/Tagged/RangedCombatTechnique/value">See details</a>
-
-#### <a name="Identifier/Tagged/RangedCombatTechnique/tag"></a> `tag`
-
-- **Constant:** `"RangedCombatTechnique"`
-
-#### <a name="Identifier/Tagged/RangedCombatTechnique/value"></a> `value`
-
-The ranged combat technique's numeric identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="Identifier/Tagged/Spell"></a> `Identifier/Tagged/Spell`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Identifier/Tagged/Spell/tag">See details</a>
-`value` | The spell's numeric identifier. | <a href="#Identifier/Tagged/Spell/value">See details</a>
-
-#### <a name="Identifier/Tagged/Spell/tag"></a> `tag`
-
-- **Constant:** `"Spell"`
-
-#### <a name="Identifier/Tagged/Spell/value"></a> `value`
-
-The spell's numeric identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="Identifier/Tagged/Ritual"></a> `Identifier/Tagged/Ritual`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Identifier/Tagged/Ritual/tag">See details</a>
-`value` | The ritual's numeric identifier. | <a href="#Identifier/Tagged/Ritual/value">See details</a>
-
-#### <a name="Identifier/Tagged/Ritual/tag"></a> `tag`
-
-- **Constant:** `"Ritual"`
-
-#### <a name="Identifier/Tagged/Ritual/value"></a> `value`
-
-The ritual's numeric identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="Identifier/Tagged/LiturgicalChant"></a> `Identifier/Tagged/LiturgicalChant`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Identifier/Tagged/LiturgicalChant/tag">See details</a>
-`value` | The liturgical chant's numeric identifier. | <a href="#Identifier/Tagged/LiturgicalChant/value">See details</a>
-
-#### <a name="Identifier/Tagged/LiturgicalChant/tag"></a> `tag`
-
-- **Constant:** `"LiturgicalChant"`
-
-#### <a name="Identifier/Tagged/LiturgicalChant/value"></a> `value`
-
-The liturgical chant's numeric identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="Identifier/Tagged/Ceremony"></a> `Identifier/Tagged/Ceremony`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Identifier/Tagged/Ceremony/tag">See details</a>
-`value` | The ceremony's numeric identifier. | <a href="#Identifier/Tagged/Ceremony/value">See details</a>
-
-#### <a name="Identifier/Tagged/Ceremony/tag"></a> `tag`
-
-- **Constant:** `"Ceremony"`
-
-#### <a name="Identifier/Tagged/Ceremony/value"></a> `value`
-
-The ceremony's numeric identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
 ### <a name="Identifier/Group/Rated"></a> `Identifier/Group/Rated`
 
-- **Type:** Union
-- **Cases:** <a href="#Identifier/Group/Rated'Attribute">Identifier/Group/Rated'Attribute</a> | <a href="#Identifier/Group/Rated'Skill">Identifier/Group/Rated'Skill</a> | <a href="#Identifier/Group/Rated'CloseCombatTechnique">Identifier/Group/Rated'CloseCombatTechnique</a> | <a href="#Identifier/Group/Rated'RangedCombatTechnique">Identifier/Group/Rated'RangedCombatTechnique</a> | <a href="#Identifier/Group/Rated'Spell">Identifier/Group/Rated'Spell</a> | <a href="#Identifier/Group/Rated'Ritual">Identifier/Group/Rated'Ritual</a> | <a href="#Identifier/Group/Rated'LiturgicalChant">Identifier/Group/Rated'LiturgicalChant</a> | <a href="#Identifier/Group/Rated'Ceremony">Identifier/Group/Rated'Ceremony</a>
+- **Type:** Object
 
----
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Identifier/Group/Rated/tag">See details</a>
+`value` | The referenced entry's numeric identifier. | <a href="#Identifier/Group/Rated/value">See details</a>
 
-### <a name="Identifier/Group/Rated'Attribute"></a> `Identifier/Group/Rated'Attribute`
+#### <a name="Identifier/Group/Rated/tag"></a> `tag`
 
-- **Type:** <a href="#Identifier/Tagged/Attribute">Identifier/Tagged/Attribute</a>
+- **Type:** <a href="#Identifier/Tag/Rated">Identifier/Tag/Rated</a>
 
----
+#### <a name="Identifier/Group/Rated/value"></a> `value`
 
-### <a name="Identifier/Group/Rated'Skill"></a> `Identifier/Group/Rated'Skill`
+The referenced entry's numeric identifier.
 
-- **Type:** <a href="#Identifier/Tagged/Skill">Identifier/Tagged/Skill</a>
-
----
-
-### <a name="Identifier/Group/Rated'CloseCombatTechnique"></a> `Identifier/Group/Rated'CloseCombatTechnique`
-
-- **Type:** <a href="#Identifier/Tagged/CloseCombatTechnique">Identifier/Tagged/CloseCombatTechnique</a>
-
----
-
-### <a name="Identifier/Group/Rated'RangedCombatTechnique"></a> `Identifier/Group/Rated'RangedCombatTechnique`
-
-- **Type:** <a href="#Identifier/Tagged/RangedCombatTechnique">Identifier/Tagged/RangedCombatTechnique</a>
-
----
-
-### <a name="Identifier/Group/Rated'Spell"></a> `Identifier/Group/Rated'Spell`
-
-- **Type:** <a href="#Identifier/Tagged/Spell">Identifier/Tagged/Spell</a>
-
----
-
-### <a name="Identifier/Group/Rated'Ritual"></a> `Identifier/Group/Rated'Ritual`
-
-- **Type:** <a href="#Identifier/Tagged/Ritual">Identifier/Tagged/Ritual</a>
-
----
-
-### <a name="Identifier/Group/Rated'LiturgicalChant"></a> `Identifier/Group/Rated'LiturgicalChant`
-
-- **Type:** <a href="#Identifier/Tagged/LiturgicalChant">Identifier/Tagged/LiturgicalChant</a>
-
----
-
-### <a name="Identifier/Group/Rated'Ceremony"></a> `Identifier/Group/Rated'Ceremony`
-
-- **Type:** <a href="#Identifier/Tagged/Ceremony">Identifier/Tagged/Ceremony</a>
+- **Type:** Integer
+- **Minimum:** `1`
+- **Maximum:** `8`

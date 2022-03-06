@@ -1,104 +1,80 @@
 export namespace Identifier {
-  export namespace Tagged {
-    export type Attribute = {
-      tag: "Attribute"
-
-      /**
-       * The attribute's numeric identifier.
-       * @integer
-       * @minimum 1
-       * @maximum 8
-       */
-      value: number
+  export namespace Tag {
+    export enum Activatable {
+      Advantage = "Advantage",
+      Disadvantage = "Disadvantage",
+      GeneralSpecialAbility = "GeneralSpecialAbility",
+      FatePointSpecialAbility = "FatePointSpecialAbility",
+      CombatSpecialAbility = "CombatSpecialAbility",
+      MagicalSpecialAbility = "MagicalSpecialAbility",
+      StaffEnchantment = "StaffEnchantment",
+      FamiliarSpecialAbility = "FamiliarSpecialAbility",
+      KarmaSpecialAbility = "KarmaSpecialAbility",
+      ProtectiveWardingCircleSpecialAbility = "ProtectiveWardingCircleSpecialAbility",
+      CombatStyleSpecialAbility = "CombatStyleSpecialAbility",
+      AdvancedCombatSpecialAbility = "AdvancedCombatSpecialAbility",
+      CommandSpecialAbility = "CommandSpecialAbility",
+      MagicStyleSpecialAbility = "MagicStyleSpecialAbility",
+      AdvancedMagicalSpecialAbility = "AdvancedMagicalSpecialAbility",
+      SpellSwordEnchantment = "SpellSwordEnchantment",
+      DaggerRitual = "DaggerRitual",
+      InstrumentEnchantment = "InstrumentEnchantment",
+      AttireEnchantment = "AttireEnchantment",
+      OrbEnchantment = "OrbEnchantment",
+      WandEnchantment = "WandEnchantment",
+      BrawlingSpecialAbility = "BrawlingSpecialAbility",
+      AncestorGlyph = "AncestorGlyph",
+      CeremonialItemSpecialAbility = "CeremonialItemSpecialAbility",
+      Sermon = "Sermon",
+      LiturgicalStyleSpecialAbility = "LiturgicalStyleSpecialAbility",
+      AdvancedKarmaSpecialAbility = "AdvancedKarmaSpecialAbility",
+      Vision = "Vision",
+      MagicalTradition = "MagicalTradition",
+      BlessedTradition = "BlessedTradition",
+      PactGift = "PactGift",
+      SikaryanDrainSpecialAbility = "SikaryanDrainSpecialAbility",
+      LycantropicGift = "LycantropicGift",
+      SkillStyleSpecialAbility = "SkillStyleSpecialAbility",
+      AdvancedSkillSpecialAbility = "AdvancedSkillSpecialAbility",
+      ArcaneOrbEnchantment = "ArcaneOrbEnchantment",
+      CauldronEnchantment = "CauldronEnchantment",
+      FoolsHatEnchantment = "FoolsHatEnchantment",
+      ToyEnchantment = "ToyEnchantment",
+      BowlEnchantment = "BowlEnchantment",
+      FatePointSexSpecialAbility = "FatePointSexSpecialAbility",
+      SexSpecialAbility = "SexSpecialAbility",
+      WeaponEnchantment = "WeaponEnchantment",
+      SickleRitual = "SickleRitual",
+      RingEnchantment = "RingEnchantment",
+      ChronicleEnchantment = "ChronicleEnchantment",
     }
 
-    export type Skill = {
-      tag: "Skill"
-
-      /**
-       * The skill's numeric identifier.
-       * @integer
-       * @minimum 1
-       */
-      value: number
-    }
-
-    export type CloseCombatTechnique = {
-      tag: "CloseCombatTechnique"
-
-      /**
-       * The close combat technique's numeric identifier.
-       * @integer
-       * @minimum 1
-       */
-      value: number
-    }
-
-    export type RangedCombatTechnique = {
-      tag: "RangedCombatTechnique"
-
-      /**
-       * The ranged combat technique's numeric identifier.
-       * @integer
-       * @minimum 1
-       */
-      value: number
-    }
-
-    export type Spell = {
-      tag: "Spell"
-
-      /**
-       * The spell's numeric identifier.
-       * @integer
-       * @minimum 1
-       */
-      value: number
-    }
-
-    export type Ritual = {
-      tag: "Ritual"
-
-      /**
-       * The ritual's numeric identifier.
-       * @integer
-       * @minimum 1
-       */
-      value: number
-    }
-
-    export type LiturgicalChant = {
-      tag: "LiturgicalChant"
-
-      /**
-       * The liturgical chant's numeric identifier.
-       * @integer
-       * @minimum 1
-       */
-      value: number
-    }
-
-    export type Ceremony = {
-      tag: "Ceremony"
-
-      /**
-       * The ceremony's numeric identifier.
-       * @integer
-       * @minimum 1
-       */
-      value: number
+    export enum Rated {
+      Attribute = "Attribute",
+      Skill = "Skill",
+      CloseCombatTechnique = "CloseCombatTechnique",
+      RangedCombatTechnique = "RangedCombatTechnique",
+      Spell = "Spell",
+      Ritual = "Ritual",
+      LiturgicalChant = "LiturgicalChant",
+      Ceremony = "Ceremony",
     }
   }
 
+  export type Tagged<Tag> = {
+    tag: Tag
+
+    /**
+     * The referenced entry's numeric identifier.
+     * @integer
+     * @minimum 1
+     * @maximum 8
+     */
+    value: number
+  }
+
   export namespace Group {
-    export type Rated =
-      | Tagged.Attribute
-      | Tagged.Skill
-      | Tagged.CloseCombatTechnique
-      | Tagged.RangedCombatTechnique
-      | Tagged.Spell
-      | Tagged.Ritual
-      | Tagged.LiturgicalChant
-      | Tagged.Ceremony
+    export type Activatable = Tagged<Tag.Activatable>
+    export type Rated = Tagged<Tag.Rated>
   }
 }

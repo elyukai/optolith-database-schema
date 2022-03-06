@@ -25,7 +25,7 @@
                 "tag": {
                   "const": "ReplaceWith"
                 },
-                "value": {
+                "translations": {
                   "description": "All translations for the entry, identified by IETF language tag (BCP47).",
                   "type": "object",
                   "patternProperties": {
@@ -39,7 +39,7 @@
               },
               "required": [
                 "tag",
-                "value"
+                "translations"
               ],
               "additionalProperties": false
             }
@@ -398,6 +398,40 @@
           "additionalProperties": false
         }
       },
+      "Activatable": {
+        "T": {
+          "title": "Activatable Prerequisite",
+          "description": "Requires a specific advantage, disadvantage, special ability.",
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Activatable"
+            },
+            "id": {
+              "description": "The activatable entry's identifier.",
+              "$ref": "./_Identifier.schema.json#/definitions/Identifier/Group/Activatable"
+            },
+            "active": {
+              "description": "If the required entry should be required to be active or inactive.",
+              "type": "boolean"
+            },
+            "level": {
+              "description": "The required minimum level of the entry.",
+              "type": "integer",
+              "minimum": 1
+            },
+            "display_option": {
+              "$ref": "#/definitions/Single/DisplayOption/T"
+            }
+          },
+          "required": [
+            "tag",
+            "id",
+            "active"
+          ],
+          "additionalProperties": false
+        }
+      },
       "Rated": {
         "T": {
           "title": "Rated Prerequisite",
@@ -511,6 +545,26 @@
           ],
           "additionalProperties": false
         }
+      },
+      "Ineligible": {
+        "T": {
+          "title": "Ineligible Prerequisite",
+          "description": "This is a placeholder for required things that can never happen with the\ncurrent set of crunch elements and rules, e. g. if a race is required\nthat does not yet exist as a crunch element.\n\nA display option must be set.",
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Ineligible"
+            },
+            "display_option": {
+              "$ref": "#/definitions/Single/DisplayOption/T"
+            }
+          },
+          "required": [
+            "tag",
+            "display_option"
+          ],
+          "additionalProperties": false
+        }
       }
     },
     "Group": {
@@ -552,6 +606,19 @@
         "oneOf": [
           {
             "$ref": "#/definitions/Single/Rule/T"
+          }
+        ]
+      },
+      "Language": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/Single/Ineligible/T"
+          },
+          {
+            "$ref": "#/definitions/Single/Race/T"
+          },
+          {
+            "$ref": "#/definitions/Single/Activatable/T"
           }
         ]
       },
@@ -671,6 +738,67 @@
           "value"
         ],
         "additionalProperties": false
+      },
+      "Language": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "Plain"
+              },
+              "value": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Group/Language"
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "tag",
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "ByLevel"
+              },
+              "value": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "level": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "prerequisites": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/definitions/Group/Language"
+                      }
+                    }
+                  },
+                  "required": [
+                    "level",
+                    "prerequisites"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "tag",
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        ]
       },
       "GeodeRitual": {
         "type": "object",

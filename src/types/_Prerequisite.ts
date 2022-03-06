@@ -22,7 +22,7 @@ export namespace Single {
          * All translations for the entry, identified by IETF language tag (BCP47).
          * @minProperties 1
          */
-        value: {
+        translations: {
           /**
            * @patternProperties ^[a-z]{2}-[A-Z]{2}$
            */
@@ -286,30 +286,35 @@ export namespace Single {
       display_option?: DisplayOption.T
     }
   }
-//       "Activatable": {
-//         "title": "Activatable Prerequisite",
-//         "description": "Requires a specific advantage, disadvantage, special ability.",
-//         "type": "object",
-//         "properties": {
-//           "tag": { "const": "Activatable" },
-//           "id": {
-//             "type": "object",
-//             "properties": {
-//               "tag": { "$ref": "_Id.schema.json#/definitions/Activatable" },
-//               "value": { "type": "integer", "minimum": 1 }
-//             },
-//             "required": ["tag", "value"],
-//             "additionalProperties": false
-//           },
-//           "active": {
-//             "description": "If the required entry should be required to be active or inactive.",
-//             "type": "boolean"
-//           },
-//           "level": {
-//             "description": "The current or required level of the entry.",
-//             "type": "integer",
-//             "minimum": 1
-//           },
+
+  export namespace Activatable {
+    /**
+     * Requires a specific advantage, disadvantage, special ability.
+     * @title Activatable Prerequisite
+     */
+    export type T = {
+      tag: "Activatable"
+
+      /**
+       * The activatable entry's identifier.
+       * @integer
+       * @minimum 1
+       */
+      id: Identifier.Group.Activatable
+
+      /**
+       * If the required entry should be required to be active or inactive.
+       */
+      active: boolean
+
+      /**
+       * The required minimum level of the entry.
+       * @integer
+       * @minimum 1
+       */
+      level?: number
+
+
 //           "options": {
 //             "description": "Required select options. Order is important. Typically, you only need the first array index, though.",
 //             "type": "array",
@@ -332,12 +337,13 @@ export namespace Single {
 //             },
 //             "minItems": 1
 //           },
-//           "display_option": { "$ref": "#/definitions/Single/DisplayOption" },
+
+      display_option?: DisplayOption.T
+
 //           "when": { "$ref": "#/definitions/Single/When" }
-//         },
-//         "required": ["tag", "id", "active"],
-//         "additionalProperties": false
-//       },
+    }
+  }
+
 //       "ActivatableMultiEntry": {
 //         "title": "Activatable Prerequisite",
 //         "description": "Require one advantage, disadvantage or special ability from a set.",
@@ -744,6 +750,22 @@ export namespace Single {
 //         },
 //         "minItems": 1
 //       }
+
+  export namespace Ineligible {
+    /**
+     * This is a placeholder for required things that can never happen with the
+     * current set of crunch elements and rules, e. g. if a race is required
+     * that does not yet exist as a crunch element.
+     *
+     * A display option must be set.
+     * @title Ineligible Prerequisite
+     */
+    export type T = {
+      tag: "Ineligible"
+
+      display_option: DisplayOption.T
+    }
+  }
 }
 
 /**
@@ -831,13 +853,12 @@ namespace Group {
 //           { "$ref": "#/definitions/Single/Special" }
 //         ]
 //       },
-//       "Language": {
-//         "title": "Language Prerequisite",
-//         "oneOf": [
-//           { "$ref": "#/definitions/Single/Race" },
-//           { "$ref": "#/definitions/Single/Activatable" }
-//         ]
-//       },
+
+  export type Language =
+    | Single.Ineligible.T
+    | Single.Race.T
+    | Single.Activatable.T
+
 //       "AnimistPower": {
 //         "oneOf": [
 //           { "$ref": "#/definitions/Single/AnimistPower" }
@@ -1044,6 +1065,11 @@ export namespace GroupCollection {
 //         "required": ["tag", "value"],
 //         "additionalProperties": false
 //       },
+
+  /**
+   * @title Language Prerequisites
+   */
+  export type Language = Collection.ByLevel<Group.Language>
 //       "Language": {
 //         "title": "Language Prerequisites",
 //         "oneOf": [

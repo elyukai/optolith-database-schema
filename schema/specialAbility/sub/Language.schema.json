@@ -1,0 +1,215 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "specialAbility/sub/Language.schema.json",
+  "$ref": "#/definitions/Language",
+  "definitions": {
+    "Language": {
+      "title": "Language",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The language's identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "continent": {
+          "description": "The continents this language is present on.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "The continent's identifier.",
+                "type": "integer",
+                "maximum": 3,
+                "minimum": 1
+              },
+              "is_extinct": {
+                "description": "Is the language considered virtually extinct in this continent?",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "is_extinct"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "max_level": {
+          "description": "The maximum possible level of the language. Only specified if lower than\ndefault of 3.",
+          "type": "number",
+          "maximum": 2,
+          "minimum": 1
+        },
+        "specializations": {
+          "description": "Language-specific specializations. Either a list of possible options or a\nindefinite description of what may be a specialization.",
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Specific"
+                },
+                "list": {
+                  "description": "A list of specific possible specializations.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "description": "The specialization's identifier. An unique, increasing integer.",
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "translations": {
+                        "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                        "type": "object",
+                        "patternProperties": {
+                          "^[a-z]{2}-[A-Z]{2}$": {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "description": "The name of the specialization.",
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "description": {
+                                "description": "The specialization description. It will be appended to the name in\nparenthesis.",
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            },
+                            "required": [
+                              "name"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "minProperties": 1,
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "translations"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": [
+                "tag",
+                "list"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Indefinite"
+                },
+                "translations": {
+                  "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                  "type": "object",
+                  "patternProperties": {
+                    "^[a-z]{2}-[A-Z]{2}$": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "description": "The specializations description.",
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "label": {
+                          "description": "An input label or placeholder text for an UI element if it differs\nfrom the `description`.",
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "description"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "minProperties": 1,
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "tag",
+                "translations"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "prerequisites": {
+          "$ref": "../../_Prerequisite.schema.json#/definitions/GroupCollection/Language"
+        },
+        "src": {
+          "$ref": "../../source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "The name of the language.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "alternative_names": {
+                  "description": "A list of alternative names.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "An alternative name of the language.",
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "description": {
+                  "description": "The description of the language.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "errata": {
+                  "$ref": "../../source/_Erratum.schema.json#/definitions/Errata"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "continent",
+        "specializations",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
