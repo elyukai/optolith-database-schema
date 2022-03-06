@@ -49,7 +49,8 @@ The skill rating required to learn this enhancement.
 
 #### <a name="Enhancement/adventure_points_modifier"></a> `adventure_points_modifier`
 
-The value to multiply with the numeric representation of the associated skill's improvement cost to form the final AP cost of this enhancement.
+The value to multiply with the numeric representation of the associated
+skill's improvement cost to form the final AP cost of this enhancement.
 
 - **Type:** Integer
 - **Minimum:** `1`

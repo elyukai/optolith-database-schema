@@ -92,7 +92,9 @@ The name of the geode ritual.
 
 #### <a name="GeodeRitual/translations[key]/effect"></a> `effect`
 
-The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
+The effect description may be either a plain text or a text that is
+divided by a list of effects for each quality level. It may also be a
+list for each two quality levels.
 
 - **Type:** <a href="../_ActivatableSkill.md#Effect/T">Effect/T</a>
 

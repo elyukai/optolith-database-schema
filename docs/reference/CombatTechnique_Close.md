@@ -25,7 +25,8 @@ The close combat technique's identifier. An unique, increasing integer.
 
 #### <a name="CloseCombatTechnique/special"></a> `special`
 
-Special rules for the combat technique that apply to all weapons in this category.
+Special rules for the combat technique that apply to all weapons in this
+category.
 
 - **Type:** <a href="#CloseCombatTechnique/special">Object</a>
 
@@ -67,7 +68,8 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="CloseCombatTechnique/special"></a> `CloseCombatTechnique/special`
 
-Special rules for the combat technique that apply to all weapons in this category.
+Special rules for the combat technique that apply to all weapons in this
+category.
 
 - **Type:** Object
 

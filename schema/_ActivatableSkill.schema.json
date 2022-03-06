@@ -4,7 +4,7 @@
   "definitions": {
     "Effect": {
       "T": {
-        "description": "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
+        "description": "The effect description may be either a plain text or a text that is divided\nby a list of effects for each quality level. It may also be a list for each\ntwo quality levels.",
         "oneOf": [
           {
             "type": "object",
@@ -31,7 +31,7 @@
                 "const": "ForEachQualityLevel"
               },
               "text_before": {
-                "description": "The effect description before the list of effects for each quality level.",
+                "description": "The effect description before the list of effects for each quality\nlevel.",
                 "type": "string",
                 "minLength": 1
               },
@@ -63,7 +63,7 @@
                 "additionalItems": false
               },
               "text_after": {
-                "description": "The effect description after the list of effects for each quality level.",
+                "description": "The effect description after the list of effects for each quality\nlevel.",
                 "type": "string",
                 "minLength": 1
               }
@@ -82,7 +82,7 @@
                 "const": "ForEachTwoQualityLevels"
               },
               "text_before": {
-                "description": "The effect description before the list of effects for each quality level.",
+                "description": "The effect description before the list of effects for each quality\nlevel.",
                 "type": "string",
                 "minLength": 1
               },
@@ -105,7 +105,7 @@
                 "additionalItems": false
               },
               "text_after": {
-                "description": "The effect description after the list of effects for each quality level.",
+                "description": "The effect description after the list of effects for each quality\nlevel.",
                 "type": "string",
                 "minLength": 1
               }
@@ -355,7 +355,7 @@
             ]
           },
           "during_lovemaking": {
-            "description": "The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking.",
+            "description": "The casting time during lovemaking. In Aventurian Intimacy, you may only\nuse an activatable skill during lovemaking if it has a casting time used\nduring lovemaking.",
             "type": "object",
             "properties": {
               "value": {
@@ -411,7 +411,7 @@
             ]
           },
           "during_lovemaking": {
-            "description": "The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking.",
+            "description": "The casting time during lovemaking. In Aventurian Intimacy, you may only\nuse an activatable skill during lovemaking if it has a casting time used\nduring lovemaking.",
             "type": "object",
             "properties": {
               "value": {
@@ -571,11 +571,11 @@
                   "type": "object",
                   "properties": {
                     "minimum_total": {
-                      "description": "If defined, the minimum total AE that have to be spent casting the skill.",
+                      "description": "If defined, the minimum total AE that have to be spent casting the\nskill.",
                       "type": "number"
                     },
                     "translations": {
-                      "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                      "description": "All translations for the entry, identified by IETF language tag\n(BCP47).",
                       "type": "object",
                       "patternProperties": {
                         "^[a-z]{2}-[A-Z]{2}$": {
@@ -609,7 +609,7 @@
                   "additionalProperties": false
                 },
                 "translations": {
-                  "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                  "description": "All translations for the entry, identified by IETF language tag\n(BCP47).",
                   "type": "object",
                   "patternProperties": {
                     "^[a-z]{2}-[A-Z]{2}$": {
@@ -625,7 +625,7 @@
                               "minLength": 1
                             },
                             "compressed": {
-                              "description": "A compressed note, if applicable. If not specified it should not be displayed in small location.",
+                              "description": "A compressed note, if applicable. If not specified it should not\nbe displayed in small location.",
                               "type": "string",
                               "minLength": 1
                             }
@@ -674,7 +674,7 @@
                               "minLength": 1
                             },
                             "compressed": {
-                              "description": "A compressed description of where the cost come from for use in small areas (e.g. on character sheet).",
+                              "description": "A compressed description of where the cost come from for use in\nsmall areas (e.g. on character sheet).",
                               "type": "string",
                               "minLength": 1
                             }
@@ -705,7 +705,7 @@
           ]
         },
         "Map": {
-          "description": "A content that is `2/4/8/16 AE for an item the size of a cup/chest/door/castle gate` may be respresented as the following map:\n\n```yaml options:   - value: 2     label: \"cup\"   - value: 4     label: \"chest\"   - value: 8     label: \"door\"   - value: 16     label: \"castle gate\" for_append: \"an item the size of a\" ```\n\nThis will generate the exact same string as seen above – given it is set for a spellwork and thus `AE` is used.",
+          "description": "A content that is `2/4/8/16 AE for an item the size of a\ncup/chest/door/castle gate` may be respresented as the following map:\n\n```yaml\noptions:\n  - value: 2\n    label: \"cup\"\n  - value: 4\n    label: \"chest\"\n  - value: 8\n    label: \"door\"\n  - value: 16\n    label: \"castle gate\"\nfor_append: \"an item the size of a\"\n```\n\nThis will generate the exact same string as seen above – given it is set\nfor a spellwork and thus `AE` is used.",
           "type": "object",
           "properties": {
             "options": {
@@ -732,7 +732,7 @@
                       "type": "string"
                     },
                     "replacement": {
-                      "description": "If the string from the book cannot be generated using the default generation technique, use this string. All options still need to be inserted propertly, since it may be used by in-game tools to provide a selection to players.",
+                      "description": "If the string from the book cannot be generated using the default\ngeneration technique, use this string. All options still need to be\ninserted propertly, since it may be used by in-game tools to provide a\nselection to players.",
                       "type": "string"
                     }
                   },
@@ -775,7 +775,7 @@
                       "minLength": 1
                     },
                     "label_standalone": {
-                      "description": "The description of the option if used standalone. Only used if different from `label`.",
+                      "description": "The description of the option if used standalone. Only used if\ndifferent from `label`.",
                       "type": "string",
                       "minLength": 1
                     }
@@ -878,7 +878,7 @@
                         "minLength": 1
                       },
                       "compressed": {
-                        "description": "A compressed note, if applicable. If not specified it should not be displayed in small location.",
+                        "description": "A compressed note, if applicable. If not specified it should not\nbe displayed in small location.",
                         "type": "string",
                         "minLength": 1
                       }
@@ -1062,13 +1062,13 @@
                           "type": "object",
                           "properties": {
                             "default": {
-                              "description": "The full replacement string. It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.",
+                              "description": "The full replacement string. It must contain `$1`, which is\ngoing to be replaced with the generated duration string, so\nadditional information can be provided without duplicating\nconcrete numeric values.",
                               "type": "string",
                               "minLength": 1,
                               "pattern": "\\$1"
                             },
                             "compressed": {
-                              "description": "A compressed replacement string for use in small areas (e.g. on character sheet). It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.",
+                              "description": "A compressed replacement string for use in small areas (e.g. on\ncharacter sheet). It must contain `$1`, which is going to be\nreplaced with the generated duration string, so additional\ninformation can be provided without duplicating concrete\nnumeric values.",
                               "type": "string",
                               "minLength": 1,
                               "pattern": "\\$1"
@@ -1114,13 +1114,13 @@
                           "type": "object",
                           "properties": {
                             "default": {
-                              "description": "The full replacement string. It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.",
+                              "description": "The full replacement string. It must contain `$1`, which is\ngoing to be replaced with the generated duration string, so\nadditional information can be provided without duplicating\nconcrete numeric values.",
                               "type": "string",
                               "minLength": 1,
                               "pattern": "\\$1"
                             },
                             "compressed": {
-                              "description": "A compressed replacement string for use in small areas (e.g. on character sheet). It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.",
+                              "description": "A compressed replacement string for use in small areas (e.g. on\ncharacter sheet). It must contain `$1`, which is going to be\nreplaced with the generated duration string, so additional\ninformation can be provided without duplicating concrete\nnumeric values.",
                               "type": "string",
                               "minLength": 1,
                               "pattern": "\\$1"
@@ -1179,13 +1179,13 @@
                           "type": "object",
                           "properties": {
                             "default": {
-                              "description": "The full replacement string. It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.",
+                              "description": "The full replacement string. It must contain `$1`, which is\ngoing to be replaced with the generated duration string, so\nadditional information can be provided without duplicating\nconcrete numeric values.",
                               "type": "string",
                               "minLength": 1,
                               "pattern": "\\$1"
                             },
                             "compressed": {
-                              "description": "A compressed replacement string for use in small areas (e.g. on character sheet). It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.",
+                              "description": "A compressed replacement string for use in small areas (e.g. on\ncharacter sheet). It must contain `$1`, which is going to be\nreplaced with the generated duration string, so additional\ninformation can be provided without duplicating concrete\nnumeric values.",
                               "type": "string",
                               "minLength": 1,
                               "pattern": "\\$1"
@@ -1238,7 +1238,7 @@
                       "$ref": "#/definitions/Duration/CheckResultArithmetic"
                     },
                     "value": {
-                      "description": "The value that is applied to the `base` using the defined `arithmetic`.",
+                      "description": "The value that is applied to the `base` using the defined\n`arithmetic`.",
                       "type": "integer",
                       "minimum": 2
                     }
@@ -1265,13 +1265,13 @@
                           "type": "object",
                           "properties": {
                             "default": {
-                              "description": "The full replacement string. It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.",
+                              "description": "The full replacement string. It must contain `$1`, which is\ngoing to be replaced with the generated duration string, so\nadditional information can be provided without duplicating\nconcrete numeric values.",
                               "type": "string",
                               "minLength": 1,
                               "pattern": "\\$1"
                             },
                             "compressed": {
-                              "description": "A compressed replacement string for use in small areas (e.g. on character sheet). It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.",
+                              "description": "A compressed replacement string for use in small areas (e.g. on\ncharacter sheet). It must contain `$1`, which is going to be\nreplaced with the generated duration string, so additional\ninformation can be provided without duplicating concrete\nnumeric values.",
                               "type": "string",
                               "minLength": 1,
                               "pattern": "\\$1"
@@ -1324,7 +1324,7 @@
                               "minLength": 1
                             },
                             "compressed": {
-                              "description": "A compressed description of the duration for use in small areas (e.g. on character sheet).",
+                              "description": "A compressed description of the duration for use in small areas\n(e.g. on character sheet).",
                               "type": "string",
                               "minLength": 1
                             }
@@ -1460,7 +1460,7 @@
                 "$ref": "#/definitions/Duration/CheckResultArithmetic"
               },
               "value": {
-                "description": "The value that is applied to the `base` using the defined `arithmetic`.",
+                "description": "The value that is applied to the `base` using the defined\n`arithmetic`.",
                 "type": "integer",
                 "minimum": 2
               }

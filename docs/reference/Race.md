@@ -51,13 +51,16 @@ The race’s base values.
 
 #### <a name="Race/attribute_adjustments"></a> `attribute_adjustments`
 
-Describes how to raise or lower maximum attribute values during character creation.
+Describes how to raise or lower maximum attribute values during character
+creation.
 
 - **Type:** <a href="#AttributeAdjustments/Config">AttributeAdjustments/Config</a>
 
 #### <a name="Race/automatic_advantages"></a> `automatic_advantages?`
 
-A list of automatically applied advantages. This does only work for advantages with no further configuration such as level or special selection.
+A list of automatically applied advantages. This does only work for
+advantages with no further configuration such as level or special
+selection.
 
 - **Type:** List
 - **Items:** <a href="#Race/automatic_advantages[]">Race/automatic_advantages[]</a>
@@ -81,7 +84,9 @@ A list of strongly recommended disadvantages.
 
 #### <a name="Race/common_advantages"></a> `common_advantages?`
 
-A list of common advantages. If common advantages are defined by race variants, leave this field empty. It is overridden by the same field in race variants.
+A list of common advantages. If common advantages are defined by race
+variants, leave this field empty. It is overridden by the same field in
+race variants.
 
 - **Type:** List
 - **Items:** <a href="#Race/common_advantages[]">Race/common_advantages[]</a>
@@ -89,7 +94,9 @@ A list of common advantages. If common advantages are defined by race variants, 
 
 #### <a name="Race/common_disadvantages"></a> `common_disadvantages?`
 
-A list of common disadvantages. If common disadvantages are defined by race variants, leave this field empty. It is overridden by the same field in race variants.
+A list of common disadvantages. If common disadvantages are defined by race
+variants, leave this field empty. It is overridden by the same field in
+race variants.
 
 - **Type:** List
 - **Items:** <a href="#Race/common_disadvantages[]">Race/common_disadvantages[]</a>
@@ -97,7 +104,9 @@ A list of common disadvantages. If common disadvantages are defined by race vari
 
 #### <a name="Race/uncommon_advantages"></a> `uncommon_advantages?`
 
-A list of uncommon advantages. If uncommon advantages are defined by race variants, leave this field empty. It is overridden by the same field in race variants.
+A list of uncommon advantages. If uncommon advantages are defined by race
+variants, leave this field empty. It is overridden by the same field in
+race variants.
 
 - **Type:** List
 - **Items:** <a href="#Race/uncommon_advantages[]">Race/uncommon_advantages[]</a>
@@ -105,7 +114,9 @@ A list of uncommon advantages. If uncommon advantages are defined by race varian
 
 #### <a name="Race/uncommon_disadvantages"></a> `uncommon_disadvantages?`
 
-A list of uncommon disadvantages. If uncommon disadvantages are defined by race variants, leave this field empty. It is overridden by the same field in race variants.
+A list of uncommon disadvantages. If uncommon disadvantages are defined by
+race variants, leave this field empty. It is overridden by the same field
+in race variants.
 
 - **Type:** List
 - **Items:** <a href="#Race/uncommon_disadvantages[]">Race/uncommon_disadvantages[]</a>
@@ -119,7 +130,8 @@ Configuration for random weight generation.
 
 #### <a name="Race/starting_age"></a> `starting_age`
 
-Defines the starting ages for the race. It depends on the selected experience level.
+Defines the starting ages for the race. It depends on the selected
+experience level.
 
 - **Type:** List
 - **Items:** <a href="#Race/starting_age[]">Race/starting_age[]</a>
@@ -128,7 +140,11 @@ Defines the starting ages for the race. It depends on the selected experience le
 
 #### <a name="Race/variant_dependent"></a> `variant_dependent`
 
-The race may have variants and associated configuration for each variant. If the race is plain (has no variants), the values that would otherwise be defined in the variant configuration need to be set for the whole race. This excludes common and uncommon advantages and disadvantages, since they may be defined for the whole race even if variants exist.
+The race may have variants and associated configuration for each variant.
+If the race is plain (has no variants), the values that would otherwise be
+defined in the variant configuration need to be set for the whole race.
+This excludes common and uncommon advantages and disadvantages, since they
+may be defined for the whole race even if variants exist.
 
 - **Type:** <a href="#VariantDependent">VariantDependent</a>
 
@@ -243,7 +259,8 @@ The race’s tactical movement rate.
 
 ### <a name="AttributeAdjustments/Config"></a> `AttributeAdjustments/Config`
 
-Describes how to raise or lower maximum attribute values during character creation.
+Describes how to raise or lower maximum attribute values during character
+creation.
 
 - **Type:** Object
 
@@ -254,7 +271,9 @@ Key | Description | Details
 
 #### <a name="AttributeAdjustments/Config/fix"></a> `fix?`
 
-An array of attribute maximum modifiers. The value will be added to the current maximum of the ID-specified attribute (negative values will lower the maximum).
+An array of attribute maximum modifiers. The value will be added to the
+current maximum of the ID-specified attribute (negative values will lower
+the maximum).
 
 - **Type:** List
 - **Items:** <a href="#AttributeAdjustments/Config/fix[]">AttributeAdjustments/Config/fix[]</a>
@@ -293,7 +312,8 @@ The attribute's identifier.
 
 #### <a name="AttributeAdjustments/Fix/value"></a> `value`
 
-The value by which the attribute's maximum is modified (negative values will lower the maximum).
+The value by which the attribute's maximum is modified (negative values
+will lower the maximum).
 
 - **Type:** Integer
 
@@ -310,7 +330,8 @@ Key | Description | Details
 
 #### <a name="AttributeAdjustments/Selection/value"></a> `value`
 
-The value by which the selected attribute's maximum is modified (negative values will lower the maximum).
+The value by which the selected attribute's maximum is modified
+(negative values will lower the maximum).
 
 - **Type:** Integer
 
@@ -378,7 +399,8 @@ Key | Description | Details
 
 #### <a name="Weight/Config/base"></a> `base`
 
-The base value used for random weight. The height subtrahend; in case of `Height - 110 + 2D6` it is `110`.
+The base value used for random weight. The height subtrahend; in case of
+`Height - 110 + 2D6` it is `110`.
 
 - **Type:** Integer
 - **Minimum:** `1`
@@ -424,7 +446,9 @@ Number of sides on every die. Example: 6 in 2D6.
 
 #### <a name="Weight/Die/offset_strategy"></a> `offset_strategy`
 
-The strategy how to offset the randomly generated values against the base value. Either they are all added or subtracted or even results are added and odd results are subtracted.
+The strategy how to offset the randomly generated values against the
+base value. Either they are all added or subtracted or even results are
+added and odd results are subtracted.
 
 - **Type:** <a href="#Weight/OffsetStrategy">Weight/OffsetStrategy</a>
 
@@ -432,7 +456,9 @@ The strategy how to offset the randomly generated values against the base value.
 
 ### <a name="Weight/OffsetStrategy"></a> `Weight/OffsetStrategy`
 
-The strategy how to offset the randomly generated values against the base value. Either they are all added or subtracted or even results are added and odd results are subtracted.
+The strategy how to offset the randomly generated values against the
+base value. Either they are all added or subtracted or even results are
+added and odd results are subtracted.
 
 - **Type:** Union
 - **Cases:** <a href="#Weight/OffsetStrategy'Add">Weight/OffsetStrategy'Add</a> | <a href="#Weight/OffsetStrategy'Subtract">Weight/OffsetStrategy'Subtract</a> | <a href="#Weight/OffsetStrategy'AddEvenSubtractOdd">Weight/OffsetStrategy'AddEvenSubtractOdd</a>
@@ -508,7 +534,8 @@ The base value for the selected experience level.
 
 #### <a name="StartingAgeConfigForExperienceLevel/random"></a> `random`
 
-The random value for the selected experience level. It is going to be added to the base value.
+The random value for the selected experience level. It is going to be
+added to the base value.
 
 - **Type:** <a href="#Die">Die</a>
 
@@ -516,7 +543,11 @@ The random value for the selected experience level. It is going to be added to t
 
 ### <a name="VariantDependent"></a> `VariantDependent`
 
-The race may have variants and associated configuration for each variant. If the race is plain (has no variants), the values that would otherwise be defined in the variant configuration need to be set for the whole race. This excludes common and uncommon advantages and disadvantages, since they may be defined for the whole race even if variants exist.
+The race may have variants and associated configuration for each variant.
+If the race is plain (has no variants), the values that would otherwise be
+defined in the variant configuration need to be set for the whole race.
+This excludes common and uncommon advantages and disadvantages, since they
+may be defined for the whole race even if variants exist.
 
 - **Type:** Union
 - **Cases:** <a href="#VariantDependent'HasVariants">VariantDependent'HasVariants</a> | <a href="#VariantDependent'Plain">VariantDependent'Plain</a>
@@ -873,28 +904,37 @@ The race variant's name.
 
 #### <a name="RaceVariantTranslation/common_advantages"></a> `common_advantages?`
 
-The respective common advantages text from the source book. If common advantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.
+The respective common advantages text from the source book. If common
+advantages are defined by the base race, leave this field empty. This field
+overrides the same field of the base race, if both are defined.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
 #### <a name="RaceVariantTranslation/common_disadvantages"></a> `common_disadvantages?`
 
-The respective common disadvantages text from the source book. If common disadvantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.
+The respective common disadvantages text from the source book. If common
+disadvantages are defined by the base race, leave this field empty. This
+field overrides the same field of the base race, if both are defined.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
 #### <a name="RaceVariantTranslation/uncommon_advantages"></a> `uncommon_advantages?`
 
-The respective uncommon advantages text from the source book. If uncommon advantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.
+The respective uncommon advantages text from the source book. If uncommon
+advantages are defined by the base race, leave this field empty. This field
+overrides the same field of the base race, if both are defined.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
 #### <a name="RaceVariantTranslation/uncommon_disadvantages"></a> `uncommon_disadvantages?`
 
-The respective uncommon disadvantages text from the source book. If uncommon disadvantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.
+The respective uncommon disadvantages text from the source book. If
+uncommon disadvantages are defined by the base race, leave this field
+empty. This field overrides the same field of the base race, if both are
+defined.
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -955,28 +995,36 @@ The respective strongly recommended disadvantages text from the source book.
 
 #### <a name="RaceTranslation/common_advantages"></a> `common_advantages?`
 
-The respective common advantages text from the source book. If common advantages are defined by race variants, leave this field empty. It is overridden by the same field in race variants.
+The respective common advantages text from the source book. If common
+advantages are defined by race variants, leave this field empty. It is
+overridden by the same field in race variants.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
 #### <a name="RaceTranslation/common_disadvantages"></a> `common_disadvantages?`
 
-The respective common disadvantages text from the source book. If common disadvantages are defined by race variants, leave this field empty. It is overridden by the same field in race variants.
+The respective common disadvantages text from the source book. If common
+disadvantages are defined by race variants, leave this field empty. It is
+overridden by the same field in race variants.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
 #### <a name="RaceTranslation/uncommon_advantages"></a> `uncommon_advantages?`
 
-The respective uncommon advantages text from the source book. If uncommon advantages are defined by race variants, leave this field empty. It is overridden by the same field in race variants.
+The respective uncommon advantages text from the source book. If uncommon
+advantages are defined by race variants, leave this field empty. It is
+overridden by the same field in race variants.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
 #### <a name="RaceTranslation/uncommon_disadvantages"></a> `uncommon_disadvantages?`
 
-The respective uncommon disadvantages text from the source book. If uncommon disadvantages are defined by race variants, leave this field empty. It is overridden by the same field in race variants.
+The respective uncommon disadvantages text from the source book. If
+uncommon disadvantages are defined by race variants, leave this field
+empty. It is overridden by the same field in race variants.
 
 - **Type:** String
 - **Minimum Length:** `1`

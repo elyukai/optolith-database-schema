@@ -3,7 +3,7 @@
   "$id": "magicalActions/_MusicTradition.schema.json",
   "definitions": {
     "MusicTraditionReference": {
-      "description": "A reference to a music tradition with the music-tradition-specific name of the entry",
+      "description": "A reference to a music tradition with the music-tradition-specific name of\nthe entry",
       "type": "object",
       "properties": {
         "id": {

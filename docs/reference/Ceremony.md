@@ -53,7 +53,9 @@ The target category – the kind of creature or object – the skill affects.
 
 #### <a name="Ceremony/traditions"></a> `traditions`
 
-The tradition(s) the ceremony is available for. Note that general aspects do not have an associated tradition and thus need to be defined in a special way.
+The tradition(s) the ceremony is available for. Note that general aspects
+do not have an associated tradition and thus need to be defined in a
+special way.
 
 - **Type:** List
 - **Items:** <a href="#Ceremony/traditions[]">Ceremony/traditions[]</a>
@@ -119,14 +121,18 @@ The name of the ceremony.
 
 #### <a name="Ceremony/translations[key]/name_compressed"></a> `name_compressed?`
 
-A compressed name of the ceremony for use in small areas (e.g. on character sheet). Should only be defined if the `name` does not fit on character sheet.
+A compressed name of the ceremony for use in small areas (e.g. on
+character sheet). Should only be defined if the `name` does not fit on
+character sheet.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
 #### <a name="Ceremony/translations[key]/effect"></a> `effect`
 
-The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
+The effect description may be either a plain text or a text that is
+divided by a list of effects for each quality level. It may also be a
+list for each two quality levels.
 
 - **Type:** <a href="./_ActivatableSkill.md#Effect/T">Effect/T</a>
 
@@ -284,7 +290,8 @@ The blessed tradition's identifier.
 
 #### <a name="Tradition'Tradition/aspects"></a> `aspects?`
 
-The aspect(s) from the tradition the ceremony belongs to. Note that not all traditions have aspects.
+The aspect(s) from the tradition the ceremony belongs to. Note that not
+all traditions have aspects.
 
 - **Type:** List
 - **Items:** <a href="#Tradition'Tradition/aspects[]">Tradition'Tradition/aspects[]</a>

@@ -13,7 +13,7 @@
           "minimum": 1
         },
         "check": {
-          "description": "The property check's attributes. Only the properties from the Core Rules have defined property checks.",
+          "description": "The property check's attributes. Only the properties from the Core Rules\nhave defined property checks.",
           "$ref": "./_SkillCheck.schema.json#/definitions/SkillCheck"
         },
         "translations": {

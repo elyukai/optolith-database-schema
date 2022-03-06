@@ -21,7 +21,7 @@
           "$ref": "../_SkillCheck.schema.json#/definitions/SkillCheckPenalty"
         },
         "skill": {
-          "description": "Arcane bards must make a *Singing (area of application)* or *Music (area of application)* check for each magical melody.",
+          "description": "Arcane bards must make a *Singing (area of application)* or *Music (area of\napplication)* check for each magical melody.",
           "type": "array",
           "items": {
             "$ref": "./_SkillReference.schema.json#/definitions/SkillReference"
@@ -40,7 +40,7 @@
           "minimum": 1
         },
         "music_tradition": {
-          "description": "The music tradition(s) the magical melody is available for. This also defines the different names in each music tradition.",
+          "description": "The music tradition(s) the magical melody is available for. This also\ndefines the different names in each music tradition.",
           "type": "array",
           "items": {
             "$ref": "./_MusicTradition.schema.json#/definitions/MusicTraditionReference"
@@ -67,7 +67,7 @@
                   "minLength": 1
                 },
                 "effect": {
-                  "description": "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
+                  "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
                   "$ref": "../_ActivatableSkill.schema.json#/definitions/Effect/T"
                 },
                 "duration": {
@@ -229,7 +229,7 @@
                   "const": "FirstPerson"
                 },
                 "value": {
-                  "description": "The (temporary) AE cost value for the first targeted person. The AE cost for each additional person is half this value.",
+                  "description": "The (temporary) AE cost value for the first targeted person. The AE\ncost for each additional person is half this value.",
                   "type": "integer",
                   "minimum": 1,
                   "multipleOf": 2

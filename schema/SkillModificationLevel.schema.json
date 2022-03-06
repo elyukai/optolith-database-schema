@@ -90,11 +90,11 @@
               "type": "object",
               "properties": {
                 "fast": {
-                  "description": "Configuration for this level for fast skills (spells, liturgical chants). Values set here override the default generated text.",
+                  "description": "Configuration for this level for fast skills (spells, liturgical chants).\nValues set here override the default generated text.",
                   "$ref": "#/definitions/LevelTypeConfigTranslation"
                 },
                 "slow": {
-                  "description": "Configuration for this level for slow skills (rituals, ceremonies). Values set here override the default generated text.",
+                  "description": "Configuration for this level for slow skills (rituals, ceremonies). Values\nset here override the default generated text.",
                   "$ref": "#/definitions/LevelTypeConfigTranslation"
                 }
               },
@@ -121,7 +121,7 @@
       ]
     },
     "LevelTypeConfigTranslation": {
-      "description": "Configuration translation of a type for a level. Values set here override the default generated text.",
+      "description": "Configuration translation of a type for a level. Values set here override the\ndefault generated text.",
       "type": "object",
       "properties": {
         "range": {

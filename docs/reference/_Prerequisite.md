@@ -152,7 +152,9 @@ Key | Description | Details
 
 ### <a name="Single/Culture/T"></a> Culture Prerequisite (`Single/Culture/T`)
 
-Requires a specific race or one of a specific set of races. You can also provide an object to say whether the hero must meet one of the races or if the entry does not allow one of the races.
+Requires a specific race or one of a specific set of races. You can also
+provide an object to say whether the hero must meet one of the races or
+if the entry does not allow one of the races.
 
 - **Type:** Object
 
@@ -625,7 +627,8 @@ The enhancement's identifier.
 
 ### <a name="Single/EnhancementInternal/T"></a> Internal Enhancement Prerequisite (`Single/EnhancementInternal/T`)
 
-Requires a specific enhancement from a skill. This can only be used by an enhancement to require another enhancement from the same skill.
+Requires a specific enhancement from a skill. This can only be used by an
+enhancement to require another enhancement from the same skill.
 
 - **Type:** Object
 

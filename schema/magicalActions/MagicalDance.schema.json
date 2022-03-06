@@ -26,7 +26,7 @@
           "minimum": 1
         },
         "music_tradition": {
-          "description": "The music tradition(s) the magical dance is available for. This also defines the different names in each music tradition.",
+          "description": "The music tradition(s) the magical dance is available for. This also\ndefines the different names in each music tradition.",
           "type": "array",
           "items": {
             "$ref": "./_MusicTradition.schema.json#/definitions/MusicTraditionReference"
@@ -53,7 +53,7 @@
                   "minLength": 1
                 },
                 "effect": {
-                  "description": "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
+                  "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
                   "$ref": "../_ActivatableSkill.schema.json#/definitions/Effect/T"
                 },
                 "duration": {
@@ -208,7 +208,7 @@
                       "type": "object",
                       "properties": {
                         "per": {
-                          "description": "The cost have to be per a specific countable entity, e.g. `8 AE per person`.",
+                          "description": "The cost have to be per a specific countable entity, e.g. `8 AE per\nperson`.",
                           "type": "object",
                           "properties": {
                             "default": {
@@ -251,7 +251,7 @@
                   "const": "Indefinite"
                 },
                 "modifier": {
-                  "description": "Specified if the indefinite description's result value is to be modified by a certain number.",
+                  "description": "Specified if the indefinite description's result value is to be\nmodified by a certain number.",
                   "type": "object",
                   "properties": {
                     "arithmetic": {
@@ -259,7 +259,7 @@
                       "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/CheckResultArithmetic"
                     },
                     "value": {
-                      "description": "The value that is applied to the indefinite value using the defined `arithmetic`.",
+                      "description": "The value that is applied to the indefinite value using the defined\n`arithmetic`.",
                       "type": "integer",
                       "minimum": 2
                     }
@@ -287,7 +287,7 @@
                               "minLength": 1
                             },
                             "compressed": {
-                              "description": "A compressed description of the duration for use in small areas (e.g. on character sheet).",
+                              "description": "A compressed description of the duration for use in small areas\n(e.g. on character sheet).",
                               "type": "string",
                               "minLength": 1
                             }

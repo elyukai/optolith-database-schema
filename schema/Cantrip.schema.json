@@ -30,7 +30,7 @@
           "$ref": "./_ImprovementCost.schema.json#/definitions/ImprovementCost"
         },
         "note": {
-          "description": "A note specifying the dissemination of the cantrip in different traditions. Sometimes a cantrip is exclusively available to one or more specific traditions, but usually one the academies and traditions are listed the cantrip is most commonly teached in.",
+          "description": "A note specifying the dissemination of the cantrip in different traditions.\nSometimes a cantrip is exclusively available to one or more specific\ntraditions, but usually one the academies and traditions are listed the\ncantrip is most commonly teached in.",
           "oneOf": [
             {
               "type": "object",
@@ -105,7 +105,7 @@
                   "minLength": 1
                 },
                 "effect": {
-                  "description": "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
+                  "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
                   "$ref": "./_ActivatableSkill.schema.json#/definitions/Effect/T"
                 },
                 "casting_time": {
@@ -346,7 +346,7 @@
                               "minLength": 1
                             },
                             "compressed": {
-                              "description": "A compressed description of the duration for use in small areas (e.g. on character sheet).",
+                              "description": "A compressed description of the duration for use in small areas\n(e.g. on character sheet).",
                               "type": "string",
                               "minLength": 1
                             }

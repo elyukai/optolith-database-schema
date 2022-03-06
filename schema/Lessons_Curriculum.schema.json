@@ -5,7 +5,7 @@
   "definitions": {
     "Curriculum": {
       "title": "Curriculum",
-      "description": "This is a curriculum of a specified academy, containing the guideline, elective and restricted spellworks as well as the lesson packages of that academy.",
+      "description": "This is a curriculum of a specified academy, containing the guideline,\nelective and restricted spellworks as well as the lesson packages of that\nacademy.",
       "type": "object",
       "properties": {
         "id": {
@@ -113,7 +113,7 @@
           "$ref": "#/definitions/SpellworkId"
         },
         "restriction": {
-          "description": "The elective spellwork may only take effect if a certain condition is met. The condition may be related to professions or profession variants, but it is designed so that it can work without a specific profession, as multiple may belong to an institute, but with referencing other entities instead.",
+          "description": "The elective spellwork may only take effect if a certain condition is met.\nThe condition may be related to professions or profession variants, but it\nis designed so that it can work without a specific profession, as multiple\nmay belong to an institute, but with referencing other entities instead.",
           "$ref": "#/definitions/ElectiveSpellworkRestriction"
         }
       },
@@ -123,7 +123,7 @@
       "additionalProperties": false
     },
     "ElectiveSpellworkRestriction": {
-      "description": "The elective spellwork may only take effect if a certain condition is met. The condition may be related to professions or profession variants, but it is designed so that it can work without a specific profession, as multiple may belong to an institute, but with referencing other entities instead.",
+      "description": "The elective spellwork may only take effect if a certain condition is met.\nThe condition may be related to professions or profession variants, but it is\ndesigned so that it can work without a specific profession, as multiple may\nbelong to an institute, but with referencing other entities instead.",
       "type": "object",
       "properties": {
         "tag": {
@@ -173,7 +173,7 @@
               "minItems": 1
             },
             "maximum": {
-              "description": "Spellworks from this property up to a certain number are allowed. Spellworks excluded from this restriction definition using `exclude` do not contribute to the maximum.",
+              "description": "Spellworks from this property up to a certain number are allowed.\nSpellworks excluded from this restriction definition using `exclude` do\nnot contribute to the maximum.",
               "type": "number"
             }
           },
@@ -249,7 +249,7 @@
           "minimum": 1
         },
         "spellwork_changes": {
-          "description": "The spell values difference of the lesson package. This field reflects the changes (difference) to the field of the same name in the profession package. If a spell gets to SR 0 because of this, it will be removed completely.",
+          "description": "The spell values difference of the lesson package. This field reflects the\nchanges (difference) to the field of the same name in the profession\npackage. If a spell gets to SR 0 because of this, it will be removed\ncompletely.",
           "type": "array",
           "items": {
             "type": "object",
@@ -288,7 +288,7 @@
                   "minLength": 1
                 },
                 "spellwork_changes": {
-                  "description": "The spell values difference of the lesson package. Use this field to specify a text that is displayed instead of the generated `spellwork_changes` list. The field is displayed even if no list is present.",
+                  "description": "The spell values difference of the lesson package. Use this field to\nspecify a text that is displayed instead of the generated\n`spellwork_changes` list. The field is displayed even if no list is\npresent.",
                   "type": "string",
                   "minLength": 1
                 }
@@ -324,7 +324,7 @@
               "minimum": 1
             },
             "points": {
-              "description": "The combat technique points that will be added to the current combat technique rating.",
+              "description": "The combat technique points that will be added to the current combat\ntechnique rating.",
               "type": "integer",
               "maximum": 6,
               "minimum": -6
@@ -349,7 +349,7 @@
               "minimum": 1
             },
             "points": {
-              "description": "The combat technique points that will be added to the current combat technique rating.",
+              "description": "The combat technique points that will be added to the current combat\ntechnique rating.",
               "type": "integer",
               "maximum": 6,
               "minimum": -6
@@ -406,13 +406,13 @@
               "minimum": 1
             },
             "points": {
-              "description": "The skill points that will be added to the current skill rating. If a spell gets to a skill rating of 0 because of this, it will be removed completely.",
+              "description": "The skill points that will be added to the current skill rating. If a\nspell gets to a skill rating of 0 because of this, it will be removed\ncompletely.",
               "type": "integer",
               "maximum": 10,
               "minimum": -10
             },
             "tradition_id": {
-              "description": "The target tradition's identifier. If the target spell is not from the Guild Mage tradition, specify the tradition identifier here.",
+              "description": "The target tradition's identifier. If the target spell is not from the\nGuild Mage tradition, specify the tradition identifier here.",
               "type": "integer",
               "minimum": 2
             }
@@ -436,13 +436,13 @@
               "minimum": 1
             },
             "points": {
-              "description": "The skill points that will be added to the current skill rating. If a ritual gets to a skill rating of 0 because of this, it will be removed completely.",
+              "description": "The skill points that will be added to the current skill rating. If a\nritual gets to a skill rating of 0 because of this, it will be removed\ncompletely.",
               "type": "integer",
               "maximum": 10,
               "minimum": -10
             },
             "tradition_id": {
-              "description": "The target tradition's identifier. If the target ritual is not from the Guild Mage tradition, specify the tradition identifier here.",
+              "description": "The target tradition's identifier. If the target ritual is not from the\nGuild Mage tradition, specify the tradition identifier here.",
               "type": "integer",
               "minimum": 2
             }

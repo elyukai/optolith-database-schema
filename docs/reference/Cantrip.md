@@ -52,7 +52,10 @@ States which column is used to improve the skill.
 
 #### <a name="Spell/note"></a> `note`
 
-A note specifying the dissemination of the cantrip in different traditions. Sometimes a cantrip is exclusively available to one or more specific traditions, but usually one the academies and traditions are listed the cantrip is most commonly teached in.
+A note specifying the dissemination of the cantrip in different traditions.
+Sometimes a cantrip is exclusively available to one or more specific
+traditions, but usually one the academies and traditions are listed the
+cantrip is most commonly teached in.
 
 - **Type:** Union
 - **Cases:** <a href="#Spell/note'Exclusive">Spell/note'Exclusive</a> | <a href="#Spell/note'Common">Spell/note'Common</a>
@@ -171,7 +174,9 @@ The name of the spell.
 
 #### <a name="Spell/translations[key]/effect"></a> `effect`
 
-The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
+The effect description may be either a plain text or a text that is
+divided by a list of effects for each quality level. It may also be a
+list for each two quality levels.
 
 - **Type:** <a href="./_ActivatableSkill.md#Effect/T">Effect/T</a>
 
@@ -489,7 +494,8 @@ The full description of the duration.
 
 #### <a name="PerformanceParameters/duration'Indefinite/translations[key]/description/compressed"></a> `compressed`
 
-A compressed description of the duration for use in small areas (e.g. on character sheet).
+A compressed description of the duration for use in small areas
+(e.g. on character sheet).
 
 - **Type:** String
 - **Minimum Length:** `1`

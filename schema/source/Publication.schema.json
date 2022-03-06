@@ -21,7 +21,7 @@
           "$ref": "#/definitions/AgeRestriction"
         },
         "is_missing_implementation": {
-          "description": "The publication is not (fully) implemented and thus needs to be excluded from * stable releases.",
+          "description": "The publication is not (fully) implemented and thus needs to be excluded\nfrom * stable releases.",
           "type": "boolean"
         },
         "prerequisites": {
@@ -56,7 +56,7 @@
                   "format": "date"
                 },
                 "is_missing_implementation": {
-                  "description": "This publication translation is not (fully) implemented and thus needs to be excluded from stable releases.",
+                  "description": "This publication translation is not (fully) implemented and thus needs to\nbe excluded from stable releases.",
                   "type": "boolean"
                 }
               },

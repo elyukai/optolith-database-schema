@@ -22,7 +22,10 @@ The optional rule's identifier. An unique, increasing integer.
 
 #### <a name="OptionalRule/relevance"></a> `relevance`
 
-The relevance of the optional rule for Optolith. It may be that it influences character creating but it may also just influnce the character sheet. If it is linked to systems in Optolith, it may be specified if this rule has not been implemented in Optolith yet.
+The relevance of the optional rule for Optolith. It may be that it
+influences character creating but it may also just influnce the character
+sheet. If it is linked to systems in Optolith, it may be specified if this
+rule has not been implemented in Optolith yet.
 
 - **Type:** <a href="#Relevance">Relevance</a>
 
@@ -73,7 +76,10 @@ The description of the optional rule.
 
 ### <a name="Relevance"></a> `Relevance`
 
-The relevance of the optional rule for Optolith. It may be that it influences character creating but it may also just influnce the character sheet. If it is linked to systems in Optolith, it may be specified if this rule has not been implemented in Optolith yet.
+The relevance of the optional rule for Optolith. It may be that it influences
+character creating but it may also just influnce the character sheet. If it
+is linked to systems in Optolith, it may be specified if this rule has not
+been implemented in Optolith yet.
 
 - **Type:** Union
 - **Cases:** <a href="#Relevance'Extraneous">Relevance'Extraneous</a> | <a href="#Relevance'Linked">Relevance'Linked</a>
@@ -109,6 +115,8 @@ Key | Description | Details
 
 #### <a name="Relevance'Linked/isMissingImplementation"></a> `isMissingImplementation?`
 
-Does the optional rule have an impact on character creation or character sheet and this effect has not been implemented in Optolith yet? If `true`, the optional rule cannot be activated.
+Does the optional rule have an impact on character creation or character
+sheet and this effect has not been implemented in Optolith yet? If
+`true`, the optional rule cannot be activated.
 
 - **Type:** Boolean

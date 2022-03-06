@@ -21,7 +21,8 @@ The property's identifier. An unique, increasing integer.
 
 #### <a name="Property/check"></a> `check?`
 
-The property check's attributes. Only the properties from the Core Rules have defined property checks.
+The property check's attributes. Only the properties from the Core Rules
+have defined property checks.
 
 - **Type:** <a href="./_SkillCheck.md#SkillCheck">SkillCheck</a>
 

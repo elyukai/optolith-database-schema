@@ -38,7 +38,7 @@
                   "minLength": 1
                 },
                 "prerequisites": {
-                  "description": "Prerequisites of participants and environment. Do not specify if the sex practice has no prerequisites.",
+                  "description": "Prerequisites of participants and environment. Do not specify if the\nsex practice has no prerequisites.",
                   "type": "string",
                   "minLength": 1
                 },

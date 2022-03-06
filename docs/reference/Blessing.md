@@ -269,7 +269,8 @@ The full description of the duration.
 
 #### <a name="PerformanceParameters/duration'Indefinite/translations[key]/description/compressed"></a> `compressed`
 
-A compressed description of the duration for use in small areas (e.g. on character sheet).
+A compressed description of the duration for use in small areas
+(e.g. on character sheet).
 
 - **Type:** String
 - **Minimum Length:** `1`

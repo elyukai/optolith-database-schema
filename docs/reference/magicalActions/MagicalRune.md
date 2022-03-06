@@ -133,7 +133,8 @@ Key | Description | Details
 
 #### <a name="MagicalRune/check_penalty'CloseCombatTechnique/other/modifier"></a> `modifier`
 
-The check modifier for close combat techniques not specified in `map`.
+The check modifier for close combat techniques not specified in
+`map`.
 
 - **Type:** Integer
 
@@ -169,7 +170,9 @@ The native name of the magical rune.
 
 #### <a name="MagicalRune/translations[key]/effect"></a> `effect`
 
-The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
+The effect description may be either a plain text or a text that is
+divided by a list of effects for each quality level. It may also be a
+list for each two quality levels.
 
 - **Type:** <a href="../_ActivatableSkill.md#Effect/T">Effect/T</a>
 
@@ -380,7 +383,8 @@ The AE cost value.
 
 #### <a name="PerformanceParameters/cost'Single/translations"></a> `translations?`
 
-All translations for the entry, identified by IETF language tag (BCP47).
+All translations for the entry, identified by IETF language tag
+(BCP47).
 
 - **Type:** Dictionary
 - **Property Values:** <a href="#PerformanceParameters/cost'Single/translations[key]">PerformanceParameters/cost'Single/translations[key]</a>
@@ -426,7 +430,8 @@ The full note.
 
 #### <a name="PerformanceParameters/cost'Single/translations[key]/note/compressed"></a> `compressed?`
 
-A compressed note, if applicable. If not specified it should not be displayed in small location.
+A compressed note, if applicable. If not specified it should not
+be displayed in small location.
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -531,7 +536,8 @@ Key | Description | Details
 
 #### <a name="PerformanceParameters/crafting_time/translations[key]/per"></a> `per?`
 
-The crafting time has to be per a specific countable entity, e.g. `8 action per person`.
+The crafting time has to be per a specific countable entity, e.g. `8
+action per person`.
 
 - **Type:** <a href="#PerformanceParameters/crafting_time/translations[key]/per">Object</a>
 
@@ -539,7 +545,8 @@ The crafting time has to be per a specific countable entity, e.g. `8 action per 
 
 ### <a name="PerformanceParameters/crafting_time/translations[key]/per"></a> `PerformanceParameters/crafting_time/translations[key]/per`
 
-The crafting time has to be per a specific countable entity, e.g. `8 action per person`.
+The crafting time has to be per a specific countable entity, e.g. `8
+action per person`.
 
 - **Type:** Object
 

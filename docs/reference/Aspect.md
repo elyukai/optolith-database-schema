@@ -47,7 +47,8 @@ The aspect name.
 
 #### <a name="Aspect/translations[key]/master_of_aspect_suffix"></a> `master_of_aspect_suffix?`
 
-The aspect's name appended to the simple name (not `name_in_library`) of the special ability *Master of (Aspect)*.
+The aspect's name appended to the simple name (not `name_in_library`)
+of the special ability *Master of (Aspect)*.
 
 - **Type:** String
 - **Minimum Length:** `1`

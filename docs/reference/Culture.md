@@ -41,7 +41,8 @@ A list of native languages (usually it is only one).
 
 #### <a name="Culture/script"></a> `script?`
 
-A list of native scripts (usually it is only one). If the culture does not use any script, leave this field empty.
+A list of native scripts (usually it is only one). If the culture does not
+use any script, leave this field empty.
 
 - **Type:** List
 - **Items:** <a href="#Culture/script[]">Culture/script[]</a>
@@ -63,7 +64,10 @@ A list of possible social status in the respective culture.
 
 #### <a name="Culture/common_professions"></a> `common_professions`
 
-A list of professions that are typical for the culture, as well as professions that are rarely practiced or encountered in the culture. The list is either defined by group (as multiple lists) or plain (as a single list).
+A list of professions that are typical for the culture, as well as
+professions that are rarely practiced or encountered in the culture. The
+list is either defined by group (as multiple lists) or plain (as a single
+list).
 
 - **Type:** <a href="#CommonProfessions/Config">CommonProfessions/Config</a>
 
@@ -381,7 +385,8 @@ The list of professions.
 
 ### <a name="CommonProfessions/Grouped/Constraints/WeightedVariants"></a> `CommonProfessions/Grouped/Constraints/WeightedVariants`
 
-Some profession variants are more common than others. There may be cultures where some variants are not represented at all.
+Some profession variants are more common than others. There may be
+cultures where some variants are not represented at all.
 
 - **Type:** Object
 
@@ -400,7 +405,9 @@ The list of more common variants.
 
 #### <a name="CommonProfessions/Grouped/Constraints/WeightedVariants/weight"></a> `weight`
 
-The "weight" difference compared to other variants. Some variants are simply more common (Mostly), but sometimes only specific variants are used (Only).
+The "weight" difference compared to other variants. Some variants are
+simply more common (Mostly), but sometimes only specific variants are
+used (Only).
 
 - **Type:** <a href="#CommonProfessions/Grouped/Weight">CommonProfessions/Grouped/Weight</a>
 
@@ -436,13 +443,15 @@ The profession's identifier.
 
 #### <a name="CommonProfessions/Grouped/Constraints/Profession/weighted_variants"></a> `weighted_variants?`
 
-Some profession variants are more common than others. There may be cultures where some variants are not represented at all.
+Some profession variants are more common than others. There may be
+cultures where some variants are not represented at all.
 
 - **Type:** <a href="#CommonProfessions/Grouped/Constraints/WeightedVariants">CommonProfessions/Grouped/Constraints/WeightedVariants</a>
 
 #### <a name="CommonProfessions/Grouped/Constraints/Profession/rarity"></a> `rarity?`
 
-Some professions may be found in a culture, but are not that common.
+Some professions may be found in a culture, but are not that
+common.
 
 - **Type:** <a href="#CommonProfessions/Grouped/Rarity">CommonProfessions/Grouped/Rarity</a>
 
@@ -450,7 +459,9 @@ Some professions may be found in a culture, but are not that common.
 
 ### <a name="CommonProfessions/Grouped/Weight"></a> `CommonProfessions/Grouped/Weight`
 
-The "weight" difference compared to other variants. Some variants are simply more common (Mostly), but sometimes only specific variants are used (Only).
+The "weight" difference compared to other variants. Some variants are
+simply more common (Mostly), but sometimes only specific variants are
+used (Only).
 
 - **Type:** Union
 - **Cases:** <a href="#CommonProfessions/Grouped/Weight'Mostly">CommonProfessions/Grouped/Weight'Mostly</a> | <a href="#CommonProfessions/Grouped/Weight'Only">CommonProfessions/Grouped/Weight'Only</a>
@@ -607,7 +618,10 @@ Key | Description | Details
 
 ### <a name="CommonProfessions/Grouped/Mundane/Operation"></a> `CommonProfessions/Grouped/Mundane/Operation`
 
-This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints (include) or only the professions are kept that are different from the constraints (exclude).
+This defines how the list of constraints should be offset against the
+list of all mundane professions: Either only the professions are kept
+that intersect with the constraints (include) or only the professions
+are kept that are different from the constraints (exclude).
 
 - **Type:** Union
 - **Cases:** <a href="#CommonProfessions/Grouped/Mundane/Operation'Intersection">CommonProfessions/Grouped/Mundane/Operation'Intersection</a> | <a href="#CommonProfessions/Grouped/Mundane/Operation'Difference">CommonProfessions/Grouped/Mundane/Operation'Difference</a>
@@ -644,7 +658,8 @@ Key | Description | Details
 
 ### <a name="CommonProfessions/Grouped/Mundane/T"></a> `CommonProfessions/Grouped/Mundane/T`
 
-A list of professions. The filter specifies how the list is applied to all mundane professions.
+A list of professions. The filter specifies how the list is applied to
+all mundane professions.
 
 - **Type:** Object
 
@@ -663,7 +678,10 @@ The list of professions.
 
 #### <a name="CommonProfessions/Grouped/Mundane/T/operation"></a> `operation`
 
-This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints (include) or only the professions are kept that are different from the constraints (exclude).
+This defines how the list of constraints should be offset against the
+list of all mundane professions: Either only the professions are kept
+that intersect with the constraints (include) or only the professions
+are kept that are different from the constraints (exclude).
 
 - **Type:** <a href="#CommonProfessions/Grouped/Mundane/Operation">CommonProfessions/Grouped/Mundane/Operation</a>
 
@@ -677,7 +695,8 @@ This defines how the list of constraints should be offset against the list of al
 
 ### <a name="CommonProfessions/Grouped/Magic/WeightedProfessions"></a> `CommonProfessions/Grouped/Magic/WeightedProfessions`
 
-Some professions are more common than others. There may be cultures where some professions are not represented at all.
+Some professions are more common than others. There may be cultures
+where some professions are not represented at all.
 
 - **Type:** Object
 
@@ -696,7 +715,9 @@ The list of more common variants.
 
 #### <a name="CommonProfessions/Grouped/Magic/WeightedProfessions/weight"></a> `weight`
 
-The "weight" difference compared to other professions. Some professions are simply more common (Mostly), but sometimes only specific professions are used (Only).
+The "weight" difference compared to other professions. Some
+professions are simply more common (Mostly), but sometimes only
+specific professions are used (Only).
 
 - **Type:** <a href="#CommonProfessions/Grouped/Weight">CommonProfessions/Grouped/Weight</a>
 
@@ -739,7 +760,8 @@ The magical tradition's identifier.
 
 #### <a name="CommonProfessions/Grouped/Magic/Constraint'Tradition/weighted_professions"></a> `weighted_professions?`
 
-Some professions are more common than others. There may be cultures where some professions are not represented at all.
+Some professions are more common than others. There may be cultures
+where some professions are not represented at all.
 
 - **Type:** <a href="#CommonProfessions/Grouped/Magic/WeightedProfessions">CommonProfessions/Grouped/Magic/WeightedProfessions</a>
 
@@ -868,7 +890,8 @@ Key | Description | Details
 
 #### <a name="CommonProfessions/Grouped/T/mundane"></a> `mundane?`
 
-A list of professions. The filter specifies how the list is applied to all mundane professions.
+A list of professions. The filter specifies how the list is applied to
+all mundane professions.
 
 - **Type:** <a href="#CommonProfessions/Grouped/Mundane/T">CommonProfessions/Grouped/Mundane/T</a>
 
@@ -884,7 +907,10 @@ A list of professions. The filter specifies how the list is applied to all munda
 
 ### <a name="CommonProfessions/Config"></a> `CommonProfessions/Config`
 
-A list of professions that are typical for the culture, as well as professions that are rarely practiced or encountered in the culture. The list is either defined by group (as multiple lists) or plain (as a single list).
+A list of professions that are typical for the culture, as well as
+professions that are rarely practiced or encountered in the culture. The
+list is either defined by group (as multiple lists) or plain (as a single
+list).
 
 - **Type:** Union
 - **Cases:** <a href="#CommonProfessions/Config'T">CommonProfessions/Config'T</a> | <a href="#CommonProfessions/Config'T">CommonProfessions/Config'T</a>
@@ -938,7 +964,8 @@ The skill's identifier.
 
 #### <a name="CulturalPackageItem/points"></a> `points`
 
-The skill points for the respective skill you get for buying the cultural package.
+The skill points for the respective skill you get for buying the cultural
+package.
 
 - **Type:** Integer
 - **Minimum:** `1`
@@ -1035,7 +1062,8 @@ The full description without examples in parenthesis.
 
 #### <a name="AreaKnowledgeTranslation/abbreviated"></a> `abbreviated`
 
-A shorter version of the description, used in input fields and other UI elements where the space might be to small to use the full description.
+A shorter version of the description, used in input fields and other UI
+elements where the space might be to small to use the full description.
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -1078,7 +1106,8 @@ Key | Description | Details
 
 #### <a name="CommonNames/first_name_groups"></a> `first_name_groups?`
 
-First names can be gender-neutral, but they can also be for a specific binary sex. They are sorted into groups.
+First names can be gender-neutral, but they can also be for a specific
+binary sex. They are sorted into groups.
 
 - **Type:** List
 - **Items:** <a href="#CommonNames/first_name_groups[]">CommonNames/first_name_groups[]</a>
@@ -1086,7 +1115,8 @@ First names can be gender-neutral, but they can also be for a specific binary se
 
 #### <a name="CommonNames/last_name_groups"></a> `last_name_groups?`
 
-Last names can be gender-neutral, like family names, but they can also be for a specific binary sex. They are sorted into groups.
+Last names can be gender-neutral, like family names, but they can also be
+for a specific binary sex. They are sorted into groups.
 
 - **Type:** List
 - **Items:** <a href="#CommonNames/last_name_groups[]">CommonNames/last_name_groups[]</a>

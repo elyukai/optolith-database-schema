@@ -13,7 +13,7 @@
           "minimum": 1
         },
         "relevance": {
-          "description": "The relevance of the optional rule for Optolith. It may be that it influences character creating but it may also just influnce the character sheet. If it is linked to systems in Optolith, it may be specified if this rule has not been implemented in Optolith yet.",
+          "description": "The relevance of the optional rule for Optolith. It may be that it\ninfluences character creating but it may also just influnce the character\nsheet. If it is linked to systems in Optolith, it may be specified if this\nrule has not been implemented in Optolith yet.",
           "$ref": "#/definitions/Relevance"
         },
         "src": {
@@ -60,7 +60,7 @@
       "additionalProperties": false
     },
     "Relevance": {
-      "description": "The relevance of the optional rule for Optolith. It may be that it influences character creating but it may also just influnce the character sheet. If it is linked to systems in Optolith, it may be specified if this rule has not been implemented in Optolith yet.",
+      "description": "The relevance of the optional rule for Optolith. It may be that it influences\ncharacter creating but it may also just influnce the character sheet. If it\nis linked to systems in Optolith, it may be specified if this rule has not\nbeen implemented in Optolith yet.",
       "oneOf": [
         {
           "type": "object",
@@ -81,7 +81,7 @@
               "const": "Linked"
             },
             "isMissingImplementation": {
-              "description": "Does the optional rule have an impact on character creation or character sheet and this effect has not been implemented in Optolith yet? If `true`, the optional rule cannot be activated.",
+              "description": "Does the optional rule have an impact on character creation or character\nsheet and this effect has not been implemented in Optolith yet? If\n`true`, the optional rule cannot be activated.",
               "type": "boolean"
             }
           },

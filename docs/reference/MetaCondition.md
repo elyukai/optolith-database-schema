@@ -1,12 +1,16 @@
 # Meta Condition
 
-Meta Conditions are rule elements that work like conditions in the sense that they have four levels with different effects, but which are not explicitly listed as conditions.
+Meta Conditions are rule elements that work like conditions in the sense that
+they have four levels with different effects, but which are not explicitly
+listed as conditions.
 
 ## Definitions
 
 ### <a name="MetaCondition"></a> Meta Condition (`MetaCondition`)
 
-Meta Conditions are rule elements that work like conditions in the sense that they have four levels with different effects, but which are not explicitly listed as conditions.
+Meta Conditions are rule elements that work like conditions in the sense that
+they have four levels with different effects, but which are not explicitly
+listed as conditions.
 
 - **Type:** Object
 

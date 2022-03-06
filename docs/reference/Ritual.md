@@ -61,7 +61,9 @@ The property's identifier.
 
 #### <a name="Ritual/traditions"></a> `traditions`
 
-The tradition(s) the ritual is available for. It may be *generally* available to all traditions or it may be only familiar in specific traditions.
+The tradition(s) the ritual is available for. It may be *generally*
+available to all traditions or it may be only familiar in specific
+traditions.
 
 - **Type:** Union
 - **Cases:** <a href="#Ritual/traditions'General">Ritual/traditions'General</a> | <a href="#Ritual/traditions'Specific">Ritual/traditions'Specific</a>
@@ -143,14 +145,17 @@ Key | Description | Details
 
 #### <a name="Ritual/traditions'Specific/list[]/id"></a> `id`
 
-The magical tradition's identifier. If `is_placeholder` is `true` then this is the magical tradition's placeholder identifier instead.
+The magical tradition's identifier. If `is_placeholder` is `true`
+then this is the magical tradition's placeholder identifier
+instead.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
 #### <a name="Ritual/traditions'Specific/list[]/is_placeholder"></a> `is_placeholder?`
 
-If set to `true`, the tradition is not available as a special ability yet.
+If set to `true`, the tradition is not available as a special ability
+yet.
 
 - **Constant:** `true`
 
@@ -180,7 +185,9 @@ The name of the ritual.
 
 #### <a name="Ritual/translations[key]/effect"></a> `effect`
 
-The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
+The effect description may be either a plain text or a text that is
+divided by a list of effects for each quality level. It may also be a
+list for each two quality levels.
 
 - **Type:** <a href="./_ActivatableSkill.md#Effect/T">Effect/T</a>
 

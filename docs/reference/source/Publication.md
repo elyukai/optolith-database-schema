@@ -36,7 +36,8 @@ The age the content is restricted to.
 
 #### <a name="Publication/is_missing_implementation"></a> `is_missing_implementation?`
 
-The publication is not (fully) implemented and thus needs to be excluded from * stable releases.
+The publication is not (fully) implemented and thus needs to be excluded
+from * stable releases.
 
 - **Type:** Boolean
 
@@ -99,7 +100,8 @@ The publication's release date.
 
 #### <a name="Publication/translations[key]/is_missing_implementation"></a> `is_missing_implementation?`
 
-This publication translation is not (fully) implemented and thus needs to be excluded from stable releases.
+This publication translation is not (fully) implemented and thus needs to
+be excluded from stable releases.
 
 - **Type:** Boolean
 

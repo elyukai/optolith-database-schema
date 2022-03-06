@@ -40,7 +40,8 @@ In some cases, the target's Spirit or Toughness is applied as a penalty.
 
 #### <a name="MagicalMelody/skill"></a> `skill`
 
-Arcane bards must make a *Singing (area of application)* or *Music (area of application)* check for each magical melody.
+Arcane bards must make a *Singing (area of application)* or *Music (area of
+application)* check for each magical melody.
 
 - **Type:** List
 - **Items:** <a href="#MagicalMelody/skill[]">MagicalMelody/skill[]</a>
@@ -63,7 +64,8 @@ The property's identifier.
 
 #### <a name="MagicalMelody/music_tradition"></a> `music_tradition`
 
-The music tradition(s) the magical melody is available for. This also defines the different names in each music tradition.
+The music tradition(s) the magical melody is available for. This also
+defines the different names in each music tradition.
 
 - **Type:** List
 - **Items:** <a href="#MagicalMelody/music_tradition[]">MagicalMelody/music_tradition[]</a>
@@ -123,7 +125,9 @@ The name of the magical melody.
 
 #### <a name="MagicalMelody/translations[key]/effect"></a> `effect`
 
-The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
+The effect description may be either a plain text or a text that is
+divided by a list of effects for each quality level. It may also be a
+list for each two quality levels.
 
 - **Type:** <a href="../_ActivatableSkill.md#Effect/T">Effect/T</a>
 
@@ -315,7 +319,8 @@ Key | Description | Details
 
 #### <a name="PerformanceParameters/cost'FirstPerson/value"></a> `value`
 
-The (temporary) AE cost value for the first targeted person. The AE cost for each additional person is half this value.
+The (temporary) AE cost value for the first targeted person. The AE
+cost for each additional person is half this value.
 
 - **Type:** Integer
 - **Minimum:** `1`

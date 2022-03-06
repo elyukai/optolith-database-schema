@@ -46,21 +46,27 @@ The property's identifier.
 
 #### <a name="AnimistPower/tribe_tradition"></a> `tribe_tradition`
 
-The tribe traditions the animist power is available to. It may be available to all or only specific tribes.
+The tribe traditions the animist power is available to. It may be available
+to all or only specific tribes.
 
 - **Type:** Union
 - **Cases:** <a href="#AnimistPower/tribe_tradition'General">AnimistPower/tribe_tradition'General</a> | <a href="#AnimistPower/tribe_tradition'Specific">AnimistPower/tribe_tradition'Specific</a>
 
 #### <a name="AnimistPower/improvement_cost"></a> `improvement_cost`
 
-States which column is used to improve the skill. It is a fixed value or depends on the primary patron.
+States which column is used to improve the skill. It is a fixed value or
+depends on the primary patron.
 
 - **Type:** Union
 - **Cases:** <a href="#AnimistPower/improvement_cost'Flat">AnimistPower/improvement_cost'Flat</a> | <a href="#AnimistPower/improvement_cost'ByPrimaryPatron">AnimistPower/improvement_cost'ByPrimaryPatron</a>
 
 #### <a name="AnimistPower/levels"></a> `levels?`
 
-The animist power can have multiple levels. Each level is skilled separately. A previous level must be on at least 10 so that the next higher level can be activated and skilled. A higher level cannot be skilled higher than a lower level. Each level also adds an effect text to the text of the first level.
+The animist power can have multiple levels. Each level is skilled
+separately. A previous level must be on at least 10 so that the next higher
+level can be activated and skilled. A higher level cannot be skilled higher
+than a lower level. Each level also adds an effect text to the text of the
+first level.
 
 - **Type:** List
 - **Items:** <a href="#AnimistPower/levels[]">AnimistPower/levels[]</a>
@@ -243,14 +249,18 @@ The name of the animist power.
 
 #### <a name="AnimistPower/translations[key]/name_in_library"></a> `name_in_library?`
 
-The full name of the entry as stated in the sources. Only use when `name` needs to be different from full name for text generation purposes.
+The full name of the entry as stated in the sources. Only use when
+`name` needs to be different from full name for text generation
+purposes.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
 #### <a name="AnimistPower/translations[key]/effect"></a> `effect`
 
-The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
+The effect description may be either a plain text or a text that is
+divided by a list of effects for each quality level. It may also be a
+list for each two quality levels.
 
 - **Type:** <a href="../_ActivatableSkill.md#Effect/T">Effect/T</a>
 
@@ -331,7 +341,8 @@ Key | Description | Details
 
 #### <a name="PerformanceParameters'OneTime/cost"></a> `cost`
 
-The AE cost value, either a flat value or defined dynamically by the primary patron.
+The AE cost value, either a flat value or defined dynamically by the
+primary patron.
 
 - **Type:** Union
 - **Cases:** <a href="#PerformanceParameters'OneTime/cost'Fixed">PerformanceParameters'OneTime/cost'Fixed</a> | <a href="#PerformanceParameters'OneTime/cost'ByPrimaryPatron">PerformanceParameters'OneTime/cost'ByPrimaryPatron</a>
@@ -368,7 +379,8 @@ The AE cost value.
 
 #### <a name="PerformanceParameters'OneTime/cost'Fixed/interval"></a> `interval?`
 
-If defined, half of the AE cost `value` has to be paid each interval.
+If defined, half of the AE cost `value` has to be paid each
+interval.
 
 - **Type:** <a href="../_ActivatableSkill.md#Duration/UnitValue">Duration/UnitValue</a>
 
@@ -389,7 +401,8 @@ Key | Description | Details
 
 #### <a name="PerformanceParameters'OneTime/cost'ByPrimaryPatron/interval"></a> `interval?`
 
-If defined, half of the AE cost `value` has to be paid each interval.
+If defined, half of the AE cost `value` has to be paid each
+interval.
 
 - **Type:** <a href="../_ActivatableSkill.md#Duration/UnitValue">Duration/UnitValue</a>
 
@@ -466,7 +479,8 @@ Key | Description | Details
 
 #### <a name="PerformanceParameters'Sustained/cost"></a> `cost`
 
-The AE cost value, either a flat value or defined dynamically by the primary patron.
+The AE cost value, either a flat value or defined dynamically by the
+primary patron.
 
 - **Type:** Union
 - **Cases:** <a href="#PerformanceParameters'Sustained/cost'Fixed">PerformanceParameters'Sustained/cost'Fixed</a> | <a href="#PerformanceParameters'Sustained/cost'ByPrimaryPatron">PerformanceParameters'Sustained/cost'ByPrimaryPatron</a>

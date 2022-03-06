@@ -45,7 +45,7 @@
                   "minLength": 1
                 },
                 "effect": {
-                  "description": "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
+                  "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
                   "$ref": "../_ActivatableSkill.schema.json#/definitions/Effect/T"
                 },
                 "cost": {
@@ -138,7 +138,7 @@
                           "minLength": 1
                         },
                         "compressed": {
-                          "description": "A compressed description of where the cost come from for use in small areas (e.g. on character sheet).",
+                          "description": "A compressed description of where the cost come from for use in\nsmall areas (e.g. on character sheet).",
                           "type": "string",
                           "minLength": 1
                         }
@@ -247,7 +247,7 @@
                               "minLength": 1
                             },
                             "compressed": {
-                              "description": "A compressed description of the duration for use in small areas (e.g. on character sheet).",
+                              "description": "A compressed description of the duration for use in small areas\n(e.g. on character sheet).",
                               "type": "string",
                               "minLength": 1
                             }

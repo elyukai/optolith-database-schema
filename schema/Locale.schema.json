@@ -30,7 +30,7 @@
           "minLength": 1
         },
         "is_missing_implementation": {
-          "description": "The language is not (fully) implemented and thus needs to be excluded from stable releases.",
+          "description": "The language is not (fully) implemented and thus needs to be excluded from\nstable releases.",
           "type": "boolean"
         }
       },

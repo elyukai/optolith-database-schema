@@ -45,7 +45,8 @@ The property's identifier.
 
 #### <a name="MagicalDance/music_tradition"></a> `music_tradition`
 
-The music tradition(s) the magical dance is available for. This also defines the different names in each music tradition.
+The music tradition(s) the magical dance is available for. This also
+defines the different names in each music tradition.
 
 - **Type:** List
 - **Items:** <a href="#MagicalDance/music_tradition[]">MagicalDance/music_tradition[]</a>
@@ -99,7 +100,9 @@ The name of the magical dance.
 
 #### <a name="MagicalDance/translations[key]/effect"></a> `effect`
 
-The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
+The effect description may be either a plain text or a text that is
+divided by a list of effects for each quality level. It may also be a
+list for each two quality levels.
 
 - **Type:** <a href="../_ActivatableSkill.md#Effect/T">Effect/T</a>
 
@@ -297,7 +300,8 @@ Key | Description | Details
 
 #### <a name="PerformanceParameters/cost'Fixed/translations[key]/per"></a> `per?`
 
-The cost have to be per a specific countable entity, e.g. `8 AE per person`.
+The cost have to be per a specific countable entity, e.g. `8 AE per
+person`.
 
 - **Type:** <a href="#PerformanceParameters/cost'Fixed/translations[key]/per">Object</a>
 
@@ -305,7 +309,8 @@ The cost have to be per a specific countable entity, e.g. `8 AE per person`.
 
 ### <a name="PerformanceParameters/cost'Fixed/translations[key]/per"></a> `PerformanceParameters/cost'Fixed/translations[key]/per`
 
-The cost have to be per a specific countable entity, e.g. `8 AE per person`.
+The cost have to be per a specific countable entity, e.g. `8 AE per
+person`.
 
 - **Type:** Object
 
@@ -346,7 +351,8 @@ Key | Description | Details
 
 #### <a name="PerformanceParameters/cost'Indefinite/modifier"></a> `modifier?`
 
-Specified if the indefinite description's result value is to be modified by a certain number.
+Specified if the indefinite description's result value is to be
+modified by a certain number.
 
 - **Type:** <a href="#PerformanceParameters/cost'Indefinite/modifier">Object</a>
 
@@ -363,7 +369,8 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="PerformanceParameters/cost'Indefinite/modifier"></a> `PerformanceParameters/cost'Indefinite/modifier`
 
-Specified if the indefinite description's result value is to be modified by a certain number.
+Specified if the indefinite description's result value is to be
+modified by a certain number.
 
 - **Type:** Object
 
@@ -380,7 +387,8 @@ The arithmetic how to apply the `value` to the indefinite value.
 
 #### <a name="PerformanceParameters/cost'Indefinite/modifier/value"></a> `value`
 
-The value that is applied to the indefinite value using the defined `arithmetic`.
+The value that is applied to the indefinite value using the defined
+`arithmetic`.
 
 - **Type:** Integer
 - **Minimum:** `2`
@@ -423,7 +431,8 @@ The full description of the duration.
 
 #### <a name="PerformanceParameters/cost'Indefinite/translations[key]/description/compressed"></a> `compressed`
 
-A compressed description of the duration for use in small areas (e.g. on character sheet).
+A compressed description of the duration for use in small areas
+(e.g. on character sheet).
 
 - **Type:** String
 - **Minimum Length:** `1`

@@ -186,7 +186,7 @@
                               "minLength": 1
                             },
                             "compressed": {
-                              "description": "A compressed description of the duration for use in small areas (e.g. on character sheet).",
+                              "description": "A compressed description of the duration for use in small areas\n(e.g. on character sheet).",
                               "type": "string",
                               "minLength": 1
                             }

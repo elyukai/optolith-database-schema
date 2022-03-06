@@ -32,7 +32,9 @@ Lists the linked three attributes used to make a skill check.
 
 #### <a name="Skill/applications"></a> `applications`
 
-Lists applications for the skill, if any. This does not necessarily include all possible applications. There may also be new applications that could be purchased via certain advantages or special abilities.
+Lists applications for the skill, if any. This does not necessarily include
+all possible applications. There may also be new applications that could be
+purchased via certain advantages or special abilities.
 
 - **Type:** <a href="#Applications">Applications</a>
 
@@ -94,21 +96,26 @@ The name of the skill.
 
 #### <a name="Skill/translations[key]/applications_input_label"></a> `applications_input_label?`
 
-If there are options available that can not be put into a selection list (like different cults), provide the label text for the input element here. Otherwise leave empty.
+If there are options available that can not be put into a selection
+list (like different cults), provide the label text for the input
+element here. Otherwise leave empty.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
 #### <a name="Skill/translations[key]/encumbrance_description"></a> `encumbrance_description?`
 
-The text listing the certain circumstances in which the encumbrance may count. This text must be used if `encumbrance` is set to `"Maybe"`, otherwise it is ignored if defined.
+The text listing the certain circumstances in which the encumbrance may
+count. This text must be used if `encumbrance` is set to `"Maybe"`,
+otherwise it is ignored if defined.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
 #### <a name="Skill/translations[key]/tools"></a> `tools?`
 
-Mentions any tools from the equipment list that are necessary to employ the skill.
+Mentions any tools from the equipment list that are necessary to employ
+the skill.
 
 - **Type:** Markdown-formatted text
 - **Minimum Length:** `1`
@@ -149,7 +156,8 @@ Lists examples of results for botches.
 
 ### <a name="ApplicationCategory"></a> `ApplicationCategory`
 
-A category. All available entries from the specified category will be included as separate applications.
+A category. All available entries from the specified category will be
+included as separate applications.
 
 - **Type:** Union
 - **Cases:** <a href="#ApplicationCategory'BlessedTraditions">ApplicationCategory'BlessedTraditions</a> | <a href="#ApplicationCategory'Diseases">ApplicationCategory'Diseases</a> | <a href="#ApplicationCategory'Regions">ApplicationCategory'Regions</a>
@@ -222,7 +230,8 @@ Key | Description | Details
 
 #### <a name="Applications'Derived/category"></a> `category`
 
-A category. All available entries from the specified category will be included as separate applications.
+A category. All available entries from the specified category will be
+included as separate applications.
 
 - **Type:** <a href="#ApplicationCategory">ApplicationCategory</a>
 

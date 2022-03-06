@@ -4,7 +4,9 @@
 
 ### <a name="Effect/T"></a> `Effect/T`
 
-The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
+The effect description may be either a plain text or a text that is divided
+by a list of effects for each quality level. It may also be a list for each
+two quality levels.
 
 - **Type:** Union
 - **Cases:** <a href="#Effect/T'Plain">Effect/T'Plain</a> | <a href="#Effect/T'ForEachQualityLevel">Effect/T'ForEachQualityLevel</a> | <a href="#Effect/T'ForEachTwoQualityLevels">Effect/T'ForEachTwoQualityLevels</a>
@@ -50,7 +52,8 @@ Key | Description | Details
 
 #### <a name="Effect/T'ForEachQualityLevel/text_before"></a> `text_before`
 
-The effect description before the list of effects for each quality level.
+The effect description before the list of effects for each quality
+level.
 
 - **Type:** Markdown-formatted text
 - **Minimum Length:** `1`
@@ -64,7 +67,8 @@ The list of effects for each quality level.
 
 #### <a name="Effect/T'ForEachQualityLevel/text_after"></a> `text_after?`
 
-The effect description after the list of effects for each quality level.
+The effect description after the list of effects for each quality
+level.
 
 - **Type:** Markdown-formatted text
 - **Minimum Length:** `1`
@@ -124,7 +128,8 @@ Key | Description | Details
 
 #### <a name="Effect/T'ForEachTwoQualityLevels/text_before"></a> `text_before`
 
-The effect description before the list of effects for each quality level.
+The effect description before the list of effects for each quality
+level.
 
 - **Type:** Markdown-formatted text
 - **Minimum Length:** `1`
@@ -138,7 +143,8 @@ The list of effects for each two quality levels.
 
 #### <a name="Effect/T'ForEachTwoQualityLevels/text_after"></a> `text_after?`
 
-The effect description after the list of effects for each quality level.
+The effect description after the list of effects for each quality
+level.
 
 - **Type:** Markdown-formatted text
 - **Minimum Length:** `1`
@@ -461,7 +467,9 @@ The default casting time definition.
 
 #### <a name="CastingTime/Fast/during_lovemaking"></a> `during_lovemaking?`
 
-The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking.
+The casting time during lovemaking. In Aventurian Intimacy, you may only
+use an activatable skill during lovemaking if it has a casting time used
+during lovemaking.
 
 - **Type:** <a href="#CastingTime/Fast/during_lovemaking">Object</a>
 
@@ -498,7 +506,9 @@ The initial skill modification identifier/level.
 
 ### <a name="CastingTime/Fast/during_lovemaking"></a> `CastingTime/Fast/during_lovemaking`
 
-The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking.
+The casting time during lovemaking. In Aventurian Intimacy, you may only
+use an activatable skill during lovemaking if it has a casting time used
+during lovemaking.
 
 - **Type:** Object
 
@@ -540,7 +550,9 @@ The default casting time definition.
 
 #### <a name="CastingTime/Slow/during_lovemaking"></a> `during_lovemaking?`
 
-The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking.
+The casting time during lovemaking. In Aventurian Intimacy, you may only
+use an activatable skill during lovemaking if it has a casting time used
+during lovemaking.
 
 - **Type:** <a href="#CastingTime/Slow/during_lovemaking">Object</a>
 
@@ -577,7 +589,9 @@ The initial skill modification identifier/level.
 
 ### <a name="CastingTime/Slow/during_lovemaking"></a> `CastingTime/Slow/during_lovemaking`
 
-The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking.
+The casting time during lovemaking. In Aventurian Intimacy, you may only
+use an activatable skill during lovemaking if it has a casting time used
+during lovemaking.
 
 - **Type:** Object
 
@@ -787,7 +801,8 @@ The part of the cost value that has to be spent permanently.
 
 #### <a name="Cost/OneTime/Single'NonModifiable/translations"></a> `translations?`
 
-All translations for the entry, identified by IETF language tag (BCP47).
+All translations for the entry, identified by IETF language tag
+(BCP47).
 
 - **Type:** Dictionary
 - **Property Values:** <a href="#Cost/OneTime/Single'NonModifiable/translations[key]">Cost/OneTime/Single'NonModifiable/translations[key]</a>
@@ -807,13 +822,15 @@ Key | Description | Details
 
 #### <a name="Cost/OneTime/Single'NonModifiable/per/minimum_total"></a> `minimum_total?`
 
-If defined, the minimum total AE that have to be spent casting the skill.
+If defined, the minimum total AE that have to be spent casting the
+skill.
 
 - **Type:** Number
 
 #### <a name="Cost/OneTime/Single'NonModifiable/per/translations"></a> `translations`
 
-All translations for the entry, identified by IETF language tag (BCP47).
+All translations for the entry, identified by IETF language tag
+(BCP47).
 
 - **Type:** Dictionary
 - **Property Values:** <a href="#Cost/OneTime/Single'NonModifiable/per/translations[key]">Cost/OneTime/Single'NonModifiable/per/translations[key]</a>
@@ -884,7 +901,8 @@ The full note.
 
 #### <a name="Cost/OneTime/Single'NonModifiable/translations[key]/note/compressed"></a> `compressed?`
 
-A compressed note, if applicable. If not specified it should not be displayed in small location.
+A compressed note, if applicable. If not specified it should not
+be displayed in small location.
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -951,7 +969,8 @@ The full description of where the cost come from.
 
 #### <a name="Cost/OneTime/Single'Indefinite/translations[key]/description/compressed"></a> `compressed`
 
-A compressed description of where the cost come from for use in small areas (e.g. on character sheet).
+A compressed description of where the cost come from for use in
+small areas (e.g. on character sheet).
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -960,11 +979,24 @@ A compressed description of where the cost come from for use in small areas (e.g
 
 ### <a name="Cost/OneTime/Map"></a> `Cost/OneTime/Map`
 
-A content that is `2/4/8/16 AE for an item the size of a cup/chest/door/castle gate` may be respresented as the following map:
+A content that is `2/4/8/16 AE for an item the size of a
+cup/chest/door/castle gate` may be respresented as the following map:
 
-```yaml options:   - value: 2     label: "cup"   - value: 4     label: "chest"   - value: 8     label: "door"   - value: 16     label: "castle gate" for_append: "an item the size of a" ```
+```yaml
+options:
+  - value: 2
+    label: "cup"
+  - value: 4
+    label: "chest"
+  - value: 8
+    label: "door"
+  - value: 16
+    label: "castle gate"
+for_append: "an item the size of a"
+```
 
-This will generate the exact same string as seen above – given it is set for a spellwork and thus `AE` is used.
+This will generate the exact same string as seen above – given it is set
+for a spellwork and thus `AE` is used.
 
 - **Type:** Object
 
@@ -1022,7 +1054,10 @@ Place a string after the grouped map option labels.
 
 #### <a name="Cost/OneTime/Map/translations[key]/replacement"></a> `replacement?`
 
-If the string from the book cannot be generated using the default generation technique, use this string. All options still need to be inserted propertly, since it may be used by in-game tools to provide a selection to players.
+If the string from the book cannot be generated using the default
+generation technique, use this string. All options still need to be
+inserted propertly, since it may be used by in-game tools to provide a
+selection to players.
 
 - **Type:** String
 
@@ -1081,7 +1116,8 @@ The description of the option for cost string generation.
 
 #### <a name="Cost/OneTime/MapOption/translations[key]/label_standalone"></a> `label_standalone?`
 
-The description of the option if used standalone. Only used if different from `label`.
+The description of the option if used standalone. Only used if
+different from `label`.
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -1221,7 +1257,8 @@ The full note.
 
 #### <a name="Range/T/translations[key]/note/compressed"></a> `compressed?`
 
-A compressed note, if applicable. If not specified it should not be displayed in small location.
+A compressed note, if applicable. If not specified it should not
+be displayed in small location.
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -1465,7 +1502,10 @@ Key | Description | Details
 
 #### <a name="Duration/OneTime/T'Immediate/translations[key]/replacement/default"></a> `default`
 
-The full replacement string. It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.
+The full replacement string. It must contain `$1`, which is
+going to be replaced with the generated duration string, so
+additional information can be provided without duplicating
+concrete numeric values.
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -1473,7 +1513,11 @@ The full replacement string. It must contain `$1`, which is going to be replaced
 
 #### <a name="Duration/OneTime/T'Immediate/translations[key]/replacement/compressed"></a> `compressed`
 
-A compressed replacement string for use in small areas (e.g. on character sheet). It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.
+A compressed replacement string for use in small areas (e.g. on
+character sheet). It must contain `$1`, which is going to be
+replaced with the generated duration string, so additional
+information can be provided without duplicating concrete
+numeric values.
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -1534,7 +1578,10 @@ Key | Description | Details
 
 #### <a name="Duration/OneTime/T'Permanent/translations[key]/replacement/default"></a> `default`
 
-The full replacement string. It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.
+The full replacement string. It must contain `$1`, which is
+going to be replaced with the generated duration string, so
+additional information can be provided without duplicating
+concrete numeric values.
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -1542,7 +1589,11 @@ The full replacement string. It must contain `$1`, which is going to be replaced
 
 #### <a name="Duration/OneTime/T'Permanent/translations[key]/replacement/compressed"></a> `compressed`
 
-A compressed replacement string for use in small areas (e.g. on character sheet). It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.
+A compressed replacement string for use in small areas (e.g. on
+character sheet). It must contain `$1`, which is going to be
+replaced with the generated duration string, so additional
+information can be provided without duplicating concrete
+numeric values.
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -1625,7 +1676,10 @@ Key | Description | Details
 
 #### <a name="Duration/OneTime/T'Fixed/translations[key]/replacement/default"></a> `default`
 
-The full replacement string. It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.
+The full replacement string. It must contain `$1`, which is
+going to be replaced with the generated duration string, so
+additional information can be provided without duplicating
+concrete numeric values.
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -1633,7 +1687,11 @@ The full replacement string. It must contain `$1`, which is going to be replaced
 
 #### <a name="Duration/OneTime/T'Fixed/translations[key]/replacement/compressed"></a> `compressed`
 
-A compressed replacement string for use in small areas (e.g. on character sheet). It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.
+A compressed replacement string for use in small areas (e.g. on
+character sheet). It must contain `$1`, which is going to be
+replaced with the generated duration string, so additional
+information can be provided without duplicating concrete
+numeric values.
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -1712,7 +1770,8 @@ The arithmetic how to apply the `value` to the `base`.
 
 #### <a name="Duration/OneTime/T'CheckResultBased/modifier/value"></a> `value`
 
-The value that is applied to the `base` using the defined `arithmetic`.
+The value that is applied to the `base` using the defined
+`arithmetic`.
 
 - **Type:** Integer
 - **Minimum:** `2`
@@ -1748,7 +1807,10 @@ Key | Description | Details
 
 #### <a name="Duration/OneTime/T'CheckResultBased/translations[key]/replacement/default"></a> `default`
 
-The full replacement string. It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.
+The full replacement string. It must contain `$1`, which is
+going to be replaced with the generated duration string, so
+additional information can be provided without duplicating
+concrete numeric values.
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -1756,7 +1818,11 @@ The full replacement string. It must contain `$1`, which is going to be replaced
 
 #### <a name="Duration/OneTime/T'CheckResultBased/translations[key]/replacement/compressed"></a> `compressed`
 
-A compressed replacement string for use in small areas (e.g. on character sheet). It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values.
+A compressed replacement string for use in small areas (e.g. on
+character sheet). It must contain `$1`, which is going to be
+replaced with the generated duration string, so additional
+information can be provided without duplicating concrete
+numeric values.
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -1824,7 +1890,8 @@ The full description of the duration.
 
 #### <a name="Duration/OneTime/T'Indefinite/translations[key]/description/compressed"></a> `compressed`
 
-A compressed description of the duration for use in small areas (e.g. on character sheet).
+A compressed description of the duration for use in small areas
+(e.g. on character sheet).
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -2013,7 +2080,8 @@ The arithmetic how to apply the `value` to the `base`.
 
 #### <a name="Duration/CheckResultBasedTaggedAnimistPower/modifier/value"></a> `value`
 
-The value that is applied to the `base` using the defined `arithmetic`.
+The value that is applied to the `base` using the defined
+`arithmetic`.
 
 - **Type:** Integer
 - **Minimum:** `2`

@@ -1,12 +1,16 @@
 # Curriculum
 
-This is a curriculum of a specified academy, containing the guideline, elective and restricted spellworks as well as the lesson packages of that academy.
+This is a curriculum of a specified academy, containing the guideline,
+elective and restricted spellworks as well as the lesson packages of that
+academy.
 
 ## Definitions
 
 ### <a name="Curriculum"></a> Curriculum (`Curriculum`)
 
-This is a curriculum of a specified academy, containing the guideline, elective and restricted spellworks as well as the lesson packages of that academy.
+This is a curriculum of a specified academy, containing the guideline,
+elective and restricted spellworks as well as the lesson packages of that
+academy.
 
 - **Type:** Object
 
@@ -155,7 +159,10 @@ Key | Description | Details
 
 #### <a name="ElectiveSpellwork/restriction"></a> `restriction?`
 
-The elective spellwork may only take effect if a certain condition is met. The condition may be related to professions or profession variants, but it is designed so that it can work without a specific profession, as multiple may belong to an institute, but with referencing other entities instead.
+The elective spellwork may only take effect if a certain condition is met.
+The condition may be related to professions or profession variants, but it
+is designed so that it can work without a specific profession, as multiple
+may belong to an institute, but with referencing other entities instead.
 
 - **Type:** <a href="#ElectiveSpellworkRestriction">ElectiveSpellworkRestriction</a>
 
@@ -163,7 +170,10 @@ The elective spellwork may only take effect if a certain condition is met. The c
 
 ### <a name="ElectiveSpellworkRestriction"></a> `ElectiveSpellworkRestriction`
 
-The elective spellwork may only take effect if a certain condition is met. The condition may be related to professions or profession variants, but it is designed so that it can work without a specific profession, as multiple may belong to an institute, but with referencing other entities instead.
+The elective spellwork may only take effect if a certain condition is met.
+The condition may be related to professions or profession variants, but it is
+designed so that it can work without a specific profession, as multiple may
+belong to an institute, but with referencing other entities instead.
 
 - **Type:** Object
 
@@ -243,7 +253,9 @@ Exclude specific spellworks from the restriction.
 
 #### <a name="RestrictedSpellwork'Property/maximum"></a> `maximum?`
 
-Spellworks from this property up to a certain number are allowed. Spellworks excluded from this restriction definition using `exclude` do not contribute to the maximum.
+Spellworks from this property up to a certain number are allowed.
+Spellworks excluded from this restriction definition using `exclude` do
+not contribute to the maximum.
 
 - **Type:** Number
 
@@ -345,7 +357,10 @@ The lesson package's identifier. An unique, increasing integer.
 
 #### <a name="LessonPackage/spellwork_changes"></a> `spellwork_changes?`
 
-The spell values difference of the lesson package. This field reflects the changes (difference) to the field of the same name in the profession package. If a spell gets to SR 0 because of this, it will be removed completely.
+The spell values difference of the lesson package. This field reflects the
+changes (difference) to the field of the same name in the profession
+package. If a spell gets to SR 0 because of this, it will be removed
+completely.
 
 - **Type:** List
 - **Items:** <a href="#LessonPackage/spellwork_changes[]">LessonPackage/spellwork_changes[]</a>
@@ -410,7 +425,10 @@ The name of the lesson package.
 
 #### <a name="LessonPackage/translations[key]/spellwork_changes"></a> `spellwork_changes?`
 
-The spell values difference of the lesson package. Use this field to specify a text that is displayed instead of the generated `spellwork_changes` list. The field is displayed even if no list is present.
+The spell values difference of the lesson package. Use this field to
+specify a text that is displayed instead of the generated
+`spellwork_changes` list. The field is displayed even if no list is
+present.
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -447,7 +465,8 @@ The melee combat technique's identifier.
 
 #### <a name="SkillAdjustment'MeleeCombatTechnique/points"></a> `points`
 
-The combat technique points that will be added to the current combat technique rating.
+The combat technique points that will be added to the current combat
+technique rating.
 
 - **Type:** Integer
 - **Minimum:** `-6`
@@ -478,7 +497,8 @@ The ranged combat technique's identifier.
 
 #### <a name="SkillAdjustment'RangedCombatTechnique/points"></a> `points`
 
-The combat technique points that will be added to the current combat technique rating.
+The combat technique points that will be added to the current combat
+technique rating.
 
 - **Type:** Integer
 - **Minimum:** `-6`
@@ -554,7 +574,9 @@ The spell's identifier.
 
 #### <a name="SpellworkAdjustment'Spell/points"></a> `points`
 
-The skill points that will be added to the current skill rating. If a spell gets to a skill rating of 0 because of this, it will be removed completely.
+The skill points that will be added to the current skill rating. If a
+spell gets to a skill rating of 0 because of this, it will be removed
+completely.
 
 - **Type:** Integer
 - **Minimum:** `-10`
@@ -562,7 +584,8 @@ The skill points that will be added to the current skill rating. If a spell gets
 
 #### <a name="SpellworkAdjustment'Spell/tradition_id"></a> `tradition_id?`
 
-The target tradition's identifier. If the target spell is not from the Guild Mage tradition, specify the tradition identifier here.
+The target tradition's identifier. If the target spell is not from the
+Guild Mage tradition, specify the tradition identifier here.
 
 - **Type:** Integer
 - **Minimum:** `2`
@@ -593,7 +616,9 @@ The ritual's identifier.
 
 #### <a name="SpellworkAdjustment'Ritual/points"></a> `points`
 
-The skill points that will be added to the current skill rating. If a ritual gets to a skill rating of 0 because of this, it will be removed completely.
+The skill points that will be added to the current skill rating. If a
+ritual gets to a skill rating of 0 because of this, it will be removed
+completely.
 
 - **Type:** Integer
 - **Minimum:** `-10`
@@ -601,7 +626,8 @@ The skill points that will be added to the current skill rating. If a ritual get
 
 #### <a name="SpellworkAdjustment'Ritual/tradition_id"></a> `tradition_id?`
 
-The target tradition's identifier. If the target ritual is not from the Guild Mage tradition, specify the tradition identifier here.
+The target tradition's identifier. If the target ritual is not from the
+Guild Mage tradition, specify the tradition identifier here.
 
 - **Type:** Integer
 - **Minimum:** `2`

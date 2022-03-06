@@ -21,7 +21,7 @@
           "$ref": "../_SkillCheck.schema.json#/definitions/SkillCheckPenalty"
         },
         "skill": {
-          "description": "To enhance their songs, elves can make a check on either *Singing (Two-Voiced Singing)* or *Music (appropriate application)* before making the check for the song.",
+          "description": "To enhance their songs, elves can make a check on either *Singing\n(Two-Voiced Singing)* or *Music (appropriate application)* before making\nthe check for the song.",
           "type": "array",
           "items": {
             "$ref": "./_SkillReference.schema.json#/definitions/SkillReference"
@@ -59,7 +59,7 @@
                   "minLength": 1
                 },
                 "effect": {
-                  "description": "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
+                  "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
                   "$ref": "../_ActivatableSkill.schema.json#/definitions/Effect/T"
                 },
                 "cost": {
@@ -144,13 +144,13 @@
                           "type": "object",
                           "properties": {
                             "default": {
-                              "description": "The full replacement string. It must contain `$1`, which is going to be replaced with the generated AE cost string, so additional information can be provided without duplicating concrete numeric values.",
+                              "description": "The full replacement string. It must contain `$1`, which is\ngoing to be replaced with the generated AE cost string, so\nadditional information can be provided without duplicating\nconcrete numeric values.",
                               "type": "string",
                               "minLength": 1,
                               "pattern": "\\$1"
                             },
                             "compressed": {
-                              "description": "A compressed replacement string for use in small areas (e.g. on character sheet). It must contain `$1`, which is going to be replaced with the generated AE cost string, so additional information can be provided without duplicating concrete numeric values.",
+                              "description": "A compressed replacement string for use in small areas (e.g. on\ncharacter sheet). It must contain `$1`, which is going to be\nreplaced with the generated AE cost string, so additional\ninformation can be provided without duplicating concrete\nnumeric values.",
                               "type": "string",
                               "minLength": 1,
                               "pattern": "\\$1"

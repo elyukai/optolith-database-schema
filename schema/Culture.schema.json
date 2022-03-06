@@ -21,7 +21,7 @@
           "minItems": 1
         },
         "script": {
-          "description": "A list of native scripts (usually it is only one). If the culture does not use any script, leave this field empty.",
+          "description": "A list of native scripts (usually it is only one). If the culture does not\nuse any script, leave this field empty.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Script"
@@ -41,7 +41,7 @@
           "minItems": 1
         },
         "common_professions": {
-          "description": "A list of professions that are typical for the culture, as well as professions that are rarely practiced or encountered in the culture. The list is either defined by group (as multiple lists) or plain (as a single list).",
+          "description": "A list of professions that are typical for the culture, as well as\nprofessions that are rarely practiced or encountered in the culture. The\nlist is either defined by group (as multiple lists) or plain (as a single\nlist).",
           "$ref": "#/definitions/CommonProfessions/Config"
         },
         "common_advantages": {
@@ -273,7 +273,7 @@
       "Grouped": {
         "Constraints": {
           "WeightedVariants": {
-            "description": "Some profession variants are more common than others. There may be cultures where some variants are not represented at all.",
+            "description": "Some profession variants are more common than others. There may be\ncultures where some variants are not represented at all.",
             "type": "object",
             "properties": {
               "variants": {
@@ -285,7 +285,7 @@
                 "minItems": 1
               },
               "weight": {
-                "description": "The \"weight\" difference compared to other variants. Some variants are simply more common (Mostly), but sometimes only specific variants are used (Only).",
+                "description": "The \"weight\" difference compared to other variants. Some variants are\nsimply more common (Mostly), but sometimes only specific variants are\nused (Only).",
                 "$ref": "#/definitions/CommonProfessions/Grouped/Weight"
               }
             },
@@ -307,11 +307,11 @@
                 "minimum": 1
               },
               "weighted_variants": {
-                "description": "Some profession variants are more common than others. There may be cultures where some variants are not represented at all.",
+                "description": "Some profession variants are more common than others. There may be\ncultures where some variants are not represented at all.",
                 "$ref": "#/definitions/CommonProfessions/Grouped/Constraints/WeightedVariants"
               },
               "rarity": {
-                "description": "Some professions may be found in a culture, but are not that common.",
+                "description": "Some professions may be found in a culture, but are not that\ncommon.",
                 "$ref": "#/definitions/CommonProfessions/Grouped/Rarity"
               }
             },
@@ -323,7 +323,7 @@
           }
         },
         "Weight": {
-          "description": "The \"weight\" difference compared to other variants. Some variants are simply more common (Mostly), but sometimes only specific variants are used (Only).",
+          "description": "The \"weight\" difference compared to other variants. Some variants are\nsimply more common (Mostly), but sometimes only specific variants are\nused (Only).",
           "oneOf": [
             {
               "type": "object",
@@ -446,7 +446,7 @@
             ]
           },
           "Operation": {
-            "description": "This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints (include) or only the professions are kept that are different from the constraints (exclude).",
+            "description": "This defines how the list of constraints should be offset against the\nlist of all mundane professions: Either only the professions are kept\nthat intersect with the constraints (include) or only the professions\nare kept that are different from the constraints (exclude).",
             "oneOf": [
               {
                 "type": "object",
@@ -475,7 +475,7 @@
             ]
           },
           "T": {
-            "description": "A list of professions. The filter specifies how the list is applied to all mundane professions.",
+            "description": "A list of professions. The filter specifies how the list is applied to\nall mundane professions.",
             "type": "object",
             "properties": {
               "constraints": {
@@ -487,7 +487,7 @@
                 "minItems": 1
               },
               "operation": {
-                "description": "This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints (include) or only the professions are kept that are different from the constraints (exclude).",
+                "description": "This defines how the list of constraints should be offset against the\nlist of all mundane professions: Either only the professions are kept\nthat intersect with the constraints (include) or only the professions\nare kept that are different from the constraints (exclude).",
                 "$ref": "#/definitions/CommonProfessions/Grouped/Mundane/Operation"
               }
             },
@@ -500,7 +500,7 @@
         },
         "Magic": {
           "WeightedProfessions": {
-            "description": "Some professions are more common than others. There may be cultures where some professions are not represented at all.",
+            "description": "Some professions are more common than others. There may be cultures\nwhere some professions are not represented at all.",
             "type": "object",
             "properties": {
               "professions": {
@@ -512,7 +512,7 @@
                 "minItems": 1
               },
               "weight": {
-                "description": "The \"weight\" difference compared to other professions. Some professions are simply more common (Mostly), but sometimes only specific professions are used (Only).",
+                "description": "The \"weight\" difference compared to other professions. Some\nprofessions are simply more common (Mostly), but sometimes only\nspecific professions are used (Only).",
                 "$ref": "#/definitions/CommonProfessions/Grouped/Weight"
               }
             },
@@ -536,7 +536,7 @@
                     "minimum": 1
                   },
                   "weighted_professions": {
-                    "description": "Some professions are more common than others. There may be cultures where some professions are not represented at all.",
+                    "description": "Some professions are more common than others. There may be cultures\nwhere some professions are not represented at all.",
                     "$ref": "#/definitions/CommonProfessions/Grouped/Magic/WeightedProfessions"
                   },
                   "rarity": {
@@ -634,7 +634,7 @@
               "const": "Grouped"
             },
             "mundane": {
-              "description": "A list of professions. The filter specifies how the list is applied to all mundane professions.",
+              "description": "A list of professions. The filter specifies how the list is applied to\nall mundane professions.",
               "$ref": "#/definitions/CommonProfessions/Grouped/Mundane/T"
             },
             "magic": {
@@ -652,7 +652,7 @@
         }
       },
       "Config": {
-        "description": "A list of professions that are typical for the culture, as well as professions that are rarely practiced or encountered in the culture. The list is either defined by group (as multiple lists) or plain (as a single list).",
+        "description": "A list of professions that are typical for the culture, as well as\nprofessions that are rarely practiced or encountered in the culture. The\nlist is either defined by group (as multiple lists) or plain (as a single\nlist).",
         "oneOf": [
           {
             "$ref": "#/definitions/CommonProfessions/Plain/T"
@@ -686,7 +686,7 @@
           "minimum": 1
         },
         "points": {
-          "description": "The skill points for the respective skill you get for buying the cultural package.",
+          "description": "The skill points for the respective skill you get for buying the cultural\npackage.",
           "type": "integer",
           "maximum": 2,
           "minimum": 1
@@ -755,7 +755,7 @@
           "minLength": 1
         },
         "abbreviated": {
-          "description": "A shorter version of the description, used in input fields and other UI elements where the space might be to small to use the full description.",
+          "description": "A shorter version of the description, used in input fields and other UI\nelements where the space might be to small to use the full description.",
           "type": "string",
           "minLength": 1
         },
@@ -783,7 +783,7 @@
       "type": "object",
       "properties": {
         "first_name_groups": {
-          "description": "First names can be gender-neutral, but they can also be for a specific binary sex. They are sorted into groups.",
+          "description": "First names can be gender-neutral, but they can also be for a specific\nbinary sex. They are sorted into groups.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/NameGroup"
@@ -791,7 +791,7 @@
           "minItems": 1
         },
         "last_name_groups": {
-          "description": "Last names can be gender-neutral, like family names, but they can also be for a specific binary sex. They are sorted into groups.",
+          "description": "Last names can be gender-neutral, like family names, but they can also be\nfor a specific binary sex. They are sorted into groups.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/NameGroup"

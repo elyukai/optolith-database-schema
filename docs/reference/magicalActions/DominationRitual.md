@@ -84,7 +84,9 @@ The name of the domination ritual.
 
 #### <a name="DominationRitual/translations[key]/effect"></a> `effect`
 
-The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
+The effect description may be either a plain text or a text that is
+divided by a list of effects for each quality level. It may also be a
+list for each two quality levels.
 
 - **Type:** <a href="../_ActivatableSkill.md#Effect/T">Effect/T</a>
 
@@ -233,7 +235,8 @@ The full description of where the cost come from.
 
 #### <a name="PerformanceParameters/cost/translations[key]/additional/compressed"></a> `compressed`
 
-A compressed description of where the cost come from for use in small areas (e.g. on character sheet).
+A compressed description of where the cost come from for use in
+small areas (e.g. on character sheet).
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -378,7 +381,8 @@ The full description of the duration.
 
 #### <a name="PerformanceParameters/duration'Indefinite/translations[key]/description/compressed"></a> `compressed`
 
-A compressed description of the duration for use in small areas (e.g. on character sheet).
+A compressed description of the duration for use in small areas
+(e.g. on character sheet).
 
 - **Type:** String
 - **Minimum Length:** `1`

@@ -69,7 +69,8 @@ How long a round of this sex practice takes.
 
 #### <a name="SexPractice/translations[key]/prerequisites"></a> `prerequisites?`
 
-Prerequisites of participants and environment. Do not specify if the sex practice has no prerequisites.
+Prerequisites of participants and environment. Do not specify if the
+sex practice has no prerequisites.
 
 - **Type:** String
 - **Minimum Length:** `1`

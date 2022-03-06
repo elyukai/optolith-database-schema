@@ -4,7 +4,8 @@
 
 ### <a name="MusicTraditionReference"></a> `MusicTraditionReference`
 
-A reference to a music tradition with the music-tradition-specific name of the entry
+A reference to a music tradition with the music-tradition-specific name of
+the entry
 
 - **Type:** Object
 

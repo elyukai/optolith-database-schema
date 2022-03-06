@@ -84,7 +84,9 @@ The name of the curse.
 
 #### <a name="Curse/translations[key]/effect"></a> `effect`
 
-The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
+The effect description may be either a plain text or a text that is
+divided by a list of effects for each quality level. It may also be a
+list for each two quality levels.
 
 - **Type:** <a href="../_ActivatableSkill.md#Effect/T">Effect/T</a>
 
@@ -211,7 +213,8 @@ Key | Description | Details
 
 #### <a name="PerformanceParameters/cost'Fixed/translations[key]/per"></a> `per?`
 
-The cost have to be per a specific countable entity, e.g. `8 KP per person`
+The cost have to be per a specific countable entity, e.g. `8 KP
+per person`
 
 - **Type:** <a href="#PerformanceParameters/cost'Fixed/translations[key]/per">Object</a>
 
@@ -225,7 +228,8 @@ A note, appended to the generated string in parenthesis.
 
 ### <a name="PerformanceParameters/cost'Fixed/translations[key]/per"></a> `PerformanceParameters/cost'Fixed/translations[key]/per`
 
-The cost have to be per a specific countable entity, e.g. `8 KP per person`
+The cost have to be per a specific countable entity, e.g. `8 KP
+per person`
 
 - **Type:** Object
 
@@ -270,7 +274,8 @@ The full note.
 
 #### <a name="PerformanceParameters/cost'Fixed/translations[key]/note/compressed"></a> `compressed?`
 
-A compressed note, if applicable. If not specified it should not be displayed in small location.
+A compressed note, if applicable. If not specified it should not
+be displayed in small location.
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -337,7 +342,8 @@ The full description of where the cost come from.
 
 #### <a name="PerformanceParameters/cost'Indefinite/translations[key]/description/compressed"></a> `compressed`
 
-A compressed description of where the cost come from for use in small areas (e.g. on character sheet).
+A compressed description of where the cost come from for use in
+small areas (e.g. on character sheet).
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -496,7 +502,8 @@ The full description of the duration.
 
 #### <a name="PerformanceParameters/duration'Indefinite/translations[key]/description/compressed"></a> `compressed`
 
-A compressed description of the duration for use in small areas (e.g. on character sheet).
+A compressed description of the duration for use in small areas
+(e.g. on character sheet).
 
 - **Type:** String
 - **Minimum Length:** `1`

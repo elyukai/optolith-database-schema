@@ -39,7 +39,9 @@ In some cases, the target's Spirit or Toughness is applied as a penalty.
 
 #### <a name="ElvenMagicalSong/skill"></a> `skill`
 
-To enhance their songs, elves can make a check on either *Singing (Two-Voiced Singing)* or *Music (appropriate application)* before making the check for the song.
+To enhance their songs, elves can make a check on either *Singing
+(Two-Voiced Singing)* or *Music (appropriate application)* before making
+the check for the song.
 
 - **Type:** List
 - **Items:** <a href="#ElvenMagicalSong/skill[]">ElvenMagicalSong/skill[]</a>
@@ -107,7 +109,9 @@ The name of the elven magical song.
 
 #### <a name="ElvenMagicalSong/translations[key]/effect"></a> `effect`
 
-The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
+The effect description may be either a plain text or a text that is
+divided by a list of effects for each quality level. It may also be a
+list for each two quality levels.
 
 - **Type:** <a href="../_ActivatableSkill.md#Effect/T">Effect/T</a>
 
@@ -249,7 +253,10 @@ Key | Description | Details
 
 #### <a name="PerformanceParameters/cost/permanent/translations[key]/replacement/default"></a> `default`
 
-The full replacement string. It must contain `$1`, which is going to be replaced with the generated AE cost string, so additional information can be provided without duplicating concrete numeric values.
+The full replacement string. It must contain `$1`, which is
+going to be replaced with the generated AE cost string, so
+additional information can be provided without duplicating
+concrete numeric values.
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -257,7 +264,11 @@ The full replacement string. It must contain `$1`, which is going to be replaced
 
 #### <a name="PerformanceParameters/cost/permanent/translations[key]/replacement/compressed"></a> `compressed`
 
-A compressed replacement string for use in small areas (e.g. on character sheet). It must contain `$1`, which is going to be replaced with the generated AE cost string, so additional information can be provided without duplicating concrete numeric values.
+A compressed replacement string for use in small areas (e.g. on
+character sheet). It must contain `$1`, which is going to be
+replaced with the generated AE cost string, so additional
+information can be provided without duplicating concrete
+numeric values.
 
 - **Type:** String
 - **Minimum Length:** `1`
