@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/elyukai/optolith-database-schema/compare/v0.0.3...v0.0.4) (2022-03-06)
+
+
+### Bug Fixes
+
+* broken markdown newlines ([87c5ff2](https://github.com/elyukai/optolith-database-schema/commit/87c5ff243c6df1a9dd966167c85dd41b45c36369))
+* cost map should allow different translations ([f65683f](https://github.com/elyukai/optolith-database-schema/commit/f65683fc45f2c9f16d1571ec9fcbc449eee042b1))
+
 ### [0.0.3](https://github.com/elyukai/optolith-database-schema/compare/v0.0.2...v0.0.3) (2022-03-05)
 
 
