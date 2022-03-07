@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "specialAbility/sub/AnimalShapeSize.schema.json",
+  "$ref": "#/definitions/AnimalShape",
+  "definitions": {
+    "AnimalShape": {
+      "title": "Animal Shape",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The animal shape's identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "volume": {
+          "description": "The volume points the animal shape needs.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "ap_value": {
+          "description": "The adventure point value of the animal shape.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "The animal shape size name.",
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "volume",
+        "ap_value",
+        "translations"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
