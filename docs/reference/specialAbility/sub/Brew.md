@@ -1,0 +1,45 @@
+# Brew
+
+## Definitions
+
+### <a name="Brew"></a> Brew (`Brew`)
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The brew's identifier. An unique, increasing integer. | <a href="#Brew/id">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Brew/translations">See details</a>
+
+#### <a name="Brew/id"></a> `id`
+
+The brew's identifier. An unique, increasing integer.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="Brew/translations"></a> `translations`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#Brew/translations[key]">Brew/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="Brew/translations[key]"></a> `Brew/translations[key]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`name` | The brew name. | <a href="#Brew/translations[key]/name">See details</a>
+
+#### <a name="Brew/translations[key]/name"></a> `name`
+
+The brew name.
+
+- **Type:** String
+- **Minimum Length:** `1`
