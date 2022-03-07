@@ -1,0 +1,127 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "specialAbility/sub/Script.schema.json",
+  "$ref": "#/definitions/Script",
+  "definitions": {
+    "Script": {
+      "title": "Script",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The script's identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "ap_value": {
+          "description": "The script's adventure point value.",
+          "type": "integer",
+          "minimum": 2,
+          "multipleOf": 2
+        },
+        "associated_languages": {
+          "description": "A list of languages that use this script.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "The language's identifier.",
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "continent": {
+          "description": "The continents this script is present on.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "The continent's identifier.",
+                "type": "integer",
+                "maximum": 3,
+                "minimum": 1
+              },
+              "is_extinct": {
+                "description": "Is the script considered virtually extinct in this continent?",
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "is_extinct"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "src": {
+          "$ref": "../../source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "The name of the language.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "alternative_names": {
+                  "description": "A list of alternative names.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "description": "An alternative name of the language.",
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "alphabet": {
+                  "description": "The description of the alphabet.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "errata": {
+                  "$ref": "../../source/_Erratum.schema.json#/definitions/Errata"
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "ap_value",
+        "associated_languages",
+        "continent",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
