@@ -37,12 +37,6 @@
           },
           "minItems": 1
         },
-        "max_level": {
-          "description": "The maximum possible level of the language. Only specified if lower than\ndefault of 3.",
-          "type": "number",
-          "maximum": 2,
-          "minimum": 1
-        },
         "specializations": {
           "description": "Language-specific specializations. Either a list of possible options or a\nindefinite description of what may be a specialization.",
           "oneOf": [
@@ -149,6 +143,12 @@
         },
         "prerequisites": {
           "$ref": "../../_Prerequisite.schema.json#/definitions/GroupCollection/Language"
+        },
+        "max_level": {
+          "description": "The maximum possible level of the language. Only specified if lower than\ndefault of 3.",
+          "type": "number",
+          "maximum": 2,
+          "minimum": 1
         },
         "src": {
           "$ref": "../../source/_PublicationRef.schema.json#/definitions/PublicationRefs"

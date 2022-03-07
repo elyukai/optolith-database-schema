@@ -37,15 +37,6 @@ export type Language = {
   }[]
 
   /**
-   * The maximum possible level of the language. Only specified if lower than
-   * default of 3.
-   * @minimum 1
-   * @maximum 2
-   * @default 3
-   */
-  max_level?: number
-
-  /**
    * Language-specific specializations. Either a list of possible options or a
    * indefinite description of what may be a specialization.
    */
@@ -118,6 +109,15 @@ export type Language = {
     }
 
   prerequisites?: GroupCollection.Language
+
+  /**
+   * The maximum possible level of the language. Only specified if lower than
+   * default of 3.
+   * @minimum 1
+   * @maximum 2
+   * @default 3
+   */
+  max_level?: number
 
   src: PublicationRefs
 
