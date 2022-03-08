@@ -1,0 +1,300 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "specialAbility/BlessedTradition.schema.json",
+  "$ref": "#/definitions/BlessedTradition",
+  "definitions": {
+    "BlessedTradition": {
+      "title": "Blessed Tradition",
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/Id"
+        },
+        "skill_applications": {
+          "$ref": "#/definitions/SkillApplications"
+        },
+        "skill_uses": {
+          "$ref": "#/definitions/SkillUses"
+        },
+        "primary": {
+          "description": "The tradition's primary attribute. Leave empty if the tradition does not\nhave one.",
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "The attribute's identifier.",
+              "type": "integer",
+              "maximum": 8,
+              "minimum": 1
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "aspects": {
+          "description": "The tradition's aspects, if any",
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "description": "The first aspect's identifier.",
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "description": "The second aspect's identifier.",
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "additionalProperties": false
+            }
+          ],
+          "minItems": 2,
+          "maxItems": 2,
+          "additionalItems": false
+        },
+        "restricted_blessings": {
+          "description": "If a tradition restricts the possible blessings, the blessings that are not\nallowed.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "The blessing's identifier.",
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 3,
+          "maxItems": 6
+        },
+        "favored_combat_techniques": {
+          "description": "A list of favored combat techniques.",
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "All"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "AllClose"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "AllUsedInHunting"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Specific"
+                },
+                "list": {
+                  "description": "A list of specific favored combat techniques.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "description": "The combat technique's identifier.",
+                        "$ref": "../_Identifier.schema.json#/definitions/Identifier/Group/CombatTechnique"
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1
+                }
+              },
+              "required": [
+                "tag",
+                "list"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "favored_skills": {
+          "description": "A list of favored skills.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "The skill's identifier.",
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "favored_skills_selection": {
+          "description": "On activation of the tradition, a specific number of skills from a list of\nskills must be selected as being favored.",
+          "type": "object",
+          "properties": {
+            "number": {
+              "description": "The number of skills that can be selected.",
+              "type": "integer",
+              "minimum": 1
+            },
+            "options": {
+              "description": "The possible set of skills.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "description": "The skill's identifier.",
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "number",
+            "options"
+          ],
+          "additionalProperties": false
+        },
+        "is_shamanistic": {
+          "description": "Is this a schamanistic tradition?",
+          "type": "boolean"
+        },
+        "associated_principles_id": {
+          "description": "The select option's identifier of the disadvantage *Principles* that\nrepresent this tradition's code, if any.",
+          "type": "number"
+        },
+        "ap_value": {
+          "$ref": "#/definitions/AdventurePointsValue"
+        },
+        "src": {
+          "$ref": "../source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "$ref": "#/definitions/Name"
+                },
+                "name_compressed": {
+                  "description": "A shorter name of the tradition's name, used in liturgical chant\ndescriptions.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "name_in_library": {
+                  "$ref": "#/definitions/NameInLibrary"
+                },
+                "special_rules": {
+                  "description": "The special rules of the tradition. They should be sorted like they are\nin the book.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "description": "An optional label that is displayed and placed before the actual\ntext.",
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "text": {
+                        "description": "The text of a special rule.",
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "text"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1
+                },
+                "errata": {
+                  "$ref": "../source/_Erratum.schema.json#/definitions/Errata"
+                }
+              },
+              "required": [
+                "name",
+                "name_compressed",
+                "special_rules"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "favored_skills",
+        "is_shamanistic",
+        "ap_value",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

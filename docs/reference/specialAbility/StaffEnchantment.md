@@ -1,0 +1,74 @@
+# Staff Enchantment
+
+## Definitions
+
+### <a name="StaffEnchantment"></a> Staff Enchantment (`StaffEnchantment`)
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` |  | <a href="#StaffEnchantment/id">See details</a>
+`levels?` |  | <a href="#StaffEnchantment/levels">See details</a>
+`property` |  | <a href="#StaffEnchantment/property">See details</a>
+`ap_value` |  | <a href="#StaffEnchantment/ap_value">See details</a>
+`src` |  | <a href="#StaffEnchantment/src">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#StaffEnchantment/translations">See details</a>
+
+#### <a name="StaffEnchantment/id"></a> `id`
+
+- **Type:** <a href="#Id">Id</a>
+
+#### <a name="StaffEnchantment/levels"></a> `levels?`
+
+- **Type:** <a href="#Levels">Levels</a>
+
+#### <a name="StaffEnchantment/property"></a> `property`
+
+- **Type:** <a href="#Property">Property</a>
+
+#### <a name="StaffEnchantment/ap_value"></a> `ap_value`
+
+- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>
+
+#### <a name="StaffEnchantment/src"></a> `src`
+
+- **Type:** <a href="../source/_PublicationRef.md#PublicationRefs">PublicationRefs</a>
+
+#### <a name="StaffEnchantment/translations"></a> `translations`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#StaffEnchantment/translations[key]">StaffEnchantment/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="StaffEnchantment/translations[key]"></a> `StaffEnchantment/translations[key]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`name` |  | <a href="#StaffEnchantment/translations[key]/name">See details</a>
+`name_in_library?` |  | <a href="#StaffEnchantment/translations[key]/name_in_library">See details</a>
+`effect` |  | <a href="#StaffEnchantment/translations[key]/effect">See details</a>
+`errata?` |  | <a href="#StaffEnchantment/translations[key]/errata">See details</a>
+
+#### <a name="StaffEnchantment/translations[key]/name"></a> `name`
+
+- **Type:** <a href="#Name">Name</a>
+
+#### <a name="StaffEnchantment/translations[key]/name_in_library"></a> `name_in_library?`
+
+- **Type:** <a href="#NameInLibrary">NameInLibrary</a>
+
+#### <a name="StaffEnchantment/translations[key]/effect"></a> `effect`
+
+- **Type:** <a href="#Effect">Effect</a>
+
+#### <a name="StaffEnchantment/translations[key]/errata"></a> `errata?`
+
+- **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

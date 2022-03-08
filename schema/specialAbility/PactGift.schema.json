@@ -1,0 +1,215 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "specialAbility/PactGift.schema.json",
+  "$ref": "#/definitions/PactGift",
+  "definitions": {
+    "PactGift": {
+      "title": "Pact Gift",
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/Id"
+        },
+        "levels": {
+          "$ref": "#/definitions/Levels"
+        },
+        "permanent_demonic_consumption": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Fixed"
+                },
+                "levels": {
+                  "description": "The levels of *Demonic Consumption* the pact gift causes.",
+                  "type": "integer",
+                  "maximum": 4,
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "tag",
+                "levels"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "PerLevel"
+                },
+                "levels": {
+                  "description": "The levels of *Demonic Consumption* the pact gift causes per activated\nlevel of the pact gift.",
+                  "type": "integer",
+                  "maximum": 4,
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "tag",
+                "levels"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "automatic_entries": {
+          "description": "This pact gift has direct influence on the existence of other entries. It\nmay add or remove entries.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "description": "What type of action is applied to the target entry?",
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "tag": {
+                        "const": "Add"
+                      }
+                    },
+                    "required": [
+                      "tag"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "tag": {
+                        "const": "Remove"
+                      }
+                    },
+                    "required": [
+                      "tag"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              },
+              "apply_ap_value": {
+                "description": "If an entry is added or removed, does is cost or grant adventure points\nor is it free of charge?",
+                "type": "boolean"
+              },
+              "target": {
+                "description": "The entry that is to be added or removed. It can be a fixed entry or a\nselection where the player must choose one entry.",
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "tag": {
+                        "const": "Selection"
+                      },
+                      "list": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "tag": {
+                                "const": "MagicalTraditions"
+                              }
+                            },
+                            "required": [
+                              "tag"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "tag": {
+                                "const": "MagicalDilettanteTraditions"
+                              }
+                            },
+                            "required": [
+                              "tag"
+                            ],
+                            "additionalProperties": false
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "tag",
+                      "list"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "tag": {
+                        "const": "Fixed"
+                      },
+                      "id": {
+                        "$ref": "../_Identifier.schema.json#/definitions/Identifier/Group/Activatable"
+                      }
+                    },
+                    "required": [
+                      "tag",
+                      "id"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              }
+            },
+            "required": [
+              "action",
+              "apply_ap_value",
+              "target"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "ap_value": {
+          "$ref": "#/definitions/AdventurePointsValue"
+        },
+        "src": {
+          "$ref": "../source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "$ref": "#/definitions/Name"
+                },
+                "name_in_library": {
+                  "$ref": "#/definitions/NameInLibrary"
+                },
+                "effect": {
+                  "$ref": "#/definitions/Effect"
+                },
+                "errata": {
+                  "$ref": "../source/_Erratum.schema.json#/definitions/Errata"
+                }
+              },
+              "required": [
+                "name",
+                "effect"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "ap_value",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

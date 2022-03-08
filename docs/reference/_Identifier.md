@@ -14,6 +14,18 @@
 
 ---
 
+### <a name="Identifier/Tag/AdvancedSpecialAbilityRestrictedOption"></a> `Identifier/Tag/AdvancedSpecialAbilityRestrictedOption`
+
+- **Possible values:** `"General"`, `"Element"`
+
+---
+
+### <a name="Identifier/Tag/CombatTechnique"></a> `Identifier/Tag/CombatTechnique`
+
+- **Possible values:** `"CloseCombatTechnique"`, `"RangedCombatTechnique"`
+
+---
+
 ### <a name="Identifier/Group/Activatable"></a> `Identifier/Group/Activatable`
 
 - **Type:** Object
@@ -51,6 +63,52 @@ Key | Description | Details
 - **Type:** <a href="#Identifier/Tag/Rated">Identifier/Tag/Rated</a>
 
 #### <a name="Identifier/Group/Rated/value"></a> `value`
+
+The referenced entry's numeric identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+- **Maximum:** `8`
+
+---
+
+### <a name="Identifier/Group/AdvancedSpecialAbilityRestrictedOption"></a> `Identifier/Group/AdvancedSpecialAbilityRestrictedOption`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Identifier/Group/AdvancedSpecialAbilityRestrictedOption/tag">See details</a>
+`value` | The referenced entry's numeric identifier. | <a href="#Identifier/Group/AdvancedSpecialAbilityRestrictedOption/value">See details</a>
+
+#### <a name="Identifier/Group/AdvancedSpecialAbilityRestrictedOption/tag"></a> `tag`
+
+- **Type:** <a href="#Identifier/Tag/AdvancedSpecialAbilityRestrictedOption">Identifier/Tag/AdvancedSpecialAbilityRestrictedOption</a>
+
+#### <a name="Identifier/Group/AdvancedSpecialAbilityRestrictedOption/value"></a> `value`
+
+The referenced entry's numeric identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+- **Maximum:** `8`
+
+---
+
+### <a name="Identifier/Group/CombatTechnique"></a> `Identifier/Group/CombatTechnique`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Identifier/Group/CombatTechnique/tag">See details</a>
+`value` | The referenced entry's numeric identifier. | <a href="#Identifier/Group/CombatTechnique/value">See details</a>
+
+#### <a name="Identifier/Group/CombatTechnique/tag"></a> `tag`
+
+- **Type:** <a href="#Identifier/Tag/CombatTechnique">Identifier/Tag/CombatTechnique</a>
+
+#### <a name="Identifier/Group/CombatTechnique/value"></a> `value`
 
 The referenced entry's numeric identifier.
 

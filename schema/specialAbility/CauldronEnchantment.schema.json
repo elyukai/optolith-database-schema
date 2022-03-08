@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "specialAbility/CauldronEnchantment.schema.json",
+  "$ref": "#/definitions/CauldronEnchantment",
+  "definitions": {
+    "CauldronEnchantment": {
+      "title": "Cauldron Enchantment",
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/Id"
+        },
+        "levels": {
+          "$ref": "#/definitions/Levels"
+        },
+        "property": {
+          "$ref": "#/definitions/Property"
+        },
+        "brew": {
+          "description": "Witches can learn to brew special things in their Witch's Cauldron. These\nbrews can be categorized in different types.",
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "The brew's identifier.",
+              "type": "integer",
+              "maximum": 4,
+              "minimum": 1
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "ap_value": {
+          "$ref": "#/definitions/AdventurePointsValue"
+        },
+        "src": {
+          "$ref": "../source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "$ref": "#/definitions/Name"
+                },
+                "name_in_library": {
+                  "$ref": "#/definitions/NameInLibrary"
+                },
+                "effect": {
+                  "$ref": "#/definitions/Effect"
+                },
+                "errata": {
+                  "$ref": "../source/_Erratum.schema.json#/definitions/Errata"
+                }
+              },
+              "required": [
+                "name",
+                "effect"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "property",
+        "brew",
+        "ap_value",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

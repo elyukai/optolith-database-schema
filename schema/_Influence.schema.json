@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "_Influence.schema.json",
+  "$ref": "#/definitions/Influence",
+  "definitions": {
+    "Influence": {
+      "title": "Influence",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The influence's identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "src": {
+          "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "The influence name.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "effects": {
+                  "description": "The effects of the influence. They should be sorted like they are in\nthe book.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "description": "An optional label that is displayed and placed before the actual\ntext.",
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "text": {
+                        "description": "The effect text.",
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "text"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1
+                },
+                "errata": {
+                  "$ref": "./source/_Erratum.schema.json#/definitions/Errata"
+                }
+              },
+              "required": [
+                "name",
+                "effects"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

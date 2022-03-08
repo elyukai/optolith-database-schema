@@ -65,6 +65,18 @@
             "LiturgicalChant",
             "Ceremony"
           ]
+        },
+        "AdvancedSpecialAbilityRestrictedOption": {
+          "enum": [
+            "General",
+            "Element"
+          ]
+        },
+        "CombatTechnique": {
+          "enum": [
+            "CloseCombatTechnique",
+            "RangedCombatTechnique"
+          ]
         }
       },
       "Group": {
@@ -92,6 +104,44 @@
           "properties": {
             "tag": {
               "$ref": "#/definitions/Identifier/Tag/Rated"
+            },
+            "value": {
+              "description": "The referenced entry's numeric identifier.",
+              "type": "integer",
+              "maximum": 8,
+              "minimum": 1
+            }
+          },
+          "required": [
+            "tag",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        "AdvancedSpecialAbilityRestrictedOption": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "$ref": "#/definitions/Identifier/Tag/AdvancedSpecialAbilityRestrictedOption"
+            },
+            "value": {
+              "description": "The referenced entry's numeric identifier.",
+              "type": "integer",
+              "maximum": 8,
+              "minimum": 1
+            }
+          },
+          "required": [
+            "tag",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        "CombatTechnique": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "$ref": "#/definitions/Identifier/Tag/CombatTechnique"
             },
             "value": {
               "description": "The referenced entry's numeric identifier.",

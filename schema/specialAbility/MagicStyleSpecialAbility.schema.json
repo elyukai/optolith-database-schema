@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "specialAbility/MagicStyleSpecialAbility.schema.json",
+  "$ref": "#/definitions/MagicStyleSpecialAbility",
+  "definitions": {
+    "MagicStyleSpecialAbility": {
+      "title": "Magic Style Special Ability",
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/Id"
+        },
+        "levels": {
+          "$ref": "#/definitions/Levels"
+        },
+        "skill_applications": {
+          "$ref": "#/definitions/SkillApplications"
+        },
+        "skill_uses": {
+          "$ref": "#/definitions/SkillUses"
+        },
+        "advanced": {
+          "$ref": "#/definitions/AdvancedSpecialAbilities"
+        },
+        "ap_value": {
+          "$ref": "#/definitions/AdventurePointsValue"
+        },
+        "src": {
+          "$ref": "../source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "$ref": "#/definitions/Name"
+                },
+                "name_in_library": {
+                  "$ref": "#/definitions/NameInLibrary"
+                },
+                "rules": {
+                  "$ref": "#/definitions/Rules"
+                },
+                "errata": {
+                  "$ref": "../source/_Erratum.schema.json#/definitions/Errata"
+                }
+              },
+              "required": [
+                "name",
+                "rules"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "advanced",
+        "ap_value",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

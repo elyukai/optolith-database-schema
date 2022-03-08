@@ -1,0 +1,1182 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "_Activatable.schema.json",
+  "definitions": {
+    "Id": {
+      "description": "The activatable entry's identifier. An unique, increasing integer.",
+      "type": "integer",
+      "minimum": 0
+    },
+    "Name": {
+      "description": "The name of the activatable entry.",
+      "type": "string",
+      "minLength": 1
+    },
+    "NameInLibrary": {
+      "description": "The full name of the entry as stated in the sources. Only use when `name`\nneeds to be different from full name for text generation purposes.",
+      "type": "string",
+      "minLength": 1
+    },
+    "Levels": {
+      "description": "Number of available levels.",
+      "type": "integer",
+      "minimum": 2
+    },
+    "Maximum": {
+      "const": ""
+    },
+    "Options": {
+      "const": ""
+    },
+    "Rules": {
+      "description": "The rule text.",
+      "type": "string",
+      "minLength": 1
+    },
+    "Effect": {
+      "description": "The effect description.",
+      "type": "string",
+      "minLength": 1
+    },
+    "CombatSpecialAbilityType": {
+      "description": "The definition of how the combat special ability can be used in combat.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Passive"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "BasicManeuver"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "SpecialManeuver"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "SkillApplications": {
+      "description": "Registers new skill applications, which get enabled once this entry is\nactivated. It specifies an entry-unique identifier and the skill it belongs\nto. A translation can be left out if its name equals the name of the origin\nactivatable entry.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "The application's identifier. An entry-unique, increasing integer.",
+            "type": "integer",
+            "minimum": 1
+          },
+          "skill": {
+            "description": "The skill(s) this application belongs to.",
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "tag": {
+                    "const": "Single"
+                  },
+                  "id": {
+                    "description": "The referenced skill's identifier.",
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "required": [
+                  "tag",
+                  "id"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "tag": {
+                    "const": "Multiple"
+                  },
+                  "list": {
+                    "description": "The skills this application belongs to.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "description": "The referenced skill's identifier.",
+                          "type": "integer",
+                          "minimum": 1
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "minItems": 2
+                  },
+                  "required_skill_rating": {
+                    "description": "If an application applies to multiple skills, it may need to ensure the\nrespective skill is on a certain skill rating if the activatable entry\ncannot ensure this prerequisite.",
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "required": [
+                  "tag",
+                  "list"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "translations": {
+            "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+            "type": "object",
+            "patternProperties": {
+              "^[a-z]{2}-[A-Z]{2}$": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The name of the application if different from the activatable entry's\nname.",
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "minProperties": 1,
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "id",
+          "skill"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "SkillUses": {
+      "description": "Registers uses, which get enabled once this entry is activated. It specifies\nan entry-unique identifier and the skill it belongs to. A translation can be\nleft out if its name equals the name of the origin activatable entry.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "The use's identifier. An entry-unique, increasing integer.",
+            "type": "integer",
+            "minimum": 1
+          },
+          "skill": {
+            "description": "The skill(s) this use belongs to.",
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "tag": {
+                    "const": "Single"
+                  },
+                  "id": {
+                    "description": "The referenced skill's identifier.",
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "required": [
+                  "tag",
+                  "id"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "tag": {
+                    "const": "Multiple"
+                  },
+                  "list": {
+                    "description": "The skills this use belongs to.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "description": "The referenced skill's identifier.",
+                          "type": "integer",
+                          "minimum": 1
+                        }
+                      },
+                      "required": [
+                        "id"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "minItems": 2
+                  }
+                },
+                "required": [
+                  "tag",
+                  "list"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "translations": {
+            "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+            "type": "object",
+            "patternProperties": {
+              "^[a-z]{2}-[A-Z]{2}$": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "The name of the use if different from the activatable entry's name.",
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "name"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "minProperties": 1,
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "id",
+          "skill"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "Penalty": {
+      "description": "The penalty the special ability gives when used.",
+      "const": ""
+    },
+    "ArcaneEnergyCost": {
+      "description": "The AE Cost.",
+      "const": ""
+    },
+    "Volume": {
+      "description": "The volume points the enchantment needs.",
+      "const": ""
+    },
+    "BindingCost": {
+      "description": "The binding cost for an enchantment.",
+      "const": ""
+    },
+    "Property": {
+      "description": "The magic property's identifier. `DependingOnProperty` can only be used if\nthe special ability has an option to select a property.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "DependingOnProperty"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Fixed"
+            },
+            "id": {
+              "description": "The property's identifier.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "tag",
+            "id"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "Aspect": {
+      "description": "The blessed aspect's identifier.",
+      "type": "integer",
+      "minimum": 1
+    },
+    "AdvancedSpecialAbility": {
+      "description": "A reference to an advanced special ability.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "General"
+            },
+            "id": {
+              "description": "The advanced special ability's numeric identifier.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "tag",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "RestrictOptions"
+            },
+            "id": {
+              "description": "The advanced special ability's numeric identifier.",
+              "type": "integer",
+              "minimum": 1
+            },
+            "option": {
+              "description": "Specify the select option(s) that only are allowed for the referenced\nadvanced special ability; others are disallowed.",
+              "type": "array",
+              "items": {
+                "$ref": "./_Identifier.schema.json#/definitions/Identifier/Group/AdvancedSpecialAbilityRestrictedOption"
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "tag",
+            "id",
+            "option"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "OneOf"
+            },
+            "options": {
+              "description": "The possible advanced special abilities.",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "description": "The advanced special ability's numeric identifier.",
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "additionalProperties": false
+            },
+            "is_selection_required_on_purchase": {
+              "description": "Do have to choose on when buying the special ability? Otherwise the\ndecision can be made later.",
+              "type": "boolean"
+            },
+            "option": {
+              "description": "Specify the select option(s) that only are allowed for the referenced\nadvanced special ability; others are disallowed.",
+              "type": "array",
+              "items": {
+                "$ref": "./_Identifier.schema.json#/definitions/Identifier/Group/AdvancedSpecialAbilityRestrictedOption"
+              },
+              "minItems": 1
+            },
+            "display_option": {
+              "$ref": "./_Prerequisite.schema.json#/definitions/Prerequisite/Single/DisplayOption/T"
+            }
+          },
+          "required": [
+            "tag",
+            "options",
+            "is_selection_required_on_purchase",
+            "option"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "DeriveFromExternalOption"
+            },
+            "external_entry": {
+              "description": "The possible advanced special abilities.",
+              "$ref": "#/definitions/AdvancedSpecialAbilityDerivedExternalEntryId"
+            },
+            "mappings": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "from_option": {
+                    "description": "The select option's identifier.",
+                    "$ref": "#/definitions/AdvancedSpecialAbilityDerivedExternalEntryOptionId"
+                  },
+                  "to_advanced": {
+                    "description": "The advanced special ability's identifier.",
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "description": "The advanced special ability's numeric identifier.",
+                        "type": "integer",
+                        "minimum": 1
+                      }
+                    },
+                    "required": [
+                      "id"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "from_option",
+                  "to_advanced"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 0
+            },
+            "display_option": {
+              "$ref": "./_Prerequisite.schema.json#/definitions/Prerequisite/Single/DisplayOption/T"
+            },
+            "is_selection_required_on_purchase": {
+              "description": "Do have to choose on when buying the special ability? Otherwise the\ndecision can be made later.",
+              "type": "boolean"
+            },
+            "option": {
+              "description": "Specify the select option(s) that only are allowed for the referenced\nadvanced special ability; others are disallowed.",
+              "type": "array",
+              "items": {
+                "$ref": "./_Identifier.schema.json#/definitions/Identifier/Group/AdvancedSpecialAbilityRestrictedOption"
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "tag",
+            "external_entry",
+            "mappings",
+            "is_selection_required_on_purchase",
+            "option"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "AdvancedSpecialAbilityDerivedExternalEntryId": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "MagicalTradition"
+        },
+        "value": {
+          "description": "The referenced entry's numeric identifier.",
+          "type": "integer",
+          "maximum": 8,
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "AdvancedSpecialAbilityDerivedExternalEntryOptionId": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Patron"
+        },
+        "value": {
+          "description": "The referenced entry's numeric identifier.",
+          "type": "integer",
+          "maximum": 8,
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "AdvancedSpecialAbilities": {
+      "description": "The Advanced Special Abilities for the respective Style Special Ability.\nSometimes, only a specific select option or a set of select options of an\nentry is allowed, which can be modelled by the option property. It can also\nbe that you can choose from a set of special abilities, but then you can't\nspecify an option.",
+      "type": "array",
+      "items": [
+        {
+          "$ref": "#/definitions/AdvancedSpecialAbility"
+        },
+        {
+          "$ref": "#/definitions/AdvancedSpecialAbility"
+        },
+        {
+          "$ref": "#/definitions/AdvancedSpecialAbility"
+        }
+      ],
+      "minItems": 3,
+      "maxItems": 3,
+      "additionalItems": false
+    },
+    "ApplicableCombatTechniques": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "None"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "DependingOnCombatStyle"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "All"
+            },
+            "restrictions": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ApplicableAllCombatTechniquesRestriction"
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "AllClose"
+            },
+            "restrictions": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ApplicableCloseCombatTechniquesRestriction"
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "AllRanged"
+            },
+            "restrictions": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ApplicableRangedCombatTechniquesRestriction"
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Specific"
+            },
+            "list": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "$ref": "./_Identifier.schema.json#/definitions/Identifier/Group/CombatTechnique"
+                  },
+                  "restrictions": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/ApplicableSpecificCombatTechniquesRestriction"
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "tag",
+            "list"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "ApplicableAllCombatTechniquesRestriction": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Improvised"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PointedBlade"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Mount"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Race"
+            },
+            "id": {
+              "description": "The race's numeric identifier.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "tag",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "ExcludeCombatTechniques"
+            },
+            "list": {
+              "description": "The combat techniques this combat special ability is **not** applicable\nto.",
+              "type": "array",
+              "items": {
+                "$ref": "./_Identifier.schema.json#/definitions/Identifier/Group/CombatTechnique"
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "tag",
+            "list"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "ApplicableCloseCombatTechniquesRestriction": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Improvised"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PointedBlade"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Mount"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "HasParry"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "OneHanded"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "ParryingWeapon"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Race"
+            },
+            "id": {
+              "description": "The race's numeric identifier.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "tag",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "ExcludeCombatTechniques"
+            },
+            "list": {
+              "description": "The combat techniques this combat special ability is **not** applicable\nto.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "description": "The close combat technique's numeric identifier.",
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "tag",
+            "list"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "ApplicableRangedCombatTechniquesRestriction": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Improvised"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PointedBlade"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Mount"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Race"
+            },
+            "id": {
+              "description": "The race's numeric identifier.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "tag",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "ExcludeCombatTechniques"
+            },
+            "list": {
+              "description": "The combat techniques this combat special ability is **not** applicable\nto.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "description": "The ranged combat technique's numeric identifier.",
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "tag",
+            "list"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "ApplicableSpecificCombatTechniquesRestriction": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Improvised"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PointedBlade"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Mount"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Race"
+            },
+            "id": {
+              "description": "The race's numeric identifier.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "tag",
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Level"
+            },
+            "level": {
+              "description": "The combat special ability is only applicable on a certain level.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "tag",
+            "level"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Weapons"
+            },
+            "list": {
+              "description": "The specific weapons this combat special ability is only applicable to.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "description": "The weapon's numeric identifier.",
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "tag",
+            "list"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "AdventurePointsValue": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Fixed"
+            },
+            "value": {
+              "description": "A fixed adventure points value. If the entry has levels, this is the cost\nfor each level as well.",
+              "$ref": "#/definitions/AdventurePointsSingleValue"
+            }
+          },
+          "required": [
+            "tag",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "ByLevel"
+            },
+            "values": {
+              "description": "An entry with levels may have different costs for each level. The length\nof the list must match the amount of levels the special ability has.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AdventurePointsSingleValue"
+              },
+              "minItems": 2
+            }
+          },
+          "required": [
+            "tag",
+            "values"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "ByImprovementCost"
+            },
+            "values": {
+              "description": "An entry with a selection of skills may have different costs for\ndifferent improvement costs of the selected skill.\n\nIf the select options will not have entries with improvement cost A\n(combat techniques only), you may leave out A.",
+              "type": "object",
+              "properties": {
+                "A": {
+                  "$ref": "#/definitions/AdventurePointsSingleValue"
+                },
+                "B": {
+                  "$ref": "#/definitions/AdventurePointsSingleValue"
+                },
+                "C": {
+                  "$ref": "#/definitions/AdventurePointsSingleValue"
+                },
+                "D": {
+                  "$ref": "#/definitions/AdventurePointsSingleValue"
+                }
+              },
+              "required": [
+                "B",
+                "C",
+                "D"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "tag",
+            "values"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "description": "Used if AP value is defined by the selected option(s) or special rules.",
+              "const": "Indefinite"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "AdventurePointsSingleValue": {
+      "description": "A single adventure points value.",
+      "type": "integer",
+      "minimum": 0
+    }
+  }
+}

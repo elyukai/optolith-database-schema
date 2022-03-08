@@ -1,0 +1,84 @@
+# Ceremonial Item Special Ability
+
+## Definitions
+
+### <a name="CeremonialItemSpecialAbility"></a> Ceremonial Item Special Ability (`CeremonialItemSpecialAbility`)
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` |  | <a href="#CeremonialItemSpecialAbility/id">See details</a>
+`levels?` |  | <a href="#CeremonialItemSpecialAbility/levels">See details</a>
+`skill_applications?` |  | <a href="#CeremonialItemSpecialAbility/skill_applications">See details</a>
+`skill_uses?` |  | <a href="#CeremonialItemSpecialAbility/skill_uses">See details</a>
+`aspect` |  | <a href="#CeremonialItemSpecialAbility/aspect">See details</a>
+`ap_value` |  | <a href="#CeremonialItemSpecialAbility/ap_value">See details</a>
+`src` |  | <a href="#CeremonialItemSpecialAbility/src">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#CeremonialItemSpecialAbility/translations">See details</a>
+
+#### <a name="CeremonialItemSpecialAbility/id"></a> `id`
+
+- **Type:** <a href="#Id">Id</a>
+
+#### <a name="CeremonialItemSpecialAbility/levels"></a> `levels?`
+
+- **Type:** <a href="#Levels">Levels</a>
+
+#### <a name="CeremonialItemSpecialAbility/skill_applications"></a> `skill_applications?`
+
+- **Type:** <a href="#SkillApplications">SkillApplications</a>
+
+#### <a name="CeremonialItemSpecialAbility/skill_uses"></a> `skill_uses?`
+
+- **Type:** <a href="#SkillUses">SkillUses</a>
+
+#### <a name="CeremonialItemSpecialAbility/aspect"></a> `aspect`
+
+- **Type:** <a href="#Aspect">Aspect</a>
+
+#### <a name="CeremonialItemSpecialAbility/ap_value"></a> `ap_value`
+
+- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>
+
+#### <a name="CeremonialItemSpecialAbility/src"></a> `src`
+
+- **Type:** <a href="../source/_PublicationRef.md#PublicationRefs">PublicationRefs</a>
+
+#### <a name="CeremonialItemSpecialAbility/translations"></a> `translations`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#CeremonialItemSpecialAbility/translations[key]">CeremonialItemSpecialAbility/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="CeremonialItemSpecialAbility/translations[key]"></a> `CeremonialItemSpecialAbility/translations[key]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`name` |  | <a href="#CeremonialItemSpecialAbility/translations[key]/name">See details</a>
+`name_in_library?` |  | <a href="#CeremonialItemSpecialAbility/translations[key]/name_in_library">See details</a>
+`effect` |  | <a href="#CeremonialItemSpecialAbility/translations[key]/effect">See details</a>
+`errata?` |  | <a href="#CeremonialItemSpecialAbility/translations[key]/errata">See details</a>
+
+#### <a name="CeremonialItemSpecialAbility/translations[key]/name"></a> `name`
+
+- **Type:** <a href="#Name">Name</a>
+
+#### <a name="CeremonialItemSpecialAbility/translations[key]/name_in_library"></a> `name_in_library?`
+
+- **Type:** <a href="#NameInLibrary">NameInLibrary</a>
+
+#### <a name="CeremonialItemSpecialAbility/translations[key]/effect"></a> `effect`
+
+- **Type:** <a href="#Effect">Effect</a>
+
+#### <a name="CeremonialItemSpecialAbility/translations[key]/errata"></a> `errata?`
+
+- **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

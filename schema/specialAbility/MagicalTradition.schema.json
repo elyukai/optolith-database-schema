@@ -1,0 +1,181 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "specialAbility/MagicalTradition.schema.json",
+  "$ref": "#/definitions/MagicalTradition",
+  "definitions": {
+    "MagicalTradition": {
+      "title": "Magical Tradition",
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/Id"
+        },
+        "levels": {
+          "$ref": "#/definitions/Levels"
+        },
+        "skill_applications": {
+          "$ref": "#/definitions/SkillApplications"
+        },
+        "skill_uses": {
+          "$ref": "#/definitions/SkillUses"
+        },
+        "primary": {
+          "description": "The tradition's primary attribute. Leave empty if the tradition does not\nhave one.",
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "The attribute's identifier.",
+              "type": "integer",
+              "minimum": 1
+            },
+            "use_half_for_arcane_energy": {
+              "description": "Typically, the value of the primary attribute (if one exists) is added\nonto the base of 20 AE to get the actual AE. But sometimes, only half the\nvalue is added.",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "id",
+            "use_half_for_arcane_energy"
+          ],
+          "additionalProperties": false
+        },
+        "can_learn_cantrips": {
+          "description": "Can a member of the tradition learn cantrips?",
+          "type": "boolean"
+        },
+        "can_learn_spells": {
+          "description": "Can a member of the tradition learn spells?",
+          "type": "boolean"
+        },
+        "can_learn_rituals": {
+          "description": "Can a member of the tradition learn rituals?",
+          "type": "boolean"
+        },
+        "can_bind_familiars": {
+          "description": "Can this magical tradition bind familiars?",
+          "type": "boolean"
+        },
+        "allows_multiple_traditions": {
+          "description": "Does the tradition allow learning more traditions or having learned a\ndifferent tradition before learning this tradition?",
+          "type": "boolean"
+        },
+        "alternative_magical_adventure_points_maximum": {
+          "description": "Is the maximum AP you're able to spent on magical advantages and able to\nget by magical disadvantages different than the default of 50 AP?",
+          "type": "integer",
+          "maximum": 30,
+          "minimum": 25,
+          "multipleOf": 5
+        },
+        "require_non_spellwork_exclusive_effects": {
+          "description": "Are advantages/disadvantages required to not exclusively apply to arcane\nspellworks, but also to the tradition's magical actions or applications?",
+          "type": "boolean"
+        },
+        "is_magical_dilettante": {
+          "description": "Is this a magical dilettante tradition?",
+          "type": "boolean"
+        },
+        "use_arcane_spellworks_from_tradition": {
+          "description": "If arcane spellworks from a different tradition count as arcane spellworks\nof this tradition, this is the different tradition's reference.",
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "The magical tradition's identifier.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "influences": {
+          "description": "The Influences for the traditions. Influences are enabled by Focus Rules.",
+          "type": "array",
+          "items": {
+            "$ref": "../_Influence.schema.json#/definitions/Influence"
+          },
+          "minItems": 2
+        },
+        "ap_value": {
+          "$ref": "#/definitions/AdventurePointsValue"
+        },
+        "src": {
+          "$ref": "../source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "$ref": "#/definitions/Name"
+                },
+                "name_for_arcane_spellworks": {
+                  "description": "The name used for the traditions list of arcane spellworks if it is\ndifferent than the `name` of the special ability.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "name_in_library": {
+                  "$ref": "#/definitions/NameInLibrary"
+                },
+                "special_rules": {
+                  "description": "The special rules of the tradition. They should be sorted like they are\nin the book.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "description": "An optional label that is displayed and placed before the actual\ntext.",
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "text": {
+                        "description": "The text of a special rule.",
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "text"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1
+                },
+                "errata": {
+                  "$ref": "../source/_Erratum.schema.json#/definitions/Errata"
+                }
+              },
+              "required": [
+                "name",
+                "special_rules"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "can_learn_cantrips",
+        "can_learn_spells",
+        "can_learn_rituals",
+        "can_bind_familiars",
+        "allows_multiple_traditions",
+        "alternative_magical_adventure_points_maximum",
+        "require_non_spellwork_exclusive_effects",
+        "is_magical_dilettante",
+        "use_arcane_spellworks_from_tradition",
+        "ap_value",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

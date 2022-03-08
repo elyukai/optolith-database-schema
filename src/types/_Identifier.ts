@@ -59,6 +59,16 @@ export namespace Identifier {
       LiturgicalChant = "LiturgicalChant",
       Ceremony = "Ceremony",
     }
+
+    export enum AdvancedSpecialAbilityRestrictedOption {
+      General = "General",
+      Element = "Element",
+    }
+
+    export enum CombatTechnique {
+      CloseCombatTechnique = "CloseCombatTechnique",
+      RangedCombatTechnique = "RangedCombatTechnique",
+    }
   }
 
   export type Tagged<Tag> = {
@@ -76,5 +86,7 @@ export namespace Identifier {
   export namespace Group {
     export type Activatable = Tagged<Tag.Activatable>
     export type Rated = Tagged<Tag.Rated>
+    export type AdvancedSpecialAbilityRestrictedOption = Tagged<Tag.AdvancedSpecialAbilityRestrictedOption>
+    export type CombatTechnique = Tagged<Tag.CombatTechnique>
   }
 }
