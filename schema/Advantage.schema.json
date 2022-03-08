@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "Advantage.schema.json",
+  "$ref": "#/definitions/Advantage",
+  "definitions": {
+    "Advantage": {
+      "title": "Advantage",
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/Id"
+        },
+        "levels": {
+          "$ref": "#/definitions/Levels"
+        },
+        "skill_applications": {
+          "$ref": "#/definitions/SkillApplications"
+        },
+        "skill_uses": {
+          "$ref": "#/definitions/SkillUses"
+        },
+        "ap_value": {
+          "$ref": "#/definitions/AdventurePointsValue"
+        },
+        "has_no_maximum_spent_influence": {
+          "description": "Does this advantage not count towards the maximum of AP to be spent\non advantages?",
+          "const": true
+        },
+        "is_exclusive_to_arcane_spellworks": {
+          "description": "Does this advantage exclusively applies to arcane spellworks but not\nto magical actions and applications?",
+          "const": true
+        },
+        "src": {
+          "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "$ref": "#/definitions/Name"
+                },
+                "name_in_library": {
+                  "$ref": "#/definitions/NameInLibrary"
+                },
+                "rules": {
+                  "$ref": "#/definitions/Rules"
+                },
+                "range": {
+                  "description": "The range.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "errata": {
+                  "$ref": "./source/_Erratum.schema.json#/definitions/Errata"
+                }
+              },
+              "required": [
+                "name",
+                "rules"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "ap_value",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
