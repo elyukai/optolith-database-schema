@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0](https://github.com/elyukai/optolith-database-schema/compare/v0.0.4...v0.1.0) (2022-03-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* extract tradition artifact enchantments and rituals
+* export all prerequisites in another namespace
+
+### Features
+
+* advantages and disadvantages base ([c025bb6](https://github.com/elyukai/optolith-database-schema/commit/c025bb6b8ee6dc3007c0af3b691852a864ebdea6))
+* animal shapes ([56b00f9](https://github.com/elyukai/optolith-database-schema/commit/56b00f90aff28f7cc8e8182f3f049d4593430113))
+* brews ([03a785d](https://github.com/elyukai/optolith-database-schema/commit/03a785d3cfa8fab2da0a8fe1ddb402b2b5a3ab7d))
+* continents ([95482db](https://github.com/elyukai/optolith-database-schema/commit/95482db5671440e24156c651ab094b4a10790223))
+* languages ([b85c4f1](https://github.com/elyukai/optolith-database-schema/commit/b85c4f1bcaf5199cd1501051c17b05a8b5178345))
+* patrons ([c7e9b6c](https://github.com/elyukai/optolith-database-schema/commit/c7e9b6cabdfdfca7d51eb6891bfb8b8b2973bbff))
+* pluralization categories type for user interface ([a434d53](https://github.com/elyukai/optolith-database-schema/commit/a434d53a47e0e50b129855aee8e0a5bc4b634d79))
+* scripts ([78a2e92](https://github.com/elyukai/optolith-database-schema/commit/78a2e92d72c0e2616948e9e2ccc1b51752be3b87))
+* special abilities base ([f935264](https://github.com/elyukai/optolith-database-schema/commit/f935264328d19b29b0e30a0b1907501c30a2d4c5))
+
+
+* export all prerequisites in another namespace ([4c09c3e](https://github.com/elyukai/optolith-database-schema/commit/4c09c3e3371beff4587327e40564866b397e311b))
+* extract tradition artifact enchantments and rituals ([58e06c6](https://github.com/elyukai/optolith-database-schema/commit/58e06c6925bb56ea854ad211efcf89f981e715b7))
+
 ### [0.0.4](https://github.com/elyukai/optolith-database-schema/compare/v0.0.3...v0.0.4) (2022-03-06)
 
 
