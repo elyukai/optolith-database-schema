@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "_I18n.schema.json",
+  "definitions": {
+    "PluralizationCategories": {
+      "description": "The item can be present in multiple pluralization categories; this object\nunifies handling of them. Not all of the options must be present, however,\nevery possible category for that language should be defined. This means, that\ndifferent languages may have a different amount of properties defined here.\nMore information on pluralization and the Intl.PluralRules API on\nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules,\nhttps://unicode-org.github.io/cldr/ldml/tr35-numbers.html#Language_Plural_Rules and\nhttp://cldr.unicode.org/index/cldr-spec/plural-rules.\n\nFrom the third link:\n\n> The minimal pairs are those that are required for correct grammar. So\n> because 0 and 1 don't have to form a minimal pair (it is ok—even though\n> often not optimal—to say '0 people') , 0 doesn't establish a separate\n> category. However, implementations are encouraged to provide the ability to\n> have special plural messages for 0 in particular, so that more natural\n> language can be used:\n>\n> — None of your friends are online.\n>\n> rather than\n>\n> — You have 0 friends online.",
+      "type": "object",
+      "properties": {
+        "zero": {
+          "$ref": "#/definitions/NonEmptyString"
+        },
+        "one": {
+          "$ref": "#/definitions/NonEmptyString"
+        },
+        "two": {
+          "$ref": "#/definitions/NonEmptyString"
+        },
+        "few": {
+          "$ref": "#/definitions/NonEmptyString"
+        },
+        "many": {
+          "$ref": "#/definitions/NonEmptyString"
+        },
+        "other": {
+          "$ref": "#/definitions/NonEmptyString"
+        }
+      },
+      "required": [
+        "other"
+      ],
+      "additionalProperties": false
+    },
+    "NonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}
