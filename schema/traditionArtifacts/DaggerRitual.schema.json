@@ -1,10 +1,10 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "specialAbility/AttireEnchantment.schema.json",
-  "$ref": "#/definitions/AttireEnchantment",
+  "$id": "traditionArtifacts/DaggerRitual.schema.json",
+  "$ref": "#/definitions/DaggerRitual",
   "definitions": {
-    "AttireEnchantment": {
-      "title": "Attire Enchantment",
+    "DaggerRitual": {
+      "title": "Dagger Ritual",
       "type": "object",
       "properties": {
         "id": {

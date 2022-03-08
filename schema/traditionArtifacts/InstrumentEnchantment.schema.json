@@ -1,10 +1,10 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "specialAbility/WeaponEnchantment.schema.json",
-  "$ref": "#/definitions/WeaponEnchantment",
+  "$id": "traditionArtifacts/InstrumentEnchantment.schema.json",
+  "$ref": "#/definitions/InstrumentEnchantment",
   "definitions": {
-    "WeaponEnchantment": {
-      "title": "Weapon Enchantment",
+    "InstrumentEnchantment": {
+      "title": "Instrument Enchantment",
       "type": "object",
       "properties": {
         "id": {

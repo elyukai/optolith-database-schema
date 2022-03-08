@@ -1,10 +1,10 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "specialAbility/CauldronEnchantment.schema.json",
-  "$ref": "#/definitions/CauldronEnchantment",
+  "$id": "traditionArtifacts/OrbEnchantment.schema.json",
+  "$ref": "#/definitions/OrbEnchantment",
   "definitions": {
-    "CauldronEnchantment": {
-      "title": "Cauldron Enchantment",
+    "OrbEnchantment": {
+      "title": "Orb Enchantment",
       "type": "object",
       "properties": {
         "id": {
@@ -15,22 +15,6 @@
         },
         "property": {
           "$ref": "#/definitions/Property"
-        },
-        "brew": {
-          "description": "Witches can learn to brew special things in their Witch's Cauldron. These\nbrews can be categorized in different types.",
-          "type": "object",
-          "properties": {
-            "id": {
-              "description": "The brew's identifier.",
-              "type": "integer",
-              "maximum": 4,
-              "minimum": 1
-            }
-          },
-          "required": [
-            "id"
-          ],
-          "additionalProperties": false
         },
         "ap_value": {
           "$ref": "#/definitions/AdventurePointsValue"
@@ -72,7 +56,6 @@
       "required": [
         "id",
         "property",
-        "brew",
         "ap_value",
         "src",
         "translations"

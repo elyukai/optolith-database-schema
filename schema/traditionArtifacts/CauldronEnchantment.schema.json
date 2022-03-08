@@ -1,10 +1,10 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "specialAbility/FoolsHatEnchantment.schema.json",
-  "$ref": "#/definitions/FoolsHatEnchantment",
+  "$id": "traditionArtifacts/CauldronEnchantment.schema.json",
+  "$ref": "#/definitions/CauldronEnchantment",
   "definitions": {
-    "FoolsHatEnchantment": {
-      "title": "Fool's Hat Enchantment",
+    "CauldronEnchantment": {
+      "title": "Cauldron Enchantment",
       "type": "object",
       "properties": {
         "id": {
@@ -15,6 +15,22 @@
         },
         "property": {
           "$ref": "#/definitions/Property"
+        },
+        "brew": {
+          "description": "Witches can learn to brew special things in their Witch's Cauldron. These\nbrews can be categorized in different types.",
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "The brew's identifier.",
+              "type": "integer",
+              "maximum": 4,
+              "minimum": 1
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
         },
         "ap_value": {
           "$ref": "#/definitions/AdventurePointsValue"
@@ -56,6 +72,7 @@
       "required": [
         "id",
         "property",
+        "brew",
         "ap_value",
         "src",
         "translations"

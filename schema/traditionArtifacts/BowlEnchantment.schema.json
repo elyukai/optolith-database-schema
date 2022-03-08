@@ -1,10 +1,10 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "specialAbility/RingEnchantment.schema.json",
-  "$ref": "#/definitions/RingEnchantment",
+  "$id": "traditionArtifacts/BowlEnchantment.schema.json",
+  "$ref": "#/definitions/BowlEnchantment",
   "definitions": {
-    "RingEnchantment": {
-      "title": "Ring Enchantment",
+    "BowlEnchantment": {
+      "title": "Bowl Enchantment",
       "type": "object",
       "properties": {
         "id": {

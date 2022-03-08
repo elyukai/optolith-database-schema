@@ -1,24 +1,14 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "specialAbility/sub/AnimalShape.schema.json",
-  "$ref": "#/definitions/AnimalShape",
+  "$id": "traditionArtifacts/sub/AnimalShapePath.schema.json",
+  "$ref": "#/definitions/AnimalShapePath",
   "definitions": {
-    "AnimalShape": {
-      "title": "Animal Shape",
+    "AnimalShapePath": {
+      "title": "Animal Shape Path",
       "type": "object",
       "properties": {
         "id": {
-          "description": "The animal shape's identifier. An unique, increasing integer.",
-          "type": "integer",
-          "minimum": 1
-        },
-        "path_id": {
-          "description": "The identifier of the animal shape's path.",
-          "type": "integer",
-          "minimum": 1
-        },
-        "size_id": {
-          "description": "The identifier of the animal shape's size.",
+          "description": "The animal shape path's identifier. An unique, increasing integer.",
           "type": "integer",
           "minimum": 1
         },
@@ -30,7 +20,7 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "description": "The animal shape name.",
+                  "description": "The animal shape path's name.",
                   "type": "string",
                   "minLength": 1
                 }
@@ -47,8 +37,6 @@
       },
       "required": [
         "id",
-        "path_id",
-        "size_id",
         "translations"
       ],
       "additionalProperties": false

@@ -1,10 +1,10 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "specialAbility/BowlEnchantment.schema.json",
-  "$ref": "#/definitions/BowlEnchantment",
+  "$id": "traditionArtifacts/Krallenkettenzauber.schema.json",
+  "$ref": "#/definitions/Krallenkettenzauber",
   "definitions": {
-    "BowlEnchantment": {
-      "title": "Bowl Enchantment",
+    "Krallenkettenzauber": {
+      "title": "Krallenkettenzauber",
       "type": "object",
       "properties": {
         "id": {

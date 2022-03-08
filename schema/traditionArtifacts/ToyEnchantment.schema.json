@@ -1,10 +1,10 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "specialAbility/SickleRitual.schema.json",
-  "$ref": "#/definitions/SickleRitual",
+  "$id": "traditionArtifacts/ToyEnchantment.schema.json",
+  "$ref": "#/definitions/ToyEnchantment",
   "definitions": {
-    "SickleRitual": {
-      "title": "Sickle Ritual",
+    "ToyEnchantment": {
+      "title": "Toy Enchantment",
       "type": "object",
       "properties": {
         "id": {
