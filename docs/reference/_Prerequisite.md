@@ -2,58 +2,58 @@
 
 ## Definitions
 
-### <a name="Single/DisplayOption/T"></a> Display Option (`Single/DisplayOption/T`)
+### <a name="Prerequisite/Single/DisplayOption/T"></a> Display Option (`Prerequisite/Single/DisplayOption/T`)
 
 - **Type:** Union
-- **Cases:** <a href="#Single/DisplayOption/T'Hide">Single/DisplayOption/T'Hide</a> | <a href="#Single/DisplayOption/T'ReplaceWith">Single/DisplayOption/T'ReplaceWith</a>
+- **Cases:** <a href="#Prerequisite/Single/DisplayOption/T'Hide">Prerequisite/Single/DisplayOption/T'Hide</a> | <a href="#Prerequisite/Single/DisplayOption/T'ReplaceWith">Prerequisite/Single/DisplayOption/T'ReplaceWith</a>
 
 ---
 
-### <a name="Single/DisplayOption/T'Hide"></a> `Single/DisplayOption/T'Hide`
+### <a name="Prerequisite/Single/DisplayOption/T'Hide"></a> `Prerequisite/Single/DisplayOption/T'Hide`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Single/DisplayOption/T'Hide/tag">See details</a>
+`tag` |  | <a href="#Prerequisite/Single/DisplayOption/T'Hide/tag">See details</a>
 
-#### <a name="Single/DisplayOption/T'Hide/tag"></a> `tag`
+#### <a name="Prerequisite/Single/DisplayOption/T'Hide/tag"></a> `tag`
 
 - **Constant:** `"Hide"`
 
 ---
 
-### <a name="Single/DisplayOption/T'ReplaceWith"></a> `Single/DisplayOption/T'ReplaceWith`
+### <a name="Prerequisite/Single/DisplayOption/T'ReplaceWith"></a> `Prerequisite/Single/DisplayOption/T'ReplaceWith`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Single/DisplayOption/T'ReplaceWith/tag">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Single/DisplayOption/T'ReplaceWith/translations">See details</a>
+`tag` |  | <a href="#Prerequisite/Single/DisplayOption/T'ReplaceWith/tag">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Prerequisite/Single/DisplayOption/T'ReplaceWith/translations">See details</a>
 
-#### <a name="Single/DisplayOption/T'ReplaceWith/tag"></a> `tag`
+#### <a name="Prerequisite/Single/DisplayOption/T'ReplaceWith/tag"></a> `tag`
 
 - **Constant:** `"ReplaceWith"`
 
-#### <a name="Single/DisplayOption/T'ReplaceWith/translations"></a> `translations`
+#### <a name="Prerequisite/Single/DisplayOption/T'ReplaceWith/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#Single/DisplayOption/T'ReplaceWith/translations[key]">Single/DisplayOption/T'ReplaceWith/translations[key]</a>
+- **Property Values:** <a href="#Prerequisite/Single/DisplayOption/T'ReplaceWith/translations[key]">Prerequisite/Single/DisplayOption/T'ReplaceWith/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="Single/DisplayOption/T'ReplaceWith/translations[key]"></a> `Single/DisplayOption/T'ReplaceWith/translations[key]`
+### <a name="Prerequisite/Single/DisplayOption/T'ReplaceWith/translations[key]"></a> `Prerequisite/Single/DisplayOption/T'ReplaceWith/translations[key]`
 
 - **Type:** String
 
 ---
 
-### <a name="Single/Sex/T"></a> Sex Prerequisite (`Single/Sex/T`)
+### <a name="Prerequisite/Single/Sex/T"></a> Sex Prerequisite (`Prerequisite/Single/Sex/T`)
 
 Requires a specific sex.
 
@@ -61,25 +61,25 @@ Requires a specific sex.
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Single/Sex/T/tag">See details</a>
-`id` |  | <a href="#Single/Sex/T/id">See details</a>
-`display_option?` |  | <a href="#Single/Sex/T/display_option">See details</a>
+`tag` |  | <a href="#Prerequisite/Single/Sex/T/tag">See details</a>
+`id` |  | <a href="#Prerequisite/Single/Sex/T/id">See details</a>
+`display_option?` |  | <a href="#Prerequisite/Single/Sex/T/display_option">See details</a>
 
-#### <a name="Single/Sex/T/tag"></a> `tag`
+#### <a name="Prerequisite/Single/Sex/T/tag"></a> `tag`
 
 - **Constant:** `"Sex"`
 
-#### <a name="Single/Sex/T/id"></a> `id`
+#### <a name="Prerequisite/Single/Sex/T/id"></a> `id`
 
 - **Type:** <a href="./_Sex.md#BinarySex">BinarySex</a>
 
-#### <a name="Single/Sex/T/display_option"></a> `display_option?`
+#### <a name="Prerequisite/Single/Sex/T/display_option"></a> `display_option?`
 
-- **Type:** <a href="#Single/DisplayOption/T">Single/DisplayOption/T</a>
+- **Type:** <a href="#Prerequisite/Single/DisplayOption/T">Prerequisite/Single/DisplayOption/T</a>
 
 ---
 
-### <a name="Single/Race/T"></a> Race Prerequisite (`Single/Race/T`)
+### <a name="Prerequisite/Single/Race/T"></a> Race Prerequisite (`Prerequisite/Single/Race/T`)
 
 Requires a specific culture or one of a specific set of cultures.
 
@@ -87,70 +87,70 @@ Requires a specific culture or one of a specific set of cultures.
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Single/Race/T/tag">See details</a>
-`id` |  | <a href="#Single/Race/T/id">See details</a>
-`active` |  | <a href="#Single/Race/T/active">See details</a>
-`display_option?` |  | <a href="#Single/Race/T/display_option">See details</a>
+`tag` |  | <a href="#Prerequisite/Single/Race/T/tag">See details</a>
+`id` |  | <a href="#Prerequisite/Single/Race/T/id">See details</a>
+`active` |  | <a href="#Prerequisite/Single/Race/T/active">See details</a>
+`display_option?` |  | <a href="#Prerequisite/Single/Race/T/display_option">See details</a>
 
-#### <a name="Single/Race/T/tag"></a> `tag`
+#### <a name="Prerequisite/Single/Race/T/tag"></a> `tag`
 
 - **Constant:** `"Culture"`
 
-#### <a name="Single/Race/T/id"></a> `id`
+#### <a name="Prerequisite/Single/Race/T/id"></a> `id`
 
-- **Type:** <a href="#Single/Race/Identifier">Single/Race/Identifier</a>
+- **Type:** <a href="#Prerequisite/Single/Race/Identifier">Prerequisite/Single/Race/Identifier</a>
 
-#### <a name="Single/Race/T/active"></a> `active`
+#### <a name="Prerequisite/Single/Race/T/active"></a> `active`
 
 - **Type:** Boolean
 
-#### <a name="Single/Race/T/display_option"></a> `display_option?`
+#### <a name="Prerequisite/Single/Race/T/display_option"></a> `display_option?`
 
-- **Type:** <a href="#Single/DisplayOption/T">Single/DisplayOption/T</a>
+- **Type:** <a href="#Prerequisite/Single/DisplayOption/T">Prerequisite/Single/DisplayOption/T</a>
 
 ---
 
-### <a name="Single/Race/Identifier"></a> `Single/Race/Identifier`
+### <a name="Prerequisite/Single/Race/Identifier"></a> `Prerequisite/Single/Race/Identifier`
 
 - **Type:** Union
-- **Cases:** <a href="#Single/Race/Identifier'SingleIdentifier">Single/Race/Identifier'SingleIdentifier</a> | <a href="#Single/Race/Identifier'MultipleIdentifiers">Single/Race/Identifier'MultipleIdentifiers</a>
+- **Cases:** <a href="#Prerequisite/Single/Race/Identifier'SingleIdentifier">Prerequisite/Single/Race/Identifier'SingleIdentifier</a> | <a href="#Prerequisite/Single/Race/Identifier'MultipleIdentifiers">Prerequisite/Single/Race/Identifier'MultipleIdentifiers</a>
 
 ---
 
-### <a name="Single/Race/Identifier'SingleIdentifier"></a> `Single/Race/Identifier'SingleIdentifier`
+### <a name="Prerequisite/Single/Race/Identifier'SingleIdentifier"></a> `Prerequisite/Single/Race/Identifier'SingleIdentifier`
 
-- **Type:** <a href="#Single/Race/SingleIdentifier">Single/Race/SingleIdentifier</a>
-
----
-
-### <a name="Single/Race/Identifier'MultipleIdentifiers"></a> `Single/Race/Identifier'MultipleIdentifiers`
-
-- **Type:** <a href="#Single/Race/MultipleIdentifiers">Single/Race/MultipleIdentifiers</a>
+- **Type:** <a href="#Prerequisite/Single/Race/SingleIdentifier">Prerequisite/Single/Race/SingleIdentifier</a>
 
 ---
 
-### <a name="Single/Race/SingleIdentifier"></a> `Single/Race/SingleIdentifier`
+### <a name="Prerequisite/Single/Race/Identifier'MultipleIdentifiers"></a> `Prerequisite/Single/Race/Identifier'MultipleIdentifiers`
+
+- **Type:** <a href="#Prerequisite/Single/Race/MultipleIdentifiers">Prerequisite/Single/Race/MultipleIdentifiers</a>
+
+---
+
+### <a name="Prerequisite/Single/Race/SingleIdentifier"></a> `Prerequisite/Single/Race/SingleIdentifier`
 
 - **Type:** Number
 - **Minimum:** `1`
 
 ---
 
-### <a name="Single/Race/MultipleIdentifiers"></a> `Single/Race/MultipleIdentifiers`
+### <a name="Prerequisite/Single/Race/MultipleIdentifiers"></a> `Prerequisite/Single/Race/MultipleIdentifiers`
 
 - **Type:** List
-- **Items:** <a href="#Single/Race/MultipleIdentifiers[]">Single/Race/MultipleIdentifiers[]</a>
+- **Items:** <a href="#Prerequisite/Single/Race/MultipleIdentifiers[]">Prerequisite/Single/Race/MultipleIdentifiers[]</a>
 - **Minimum Items:** `2`
 
 ---
 
-### <a name="Single/Race/MultipleIdentifiers[]"></a> `Single/Race/MultipleIdentifiers[]`
+### <a name="Prerequisite/Single/Race/MultipleIdentifiers[]"></a> `Prerequisite/Single/Race/MultipleIdentifiers[]`
 
-- **Type:** <a href="#Single/Race/SingleIdentifier">Single/Race/SingleIdentifier</a>
+- **Type:** <a href="#Prerequisite/Single/Race/SingleIdentifier">Prerequisite/Single/Race/SingleIdentifier</a>
 
 ---
 
-### <a name="Single/Culture/T"></a> Culture Prerequisite (`Single/Culture/T`)
+### <a name="Prerequisite/Single/Culture/T"></a> Culture Prerequisite (`Prerequisite/Single/Culture/T`)
 
 Requires a specific race or one of a specific set of races. You can also
 provide an object to say whether the hero must meet one of the races or
@@ -160,230 +160,230 @@ if the entry does not allow one of the races.
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Single/Culture/T/tag">See details</a>
-`id` |  | <a href="#Single/Culture/T/id">See details</a>
-`display_option?` |  | <a href="#Single/Culture/T/display_option">See details</a>
+`tag` |  | <a href="#Prerequisite/Single/Culture/T/tag">See details</a>
+`id` |  | <a href="#Prerequisite/Single/Culture/T/id">See details</a>
+`display_option?` |  | <a href="#Prerequisite/Single/Culture/T/display_option">See details</a>
 
-#### <a name="Single/Culture/T/tag"></a> `tag`
+#### <a name="Prerequisite/Single/Culture/T/tag"></a> `tag`
 
 - **Constant:** `"Culture"`
 
-#### <a name="Single/Culture/T/id"></a> `id`
+#### <a name="Prerequisite/Single/Culture/T/id"></a> `id`
 
-- **Type:** <a href="#Single/Culture/Identifier">Single/Culture/Identifier</a>
+- **Type:** <a href="#Prerequisite/Single/Culture/Identifier">Prerequisite/Single/Culture/Identifier</a>
 
-#### <a name="Single/Culture/T/display_option"></a> `display_option?`
+#### <a name="Prerequisite/Single/Culture/T/display_option"></a> `display_option?`
 
-- **Type:** <a href="#Single/DisplayOption/T">Single/DisplayOption/T</a>
+- **Type:** <a href="#Prerequisite/Single/DisplayOption/T">Prerequisite/Single/DisplayOption/T</a>
 
 ---
 
-### <a name="Single/Culture/Identifier"></a> `Single/Culture/Identifier`
+### <a name="Prerequisite/Single/Culture/Identifier"></a> `Prerequisite/Single/Culture/Identifier`
 
 - **Type:** Union
-- **Cases:** <a href="#Single/Culture/Identifier'SingleIdentifier">Single/Culture/Identifier'SingleIdentifier</a> | <a href="#Single/Culture/Identifier'MultipleIdentifiers">Single/Culture/Identifier'MultipleIdentifiers</a>
+- **Cases:** <a href="#Prerequisite/Single/Culture/Identifier'SingleIdentifier">Prerequisite/Single/Culture/Identifier'SingleIdentifier</a> | <a href="#Prerequisite/Single/Culture/Identifier'MultipleIdentifiers">Prerequisite/Single/Culture/Identifier'MultipleIdentifiers</a>
 
 ---
 
-### <a name="Single/Culture/Identifier'SingleIdentifier"></a> `Single/Culture/Identifier'SingleIdentifier`
+### <a name="Prerequisite/Single/Culture/Identifier'SingleIdentifier"></a> `Prerequisite/Single/Culture/Identifier'SingleIdentifier`
 
-- **Type:** <a href="#Single/Culture/SingleIdentifier">Single/Culture/SingleIdentifier</a>
-
----
-
-### <a name="Single/Culture/Identifier'MultipleIdentifiers"></a> `Single/Culture/Identifier'MultipleIdentifiers`
-
-- **Type:** <a href="#Single/Culture/MultipleIdentifiers">Single/Culture/MultipleIdentifiers</a>
+- **Type:** <a href="#Prerequisite/Single/Culture/SingleIdentifier">Prerequisite/Single/Culture/SingleIdentifier</a>
 
 ---
 
-### <a name="Single/Culture/SingleIdentifier"></a> `Single/Culture/SingleIdentifier`
+### <a name="Prerequisite/Single/Culture/Identifier'MultipleIdentifiers"></a> `Prerequisite/Single/Culture/Identifier'MultipleIdentifiers`
+
+- **Type:** <a href="#Prerequisite/Single/Culture/MultipleIdentifiers">Prerequisite/Single/Culture/MultipleIdentifiers</a>
+
+---
+
+### <a name="Prerequisite/Single/Culture/SingleIdentifier"></a> `Prerequisite/Single/Culture/SingleIdentifier`
 
 - **Type:** Number
 - **Minimum:** `1`
 
 ---
 
-### <a name="Single/Culture/MultipleIdentifiers"></a> `Single/Culture/MultipleIdentifiers`
+### <a name="Prerequisite/Single/Culture/MultipleIdentifiers"></a> `Prerequisite/Single/Culture/MultipleIdentifiers`
 
 - **Type:** List
-- **Items:** <a href="#Single/Culture/MultipleIdentifiers[]">Single/Culture/MultipleIdentifiers[]</a>
+- **Items:** <a href="#Prerequisite/Single/Culture/MultipleIdentifiers[]">Prerequisite/Single/Culture/MultipleIdentifiers[]</a>
 - **Minimum Items:** `2`
 
 ---
 
-### <a name="Single/Culture/MultipleIdentifiers[]"></a> `Single/Culture/MultipleIdentifiers[]`
+### <a name="Prerequisite/Single/Culture/MultipleIdentifiers[]"></a> `Prerequisite/Single/Culture/MultipleIdentifiers[]`
 
-- **Type:** <a href="#Single/Culture/SingleIdentifier">Single/Culture/SingleIdentifier</a>
+- **Type:** <a href="#Prerequisite/Single/Culture/SingleIdentifier">Prerequisite/Single/Culture/SingleIdentifier</a>
 
 ---
 
-### <a name="Single/Rule/T"></a> Rule Prerequisite (`Single/Rule/T`)
+### <a name="Prerequisite/Single/Rule/T"></a> Rule Prerequisite (`Prerequisite/Single/Rule/T`)
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Single/Rule/T/tag">See details</a>
-`id` |  | <a href="#Single/Rule/T/id">See details</a>
-`display_option?` |  | <a href="#Single/Rule/T/display_option">See details</a>
+`tag` |  | <a href="#Prerequisite/Single/Rule/T/tag">See details</a>
+`id` |  | <a href="#Prerequisite/Single/Rule/T/id">See details</a>
+`display_option?` |  | <a href="#Prerequisite/Single/Rule/T/display_option">See details</a>
 
-#### <a name="Single/Rule/T/tag"></a> `tag`
+#### <a name="Prerequisite/Single/Rule/T/tag"></a> `tag`
 
 - **Constant:** `"Rule"`
 
-#### <a name="Single/Rule/T/id"></a> `id`
+#### <a name="Prerequisite/Single/Rule/T/id"></a> `id`
 
-- **Type:** <a href="#Single/Rule/Identifier">Single/Rule/Identifier</a>
+- **Type:** <a href="#Prerequisite/Single/Rule/Identifier">Prerequisite/Single/Rule/Identifier</a>
 
-#### <a name="Single/Rule/T/display_option"></a> `display_option?`
+#### <a name="Prerequisite/Single/Rule/T/display_option"></a> `display_option?`
 
-- **Type:** <a href="#Single/DisplayOption/T">Single/DisplayOption/T</a>
+- **Type:** <a href="#Prerequisite/Single/DisplayOption/T">Prerequisite/Single/DisplayOption/T</a>
 
 ---
 
-### <a name="Single/Rule/Identifier"></a> `Single/Rule/Identifier`
+### <a name="Prerequisite/Single/Rule/Identifier"></a> `Prerequisite/Single/Rule/Identifier`
 
 - **Type:** Union
-- **Cases:** <a href="#Single/Rule/Identifier'FocusRule">Single/Rule/Identifier'FocusRule</a> | <a href="#Single/Rule/Identifier'OptionalRule">Single/Rule/Identifier'OptionalRule</a>
+- **Cases:** <a href="#Prerequisite/Single/Rule/Identifier'FocusRule">Prerequisite/Single/Rule/Identifier'FocusRule</a> | <a href="#Prerequisite/Single/Rule/Identifier'OptionalRule">Prerequisite/Single/Rule/Identifier'OptionalRule</a>
 
 ---
 
-### <a name="Single/Rule/Identifier'FocusRule"></a> `Single/Rule/Identifier'FocusRule`
+### <a name="Prerequisite/Single/Rule/Identifier'FocusRule"></a> `Prerequisite/Single/Rule/Identifier'FocusRule`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Single/Rule/Identifier'FocusRule/tag">See details</a>
-`value` |  | <a href="#Single/Rule/Identifier'FocusRule/value">See details</a>
+`tag` |  | <a href="#Prerequisite/Single/Rule/Identifier'FocusRule/tag">See details</a>
+`value` |  | <a href="#Prerequisite/Single/Rule/Identifier'FocusRule/value">See details</a>
 
-#### <a name="Single/Rule/Identifier'FocusRule/tag"></a> `tag`
+#### <a name="Prerequisite/Single/Rule/Identifier'FocusRule/tag"></a> `tag`
 
 - **Constant:** `"FocusRule"`
 
-#### <a name="Single/Rule/Identifier'FocusRule/value"></a> `value`
+#### <a name="Prerequisite/Single/Rule/Identifier'FocusRule/value"></a> `value`
 
 - **Type:** Integer
 - **Minimum:** `1`
 
 ---
 
-### <a name="Single/Rule/Identifier'OptionalRule"></a> `Single/Rule/Identifier'OptionalRule`
+### <a name="Prerequisite/Single/Rule/Identifier'OptionalRule"></a> `Prerequisite/Single/Rule/Identifier'OptionalRule`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Single/Rule/Identifier'OptionalRule/tag">See details</a>
-`value` |  | <a href="#Single/Rule/Identifier'OptionalRule/value">See details</a>
+`tag` |  | <a href="#Prerequisite/Single/Rule/Identifier'OptionalRule/tag">See details</a>
+`value` |  | <a href="#Prerequisite/Single/Rule/Identifier'OptionalRule/value">See details</a>
 
-#### <a name="Single/Rule/Identifier'OptionalRule/tag"></a> `tag`
+#### <a name="Prerequisite/Single/Rule/Identifier'OptionalRule/tag"></a> `tag`
 
 - **Constant:** `"OptionalRule"`
 
-#### <a name="Single/Rule/Identifier'OptionalRule/value"></a> `value`
+#### <a name="Prerequisite/Single/Rule/Identifier'OptionalRule/value"></a> `value`
 
 - **Type:** Integer
 - **Minimum:** `1`
 
 ---
 
-### <a name="Single/Publication/T"></a> Publication Prerequisite (`Single/Publication/T`)
+### <a name="Prerequisite/Single/Publication/T"></a> Publication Prerequisite (`Prerequisite/Single/Publication/T`)
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Single/Publication/T/tag">See details</a>
-`id` |  | <a href="#Single/Publication/T/id">See details</a>
-`display_option?` |  | <a href="#Single/Publication/T/display_option">See details</a>
+`tag` |  | <a href="#Prerequisite/Single/Publication/T/tag">See details</a>
+`id` |  | <a href="#Prerequisite/Single/Publication/T/id">See details</a>
+`display_option?` |  | <a href="#Prerequisite/Single/Publication/T/display_option">See details</a>
 
-#### <a name="Single/Publication/T/tag"></a> `tag`
+#### <a name="Prerequisite/Single/Publication/T/tag"></a> `tag`
 
 - **Constant:** `"Publication"`
 
-#### <a name="Single/Publication/T/id"></a> `id`
+#### <a name="Prerequisite/Single/Publication/T/id"></a> `id`
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="Single/Publication/T/display_option"></a> `display_option?`
+#### <a name="Prerequisite/Single/Publication/T/display_option"></a> `display_option?`
 
-- **Type:** <a href="#Single/DisplayOption/T">Single/DisplayOption/T</a>
+- **Type:** <a href="#Prerequisite/Single/DisplayOption/T">Prerequisite/Single/DisplayOption/T</a>
 
 ---
 
-### <a name="Single/PrimaryAttribute/T"></a> Primary Attribute Prerequisite (`Single/PrimaryAttribute/T`)
+### <a name="Prerequisite/Single/PrimaryAttribute/T"></a> Primary Attribute Prerequisite (`Prerequisite/Single/PrimaryAttribute/T`)
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Single/PrimaryAttribute/T/tag">See details</a>
-`category` | Is the required primary attribute for spellcasters or blessed ones? | <a href="#Single/PrimaryAttribute/T/category">See details</a>
-`value` | Required value of the attribute | <a href="#Single/PrimaryAttribute/T/value">See details</a>
-`display_option?` |  | <a href="#Single/PrimaryAttribute/T/display_option">See details</a>
+`tag` |  | <a href="#Prerequisite/Single/PrimaryAttribute/T/tag">See details</a>
+`category` | Is the required primary attribute for spellcasters or blessed ones? | <a href="#Prerequisite/Single/PrimaryAttribute/T/category">See details</a>
+`value` | Required value of the attribute | <a href="#Prerequisite/Single/PrimaryAttribute/T/value">See details</a>
+`display_option?` |  | <a href="#Prerequisite/Single/PrimaryAttribute/T/display_option">See details</a>
 
-#### <a name="Single/PrimaryAttribute/T/tag"></a> `tag`
+#### <a name="Prerequisite/Single/PrimaryAttribute/T/tag"></a> `tag`
 
 - **Constant:** `"PrimaryAttribute"`
 
-#### <a name="Single/PrimaryAttribute/T/category"></a> `category`
+#### <a name="Prerequisite/Single/PrimaryAttribute/T/category"></a> `category`
 
 Is the required primary attribute for spellcasters or blessed ones?
 
-- **Type:** <a href="#Single/PrimaryAttribute/Category">Single/PrimaryAttribute/Category</a>
+- **Type:** <a href="#Prerequisite/Single/PrimaryAttribute/Category">Prerequisite/Single/PrimaryAttribute/Category</a>
 
-#### <a name="Single/PrimaryAttribute/T/value"></a> `value`
+#### <a name="Prerequisite/Single/PrimaryAttribute/T/value"></a> `value`
 
 Required value of the attribute
 
 - **Type:** Integer
 - **Minimum:** `9`
 
-#### <a name="Single/PrimaryAttribute/T/display_option"></a> `display_option?`
+#### <a name="Prerequisite/Single/PrimaryAttribute/T/display_option"></a> `display_option?`
 
-- **Type:** <a href="#Single/DisplayOption/T">Single/DisplayOption/T</a>
+- **Type:** <a href="#Prerequisite/Single/DisplayOption/T">Prerequisite/Single/DisplayOption/T</a>
 
 ---
 
-### <a name="Single/PrimaryAttribute/Category"></a> `Single/PrimaryAttribute/Category`
+### <a name="Prerequisite/Single/PrimaryAttribute/Category"></a> `Prerequisite/Single/PrimaryAttribute/Category`
 
 - **Type:** Union
-- **Cases:** <a href="#Single/PrimaryAttribute/Category'Blessed">Single/PrimaryAttribute/Category'Blessed</a> | <a href="#Single/PrimaryAttribute/Category'Magical">Single/PrimaryAttribute/Category'Magical</a>
+- **Cases:** <a href="#Prerequisite/Single/PrimaryAttribute/Category'Blessed">Prerequisite/Single/PrimaryAttribute/Category'Blessed</a> | <a href="#Prerequisite/Single/PrimaryAttribute/Category'Magical">Prerequisite/Single/PrimaryAttribute/Category'Magical</a>
 
 ---
 
-### <a name="Single/PrimaryAttribute/Category'Blessed"></a> `Single/PrimaryAttribute/Category'Blessed`
+### <a name="Prerequisite/Single/PrimaryAttribute/Category'Blessed"></a> `Prerequisite/Single/PrimaryAttribute/Category'Blessed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Single/PrimaryAttribute/Category'Blessed/tag">See details</a>
+`tag` |  | <a href="#Prerequisite/Single/PrimaryAttribute/Category'Blessed/tag">See details</a>
 
-#### <a name="Single/PrimaryAttribute/Category'Blessed/tag"></a> `tag`
+#### <a name="Prerequisite/Single/PrimaryAttribute/Category'Blessed/tag"></a> `tag`
 
 - **Constant:** `"Blessed"`
 
 ---
 
-### <a name="Single/PrimaryAttribute/Category'Magical"></a> `Single/PrimaryAttribute/Category'Magical`
+### <a name="Prerequisite/Single/PrimaryAttribute/Category'Magical"></a> `Prerequisite/Single/PrimaryAttribute/Category'Magical`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Single/PrimaryAttribute/Category'Magical/tag">See details</a>
+`tag` |  | <a href="#Prerequisite/Single/PrimaryAttribute/Category'Magical/tag">See details</a>
 
-#### <a name="Single/PrimaryAttribute/Category'Magical/tag"></a> `tag`
+#### <a name="Prerequisite/Single/PrimaryAttribute/Category'Magical/tag"></a> `tag`
 
 - **Constant:** `"Magical"`
 
 ---
 
-### <a name="Single/Pact/T"></a> Pact Prerequisite (`Single/Pact/T`)
+### <a name="Prerequisite/Single/Pact/T"></a> Pact Prerequisite (`Prerequisite/Single/Pact/T`)
 
 Requires a specific pact.
 
@@ -391,50 +391,50 @@ Requires a specific pact.
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Single/Pact/T/tag">See details</a>
-`category_id` | The required pact category's identifier. | <a href="#Single/Pact/T/category_id">See details</a>
-`domain_id?` | The required domains' identifiers. | <a href="#Single/Pact/T/domain_id">See details</a>
-`level?` | The required pact level. | <a href="#Single/Pact/T/level">See details</a>
-`display_option?` |  | <a href="#Single/Pact/T/display_option">See details</a>
+`tag` |  | <a href="#Prerequisite/Single/Pact/T/tag">See details</a>
+`category_id` | The required pact category's identifier. | <a href="#Prerequisite/Single/Pact/T/category_id">See details</a>
+`domain_id?` | The required domains' identifiers. | <a href="#Prerequisite/Single/Pact/T/domain_id">See details</a>
+`level?` | The required pact level. | <a href="#Prerequisite/Single/Pact/T/level">See details</a>
+`display_option?` |  | <a href="#Prerequisite/Single/Pact/T/display_option">See details</a>
 
-#### <a name="Single/Pact/T/tag"></a> `tag`
+#### <a name="Prerequisite/Single/Pact/T/tag"></a> `tag`
 
 - **Constant:** `"Pact"`
 
-#### <a name="Single/Pact/T/category_id"></a> `category_id`
+#### <a name="Prerequisite/Single/Pact/T/category_id"></a> `category_id`
 
 The required pact category's identifier.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="Single/Pact/T/domain_id"></a> `domain_id?`
+#### <a name="Prerequisite/Single/Pact/T/domain_id"></a> `domain_id?`
 
 The required domains' identifiers.
 
 - **Type:** List
-- **Items:** <a href="#Single/Pact/T/domain_id[]">Single/Pact/T/domain_id[]</a>
+- **Items:** <a href="#Prerequisite/Single/Pact/T/domain_id[]">Prerequisite/Single/Pact/T/domain_id[]</a>
 
-#### <a name="Single/Pact/T/level"></a> `level?`
+#### <a name="Prerequisite/Single/Pact/T/level"></a> `level?`
 
 The required pact level.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="Single/Pact/T/display_option"></a> `display_option?`
+#### <a name="Prerequisite/Single/Pact/T/display_option"></a> `display_option?`
 
-- **Type:** <a href="#Single/DisplayOption/T">Single/DisplayOption/T</a>
-
----
-
-### <a name="Single/Pact/T/domain_id[]"></a> `Single/Pact/T/domain_id[]`
-
-- **Type:** <a href="#Single/Pact/DomainId">Single/Pact/DomainId</a>
+- **Type:** <a href="#Prerequisite/Single/DisplayOption/T">Prerequisite/Single/DisplayOption/T</a>
 
 ---
 
-### <a name="Single/Pact/DomainId"></a> `Single/Pact/DomainId`
+### <a name="Prerequisite/Single/Pact/T/domain_id[]"></a> `Prerequisite/Single/Pact/T/domain_id[]`
+
+- **Type:** <a href="#Prerequisite/Single/Pact/DomainId">Prerequisite/Single/Pact/DomainId</a>
+
+---
+
+### <a name="Prerequisite/Single/Pact/DomainId"></a> `Prerequisite/Single/Pact/DomainId`
 
 A domain's identifier.
 
@@ -443,7 +443,7 @@ A domain's identifier.
 
 ---
 
-### <a name="Single/SocialStatus/T"></a> Social Status Prerequisite (`Single/SocialStatus/T`)
+### <a name="Prerequisite/Single/SocialStatus/T"></a> Social Status Prerequisite (`Prerequisite/Single/SocialStatus/T`)
 
 Requires a minimum social status.
 
@@ -451,15 +451,15 @@ Requires a minimum social status.
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Single/SocialStatus/T/tag">See details</a>
-`id` | The minimum social status' identifier. | <a href="#Single/SocialStatus/T/id">See details</a>
-`display_option?` |  | <a href="#Single/SocialStatus/T/display_option">See details</a>
+`tag` |  | <a href="#Prerequisite/Single/SocialStatus/T/tag">See details</a>
+`id` | The minimum social status' identifier. | <a href="#Prerequisite/Single/SocialStatus/T/id">See details</a>
+`display_option?` |  | <a href="#Prerequisite/Single/SocialStatus/T/display_option">See details</a>
 
-#### <a name="Single/SocialStatus/T/tag"></a> `tag`
+#### <a name="Prerequisite/Single/SocialStatus/T/tag"></a> `tag`
 
 - **Constant:** `"SocialStatus"`
 
-#### <a name="Single/SocialStatus/T/id"></a> `id`
+#### <a name="Prerequisite/Single/SocialStatus/T/id"></a> `id`
 
 The minimum social status' identifier.
 
@@ -467,47 +467,47 @@ The minimum social status' identifier.
 - **Minimum:** `2`
 - **Maximum:** `5`
 
-#### <a name="Single/SocialStatus/T/display_option"></a> `display_option?`
+#### <a name="Prerequisite/Single/SocialStatus/T/display_option"></a> `display_option?`
 
-- **Type:** <a href="#Single/DisplayOption/T">Single/DisplayOption/T</a>
+- **Type:** <a href="#Prerequisite/Single/DisplayOption/T">Prerequisite/Single/DisplayOption/T</a>
 
 ---
 
-### <a name="Single/Influence/T"></a> Influence Prerequisite (`Single/Influence/T`)
+### <a name="Prerequisite/Single/Influence/T"></a> Influence Prerequisite (`Prerequisite/Single/Influence/T`)
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Single/Influence/T/tag">See details</a>
-`id` | The influence's identifier. | <a href="#Single/Influence/T/id">See details</a>
-`active` | If the referenced influence must or must not be chosen. | <a href="#Single/Influence/T/active">See details</a>
-`display_option?` |  | <a href="#Single/Influence/T/display_option">See details</a>
+`tag` |  | <a href="#Prerequisite/Single/Influence/T/tag">See details</a>
+`id` | The influence's identifier. | <a href="#Prerequisite/Single/Influence/T/id">See details</a>
+`active` | If the referenced influence must or must not be chosen. | <a href="#Prerequisite/Single/Influence/T/active">See details</a>
+`display_option?` |  | <a href="#Prerequisite/Single/Influence/T/display_option">See details</a>
 
-#### <a name="Single/Influence/T/tag"></a> `tag`
+#### <a name="Prerequisite/Single/Influence/T/tag"></a> `tag`
 
 - **Constant:** `"Influence"`
 
-#### <a name="Single/Influence/T/id"></a> `id`
+#### <a name="Prerequisite/Single/Influence/T/id"></a> `id`
 
 The influence's identifier.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="Single/Influence/T/active"></a> `active`
+#### <a name="Prerequisite/Single/Influence/T/active"></a> `active`
 
 If the referenced influence must or must not be chosen.
 
 - **Type:** Boolean
 
-#### <a name="Single/Influence/T/display_option"></a> `display_option?`
+#### <a name="Prerequisite/Single/Influence/T/display_option"></a> `display_option?`
 
-- **Type:** <a href="#Single/DisplayOption/T">Single/DisplayOption/T</a>
+- **Type:** <a href="#Prerequisite/Single/DisplayOption/T">Prerequisite/Single/DisplayOption/T</a>
 
 ---
 
-### <a name="Single/Activatable/T"></a> Activatable Prerequisite (`Single/Activatable/T`)
+### <a name="Prerequisite/Single/Activatable/T"></a> Activatable Prerequisite (`Prerequisite/Single/Activatable/T`)
 
 Requires a specific advantage, disadvantage, special ability.
 
@@ -515,76 +515,76 @@ Requires a specific advantage, disadvantage, special ability.
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Single/Activatable/T/tag">See details</a>
-`id` | The activatable entry's identifier. | <a href="#Single/Activatable/T/id">See details</a>
-`active` | If the required entry should be required to be active or inactive. | <a href="#Single/Activatable/T/active">See details</a>
-`level?` | The required minimum level of the entry. | <a href="#Single/Activatable/T/level">See details</a>
-`display_option?` |  | <a href="#Single/Activatable/T/display_option">See details</a>
+`tag` |  | <a href="#Prerequisite/Single/Activatable/T/tag">See details</a>
+`id` | The activatable entry's identifier. | <a href="#Prerequisite/Single/Activatable/T/id">See details</a>
+`active` | If the required entry should be required to be active or inactive. | <a href="#Prerequisite/Single/Activatable/T/active">See details</a>
+`level?` | The required minimum level of the entry. | <a href="#Prerequisite/Single/Activatable/T/level">See details</a>
+`display_option?` |  | <a href="#Prerequisite/Single/Activatable/T/display_option">See details</a>
 
-#### <a name="Single/Activatable/T/tag"></a> `tag`
+#### <a name="Prerequisite/Single/Activatable/T/tag"></a> `tag`
 
 - **Constant:** `"Activatable"`
 
-#### <a name="Single/Activatable/T/id"></a> `id`
+#### <a name="Prerequisite/Single/Activatable/T/id"></a> `id`
 
 The activatable entry's identifier.
 
 - **Type:** <a href="./_Identifier.md#Identifier/Group/Activatable">Identifier/Group/Activatable</a>
 
-#### <a name="Single/Activatable/T/active"></a> `active`
+#### <a name="Prerequisite/Single/Activatable/T/active"></a> `active`
 
 If the required entry should be required to be active or inactive.
 
 - **Type:** Boolean
 
-#### <a name="Single/Activatable/T/level"></a> `level?`
+#### <a name="Prerequisite/Single/Activatable/T/level"></a> `level?`
 
 The required minimum level of the entry.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="Single/Activatable/T/display_option"></a> `display_option?`
+#### <a name="Prerequisite/Single/Activatable/T/display_option"></a> `display_option?`
 
-- **Type:** <a href="#Single/DisplayOption/T">Single/DisplayOption/T</a>
+- **Type:** <a href="#Prerequisite/Single/DisplayOption/T">Prerequisite/Single/DisplayOption/T</a>
 
 ---
 
-### <a name="Single/Rated/T"></a> Rated Prerequisite (`Single/Rated/T`)
+### <a name="Prerequisite/Single/Rated/T"></a> Rated Prerequisite (`Prerequisite/Single/Rated/T`)
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Single/Rated/T/tag">See details</a>
-`id` | The rated entry's identifier. | <a href="#Single/Rated/T/id">See details</a>
-`value` | The required minimum value. | <a href="#Single/Rated/T/value">See details</a>
-`display_option?` |  | <a href="#Single/Rated/T/display_option">See details</a>
+`tag` |  | <a href="#Prerequisite/Single/Rated/T/tag">See details</a>
+`id` | The rated entry's identifier. | <a href="#Prerequisite/Single/Rated/T/id">See details</a>
+`value` | The required minimum value. | <a href="#Prerequisite/Single/Rated/T/value">See details</a>
+`display_option?` |  | <a href="#Prerequisite/Single/Rated/T/display_option">See details</a>
 
-#### <a name="Single/Rated/T/tag"></a> `tag`
+#### <a name="Prerequisite/Single/Rated/T/tag"></a> `tag`
 
 - **Constant:** `"Rated"`
 
-#### <a name="Single/Rated/T/id"></a> `id`
+#### <a name="Prerequisite/Single/Rated/T/id"></a> `id`
 
 The rated entry's identifier.
 
 - **Type:** <a href="./_Identifier.md#Identifier/Group/Rated">Identifier/Group/Rated</a>
 
-#### <a name="Single/Rated/T/value"></a> `value`
+#### <a name="Prerequisite/Single/Rated/T/value"></a> `value`
 
 The required minimum value.
 
 - **Type:** Integer
 - **Minimum:** `0`
 
-#### <a name="Single/Rated/T/display_option"></a> `display_option?`
+#### <a name="Prerequisite/Single/Rated/T/display_option"></a> `display_option?`
 
-- **Type:** <a href="#Single/DisplayOption/T">Single/DisplayOption/T</a>
+- **Type:** <a href="#Prerequisite/Single/DisplayOption/T">Prerequisite/Single/DisplayOption/T</a>
 
 ---
 
-### <a name="Single/Enhancement/T"></a> Enhancement Prerequisite (`Single/Enhancement/T`)
+### <a name="Prerequisite/Single/Enhancement/T"></a> Enhancement Prerequisite (`Prerequisite/Single/Enhancement/T`)
 
 Requires a specific enhancement from a skill.
 
@@ -592,34 +592,34 @@ Requires a specific enhancement from a skill.
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Single/Enhancement/T/tag">See details</a>
-`skill` | The required skill's identifier. | <a href="#Single/Enhancement/T/skill">See details</a>
-`enhancement` | The required enhancement's identifier. | <a href="#Single/Enhancement/T/enhancement">See details</a>
-`display_option?` |  | <a href="#Single/Enhancement/T/display_option">See details</a>
+`tag` |  | <a href="#Prerequisite/Single/Enhancement/T/tag">See details</a>
+`skill` | The required skill's identifier. | <a href="#Prerequisite/Single/Enhancement/T/skill">See details</a>
+`enhancement` | The required enhancement's identifier. | <a href="#Prerequisite/Single/Enhancement/T/enhancement">See details</a>
+`display_option?` |  | <a href="#Prerequisite/Single/Enhancement/T/display_option">See details</a>
 
-#### <a name="Single/Enhancement/T/tag"></a> `tag`
+#### <a name="Prerequisite/Single/Enhancement/T/tag"></a> `tag`
 
 - **Constant:** `"Enhancement"`
 
-#### <a name="Single/Enhancement/T/skill"></a> `skill`
+#### <a name="Prerequisite/Single/Enhancement/T/skill"></a> `skill`
 
 The required skill's identifier.
 
-- **Type:** <a href="#Single/Enhancement/T/skill">Object</a>
+- **Type:** <a href="#Prerequisite/Single/Enhancement/T/skill">Object</a>
 
-#### <a name="Single/Enhancement/T/enhancement"></a> `enhancement`
+#### <a name="Prerequisite/Single/Enhancement/T/enhancement"></a> `enhancement`
 
 The required enhancement's identifier.
 
-- **Type:** <a href="#Single/Enhancement/T/enhancement">Object</a>
+- **Type:** <a href="#Prerequisite/Single/Enhancement/T/enhancement">Object</a>
 
-#### <a name="Single/Enhancement/T/display_option"></a> `display_option?`
+#### <a name="Prerequisite/Single/Enhancement/T/display_option"></a> `display_option?`
 
-- **Type:** <a href="#Single/DisplayOption/T">Single/DisplayOption/T</a>
+- **Type:** <a href="#Prerequisite/Single/DisplayOption/T">Prerequisite/Single/DisplayOption/T</a>
 
 ---
 
-### <a name="Single/Enhancement/T/skill"></a> `Single/Enhancement/T/skill`
+### <a name="Prerequisite/Single/Enhancement/T/skill"></a> `Prerequisite/Single/Enhancement/T/skill`
 
 The required skill's identifier.
 
@@ -627,14 +627,14 @@ The required skill's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Single/Enhancement/T/skill/tag">See details</a>
-`id` | The skill's identifier. | <a href="#Single/Enhancement/T/skill/id">See details</a>
+`tag` |  | <a href="#Prerequisite/Single/Enhancement/T/skill/tag">See details</a>
+`id` | The skill's identifier. | <a href="#Prerequisite/Single/Enhancement/T/skill/id">See details</a>
 
-#### <a name="Single/Enhancement/T/skill/tag"></a> `tag`
+#### <a name="Prerequisite/Single/Enhancement/T/skill/tag"></a> `tag`
 
-- **Type:** <a href="#Single/Enhancement/SkillCategoryWithEnhancements">Single/Enhancement/SkillCategoryWithEnhancements</a>
+- **Type:** <a href="#Prerequisite/Single/Enhancement/SkillCategoryWithEnhancements">Prerequisite/Single/Enhancement/SkillCategoryWithEnhancements</a>
 
-#### <a name="Single/Enhancement/T/skill/id"></a> `id`
+#### <a name="Prerequisite/Single/Enhancement/T/skill/id"></a> `id`
 
 The skill's identifier.
 
@@ -643,7 +643,7 @@ The skill's identifier.
 
 ---
 
-### <a name="Single/Enhancement/T/enhancement"></a> `Single/Enhancement/T/enhancement`
+### <a name="Prerequisite/Single/Enhancement/T/enhancement"></a> `Prerequisite/Single/Enhancement/T/enhancement`
 
 The required enhancement's identifier.
 
@@ -651,9 +651,9 @@ The required enhancement's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The enhancement's identifier. | <a href="#Single/Enhancement/T/enhancement/id">See details</a>
+`id` | The enhancement's identifier. | <a href="#Prerequisite/Single/Enhancement/T/enhancement/id">See details</a>
 
-#### <a name="Single/Enhancement/T/enhancement/id"></a> `id`
+#### <a name="Prerequisite/Single/Enhancement/T/enhancement/id"></a> `id`
 
 The enhancement's identifier.
 
@@ -662,13 +662,13 @@ The enhancement's identifier.
 
 ---
 
-### <a name="Single/Enhancement/SkillCategoryWithEnhancements"></a> `Single/Enhancement/SkillCategoryWithEnhancements`
+### <a name="Prerequisite/Single/Enhancement/SkillCategoryWithEnhancements"></a> `Prerequisite/Single/Enhancement/SkillCategoryWithEnhancements`
 
 - **Possible values:** `"Spell"`, `"Ritual"`, `"LiturgicalChant"`, `"Ceremony"`
 
 ---
 
-### <a name="Single/EnhancementInternal/T"></a> Internal Enhancement Prerequisite (`Single/EnhancementInternal/T`)
+### <a name="Prerequisite/Single/EnhancementInternal/T"></a> Internal Enhancement Prerequisite (`Prerequisite/Single/EnhancementInternal/T`)
 
 Requires a specific enhancement from a skill. This can only be used by an
 enhancement to require another enhancement from the same skill.
@@ -677,14 +677,14 @@ enhancement to require another enhancement from the same skill.
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Single/EnhancementInternal/T/tag">See details</a>
-`id` | The enhancement's identifier. | <a href="#Single/EnhancementInternal/T/id">See details</a>
+`tag` |  | <a href="#Prerequisite/Single/EnhancementInternal/T/tag">See details</a>
+`id` | The enhancement's identifier. | <a href="#Prerequisite/Single/EnhancementInternal/T/id">See details</a>
 
-#### <a name="Single/EnhancementInternal/T/tag"></a> `tag`
+#### <a name="Prerequisite/Single/EnhancementInternal/T/tag"></a> `tag`
 
 - **Constant:** `"EnhancementInternal"`
 
-#### <a name="Single/EnhancementInternal/T/id"></a> `id`
+#### <a name="Prerequisite/Single/EnhancementInternal/T/id"></a> `id`
 
 The enhancement's identifier.
 
@@ -693,7 +693,7 @@ The enhancement's identifier.
 
 ---
 
-### <a name="Single/Ineligible/T"></a> Ineligible Prerequisite (`Single/Ineligible/T`)
+### <a name="Prerequisite/Single/Ineligible/T"></a> Ineligible Prerequisite (`Prerequisite/Single/Ineligible/T`)
 
 This is a placeholder for required things that can never happen with the
 current set of crunch elements and rules, e. g. if a race is required
@@ -705,412 +705,412 @@ A display option must be set.
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Single/Ineligible/T/tag">See details</a>
-`display_option` |  | <a href="#Single/Ineligible/T/display_option">See details</a>
+`tag` |  | <a href="#Prerequisite/Single/Ineligible/T/tag">See details</a>
+`display_option` |  | <a href="#Prerequisite/Single/Ineligible/T/display_option">See details</a>
 
-#### <a name="Single/Ineligible/T/tag"></a> `tag`
+#### <a name="Prerequisite/Single/Ineligible/T/tag"></a> `tag`
 
 - **Constant:** `"Ineligible"`
 
-#### <a name="Single/Ineligible/T/display_option"></a> `display_option`
+#### <a name="Prerequisite/Single/Ineligible/T/display_option"></a> `display_option`
 
-- **Type:** <a href="#Single/DisplayOption/T">Single/DisplayOption/T</a>
+- **Type:** <a href="#Prerequisite/Single/DisplayOption/T">Prerequisite/Single/DisplayOption/T</a>
 
 ---
 
-### <a name="Group/DerivedCharacteristic"></a> `Group/DerivedCharacteristic`
+### <a name="Prerequisite/Group/DerivedCharacteristic"></a> `Prerequisite/Group/DerivedCharacteristic`
 
 - **Type:** Union
-- **Cases:** <a href="#Group/DerivedCharacteristic'T">Group/DerivedCharacteristic'T</a>
+- **Cases:** <a href="#Prerequisite/Group/DerivedCharacteristic'T">Prerequisite/Group/DerivedCharacteristic'T</a>
 
 ---
 
-### <a name="Group/DerivedCharacteristic'T"></a> `Group/DerivedCharacteristic'T`
+### <a name="Prerequisite/Group/DerivedCharacteristic'T"></a> `Prerequisite/Group/DerivedCharacteristic'T`
 
-- **Type:** <a href="#Single/Rule/T">Single/Rule/T</a>
+- **Type:** <a href="#Prerequisite/Single/Rule/T">Prerequisite/Single/Rule/T</a>
 
 ---
 
-### <a name="Group/Publication"></a> `Group/Publication`
+### <a name="Prerequisite/Group/Publication"></a> `Prerequisite/Group/Publication`
 
 - **Type:** Union
-- **Cases:** <a href="#Group/Publication'T">Group/Publication'T</a>
+- **Cases:** <a href="#Prerequisite/Group/Publication'T">Prerequisite/Group/Publication'T</a>
 
 ---
 
-### <a name="Group/Publication'T"></a> `Group/Publication'T`
+### <a name="Prerequisite/Group/Publication'T"></a> `Prerequisite/Group/Publication'T`
 
-- **Type:** <a href="#Single/Publication/T">Single/Publication/T</a>
+- **Type:** <a href="#Prerequisite/Single/Publication/T">Prerequisite/Single/Publication/T</a>
 
 ---
 
-### <a name="Group/ArcaneTradition"></a> `Group/ArcaneTradition`
+### <a name="Prerequisite/Group/ArcaneTradition"></a> `Prerequisite/Group/ArcaneTradition`
 
 - **Type:** Union
-- **Cases:** <a href="#Group/ArcaneTradition'T">Group/ArcaneTradition'T</a> | <a href="#Group/ArcaneTradition'T">Group/ArcaneTradition'T</a>
+- **Cases:** <a href="#Prerequisite/Group/ArcaneTradition'T">Prerequisite/Group/ArcaneTradition'T</a> | <a href="#Prerequisite/Group/ArcaneTradition'T">Prerequisite/Group/ArcaneTradition'T</a>
 
 ---
 
-### <a name="Group/ArcaneTradition'T"></a> `Group/ArcaneTradition'T`
+### <a name="Prerequisite/Group/ArcaneTradition'T"></a> `Prerequisite/Group/ArcaneTradition'T`
 
-- **Type:** <a href="#Single/Sex/T">Single/Sex/T</a>
-
----
-
-### <a name="Group/ArcaneTradition'T"></a> `Group/ArcaneTradition'T`
-
-- **Type:** <a href="#Single/Culture/T">Single/Culture/T</a>
+- **Type:** <a href="#Prerequisite/Single/Sex/T">Prerequisite/Single/Sex/T</a>
 
 ---
 
-### <a name="Group/Spellwork"></a> `Group/Spellwork`
+### <a name="Prerequisite/Group/ArcaneTradition'T"></a> `Prerequisite/Group/ArcaneTradition'T`
+
+- **Type:** <a href="#Prerequisite/Single/Culture/T">Prerequisite/Single/Culture/T</a>
+
+---
+
+### <a name="Prerequisite/Group/Spellwork"></a> `Prerequisite/Group/Spellwork`
 
 - **Type:** Union
-- **Cases:** <a href="#Group/Spellwork'T">Group/Spellwork'T</a> | <a href="#Group/Spellwork'T">Group/Spellwork'T</a>
+- **Cases:** <a href="#Prerequisite/Group/Spellwork'T">Prerequisite/Group/Spellwork'T</a> | <a href="#Prerequisite/Group/Spellwork'T">Prerequisite/Group/Spellwork'T</a>
 
 ---
 
-### <a name="Group/Spellwork'T"></a> `Group/Spellwork'T`
+### <a name="Prerequisite/Group/Spellwork'T"></a> `Prerequisite/Group/Spellwork'T`
 
-- **Type:** <a href="#Single/Rule/T">Single/Rule/T</a>
-
----
-
-### <a name="Group/Spellwork'T"></a> `Group/Spellwork'T`
-
-- **Type:** <a href="#Single/Rated/T">Single/Rated/T</a>
+- **Type:** <a href="#Prerequisite/Single/Rule/T">Prerequisite/Single/Rule/T</a>
 
 ---
 
-### <a name="Group/Liturgy"></a> `Group/Liturgy`
+### <a name="Prerequisite/Group/Spellwork'T"></a> `Prerequisite/Group/Spellwork'T`
+
+- **Type:** <a href="#Prerequisite/Single/Rated/T">Prerequisite/Single/Rated/T</a>
+
+---
+
+### <a name="Prerequisite/Group/Liturgy"></a> `Prerequisite/Group/Liturgy`
 
 - **Type:** Union
-- **Cases:** <a href="#Group/Liturgy'T">Group/Liturgy'T</a>
+- **Cases:** <a href="#Prerequisite/Group/Liturgy'T">Prerequisite/Group/Liturgy'T</a>
 
 ---
 
-### <a name="Group/Liturgy'T"></a> `Group/Liturgy'T`
+### <a name="Prerequisite/Group/Liturgy'T"></a> `Prerequisite/Group/Liturgy'T`
 
-- **Type:** <a href="#Single/Rule/T">Single/Rule/T</a>
+- **Type:** <a href="#Prerequisite/Single/Rule/T">Prerequisite/Single/Rule/T</a>
 
 ---
 
-### <a name="Group/Language"></a> `Group/Language`
+### <a name="Prerequisite/Group/Language"></a> `Prerequisite/Group/Language`
 
 - **Type:** Union
-- **Cases:** <a href="#Group/Language'T">Group/Language'T</a> | <a href="#Group/Language'T">Group/Language'T</a> | <a href="#Group/Language'T">Group/Language'T</a>
+- **Cases:** <a href="#Prerequisite/Group/Language'T">Prerequisite/Group/Language'T</a> | <a href="#Prerequisite/Group/Language'T">Prerequisite/Group/Language'T</a> | <a href="#Prerequisite/Group/Language'T">Prerequisite/Group/Language'T</a>
 
 ---
 
-### <a name="Group/Language'T"></a> `Group/Language'T`
+### <a name="Prerequisite/Group/Language'T"></a> `Prerequisite/Group/Language'T`
 
-- **Type:** <a href="#Single/Ineligible/T">Single/Ineligible/T</a>
-
----
-
-### <a name="Group/Language'T"></a> `Group/Language'T`
-
-- **Type:** <a href="#Single/Race/T">Single/Race/T</a>
+- **Type:** <a href="#Prerequisite/Single/Ineligible/T">Prerequisite/Single/Ineligible/T</a>
 
 ---
 
-### <a name="Group/Language'T"></a> `Group/Language'T`
+### <a name="Prerequisite/Group/Language'T"></a> `Prerequisite/Group/Language'T`
 
-- **Type:** <a href="#Single/Activatable/T">Single/Activatable/T</a>
+- **Type:** <a href="#Prerequisite/Single/Race/T">Prerequisite/Single/Race/T</a>
 
 ---
 
-### <a name="Group/GeodeRitual"></a> `Group/GeodeRitual`
+### <a name="Prerequisite/Group/Language'T"></a> `Prerequisite/Group/Language'T`
+
+- **Type:** <a href="#Prerequisite/Single/Activatable/T">Prerequisite/Single/Activatable/T</a>
+
+---
+
+### <a name="Prerequisite/Group/GeodeRitual"></a> `Prerequisite/Group/GeodeRitual`
 
 - **Type:** Union
-- **Cases:** <a href="#Group/GeodeRitual'T">Group/GeodeRitual'T</a>
+- **Cases:** <a href="#Prerequisite/Group/GeodeRitual'T">Prerequisite/Group/GeodeRitual'T</a>
 
 ---
 
-### <a name="Group/GeodeRitual'T"></a> `Group/GeodeRitual'T`
+### <a name="Prerequisite/Group/GeodeRitual'T"></a> `Prerequisite/Group/GeodeRitual'T`
 
-- **Type:** <a href="#Single/Influence/T">Single/Influence/T</a>
+- **Type:** <a href="#Prerequisite/Single/Influence/T">Prerequisite/Single/Influence/T</a>
 
 ---
 
-### <a name="Group/Enhancement"></a> `Group/Enhancement`
+### <a name="Prerequisite/Group/Enhancement"></a> `Prerequisite/Group/Enhancement`
 
 - **Type:** Union
-- **Cases:** <a href="#Group/Enhancement'T">Group/Enhancement'T</a>
+- **Cases:** <a href="#Prerequisite/Group/Enhancement'T">Prerequisite/Group/Enhancement'T</a>
 
 ---
 
-### <a name="Group/Enhancement'T"></a> `Group/Enhancement'T`
+### <a name="Prerequisite/Group/Enhancement'T"></a> `Prerequisite/Group/Enhancement'T`
 
-- **Type:** <a href="#Single/EnhancementInternal/T">Single/EnhancementInternal/T</a>
+- **Type:** <a href="#Prerequisite/Single/EnhancementInternal/T">Prerequisite/Single/EnhancementInternal/T</a>
 
 ---
 
-### <a name="GroupCollection/DerivedCharacteristic"></a> `GroupCollection/DerivedCharacteristic`
+### <a name="Prerequisite/GroupCollection/DerivedCharacteristic"></a> `Prerequisite/GroupCollection/DerivedCharacteristic`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#GroupCollection/DerivedCharacteristic/tag">See details</a>
-`value` |  | <a href="#GroupCollection/DerivedCharacteristic/value">See details</a>
+`tag` |  | <a href="#Prerequisite/GroupCollection/DerivedCharacteristic/tag">See details</a>
+`value` |  | <a href="#Prerequisite/GroupCollection/DerivedCharacteristic/value">See details</a>
 
-#### <a name="GroupCollection/DerivedCharacteristic/tag"></a> `tag`
+#### <a name="Prerequisite/GroupCollection/DerivedCharacteristic/tag"></a> `tag`
 
 - **Constant:** `"Plain"`
 
-#### <a name="GroupCollection/DerivedCharacteristic/value"></a> `value`
+#### <a name="Prerequisite/GroupCollection/DerivedCharacteristic/value"></a> `value`
 
 - **Type:** List
-- **Items:** <a href="#GroupCollection/DerivedCharacteristic/value[]">GroupCollection/DerivedCharacteristic/value[]</a>
+- **Items:** <a href="#Prerequisite/GroupCollection/DerivedCharacteristic/value[]">Prerequisite/GroupCollection/DerivedCharacteristic/value[]</a>
 - **Minimum Items:** `1`
 
 ---
 
-### <a name="GroupCollection/DerivedCharacteristic/value[]"></a> `GroupCollection/DerivedCharacteristic/value[]`
+### <a name="Prerequisite/GroupCollection/DerivedCharacteristic/value[]"></a> `Prerequisite/GroupCollection/DerivedCharacteristic/value[]`
 
-- **Type:** <a href="#Group/DerivedCharacteristic">Group/DerivedCharacteristic</a>
+- **Type:** <a href="#Prerequisite/Group/DerivedCharacteristic">Prerequisite/Group/DerivedCharacteristic</a>
 
 ---
 
-### <a name="GroupCollection/Publication"></a> `GroupCollection/Publication`
+### <a name="Prerequisite/GroupCollection/Publication"></a> `Prerequisite/GroupCollection/Publication`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#GroupCollection/Publication/tag">See details</a>
-`value` |  | <a href="#GroupCollection/Publication/value">See details</a>
+`tag` |  | <a href="#Prerequisite/GroupCollection/Publication/tag">See details</a>
+`value` |  | <a href="#Prerequisite/GroupCollection/Publication/value">See details</a>
 
-#### <a name="GroupCollection/Publication/tag"></a> `tag`
+#### <a name="Prerequisite/GroupCollection/Publication/tag"></a> `tag`
 
 - **Constant:** `"Plain"`
 
-#### <a name="GroupCollection/Publication/value"></a> `value`
+#### <a name="Prerequisite/GroupCollection/Publication/value"></a> `value`
 
 - **Type:** List
-- **Items:** <a href="#GroupCollection/Publication/value[]">GroupCollection/Publication/value[]</a>
+- **Items:** <a href="#Prerequisite/GroupCollection/Publication/value[]">Prerequisite/GroupCollection/Publication/value[]</a>
 - **Minimum Items:** `1`
 
 ---
 
-### <a name="GroupCollection/Publication/value[]"></a> `GroupCollection/Publication/value[]`
+### <a name="Prerequisite/GroupCollection/Publication/value[]"></a> `Prerequisite/GroupCollection/Publication/value[]`
 
-- **Type:** <a href="#Group/Publication">Group/Publication</a>
+- **Type:** <a href="#Prerequisite/Group/Publication">Prerequisite/Group/Publication</a>
 
 ---
 
-### <a name="GroupCollection/ArcaneTradition"></a> `GroupCollection/ArcaneTradition`
+### <a name="Prerequisite/GroupCollection/ArcaneTradition"></a> `Prerequisite/GroupCollection/ArcaneTradition`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#GroupCollection/ArcaneTradition/tag">See details</a>
-`value` |  | <a href="#GroupCollection/ArcaneTradition/value">See details</a>
+`tag` |  | <a href="#Prerequisite/GroupCollection/ArcaneTradition/tag">See details</a>
+`value` |  | <a href="#Prerequisite/GroupCollection/ArcaneTradition/value">See details</a>
 
-#### <a name="GroupCollection/ArcaneTradition/tag"></a> `tag`
+#### <a name="Prerequisite/GroupCollection/ArcaneTradition/tag"></a> `tag`
 
 - **Constant:** `"Plain"`
 
-#### <a name="GroupCollection/ArcaneTradition/value"></a> `value`
+#### <a name="Prerequisite/GroupCollection/ArcaneTradition/value"></a> `value`
 
 - **Type:** List
-- **Items:** <a href="#GroupCollection/ArcaneTradition/value[]">GroupCollection/ArcaneTradition/value[]</a>
+- **Items:** <a href="#Prerequisite/GroupCollection/ArcaneTradition/value[]">Prerequisite/GroupCollection/ArcaneTradition/value[]</a>
 - **Minimum Items:** `1`
 
 ---
 
-### <a name="GroupCollection/ArcaneTradition/value[]"></a> `GroupCollection/ArcaneTradition/value[]`
+### <a name="Prerequisite/GroupCollection/ArcaneTradition/value[]"></a> `Prerequisite/GroupCollection/ArcaneTradition/value[]`
 
-- **Type:** <a href="#Group/ArcaneTradition">Group/ArcaneTradition</a>
+- **Type:** <a href="#Prerequisite/Group/ArcaneTradition">Prerequisite/Group/ArcaneTradition</a>
 
 ---
 
-### <a name="GroupCollection/Spellwork"></a> `GroupCollection/Spellwork`
+### <a name="Prerequisite/GroupCollection/Spellwork"></a> `Prerequisite/GroupCollection/Spellwork`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#GroupCollection/Spellwork/tag">See details</a>
-`value` |  | <a href="#GroupCollection/Spellwork/value">See details</a>
+`tag` |  | <a href="#Prerequisite/GroupCollection/Spellwork/tag">See details</a>
+`value` |  | <a href="#Prerequisite/GroupCollection/Spellwork/value">See details</a>
 
-#### <a name="GroupCollection/Spellwork/tag"></a> `tag`
+#### <a name="Prerequisite/GroupCollection/Spellwork/tag"></a> `tag`
 
 - **Constant:** `"Plain"`
 
-#### <a name="GroupCollection/Spellwork/value"></a> `value`
+#### <a name="Prerequisite/GroupCollection/Spellwork/value"></a> `value`
 
 - **Type:** List
-- **Items:** <a href="#GroupCollection/Spellwork/value[]">GroupCollection/Spellwork/value[]</a>
+- **Items:** <a href="#Prerequisite/GroupCollection/Spellwork/value[]">Prerequisite/GroupCollection/Spellwork/value[]</a>
 - **Minimum Items:** `1`
 
 ---
 
-### <a name="GroupCollection/Spellwork/value[]"></a> `GroupCollection/Spellwork/value[]`
+### <a name="Prerequisite/GroupCollection/Spellwork/value[]"></a> `Prerequisite/GroupCollection/Spellwork/value[]`
 
-- **Type:** <a href="#Group/Spellwork">Group/Spellwork</a>
+- **Type:** <a href="#Prerequisite/Group/Spellwork">Prerequisite/Group/Spellwork</a>
 
 ---
 
-### <a name="GroupCollection/Liturgy"></a> `GroupCollection/Liturgy`
+### <a name="Prerequisite/GroupCollection/Liturgy"></a> `Prerequisite/GroupCollection/Liturgy`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#GroupCollection/Liturgy/tag">See details</a>
-`value` |  | <a href="#GroupCollection/Liturgy/value">See details</a>
+`tag` |  | <a href="#Prerequisite/GroupCollection/Liturgy/tag">See details</a>
+`value` |  | <a href="#Prerequisite/GroupCollection/Liturgy/value">See details</a>
 
-#### <a name="GroupCollection/Liturgy/tag"></a> `tag`
+#### <a name="Prerequisite/GroupCollection/Liturgy/tag"></a> `tag`
 
 - **Constant:** `"Plain"`
 
-#### <a name="GroupCollection/Liturgy/value"></a> `value`
+#### <a name="Prerequisite/GroupCollection/Liturgy/value"></a> `value`
 
 - **Type:** List
-- **Items:** <a href="#GroupCollection/Liturgy/value[]">GroupCollection/Liturgy/value[]</a>
+- **Items:** <a href="#Prerequisite/GroupCollection/Liturgy/value[]">Prerequisite/GroupCollection/Liturgy/value[]</a>
 - **Minimum Items:** `1`
 
 ---
 
-### <a name="GroupCollection/Liturgy/value[]"></a> `GroupCollection/Liturgy/value[]`
+### <a name="Prerequisite/GroupCollection/Liturgy/value[]"></a> `Prerequisite/GroupCollection/Liturgy/value[]`
 
-- **Type:** <a href="#Group/Liturgy">Group/Liturgy</a>
+- **Type:** <a href="#Prerequisite/Group/Liturgy">Prerequisite/Group/Liturgy</a>
 
 ---
 
-### <a name="GroupCollection/Language"></a> `GroupCollection/Language`
+### <a name="Prerequisite/GroupCollection/Language"></a> `Prerequisite/GroupCollection/Language`
 
 - **Type:** Union
-- **Cases:** <a href="#GroupCollection/Language'Plain">GroupCollection/Language'Plain</a> | <a href="#GroupCollection/Language'ByLevel">GroupCollection/Language'ByLevel</a>
+- **Cases:** <a href="#Prerequisite/GroupCollection/Language'Plain">Prerequisite/GroupCollection/Language'Plain</a> | <a href="#Prerequisite/GroupCollection/Language'ByLevel">Prerequisite/GroupCollection/Language'ByLevel</a>
 
 ---
 
-### <a name="GroupCollection/Language'Plain"></a> `GroupCollection/Language'Plain`
+### <a name="Prerequisite/GroupCollection/Language'Plain"></a> `Prerequisite/GroupCollection/Language'Plain`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#GroupCollection/Language'Plain/tag">See details</a>
-`value` |  | <a href="#GroupCollection/Language'Plain/value">See details</a>
+`tag` |  | <a href="#Prerequisite/GroupCollection/Language'Plain/tag">See details</a>
+`value` |  | <a href="#Prerequisite/GroupCollection/Language'Plain/value">See details</a>
 
-#### <a name="GroupCollection/Language'Plain/tag"></a> `tag`
+#### <a name="Prerequisite/GroupCollection/Language'Plain/tag"></a> `tag`
 
 - **Constant:** `"Plain"`
 
-#### <a name="GroupCollection/Language'Plain/value"></a> `value`
+#### <a name="Prerequisite/GroupCollection/Language'Plain/value"></a> `value`
 
 - **Type:** List
-- **Items:** <a href="#GroupCollection/Language'Plain/value[]">GroupCollection/Language'Plain/value[]</a>
+- **Items:** <a href="#Prerequisite/GroupCollection/Language'Plain/value[]">Prerequisite/GroupCollection/Language'Plain/value[]</a>
 - **Minimum Items:** `1`
 
 ---
 
-### <a name="GroupCollection/Language'Plain/value[]"></a> `GroupCollection/Language'Plain/value[]`
+### <a name="Prerequisite/GroupCollection/Language'Plain/value[]"></a> `Prerequisite/GroupCollection/Language'Plain/value[]`
 
-- **Type:** <a href="#Group/Language">Group/Language</a>
+- **Type:** <a href="#Prerequisite/Group/Language">Prerequisite/Group/Language</a>
 
 ---
 
-### <a name="GroupCollection/Language'ByLevel"></a> `GroupCollection/Language'ByLevel`
+### <a name="Prerequisite/GroupCollection/Language'ByLevel"></a> `Prerequisite/GroupCollection/Language'ByLevel`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#GroupCollection/Language'ByLevel/tag">See details</a>
-`value` |  | <a href="#GroupCollection/Language'ByLevel/value">See details</a>
+`tag` |  | <a href="#Prerequisite/GroupCollection/Language'ByLevel/tag">See details</a>
+`value` |  | <a href="#Prerequisite/GroupCollection/Language'ByLevel/value">See details</a>
 
-#### <a name="GroupCollection/Language'ByLevel/tag"></a> `tag`
+#### <a name="Prerequisite/GroupCollection/Language'ByLevel/tag"></a> `tag`
 
 - **Constant:** `"ByLevel"`
 
-#### <a name="GroupCollection/Language'ByLevel/value"></a> `value`
+#### <a name="Prerequisite/GroupCollection/Language'ByLevel/value"></a> `value`
 
 - **Type:** List
-- **Items:** <a href="#GroupCollection/Language'ByLevel/value[]">GroupCollection/Language'ByLevel/value[]</a>
+- **Items:** <a href="#Prerequisite/GroupCollection/Language'ByLevel/value[]">Prerequisite/GroupCollection/Language'ByLevel/value[]</a>
 - **Minimum Items:** `1`
 
 ---
 
-### <a name="GroupCollection/Language'ByLevel/value[]"></a> `GroupCollection/Language'ByLevel/value[]`
+### <a name="Prerequisite/GroupCollection/Language'ByLevel/value[]"></a> `Prerequisite/GroupCollection/Language'ByLevel/value[]`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`level` |  | <a href="#GroupCollection/Language'ByLevel/value[]/level">See details</a>
-`prerequisites` |  | <a href="#GroupCollection/Language'ByLevel/value[]/prerequisites">See details</a>
+`level` |  | <a href="#Prerequisite/GroupCollection/Language'ByLevel/value[]/level">See details</a>
+`prerequisites` |  | <a href="#Prerequisite/GroupCollection/Language'ByLevel/value[]/prerequisites">See details</a>
 
-#### <a name="GroupCollection/Language'ByLevel/value[]/level"></a> `level`
+#### <a name="Prerequisite/GroupCollection/Language'ByLevel/value[]/level"></a> `level`
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="GroupCollection/Language'ByLevel/value[]/prerequisites"></a> `prerequisites`
+#### <a name="Prerequisite/GroupCollection/Language'ByLevel/value[]/prerequisites"></a> `prerequisites`
 
 - **Type:** List
-- **Items:** <a href="#GroupCollection/Language'ByLevel/value[]/prerequisites[]">GroupCollection/Language'ByLevel/value[]/prerequisites[]</a>
+- **Items:** <a href="#Prerequisite/GroupCollection/Language'ByLevel/value[]/prerequisites[]">Prerequisite/GroupCollection/Language'ByLevel/value[]/prerequisites[]</a>
 
 ---
 
-### <a name="GroupCollection/Language'ByLevel/value[]/prerequisites[]"></a> `GroupCollection/Language'ByLevel/value[]/prerequisites[]`
+### <a name="Prerequisite/GroupCollection/Language'ByLevel/value[]/prerequisites[]"></a> `Prerequisite/GroupCollection/Language'ByLevel/value[]/prerequisites[]`
 
-- **Type:** <a href="#Group/Language">Group/Language</a>
+- **Type:** <a href="#Prerequisite/Group/Language">Prerequisite/Group/Language</a>
 
 ---
 
-### <a name="GroupCollection/GeodeRitual"></a> `GroupCollection/GeodeRitual`
+### <a name="Prerequisite/GroupCollection/GeodeRitual"></a> `Prerequisite/GroupCollection/GeodeRitual`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#GroupCollection/GeodeRitual/tag">See details</a>
-`value` |  | <a href="#GroupCollection/GeodeRitual/value">See details</a>
+`tag` |  | <a href="#Prerequisite/GroupCollection/GeodeRitual/tag">See details</a>
+`value` |  | <a href="#Prerequisite/GroupCollection/GeodeRitual/value">See details</a>
 
-#### <a name="GroupCollection/GeodeRitual/tag"></a> `tag`
+#### <a name="Prerequisite/GroupCollection/GeodeRitual/tag"></a> `tag`
 
 - **Constant:** `"Plain"`
 
-#### <a name="GroupCollection/GeodeRitual/value"></a> `value`
+#### <a name="Prerequisite/GroupCollection/GeodeRitual/value"></a> `value`
 
 - **Type:** List
-- **Items:** <a href="#GroupCollection/GeodeRitual/value[]">GroupCollection/GeodeRitual/value[]</a>
+- **Items:** <a href="#Prerequisite/GroupCollection/GeodeRitual/value[]">Prerequisite/GroupCollection/GeodeRitual/value[]</a>
 - **Minimum Items:** `1`
 
 ---
 
-### <a name="GroupCollection/GeodeRitual/value[]"></a> `GroupCollection/GeodeRitual/value[]`
+### <a name="Prerequisite/GroupCollection/GeodeRitual/value[]"></a> `Prerequisite/GroupCollection/GeodeRitual/value[]`
 
-- **Type:** <a href="#Group/GeodeRitual">Group/GeodeRitual</a>
+- **Type:** <a href="#Prerequisite/Group/GeodeRitual">Prerequisite/Group/GeodeRitual</a>
 
 ---
 
-### <a name="GroupCollection/Enhancement"></a> `GroupCollection/Enhancement`
+### <a name="Prerequisite/GroupCollection/Enhancement"></a> `Prerequisite/GroupCollection/Enhancement`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#GroupCollection/Enhancement/tag">See details</a>
-`value` |  | <a href="#GroupCollection/Enhancement/value">See details</a>
+`tag` |  | <a href="#Prerequisite/GroupCollection/Enhancement/tag">See details</a>
+`value` |  | <a href="#Prerequisite/GroupCollection/Enhancement/value">See details</a>
 
-#### <a name="GroupCollection/Enhancement/tag"></a> `tag`
+#### <a name="Prerequisite/GroupCollection/Enhancement/tag"></a> `tag`
 
 - **Constant:** `"Plain"`
 
-#### <a name="GroupCollection/Enhancement/value"></a> `value`
+#### <a name="Prerequisite/GroupCollection/Enhancement/value"></a> `value`
 
 - **Type:** List
-- **Items:** <a href="#GroupCollection/Enhancement/value[]">GroupCollection/Enhancement/value[]</a>
+- **Items:** <a href="#Prerequisite/GroupCollection/Enhancement/value[]">Prerequisite/GroupCollection/Enhancement/value[]</a>
 - **Minimum Items:** `1`
 
 ---
 
-### <a name="GroupCollection/Enhancement/value[]"></a> `GroupCollection/Enhancement/value[]`
+### <a name="Prerequisite/GroupCollection/Enhancement/value[]"></a> `Prerequisite/GroupCollection/Enhancement/value[]`
 
-- **Type:** <a href="#Group/Enhancement">Group/Enhancement</a>
+- **Type:** <a href="#Prerequisite/Group/Enhancement">Prerequisite/Group/Enhancement</a>

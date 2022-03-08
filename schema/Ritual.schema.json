@@ -91,7 +91,7 @@
           "$ref": "./_ImprovementCost.schema.json#/definitions/ImprovementCost"
         },
         "prerequisites": {
-          "$ref": "./_Prerequisite.schema.json#/definitions/GroupCollection/Spellwork"
+          "$ref": "./_Prerequisite.schema.json#/definitions/Prerequisite/GroupCollection/Spellwork"
         },
         "src": {
           "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"

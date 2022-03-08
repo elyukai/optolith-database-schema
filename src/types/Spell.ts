@@ -7,7 +7,7 @@ import { PublicationRefs } from "./source/_PublicationRef"
 import { Effect, FastPerformanceParameters, TargetCategory } from "./_ActivatableSkill"
 import { Enhancements } from "./_Enhancements"
 import { ImprovementCost } from "./_ImprovementCost"
-import { GroupCollection } from "./_Prerequisite"
+import { Prerequisite } from "./_Prerequisite"
 import { SkillCheck, SkillCheckPenalty } from "./_SkillCheck"
 
 /**
@@ -85,7 +85,7 @@ export type Spell = {
    */
   improvement_cost: ImprovementCost
 
-  prerequisites?: GroupCollection.Spellwork
+  prerequisites?: Prerequisite.GroupCollection.Spellwork
 
   src: PublicationRefs
 

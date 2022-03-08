@@ -45,7 +45,7 @@ from * stable releases.
 
 The specific other publications this publication depends on data from.
 
-- **Type:** <a href="../_Prerequisite.md#GroupCollection/Publication">GroupCollection/Publication</a>
+- **Type:** <a href="../_Prerequisite.md#Prerequisite/GroupCollection/Publication">Prerequisite/GroupCollection/Publication</a>
 
 #### <a name="Publication/translations"></a> `translations`
 

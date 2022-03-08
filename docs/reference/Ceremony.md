@@ -69,7 +69,7 @@ States which column is used to improve the skill.
 
 #### <a name="Ceremony/prerequisites"></a> `prerequisites?`
 
-- **Type:** <a href="./_Prerequisite.md#GroupCollection/Liturgy">GroupCollection/Liturgy</a>
+- **Type:** <a href="./_Prerequisite.md#Prerequisite/GroupCollection/Liturgy">Prerequisite/GroupCollection/Liturgy</a>
 
 #### <a name="Ceremony/src"></a> `src`
 

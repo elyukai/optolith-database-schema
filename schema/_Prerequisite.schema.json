@@ -2,843 +2,845 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "_Prerequisite.schema.json",
   "definitions": {
-    "Single": {
-      "DisplayOption": {
-        "T": {
-          "title": "Display Option",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Hide"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "ReplaceWith"
+    "Prerequisite": {
+      "Single": {
+        "DisplayOption": {
+          "T": {
+            "title": "Display Option",
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "tag": {
+                    "const": "Hide"
+                  }
                 },
-                "translations": {
-                  "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-                  "type": "object",
-                  "patternProperties": {
-                    "^[a-z]{2}-[A-Z]{2}$": {
-                      "type": "string"
-                    }
+                "required": [
+                  "tag"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "tag": {
+                    "const": "ReplaceWith"
                   },
-                  "minProperties": 1,
-                  "additionalProperties": false
-                }
-              },
-              "required": [
-                "tag",
-                "translations"
-              ],
-              "additionalProperties": false
-            }
-          ]
-        }
-      },
-      "Sex": {
-        "T": {
-          "title": "Sex Prerequisite",
-          "description": "Requires a specific sex.",
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Sex"
-            },
-            "id": {
-              "$ref": "./_Sex.schema.json#/definitions/BinarySex"
-            },
-            "display_option": {
-              "$ref": "#/definitions/Single/DisplayOption/T"
-            }
-          },
-          "required": [
-            "tag",
-            "id"
-          ],
-          "additionalProperties": false
-        }
-      },
-      "Race": {
-        "T": {
-          "title": "Race Prerequisite",
-          "description": "Requires a specific culture or one of a specific set of cultures.",
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Culture"
-            },
-            "id": {
-              "$ref": "#/definitions/Single/Race/Identifier"
-            },
-            "active": {
-              "type": "boolean"
-            },
-            "display_option": {
-              "$ref": "#/definitions/Single/DisplayOption/T"
-            }
-          },
-          "required": [
-            "tag",
-            "id",
-            "active"
-          ],
-          "additionalProperties": false
-        },
-        "Identifier": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/Single/Race/SingleIdentifier"
-            },
-            {
-              "$ref": "#/definitions/Single/Race/MultipleIdentifiers"
-            }
-          ]
-        },
-        "SingleIdentifier": {
-          "type": "number",
-          "minimum": 1
-        },
-        "MultipleIdentifiers": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Single/Race/SingleIdentifier"
-          },
-          "minItems": 2
-        }
-      },
-      "Culture": {
-        "T": {
-          "title": "Culture Prerequisite",
-          "description": "Requires a specific race or one of a specific set of races. You can also\nprovide an object to say whether the hero must meet one of the races or\nif the entry does not allow one of the races.",
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Culture"
-            },
-            "id": {
-              "$ref": "#/definitions/Single/Culture/Identifier"
-            },
-            "display_option": {
-              "$ref": "#/definitions/Single/DisplayOption/T"
-            }
-          },
-          "required": [
-            "tag",
-            "id"
-          ],
-          "additionalProperties": false
-        },
-        "Identifier": {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/Single/Culture/SingleIdentifier"
-            },
-            {
-              "$ref": "#/definitions/Single/Culture/MultipleIdentifiers"
-            }
-          ]
-        },
-        "SingleIdentifier": {
-          "type": "number",
-          "minimum": 1
-        },
-        "MultipleIdentifiers": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Single/Culture/SingleIdentifier"
-          },
-          "minItems": 2
-        }
-      },
-      "Rule": {
-        "T": {
-          "title": "Rule Prerequisite",
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Rule"
-            },
-            "id": {
-              "$ref": "#/definitions/Single/Rule/Identifier"
-            },
-            "display_option": {
-              "$ref": "#/definitions/Single/DisplayOption/T"
-            }
-          },
-          "required": [
-            "tag",
-            "id"
-          ],
-          "additionalProperties": false
-        },
-        "Identifier": {
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "FocusRule"
+                  "translations": {
+                    "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                    "type": "object",
+                    "patternProperties": {
+                      "^[a-z]{2}-[A-Z]{2}$": {
+                        "type": "string"
+                      }
+                    },
+                    "minProperties": 1,
+                    "additionalProperties": false
+                  }
                 },
-                "value": {
-                  "type": "integer",
-                  "minimum": 1
+                "required": [
+                  "tag",
+                  "translations"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "Sex": {
+          "T": {
+            "title": "Sex Prerequisite",
+            "description": "Requires a specific sex.",
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "Sex"
+              },
+              "id": {
+                "$ref": "./_Sex.schema.json#/definitions/BinarySex"
+              },
+              "display_option": {
+                "$ref": "#/definitions/Prerequisite/Single/DisplayOption/T"
+              }
+            },
+            "required": [
+              "tag",
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "Race": {
+          "T": {
+            "title": "Race Prerequisite",
+            "description": "Requires a specific culture or one of a specific set of cultures.",
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "Culture"
+              },
+              "id": {
+                "$ref": "#/definitions/Prerequisite/Single/Race/Identifier"
+              },
+              "active": {
+                "type": "boolean"
+              },
+              "display_option": {
+                "$ref": "#/definitions/Prerequisite/Single/DisplayOption/T"
+              }
+            },
+            "required": [
+              "tag",
+              "id",
+              "active"
+            ],
+            "additionalProperties": false
+          },
+          "Identifier": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/Prerequisite/Single/Race/SingleIdentifier"
+              },
+              {
+                "$ref": "#/definitions/Prerequisite/Single/Race/MultipleIdentifiers"
+              }
+            ]
+          },
+          "SingleIdentifier": {
+            "type": "number",
+            "minimum": 1
+          },
+          "MultipleIdentifiers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Prerequisite/Single/Race/SingleIdentifier"
+            },
+            "minItems": 2
+          }
+        },
+        "Culture": {
+          "T": {
+            "title": "Culture Prerequisite",
+            "description": "Requires a specific race or one of a specific set of races. You can also\nprovide an object to say whether the hero must meet one of the races or\nif the entry does not allow one of the races.",
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "Culture"
+              },
+              "id": {
+                "$ref": "#/definitions/Prerequisite/Single/Culture/Identifier"
+              },
+              "display_option": {
+                "$ref": "#/definitions/Prerequisite/Single/DisplayOption/T"
+              }
+            },
+            "required": [
+              "tag",
+              "id"
+            ],
+            "additionalProperties": false
+          },
+          "Identifier": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/Prerequisite/Single/Culture/SingleIdentifier"
+              },
+              {
+                "$ref": "#/definitions/Prerequisite/Single/Culture/MultipleIdentifiers"
+              }
+            ]
+          },
+          "SingleIdentifier": {
+            "type": "number",
+            "minimum": 1
+          },
+          "MultipleIdentifiers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Prerequisite/Single/Culture/SingleIdentifier"
+            },
+            "minItems": 2
+          }
+        },
+        "Rule": {
+          "T": {
+            "title": "Rule Prerequisite",
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "Rule"
+              },
+              "id": {
+                "$ref": "#/definitions/Prerequisite/Single/Rule/Identifier"
+              },
+              "display_option": {
+                "$ref": "#/definitions/Prerequisite/Single/DisplayOption/T"
+              }
+            },
+            "required": [
+              "tag",
+              "id"
+            ],
+            "additionalProperties": false
+          },
+          "Identifier": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "tag": {
+                    "const": "FocusRule"
+                  },
+                  "value": {
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "required": [
+                  "tag",
+                  "value"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "tag": {
+                    "const": "OptionalRule"
+                  },
+                  "value": {
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "required": [
+                  "tag",
+                  "value"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "Publication": {
+          "T": {
+            "title": "Publication Prerequisite",
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "Publication"
+              },
+              "id": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "display_option": {
+                "$ref": "#/definitions/Prerequisite/Single/DisplayOption/T"
+              }
+            },
+            "required": [
+              "tag",
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "PrimaryAttribute": {
+          "T": {
+            "title": "Primary Attribute Prerequisite",
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "PrimaryAttribute"
+              },
+              "category": {
+                "description": "Is the required primary attribute for spellcasters or blessed ones?",
+                "$ref": "#/definitions/Prerequisite/Single/PrimaryAttribute/Category"
+              },
+              "value": {
+                "description": "Required value of the attribute",
+                "type": "integer",
+                "minimum": 9
+              },
+              "display_option": {
+                "$ref": "#/definitions/Prerequisite/Single/DisplayOption/T"
+              }
+            },
+            "required": [
+              "tag",
+              "category",
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "Category": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "tag": {
+                    "const": "Blessed"
+                  }
+                },
+                "required": [
+                  "tag"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "tag": {
+                    "const": "Magical"
+                  }
+                },
+                "required": [
+                  "tag"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "Pact": {
+          "T": {
+            "title": "Pact Prerequisite",
+            "description": "Requires a specific pact.",
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "Pact"
+              },
+              "category_id": {
+                "description": "The required pact category's identifier.",
+                "type": "integer",
+                "minimum": 1
+              },
+              "domain_id": {
+                "description": "The required domains' identifiers.",
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Prerequisite/Single/Pact/DomainId"
                 }
               },
-              "required": [
-                "tag",
-                "value"
-              ],
-              "additionalProperties": false
+              "level": {
+                "description": "The required pact level.",
+                "type": "integer",
+                "minimum": 1
+              },
+              "display_option": {
+                "$ref": "#/definitions/Prerequisite/Single/DisplayOption/T"
+              }
+            },
+            "required": [
+              "tag",
+              "category_id"
+            ],
+            "additionalProperties": false
+          },
+          "DomainId": {
+            "description": "A domain's identifier.",
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "SocialStatus": {
+          "T": {
+            "title": "Social Status Prerequisite",
+            "description": "Requires a minimum social status.",
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "SocialStatus"
+              },
+              "id": {
+                "description": "The minimum social status' identifier.",
+                "type": "integer",
+                "maximum": 5,
+                "minimum": 2
+              },
+              "display_option": {
+                "$ref": "#/definitions/Prerequisite/Single/DisplayOption/T"
+              }
+            },
+            "required": [
+              "tag",
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "Influence": {
+          "T": {
+            "title": "Influence Prerequisite",
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "Influence"
+              },
+              "id": {
+                "description": "The influence's identifier.",
+                "type": "integer",
+                "minimum": 1
+              },
+              "active": {
+                "description": "If the referenced influence must or must not be chosen.",
+                "type": "boolean"
+              },
+              "display_option": {
+                "$ref": "#/definitions/Prerequisite/Single/DisplayOption/T"
+              }
+            },
+            "required": [
+              "tag",
+              "id",
+              "active"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "Activatable": {
+          "T": {
+            "title": "Activatable Prerequisite",
+            "description": "Requires a specific advantage, disadvantage, special ability.",
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "Activatable"
+              },
+              "id": {
+                "description": "The activatable entry's identifier.",
+                "$ref": "./_Identifier.schema.json#/definitions/Identifier/Group/Activatable"
+              },
+              "active": {
+                "description": "If the required entry should be required to be active or inactive.",
+                "type": "boolean"
+              },
+              "level": {
+                "description": "The required minimum level of the entry.",
+                "type": "integer",
+                "minimum": 1
+              },
+              "display_option": {
+                "$ref": "#/definitions/Prerequisite/Single/DisplayOption/T"
+              }
+            },
+            "required": [
+              "tag",
+              "id",
+              "active"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "Rated": {
+          "T": {
+            "title": "Rated Prerequisite",
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "Rated"
+              },
+              "id": {
+                "description": "The rated entry's identifier.",
+                "$ref": "./_Identifier.schema.json#/definitions/Identifier/Group/Rated"
+              },
+              "value": {
+                "description": "The required minimum value.",
+                "type": "integer",
+                "minimum": 0
+              },
+              "display_option": {
+                "$ref": "#/definitions/Prerequisite/Single/DisplayOption/T"
+              }
+            },
+            "required": [
+              "tag",
+              "id",
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "Enhancement": {
+          "T": {
+            "title": "Enhancement Prerequisite",
+            "description": "Requires a specific enhancement from a skill.",
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "Enhancement"
+              },
+              "skill": {
+                "description": "The required skill's identifier.",
+                "type": "object",
+                "properties": {
+                  "tag": {
+                    "$ref": "#/definitions/Prerequisite/Single/Enhancement/SkillCategoryWithEnhancements"
+                  },
+                  "id": {
+                    "description": "The skill's identifier.",
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "required": [
+                  "tag",
+                  "id"
+                ],
+                "additionalProperties": false
+              },
+              "enhancement": {
+                "description": "The required enhancement's identifier.",
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "description": "The enhancement's identifier.",
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "additionalProperties": false
+              },
+              "display_option": {
+                "$ref": "#/definitions/Prerequisite/Single/DisplayOption/T"
+              }
+            },
+            "required": [
+              "tag",
+              "skill",
+              "enhancement"
+            ],
+            "additionalProperties": false
+          },
+          "SkillCategoryWithEnhancements": {
+            "enum": [
+              "Spell",
+              "Ritual",
+              "LiturgicalChant",
+              "Ceremony"
+            ]
+          }
+        },
+        "EnhancementInternal": {
+          "T": {
+            "title": "Internal Enhancement Prerequisite",
+            "description": "Requires a specific enhancement from a skill. This can only be used by an\nenhancement to require another enhancement from the same skill.",
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "EnhancementInternal"
+              },
+              "id": {
+                "description": "The enhancement's identifier.",
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "required": [
+              "tag",
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "Ineligible": {
+          "T": {
+            "title": "Ineligible Prerequisite",
+            "description": "This is a placeholder for required things that can never happen with the\ncurrent set of crunch elements and rules, e. g. if a race is required\nthat does not yet exist as a crunch element.\n\nA display option must be set.",
+            "type": "object",
+            "properties": {
+              "tag": {
+                "const": "Ineligible"
+              },
+              "display_option": {
+                "$ref": "#/definitions/Prerequisite/Single/DisplayOption/T"
+              }
+            },
+            "required": [
+              "tag",
+              "display_option"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "Group": {
+        "DerivedCharacteristic": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Prerequisite/Single/Rule/T"
+            }
+          ]
+        },
+        "Publication": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Prerequisite/Single/Publication/T"
+            }
+          ]
+        },
+        "ArcaneTradition": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Prerequisite/Single/Sex/T"
             },
             {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "OptionalRule"
-                },
-                "value": {
-                  "type": "integer",
-                  "minimum": 1
-                }
-              },
-              "required": [
-                "tag",
-                "value"
-              ],
-              "additionalProperties": false
+              "$ref": "#/definitions/Prerequisite/Single/Culture/T"
+            }
+          ]
+        },
+        "Spellwork": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Prerequisite/Single/Rule/T"
+            },
+            {
+              "$ref": "#/definitions/Prerequisite/Single/Rated/T"
+            }
+          ]
+        },
+        "Liturgy": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Prerequisite/Single/Rule/T"
+            }
+          ]
+        },
+        "Language": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Prerequisite/Single/Ineligible/T"
+            },
+            {
+              "$ref": "#/definitions/Prerequisite/Single/Race/T"
+            },
+            {
+              "$ref": "#/definitions/Prerequisite/Single/Activatable/T"
+            }
+          ]
+        },
+        "GeodeRitual": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Prerequisite/Single/Influence/T"
+            }
+          ]
+        },
+        "Enhancement": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Prerequisite/Single/EnhancementInternal/T"
             }
           ]
         }
       },
-      "Publication": {
-        "T": {
-          "title": "Publication Prerequisite",
+      "Collection": {},
+      "GroupCollection": {
+        "DerivedCharacteristic": {
           "type": "object",
           "properties": {
             "tag": {
-              "const": "Publication"
-            },
-            "id": {
-              "type": "integer",
-              "minimum": 1
-            },
-            "display_option": {
-              "$ref": "#/definitions/Single/DisplayOption/T"
-            }
-          },
-          "required": [
-            "tag",
-            "id"
-          ],
-          "additionalProperties": false
-        }
-      },
-      "PrimaryAttribute": {
-        "T": {
-          "title": "Primary Attribute Prerequisite",
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "PrimaryAttribute"
-            },
-            "category": {
-              "description": "Is the required primary attribute for spellcasters or blessed ones?",
-              "$ref": "#/definitions/Single/PrimaryAttribute/Category"
+              "const": "Plain"
             },
             "value": {
-              "description": "Required value of the attribute",
-              "type": "integer",
-              "minimum": 9
-            },
-            "display_option": {
-              "$ref": "#/definitions/Single/DisplayOption/T"
-            }
-          },
-          "required": [
-            "tag",
-            "category",
-            "value"
-          ],
-          "additionalProperties": false
-        },
-        "Category": {
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Blessed"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Magical"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            }
-          ]
-        }
-      },
-      "Pact": {
-        "T": {
-          "title": "Pact Prerequisite",
-          "description": "Requires a specific pact.",
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Pact"
-            },
-            "category_id": {
-              "description": "The required pact category's identifier.",
-              "type": "integer",
-              "minimum": 1
-            },
-            "domain_id": {
-              "description": "The required domains' identifiers.",
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Single/Pact/DomainId"
-              }
-            },
-            "level": {
-              "description": "The required pact level.",
-              "type": "integer",
-              "minimum": 1
-            },
-            "display_option": {
-              "$ref": "#/definitions/Single/DisplayOption/T"
+                "$ref": "#/definitions/Prerequisite/Group/DerivedCharacteristic"
+              },
+              "minItems": 1
             }
           },
           "required": [
             "tag",
-            "category_id"
-          ],
-          "additionalProperties": false
-        },
-        "DomainId": {
-          "description": "A domain's identifier.",
-          "type": "integer",
-          "minimum": 1
-        }
-      },
-      "SocialStatus": {
-        "T": {
-          "title": "Social Status Prerequisite",
-          "description": "Requires a minimum social status.",
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "SocialStatus"
-            },
-            "id": {
-              "description": "The minimum social status' identifier.",
-              "type": "integer",
-              "maximum": 5,
-              "minimum": 2
-            },
-            "display_option": {
-              "$ref": "#/definitions/Single/DisplayOption/T"
-            }
-          },
-          "required": [
-            "tag",
-            "id"
-          ],
-          "additionalProperties": false
-        }
-      },
-      "Influence": {
-        "T": {
-          "title": "Influence Prerequisite",
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Influence"
-            },
-            "id": {
-              "description": "The influence's identifier.",
-              "type": "integer",
-              "minimum": 1
-            },
-            "active": {
-              "description": "If the referenced influence must or must not be chosen.",
-              "type": "boolean"
-            },
-            "display_option": {
-              "$ref": "#/definitions/Single/DisplayOption/T"
-            }
-          },
-          "required": [
-            "tag",
-            "id",
-            "active"
-          ],
-          "additionalProperties": false
-        }
-      },
-      "Activatable": {
-        "T": {
-          "title": "Activatable Prerequisite",
-          "description": "Requires a specific advantage, disadvantage, special ability.",
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Activatable"
-            },
-            "id": {
-              "description": "The activatable entry's identifier.",
-              "$ref": "./_Identifier.schema.json#/definitions/Identifier/Group/Activatable"
-            },
-            "active": {
-              "description": "If the required entry should be required to be active or inactive.",
-              "type": "boolean"
-            },
-            "level": {
-              "description": "The required minimum level of the entry.",
-              "type": "integer",
-              "minimum": 1
-            },
-            "display_option": {
-              "$ref": "#/definitions/Single/DisplayOption/T"
-            }
-          },
-          "required": [
-            "tag",
-            "id",
-            "active"
-          ],
-          "additionalProperties": false
-        }
-      },
-      "Rated": {
-        "T": {
-          "title": "Rated Prerequisite",
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Rated"
-            },
-            "id": {
-              "description": "The rated entry's identifier.",
-              "$ref": "./_Identifier.schema.json#/definitions/Identifier/Group/Rated"
-            },
-            "value": {
-              "description": "The required minimum value.",
-              "type": "integer",
-              "minimum": 0
-            },
-            "display_option": {
-              "$ref": "#/definitions/Single/DisplayOption/T"
-            }
-          },
-          "required": [
-            "tag",
-            "id",
             "value"
           ],
           "additionalProperties": false
-        }
-      },
-      "Enhancement": {
-        "T": {
-          "title": "Enhancement Prerequisite",
-          "description": "Requires a specific enhancement from a skill.",
+        },
+        "Publication": {
           "type": "object",
           "properties": {
             "tag": {
-              "const": "Enhancement"
+              "const": "Plain"
             },
-            "skill": {
-              "description": "The required skill's identifier.",
+            "value": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Prerequisite/Group/Publication"
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "tag",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        "ArcaneTradition": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Plain"
+            },
+            "value": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Prerequisite/Group/ArcaneTradition"
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "tag",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        "Spellwork": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Plain"
+            },
+            "value": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Prerequisite/Group/Spellwork"
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "tag",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        "Liturgy": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Plain"
+            },
+            "value": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Prerequisite/Group/Liturgy"
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "tag",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        "Language": {
+          "oneOf": [
+            {
               "type": "object",
               "properties": {
                 "tag": {
-                  "$ref": "#/definitions/Single/Enhancement/SkillCategoryWithEnhancements"
+                  "const": "Plain"
                 },
-                "id": {
-                  "description": "The skill's identifier.",
-                  "type": "integer",
-                  "minimum": 1
+                "value": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Prerequisite/Group/Language"
+                  },
+                  "minItems": 1
                 }
               },
               "required": [
                 "tag",
-                "id"
+                "value"
               ],
               "additionalProperties": false
             },
-            "enhancement": {
-              "description": "The required enhancement's identifier.",
+            {
               "type": "object",
               "properties": {
-                "id": {
-                  "description": "The enhancement's identifier.",
-                  "type": "integer",
-                  "minimum": 1
+                "tag": {
+                  "const": "ByLevel"
+                },
+                "value": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "level": {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "prerequisites": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/Prerequisite/Group/Language"
+                        }
+                      }
+                    },
+                    "required": [
+                      "level",
+                      "prerequisites"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1
                 }
               },
               "required": [
-                "id"
+                "tag",
+                "value"
               ],
               "additionalProperties": false
-            },
-            "display_option": {
-              "$ref": "#/definitions/Single/DisplayOption/T"
             }
-          },
-          "required": [
-            "tag",
-            "skill",
-            "enhancement"
-          ],
-          "additionalProperties": false
-        },
-        "SkillCategoryWithEnhancements": {
-          "enum": [
-            "Spell",
-            "Ritual",
-            "LiturgicalChant",
-            "Ceremony"
           ]
-        }
-      },
-      "EnhancementInternal": {
-        "T": {
-          "title": "Internal Enhancement Prerequisite",
-          "description": "Requires a specific enhancement from a skill. This can only be used by an\nenhancement to require another enhancement from the same skill.",
+        },
+        "GeodeRitual": {
           "type": "object",
           "properties": {
             "tag": {
-              "const": "EnhancementInternal"
+              "const": "Plain"
             },
-            "id": {
-              "description": "The enhancement's identifier.",
-              "type": "integer",
-              "minimum": 1
+            "value": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Prerequisite/Group/GeodeRitual"
+              },
+              "minItems": 1
             }
           },
           "required": [
             "tag",
-            "id"
+            "value"
           ],
           "additionalProperties": false
-        }
-      },
-      "Ineligible": {
-        "T": {
-          "title": "Ineligible Prerequisite",
-          "description": "This is a placeholder for required things that can never happen with the\ncurrent set of crunch elements and rules, e. g. if a race is required\nthat does not yet exist as a crunch element.\n\nA display option must be set.",
+        },
+        "Enhancement": {
           "type": "object",
           "properties": {
             "tag": {
-              "const": "Ineligible"
+              "const": "Plain"
             },
-            "display_option": {
-              "$ref": "#/definitions/Single/DisplayOption/T"
+            "value": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Prerequisite/Group/Enhancement"
+              },
+              "minItems": 1
             }
           },
           "required": [
             "tag",
-            "display_option"
+            "value"
           ],
           "additionalProperties": false
         }
-      }
-    },
-    "Group": {
-      "DerivedCharacteristic": {
-        "oneOf": [
-          {
-            "$ref": "#/definitions/Single/Rule/T"
-          }
-        ]
-      },
-      "Publication": {
-        "oneOf": [
-          {
-            "$ref": "#/definitions/Single/Publication/T"
-          }
-        ]
-      },
-      "ArcaneTradition": {
-        "oneOf": [
-          {
-            "$ref": "#/definitions/Single/Sex/T"
-          },
-          {
-            "$ref": "#/definitions/Single/Culture/T"
-          }
-        ]
-      },
-      "Spellwork": {
-        "oneOf": [
-          {
-            "$ref": "#/definitions/Single/Rule/T"
-          },
-          {
-            "$ref": "#/definitions/Single/Rated/T"
-          }
-        ]
-      },
-      "Liturgy": {
-        "oneOf": [
-          {
-            "$ref": "#/definitions/Single/Rule/T"
-          }
-        ]
-      },
-      "Language": {
-        "oneOf": [
-          {
-            "$ref": "#/definitions/Single/Ineligible/T"
-          },
-          {
-            "$ref": "#/definitions/Single/Race/T"
-          },
-          {
-            "$ref": "#/definitions/Single/Activatable/T"
-          }
-        ]
-      },
-      "GeodeRitual": {
-        "oneOf": [
-          {
-            "$ref": "#/definitions/Single/Influence/T"
-          }
-        ]
-      },
-      "Enhancement": {
-        "oneOf": [
-          {
-            "$ref": "#/definitions/Single/EnhancementInternal/T"
-          }
-        ]
-      }
-    },
-    "Collection": {},
-    "GroupCollection": {
-      "DerivedCharacteristic": {
-        "type": "object",
-        "properties": {
-          "tag": {
-            "const": "Plain"
-          },
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/Group/DerivedCharacteristic"
-            },
-            "minItems": 1
-          }
-        },
-        "required": [
-          "tag",
-          "value"
-        ],
-        "additionalProperties": false
-      },
-      "Publication": {
-        "type": "object",
-        "properties": {
-          "tag": {
-            "const": "Plain"
-          },
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/Group/Publication"
-            },
-            "minItems": 1
-          }
-        },
-        "required": [
-          "tag",
-          "value"
-        ],
-        "additionalProperties": false
-      },
-      "ArcaneTradition": {
-        "type": "object",
-        "properties": {
-          "tag": {
-            "const": "Plain"
-          },
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/Group/ArcaneTradition"
-            },
-            "minItems": 1
-          }
-        },
-        "required": [
-          "tag",
-          "value"
-        ],
-        "additionalProperties": false
-      },
-      "Spellwork": {
-        "type": "object",
-        "properties": {
-          "tag": {
-            "const": "Plain"
-          },
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/Group/Spellwork"
-            },
-            "minItems": 1
-          }
-        },
-        "required": [
-          "tag",
-          "value"
-        ],
-        "additionalProperties": false
-      },
-      "Liturgy": {
-        "type": "object",
-        "properties": {
-          "tag": {
-            "const": "Plain"
-          },
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/Group/Liturgy"
-            },
-            "minItems": 1
-          }
-        },
-        "required": [
-          "tag",
-          "value"
-        ],
-        "additionalProperties": false
-      },
-      "Language": {
-        "oneOf": [
-          {
-            "type": "object",
-            "properties": {
-              "tag": {
-                "const": "Plain"
-              },
-              "value": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/definitions/Group/Language"
-                },
-                "minItems": 1
-              }
-            },
-            "required": [
-              "tag",
-              "value"
-            ],
-            "additionalProperties": false
-          },
-          {
-            "type": "object",
-            "properties": {
-              "tag": {
-                "const": "ByLevel"
-              },
-              "value": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "level": {
-                      "type": "integer",
-                      "minimum": 1
-                    },
-                    "prerequisites": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/definitions/Group/Language"
-                      }
-                    }
-                  },
-                  "required": [
-                    "level",
-                    "prerequisites"
-                  ],
-                  "additionalProperties": false
-                },
-                "minItems": 1
-              }
-            },
-            "required": [
-              "tag",
-              "value"
-            ],
-            "additionalProperties": false
-          }
-        ]
-      },
-      "GeodeRitual": {
-        "type": "object",
-        "properties": {
-          "tag": {
-            "const": "Plain"
-          },
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/Group/GeodeRitual"
-            },
-            "minItems": 1
-          }
-        },
-        "required": [
-          "tag",
-          "value"
-        ],
-        "additionalProperties": false
-      },
-      "Enhancement": {
-        "type": "object",
-        "properties": {
-          "tag": {
-            "const": "Plain"
-          },
-          "value": {
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/Group/Enhancement"
-            },
-            "minItems": 1
-          }
-        },
-        "required": [
-          "tag",
-          "value"
-        ],
-        "additionalProperties": false
       }
     }
   }

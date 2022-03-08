@@ -3,7 +3,7 @@
  */
 
 import { PublicationRefs } from "./source/_PublicationRef"
-import { GroupCollection } from "./_Prerequisite"
+import { Prerequisite } from "./_Prerequisite"
 
 /**
  * @title Derived Characteristic
@@ -16,7 +16,7 @@ export type DerivedCharacteristic = {
    */
   id: number
 
-  prerequisites?: GroupCollection.DerivedCharacteristic
+  prerequisites?: Prerequisite.GroupCollection.DerivedCharacteristic
 
   src: PublicationRefs
 

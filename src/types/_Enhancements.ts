@@ -4,7 +4,7 @@
 
 import { Errata } from "./source/_Erratum"
 import { PublicationRefs } from "./source/_PublicationRef"
-import { GroupCollection } from "./_Prerequisite"
+import { Prerequisite } from "./_Prerequisite"
 
 /**
  * A list of enhancements.
@@ -41,7 +41,7 @@ export type Enhancement = {
    */
   adventure_points_modifier: number
 
-  prerequisites?: GroupCollection.Enhancement
+  prerequisites?: Prerequisite.GroupCollection.Enhancement
 
   /**
    * Only defined if different than the associated skill.

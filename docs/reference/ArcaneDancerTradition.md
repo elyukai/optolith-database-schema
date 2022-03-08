@@ -21,7 +21,7 @@ The arcane dancer tradition's identifier. An unique, increasing integer.
 
 #### <a name="ArcaneDancerTradition/prerequisites"></a> `prerequisites`
 
-- **Type:** <a href="./_Prerequisite.md#GroupCollection/ArcaneTradition">GroupCollection/ArcaneTradition</a>
+- **Type:** <a href="./_Prerequisite.md#Prerequisite/GroupCollection/ArcaneTradition">Prerequisite/GroupCollection/ArcaneTradition</a>
 
 #### <a name="ArcaneDancerTradition/translations"></a> `translations`
 

@@ -41,7 +41,7 @@
           "$ref": "./_ImprovementCost.schema.json#/definitions/ImprovementCost"
         },
         "prerequisites": {
-          "$ref": "./_Prerequisite.schema.json#/definitions/GroupCollection/Liturgy"
+          "$ref": "./_Prerequisite.schema.json#/definitions/Prerequisite/GroupCollection/Liturgy"
         },
         "src": {
           "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"

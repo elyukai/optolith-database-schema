@@ -21,7 +21,7 @@ The arcane bard tradition's identifier. An unique, increasing integer.
 
 #### <a name="ArcaneBardTradition/prerequisites"></a> `prerequisites`
 
-- **Type:** <a href="./_Prerequisite.md#GroupCollection/ArcaneTradition">GroupCollection/ArcaneTradition</a>
+- **Type:** <a href="./_Prerequisite.md#Prerequisite/GroupCollection/ArcaneTradition">Prerequisite/GroupCollection/ArcaneTradition</a>
 
 #### <a name="ArcaneBardTradition/translations"></a> `translations`
 

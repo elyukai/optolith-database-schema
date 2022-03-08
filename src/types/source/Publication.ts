@@ -2,7 +2,7 @@
  * @main Publication
  */
 
-import { GroupCollection } from "../_Prerequisite"
+import { Prerequisite } from "../_Prerequisite"
 
 /**
  * @title Publication
@@ -34,7 +34,7 @@ type Publication = {
   /**
    * The specific other publications this publication depends on data from.
    */
-  prerequisites?: GroupCollection.Publication
+  prerequisites?: Prerequisite.GroupCollection.Publication
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).

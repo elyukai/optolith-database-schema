@@ -30,7 +30,7 @@
           "minimum": 1
         },
         "prerequisites": {
-          "$ref": "../_Prerequisite.schema.json#/definitions/GroupCollection/GeodeRitual"
+          "$ref": "../_Prerequisite.schema.json#/definitions/Prerequisite/GroupCollection/GeodeRitual"
         },
         "src": {
           "$ref": "../source/_PublicationRef.schema.json#/definitions/PublicationRefs"

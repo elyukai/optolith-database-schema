@@ -41,7 +41,7 @@ indefinite description of what may be a specialization.
 
 #### <a name="Language/prerequisites"></a> `prerequisites?`
 
-- **Type:** <a href="../../_Prerequisite.md#GroupCollection/Language">GroupCollection/Language</a>
+- **Type:** <a href="../../_Prerequisite.md#Prerequisite/GroupCollection/Language">Prerequisite/GroupCollection/Language</a>
 
 #### <a name="Language/max_level"></a> `max_level?`
 

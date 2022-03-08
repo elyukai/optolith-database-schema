@@ -4,7 +4,7 @@
 
 import { Errata } from "../../source/_Erratum"
 import { PublicationRefs } from "../../source/_PublicationRef"
-import { GroupCollection } from "../../_Prerequisite"
+import { Prerequisite } from "../../_Prerequisite"
 
 /**
  * @title Language
@@ -108,7 +108,7 @@ export type Language = {
       }
     }
 
-  prerequisites?: GroupCollection.Language
+  prerequisites?: Prerequisite.GroupCollection.Language
 
   /**
    * The maximum possible level of the language. Only specified if lower than

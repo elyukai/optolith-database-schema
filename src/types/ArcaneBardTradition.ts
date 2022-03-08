@@ -2,7 +2,7 @@
  * @main ArcaneBardTradition
  */
 
-import { GroupCollection } from "./_Prerequisite"
+import { Prerequisite } from "./_Prerequisite"
 
 /**
  * @title Arcane Bard Tradition
@@ -15,7 +15,7 @@ export type ArcaneBardTradition = {
    */
   id: number
 
-  prerequisites: GroupCollection.ArcaneTradition
+  prerequisites: Prerequisite.GroupCollection.ArcaneTradition
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
