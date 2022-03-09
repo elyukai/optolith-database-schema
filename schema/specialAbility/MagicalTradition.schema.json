@@ -8,16 +8,16 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/definitions/Id"
+          "$ref": "../_Activatable.schema.json#/definitions/Id"
         },
         "levels": {
-          "$ref": "#/definitions/Levels"
+          "$ref": "../_Activatable.schema.json#/definitions/Levels"
         },
         "skill_applications": {
-          "$ref": "#/definitions/SkillApplications"
+          "$ref": "../_Activatable.schema.json#/definitions/SkillApplications"
         },
         "skill_uses": {
-          "$ref": "#/definitions/SkillUses"
+          "$ref": "../_Activatable.schema.json#/definitions/SkillUses"
         },
         "primary": {
           "description": "The tradition's primary attribute. Leave empty if the tradition does not\nhave one.",
@@ -98,7 +98,7 @@
           "minItems": 2
         },
         "ap_value": {
-          "$ref": "#/definitions/AdventurePointsValue"
+          "$ref": "../_Activatable.schema.json#/definitions/AdventurePointsValue"
         },
         "src": {
           "$ref": "../source/_PublicationRef.schema.json#/definitions/PublicationRefs"
@@ -111,7 +111,7 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "$ref": "#/definitions/Name"
+                  "$ref": "../_Activatable.schema.json#/definitions/Name"
                 },
                 "name_for_arcane_spellworks": {
                   "description": "The name used for the traditions list of arcane spellworks if it is\ndifferent than the `name` of the special ability.",
@@ -119,7 +119,7 @@
                   "minLength": 1
                 },
                 "name_in_library": {
-                  "$ref": "#/definitions/NameInLibrary"
+                  "$ref": "../_Activatable.schema.json#/definitions/NameInLibrary"
                 },
                 "special_rules": {
                   "description": "The special rules of the tradition. They should be sorted like they are\nin the book.",

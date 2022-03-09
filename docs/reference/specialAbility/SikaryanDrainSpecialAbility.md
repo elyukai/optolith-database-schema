@@ -16,15 +16,15 @@ Key | Description | Details
 
 #### <a name="SikaryanDrainSpecialAbility/id"></a> `id`
 
-- **Type:** <a href="#Id">Id</a>
+- **Type:** <a href="../_Activatable.md#Id">Id</a>
 
 #### <a name="SikaryanDrainSpecialAbility/levels"></a> `levels?`
 
-- **Type:** <a href="#Levels">Levels</a>
+- **Type:** <a href="../_Activatable.md#Levels">Levels</a>
 
 #### <a name="SikaryanDrainSpecialAbility/ap_value"></a> `ap_value`
 
-- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>
+- **Type:** <a href="../_Activatable.md#AdventurePointsValue">AdventurePointsValue</a>
 
 #### <a name="SikaryanDrainSpecialAbility/src"></a> `src`
 
@@ -54,15 +54,15 @@ Key | Description | Details
 
 #### <a name="SikaryanDrainSpecialAbility/translations[key]/name"></a> `name`
 
-- **Type:** <a href="#Name">Name</a>
+- **Type:** <a href="../_Activatable.md#Name">Name</a>
 
 #### <a name="SikaryanDrainSpecialAbility/translations[key]/name_in_library"></a> `name_in_library?`
 
-- **Type:** <a href="#NameInLibrary">NameInLibrary</a>
+- **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
 #### <a name="SikaryanDrainSpecialAbility/translations[key]/rules"></a> `rules`
 
-- **Type:** <a href="#Rules">Rules</a>
+- **Type:** <a href="../_Activatable.md#Rules">Rules</a>
 
 #### <a name="SikaryanDrainSpecialAbility/translations[key]/errata"></a> `errata?`
 

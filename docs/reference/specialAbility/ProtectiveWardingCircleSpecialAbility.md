@@ -16,15 +16,15 @@ Key | Description | Details
 
 #### <a name="ProtectiveWardingCircleSpecialAbility/id"></a> `id`
 
-- **Type:** <a href="#Id">Id</a>
+- **Type:** <a href="../_Activatable.md#Id">Id</a>
 
 #### <a name="ProtectiveWardingCircleSpecialAbility/levels"></a> `levels?`
 
-- **Type:** <a href="#Levels">Levels</a>
+- **Type:** <a href="../_Activatable.md#Levels">Levels</a>
 
 #### <a name="ProtectiveWardingCircleSpecialAbility/ap_value"></a> `ap_value`
 
-- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>
+- **Type:** <a href="../_Activatable.md#AdventurePointsValue">AdventurePointsValue</a>
 
 #### <a name="ProtectiveWardingCircleSpecialAbility/src"></a> `src`
 
@@ -55,11 +55,11 @@ Key | Description | Details
 
 #### <a name="ProtectiveWardingCircleSpecialAbility/translations[key]/name"></a> `name`
 
-- **Type:** <a href="#Name">Name</a>
+- **Type:** <a href="../_Activatable.md#Name">Name</a>
 
 #### <a name="ProtectiveWardingCircleSpecialAbility/translations[key]/name_in_library"></a> `name_in_library?`
 
-- **Type:** <a href="#NameInLibrary">NameInLibrary</a>
+- **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
 #### <a name="ProtectiveWardingCircleSpecialAbility/translations[key]/protective_circle"></a> `protective_circle`
 

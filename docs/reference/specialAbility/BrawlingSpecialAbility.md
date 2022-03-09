@@ -18,23 +18,23 @@ Key | Description | Details
 
 #### <a name="BrawlingSpecialAbility/id"></a> `id`
 
-- **Type:** <a href="#Id">Id</a>
+- **Type:** <a href="../_Activatable.md#Id">Id</a>
 
 #### <a name="BrawlingSpecialAbility/levels"></a> `levels?`
 
-- **Type:** <a href="#Levels">Levels</a>
+- **Type:** <a href="../_Activatable.md#Levels">Levels</a>
 
 #### <a name="BrawlingSpecialAbility/type"></a> `type`
 
-- **Type:** <a href="#CombatSpecialAbilityType">CombatSpecialAbilityType</a>
+- **Type:** <a href="../_Activatable.md#CombatSpecialAbilityType">CombatSpecialAbilityType</a>
 
 #### <a name="BrawlingSpecialAbility/combat_techniques"></a> `combat_techniques`
 
-- **Type:** <a href="#ApplicableCombatTechniques">ApplicableCombatTechniques</a>
+- **Type:** <a href="../_Activatable.md#ApplicableCombatTechniques">ApplicableCombatTechniques</a>
 
 #### <a name="BrawlingSpecialAbility/ap_value"></a> `ap_value`
 
-- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>
+- **Type:** <a href="../_Activatable.md#AdventurePointsValue">AdventurePointsValue</a>
 
 #### <a name="BrawlingSpecialAbility/src"></a> `src`
 
@@ -64,15 +64,15 @@ Key | Description | Details
 
 #### <a name="BrawlingSpecialAbility/translations[key]/name"></a> `name`
 
-- **Type:** <a href="#Name">Name</a>
+- **Type:** <a href="../_Activatable.md#Name">Name</a>
 
 #### <a name="BrawlingSpecialAbility/translations[key]/name_in_library"></a> `name_in_library?`
 
-- **Type:** <a href="#NameInLibrary">NameInLibrary</a>
+- **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
 #### <a name="BrawlingSpecialAbility/translations[key]/rules"></a> `rules`
 
-- **Type:** <a href="#Rules">Rules</a>
+- **Type:** <a href="../_Activatable.md#Rules">Rules</a>
 
 #### <a name="BrawlingSpecialAbility/translations[key]/errata"></a> `errata?`
 

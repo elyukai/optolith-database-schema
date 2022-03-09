@@ -8,13 +8,13 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/definitions/Id"
+          "$ref": "../_Activatable.schema.json#/definitions/Id"
         },
         "levels": {
-          "$ref": "#/definitions/Levels"
+          "$ref": "../_Activatable.schema.json#/definitions/Levels"
         },
         "ap_value": {
-          "$ref": "#/definitions/AdventurePointsValue"
+          "$ref": "../_Activatable.schema.json#/definitions/AdventurePointsValue"
         },
         "src": {
           "$ref": "../source/_PublicationRef.schema.json#/definitions/PublicationRefs"
@@ -27,13 +27,13 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "$ref": "#/definitions/Name"
+                  "$ref": "../_Activatable.schema.json#/definitions/Name"
                 },
                 "name_in_library": {
-                  "$ref": "#/definitions/NameInLibrary"
+                  "$ref": "../_Activatable.schema.json#/definitions/NameInLibrary"
                 },
                 "effect": {
-                  "$ref": "#/definitions/Effect"
+                  "$ref": "../_Activatable.schema.json#/definitions/Effect"
                 },
                 "errata": {
                   "$ref": "../source/_Erratum.schema.json#/definitions/Errata"

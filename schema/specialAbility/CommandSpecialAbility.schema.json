@@ -8,19 +8,19 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/definitions/Id"
+          "$ref": "../_Activatable.schema.json#/definitions/Id"
         },
         "levels": {
-          "$ref": "#/definitions/Levels"
+          "$ref": "../_Activatable.schema.json#/definitions/Levels"
         },
         "usage_type": {
-          "$ref": "#/definitions/CombatSpecialAbilityType"
+          "$ref": "../_Activatable.schema.json#/definitions/CombatSpecialAbilityType"
         },
         "combat_techniques": {
-          "$ref": "#/definitions/ApplicableCombatTechniques"
+          "$ref": "../_Activatable.schema.json#/definitions/ApplicableCombatTechniques"
         },
         "ap_value": {
-          "$ref": "#/definitions/AdventurePointsValue"
+          "$ref": "../_Activatable.schema.json#/definitions/AdventurePointsValue"
         },
         "src": {
           "$ref": "../source/_PublicationRef.schema.json#/definitions/PublicationRefs"
@@ -33,13 +33,13 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "$ref": "#/definitions/Name"
+                  "$ref": "../_Activatable.schema.json#/definitions/Name"
                 },
                 "name_in_library": {
-                  "$ref": "#/definitions/NameInLibrary"
+                  "$ref": "../_Activatable.schema.json#/definitions/NameInLibrary"
                 },
                 "rules": {
-                  "$ref": "#/definitions/Rules"
+                  "$ref": "../_Activatable.schema.json#/definitions/Rules"
                 },
                 "errata": {
                   "$ref": "../source/_Erratum.schema.json#/definitions/Errata"

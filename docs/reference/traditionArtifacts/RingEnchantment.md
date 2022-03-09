@@ -17,19 +17,19 @@ Key | Description | Details
 
 #### <a name="RingEnchantment/id"></a> `id`
 
-- **Type:** <a href="#Id">Id</a>
+- **Type:** <a href="../_Activatable.md#Id">Id</a>
 
 #### <a name="RingEnchantment/levels"></a> `levels?`
 
-- **Type:** <a href="#Levels">Levels</a>
+- **Type:** <a href="../_Activatable.md#Levels">Levels</a>
 
 #### <a name="RingEnchantment/property"></a> `property`
 
-- **Type:** <a href="#Property">Property</a>
+- **Type:** <a href="../_Activatable.md#Property">Property</a>
 
 #### <a name="RingEnchantment/ap_value"></a> `ap_value`
 
-- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>
+- **Type:** <a href="../_Activatable.md#AdventurePointsValue">AdventurePointsValue</a>
 
 #### <a name="RingEnchantment/src"></a> `src`
 
@@ -59,15 +59,15 @@ Key | Description | Details
 
 #### <a name="RingEnchantment/translations[key]/name"></a> `name`
 
-- **Type:** <a href="#Name">Name</a>
+- **Type:** <a href="../_Activatable.md#Name">Name</a>
 
 #### <a name="RingEnchantment/translations[key]/name_in_library"></a> `name_in_library?`
 
-- **Type:** <a href="#NameInLibrary">NameInLibrary</a>
+- **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
 #### <a name="RingEnchantment/translations[key]/effect"></a> `effect`
 
-- **Type:** <a href="#Effect">Effect</a>
+- **Type:** <a href="../_Activatable.md#Effect">Effect</a>
 
 #### <a name="RingEnchantment/translations[key]/errata"></a> `errata?`
 

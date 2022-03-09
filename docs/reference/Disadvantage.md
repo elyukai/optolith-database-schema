@@ -18,15 +18,15 @@ Key | Description | Details
 
 #### <a name="Disadvantage/id"></a> `id`
 
-- **Type:** <a href="#Id">Id</a>
+- **Type:** <a href="./_Activatable.md#Id">Id</a>
 
 #### <a name="Disadvantage/levels"></a> `levels?`
 
-- **Type:** <a href="#Levels">Levels</a>
+- **Type:** <a href="./_Activatable.md#Levels">Levels</a>
 
 #### <a name="Disadvantage/ap_value"></a> `ap_value`
 
-- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>
+- **Type:** <a href="./_Activatable.md#AdventurePointsValue">AdventurePointsValue</a>
 
 #### <a name="Disadvantage/has_no_maximum_spent_influence"></a> `has_no_maximum_spent_influence?`
 
@@ -71,15 +71,15 @@ Key | Description | Details
 
 #### <a name="Disadvantage/translations[key]/name"></a> `name`
 
-- **Type:** <a href="#Name">Name</a>
+- **Type:** <a href="./_Activatable.md#Name">Name</a>
 
 #### <a name="Disadvantage/translations[key]/name_in_library"></a> `name_in_library?`
 
-- **Type:** <a href="#NameInLibrary">NameInLibrary</a>
+- **Type:** <a href="./_Activatable.md#NameInLibrary">NameInLibrary</a>
 
 #### <a name="Disadvantage/translations[key]/rules"></a> `rules`
 
-- **Type:** <a href="#Rules">Rules</a>
+- **Type:** <a href="./_Activatable.md#Rules">Rules</a>
 
 #### <a name="Disadvantage/translations[key]/range"></a> `range?`
 

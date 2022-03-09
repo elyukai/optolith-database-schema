@@ -20,31 +20,31 @@ Key | Description | Details
 
 #### <a name="CombatSpecialAbility/id"></a> `id`
 
-- **Type:** <a href="#Id">Id</a>
+- **Type:** <a href="../_Activatable.md#Id">Id</a>
 
 #### <a name="CombatSpecialAbility/levels"></a> `levels?`
 
-- **Type:** <a href="#Levels">Levels</a>
+- **Type:** <a href="../_Activatable.md#Levels">Levels</a>
 
 #### <a name="CombatSpecialAbility/usage_type"></a> `usage_type`
 
-- **Type:** <a href="#CombatSpecialAbilityType">CombatSpecialAbilityType</a>
+- **Type:** <a href="../_Activatable.md#CombatSpecialAbilityType">CombatSpecialAbilityType</a>
 
 #### <a name="CombatSpecialAbility/skill_applications"></a> `skill_applications?`
 
-- **Type:** <a href="#SkillApplications">SkillApplications</a>
+- **Type:** <a href="../_Activatable.md#SkillApplications">SkillApplications</a>
 
 #### <a name="CombatSpecialAbility/skill_uses"></a> `skill_uses?`
 
-- **Type:** <a href="#SkillUses">SkillUses</a>
+- **Type:** <a href="../_Activatable.md#SkillUses">SkillUses</a>
 
 #### <a name="CombatSpecialAbility/combat_techniques"></a> `combat_techniques`
 
-- **Type:** <a href="#ApplicableCombatTechniques">ApplicableCombatTechniques</a>
+- **Type:** <a href="../_Activatable.md#ApplicableCombatTechniques">ApplicableCombatTechniques</a>
 
 #### <a name="CombatSpecialAbility/ap_value"></a> `ap_value`
 
-- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>
+- **Type:** <a href="../_Activatable.md#AdventurePointsValue">AdventurePointsValue</a>
 
 #### <a name="CombatSpecialAbility/src"></a> `src`
 
@@ -74,15 +74,15 @@ Key | Description | Details
 
 #### <a name="CombatSpecialAbility/translations[key]/name"></a> `name`
 
-- **Type:** <a href="#Name">Name</a>
+- **Type:** <a href="../_Activatable.md#Name">Name</a>
 
 #### <a name="CombatSpecialAbility/translations[key]/name_in_library"></a> `name_in_library?`
 
-- **Type:** <a href="#NameInLibrary">NameInLibrary</a>
+- **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
 #### <a name="CombatSpecialAbility/translations[key]/rules"></a> `rules`
 
-- **Type:** <a href="#Rules">Rules</a>
+- **Type:** <a href="../_Activatable.md#Rules">Rules</a>
 
 #### <a name="CombatSpecialAbility/translations[key]/errata"></a> `errata?`
 

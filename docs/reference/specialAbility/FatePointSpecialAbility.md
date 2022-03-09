@@ -18,23 +18,23 @@ Key | Description | Details
 
 #### <a name="FatePointSpecialAbility/id"></a> `id`
 
-- **Type:** <a href="#Id">Id</a>
+- **Type:** <a href="../_Activatable.md#Id">Id</a>
 
 #### <a name="FatePointSpecialAbility/levels"></a> `levels?`
 
-- **Type:** <a href="#Levels">Levels</a>
+- **Type:** <a href="../_Activatable.md#Levels">Levels</a>
 
 #### <a name="FatePointSpecialAbility/skill_applications"></a> `skill_applications?`
 
-- **Type:** <a href="#SkillApplications">SkillApplications</a>
+- **Type:** <a href="../_Activatable.md#SkillApplications">SkillApplications</a>
 
 #### <a name="FatePointSpecialAbility/skill_uses"></a> `skill_uses?`
 
-- **Type:** <a href="#SkillUses">SkillUses</a>
+- **Type:** <a href="../_Activatable.md#SkillUses">SkillUses</a>
 
 #### <a name="FatePointSpecialAbility/ap_value"></a> `ap_value`
 
-- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>
+- **Type:** <a href="../_Activatable.md#AdventurePointsValue">AdventurePointsValue</a>
 
 #### <a name="FatePointSpecialAbility/src"></a> `src`
 
@@ -64,15 +64,15 @@ Key | Description | Details
 
 #### <a name="FatePointSpecialAbility/translations[key]/name"></a> `name`
 
-- **Type:** <a href="#Name">Name</a>
+- **Type:** <a href="../_Activatable.md#Name">Name</a>
 
 #### <a name="FatePointSpecialAbility/translations[key]/name_in_library"></a> `name_in_library?`
 
-- **Type:** <a href="#NameInLibrary">NameInLibrary</a>
+- **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
 #### <a name="FatePointSpecialAbility/translations[key]/rules"></a> `rules`
 
-- **Type:** <a href="#Rules">Rules</a>
+- **Type:** <a href="../_Activatable.md#Rules">Rules</a>
 
 #### <a name="FatePointSpecialAbility/translations[key]/errata"></a> `errata?`
 

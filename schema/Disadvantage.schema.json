@@ -8,13 +8,13 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/definitions/Id"
+          "$ref": "./_Activatable.schema.json#/definitions/Id"
         },
         "levels": {
-          "$ref": "#/definitions/Levels"
+          "$ref": "./_Activatable.schema.json#/definitions/Levels"
         },
         "ap_value": {
-          "$ref": "#/definitions/AdventurePointsValue"
+          "$ref": "./_Activatable.schema.json#/definitions/AdventurePointsValue"
         },
         "has_no_maximum_spent_influence": {
           "description": "Does this disadvantage not count towards the maximum of AP to be granted by\ndisadvantages?",
@@ -35,13 +35,13 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "$ref": "#/definitions/Name"
+                  "$ref": "./_Activatable.schema.json#/definitions/Name"
                 },
                 "name_in_library": {
-                  "$ref": "#/definitions/NameInLibrary"
+                  "$ref": "./_Activatable.schema.json#/definitions/NameInLibrary"
                 },
                 "rules": {
-                  "$ref": "#/definitions/Rules"
+                  "$ref": "./_Activatable.schema.json#/definitions/Rules"
                 },
                 "range": {
                   "description": "The range.",
