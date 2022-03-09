@@ -24,6 +24,8 @@ export type AdvancedCombatSpecialAbility = {
 
   skill_uses?: Activatable.SkillUses
 
+  penalty?: Activatable.Penalty
+
   // prerequisites?: Prerequisite.GroupCollection.General
 
   combat_techniques: Activatable.ApplicableCombatTechniques
@@ -48,8 +50,6 @@ export type AdvancedCombatSpecialAbility = {
       // input?: Activatable.Input
 
       rules: Activatable.Rules
-
-      // penalty?: Activatable.Penalty
 
       // prerequisites?: Activatable.PrerequisitesReplacement
 

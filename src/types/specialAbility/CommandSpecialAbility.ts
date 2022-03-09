@@ -45,8 +45,6 @@ export type CombatSpecialAbility = {
 
       rules: Activatable.Rules
 
-      // penalty?: Activatable.Penalty
-
       // prerequisites?: Activatable.PrerequisitesReplacement
 
       // prerequisites_start?: Activatable.PrerequisitesStart

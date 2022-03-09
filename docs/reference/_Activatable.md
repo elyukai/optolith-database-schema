@@ -390,7 +390,331 @@ The name of the use if different from the activatable entry's name.
 
 The penalty the special ability gives when used.
 
-- **Constant:** `""`
+- **Type:** Union
+- **Cases:** <a href="#Penalty'Single">Penalty'Single</a> | <a href="#Penalty'ByHandedness">Penalty'ByHandedness</a> | <a href="#Penalty'ByActivation">Penalty'ByActivation</a> | <a href="#Penalty'Selection">Penalty'Selection</a> | <a href="#Penalty'ByLevel">Penalty'ByLevel</a> | <a href="#Penalty'ByAttack">Penalty'ByAttack</a> | <a href="#Penalty'DependsOnHitZone">Penalty'DependsOnHitZone</a>
+
+---
+
+### <a name="Penalty'Single"></a> `Penalty'Single`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Penalty'Single/tag">See details</a>
+`value` | The penalty value. | <a href="#Penalty'Single/value">See details</a>
+`applies_to_parry?` | Set to `true` if the penalty applies to the parry instead of the attack. | <a href="#Penalty'Single/applies_to_parry">See details</a>
+
+#### <a name="Penalty'Single/tag"></a> `tag`
+
+- **Constant:** `"Single"`
+
+#### <a name="Penalty'Single/value"></a> `value`
+
+The penalty value.
+
+- **Type:** Integer
+
+#### <a name="Penalty'Single/applies_to_parry"></a> `applies_to_parry?`
+
+Set to `true` if the penalty applies to the parry instead of the attack.
+
+- **Constant:** `true`
+
+---
+
+### <a name="Penalty'ByHandedness"></a> `Penalty'ByHandedness`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Penalty'ByHandedness/tag">See details</a>
+`one_handed` | The penalty value for one-handed weapons. | <a href="#Penalty'ByHandedness/one_handed">See details</a>
+`two_handed` | The penalty value for two-handed weapons. | <a href="#Penalty'ByHandedness/two_handed">See details</a>
+`applies_to_parry?` | Set to `true` if the penalty applies to the parry instead of the attack. | <a href="#Penalty'ByHandedness/applies_to_parry">See details</a>
+
+#### <a name="Penalty'ByHandedness/tag"></a> `tag`
+
+- **Constant:** `"ByHandedness"`
+
+#### <a name="Penalty'ByHandedness/one_handed"></a> `one_handed`
+
+The penalty value for one-handed weapons.
+
+- **Type:** Integer
+
+#### <a name="Penalty'ByHandedness/two_handed"></a> `two_handed`
+
+The penalty value for two-handed weapons.
+
+- **Type:** Integer
+
+#### <a name="Penalty'ByHandedness/applies_to_parry"></a> `applies_to_parry?`
+
+Set to `true` if the penalty applies to the parry instead of the attack.
+
+- **Constant:** `true`
+
+---
+
+### <a name="Penalty'ByActivation"></a> `Penalty'ByActivation`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Penalty'ByActivation/tag">See details</a>
+`active` | The penalty value if the entry has been bought by the character. | <a href="#Penalty'ByActivation/active">See details</a>
+`inactive` | The penalty value if the entry has not been bought by the character. | <a href="#Penalty'ByActivation/inactive">See details</a>
+`applies_to_parry?` | Set to `true` if the penalty applies to the parry instead of the attack. | <a href="#Penalty'ByActivation/applies_to_parry">See details</a>
+
+#### <a name="Penalty'ByActivation/tag"></a> `tag`
+
+- **Constant:** `"ByActivation"`
+
+#### <a name="Penalty'ByActivation/active"></a> `active`
+
+The penalty value if the entry has been bought by the character.
+
+- **Type:** Integer
+
+#### <a name="Penalty'ByActivation/inactive"></a> `inactive`
+
+The penalty value if the entry has not been bought by the character.
+
+- **Type:** Integer
+
+#### <a name="Penalty'ByActivation/applies_to_parry"></a> `applies_to_parry?`
+
+Set to `true` if the penalty applies to the parry instead of the attack.
+
+- **Constant:** `true`
+
+---
+
+### <a name="Penalty'Selection"></a> `Penalty'Selection`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Penalty'Selection/tag">See details</a>
+`options` |  | <a href="#Penalty'Selection/options">See details</a>
+
+#### <a name="Penalty'Selection/tag"></a> `tag`
+
+- **Constant:** `"Selection"`
+
+#### <a name="Penalty'Selection/options"></a> `options`
+
+- **Type:** Union
+- **Cases:** <a href="#Penalty'Selection/options'Specific">Penalty'Selection/options'Specific</a> | <a href="#Penalty'Selection/options'Range">Penalty'Selection/options'Range</a>
+
+---
+
+### <a name="Penalty'Selection/options'Specific"></a> `Penalty'Selection/options'Specific`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Penalty'Selection/options'Specific/tag">See details</a>
+`list` | The list of specific penalty options. | <a href="#Penalty'Selection/options'Specific/list">See details</a>
+
+#### <a name="Penalty'Selection/options'Specific/tag"></a> `tag`
+
+- **Constant:** `"Specific"`
+
+#### <a name="Penalty'Selection/options'Specific/list"></a> `list`
+
+The list of specific penalty options.
+
+- **Type:** List
+- **Items:** <a href="#Penalty'Selection/options'Specific/list[]">Penalty'Selection/options'Specific/list[]</a>
+- **Minimum Items:** `2`
+- **Unique Items:** Yes
+
+---
+
+### <a name="Penalty'Selection/options'Specific/list[]"></a> `Penalty'Selection/options'Specific/list[]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`value` | The penalty value. | <a href="#Penalty'Selection/options'Specific/list[]/value">See details</a>
+
+#### <a name="Penalty'Selection/options'Specific/list[]/value"></a> `value`
+
+The penalty value.
+
+- **Type:** Integer
+
+---
+
+### <a name="Penalty'Selection/options'Range"></a> `Penalty'Selection/options'Range`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Penalty'Selection/options'Range/tag">See details</a>
+`minimum` | The minimum penalty value. | <a href="#Penalty'Selection/options'Range/minimum">See details</a>
+`maximum` | The maximum penalty value. | <a href="#Penalty'Selection/options'Range/maximum">See details</a>
+
+#### <a name="Penalty'Selection/options'Range/tag"></a> `tag`
+
+- **Constant:** `"Range"`
+
+#### <a name="Penalty'Selection/options'Range/minimum"></a> `minimum`
+
+The minimum penalty value.
+
+- **Type:** Integer
+
+#### <a name="Penalty'Selection/options'Range/maximum"></a> `maximum`
+
+The maximum penalty value.
+
+- **Type:** Integer
+
+---
+
+### <a name="Penalty'ByLevel"></a> `Penalty'ByLevel`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Penalty'ByLevel/tag">See details</a>
+`levels` | A continuous range of penalties for each level. The first element is the penalty for the first level, the second element is the penalty for the second level, and so on. | <a href="#Penalty'ByLevel/levels">See details</a>
+`external_id?` | The identifier of the combat-related special ability of which the level defines the penalty instead. | <a href="#Penalty'ByLevel/external_id">See details</a>
+
+#### <a name="Penalty'ByLevel/tag"></a> `tag`
+
+- **Constant:** `"ByLevel"`
+
+#### <a name="Penalty'ByLevel/levels"></a> `levels`
+
+A continuous range of penalties for each level. The first element is the
+penalty for the first level, the second element is the penalty for the
+second level, and so on.
+
+- **Type:** List
+- **Items:** <a href="#Penalty'ByLevel/levels[]">Penalty'ByLevel/levels[]</a>
+- **Minimum Items:** `2`
+
+#### <a name="Penalty'ByLevel/external_id"></a> `external_id?`
+
+The identifier of the combat-related special ability of which the level
+defines the penalty instead.
+
+- **Type:** <a href="./_Identifier.md#Identifier/Group/CombatRelatedSpecialAbility">Identifier/Group/CombatRelatedSpecialAbility</a>
+
+---
+
+### <a name="Penalty'ByLevel/levels[]"></a> `Penalty'ByLevel/levels[]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`value` | The penalty value for this level. | <a href="#Penalty'ByLevel/levels[]/value">See details</a>
+
+#### <a name="Penalty'ByLevel/levels[]/value"></a> `value`
+
+The penalty value for this level.
+
+- **Type:** Integer
+
+---
+
+### <a name="Penalty'ByAttack"></a> `Penalty'ByAttack`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Penalty'ByAttack/tag">See details</a>
+`list` | A list of penalties for subsequent attacks. The first element is the penalty for the first attack, the second element is the penalty for the second attack, and so on. The order of the first element may be changed using `initial_order`, so that e.g. if set to `2`, the first element is the penalty for the second attack, the second element is the penalty for the third attack, and so on. | <a href="#Penalty'ByAttack/list">See details</a>
+`initial_order?` | The order of the first element in the `list` of penalties. | <a href="#Penalty'ByAttack/initial_order">See details</a>
+`attack_replacement?` | Set if a predefined different word should be used instead of the word `attack` for display purposes. | <a href="#Penalty'ByAttack/attack_replacement">See details</a>
+
+#### <a name="Penalty'ByAttack/tag"></a> `tag`
+
+- **Constant:** `"ByAttack"`
+
+#### <a name="Penalty'ByAttack/list"></a> `list`
+
+A list of penalties for subsequent attacks. The first element is the
+penalty for the first attack, the second element is the penalty for the
+second attack, and so on. The order of the first element may be changed
+using `initial_order`, so that e.g. if set to `2`, the first element is
+the penalty for the second attack, the second element is the penalty for
+the third attack, and so on.
+
+- **Type:** List
+- **Items:** <a href="#Penalty'ByAttack/list[]">Penalty'ByAttack/list[]</a>
+- **Minimum Items:** `1`
+
+#### <a name="Penalty'ByAttack/initial_order"></a> `initial_order?`
+
+The order of the first element in the `list` of penalties.
+
+- **Type:** Number
+
+#### <a name="Penalty'ByAttack/attack_replacement"></a> `attack_replacement?`
+
+Set if a predefined different word should be used instead of the word
+`attack` for display purposes.
+
+- **Type:** Union
+- **Cases:** <a href="#Penalty'ByAttack/attack_replacement'Throw">Penalty'ByAttack/attack_replacement'Throw</a>
+
+---
+
+### <a name="Penalty'ByAttack/list[]"></a> `Penalty'ByAttack/list[]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`value` | The penalty value for this order. | <a href="#Penalty'ByAttack/list[]/value">See details</a>
+
+#### <a name="Penalty'ByAttack/list[]/value"></a> `value`
+
+The penalty value for this order.
+
+- **Type:** Integer
+
+---
+
+### <a name="Penalty'ByAttack/attack_replacement'Throw"></a> `Penalty'ByAttack/attack_replacement'Throw`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Penalty'ByAttack/attack_replacement'Throw/tag">See details</a>
+
+#### <a name="Penalty'ByAttack/attack_replacement'Throw/tag"></a> `tag`
+
+- **Constant:** `"Throw"`
+
+---
+
+### <a name="Penalty'DependsOnHitZone"></a> `Penalty'DependsOnHitZone`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Penalty'DependsOnHitZone/tag">See details</a>
+
+#### <a name="Penalty'DependsOnHitZone/tag"></a> `tag`
+
+- **Constant:** `"DependsOnHitZone"`
 
 ---
 

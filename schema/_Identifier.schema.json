@@ -54,6 +54,14 @@
             "ChronicleEnchantment"
           ]
         },
+        "CombatRelatedSpecialAbility": {
+          "enum": [
+            "CombatSpecialAbility",
+            "CombatStyleSpecialAbility",
+            "AdvancedCombatSpecialAbility",
+            "CommandSpecialAbility"
+          ]
+        },
         "Rated": {
           "enum": [
             "Attribute",
@@ -85,6 +93,24 @@
           "properties": {
             "tag": {
               "$ref": "#/definitions/Identifier/Tag/Activatable"
+            },
+            "value": {
+              "description": "The referenced entry's numeric identifier.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "tag",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        "CombatRelatedSpecialAbility": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "$ref": "#/definitions/Identifier/Tag/CombatRelatedSpecialAbility"
             },
             "value": {
               "description": "The referenced entry's numeric identifier.",

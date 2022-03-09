@@ -8,6 +8,12 @@
 
 ---
 
+### <a name="Identifier/Tag/CombatRelatedSpecialAbility"></a> `Identifier/Tag/CombatRelatedSpecialAbility`
+
+- **Possible values:** `"CombatSpecialAbility"`, `"CombatStyleSpecialAbility"`, `"AdvancedCombatSpecialAbility"`, `"CommandSpecialAbility"`
+
+---
+
 ### <a name="Identifier/Tag/Rated"></a> `Identifier/Tag/Rated`
 
 - **Possible values:** `"Attribute"`, `"Skill"`, `"CloseCombatTechnique"`, `"RangedCombatTechnique"`, `"Spell"`, `"Ritual"`, `"LiturgicalChant"`, `"Ceremony"`
@@ -40,6 +46,28 @@ Key | Description | Details
 - **Type:** <a href="#Identifier/Tag/Activatable">Identifier/Tag/Activatable</a>
 
 #### <a name="Identifier/Group/Activatable/value"></a> `value`
+
+The referenced entry's numeric identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="Identifier/Group/CombatRelatedSpecialAbility"></a> `Identifier/Group/CombatRelatedSpecialAbility`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Identifier/Group/CombatRelatedSpecialAbility/tag">See details</a>
+`value` | The referenced entry's numeric identifier. | <a href="#Identifier/Group/CombatRelatedSpecialAbility/value">See details</a>
+
+#### <a name="Identifier/Group/CombatRelatedSpecialAbility/tag"></a> `tag`
+
+- **Type:** <a href="#Identifier/Tag/CombatRelatedSpecialAbility">Identifier/Tag/CombatRelatedSpecialAbility</a>
+
+#### <a name="Identifier/Group/CombatRelatedSpecialAbility/value"></a> `value`
 
 The referenced entry's numeric identifier.
 

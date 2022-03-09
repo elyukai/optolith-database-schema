@@ -49,6 +49,13 @@ export namespace Identifier {
       ChronicleEnchantment = "ChronicleEnchantment",
     }
 
+    export enum CombatRelatedSpecialAbility {
+      CombatSpecialAbility = "CombatSpecialAbility",
+      CombatStyleSpecialAbility = "CombatStyleSpecialAbility",
+      AdvancedCombatSpecialAbility = "AdvancedCombatSpecialAbility",
+      CommandSpecialAbility = "CommandSpecialAbility",
+    }
+
     export enum Rated {
       Attribute = "Attribute",
       Skill = "Skill",
@@ -84,6 +91,7 @@ export namespace Identifier {
 
   export namespace Group {
     export type Activatable = Tagged<Tag.Activatable>
+    export type CombatRelatedSpecialAbility = Tagged<Tag.CombatRelatedSpecialAbility>
     export type Rated = Tagged<Tag.Rated>
     export type AdvancedSpecialAbilityRestrictedOption = Tagged<Tag.AdvancedSpecialAbilityRestrictedOption>
     export type CombatTechnique = Tagged<Tag.CombatTechnique>

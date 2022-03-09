@@ -36,12 +36,12 @@ export type Levels = number
 /**
  *
  */
-export type Maximum = ""
+export type Maximum = "" // TODO
 
 /**
  *
  */
-export type Options = ""
+export type Options = "" // TODO
 
 /**
  * The rule text.
@@ -205,22 +205,168 @@ export type SkillUses = {
 /**
  * The penalty the special ability gives when used.
  */
-export type Penalty = ""
+export type Penalty =
+  | {
+    tag: "Single"
+
+    /**
+     * The penalty value.
+     * @integer
+     */
+    value: number
+
+    /**
+     * Set to `true` if the penalty applies to the parry instead of the attack.
+     */
+    applies_to_parry?: true
+  }
+  | {
+    tag: "ByHandedness"
+
+    /**
+     * The penalty value for one-handed weapons.
+     * @integer
+     */
+    one_handed: number
+
+    /**
+     * The penalty value for two-handed weapons.
+     * @integer
+     */
+    two_handed: number
+
+    /**
+     * Set to `true` if the penalty applies to the parry instead of the attack.
+     */
+    applies_to_parry?: true
+  }
+  | {
+    tag: "ByActivation"
+
+    /**
+     * The penalty value if the entry has been bought by the character.
+     * @integer
+     */
+    active: number
+
+    /**
+     * The penalty value if the entry has not been bought by the character.
+     * @integer
+     */
+    inactive: number
+
+    /**
+     * Set to `true` if the penalty applies to the parry instead of the attack.
+     */
+    applies_to_parry?: true
+  }
+  | {
+    tag: "Selection"
+
+    options:
+      | {
+        tag: "Specific"
+
+        /**
+         * The list of specific penalty options.
+         * @minItems 2
+         * @uniqueItems
+         */
+        list: {
+          /**
+           * The penalty value.
+           * @integer
+           */
+          value: number
+        }[]
+      }
+      | {
+        tag: "Range"
+
+        /**
+         * The minimum penalty value.
+         * @integer
+         */
+        minimum: number
+
+        /**
+         * The maximum penalty value.
+         * @integer
+         */
+        maximum: number
+      }
+  }
+  | {
+    tag: "ByLevel"
+
+    /**
+     * A continuous range of penalties for each level. The first element is the
+     * penalty for the first level, the second element is the penalty for the
+     * second level, and so on.
+     * @minItems 2
+     */
+    levels: {
+      /**
+       * The penalty value for this level.
+       * @integer
+       */
+      value: number
+    }[]
+
+    /**
+     * The identifier of the combat-related special ability of which the level
+     * defines the penalty instead.
+     */
+    external_id?: Identifier.Group.CombatRelatedSpecialAbility
+  }
+  | {
+    tag: "ByAttack"
+
+    /**
+     * A list of penalties for subsequent attacks. The first element is the
+     * penalty for the first attack, the second element is the penalty for the
+     * second attack, and so on. The order of the first element may be changed
+     * using `initial_order`, so that e.g. if set to `2`, the first element is
+     * the penalty for the second attack, the second element is the penalty for
+     * the third attack, and so on.
+     * @minItems 1
+     */
+    list: {
+      /**
+       * The penalty value for this order.
+       * @integer
+       */
+      value: number
+    }[]
+
+    /**
+     * The order of the first element in the `list` of penalties.
+     */
+    initial_order?: number
+
+    /**
+     * Set if a predefined different word should be used instead of the word
+     * `attack` for display purposes.
+     */
+    attack_replacement?:
+      | { tag: "Throw" }
+  }
+  | { tag: "DependsOnHitZone" }
 
 /**
  * The AE Cost.
  */
-export type ArcaneEnergyCost = ""
+export type ArcaneEnergyCost = "" // TODO
 
 /**
  * The volume points the enchantment needs.
  */
-export type Volume = ""
+export type Volume = "" // TODO
 
 /**
  * The binding cost for an enchantment.
  */
-export type BindingCost = ""
+export type BindingCost = "" // TODO
 
 /**
  * The magic property's identifier. `DependingOnProperty` can only be used if

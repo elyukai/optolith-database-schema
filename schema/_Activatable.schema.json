@@ -280,7 +280,251 @@
     },
     "Penalty": {
       "description": "The penalty the special ability gives when used.",
-      "const": ""
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Single"
+            },
+            "value": {
+              "description": "The penalty value.",
+              "type": "integer"
+            },
+            "applies_to_parry": {
+              "description": "Set to `true` if the penalty applies to the parry instead of the attack.",
+              "const": true
+            }
+          },
+          "required": [
+            "tag",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "ByHandedness"
+            },
+            "one_handed": {
+              "description": "The penalty value for one-handed weapons.",
+              "type": "integer"
+            },
+            "two_handed": {
+              "description": "The penalty value for two-handed weapons.",
+              "type": "integer"
+            },
+            "applies_to_parry": {
+              "description": "Set to `true` if the penalty applies to the parry instead of the attack.",
+              "const": true
+            }
+          },
+          "required": [
+            "tag",
+            "one_handed",
+            "two_handed"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "ByActivation"
+            },
+            "active": {
+              "description": "The penalty value if the entry has been bought by the character.",
+              "type": "integer"
+            },
+            "inactive": {
+              "description": "The penalty value if the entry has not been bought by the character.",
+              "type": "integer"
+            },
+            "applies_to_parry": {
+              "description": "Set to `true` if the penalty applies to the parry instead of the attack.",
+              "const": true
+            }
+          },
+          "required": [
+            "tag",
+            "active",
+            "inactive"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Selection"
+            },
+            "options": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tag": {
+                      "const": "Specific"
+                    },
+                    "list": {
+                      "description": "The list of specific penalty options.",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "description": "The penalty value.",
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "value"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "minItems": 2,
+                      "uniqueItems": true
+                    }
+                  },
+                  "required": [
+                    "tag",
+                    "list"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "tag": {
+                      "const": "Range"
+                    },
+                    "minimum": {
+                      "description": "The minimum penalty value.",
+                      "type": "integer"
+                    },
+                    "maximum": {
+                      "description": "The maximum penalty value.",
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "tag",
+                    "minimum",
+                    "maximum"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "required": [
+            "tag",
+            "options"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "ByLevel"
+            },
+            "levels": {
+              "description": "A continuous range of penalties for each level. The first element is the\npenalty for the first level, the second element is the penalty for the\nsecond level, and so on.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "description": "The penalty value for this level.",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "value"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 2
+            },
+            "external_id": {
+              "description": "The identifier of the combat-related special ability of which the level\ndefines the penalty instead.",
+              "$ref": "./_Identifier.schema.json#/definitions/Identifier/Group/CombatRelatedSpecialAbility"
+            }
+          },
+          "required": [
+            "tag",
+            "levels"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "ByAttack"
+            },
+            "list": {
+              "description": "A list of penalties for subsequent attacks. The first element is the\npenalty for the first attack, the second element is the penalty for the\nsecond attack, and so on. The order of the first element may be changed\nusing `initial_order`, so that e.g. if set to `2`, the first element is\nthe penalty for the second attack, the second element is the penalty for\nthe third attack, and so on.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "description": "The penalty value for this order.",
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "value"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1
+            },
+            "initial_order": {
+              "description": "The order of the first element in the `list` of penalties.",
+              "type": "number"
+            },
+            "attack_replacement": {
+              "description": "Set if a predefined different word should be used instead of the word\n`attack` for display purposes.",
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tag": {
+                      "const": "Throw"
+                    }
+                  },
+                  "required": [
+                    "tag"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "required": [
+            "tag",
+            "list"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "DependsOnHitZone"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
     },
     "ArcaneEnergyCost": {
       "description": "The AE Cost.",

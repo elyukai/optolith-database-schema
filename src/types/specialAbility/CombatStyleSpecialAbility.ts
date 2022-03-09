@@ -58,8 +58,6 @@ export type CombatStyleSpecialAbility = {
 
       rules: Activatable.Rules
 
-      // penalty?: Activatable.Penalty
-
       // advanced_append?: Activatable.AdvancedSpecialAbilitiesAppend
 
       // prerequisites?: Activatable.PrerequisitesReplacement
