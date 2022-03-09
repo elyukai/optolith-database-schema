@@ -78,7 +78,6 @@ export namespace Identifier {
      * The referenced entry's numeric identifier.
      * @integer
      * @minimum 1
-     * @maximum 8
      */
     value: number
   }

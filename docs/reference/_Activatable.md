@@ -729,7 +729,6 @@ The referenced entry's numeric identifier.
 
 - **Type:** Integer
 - **Minimum:** `1`
-- **Maximum:** `8`
 
 ---
 
@@ -752,7 +751,6 @@ The referenced entry's numeric identifier.
 
 - **Type:** Integer
 - **Minimum:** `1`
-- **Maximum:** `8`
 
 ---
 

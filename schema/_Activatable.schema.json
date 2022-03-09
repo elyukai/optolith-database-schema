@@ -506,7 +506,6 @@
         "value": {
           "description": "The referenced entry's numeric identifier.",
           "type": "integer",
-          "maximum": 8,
           "minimum": 1
         }
       },
@@ -525,7 +524,6 @@
         "value": {
           "description": "The referenced entry's numeric identifier.",
           "type": "integer",
-          "maximum": 8,
           "minimum": 1
         }
       },
