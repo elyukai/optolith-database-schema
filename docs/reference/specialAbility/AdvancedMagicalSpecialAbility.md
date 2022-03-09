@@ -12,6 +12,7 @@ Key | Description | Details
 `levels?` |  | <a href="#AdvancedMagicalSpecialAbility/levels">See details</a>
 `skill_applications?` |  | <a href="#AdvancedMagicalSpecialAbility/skill_applications">See details</a>
 `skill_uses?` |  | <a href="#AdvancedMagicalSpecialAbility/skill_uses">See details</a>
+`maximum?` |  | <a href="#AdvancedMagicalSpecialAbility/maximum">See details</a>
 `ap_value` |  | <a href="#AdvancedMagicalSpecialAbility/ap_value">See details</a>
 `src` |  | <a href="#AdvancedMagicalSpecialAbility/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#AdvancedMagicalSpecialAbility/translations">See details</a>
@@ -31,6 +32,10 @@ Key | Description | Details
 #### <a name="AdvancedMagicalSpecialAbility/skill_uses"></a> `skill_uses?`
 
 - **Type:** <a href="../_Activatable.md#SkillUses">SkillUses</a>
+
+#### <a name="AdvancedMagicalSpecialAbility/maximum"></a> `maximum?`
+
+- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
 
 #### <a name="AdvancedMagicalSpecialAbility/ap_value"></a> `ap_value`
 

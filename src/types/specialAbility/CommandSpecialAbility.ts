@@ -14,11 +14,11 @@ export type CombatSpecialAbility = {
 
   levels?: Activatable.Levels
 
-  // max?: Activatable.Maximum
-
   usage_type: Activatable.CombatSpecialAbilityType
 
   // select_options?: Activatable.SelectOptions
+
+  maximum?: Activatable.Maximum
 
   // prerequisites?: Prerequisite.GroupCollection.General
 

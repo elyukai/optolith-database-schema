@@ -14,8 +14,6 @@ export type CombatSpecialAbility = {
 
   levels?: Activatable.Levels
 
-  // max?: Activatable.Maximum
-
   usage_type: Activatable.CombatSpecialAbilityType
 
   // select_options?: Activatable.SelectOptions
@@ -23,6 +21,8 @@ export type CombatSpecialAbility = {
   skill_applications?: Activatable.SkillApplications
 
   skill_uses?: Activatable.SkillUses
+
+  maximum?: Activatable.Maximum
 
   penalty?: Activatable.Penalty
 

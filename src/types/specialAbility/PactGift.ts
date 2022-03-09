@@ -15,9 +15,9 @@ export type PactGift = {
 
   levels?: Activatable.Levels
 
-  // max?: Activatable.Maximum
-
   // select_options?: Activatable.SelectOptions
+
+  maximum?: Activatable.Maximum
 
   permanent_demonic_consumption?:
     | {

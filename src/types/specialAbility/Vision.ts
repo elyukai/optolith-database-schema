@@ -14,9 +14,9 @@ export type Vision = {
 
   levels?: Activatable.Levels
 
-  // max?: Activatable.Maximum
-
   // select_options?: Activatable.SelectOptions
+
+  maximum?: Activatable.Maximum
 
   // prerequisites?: Prerequisite.GroupCollection.General
 

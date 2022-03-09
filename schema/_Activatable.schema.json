@@ -23,7 +23,9 @@
       "minimum": 2
     },
     "Maximum": {
-      "const": ""
+      "description": "The number stating how often you can buy the entry. The **default** depends on\nthe entry type:\n\n- **Advantage:** `1` in all cases (as specified in the **Core Rules**)\n- **Disadvantage:** `1` in all cases (as specified in the **Core Rules**)\n- **Special Abilities:** `1` if no options can be selected, otherwise the\n  number of possible options\n\nThe maximum is only set if it differs from the defaults specified above.",
+      "type": "integer",
+      "minimum": 1
     },
     "Options": {
       "const": ""

@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#SikaryanDrainSpecialAbility/id">See details</a>
 `levels?` |  | <a href="#SikaryanDrainSpecialAbility/levels">See details</a>
+`maximum?` |  | <a href="#SikaryanDrainSpecialAbility/maximum">See details</a>
 `ap_value` |  | <a href="#SikaryanDrainSpecialAbility/ap_value">See details</a>
 `src` |  | <a href="#SikaryanDrainSpecialAbility/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#SikaryanDrainSpecialAbility/translations">See details</a>
@@ -21,6 +22,10 @@ Key | Description | Details
 #### <a name="SikaryanDrainSpecialAbility/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="SikaryanDrainSpecialAbility/maximum"></a> `maximum?`
+
+- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
 
 #### <a name="SikaryanDrainSpecialAbility/ap_value"></a> `ap_value`
 

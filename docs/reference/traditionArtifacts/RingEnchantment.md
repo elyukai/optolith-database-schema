@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#RingEnchantment/id">See details</a>
 `levels?` |  | <a href="#RingEnchantment/levels">See details</a>
+`maximum?` |  | <a href="#RingEnchantment/maximum">See details</a>
 `property` |  | <a href="#RingEnchantment/property">See details</a>
 `ap_value` |  | <a href="#RingEnchantment/ap_value">See details</a>
 `src` |  | <a href="#RingEnchantment/src">See details</a>
@@ -22,6 +23,10 @@ Key | Description | Details
 #### <a name="RingEnchantment/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="RingEnchantment/maximum"></a> `maximum?`
+
+- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
 
 #### <a name="RingEnchantment/property"></a> `property`
 

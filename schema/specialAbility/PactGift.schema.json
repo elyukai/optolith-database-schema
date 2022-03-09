@@ -13,6 +13,9 @@
         "levels": {
           "$ref": "../_Activatable.schema.json#/definitions/Levels"
         },
+        "maximum": {
+          "$ref": "../_Activatable.schema.json#/definitions/Maximum"
+        },
         "permanent_demonic_consumption": {
           "oneOf": [
             {

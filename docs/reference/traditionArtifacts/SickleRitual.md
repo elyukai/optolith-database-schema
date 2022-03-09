@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#SickleRitual/id">See details</a>
 `levels?` |  | <a href="#SickleRitual/levels">See details</a>
+`maximum?` |  | <a href="#SickleRitual/maximum">See details</a>
 `property` |  | <a href="#SickleRitual/property">See details</a>
 `ap_value` |  | <a href="#SickleRitual/ap_value">See details</a>
 `src` |  | <a href="#SickleRitual/src">See details</a>
@@ -22,6 +23,10 @@ Key | Description | Details
 #### <a name="SickleRitual/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="SickleRitual/maximum"></a> `maximum?`
+
+- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
 
 #### <a name="SickleRitual/property"></a> `property`
 

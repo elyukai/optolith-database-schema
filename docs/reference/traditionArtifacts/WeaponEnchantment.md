@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#WeaponEnchantment/id">See details</a>
 `levels?` |  | <a href="#WeaponEnchantment/levels">See details</a>
+`maximum?` |  | <a href="#WeaponEnchantment/maximum">See details</a>
 `property` |  | <a href="#WeaponEnchantment/property">See details</a>
 `ap_value` |  | <a href="#WeaponEnchantment/ap_value">See details</a>
 `src` |  | <a href="#WeaponEnchantment/src">See details</a>
@@ -22,6 +23,10 @@ Key | Description | Details
 #### <a name="WeaponEnchantment/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="WeaponEnchantment/maximum"></a> `maximum?`
+
+- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
 
 #### <a name="WeaponEnchantment/property"></a> `property`
 

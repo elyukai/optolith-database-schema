@@ -14,9 +14,9 @@ export type MagicStyleSpecialAbility = {
 
   levels?: Activatable.Levels
 
-  // max?: Activatable.Maximum
-
   // select_options?: Activatable.SelectOptions
+
+  maximum?: Activatable.Maximum
 
   advanced: Activatable.AdvancedSpecialAbilities
 

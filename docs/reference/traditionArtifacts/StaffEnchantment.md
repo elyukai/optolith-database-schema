@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#StaffEnchantment/id">See details</a>
 `levels?` |  | <a href="#StaffEnchantment/levels">See details</a>
+`maximum?` |  | <a href="#StaffEnchantment/maximum">See details</a>
 `property` |  | <a href="#StaffEnchantment/property">See details</a>
 `ap_value` |  | <a href="#StaffEnchantment/ap_value">See details</a>
 `src` |  | <a href="#StaffEnchantment/src">See details</a>
@@ -22,6 +23,10 @@ Key | Description | Details
 #### <a name="StaffEnchantment/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="StaffEnchantment/maximum"></a> `maximum?`
+
+- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
 
 #### <a name="StaffEnchantment/property"></a> `property`
 

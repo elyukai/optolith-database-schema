@@ -14,9 +14,9 @@ export type WeaponEnchantment = {
 
   levels?: Activatable.Levels
 
-  // max?: Activatable.Maximum
-
   // select_options?: Activatable.SelectOptions
+
+  maximum?: Activatable.Maximum
 
   property: Activatable.Property
 

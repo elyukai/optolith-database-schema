@@ -14,11 +14,11 @@ export type BrawlingSpecialAbility = {
 
   levels?: Activatable.Levels
 
-  // max?: Activatable.Maximum
-
   type: Activatable.CombatSpecialAbilityType
 
   // select_options?: Activatable.SelectOptions
+
+  maximum?: Activatable.Maximum
 
   // prerequisites?: Prerequisite.GroupCollection.General
 

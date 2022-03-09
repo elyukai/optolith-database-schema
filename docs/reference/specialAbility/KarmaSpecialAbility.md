@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#KarmaSpecialAbility/id">See details</a>
 `levels?` |  | <a href="#KarmaSpecialAbility/levels">See details</a>
+`maximum?` |  | <a href="#KarmaSpecialAbility/maximum">See details</a>
 `ap_value` |  | <a href="#KarmaSpecialAbility/ap_value">See details</a>
 `src` |  | <a href="#KarmaSpecialAbility/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#KarmaSpecialAbility/translations">See details</a>
@@ -21,6 +22,10 @@ Key | Description | Details
 #### <a name="KarmaSpecialAbility/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="KarmaSpecialAbility/maximum"></a> `maximum?`
+
+- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
 
 #### <a name="KarmaSpecialAbility/ap_value"></a> `ap_value`
 

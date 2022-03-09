@@ -12,6 +12,7 @@ Key | Description | Details
 `levels?` |  | <a href="#CeremonialItemSpecialAbility/levels">See details</a>
 `skill_applications?` |  | <a href="#CeremonialItemSpecialAbility/skill_applications">See details</a>
 `skill_uses?` |  | <a href="#CeremonialItemSpecialAbility/skill_uses">See details</a>
+`maximum?` |  | <a href="#CeremonialItemSpecialAbility/maximum">See details</a>
 `aspect` |  | <a href="#CeremonialItemSpecialAbility/aspect">See details</a>
 `ap_value` |  | <a href="#CeremonialItemSpecialAbility/ap_value">See details</a>
 `src` |  | <a href="#CeremonialItemSpecialAbility/src">See details</a>
@@ -32,6 +33,10 @@ Key | Description | Details
 #### <a name="CeremonialItemSpecialAbility/skill_uses"></a> `skill_uses?`
 
 - **Type:** <a href="../_Activatable.md#SkillUses">SkillUses</a>
+
+#### <a name="CeremonialItemSpecialAbility/maximum"></a> `maximum?`
+
+- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
 
 #### <a name="CeremonialItemSpecialAbility/aspect"></a> `aspect`
 

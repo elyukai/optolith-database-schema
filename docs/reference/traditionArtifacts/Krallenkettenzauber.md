@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#Krallenkettenzauber/id">See details</a>
 `levels?` |  | <a href="#Krallenkettenzauber/levels">See details</a>
+`maximum?` |  | <a href="#Krallenkettenzauber/maximum">See details</a>
 `property` |  | <a href="#Krallenkettenzauber/property">See details</a>
 `ap_value` |  | <a href="#Krallenkettenzauber/ap_value">See details</a>
 `src` |  | <a href="#Krallenkettenzauber/src">See details</a>
@@ -22,6 +23,10 @@ Key | Description | Details
 #### <a name="Krallenkettenzauber/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="Krallenkettenzauber/maximum"></a> `maximum?`
+
+- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
 
 #### <a name="Krallenkettenzauber/property"></a> `property`
 

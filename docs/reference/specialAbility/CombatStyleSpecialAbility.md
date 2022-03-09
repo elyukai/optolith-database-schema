@@ -14,6 +14,7 @@ Key | Description | Details
 `type` | Is this an armed or unarmed combat style? | <a href="#CombatStyleSpecialAbility/type">See details</a>
 `skill_applications?` |  | <a href="#CombatStyleSpecialAbility/skill_applications">See details</a>
 `skill_uses?` |  | <a href="#CombatStyleSpecialAbility/skill_uses">See details</a>
+`maximum?` |  | <a href="#CombatStyleSpecialAbility/maximum">See details</a>
 `advanced` |  | <a href="#CombatStyleSpecialAbility/advanced">See details</a>
 `combat_techniques` |  | <a href="#CombatStyleSpecialAbility/combat_techniques">See details</a>
 `ap_value` |  | <a href="#CombatStyleSpecialAbility/ap_value">See details</a>
@@ -46,6 +47,10 @@ Is this an armed or unarmed combat style?
 #### <a name="CombatStyleSpecialAbility/skill_uses"></a> `skill_uses?`
 
 - **Type:** <a href="../_Activatable.md#SkillUses">SkillUses</a>
+
+#### <a name="CombatStyleSpecialAbility/maximum"></a> `maximum?`
+
+- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
 
 #### <a name="CombatStyleSpecialAbility/advanced"></a> `advanced`
 

@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#CauldronEnchantment/id">See details</a>
 `levels?` |  | <a href="#CauldronEnchantment/levels">See details</a>
+`maximum?` |  | <a href="#CauldronEnchantment/maximum">See details</a>
 `property` |  | <a href="#CauldronEnchantment/property">See details</a>
 `brew` | Witches can learn to brew special things in their Witch's Cauldron. These brews can be categorized in different types. | <a href="#CauldronEnchantment/brew">See details</a>
 `ap_value` |  | <a href="#CauldronEnchantment/ap_value">See details</a>
@@ -23,6 +24,10 @@ Key | Description | Details
 #### <a name="CauldronEnchantment/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="CauldronEnchantment/maximum"></a> `maximum?`
+
+- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
 
 #### <a name="CauldronEnchantment/property"></a> `property`
 

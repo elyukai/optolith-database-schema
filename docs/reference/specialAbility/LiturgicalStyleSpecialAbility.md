@@ -12,6 +12,7 @@ Key | Description | Details
 `levels?` |  | <a href="#KarmaSpecialAbility/levels">See details</a>
 `skill_applications?` |  | <a href="#KarmaSpecialAbility/skill_applications">See details</a>
 `skill_uses?` |  | <a href="#KarmaSpecialAbility/skill_uses">See details</a>
+`maximum?` |  | <a href="#KarmaSpecialAbility/maximum">See details</a>
 `advanced` |  | <a href="#KarmaSpecialAbility/advanced">See details</a>
 `ap_value` |  | <a href="#KarmaSpecialAbility/ap_value">See details</a>
 `src` |  | <a href="#KarmaSpecialAbility/src">See details</a>
@@ -32,6 +33,10 @@ Key | Description | Details
 #### <a name="KarmaSpecialAbility/skill_uses"></a> `skill_uses?`
 
 - **Type:** <a href="../_Activatable.md#SkillUses">SkillUses</a>
+
+#### <a name="KarmaSpecialAbility/maximum"></a> `maximum?`
+
+- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
 
 #### <a name="KarmaSpecialAbility/advanced"></a> `advanced`
 

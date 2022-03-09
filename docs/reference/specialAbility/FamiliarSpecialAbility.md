@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#FamiliarSpecialAbility/id">See details</a>
 `levels?` |  | <a href="#FamiliarSpecialAbility/levels">See details</a>
+`maximum?` |  | <a href="#FamiliarSpecialAbility/maximum">See details</a>
 `ap_value` |  | <a href="#FamiliarSpecialAbility/ap_value">See details</a>
 `src` |  | <a href="#FamiliarSpecialAbility/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#FamiliarSpecialAbility/translations">See details</a>
@@ -21,6 +22,10 @@ Key | Description | Details
 #### <a name="FamiliarSpecialAbility/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="FamiliarSpecialAbility/maximum"></a> `maximum?`
+
+- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
 
 #### <a name="FamiliarSpecialAbility/ap_value"></a> `ap_value`
 

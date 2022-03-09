@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#ToyEnchantment/id">See details</a>
 `levels?` |  | <a href="#ToyEnchantment/levels">See details</a>
+`maximum?` |  | <a href="#ToyEnchantment/maximum">See details</a>
 `property` |  | <a href="#ToyEnchantment/property">See details</a>
 `ap_value` |  | <a href="#ToyEnchantment/ap_value">See details</a>
 `src` |  | <a href="#ToyEnchantment/src">See details</a>
@@ -22,6 +23,10 @@ Key | Description | Details
 #### <a name="ToyEnchantment/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="ToyEnchantment/maximum"></a> `maximum?`
+
+- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
 
 #### <a name="ToyEnchantment/property"></a> `property`
 

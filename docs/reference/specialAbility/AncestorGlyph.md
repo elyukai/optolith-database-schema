@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#AncestorGlyph/id">See details</a>
 `levels?` |  | <a href="#AncestorGlyph/levels">See details</a>
+`maximum?` |  | <a href="#AncestorGlyph/maximum">See details</a>
 `ap_value` |  | <a href="#AncestorGlyph/ap_value">See details</a>
 `src` |  | <a href="#AncestorGlyph/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#AncestorGlyph/translations">See details</a>
@@ -21,6 +22,10 @@ Key | Description | Details
 #### <a name="AncestorGlyph/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="AncestorGlyph/maximum"></a> `maximum?`
+
+- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
 
 #### <a name="AncestorGlyph/ap_value"></a> `ap_value`
 

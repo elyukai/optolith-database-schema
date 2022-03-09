@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#FatePointSexSpecialAbility/id">See details</a>
 `levels?` |  | <a href="#FatePointSexSpecialAbility/levels">See details</a>
+`maximum?` |  | <a href="#FatePointSexSpecialAbility/maximum">See details</a>
 `ap_value` |  | <a href="#FatePointSexSpecialAbility/ap_value">See details</a>
 `src` |  | <a href="#FatePointSexSpecialAbility/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#FatePointSexSpecialAbility/translations">See details</a>
@@ -21,6 +22,10 @@ Key | Description | Details
 #### <a name="FatePointSexSpecialAbility/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="FatePointSexSpecialAbility/maximum"></a> `maximum?`
+
+- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
 
 #### <a name="FatePointSexSpecialAbility/ap_value"></a> `ap_value`
 

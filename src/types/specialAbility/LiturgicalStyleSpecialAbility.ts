@@ -14,13 +14,13 @@ export type KarmaSpecialAbility = {
 
   levels?: Activatable.Levels
 
-  // max?: Activatable.Maximum
-
   // select_options?: Activatable.SelectOptions
 
   skill_applications?: Activatable.SkillApplications
 
   skill_uses?: Activatable.SkillUses
+
+  maximum?: Activatable.Maximum
 
   advanced: Activatable.AdvancedSpecialAbilities
 

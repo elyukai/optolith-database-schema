@@ -13,6 +13,9 @@
         "levels": {
           "$ref": "../_Activatable.schema.json#/definitions/Levels"
         },
+        "maximum": {
+          "$ref": "../_Activatable.schema.json#/definitions/Maximum"
+        },
         "advanced": {
           "$ref": "../_Activatable.schema.json#/definitions/AdvancedSpecialAbilities"
         },

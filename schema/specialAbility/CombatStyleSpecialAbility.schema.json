@@ -51,6 +51,9 @@
         "skill_uses": {
           "$ref": "../_Activatable.schema.json#/definitions/SkillUses"
         },
+        "maximum": {
+          "$ref": "../_Activatable.schema.json#/definitions/Maximum"
+        },
         "advanced": {
           "$ref": "../_Activatable.schema.json#/definitions/AdvancedSpecialAbilities"
         },

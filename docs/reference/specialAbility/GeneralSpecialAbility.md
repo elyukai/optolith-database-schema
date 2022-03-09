@@ -12,6 +12,7 @@ Key | Description | Details
 `levels?` |  | <a href="#GeneralSpecialAbility/levels">See details</a>
 `skill_applications?` |  | <a href="#GeneralSpecialAbility/skill_applications">See details</a>
 `skill_uses?` |  | <a href="#GeneralSpecialAbility/skill_uses">See details</a>
+`maximum?` |  | <a href="#GeneralSpecialAbility/maximum">See details</a>
 `ap_value` |  | <a href="#GeneralSpecialAbility/ap_value">See details</a>
 `src` |  | <a href="#GeneralSpecialAbility/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#GeneralSpecialAbility/translations">See details</a>
@@ -31,6 +32,10 @@ Key | Description | Details
 #### <a name="GeneralSpecialAbility/skill_uses"></a> `skill_uses?`
 
 - **Type:** <a href="../_Activatable.md#SkillUses">SkillUses</a>
+
+#### <a name="GeneralSpecialAbility/maximum"></a> `maximum?`
+
+- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
 
 #### <a name="GeneralSpecialAbility/ap_value"></a> `ap_value`
 

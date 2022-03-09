@@ -12,6 +12,7 @@ Key | Description | Details
 `levels?` |  | <a href="#Advantage/levels">See details</a>
 `skill_applications?` |  | <a href="#Advantage/skill_applications">See details</a>
 `skill_uses?` |  | <a href="#Advantage/skill_uses">See details</a>
+`maximum?` |  | <a href="#Advantage/maximum">See details</a>
 `ap_value` |  | <a href="#Advantage/ap_value">See details</a>
 `has_no_maximum_spent_influence?` | Does this advantage not count towards the maximum of AP to be spent on advantages? | <a href="#Advantage/has_no_maximum_spent_influence">See details</a>
 `is_exclusive_to_arcane_spellworks?` | Does this advantage exclusively applies to arcane spellworks but not to magical actions and applications? | <a href="#Advantage/is_exclusive_to_arcane_spellworks">See details</a>
@@ -33,6 +34,10 @@ Key | Description | Details
 #### <a name="Advantage/skill_uses"></a> `skill_uses?`
 
 - **Type:** <a href="./_Activatable.md#SkillUses">SkillUses</a>
+
+#### <a name="Advantage/maximum"></a> `maximum?`
+
+- **Type:** <a href="./_Activatable.md#Maximum">Maximum</a>
 
 #### <a name="Advantage/ap_value"></a> `ap_value`
 

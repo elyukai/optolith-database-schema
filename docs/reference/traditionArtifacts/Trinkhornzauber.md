@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#Trinkhornzauber/id">See details</a>
 `levels?` |  | <a href="#Trinkhornzauber/levels">See details</a>
+`maximum?` |  | <a href="#Trinkhornzauber/maximum">See details</a>
 `property` |  | <a href="#Trinkhornzauber/property">See details</a>
 `ap_value` |  | <a href="#Trinkhornzauber/ap_value">See details</a>
 `src` |  | <a href="#Trinkhornzauber/src">See details</a>
@@ -22,6 +23,10 @@ Key | Description | Details
 #### <a name="Trinkhornzauber/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="Trinkhornzauber/maximum"></a> `maximum?`
+
+- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
 
 #### <a name="Trinkhornzauber/property"></a> `property`
 

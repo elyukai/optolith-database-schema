@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#WandEnchantment/id">See details</a>
 `levels?` |  | <a href="#WandEnchantment/levels">See details</a>
+`maximum?` |  | <a href="#WandEnchantment/maximum">See details</a>
 `property` |  | <a href="#WandEnchantment/property">See details</a>
 `ap_value` |  | <a href="#WandEnchantment/ap_value">See details</a>
 `src` |  | <a href="#WandEnchantment/src">See details</a>
@@ -22,6 +23,10 @@ Key | Description | Details
 #### <a name="WandEnchantment/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="WandEnchantment/maximum"></a> `maximum?`
+
+- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
 
 #### <a name="WandEnchantment/property"></a> `property`
 

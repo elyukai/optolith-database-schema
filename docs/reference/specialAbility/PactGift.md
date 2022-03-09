@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#PactGift/id">See details</a>
 `levels?` |  | <a href="#PactGift/levels">See details</a>
+`maximum?` |  | <a href="#PactGift/maximum">See details</a>
 `permanent_demonic_consumption?` |  | <a href="#PactGift/permanent_demonic_consumption">See details</a>
 `automatic_entries?` | This pact gift has direct influence on the existence of other entries. It may add or remove entries. | <a href="#PactGift/automatic_entries">See details</a>
 `ap_value` |  | <a href="#PactGift/ap_value">See details</a>
@@ -23,6 +24,10 @@ Key | Description | Details
 #### <a name="PactGift/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="PactGift/maximum"></a> `maximum?`
+
+- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
 
 #### <a name="PactGift/permanent_demonic_consumption"></a> `permanent_demonic_consumption?`
 

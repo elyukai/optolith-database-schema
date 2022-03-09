@@ -43,7 +43,18 @@ Number of available levels.
 
 ### <a name="Maximum"></a> `Maximum`
 
-- **Constant:** `""`
+The number stating how often you can buy the entry. The **default** depends on
+the entry type:
+
+- **Advantage:** `1` in all cases (as specified in the **Core Rules**)
+- **Disadvantage:** `1` in all cases (as specified in the **Core Rules**)
+- **Special Abilities:** `1` if no options can be selected, otherwise the
+  number of possible options
+
+The maximum is only set if it differs from the defaults specified above.
+
+- **Type:** Integer
+- **Minimum:** `1`
 
 ---
 

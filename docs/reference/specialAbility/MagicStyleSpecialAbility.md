@@ -12,6 +12,7 @@ Key | Description | Details
 `levels?` |  | <a href="#MagicStyleSpecialAbility/levels">See details</a>
 `skill_applications?` |  | <a href="#MagicStyleSpecialAbility/skill_applications">See details</a>
 `skill_uses?` |  | <a href="#MagicStyleSpecialAbility/skill_uses">See details</a>
+`maximum?` |  | <a href="#MagicStyleSpecialAbility/maximum">See details</a>
 `advanced` |  | <a href="#MagicStyleSpecialAbility/advanced">See details</a>
 `ap_value` |  | <a href="#MagicStyleSpecialAbility/ap_value">See details</a>
 `src` |  | <a href="#MagicStyleSpecialAbility/src">See details</a>
@@ -32,6 +33,10 @@ Key | Description | Details
 #### <a name="MagicStyleSpecialAbility/skill_uses"></a> `skill_uses?`
 
 - **Type:** <a href="../_Activatable.md#SkillUses">SkillUses</a>
+
+#### <a name="MagicStyleSpecialAbility/maximum"></a> `maximum?`
+
+- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
 
 #### <a name="MagicStyleSpecialAbility/advanced"></a> `advanced`
 

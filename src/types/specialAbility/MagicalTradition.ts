@@ -15,8 +15,6 @@ export type MagicalTradition = {
 
   levels?: Activatable.Levels
 
-  // max?: Activatable.Maximum
-
   // select_options?: Activatable.SelectOptions
 
   skill_applications?: Activatable.SkillApplications

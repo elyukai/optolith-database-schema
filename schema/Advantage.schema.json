@@ -19,6 +19,9 @@
         "skill_uses": {
           "$ref": "./_Activatable.schema.json#/definitions/SkillUses"
         },
+        "maximum": {
+          "$ref": "./_Activatable.schema.json#/definitions/Maximum"
+        },
         "ap_value": {
           "$ref": "./_Activatable.schema.json#/definitions/AdventurePointsValue"
         },

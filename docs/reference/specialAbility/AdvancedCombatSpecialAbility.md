@@ -13,6 +13,7 @@ Key | Description | Details
 `usage_type` |  | <a href="#AdvancedCombatSpecialAbility/usage_type">See details</a>
 `skill_applications?` |  | <a href="#AdvancedCombatSpecialAbility/skill_applications">See details</a>
 `skill_uses?` |  | <a href="#AdvancedCombatSpecialAbility/skill_uses">See details</a>
+`maximum?` |  | <a href="#AdvancedCombatSpecialAbility/maximum">See details</a>
 `penalty?` |  | <a href="#AdvancedCombatSpecialAbility/penalty">See details</a>
 `combat_techniques` |  | <a href="#AdvancedCombatSpecialAbility/combat_techniques">See details</a>
 `ap_value` |  | <a href="#AdvancedCombatSpecialAbility/ap_value">See details</a>
@@ -38,6 +39,10 @@ Key | Description | Details
 #### <a name="AdvancedCombatSpecialAbility/skill_uses"></a> `skill_uses?`
 
 - **Type:** <a href="../_Activatable.md#SkillUses">SkillUses</a>
+
+#### <a name="AdvancedCombatSpecialAbility/maximum"></a> `maximum?`
+
+- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
 
 #### <a name="AdvancedCombatSpecialAbility/penalty"></a> `penalty?`
 

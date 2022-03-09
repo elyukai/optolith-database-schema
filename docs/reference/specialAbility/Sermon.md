@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#Sermon/id">See details</a>
 `levels?` |  | <a href="#Sermon/levels">See details</a>
+`maximum?` |  | <a href="#Sermon/maximum">See details</a>
 `ap_value` |  | <a href="#Sermon/ap_value">See details</a>
 `src` |  | <a href="#Sermon/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Sermon/translations">See details</a>
@@ -21,6 +22,10 @@ Key | Description | Details
 #### <a name="Sermon/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="Sermon/maximum"></a> `maximum?`
+
+- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
 
 #### <a name="Sermon/ap_value"></a> `ap_value`
 

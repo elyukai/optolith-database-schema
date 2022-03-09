@@ -16,6 +16,9 @@
         "type": {
           "$ref": "../_Activatable.schema.json#/definitions/CombatSpecialAbilityType"
         },
+        "maximum": {
+          "$ref": "../_Activatable.schema.json#/definitions/Maximum"
+        },
         "combat_techniques": {
           "$ref": "../_Activatable.schema.json#/definitions/ApplicableCombatTechniques"
         },
