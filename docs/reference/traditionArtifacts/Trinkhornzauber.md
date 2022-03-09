@@ -12,6 +12,7 @@ Key | Description | Details
 `levels?` |  | <a href="#Trinkhornzauber/levels">See details</a>
 `maximum?` |  | <a href="#Trinkhornzauber/maximum">See details</a>
 `volume` |  | <a href="#Trinkhornzauber/volume">See details</a>
+`binding_cost?` |  | <a href="#Trinkhornzauber/binding_cost">See details</a>
 `property` |  | <a href="#Trinkhornzauber/property">See details</a>
 `ap_value` |  | <a href="#Trinkhornzauber/ap_value">See details</a>
 `src` |  | <a href="#Trinkhornzauber/src">See details</a>
@@ -32,6 +33,10 @@ Key | Description | Details
 #### <a name="Trinkhornzauber/volume"></a> `volume`
 
 - **Type:** <a href="../_Activatable.md#Volume">Volume</a>
+
+#### <a name="Trinkhornzauber/binding_cost"></a> `binding_cost?`
+
+- **Type:** <a href="../_Activatable.md#BindingCost">BindingCost</a>
 
 #### <a name="Trinkhornzauber/property"></a> `property`
 

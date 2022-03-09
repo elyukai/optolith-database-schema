@@ -1041,7 +1041,217 @@ different from `label`.
 
 The binding cost for an enchantment.
 
-- **Constant:** `""`
+- **Type:** Union
+- **Cases:** <a href="#BindingCost'Fixed">BindingCost'Fixed</a> | <a href="#BindingCost'PerLevel">BindingCost'PerLevel</a> | <a href="#BindingCost'Map">BindingCost'Map</a>
+
+---
+
+### <a name="BindingCost'Fixed"></a> `BindingCost'Fixed`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#BindingCost'Fixed/tag">See details</a>
+`permanent_value` | The permanent AE cost. | <a href="#BindingCost'Fixed/permanent_value">See details</a>
+
+#### <a name="BindingCost'Fixed/tag"></a> `tag`
+
+- **Constant:** `"Fixed"`
+
+#### <a name="BindingCost'Fixed/permanent_value"></a> `permanent_value`
+
+The permanent AE cost.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="BindingCost'PerLevel"></a> `BindingCost'PerLevel`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#BindingCost'PerLevel/tag">See details</a>
+`permanent_value` | The permanent AE cost per level. | <a href="#BindingCost'PerLevel/permanent_value">See details</a>
+
+#### <a name="BindingCost'PerLevel/tag"></a> `tag`
+
+- **Constant:** `"PerLevel"`
+
+#### <a name="BindingCost'PerLevel/permanent_value"></a> `permanent_value`
+
+The permanent AE cost per level.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="BindingCost'Map"></a> `BindingCost'Map`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#BindingCost'Map/tag">See details</a>
+`map` |  | <a href="#BindingCost'Map/map">See details</a>
+
+#### <a name="BindingCost'Map/tag"></a> `tag`
+
+- **Constant:** `"Map"`
+
+#### <a name="BindingCost'Map/map"></a> `map`
+
+- **Type:** <a href="#BindingCostMap">BindingCostMap</a>
+
+---
+
+### <a name="BindingCostMap"></a> `BindingCostMap`
+
+A content that is `2/4/8 permanent AE for spell-swords with the combat
+technique Daggers, Swords, or Two-Handed Swords` may be respresented as the
+following map:
+
+```yaml
+options:
+  - permanent_value: 2
+    translations:
+      en-US:
+        label: "Daggers"
+        label_standalone: "Dagger"
+  - permanent_value: 4
+    translations:
+      en-US:
+        label: "Swords"
+        label_standalone: "Sword"
+  - permanent_value: 8
+    translations:
+      en-US:
+        label: "Two-Handed Swords"
+        label_standalone: "Two-Handed Sword"
+list_prepend: "spell-swords with the combat technique"
+```
+
+This will generate the exact same string as seen above.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`options` | The possible costs and associated labels. | <a href="#BindingCostMap/options">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#BindingCostMap/translations">See details</a>
+
+#### <a name="BindingCostMap/options"></a> `options`
+
+The possible costs and associated labels.
+
+- **Type:** List
+- **Items:** <a href="#BindingCostMap/options[]">BindingCostMap/options[]</a>
+- **Minimum Items:** `2`
+
+#### <a name="BindingCostMap/translations"></a> `translations?`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#BindingCostMap/translations[key]">BindingCostMap/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="BindingCostMap/options[]"></a> `BindingCostMap/options[]`
+
+- **Type:** <a href="#VolumeMapOption">VolumeMapOption</a>
+
+---
+
+### <a name="BindingCostMap/translations[key]"></a> `BindingCostMap/translations[key]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`list_prepend?` | Place a string between the `for` and the grouped map option labels. | <a href="#BindingCostMap/translations[key]/list_prepend">See details</a>
+`list_append?` | Place a string after the grouped map option labels. | <a href="#BindingCostMap/translations[key]/list_append">See details</a>
+`replacement?` | If the string from the book cannot be generated using the default generation technique, use this string. All options still need to be inserted propertly, since it may be used by in-game tools to provide a selection to players. | <a href="#BindingCostMap/translations[key]/replacement">See details</a>
+
+#### <a name="BindingCostMap/translations[key]/list_prepend"></a> `list_prepend?`
+
+Place a string between the `for` and the grouped map option labels.
+
+- **Type:** String
+
+#### <a name="BindingCostMap/translations[key]/list_append"></a> `list_append?`
+
+Place a string after the grouped map option labels.
+
+- **Type:** String
+
+#### <a name="BindingCostMap/translations[key]/replacement"></a> `replacement?`
+
+If the string from the book cannot be generated using the default
+generation technique, use this string. All options still need to be
+inserted propertly, since it may be used by in-game tools to provide a
+selection to players.
+
+- **Type:** String
+
+---
+
+### <a name="BindingCostMapOption"></a> `BindingCostMapOption`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`permanent_value` | The full permanent AE cost value for this option. | <a href="#BindingCostMapOption/permanent_value">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#BindingCostMapOption/translations">See details</a>
+
+#### <a name="BindingCostMapOption/permanent_value"></a> `permanent_value`
+
+The full permanent AE cost value for this option.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="BindingCostMapOption/translations"></a> `translations?`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#BindingCostMapOption/translations[key]">BindingCostMapOption/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="BindingCostMapOption/translations[key]"></a> `BindingCostMapOption/translations[key]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`label` | The description of the option for cost string generation. | <a href="#BindingCostMapOption/translations[key]/label">See details</a>
+`label_standalone?` | The description of the option if used standalone. Only used if different from `label`. | <a href="#BindingCostMapOption/translations[key]/label_standalone">See details</a>
+
+#### <a name="BindingCostMapOption/translations[key]/label"></a> `label`
+
+The description of the option for cost string generation.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+#### <a name="BindingCostMapOption/translations[key]/label_standalone"></a> `label_standalone?`
+
+The description of the option if used standalone. Only used if
+different from `label`.
+
+- **Type:** String
+- **Minimum Length:** `1`
 
 ---
 

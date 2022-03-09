@@ -12,6 +12,7 @@ Key | Description | Details
 `levels?` |  | <a href="#Krallenkettenzauber/levels">See details</a>
 `maximum?` |  | <a href="#Krallenkettenzauber/maximum">See details</a>
 `volume` |  | <a href="#Krallenkettenzauber/volume">See details</a>
+`binding_cost?` |  | <a href="#Krallenkettenzauber/binding_cost">See details</a>
 `property` |  | <a href="#Krallenkettenzauber/property">See details</a>
 `ap_value` |  | <a href="#Krallenkettenzauber/ap_value">See details</a>
 `src` |  | <a href="#Krallenkettenzauber/src">See details</a>
@@ -32,6 +33,10 @@ Key | Description | Details
 #### <a name="Krallenkettenzauber/volume"></a> `volume`
 
 - **Type:** <a href="../_Activatable.md#Volume">Volume</a>
+
+#### <a name="Krallenkettenzauber/binding_cost"></a> `binding_cost?`
+
+- **Type:** <a href="../_Activatable.md#BindingCost">BindingCost</a>
 
 #### <a name="Krallenkettenzauber/property"></a> `property`
 

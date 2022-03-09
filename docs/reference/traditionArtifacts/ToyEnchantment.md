@@ -12,6 +12,7 @@ Key | Description | Details
 `levels?` |  | <a href="#ToyEnchantment/levels">See details</a>
 `maximum?` |  | <a href="#ToyEnchantment/maximum">See details</a>
 `volume` |  | <a href="#ToyEnchantment/volume">See details</a>
+`binding_cost?` |  | <a href="#ToyEnchantment/binding_cost">See details</a>
 `property` |  | <a href="#ToyEnchantment/property">See details</a>
 `ap_value` |  | <a href="#ToyEnchantment/ap_value">See details</a>
 `src` |  | <a href="#ToyEnchantment/src">See details</a>
@@ -32,6 +33,10 @@ Key | Description | Details
 #### <a name="ToyEnchantment/volume"></a> `volume`
 
 - **Type:** <a href="../_Activatable.md#Volume">Volume</a>
+
+#### <a name="ToyEnchantment/binding_cost"></a> `binding_cost?`
+
+- **Type:** <a href="../_Activatable.md#BindingCost">BindingCost</a>
 
 #### <a name="ToyEnchantment/property"></a> `property`
 

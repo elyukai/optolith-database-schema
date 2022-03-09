@@ -12,6 +12,7 @@ Key | Description | Details
 `levels?` |  | <a href="#DaggerRitual/levels">See details</a>
 `maximum?` |  | <a href="#DaggerRitual/maximum">See details</a>
 `volume` |  | <a href="#DaggerRitual/volume">See details</a>
+`binding_cost?` |  | <a href="#DaggerRitual/binding_cost">See details</a>
 `property` |  | <a href="#DaggerRitual/property">See details</a>
 `ap_value` |  | <a href="#DaggerRitual/ap_value">See details</a>
 `src` |  | <a href="#DaggerRitual/src">See details</a>
@@ -32,6 +33,10 @@ Key | Description | Details
 #### <a name="DaggerRitual/volume"></a> `volume`
 
 - **Type:** <a href="../_Activatable.md#Volume">Volume</a>
+
+#### <a name="DaggerRitual/binding_cost"></a> `binding_cost?`
+
+- **Type:** <a href="../_Activatable.md#BindingCost">BindingCost</a>
 
 #### <a name="DaggerRitual/property"></a> `property`
 

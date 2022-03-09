@@ -13,6 +13,7 @@ Key | Description | Details
 `maximum?` |  | <a href="#CauldronEnchantment/maximum">See details</a>
 `volume` |  | <a href="#CauldronEnchantment/volume">See details</a>
 `brew` | Witches can learn to brew special things in their Witch's Cauldron. These brews can be categorized in different types. | <a href="#CauldronEnchantment/brew">See details</a>
+`binding_cost?` |  | <a href="#CauldronEnchantment/binding_cost">See details</a>
 `property` |  | <a href="#CauldronEnchantment/property">See details</a>
 `ap_value` |  | <a href="#CauldronEnchantment/ap_value">See details</a>
 `src` |  | <a href="#CauldronEnchantment/src">See details</a>
@@ -40,6 +41,10 @@ Witches can learn to brew special things in their Witch's Cauldron. These
 brews can be categorized in different types.
 
 - **Type:** <a href="#CauldronEnchantment/brew">Object</a>
+
+#### <a name="CauldronEnchantment/binding_cost"></a> `binding_cost?`
+
+- **Type:** <a href="../_Activatable.md#BindingCost">BindingCost</a>
 
 #### <a name="CauldronEnchantment/property"></a> `property`
 

@@ -12,6 +12,7 @@ Key | Description | Details
 `levels?` |  | <a href="#ArcaneOrbEnchantment/levels">See details</a>
 `maximum?` |  | <a href="#ArcaneOrbEnchantment/maximum">See details</a>
 `volume` |  | <a href="#ArcaneOrbEnchantment/volume">See details</a>
+`binding_cost?` |  | <a href="#ArcaneOrbEnchantment/binding_cost">See details</a>
 `property` |  | <a href="#ArcaneOrbEnchantment/property">See details</a>
 `ap_value` |  | <a href="#ArcaneOrbEnchantment/ap_value">See details</a>
 `src` |  | <a href="#ArcaneOrbEnchantment/src">See details</a>
@@ -32,6 +33,10 @@ Key | Description | Details
 #### <a name="ArcaneOrbEnchantment/volume"></a> `volume`
 
 - **Type:** <a href="../_Activatable.md#Volume">Volume</a>
+
+#### <a name="ArcaneOrbEnchantment/binding_cost"></a> `binding_cost?`
+
+- **Type:** <a href="../_Activatable.md#BindingCost">BindingCost</a>
 
 #### <a name="ArcaneOrbEnchantment/property"></a> `property`
 

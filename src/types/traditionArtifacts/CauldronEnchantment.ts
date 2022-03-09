@@ -36,6 +36,8 @@ export type CauldronEnchantment = {
     id: number
   }
 
+  binding_cost?: Activatable.BindingCost
+
   property: Activatable.Property
 
   ap_value: Activatable.AdventurePointsValue

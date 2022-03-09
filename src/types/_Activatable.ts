@@ -46,7 +46,7 @@ export type Levels = number
  * @integer
  * @minimum 1
  */
-export type Maximum = number // TODO
+export type Maximum = number
 
 /**
  *
@@ -542,7 +542,129 @@ export type VolumeMapOption = {
 /**
  * The binding cost for an enchantment.
  */
-export type BindingCost = "" // TODO
+export type BindingCost =
+  | {
+    tag: "Fixed"
+
+    /**
+     * The permanent AE cost.
+     * @integer
+     * @minimum 1
+     */
+    permanent_value: number
+  }
+  | {
+    tag: "PerLevel"
+
+    /**
+     * The permanent AE cost per level.
+     * @integer
+     * @minimum 1
+     */
+    permanent_value: number
+  }
+  | {
+    tag: "Map"
+
+    map: BindingCostMap
+  }
+
+/**
+ * A content that is `2/4/8 permanent AE for spell-swords with the combat
+ * technique Daggers, Swords, or Two-Handed Swords` may be respresented as the
+ * following map:
+ *
+ * ```yaml
+ * options:
+ *   - permanent_value: 2
+ *     translations:
+ *       en-US:
+ *         label: "Daggers"
+ *         label_standalone: "Dagger"
+ *   - permanent_value: 4
+ *     translations:
+ *       en-US:
+ *         label: "Swords"
+ *         label_standalone: "Sword"
+ *   - permanent_value: 8
+ *     translations:
+ *       en-US:
+ *         label: "Two-Handed Swords"
+ *         label_standalone: "Two-Handed Sword"
+ * list_prepend: "spell-swords with the combat technique"
+ * ```
+ *
+ * This will generate the exact same string as seen above.
+ */
+export type BindingCostMap = {
+  /**
+   * The possible costs and associated labels.
+   * @minItems 2
+   */
+  options: VolumeMapOption[]
+
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   * @minProperties 1
+   */
+  translations?: {
+    /**
+     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+     */
+    [localeId: string]: {
+      /**
+       * Place a string between the `for` and the grouped map option labels.
+       */
+      list_prepend?: string
+
+      /**
+       * Place a string after the grouped map option labels.
+       */
+      list_append?: string
+
+      /**
+       * If the string from the book cannot be generated using the default
+       * generation technique, use this string. All options still need to be
+       * inserted propertly, since it may be used by in-game tools to provide a
+       * selection to players.
+       */
+      replacement?: string
+    }
+  }
+}
+
+export type BindingCostMapOption = {
+  /**
+   * The full permanent AE cost value for this option.
+   * @integer
+   * @minimum 1
+   */
+  permanent_value: number
+
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   * @minProperties 1
+   */
+  translations?: {
+    /**
+     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+     */
+    [localeId: string]: {
+      /**
+       * The description of the option for cost string generation.
+       * @minLength 1
+       */
+      label: string
+
+      /**
+       * The description of the option if used standalone. Only used if
+       * different from `label`.
+       * @minLength 1
+       */
+      label_standalone?: string
+    }
+  }
+}
 
 /**
  * The magic property's identifier. `DependingOnProperty` can only be used if

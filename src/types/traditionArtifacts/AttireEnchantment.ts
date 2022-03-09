@@ -22,6 +22,8 @@ export type AttireEnchantment = {
 
   volume: Activatable.Volume
 
+  binding_cost?: Activatable.BindingCost
+
   property: Activatable.Property
 
   ap_value: Activatable.AdventurePointsValue

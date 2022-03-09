@@ -35,6 +35,9 @@
           ],
           "additionalProperties": false
         },
+        "binding_cost": {
+          "$ref": "../_Activatable.schema.json#/definitions/BindingCost"
+        },
         "property": {
           "$ref": "../_Activatable.schema.json#/definitions/Property"
         },
