@@ -11,8 +11,9 @@ Key | Description | Details
 `id` |  | <a href="#CauldronEnchantment/id">See details</a>
 `levels?` |  | <a href="#CauldronEnchantment/levels">See details</a>
 `maximum?` |  | <a href="#CauldronEnchantment/maximum">See details</a>
-`property` |  | <a href="#CauldronEnchantment/property">See details</a>
+`volume` |  | <a href="#CauldronEnchantment/volume">See details</a>
 `brew` | Witches can learn to brew special things in their Witch's Cauldron. These brews can be categorized in different types. | <a href="#CauldronEnchantment/brew">See details</a>
+`property` |  | <a href="#CauldronEnchantment/property">See details</a>
 `ap_value` |  | <a href="#CauldronEnchantment/ap_value">See details</a>
 `src` |  | <a href="#CauldronEnchantment/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#CauldronEnchantment/translations">See details</a>
@@ -29,9 +30,9 @@ Key | Description | Details
 
 - **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
 
-#### <a name="CauldronEnchantment/property"></a> `property`
+#### <a name="CauldronEnchantment/volume"></a> `volume`
 
-- **Type:** <a href="../_Activatable.md#Property">Property</a>
+- **Type:** <a href="../_Activatable.md#Volume">Volume</a>
 
 #### <a name="CauldronEnchantment/brew"></a> `brew`
 
@@ -39,6 +40,10 @@ Witches can learn to brew special things in their Witch's Cauldron. These
 brews can be categorized in different types.
 
 - **Type:** <a href="#CauldronEnchantment/brew">Object</a>
+
+#### <a name="CauldronEnchantment/property"></a> `property`
+
+- **Type:** <a href="../_Activatable.md#Property">Property</a>
 
 #### <a name="CauldronEnchantment/ap_value"></a> `ap_value`
 

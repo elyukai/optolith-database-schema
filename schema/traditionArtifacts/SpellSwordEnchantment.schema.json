@@ -16,6 +16,9 @@
         "maximum": {
           "$ref": "../_Activatable.schema.json#/definitions/Maximum"
         },
+        "volume": {
+          "$ref": "../_Activatable.schema.json#/definitions/Volume"
+        },
         "property": {
           "$ref": "../_Activatable.schema.json#/definitions/Property"
         },
@@ -58,6 +61,7 @@
       },
       "required": [
         "id",
+        "volume",
         "property",
         "ap_value",
         "src",

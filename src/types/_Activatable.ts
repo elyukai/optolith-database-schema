@@ -371,7 +371,173 @@ export type ArcaneEnergyCost = "" // TODO
 /**
  * The volume points the enchantment needs.
  */
-export type Volume = "" // TODO
+export type Volume =
+  | {
+    tag: "Fixed"
+
+    /**
+     * The volume points.
+     * @integer
+     * @minimum 0
+     */
+    points: number
+  }
+  | {
+    tag: "PerLevel"
+
+    /**
+     * The volume points per level.
+     * @integer
+     * @minimum 1
+     */
+    points: number
+  }
+  | {
+    tag: "ByLevel"
+
+    /**
+     * The volume points for each level. The first element is the volume points
+     * for the first level, the second element is the volume points for the
+     * second level, and so on.
+     * @minItems 2
+     */
+    list: {
+      /**
+       * The volume points for this level.
+       * @integer
+       * @minimum 0
+       */
+      points: number
+    }[]
+  }
+  | {
+    tag: "Map"
+
+    map: VolumeMap
+  }
+
+/**
+ * A content that is `3/4/5 Points for Chimera, Daimonid, Golems, Undead /
+ * Fairies, Ghosts / Demons, Elementals` may be respresented as the following
+ * map:
+ *
+ * ```yaml
+ * options:
+ *   - points: 3
+ *     associated_options:
+ *       - id:
+ *           tag: General
+ *           value: # ...
+ *       # ...
+ *     translations:
+ *       en-US:
+ *         label: "Chimera, Daimonid, Golems, Undead"
+ *         label_standalone: "Chimera/Daimonid/Golems/Undead"
+ *   - points: 4
+ *     associated_options:
+ *       - id:
+ *           tag: General
+ *           value: # ...
+ *       # ...
+ *     translations:
+ *       en-US:
+ *         label: "Fairies, Ghosts"
+ *         label_standalone: "Fairies/Ghosts"
+ *   - points: 5
+ *     associated_options:
+ *       - id:
+ *           tag: General
+ *           value: # ...
+ *       # ...
+ *     translations:
+ *       en-US:
+ *         label: "Demons, Elementals"
+ *         label_standalone: "Demons/Elementals"
+ * ```
+ *
+ * This will generate the exact same string as seen above. The associated
+ * options are not present in the example, but they link to the options the
+ * volume specification is meant for.
+ */
+export type VolumeMap = {
+  /**
+   * The possible costs and associated labels.
+   * @minItems 2
+   */
+  options: VolumeMapOption[]
+
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   * @minProperties 1
+   */
+  translations?: {
+    /**
+     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+     */
+    [localeId: string]: {
+      /**
+       * Place a string between the `for` and the grouped map option labels.
+       */
+      list_prepend?: string
+
+      /**
+       * Place a string after the grouped map option labels.
+       */
+      list_append?: string
+
+      /**
+       * If the string from the book cannot be generated using the default
+       * generation technique, use this string. All options still need to be
+       * inserted propertly, since it may be used by in-game tools to provide a
+       * selection to players.
+       */
+      replacement?: string
+    }
+  }
+}
+
+export type VolumeMapOption = {
+  /**
+   * The full permanent AE cost value for this option.
+   * @integer
+   * @minimum 1
+   */
+  points: number
+
+  /**
+   * Links to the options this volume specification is meant for.
+   */
+  associated_options: {
+    /**
+     * The option's identifier.
+     */
+    id: Identifier.Group.VolumePointsOptionReference
+  }[]
+
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   * @minProperties 1
+   */
+  translations?: {
+    /**
+     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+     */
+    [localeId: string]: {
+      /**
+       * The description of the option for cost string generation.
+       * @minLength 1
+       */
+      label: string
+
+      /**
+       * The description of the option if used standalone. Only used if
+       * different from `label`.
+       * @minLength 1
+       */
+      label_standalone?: string
+    }
+  }
+}
 
 /**
  * The binding cost for an enchantment.

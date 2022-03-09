@@ -11,6 +11,7 @@ Key | Description | Details
 `id` |  | <a href="#SickleRitual/id">See details</a>
 `levels?` |  | <a href="#SickleRitual/levels">See details</a>
 `maximum?` |  | <a href="#SickleRitual/maximum">See details</a>
+`volume` |  | <a href="#SickleRitual/volume">See details</a>
 `property` |  | <a href="#SickleRitual/property">See details</a>
 `ap_value` |  | <a href="#SickleRitual/ap_value">See details</a>
 `src` |  | <a href="#SickleRitual/src">See details</a>
@@ -27,6 +28,10 @@ Key | Description | Details
 #### <a name="SickleRitual/maximum"></a> `maximum?`
 
 - **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+
+#### <a name="SickleRitual/volume"></a> `volume`
+
+- **Type:** <a href="../_Activatable.md#Volume">Volume</a>
 
 #### <a name="SickleRitual/property"></a> `property`
 

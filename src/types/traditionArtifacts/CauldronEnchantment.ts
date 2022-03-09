@@ -18,7 +18,9 @@ export type CauldronEnchantment = {
 
   maximum?: Activatable.Maximum
 
-  property: Activatable.Property
+  // prerequisites?: Prerequisite.GroupCollection.General
+
+  volume: Activatable.Volume
 
   /**
    * Witches can learn to brew special things in their Witch's Cauldron. These
@@ -34,7 +36,7 @@ export type CauldronEnchantment = {
     id: number
   }
 
-  // prerequisites?: Prerequisite.GroupCollection.General
+  property: Activatable.Property
 
   ap_value: Activatable.AdventurePointsValue
 

@@ -11,6 +11,7 @@ Key | Description | Details
 `id` |  | <a href="#ArcaneOrbEnchantment/id">See details</a>
 `levels?` |  | <a href="#ArcaneOrbEnchantment/levels">See details</a>
 `maximum?` |  | <a href="#ArcaneOrbEnchantment/maximum">See details</a>
+`volume` |  | <a href="#ArcaneOrbEnchantment/volume">See details</a>
 `property` |  | <a href="#ArcaneOrbEnchantment/property">See details</a>
 `ap_value` |  | <a href="#ArcaneOrbEnchantment/ap_value">See details</a>
 `src` |  | <a href="#ArcaneOrbEnchantment/src">See details</a>
@@ -27,6 +28,10 @@ Key | Description | Details
 #### <a name="ArcaneOrbEnchantment/maximum"></a> `maximum?`
 
 - **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+
+#### <a name="ArcaneOrbEnchantment/volume"></a> `volume`
+
+- **Type:** <a href="../_Activatable.md#Volume">Volume</a>
 
 #### <a name="ArcaneOrbEnchantment/property"></a> `property`
 

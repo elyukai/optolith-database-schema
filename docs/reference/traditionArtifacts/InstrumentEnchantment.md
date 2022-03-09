@@ -11,6 +11,7 @@ Key | Description | Details
 `id` |  | <a href="#InstrumentEnchantment/id">See details</a>
 `levels?` |  | <a href="#InstrumentEnchantment/levels">See details</a>
 `maximum?` |  | <a href="#InstrumentEnchantment/maximum">See details</a>
+`volume` |  | <a href="#InstrumentEnchantment/volume">See details</a>
 `property` |  | <a href="#InstrumentEnchantment/property">See details</a>
 `ap_value` |  | <a href="#InstrumentEnchantment/ap_value">See details</a>
 `src` |  | <a href="#InstrumentEnchantment/src">See details</a>
@@ -27,6 +28,10 @@ Key | Description | Details
 #### <a name="InstrumentEnchantment/maximum"></a> `maximum?`
 
 - **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+
+#### <a name="InstrumentEnchantment/volume"></a> `volume`
+
+- **Type:** <a href="../_Activatable.md#Volume">Volume</a>
 
 #### <a name="InstrumentEnchantment/property"></a> `property`
 

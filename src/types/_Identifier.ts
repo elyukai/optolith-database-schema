@@ -72,6 +72,11 @@ export namespace Identifier {
       Element = "Element",
     }
 
+    export enum VolumePointsOptionReference {
+      General = "General",
+      AnimalShapeSize = "AnimalShapeSize",
+    }
+
     export enum CombatTechnique {
       CloseCombatTechnique = "CloseCombatTechnique",
       RangedCombatTechnique = "RangedCombatTechnique",
@@ -94,6 +99,7 @@ export namespace Identifier {
     export type CombatRelatedSpecialAbility = Tagged<Tag.CombatRelatedSpecialAbility>
     export type Rated = Tagged<Tag.Rated>
     export type AdvancedSpecialAbilityRestrictedOption = Tagged<Tag.AdvancedSpecialAbilityRestrictedOption>
+    export type VolumePointsOptionReference = Tagged<Tag.VolumePointsOptionReference>
     export type CombatTechnique = Tagged<Tag.CombatTechnique>
   }
 }

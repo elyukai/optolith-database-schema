@@ -16,8 +16,8 @@
         "maximum": {
           "$ref": "../_Activatable.schema.json#/definitions/Maximum"
         },
-        "property": {
-          "$ref": "../_Activatable.schema.json#/definitions/Property"
+        "volume": {
+          "$ref": "../_Activatable.schema.json#/definitions/Volume"
         },
         "brew": {
           "description": "Witches can learn to brew special things in their Witch's Cauldron. These\nbrews can be categorized in different types.",
@@ -34,6 +34,9 @@
             "id"
           ],
           "additionalProperties": false
+        },
+        "property": {
+          "$ref": "../_Activatable.schema.json#/definitions/Property"
         },
         "ap_value": {
           "$ref": "../_Activatable.schema.json#/definitions/AdventurePointsValue"
@@ -74,8 +77,9 @@
       },
       "required": [
         "id",
-        "property",
+        "volume",
         "brew",
+        "property",
         "ap_value",
         "src",
         "translations"

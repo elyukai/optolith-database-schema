@@ -80,6 +80,12 @@
             "Element"
           ]
         },
+        "VolumePointsOptionReference": {
+          "enum": [
+            "General",
+            "AnimalShapeSize"
+          ]
+        },
         "CombatTechnique": {
           "enum": [
             "CloseCombatTechnique",
@@ -147,6 +153,24 @@
           "properties": {
             "tag": {
               "$ref": "#/definitions/Identifier/Tag/AdvancedSpecialAbilityRestrictedOption"
+            },
+            "value": {
+              "description": "The referenced entry's numeric identifier.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "tag",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        "VolumePointsOptionReference": {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "$ref": "#/definitions/Identifier/Tag/VolumePointsOptionReference"
             },
             "value": {
               "description": "The referenced entry's numeric identifier.",

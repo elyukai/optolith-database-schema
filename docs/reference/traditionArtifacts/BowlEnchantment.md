@@ -11,6 +11,7 @@ Key | Description | Details
 `id` |  | <a href="#BowlEnchantment/id">See details</a>
 `levels?` |  | <a href="#BowlEnchantment/levels">See details</a>
 `maximum?` |  | <a href="#BowlEnchantment/maximum">See details</a>
+`volume` |  | <a href="#BowlEnchantment/volume">See details</a>
 `property` |  | <a href="#BowlEnchantment/property">See details</a>
 `ap_value` |  | <a href="#BowlEnchantment/ap_value">See details</a>
 `src` |  | <a href="#BowlEnchantment/src">See details</a>
@@ -27,6 +28,10 @@ Key | Description | Details
 #### <a name="BowlEnchantment/maximum"></a> `maximum?`
 
 - **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+
+#### <a name="BowlEnchantment/volume"></a> `volume`
+
+- **Type:** <a href="../_Activatable.md#Volume">Volume</a>
 
 #### <a name="BowlEnchantment/property"></a> `property`
 

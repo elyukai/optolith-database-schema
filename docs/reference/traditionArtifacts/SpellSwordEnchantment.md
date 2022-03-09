@@ -11,6 +11,7 @@ Key | Description | Details
 `id` |  | <a href="#SpellSwordEnchantment/id">See details</a>
 `levels?` |  | <a href="#SpellSwordEnchantment/levels">See details</a>
 `maximum?` |  | <a href="#SpellSwordEnchantment/maximum">See details</a>
+`volume` |  | <a href="#SpellSwordEnchantment/volume">See details</a>
 `property` |  | <a href="#SpellSwordEnchantment/property">See details</a>
 `ap_value` |  | <a href="#SpellSwordEnchantment/ap_value">See details</a>
 `src` |  | <a href="#SpellSwordEnchantment/src">See details</a>
@@ -27,6 +28,10 @@ Key | Description | Details
 #### <a name="SpellSwordEnchantment/maximum"></a> `maximum?`
 
 - **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+
+#### <a name="SpellSwordEnchantment/volume"></a> `volume`
+
+- **Type:** <a href="../_Activatable.md#Volume">Volume</a>
 
 #### <a name="SpellSwordEnchantment/property"></a> `property`
 

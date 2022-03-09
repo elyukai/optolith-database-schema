@@ -26,6 +26,12 @@
 
 ---
 
+### <a name="Identifier/Tag/VolumePointsOptionReference"></a> `Identifier/Tag/VolumePointsOptionReference`
+
+- **Possible values:** `"General"`, `"AnimalShapeSize"`
+
+---
+
 ### <a name="Identifier/Tag/CombatTechnique"></a> `Identifier/Tag/CombatTechnique`
 
 - **Possible values:** `"CloseCombatTechnique"`, `"RangedCombatTechnique"`
@@ -112,6 +118,28 @@ Key | Description | Details
 - **Type:** <a href="#Identifier/Tag/AdvancedSpecialAbilityRestrictedOption">Identifier/Tag/AdvancedSpecialAbilityRestrictedOption</a>
 
 #### <a name="Identifier/Group/AdvancedSpecialAbilityRestrictedOption/value"></a> `value`
+
+The referenced entry's numeric identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="Identifier/Group/VolumePointsOptionReference"></a> `Identifier/Group/VolumePointsOptionReference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Identifier/Group/VolumePointsOptionReference/tag">See details</a>
+`value` | The referenced entry's numeric identifier. | <a href="#Identifier/Group/VolumePointsOptionReference/value">See details</a>
+
+#### <a name="Identifier/Group/VolumePointsOptionReference/tag"></a> `tag`
+
+- **Type:** <a href="#Identifier/Tag/VolumePointsOptionReference">Identifier/Tag/VolumePointsOptionReference</a>
+
+#### <a name="Identifier/Group/VolumePointsOptionReference/value"></a> `value`
 
 The referenced entry's numeric identifier.
 

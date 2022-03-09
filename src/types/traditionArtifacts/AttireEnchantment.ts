@@ -18,9 +18,11 @@ export type AttireEnchantment = {
 
   maximum?: Activatable.Maximum
 
-  property: Activatable.Property
-
   // prerequisites?: Prerequisite.GroupCollection.General
+
+  volume: Activatable.Volume
+
+  property: Activatable.Property
 
   ap_value: Activatable.AdventurePointsValue
 

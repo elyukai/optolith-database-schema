@@ -741,7 +741,299 @@ The AE Cost.
 
 The volume points the enchantment needs.
 
-- **Constant:** `""`
+- **Type:** Union
+- **Cases:** <a href="#Volume'Fixed">Volume'Fixed</a> | <a href="#Volume'PerLevel">Volume'PerLevel</a> | <a href="#Volume'ByLevel">Volume'ByLevel</a> | <a href="#Volume'Map">Volume'Map</a>
+
+---
+
+### <a name="Volume'Fixed"></a> `Volume'Fixed`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Volume'Fixed/tag">See details</a>
+`points` | The volume points. | <a href="#Volume'Fixed/points">See details</a>
+
+#### <a name="Volume'Fixed/tag"></a> `tag`
+
+- **Constant:** `"Fixed"`
+
+#### <a name="Volume'Fixed/points"></a> `points`
+
+The volume points.
+
+- **Type:** Integer
+- **Minimum:** `0`
+
+---
+
+### <a name="Volume'PerLevel"></a> `Volume'PerLevel`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Volume'PerLevel/tag">See details</a>
+`points` | The volume points per level. | <a href="#Volume'PerLevel/points">See details</a>
+
+#### <a name="Volume'PerLevel/tag"></a> `tag`
+
+- **Constant:** `"PerLevel"`
+
+#### <a name="Volume'PerLevel/points"></a> `points`
+
+The volume points per level.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="Volume'ByLevel"></a> `Volume'ByLevel`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Volume'ByLevel/tag">See details</a>
+`list` | The volume points for each level. The first element is the volume points for the first level, the second element is the volume points for the second level, and so on. | <a href="#Volume'ByLevel/list">See details</a>
+
+#### <a name="Volume'ByLevel/tag"></a> `tag`
+
+- **Constant:** `"ByLevel"`
+
+#### <a name="Volume'ByLevel/list"></a> `list`
+
+The volume points for each level. The first element is the volume points
+for the first level, the second element is the volume points for the
+second level, and so on.
+
+- **Type:** List
+- **Items:** <a href="#Volume'ByLevel/list[]">Volume'ByLevel/list[]</a>
+- **Minimum Items:** `2`
+
+---
+
+### <a name="Volume'ByLevel/list[]"></a> `Volume'ByLevel/list[]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`points` | The volume points for this level. | <a href="#Volume'ByLevel/list[]/points">See details</a>
+
+#### <a name="Volume'ByLevel/list[]/points"></a> `points`
+
+The volume points for this level.
+
+- **Type:** Integer
+- **Minimum:** `0`
+
+---
+
+### <a name="Volume'Map"></a> `Volume'Map`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Volume'Map/tag">See details</a>
+`map` |  | <a href="#Volume'Map/map">See details</a>
+
+#### <a name="Volume'Map/tag"></a> `tag`
+
+- **Constant:** `"Map"`
+
+#### <a name="Volume'Map/map"></a> `map`
+
+- **Type:** <a href="#VolumeMap">VolumeMap</a>
+
+---
+
+### <a name="VolumeMap"></a> `VolumeMap`
+
+A content that is `3/4/5 Points for Chimera, Daimonid, Golems, Undead /
+Fairies, Ghosts / Demons, Elementals` may be respresented as the following
+map:
+
+```yaml
+options:
+  - points: 3
+    associated_options:
+      - id:
+          tag: General
+          value: # ...
+      # ...
+    translations:
+      en-US:
+        label: "Chimera, Daimonid, Golems, Undead"
+        label_standalone: "Chimera/Daimonid/Golems/Undead"
+  - points: 4
+    associated_options:
+      - id:
+          tag: General
+          value: # ...
+      # ...
+    translations:
+      en-US:
+        label: "Fairies, Ghosts"
+        label_standalone: "Fairies/Ghosts"
+  - points: 5
+    associated_options:
+      - id:
+          tag: General
+          value: # ...
+      # ...
+    translations:
+      en-US:
+        label: "Demons, Elementals"
+        label_standalone: "Demons/Elementals"
+```
+
+This will generate the exact same string as seen above. The associated
+options are not present in the example, but they link to the options the
+volume specification is meant for.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`options` | The possible costs and associated labels. | <a href="#VolumeMap/options">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#VolumeMap/translations">See details</a>
+
+#### <a name="VolumeMap/options"></a> `options`
+
+The possible costs and associated labels.
+
+- **Type:** List
+- **Items:** <a href="#VolumeMap/options[]">VolumeMap/options[]</a>
+- **Minimum Items:** `2`
+
+#### <a name="VolumeMap/translations"></a> `translations?`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#VolumeMap/translations[key]">VolumeMap/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="VolumeMap/options[]"></a> `VolumeMap/options[]`
+
+- **Type:** <a href="#VolumeMapOption">VolumeMapOption</a>
+
+---
+
+### <a name="VolumeMap/translations[key]"></a> `VolumeMap/translations[key]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`list_prepend?` | Place a string between the `for` and the grouped map option labels. | <a href="#VolumeMap/translations[key]/list_prepend">See details</a>
+`list_append?` | Place a string after the grouped map option labels. | <a href="#VolumeMap/translations[key]/list_append">See details</a>
+`replacement?` | If the string from the book cannot be generated using the default generation technique, use this string. All options still need to be inserted propertly, since it may be used by in-game tools to provide a selection to players. | <a href="#VolumeMap/translations[key]/replacement">See details</a>
+
+#### <a name="VolumeMap/translations[key]/list_prepend"></a> `list_prepend?`
+
+Place a string between the `for` and the grouped map option labels.
+
+- **Type:** String
+
+#### <a name="VolumeMap/translations[key]/list_append"></a> `list_append?`
+
+Place a string after the grouped map option labels.
+
+- **Type:** String
+
+#### <a name="VolumeMap/translations[key]/replacement"></a> `replacement?`
+
+If the string from the book cannot be generated using the default
+generation technique, use this string. All options still need to be
+inserted propertly, since it may be used by in-game tools to provide a
+selection to players.
+
+- **Type:** String
+
+---
+
+### <a name="VolumeMapOption"></a> `VolumeMapOption`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`points` | The full permanent AE cost value for this option. | <a href="#VolumeMapOption/points">See details</a>
+`associated_options` | Links to the options this volume specification is meant for. | <a href="#VolumeMapOption/associated_options">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#VolumeMapOption/translations">See details</a>
+
+#### <a name="VolumeMapOption/points"></a> `points`
+
+The full permanent AE cost value for this option.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="VolumeMapOption/associated_options"></a> `associated_options`
+
+Links to the options this volume specification is meant for.
+
+- **Type:** List
+- **Items:** <a href="#VolumeMapOption/associated_options[]">VolumeMapOption/associated_options[]</a>
+
+#### <a name="VolumeMapOption/translations"></a> `translations?`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#VolumeMapOption/translations[key]">VolumeMapOption/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="VolumeMapOption/associated_options[]"></a> `VolumeMapOption/associated_options[]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The option's identifier. | <a href="#VolumeMapOption/associated_options[]/id">See details</a>
+
+#### <a name="VolumeMapOption/associated_options[]/id"></a> `id`
+
+The option's identifier.
+
+- **Type:** <a href="./_Identifier.md#Identifier/Group/VolumePointsOptionReference">Identifier/Group/VolumePointsOptionReference</a>
+
+---
+
+### <a name="VolumeMapOption/translations[key]"></a> `VolumeMapOption/translations[key]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`label` | The description of the option for cost string generation. | <a href="#VolumeMapOption/translations[key]/label">See details</a>
+`label_standalone?` | The description of the option if used standalone. Only used if different from `label`. | <a href="#VolumeMapOption/translations[key]/label_standalone">See details</a>
+
+#### <a name="VolumeMapOption/translations[key]/label"></a> `label`
+
+The description of the option for cost string generation.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+#### <a name="VolumeMapOption/translations[key]/label_standalone"></a> `label_standalone?`
+
+The description of the option if used standalone. Only used if
+different from `label`.
+
+- **Type:** String
+- **Minimum Length:** `1`
 
 ---
 

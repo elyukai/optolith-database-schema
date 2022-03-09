@@ -11,6 +11,7 @@ Key | Description | Details
 `id` |  | <a href="#FoolsHatEnchantment/id">See details</a>
 `levels?` |  | <a href="#FoolsHatEnchantment/levels">See details</a>
 `maximum?` |  | <a href="#FoolsHatEnchantment/maximum">See details</a>
+`volume` |  | <a href="#FoolsHatEnchantment/volume">See details</a>
 `property` |  | <a href="#FoolsHatEnchantment/property">See details</a>
 `ap_value` |  | <a href="#FoolsHatEnchantment/ap_value">See details</a>
 `src` |  | <a href="#FoolsHatEnchantment/src">See details</a>
@@ -27,6 +28,10 @@ Key | Description | Details
 #### <a name="FoolsHatEnchantment/maximum"></a> `maximum?`
 
 - **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+
+#### <a name="FoolsHatEnchantment/volume"></a> `volume`
+
+- **Type:** <a href="../_Activatable.md#Volume">Volume</a>
 
 #### <a name="FoolsHatEnchantment/property"></a> `property`
 
