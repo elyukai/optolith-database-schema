@@ -12,7 +12,7 @@ Key | Description | Details
 `levels?` |  | <a href="#FoolsHatEnchantment/levels">See details</a>
 `maximum?` |  | <a href="#FoolsHatEnchantment/maximum">See details</a>
 `volume` |  | <a href="#FoolsHatEnchantment/volume">See details</a>
-`binding_cost?` |  | <a href="#FoolsHatEnchantment/binding_cost">See details</a>
+`cost?` |  | <a href="#FoolsHatEnchantment/cost">See details</a>
 `property` |  | <a href="#FoolsHatEnchantment/property">See details</a>
 `ap_value` |  | <a href="#FoolsHatEnchantment/ap_value">See details</a>
 `src` |  | <a href="#FoolsHatEnchantment/src">See details</a>
@@ -34,9 +34,9 @@ Key | Description | Details
 
 - **Type:** <a href="../_Activatable.md#Volume">Volume</a>
 
-#### <a name="FoolsHatEnchantment/binding_cost"></a> `binding_cost?`
+#### <a name="FoolsHatEnchantment/cost"></a> `cost?`
 
-- **Type:** <a href="../_Activatable.md#BindingCost">BindingCost</a>
+- **Type:** <a href="../_Activatable.md#EnchantmentCost">EnchantmentCost</a>
 
 #### <a name="FoolsHatEnchantment/property"></a> `property`
 

@@ -35,8 +35,8 @@
           ],
           "additionalProperties": false
         },
-        "binding_cost": {
-          "$ref": "../_Activatable.schema.json#/definitions/BindingCost"
+        "cost": {
+          "$ref": "../_Activatable.schema.json#/definitions/EnchantmentCost"
         },
         "property": {
           "$ref": "../_Activatable.schema.json#/definitions/Property"

@@ -288,6 +288,7 @@
                           "type": "object",
                           "properties": {
                             "per": {
+                              "description": "The cost have to be per a specific countable entity, e.g. `8 KP\nper person`.",
                               "type": "object",
                               "properties": {
                                 "default": {

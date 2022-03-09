@@ -528,9 +528,492 @@
         }
       ]
     },
+    "EnchantmentCost": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "ArcaneEnergyCost"
+            },
+            "ae_cost": {
+              "$ref": "#/definitions/ArcaneEnergyCost"
+            }
+          },
+          "required": [
+            "tag",
+            "ae_cost"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "BindingCost"
+            },
+            "binding_cost": {
+              "$ref": "#/definitions/BindingCost"
+            }
+          },
+          "required": [
+            "tag",
+            "binding_cost"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
     "ArcaneEnergyCost": {
       "description": "The AE Cost.",
-      "const": ""
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Fixed"
+            },
+            "value": {
+              "description": "The AE cost value.",
+              "type": "integer",
+              "minimum": 1
+            },
+            "is_permanent": {
+              "description": "Set to `true` if the AE costs are permanent.",
+              "const": true
+            },
+            "interval": {
+              "description": "Specified if the AE cost `value` has to be paid for each time interval.",
+              "$ref": "./_ActivatableSkill.schema.json#/definitions/Duration/UnitValue"
+            },
+            "per_level": {
+              "description": "The AE cost are per level of the enchantment. It may either be displayed\nin a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1\nAE for level I; 2 AE for level II`).",
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tag": {
+                      "const": "Compressed"
+                    }
+                  },
+                  "required": [
+                    "tag"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "tag": {
+                      "const": "Verbose"
+                    }
+                  },
+                  "required": [
+                    "tag"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            "translations": {
+              "description": "All translations for the entry, identified by IETF language tag\n(BCP47).",
+              "type": "object",
+              "patternProperties": {
+                "^[a-z]{2}-[A-Z]{2}$": {
+                  "type": "object",
+                  "properties": {
+                    "note": {
+                      "description": "A note, appended to the generated string in parenthesis.",
+                      "type": "object",
+                      "properties": {
+                        "default": {
+                          "description": "The full note.",
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "compressed": {
+                          "description": "A compressed note, if applicable. If not specified it should not\nbe displayed in small location.",
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "default"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [],
+                  "minProperties": 1,
+                  "additionalProperties": false
+                }
+              },
+              "minProperties": 1,
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "tag",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PerCountable"
+            },
+            "value": {
+              "description": "The AE cost value that has to be per a specific countable entity.",
+              "type": "integer",
+              "minimum": 1
+            },
+            "base_value": {
+              "description": "If defined, in addition to the cost per entity you have to pay a flat\namount, regardless of the entity count.",
+              "type": "integer",
+              "minimum": 1
+            },
+            "translations": {
+              "description": "All translations for the entry, identified by IETF language tag\n(BCP47).",
+              "type": "object",
+              "patternProperties": {
+                "^[a-z]{2}-[A-Z]{2}$": {
+                  "type": "object",
+                  "properties": {
+                    "per": {
+                      "description": "The cost have to be per a specific countable entity, e.g. `8 AE per\nperson`.",
+                      "type": "object",
+                      "properties": {
+                        "default": {
+                          "description": "The full countable entity name.",
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "compressed": {
+                          "description": "The compressed countable entity name.",
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "default",
+                        "compressed"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "note": {
+                      "description": "A note, appended to the generated string in parenthesis.",
+                      "type": "object",
+                      "properties": {
+                        "default": {
+                          "description": "The full note.",
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "compressed": {
+                          "description": "A compressed note, if applicable. If not specified it should not\nbe displayed in small location.",
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "default"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "per"
+                  ],
+                  "minProperties": 1,
+                  "additionalProperties": false
+                }
+              },
+              "minProperties": 1,
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "tag",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "ActivationAndHalfInterval"
+            },
+            "value": {
+              "description": "The AE cost value that has to be payed for activation. Half of this value\nhas to be payed each interval.",
+              "type": "integer",
+              "minimum": 2,
+              "multipleOf": 2
+            },
+            "interval": {
+              "description": "The time interval for which the AE cost `value` has to be paid.",
+              "$ref": "./_ActivatableSkill.schema.json#/definitions/Duration/UnitValue"
+            }
+          },
+          "required": [
+            "tag",
+            "value",
+            "interval"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Indefinite"
+            },
+            "modifier": {
+              "description": "The indefinite AE cost may be modified by a certain value.",
+              "type": "object",
+              "properties": {
+                "arithmetic": {
+                  "description": "The arithmetic how to apply the `value` to the indefinite base value.",
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "tag": {
+                          "const": "Add"
+                        }
+                      },
+                      "required": [
+                        "tag"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "tag": {
+                          "const": "Multiply"
+                        }
+                      },
+                      "required": [
+                        "tag"
+                      ],
+                      "additionalProperties": false
+                    }
+                  ]
+                },
+                "value": {
+                  "description": "The value that is applied to the indefinite base value using the\ndefined `arithmetic`.",
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "arithmetic",
+                "value"
+              ],
+              "additionalProperties": false
+            },
+            "translations": {
+              "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+              "type": "object",
+              "patternProperties": {
+                "^[a-z]{2}-[A-Z]{2}$": {
+                  "type": "object",
+                  "properties": {
+                    "description": {
+                      "description": "A description of where the cost come from.",
+                      "type": "object",
+                      "properties": {
+                        "default": {
+                          "description": "The full description of where the cost come from.",
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "compressed": {
+                          "description": "A compressed description of where the cost come from for use in\nsmall areas (e.g. on character sheet).",
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "default",
+                        "compressed"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "description"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "minProperties": 1,
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "tag",
+            "modifier",
+            "translations"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Disjunction"
+            },
+            "interval": {
+              "description": "Specified if the selected AE cost option has to be paid for each time\ninterval.",
+              "type": "object",
+              "properties": {
+                "value": {
+                  "description": "The interval itself.",
+                  "$ref": "./_ActivatableSkill.schema.json#/definitions/Duration/UnitValue"
+                },
+                "activation_value": {
+                  "description": "The AE cost value for activation.",
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "after_activation": {
+                  "description": "Set to `true` if the action where the enchantment is casted does\n**not** as a part of the first interval that has to be payed, so that\nthe first interval payment needs to be done after the activation.\n\nThis works different than other sustained spells, since for them the\nend of the cast usually already counts as part of the first interval.",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "value",
+                "activation_value",
+                "after_activation"
+              ],
+              "additionalProperties": false
+            },
+            "options": {
+              "description": "The possible AE cost values.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "description": "A possible AE cost value.",
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "translations": {
+                    "description": "All translations for the entry, identified by IETF language tag\n(BCP47).",
+                    "type": "object",
+                    "patternProperties": {
+                      "^[a-z]{2}-[A-Z]{2}$": {
+                        "type": "object",
+                        "properties": {
+                          "note": {
+                            "description": "A note, appended to the generated option string in parenthesis.",
+                            "type": "object",
+                            "properties": {
+                              "default": {
+                                "description": "The full note.",
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "compressed": {
+                                "description": "A compressed note, if applicable. If not specified it should not\nbe displayed in small location.",
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            },
+                            "required": [
+                              "default"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [],
+                        "minProperties": 1,
+                        "additionalProperties": false
+                      }
+                    },
+                    "minProperties": 1,
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "value"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "tag",
+            "options"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "None"
+            },
+            "translations": {
+              "description": "All translations for the entry, identified by IETF language tag\n(BCP47).",
+              "type": "object",
+              "patternProperties": {
+                "^[a-z]{2}-[A-Z]{2}$": {
+                  "type": "object",
+                  "properties": {
+                    "note": {
+                      "description": "A note, appended to the generated string in parenthesis.",
+                      "type": "object",
+                      "properties": {
+                        "default": {
+                          "description": "The full note.",
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "compressed": {
+                          "description": "A compressed note, if applicable. If not specified it should not\nbe displayed in small location.",
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "default"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [],
+                  "minProperties": 1,
+                  "additionalProperties": false
+                }
+              },
+              "minProperties": 1,
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Variable"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
     },
     "Volume": {
       "description": "The volume points the enchantment needs.",

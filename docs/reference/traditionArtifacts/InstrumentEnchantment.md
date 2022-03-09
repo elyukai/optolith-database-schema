@@ -12,7 +12,7 @@ Key | Description | Details
 `levels?` |  | <a href="#InstrumentEnchantment/levels">See details</a>
 `maximum?` |  | <a href="#InstrumentEnchantment/maximum">See details</a>
 `volume` |  | <a href="#InstrumentEnchantment/volume">See details</a>
-`binding_cost?` |  | <a href="#InstrumentEnchantment/binding_cost">See details</a>
+`cost?` |  | <a href="#InstrumentEnchantment/cost">See details</a>
 `property` |  | <a href="#InstrumentEnchantment/property">See details</a>
 `ap_value` |  | <a href="#InstrumentEnchantment/ap_value">See details</a>
 `src` |  | <a href="#InstrumentEnchantment/src">See details</a>
@@ -34,9 +34,9 @@ Key | Description | Details
 
 - **Type:** <a href="../_Activatable.md#Volume">Volume</a>
 
-#### <a name="InstrumentEnchantment/binding_cost"></a> `binding_cost?`
+#### <a name="InstrumentEnchantment/cost"></a> `cost?`
 
-- **Type:** <a href="../_Activatable.md#BindingCost">BindingCost</a>
+- **Type:** <a href="../_Activatable.md#EnchantmentCost">EnchantmentCost</a>
 
 #### <a name="InstrumentEnchantment/property"></a> `property`
 

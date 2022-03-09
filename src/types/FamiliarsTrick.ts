@@ -183,7 +183,8 @@ type PerformanceParameters =
            */
           [localeId: string]: {
             /**
-             *
+             * The cost have to be per a specific countable entity, e.g. `8 KP
+             * per person`.
              */
             per?: {
               /**

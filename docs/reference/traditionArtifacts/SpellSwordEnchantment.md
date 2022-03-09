@@ -12,7 +12,7 @@ Key | Description | Details
 `levels?` |  | <a href="#SpellSwordEnchantment/levels">See details</a>
 `maximum?` |  | <a href="#SpellSwordEnchantment/maximum">See details</a>
 `volume` |  | <a href="#SpellSwordEnchantment/volume">See details</a>
-`binding_cost?` |  | <a href="#SpellSwordEnchantment/binding_cost">See details</a>
+`cost?` |  | <a href="#SpellSwordEnchantment/cost">See details</a>
 `property` |  | <a href="#SpellSwordEnchantment/property">See details</a>
 `ap_value` |  | <a href="#SpellSwordEnchantment/ap_value">See details</a>
 `src` |  | <a href="#SpellSwordEnchantment/src">See details</a>
@@ -34,9 +34,9 @@ Key | Description | Details
 
 - **Type:** <a href="../_Activatable.md#Volume">Volume</a>
 
-#### <a name="SpellSwordEnchantment/binding_cost"></a> `binding_cost?`
+#### <a name="SpellSwordEnchantment/cost"></a> `cost?`
 
-- **Type:** <a href="../_Activatable.md#BindingCost">BindingCost</a>
+- **Type:** <a href="../_Activatable.md#EnchantmentCost">EnchantmentCost</a>
 
 #### <a name="SpellSwordEnchantment/property"></a> `property`
 

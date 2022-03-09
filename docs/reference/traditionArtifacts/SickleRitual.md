@@ -12,7 +12,7 @@ Key | Description | Details
 `levels?` |  | <a href="#SickleRitual/levels">See details</a>
 `maximum?` |  | <a href="#SickleRitual/maximum">See details</a>
 `volume` |  | <a href="#SickleRitual/volume">See details</a>
-`binding_cost?` |  | <a href="#SickleRitual/binding_cost">See details</a>
+`cost?` |  | <a href="#SickleRitual/cost">See details</a>
 `property` |  | <a href="#SickleRitual/property">See details</a>
 `ap_value` |  | <a href="#SickleRitual/ap_value">See details</a>
 `src` |  | <a href="#SickleRitual/src">See details</a>
@@ -34,9 +34,9 @@ Key | Description | Details
 
 - **Type:** <a href="../_Activatable.md#Volume">Volume</a>
 
-#### <a name="SickleRitual/binding_cost"></a> `binding_cost?`
+#### <a name="SickleRitual/cost"></a> `cost?`
 
-- **Type:** <a href="../_Activatable.md#BindingCost">BindingCost</a>
+- **Type:** <a href="../_Activatable.md#EnchantmentCost">EnchantmentCost</a>
 
 #### <a name="SickleRitual/property"></a> `property`
 

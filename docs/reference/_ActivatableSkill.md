@@ -768,7 +768,7 @@ Key | Description | Details
 `is_minimum?` | If `true`, the non-modifiable value is a minimum value. | <a href="#Cost/OneTime/Single'NonModifiable/is_minimum">See details</a>
 `value` | The AE cost value. | <a href="#Cost/OneTime/Single'NonModifiable/value">See details</a>
 `permanent_value?` | The part of the cost value that has to be spent permanently. | <a href="#Cost/OneTime/Single'NonModifiable/permanent_value">See details</a>
-`per?` |  | <a href="#Cost/OneTime/Single'NonModifiable/per">See details</a>
+`per?` | The cost have to be per a specific countable entity, e.g. `8 KP per person`. | <a href="#Cost/OneTime/Single'NonModifiable/per">See details</a>
 `translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Cost/OneTime/Single'NonModifiable/translations">See details</a>
 
 #### <a name="Cost/OneTime/Single'NonModifiable/tag"></a> `tag`
@@ -797,6 +797,9 @@ The part of the cost value that has to be spent permanently.
 
 #### <a name="Cost/OneTime/Single'NonModifiable/per"></a> `per?`
 
+The cost have to be per a specific countable entity, e.g. `8 KP per
+person`.
+
 - **Type:** <a href="#Cost/OneTime/Single'NonModifiable/per">Object</a>
 
 #### <a name="Cost/OneTime/Single'NonModifiable/translations"></a> `translations?`
@@ -812,6 +815,9 @@ All translations for the entry, identified by IETF language tag
 ---
 
 ### <a name="Cost/OneTime/Single'NonModifiable/per"></a> `Cost/OneTime/Single'NonModifiable/per`
+
+The cost have to be per a specific countable entity, e.g. `8 KP per
+person`.
 
 - **Type:** Object
 

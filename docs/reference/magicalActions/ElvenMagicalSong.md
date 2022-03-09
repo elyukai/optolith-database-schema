@@ -171,7 +171,7 @@ The AE cost.
 Key | Description | Details
 :-- | :-- | :--
 `value` | The (temporary) AE cost value. | <a href="#PerformanceParameters/cost/value">See details</a>
-`interval?` | Specified if the AE cost `value` have to paid for each time interval. | <a href="#PerformanceParameters/cost/interval">See details</a>
+`interval?` | Specified if the AE cost `value` has to be paid for each time interval. | <a href="#PerformanceParameters/cost/interval">See details</a>
 `permanent?` | A permanent AE cost, independent from a possible interval. | <a href="#PerformanceParameters/cost/permanent">See details</a>
 
 #### <a name="PerformanceParameters/cost/value"></a> `value`
@@ -183,7 +183,7 @@ The (temporary) AE cost value.
 
 #### <a name="PerformanceParameters/cost/interval"></a> `interval?`
 
-Specified if the AE cost `value` have to paid for each time interval.
+Specified if the AE cost `value` has to be paid for each time interval.
 
 - **Type:** <a href="../_ActivatableSkill.md#Duration/UnitValue">Duration/UnitValue</a>
 

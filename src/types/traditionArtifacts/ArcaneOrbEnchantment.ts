@@ -22,7 +22,7 @@ export type ArcaneOrbEnchantment = {
 
   volume: Activatable.Volume
 
-  binding_cost?: Activatable.BindingCost
+  cost?: Activatable.EnchantmentCost
 
   property: Activatable.Property
 
@@ -46,12 +46,6 @@ export type ArcaneOrbEnchantment = {
       // input?: Activatable.Input
 
       effect: Activatable.Effect
-
-      // ae_cost?: Activatable.ArcaneEnergyCost
-
-      // volume: Activatable.Volume
-
-      // binding_cost?: Activatable.BindingCost
 
       // prerequisites?: Activatable.PrerequisitesReplacement
 

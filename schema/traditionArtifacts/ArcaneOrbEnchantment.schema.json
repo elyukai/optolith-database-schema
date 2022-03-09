@@ -19,8 +19,8 @@
         "volume": {
           "$ref": "../_Activatable.schema.json#/definitions/Volume"
         },
-        "binding_cost": {
-          "$ref": "../_Activatable.schema.json#/definitions/BindingCost"
+        "cost": {
+          "$ref": "../_Activatable.schema.json#/definitions/EnchantmentCost"
         },
         "property": {
           "$ref": "../_Activatable.schema.json#/definitions/Property"

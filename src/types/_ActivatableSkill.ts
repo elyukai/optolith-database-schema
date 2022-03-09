@@ -313,6 +313,10 @@ export namespace Cost {
          */
         permanent_value?: number
 
+        /**
+         * The cost have to be per a specific countable entity, e.g. `8 KP per
+         * person`.
+         */
         per?: {
           /**
            * If defined, the minimum total AE that have to be spent casting the

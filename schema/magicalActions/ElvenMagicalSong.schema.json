@@ -120,7 +120,7 @@
               "minimum": 1
             },
             "interval": {
-              "description": "Specified if the AE cost `value` have to paid for each time interval.",
+              "description": "Specified if the AE cost `value` has to be paid for each time interval.",
               "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/UnitValue"
             },
             "permanent": {

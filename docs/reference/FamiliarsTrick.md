@@ -407,15 +407,21 @@ All translations for the entry, identified by IETF language tag
 
 Key | Description | Details
 :-- | :-- | :--
-`per?` |  | <a href="#PerformanceParameters'OneTime/cost'Fixed/translations[key]/per">See details</a>
+`per?` | The cost have to be per a specific countable entity, e.g. `8 KP per person`. | <a href="#PerformanceParameters'OneTime/cost'Fixed/translations[key]/per">See details</a>
 
 #### <a name="PerformanceParameters'OneTime/cost'Fixed/translations[key]/per"></a> `per?`
+
+The cost have to be per a specific countable entity, e.g. `8 KP
+per person`.
 
 - **Type:** <a href="#PerformanceParameters'OneTime/cost'Fixed/translations[key]/per">Object</a>
 
 ---
 
 ### <a name="PerformanceParameters'OneTime/cost'Fixed/translations[key]/per"></a> `PerformanceParameters'OneTime/cost'Fixed/translations[key]/per`
+
+The cost have to be per a specific countable entity, e.g. `8 KP
+per person`.
 
 - **Type:** Object
 

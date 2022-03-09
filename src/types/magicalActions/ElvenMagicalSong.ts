@@ -107,7 +107,7 @@ type PerformanceParameters = {
     value: number
 
     /**
-     * Specified if the AE cost `value` have to paid for each time interval.
+     * Specified if the AE cost `value` has to be paid for each time interval.
      */
     interval?: Duration.UnitValue
 

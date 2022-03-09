@@ -12,7 +12,7 @@ Key | Description | Details
 `levels?` |  | <a href="#BowlEnchantment/levels">See details</a>
 `maximum?` |  | <a href="#BowlEnchantment/maximum">See details</a>
 `volume` |  | <a href="#BowlEnchantment/volume">See details</a>
-`binding_cost?` |  | <a href="#BowlEnchantment/binding_cost">See details</a>
+`cost?` |  | <a href="#BowlEnchantment/cost">See details</a>
 `property` |  | <a href="#BowlEnchantment/property">See details</a>
 `ap_value` |  | <a href="#BowlEnchantment/ap_value">See details</a>
 `src` |  | <a href="#BowlEnchantment/src">See details</a>
@@ -34,9 +34,9 @@ Key | Description | Details
 
 - **Type:** <a href="../_Activatable.md#Volume">Volume</a>
 
-#### <a name="BowlEnchantment/binding_cost"></a> `binding_cost?`
+#### <a name="BowlEnchantment/cost"></a> `cost?`
 
-- **Type:** <a href="../_Activatable.md#BindingCost">BindingCost</a>
+- **Type:** <a href="../_Activatable.md#EnchantmentCost">EnchantmentCost</a>
 
 #### <a name="BowlEnchantment/property"></a> `property`
 

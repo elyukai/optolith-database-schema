@@ -729,11 +729,698 @@ Key | Description | Details
 
 ---
 
+### <a name="EnchantmentCost"></a> `EnchantmentCost`
+
+- **Type:** Union
+- **Cases:** <a href="#EnchantmentCost'ArcaneEnergyCost">EnchantmentCost'ArcaneEnergyCost</a> | <a href="#EnchantmentCost'BindingCost">EnchantmentCost'BindingCost</a>
+
+---
+
+### <a name="EnchantmentCost'ArcaneEnergyCost"></a> `EnchantmentCost'ArcaneEnergyCost`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#EnchantmentCost'ArcaneEnergyCost/tag">See details</a>
+`ae_cost` |  | <a href="#EnchantmentCost'ArcaneEnergyCost/ae_cost">See details</a>
+
+#### <a name="EnchantmentCost'ArcaneEnergyCost/tag"></a> `tag`
+
+- **Constant:** `"ArcaneEnergyCost"`
+
+#### <a name="EnchantmentCost'ArcaneEnergyCost/ae_cost"></a> `ae_cost`
+
+- **Type:** <a href="#ArcaneEnergyCost">ArcaneEnergyCost</a>
+
+---
+
+### <a name="EnchantmentCost'BindingCost"></a> `EnchantmentCost'BindingCost`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#EnchantmentCost'BindingCost/tag">See details</a>
+`binding_cost` |  | <a href="#EnchantmentCost'BindingCost/binding_cost">See details</a>
+
+#### <a name="EnchantmentCost'BindingCost/tag"></a> `tag`
+
+- **Constant:** `"BindingCost"`
+
+#### <a name="EnchantmentCost'BindingCost/binding_cost"></a> `binding_cost`
+
+- **Type:** <a href="#BindingCost">BindingCost</a>
+
+---
+
 ### <a name="ArcaneEnergyCost"></a> `ArcaneEnergyCost`
 
 The AE Cost.
 
-- **Constant:** `""`
+- **Type:** Union
+- **Cases:** <a href="#ArcaneEnergyCost'Fixed">ArcaneEnergyCost'Fixed</a> | <a href="#ArcaneEnergyCost'PerCountable">ArcaneEnergyCost'PerCountable</a> | <a href="#ArcaneEnergyCost'ActivationAndHalfInterval">ArcaneEnergyCost'ActivationAndHalfInterval</a> | <a href="#ArcaneEnergyCost'Indefinite">ArcaneEnergyCost'Indefinite</a> | <a href="#ArcaneEnergyCost'Disjunction">ArcaneEnergyCost'Disjunction</a> | <a href="#ArcaneEnergyCost'None">ArcaneEnergyCost'None</a> | <a href="#ArcaneEnergyCost'Variable">ArcaneEnergyCost'Variable</a>
+
+---
+
+### <a name="ArcaneEnergyCost'Fixed"></a> `ArcaneEnergyCost'Fixed`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ArcaneEnergyCost'Fixed/tag">See details</a>
+`value` | The AE cost value. | <a href="#ArcaneEnergyCost'Fixed/value">See details</a>
+`is_permanent?` | Set to `true` if the AE costs are permanent. | <a href="#ArcaneEnergyCost'Fixed/is_permanent">See details</a>
+`interval?` | Specified if the AE cost `value` has to be paid for each time interval. | <a href="#ArcaneEnergyCost'Fixed/interval">See details</a>
+`per_level?` | The AE cost are per level of the enchantment. It may either be displayed in a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1 AE for level I; 2 AE for level II`). | <a href="#ArcaneEnergyCost'Fixed/per_level">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ArcaneEnergyCost'Fixed/translations">See details</a>
+
+#### <a name="ArcaneEnergyCost'Fixed/tag"></a> `tag`
+
+- **Constant:** `"Fixed"`
+
+#### <a name="ArcaneEnergyCost'Fixed/value"></a> `value`
+
+The AE cost value.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="ArcaneEnergyCost'Fixed/is_permanent"></a> `is_permanent?`
+
+Set to `true` if the AE costs are permanent.
+
+- **Constant:** `true`
+
+#### <a name="ArcaneEnergyCost'Fixed/interval"></a> `interval?`
+
+Specified if the AE cost `value` has to be paid for each time interval.
+
+- **Type:** <a href="./_ActivatableSkill.md#Duration/UnitValue">Duration/UnitValue</a>
+
+#### <a name="ArcaneEnergyCost'Fixed/per_level"></a> `per_level?`
+
+The AE cost are per level of the enchantment. It may either be displayed
+in a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1
+AE for level I; 2 AE for level II`).
+
+- **Type:** Union
+- **Cases:** <a href="#ArcaneEnergyCost'Fixed/per_level'Compressed">ArcaneEnergyCost'Fixed/per_level'Compressed</a> | <a href="#ArcaneEnergyCost'Fixed/per_level'Verbose">ArcaneEnergyCost'Fixed/per_level'Verbose</a>
+
+#### <a name="ArcaneEnergyCost'Fixed/translations"></a> `translations?`
+
+All translations for the entry, identified by IETF language tag
+(BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#ArcaneEnergyCost'Fixed/translations[key]">ArcaneEnergyCost'Fixed/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="ArcaneEnergyCost'Fixed/per_level'Compressed"></a> `ArcaneEnergyCost'Fixed/per_level'Compressed`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ArcaneEnergyCost'Fixed/per_level'Compressed/tag">See details</a>
+
+#### <a name="ArcaneEnergyCost'Fixed/per_level'Compressed/tag"></a> `tag`
+
+- **Constant:** `"Compressed"`
+
+---
+
+### <a name="ArcaneEnergyCost'Fixed/per_level'Verbose"></a> `ArcaneEnergyCost'Fixed/per_level'Verbose`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ArcaneEnergyCost'Fixed/per_level'Verbose/tag">See details</a>
+
+#### <a name="ArcaneEnergyCost'Fixed/per_level'Verbose/tag"></a> `tag`
+
+- **Constant:** `"Verbose"`
+
+---
+
+### <a name="ArcaneEnergyCost'Fixed/translations[key]"></a> `ArcaneEnergyCost'Fixed/translations[key]`
+
+- **Type:** Object
+- **Minimum Properties:** `1`
+
+Key | Description | Details
+:-- | :-- | :--
+`note?` | A note, appended to the generated string in parenthesis. | <a href="#ArcaneEnergyCost'Fixed/translations[key]/note">See details</a>
+
+#### <a name="ArcaneEnergyCost'Fixed/translations[key]/note"></a> `note?`
+
+A note, appended to the generated string in parenthesis.
+
+- **Type:** <a href="#ArcaneEnergyCost'Fixed/translations[key]/note">Object</a>
+
+---
+
+### <a name="ArcaneEnergyCost'Fixed/translations[key]/note"></a> `ArcaneEnergyCost'Fixed/translations[key]/note`
+
+A note, appended to the generated string in parenthesis.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`default` | The full note. | <a href="#ArcaneEnergyCost'Fixed/translations[key]/note/default">See details</a>
+`compressed?` | A compressed note, if applicable. If not specified it should not be displayed in small location. | <a href="#ArcaneEnergyCost'Fixed/translations[key]/note/compressed">See details</a>
+
+#### <a name="ArcaneEnergyCost'Fixed/translations[key]/note/default"></a> `default`
+
+The full note.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+#### <a name="ArcaneEnergyCost'Fixed/translations[key]/note/compressed"></a> `compressed?`
+
+A compressed note, if applicable. If not specified it should not
+be displayed in small location.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+---
+
+### <a name="ArcaneEnergyCost'PerCountable"></a> `ArcaneEnergyCost'PerCountable`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ArcaneEnergyCost'PerCountable/tag">See details</a>
+`value` | The AE cost value that has to be per a specific countable entity. | <a href="#ArcaneEnergyCost'PerCountable/value">See details</a>
+`base_value?` | If defined, in addition to the cost per entity you have to pay a flat amount, regardless of the entity count. | <a href="#ArcaneEnergyCost'PerCountable/base_value">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ArcaneEnergyCost'PerCountable/translations">See details</a>
+
+#### <a name="ArcaneEnergyCost'PerCountable/tag"></a> `tag`
+
+- **Constant:** `"PerCountable"`
+
+#### <a name="ArcaneEnergyCost'PerCountable/value"></a> `value`
+
+The AE cost value that has to be per a specific countable entity.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="ArcaneEnergyCost'PerCountable/base_value"></a> `base_value?`
+
+If defined, in addition to the cost per entity you have to pay a flat
+amount, regardless of the entity count.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="ArcaneEnergyCost'PerCountable/translations"></a> `translations?`
+
+All translations for the entry, identified by IETF language tag
+(BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#ArcaneEnergyCost'PerCountable/translations[key]">ArcaneEnergyCost'PerCountable/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="ArcaneEnergyCost'PerCountable/translations[key]"></a> `ArcaneEnergyCost'PerCountable/translations[key]`
+
+- **Type:** Object
+- **Minimum Properties:** `1`
+
+Key | Description | Details
+:-- | :-- | :--
+`per` | The cost have to be per a specific countable entity, e.g. `8 AE per person`. | <a href="#ArcaneEnergyCost'PerCountable/translations[key]/per">See details</a>
+`note?` | A note, appended to the generated string in parenthesis. | <a href="#ArcaneEnergyCost'PerCountable/translations[key]/note">See details</a>
+
+#### <a name="ArcaneEnergyCost'PerCountable/translations[key]/per"></a> `per`
+
+The cost have to be per a specific countable entity, e.g. `8 AE per
+person`.
+
+- **Type:** <a href="#ArcaneEnergyCost'PerCountable/translations[key]/per">Object</a>
+
+#### <a name="ArcaneEnergyCost'PerCountable/translations[key]/note"></a> `note?`
+
+A note, appended to the generated string in parenthesis.
+
+- **Type:** <a href="#ArcaneEnergyCost'PerCountable/translations[key]/note">Object</a>
+
+---
+
+### <a name="ArcaneEnergyCost'PerCountable/translations[key]/per"></a> `ArcaneEnergyCost'PerCountable/translations[key]/per`
+
+The cost have to be per a specific countable entity, e.g. `8 AE per
+person`.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`default` | The full countable entity name. | <a href="#ArcaneEnergyCost'PerCountable/translations[key]/per/default">See details</a>
+`compressed` | The compressed countable entity name. | <a href="#ArcaneEnergyCost'PerCountable/translations[key]/per/compressed">See details</a>
+
+#### <a name="ArcaneEnergyCost'PerCountable/translations[key]/per/default"></a> `default`
+
+The full countable entity name.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+#### <a name="ArcaneEnergyCost'PerCountable/translations[key]/per/compressed"></a> `compressed`
+
+The compressed countable entity name.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+---
+
+### <a name="ArcaneEnergyCost'PerCountable/translations[key]/note"></a> `ArcaneEnergyCost'PerCountable/translations[key]/note`
+
+A note, appended to the generated string in parenthesis.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`default` | The full note. | <a href="#ArcaneEnergyCost'PerCountable/translations[key]/note/default">See details</a>
+`compressed?` | A compressed note, if applicable. If not specified it should not be displayed in small location. | <a href="#ArcaneEnergyCost'PerCountable/translations[key]/note/compressed">See details</a>
+
+#### <a name="ArcaneEnergyCost'PerCountable/translations[key]/note/default"></a> `default`
+
+The full note.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+#### <a name="ArcaneEnergyCost'PerCountable/translations[key]/note/compressed"></a> `compressed?`
+
+A compressed note, if applicable. If not specified it should not
+be displayed in small location.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+---
+
+### <a name="ArcaneEnergyCost'ActivationAndHalfInterval"></a> `ArcaneEnergyCost'ActivationAndHalfInterval`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ArcaneEnergyCost'ActivationAndHalfInterval/tag">See details</a>
+`value` | The AE cost value that has to be payed for activation. Half of this value has to be payed each interval. | <a href="#ArcaneEnergyCost'ActivationAndHalfInterval/value">See details</a>
+`interval` | The time interval for which the AE cost `value` has to be paid. | <a href="#ArcaneEnergyCost'ActivationAndHalfInterval/interval">See details</a>
+
+#### <a name="ArcaneEnergyCost'ActivationAndHalfInterval/tag"></a> `tag`
+
+- **Constant:** `"ActivationAndHalfInterval"`
+
+#### <a name="ArcaneEnergyCost'ActivationAndHalfInterval/value"></a> `value`
+
+The AE cost value that has to be payed for activation. Half of this value
+has to be payed each interval.
+
+- **Type:** Integer
+- **Minimum:** `2`
+- **Multiple of:** `2`
+
+#### <a name="ArcaneEnergyCost'ActivationAndHalfInterval/interval"></a> `interval`
+
+The time interval for which the AE cost `value` has to be paid.
+
+- **Type:** <a href="./_ActivatableSkill.md#Duration/UnitValue">Duration/UnitValue</a>
+
+---
+
+### <a name="ArcaneEnergyCost'Indefinite"></a> `ArcaneEnergyCost'Indefinite`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ArcaneEnergyCost'Indefinite/tag">See details</a>
+`modifier` | The indefinite AE cost may be modified by a certain value. | <a href="#ArcaneEnergyCost'Indefinite/modifier">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ArcaneEnergyCost'Indefinite/translations">See details</a>
+
+#### <a name="ArcaneEnergyCost'Indefinite/tag"></a> `tag`
+
+- **Constant:** `"Indefinite"`
+
+#### <a name="ArcaneEnergyCost'Indefinite/modifier"></a> `modifier`
+
+The indefinite AE cost may be modified by a certain value.
+
+- **Type:** <a href="#ArcaneEnergyCost'Indefinite/modifier">Object</a>
+
+#### <a name="ArcaneEnergyCost'Indefinite/translations"></a> `translations`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#ArcaneEnergyCost'Indefinite/translations[key]">ArcaneEnergyCost'Indefinite/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="ArcaneEnergyCost'Indefinite/modifier"></a> `ArcaneEnergyCost'Indefinite/modifier`
+
+The indefinite AE cost may be modified by a certain value.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`arithmetic` | The arithmetic how to apply the `value` to the indefinite base value. | <a href="#ArcaneEnergyCost'Indefinite/modifier/arithmetic">See details</a>
+`value` | The value that is applied to the indefinite base value using the defined `arithmetic`. | <a href="#ArcaneEnergyCost'Indefinite/modifier/value">See details</a>
+
+#### <a name="ArcaneEnergyCost'Indefinite/modifier/arithmetic"></a> `arithmetic`
+
+The arithmetic how to apply the `value` to the indefinite base value.
+
+- **Type:** Union
+- **Cases:** <a href="#ArcaneEnergyCost'Indefinite/modifier/arithmetic'Add">ArcaneEnergyCost'Indefinite/modifier/arithmetic'Add</a> | <a href="#ArcaneEnergyCost'Indefinite/modifier/arithmetic'Multiply">ArcaneEnergyCost'Indefinite/modifier/arithmetic'Multiply</a>
+
+#### <a name="ArcaneEnergyCost'Indefinite/modifier/value"></a> `value`
+
+The value that is applied to the indefinite base value using the
+defined `arithmetic`.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="ArcaneEnergyCost'Indefinite/modifier/arithmetic'Add"></a> `ArcaneEnergyCost'Indefinite/modifier/arithmetic'Add`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ArcaneEnergyCost'Indefinite/modifier/arithmetic'Add/tag">See details</a>
+
+#### <a name="ArcaneEnergyCost'Indefinite/modifier/arithmetic'Add/tag"></a> `tag`
+
+- **Constant:** `"Add"`
+
+---
+
+### <a name="ArcaneEnergyCost'Indefinite/modifier/arithmetic'Multiply"></a> `ArcaneEnergyCost'Indefinite/modifier/arithmetic'Multiply`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ArcaneEnergyCost'Indefinite/modifier/arithmetic'Multiply/tag">See details</a>
+
+#### <a name="ArcaneEnergyCost'Indefinite/modifier/arithmetic'Multiply/tag"></a> `tag`
+
+- **Constant:** `"Multiply"`
+
+---
+
+### <a name="ArcaneEnergyCost'Indefinite/translations[key]"></a> `ArcaneEnergyCost'Indefinite/translations[key]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`description` | A description of where the cost come from. | <a href="#ArcaneEnergyCost'Indefinite/translations[key]/description">See details</a>
+
+#### <a name="ArcaneEnergyCost'Indefinite/translations[key]/description"></a> `description`
+
+A description of where the cost come from.
+
+- **Type:** <a href="#ArcaneEnergyCost'Indefinite/translations[key]/description">Object</a>
+
+---
+
+### <a name="ArcaneEnergyCost'Indefinite/translations[key]/description"></a> `ArcaneEnergyCost'Indefinite/translations[key]/description`
+
+A description of where the cost come from.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`default` | The full description of where the cost come from. | <a href="#ArcaneEnergyCost'Indefinite/translations[key]/description/default">See details</a>
+`compressed` | A compressed description of where the cost come from for use in small areas (e.g. on character sheet). | <a href="#ArcaneEnergyCost'Indefinite/translations[key]/description/compressed">See details</a>
+
+#### <a name="ArcaneEnergyCost'Indefinite/translations[key]/description/default"></a> `default`
+
+The full description of where the cost come from.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+#### <a name="ArcaneEnergyCost'Indefinite/translations[key]/description/compressed"></a> `compressed`
+
+A compressed description of where the cost come from for use in
+small areas (e.g. on character sheet).
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+---
+
+### <a name="ArcaneEnergyCost'Disjunction"></a> `ArcaneEnergyCost'Disjunction`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ArcaneEnergyCost'Disjunction/tag">See details</a>
+`interval?` | Specified if the selected AE cost option has to be paid for each time interval. | <a href="#ArcaneEnergyCost'Disjunction/interval">See details</a>
+`options` | The possible AE cost values. | <a href="#ArcaneEnergyCost'Disjunction/options">See details</a>
+
+#### <a name="ArcaneEnergyCost'Disjunction/tag"></a> `tag`
+
+- **Constant:** `"Disjunction"`
+
+#### <a name="ArcaneEnergyCost'Disjunction/interval"></a> `interval?`
+
+Specified if the selected AE cost option has to be paid for each time
+interval.
+
+- **Type:** <a href="#ArcaneEnergyCost'Disjunction/interval">Object</a>
+
+#### <a name="ArcaneEnergyCost'Disjunction/options"></a> `options`
+
+The possible AE cost values.
+
+- **Type:** List
+- **Items:** <a href="#ArcaneEnergyCost'Disjunction/options[]">ArcaneEnergyCost'Disjunction/options[]</a>
+
+---
+
+### <a name="ArcaneEnergyCost'Disjunction/interval"></a> `ArcaneEnergyCost'Disjunction/interval`
+
+Specified if the selected AE cost option has to be paid for each time
+interval.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`value` | The interval itself. | <a href="#ArcaneEnergyCost'Disjunction/interval/value">See details</a>
+`activation_value` | The AE cost value for activation. | <a href="#ArcaneEnergyCost'Disjunction/interval/activation_value">See details</a>
+`after_activation` | Set to `true` if the action where the enchantment is casted does **not** as a part of the first interval that has to be payed, so that the first interval payment needs to be done after the activation. | <a href="#ArcaneEnergyCost'Disjunction/interval/after_activation">See details</a>
+
+#### <a name="ArcaneEnergyCost'Disjunction/interval/value"></a> `value`
+
+The interval itself.
+
+- **Type:** <a href="./_ActivatableSkill.md#Duration/UnitValue">Duration/UnitValue</a>
+
+#### <a name="ArcaneEnergyCost'Disjunction/interval/activation_value"></a> `activation_value`
+
+The AE cost value for activation.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="ArcaneEnergyCost'Disjunction/interval/after_activation"></a> `after_activation`
+
+Set to `true` if the action where the enchantment is casted does
+**not** as a part of the first interval that has to be payed, so that
+the first interval payment needs to be done after the activation.
+
+This works different than other sustained spells, since for them the
+end of the cast usually already counts as part of the first interval.
+
+- **Type:** Boolean
+
+---
+
+### <a name="ArcaneEnergyCost'Disjunction/options[]"></a> `ArcaneEnergyCost'Disjunction/options[]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`value` | A possible AE cost value. | <a href="#ArcaneEnergyCost'Disjunction/options[]/value">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ArcaneEnergyCost'Disjunction/options[]/translations">See details</a>
+
+#### <a name="ArcaneEnergyCost'Disjunction/options[]/value"></a> `value`
+
+A possible AE cost value.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="ArcaneEnergyCost'Disjunction/options[]/translations"></a> `translations?`
+
+All translations for the entry, identified by IETF language tag
+(BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#ArcaneEnergyCost'Disjunction/options[]/translations[key]">ArcaneEnergyCost'Disjunction/options[]/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="ArcaneEnergyCost'Disjunction/options[]/translations[key]"></a> `ArcaneEnergyCost'Disjunction/options[]/translations[key]`
+
+- **Type:** Object
+- **Minimum Properties:** `1`
+
+Key | Description | Details
+:-- | :-- | :--
+`note?` | A note, appended to the generated option string in parenthesis. | <a href="#ArcaneEnergyCost'Disjunction/options[]/translations[key]/note">See details</a>
+
+#### <a name="ArcaneEnergyCost'Disjunction/options[]/translations[key]/note"></a> `note?`
+
+A note, appended to the generated option string in parenthesis.
+
+- **Type:** <a href="#ArcaneEnergyCost'Disjunction/options[]/translations[key]/note">Object</a>
+
+---
+
+### <a name="ArcaneEnergyCost'Disjunction/options[]/translations[key]/note"></a> `ArcaneEnergyCost'Disjunction/options[]/translations[key]/note`
+
+A note, appended to the generated option string in parenthesis.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`default` | The full note. | <a href="#ArcaneEnergyCost'Disjunction/options[]/translations[key]/note/default">See details</a>
+`compressed?` | A compressed note, if applicable. If not specified it should not be displayed in small location. | <a href="#ArcaneEnergyCost'Disjunction/options[]/translations[key]/note/compressed">See details</a>
+
+#### <a name="ArcaneEnergyCost'Disjunction/options[]/translations[key]/note/default"></a> `default`
+
+The full note.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+#### <a name="ArcaneEnergyCost'Disjunction/options[]/translations[key]/note/compressed"></a> `compressed?`
+
+A compressed note, if applicable. If not specified it should not
+be displayed in small location.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+---
+
+### <a name="ArcaneEnergyCost'None"></a> `ArcaneEnergyCost'None`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ArcaneEnergyCost'None/tag">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ArcaneEnergyCost'None/translations">See details</a>
+
+#### <a name="ArcaneEnergyCost'None/tag"></a> `tag`
+
+- **Constant:** `"None"`
+
+#### <a name="ArcaneEnergyCost'None/translations"></a> `translations?`
+
+All translations for the entry, identified by IETF language tag
+(BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#ArcaneEnergyCost'None/translations[key]">ArcaneEnergyCost'None/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="ArcaneEnergyCost'None/translations[key]"></a> `ArcaneEnergyCost'None/translations[key]`
+
+- **Type:** Object
+- **Minimum Properties:** `1`
+
+Key | Description | Details
+:-- | :-- | :--
+`note?` | A note, appended to the generated string in parenthesis. | <a href="#ArcaneEnergyCost'None/translations[key]/note">See details</a>
+
+#### <a name="ArcaneEnergyCost'None/translations[key]/note"></a> `note?`
+
+A note, appended to the generated string in parenthesis.
+
+- **Type:** <a href="#ArcaneEnergyCost'None/translations[key]/note">Object</a>
+
+---
+
+### <a name="ArcaneEnergyCost'None/translations[key]/note"></a> `ArcaneEnergyCost'None/translations[key]/note`
+
+A note, appended to the generated string in parenthesis.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`default` | The full note. | <a href="#ArcaneEnergyCost'None/translations[key]/note/default">See details</a>
+`compressed?` | A compressed note, if applicable. If not specified it should not be displayed in small location. | <a href="#ArcaneEnergyCost'None/translations[key]/note/compressed">See details</a>
+
+#### <a name="ArcaneEnergyCost'None/translations[key]/note/default"></a> `default`
+
+The full note.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+#### <a name="ArcaneEnergyCost'None/translations[key]/note/compressed"></a> `compressed?`
+
+A compressed note, if applicable. If not specified it should not
+be displayed in small location.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+---
+
+### <a name="ArcaneEnergyCost'Variable"></a> `ArcaneEnergyCost'Variable`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ArcaneEnergyCost'Variable/tag">See details</a>
+
+#### <a name="ArcaneEnergyCost'Variable/tag"></a> `tag`
+
+- **Constant:** `"Variable"`
 
 ---
 

@@ -12,7 +12,7 @@ Key | Description | Details
 `levels?` |  | <a href="#StaffEnchantment/levels">See details</a>
 `maximum?` |  | <a href="#StaffEnchantment/maximum">See details</a>
 `volume` |  | <a href="#StaffEnchantment/volume">See details</a>
-`binding_cost?` |  | <a href="#StaffEnchantment/binding_cost">See details</a>
+`cost?` |  | <a href="#StaffEnchantment/cost">See details</a>
 `property` |  | <a href="#StaffEnchantment/property">See details</a>
 `ap_value` |  | <a href="#StaffEnchantment/ap_value">See details</a>
 `src` |  | <a href="#StaffEnchantment/src">See details</a>
@@ -34,9 +34,9 @@ Key | Description | Details
 
 - **Type:** <a href="../_Activatable.md#Volume">Volume</a>
 
-#### <a name="StaffEnchantment/binding_cost"></a> `binding_cost?`
+#### <a name="StaffEnchantment/cost"></a> `cost?`
 
-- **Type:** <a href="../_Activatable.md#BindingCost">BindingCost</a>
+- **Type:** <a href="../_Activatable.md#EnchantmentCost">EnchantmentCost</a>
 
 #### <a name="StaffEnchantment/property"></a> `property`
 

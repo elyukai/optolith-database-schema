@@ -3,6 +3,7 @@
  * @title Activatable
  */
 
+import { Duration } from "./_ActivatableSkill"
 import { Identifier } from "./_Identifier"
 import { Prerequisite } from "./_Prerequisite"
 
@@ -363,10 +364,329 @@ export type Penalty =
   }
   | { tag: "DependsOnHitZone" }
 
+export type EnchantmentCost =
+  | {
+    tag: "ArcaneEnergyCost"
+
+    ae_cost: ArcaneEnergyCost
+  }
+  | {
+    tag: "BindingCost"
+
+    binding_cost: BindingCost
+  }
+
 /**
  * The AE Cost.
  */
-export type ArcaneEnergyCost = "" // TODO
+export type ArcaneEnergyCost =
+  | {
+    tag: "Fixed"
+
+    /**
+     * The AE cost value.
+     * @integer
+     * @minimum 1
+     */
+    value: number
+
+    /**
+     * Set to `true` if the AE costs are permanent.
+     * @integer
+     * @minimum 1
+     */
+    is_permanent?: true
+
+    /**
+     * Specified if the AE cost `value` has to be paid for each time interval.
+     */
+    interval?: Duration.UnitValue
+
+    /**
+     * The AE cost are per level of the enchantment. It may either be displayed
+     * in a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1
+     * AE for level I; 2 AE for level II`).
+     */
+    per_level?:
+      | { tag: "Compressed" }
+      | { tag: "Verbose" }
+
+    /**
+     * All translations for the entry, identified by IETF language tag
+     * (BCP47).
+     * @minProperties 1
+     */
+    translations?: {
+      /**
+       * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+       * @minProperties 1
+       */
+      [localeId: string]: {
+        /**
+         * A note, appended to the generated string in parenthesis.
+         */
+        note?: {
+          /**
+           * The full note.
+           * @minLength 1
+           */
+          default: string
+
+          /**
+           * A compressed note, if applicable. If not specified it should not
+           * be displayed in small location.
+           * @minLength 1
+           */
+          compressed?: string
+        }
+      }
+    }
+  }
+  | {
+    tag: "PerCountable"
+
+    /**
+     * The AE cost value that has to be per a specific countable entity.
+     * @integer
+     * @minimum 1
+     */
+    value: number
+
+    /**
+     * If defined, in addition to the cost per entity you have to pay a flat
+     * amount, regardless of the entity count.
+     * @integer
+     * @minimum 1
+     */
+    base_value?: number
+
+    /**
+     * All translations for the entry, identified by IETF language tag
+     * (BCP47).
+     * @minProperties 1
+     */
+    translations?: {
+      /**
+       * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+       * @minProperties 1
+       */
+      [localeId: string]: {
+        /**
+         * The cost have to be per a specific countable entity, e.g. `8 AE per
+         * person`.
+         */
+        per: {
+          /**
+           * The full countable entity name.
+           * @minLength 1
+           */
+          default: string
+
+          /**
+           * The compressed countable entity name.
+           * @minLength 1
+           */
+          compressed: string
+        }
+
+        /**
+         * A note, appended to the generated string in parenthesis.
+         */
+        note?: {
+          /**
+           * The full note.
+           * @minLength 1
+           */
+          default: string
+
+          /**
+           * A compressed note, if applicable. If not specified it should not
+           * be displayed in small location.
+           * @minLength 1
+           */
+          compressed?: string
+        }
+      }
+    }
+  }
+  | {
+    tag: "ActivationAndHalfInterval"
+
+    /**
+     * The AE cost value that has to be payed for activation. Half of this value
+     * has to be payed each interval.
+     * @integer
+     * @minimum 2
+     * @multipleOf 2
+     */
+    value: number
+
+    /**
+     * The time interval for which the AE cost `value` has to be paid.
+     */
+    interval: Duration.UnitValue
+  }
+  | {
+    tag: "Indefinite"
+
+    /**
+     * The indefinite AE cost may be modified by a certain value.
+     */
+    modifier: {
+      /**
+       * The arithmetic how to apply the `value` to the indefinite base value.
+       */
+      arithmetic:
+        | { tag: "Add" }
+        | { tag: "Multiply" }
+
+      /**
+       * The value that is applied to the indefinite base value using the
+       * defined `arithmetic`.
+       * @integer
+       * @minimum 1
+       */
+      value: number
+    }
+
+    /**
+     * All translations for the entry, identified by IETF language tag (BCP47).
+     * @minProperties 1
+     */
+    translations: {
+      /**
+       * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+       */
+      [localeId: string]: {
+        /**
+         * A description of where the cost come from.
+         */
+        description: {
+          /**
+           * The full description of where the cost come from.
+           * @minLength 1
+           */
+          default: string
+
+          /**
+           * A compressed description of where the cost come from for use in
+           * small areas (e.g. on character sheet).
+           * @minLength 1
+           */
+          compressed: string
+        }
+      }
+    }
+  }
+  | {
+    tag: "Disjunction"
+
+    /**
+     * Specified if the selected AE cost option has to be paid for each time
+     * interval.
+     */
+    interval?: {
+      /**
+       * The interval itself.
+       */
+      value: Duration.UnitValue
+
+      /**
+       * The AE cost value for activation.
+       * @integer
+       * @minimum 1
+       */
+      activation_value: number
+
+      /**
+       * Set to `true` if the action where the enchantment is casted does
+       * **not** as a part of the first interval that has to be payed, so that
+       * the first interval payment needs to be done after the activation.
+       *
+       * This works different than other sustained spells, since for them the
+       * end of the cast usually already counts as part of the first interval.
+       */
+      after_activation: boolean
+    }
+
+    /**
+     * The possible AE cost values.
+     */
+    options: {
+      /**
+       * A possible AE cost value.
+       * @integer
+       * @minimum 1
+       */
+      value: number
+
+      /**
+       * All translations for the entry, identified by IETF language tag
+       * (BCP47).
+       * @minProperties 1
+       */
+      translations?: {
+        /**
+         * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+         * @minProperties 1
+         */
+        [localeId: string]: {
+          /**
+           * A note, appended to the generated option string in parenthesis.
+           */
+          note?: {
+            /**
+             * The full note.
+             * @minLength 1
+             */
+            default: string
+
+            /**
+             * A compressed note, if applicable. If not specified it should not
+             * be displayed in small location.
+             * @minLength 1
+             */
+            compressed?: string
+          }
+        }
+      }
+    }[]
+  }
+  | {
+    tag: "None"
+
+    /**
+     * All translations for the entry, identified by IETF language tag
+     * (BCP47).
+     * @minProperties 1
+     */
+    translations?: {
+      /**
+       * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+       * @minProperties 1
+       */
+      [localeId: string]: {
+        /**
+         * A note, appended to the generated string in parenthesis.
+         */
+        note?: {
+          /**
+           * The full note.
+           * @minLength 1
+           */
+          default: string
+
+          /**
+           * A compressed note, if applicable. If not specified it should not
+           * be displayed in small location.
+           * @minLength 1
+           */
+          compressed?: string
+        }
+      }
+    }
+  }
+  | { tag: "Variable" }
 
 /**
  * The volume points the enchantment needs.

@@ -568,6 +568,7 @@
                   "minimum": 1
                 },
                 "per": {
+                  "description": "The cost have to be per a specific countable entity, e.g. `8 KP per\nperson`.",
                   "type": "object",
                   "properties": {
                     "minimum_total": {

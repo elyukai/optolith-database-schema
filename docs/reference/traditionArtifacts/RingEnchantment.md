@@ -12,7 +12,7 @@ Key | Description | Details
 `levels?` |  | <a href="#RingEnchantment/levels">See details</a>
 `maximum?` |  | <a href="#RingEnchantment/maximum">See details</a>
 `volume` |  | <a href="#RingEnchantment/volume">See details</a>
-`binding_cost?` |  | <a href="#RingEnchantment/binding_cost">See details</a>
+`cost?` |  | <a href="#RingEnchantment/cost">See details</a>
 `property` |  | <a href="#RingEnchantment/property">See details</a>
 `ap_value` |  | <a href="#RingEnchantment/ap_value">See details</a>
 `src` |  | <a href="#RingEnchantment/src">See details</a>
@@ -34,9 +34,9 @@ Key | Description | Details
 
 - **Type:** <a href="../_Activatable.md#Volume">Volume</a>
 
-#### <a name="RingEnchantment/binding_cost"></a> `binding_cost?`
+#### <a name="RingEnchantment/cost"></a> `cost?`
 
-- **Type:** <a href="../_Activatable.md#BindingCost">BindingCost</a>
+- **Type:** <a href="../_Activatable.md#EnchantmentCost">EnchantmentCost</a>
 
 #### <a name="RingEnchantment/property"></a> `property`
 

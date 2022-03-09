@@ -208,13 +208,13 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 Key | Description | Details
 :-- | :-- | :--
-`per?` | The cost have to be per a specific countable entity, e.g. `8 KP per person` | <a href="#PerformanceParameters/cost'Fixed/translations[key]/per">See details</a>
+`per?` | The cost have to be per a specific countable entity, e.g. `8 KP per person`. | <a href="#PerformanceParameters/cost'Fixed/translations[key]/per">See details</a>
 `note?` | A note, appended to the generated string in parenthesis. | <a href="#PerformanceParameters/cost'Fixed/translations[key]/note">See details</a>
 
 #### <a name="PerformanceParameters/cost'Fixed/translations[key]/per"></a> `per?`
 
 The cost have to be per a specific countable entity, e.g. `8 KP
-per person`
+per person`.
 
 - **Type:** <a href="#PerformanceParameters/cost'Fixed/translations[key]/per">Object</a>
 
@@ -229,7 +229,7 @@ A note, appended to the generated string in parenthesis.
 ### <a name="PerformanceParameters/cost'Fixed/translations[key]/per"></a> `PerformanceParameters/cost'Fixed/translations[key]/per`
 
 The cost have to be per a specific countable entity, e.g. `8 KP
-per person`
+per person`.
 
 - **Type:** Object
 

@@ -12,7 +12,7 @@ Key | Description | Details
 `levels?` |  | <a href="#WeaponEnchantment/levels">See details</a>
 `maximum?` |  | <a href="#WeaponEnchantment/maximum">See details</a>
 `volume` |  | <a href="#WeaponEnchantment/volume">See details</a>
-`binding_cost?` |  | <a href="#WeaponEnchantment/binding_cost">See details</a>
+`cost?` |  | <a href="#WeaponEnchantment/cost">See details</a>
 `property` |  | <a href="#WeaponEnchantment/property">See details</a>
 `ap_value` |  | <a href="#WeaponEnchantment/ap_value">See details</a>
 `src` |  | <a href="#WeaponEnchantment/src">See details</a>
@@ -34,9 +34,9 @@ Key | Description | Details
 
 - **Type:** <a href="../_Activatable.md#Volume">Volume</a>
 
-#### <a name="WeaponEnchantment/binding_cost"></a> `binding_cost?`
+#### <a name="WeaponEnchantment/cost"></a> `cost?`
 
-- **Type:** <a href="../_Activatable.md#BindingCost">BindingCost</a>
+- **Type:** <a href="../_Activatable.md#EnchantmentCost">EnchantmentCost</a>
 
 #### <a name="WeaponEnchantment/property"></a> `property`
 
