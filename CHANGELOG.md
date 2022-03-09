@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.1](https://github.com/elyukai/optolith-database-schema/compare/v0.1.0...v0.1.1) (2022-03-09)
+
+
+### Features
+
+* familiar's tricks ([f8f88c9](https://github.com/elyukai/optolith-database-schema/commit/f8f88c9ab3c3339c4e26830623052d09924c4102))
+* trade secrets ([c834c31](https://github.com/elyukai/optolith-database-schema/commit/c834c31de87ce830d34c4cf9c0f60dcfb5a4d3ca))
+
 ## [0.1.0](https://github.com/elyukai/optolith-database-schema/compare/v0.0.4...v0.1.0) (2022-03-08)
 
 
