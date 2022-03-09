@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/elyukai/optolith-database-schema/compare/v0.1.3...v0.1.4) (2022-03-09)
+
+
+### Features
+
+* maximum activatable activations ([1750796](https://github.com/elyukai/optolith-database-schema/commit/175079672da1a692a2a2c49df86d818257af771a))
+* tradition artifact enchantment arcane energy cost ([f71916c](https://github.com/elyukai/optolith-database-schema/commit/f71916cfa9fe5f32ad75cd7d9341c9fdef4cfba6))
+* tradition artifact enchantment binding cost ([07c25fe](https://github.com/elyukai/optolith-database-schema/commit/07c25fe1b6330bba1698794d47abc6cb0dfae402))
+* tradition artifact enchantment volume points ([5cc8ce6](https://github.com/elyukai/optolith-database-schema/commit/5cc8ce63c4eb6928faca5c6ed58cd7da9abb27cd))
+
 ### [0.1.3](https://github.com/elyukai/optolith-database-schema/compare/v0.1.2...v0.1.3) (2022-03-09)
 
 
