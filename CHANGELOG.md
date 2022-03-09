@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/elyukai/optolith-database-schema/compare/v0.1.2...v0.1.3) (2022-03-09)
+
+
+### Features
+
+* first concept of penalties for combat-related special abilities ([d79d3b3](https://github.com/elyukai/optolith-database-schema/commit/d79d3b3752252342795400c905e2944d1234bd37))
+
+
+### Bug Fixes
+
+* remove generic numeric identifier maximum ([e121081](https://github.com/elyukai/optolith-database-schema/commit/e1210810f9cdbf8a720d0e12d5ec6ac21010a8dd))
+
 ### [0.1.2](https://github.com/elyukai/optolith-database-schema/compare/v0.1.1...v0.1.2) (2022-03-09)
 
 
