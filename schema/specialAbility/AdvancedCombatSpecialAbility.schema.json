@@ -53,6 +53,9 @@
                 "rules": {
                   "$ref": "../_Activatable.schema.json#/definitions/Rules"
                 },
+                "penalty": {
+                  "type": "string"
+                },
                 "errata": {
                   "$ref": "../source/_Erratum.schema.json#/definitions/Errata"
                 }

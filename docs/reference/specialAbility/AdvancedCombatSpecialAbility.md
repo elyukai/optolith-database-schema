@@ -80,6 +80,7 @@ Key | Description | Details
 `name` |  | <a href="#AdvancedCombatSpecialAbility/translations[key]/name">See details</a>
 `name_in_library?` |  | <a href="#AdvancedCombatSpecialAbility/translations[key]/name_in_library">See details</a>
 `rules` |  | <a href="#AdvancedCombatSpecialAbility/translations[key]/rules">See details</a>
+`penalty?` |  | <a href="#AdvancedCombatSpecialAbility/translations[key]/penalty">See details</a>
 `errata?` |  | <a href="#AdvancedCombatSpecialAbility/translations[key]/errata">See details</a>
 
 #### <a name="AdvancedCombatSpecialAbility/translations[key]/name"></a> `name`
@@ -93,6 +94,10 @@ Key | Description | Details
 #### <a name="AdvancedCombatSpecialAbility/translations[key]/rules"></a> `rules`
 
 - **Type:** <a href="../_Activatable.md#Rules">Rules</a>
+
+#### <a name="AdvancedCombatSpecialAbility/translations[key]/penalty"></a> `penalty?`
+
+- **Type:** String
 
 #### <a name="AdvancedCombatSpecialAbility/translations[key]/errata"></a> `errata?`
 
