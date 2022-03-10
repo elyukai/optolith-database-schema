@@ -67,7 +67,7 @@ export type Maximum = number
  * manually.
  * @minProperties 1
  */
-export type Options = {
+export type SelectOptions = {
   /**
    * A list of categories with optional further configuration. All available
    * entries from the specified categories will be included as separate select

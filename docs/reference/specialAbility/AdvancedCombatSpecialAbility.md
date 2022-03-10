@@ -36,7 +36,7 @@ Key | Description | Details
 
 #### <a name="AdvancedCombatSpecialAbility/select_options"></a> `select_options?`
 
-- **Type:** <a href="../_Activatable.md#Options">Options</a>
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="AdvancedCombatSpecialAbility/skill_applications"></a> `skill_applications?`
 

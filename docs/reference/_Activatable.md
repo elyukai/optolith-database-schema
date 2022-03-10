@@ -58,7 +58,7 @@ The maximum is only set if it differs from the defaults specified above.
 
 ---
 
-### <a name="Options"></a> `Options`
+### <a name="SelectOptions"></a> `SelectOptions`
 
 Definitions for possible options for the activatable entry. They can either
 be derived from entry categories or be defined explicitly. Both can happen as
@@ -78,10 +78,10 @@ manually.
 
 Key | Description | Details
 :-- | :-- | :--
-`derived?` | A list of categories with optional further configuration. All available entries from the specified categories will be included as separate select options. You can also specify a set of groups that should only be included. Groups not mentioned will be excluded then. | <a href="#Options/derived">See details</a>
-`explicit?` | A list of explicit select options. If the identifier has a specific type, its entry is the base of this select option, where values defined here override values from the base. Define the `src` property if the options are not derived from the rules text of the advantage/disadvantage/special ability but instead are listed in a separate block and/or on a separate page. | <a href="#Options/explicit">See details</a>
+`derived?` | A list of categories with optional further configuration. All available entries from the specified categories will be included as separate select options. You can also specify a set of groups that should only be included. Groups not mentioned will be excluded then. | <a href="#SelectOptions/derived">See details</a>
+`explicit?` | A list of explicit select options. If the identifier has a specific type, its entry is the base of this select option, where values defined here override values from the base. Define the `src` property if the options are not derived from the rules text of the advantage/disadvantage/special ability but instead are listed in a separate block and/or on a separate page. | <a href="#SelectOptions/explicit">See details</a>
 
-#### <a name="Options/derived"></a> `derived?`
+#### <a name="SelectOptions/derived"></a> `derived?`
 
 A list of categories with optional further configuration. All available
 entries from the specified categories will be included as separate select
@@ -89,10 +89,10 @@ options. You can also specify a set of groups that should only be
 included. Groups not mentioned will be excluded then.
 
 - **Type:** List
-- **Items:** <a href="#Options/derived[]">Options/derived[]</a>
+- **Items:** <a href="#SelectOptions/derived[]">SelectOptions/derived[]</a>
 - **Minimum Items:** `1`
 
-#### <a name="Options/explicit"></a> `explicit?`
+#### <a name="SelectOptions/explicit"></a> `explicit?`
 
 A list of explicit select options. If the identifier has a specific type,
 its entry is the base of this select option, where values defined here
@@ -102,18 +102,18 @@ ability but instead are listed in a separate block and/or on a separate
 page.
 
 - **Type:** List
-- **Items:** <a href="#Options/explicit[]">Options/explicit[]</a>
+- **Items:** <a href="#SelectOptions/explicit[]">SelectOptions/explicit[]</a>
 - **Minimum Items:** `1`
 
 ---
 
-### <a name="Options/derived[]"></a> `Options/derived[]`
+### <a name="SelectOptions/derived[]"></a> `SelectOptions/derived[]`
 
 - **Type:** <a href="#CategoryOption">CategoryOption</a>
 
 ---
 
-### <a name="Options/explicit[]"></a> `Options/explicit[]`
+### <a name="SelectOptions/explicit[]"></a> `SelectOptions/explicit[]`
 
 - **Type:** <a href="#ExplicitOption">ExplicitOption</a>
 

@@ -27,7 +27,7 @@
       "type": "integer",
       "minimum": 1
     },
-    "Options": {
+    "SelectOptions": {
       "description": "Definitions for possible options for the activatable entry. They can either\nbe derived from entry categories or be defined explicitly. Both can happen as\nwell, but if there is an explicitly defined select option and a derived\nselect option has the same identifier (which may only happen if skill or\ncombat technique identifiers are used for explicit select options), the\nexplicit definition overwrites the derived option.\n\nNote that this is only a full definition of options for simple logic that can\nbe made explicit using the more detailed configuration for both derived\ncategories and explicit options. There are quite a few entries whose option\nlogic cannot be fully represented here, so that it needs to be implemented\nmanually.",
       "type": "object",
       "properties": {
