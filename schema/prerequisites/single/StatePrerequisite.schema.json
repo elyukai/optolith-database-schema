@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "prerequisites/single/StatePrerequisite.schema.json",
+  "definitions": {
+    "StatePrerequisite": {
+      "title": "State Prerequisite",
+      "description": "Requires a specific state or one of a specific set of states.",
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Culture"
+        },
+        "id": {
+          "$ref": "../../_Identifier.schema.json#/definitions/OneOrManyNumericIdentifiers"
+        },
+        "display_option": {
+          "$ref": "../DisplayOption.schema.json#/definitions/DisplayOption"
+        }
+      },
+      "required": [
+        "tag",
+        "id"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

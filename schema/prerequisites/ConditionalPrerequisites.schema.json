@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "prerequisites/ConditionalPrerequisites.schema.json",
+  "definitions": {
+    "Preconditions": {
+      "title": "Preconditions (`when`)",
+      "description": "A list of preconditions for the prerequisite it is defined on, so that it\nonly takes effect if the prerequisites in this list are matched.\n\nUsually appears at the `when` property of the parent prerequisite.",
+      "type": "array",
+      "items": {
+        "$ref": "./PrerequisiteGroups.schema.json#/definitions/PreconditionGroup"
+      },
+      "minItems": 1
+    }
+  }
+}

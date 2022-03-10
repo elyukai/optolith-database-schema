@@ -16,6 +16,9 @@
         "maximum": {
           "$ref": "../_Activatable.schema.json#/definitions/Maximum"
         },
+        "prerequisites": {
+          "$ref": "../_Prerequisite.schema.json#/definitions/GeneralPrerequisites"
+        },
         "volume": {
           "$ref": "../_Activatable.schema.json#/definitions/Volume"
         },

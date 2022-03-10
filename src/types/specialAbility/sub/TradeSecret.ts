@@ -4,6 +4,7 @@
 
 import { Errata } from "../../source/_Erratum"
 import { PublicationRefs } from "../../source/_PublicationRef"
+import { GeneralPrerequisites } from "../../_Prerequisite"
 
 /**
  * @title Trade Secret
@@ -28,7 +29,7 @@ export type TradeSecret = {
    */
   is_secret_knowledge: boolean
 
-  // prerequisites?: Prerequisite.GroupCollection.General
+  prerequisites?: GeneralPrerequisites
 
   src: PublicationRefs
 

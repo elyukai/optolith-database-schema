@@ -26,7 +26,7 @@
         },
         "prerequisites": {
           "description": "The specific other publications this publication depends on data from.",
-          "$ref": "../_Prerequisite.schema.json#/definitions/Prerequisite/GroupCollection/Publication"
+          "$ref": "../_Prerequisite.schema.json#/definitions/PublicationPrerequisites"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",

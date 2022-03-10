@@ -25,6 +25,9 @@
         "advanced": {
           "$ref": "../_Activatable.schema.json#/definitions/AdvancedSpecialAbilities"
         },
+        "prerequisites": {
+          "$ref": "../_Prerequisite.schema.json#/definitions/GeneralPrerequisites"
+        },
         "ap_value": {
           "$ref": "../_Activatable.schema.json#/definitions/AdventurePointsValue"
         },

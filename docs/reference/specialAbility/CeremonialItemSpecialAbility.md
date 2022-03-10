@@ -14,6 +14,7 @@ Key | Description | Details
 `skill_uses?` |  | <a href="#CeremonialItemSpecialAbility/skill_uses">See details</a>
 `maximum?` |  | <a href="#CeremonialItemSpecialAbility/maximum">See details</a>
 `aspect` |  | <a href="#CeremonialItemSpecialAbility/aspect">See details</a>
+`prerequisites?` |  | <a href="#CeremonialItemSpecialAbility/prerequisites">See details</a>
 `ap_value` |  | <a href="#CeremonialItemSpecialAbility/ap_value">See details</a>
 `src` |  | <a href="#CeremonialItemSpecialAbility/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#CeremonialItemSpecialAbility/translations">See details</a>
@@ -41,6 +42,10 @@ Key | Description | Details
 #### <a name="CeremonialItemSpecialAbility/aspect"></a> `aspect`
 
 - **Type:** <a href="../_Activatable.md#Aspect">Aspect</a>
+
+#### <a name="CeremonialItemSpecialAbility/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="../_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
 
 #### <a name="CeremonialItemSpecialAbility/ap_value"></a> `ap_value`
 

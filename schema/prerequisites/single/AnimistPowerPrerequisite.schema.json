@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "prerequisites/single/AnimistPowerPrerequisite.schema.json",
+  "definitions": {
+    "AnimistPowerPrerequisite": {
+      "title": "Animist Power Prerequisite",
+      "description": "Requires a specific animist power to be on a minimum value.",
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "AnimistPower"
+        },
+        "id": {
+          "description": "The animist power's identifier.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "level": {
+          "description": "The level to which the minimum value applies.",
+          "type": "integer",
+          "minimum": 2
+        },
+        "value": {
+          "description": "The required minimum value.",
+          "type": "integer",
+          "minimum": 0
+        },
+        "display_option": {
+          "$ref": "../DisplayOption.schema.json#/definitions/DisplayOption"
+        }
+      },
+      "required": [
+        "tag",
+        "id",
+        "value"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

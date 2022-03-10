@@ -5,6 +5,7 @@
 import { Errata } from "./source/_Erratum"
 import { PublicationRefs } from "./source/_PublicationRef"
 import * as Activatable from "./_Activatable"
+import { AdvantageDisadvantagePrerequisites } from "./_Prerequisite"
 
 /**
  * @title Advantage
@@ -22,7 +23,7 @@ export type Advantage = {
 
   maximum?: Activatable.Maximum
 
-  // prerequisites?: Prerequisite.GroupCollection.AdvantageDisadvantage
+  prerequisites?: AdvantageDisadvantagePrerequisites
 
   ap_value: Activatable.AdventurePointsValue
 

@@ -11,6 +11,7 @@ Key | Description | Details
 `id` |  | <a href="#WeaponEnchantment/id">See details</a>
 `levels?` |  | <a href="#WeaponEnchantment/levels">See details</a>
 `maximum?` |  | <a href="#WeaponEnchantment/maximum">See details</a>
+`prerequisites?` |  | <a href="#WeaponEnchantment/prerequisites">See details</a>
 `volume` |  | <a href="#WeaponEnchantment/volume">See details</a>
 `cost?` |  | <a href="#WeaponEnchantment/cost">See details</a>
 `property` |  | <a href="#WeaponEnchantment/property">See details</a>
@@ -29,6 +30,10 @@ Key | Description | Details
 #### <a name="WeaponEnchantment/maximum"></a> `maximum?`
 
 - **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+
+#### <a name="WeaponEnchantment/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="../_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
 
 #### <a name="WeaponEnchantment/volume"></a> `volume`
 

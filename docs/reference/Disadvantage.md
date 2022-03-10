@@ -11,6 +11,7 @@ Key | Description | Details
 `id` |  | <a href="#Disadvantage/id">See details</a>
 `levels?` |  | <a href="#Disadvantage/levels">See details</a>
 `maximum?` |  | <a href="#Disadvantage/maximum">See details</a>
+`prerequisites?` |  | <a href="#Disadvantage/prerequisites">See details</a>
 `ap_value` |  | <a href="#Disadvantage/ap_value">See details</a>
 `has_no_maximum_spent_influence?` | Does this disadvantage not count towards the maximum of AP to be granted by disadvantages? | <a href="#Disadvantage/has_no_maximum_spent_influence">See details</a>
 `is_exclusive_to_arcane_spellworks?` | Does this disadvantage exclusively applies to arcane spellworks but not to magical actions and applications? | <a href="#Disadvantage/is_exclusive_to_arcane_spellworks">See details</a>
@@ -28,6 +29,10 @@ Key | Description | Details
 #### <a name="Disadvantage/maximum"></a> `maximum?`
 
 - **Type:** <a href="./_Activatable.md#Maximum">Maximum</a>
+
+#### <a name="Disadvantage/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="./_Prerequisite.md#AdvantageDisadvantagePrerequisites">AdvantageDisadvantagePrerequisites</a>
 
 #### <a name="Disadvantage/ap_value"></a> `ap_value`
 

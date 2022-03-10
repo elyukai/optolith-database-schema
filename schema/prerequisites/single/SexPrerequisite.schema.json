@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "prerequisites/single/SexPrerequisite.schema.json",
+  "definitions": {
+    "SexPrerequisite": {
+      "title": "Sex Prerequisite",
+      "description": "Requires a specific sex.",
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Sex"
+        },
+        "id": {
+          "$ref": "../../_Sex.schema.json#/definitions/BinarySex"
+        },
+        "display_option": {
+          "$ref": "../DisplayOption.schema.json#/definitions/DisplayOption"
+        }
+      },
+      "required": [
+        "tag",
+        "id"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

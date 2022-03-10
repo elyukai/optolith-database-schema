@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "prerequisites/single/EnhancementPrerequisite.schema.json",
+  "definitions": {
+    "ExternalEnhancementPrerequisite": {
+      "title": "External Enhancement Prerequisite",
+      "description": "Requires a specific enhancement from a skill. This should **not** be used\nfor enhancements themselves; they can only require enhancements from the same\nskill they enhance.",
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Enhancement"
+        },
+        "skill_id": {
+          "description": "The required skill's identifier.",
+          "$ref": "../../_Identifier.schema.json#/definitions/SkillWithEnhancementsIdentifier"
+        },
+        "enhancement_id": {
+          "description": "The required enhancement's identifier.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "display_option": {
+          "$ref": "../DisplayOption.schema.json#/definitions/DisplayOption"
+        }
+      },
+      "required": [
+        "tag",
+        "skill_id",
+        "enhancement_id"
+      ],
+      "additionalProperties": false
+    },
+    "InternalEnhancementPrerequisite": {
+      "title": "Internal Enhancement Prerequisite",
+      "description": "Requires a specific enhancement from a skill. This can only be used by an\nenhancement to require another enhancement from the same skill.",
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Enhancement"
+        },
+        "id": {
+          "description": "The enhancement's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "id"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

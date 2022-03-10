@@ -15,6 +15,7 @@ Key | Description | Details
 `skill_uses?` |  | <a href="#AdvancedCombatSpecialAbility/skill_uses">See details</a>
 `maximum?` |  | <a href="#AdvancedCombatSpecialAbility/maximum">See details</a>
 `penalty?` |  | <a href="#AdvancedCombatSpecialAbility/penalty">See details</a>
+`prerequisites?` |  | <a href="#AdvancedCombatSpecialAbility/prerequisites">See details</a>
 `combat_techniques` |  | <a href="#AdvancedCombatSpecialAbility/combat_techniques">See details</a>
 `ap_value` |  | <a href="#AdvancedCombatSpecialAbility/ap_value">See details</a>
 `src` |  | <a href="#AdvancedCombatSpecialAbility/src">See details</a>
@@ -47,6 +48,10 @@ Key | Description | Details
 #### <a name="AdvancedCombatSpecialAbility/penalty"></a> `penalty?`
 
 - **Type:** <a href="../_Activatable.md#Penalty">Penalty</a>
+
+#### <a name="AdvancedCombatSpecialAbility/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="../_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
 
 #### <a name="AdvancedCombatSpecialAbility/combat_techniques"></a> `combat_techniques`
 

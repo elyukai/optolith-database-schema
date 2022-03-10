@@ -11,6 +11,7 @@ Key | Description | Details
 `id` |  | <a href="#ProtectiveWardingCircleSpecialAbility/id">See details</a>
 `levels?` |  | <a href="#ProtectiveWardingCircleSpecialAbility/levels">See details</a>
 `maximum?` |  | <a href="#ProtectiveWardingCircleSpecialAbility/maximum">See details</a>
+`prerequisites?` |  | <a href="#ProtectiveWardingCircleSpecialAbility/prerequisites">See details</a>
 `ap_value` |  | <a href="#ProtectiveWardingCircleSpecialAbility/ap_value">See details</a>
 `src` |  | <a href="#ProtectiveWardingCircleSpecialAbility/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ProtectiveWardingCircleSpecialAbility/translations">See details</a>
@@ -26,6 +27,10 @@ Key | Description | Details
 #### <a name="ProtectiveWardingCircleSpecialAbility/maximum"></a> `maximum?`
 
 - **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+
+#### <a name="ProtectiveWardingCircleSpecialAbility/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="../_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
 
 #### <a name="ProtectiveWardingCircleSpecialAbility/ap_value"></a> `ap_value`
 

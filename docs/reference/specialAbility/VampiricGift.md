@@ -11,6 +11,7 @@ Key | Description | Details
 `id` |  | <a href="#VampiricGift/id">See details</a>
 `levels?` |  | <a href="#VampiricGift/levels">See details</a>
 `maximum?` |  | <a href="#VampiricGift/maximum">See details</a>
+`prerequisites?` |  | <a href="#VampiricGift/prerequisites">See details</a>
 `ap_value` |  | <a href="#VampiricGift/ap_value">See details</a>
 `src` |  | <a href="#VampiricGift/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#VampiricGift/translations">See details</a>
@@ -26,6 +27,10 @@ Key | Description | Details
 #### <a name="VampiricGift/maximum"></a> `maximum?`
 
 - **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+
+#### <a name="VampiricGift/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="../_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
 
 #### <a name="VampiricGift/ap_value"></a> `ap_value`
 

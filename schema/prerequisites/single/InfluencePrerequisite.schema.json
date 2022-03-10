@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "prerequisites/single/InfluencePrerequisite.schema.json",
+  "definitions": {
+    "InfluencePrerequisite": {
+      "title": "Influence Prerequisite",
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Influence"
+        },
+        "id": {
+          "description": "The influence's identifier.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "active": {
+          "description": "If the referenced influence must or must not be chosen.",
+          "type": "boolean"
+        },
+        "display_option": {
+          "$ref": "../DisplayOption.schema.json#/definitions/DisplayOption"
+        }
+      },
+      "required": [
+        "tag",
+        "id",
+        "active"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

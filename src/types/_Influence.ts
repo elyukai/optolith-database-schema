@@ -4,6 +4,7 @@
 
 import { Errata } from "./source/_Erratum"
 import { PublicationRefs } from "./source/_PublicationRef"
+import { InfluencePrerequisites } from "./_Prerequisite"
 
 /**
  * @title Influence
@@ -16,7 +17,7 @@ export type Influence = {
    */
   id: number
 
-  // prerequisites: Prerequisite.GroupCollection.Influence
+  prerequisites: InfluencePrerequisites
 
   src: PublicationRefs
 

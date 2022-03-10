@@ -16,6 +16,9 @@
         "maximum": {
           "$ref": "./_Activatable.schema.json#/definitions/Maximum"
         },
+        "prerequisites": {
+          "$ref": "./_Prerequisite.schema.json#/definitions/AdvantageDisadvantagePrerequisites"
+        },
         "ap_value": {
           "$ref": "./_Activatable.schema.json#/definitions/AdventurePointsValue"
         },

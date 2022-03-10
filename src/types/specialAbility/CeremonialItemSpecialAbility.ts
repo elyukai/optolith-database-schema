@@ -5,6 +5,7 @@
 import { Errata } from "../source/_Erratum"
 import { PublicationRefs } from "../source/_PublicationRef"
 import * as Activatable from "../_Activatable"
+import { GeneralPrerequisites } from "../_Prerequisite"
 
 /**
  * @title Ceremonial Item Special Ability
@@ -24,7 +25,7 @@ export type CeremonialItemSpecialAbility = {
 
   aspect: Activatable.Aspect
 
-  // prerequisites?: Prerequisite.GroupCollection.General
+  prerequisites?: GeneralPrerequisites
 
   ap_value: Activatable.AdventurePointsValue
 

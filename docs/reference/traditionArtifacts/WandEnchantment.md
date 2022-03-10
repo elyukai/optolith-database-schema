@@ -11,6 +11,7 @@ Key | Description | Details
 `id` |  | <a href="#WandEnchantment/id">See details</a>
 `levels?` |  | <a href="#WandEnchantment/levels">See details</a>
 `maximum?` |  | <a href="#WandEnchantment/maximum">See details</a>
+`prerequisites?` |  | <a href="#WandEnchantment/prerequisites">See details</a>
 `volume` |  | <a href="#WandEnchantment/volume">See details</a>
 `cost?` |  | <a href="#WandEnchantment/cost">See details</a>
 `property` |  | <a href="#WandEnchantment/property">See details</a>
@@ -29,6 +30,10 @@ Key | Description | Details
 #### <a name="WandEnchantment/maximum"></a> `maximum?`
 
 - **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+
+#### <a name="WandEnchantment/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="../_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
 
 #### <a name="WandEnchantment/volume"></a> `volume`
 

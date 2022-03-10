@@ -238,6 +238,7 @@ Key | Description | Details
 `effect` | The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels. | <a href="#AnimistPower/translations[key]/effect">See details</a>
 `cost` |  | <a href="#AnimistPower/translations[key]/cost">See details</a>
 `duration` |  | <a href="#AnimistPower/translations[key]/duration">See details</a>
+`prerequisites?` | A prerequisites text. | <a href="#AnimistPower/translations[key]/prerequisites">See details</a>
 `errata?` |  | <a href="#AnimistPower/translations[key]/errata">See details</a>
 
 #### <a name="AnimistPower/translations[key]/name"></a> `name`
@@ -271,6 +272,12 @@ list for each two quality levels.
 #### <a name="AnimistPower/translations[key]/duration"></a> `duration`
 
 - **Type:** <a href="#AnimistPower/translations[key]/duration">Object</a>
+
+#### <a name="AnimistPower/translations[key]/prerequisites"></a> `prerequisites?`
+
+A prerequisites text.
+
+- **Type:** String
 
 #### <a name="AnimistPower/translations[key]/errata"></a> `errata?`
 

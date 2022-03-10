@@ -142,7 +142,7 @@
           ]
         },
         "prerequisites": {
-          "$ref": "../../_Prerequisite.schema.json#/definitions/Prerequisite/GroupCollection/Language"
+          "$ref": "../../_Prerequisite.schema.json#/definitions/LanguagePrerequisites"
         },
         "max_level": {
           "description": "The maximum possible level of the language. Only specified if lower than\ndefault of 3.",

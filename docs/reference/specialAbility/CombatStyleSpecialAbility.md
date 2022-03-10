@@ -16,6 +16,7 @@ Key | Description | Details
 `skill_uses?` |  | <a href="#CombatStyleSpecialAbility/skill_uses">See details</a>
 `maximum?` |  | <a href="#CombatStyleSpecialAbility/maximum">See details</a>
 `advanced` |  | <a href="#CombatStyleSpecialAbility/advanced">See details</a>
+`prerequisites?` |  | <a href="#CombatStyleSpecialAbility/prerequisites">See details</a>
 `combat_techniques` |  | <a href="#CombatStyleSpecialAbility/combat_techniques">See details</a>
 `ap_value` |  | <a href="#CombatStyleSpecialAbility/ap_value">See details</a>
 `src` |  | <a href="#CombatStyleSpecialAbility/src">See details</a>
@@ -55,6 +56,10 @@ Is this an armed or unarmed combat style?
 #### <a name="CombatStyleSpecialAbility/advanced"></a> `advanced`
 
 - **Type:** <a href="../_Activatable.md#AdvancedSpecialAbilities">AdvancedSpecialAbilities</a>
+
+#### <a name="CombatStyleSpecialAbility/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="../_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
 
 #### <a name="CombatStyleSpecialAbility/combat_techniques"></a> `combat_techniques`
 

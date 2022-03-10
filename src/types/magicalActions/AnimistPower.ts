@@ -155,11 +155,11 @@ export type AnimistPower = {
        */
       duration: { full: string; abbr: string }
 
-      // /**
-      //  * A prerequisites text.
-      //  * @deprecated
-      //  */
-      // prerequisites?: string
+      /**
+       * A prerequisites text.
+       * @deprecated
+       */
+      prerequisites?: string
 
       errata?: Errata
     }

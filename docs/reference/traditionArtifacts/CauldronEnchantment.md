@@ -11,6 +11,7 @@ Key | Description | Details
 `id` |  | <a href="#CauldronEnchantment/id">See details</a>
 `levels?` |  | <a href="#CauldronEnchantment/levels">See details</a>
 `maximum?` |  | <a href="#CauldronEnchantment/maximum">See details</a>
+`prerequisites?` |  | <a href="#CauldronEnchantment/prerequisites">See details</a>
 `volume` |  | <a href="#CauldronEnchantment/volume">See details</a>
 `brew` | Witches can learn to brew special things in their Witch's Cauldron. These brews can be categorized in different types. | <a href="#CauldronEnchantment/brew">See details</a>
 `cost?` |  | <a href="#CauldronEnchantment/cost">See details</a>
@@ -30,6 +31,10 @@ Key | Description | Details
 #### <a name="CauldronEnchantment/maximum"></a> `maximum?`
 
 - **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+
+#### <a name="CauldronEnchantment/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="../_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
 
 #### <a name="CauldronEnchantment/volume"></a> `volume`
 

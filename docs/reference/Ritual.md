@@ -76,7 +76,7 @@ States which column is used to improve the skill.
 
 #### <a name="Ritual/prerequisites"></a> `prerequisites?`
 
-- **Type:** <a href="./_Prerequisite.md#Prerequisite/GroupCollection/Spellwork">Prerequisite/GroupCollection/Spellwork</a>
+- **Type:** <a href="./_Prerequisite.md#SpellworkPrerequisites">SpellworkPrerequisites</a>
 
 #### <a name="Ritual/src"></a> `src`
 

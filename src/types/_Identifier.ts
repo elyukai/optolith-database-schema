@@ -88,6 +88,25 @@ enum PatronTag {
   Patron = "Patron",
 }
 
+enum ExtensionRuleTag {
+  FocusRule = "FocusRule",
+  OptionalRule = "OptionalRule",
+}
+
+enum SkillWithEnhancementsTag {
+  Spell = "Spell",
+  Ritual = "Ritual",
+  LiturgicalChant = "LiturgicalChant",
+  Ceremony = "Ceremony",
+}
+
+enum RequirableSelectOptionTag {
+  General = "General",
+  Skill = "Skill",
+  CloseCombatTechnique = "CloseCombatTechnique",
+  RangedCombatTechnique = "RangedCombatTechnique",
+}
+
 type TaggedIdentifier<Tag> = {
   tag: Tag
 
@@ -107,3 +126,18 @@ export type VolumePointsOptionReferenceIdentifier = TaggedIdentifier<VolumePoint
 export type CombatTechniqueIdentifier = TaggedIdentifier<CombatTechniqueTag>
 export type MagicalTraditionIdentifier = TaggedIdentifier<MagicalTraditionTag>
 export type PatronIdentifier = TaggedIdentifier<PatronTag>
+export type ExtensionRuleIdentifier = TaggedIdentifier<ExtensionRuleTag>
+export type SkillWithEnhancementsIdentifier = TaggedIdentifier<SkillWithEnhancementsTag>
+export type RequirableSelectOptionIdentifier = TaggedIdentifier<RequirableSelectOptionTag>
+
+export type OneOrManyNumericIdentifiers = OneNumericIdentifier | ManyNumericIdentifiers
+
+/**
+ * @minimum 1
+ */
+type OneNumericIdentifier = number
+
+/**
+ * @minItems 2
+ */
+type ManyNumericIdentifiers = OneNumericIdentifier[]

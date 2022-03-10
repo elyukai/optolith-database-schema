@@ -32,7 +32,7 @@
           "minimum": 1
         },
         "prerequisites": {
-          "$ref": "./_Prerequisite.schema.json#/definitions/Prerequisite/GroupCollection/Enhancement"
+          "$ref": "./_Prerequisite.schema.json#/definitions/EnhancementPrerequisites"
         },
         "src": {
           "description": "Only defined if different than the associated skill.",

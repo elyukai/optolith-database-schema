@@ -3,9 +3,9 @@
  * @title Activatable
  */
 
+import { DisplayOption } from "./prerequisites/DisplayOption"
 import { Duration } from "./_ActivatableSkill"
 import { AdvancedSpecialAbilityRestrictedOptionIdentifier, CombatRelatedSpecialAbilityIdentifier, CombatTechniqueIdentifier, MagicalTraditionIdentifier, PatronIdentifier, VolumePointsOptionReferenceIdentifier } from "./_Identifier"
-import { Prerequisite } from "./_Prerequisite"
 
 /**
  * The activatable entry's identifier. An unique, increasing integer.
@@ -1069,7 +1069,7 @@ export type AdvancedSpecialAbility =
      */
     option: AdvancedSpecialAbilityRestrictedOptionIdentifier[]
 
-    display_option?: Prerequisite.Single.DisplayOption.T
+    display_option?: DisplayOption
   }
   | {
     tag: "DeriveFromExternalOption"
@@ -1101,7 +1101,7 @@ export type AdvancedSpecialAbility =
       }
     }[]
 
-    display_option?: Prerequisite.Single.DisplayOption.T
+    display_option?: DisplayOption
 
     /**
      * Do have to choose on when buying the special ability? Otherwise the

@@ -11,6 +11,7 @@ Key | Description | Details
 `id` |  | <a href="#InstrumentEnchantment/id">See details</a>
 `levels?` |  | <a href="#InstrumentEnchantment/levels">See details</a>
 `maximum?` |  | <a href="#InstrumentEnchantment/maximum">See details</a>
+`prerequisites?` |  | <a href="#InstrumentEnchantment/prerequisites">See details</a>
 `volume` |  | <a href="#InstrumentEnchantment/volume">See details</a>
 `cost?` |  | <a href="#InstrumentEnchantment/cost">See details</a>
 `property` |  | <a href="#InstrumentEnchantment/property">See details</a>
@@ -29,6 +30,10 @@ Key | Description | Details
 #### <a name="InstrumentEnchantment/maximum"></a> `maximum?`
 
 - **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+
+#### <a name="InstrumentEnchantment/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="../_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
 
 #### <a name="InstrumentEnchantment/volume"></a> `volume`
 

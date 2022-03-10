@@ -6,6 +6,7 @@ import { Errata } from "../source/_Erratum"
 import { PublicationRefs } from "../source/_PublicationRef"
 import * as Activatable from "../_Activatable"
 import { Influence } from "../_Influence"
+import { GeneralPrerequisites } from "../_Prerequisite"
 
 /**
  * @title Magical Tradition
@@ -107,7 +108,7 @@ export type MagicalTradition = {
    */
   influences?: Influence[]
 
-  // prerequisites?: Prerequisite.GroupCollection.MagicalTradition // General + Ineligible
+  prerequisites?: GeneralPrerequisites
 
   ap_value: Activatable.AdventurePointsValue
 

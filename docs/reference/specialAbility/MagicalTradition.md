@@ -23,6 +23,7 @@ Key | Description | Details
 `is_magical_dilettante` | Is this a magical dilettante tradition? | <a href="#MagicalTradition/is_magical_dilettante">See details</a>
 `use_arcane_spellworks_from_tradition` | If arcane spellworks from a different tradition count as arcane spellworks of this tradition, this is the different tradition's reference. | <a href="#MagicalTradition/use_arcane_spellworks_from_tradition">See details</a>
 `influences?` | The Influences for the traditions. Influences are enabled by Focus Rules. | <a href="#MagicalTradition/influences">See details</a>
+`prerequisites?` |  | <a href="#MagicalTradition/prerequisites">See details</a>
 `ap_value` |  | <a href="#MagicalTradition/ap_value">See details</a>
 `src` |  | <a href="#MagicalTradition/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#MagicalTradition/translations">See details</a>
@@ -118,6 +119,10 @@ The Influences for the traditions. Influences are enabled by Focus Rules.
 - **Type:** List
 - **Items:** <a href="#MagicalTradition/influences[]">MagicalTradition/influences[]</a>
 - **Minimum Items:** `2`
+
+#### <a name="MagicalTradition/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="../_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
 
 #### <a name="MagicalTradition/ap_value"></a> `ap_value`
 

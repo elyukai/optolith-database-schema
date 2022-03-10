@@ -11,6 +11,7 @@ Key | Description | Details
 `id` |  | <a href="#StaffEnchantment/id">See details</a>
 `levels?` |  | <a href="#StaffEnchantment/levels">See details</a>
 `maximum?` |  | <a href="#StaffEnchantment/maximum">See details</a>
+`prerequisites?` |  | <a href="#StaffEnchantment/prerequisites">See details</a>
 `volume` |  | <a href="#StaffEnchantment/volume">See details</a>
 `cost?` |  | <a href="#StaffEnchantment/cost">See details</a>
 `property` |  | <a href="#StaffEnchantment/property">See details</a>
@@ -29,6 +30,10 @@ Key | Description | Details
 #### <a name="StaffEnchantment/maximum"></a> `maximum?`
 
 - **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+
+#### <a name="StaffEnchantment/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="../_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
 
 #### <a name="StaffEnchantment/volume"></a> `volume`
 

@@ -13,6 +13,7 @@ Key | Description | Details
 `maximum?` |  | <a href="#PactGift/maximum">See details</a>
 `permanent_demonic_consumption?` |  | <a href="#PactGift/permanent_demonic_consumption">See details</a>
 `automatic_entries?` | This pact gift has direct influence on the existence of other entries. It may add or remove entries. | <a href="#PactGift/automatic_entries">See details</a>
+`prerequisites?` |  | <a href="#PactGift/prerequisites">See details</a>
 `ap_value` |  | <a href="#PactGift/ap_value">See details</a>
 `src` |  | <a href="#PactGift/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PactGift/translations">See details</a>
@@ -42,6 +43,10 @@ may add or remove entries.
 - **Type:** List
 - **Items:** <a href="#PactGift/automatic_entries[]">PactGift/automatic_entries[]</a>
 - **Minimum Items:** `1`
+
+#### <a name="PactGift/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="../_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
 
 #### <a name="PactGift/ap_value"></a> `ap_value`
 

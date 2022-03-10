@@ -11,6 +11,7 @@ Key | Description | Details
 `id` |  | <a href="#LycantropicGift/id">See details</a>
 `levels?` |  | <a href="#LycantropicGift/levels">See details</a>
 `maximum?` |  | <a href="#LycantropicGift/maximum">See details</a>
+`prerequisites?` |  | <a href="#LycantropicGift/prerequisites">See details</a>
 `ap_value` |  | <a href="#LycantropicGift/ap_value">See details</a>
 `src` |  | <a href="#LycantropicGift/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#LycantropicGift/translations">See details</a>
@@ -26,6 +27,10 @@ Key | Description | Details
 #### <a name="LycantropicGift/maximum"></a> `maximum?`
 
 - **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+
+#### <a name="LycantropicGift/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="../_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
 
 #### <a name="LycantropicGift/ap_value"></a> `ap_value`
 

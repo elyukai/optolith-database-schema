@@ -5,6 +5,7 @@
 import { Errata } from "../source/_Erratum"
 import { PublicationRefs } from "../source/_PublicationRef"
 import * as Activatable from "../_Activatable"
+import { GeneralPrerequisites } from "../_Prerequisite"
 
 /**
  * @title Spell-Sword Enchantment
@@ -18,7 +19,7 @@ export type SpellSwordEnchantment = {
 
   maximum?: Activatable.Maximum
 
-  // prerequisites?: Prerequisite.GroupCollection.General
+  prerequisites?: GeneralPrerequisites
 
   volume: Activatable.Volume
 

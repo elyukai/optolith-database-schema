@@ -9,6 +9,7 @@
 Key | Description | Details
 :-- | :-- | :--
 `id` | The influence's identifier. An unique, increasing integer. | <a href="#Influence/id">See details</a>
+`prerequisites` |  | <a href="#Influence/prerequisites">See details</a>
 `src` |  | <a href="#Influence/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Influence/translations">See details</a>
 
@@ -18,6 +19,10 @@ The influence's identifier. An unique, increasing integer.
 
 - **Type:** Integer
 - **Minimum:** `1`
+
+#### <a name="Influence/prerequisites"></a> `prerequisites`
+
+- **Type:** <a href="./_Prerequisite.md#InfluencePrerequisites">InfluencePrerequisites</a>
 
 #### <a name="Influence/src"></a> `src`
 

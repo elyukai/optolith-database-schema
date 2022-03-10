@@ -11,6 +11,7 @@ Key | Description | Details
 `id` |  | <a href="#OrbEnchantment/id">See details</a>
 `levels?` |  | <a href="#OrbEnchantment/levels">See details</a>
 `maximum?` |  | <a href="#OrbEnchantment/maximum">See details</a>
+`prerequisites?` |  | <a href="#OrbEnchantment/prerequisites">See details</a>
 `volume` |  | <a href="#OrbEnchantment/volume">See details</a>
 `cost?` |  | <a href="#OrbEnchantment/cost">See details</a>
 `property` |  | <a href="#OrbEnchantment/property">See details</a>
@@ -29,6 +30,10 @@ Key | Description | Details
 #### <a name="OrbEnchantment/maximum"></a> `maximum?`
 
 - **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+
+#### <a name="OrbEnchantment/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="../_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
 
 #### <a name="OrbEnchantment/volume"></a> `volume`
 

@@ -11,6 +11,7 @@ Key | Description | Details
 `id` |  | <a href="#Krallenkettenzauber/id">See details</a>
 `levels?` |  | <a href="#Krallenkettenzauber/levels">See details</a>
 `maximum?` |  | <a href="#Krallenkettenzauber/maximum">See details</a>
+`prerequisites?` |  | <a href="#Krallenkettenzauber/prerequisites">See details</a>
 `volume` |  | <a href="#Krallenkettenzauber/volume">See details</a>
 `cost?` |  | <a href="#Krallenkettenzauber/cost">See details</a>
 `property` |  | <a href="#Krallenkettenzauber/property">See details</a>
@@ -29,6 +30,10 @@ Key | Description | Details
 #### <a name="Krallenkettenzauber/maximum"></a> `maximum?`
 
 - **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+
+#### <a name="Krallenkettenzauber/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="../_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
 
 #### <a name="Krallenkettenzauber/volume"></a> `volume`
 

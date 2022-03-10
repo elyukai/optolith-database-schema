@@ -13,6 +13,7 @@ Key | Description | Details
 `skill_applications?` |  | <a href="#SexSpecialAbility/skill_applications">See details</a>
 `skill_uses?` |  | <a href="#SexSpecialAbility/skill_uses">See details</a>
 `maximum?` |  | <a href="#SexSpecialAbility/maximum">See details</a>
+`prerequisites?` |  | <a href="#SexSpecialAbility/prerequisites">See details</a>
 `ap_value` |  | <a href="#SexSpecialAbility/ap_value">See details</a>
 `src` |  | <a href="#SexSpecialAbility/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#SexSpecialAbility/translations">See details</a>
@@ -36,6 +37,10 @@ Key | Description | Details
 #### <a name="SexSpecialAbility/maximum"></a> `maximum?`
 
 - **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+
+#### <a name="SexSpecialAbility/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="../_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
 
 #### <a name="SexSpecialAbility/ap_value"></a> `ap_value`
 

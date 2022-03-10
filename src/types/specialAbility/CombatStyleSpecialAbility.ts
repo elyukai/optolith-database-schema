@@ -5,6 +5,7 @@
 import { Errata } from "../source/_Erratum"
 import { PublicationRefs } from "../source/_PublicationRef"
 import * as Activatable from "../_Activatable"
+import { GeneralPrerequisites } from "../_Prerequisite"
 
 /**
  * @title Combat Style Special Ability
@@ -33,7 +34,7 @@ export type CombatStyleSpecialAbility = {
 
   advanced: Activatable.AdvancedSpecialAbilities
 
-  // prerequisites?: Prerequisite.GroupCollection.General
+  prerequisites?: GeneralPrerequisites
 
   combat_techniques: Activatable.ApplicableCombatTechniques
 

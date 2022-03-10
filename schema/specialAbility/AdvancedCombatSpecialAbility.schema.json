@@ -28,6 +28,9 @@
         "penalty": {
           "$ref": "../_Activatable.schema.json#/definitions/Penalty"
         },
+        "prerequisites": {
+          "$ref": "../_Prerequisite.schema.json#/definitions/GeneralPrerequisites"
+        },
         "combat_techniques": {
           "$ref": "../_Activatable.schema.json#/definitions/ApplicableCombatTechniques"
         },

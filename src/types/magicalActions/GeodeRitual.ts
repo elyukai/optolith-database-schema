@@ -6,7 +6,7 @@ import { SlowSkillCastingTimeUnit } from "../SkillModificationLevel"
 import { Errata } from "../source/_Erratum"
 import { PublicationRefs } from "../source/_PublicationRef"
 import { Cost, Duration, Effect, TargetCategory } from "../_ActivatableSkill"
-import { Prerequisite } from "../_Prerequisite"
+import { GeodeRitualPrerequisites } from "../_Prerequisite"
 import { SkillCheck } from "../_SkillCheck"
 
 /**
@@ -42,7 +42,7 @@ export type GeodeRitual = {
    */
   property_id: number
 
-  prerequisites?: Prerequisite.GroupCollection.GeodeRitual
+  prerequisites?: GeodeRitualPrerequisites
 
   src: PublicationRefs
 

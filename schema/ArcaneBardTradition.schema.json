@@ -13,7 +13,7 @@
           "minimum": 1
         },
         "prerequisites": {
-          "$ref": "./_Prerequisite.schema.json#/definitions/Prerequisite/GroupCollection/ArcaneTradition"
+          "$ref": "./_Prerequisite.schema.json#/definitions/ArcaneTraditionPrerequisites"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",

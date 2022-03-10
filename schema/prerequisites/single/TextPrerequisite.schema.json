@@ -1,0 +1,63 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "prerequisites/single/TextPrerequisite.schema.json",
+  "definitions": {
+    "TextPrerequisite": {
+      "title": "Impossible Prerequisite",
+      "description": "A prerequisite that is either not verifyable in general – e.g. roleplay or\nbackground information – or the referenced entities were not made available\nfor use yet – e.g. races –, but which should be displayed, because it is part\nof the prerequisite string from the sources.",
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Text"
+        },
+        "verification": {
+          "description": "The method how the prerequisite should be verified. Either is passes all\nverification text or it denies all verification tests. The latter results\nin the associated entry to never be available for purchase.",
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Pass"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Deny"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "tag",
+        "verification",
+        "translations"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

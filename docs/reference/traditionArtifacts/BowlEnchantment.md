@@ -11,6 +11,7 @@ Key | Description | Details
 `id` |  | <a href="#BowlEnchantment/id">See details</a>
 `levels?` |  | <a href="#BowlEnchantment/levels">See details</a>
 `maximum?` |  | <a href="#BowlEnchantment/maximum">See details</a>
+`prerequisites?` |  | <a href="#BowlEnchantment/prerequisites">See details</a>
 `volume` |  | <a href="#BowlEnchantment/volume">See details</a>
 `cost?` |  | <a href="#BowlEnchantment/cost">See details</a>
 `property` |  | <a href="#BowlEnchantment/property">See details</a>
@@ -29,6 +30,10 @@ Key | Description | Details
 #### <a name="BowlEnchantment/maximum"></a> `maximum?`
 
 - **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+
+#### <a name="BowlEnchantment/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="../_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
 
 #### <a name="BowlEnchantment/volume"></a> `volume`
 

@@ -14,6 +14,7 @@ Key | Description | Details
 `skill_uses?` |  | <a href="#KarmaSpecialAbility/skill_uses">See details</a>
 `maximum?` |  | <a href="#KarmaSpecialAbility/maximum">See details</a>
 `advanced` |  | <a href="#KarmaSpecialAbility/advanced">See details</a>
+`prerequisites?` |  | <a href="#KarmaSpecialAbility/prerequisites">See details</a>
 `ap_value` |  | <a href="#KarmaSpecialAbility/ap_value">See details</a>
 `src` |  | <a href="#KarmaSpecialAbility/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#KarmaSpecialAbility/translations">See details</a>
@@ -41,6 +42,10 @@ Key | Description | Details
 #### <a name="KarmaSpecialAbility/advanced"></a> `advanced`
 
 - **Type:** <a href="../_Activatable.md#AdvancedSpecialAbilities">AdvancedSpecialAbilities</a>
+
+#### <a name="KarmaSpecialAbility/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="../_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
 
 #### <a name="KarmaSpecialAbility/ap_value"></a> `ap_value`
 

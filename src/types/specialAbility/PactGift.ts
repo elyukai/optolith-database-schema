@@ -6,6 +6,7 @@ import { Errata } from "../source/_Erratum"
 import { PublicationRefs } from "../source/_PublicationRef"
 import * as Activatable from "../_Activatable"
 import { ActivatableIdentifier } from "../_Identifier"
+import { GeneralPrerequisites } from "../_Prerequisite"
 
 /**
  * @title Pact Gift
@@ -82,7 +83,7 @@ export type PactGift = {
       }
   }[]
 
-  // prerequisites?: Prerequisite.GroupCollection.General
+  prerequisites?: GeneralPrerequisites
 
   ap_value: Activatable.AdventurePointsValue
 

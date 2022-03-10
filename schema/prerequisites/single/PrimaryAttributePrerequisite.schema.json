@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "prerequisites/single/PrimaryAttributePrerequisite.schema.json",
+  "definitions": {
+    "PrimaryAttributePrerequisite": {
+      "title": "Primary Attribute Prerequisite",
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "PrimaryAttribute"
+        },
+        "category": {
+          "description": "Is the required primary attribute for spellcasters or blessed ones?",
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Blessed"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Magical"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "value": {
+          "description": "Required value of the attribute",
+          "type": "integer",
+          "minimum": 9
+        },
+        "display_option": {
+          "$ref": "../DisplayOption.schema.json#/definitions/DisplayOption"
+        }
+      },
+      "required": [
+        "tag",
+        "category",
+        "value"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

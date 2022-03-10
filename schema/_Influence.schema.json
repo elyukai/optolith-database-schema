@@ -12,6 +12,9 @@
           "type": "integer",
           "minimum": 1
         },
+        "prerequisites": {
+          "$ref": "./_Prerequisite.schema.json#/definitions/InfluencePrerequisites"
+        },
         "src": {
           "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
         },
@@ -68,6 +71,7 @@
       },
       "required": [
         "id",
+        "prerequisites",
         "src",
         "translations"
       ],

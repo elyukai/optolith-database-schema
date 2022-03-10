@@ -2106,7 +2106,7 @@ advanced special ability; others are disallowed.
 
 #### <a name="AdvancedSpecialAbility'OneOf/display_option"></a> `display_option?`
 
-- **Type:** <a href="./_Prerequisite.md#Prerequisite/Single/DisplayOption/T">Prerequisite/Single/DisplayOption/T</a>
+- **Type:** <a href="./prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
 
 ---
 
@@ -2166,7 +2166,7 @@ The possible advanced special abilities.
 
 #### <a name="AdvancedSpecialAbility'DeriveFromExternalOption/display_option"></a> `display_option?`
 
-- **Type:** <a href="./_Prerequisite.md#Prerequisite/Single/DisplayOption/T">Prerequisite/Single/DisplayOption/T</a>
+- **Type:** <a href="./prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
 
 #### <a name="AdvancedSpecialAbility'DeriveFromExternalOption/is_selection_required_on_purchase"></a> `is_selection_required_on_purchase`
 

@@ -100,6 +100,28 @@
         "Patron"
       ]
     },
+    "ExtensionRuleTag": {
+      "enum": [
+        "FocusRule",
+        "OptionalRule"
+      ]
+    },
+    "SkillWithEnhancementsTag": {
+      "enum": [
+        "Spell",
+        "Ritual",
+        "LiturgicalChant",
+        "Ceremony"
+      ]
+    },
+    "RequirableSelectOptionTag": {
+      "enum": [
+        "General",
+        "Skill",
+        "CloseCombatTechnique",
+        "RangedCombatTechnique"
+      ]
+    },
     "ActivatableIdentifier": {
       "type": "object",
       "properties": {
@@ -243,6 +265,81 @@
         "value"
       ],
       "additionalProperties": false
+    },
+    "ExtensionRuleIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "$ref": "#/definitions/ExtensionRuleTag"
+        },
+        "value": {
+          "description": "The referenced entry's numeric identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "SkillWithEnhancementsIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "$ref": "#/definitions/SkillWithEnhancementsTag"
+        },
+        "value": {
+          "description": "The referenced entry's numeric identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "RequirableSelectOptionIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "$ref": "#/definitions/RequirableSelectOptionTag"
+        },
+        "value": {
+          "description": "The referenced entry's numeric identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "OneOrManyNumericIdentifiers": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/OneNumericIdentifier"
+        },
+        {
+          "$ref": "#/definitions/ManyNumericIdentifiers"
+        }
+      ]
+    },
+    "OneNumericIdentifier": {
+      "type": "number",
+      "minimum": 1
+    },
+    "ManyNumericIdentifiers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/OneNumericIdentifier"
+      },
+      "minItems": 2
     }
   }
 }

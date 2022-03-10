@@ -14,6 +14,7 @@ Key | Description | Details
 `skill_uses?` |  | <a href="#MagicStyleSpecialAbility/skill_uses">See details</a>
 `maximum?` |  | <a href="#MagicStyleSpecialAbility/maximum">See details</a>
 `advanced` |  | <a href="#MagicStyleSpecialAbility/advanced">See details</a>
+`prerequisites?` |  | <a href="#MagicStyleSpecialAbility/prerequisites">See details</a>
 `ap_value` |  | <a href="#MagicStyleSpecialAbility/ap_value">See details</a>
 `src` |  | <a href="#MagicStyleSpecialAbility/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#MagicStyleSpecialAbility/translations">See details</a>
@@ -41,6 +42,10 @@ Key | Description | Details
 #### <a name="MagicStyleSpecialAbility/advanced"></a> `advanced`
 
 - **Type:** <a href="../_Activatable.md#AdvancedSpecialAbilities">AdvancedSpecialAbilities</a>
+
+#### <a name="MagicStyleSpecialAbility/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="../_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
 
 #### <a name="MagicStyleSpecialAbility/ap_value"></a> `ap_value`
 

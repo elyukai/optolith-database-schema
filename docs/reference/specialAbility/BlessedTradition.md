@@ -19,6 +19,7 @@ Key | Description | Details
 `favored_skills_selection?` | On activation of the tradition, a specific number of skills from a list of skills must be selected as being favored. | <a href="#BlessedTradition/favored_skills_selection">See details</a>
 `is_shamanistic` | Is this a schamanistic tradition? | <a href="#BlessedTradition/is_shamanistic">See details</a>
 `associated_principles_id?` | The select option's identifier of the disadvantage *Principles* that represent this tradition's code, if any. | <a href="#BlessedTradition/associated_principles_id">See details</a>
+`prerequisites?` |  | <a href="#BlessedTradition/prerequisites">See details</a>
 `ap_value` |  | <a href="#BlessedTradition/ap_value">See details</a>
 `src` |  | <a href="#BlessedTradition/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#BlessedTradition/translations">See details</a>
@@ -93,6 +94,10 @@ The select option's identifier of the disadvantage *Principles* that
 represent this tradition's code, if any.
 
 - **Type:** Number
+
+#### <a name="BlessedTradition/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="../_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
 
 #### <a name="BlessedTradition/ap_value"></a> `ap_value`
 

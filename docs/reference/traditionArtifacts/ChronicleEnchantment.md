@@ -11,6 +11,7 @@ Key | Description | Details
 `id` |  | <a href="#ChronicleEnchantment/id">See details</a>
 `levels?` |  | <a href="#ChronicleEnchantment/levels">See details</a>
 `maximum?` |  | <a href="#ChronicleEnchantment/maximum">See details</a>
+`prerequisites?` |  | <a href="#ChronicleEnchantment/prerequisites">See details</a>
 `volume` |  | <a href="#ChronicleEnchantment/volume">See details</a>
 `cost?` |  | <a href="#ChronicleEnchantment/cost">See details</a>
 `property` |  | <a href="#ChronicleEnchantment/property">See details</a>
@@ -29,6 +30,10 @@ Key | Description | Details
 #### <a name="ChronicleEnchantment/maximum"></a> `maximum?`
 
 - **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+
+#### <a name="ChronicleEnchantment/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="../_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
 
 #### <a name="ChronicleEnchantment/volume"></a> `volume`
 

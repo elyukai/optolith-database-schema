@@ -1,0 +1,142 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "prerequisites/single/ActivatablePrerequisite.schema.json",
+  "definitions": {
+    "ActivatablePrerequisite": {
+      "title": "Activatable Prerequisite",
+      "description": "Requires a specific advantage, disadvantage or special ability.",
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Activatable"
+        },
+        "id": {
+          "description": "The activatable entry's identifier.",
+          "$ref": "../../_Identifier.schema.json#/definitions/ActivatableIdentifier"
+        },
+        "active": {
+          "description": "If the required entry should be required to be active or inactive.",
+          "type": "boolean"
+        },
+        "level": {
+          "description": "The required minimum level of the entry.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "options": {
+          "description": "Required select options. Order is important. Typically, you only need the\nfirst array index, though.",
+          "type": "array",
+          "items": {
+            "$ref": "../../_Identifier.schema.json#/definitions/RequirableSelectOptionIdentifier"
+          },
+          "minItems": 1
+        },
+        "display_option": {
+          "$ref": "../DisplayOption.schema.json#/definitions/DisplayOption"
+        },
+        "when": {
+          "$ref": "../ConditionalPrerequisites.schema.json#/definitions/Preconditions"
+        }
+      },
+      "required": [
+        "tag",
+        "id",
+        "active"
+      ],
+      "additionalProperties": false
+    },
+    "ActivatableSetPrerequisite": {
+      "title": "Activatable Set Prerequisite",
+      "description": "Requires a specific advantage, disadvantage or special ability from a given\nset of entries.",
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "ActivatableSet"
+        },
+        "id": {
+          "description": "The possible activatable entries' identifiers.",
+          "type": "array",
+          "items": {
+            "$ref": "../../_Identifier.schema.json#/definitions/ActivatableIdentifier"
+          },
+          "minItems": 2
+        },
+        "active": {
+          "description": "If the required entry should be required to be active or inactive.",
+          "type": "boolean"
+        },
+        "level": {
+          "description": "The required minimum level of the entry.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "options": {
+          "description": "Required select options. Order is important. Typically, you only need the\nfirst array index, though.",
+          "type": "array",
+          "items": {
+            "$ref": "../../_Identifier.schema.json#/definitions/RequirableSelectOptionIdentifier"
+          },
+          "minItems": 1
+        },
+        "display_option": {
+          "$ref": "../DisplayOption.schema.json#/definitions/DisplayOption"
+        }
+      },
+      "required": [
+        "tag",
+        "id",
+        "active"
+      ],
+      "additionalProperties": false
+    },
+    "ActivatableOptionSetPrerequisite": {
+      "title": "Activatable Option Set Prerequisite",
+      "description": "Requires one option from a set of options from a specific advantage,\ndisadvantage or special ability.",
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "ActivatableOptionSet"
+        },
+        "id": {
+          "description": "The activatable entry's identifier.",
+          "$ref": "../../_Identifier.schema.json#/definitions/ActivatableIdentifier"
+        },
+        "active": {
+          "description": "If the required entry should be required to be active or inactive.",
+          "type": "boolean"
+        },
+        "level": {
+          "description": "The required minimum level of the entry.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "first_option": {
+          "description": "The possible set of first options.",
+          "type": "array",
+          "items": {
+            "$ref": "../../_Identifier.schema.json#/definitions/RequirableSelectOptionIdentifier"
+          },
+          "minItems": 2
+        },
+        "other_options": {
+          "description": "Required other select options. Order is important.",
+          "type": "array",
+          "items": {
+            "$ref": "../../_Identifier.schema.json#/definitions/RequirableSelectOptionIdentifier"
+          },
+          "minItems": 1
+        },
+        "display_option": {
+          "$ref": "../DisplayOption.schema.json#/definitions/DisplayOption"
+        }
+      },
+      "required": [
+        "tag",
+        "id",
+        "active",
+        "first_option"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

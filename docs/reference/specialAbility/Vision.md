@@ -11,6 +11,7 @@ Key | Description | Details
 `id` |  | <a href="#Vision/id">See details</a>
 `levels?` |  | <a href="#Vision/levels">See details</a>
 `maximum?` |  | <a href="#Vision/maximum">See details</a>
+`prerequisites?` |  | <a href="#Vision/prerequisites">See details</a>
 `ap_value` |  | <a href="#Vision/ap_value">See details</a>
 `src` |  | <a href="#Vision/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Vision/translations">See details</a>
@@ -26,6 +27,10 @@ Key | Description | Details
 #### <a name="Vision/maximum"></a> `maximum?`
 
 - **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+
+#### <a name="Vision/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="../_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
 
 #### <a name="Vision/ap_value"></a> `ap_value`
 

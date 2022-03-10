@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "prerequisites/single/SocialStatusPrerequisite.schema.json",
+  "definitions": {
+    "SocialStatusPrerequisite": {
+      "title": "Social Status Prerequisite",
+      "description": "Requires a minimum social status.",
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "SocialStatus"
+        },
+        "id": {
+          "description": "The minimum social status' identifier.",
+          "type": "integer",
+          "maximum": 5,
+          "minimum": 2
+        },
+        "display_option": {
+          "$ref": "../DisplayOption.schema.json#/definitions/DisplayOption"
+        }
+      },
+      "required": [
+        "tag",
+        "id"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

@@ -7,7 +7,7 @@ import { PublicationRefs } from "./source/_PublicationRef"
 import { Effect, SlowPerformanceParameters, TargetCategory } from "./_ActivatableSkill"
 import { Enhancements } from "./_Enhancements"
 import { ImprovementCost } from "./_ImprovementCost"
-import { Prerequisite } from "./_Prerequisite"
+import { SpellworkPrerequisites } from "./_Prerequisite"
 import { SkillCheck, SkillCheckPenalty } from "./_SkillCheck"
 
 /**
@@ -85,7 +85,7 @@ export type Ritual = {
    */
   improvement_cost: ImprovementCost
 
-  prerequisites?: Prerequisite.GroupCollection.Spellwork
+  prerequisites?: SpellworkPrerequisites
 
   src: PublicationRefs
 

@@ -11,6 +11,7 @@ Key | Description | Details
 `id` |  | <a href="#RingEnchantment/id">See details</a>
 `levels?` |  | <a href="#RingEnchantment/levels">See details</a>
 `maximum?` |  | <a href="#RingEnchantment/maximum">See details</a>
+`prerequisites?` |  | <a href="#RingEnchantment/prerequisites">See details</a>
 `volume` |  | <a href="#RingEnchantment/volume">See details</a>
 `cost?` |  | <a href="#RingEnchantment/cost">See details</a>
 `property` |  | <a href="#RingEnchantment/property">See details</a>
@@ -29,6 +30,10 @@ Key | Description | Details
 #### <a name="RingEnchantment/maximum"></a> `maximum?`
 
 - **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+
+#### <a name="RingEnchantment/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="../_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
 
 #### <a name="RingEnchantment/volume"></a> `volume`
 

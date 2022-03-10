@@ -13,7 +13,7 @@
           "minimum": 1
         },
         "prerequisites": {
-          "$ref": "./_Prerequisite.schema.json#/definitions/Prerequisite/GroupCollection/DerivedCharacteristic"
+          "$ref": "./_Prerequisite.schema.json#/definitions/DerivedCharacteristicPrerequisites"
         },
         "src": {
           "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"

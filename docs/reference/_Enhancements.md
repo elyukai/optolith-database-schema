@@ -57,7 +57,7 @@ skill's improvement cost to form the final AP cost of this enhancement.
 
 #### <a name="Enhancement/prerequisites"></a> `prerequisites?`
 
-- **Type:** <a href="./_Prerequisite.md#Prerequisite/GroupCollection/Enhancement">Prerequisite/GroupCollection/Enhancement</a>
+- **Type:** <a href="./_Prerequisite.md#EnhancementPrerequisites">EnhancementPrerequisites</a>
 
 #### <a name="Enhancement/src"></a> `src?`
 

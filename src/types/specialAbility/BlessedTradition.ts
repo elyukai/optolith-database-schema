@@ -6,6 +6,7 @@ import { Errata } from "../source/_Erratum"
 import { PublicationRefs } from "../source/_PublicationRef"
 import * as Activatable from "../_Activatable"
 import { CombatTechniqueIdentifier } from "../_Identifier"
+import { GeneralPrerequisites } from "../_Prerequisite"
 
 /**
  * @title Blessed Tradition
@@ -142,7 +143,7 @@ export type BlessedTradition = {
    */
   associated_principles_id?: number
 
-  // prerequisites?: Prerequisite.GroupCollection.General
+  prerequisites?: GeneralPrerequisites
 
   ap_value: Activatable.AdventurePointsValue
 

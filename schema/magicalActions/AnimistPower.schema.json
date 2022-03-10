@@ -211,6 +211,10 @@
                   ],
                   "additionalProperties": false
                 },
+                "prerequisites": {
+                  "description": "A prerequisites text.",
+                  "type": "string"
+                },
                 "errata": {
                   "$ref": "../source/_Erratum.schema.json#/definitions/Errata"
                 }

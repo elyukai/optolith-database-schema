@@ -51,7 +51,7 @@ The property's identifier.
 
 #### <a name="GeodeRitual/prerequisites"></a> `prerequisites?`
 
-- **Type:** <a href="../_Prerequisite.md#Prerequisite/GroupCollection/GeodeRitual">Prerequisite/GroupCollection/GeodeRitual</a>
+- **Type:** <a href="../_Prerequisite.md#GeodeRitualPrerequisites">GeodeRitualPrerequisites</a>
 
 #### <a name="GeodeRitual/src"></a> `src`
 

@@ -1473,7 +1473,7 @@
               "minItems": 1
             },
             "display_option": {
-              "$ref": "./_Prerequisite.schema.json#/definitions/Prerequisite/Single/DisplayOption/T"
+              "$ref": "./prerequisites/DisplayOption.schema.json#/definitions/DisplayOption"
             }
           },
           "required": [
@@ -1528,7 +1528,7 @@
               "minItems": 0
             },
             "display_option": {
-              "$ref": "./_Prerequisite.schema.json#/definitions/Prerequisite/Single/DisplayOption/T"
+              "$ref": "./prerequisites/DisplayOption.schema.json#/definitions/DisplayOption"
             },
             "is_selection_required_on_purchase": {
               "description": "Do have to choose on when buying the special ability? Otherwise the\ndecision can be made later.",
