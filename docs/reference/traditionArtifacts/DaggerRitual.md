@@ -70,6 +70,9 @@ Key | Description | Details
 `name` |  | <a href="#DaggerRitual/translations[key]/name">See details</a>
 `name_in_library?` |  | <a href="#DaggerRitual/translations[key]/name_in_library">See details</a>
 `effect` |  | <a href="#DaggerRitual/translations[key]/effect">See details</a>
+`volume` |  | <a href="#DaggerRitual/translations[key]/volume">See details</a>
+`aeCost?` |  | <a href="#DaggerRitual/translations[key]/aeCost">See details</a>
+`bindingCost?` |  | <a href="#DaggerRitual/translations[key]/bindingCost">See details</a>
 `errata?` |  | <a href="#DaggerRitual/translations[key]/errata">See details</a>
 
 #### <a name="DaggerRitual/translations[key]/name"></a> `name`
@@ -83,6 +86,18 @@ Key | Description | Details
 #### <a name="DaggerRitual/translations[key]/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
+
+#### <a name="DaggerRitual/translations[key]/volume"></a> `volume`
+
+- **Type:** String
+
+#### <a name="DaggerRitual/translations[key]/aeCost"></a> `aeCost?`
+
+- **Type:** String
+
+#### <a name="DaggerRitual/translations[key]/bindingCost"></a> `bindingCost?`
+
+- **Type:** String
 
 #### <a name="DaggerRitual/translations[key]/errata"></a> `errata?`
 

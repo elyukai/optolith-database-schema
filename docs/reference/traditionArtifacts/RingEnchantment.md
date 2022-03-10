@@ -70,6 +70,9 @@ Key | Description | Details
 `name` |  | <a href="#RingEnchantment/translations[key]/name">See details</a>
 `name_in_library?` |  | <a href="#RingEnchantment/translations[key]/name_in_library">See details</a>
 `effect` |  | <a href="#RingEnchantment/translations[key]/effect">See details</a>
+`volume` |  | <a href="#RingEnchantment/translations[key]/volume">See details</a>
+`aeCost?` |  | <a href="#RingEnchantment/translations[key]/aeCost">See details</a>
+`bindingCost?` |  | <a href="#RingEnchantment/translations[key]/bindingCost">See details</a>
 `errata?` |  | <a href="#RingEnchantment/translations[key]/errata">See details</a>
 
 #### <a name="RingEnchantment/translations[key]/name"></a> `name`
@@ -83,6 +86,18 @@ Key | Description | Details
 #### <a name="RingEnchantment/translations[key]/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
+
+#### <a name="RingEnchantment/translations[key]/volume"></a> `volume`
+
+- **Type:** String
+
+#### <a name="RingEnchantment/translations[key]/aeCost"></a> `aeCost?`
+
+- **Type:** String
+
+#### <a name="RingEnchantment/translations[key]/bindingCost"></a> `bindingCost?`
+
+- **Type:** String
 
 #### <a name="RingEnchantment/translations[key]/errata"></a> `errata?`
 

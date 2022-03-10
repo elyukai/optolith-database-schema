@@ -70,6 +70,9 @@ Key | Description | Details
 `name` |  | <a href="#SpellSwordEnchantment/translations[key]/name">See details</a>
 `name_in_library?` |  | <a href="#SpellSwordEnchantment/translations[key]/name_in_library">See details</a>
 `effect` |  | <a href="#SpellSwordEnchantment/translations[key]/effect">See details</a>
+`volume` |  | <a href="#SpellSwordEnchantment/translations[key]/volume">See details</a>
+`aeCost?` |  | <a href="#SpellSwordEnchantment/translations[key]/aeCost">See details</a>
+`bindingCost?` |  | <a href="#SpellSwordEnchantment/translations[key]/bindingCost">See details</a>
 `errata?` |  | <a href="#SpellSwordEnchantment/translations[key]/errata">See details</a>
 
 #### <a name="SpellSwordEnchantment/translations[key]/name"></a> `name`
@@ -83,6 +86,18 @@ Key | Description | Details
 #### <a name="SpellSwordEnchantment/translations[key]/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
+
+#### <a name="SpellSwordEnchantment/translations[key]/volume"></a> `volume`
+
+- **Type:** String
+
+#### <a name="SpellSwordEnchantment/translations[key]/aeCost"></a> `aeCost?`
+
+- **Type:** String
+
+#### <a name="SpellSwordEnchantment/translations[key]/bindingCost"></a> `bindingCost?`
+
+- **Type:** String
 
 #### <a name="SpellSwordEnchantment/translations[key]/errata"></a> `errata?`
 

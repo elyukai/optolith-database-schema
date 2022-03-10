@@ -70,6 +70,9 @@ Key | Description | Details
 `name` |  | <a href="#OrbEnchantment/translations[key]/name">See details</a>
 `name_in_library?` |  | <a href="#OrbEnchantment/translations[key]/name_in_library">See details</a>
 `effect` |  | <a href="#OrbEnchantment/translations[key]/effect">See details</a>
+`volume` |  | <a href="#OrbEnchantment/translations[key]/volume">See details</a>
+`aeCost?` |  | <a href="#OrbEnchantment/translations[key]/aeCost">See details</a>
+`bindingCost?` |  | <a href="#OrbEnchantment/translations[key]/bindingCost">See details</a>
 `errata?` |  | <a href="#OrbEnchantment/translations[key]/errata">See details</a>
 
 #### <a name="OrbEnchantment/translations[key]/name"></a> `name`
@@ -83,6 +86,18 @@ Key | Description | Details
 #### <a name="OrbEnchantment/translations[key]/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
+
+#### <a name="OrbEnchantment/translations[key]/volume"></a> `volume`
+
+- **Type:** String
+
+#### <a name="OrbEnchantment/translations[key]/aeCost"></a> `aeCost?`
+
+- **Type:** String
+
+#### <a name="OrbEnchantment/translations[key]/bindingCost"></a> `bindingCost?`
+
+- **Type:** String
 
 #### <a name="OrbEnchantment/translations[key]/errata"></a> `errata?`
 

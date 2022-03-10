@@ -99,6 +99,9 @@ Key | Description | Details
 `name` |  | <a href="#CauldronEnchantment/translations[key]/name">See details</a>
 `name_in_library?` |  | <a href="#CauldronEnchantment/translations[key]/name_in_library">See details</a>
 `effect` |  | <a href="#CauldronEnchantment/translations[key]/effect">See details</a>
+`volume` |  | <a href="#CauldronEnchantment/translations[key]/volume">See details</a>
+`aeCost?` |  | <a href="#CauldronEnchantment/translations[key]/aeCost">See details</a>
+`bindingCost?` |  | <a href="#CauldronEnchantment/translations[key]/bindingCost">See details</a>
 `errata?` |  | <a href="#CauldronEnchantment/translations[key]/errata">See details</a>
 
 #### <a name="CauldronEnchantment/translations[key]/name"></a> `name`
@@ -112,6 +115,18 @@ Key | Description | Details
 #### <a name="CauldronEnchantment/translations[key]/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
+
+#### <a name="CauldronEnchantment/translations[key]/volume"></a> `volume`
+
+- **Type:** String
+
+#### <a name="CauldronEnchantment/translations[key]/aeCost"></a> `aeCost?`
+
+- **Type:** String
+
+#### <a name="CauldronEnchantment/translations[key]/bindingCost"></a> `bindingCost?`
+
+- **Type:** String
 
 #### <a name="CauldronEnchantment/translations[key]/errata"></a> `errata?`
 

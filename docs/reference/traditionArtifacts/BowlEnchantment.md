@@ -70,6 +70,9 @@ Key | Description | Details
 `name` |  | <a href="#BowlEnchantment/translations[key]/name">See details</a>
 `name_in_library?` |  | <a href="#BowlEnchantment/translations[key]/name_in_library">See details</a>
 `effect` |  | <a href="#BowlEnchantment/translations[key]/effect">See details</a>
+`volume` |  | <a href="#BowlEnchantment/translations[key]/volume">See details</a>
+`aeCost?` |  | <a href="#BowlEnchantment/translations[key]/aeCost">See details</a>
+`bindingCost?` |  | <a href="#BowlEnchantment/translations[key]/bindingCost">See details</a>
 `errata?` |  | <a href="#BowlEnchantment/translations[key]/errata">See details</a>
 
 #### <a name="BowlEnchantment/translations[key]/name"></a> `name`
@@ -83,6 +86,18 @@ Key | Description | Details
 #### <a name="BowlEnchantment/translations[key]/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
+
+#### <a name="BowlEnchantment/translations[key]/volume"></a> `volume`
+
+- **Type:** String
+
+#### <a name="BowlEnchantment/translations[key]/aeCost"></a> `aeCost?`
+
+- **Type:** String
+
+#### <a name="BowlEnchantment/translations[key]/bindingCost"></a> `bindingCost?`
+
+- **Type:** String
 
 #### <a name="BowlEnchantment/translations[key]/errata"></a> `errata?`
 

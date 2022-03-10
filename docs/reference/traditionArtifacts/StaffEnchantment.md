@@ -70,6 +70,9 @@ Key | Description | Details
 `name` |  | <a href="#StaffEnchantment/translations[key]/name">See details</a>
 `name_in_library?` |  | <a href="#StaffEnchantment/translations[key]/name_in_library">See details</a>
 `effect` |  | <a href="#StaffEnchantment/translations[key]/effect">See details</a>
+`volume` |  | <a href="#StaffEnchantment/translations[key]/volume">See details</a>
+`aeCost?` |  | <a href="#StaffEnchantment/translations[key]/aeCost">See details</a>
+`bindingCost?` |  | <a href="#StaffEnchantment/translations[key]/bindingCost">See details</a>
 `errata?` |  | <a href="#StaffEnchantment/translations[key]/errata">See details</a>
 
 #### <a name="StaffEnchantment/translations[key]/name"></a> `name`
@@ -83,6 +86,18 @@ Key | Description | Details
 #### <a name="StaffEnchantment/translations[key]/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
+
+#### <a name="StaffEnchantment/translations[key]/volume"></a> `volume`
+
+- **Type:** String
+
+#### <a name="StaffEnchantment/translations[key]/aeCost"></a> `aeCost?`
+
+- **Type:** String
+
+#### <a name="StaffEnchantment/translations[key]/bindingCost"></a> `bindingCost?`
+
+- **Type:** String
 
 #### <a name="StaffEnchantment/translations[key]/errata"></a> `errata?`
 

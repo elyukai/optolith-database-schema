@@ -70,6 +70,9 @@ Key | Description | Details
 `name` |  | <a href="#SickleRitual/translations[key]/name">See details</a>
 `name_in_library?` |  | <a href="#SickleRitual/translations[key]/name_in_library">See details</a>
 `effect` |  | <a href="#SickleRitual/translations[key]/effect">See details</a>
+`volume` |  | <a href="#SickleRitual/translations[key]/volume">See details</a>
+`aeCost?` |  | <a href="#SickleRitual/translations[key]/aeCost">See details</a>
+`bindingCost?` |  | <a href="#SickleRitual/translations[key]/bindingCost">See details</a>
 `errata?` |  | <a href="#SickleRitual/translations[key]/errata">See details</a>
 
 #### <a name="SickleRitual/translations[key]/name"></a> `name`
@@ -83,6 +86,18 @@ Key | Description | Details
 #### <a name="SickleRitual/translations[key]/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
+
+#### <a name="SickleRitual/translations[key]/volume"></a> `volume`
+
+- **Type:** String
+
+#### <a name="SickleRitual/translations[key]/aeCost"></a> `aeCost?`
+
+- **Type:** String
+
+#### <a name="SickleRitual/translations[key]/bindingCost"></a> `bindingCost?`
+
+- **Type:** String
 
 #### <a name="SickleRitual/translations[key]/errata"></a> `errata?`
 

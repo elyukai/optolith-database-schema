@@ -70,6 +70,9 @@ Key | Description | Details
 `name` |  | <a href="#ArcaneOrbEnchantment/translations[key]/name">See details</a>
 `name_in_library?` |  | <a href="#ArcaneOrbEnchantment/translations[key]/name_in_library">See details</a>
 `effect` |  | <a href="#ArcaneOrbEnchantment/translations[key]/effect">See details</a>
+`volume` |  | <a href="#ArcaneOrbEnchantment/translations[key]/volume">See details</a>
+`aeCost?` |  | <a href="#ArcaneOrbEnchantment/translations[key]/aeCost">See details</a>
+`bindingCost?` |  | <a href="#ArcaneOrbEnchantment/translations[key]/bindingCost">See details</a>
 `errata?` |  | <a href="#ArcaneOrbEnchantment/translations[key]/errata">See details</a>
 
 #### <a name="ArcaneOrbEnchantment/translations[key]/name"></a> `name`
@@ -83,6 +86,18 @@ Key | Description | Details
 #### <a name="ArcaneOrbEnchantment/translations[key]/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
+
+#### <a name="ArcaneOrbEnchantment/translations[key]/volume"></a> `volume`
+
+- **Type:** String
+
+#### <a name="ArcaneOrbEnchantment/translations[key]/aeCost"></a> `aeCost?`
+
+- **Type:** String
+
+#### <a name="ArcaneOrbEnchantment/translations[key]/bindingCost"></a> `bindingCost?`
+
+- **Type:** String
 
 #### <a name="ArcaneOrbEnchantment/translations[key]/errata"></a> `errata?`
 

@@ -67,6 +67,21 @@ export type CauldronEnchantment = {
 
       // prerequisites_end?: Activatable.PrerequisitesEnd
 
+      /**
+       * @deprecated
+       */
+      volume: string
+
+      /**
+       * @deprecated
+       */
+      aeCost?: string
+
+      /**
+       * @deprecated
+       */
+      bindingCost?: string
+
       // ap_value?: Activatable.AdventurePointsValueReplacement
 
       // ap_value_append?: Activatable.AdventurePointsValueAppend

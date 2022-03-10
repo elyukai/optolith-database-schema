@@ -70,6 +70,9 @@ Key | Description | Details
 `name` |  | <a href="#FoolsHatEnchantment/translations[key]/name">See details</a>
 `name_in_library?` |  | <a href="#FoolsHatEnchantment/translations[key]/name_in_library">See details</a>
 `effect` |  | <a href="#FoolsHatEnchantment/translations[key]/effect">See details</a>
+`volume` |  | <a href="#FoolsHatEnchantment/translations[key]/volume">See details</a>
+`aeCost?` |  | <a href="#FoolsHatEnchantment/translations[key]/aeCost">See details</a>
+`bindingCost?` |  | <a href="#FoolsHatEnchantment/translations[key]/bindingCost">See details</a>
 `errata?` |  | <a href="#FoolsHatEnchantment/translations[key]/errata">See details</a>
 
 #### <a name="FoolsHatEnchantment/translations[key]/name"></a> `name`
@@ -83,6 +86,18 @@ Key | Description | Details
 #### <a name="FoolsHatEnchantment/translations[key]/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
+
+#### <a name="FoolsHatEnchantment/translations[key]/volume"></a> `volume`
+
+- **Type:** String
+
+#### <a name="FoolsHatEnchantment/translations[key]/aeCost"></a> `aeCost?`
+
+- **Type:** String
+
+#### <a name="FoolsHatEnchantment/translations[key]/bindingCost"></a> `bindingCost?`
+
+- **Type:** String
 
 #### <a name="FoolsHatEnchantment/translations[key]/errata"></a> `errata?`
 

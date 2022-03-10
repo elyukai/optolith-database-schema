@@ -70,6 +70,9 @@ Key | Description | Details
 `name` |  | <a href="#InstrumentEnchantment/translations[key]/name">See details</a>
 `name_in_library?` |  | <a href="#InstrumentEnchantment/translations[key]/name_in_library">See details</a>
 `effect` |  | <a href="#InstrumentEnchantment/translations[key]/effect">See details</a>
+`volume` |  | <a href="#InstrumentEnchantment/translations[key]/volume">See details</a>
+`aeCost?` |  | <a href="#InstrumentEnchantment/translations[key]/aeCost">See details</a>
+`bindingCost?` |  | <a href="#InstrumentEnchantment/translations[key]/bindingCost">See details</a>
 `errata?` |  | <a href="#InstrumentEnchantment/translations[key]/errata">See details</a>
 
 #### <a name="InstrumentEnchantment/translations[key]/name"></a> `name`
@@ -83,6 +86,18 @@ Key | Description | Details
 #### <a name="InstrumentEnchantment/translations[key]/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
+
+#### <a name="InstrumentEnchantment/translations[key]/volume"></a> `volume`
+
+- **Type:** String
+
+#### <a name="InstrumentEnchantment/translations[key]/aeCost"></a> `aeCost?`
+
+- **Type:** String
+
+#### <a name="InstrumentEnchantment/translations[key]/bindingCost"></a> `bindingCost?`
+
+- **Type:** String
 
 #### <a name="InstrumentEnchantment/translations[key]/errata"></a> `errata?`
 
