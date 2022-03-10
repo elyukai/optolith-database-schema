@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/elyukai/optolith-database-schema/compare/v0.1.4...v0.1.5) (2022-03-10)
+
+
+### Features
+
+* prerequisites ([148ffd4](https://github.com/elyukai/optolith-database-schema/commit/148ffd47a70b9fb3a1bad540de8b89319a4f8c7d))
+* select options for activatable entries ([9af975b](https://github.com/elyukai/optolith-database-schema/commit/9af975bcd1425f2a252ea41930233c3531376615))
+
+
+### Bug Fixes
+
+* keep deprecated penalty translation strings ([e4a8d91](https://github.com/elyukai/optolith-database-schema/commit/e4a8d910dd561255d21801616b2c44fcdd28a30f))
+* keep deprecated translation strings for tradition artifact enchantments ([351146e](https://github.com/elyukai/optolith-database-schema/commit/351146ef87691d645a74d8f538d060095b8f7ac5))
+
 ### [0.1.4](https://github.com/elyukai/optolith-database-schema/compare/v0.1.3...v0.1.4) (2022-03-09)
 
 
