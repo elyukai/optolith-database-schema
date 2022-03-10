@@ -529,7 +529,7 @@ Key | Description | Details
 
 The activatable entry's identifier.
 
-- **Type:** <a href="./_Identifier.md#Identifier/Group/Activatable">Identifier/Group/Activatable</a>
+- **Type:** <a href="./_Identifier.md#ActivatableIdentifier">ActivatableIdentifier</a>
 
 #### <a name="Prerequisite/Single/Activatable/T/active"></a> `active`
 
@@ -569,7 +569,7 @@ Key | Description | Details
 
 The rated entry's identifier.
 
-- **Type:** <a href="./_Identifier.md#Identifier/Group/Rated">Identifier/Group/Rated</a>
+- **Type:** <a href="./_Identifier.md#RatedIdentifier">RatedIdentifier</a>
 
 #### <a name="Prerequisite/Single/Rated/T/value"></a> `value`
 

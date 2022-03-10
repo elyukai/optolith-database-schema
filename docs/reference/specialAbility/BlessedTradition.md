@@ -262,7 +262,7 @@ Key | Description | Details
 
 The combat technique's identifier.
 
-- **Type:** <a href="../_Identifier.md#Identifier/Group/CombatTechnique">Identifier/Group/CombatTechnique</a>
+- **Type:** <a href="../_Identifier.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>
 
 ---
 

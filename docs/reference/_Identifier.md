@@ -2,56 +2,68 @@
 
 ## Definitions
 
-### <a name="Identifier/Tag/Activatable"></a> `Identifier/Tag/Activatable`
+### <a name="ActivatableTag"></a> `ActivatableTag`
 
 - **Possible values:** `"Advantage"`, `"Disadvantage"`, `"GeneralSpecialAbility"`, `"FatePointSpecialAbility"`, `"CombatSpecialAbility"`, `"MagicalSpecialAbility"`, `"StaffEnchantment"`, `"FamiliarSpecialAbility"`, `"KarmaSpecialAbility"`, `"ProtectiveWardingCircleSpecialAbility"`, `"CombatStyleSpecialAbility"`, `"AdvancedCombatSpecialAbility"`, `"CommandSpecialAbility"`, `"MagicStyleSpecialAbility"`, `"AdvancedMagicalSpecialAbility"`, `"SpellSwordEnchantment"`, `"DaggerRitual"`, `"InstrumentEnchantment"`, `"AttireEnchantment"`, `"OrbEnchantment"`, `"WandEnchantment"`, `"BrawlingSpecialAbility"`, `"AncestorGlyph"`, `"CeremonialItemSpecialAbility"`, `"Sermon"`, `"LiturgicalStyleSpecialAbility"`, `"AdvancedKarmaSpecialAbility"`, `"Vision"`, `"MagicalTradition"`, `"BlessedTradition"`, `"PactGift"`, `"SikaryanDrainSpecialAbility"`, `"LycantropicGift"`, `"SkillStyleSpecialAbility"`, `"AdvancedSkillSpecialAbility"`, `"ArcaneOrbEnchantment"`, `"CauldronEnchantment"`, `"FoolsHatEnchantment"`, `"ToyEnchantment"`, `"BowlEnchantment"`, `"FatePointSexSpecialAbility"`, `"SexSpecialAbility"`, `"WeaponEnchantment"`, `"SickleRitual"`, `"RingEnchantment"`, `"ChronicleEnchantment"`
 
 ---
 
-### <a name="Identifier/Tag/CombatRelatedSpecialAbility"></a> `Identifier/Tag/CombatRelatedSpecialAbility`
+### <a name="CombatRelatedSpecialAbilityTag"></a> `CombatRelatedSpecialAbilityTag`
 
 - **Possible values:** `"CombatSpecialAbility"`, `"CombatStyleSpecialAbility"`, `"AdvancedCombatSpecialAbility"`, `"CommandSpecialAbility"`
 
 ---
 
-### <a name="Identifier/Tag/Rated"></a> `Identifier/Tag/Rated`
+### <a name="RatedTag"></a> `RatedTag`
 
 - **Possible values:** `"Attribute"`, `"Skill"`, `"CloseCombatTechnique"`, `"RangedCombatTechnique"`, `"Spell"`, `"Ritual"`, `"LiturgicalChant"`, `"Ceremony"`
 
 ---
 
-### <a name="Identifier/Tag/AdvancedSpecialAbilityRestrictedOption"></a> `Identifier/Tag/AdvancedSpecialAbilityRestrictedOption`
+### <a name="AdvancedSpecialAbilityRestrictedOptionTag"></a> `AdvancedSpecialAbilityRestrictedOptionTag`
 
 - **Possible values:** `"General"`, `"Element"`
 
 ---
 
-### <a name="Identifier/Tag/VolumePointsOptionReference"></a> `Identifier/Tag/VolumePointsOptionReference`
+### <a name="VolumePointsOptionReferenceTag"></a> `VolumePointsOptionReferenceTag`
 
 - **Possible values:** `"General"`, `"AnimalShapeSize"`
 
 ---
 
-### <a name="Identifier/Tag/CombatTechnique"></a> `Identifier/Tag/CombatTechnique`
+### <a name="CombatTechniqueTag"></a> `CombatTechniqueTag`
 
 - **Possible values:** `"CloseCombatTechnique"`, `"RangedCombatTechnique"`
 
 ---
 
-### <a name="Identifier/Group/Activatable"></a> `Identifier/Group/Activatable`
+### <a name="MagicalTraditionTag"></a> `MagicalTraditionTag`
+
+- **Possible values:** `"MagicalTradition"`
+
+---
+
+### <a name="PatronTag"></a> `PatronTag`
+
+- **Possible values:** `"Patron"`
+
+---
+
+### <a name="ActivatableIdentifier"></a> `ActivatableIdentifier`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Identifier/Group/Activatable/tag">See details</a>
-`value` | The referenced entry's numeric identifier. | <a href="#Identifier/Group/Activatable/value">See details</a>
+`tag` |  | <a href="#ActivatableIdentifier/tag">See details</a>
+`value` | The referenced entry's numeric identifier. | <a href="#ActivatableIdentifier/value">See details</a>
 
-#### <a name="Identifier/Group/Activatable/tag"></a> `tag`
+#### <a name="ActivatableIdentifier/tag"></a> `tag`
 
-- **Type:** <a href="#Identifier/Tag/Activatable">Identifier/Tag/Activatable</a>
+- **Type:** <a href="#ActivatableTag">ActivatableTag</a>
 
-#### <a name="Identifier/Group/Activatable/value"></a> `value`
+#### <a name="ActivatableIdentifier/value"></a> `value`
 
 The referenced entry's numeric identifier.
 
@@ -60,20 +72,20 @@ The referenced entry's numeric identifier.
 
 ---
 
-### <a name="Identifier/Group/CombatRelatedSpecialAbility"></a> `Identifier/Group/CombatRelatedSpecialAbility`
+### <a name="CombatRelatedSpecialAbilityIdentifier"></a> `CombatRelatedSpecialAbilityIdentifier`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Identifier/Group/CombatRelatedSpecialAbility/tag">See details</a>
-`value` | The referenced entry's numeric identifier. | <a href="#Identifier/Group/CombatRelatedSpecialAbility/value">See details</a>
+`tag` |  | <a href="#CombatRelatedSpecialAbilityIdentifier/tag">See details</a>
+`value` | The referenced entry's numeric identifier. | <a href="#CombatRelatedSpecialAbilityIdentifier/value">See details</a>
 
-#### <a name="Identifier/Group/CombatRelatedSpecialAbility/tag"></a> `tag`
+#### <a name="CombatRelatedSpecialAbilityIdentifier/tag"></a> `tag`
 
-- **Type:** <a href="#Identifier/Tag/CombatRelatedSpecialAbility">Identifier/Tag/CombatRelatedSpecialAbility</a>
+- **Type:** <a href="#CombatRelatedSpecialAbilityTag">CombatRelatedSpecialAbilityTag</a>
 
-#### <a name="Identifier/Group/CombatRelatedSpecialAbility/value"></a> `value`
+#### <a name="CombatRelatedSpecialAbilityIdentifier/value"></a> `value`
 
 The referenced entry's numeric identifier.
 
@@ -82,20 +94,20 @@ The referenced entry's numeric identifier.
 
 ---
 
-### <a name="Identifier/Group/Rated"></a> `Identifier/Group/Rated`
+### <a name="RatedIdentifier"></a> `RatedIdentifier`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Identifier/Group/Rated/tag">See details</a>
-`value` | The referenced entry's numeric identifier. | <a href="#Identifier/Group/Rated/value">See details</a>
+`tag` |  | <a href="#RatedIdentifier/tag">See details</a>
+`value` | The referenced entry's numeric identifier. | <a href="#RatedIdentifier/value">See details</a>
 
-#### <a name="Identifier/Group/Rated/tag"></a> `tag`
+#### <a name="RatedIdentifier/tag"></a> `tag`
 
-- **Type:** <a href="#Identifier/Tag/Rated">Identifier/Tag/Rated</a>
+- **Type:** <a href="#RatedTag">RatedTag</a>
 
-#### <a name="Identifier/Group/Rated/value"></a> `value`
+#### <a name="RatedIdentifier/value"></a> `value`
 
 The referenced entry's numeric identifier.
 
@@ -104,20 +116,20 @@ The referenced entry's numeric identifier.
 
 ---
 
-### <a name="Identifier/Group/AdvancedSpecialAbilityRestrictedOption"></a> `Identifier/Group/AdvancedSpecialAbilityRestrictedOption`
+### <a name="AdvancedSpecialAbilityRestrictedOptionIdentifier"></a> `AdvancedSpecialAbilityRestrictedOptionIdentifier`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Identifier/Group/AdvancedSpecialAbilityRestrictedOption/tag">See details</a>
-`value` | The referenced entry's numeric identifier. | <a href="#Identifier/Group/AdvancedSpecialAbilityRestrictedOption/value">See details</a>
+`tag` |  | <a href="#AdvancedSpecialAbilityRestrictedOptionIdentifier/tag">See details</a>
+`value` | The referenced entry's numeric identifier. | <a href="#AdvancedSpecialAbilityRestrictedOptionIdentifier/value">See details</a>
 
-#### <a name="Identifier/Group/AdvancedSpecialAbilityRestrictedOption/tag"></a> `tag`
+#### <a name="AdvancedSpecialAbilityRestrictedOptionIdentifier/tag"></a> `tag`
 
-- **Type:** <a href="#Identifier/Tag/AdvancedSpecialAbilityRestrictedOption">Identifier/Tag/AdvancedSpecialAbilityRestrictedOption</a>
+- **Type:** <a href="#AdvancedSpecialAbilityRestrictedOptionTag">AdvancedSpecialAbilityRestrictedOptionTag</a>
 
-#### <a name="Identifier/Group/AdvancedSpecialAbilityRestrictedOption/value"></a> `value`
+#### <a name="AdvancedSpecialAbilityRestrictedOptionIdentifier/value"></a> `value`
 
 The referenced entry's numeric identifier.
 
@@ -126,20 +138,20 @@ The referenced entry's numeric identifier.
 
 ---
 
-### <a name="Identifier/Group/VolumePointsOptionReference"></a> `Identifier/Group/VolumePointsOptionReference`
+### <a name="VolumePointsOptionReferenceIdentifier"></a> `VolumePointsOptionReferenceIdentifier`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Identifier/Group/VolumePointsOptionReference/tag">See details</a>
-`value` | The referenced entry's numeric identifier. | <a href="#Identifier/Group/VolumePointsOptionReference/value">See details</a>
+`tag` |  | <a href="#VolumePointsOptionReferenceIdentifier/tag">See details</a>
+`value` | The referenced entry's numeric identifier. | <a href="#VolumePointsOptionReferenceIdentifier/value">See details</a>
 
-#### <a name="Identifier/Group/VolumePointsOptionReference/tag"></a> `tag`
+#### <a name="VolumePointsOptionReferenceIdentifier/tag"></a> `tag`
 
-- **Type:** <a href="#Identifier/Tag/VolumePointsOptionReference">Identifier/Tag/VolumePointsOptionReference</a>
+- **Type:** <a href="#VolumePointsOptionReferenceTag">VolumePointsOptionReferenceTag</a>
 
-#### <a name="Identifier/Group/VolumePointsOptionReference/value"></a> `value`
+#### <a name="VolumePointsOptionReferenceIdentifier/value"></a> `value`
 
 The referenced entry's numeric identifier.
 
@@ -148,20 +160,64 @@ The referenced entry's numeric identifier.
 
 ---
 
-### <a name="Identifier/Group/CombatTechnique"></a> `Identifier/Group/CombatTechnique`
+### <a name="CombatTechniqueIdentifier"></a> `CombatTechniqueIdentifier`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Identifier/Group/CombatTechnique/tag">See details</a>
-`value` | The referenced entry's numeric identifier. | <a href="#Identifier/Group/CombatTechnique/value">See details</a>
+`tag` |  | <a href="#CombatTechniqueIdentifier/tag">See details</a>
+`value` | The referenced entry's numeric identifier. | <a href="#CombatTechniqueIdentifier/value">See details</a>
 
-#### <a name="Identifier/Group/CombatTechnique/tag"></a> `tag`
+#### <a name="CombatTechniqueIdentifier/tag"></a> `tag`
 
-- **Type:** <a href="#Identifier/Tag/CombatTechnique">Identifier/Tag/CombatTechnique</a>
+- **Type:** <a href="#CombatTechniqueTag">CombatTechniqueTag</a>
 
-#### <a name="Identifier/Group/CombatTechnique/value"></a> `value`
+#### <a name="CombatTechniqueIdentifier/value"></a> `value`
+
+The referenced entry's numeric identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="MagicalTraditionIdentifier"></a> `MagicalTraditionIdentifier`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#MagicalTraditionIdentifier/tag">See details</a>
+`value` | The referenced entry's numeric identifier. | <a href="#MagicalTraditionIdentifier/value">See details</a>
+
+#### <a name="MagicalTraditionIdentifier/tag"></a> `tag`
+
+- **Type:** <a href="#MagicalTraditionTag">MagicalTraditionTag</a>
+
+#### <a name="MagicalTraditionIdentifier/value"></a> `value`
+
+The referenced entry's numeric identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="PatronIdentifier"></a> `PatronIdentifier`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#PatronIdentifier/tag">See details</a>
+`value` | The referenced entry's numeric identifier. | <a href="#PatronIdentifier/value">See details</a>
+
+#### <a name="PatronIdentifier/tag"></a> `tag`
+
+- **Type:** <a href="#PatronTag">PatronTag</a>
+
+#### <a name="PatronIdentifier/value"></a> `value`
 
 The referenced entry's numeric identifier.
 

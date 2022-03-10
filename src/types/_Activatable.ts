@@ -4,7 +4,7 @@
  */
 
 import { Duration } from "./_ActivatableSkill"
-import { Identifier } from "./_Identifier"
+import { AdvancedSpecialAbilityRestrictedOptionIdentifier, CombatRelatedSpecialAbilityIdentifier, CombatTechniqueIdentifier, MagicalTraditionIdentifier, PatronIdentifier, VolumePointsOptionReferenceIdentifier } from "./_Identifier"
 import { Prerequisite } from "./_Prerequisite"
 
 /**
@@ -328,7 +328,7 @@ export type Penalty =
      * The identifier of the combat-related special ability of which the level
      * defines the penalty instead.
      */
-    external_id?: Identifier.Group.CombatRelatedSpecialAbility
+    external_id?: CombatRelatedSpecialAbilityIdentifier
   }
   | {
     tag: "ByAttack"
@@ -831,7 +831,7 @@ export type VolumeMapOption = {
     /**
      * The option's identifier.
      */
-    id: Identifier.Group.VolumePointsOptionReference
+    id: VolumePointsOptionReferenceIdentifier
   }[]
 
   /**
@@ -1039,7 +1039,7 @@ export type AdvancedSpecialAbility =
      * advanced special ability; others are disallowed.
      * @minItems 1
      */
-    option: Identifier.Group.AdvancedSpecialAbilityRestrictedOption[]
+    option: AdvancedSpecialAbilityRestrictedOptionIdentifier[]
   }
   | {
     tag: "OneOf"
@@ -1067,7 +1067,7 @@ export type AdvancedSpecialAbility =
      * advanced special ability; others are disallowed.
      * @minItems 1
      */
-    option: Identifier.Group.AdvancedSpecialAbilityRestrictedOption[]
+    option: AdvancedSpecialAbilityRestrictedOptionIdentifier[]
 
     display_option?: Prerequisite.Single.DisplayOption.T
   }
@@ -1114,12 +1114,12 @@ export type AdvancedSpecialAbility =
      * advanced special ability; others are disallowed.
      * @minItems 1
      */
-    option: Identifier.Group.AdvancedSpecialAbilityRestrictedOption[]
+    option: AdvancedSpecialAbilityRestrictedOptionIdentifier[]
   }
 
-export type AdvancedSpecialAbilityDerivedExternalEntryId = Identifier.Tagged<"MagicalTradition">
+export type AdvancedSpecialAbilityDerivedExternalEntryId = MagicalTraditionIdentifier
 
-export type AdvancedSpecialAbilityDerivedExternalEntryOptionId = Identifier.Tagged<"Patron">
+export type AdvancedSpecialAbilityDerivedExternalEntryOptionId = PatronIdentifier
 
 /**
  * The Advanced Special Abilities for the respective Style Special Ability.
@@ -1168,7 +1168,7 @@ export type ApplicableCombatTechniques =
      * @minItems 1
      */
     list: {
-      id: Identifier.Group.CombatTechnique
+      id: CombatTechniqueIdentifier
 
       /**
        * @minItems 1
@@ -1200,7 +1200,7 @@ export type ApplicableAllCombatTechniquesRestriction =
      * @minItems 1
      * @uniqueItems
      */
-    list: Identifier.Group.CombatTechnique[]
+    list: CombatTechniqueIdentifier[]
   }
 
 export type ApplicableCloseCombatTechniquesRestriction =

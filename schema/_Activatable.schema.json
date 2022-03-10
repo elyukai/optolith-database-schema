@@ -453,7 +453,7 @@
             },
             "external_id": {
               "description": "The identifier of the combat-related special ability of which the level\ndefines the penalty instead.",
-              "$ref": "./_Identifier.schema.json#/definitions/Identifier/Group/CombatRelatedSpecialAbility"
+              "$ref": "./_Identifier.schema.json#/definitions/CombatRelatedSpecialAbilityIdentifier"
             }
           },
           "required": [
@@ -1165,7 +1165,7 @@
             "properties": {
               "id": {
                 "description": "The option's identifier.",
-                "$ref": "./_Identifier.schema.json#/definitions/Identifier/Group/VolumePointsOptionReference"
+                "$ref": "./_Identifier.schema.json#/definitions/VolumePointsOptionReferenceIdentifier"
               }
             },
             "required": [
@@ -1427,7 +1427,7 @@
               "description": "Specify the select option(s) that only are allowed for the referenced\nadvanced special ability; others are disallowed.",
               "type": "array",
               "items": {
-                "$ref": "./_Identifier.schema.json#/definitions/Identifier/Group/AdvancedSpecialAbilityRestrictedOption"
+                "$ref": "./_Identifier.schema.json#/definitions/AdvancedSpecialAbilityRestrictedOptionIdentifier"
               },
               "minItems": 1
             }
@@ -1468,7 +1468,7 @@
               "description": "Specify the select option(s) that only are allowed for the referenced\nadvanced special ability; others are disallowed.",
               "type": "array",
               "items": {
-                "$ref": "./_Identifier.schema.json#/definitions/Identifier/Group/AdvancedSpecialAbilityRestrictedOption"
+                "$ref": "./_Identifier.schema.json#/definitions/AdvancedSpecialAbilityRestrictedOptionIdentifier"
               },
               "minItems": 1
             },
@@ -1538,7 +1538,7 @@
               "description": "Specify the select option(s) that only are allowed for the referenced\nadvanced special ability; others are disallowed.",
               "type": "array",
               "items": {
-                "$ref": "./_Identifier.schema.json#/definitions/Identifier/Group/AdvancedSpecialAbilityRestrictedOption"
+                "$ref": "./_Identifier.schema.json#/definitions/AdvancedSpecialAbilityRestrictedOptionIdentifier"
               },
               "minItems": 1
             }
@@ -1555,40 +1555,10 @@
       ]
     },
     "AdvancedSpecialAbilityDerivedExternalEntryId": {
-      "type": "object",
-      "properties": {
-        "tag": {
-          "const": "MagicalTradition"
-        },
-        "value": {
-          "description": "The referenced entry's numeric identifier.",
-          "type": "integer",
-          "minimum": 1
-        }
-      },
-      "required": [
-        "tag",
-        "value"
-      ],
-      "additionalProperties": false
+      "$ref": "./_Identifier.schema.json#/definitions/MagicalTraditionIdentifier"
     },
     "AdvancedSpecialAbilityDerivedExternalEntryOptionId": {
-      "type": "object",
-      "properties": {
-        "tag": {
-          "const": "Patron"
-        },
-        "value": {
-          "description": "The referenced entry's numeric identifier.",
-          "type": "integer",
-          "minimum": 1
-        }
-      },
-      "required": [
-        "tag",
-        "value"
-      ],
-      "additionalProperties": false
+      "$ref": "./_Identifier.schema.json#/definitions/PatronIdentifier"
     },
     "AdvancedSpecialAbilities": {
       "description": "The Advanced Special Abilities for the respective Style Special Ability.\nSometimes, only a specific select option or a set of select options of an\nentry is allowed, which can be modelled by the option property. It can also\nbe that you can choose from a set of special abilities, but then you can't\nspecify an option.",
@@ -1703,7 +1673,7 @@
                 "type": "object",
                 "properties": {
                   "id": {
-                    "$ref": "./_Identifier.schema.json#/definitions/Identifier/Group/CombatTechnique"
+                    "$ref": "./_Identifier.schema.json#/definitions/CombatTechniqueIdentifier"
                   },
                   "restrictions": {
                     "type": "array",
@@ -1795,7 +1765,7 @@
               "description": "The combat techniques this combat special ability is **not** applicable\nto.",
               "type": "array",
               "items": {
-                "$ref": "./_Identifier.schema.json#/definitions/Identifier/Group/CombatTechnique"
+                "$ref": "./_Identifier.schema.json#/definitions/CombatTechniqueIdentifier"
               },
               "minItems": 1,
               "uniqueItems": true

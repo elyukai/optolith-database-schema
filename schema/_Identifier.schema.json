@@ -2,207 +2,247 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "_Identifier.schema.json",
   "definitions": {
-    "Identifier": {
-      "Tag": {
-        "Activatable": {
-          "enum": [
-            "Advantage",
-            "Disadvantage",
-            "GeneralSpecialAbility",
-            "FatePointSpecialAbility",
-            "CombatSpecialAbility",
-            "MagicalSpecialAbility",
-            "StaffEnchantment",
-            "FamiliarSpecialAbility",
-            "KarmaSpecialAbility",
-            "ProtectiveWardingCircleSpecialAbility",
-            "CombatStyleSpecialAbility",
-            "AdvancedCombatSpecialAbility",
-            "CommandSpecialAbility",
-            "MagicStyleSpecialAbility",
-            "AdvancedMagicalSpecialAbility",
-            "SpellSwordEnchantment",
-            "DaggerRitual",
-            "InstrumentEnchantment",
-            "AttireEnchantment",
-            "OrbEnchantment",
-            "WandEnchantment",
-            "BrawlingSpecialAbility",
-            "AncestorGlyph",
-            "CeremonialItemSpecialAbility",
-            "Sermon",
-            "LiturgicalStyleSpecialAbility",
-            "AdvancedKarmaSpecialAbility",
-            "Vision",
-            "MagicalTradition",
-            "BlessedTradition",
-            "PactGift",
-            "SikaryanDrainSpecialAbility",
-            "LycantropicGift",
-            "SkillStyleSpecialAbility",
-            "AdvancedSkillSpecialAbility",
-            "ArcaneOrbEnchantment",
-            "CauldronEnchantment",
-            "FoolsHatEnchantment",
-            "ToyEnchantment",
-            "BowlEnchantment",
-            "FatePointSexSpecialAbility",
-            "SexSpecialAbility",
-            "WeaponEnchantment",
-            "SickleRitual",
-            "RingEnchantment",
-            "ChronicleEnchantment"
-          ]
+    "ActivatableTag": {
+      "enum": [
+        "Advantage",
+        "Disadvantage",
+        "GeneralSpecialAbility",
+        "FatePointSpecialAbility",
+        "CombatSpecialAbility",
+        "MagicalSpecialAbility",
+        "StaffEnchantment",
+        "FamiliarSpecialAbility",
+        "KarmaSpecialAbility",
+        "ProtectiveWardingCircleSpecialAbility",
+        "CombatStyleSpecialAbility",
+        "AdvancedCombatSpecialAbility",
+        "CommandSpecialAbility",
+        "MagicStyleSpecialAbility",
+        "AdvancedMagicalSpecialAbility",
+        "SpellSwordEnchantment",
+        "DaggerRitual",
+        "InstrumentEnchantment",
+        "AttireEnchantment",
+        "OrbEnchantment",
+        "WandEnchantment",
+        "BrawlingSpecialAbility",
+        "AncestorGlyph",
+        "CeremonialItemSpecialAbility",
+        "Sermon",
+        "LiturgicalStyleSpecialAbility",
+        "AdvancedKarmaSpecialAbility",
+        "Vision",
+        "MagicalTradition",
+        "BlessedTradition",
+        "PactGift",
+        "SikaryanDrainSpecialAbility",
+        "LycantropicGift",
+        "SkillStyleSpecialAbility",
+        "AdvancedSkillSpecialAbility",
+        "ArcaneOrbEnchantment",
+        "CauldronEnchantment",
+        "FoolsHatEnchantment",
+        "ToyEnchantment",
+        "BowlEnchantment",
+        "FatePointSexSpecialAbility",
+        "SexSpecialAbility",
+        "WeaponEnchantment",
+        "SickleRitual",
+        "RingEnchantment",
+        "ChronicleEnchantment"
+      ]
+    },
+    "CombatRelatedSpecialAbilityTag": {
+      "enum": [
+        "CombatSpecialAbility",
+        "CombatStyleSpecialAbility",
+        "AdvancedCombatSpecialAbility",
+        "CommandSpecialAbility"
+      ]
+    },
+    "RatedTag": {
+      "enum": [
+        "Attribute",
+        "Skill",
+        "CloseCombatTechnique",
+        "RangedCombatTechnique",
+        "Spell",
+        "Ritual",
+        "LiturgicalChant",
+        "Ceremony"
+      ]
+    },
+    "AdvancedSpecialAbilityRestrictedOptionTag": {
+      "enum": [
+        "General",
+        "Element"
+      ]
+    },
+    "VolumePointsOptionReferenceTag": {
+      "enum": [
+        "General",
+        "AnimalShapeSize"
+      ]
+    },
+    "CombatTechniqueTag": {
+      "enum": [
+        "CloseCombatTechnique",
+        "RangedCombatTechnique"
+      ]
+    },
+    "MagicalTraditionTag": {
+      "enum": [
+        "MagicalTradition"
+      ]
+    },
+    "PatronTag": {
+      "enum": [
+        "Patron"
+      ]
+    },
+    "ActivatableIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "$ref": "#/definitions/ActivatableTag"
         },
-        "CombatRelatedSpecialAbility": {
-          "enum": [
-            "CombatSpecialAbility",
-            "CombatStyleSpecialAbility",
-            "AdvancedCombatSpecialAbility",
-            "CommandSpecialAbility"
-          ]
-        },
-        "Rated": {
-          "enum": [
-            "Attribute",
-            "Skill",
-            "CloseCombatTechnique",
-            "RangedCombatTechnique",
-            "Spell",
-            "Ritual",
-            "LiturgicalChant",
-            "Ceremony"
-          ]
-        },
-        "AdvancedSpecialAbilityRestrictedOption": {
-          "enum": [
-            "General",
-            "Element"
-          ]
-        },
-        "VolumePointsOptionReference": {
-          "enum": [
-            "General",
-            "AnimalShapeSize"
-          ]
-        },
-        "CombatTechnique": {
-          "enum": [
-            "CloseCombatTechnique",
-            "RangedCombatTechnique"
-          ]
+        "value": {
+          "description": "The referenced entry's numeric identifier.",
+          "type": "integer",
+          "minimum": 1
         }
       },
-      "Group": {
-        "Activatable": {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "$ref": "#/definitions/Identifier/Tag/Activatable"
-            },
-            "value": {
-              "description": "The referenced entry's numeric identifier.",
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          "required": [
-            "tag",
-            "value"
-          ],
-          "additionalProperties": false
+      "required": [
+        "tag",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "CombatRelatedSpecialAbilityIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "$ref": "#/definitions/CombatRelatedSpecialAbilityTag"
         },
-        "CombatRelatedSpecialAbility": {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "$ref": "#/definitions/Identifier/Tag/CombatRelatedSpecialAbility"
-            },
-            "value": {
-              "description": "The referenced entry's numeric identifier.",
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          "required": [
-            "tag",
-            "value"
-          ],
-          "additionalProperties": false
-        },
-        "Rated": {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "$ref": "#/definitions/Identifier/Tag/Rated"
-            },
-            "value": {
-              "description": "The referenced entry's numeric identifier.",
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          "required": [
-            "tag",
-            "value"
-          ],
-          "additionalProperties": false
-        },
-        "AdvancedSpecialAbilityRestrictedOption": {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "$ref": "#/definitions/Identifier/Tag/AdvancedSpecialAbilityRestrictedOption"
-            },
-            "value": {
-              "description": "The referenced entry's numeric identifier.",
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          "required": [
-            "tag",
-            "value"
-          ],
-          "additionalProperties": false
-        },
-        "VolumePointsOptionReference": {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "$ref": "#/definitions/Identifier/Tag/VolumePointsOptionReference"
-            },
-            "value": {
-              "description": "The referenced entry's numeric identifier.",
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          "required": [
-            "tag",
-            "value"
-          ],
-          "additionalProperties": false
-        },
-        "CombatTechnique": {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "$ref": "#/definitions/Identifier/Tag/CombatTechnique"
-            },
-            "value": {
-              "description": "The referenced entry's numeric identifier.",
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          "required": [
-            "tag",
-            "value"
-          ],
-          "additionalProperties": false
+        "value": {
+          "description": "The referenced entry's numeric identifier.",
+          "type": "integer",
+          "minimum": 1
         }
-      }
+      },
+      "required": [
+        "tag",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "RatedIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "$ref": "#/definitions/RatedTag"
+        },
+        "value": {
+          "description": "The referenced entry's numeric identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "AdvancedSpecialAbilityRestrictedOptionIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "$ref": "#/definitions/AdvancedSpecialAbilityRestrictedOptionTag"
+        },
+        "value": {
+          "description": "The referenced entry's numeric identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "VolumePointsOptionReferenceIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "$ref": "#/definitions/VolumePointsOptionReferenceTag"
+        },
+        "value": {
+          "description": "The referenced entry's numeric identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "CombatTechniqueIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "$ref": "#/definitions/CombatTechniqueTag"
+        },
+        "value": {
+          "description": "The referenced entry's numeric identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "MagicalTraditionIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "$ref": "#/definitions/MagicalTraditionTag"
+        },
+        "value": {
+          "description": "The referenced entry's numeric identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "PatronIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "$ref": "#/definitions/PatronTag"
+        },
+        "value": {
+          "description": "The referenced entry's numeric identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "value"
+      ],
+      "additionalProperties": false
     }
   }
 }

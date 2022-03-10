@@ -234,7 +234,7 @@ Key | Description | Details
 
 #### <a name="PactGift/automatic_entries[]/target'Fixed/id"></a> `id`
 
-- **Type:** <a href="../_Identifier.md#Identifier/Group/Activatable">Identifier/Group/Activatable</a>
+- **Type:** <a href="../_Identifier.md#ActivatableIdentifier">ActivatableIdentifier</a>
 
 ---
 

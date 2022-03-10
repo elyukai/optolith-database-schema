@@ -2,7 +2,7 @@
  * @title Prerequisites
  */
 
-import { Identifier } from "./_Identifier"
+import { ActivatableIdentifier, RatedIdentifier } from "./_Identifier"
 import { BinarySex } from "./_Sex"
 
 export namespace Prerequisite {
@@ -301,7 +301,7 @@ export namespace Prerequisite {
          * @integer
          * @minimum 1
          */
-        id: Identifier.Group.Activatable
+        id: ActivatableIdentifier
 
         /**
          * If the required entry should be required to be active or inactive.
@@ -508,7 +508,7 @@ export namespace Prerequisite {
          * @integer
          * @minimum 1
          */
-        id: Identifier.Group.Rated
+        id: RatedIdentifier
 
         /**
          * The required minimum value.

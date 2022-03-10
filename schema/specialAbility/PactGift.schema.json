@@ -148,7 +148,7 @@
                         "const": "Fixed"
                       },
                       "id": {
-                        "$ref": "../_Identifier.schema.json#/definitions/Identifier/Group/Activatable"
+                        "$ref": "../_Identifier.schema.json#/definitions/ActivatableIdentifier"
                       }
                     },
                     "required": [

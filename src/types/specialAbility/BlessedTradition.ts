@@ -5,7 +5,7 @@
 import { Errata } from "../source/_Erratum"
 import { PublicationRefs } from "../source/_PublicationRef"
 import * as Activatable from "../_Activatable"
-import { Identifier } from "../_Identifier"
+import { CombatTechniqueIdentifier } from "../_Identifier"
 
 /**
  * @title Blessed Tradition
@@ -88,7 +88,7 @@ export type BlessedTradition = {
         /**
          * The combat technique's identifier.
          */
-        id: Identifier.Group.CombatTechnique
+        id: CombatTechniqueIdentifier
       }[]
     }
 

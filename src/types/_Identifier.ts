@@ -1,105 +1,109 @@
-export namespace Identifier {
-  export namespace Tag {
-    export enum Activatable {
-      Advantage = "Advantage",
-      Disadvantage = "Disadvantage",
-      GeneralSpecialAbility = "GeneralSpecialAbility",
-      FatePointSpecialAbility = "FatePointSpecialAbility",
-      CombatSpecialAbility = "CombatSpecialAbility",
-      MagicalSpecialAbility = "MagicalSpecialAbility",
-      StaffEnchantment = "StaffEnchantment",
-      FamiliarSpecialAbility = "FamiliarSpecialAbility",
-      KarmaSpecialAbility = "KarmaSpecialAbility",
-      ProtectiveWardingCircleSpecialAbility = "ProtectiveWardingCircleSpecialAbility",
-      CombatStyleSpecialAbility = "CombatStyleSpecialAbility",
-      AdvancedCombatSpecialAbility = "AdvancedCombatSpecialAbility",
-      CommandSpecialAbility = "CommandSpecialAbility",
-      MagicStyleSpecialAbility = "MagicStyleSpecialAbility",
-      AdvancedMagicalSpecialAbility = "AdvancedMagicalSpecialAbility",
-      SpellSwordEnchantment = "SpellSwordEnchantment",
-      DaggerRitual = "DaggerRitual",
-      InstrumentEnchantment = "InstrumentEnchantment",
-      AttireEnchantment = "AttireEnchantment",
-      OrbEnchantment = "OrbEnchantment",
-      WandEnchantment = "WandEnchantment",
-      BrawlingSpecialAbility = "BrawlingSpecialAbility",
-      AncestorGlyph = "AncestorGlyph",
-      CeremonialItemSpecialAbility = "CeremonialItemSpecialAbility",
-      Sermon = "Sermon",
-      LiturgicalStyleSpecialAbility = "LiturgicalStyleSpecialAbility",
-      AdvancedKarmaSpecialAbility = "AdvancedKarmaSpecialAbility",
-      Vision = "Vision",
-      MagicalTradition = "MagicalTradition",
-      BlessedTradition = "BlessedTradition",
-      PactGift = "PactGift",
-      SikaryanDrainSpecialAbility = "SikaryanDrainSpecialAbility",
-      LycantropicGift = "LycantropicGift",
-      SkillStyleSpecialAbility = "SkillStyleSpecialAbility",
-      AdvancedSkillSpecialAbility = "AdvancedSkillSpecialAbility",
-      ArcaneOrbEnchantment = "ArcaneOrbEnchantment",
-      CauldronEnchantment = "CauldronEnchantment",
-      FoolsHatEnchantment = "FoolsHatEnchantment",
-      ToyEnchantment = "ToyEnchantment",
-      BowlEnchantment = "BowlEnchantment",
-      FatePointSexSpecialAbility = "FatePointSexSpecialAbility",
-      SexSpecialAbility = "SexSpecialAbility",
-      WeaponEnchantment = "WeaponEnchantment",
-      SickleRitual = "SickleRitual",
-      RingEnchantment = "RingEnchantment",
-      ChronicleEnchantment = "ChronicleEnchantment",
-    }
-
-    export enum CombatRelatedSpecialAbility {
-      CombatSpecialAbility = "CombatSpecialAbility",
-      CombatStyleSpecialAbility = "CombatStyleSpecialAbility",
-      AdvancedCombatSpecialAbility = "AdvancedCombatSpecialAbility",
-      CommandSpecialAbility = "CommandSpecialAbility",
-    }
-
-    export enum Rated {
-      Attribute = "Attribute",
-      Skill = "Skill",
-      CloseCombatTechnique = "CloseCombatTechnique",
-      RangedCombatTechnique = "RangedCombatTechnique",
-      Spell = "Spell",
-      Ritual = "Ritual",
-      LiturgicalChant = "LiturgicalChant",
-      Ceremony = "Ceremony",
-    }
-
-    export enum AdvancedSpecialAbilityRestrictedOption {
-      General = "General",
-      Element = "Element",
-    }
-
-    export enum VolumePointsOptionReference {
-      General = "General",
-      AnimalShapeSize = "AnimalShapeSize",
-    }
-
-    export enum CombatTechnique {
-      CloseCombatTechnique = "CloseCombatTechnique",
-      RangedCombatTechnique = "RangedCombatTechnique",
-    }
-  }
-
-  export type Tagged<Tag> = {
-    tag: Tag
-
-    /**
-     * The referenced entry's numeric identifier.
-     * @integer
-     * @minimum 1
-     */
-    value: number
-  }
-
-  export namespace Group {
-    export type Activatable = Tagged<Tag.Activatable>
-    export type CombatRelatedSpecialAbility = Tagged<Tag.CombatRelatedSpecialAbility>
-    export type Rated = Tagged<Tag.Rated>
-    export type AdvancedSpecialAbilityRestrictedOption = Tagged<Tag.AdvancedSpecialAbilityRestrictedOption>
-    export type VolumePointsOptionReference = Tagged<Tag.VolumePointsOptionReference>
-    export type CombatTechnique = Tagged<Tag.CombatTechnique>
-  }
+enum ActivatableTag {
+  Advantage = "Advantage",
+  Disadvantage = "Disadvantage",
+  GeneralSpecialAbility = "GeneralSpecialAbility",
+  FatePointSpecialAbility = "FatePointSpecialAbility",
+  CombatSpecialAbility = "CombatSpecialAbility",
+  MagicalSpecialAbility = "MagicalSpecialAbility",
+  StaffEnchantment = "StaffEnchantment",
+  FamiliarSpecialAbility = "FamiliarSpecialAbility",
+  KarmaSpecialAbility = "KarmaSpecialAbility",
+  ProtectiveWardingCircleSpecialAbility = "ProtectiveWardingCircleSpecialAbility",
+  CombatStyleSpecialAbility = "CombatStyleSpecialAbility",
+  AdvancedCombatSpecialAbility = "AdvancedCombatSpecialAbility",
+  CommandSpecialAbility = "CommandSpecialAbility",
+  MagicStyleSpecialAbility = "MagicStyleSpecialAbility",
+  AdvancedMagicalSpecialAbility = "AdvancedMagicalSpecialAbility",
+  SpellSwordEnchantment = "SpellSwordEnchantment",
+  DaggerRitual = "DaggerRitual",
+  InstrumentEnchantment = "InstrumentEnchantment",
+  AttireEnchantment = "AttireEnchantment",
+  OrbEnchantment = "OrbEnchantment",
+  WandEnchantment = "WandEnchantment",
+  BrawlingSpecialAbility = "BrawlingSpecialAbility",
+  AncestorGlyph = "AncestorGlyph",
+  CeremonialItemSpecialAbility = "CeremonialItemSpecialAbility",
+  Sermon = "Sermon",
+  LiturgicalStyleSpecialAbility = "LiturgicalStyleSpecialAbility",
+  AdvancedKarmaSpecialAbility = "AdvancedKarmaSpecialAbility",
+  Vision = "Vision",
+  MagicalTradition = "MagicalTradition",
+  BlessedTradition = "BlessedTradition",
+  PactGift = "PactGift",
+  SikaryanDrainSpecialAbility = "SikaryanDrainSpecialAbility",
+  LycantropicGift = "LycantropicGift",
+  SkillStyleSpecialAbility = "SkillStyleSpecialAbility",
+  AdvancedSkillSpecialAbility = "AdvancedSkillSpecialAbility",
+  ArcaneOrbEnchantment = "ArcaneOrbEnchantment",
+  CauldronEnchantment = "CauldronEnchantment",
+  FoolsHatEnchantment = "FoolsHatEnchantment",
+  ToyEnchantment = "ToyEnchantment",
+  BowlEnchantment = "BowlEnchantment",
+  FatePointSexSpecialAbility = "FatePointSexSpecialAbility",
+  SexSpecialAbility = "SexSpecialAbility",
+  WeaponEnchantment = "WeaponEnchantment",
+  SickleRitual = "SickleRitual",
+  RingEnchantment = "RingEnchantment",
+  ChronicleEnchantment = "ChronicleEnchantment",
 }
+
+enum CombatRelatedSpecialAbilityTag {
+  CombatSpecialAbility = "CombatSpecialAbility",
+  CombatStyleSpecialAbility = "CombatStyleSpecialAbility",
+  AdvancedCombatSpecialAbility = "AdvancedCombatSpecialAbility",
+  CommandSpecialAbility = "CommandSpecialAbility",
+}
+
+enum RatedTag {
+  Attribute = "Attribute",
+  Skill = "Skill",
+  CloseCombatTechnique = "CloseCombatTechnique",
+  RangedCombatTechnique = "RangedCombatTechnique",
+  Spell = "Spell",
+  Ritual = "Ritual",
+  LiturgicalChant = "LiturgicalChant",
+  Ceremony = "Ceremony",
+}
+
+enum AdvancedSpecialAbilityRestrictedOptionTag {
+  General = "General",
+  Element = "Element",
+}
+
+enum VolumePointsOptionReferenceTag {
+  General = "General",
+  AnimalShapeSize = "AnimalShapeSize",
+}
+
+enum CombatTechniqueTag {
+  CloseCombatTechnique = "CloseCombatTechnique",
+  RangedCombatTechnique = "RangedCombatTechnique",
+}
+
+enum MagicalTraditionTag {
+  MagicalTradition = "MagicalTradition",
+}
+
+enum PatronTag {
+  Patron = "Patron",
+}
+
+type TaggedIdentifier<Tag> = {
+  tag: Tag
+
+  /**
+   * The referenced entry's numeric identifier.
+   * @integer
+   * @minimum 1
+   */
+  value: number
+}
+
+export type ActivatableIdentifier = TaggedIdentifier<ActivatableTag>
+export type CombatRelatedSpecialAbilityIdentifier = TaggedIdentifier<CombatRelatedSpecialAbilityTag>
+export type RatedIdentifier = TaggedIdentifier<RatedTag>
+export type AdvancedSpecialAbilityRestrictedOptionIdentifier = TaggedIdentifier<AdvancedSpecialAbilityRestrictedOptionTag>
+export type VolumePointsOptionReferenceIdentifier = TaggedIdentifier<VolumePointsOptionReferenceTag>
+export type CombatTechniqueIdentifier = TaggedIdentifier<CombatTechniqueTag>
+export type MagicalTraditionIdentifier = TaggedIdentifier<MagicalTraditionTag>
+export type PatronIdentifier = TaggedIdentifier<PatronTag>

@@ -621,7 +621,7 @@ second level, and so on.
 The identifier of the combat-related special ability of which the level
 defines the penalty instead.
 
-- **Type:** <a href="./_Identifier.md#Identifier/Group/CombatRelatedSpecialAbility">Identifier/Group/CombatRelatedSpecialAbility</a>
+- **Type:** <a href="./_Identifier.md#CombatRelatedSpecialAbilityIdentifier">CombatRelatedSpecialAbilityIdentifier</a>
 
 ---
 
@@ -1694,7 +1694,7 @@ Key | Description | Details
 
 The option's identifier.
 
-- **Type:** <a href="./_Identifier.md#Identifier/Group/VolumePointsOptionReference">Identifier/Group/VolumePointsOptionReference</a>
+- **Type:** <a href="./_Identifier.md#VolumePointsOptionReferenceIdentifier">VolumePointsOptionReferenceIdentifier</a>
 
 ---
 
@@ -2062,7 +2062,7 @@ advanced special ability; others are disallowed.
 
 ### <a name="AdvancedSpecialAbility'RestrictOptions/option[]"></a> `AdvancedSpecialAbility'RestrictOptions/option[]`
 
-- **Type:** <a href="./_Identifier.md#Identifier/Group/AdvancedSpecialAbilityRestrictedOption">Identifier/Group/AdvancedSpecialAbilityRestrictedOption</a>
+- **Type:** <a href="./_Identifier.md#AdvancedSpecialAbilityRestrictedOptionIdentifier">AdvancedSpecialAbilityRestrictedOptionIdentifier</a>
 
 ---
 
@@ -2131,7 +2131,7 @@ The advanced special ability's numeric identifier.
 
 ### <a name="AdvancedSpecialAbility'OneOf/option[]"></a> `AdvancedSpecialAbility'OneOf/option[]`
 
-- **Type:** <a href="./_Identifier.md#Identifier/Group/AdvancedSpecialAbilityRestrictedOption">Identifier/Group/AdvancedSpecialAbilityRestrictedOption</a>
+- **Type:** <a href="./_Identifier.md#AdvancedSpecialAbilityRestrictedOptionIdentifier">AdvancedSpecialAbilityRestrictedOptionIdentifier</a>
 
 ---
 
@@ -2230,51 +2230,19 @@ The advanced special ability's numeric identifier.
 
 ### <a name="AdvancedSpecialAbility'DeriveFromExternalOption/option[]"></a> `AdvancedSpecialAbility'DeriveFromExternalOption/option[]`
 
-- **Type:** <a href="./_Identifier.md#Identifier/Group/AdvancedSpecialAbilityRestrictedOption">Identifier/Group/AdvancedSpecialAbilityRestrictedOption</a>
+- **Type:** <a href="./_Identifier.md#AdvancedSpecialAbilityRestrictedOptionIdentifier">AdvancedSpecialAbilityRestrictedOptionIdentifier</a>
 
 ---
 
 ### <a name="AdvancedSpecialAbilityDerivedExternalEntryId"></a> `AdvancedSpecialAbilityDerivedExternalEntryId`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#AdvancedSpecialAbilityDerivedExternalEntryId/tag">See details</a>
-`value` | The referenced entry's numeric identifier. | <a href="#AdvancedSpecialAbilityDerivedExternalEntryId/value">See details</a>
-
-#### <a name="AdvancedSpecialAbilityDerivedExternalEntryId/tag"></a> `tag`
-
-- **Constant:** `"MagicalTradition"`
-
-#### <a name="AdvancedSpecialAbilityDerivedExternalEntryId/value"></a> `value`
-
-The referenced entry's numeric identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#MagicalTraditionIdentifier">MagicalTraditionIdentifier</a>
 
 ---
 
 ### <a name="AdvancedSpecialAbilityDerivedExternalEntryOptionId"></a> `AdvancedSpecialAbilityDerivedExternalEntryOptionId`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#AdvancedSpecialAbilityDerivedExternalEntryOptionId/tag">See details</a>
-`value` | The referenced entry's numeric identifier. | <a href="#AdvancedSpecialAbilityDerivedExternalEntryOptionId/value">See details</a>
-
-#### <a name="AdvancedSpecialAbilityDerivedExternalEntryOptionId/tag"></a> `tag`
-
-- **Constant:** `"Patron"`
-
-#### <a name="AdvancedSpecialAbilityDerivedExternalEntryOptionId/value"></a> `value`
-
-The referenced entry's numeric identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#PatronIdentifier">PatronIdentifier</a>
 
 ---
 
@@ -2457,7 +2425,7 @@ Key | Description | Details
 
 #### <a name="ApplicableCombatTechniques'Specific/list[]/id"></a> `id`
 
-- **Type:** <a href="./_Identifier.md#Identifier/Group/CombatTechnique">Identifier/Group/CombatTechnique</a>
+- **Type:** <a href="./_Identifier.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>
 
 #### <a name="ApplicableCombatTechniques'Specific/list[]/restrictions"></a> `restrictions?`
 
@@ -2571,7 +2539,7 @@ to.
 
 ### <a name="ApplicableAllCombatTechniquesRestriction'ExcludeCombatTechniques/list[]"></a> `ApplicableAllCombatTechniquesRestriction'ExcludeCombatTechniques/list[]`
 
-- **Type:** <a href="./_Identifier.md#Identifier/Group/CombatTechnique">Identifier/Group/CombatTechnique</a>
+- **Type:** <a href="./_Identifier.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>
 
 ---
 

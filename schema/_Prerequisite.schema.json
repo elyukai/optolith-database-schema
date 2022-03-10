@@ -410,7 +410,7 @@
               },
               "id": {
                 "description": "The activatable entry's identifier.",
-                "$ref": "./_Identifier.schema.json#/definitions/Identifier/Group/Activatable"
+                "$ref": "./_Identifier.schema.json#/definitions/ActivatableIdentifier"
               },
               "active": {
                 "description": "If the required entry should be required to be active or inactive.",
@@ -443,7 +443,7 @@
               },
               "id": {
                 "description": "The rated entry's identifier.",
-                "$ref": "./_Identifier.schema.json#/definitions/Identifier/Group/Rated"
+                "$ref": "./_Identifier.schema.json#/definitions/RatedIdentifier"
               },
               "value": {
                 "description": "The required minimum value.",

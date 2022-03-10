@@ -142,7 +142,7 @@
                     "properties": {
                       "id": {
                         "description": "The combat technique's identifier.",
-                        "$ref": "../_Identifier.schema.json#/definitions/Identifier/Group/CombatTechnique"
+                        "$ref": "../_Identifier.schema.json#/definitions/CombatTechniqueIdentifier"
                       }
                     },
                     "required": [

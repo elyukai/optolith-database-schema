@@ -5,7 +5,7 @@
 import { Errata } from "../source/_Erratum"
 import { PublicationRefs } from "../source/_PublicationRef"
 import * as Activatable from "../_Activatable"
-import { Identifier } from "../_Identifier"
+import { ActivatableIdentifier } from "../_Identifier"
 
 /**
  * @title Pact Gift
@@ -78,7 +78,7 @@ export type PactGift = {
       | {
         tag: "Fixed"
 
-        id: Identifier.Group.Activatable
+        id: ActivatableIdentifier
       }
   }[]
 
