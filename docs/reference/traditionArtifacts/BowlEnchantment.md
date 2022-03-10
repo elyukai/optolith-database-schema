@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#BowlEnchantment/id">See details</a>
 `levels?` |  | <a href="#BowlEnchantment/levels">See details</a>
+`select_options?` |  | <a href="#BowlEnchantment/select_options">See details</a>
 `maximum?` |  | <a href="#BowlEnchantment/maximum">See details</a>
 `prerequisites?` |  | <a href="#BowlEnchantment/prerequisites">See details</a>
 `volume` |  | <a href="#BowlEnchantment/volume">See details</a>
@@ -26,6 +27,10 @@ Key | Description | Details
 #### <a name="BowlEnchantment/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="BowlEnchantment/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="BowlEnchantment/maximum"></a> `maximum?`
 

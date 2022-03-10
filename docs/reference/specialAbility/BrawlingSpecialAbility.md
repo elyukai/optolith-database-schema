@@ -11,6 +11,7 @@ Key | Description | Details
 `id` |  | <a href="#BrawlingSpecialAbility/id">See details</a>
 `levels?` |  | <a href="#BrawlingSpecialAbility/levels">See details</a>
 `type` |  | <a href="#BrawlingSpecialAbility/type">See details</a>
+`select_options?` |  | <a href="#BrawlingSpecialAbility/select_options">See details</a>
 `maximum?` |  | <a href="#BrawlingSpecialAbility/maximum">See details</a>
 `prerequisites?` |  | <a href="#BrawlingSpecialAbility/prerequisites">See details</a>
 `combat_techniques` |  | <a href="#BrawlingSpecialAbility/combat_techniques">See details</a>
@@ -29,6 +30,10 @@ Key | Description | Details
 #### <a name="BrawlingSpecialAbility/type"></a> `type`
 
 - **Type:** <a href="../_Activatable.md#CombatSpecialAbilityType">CombatSpecialAbilityType</a>
+
+#### <a name="BrawlingSpecialAbility/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="BrawlingSpecialAbility/maximum"></a> `maximum?`
 

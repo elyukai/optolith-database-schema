@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#Advantage/id">See details</a>
 `levels?` |  | <a href="#Advantage/levels">See details</a>
+`select_options?` |  | <a href="#Advantage/select_options">See details</a>
 `skill_applications?` |  | <a href="#Advantage/skill_applications">See details</a>
 `skill_uses?` |  | <a href="#Advantage/skill_uses">See details</a>
 `maximum?` |  | <a href="#Advantage/maximum">See details</a>
@@ -27,6 +28,10 @@ Key | Description | Details
 #### <a name="Advantage/levels"></a> `levels?`
 
 - **Type:** <a href="./_Activatable.md#Levels">Levels</a>
+
+#### <a name="Advantage/select_options"></a> `select_options?`
+
+- **Type:** <a href="./_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="Advantage/skill_applications"></a> `skill_applications?`
 

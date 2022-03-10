@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#WandEnchantment/id">See details</a>
 `levels?` |  | <a href="#WandEnchantment/levels">See details</a>
+`select_options?` |  | <a href="#WandEnchantment/select_options">See details</a>
 `maximum?` |  | <a href="#WandEnchantment/maximum">See details</a>
 `prerequisites?` |  | <a href="#WandEnchantment/prerequisites">See details</a>
 `volume` |  | <a href="#WandEnchantment/volume">See details</a>
@@ -26,6 +27,10 @@ Key | Description | Details
 #### <a name="WandEnchantment/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="WandEnchantment/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="WandEnchantment/maximum"></a> `maximum?`
 

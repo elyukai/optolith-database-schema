@@ -17,7 +17,7 @@ export type AdvancedCombatSpecialAbility = {
 
   usage_type: Activatable.CombatSpecialAbilityType
 
-  // select_options?: Activatable.SelectOptions
+  select_options?: Activatable.Options
 
   skill_applications?: Activatable.SkillApplications
 

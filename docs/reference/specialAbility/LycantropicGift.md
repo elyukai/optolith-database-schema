@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#LycantropicGift/id">See details</a>
 `levels?` |  | <a href="#LycantropicGift/levels">See details</a>
+`select_options?` |  | <a href="#LycantropicGift/select_options">See details</a>
 `maximum?` |  | <a href="#LycantropicGift/maximum">See details</a>
 `prerequisites?` |  | <a href="#LycantropicGift/prerequisites">See details</a>
 `ap_value` |  | <a href="#LycantropicGift/ap_value">See details</a>
@@ -23,6 +24,10 @@ Key | Description | Details
 #### <a name="LycantropicGift/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="LycantropicGift/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="LycantropicGift/maximum"></a> `maximum?`
 

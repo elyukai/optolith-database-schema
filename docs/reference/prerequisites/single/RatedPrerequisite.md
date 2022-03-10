@@ -85,7 +85,7 @@ The required minimum value.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#RatedMinimumNumberPrerequisite/tag">See details</a>
-`number` | The minimum number of skills that need to be on the defined minimum skill rating.. | <a href="#RatedMinimumNumberPrerequisite/number">See details</a>
+`number` | The minimum number of skills that need to be on the defined minimum skill rating. | <a href="#RatedMinimumNumberPrerequisite/number">See details</a>
 `value` | The minimum skill rating the defined minimum number of skills need to be on. | <a href="#RatedMinimumNumberPrerequisite/value">See details</a>
 `targets` | The targets that contribute to satisfying the prerequisite. | <a href="#RatedMinimumNumberPrerequisite/targets">See details</a>
 `display_option?` |  | <a href="#RatedMinimumNumberPrerequisite/display_option">See details</a>
@@ -97,14 +97,15 @@ Key | Description | Details
 #### <a name="RatedMinimumNumberPrerequisite/number"></a> `number`
 
 The minimum number of skills that need to be on the defined minimum skill
-rating..
+rating.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
 #### <a name="RatedMinimumNumberPrerequisite/value"></a> `value`
 
-The minimum skill rating the defined minimum number of skills need to be on.
+The minimum skill rating the defined minimum number of skills need to be
+on.
 
 - **Type:** Integer
 - **Minimum:** `1`

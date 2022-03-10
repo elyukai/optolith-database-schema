@@ -4,8 +4,11 @@
  */
 
 import { DisplayOption } from "./prerequisites/DisplayOption"
+import { Errata } from "./source/_Erratum"
+import { PublicationRefs } from "./source/_PublicationRef"
 import { Duration } from "./_ActivatableSkill"
-import { AdvancedSpecialAbilityRestrictedOptionIdentifier, CombatRelatedSpecialAbilityIdentifier, CombatTechniqueIdentifier, MagicalTraditionIdentifier, PatronIdentifier, VolumePointsOptionReferenceIdentifier } from "./_Identifier"
+import { ActivatableIdentifier, AdvancedSpecialAbilityRestrictedOptionIdentifier, CombatRelatedSpecialAbilityIdentifier, CombatTechniqueIdentifier, MagicalTraditionIdentifier, PatronIdentifier, VolumePointsOptionReferenceIdentifier } from "./_Identifier"
+import { GeneralPrerequisites } from "./_Prerequisite"
 
 /**
  * The activatable entry's identifier. An unique, increasing integer.
@@ -50,9 +53,885 @@ export type Levels = number
 export type Maximum = number
 
 /**
+ * Definitions for possible options for the activatable entry. They can either
+ * be derived from entry categories or be defined explicitly. Both can happen as
+ * well, but if there is an explicitly defined select option and a derived
+ * select option has the same identifier (which may only happen if skill or
+ * combat technique identifiers are used for explicit select options), the
+ * explicit definition overwrites the derived option.
  *
+ * Note that this is only a full definition of options for simple logic that can
+ * be made explicit using the more detailed configuration for both derived
+ * categories and explicit options. There are quite a few entries whose option
+ * logic cannot be fully represented here, so that it needs to be implemented
+ * manually.
+ * @minProperties 1
  */
-export type Options = "" // TODO
+export type Options = {
+  /**
+   * A list of categories with optional further configuration. All available
+   * entries from the specified categories will be included as separate select
+   * options. You can also specify a set of groups that should only be
+   * included. Groups not mentioned will be excluded then.
+   * @minItems 1
+   */
+  derived?: CategoryOption[]
+
+  /**
+   * A list of explicit select options. If the identifier has a specific type,
+   * its entry is the base of this select option, where values defined here
+   * override values from the base. Define the `src` property if the options
+   * are not derived from the rules text of the advantage/disadvantage/special
+   * ability but instead are listed in a separate block and/or on a separate
+   * page.
+   * @minItems 1
+   */
+  explicit?: ExplicitOption[]
+}
+
+type CategoryOption =
+  | { tag: "Blessings" }
+  | { tag: "Cantrips" }
+  | { tag: "TradeSecrets" }
+  | { tag: "Scripts" }
+  | { tag: "AnimalShapes" }
+  | { tag: "ArcaneBardTraditions" }
+  | { tag: "ArcaneDancerTraditions" }
+  | { tag: "SexPractices" }
+  | { tag: "Races" }
+  | { tag: "Cultures" }
+  | {
+    tag: "BlessedTraditions"
+
+    /**
+     * Should the principles (code) of the tradition be required to select the
+     * respective tradition?
+     */
+    require_principles?: true
+  }
+  | {
+    tag: "Elements"
+
+    /**
+     * Only include entries with the listed identifiers.
+     * @minItems 1
+     * @uniqueItems
+     */
+    specific?: {
+      /**
+       * The element's identifier.
+       * @integer
+       * @minimum 1
+       * @maximum 6
+       */
+      id: number
+    }[]
+  }
+  | {
+    tag: "Properties"
+
+    /**
+     * Does each property require it's corresponding property knowledge?
+     */
+    require_knowledge?: true
+
+    /**
+     * Require a minimum number of spellworks of the respective property to be
+     * on a minimum skill rating.
+     */
+    require_minimum_spellworks_on?: {
+      /**
+       * The minimum number of spellworks that need to be on the defined minimum
+       * skill rating.
+       * @integer
+       * @minimum 1
+       */
+      number: number
+
+      /**
+       * The minimum skill rating the defined minimum number of spellworks need
+       * to be on.
+       * @integer
+       * @minimum 1
+       */
+      value: number
+    }
+  }
+  | {
+    tag: "Aspects"
+
+    /**
+     * Does each aspect require it's corresponding aspect knowledge?
+     */
+    require_knowledge?: true
+
+    /**
+     * The generated name should be the *Master of (Aspect)* suffix for this
+     * aspect instead of the aspect's name. If an aspect does not provide a
+     * suffix (such as the General aspect), it is automatically excluded from
+     * the list.
+     */
+    use_master_of_suffix_as_name?: true
+
+    /**
+     * Require a minimum number of liturgies of the respective aspect to be on a
+     * minimum skill rating.
+     */
+    require_minimum_liturgies_on?: {
+      /**
+       * The minimum number of liturgies that need to be on the defined minimum
+       * skill rating.
+       * @integer
+       * @minimum 1
+       */
+      number: number
+
+      /**
+       * The minimum skill rating the defined minimum number of liturgies need
+       * to be on.
+       * @integer
+       * @minimum 1
+       */
+      value: number
+    }
+  }
+  | {
+    tag: "Diseases"
+
+    /**
+     * Only convert half the disease level into the AP value.
+     */
+    use_half_level_as_ap_value?: true
+  }
+  | {
+    tag: "Poisons"
+
+    /**
+     * Only convert half the poison level into the AP value.
+     */
+    use_half_level_as_ap_value?: true
+  }
+  | {
+    tag: "Languages"
+
+    /**
+     * Generate prerequisites for each entry of the category.
+     * @minItems 1
+     */
+    prerequisites?: OptionOptionPrerequisite[]
+  }
+  | {
+    tag: "Skills"
+
+    /**
+     * Only include entries of the specified groups.
+     * @minItems 1
+     */
+    groups?: {
+      /**
+       * The skill group's identifier.
+       * @integer
+       * @minimum 1
+       * @maximum 5
+       */
+      id: number
+    }[]
+
+    /**
+     * Only include (`Intersection`) or exclude (`Difference`) specific skills.
+     */
+    specific?: {
+      operation:
+        | { tag: "Intersection" }
+        | { tag: "Difference" }
+
+      /**
+       * The list of specific skills.
+       * @minItems 1
+       * @uniqueItems
+       */
+      list: {
+        /**
+         * The skill's identifier.
+         * @integer
+         * @minimum 1
+         * @maximum 59
+         */
+        id: number
+      }[]
+    }
+
+    /**
+     * Registers new applications, which get enabled once this entry is
+     * activated with its respective select option. It specifies an entry-unique
+     * identifier, the skill it belongs to is derived from the select option
+     * automatically. A translation can be left out if its name equals the name
+     * of the origin entry.
+     */
+    skill_applications?: SkillApplications
+
+    /**
+     * Registers uses, which get enabled once this entry is activated with its
+     * respective select option. It specifies an entry-unique identifier, the
+     * skill it belongs to is derived from the select option automatically. A
+     * translation can be left out if its name equals the name of the origin
+     * entry.
+     */
+    skill_uses?: SkillUses
+
+    /**
+     * Generate prerequisites for each entry of the category.
+     * @minItems 1
+     */
+    prerequisites?: (
+      | {
+        tag: "Self"
+
+        /**
+         * The entry requires itself on a certain Skill Rating.
+         * @integer
+         * @minimum 1
+         */
+        value: number
+      }
+      | OptionOptionPrerequisite
+    )[]
+
+    /**
+     * Generate AP values for each entry.
+     */
+    ap_value?:
+      | {
+        tag: "DerivedFromImprovementCost"
+
+        /**
+         * This number is multiplied with the improvement cost of the entry
+         * (A = 1 to D = 4).
+         * @integer
+         * @minimum 2
+         */
+        multiplier?: number
+      }
+      | {
+        tag: "Fixed"
+
+        /**
+         * A mapping of skill identifiers to their specific AP values.
+         */
+        map: {
+          /**
+           * The skill's identifier.
+           * @integer
+           * @minimum 1
+           */
+          skill_id: number
+
+          /**
+           * The AP value for the specified entry.
+           * @integer
+           * @minimum 1
+           */
+          ap_value: number
+        }[]
+
+        /**
+         * The default value of an entry. Used as a fallback if no value is
+         * found in `list`.
+         * @integer
+         * @minimum 1
+         */
+        default: number
+      }
+  }
+  | {
+    tag: "Skills"
+
+    /**
+     * Only include entries of the specified groups.
+     * @minItems 1
+     */
+    groups?: {
+      /**
+       * The skill group's identifier.
+       * @integer
+       * @minimum 1
+       * @maximum 5
+       */
+      id: number
+    }[]
+
+    /**
+     * Only include (`Intersection`) or exclude (`Difference`) specific skills.
+     */
+    specific?: {
+      operation:
+        | { tag: "Intersection" }
+        | { tag: "Difference" }
+
+      /**
+       * The list of specific skills.
+       * @minItems 1
+       * @uniqueItems
+       */
+      list: {
+        /**
+         * The skill's identifier.
+         * @integer
+         * @minimum 1
+         * @maximum 59
+         */
+        id: number
+      }[]
+    }
+
+    /**
+     * Registers new applications, which get enabled once this entry is
+     * activated with its respective select option. It specifies an entry-unique
+     * identifier, the skill it belongs to is derived from the select option
+     * automatically. A translation can be left out if its name equals the name
+     * of the origin entry.
+     * @minItems 1
+     */
+    skill_applications?: {
+      /**
+       * The application's identifier. An entry-unique, increasing integer.
+       * @integer
+       * @minimum 1
+       */
+      id: number
+
+      /**
+       * All translations for the entry, identified by IETF language tag (BCP47).
+       * @minProperties 1
+       */
+      translations?: {
+        /**
+         * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+         */
+        [localeId: string]: {
+          /**
+           * The name of the application if different from the activatable entry's
+           * name.
+           * @minLength 1
+           */
+          name: string
+        }
+      }
+    }[]
+
+    /**
+     * Registers uses, which get enabled once this entry is activated with its
+     * respective select option. It specifies an entry-unique identifier, the
+     * skill it belongs to is derived from the select option automatically. A
+     * translation can be left out if its name equals the name of the origin
+     * entry.
+     * @minItems 1
+     */
+    skill_uses?: {
+      /**
+       * The use's identifier. An entry-unique, increasing integer.
+       * @integer
+       * @minimum 1
+       */
+      id: number
+
+      /**
+       * All translations for the entry, identified by IETF language tag (BCP47).
+       * @minProperties 1
+       */
+      translations?: {
+        /**
+         * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+         */
+        [localeId: string]: {
+          /**
+           * The name of the use if different from the activatable entry's name.
+           * @minLength 1
+           */
+          name: string
+        }
+      }
+    }[]
+
+    /**
+     * Generate prerequisites for each entry of the category.
+     * @minItems 1
+     */
+    prerequisites?: (
+      | OptionSkillSelfPrerequisite
+      | OptionOptionPrerequisite
+    )[]
+
+    /**
+     * Generate AP values for each entry.
+     */
+    ap_value?: OptionSkillDeriveAdventurePointsValue
+  }
+  | {
+    tag: NonSkillSkillCategory
+
+    /**
+     * Only include (`Intersection`) or exclude (`Difference`) specific entries.
+     */
+    specific?: {
+      operation:
+        | { tag: "Intersection" }
+        | { tag: "Difference" }
+
+      /**
+       * The list of specific entries.
+       * @minItems 1
+       * @uniqueItems
+       */
+      list: {
+        /**
+         * The entry's identifier.
+         * @integer
+         * @minimum 1
+         * @maximum 59
+         */
+        id: number
+      }[]
+    }
+
+    /**
+     * Generate prerequisites for each entry of the category.
+     * @minItems 1
+     */
+    prerequisites?: (
+      | OptionSkillSelfPrerequisite
+      | OptionOptionPrerequisite
+    )[]
+
+    /**
+     * Generate AP values for each entry.
+     */
+    ap_value?: OptionSkillDeriveAdventurePointsValue
+  }
+
+enum NonSkillSkillCategory {
+  CloseCombatTechniques = "CloseCombatTechniques",
+  RangedCombatTechniques = "RangedCombatTechniques",
+  LiturgicalChants = "LiturgicalChants",
+  Ceremonies = "Ceremonies",
+  Spells = "Spells",
+  Rituals = "Rituals",
+}
+
+type OptionSkillSelfPrerequisite = {
+  tag: "Self"
+
+  /**
+   * The entry requires itself on a certain Skill Rating.
+   * @integer
+   * @minimum 1
+   */
+  value: number
+}
+
+/**
+ * The entry requires or prohibits itself as a select option of another entry.
+ */
+type OptionOptionPrerequisite = {
+  tag: "SelectOption"
+
+  /**
+   * The target entry's identifier.
+   */
+  id: ActivatableIdentifier
+
+  /**
+   * Is the select option required (`true`) or prohibited (`false`)?
+   */
+  active: boolean
+
+  /**
+   * The required level, if any.
+   * @integer
+   * @minimum 2
+   */
+  level?: number
+}
+
+/**
+ * Generate AP values for each entry.
+ */
+type OptionSkillDeriveAdventurePointsValue =
+  | {
+    tag: "DerivedFromImprovementCost"
+
+    /**
+     * This number is multiplied with the improvement cost of the entry
+     * (A = 1 to D = 4).
+     * @integer
+     * @minimum 2
+     */
+    multiplier?: number
+  }
+  | {
+    tag: "Fixed"
+
+    /**
+     * A mapping of skill identifiers to their specific AP values.
+     */
+    map: {
+      /**
+       * The skill's identifier.
+       * @integer
+       * @minimum 1
+       */
+      skill_id: number
+
+      /**
+       * The AP value for the specified entry.
+       * @integer
+       * @minimum 1
+       */
+      ap_value: number
+    }[]
+
+    /**
+     * The default value of an entry. Used as a fallback if no value is
+     * found in `list`.
+     * @integer
+     * @minimum 1
+     */
+    default: number
+  }
+
+type ExplicitOption =
+  | {
+    tag: "General"
+
+    /**
+     * The option's identifier. An unique, increasing integer.
+     * @integer
+     * @minimum 1
+     */
+    id: number
+
+    /**
+     * Sometimes, professions use specific text selections that are not
+     * contained in described lists. This ensures you can use them for
+     * professions only. They are not going to be displayed as options to the
+     * user.
+     */
+    profession_only?: true
+
+    /**
+     * Registers new applications, which get enabled once this entry is
+     * activated with its respective select option. It specifies an entry-unique
+     * identifier and the skill it belongs to. A translation can be left out if
+     * its name equals the name of the origin select option.
+     */
+    skill_applications?: SkillApplications
+
+    /**
+     * Registers uses, which get enabled once this entry is activated with its
+     * respective select option. It specifies an entry-unique identifier and the
+     * skill it belongs to. A translation can be left out if its name equals the
+     * name of the origin select option.
+     */
+    skill_uses?: SkillUses
+
+    prerequisites?: GeneralPrerequisites
+
+    /**
+     * Specific AP cost for the select option.
+     * @integer
+     * @minimum 1
+     */
+    ap_value?: number
+
+    src?: PublicationRefs
+
+    /**
+     * All translations for the entry, identified by IETF language tag (BCP47).
+     * @minProperties 1
+     */
+    translations: {
+      /**
+       * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+       */
+      [localeId: string]: {
+        /**
+         * The name of the select option.
+         * @minLength 1
+         */
+        name: string
+
+        /**
+         * The name of the select option when displayed in a generated
+         * profession text.
+         * @minLength 1
+         */
+        name_in_profession?: string
+
+        /**
+         * The description of the select option. Useful for Bad Habits, Trade
+         * Secrets and other entries where a description is available.
+         * @markdown
+         * @minLength 1
+         */
+        description?: string
+
+        errata?: Errata
+      }
+    }
+  }
+  | {
+    tag: "Skill"
+
+    /**
+     * The skill's identifier. An unique, increasing integer.
+     * @integer
+     * @minimum 1
+     */
+    id: number
+
+    /**
+     * Registers new applications, which get enabled once this entry is
+     * activated with its respective select option. It specifies an entry-unique
+     * identifier and the skill it belongs to. A translation can be left out if
+     * its name equals the name of the origin select option.
+     * @minItems 1
+     */
+    skill_applications?: {
+      /**
+       * The application's identifier. An entry-unique, increasing integer.
+       * @integer
+       * @minimum 1
+       */
+      id: number
+
+      /**
+       * All translations for the entry, identified by IETF language tag (BCP47).
+       * @minProperties 1
+       */
+      translations?: {
+        /**
+         * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+         */
+        [localeId: string]: {
+          /**
+           * The name of the application if different from the activatable entry's
+           * name.
+           * @minLength 1
+           */
+          name: string
+        }
+      }
+    }[]
+
+    /**
+     * Registers uses, which get enabled once this entry is activated with its
+     * respective select option. It specifies an entry-unique identifier and the
+     * skill it belongs to. A translation can be left out if its name equals the
+     * name of the origin select option.
+     * @minItems 1
+     */
+    skill_uses?: {
+      /**
+       * The use's identifier. An entry-unique, increasing integer.
+       * @integer
+       * @minimum 1
+       */
+      id: number
+
+      /**
+       * All translations for the entry, identified by IETF language tag (BCP47).
+       * @minProperties 1
+       */
+      translations?: {
+        /**
+         * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+         */
+        [localeId: string]: {
+          /**
+           * The name of the use if different from the activatable entry's name.
+           * @minLength 1
+           */
+          name: string
+        }
+      }
+    }[]
+
+    prerequisites?: GeneralPrerequisites
+
+    /**
+     * Specific AP cost for the select option.
+     * @integer
+     * @minimum 1
+     */
+    ap_value?: number
+
+    src?: PublicationRefs
+
+    /**
+     * All translations for the entry, identified by IETF language tag (BCP47).
+     * @minProperties 1
+     */
+    translations?: {
+      /**
+       * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+       * @minProperties 1
+       */
+      [localeId: string]: {
+        errata?: Errata
+      }
+    }
+  }
+  | {
+    tag: "CombatTechnique"
+
+    /**
+     * The combat technique's identifier.
+     */
+    id: CombatTechniqueIdentifier
+
+    prerequisites?: GeneralPrerequisites
+
+    /**
+     * Specific AP cost for the select option.
+     * @integer
+     * @minimum 1
+     */
+    ap_value?: number
+
+    src?: PublicationRefs
+
+    /**
+     * All translations for the entry, identified by IETF language tag (BCP47).
+     * @minProperties 1
+     */
+    translations?: {
+      /**
+       * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+       * @minProperties 1
+       */
+      [localeId: string]: {
+        errata?: Errata
+      }
+    }
+  }
+
+// "Options": {
+//   "$comment": "Unfinished generalized options handling.",
+//   "type": "array",
+//   "minItems": 1,
+//   "items": {
+//     "oneOf": [
+//       {
+//         "type": "object",
+//         "properties": {
+//           "type": { "const": "List" },
+//           "value": {
+//             "type": "object",
+//             "properties": {
+//               "list": {
+//                 "oneOf": [
+//                   {
+//                     "type": "object",
+//                     "properties": {
+//                       "type": { "const": "Generate" },
+//                       "value": { "$ref": "#/definitions/SelectOptionCategories" }
+//                     },
+//                     "required": ["type", "value"],
+//                     "additionalProperties": false
+//                   },
+//                   {
+//                     "type": "object",
+//                     "properties": {
+//                       "type": { "const": "Explicit" },
+//                       "value": { "$ref": "#/definitions/SelectOptions" }
+//                     },
+//                     "required": ["type", "value"],
+//                     "additionalProperties": false
+//                   }
+//                 ]
+//               },
+//               "multiple": {
+//                 "description": "Sometimes, multiple options from a single list have to or can be chosen. Its possible to define a number of options that have to be selected or a range of numbers of options that can be selected.",
+//                 "oneOf": [
+//                   {
+//                     "type": "object",
+//                     "properties": {
+//                       "type": { "const": "Fixed" },
+//                       "value": {
+//                         "description": "The number of options that have to be selected.",
+//                         "type": "integer",
+//                         "minimum": 2
+//                       }
+//                     },
+//                     "required": ["type", "value"],
+//                     "additionalProperties": false
+//                   },
+//                   {
+//                     "type": "object",
+//                     "properties": {
+//                       "type": { "const": "Range" },
+//                       "value": {
+//                         "type": "object",
+//                         "properties": {
+//                           "min": {
+//                             "description": "The minimum number of options that need to be selected. If left empty it defaults to 1.",
+//                             "type": "integer",
+//                             "minimum": 2
+//                           },
+//                           "max": {
+//                             "description": "The maximum number of options that need to be selected.",
+//                             "type": "integer",
+//                             "minimum": 2
+//                           }
+//                         },
+//                         "required": ["max"],
+//                         "additionalProperties": false
+//                       }
+//                     },
+//                     "required": ["type", "value"],
+//                     "additionalProperties": false
+//                   }
+//                 ]
+//               }
+//             },
+//             "required": ["list"],
+//             "additionalProperties": false
+//           }
+//         },
+//         "required": ["type", "value"],
+//         "additionalProperties": false
+//       },
+//       {
+//         "type": "object",
+//         "properties": {
+//           "type": { "const": "TextInput" },
+//           "value": {
+//             "type": "object",
+//             "properties": {
+//               "label": {
+//                 "type": "object",
+//                 "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+//                 "patternProperties": {
+//                   "^[a-z]{2}-[A-Z]{2}$": {
+//                     "description": "The text input label.",
+//                     "type": "string",
+//                     "minLength": 1
+//                   }
+//                 },
+//                 "minProperties": 1,
+//                 "additionalProperties": false
+//               }
+//             },
+//             "required": ["label"],
+//             "additionalProperties": false
+//           }
+//         },
+//         "required": ["type", "value"],
+//         "additionalProperties": false
+//       }
+//     ]
+//   }
+// },
 
 /**
  * The rule text.
@@ -1364,3 +2243,45 @@ export type AdventurePointsValue =
  * @minimum 0
  */
 export type AdventurePointsSingleValue = number
+
+// "Input": {
+//   "description": "A string that is used as a placeholder text for an input field.",
+//   "type": "string",
+//   "minLength": 1
+// },
+
+// "AdvancedSpecialAbilitiesAppend": {
+//   "description": "An addition to the default advanced special abilities text. Markdown is available.",
+//   "type": "string",
+//   "minLength": 1
+// },
+
+// "ApValueReplacement": {
+//   "description": "The AP value. Only use this if the text provides different information than `X adventure points`, e.g. for Special Ability Property Knowledge it is \"10 adventure points for the first *Property Knowledge*, 20 adventure points for the second, 40 adventure points for the third\". Markdown is available.",
+//   "type": "string",
+//   "minLength": 1
+// },
+
+// "ApValueAppend": {
+//   "description": "An addition to the default AP value schema. Only use this if the text provides information appended to `X adventure points` and if `apValue` is not used. Markdown is available.",
+//   "type": "string",
+//   "minLength": 1
+// },
+
+// "PrerequisitesReplacement": {
+//   "description": "Use if text cannot be generated by the app. Markdown is available.",
+//   "type": "string",
+//   "minLength": 1
+// },
+
+// "PrerequisitesStart": {
+//   "description": "Prepends the provided string to the main prerequisites string. No effect if `prerequisites` field is used in l10n file. Markdown is available.",
+//   "type": "string",
+//   "minLength": 1
+// },
+
+// "PrerequisitesEnd": {
+//   "description": "Appends the provided string to the main prerequisites string. No effect if `prerequisites` field is used in l10n table. Markdown is available.",
+//   "type": "string",
+//   "minLength": 1
+// }

@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#SikaryanDrainSpecialAbility/id">See details</a>
 `levels?` |  | <a href="#SikaryanDrainSpecialAbility/levels">See details</a>
+`select_options?` |  | <a href="#SikaryanDrainSpecialAbility/select_options">See details</a>
 `maximum?` |  | <a href="#SikaryanDrainSpecialAbility/maximum">See details</a>
 `prerequisites?` |  | <a href="#SikaryanDrainSpecialAbility/prerequisites">See details</a>
 `ap_value` |  | <a href="#SikaryanDrainSpecialAbility/ap_value">See details</a>
@@ -23,6 +24,10 @@ Key | Description | Details
 #### <a name="SikaryanDrainSpecialAbility/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="SikaryanDrainSpecialAbility/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="SikaryanDrainSpecialAbility/maximum"></a> `maximum?`
 

@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#FamiliarSpecialAbility/id">See details</a>
 `levels?` |  | <a href="#FamiliarSpecialAbility/levels">See details</a>
+`select_options?` |  | <a href="#FamiliarSpecialAbility/select_options">See details</a>
 `maximum?` |  | <a href="#FamiliarSpecialAbility/maximum">See details</a>
 `prerequisites?` |  | <a href="#FamiliarSpecialAbility/prerequisites">See details</a>
 `ap_value` |  | <a href="#FamiliarSpecialAbility/ap_value">See details</a>
@@ -23,6 +24,10 @@ Key | Description | Details
 #### <a name="FamiliarSpecialAbility/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="FamiliarSpecialAbility/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="FamiliarSpecialAbility/maximum"></a> `maximum?`
 

@@ -15,7 +15,7 @@ export type ChronicleEnchantment = {
 
   levels?: Activatable.Levels
 
-  // select_options?: Activatable.SelectOptions
+  select_options?: Activatable.SelectOptions
 
   maximum?: Activatable.Maximum
 

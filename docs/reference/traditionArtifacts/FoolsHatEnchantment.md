@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#FoolsHatEnchantment/id">See details</a>
 `levels?` |  | <a href="#FoolsHatEnchantment/levels">See details</a>
+`select_options?` |  | <a href="#FoolsHatEnchantment/select_options">See details</a>
 `maximum?` |  | <a href="#FoolsHatEnchantment/maximum">See details</a>
 `prerequisites?` |  | <a href="#FoolsHatEnchantment/prerequisites">See details</a>
 `volume` |  | <a href="#FoolsHatEnchantment/volume">See details</a>
@@ -26,6 +27,10 @@ Key | Description | Details
 #### <a name="FoolsHatEnchantment/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="FoolsHatEnchantment/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="FoolsHatEnchantment/maximum"></a> `maximum?`
 

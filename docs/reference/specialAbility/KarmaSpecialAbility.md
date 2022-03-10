@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#KarmaSpecialAbility/id">See details</a>
 `levels?` |  | <a href="#KarmaSpecialAbility/levels">See details</a>
+`select_options?` |  | <a href="#KarmaSpecialAbility/select_options">See details</a>
 `maximum?` |  | <a href="#KarmaSpecialAbility/maximum">See details</a>
 `prerequisites?` |  | <a href="#KarmaSpecialAbility/prerequisites">See details</a>
 `ap_value` |  | <a href="#KarmaSpecialAbility/ap_value">See details</a>
@@ -23,6 +24,10 @@ Key | Description | Details
 #### <a name="KarmaSpecialAbility/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="KarmaSpecialAbility/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="KarmaSpecialAbility/maximum"></a> `maximum?`
 

@@ -17,7 +17,7 @@ export type BrawlingSpecialAbility = {
 
   type: Activatable.CombatSpecialAbilityType
 
-  // select_options?: Activatable.SelectOptions
+  select_options?: Activatable.SelectOptions
 
   maximum?: Activatable.Maximum
 

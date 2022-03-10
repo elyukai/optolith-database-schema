@@ -14,7 +14,7 @@ import { GeneralPrerequisites } from "../_Prerequisite"
 export type BlessedTradition = {
   id: Activatable.Id
 
-  // select_options?: Activatable.SelectOptions
+  select_options?: Activatable.SelectOptions
 
   skill_applications?: Activatable.SkillApplications
 

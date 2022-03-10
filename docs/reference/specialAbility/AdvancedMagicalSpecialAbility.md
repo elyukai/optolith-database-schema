@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#AdvancedMagicalSpecialAbility/id">See details</a>
 `levels?` |  | <a href="#AdvancedMagicalSpecialAbility/levels">See details</a>
+`select_options?` |  | <a href="#AdvancedMagicalSpecialAbility/select_options">See details</a>
 `skill_applications?` |  | <a href="#AdvancedMagicalSpecialAbility/skill_applications">See details</a>
 `skill_uses?` |  | <a href="#AdvancedMagicalSpecialAbility/skill_uses">See details</a>
 `maximum?` |  | <a href="#AdvancedMagicalSpecialAbility/maximum">See details</a>
@@ -25,6 +26,10 @@ Key | Description | Details
 #### <a name="AdvancedMagicalSpecialAbility/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="AdvancedMagicalSpecialAbility/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="AdvancedMagicalSpecialAbility/skill_applications"></a> `skill_applications?`
 

@@ -24,7 +24,7 @@ export type CombatStyleSpecialAbility = {
     | { tag: "Armed" }
     | { tag: "Unarmed" }
 
-  // select_options?: Activatable.SelectOptions
+  select_options?: Activatable.SelectOptions
 
   skill_applications?: Activatable.SkillApplications
 

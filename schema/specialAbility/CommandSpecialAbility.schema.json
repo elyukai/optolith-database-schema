@@ -16,6 +16,9 @@
         "usage_type": {
           "$ref": "../_Activatable.schema.json#/definitions/CombatSpecialAbilityType"
         },
+        "select_options": {
+          "$ref": "../_Activatable.schema.json#/definitions/SelectOptions"
+        },
         "maximum": {
           "$ref": "../_Activatable.schema.json#/definitions/Maximum"
         },

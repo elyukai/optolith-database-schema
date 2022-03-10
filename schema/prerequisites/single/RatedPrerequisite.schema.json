@@ -68,12 +68,12 @@
           "const": "RatedMinimumNumber"
         },
         "number": {
-          "description": "The minimum number of skills that need to be on the defined minimum skill\nrating..",
+          "description": "The minimum number of skills that need to be on the defined minimum skill\nrating.",
           "type": "integer",
           "minimum": 1
         },
         "value": {
-          "description": "The minimum skill rating the defined minimum number of skills need to be on.",
+          "description": "The minimum skill rating the defined minimum number of skills need to be\non.",
           "type": "integer",
           "minimum": 1
         },

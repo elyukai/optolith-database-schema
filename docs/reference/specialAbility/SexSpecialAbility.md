@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#SexSpecialAbility/id">See details</a>
 `levels?` |  | <a href="#SexSpecialAbility/levels">See details</a>
+`select_options?` |  | <a href="#SexSpecialAbility/select_options">See details</a>
 `skill_applications?` |  | <a href="#SexSpecialAbility/skill_applications">See details</a>
 `skill_uses?` |  | <a href="#SexSpecialAbility/skill_uses">See details</a>
 `maximum?` |  | <a href="#SexSpecialAbility/maximum">See details</a>
@@ -25,6 +26,10 @@ Key | Description | Details
 #### <a name="SexSpecialAbility/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="SexSpecialAbility/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="SexSpecialAbility/skill_applications"></a> `skill_applications?`
 

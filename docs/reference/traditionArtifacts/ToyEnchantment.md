@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#ToyEnchantment/id">See details</a>
 `levels?` |  | <a href="#ToyEnchantment/levels">See details</a>
+`select_options?` |  | <a href="#ToyEnchantment/select_options">See details</a>
 `maximum?` |  | <a href="#ToyEnchantment/maximum">See details</a>
 `prerequisites?` |  | <a href="#ToyEnchantment/prerequisites">See details</a>
 `volume` |  | <a href="#ToyEnchantment/volume">See details</a>
@@ -26,6 +27,10 @@ Key | Description | Details
 #### <a name="ToyEnchantment/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="ToyEnchantment/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="ToyEnchantment/maximum"></a> `maximum?`
 

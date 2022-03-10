@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#RingEnchantment/id">See details</a>
 `levels?` |  | <a href="#RingEnchantment/levels">See details</a>
+`select_options?` |  | <a href="#RingEnchantment/select_options">See details</a>
 `maximum?` |  | <a href="#RingEnchantment/maximum">See details</a>
 `prerequisites?` |  | <a href="#RingEnchantment/prerequisites">See details</a>
 `volume` |  | <a href="#RingEnchantment/volume">See details</a>
@@ -26,6 +27,10 @@ Key | Description | Details
 #### <a name="RingEnchantment/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="RingEnchantment/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="RingEnchantment/maximum"></a> `maximum?`
 

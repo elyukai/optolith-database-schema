@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#CauldronEnchantment/id">See details</a>
 `levels?` |  | <a href="#CauldronEnchantment/levels">See details</a>
+`select_options?` |  | <a href="#CauldronEnchantment/select_options">See details</a>
 `maximum?` |  | <a href="#CauldronEnchantment/maximum">See details</a>
 `prerequisites?` |  | <a href="#CauldronEnchantment/prerequisites">See details</a>
 `volume` |  | <a href="#CauldronEnchantment/volume">See details</a>
@@ -27,6 +28,10 @@ Key | Description | Details
 #### <a name="CauldronEnchantment/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="CauldronEnchantment/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="CauldronEnchantment/maximum"></a> `maximum?`
 

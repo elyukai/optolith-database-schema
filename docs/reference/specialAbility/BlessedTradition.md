@@ -9,6 +9,7 @@
 Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#BlessedTradition/id">See details</a>
+`select_options?` |  | <a href="#BlessedTradition/select_options">See details</a>
 `skill_applications?` |  | <a href="#BlessedTradition/skill_applications">See details</a>
 `skill_uses?` |  | <a href="#BlessedTradition/skill_uses">See details</a>
 `primary?` | The tradition's primary attribute. Leave empty if the tradition does not have one. | <a href="#BlessedTradition/primary">See details</a>
@@ -27,6 +28,10 @@ Key | Description | Details
 #### <a name="BlessedTradition/id"></a> `id`
 
 - **Type:** <a href="../_Activatable.md#Id">Id</a>
+
+#### <a name="BlessedTradition/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="BlessedTradition/skill_applications"></a> `skill_applications?`
 

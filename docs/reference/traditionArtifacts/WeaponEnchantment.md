@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#WeaponEnchantment/id">See details</a>
 `levels?` |  | <a href="#WeaponEnchantment/levels">See details</a>
+`select_options?` |  | <a href="#WeaponEnchantment/select_options">See details</a>
 `maximum?` |  | <a href="#WeaponEnchantment/maximum">See details</a>
 `prerequisites?` |  | <a href="#WeaponEnchantment/prerequisites">See details</a>
 `volume` |  | <a href="#WeaponEnchantment/volume">See details</a>
@@ -26,6 +27,10 @@ Key | Description | Details
 #### <a name="WeaponEnchantment/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="WeaponEnchantment/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="WeaponEnchantment/maximum"></a> `maximum?`
 

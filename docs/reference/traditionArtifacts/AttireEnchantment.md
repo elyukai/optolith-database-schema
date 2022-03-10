@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#AttireEnchantment/id">See details</a>
 `levels?` |  | <a href="#AttireEnchantment/levels">See details</a>
+`select_options?` |  | <a href="#AttireEnchantment/select_options">See details</a>
 `maximum?` |  | <a href="#AttireEnchantment/maximum">See details</a>
 `prerequisites?` |  | <a href="#AttireEnchantment/prerequisites">See details</a>
 `volume` |  | <a href="#AttireEnchantment/volume">See details</a>
@@ -26,6 +27,10 @@ Key | Description | Details
 #### <a name="AttireEnchantment/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="AttireEnchantment/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="AttireEnchantment/maximum"></a> `maximum?`
 

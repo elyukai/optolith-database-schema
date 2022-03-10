@@ -10,6 +10,9 @@
         "id": {
           "$ref": "../_Activatable.schema.json#/definitions/Id"
         },
+        "select_options": {
+          "$ref": "../_Activatable.schema.json#/definitions/SelectOptions"
+        },
         "skill_applications": {
           "$ref": "../_Activatable.schema.json#/definitions/SkillApplications"
         },

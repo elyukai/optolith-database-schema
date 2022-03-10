@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#MagicalTradition/id">See details</a>
 `levels?` |  | <a href="#MagicalTradition/levels">See details</a>
+`select_options?` |  | <a href="#MagicalTradition/select_options">See details</a>
 `skill_applications?` |  | <a href="#MagicalTradition/skill_applications">See details</a>
 `skill_uses?` |  | <a href="#MagicalTradition/skill_uses">See details</a>
 `primary?` | The tradition's primary attribute. Leave empty if the tradition does not have one. | <a href="#MagicalTradition/primary">See details</a>
@@ -35,6 +36,10 @@ Key | Description | Details
 #### <a name="MagicalTradition/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="MagicalTradition/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="MagicalTradition/skill_applications"></a> `skill_applications?`
 

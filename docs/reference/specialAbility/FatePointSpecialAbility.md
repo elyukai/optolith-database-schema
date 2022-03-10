@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#FatePointSpecialAbility/id">See details</a>
 `levels?` |  | <a href="#FatePointSpecialAbility/levels">See details</a>
+`select_options?` |  | <a href="#FatePointSpecialAbility/select_options">See details</a>
 `skill_applications?` |  | <a href="#FatePointSpecialAbility/skill_applications">See details</a>
 `skill_uses?` |  | <a href="#FatePointSpecialAbility/skill_uses">See details</a>
 `maximum?` |  | <a href="#FatePointSpecialAbility/maximum">See details</a>
@@ -25,6 +26,10 @@ Key | Description | Details
 #### <a name="FatePointSpecialAbility/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="FatePointSpecialAbility/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="FatePointSpecialAbility/skill_applications"></a> `skill_applications?`
 

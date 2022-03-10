@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#SickleRitual/id">See details</a>
 `levels?` |  | <a href="#SickleRitual/levels">See details</a>
+`select_options?` |  | <a href="#SickleRitual/select_options">See details</a>
 `maximum?` |  | <a href="#SickleRitual/maximum">See details</a>
 `prerequisites?` |  | <a href="#SickleRitual/prerequisites">See details</a>
 `volume` |  | <a href="#SickleRitual/volume">See details</a>
@@ -26,6 +27,10 @@ Key | Description | Details
 #### <a name="SickleRitual/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="SickleRitual/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="SickleRitual/maximum"></a> `maximum?`
 

@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#InstrumentEnchantment/id">See details</a>
 `levels?` |  | <a href="#InstrumentEnchantment/levels">See details</a>
+`select_options?` |  | <a href="#InstrumentEnchantment/select_options">See details</a>
 `maximum?` |  | <a href="#InstrumentEnchantment/maximum">See details</a>
 `prerequisites?` |  | <a href="#InstrumentEnchantment/prerequisites">See details</a>
 `volume` |  | <a href="#InstrumentEnchantment/volume">See details</a>
@@ -26,6 +27,10 @@ Key | Description | Details
 #### <a name="InstrumentEnchantment/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="InstrumentEnchantment/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="InstrumentEnchantment/maximum"></a> `maximum?`
 

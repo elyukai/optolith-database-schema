@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#Disadvantage/id">See details</a>
 `levels?` |  | <a href="#Disadvantage/levels">See details</a>
+`select_options?` |  | <a href="#Disadvantage/select_options">See details</a>
 `maximum?` |  | <a href="#Disadvantage/maximum">See details</a>
 `prerequisites?` |  | <a href="#Disadvantage/prerequisites">See details</a>
 `ap_value` |  | <a href="#Disadvantage/ap_value">See details</a>
@@ -25,6 +26,10 @@ Key | Description | Details
 #### <a name="Disadvantage/levels"></a> `levels?`
 
 - **Type:** <a href="./_Activatable.md#Levels">Levels</a>
+
+#### <a name="Disadvantage/select_options"></a> `select_options?`
+
+- **Type:** <a href="./_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="Disadvantage/maximum"></a> `maximum?`
 

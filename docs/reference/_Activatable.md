@@ -60,7 +60,1669 @@ The maximum is only set if it differs from the defaults specified above.
 
 ### <a name="Options"></a> `Options`
 
-- **Constant:** `""`
+Definitions for possible options for the activatable entry. They can either
+be derived from entry categories or be defined explicitly. Both can happen as
+well, but if there is an explicitly defined select option and a derived
+select option has the same identifier (which may only happen if skill or
+combat technique identifiers are used for explicit select options), the
+explicit definition overwrites the derived option.
+
+Note that this is only a full definition of options for simple logic that can
+be made explicit using the more detailed configuration for both derived
+categories and explicit options. There are quite a few entries whose option
+logic cannot be fully represented here, so that it needs to be implemented
+manually.
+
+- **Type:** Object
+- **Minimum Properties:** `1`
+
+Key | Description | Details
+:-- | :-- | :--
+`derived?` | A list of categories with optional further configuration. All available entries from the specified categories will be included as separate select options. You can also specify a set of groups that should only be included. Groups not mentioned will be excluded then. | <a href="#Options/derived">See details</a>
+`explicit?` | A list of explicit select options. If the identifier has a specific type, its entry is the base of this select option, where values defined here override values from the base. Define the `src` property if the options are not derived from the rules text of the advantage/disadvantage/special ability but instead are listed in a separate block and/or on a separate page. | <a href="#Options/explicit">See details</a>
+
+#### <a name="Options/derived"></a> `derived?`
+
+A list of categories with optional further configuration. All available
+entries from the specified categories will be included as separate select
+options. You can also specify a set of groups that should only be
+included. Groups not mentioned will be excluded then.
+
+- **Type:** List
+- **Items:** <a href="#Options/derived[]">Options/derived[]</a>
+- **Minimum Items:** `1`
+
+#### <a name="Options/explicit"></a> `explicit?`
+
+A list of explicit select options. If the identifier has a specific type,
+its entry is the base of this select option, where values defined here
+override values from the base. Define the `src` property if the options
+are not derived from the rules text of the advantage/disadvantage/special
+ability but instead are listed in a separate block and/or on a separate
+page.
+
+- **Type:** List
+- **Items:** <a href="#Options/explicit[]">Options/explicit[]</a>
+- **Minimum Items:** `1`
+
+---
+
+### <a name="Options/derived[]"></a> `Options/derived[]`
+
+- **Type:** <a href="#CategoryOption">CategoryOption</a>
+
+---
+
+### <a name="Options/explicit[]"></a> `Options/explicit[]`
+
+- **Type:** <a href="#ExplicitOption">ExplicitOption</a>
+
+---
+
+### <a name="CategoryOption"></a> `CategoryOption`
+
+- **Type:** Union
+- **Cases:** <a href="#CategoryOption'Blessings">CategoryOption'Blessings</a> | <a href="#CategoryOption'Cantrips">CategoryOption'Cantrips</a> | <a href="#CategoryOption'TradeSecrets">CategoryOption'TradeSecrets</a> | <a href="#CategoryOption'Scripts">CategoryOption'Scripts</a> | <a href="#CategoryOption'AnimalShapes">CategoryOption'AnimalShapes</a> | <a href="#CategoryOption'ArcaneBardTraditions">CategoryOption'ArcaneBardTraditions</a> | <a href="#CategoryOption'ArcaneDancerTraditions">CategoryOption'ArcaneDancerTraditions</a> | <a href="#CategoryOption'SexPractices">CategoryOption'SexPractices</a> | <a href="#CategoryOption'Races">CategoryOption'Races</a> | <a href="#CategoryOption'Cultures">CategoryOption'Cultures</a> | <a href="#CategoryOption'BlessedTraditions">CategoryOption'BlessedTraditions</a> | <a href="#CategoryOption'Elements">CategoryOption'Elements</a> | <a href="#CategoryOption'Properties">CategoryOption'Properties</a> | <a href="#CategoryOption'Aspects">CategoryOption'Aspects</a> | <a href="#CategoryOption'Diseases">CategoryOption'Diseases</a> | <a href="#CategoryOption'Poisons">CategoryOption'Poisons</a> | <a href="#CategoryOption'Languages">CategoryOption'Languages</a> | <a href="#CategoryOption'Skills">CategoryOption'Skills</a> | <a href="#CategoryOption'Skills">CategoryOption'Skills</a> | <a href="#CategoryOption'19">CategoryOption'19</a>
+
+---
+
+### <a name="CategoryOption'Blessings"></a> `CategoryOption'Blessings`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'Blessings/tag">See details</a>
+
+#### <a name="CategoryOption'Blessings/tag"></a> `tag`
+
+- **Constant:** `"Blessings"`
+
+---
+
+### <a name="CategoryOption'Cantrips"></a> `CategoryOption'Cantrips`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'Cantrips/tag">See details</a>
+
+#### <a name="CategoryOption'Cantrips/tag"></a> `tag`
+
+- **Constant:** `"Cantrips"`
+
+---
+
+### <a name="CategoryOption'TradeSecrets"></a> `CategoryOption'TradeSecrets`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'TradeSecrets/tag">See details</a>
+
+#### <a name="CategoryOption'TradeSecrets/tag"></a> `tag`
+
+- **Constant:** `"TradeSecrets"`
+
+---
+
+### <a name="CategoryOption'Scripts"></a> `CategoryOption'Scripts`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'Scripts/tag">See details</a>
+
+#### <a name="CategoryOption'Scripts/tag"></a> `tag`
+
+- **Constant:** `"Scripts"`
+
+---
+
+### <a name="CategoryOption'AnimalShapes"></a> `CategoryOption'AnimalShapes`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'AnimalShapes/tag">See details</a>
+
+#### <a name="CategoryOption'AnimalShapes/tag"></a> `tag`
+
+- **Constant:** `"AnimalShapes"`
+
+---
+
+### <a name="CategoryOption'ArcaneBardTraditions"></a> `CategoryOption'ArcaneBardTraditions`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'ArcaneBardTraditions/tag">See details</a>
+
+#### <a name="CategoryOption'ArcaneBardTraditions/tag"></a> `tag`
+
+- **Constant:** `"ArcaneBardTraditions"`
+
+---
+
+### <a name="CategoryOption'ArcaneDancerTraditions"></a> `CategoryOption'ArcaneDancerTraditions`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'ArcaneDancerTraditions/tag">See details</a>
+
+#### <a name="CategoryOption'ArcaneDancerTraditions/tag"></a> `tag`
+
+- **Constant:** `"ArcaneDancerTraditions"`
+
+---
+
+### <a name="CategoryOption'SexPractices"></a> `CategoryOption'SexPractices`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'SexPractices/tag">See details</a>
+
+#### <a name="CategoryOption'SexPractices/tag"></a> `tag`
+
+- **Constant:** `"SexPractices"`
+
+---
+
+### <a name="CategoryOption'Races"></a> `CategoryOption'Races`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'Races/tag">See details</a>
+
+#### <a name="CategoryOption'Races/tag"></a> `tag`
+
+- **Constant:** `"Races"`
+
+---
+
+### <a name="CategoryOption'Cultures"></a> `CategoryOption'Cultures`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'Cultures/tag">See details</a>
+
+#### <a name="CategoryOption'Cultures/tag"></a> `tag`
+
+- **Constant:** `"Cultures"`
+
+---
+
+### <a name="CategoryOption'BlessedTraditions"></a> `CategoryOption'BlessedTraditions`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'BlessedTraditions/tag">See details</a>
+`require_principles?` | Should the principles (code) of the tradition be required to select the respective tradition? | <a href="#CategoryOption'BlessedTraditions/require_principles">See details</a>
+
+#### <a name="CategoryOption'BlessedTraditions/tag"></a> `tag`
+
+- **Constant:** `"BlessedTraditions"`
+
+#### <a name="CategoryOption'BlessedTraditions/require_principles"></a> `require_principles?`
+
+Should the principles (code) of the tradition be required to select the
+respective tradition?
+
+- **Constant:** `true`
+
+---
+
+### <a name="CategoryOption'Elements"></a> `CategoryOption'Elements`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'Elements/tag">See details</a>
+`specific?` | Only include entries with the listed identifiers. | <a href="#CategoryOption'Elements/specific">See details</a>
+
+#### <a name="CategoryOption'Elements/tag"></a> `tag`
+
+- **Constant:** `"Elements"`
+
+#### <a name="CategoryOption'Elements/specific"></a> `specific?`
+
+Only include entries with the listed identifiers.
+
+- **Type:** List
+- **Items:** <a href="#CategoryOption'Elements/specific[]">CategoryOption'Elements/specific[]</a>
+- **Minimum Items:** `1`
+- **Unique Items:** Yes
+
+---
+
+### <a name="CategoryOption'Elements/specific[]"></a> `CategoryOption'Elements/specific[]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The element's identifier. | <a href="#CategoryOption'Elements/specific[]/id">See details</a>
+
+#### <a name="CategoryOption'Elements/specific[]/id"></a> `id`
+
+The element's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+- **Maximum:** `6`
+
+---
+
+### <a name="CategoryOption'Properties"></a> `CategoryOption'Properties`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'Properties/tag">See details</a>
+`require_knowledge?` | Does each property require it's corresponding property knowledge? | <a href="#CategoryOption'Properties/require_knowledge">See details</a>
+`require_minimum_spellworks_on?` | Require a minimum number of spellworks of the respective property to be on a minimum skill rating. | <a href="#CategoryOption'Properties/require_minimum_spellworks_on">See details</a>
+
+#### <a name="CategoryOption'Properties/tag"></a> `tag`
+
+- **Constant:** `"Properties"`
+
+#### <a name="CategoryOption'Properties/require_knowledge"></a> `require_knowledge?`
+
+Does each property require it's corresponding property knowledge?
+
+- **Constant:** `true`
+
+#### <a name="CategoryOption'Properties/require_minimum_spellworks_on"></a> `require_minimum_spellworks_on?`
+
+Require a minimum number of spellworks of the respective property to be
+on a minimum skill rating.
+
+- **Type:** <a href="#CategoryOption'Properties/require_minimum_spellworks_on">Object</a>
+
+---
+
+### <a name="CategoryOption'Properties/require_minimum_spellworks_on"></a> `CategoryOption'Properties/require_minimum_spellworks_on`
+
+Require a minimum number of spellworks of the respective property to be
+on a minimum skill rating.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`number` | The minimum number of spellworks that need to be on the defined minimum skill rating. | <a href="#CategoryOption'Properties/require_minimum_spellworks_on/number">See details</a>
+`value` | The minimum skill rating the defined minimum number of spellworks need to be on. | <a href="#CategoryOption'Properties/require_minimum_spellworks_on/value">See details</a>
+
+#### <a name="CategoryOption'Properties/require_minimum_spellworks_on/number"></a> `number`
+
+The minimum number of spellworks that need to be on the defined minimum
+skill rating.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="CategoryOption'Properties/require_minimum_spellworks_on/value"></a> `value`
+
+The minimum skill rating the defined minimum number of spellworks need
+to be on.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="CategoryOption'Aspects"></a> `CategoryOption'Aspects`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'Aspects/tag">See details</a>
+`require_knowledge?` | Does each aspect require it's corresponding aspect knowledge? | <a href="#CategoryOption'Aspects/require_knowledge">See details</a>
+`use_master_of_suffix_as_name?` | The generated name should be the *Master of (Aspect)* suffix for this aspect instead of the aspect's name. If an aspect does not provide a suffix (such as the General aspect), it is automatically excluded from the list. | <a href="#CategoryOption'Aspects/use_master_of_suffix_as_name">See details</a>
+`require_minimum_liturgies_on?` | Require a minimum number of liturgies of the respective aspect to be on a minimum skill rating. | <a href="#CategoryOption'Aspects/require_minimum_liturgies_on">See details</a>
+
+#### <a name="CategoryOption'Aspects/tag"></a> `tag`
+
+- **Constant:** `"Aspects"`
+
+#### <a name="CategoryOption'Aspects/require_knowledge"></a> `require_knowledge?`
+
+Does each aspect require it's corresponding aspect knowledge?
+
+- **Constant:** `true`
+
+#### <a name="CategoryOption'Aspects/use_master_of_suffix_as_name"></a> `use_master_of_suffix_as_name?`
+
+The generated name should be the *Master of (Aspect)* suffix for this
+aspect instead of the aspect's name. If an aspect does not provide a
+suffix (such as the General aspect), it is automatically excluded from
+the list.
+
+- **Constant:** `true`
+
+#### <a name="CategoryOption'Aspects/require_minimum_liturgies_on"></a> `require_minimum_liturgies_on?`
+
+Require a minimum number of liturgies of the respective aspect to be on a
+minimum skill rating.
+
+- **Type:** <a href="#CategoryOption'Aspects/require_minimum_liturgies_on">Object</a>
+
+---
+
+### <a name="CategoryOption'Aspects/require_minimum_liturgies_on"></a> `CategoryOption'Aspects/require_minimum_liturgies_on`
+
+Require a minimum number of liturgies of the respective aspect to be on a
+minimum skill rating.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`number` | The minimum number of liturgies that need to be on the defined minimum skill rating. | <a href="#CategoryOption'Aspects/require_minimum_liturgies_on/number">See details</a>
+`value` | The minimum skill rating the defined minimum number of liturgies need to be on. | <a href="#CategoryOption'Aspects/require_minimum_liturgies_on/value">See details</a>
+
+#### <a name="CategoryOption'Aspects/require_minimum_liturgies_on/number"></a> `number`
+
+The minimum number of liturgies that need to be on the defined minimum
+skill rating.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="CategoryOption'Aspects/require_minimum_liturgies_on/value"></a> `value`
+
+The minimum skill rating the defined minimum number of liturgies need
+to be on.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="CategoryOption'Diseases"></a> `CategoryOption'Diseases`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'Diseases/tag">See details</a>
+`use_half_level_as_ap_value?` | Only convert half the disease level into the AP value. | <a href="#CategoryOption'Diseases/use_half_level_as_ap_value">See details</a>
+
+#### <a name="CategoryOption'Diseases/tag"></a> `tag`
+
+- **Constant:** `"Diseases"`
+
+#### <a name="CategoryOption'Diseases/use_half_level_as_ap_value"></a> `use_half_level_as_ap_value?`
+
+Only convert half the disease level into the AP value.
+
+- **Constant:** `true`
+
+---
+
+### <a name="CategoryOption'Poisons"></a> `CategoryOption'Poisons`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'Poisons/tag">See details</a>
+`use_half_level_as_ap_value?` | Only convert half the poison level into the AP value. | <a href="#CategoryOption'Poisons/use_half_level_as_ap_value">See details</a>
+
+#### <a name="CategoryOption'Poisons/tag"></a> `tag`
+
+- **Constant:** `"Poisons"`
+
+#### <a name="CategoryOption'Poisons/use_half_level_as_ap_value"></a> `use_half_level_as_ap_value?`
+
+Only convert half the poison level into the AP value.
+
+- **Constant:** `true`
+
+---
+
+### <a name="CategoryOption'Languages"></a> `CategoryOption'Languages`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'Languages/tag">See details</a>
+`prerequisites?` | Generate prerequisites for each entry of the category. | <a href="#CategoryOption'Languages/prerequisites">See details</a>
+
+#### <a name="CategoryOption'Languages/tag"></a> `tag`
+
+- **Constant:** `"Languages"`
+
+#### <a name="CategoryOption'Languages/prerequisites"></a> `prerequisites?`
+
+Generate prerequisites for each entry of the category.
+
+- **Type:** List
+- **Items:** <a href="#CategoryOption'Languages/prerequisites[]">CategoryOption'Languages/prerequisites[]</a>
+- **Minimum Items:** `1`
+
+---
+
+### <a name="CategoryOption'Languages/prerequisites[]"></a> `CategoryOption'Languages/prerequisites[]`
+
+- **Type:** <a href="#OptionOptionPrerequisite">OptionOptionPrerequisite</a>
+
+---
+
+### <a name="CategoryOption'Skills"></a> `CategoryOption'Skills`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'Skills/tag">See details</a>
+`groups?` | Only include entries of the specified groups. | <a href="#CategoryOption'Skills/groups">See details</a>
+`specific?` | Only include (`Intersection`) or exclude (`Difference`) specific skills. | <a href="#CategoryOption'Skills/specific">See details</a>
+`skill_applications?` | Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry. | <a href="#CategoryOption'Skills/skill_applications">See details</a>
+`skill_uses?` | Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry. | <a href="#CategoryOption'Skills/skill_uses">See details</a>
+`prerequisites?` | Generate prerequisites for each entry of the category. | <a href="#CategoryOption'Skills/prerequisites">See details</a>
+`ap_value?` | Generate AP values for each entry. | <a href="#CategoryOption'Skills/ap_value">See details</a>
+
+#### <a name="CategoryOption'Skills/tag"></a> `tag`
+
+- **Constant:** `"Skills"`
+
+#### <a name="CategoryOption'Skills/groups"></a> `groups?`
+
+Only include entries of the specified groups.
+
+- **Type:** List
+- **Items:** <a href="#CategoryOption'Skills/groups[]">CategoryOption'Skills/groups[]</a>
+- **Minimum Items:** `1`
+
+#### <a name="CategoryOption'Skills/specific"></a> `specific?`
+
+Only include (`Intersection`) or exclude (`Difference`) specific skills.
+
+- **Type:** <a href="#CategoryOption'Skills/specific">Object</a>
+
+#### <a name="CategoryOption'Skills/skill_applications"></a> `skill_applications?`
+
+Registers new applications, which get enabled once this entry is
+activated with its respective select option. It specifies an entry-unique
+identifier, the skill it belongs to is derived from the select option
+automatically. A translation can be left out if its name equals the name
+of the origin entry.
+
+- **Type:** <a href="#SkillApplications">SkillApplications</a>
+
+#### <a name="CategoryOption'Skills/skill_uses"></a> `skill_uses?`
+
+Registers uses, which get enabled once this entry is activated with its
+respective select option. It specifies an entry-unique identifier, the
+skill it belongs to is derived from the select option automatically. A
+translation can be left out if its name equals the name of the origin
+entry.
+
+- **Type:** <a href="#SkillUses">SkillUses</a>
+
+#### <a name="CategoryOption'Skills/prerequisites"></a> `prerequisites?`
+
+Generate prerequisites for each entry of the category.
+
+- **Type:** List
+- **Items:** <a href="#CategoryOption'Skills/prerequisites[]">CategoryOption'Skills/prerequisites[]</a>
+- **Minimum Items:** `1`
+
+#### <a name="CategoryOption'Skills/ap_value"></a> `ap_value?`
+
+Generate AP values for each entry.
+
+- **Type:** Union
+- **Cases:** <a href="#CategoryOption'Skills/ap_value'DerivedFromImprovementCost">CategoryOption'Skills/ap_value'DerivedFromImprovementCost</a> | <a href="#CategoryOption'Skills/ap_value'Fixed">CategoryOption'Skills/ap_value'Fixed</a>
+
+---
+
+### <a name="CategoryOption'Skills/groups[]"></a> `CategoryOption'Skills/groups[]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The skill group's identifier. | <a href="#CategoryOption'Skills/groups[]/id">See details</a>
+
+#### <a name="CategoryOption'Skills/groups[]/id"></a> `id`
+
+The skill group's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+- **Maximum:** `5`
+
+---
+
+### <a name="CategoryOption'Skills/specific"></a> `CategoryOption'Skills/specific`
+
+Only include (`Intersection`) or exclude (`Difference`) specific skills.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`operation` |  | <a href="#CategoryOption'Skills/specific/operation">See details</a>
+`list` | The list of specific skills. | <a href="#CategoryOption'Skills/specific/list">See details</a>
+
+#### <a name="CategoryOption'Skills/specific/operation"></a> `operation`
+
+- **Type:** Union
+- **Cases:** <a href="#CategoryOption'Skills/specific/operation'Intersection">CategoryOption'Skills/specific/operation'Intersection</a> | <a href="#CategoryOption'Skills/specific/operation'Difference">CategoryOption'Skills/specific/operation'Difference</a>
+
+#### <a name="CategoryOption'Skills/specific/list"></a> `list`
+
+The list of specific skills.
+
+- **Type:** List
+- **Items:** <a href="#CategoryOption'Skills/specific/list[]">CategoryOption'Skills/specific/list[]</a>
+- **Minimum Items:** `1`
+- **Unique Items:** Yes
+
+---
+
+### <a name="CategoryOption'Skills/specific/operation'Intersection"></a> `CategoryOption'Skills/specific/operation'Intersection`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'Skills/specific/operation'Intersection/tag">See details</a>
+
+#### <a name="CategoryOption'Skills/specific/operation'Intersection/tag"></a> `tag`
+
+- **Constant:** `"Intersection"`
+
+---
+
+### <a name="CategoryOption'Skills/specific/operation'Difference"></a> `CategoryOption'Skills/specific/operation'Difference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'Skills/specific/operation'Difference/tag">See details</a>
+
+#### <a name="CategoryOption'Skills/specific/operation'Difference/tag"></a> `tag`
+
+- **Constant:** `"Difference"`
+
+---
+
+### <a name="CategoryOption'Skills/specific/list[]"></a> `CategoryOption'Skills/specific/list[]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The skill's identifier. | <a href="#CategoryOption'Skills/specific/list[]/id">See details</a>
+
+#### <a name="CategoryOption'Skills/specific/list[]/id"></a> `id`
+
+The skill's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+- **Maximum:** `59`
+
+---
+
+### <a name="CategoryOption'Skills/prerequisites[]"></a> `CategoryOption'Skills/prerequisites[]`
+
+- **Type:** Union
+- **Cases:** <a href="#CategoryOption'Skills/prerequisites[]'Self">CategoryOption'Skills/prerequisites[]'Self</a> | <a href="#CategoryOption'Skills/prerequisites[]'OptionOptionPrerequisite">CategoryOption'Skills/prerequisites[]'OptionOptionPrerequisite</a>
+
+---
+
+### <a name="CategoryOption'Skills/prerequisites[]'Self"></a> `CategoryOption'Skills/prerequisites[]'Self`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'Skills/prerequisites[]'Self/tag">See details</a>
+`value` | The entry requires itself on a certain Skill Rating. | <a href="#CategoryOption'Skills/prerequisites[]'Self/value">See details</a>
+
+#### <a name="CategoryOption'Skills/prerequisites[]'Self/tag"></a> `tag`
+
+- **Constant:** `"Self"`
+
+#### <a name="CategoryOption'Skills/prerequisites[]'Self/value"></a> `value`
+
+The entry requires itself on a certain Skill Rating.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="CategoryOption'Skills/prerequisites[]'OptionOptionPrerequisite"></a> `CategoryOption'Skills/prerequisites[]'OptionOptionPrerequisite`
+
+- **Type:** <a href="#OptionOptionPrerequisite">OptionOptionPrerequisite</a>
+
+---
+
+### <a name="CategoryOption'Skills/ap_value'DerivedFromImprovementCost"></a> `CategoryOption'Skills/ap_value'DerivedFromImprovementCost`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'Skills/ap_value'DerivedFromImprovementCost/tag">See details</a>
+`multiplier?` | This number is multiplied with the improvement cost of the entry (A = 1 to D = 4). | <a href="#CategoryOption'Skills/ap_value'DerivedFromImprovementCost/multiplier">See details</a>
+
+#### <a name="CategoryOption'Skills/ap_value'DerivedFromImprovementCost/tag"></a> `tag`
+
+- **Constant:** `"DerivedFromImprovementCost"`
+
+#### <a name="CategoryOption'Skills/ap_value'DerivedFromImprovementCost/multiplier"></a> `multiplier?`
+
+This number is multiplied with the improvement cost of the entry
+(A = 1 to D = 4).
+
+- **Type:** Integer
+- **Minimum:** `2`
+
+---
+
+### <a name="CategoryOption'Skills/ap_value'Fixed"></a> `CategoryOption'Skills/ap_value'Fixed`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'Skills/ap_value'Fixed/tag">See details</a>
+`map` | A mapping of skill identifiers to their specific AP values. | <a href="#CategoryOption'Skills/ap_value'Fixed/map">See details</a>
+`default` | The default value of an entry. Used as a fallback if no value is found in `list`. | <a href="#CategoryOption'Skills/ap_value'Fixed/default">See details</a>
+
+#### <a name="CategoryOption'Skills/ap_value'Fixed/tag"></a> `tag`
+
+- **Constant:** `"Fixed"`
+
+#### <a name="CategoryOption'Skills/ap_value'Fixed/map"></a> `map`
+
+A mapping of skill identifiers to their specific AP values.
+
+- **Type:** List
+- **Items:** <a href="#CategoryOption'Skills/ap_value'Fixed/map[]">CategoryOption'Skills/ap_value'Fixed/map[]</a>
+
+#### <a name="CategoryOption'Skills/ap_value'Fixed/default"></a> `default`
+
+The default value of an entry. Used as a fallback if no value is
+found in `list`.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="CategoryOption'Skills/ap_value'Fixed/map[]"></a> `CategoryOption'Skills/ap_value'Fixed/map[]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`skill_id` | The skill's identifier. | <a href="#CategoryOption'Skills/ap_value'Fixed/map[]/skill_id">See details</a>
+`ap_value` | The AP value for the specified entry. | <a href="#CategoryOption'Skills/ap_value'Fixed/map[]/ap_value">See details</a>
+
+#### <a name="CategoryOption'Skills/ap_value'Fixed/map[]/skill_id"></a> `skill_id`
+
+The skill's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="CategoryOption'Skills/ap_value'Fixed/map[]/ap_value"></a> `ap_value`
+
+The AP value for the specified entry.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="CategoryOption'Skills"></a> `CategoryOption'Skills`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'Skills/tag">See details</a>
+`groups?` | Only include entries of the specified groups. | <a href="#CategoryOption'Skills/groups">See details</a>
+`specific?` | Only include (`Intersection`) or exclude (`Difference`) specific skills. | <a href="#CategoryOption'Skills/specific">See details</a>
+`skill_applications?` | Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry. | <a href="#CategoryOption'Skills/skill_applications">See details</a>
+`skill_uses?` | Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry. | <a href="#CategoryOption'Skills/skill_uses">See details</a>
+`prerequisites?` | Generate prerequisites for each entry of the category. | <a href="#CategoryOption'Skills/prerequisites">See details</a>
+`ap_value?` | Generate AP values for each entry. | <a href="#CategoryOption'Skills/ap_value">See details</a>
+
+#### <a name="CategoryOption'Skills/tag"></a> `tag`
+
+- **Constant:** `"Skills"`
+
+#### <a name="CategoryOption'Skills/groups"></a> `groups?`
+
+Only include entries of the specified groups.
+
+- **Type:** List
+- **Items:** <a href="#CategoryOption'Skills/groups[]">CategoryOption'Skills/groups[]</a>
+- **Minimum Items:** `1`
+
+#### <a name="CategoryOption'Skills/specific"></a> `specific?`
+
+Only include (`Intersection`) or exclude (`Difference`) specific skills.
+
+- **Type:** <a href="#CategoryOption'Skills/specific">Object</a>
+
+#### <a name="CategoryOption'Skills/skill_applications"></a> `skill_applications?`
+
+Registers new applications, which get enabled once this entry is
+activated with its respective select option. It specifies an entry-unique
+identifier, the skill it belongs to is derived from the select option
+automatically. A translation can be left out if its name equals the name
+of the origin entry.
+
+- **Type:** List
+- **Items:** <a href="#CategoryOption'Skills/skill_applications[]">CategoryOption'Skills/skill_applications[]</a>
+- **Minimum Items:** `1`
+
+#### <a name="CategoryOption'Skills/skill_uses"></a> `skill_uses?`
+
+Registers uses, which get enabled once this entry is activated with its
+respective select option. It specifies an entry-unique identifier, the
+skill it belongs to is derived from the select option automatically. A
+translation can be left out if its name equals the name of the origin
+entry.
+
+- **Type:** List
+- **Items:** <a href="#CategoryOption'Skills/skill_uses[]">CategoryOption'Skills/skill_uses[]</a>
+- **Minimum Items:** `1`
+
+#### <a name="CategoryOption'Skills/prerequisites"></a> `prerequisites?`
+
+Generate prerequisites for each entry of the category.
+
+- **Type:** List
+- **Items:** <a href="#CategoryOption'Skills/prerequisites[]">CategoryOption'Skills/prerequisites[]</a>
+- **Minimum Items:** `1`
+
+#### <a name="CategoryOption'Skills/ap_value"></a> `ap_value?`
+
+Generate AP values for each entry.
+
+- **Type:** <a href="#OptionSkillDeriveAdventurePointsValue">OptionSkillDeriveAdventurePointsValue</a>
+
+---
+
+### <a name="CategoryOption'Skills/groups[]"></a> `CategoryOption'Skills/groups[]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The skill group's identifier. | <a href="#CategoryOption'Skills/groups[]/id">See details</a>
+
+#### <a name="CategoryOption'Skills/groups[]/id"></a> `id`
+
+The skill group's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+- **Maximum:** `5`
+
+---
+
+### <a name="CategoryOption'Skills/specific"></a> `CategoryOption'Skills/specific`
+
+Only include (`Intersection`) or exclude (`Difference`) specific skills.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`operation` |  | <a href="#CategoryOption'Skills/specific/operation">See details</a>
+`list` | The list of specific skills. | <a href="#CategoryOption'Skills/specific/list">See details</a>
+
+#### <a name="CategoryOption'Skills/specific/operation"></a> `operation`
+
+- **Type:** Union
+- **Cases:** <a href="#CategoryOption'Skills/specific/operation'Intersection">CategoryOption'Skills/specific/operation'Intersection</a> | <a href="#CategoryOption'Skills/specific/operation'Difference">CategoryOption'Skills/specific/operation'Difference</a>
+
+#### <a name="CategoryOption'Skills/specific/list"></a> `list`
+
+The list of specific skills.
+
+- **Type:** List
+- **Items:** <a href="#CategoryOption'Skills/specific/list[]">CategoryOption'Skills/specific/list[]</a>
+- **Minimum Items:** `1`
+- **Unique Items:** Yes
+
+---
+
+### <a name="CategoryOption'Skills/specific/operation'Intersection"></a> `CategoryOption'Skills/specific/operation'Intersection`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'Skills/specific/operation'Intersection/tag">See details</a>
+
+#### <a name="CategoryOption'Skills/specific/operation'Intersection/tag"></a> `tag`
+
+- **Constant:** `"Intersection"`
+
+---
+
+### <a name="CategoryOption'Skills/specific/operation'Difference"></a> `CategoryOption'Skills/specific/operation'Difference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'Skills/specific/operation'Difference/tag">See details</a>
+
+#### <a name="CategoryOption'Skills/specific/operation'Difference/tag"></a> `tag`
+
+- **Constant:** `"Difference"`
+
+---
+
+### <a name="CategoryOption'Skills/specific/list[]"></a> `CategoryOption'Skills/specific/list[]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The skill's identifier. | <a href="#CategoryOption'Skills/specific/list[]/id">See details</a>
+
+#### <a name="CategoryOption'Skills/specific/list[]/id"></a> `id`
+
+The skill's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+- **Maximum:** `59`
+
+---
+
+### <a name="CategoryOption'Skills/skill_applications[]"></a> `CategoryOption'Skills/skill_applications[]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The application's identifier. An entry-unique, increasing integer. | <a href="#CategoryOption'Skills/skill_applications[]/id">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#CategoryOption'Skills/skill_applications[]/translations">See details</a>
+
+#### <a name="CategoryOption'Skills/skill_applications[]/id"></a> `id`
+
+The application's identifier. An entry-unique, increasing integer.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="CategoryOption'Skills/skill_applications[]/translations"></a> `translations?`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#CategoryOption'Skills/skill_applications[]/translations[key]">CategoryOption'Skills/skill_applications[]/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="CategoryOption'Skills/skill_applications[]/translations[key]"></a> `CategoryOption'Skills/skill_applications[]/translations[key]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`name` | The name of the application if different from the activatable entry's name. | <a href="#CategoryOption'Skills/skill_applications[]/translations[key]/name">See details</a>
+
+#### <a name="CategoryOption'Skills/skill_applications[]/translations[key]/name"></a> `name`
+
+The name of the application if different from the activatable entry's
+name.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+---
+
+### <a name="CategoryOption'Skills/skill_uses[]"></a> `CategoryOption'Skills/skill_uses[]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The use's identifier. An entry-unique, increasing integer. | <a href="#CategoryOption'Skills/skill_uses[]/id">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#CategoryOption'Skills/skill_uses[]/translations">See details</a>
+
+#### <a name="CategoryOption'Skills/skill_uses[]/id"></a> `id`
+
+The use's identifier. An entry-unique, increasing integer.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="CategoryOption'Skills/skill_uses[]/translations"></a> `translations?`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#CategoryOption'Skills/skill_uses[]/translations[key]">CategoryOption'Skills/skill_uses[]/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="CategoryOption'Skills/skill_uses[]/translations[key]"></a> `CategoryOption'Skills/skill_uses[]/translations[key]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`name` | The name of the use if different from the activatable entry's name. | <a href="#CategoryOption'Skills/skill_uses[]/translations[key]/name">See details</a>
+
+#### <a name="CategoryOption'Skills/skill_uses[]/translations[key]/name"></a> `name`
+
+The name of the use if different from the activatable entry's name.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+---
+
+### <a name="CategoryOption'Skills/prerequisites[]"></a> `CategoryOption'Skills/prerequisites[]`
+
+- **Type:** Union
+- **Cases:** <a href="#CategoryOption'Skills/prerequisites[]'OptionSkillSelfPrerequisite">CategoryOption'Skills/prerequisites[]'OptionSkillSelfPrerequisite</a> | <a href="#CategoryOption'Skills/prerequisites[]'OptionOptionPrerequisite">CategoryOption'Skills/prerequisites[]'OptionOptionPrerequisite</a>
+
+---
+
+### <a name="CategoryOption'Skills/prerequisites[]'OptionSkillSelfPrerequisite"></a> `CategoryOption'Skills/prerequisites[]'OptionSkillSelfPrerequisite`
+
+- **Type:** <a href="#OptionSkillSelfPrerequisite">OptionSkillSelfPrerequisite</a>
+
+---
+
+### <a name="CategoryOption'Skills/prerequisites[]'OptionOptionPrerequisite"></a> `CategoryOption'Skills/prerequisites[]'OptionOptionPrerequisite`
+
+- **Type:** <a href="#OptionOptionPrerequisite">OptionOptionPrerequisite</a>
+
+---
+
+### <a name="CategoryOption'19"></a> `CategoryOption'19`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'19/tag">See details</a>
+`specific?` | Only include (`Intersection`) or exclude (`Difference`) specific entries. | <a href="#CategoryOption'19/specific">See details</a>
+`prerequisites?` | Generate prerequisites for each entry of the category. | <a href="#CategoryOption'19/prerequisites">See details</a>
+`ap_value?` | Generate AP values for each entry. | <a href="#CategoryOption'19/ap_value">See details</a>
+
+#### <a name="CategoryOption'19/tag"></a> `tag`
+
+- **Type:** <a href="#NonSkillSkillCategory">NonSkillSkillCategory</a>
+
+#### <a name="CategoryOption'19/specific"></a> `specific?`
+
+Only include (`Intersection`) or exclude (`Difference`) specific entries.
+
+- **Type:** <a href="#CategoryOption'19/specific">Object</a>
+
+#### <a name="CategoryOption'19/prerequisites"></a> `prerequisites?`
+
+Generate prerequisites for each entry of the category.
+
+- **Type:** List
+- **Items:** <a href="#CategoryOption'19/prerequisites[]">CategoryOption'19/prerequisites[]</a>
+- **Minimum Items:** `1`
+
+#### <a name="CategoryOption'19/ap_value"></a> `ap_value?`
+
+Generate AP values for each entry.
+
+- **Type:** <a href="#OptionSkillDeriveAdventurePointsValue">OptionSkillDeriveAdventurePointsValue</a>
+
+---
+
+### <a name="CategoryOption'19/specific"></a> `CategoryOption'19/specific`
+
+Only include (`Intersection`) or exclude (`Difference`) specific entries.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`operation` |  | <a href="#CategoryOption'19/specific/operation">See details</a>
+`list` | The list of specific entries. | <a href="#CategoryOption'19/specific/list">See details</a>
+
+#### <a name="CategoryOption'19/specific/operation"></a> `operation`
+
+- **Type:** Union
+- **Cases:** <a href="#CategoryOption'19/specific/operation'Intersection">CategoryOption'19/specific/operation'Intersection</a> | <a href="#CategoryOption'19/specific/operation'Difference">CategoryOption'19/specific/operation'Difference</a>
+
+#### <a name="CategoryOption'19/specific/list"></a> `list`
+
+The list of specific entries.
+
+- **Type:** List
+- **Items:** <a href="#CategoryOption'19/specific/list[]">CategoryOption'19/specific/list[]</a>
+- **Minimum Items:** `1`
+- **Unique Items:** Yes
+
+---
+
+### <a name="CategoryOption'19/specific/operation'Intersection"></a> `CategoryOption'19/specific/operation'Intersection`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'19/specific/operation'Intersection/tag">See details</a>
+
+#### <a name="CategoryOption'19/specific/operation'Intersection/tag"></a> `tag`
+
+- **Constant:** `"Intersection"`
+
+---
+
+### <a name="CategoryOption'19/specific/operation'Difference"></a> `CategoryOption'19/specific/operation'Difference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CategoryOption'19/specific/operation'Difference/tag">See details</a>
+
+#### <a name="CategoryOption'19/specific/operation'Difference/tag"></a> `tag`
+
+- **Constant:** `"Difference"`
+
+---
+
+### <a name="CategoryOption'19/specific/list[]"></a> `CategoryOption'19/specific/list[]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The entry's identifier. | <a href="#CategoryOption'19/specific/list[]/id">See details</a>
+
+#### <a name="CategoryOption'19/specific/list[]/id"></a> `id`
+
+The entry's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+- **Maximum:** `59`
+
+---
+
+### <a name="CategoryOption'19/prerequisites[]"></a> `CategoryOption'19/prerequisites[]`
+
+- **Type:** Union
+- **Cases:** <a href="#CategoryOption'19/prerequisites[]'OptionSkillSelfPrerequisite">CategoryOption'19/prerequisites[]'OptionSkillSelfPrerequisite</a> | <a href="#CategoryOption'19/prerequisites[]'OptionOptionPrerequisite">CategoryOption'19/prerequisites[]'OptionOptionPrerequisite</a>
+
+---
+
+### <a name="CategoryOption'19/prerequisites[]'OptionSkillSelfPrerequisite"></a> `CategoryOption'19/prerequisites[]'OptionSkillSelfPrerequisite`
+
+- **Type:** <a href="#OptionSkillSelfPrerequisite">OptionSkillSelfPrerequisite</a>
+
+---
+
+### <a name="CategoryOption'19/prerequisites[]'OptionOptionPrerequisite"></a> `CategoryOption'19/prerequisites[]'OptionOptionPrerequisite`
+
+- **Type:** <a href="#OptionOptionPrerequisite">OptionOptionPrerequisite</a>
+
+---
+
+### <a name="NonSkillSkillCategory"></a> `NonSkillSkillCategory`
+
+- **Possible values:** `"CloseCombatTechniques"`, `"RangedCombatTechniques"`, `"LiturgicalChants"`, `"Ceremonies"`, `"Spells"`, `"Rituals"`
+
+---
+
+### <a name="OptionSkillSelfPrerequisite"></a> `OptionSkillSelfPrerequisite`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#OptionSkillSelfPrerequisite/tag">See details</a>
+`value` | The entry requires itself on a certain Skill Rating. | <a href="#OptionSkillSelfPrerequisite/value">See details</a>
+
+#### <a name="OptionSkillSelfPrerequisite/tag"></a> `tag`
+
+- **Constant:** `"Self"`
+
+#### <a name="OptionSkillSelfPrerequisite/value"></a> `value`
+
+The entry requires itself on a certain Skill Rating.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="OptionOptionPrerequisite"></a> `OptionOptionPrerequisite`
+
+The entry requires or prohibits itself as a select option of another entry.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#OptionOptionPrerequisite/tag">See details</a>
+`id` | The target entry's identifier. | <a href="#OptionOptionPrerequisite/id">See details</a>
+`active` | Is the select option required (`true`) or prohibited (`false`)? | <a href="#OptionOptionPrerequisite/active">See details</a>
+`level?` | The required level, if any. | <a href="#OptionOptionPrerequisite/level">See details</a>
+
+#### <a name="OptionOptionPrerequisite/tag"></a> `tag`
+
+- **Constant:** `"SelectOption"`
+
+#### <a name="OptionOptionPrerequisite/id"></a> `id`
+
+The target entry's identifier.
+
+- **Type:** <a href="./_Identifier.md#ActivatableIdentifier">ActivatableIdentifier</a>
+
+#### <a name="OptionOptionPrerequisite/active"></a> `active`
+
+Is the select option required (`true`) or prohibited (`false`)?
+
+- **Type:** Boolean
+
+#### <a name="OptionOptionPrerequisite/level"></a> `level?`
+
+The required level, if any.
+
+- **Type:** Integer
+- **Minimum:** `2`
+
+---
+
+### <a name="OptionSkillDeriveAdventurePointsValue"></a> `OptionSkillDeriveAdventurePointsValue`
+
+Generate AP values for each entry.
+
+- **Type:** Union
+- **Cases:** <a href="#OptionSkillDeriveAdventurePointsValue'DerivedFromImprovementCost">OptionSkillDeriveAdventurePointsValue'DerivedFromImprovementCost</a> | <a href="#OptionSkillDeriveAdventurePointsValue'Fixed">OptionSkillDeriveAdventurePointsValue'Fixed</a>
+
+---
+
+### <a name="OptionSkillDeriveAdventurePointsValue'DerivedFromImprovementCost"></a> `OptionSkillDeriveAdventurePointsValue'DerivedFromImprovementCost`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#OptionSkillDeriveAdventurePointsValue'DerivedFromImprovementCost/tag">See details</a>
+`multiplier?` | This number is multiplied with the improvement cost of the entry (A = 1 to D = 4). | <a href="#OptionSkillDeriveAdventurePointsValue'DerivedFromImprovementCost/multiplier">See details</a>
+
+#### <a name="OptionSkillDeriveAdventurePointsValue'DerivedFromImprovementCost/tag"></a> `tag`
+
+- **Constant:** `"DerivedFromImprovementCost"`
+
+#### <a name="OptionSkillDeriveAdventurePointsValue'DerivedFromImprovementCost/multiplier"></a> `multiplier?`
+
+This number is multiplied with the improvement cost of the entry
+(A = 1 to D = 4).
+
+- **Type:** Integer
+- **Minimum:** `2`
+
+---
+
+### <a name="OptionSkillDeriveAdventurePointsValue'Fixed"></a> `OptionSkillDeriveAdventurePointsValue'Fixed`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#OptionSkillDeriveAdventurePointsValue'Fixed/tag">See details</a>
+`map` | A mapping of skill identifiers to their specific AP values. | <a href="#OptionSkillDeriveAdventurePointsValue'Fixed/map">See details</a>
+`default` | The default value of an entry. Used as a fallback if no value is found in `list`. | <a href="#OptionSkillDeriveAdventurePointsValue'Fixed/default">See details</a>
+
+#### <a name="OptionSkillDeriveAdventurePointsValue'Fixed/tag"></a> `tag`
+
+- **Constant:** `"Fixed"`
+
+#### <a name="OptionSkillDeriveAdventurePointsValue'Fixed/map"></a> `map`
+
+A mapping of skill identifiers to their specific AP values.
+
+- **Type:** List
+- **Items:** <a href="#OptionSkillDeriveAdventurePointsValue'Fixed/map[]">OptionSkillDeriveAdventurePointsValue'Fixed/map[]</a>
+
+#### <a name="OptionSkillDeriveAdventurePointsValue'Fixed/default"></a> `default`
+
+The default value of an entry. Used as a fallback if no value is
+found in `list`.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="OptionSkillDeriveAdventurePointsValue'Fixed/map[]"></a> `OptionSkillDeriveAdventurePointsValue'Fixed/map[]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`skill_id` | The skill's identifier. | <a href="#OptionSkillDeriveAdventurePointsValue'Fixed/map[]/skill_id">See details</a>
+`ap_value` | The AP value for the specified entry. | <a href="#OptionSkillDeriveAdventurePointsValue'Fixed/map[]/ap_value">See details</a>
+
+#### <a name="OptionSkillDeriveAdventurePointsValue'Fixed/map[]/skill_id"></a> `skill_id`
+
+The skill's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="OptionSkillDeriveAdventurePointsValue'Fixed/map[]/ap_value"></a> `ap_value`
+
+The AP value for the specified entry.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="ExplicitOption"></a> `ExplicitOption`
+
+- **Type:** Union
+- **Cases:** <a href="#ExplicitOption'General">ExplicitOption'General</a> | <a href="#ExplicitOption'Skill">ExplicitOption'Skill</a> | <a href="#ExplicitOption'CombatTechnique">ExplicitOption'CombatTechnique</a>
+
+---
+
+### <a name="ExplicitOption'General"></a> `ExplicitOption'General`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ExplicitOption'General/tag">See details</a>
+`id` | The option's identifier. An unique, increasing integer. | <a href="#ExplicitOption'General/id">See details</a>
+`profession_only?` | Sometimes, professions use specific text selections that are not contained in described lists. This ensures you can use them for professions only. They are not going to be displayed as options to the user. | <a href="#ExplicitOption'General/profession_only">See details</a>
+`skill_applications?` | Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option. | <a href="#ExplicitOption'General/skill_applications">See details</a>
+`skill_uses?` | Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option. | <a href="#ExplicitOption'General/skill_uses">See details</a>
+`prerequisites?` |  | <a href="#ExplicitOption'General/prerequisites">See details</a>
+`ap_value?` | Specific AP cost for the select option. | <a href="#ExplicitOption'General/ap_value">See details</a>
+`src?` |  | <a href="#ExplicitOption'General/src">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ExplicitOption'General/translations">See details</a>
+
+#### <a name="ExplicitOption'General/tag"></a> `tag`
+
+- **Constant:** `"General"`
+
+#### <a name="ExplicitOption'General/id"></a> `id`
+
+The option's identifier. An unique, increasing integer.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="ExplicitOption'General/profession_only"></a> `profession_only?`
+
+Sometimes, professions use specific text selections that are not
+contained in described lists. This ensures you can use them for
+professions only. They are not going to be displayed as options to the
+user.
+
+- **Constant:** `true`
+
+#### <a name="ExplicitOption'General/skill_applications"></a> `skill_applications?`
+
+Registers new applications, which get enabled once this entry is
+activated with its respective select option. It specifies an entry-unique
+identifier and the skill it belongs to. A translation can be left out if
+its name equals the name of the origin select option.
+
+- **Type:** <a href="#SkillApplications">SkillApplications</a>
+
+#### <a name="ExplicitOption'General/skill_uses"></a> `skill_uses?`
+
+Registers uses, which get enabled once this entry is activated with its
+respective select option. It specifies an entry-unique identifier and the
+skill it belongs to. A translation can be left out if its name equals the
+name of the origin select option.
+
+- **Type:** <a href="#SkillUses">SkillUses</a>
+
+#### <a name="ExplicitOption'General/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="./_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
+
+#### <a name="ExplicitOption'General/ap_value"></a> `ap_value?`
+
+Specific AP cost for the select option.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="ExplicitOption'General/src"></a> `src?`
+
+- **Type:** <a href="./source/_PublicationRef.md#PublicationRefs">PublicationRefs</a>
+
+#### <a name="ExplicitOption'General/translations"></a> `translations`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#ExplicitOption'General/translations[key]">ExplicitOption'General/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="ExplicitOption'General/translations[key]"></a> `ExplicitOption'General/translations[key]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`name` | The name of the select option. | <a href="#ExplicitOption'General/translations[key]/name">See details</a>
+`name_in_profession?` | The name of the select option when displayed in a generated profession text. | <a href="#ExplicitOption'General/translations[key]/name_in_profession">See details</a>
+`description?` | The description of the select option. Useful for Bad Habits, Trade Secrets and other entries where a description is available. | <a href="#ExplicitOption'General/translations[key]/description">See details</a>
+`errata?` |  | <a href="#ExplicitOption'General/translations[key]/errata">See details</a>
+
+#### <a name="ExplicitOption'General/translations[key]/name"></a> `name`
+
+The name of the select option.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+#### <a name="ExplicitOption'General/translations[key]/name_in_profession"></a> `name_in_profession?`
+
+The name of the select option when displayed in a generated
+profession text.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+#### <a name="ExplicitOption'General/translations[key]/description"></a> `description?`
+
+The description of the select option. Useful for Bad Habits, Trade
+Secrets and other entries where a description is available.
+
+- **Type:** Markdown-formatted text
+- **Minimum Length:** `1`
+
+#### <a name="ExplicitOption'General/translations[key]/errata"></a> `errata?`
+
+- **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
+
+---
+
+### <a name="ExplicitOption'Skill"></a> `ExplicitOption'Skill`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ExplicitOption'Skill/tag">See details</a>
+`id` | The skill's identifier. An unique, increasing integer. | <a href="#ExplicitOption'Skill/id">See details</a>
+`skill_applications?` | Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option. | <a href="#ExplicitOption'Skill/skill_applications">See details</a>
+`skill_uses?` | Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option. | <a href="#ExplicitOption'Skill/skill_uses">See details</a>
+`prerequisites?` |  | <a href="#ExplicitOption'Skill/prerequisites">See details</a>
+`ap_value?` | Specific AP cost for the select option. | <a href="#ExplicitOption'Skill/ap_value">See details</a>
+`src?` |  | <a href="#ExplicitOption'Skill/src">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ExplicitOption'Skill/translations">See details</a>
+
+#### <a name="ExplicitOption'Skill/tag"></a> `tag`
+
+- **Constant:** `"Skill"`
+
+#### <a name="ExplicitOption'Skill/id"></a> `id`
+
+The skill's identifier. An unique, increasing integer.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="ExplicitOption'Skill/skill_applications"></a> `skill_applications?`
+
+Registers new applications, which get enabled once this entry is
+activated with its respective select option. It specifies an entry-unique
+identifier and the skill it belongs to. A translation can be left out if
+its name equals the name of the origin select option.
+
+- **Type:** List
+- **Items:** <a href="#ExplicitOption'Skill/skill_applications[]">ExplicitOption'Skill/skill_applications[]</a>
+- **Minimum Items:** `1`
+
+#### <a name="ExplicitOption'Skill/skill_uses"></a> `skill_uses?`
+
+Registers uses, which get enabled once this entry is activated with its
+respective select option. It specifies an entry-unique identifier and the
+skill it belongs to. A translation can be left out if its name equals the
+name of the origin select option.
+
+- **Type:** List
+- **Items:** <a href="#ExplicitOption'Skill/skill_uses[]">ExplicitOption'Skill/skill_uses[]</a>
+- **Minimum Items:** `1`
+
+#### <a name="ExplicitOption'Skill/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="./_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
+
+#### <a name="ExplicitOption'Skill/ap_value"></a> `ap_value?`
+
+Specific AP cost for the select option.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="ExplicitOption'Skill/src"></a> `src?`
+
+- **Type:** <a href="./source/_PublicationRef.md#PublicationRefs">PublicationRefs</a>
+
+#### <a name="ExplicitOption'Skill/translations"></a> `translations?`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#ExplicitOption'Skill/translations[key]">ExplicitOption'Skill/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="ExplicitOption'Skill/skill_applications[]"></a> `ExplicitOption'Skill/skill_applications[]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The application's identifier. An entry-unique, increasing integer. | <a href="#ExplicitOption'Skill/skill_applications[]/id">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ExplicitOption'Skill/skill_applications[]/translations">See details</a>
+
+#### <a name="ExplicitOption'Skill/skill_applications[]/id"></a> `id`
+
+The application's identifier. An entry-unique, increasing integer.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="ExplicitOption'Skill/skill_applications[]/translations"></a> `translations?`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#ExplicitOption'Skill/skill_applications[]/translations[key]">ExplicitOption'Skill/skill_applications[]/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="ExplicitOption'Skill/skill_applications[]/translations[key]"></a> `ExplicitOption'Skill/skill_applications[]/translations[key]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`name` | The name of the application if different from the activatable entry's name. | <a href="#ExplicitOption'Skill/skill_applications[]/translations[key]/name">See details</a>
+
+#### <a name="ExplicitOption'Skill/skill_applications[]/translations[key]/name"></a> `name`
+
+The name of the application if different from the activatable entry's
+name.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+---
+
+### <a name="ExplicitOption'Skill/skill_uses[]"></a> `ExplicitOption'Skill/skill_uses[]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The use's identifier. An entry-unique, increasing integer. | <a href="#ExplicitOption'Skill/skill_uses[]/id">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ExplicitOption'Skill/skill_uses[]/translations">See details</a>
+
+#### <a name="ExplicitOption'Skill/skill_uses[]/id"></a> `id`
+
+The use's identifier. An entry-unique, increasing integer.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="ExplicitOption'Skill/skill_uses[]/translations"></a> `translations?`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#ExplicitOption'Skill/skill_uses[]/translations[key]">ExplicitOption'Skill/skill_uses[]/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="ExplicitOption'Skill/skill_uses[]/translations[key]"></a> `ExplicitOption'Skill/skill_uses[]/translations[key]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`name` | The name of the use if different from the activatable entry's name. | <a href="#ExplicitOption'Skill/skill_uses[]/translations[key]/name">See details</a>
+
+#### <a name="ExplicitOption'Skill/skill_uses[]/translations[key]/name"></a> `name`
+
+The name of the use if different from the activatable entry's name.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+---
+
+### <a name="ExplicitOption'Skill/translations[key]"></a> `ExplicitOption'Skill/translations[key]`
+
+- **Type:** Object
+- **Minimum Properties:** `1`
+
+Key | Description | Details
+:-- | :-- | :--
+`errata?` |  | <a href="#ExplicitOption'Skill/translations[key]/errata">See details</a>
+
+#### <a name="ExplicitOption'Skill/translations[key]/errata"></a> `errata?`
+
+- **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
+
+---
+
+### <a name="ExplicitOption'CombatTechnique"></a> `ExplicitOption'CombatTechnique`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ExplicitOption'CombatTechnique/tag">See details</a>
+`id` | The combat technique's identifier. | <a href="#ExplicitOption'CombatTechnique/id">See details</a>
+`prerequisites?` |  | <a href="#ExplicitOption'CombatTechnique/prerequisites">See details</a>
+`ap_value?` | Specific AP cost for the select option. | <a href="#ExplicitOption'CombatTechnique/ap_value">See details</a>
+`src?` |  | <a href="#ExplicitOption'CombatTechnique/src">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ExplicitOption'CombatTechnique/translations">See details</a>
+
+#### <a name="ExplicitOption'CombatTechnique/tag"></a> `tag`
+
+- **Constant:** `"CombatTechnique"`
+
+#### <a name="ExplicitOption'CombatTechnique/id"></a> `id`
+
+The combat technique's identifier.
+
+- **Type:** <a href="./_Identifier.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>
+
+#### <a name="ExplicitOption'CombatTechnique/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="./_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
+
+#### <a name="ExplicitOption'CombatTechnique/ap_value"></a> `ap_value?`
+
+Specific AP cost for the select option.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="ExplicitOption'CombatTechnique/src"></a> `src?`
+
+- **Type:** <a href="./source/_PublicationRef.md#PublicationRefs">PublicationRefs</a>
+
+#### <a name="ExplicitOption'CombatTechnique/translations"></a> `translations?`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#ExplicitOption'CombatTechnique/translations[key]">ExplicitOption'CombatTechnique/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="ExplicitOption'CombatTechnique/translations[key]"></a> `ExplicitOption'CombatTechnique/translations[key]`
+
+- **Type:** Object
+- **Minimum Properties:** `1`
+
+Key | Description | Details
+:-- | :-- | :--
+`errata?` |  | <a href="#ExplicitOption'CombatTechnique/translations[key]/errata">See details</a>
+
+#### <a name="ExplicitOption'CombatTechnique/translations[key]/errata"></a> `errata?`
+
+- **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
 
 ---
 

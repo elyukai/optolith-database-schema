@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#Sermon/id">See details</a>
 `levels?` |  | <a href="#Sermon/levels">See details</a>
+`select_options?` |  | <a href="#Sermon/select_options">See details</a>
 `maximum?` |  | <a href="#Sermon/maximum">See details</a>
 `prerequisites?` |  | <a href="#Sermon/prerequisites">See details</a>
 `ap_value` |  | <a href="#Sermon/ap_value">See details</a>
@@ -23,6 +24,10 @@ Key | Description | Details
 #### <a name="Sermon/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="Sermon/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="Sermon/maximum"></a> `maximum?`
 

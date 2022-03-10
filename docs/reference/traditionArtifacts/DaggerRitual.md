@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#DaggerRitual/id">See details</a>
 `levels?` |  | <a href="#DaggerRitual/levels">See details</a>
+`select_options?` |  | <a href="#DaggerRitual/select_options">See details</a>
 `maximum?` |  | <a href="#DaggerRitual/maximum">See details</a>
 `prerequisites?` |  | <a href="#DaggerRitual/prerequisites">See details</a>
 `volume` |  | <a href="#DaggerRitual/volume">See details</a>
@@ -26,6 +27,10 @@ Key | Description | Details
 #### <a name="DaggerRitual/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="DaggerRitual/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="DaggerRitual/maximum"></a> `maximum?`
 

@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#AncestorGlyph/id">See details</a>
 `levels?` |  | <a href="#AncestorGlyph/levels">See details</a>
+`select_options?` |  | <a href="#AncestorGlyph/select_options">See details</a>
 `maximum?` |  | <a href="#AncestorGlyph/maximum">See details</a>
 `prerequisites?` |  | <a href="#AncestorGlyph/prerequisites">See details</a>
 `ap_value` |  | <a href="#AncestorGlyph/ap_value">See details</a>
@@ -23,6 +24,10 @@ Key | Description | Details
 #### <a name="AncestorGlyph/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="AncestorGlyph/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="AncestorGlyph/maximum"></a> `maximum?`
 

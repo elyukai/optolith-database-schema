@@ -12,6 +12,7 @@ Key | Description | Details
 `levels?` |  | <a href="#CombatStyleSpecialAbility/levels">See details</a>
 `usage_type` |  | <a href="#CombatStyleSpecialAbility/usage_type">See details</a>
 `type` | Is this an armed or unarmed combat style? | <a href="#CombatStyleSpecialAbility/type">See details</a>
+`select_options?` |  | <a href="#CombatStyleSpecialAbility/select_options">See details</a>
 `skill_applications?` |  | <a href="#CombatStyleSpecialAbility/skill_applications">See details</a>
 `skill_uses?` |  | <a href="#CombatStyleSpecialAbility/skill_uses">See details</a>
 `maximum?` |  | <a href="#CombatStyleSpecialAbility/maximum">See details</a>
@@ -40,6 +41,10 @@ Is this an armed or unarmed combat style?
 
 - **Type:** Union
 - **Cases:** <a href="#CombatStyleSpecialAbility/type'Armed">CombatStyleSpecialAbility/type'Armed</a> | <a href="#CombatStyleSpecialAbility/type'Unarmed">CombatStyleSpecialAbility/type'Unarmed</a>
+
+#### <a name="CombatStyleSpecialAbility/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="CombatStyleSpecialAbility/skill_applications"></a> `skill_applications?`
 

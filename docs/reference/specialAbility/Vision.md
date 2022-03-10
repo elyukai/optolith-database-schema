@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#Vision/id">See details</a>
 `levels?` |  | <a href="#Vision/levels">See details</a>
+`select_options?` |  | <a href="#Vision/select_options">See details</a>
 `maximum?` |  | <a href="#Vision/maximum">See details</a>
 `prerequisites?` |  | <a href="#Vision/prerequisites">See details</a>
 `ap_value` |  | <a href="#Vision/ap_value">See details</a>
@@ -23,6 +24,10 @@ Key | Description | Details
 #### <a name="Vision/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="Vision/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="Vision/maximum"></a> `maximum?`
 

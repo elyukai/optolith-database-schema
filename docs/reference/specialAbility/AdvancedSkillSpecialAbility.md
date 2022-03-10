@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#AdvancedSkillSpecialAbility/id">See details</a>
 `levels?` |  | <a href="#AdvancedSkillSpecialAbility/levels">See details</a>
+`select_options?` |  | <a href="#AdvancedSkillSpecialAbility/select_options">See details</a>
 `skill_applications?` |  | <a href="#AdvancedSkillSpecialAbility/skill_applications">See details</a>
 `skill_uses?` |  | <a href="#AdvancedSkillSpecialAbility/skill_uses">See details</a>
 `maximum?` |  | <a href="#AdvancedSkillSpecialAbility/maximum">See details</a>
@@ -25,6 +26,10 @@ Key | Description | Details
 #### <a name="AdvancedSkillSpecialAbility/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="AdvancedSkillSpecialAbility/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="AdvancedSkillSpecialAbility/skill_applications"></a> `skill_applications?`
 

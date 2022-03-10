@@ -11,6 +11,7 @@ Key | Description | Details
 `id` |  | <a href="#CombatSpecialAbility/id">See details</a>
 `levels?` |  | <a href="#CombatSpecialAbility/levels">See details</a>
 `usage_type` |  | <a href="#CombatSpecialAbility/usage_type">See details</a>
+`select_options?` |  | <a href="#CombatSpecialAbility/select_options">See details</a>
 `skill_applications?` |  | <a href="#CombatSpecialAbility/skill_applications">See details</a>
 `skill_uses?` |  | <a href="#CombatSpecialAbility/skill_uses">See details</a>
 `maximum?` |  | <a href="#CombatSpecialAbility/maximum">See details</a>
@@ -32,6 +33,10 @@ Key | Description | Details
 #### <a name="CombatSpecialAbility/usage_type"></a> `usage_type`
 
 - **Type:** <a href="../_Activatable.md#CombatSpecialAbilityType">CombatSpecialAbilityType</a>
+
+#### <a name="CombatSpecialAbility/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="CombatSpecialAbility/skill_applications"></a> `skill_applications?`
 

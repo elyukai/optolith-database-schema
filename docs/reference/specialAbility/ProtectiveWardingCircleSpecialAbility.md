@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#ProtectiveWardingCircleSpecialAbility/id">See details</a>
 `levels?` |  | <a href="#ProtectiveWardingCircleSpecialAbility/levels">See details</a>
+`select_options?` |  | <a href="#ProtectiveWardingCircleSpecialAbility/select_options">See details</a>
 `maximum?` |  | <a href="#ProtectiveWardingCircleSpecialAbility/maximum">See details</a>
 `prerequisites?` |  | <a href="#ProtectiveWardingCircleSpecialAbility/prerequisites">See details</a>
 `ap_value` |  | <a href="#ProtectiveWardingCircleSpecialAbility/ap_value">See details</a>
@@ -23,6 +24,10 @@ Key | Description | Details
 #### <a name="ProtectiveWardingCircleSpecialAbility/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="ProtectiveWardingCircleSpecialAbility/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="ProtectiveWardingCircleSpecialAbility/maximum"></a> `maximum?`
 

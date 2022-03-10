@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#ChronicleEnchantment/id">See details</a>
 `levels?` |  | <a href="#ChronicleEnchantment/levels">See details</a>
+`select_options?` |  | <a href="#ChronicleEnchantment/select_options">See details</a>
 `maximum?` |  | <a href="#ChronicleEnchantment/maximum">See details</a>
 `prerequisites?` |  | <a href="#ChronicleEnchantment/prerequisites">See details</a>
 `volume` |  | <a href="#ChronicleEnchantment/volume">See details</a>
@@ -26,6 +27,10 @@ Key | Description | Details
 #### <a name="ChronicleEnchantment/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="ChronicleEnchantment/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="ChronicleEnchantment/maximum"></a> `maximum?`
 

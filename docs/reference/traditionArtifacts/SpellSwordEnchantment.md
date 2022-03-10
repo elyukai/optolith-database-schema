@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#SpellSwordEnchantment/id">See details</a>
 `levels?` |  | <a href="#SpellSwordEnchantment/levels">See details</a>
+`select_options?` |  | <a href="#SpellSwordEnchantment/select_options">See details</a>
 `maximum?` |  | <a href="#SpellSwordEnchantment/maximum">See details</a>
 `prerequisites?` |  | <a href="#SpellSwordEnchantment/prerequisites">See details</a>
 `volume` |  | <a href="#SpellSwordEnchantment/volume">See details</a>
@@ -26,6 +27,10 @@ Key | Description | Details
 #### <a name="SpellSwordEnchantment/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="SpellSwordEnchantment/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="SpellSwordEnchantment/maximum"></a> `maximum?`
 

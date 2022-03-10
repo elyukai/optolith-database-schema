@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#AdvancedKarmaSpecialAbility/id">See details</a>
 `levels?` |  | <a href="#AdvancedKarmaSpecialAbility/levels">See details</a>
+`select_options?` |  | <a href="#AdvancedKarmaSpecialAbility/select_options">See details</a>
 `skill_applications?` |  | <a href="#AdvancedKarmaSpecialAbility/skill_applications">See details</a>
 `skill_uses?` |  | <a href="#AdvancedKarmaSpecialAbility/skill_uses">See details</a>
 `maximum?` |  | <a href="#AdvancedKarmaSpecialAbility/maximum">See details</a>
@@ -25,6 +26,10 @@ Key | Description | Details
 #### <a name="AdvancedKarmaSpecialAbility/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="AdvancedKarmaSpecialAbility/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="AdvancedKarmaSpecialAbility/skill_applications"></a> `skill_applications?`
 

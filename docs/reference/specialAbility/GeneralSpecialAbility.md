@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#GeneralSpecialAbility/id">See details</a>
 `levels?` |  | <a href="#GeneralSpecialAbility/levels">See details</a>
+`select_options?` |  | <a href="#GeneralSpecialAbility/select_options">See details</a>
 `skill_applications?` |  | <a href="#GeneralSpecialAbility/skill_applications">See details</a>
 `skill_uses?` |  | <a href="#GeneralSpecialAbility/skill_uses">See details</a>
 `maximum?` |  | <a href="#GeneralSpecialAbility/maximum">See details</a>
@@ -25,6 +26,10 @@ Key | Description | Details
 #### <a name="GeneralSpecialAbility/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="GeneralSpecialAbility/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="GeneralSpecialAbility/skill_applications"></a> `skill_applications?`
 

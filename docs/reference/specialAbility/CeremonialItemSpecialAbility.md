@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#CeremonialItemSpecialAbility/id">See details</a>
 `levels?` |  | <a href="#CeremonialItemSpecialAbility/levels">See details</a>
+`select_options?` |  | <a href="#CeremonialItemSpecialAbility/select_options">See details</a>
 `skill_applications?` |  | <a href="#CeremonialItemSpecialAbility/skill_applications">See details</a>
 `skill_uses?` |  | <a href="#CeremonialItemSpecialAbility/skill_uses">See details</a>
 `maximum?` |  | <a href="#CeremonialItemSpecialAbility/maximum">See details</a>
@@ -26,6 +27,10 @@ Key | Description | Details
 #### <a name="CeremonialItemSpecialAbility/levels"></a> `levels?`
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+
+#### <a name="CeremonialItemSpecialAbility/select_options"></a> `select_options?`
+
+- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
 
 #### <a name="CeremonialItemSpecialAbility/skill_applications"></a> `skill_applications?`
 
