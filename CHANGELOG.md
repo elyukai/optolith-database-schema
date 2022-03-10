@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug Fixes
 
+* exported name of select options ([5ecef02](https://github.com/elyukai/optolith-database-schema/commit/5ecef02d0178c7252f3b4a11d5ca0373908d6b87))
 * keep deprecated penalty translation strings ([e4a8d91](https://github.com/elyukai/optolith-database-schema/commit/e4a8d910dd561255d21801616b2c44fcdd28a30f))
 * keep deprecated translation strings for tradition artifact enchantments ([351146e](https://github.com/elyukai/optolith-database-schema/commit/351146ef87691d645a74d8f538d060095b8f7ac5))
 
