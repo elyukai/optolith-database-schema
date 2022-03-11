@@ -1338,10 +1338,10 @@ found in `list`.
 
 Key | Description | Details
 :-- | :-- | :--
-`skill_id` | The skill's identifier. | <a href="#OptionSkillDeriveAdventurePointsValue'Fixed/map[]/skill_id">See details</a>
+`id` | The skill's identifier. | <a href="#OptionSkillDeriveAdventurePointsValue'Fixed/map[]/id">See details</a>
 `ap_value` | The AP value for the specified entry. | <a href="#OptionSkillDeriveAdventurePointsValue'Fixed/map[]/ap_value">See details</a>
 
-#### <a name="OptionSkillDeriveAdventurePointsValue'Fixed/map[]/skill_id"></a> `skill_id`
+#### <a name="OptionSkillDeriveAdventurePointsValue'Fixed/map[]/id"></a> `id`
 
 The skill's identifier.
 

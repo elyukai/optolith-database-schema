@@ -580,7 +580,7 @@ type OptionSkillDeriveAdventurePointsValue =
        * @integer
        * @minimum 1
        */
-      skill_id: number
+      id: number
 
       /**
        * The AP value for the specified entry.
