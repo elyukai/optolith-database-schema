@@ -2,6 +2,8 @@
  * @main Region
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
+
 /**
  * @title Region
  */
@@ -30,3 +32,5 @@ export type Region = {
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<Region>(import.meta.url)

@@ -2,7 +2,8 @@
  * @main Attribute
  */
 
-import { getReferencialIntegrityErrorsForTranslatable, ReferencialIntegrityValidators } from "../validation/integrity"
+import { getReferencialIntegrityErrorsForTranslatable, ReferencialIntegrityValidators } from "../validation/integrity.js"
+import { validateSchemaCreator } from "../validation/schema.js"
 
 /**
  * @title Attribute
@@ -49,3 +50,5 @@ export const validateIntegrity = (
   attribute: Attribute,
   { checkLocaleId }: ReferencialIntegrityValidators
 ) => getReferencialIntegrityErrorsForTranslatable(attribute, checkLocaleId)
+
+export const validateSchema = validateSchemaCreator<Attribute>(import.meta.url)

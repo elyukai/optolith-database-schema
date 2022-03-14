@@ -12,6 +12,7 @@
   "types": "./lib/main.d.ts",
   "scripts": {
     "build:ts": "tsc",
+    "watch:ts": "tsc -w",
     "build:gen": "node ./build/generate.js",
     "build": "npm run build:ts && npm run build:gen",
     "release": "standard-version",
