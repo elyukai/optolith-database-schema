@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.8](https://github.com/elyukai/optolith-database-schema/compare/v0.1.7...v0.1.8) (2022-03-16)
+
+
+### Bug Fixes
+
+* **npm:** ship package directory config with npm ([dbf196c](https://github.com/elyukai/optolith-database-schema/commit/dbf196c105bad7d06d016af56242adbd867de20d))
+
 ### [0.1.7](https://github.com/elyukai/optolith-database-schema/compare/v0.1.6...v0.1.7) (2022-03-16)
 
 
