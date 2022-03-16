@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.11](https://github.com/elyukai/optolith-database-schema/compare/v0.1.10...v0.1.11) (2022-03-16)
+
+
+### Features
+
+* add numeric ae cost field to ancestor glyphs ([d8e36d9](https://github.com/elyukai/optolith-database-schema/commit/d8e36d9a8a583cb57f72bbb4224ab8e10d7943c8))
+
 ### [0.1.10](https://github.com/elyukai/optolith-database-schema/compare/v0.1.9...v0.1.10) (2022-03-16)
 
 
