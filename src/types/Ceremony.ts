@@ -2,6 +2,7 @@
  * @main Ceremony
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 import { Effect, SlowPerformanceParameters, TargetCategory } from "./_ActivatableSkill.js"
@@ -156,3 +157,5 @@ export type Tradition =
       id: number
     }[]
   }
+
+export const validateSchema = validateSchemaCreator<Ceremony>(import.meta.url)

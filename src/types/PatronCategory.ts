@@ -2,6 +2,8 @@
  * @main PatronCategory
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
+
 /**
  * @title Patron Category
  */
@@ -45,3 +47,5 @@ export type PatronCategory = {
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<PatronCategory>(import.meta.url)

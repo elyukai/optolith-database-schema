@@ -2,6 +2,8 @@
  * @main Element
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
+
 /**
  * @title Element
  */
@@ -30,3 +32,5 @@ export type Element = {
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<Element>(import.meta.url)

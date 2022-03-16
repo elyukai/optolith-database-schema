@@ -2,6 +2,7 @@
  * @main PactCategory
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 
@@ -97,3 +98,5 @@ export type PactCategory = {
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<PactCategory>(import.meta.url)

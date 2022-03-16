@@ -2,6 +2,7 @@
  * @main DerivedCharacteristic
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 import { DerivedCharacteristicPrerequisites } from "./_Prerequisite.js"
 
@@ -73,3 +74,5 @@ type Calculation = {
    */
   no_primary?: string;
 }
+
+export const validateSchema = validateSchemaCreator<DerivedCharacteristic>(import.meta.url)

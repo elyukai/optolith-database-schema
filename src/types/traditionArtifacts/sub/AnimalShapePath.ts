@@ -2,6 +2,8 @@
  * @main AnimalShapePath
  */
 
+import { validateSchemaCreator } from "../../../validation/schema.js"
+
 /**
  * @title Animal Shape Path
  */
@@ -30,3 +32,5 @@
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<AnimalShapePath>(import.meta.url)

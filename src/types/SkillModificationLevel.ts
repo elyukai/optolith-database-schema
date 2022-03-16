@@ -2,6 +2,8 @@
  * @main SkillModificationLevel
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
+
 /**
  * @title Skill Modification Level
  */
@@ -118,3 +120,5 @@ type LevelTypeConfigTranslation = {
    */
   range: string
 }
+
+export const validateSchema = validateSchemaCreator<SkillModificationLevel>(import.meta.url)

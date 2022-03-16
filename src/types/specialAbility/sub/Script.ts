@@ -2,6 +2,7 @@
  * @main Script
  */
 
+import { validateSchemaCreator } from "../../../validation/schema.js"
 import { Errata } from "../../source/_Erratum.js"
 import { PublicationRefs } from "../../source/_PublicationRef.js"
 
@@ -94,3 +95,5 @@ export type Script = {
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<Script>(import.meta.url)

@@ -2,6 +2,7 @@
  * @main CauldronEnchantment
  */
 
+import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import * as Activatable from "../_Activatable.js"
@@ -91,3 +92,5 @@ export type CauldronEnchantment = {
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<CauldronEnchantment>(import.meta.url)

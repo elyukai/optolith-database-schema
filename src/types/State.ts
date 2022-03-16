@@ -2,6 +2,7 @@
  * @main State
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 
@@ -44,3 +45,5 @@ export type State = {
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<State>(import.meta.url)

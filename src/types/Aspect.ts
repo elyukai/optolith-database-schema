@@ -2,6 +2,8 @@
  * @main Aspect
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
+
 /**
  * @title Aspect
  */
@@ -37,3 +39,5 @@ export type Aspect = {
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<Aspect>(import.meta.url)

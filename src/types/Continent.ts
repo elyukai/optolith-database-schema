@@ -2,6 +2,8 @@
  * @main Continent
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
+
 /**
  * Continents are mostly referenced to in languages and scripts that occur on a
  * specific continent.
@@ -32,3 +34,5 @@ export type Continent = {
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<Continent>(import.meta.url)

@@ -1,16 +1,17 @@
 /**
- * @main KarmaSpecialAbility
+ * @main LiturgicalStyleSpecialAbility
  */
 
+import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import * as Activatable from "../_Activatable.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 
 /**
- * @title Karma Special Ability
+ * @title Liturgical Style Special Ability
  */
-export type KarmaSpecialAbility = {
+export type LiturgicalStyleSpecialAbility = {
   id: Activatable.Id
 
   levels?: Activatable.Levels
@@ -64,3 +65,5 @@ export type KarmaSpecialAbility = {
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<LiturgicalStyleSpecialAbility>(import.meta.url)

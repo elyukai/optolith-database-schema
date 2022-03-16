@@ -2,6 +2,7 @@
  * @main Service
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 
@@ -44,3 +45,5 @@ export type Service = {
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<Service>(import.meta.url)

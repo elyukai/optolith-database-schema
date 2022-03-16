@@ -2,12 +2,13 @@
  * @main Publication
  */
 
+import { validateSchemaCreator } from "../../validation/schema.js"
 import { PublicationPrerequisites } from "../_Prerequisite.js"
 
 /**
  * @title Publication
  */
-type Publication = {
+export type Publication = {
   /**
    * The publication's identifier. An unique, increasing integer.
    * @integer
@@ -94,3 +95,5 @@ type Category =
 type AgeRestriction =
   | { tag: "Adult" }
   | { tag: "None" }
+
+export const validateSchema = validateSchemaCreator<Publication>(import.meta.url)

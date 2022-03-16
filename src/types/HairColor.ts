@@ -2,6 +2,8 @@
  * @main HairColor
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
+
 /**
  * @title Hair Color
  */
@@ -30,3 +32,5 @@
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<HairColor>(import.meta.url)

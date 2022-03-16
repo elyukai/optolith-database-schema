@@ -2,6 +2,7 @@
  * @main TradeSecret
  */
 
+import { validateSchemaCreator } from "../../../validation/schema.js"
 import { Errata } from "../../source/_Erratum.js"
 import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { GeneralPrerequisites } from "../../_Prerequisite.js"
@@ -59,3 +60,5 @@ export type TradeSecret = {
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<TradeSecret>(import.meta.url)

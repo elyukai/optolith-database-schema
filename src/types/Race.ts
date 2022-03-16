@@ -2,6 +2,7 @@
  * @main Race
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
@@ -595,3 +596,5 @@ enum DieType {
   D6 = 6,
   D20 = 20,
 }
+
+export const validateSchema = validateSchemaCreator<Race>(import.meta.url)

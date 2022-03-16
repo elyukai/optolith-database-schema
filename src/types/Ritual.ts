@@ -2,6 +2,7 @@
  * @main Ritual
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 import { Effect, SlowPerformanceParameters, TargetCategory } from "./_ActivatableSkill.js"
@@ -142,3 +143,5 @@ export type Ritual = {
 
   enhancements?: Enhancements
 }
+
+export const validateSchema = validateSchemaCreator<Ritual>(import.meta.url)

@@ -2,6 +2,7 @@
  * @main Property
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
 import { SkillCheck } from "./_SkillCheck.js"
 
 /**
@@ -38,3 +39,5 @@ export type Property = {
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<Property>(import.meta.url)

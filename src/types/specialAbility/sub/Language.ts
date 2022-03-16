@@ -2,6 +2,7 @@
  * @main Language
  */
 
+import { validateSchemaCreator } from "../../../validation/schema.js"
 import { Errata } from "../../source/_Erratum.js"
 import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { LanguagePrerequisites } from "../../_Prerequisite.js"
@@ -158,3 +159,5 @@ export type Language = {
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<Language>(import.meta.url)

@@ -2,6 +2,7 @@
  * @main SexPractice
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
@@ -59,3 +60,5 @@ export type SexPractice = {
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<SexPractice>(import.meta.url)

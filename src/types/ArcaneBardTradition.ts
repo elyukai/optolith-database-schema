@@ -2,6 +2,7 @@
  * @main ArcaneBardTradition
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
 import { ArcaneTraditionPrerequisites } from "./_Prerequisite.js"
 
 /**
@@ -34,3 +35,5 @@ export type ArcaneBardTradition = {
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<ArcaneBardTradition>(import.meta.url)

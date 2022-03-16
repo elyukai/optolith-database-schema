@@ -2,6 +2,8 @@
  * @main Guideline
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
+
 /**
  * @title Guideline
  */
@@ -37,3 +39,5 @@
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<Guideline>(import.meta.url)

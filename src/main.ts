@@ -1,13 +1,13 @@
 import Ajv, { DefinedError } from "ajv"
 import addFormats from "ajv-formats"
-import { readdir, readFile } from "fs/promises"
+import { lstat, readdir, readFile } from "fs/promises"
 import { join } from "path"
 import YAML from "yaml"
 import { jsonSchemaDir } from "../build/directories.js"
-import { schemaMap, TypeMap } from "./config.js"
-import { SchemaValidationResult } from "./validation/schema.js"
+import { TypeMap, typeValidatorMap } from "./config.js"
+import { TypeValidationResult } from "./validation/schema.js"
 
-type RawResultMap = { [K in keyof TypeMap]: Record<string, SchemaValidationResult<TypeMap[K]>> }
+type RawResultMap = { [K in keyof TypeMap]: Record<string, TypeValidationResult<TypeMap[K]>> }
 
 type Result =
   | { tag: "Ok"; value: { [K in keyof TypeMap]: TypeMap[K][] } }
@@ -15,15 +15,15 @@ type Result =
 
 export type EntityDirectoryPaths = { [K in keyof TypeMap]: string }
 
-const readDirectoryFilesRecursive = async (dirPath: string): Promise<string[]> => {
-  const directoryContents = await readdir(dirPath, { withFileTypes: true })
+const readdirRecursive = async (dirPath: string): Promise<string[]> => {
+  const directoryEntries = await readdir(dirPath, { withFileTypes: true })
 
   const flattenedRecursivePaths = await Promise.all(
-    directoryContents.map(async dirEntry => {
+    directoryEntries.map(async dirEntry => {
       const absoluteEntryPath = join(dirPath, dirEntry.name)
 
       if (dirEntry.isDirectory()) {
-        return await readDirectoryFilesRecursive(absoluteEntryPath)
+        return await readdirRecursive(absoluteEntryPath)
       }
       else if (dirEntry.isFile()) {
         return [absoluteEntryPath]
@@ -37,17 +37,63 @@ const readDirectoryFilesRecursive = async (dirPath: string): Promise<string[]> =
   return flattenedRecursivePaths.flat()
 }
 
+const registerAllJsonSchemaDocuments = async (validator: Ajv) => {
+  const allJsonSchemaFilePaths = await readdirRecursive(jsonSchemaDir)
+
+  const readFileAsUtf8 = (path: string) => readFile(path, "utf-8")
+  const readFilesAsUtf8 = (paths: string[]) => Promise.all(paths.map(readFileAsUtf8))
+  const parseJson = (json: string) => JSON.parse(json)
+  const registerSchemaInValidator = (jsonSchema: any) => { validator.addSchema(jsonSchema) }
+
+  (await readFilesAsUtf8(allJsonSchemaFilePaths))
+    .map(parseJson)
+    .forEach(registerSchemaInValidator)
+}
+
 const readDataFileAssocsFromDirectory = async (dirPath: string) =>
   await Promise.all(
     (await readdir(dirPath)).map(
       async (fileName): Promise<[string, unknown]> => {
         const filePath = join(dirPath, fileName)
-        const fileContent = YAML.parse(await readFile(join(dirPath, fileName), "utf-8"))
 
-        return [filePath, fileContent]
+        try {
+          const fileContent = YAML.parse(await readFile(join(dirPath, fileName), "utf-8"))
+
+          return [filePath, fileContent]
+        }
+        catch (error) {
+          if (error instanceof Error) {
+            error.message = `in "${filePath}":\n  ${error.message}`
+          }
+
+          return [filePath, null]
+        }
       }
     )
   )
+
+const validateAllFromType = async <K extends keyof TypeMap>(validator: Ajv, typeName: K, path: string): Promise<[K, Record<string, TypeValidationResult<TypeMap[K]>>]> => {
+  const isFile = (await lstat(path)).isFile()
+
+  const typeValidator = typeValidatorMap[typeName]
+
+  if (isFile) {
+    return [typeName, { [path]: typeValidator(validator, await readFile(path, "utf-8"), path) }]
+  }
+  else {
+    const dataFiles = await readDataFileAssocsFromDirectory(path)
+
+    return [
+      typeName,
+      Object.fromEntries(
+        dataFiles.map(
+          ([filePath, fileContent]) =>
+            [filePath, typeValidator(validator, fileContent, filePath)]
+        )
+      )
+    ]
+  }
+}
 
 const rawResultMapToResult = (rawResultMap: RawResultMap): Result =>
   Object.entries(rawResultMap).reduce<Result>(
@@ -93,39 +139,18 @@ const rawResultMapToResult = (rawResultMap: RawResultMap): Result =>
   )
 
 export const validate = async (entityDirPaths: EntityDirectoryPaths, checkIntegrity: boolean): Promise<Result> => {
-  const jsonSchemaDirectoryContents = await readDirectoryFilesRecursive(jsonSchemaDir)
-
-  const jsonSchemaFiles = await Promise.all(
-    jsonSchemaDirectoryContents.map(
-      async jsonSchemaFilePath =>
-        JSON.parse(await readFile(jsonSchemaFilePath, "utf-8"))
-    )
-  )
-
   const validator = new Ajv()
 
   addFormats(validator)
-
-  jsonSchemaFiles.forEach(jsonSchema => validator.addSchema(jsonSchema))
+  await registerAllJsonSchemaDocuments(validator)
 
   const rawResultMap: RawResultMap = Object.fromEntries<RawResultMap[keyof RawResultMap]>(
     (await Promise.all(
       Object.entries(entityDirPaths)
-        .map(async ([typeName, dirPath]): Promise<[string, RawResultMap[keyof RawResultMap]]> => {
-          const dataFiles = await readDataFileAssocsFromDirectory(dirPath)
-
-          const typeValidator = schemaMap[typeName as keyof TypeMap]
-
-          return [
-            typeName,
-            Object.fromEntries(
-              dataFiles.map(
-                ([filePath, fileContent]) =>
-                  [filePath, typeValidator(validator, fileContent)]
-              )
-            )
-          ]
-        }))
+        .map(async ([typeName, path]): Promise<[keyof RawResultMap, RawResultMap[keyof RawResultMap]]> =>
+          validateAllFromType(validator, typeName as keyof RawResultMap, path) as
+            Promise<[keyof RawResultMap, RawResultMap[keyof RawResultMap]]>
+        ))
     )
   ) as Record<keyof RawResultMap, RawResultMap[keyof RawResultMap]> as RawResultMap
 

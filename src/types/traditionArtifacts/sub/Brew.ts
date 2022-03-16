@@ -2,6 +2,8 @@
  * @main Brew
  */
 
+import { validateSchemaCreator } from "../../../validation/schema.js"
+
 /**
  * @title Brew
  */
@@ -30,3 +32,5 @@ export type Brew = {
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<Brew>(import.meta.url)

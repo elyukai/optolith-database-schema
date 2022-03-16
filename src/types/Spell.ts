@@ -2,6 +2,7 @@
  * @main Spell
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 import { Effect, FastPerformanceParameters, TargetCategory } from "./_ActivatableSkill.js"
@@ -142,3 +143,5 @@ export type Spell = {
 
   enhancements?: Enhancements
 }
+
+export const validateSchema = validateSchemaCreator<Spell>(import.meta.url)

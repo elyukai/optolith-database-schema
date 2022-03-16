@@ -3,7 +3,7 @@ import { basename, dirname, extname, join, relative, sep } from "path"
 import { fileURLToPath } from "url"
 import { libDir } from "../../build/directories.js"
 
-export type SchemaValidationResult<T> =
+export type TypeValidationResult<T> =
   | { tag: "Ok", value: T }
   | { tag: "Error", errors: DefinedError[] }
 
@@ -17,13 +17,13 @@ const schemaIdFromSourcePath = (sourcePath: string) => {
   return "/" + relativePathOfSchema.split(sep).join("/")
 }
 
-export type SchemaValidator<T> = (validator: Ajv, data: unknown) => SchemaValidationResult<T>
+export type TypeValidator<T> = (validator: Ajv, data: unknown, filePath: string) => TypeValidationResult<T>
 
 export const validateSchemaCreator =
-  <T>(importMetaUrl: string) => {
+  <T>(importMetaUrl: string): TypeValidator<T> => {
     const schemaId = schemaIdFromSourcePath(importMetaUrl)
 
-    return (validator: Ajv, data: unknown): SchemaValidationResult<T> => {
+    return (validator: Ajv, data: unknown): TypeValidationResult<T> => {
       if (validator.validate(schemaId, data)) {
         return { tag: "Ok", value: data as T}
       }

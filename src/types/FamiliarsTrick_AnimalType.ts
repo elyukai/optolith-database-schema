@@ -2,6 +2,8 @@
  * @main AnimalType
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
+
 /**
  * @title Animal Type
  */
@@ -30,3 +32,5 @@ export type AnimalType = {
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<AnimalType>(import.meta.url)

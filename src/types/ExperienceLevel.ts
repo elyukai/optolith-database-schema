@@ -2,6 +2,8 @@
  * @main ExperienceLevel
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
+
 /**
  * Adventure Points and maximum values at hero creation.
  * @title Experience Level
@@ -75,3 +77,5 @@ type Translation = {
    */
   name: string
 }
+
+export const validateSchema = validateSchemaCreator<ExperienceLevel>(import.meta.url)

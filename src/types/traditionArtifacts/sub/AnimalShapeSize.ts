@@ -1,11 +1,13 @@
 /**
- * @main AnimalShape
+ * @main AnimalShapeSize
  */
 
+import { validateSchemaCreator } from "../../../validation/schema.js"
+
 /**
- * @title Animal Shape
+ * @title Animal Shape Size
  */
- export type AnimalShape = {
+ export type AnimalShapeSize = {
   /**
    * The animal shape's identifier. An unique, increasing integer.
    * @integer
@@ -44,3 +46,5 @@
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<AnimalShapeSize>(import.meta.url)

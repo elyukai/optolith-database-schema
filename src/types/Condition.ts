@@ -2,6 +2,7 @@
  * @main Condition
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 
@@ -56,3 +57,5 @@ export type Condition = {
  * @minLength 1
  */
 type Effect = string
+
+export const validateSchema = validateSchemaCreator<Condition>(import.meta.url)

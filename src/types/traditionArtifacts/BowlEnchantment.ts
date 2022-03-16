@@ -2,6 +2,7 @@
  * @main BowlEnchantment
  */
 
+import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import * as Activatable from "../_Activatable.js"
@@ -77,3 +78,5 @@ export type BowlEnchantment = {
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<BowlEnchantment>(import.meta.url)

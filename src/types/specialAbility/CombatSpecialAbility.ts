@@ -2,6 +2,7 @@
  * @main CombatSpecialAbility
  */
 
+import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import * as Activatable from "../_Activatable.js"
@@ -71,3 +72,5 @@ export type CombatSpecialAbility = {
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<CombatSpecialAbility>(import.meta.url)

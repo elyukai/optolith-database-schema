@@ -2,6 +2,8 @@
  * @main TargetCategory
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
+
 /**
  * @title Target Category
  */
@@ -37,3 +39,5 @@ export type TargetCategory = {
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<TargetCategory>(import.meta.url)

@@ -2,6 +2,8 @@
  * @main EyeColor
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
+
 /**
  * @title Eye Color
  */
@@ -30,3 +32,5 @@ export type EyeColor = {
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<EyeColor>(import.meta.url)

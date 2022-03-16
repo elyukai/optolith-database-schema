@@ -2,6 +2,8 @@
  * @main Subject
  */
 
+import { validateSchemaCreator } from "../../validation/schema.js"
+
 /**
  * Subjects or Subject Areas are the categories of Focus Rules.
  * @title Subject
@@ -31,3 +33,5 @@ export type Subject = {
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<Subject>(import.meta.url)

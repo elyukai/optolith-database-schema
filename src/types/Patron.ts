@@ -2,6 +2,7 @@
  * @main Patron
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
 import { ImprovementCost } from "./_ImprovementCost.js"
 
 /**
@@ -222,3 +223,5 @@ export type AnimalPowerLevel3 =
  * @minItems 1
  */
 export type AnimalPowersLevel3 = AnimalPowerLevel3[]
+
+export const validateSchema = validateSchemaCreator<Patron>(import.meta.url)

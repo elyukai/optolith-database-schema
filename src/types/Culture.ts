@@ -2,6 +2,7 @@
  * @main Culture
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
@@ -559,3 +560,5 @@ type Name = {
    */
   note?: string
 }
+
+export const validateSchema = validateSchemaCreator<Culture>(import.meta.url)

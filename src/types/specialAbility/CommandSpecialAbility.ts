@@ -1,16 +1,17 @@
 /**
- * @main CombatSpecialAbility
+ * @main CommandSpecialAbility
  */
 
+import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import * as Activatable from "../_Activatable.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 
 /**
- * @title Combat Special Ability
+ * @title Command Special Ability
  */
-export type CombatSpecialAbility = {
+export type CommandSpecialAbility = {
   id: Activatable.Id
 
   levels?: Activatable.Levels
@@ -60,3 +61,5 @@ export type CombatSpecialAbility = {
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<CommandSpecialAbility>(import.meta.url)

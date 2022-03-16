@@ -2,6 +2,7 @@
  * @main SkillGroup
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
 import { SkillCheck } from "./_SkillCheck.js"
 
 /**
@@ -43,3 +44,5 @@ import { SkillCheck } from "./_SkillCheck.js"
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<SkillGroup>(import.meta.url)

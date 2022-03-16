@@ -1,16 +1,17 @@
 /**
- * @main MagicStyleSpecialAbility
+ * @main SkillStyleSpecialAbility
  */
 
+import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import * as Activatable from "../_Activatable.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 
 /**
- * @title Magic Style Special Ability
+ * @title Skill Style Special Ability
  */
-export type MagicStyleSpecialAbility = {
+export type SkillStyleSpecialAbility = {
   id: Activatable.Id
 
   levels?: Activatable.Levels
@@ -60,3 +61,5 @@ export type MagicStyleSpecialAbility = {
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<SkillStyleSpecialAbility>(import.meta.url)

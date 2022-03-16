@@ -2,6 +2,8 @@
  * @main SocialStatus
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
+
 /**
  * @title Social Status
  */
@@ -30,3 +32,5 @@ export type SocialStatus = {
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<SocialStatus>(import.meta.url)

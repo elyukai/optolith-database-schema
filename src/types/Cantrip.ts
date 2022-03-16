@@ -2,25 +2,25 @@
  * @main Spell
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 import { Duration, Effect, TargetCategory } from "./_ActivatableSkill.js"
 import { Enhancements } from "./_Enhancements.js"
-import { ImprovementCost } from "./_ImprovementCost.js"
 
 /**
- * @title Spell
+ * @title Cantrip
  */
-export type Spell = {
+export type Cantrip = {
   /**
-   * The spell's identifier. An unique, increasing integer.
+   * The cantrip's identifier. An unique, increasing integer.
    * @integer
    * @minimum 1
    */
   id: number
 
   /**
-   * Measurable parameters of a spell.
+   * Measurable parameters of a cantrip.
    */
   parameters: PerformanceParameters
 
@@ -35,11 +35,6 @@ export type Spell = {
    * @minimum 1
    */
   property_id: number
-
-  /**
-   * States which column is used to improve the skill.
-   */
-  improvement_cost: ImprovementCost
 
   /**
    * A note specifying the dissemination of the cantrip in different traditions.
@@ -242,3 +237,5 @@ export type CommonNote =
      */
     id: number
   }
+
+export const validateSchema = validateSchemaCreator<Cantrip>(import.meta.url)

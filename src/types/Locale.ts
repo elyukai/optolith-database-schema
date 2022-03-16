@@ -2,15 +2,17 @@
  * @main Locales
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
+
 /**
  * @title Supported locales
  */
-type Locales = Locale[]
+export type Locales = Locale[]
 
 /**
  * @title Supported locale
  */
-type Locale = {
+export type Locale = {
   /**
    * The locale's identifier. An IETF language tag (BCP47).
    * @pattern ^[a-z]{2}-[A-Z]{2}$
@@ -41,3 +43,5 @@ type Locale = {
    */
   is_missing_implementation?: boolean
 }
+
+export const validateSchema = validateSchemaCreator<Locales>(import.meta.url)

@@ -2,6 +2,7 @@
  * @main Curriculum
  */
 
+import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 
@@ -344,3 +345,5 @@ type SpellworkId =
      */
     id: number
   }
+
+export const validateSchema = validateSchemaCreator<Curriculum>(import.meta.url)
