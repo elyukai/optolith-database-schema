@@ -2,6 +2,7 @@
  * @main MagicalRune
  */
 
+import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import { Duration, Effect } from "../_ActivatableSkill.js"
@@ -254,3 +255,5 @@ type PerformanceParameters = {
     fast: Duration.CheckResultBased
   }
 }
+
+export const validateSchema = validateSchemaCreator<MagicalRune>(import.meta.url)

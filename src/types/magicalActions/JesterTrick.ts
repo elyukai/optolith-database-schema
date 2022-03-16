@@ -2,6 +2,7 @@
  * @main JesterTrick
  */
 
+import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import { Duration, Effect, TargetCategory } from "../_ActivatableSkill.js"
@@ -176,3 +177,5 @@ type PerformanceParameters = {
     }
     | Duration.CheckResultBasedTagged
 }
+
+export const validateSchema = validateSchemaCreator<JesterTrick>(import.meta.url)

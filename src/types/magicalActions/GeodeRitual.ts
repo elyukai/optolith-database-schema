@@ -2,6 +2,7 @@
  * @main GeodeRitual
  */
 
+import { validateSchemaCreator } from "../../validation/schema.js"
 import { SlowSkillCastingTimeUnit } from "../SkillModificationLevel.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
@@ -177,3 +178,5 @@ type PerformanceParameters = {
     }
     | Duration.CheckResultBasedTagged
 }
+
+export const validateSchema = validateSchemaCreator<GeodeRitual>(import.meta.url)

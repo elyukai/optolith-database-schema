@@ -2,6 +2,7 @@
  * @main MagicalMelody
  */
 
+import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import { Effect } from "../_ActivatableSkill.js"
@@ -139,3 +140,5 @@ type PerformanceParameters = {
       value: number
     }
 }
+
+export const validateSchema = validateSchemaCreator<MagicalMelody>(import.meta.url)

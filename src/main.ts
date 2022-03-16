@@ -1,4 +1,5 @@
 import Ajv, { DefinedError } from "ajv"
+import addFormats from "ajv-formats"
 import { readdir, readFile } from "fs/promises"
 import { join } from "path"
 import YAML from "yaml"
@@ -102,6 +103,8 @@ export const validate = async (entityDirPaths: EntityDirectoryPaths, checkIntegr
   )
 
   const validator = new Ajv()
+
+  addFormats(validator)
 
   jsonSchemaFiles.forEach(jsonSchema => validator.addSchema(jsonSchema))
 

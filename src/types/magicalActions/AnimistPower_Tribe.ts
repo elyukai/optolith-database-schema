@@ -2,10 +2,12 @@
  * @main Tribe
  */
 
+import { validateSchemaCreator } from "../../validation/schema.js"
+
 /**
  * @title Tribe
  */
- export type Tribe = {
+export type Tribe = {
   /**
    * The tribe's identifier. An unique, increasing integer.
    * @integer
@@ -30,3 +32,5 @@
     }
   }
 }
+
+export const validateSchema = validateSchemaCreator<Tribe>(import.meta.url)

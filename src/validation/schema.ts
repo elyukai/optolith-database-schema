@@ -14,7 +14,7 @@ const schemaIdFromSourcePath = (sourcePath: string) => {
   const relativePathOfType   = relative(libDir, fileURLToPath(sourcePath))
   const relativePathOfSchema = changeFileExtension(relativePathOfType, ".schema.json")
 
-  return relativePathOfSchema.split(sep).join("/")
+  return "/" + relativePathOfSchema.split(sep).join("/")
 }
 
 export type SchemaValidator<T> = (validator: Ajv, data: unknown) => SchemaValidationResult<T>

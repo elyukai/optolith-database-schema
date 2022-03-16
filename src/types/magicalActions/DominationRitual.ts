@@ -2,6 +2,7 @@
  * @main DominationRitual
  */
 
+import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import { Duration, Effect } from "../_ActivatableSkill.js"
@@ -200,3 +201,5 @@ type PerformanceParameters = {
       }
     }
 }
+
+export const validateSchema = validateSchemaCreator<DominationRitual>(import.meta.url)
