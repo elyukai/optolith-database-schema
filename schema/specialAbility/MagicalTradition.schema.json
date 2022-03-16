@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "specialAbility/MagicalTradition.schema.json",
+  "$id": "/specialAbility/MagicalTradition.schema.json",
   "$ref": "#/definitions/MagicalTradition",
   "definitions": {
     "MagicalTradition": {

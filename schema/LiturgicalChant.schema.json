@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "LiturgicalChant.schema.json",
+  "$id": "/LiturgicalChant.schema.json",
   "$ref": "#/definitions/LiturgicalChant",
   "definitions": {
     "LiturgicalChant": {

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "traditionArtifacts/ArcaneOrbEnchantment.schema.json",
+  "$id": "/traditionArtifacts/ArcaneOrbEnchantment.schema.json",
   "$ref": "#/definitions/ArcaneOrbEnchantment",
   "definitions": {
     "ArcaneOrbEnchantment": {

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "Attribute.schema.json",
+  "$id": "/Attribute.schema.json",
   "$ref": "#/definitions/Attribute",
   "definitions": {
     "Attribute": {

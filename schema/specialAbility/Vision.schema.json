@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "specialAbility/Vision.schema.json",
+  "$id": "/specialAbility/Vision.schema.json",
   "$ref": "#/definitions/Vision",
   "definitions": {
     "Vision": {

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "prerequisites/single/TextPrerequisite.schema.json",
+  "$id": "/prerequisites/single/TextPrerequisite.schema.json",
   "definitions": {
     "TextPrerequisite": {
       "title": "Impossible Prerequisite",

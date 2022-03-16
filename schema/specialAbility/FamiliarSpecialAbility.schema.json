@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "specialAbility/FamiliarSpecialAbility.schema.json",
+  "$id": "/specialAbility/FamiliarSpecialAbility.schema.json",
   "$ref": "#/definitions/FamiliarSpecialAbility",
   "definitions": {
     "FamiliarSpecialAbility": {

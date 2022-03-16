@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "Cantrip.schema.json",
+  "$id": "/Cantrip.schema.json",
   "$ref": "#/definitions/Spell",
   "definitions": {
     "Spell": {

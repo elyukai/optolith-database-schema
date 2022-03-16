@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "prerequisites/DisplayOption.schema.json",
+  "$id": "/prerequisites/DisplayOption.schema.json",
   "definitions": {
     "DisplayOption": {
       "title": "Display Option",

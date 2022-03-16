@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "rule/OptionalRule.schema.json",
+  "$id": "/rule/OptionalRule.schema.json",
   "$ref": "#/definitions/OptionalRule",
   "definitions": {
     "OptionalRule": {

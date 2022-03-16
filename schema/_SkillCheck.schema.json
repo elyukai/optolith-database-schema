@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "_SkillCheck.schema.json",
+  "$id": "/_SkillCheck.schema.json",
   "definitions": {
     "SkillCheck": {
       "title": "Skill Check",

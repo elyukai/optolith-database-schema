@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "prerequisites/single/PrimaryAttributePrerequisite.schema.json",
+  "$id": "/prerequisites/single/PrimaryAttributePrerequisite.schema.json",
   "definitions": {
     "PrimaryAttributePrerequisite": {
       "title": "Primary Attribute Prerequisite",

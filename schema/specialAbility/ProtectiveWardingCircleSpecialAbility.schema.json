@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "specialAbility/ProtectiveWardingCircleSpecialAbility.schema.json",
+  "$id": "/specialAbility/ProtectiveWardingCircleSpecialAbility.schema.json",
   "$ref": "#/definitions/ProtectiveWardingCircleSpecialAbility",
   "definitions": {
     "ProtectiveWardingCircleSpecialAbility": {

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "prerequisites/single/InfluencePrerequisite.schema.json",
+  "$id": "/prerequisites/single/InfluencePrerequisite.schema.json",
   "definitions": {
     "InfluencePrerequisite": {
       "title": "Influence Prerequisite",

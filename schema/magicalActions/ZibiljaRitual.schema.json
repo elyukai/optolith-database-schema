@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "magicalActions/ZibiljaRitual.schema.json",
+  "$id": "/magicalActions/ZibiljaRitual.schema.json",
   "$ref": "#/definitions/ZibiljaRitual",
   "definitions": {
     "ZibiljaRitual": {

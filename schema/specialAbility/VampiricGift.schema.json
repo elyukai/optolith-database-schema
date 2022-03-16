@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "specialAbility/VampiricGift.schema.json",
+  "$id": "/specialAbility/VampiricGift.schema.json",
   "$ref": "#/definitions/VampiricGift",
   "definitions": {
     "VampiricGift": {

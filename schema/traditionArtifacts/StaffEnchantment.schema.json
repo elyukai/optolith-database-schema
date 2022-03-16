@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "traditionArtifacts/StaffEnchantment.schema.json",
+  "$id": "/traditionArtifacts/StaffEnchantment.schema.json",
   "$ref": "#/definitions/StaffEnchantment",
   "definitions": {
     "StaffEnchantment": {

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "specialAbility/CombatSpecialAbility.schema.json",
+  "$id": "/specialAbility/CombatSpecialAbility.schema.json",
   "$ref": "#/definitions/CombatSpecialAbility",
   "definitions": {
     "CombatSpecialAbility": {

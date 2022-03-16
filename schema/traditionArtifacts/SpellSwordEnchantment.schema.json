@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "traditionArtifacts/SpellSwordEnchantment.schema.json",
+  "$id": "/traditionArtifacts/SpellSwordEnchantment.schema.json",
   "$ref": "#/definitions/SpellSwordEnchantment",
   "definitions": {
     "SpellSwordEnchantment": {

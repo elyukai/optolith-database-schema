@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "specialAbility/SkillStyleSpecialAbility.schema.json",
+  "$id": "/specialAbility/SkillStyleSpecialAbility.schema.json",
   "$ref": "#/definitions/MagicStyleSpecialAbility",
   "definitions": {
     "MagicStyleSpecialAbility": {

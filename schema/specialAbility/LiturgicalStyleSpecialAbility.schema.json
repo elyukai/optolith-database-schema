@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "specialAbility/LiturgicalStyleSpecialAbility.schema.json",
+  "$id": "/specialAbility/LiturgicalStyleSpecialAbility.schema.json",
   "$ref": "#/definitions/KarmaSpecialAbility",
   "definitions": {
     "KarmaSpecialAbility": {

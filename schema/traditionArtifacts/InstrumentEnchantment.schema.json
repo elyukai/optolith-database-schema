@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "traditionArtifacts/InstrumentEnchantment.schema.json",
+  "$id": "/traditionArtifacts/InstrumentEnchantment.schema.json",
   "$ref": "#/definitions/InstrumentEnchantment",
   "definitions": {
     "InstrumentEnchantment": {

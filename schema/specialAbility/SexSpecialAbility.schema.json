@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "specialAbility/SexSpecialAbility.schema.json",
+  "$id": "/specialAbility/SexSpecialAbility.schema.json",
   "$ref": "#/definitions/SexSpecialAbility",
   "definitions": {
     "SexSpecialAbility": {

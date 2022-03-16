@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "specialAbility/BlessedTradition.schema.json",
+  "$id": "/specialAbility/BlessedTradition.schema.json",
   "$ref": "#/definitions/BlessedTradition",
   "definitions": {
     "BlessedTradition": {

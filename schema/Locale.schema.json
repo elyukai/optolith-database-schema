@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "Locale.schema.json",
+  "$id": "/Locale.schema.json",
   "$ref": "#/definitions/Locales",
   "definitions": {
     "Locales": {

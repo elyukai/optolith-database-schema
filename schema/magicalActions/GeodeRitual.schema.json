@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "magicalActions/GeodeRitual.schema.json",
+  "$id": "/magicalActions/GeodeRitual.schema.json",
   "$ref": "#/definitions/GeodeRitual",
   "definitions": {
     "GeodeRitual": {

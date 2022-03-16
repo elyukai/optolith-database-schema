@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "_ImprovementCost.schema.json",
+  "$id": "/_ImprovementCost.schema.json",
   "definitions": {
     "ImprovementCost": {
       "title": "Improvement Cost",

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "specialAbility/sub/Script.schema.json",
+  "$id": "/specialAbility/sub/Script.schema.json",
   "$ref": "#/definitions/Script",
   "definitions": {
     "Script": {

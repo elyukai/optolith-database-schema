@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "specialAbility/sub/Language.schema.json",
+  "$id": "/specialAbility/sub/Language.schema.json",
   "$ref": "#/definitions/Language",
   "definitions": {
     "Language": {

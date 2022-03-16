@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "Disadvantage.schema.json",
+  "$id": "/Disadvantage.schema.json",
   "$ref": "#/definitions/Disadvantage",
   "definitions": {
     "Disadvantage": {

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "traditionArtifacts/CauldronEnchantment.schema.json",
+  "$id": "/traditionArtifacts/CauldronEnchantment.schema.json",
   "$ref": "#/definitions/CauldronEnchantment",
   "definitions": {
     "CauldronEnchantment": {

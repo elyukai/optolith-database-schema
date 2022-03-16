@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "traditionArtifacts/Trinkhornzauber.schema.json",
+  "$id": "/traditionArtifacts/Trinkhornzauber.schema.json",
   "$ref": "#/definitions/Trinkhornzauber",
   "definitions": {
     "Trinkhornzauber": {

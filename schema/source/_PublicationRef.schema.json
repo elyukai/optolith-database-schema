@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "source/_PublicationRef.schema.json",
+  "$id": "/source/_PublicationRef.schema.json",
   "$ref": "#/definitions/PublicationRefs",
   "definitions": {
     "PublicationRefs": {

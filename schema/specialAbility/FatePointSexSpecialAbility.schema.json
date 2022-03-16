@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "specialAbility/FatePointSexSpecialAbility.schema.json",
+  "$id": "/specialAbility/FatePointSexSpecialAbility.schema.json",
   "$ref": "#/definitions/FatePointSexSpecialAbility",
   "definitions": {
     "FatePointSexSpecialAbility": {

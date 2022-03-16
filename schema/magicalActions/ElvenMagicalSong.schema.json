@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "magicalActions/ElvenMagicalSong.schema.json",
+  "$id": "/magicalActions/ElvenMagicalSong.schema.json",
   "$ref": "#/definitions/ElvenMagicalSong",
   "definitions": {
     "ElvenMagicalSong": {

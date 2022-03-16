@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "magicalActions/_SkillReference.schema.json",
+  "$id": "/magicalActions/_SkillReference.schema.json",
   "definitions": {
     "SkillReference": {
       "description": "A reference to a skill used for performing melodies.",

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "SkillGroup.schema.json",
+  "$id": "/SkillGroup.schema.json",
   "$ref": "#/definitions/SkillGroup",
   "definitions": {
     "SkillGroup": {

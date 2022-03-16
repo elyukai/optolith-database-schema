@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "Blessing.schema.json",
+  "$id": "/Blessing.schema.json",
   "$ref": "#/definitions/Blessing",
   "definitions": {
     "Blessing": {

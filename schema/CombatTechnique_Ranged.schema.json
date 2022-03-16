@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "CombatTechnique_Ranged.schema.json",
+  "$id": "/CombatTechnique_Ranged.schema.json",
   "$ref": "#/definitions/RangedCombatTechnique",
   "definitions": {
     "RangedCombatTechnique": {

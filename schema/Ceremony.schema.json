@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "Ceremony.schema.json",
+  "$id": "/Ceremony.schema.json",
   "$ref": "#/definitions/Ceremony",
   "definitions": {
     "Ceremony": {

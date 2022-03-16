@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "magicalActions/AnimistPower.schema.json",
+  "$id": "/magicalActions/AnimistPower.schema.json",
   "$ref": "#/definitions/AnimistPower",
   "definitions": {
     "AnimistPower": {

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "CombatTechnique_Close.schema.json",
+  "$id": "/CombatTechnique_Close.schema.json",
   "$ref": "#/definitions/CloseCombatTechnique",
   "definitions": {
     "CloseCombatTechnique": {
