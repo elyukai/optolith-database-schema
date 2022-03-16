@@ -1,7 +1,7 @@
 import Ajv, { DefinedError } from "ajv"
 import { basename, dirname, extname, join, relative, sep } from "path"
 import { fileURLToPath } from "url"
-import { libDir } from "../../build/directories.js"
+import { libDir } from "../../config/directories.js"
 
 export type TypeValidationResult<T> =
   | { tag: "Ok", value: T }

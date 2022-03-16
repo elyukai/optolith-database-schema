@@ -3,7 +3,7 @@ import addFormats from "ajv-formats"
 import { lstat, readdir, readFile } from "fs/promises"
 import { join } from "path"
 import YAML from "yaml"
-import { jsonSchemaDir } from "../build/directories.js"
+import { jsonSchemaDir } from "../config/directories.js"
 import { TypeMap, typeValidatorMap } from "./config.js"
 import { TypeValidationResult } from "./validation/schema.js"
 
