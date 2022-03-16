@@ -12,7 +12,7 @@ Key | Description | Details
 `parameters` | Measurable parameters of a cantrip. | <a href="#Cantrip/parameters">See details</a>
 `target` | The target category – the kind of creature or object – the skill affects. | <a href="#Cantrip/target">See details</a>
 `property_id` | The property's identifier. | <a href="#Cantrip/property_id">See details</a>
-`note` | A note specifying the dissemination of the cantrip in different traditions. Sometimes a cantrip is exclusively available to one or more specific traditions, but usually one the academies and traditions are listed the cantrip is most commonly teached in. | <a href="#Cantrip/note">See details</a>
+`note?` | A note specifying the dissemination of the cantrip in different traditions. Sometimes a cantrip is exclusively available to one or more specific traditions, but usually one the academies and traditions are listed the cantrip is most commonly teached in. | <a href="#Cantrip/note">See details</a>
 `src` |  | <a href="#Cantrip/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Cantrip/translations">See details</a>
 `enhancements?` |  | <a href="#Cantrip/enhancements">See details</a>
@@ -43,7 +43,7 @@ The property's identifier.
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="Cantrip/note"></a> `note`
+#### <a name="Cantrip/note"></a> `note?`
 
 A note specifying the dissemination of the cantrip in different traditions.
 Sometimes a cantrip is exclusively available to one or more specific
@@ -174,19 +174,19 @@ The effect description.
 
 #### <a name="Cantrip/translations[key]/casting_time"></a> `casting_time`
 
-- **Type:** <a href="#Cantrip/translations[key]/casting_time">Object</a>
+- **Type:** String
 
 #### <a name="Cantrip/translations[key]/cost"></a> `cost`
 
-- **Type:** <a href="#Cantrip/translations[key]/cost">Object</a>
+- **Type:** String
 
 #### <a name="Cantrip/translations[key]/range"></a> `range`
 
-- **Type:** <a href="#Cantrip/translations[key]/range">Object</a>
+- **Type:** String
 
 #### <a name="Cantrip/translations[key]/duration"></a> `duration`
 
-- **Type:** <a href="#Cantrip/translations[key]/duration">Object</a>
+- **Type:** String
 
 #### <a name="Cantrip/translations[key]/target"></a> `target`
 
@@ -195,82 +195,6 @@ The effect description.
 #### <a name="Cantrip/translations[key]/errata"></a> `errata?`
 
 - **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
-
----
-
-### <a name="Cantrip/translations[key]/casting_time"></a> `Cantrip/translations[key]/casting_time`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#Cantrip/translations[key]/casting_time/full">See details</a>
-`abbr` |  | <a href="#Cantrip/translations[key]/casting_time/abbr">See details</a>
-
-#### <a name="Cantrip/translations[key]/casting_time/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="Cantrip/translations[key]/casting_time/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="Cantrip/translations[key]/cost"></a> `Cantrip/translations[key]/cost`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#Cantrip/translations[key]/cost/full">See details</a>
-`abbr` |  | <a href="#Cantrip/translations[key]/cost/abbr">See details</a>
-
-#### <a name="Cantrip/translations[key]/cost/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="Cantrip/translations[key]/cost/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="Cantrip/translations[key]/range"></a> `Cantrip/translations[key]/range`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#Cantrip/translations[key]/range/full">See details</a>
-`abbr` |  | <a href="#Cantrip/translations[key]/range/abbr">See details</a>
-
-#### <a name="Cantrip/translations[key]/range/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="Cantrip/translations[key]/range/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="Cantrip/translations[key]/duration"></a> `Cantrip/translations[key]/duration`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#Cantrip/translations[key]/duration/full">See details</a>
-`abbr` |  | <a href="#Cantrip/translations[key]/duration/abbr">See details</a>
-
-#### <a name="Cantrip/translations[key]/duration/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="Cantrip/translations[key]/duration/abbr"></a> `abbr`
-
-- **Type:** String
 
 ---
 

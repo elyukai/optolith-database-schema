@@ -42,7 +42,7 @@ export type Cantrip = {
    * traditions, but usually one the academies and traditions are listed the
    * cantrip is most commonly teached in.
    */
-  note:
+  note?:
     | {
       tag: "Exclusive"
 
@@ -98,22 +98,22 @@ export type Cantrip = {
       /**
        * @deprecated
        */
-      casting_time: { full: string; abbr: string }
+      casting_time: string
 
       /**
        * @deprecated
        */
-      cost: { full: string; abbr: string }
+      cost: string
 
       /**
        * @deprecated
        */
-      range: { full: string; abbr: string }
+      range: string
 
       /**
        * @deprecated
        */
-      duration: { full: string; abbr: string }
+      duration: string
 
       /**
        * @deprecated
