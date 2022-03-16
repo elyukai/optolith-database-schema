@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.7](https://github.com/elyukai/optolith-database-schema/compare/v0.1.6...v0.1.7) (2022-03-16)
+
+
+### Features
+
+* add basic validation utilities ([5676d39](https://github.com/elyukai/optolith-database-schema/commit/5676d39a3285901b750314832d7978692b1d26de))
+* add validation by schema for all types ([b3578ef](https://github.com/elyukai/optolith-database-schema/commit/b3578ef7914db35dbdfda87e1ccf95d37f61e9d7))
+* read magical actions ([543ef8e](https://github.com/elyukai/optolith-database-schema/commit/543ef8ee3567d4ec946f1be2492056d74de54976))
+
+
+### Bug Fixes
+
+* add extension to all relative module specifiers ([1a0b029](https://github.com/elyukai/optolith-database-schema/commit/1a0b029de43ce2026d9134b0f6dd3ee1f106afa2))
+* relative links to top-level schema documents ([065efab](https://github.com/elyukai/optolith-database-schema/commit/065efab03a5b4547a9bdc2c1fcf4a3ad010d858e))
+
 ### [0.1.6](https://github.com/elyukai/optolith-database-schema/compare/v0.1.5...v0.1.6) (2022-03-11)
 
 ### [0.1.5](https://github.com/elyukai/optolith-database-schema/compare/v0.1.4...v0.1.5) (2022-03-10)
