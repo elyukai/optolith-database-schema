@@ -22,6 +22,13 @@ export type AncestorGlyph = {
 
   prerequisites?: GeneralPrerequisites
 
+  /**
+   * The AE cost of the ancestor glyph.
+   * @integer
+   * @minimum 1
+   */
+  ae_cost: number
+
   ap_value: Activatable.AdventurePointsValue
 
   src: PublicationRefs

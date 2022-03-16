@@ -22,6 +22,11 @@
         "prerequisites": {
           "$ref": "../_Prerequisite.schema.json#/definitions/GeneralPrerequisites"
         },
+        "ae_cost": {
+          "description": "The AE cost of the ancestor glyph.",
+          "type": "integer",
+          "minimum": 1
+        },
         "ap_value": {
           "$ref": "../_Activatable.schema.json#/definitions/AdventurePointsValue"
         },
@@ -61,6 +66,7 @@
       },
       "required": [
         "id",
+        "ae_cost",
         "ap_value",
         "src",
         "translations"

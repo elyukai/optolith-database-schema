@@ -13,6 +13,7 @@ Key | Description | Details
 `select_options?` |  | <a href="#AncestorGlyph/select_options">See details</a>
 `maximum?` |  | <a href="#AncestorGlyph/maximum">See details</a>
 `prerequisites?` |  | <a href="#AncestorGlyph/prerequisites">See details</a>
+`ae_cost` | The AE cost of the ancestor glyph. | <a href="#AncestorGlyph/ae_cost">See details</a>
 `ap_value` |  | <a href="#AncestorGlyph/ap_value">See details</a>
 `src` |  | <a href="#AncestorGlyph/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#AncestorGlyph/translations">See details</a>
@@ -36,6 +37,13 @@ Key | Description | Details
 #### <a name="AncestorGlyph/prerequisites"></a> `prerequisites?`
 
 - **Type:** <a href="../_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
+
+#### <a name="AncestorGlyph/ae_cost"></a> `ae_cost`
+
+The AE cost of the ancestor glyph.
+
+- **Type:** Integer
+- **Minimum:** `1`
 
 #### <a name="AncestorGlyph/ap_value"></a> `ap_value`
 
