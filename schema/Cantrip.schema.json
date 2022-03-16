@@ -105,12 +105,6 @@
                   "type": "string",
                   "minLength": 1
                 },
-                "casting_time": {
-                  "type": "string"
-                },
-                "cost": {
-                  "type": "string"
-                },
                 "range": {
                   "type": "string"
                 },
@@ -127,8 +121,6 @@
               "required": [
                 "name",
                 "effect",
-                "casting_time",
-                "cost",
                 "range",
                 "duration",
                 "target"

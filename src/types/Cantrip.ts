@@ -98,16 +98,6 @@ export type Cantrip = {
       /**
        * @deprecated
        */
-      casting_time: string
-
-      /**
-       * @deprecated
-       */
-      cost: string
-
-      /**
-       * @deprecated
-       */
       range: string
 
       /**

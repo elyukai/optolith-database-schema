@@ -151,8 +151,6 @@ Key | Description | Details
 :-- | :-- | :--
 `name` | The name of the spell. | <a href="#Cantrip/translations[key]/name">See details</a>
 `effect` | The effect description. | <a href="#Cantrip/translations[key]/effect">See details</a>
-`casting_time` |  | <a href="#Cantrip/translations[key]/casting_time">See details</a>
-`cost` |  | <a href="#Cantrip/translations[key]/cost">See details</a>
 `range` |  | <a href="#Cantrip/translations[key]/range">See details</a>
 `duration` |  | <a href="#Cantrip/translations[key]/duration">See details</a>
 `target` |  | <a href="#Cantrip/translations[key]/target">See details</a>
@@ -171,14 +169,6 @@ The effect description.
 
 - **Type:** Markdown-formatted text
 - **Minimum Length:** `1`
-
-#### <a name="Cantrip/translations[key]/casting_time"></a> `casting_time`
-
-- **Type:** String
-
-#### <a name="Cantrip/translations[key]/cost"></a> `cost`
-
-- **Type:** String
 
 #### <a name="Cantrip/translations[key]/range"></a> `range`
 
