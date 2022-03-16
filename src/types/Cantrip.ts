@@ -5,7 +5,7 @@
 import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
-import { Duration, Effect, TargetCategory } from "./_ActivatableSkill.js"
+import { Duration, TargetCategory } from "./_ActivatableSkill.js"
 import { Enhancements } from "./_Enhancements.js"
 
 /**
@@ -89,11 +89,11 @@ export type Cantrip = {
       name: string
 
       /**
-       * The effect description may be either a plain text or a text that is
-       * divided by a list of effects for each quality level. It may also be a
-       * list for each two quality levels.
+       * The effect description.
+       * @markdown
+       * @minLength 1
        */
-      effect: Effect.T
+      effect: string
 
       /**
        * @deprecated

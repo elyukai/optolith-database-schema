@@ -101,8 +101,9 @@
                   "minLength": 1
                 },
                 "effect": {
-                  "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
-                  "$ref": "./_ActivatableSkill.schema.json#/definitions/Effect/T"
+                  "description": "The effect description.",
+                  "type": "string",
+                  "minLength": 1
                 },
                 "casting_time": {
                   "type": "object",

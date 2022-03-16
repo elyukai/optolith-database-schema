@@ -150,7 +150,7 @@ The academies and traditions the cantrip is commonly teached in.
 Key | Description | Details
 :-- | :-- | :--
 `name` | The name of the spell. | <a href="#Cantrip/translations[key]/name">See details</a>
-`effect` | The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels. | <a href="#Cantrip/translations[key]/effect">See details</a>
+`effect` | The effect description. | <a href="#Cantrip/translations[key]/effect">See details</a>
 `casting_time` |  | <a href="#Cantrip/translations[key]/casting_time">See details</a>
 `cost` |  | <a href="#Cantrip/translations[key]/cost">See details</a>
 `range` |  | <a href="#Cantrip/translations[key]/range">See details</a>
@@ -167,11 +167,10 @@ The name of the spell.
 
 #### <a name="Cantrip/translations[key]/effect"></a> `effect`
 
-The effect description may be either a plain text or a text that is
-divided by a list of effects for each quality level. It may also be a
-list for each two quality levels.
+The effect description.
 
-- **Type:** <a href="./_ActivatableSkill.md#Effect/T">Effect/T</a>
+- **Type:** Markdown-formatted text
+- **Minimum Length:** `1`
 
 #### <a name="Cantrip/translations[key]/casting_time"></a> `casting_time`
 
