@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.14](https://github.com/elyukai/optolith-database-schema/compare/v0.1.13...v0.1.14) (2022-03-16)
+
+
+### Bug Fixes
+
+* multiple cantrip field definitions ([db26bb4](https://github.com/elyukai/optolith-database-schema/commit/db26bb4d540cc4eb497020302dde9cfdbe5c3950))
+
 ### [0.1.13](https://github.com/elyukai/optolith-database-schema/compare/v0.1.12...v0.1.13) (2022-03-16)
 
 
