@@ -539,7 +539,7 @@ type NameGroup = {
   /**
    * The binary sex if the group is only for a certain binary sex.
    */
-  sex: BinarySex
+  sex?: BinarySex
 
   /**
    * The names from the group.

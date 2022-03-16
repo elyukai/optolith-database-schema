@@ -1150,7 +1150,7 @@ Special naming rules.
 Key | Description | Details
 :-- | :-- | :--
 `label` | The group label. | <a href="#NameGroup/label">See details</a>
-`sex` | The binary sex if the group is only for a certain binary sex. | <a href="#NameGroup/sex">See details</a>
+`sex?` | The binary sex if the group is only for a certain binary sex. | <a href="#NameGroup/sex">See details</a>
 `names` | The names from the group. | <a href="#NameGroup/names">See details</a>
 
 #### <a name="NameGroup/label"></a> `label`
@@ -1160,7 +1160,7 @@ The group label.
 - **Type:** String
 - **Minimum Length:** `1`
 
-#### <a name="NameGroup/sex"></a> `sex`
+#### <a name="NameGroup/sex"></a> `sex?`
 
 The binary sex if the group is only for a certain binary sex.
 
