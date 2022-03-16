@@ -2,8 +2,8 @@
  * @main Curriculum
  */
 
-import { Errata } from "./source/_Erratum"
-import { PublicationRefs } from "./source/_PublicationRef"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
  * This is a curriculum of a specified academy, containing the guideline,

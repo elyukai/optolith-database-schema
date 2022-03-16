@@ -2,11 +2,11 @@
  * @main Spell
  */
 
-import { Errata } from "./source/_Erratum"
-import { PublicationRefs } from "./source/_PublicationRef"
-import { Duration, Effect, TargetCategory } from "./_ActivatableSkill"
-import { Enhancements } from "./_Enhancements"
-import { ImprovementCost } from "./_ImprovementCost"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
+import { Duration, Effect, TargetCategory } from "./_ActivatableSkill.js"
+import { Enhancements } from "./_Enhancements.js"
+import { ImprovementCost } from "./_ImprovementCost.js"
 
 /**
  * @title Spell

@@ -2,9 +2,9 @@
  * @title Enhancements
  */
 
-import { Errata } from "./source/_Erratum"
-import { PublicationRefs } from "./source/_PublicationRef"
-import { EnhancementPrerequisites } from "./_Prerequisite"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
+import { EnhancementPrerequisites } from "./_Prerequisite.js"
 
 /**
  * A list of enhancements.

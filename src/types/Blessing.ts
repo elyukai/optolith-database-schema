@@ -2,9 +2,9 @@
  * @main Blessing
  */
 
-import { Errata } from "./source/_Erratum"
-import { PublicationRefs } from "./source/_PublicationRef"
-import { Duration, TargetCategory } from "./_ActivatableSkill"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
+import { Duration, TargetCategory } from "./_ActivatableSkill.js"
 
 /**
  * @title Blessing

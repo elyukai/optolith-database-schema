@@ -2,7 +2,7 @@
  * @main Publication
  */
 
-import { PublicationPrerequisites } from "../_Prerequisite"
+import { PublicationPrerequisites } from "../_Prerequisite.js"
 
 /**
  * @title Publication

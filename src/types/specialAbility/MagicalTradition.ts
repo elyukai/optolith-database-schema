@@ -2,11 +2,11 @@
  * @main MagicalTradition
  */
 
-import { Errata } from "../source/_Erratum"
-import { PublicationRefs } from "../source/_PublicationRef"
-import * as Activatable from "../_Activatable"
-import { Influence } from "../_Influence"
-import { GeneralPrerequisites } from "../_Prerequisite"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
+import * as Activatable from "../_Activatable.js"
+import { Influence } from "../_Influence.js"
+import { GeneralPrerequisites } from "../_Prerequisite.js"
 
 /**
  * @title Magical Tradition

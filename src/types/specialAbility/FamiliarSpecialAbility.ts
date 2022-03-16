@@ -2,10 +2,10 @@
  * @main FamiliarSpecialAbility
  */
 
-import { Errata } from "../source/_Erratum"
-import { PublicationRefs } from "../source/_PublicationRef"
-import * as Activatable from "../_Activatable"
-import { GeneralPrerequisites } from "../_Prerequisite"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
+import * as Activatable from "../_Activatable.js"
+import { GeneralPrerequisites } from "../_Prerequisite.js"
 
 /**
  * @title Familiar Special Ability

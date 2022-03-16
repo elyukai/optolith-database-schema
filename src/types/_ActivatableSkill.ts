@@ -2,7 +2,7 @@
  * @title Activatable Skill
  */
 
-import { SlowSkillCastingTimeUnit } from "./SkillModificationLevel"
+import { SlowSkillCastingTimeUnit } from "./SkillModificationLevel.js"
 
 /**
  *

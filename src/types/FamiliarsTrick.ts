@@ -2,9 +2,9 @@
  * @main FamiliarsTrick
  */
 
-import { Errata } from "./source/_Erratum"
-import { PublicationRefs } from "./source/_PublicationRef"
-import { Duration } from "./_ActivatableSkill"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
+import { Duration } from "./_ActivatableSkill.js"
 
 /**
  * @title Familiar's Trick

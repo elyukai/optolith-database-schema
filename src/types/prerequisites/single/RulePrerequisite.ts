@@ -1,5 +1,5 @@
-import { ExtensionRuleIdentifier } from "../../_Identifier"
-import { DisplayOption } from "../DisplayOption"
+import { ExtensionRuleIdentifier } from "../../_Identifier.js"
+import { DisplayOption } from "../DisplayOption.js"
 
 /**
  * @title Rule Prerequisite

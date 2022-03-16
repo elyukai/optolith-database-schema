@@ -2,7 +2,7 @@
  * @main Patron
  */
 
-import { ImprovementCost } from "./_ImprovementCost"
+import { ImprovementCost } from "./_ImprovementCost.js"
 
 /**
  * @title Patron

@@ -2,7 +2,7 @@
  * @main SkillGroup
  */
 
-import { SkillCheck } from "./_SkillCheck"
+import { SkillCheck } from "./_SkillCheck.js"
 
 /**
  * @title Skill Group

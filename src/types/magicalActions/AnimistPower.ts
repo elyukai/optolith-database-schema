@@ -2,11 +2,11 @@
  * @main AnimistPower
  */
 
-import { Errata } from "../source/_Erratum"
-import { PublicationRefs } from "../source/_PublicationRef"
-import { Duration, Effect } from "../_ActivatableSkill"
-import { ImprovementCost } from "../_ImprovementCost"
-import { SkillCheck } from "../_SkillCheck"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
+import { Duration, Effect } from "../_ActivatableSkill.js"
+import { ImprovementCost } from "../_ImprovementCost.js"
+import { SkillCheck } from "../_SkillCheck.js"
 
 /**
  * @title Animist Power

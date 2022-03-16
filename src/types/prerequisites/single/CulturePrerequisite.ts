@@ -1,5 +1,5 @@
-import { OneOrManyNumericIdentifiers } from "../../_Identifier"
-import { DisplayOption } from "../DisplayOption"
+import { OneOrManyNumericIdentifiers } from "../../_Identifier.js"
+import { DisplayOption } from "../DisplayOption.js"
 
 /**
  * Requires a specific culture or one of a specific set of cultures.

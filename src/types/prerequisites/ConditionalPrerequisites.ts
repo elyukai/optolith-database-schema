@@ -1,4 +1,4 @@
-import { PreconditionGroup } from "./PrerequisiteGroups"
+import { PreconditionGroup } from "./PrerequisiteGroups.js"
 
 /**
  * A list of preconditions for the prerequisite it is defined on, so that it

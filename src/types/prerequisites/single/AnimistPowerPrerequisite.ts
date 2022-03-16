@@ -1,4 +1,4 @@
-import { DisplayOption } from "../DisplayOption"
+import { DisplayOption } from "../DisplayOption.js"
 
 /**
  * Requires a specific animist power to be on a minimum value.

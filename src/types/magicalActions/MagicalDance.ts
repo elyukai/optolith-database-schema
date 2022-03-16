@@ -2,12 +2,12 @@
  * @main MagicalDance
  */
 
-import { Errata } from "../source/_Erratum"
-import { PublicationRefs } from "../source/_PublicationRef"
-import { Duration, Effect } from "../_ActivatableSkill"
-import { ImprovementCost } from "../_ImprovementCost"
-import { SkillCheck } from "../_SkillCheck"
-import { MusicTraditionReference } from "./_MusicTradition"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
+import { Duration, Effect } from "../_ActivatableSkill.js"
+import { ImprovementCost } from "../_ImprovementCost.js"
+import { SkillCheck } from "../_SkillCheck.js"
+import { MusicTraditionReference } from "./_MusicTradition.js"
 
 /**
  * @title Magical Dance

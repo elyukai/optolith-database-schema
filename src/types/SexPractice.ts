@@ -2,7 +2,7 @@
  * @main SexPractice
  */
 
-import { PublicationRefs } from "./source/_PublicationRef"
+import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
  * @title Sex Practice

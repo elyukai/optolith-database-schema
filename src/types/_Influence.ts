@@ -2,9 +2,9 @@
  * @main Influence
  */
 
-import { Errata } from "./source/_Erratum"
-import { PublicationRefs } from "./source/_PublicationRef"
-import { InfluencePrerequisites } from "./_Prerequisite"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
+import { InfluencePrerequisites } from "./_Prerequisite.js"
 
 /**
  * @title Influence

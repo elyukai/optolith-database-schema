@@ -2,7 +2,7 @@
 
 import { generate } from "optolith-tsjsonschemamd"
 import { jsonSchema, markdown } from "optolith-tsjsonschemamd/renderers"
-import { jsonSchemaDir, markdownDir, sourceDir } from "./directories"
+import { jsonSchemaDir, markdownDir, sourceDir } from "./directories.js"
 
 generate({
   sourceDir: sourceDir,

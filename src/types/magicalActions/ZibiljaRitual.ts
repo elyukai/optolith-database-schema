@@ -2,11 +2,11 @@
  * @main ZibiljaRitual
  */
 
-import { Errata } from "../source/_Erratum"
-import { PublicationRefs } from "../source/_PublicationRef"
-import { Effect, SlowPerformanceParameters, TargetCategory } from "../_ActivatableSkill"
-import { ImprovementCost } from "../_ImprovementCost"
-import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
+import { Effect, SlowPerformanceParameters, TargetCategory } from "../_ActivatableSkill.js"
+import { ImprovementCost } from "../_ImprovementCost.js"
+import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
 
 /**
  * @title Zibilja Ritual

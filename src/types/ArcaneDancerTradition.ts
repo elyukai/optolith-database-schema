@@ -2,7 +2,7 @@
  * @main ArcaneDancerTradition
  */
 
-import { ArcaneTraditionPrerequisites } from "./_Prerequisite"
+import { ArcaneTraditionPrerequisites } from "./_Prerequisite.js"
 
 /**
  * @title Arcane Dancer Tradition

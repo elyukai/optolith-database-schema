@@ -2,13 +2,13 @@
  * @main Spell
  */
 
-import { Errata } from "./source/_Erratum"
-import { PublicationRefs } from "./source/_PublicationRef"
-import { Effect, FastPerformanceParameters, TargetCategory } from "./_ActivatableSkill"
-import { Enhancements } from "./_Enhancements"
-import { ImprovementCost } from "./_ImprovementCost"
-import { SpellworkPrerequisites } from "./_Prerequisite"
-import { SkillCheck, SkillCheckPenalty } from "./_SkillCheck"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
+import { Effect, FastPerformanceParameters, TargetCategory } from "./_ActivatableSkill.js"
+import { Enhancements } from "./_Enhancements.js"
+import { ImprovementCost } from "./_ImprovementCost.js"
+import { SpellworkPrerequisites } from "./_Prerequisite.js"
+import { SkillCheck, SkillCheckPenalty } from "./_SkillCheck.js"
 
 /**
  * @title Spell

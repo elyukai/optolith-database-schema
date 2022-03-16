@@ -1,5 +1,5 @@
-import { BinarySex } from "../../_Sex"
-import { DisplayOption } from "../DisplayOption"
+import { BinarySex } from "../../_Sex.js"
+import { DisplayOption } from "../DisplayOption.js"
 
 /**
  * Requires a specific sex.

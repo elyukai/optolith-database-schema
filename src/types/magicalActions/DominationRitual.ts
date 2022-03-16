@@ -2,10 +2,10 @@
  * @main DominationRitual
  */
 
-import { Errata } from "../source/_Erratum"
-import { PublicationRefs } from "../source/_PublicationRef"
-import { Duration, Effect } from "../_ActivatableSkill"
-import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
+import { Duration, Effect } from "../_ActivatableSkill.js"
+import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
 
 /**
  * @title Domination Ritual

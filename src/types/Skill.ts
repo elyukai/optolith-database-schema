@@ -2,10 +2,10 @@
  * @main Skill
  */
 
-import { Errata } from "./source/_Erratum"
-import { PublicationRefs } from "./source/_PublicationRef"
-import { ImprovementCost } from "./_ImprovementCost"
-import { SkillCheck } from "./_SkillCheck"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
+import { ImprovementCost } from "./_ImprovementCost.js"
+import { SkillCheck } from "./_SkillCheck.js"
 
 /**
  * @title Skill

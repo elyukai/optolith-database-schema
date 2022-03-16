@@ -2,8 +2,8 @@
  * @main DerivedCharacteristic
  */
 
-import { PublicationRefs } from "./source/_PublicationRef"
-import { DerivedCharacteristicPrerequisites } from "./_Prerequisite"
+import { PublicationRefs } from "./source/_PublicationRef.js"
+import { DerivedCharacteristicPrerequisites } from "./_Prerequisite.js"
 
 /**
  * @title Derived Characteristic

@@ -1,5 +1,5 @@
-import { RatedIdentifier } from "../../_Identifier"
-import { DisplayOption } from "../DisplayOption"
+import { RatedIdentifier } from "../../_Identifier.js"
+import { DisplayOption } from "../DisplayOption.js"
 
 /**
  * @title Rated Prerequisite

@@ -1,6 +1,6 @@
-import { ActivatableIdentifier, RequirableSelectOptionIdentifier } from "../../_Identifier"
-import { Preconditions } from "../ConditionalPrerequisites"
-import { DisplayOption } from "../DisplayOption"
+import { ActivatableIdentifier, RequirableSelectOptionIdentifier } from "../../_Identifier.js"
+import { Preconditions } from "../ConditionalPrerequisites.js"
+import { DisplayOption } from "../DisplayOption.js"
 
 /**
  * Requires a specific advantage, disadvantage or special ability.

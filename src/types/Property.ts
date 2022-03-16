@@ -2,7 +2,7 @@
  * @main Property
  */
 
-import { SkillCheck } from "./_SkillCheck"
+import { SkillCheck } from "./_SkillCheck.js"
 
 /**
  * @title Property

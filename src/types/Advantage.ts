@@ -2,10 +2,10 @@
  * @main Advantage
  */
 
-import { Errata } from "./source/_Erratum"
-import { PublicationRefs } from "./source/_PublicationRef"
-import * as Activatable from "./_Activatable"
-import { AdvantageDisadvantagePrerequisites } from "./_Prerequisite"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
+import * as Activatable from "./_Activatable.js"
+import { AdvantageDisadvantagePrerequisites } from "./_Prerequisite.js"
 
 /**
  * @title Advantage

@@ -3,12 +3,12 @@
  * @title Activatable
  */
 
-import { DisplayOption } from "./prerequisites/DisplayOption"
-import { Errata } from "./source/_Erratum"
-import { PublicationRefs } from "./source/_PublicationRef"
-import { Duration } from "./_ActivatableSkill"
-import { ActivatableIdentifier, AdvancedSpecialAbilityRestrictedOptionIdentifier, CombatRelatedSpecialAbilityIdentifier, CombatTechniqueIdentifier, MagicalTraditionIdentifier, PatronIdentifier, VolumePointsOptionReferenceIdentifier } from "./_Identifier"
-import { GeneralPrerequisites } from "./_Prerequisite"
+import { DisplayOption } from "./prerequisites/DisplayOption.js"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
+import { Duration } from "./_ActivatableSkill.js"
+import { ActivatableIdentifier, AdvancedSpecialAbilityRestrictedOptionIdentifier, CombatRelatedSpecialAbilityIdentifier, CombatTechniqueIdentifier, MagicalTraditionIdentifier, PatronIdentifier, VolumePointsOptionReferenceIdentifier } from "./_Identifier.js"
+import { GeneralPrerequisites } from "./_Prerequisite.js"
 
 /**
  * The activatable entry's identifier. An unique, increasing integer.

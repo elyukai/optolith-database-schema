@@ -2,9 +2,9 @@
  * @main Language
  */
 
-import { Errata } from "../../source/_Erratum"
-import { PublicationRefs } from "../../source/_PublicationRef"
-import { LanguagePrerequisites } from "../../_Prerequisite"
+import { Errata } from "../../source/_Erratum.js"
+import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { LanguagePrerequisites } from "../../_Prerequisite.js"
 
 /**
  * @title Language

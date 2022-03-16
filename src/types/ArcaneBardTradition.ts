@@ -2,7 +2,7 @@
  * @main ArcaneBardTradition
  */
 
-import { ArcaneTraditionPrerequisites } from "./_Prerequisite"
+import { ArcaneTraditionPrerequisites } from "./_Prerequisite.js"
 
 /**
  * @title Arcane Bard Tradition

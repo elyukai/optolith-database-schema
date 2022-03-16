@@ -1,4 +1,4 @@
-import { DisplayOption } from "../DisplayOption"
+import { DisplayOption } from "../DisplayOption.js"
 
 /**
  * @title Publication Prerequisite

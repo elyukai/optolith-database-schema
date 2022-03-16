@@ -2,9 +2,9 @@
  * @main TradeSecret
  */
 
-import { Errata } from "../../source/_Erratum"
-import { PublicationRefs } from "../../source/_PublicationRef"
-import { GeneralPrerequisites } from "../../_Prerequisite"
+import { Errata } from "../../source/_Erratum.js"
+import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { GeneralPrerequisites } from "../../_Prerequisite.js"
 
 /**
  * @title Trade Secret

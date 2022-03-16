@@ -2,13 +2,13 @@
  * @main MagicalMelody
  */
 
-import { Errata } from "../source/_Erratum"
-import { PublicationRefs } from "../source/_PublicationRef"
-import { Effect } from "../_ActivatableSkill"
-import { ImprovementCost } from "../_ImprovementCost"
-import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck"
-import { MusicTraditionReference } from "./_MusicTradition"
-import { SkillReference } from "./_SkillReference"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
+import { Effect } from "../_ActivatableSkill.js"
+import { ImprovementCost } from "../_ImprovementCost.js"
+import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
+import { MusicTraditionReference } from "./_MusicTradition.js"
+import { SkillReference } from "./_SkillReference.js"
 
 /**
  * @title Magical Melody

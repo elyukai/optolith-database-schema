@@ -2,12 +2,12 @@
  * @main ElvenMagicalSong
  */
 
-import { Errata } from "../source/_Erratum"
-import { PublicationRefs } from "../source/_PublicationRef"
-import { Duration, Effect } from "../_ActivatableSkill"
-import { ImprovementCost } from "../_ImprovementCost"
-import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck"
-import { SkillReference } from "./_SkillReference"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
+import { Duration, Effect } from "../_ActivatableSkill.js"
+import { ImprovementCost } from "../_ImprovementCost.js"
+import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
+import { SkillReference } from "./_SkillReference.js"
 
 /**
  * @title Elven Magical Song

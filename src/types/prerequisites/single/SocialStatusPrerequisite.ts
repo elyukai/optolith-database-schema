@@ -1,4 +1,4 @@
-import { DisplayOption } from "../DisplayOption"
+import { DisplayOption } from "../DisplayOption.js"
 
 /**
  * Requires a minimum social status.

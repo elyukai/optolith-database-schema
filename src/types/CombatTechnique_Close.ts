@@ -2,9 +2,9 @@
  * @main CloseCombatTechnique
  */
 
-import { Errata } from "./source/_Erratum"
-import { PublicationRefs } from "./source/_PublicationRef"
-import { ImprovementCost } from "./_ImprovementCost"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
+import { ImprovementCost } from "./_ImprovementCost.js"
 
 /**
  * @title Close Combat Technique

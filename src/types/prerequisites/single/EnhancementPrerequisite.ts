@@ -1,5 +1,5 @@
-import { SkillWithEnhancementsIdentifier } from "../../_Identifier"
-import { DisplayOption } from "../DisplayOption"
+import { SkillWithEnhancementsIdentifier } from "../../_Identifier.js"
+import { DisplayOption } from "../DisplayOption.js"
 
 /**
  * Requires a specific enhancement from a skill. This should **not** be used

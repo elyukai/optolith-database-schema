@@ -2,12 +2,12 @@
  * @main GeodeRitual
  */
 
-import { SlowSkillCastingTimeUnit } from "../SkillModificationLevel"
-import { Errata } from "../source/_Erratum"
-import { PublicationRefs } from "../source/_PublicationRef"
-import { Cost, Duration, Effect, TargetCategory } from "../_ActivatableSkill"
-import { GeodeRitualPrerequisites } from "../_Prerequisite"
-import { SkillCheck } from "../_SkillCheck"
+import { SlowSkillCastingTimeUnit } from "../SkillModificationLevel.js"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
+import { Cost, Duration, Effect, TargetCategory } from "../_ActivatableSkill.js"
+import { GeodeRitualPrerequisites } from "../_Prerequisite.js"
+import { SkillCheck } from "../_SkillCheck.js"
 
 /**
  * @title Geode Ritual
