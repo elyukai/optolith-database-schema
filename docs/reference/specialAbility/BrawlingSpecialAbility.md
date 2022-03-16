@@ -10,7 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` |  | <a href="#BrawlingSpecialAbility/id">See details</a>
 `levels?` |  | <a href="#BrawlingSpecialAbility/levels">See details</a>
-`type` |  | <a href="#BrawlingSpecialAbility/type">See details</a>
+`usage_type` |  | <a href="#BrawlingSpecialAbility/usage_type">See details</a>
 `select_options?` |  | <a href="#BrawlingSpecialAbility/select_options">See details</a>
 `maximum?` |  | <a href="#BrawlingSpecialAbility/maximum">See details</a>
 `prerequisites?` |  | <a href="#BrawlingSpecialAbility/prerequisites">See details</a>
@@ -27,7 +27,7 @@ Key | Description | Details
 
 - **Type:** <a href="../_Activatable.md#Levels">Levels</a>
 
-#### <a name="BrawlingSpecialAbility/type"></a> `type`
+#### <a name="BrawlingSpecialAbility/usage_type"></a> `usage_type`
 
 - **Type:** <a href="../_Activatable.md#CombatSpecialAbilityType">CombatSpecialAbilityType</a>
 

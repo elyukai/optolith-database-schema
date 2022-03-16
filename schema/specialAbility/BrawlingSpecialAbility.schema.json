@@ -13,7 +13,7 @@
         "levels": {
           "$ref": "../_Activatable.schema.json#/definitions/Levels"
         },
-        "type": {
+        "usage_type": {
           "$ref": "../_Activatable.schema.json#/definitions/CombatSpecialAbilityType"
         },
         "select_options": {
@@ -67,7 +67,7 @@
       },
       "required": [
         "id",
-        "type",
+        "usage_type",
         "combat_techniques",
         "ap_value",
         "src",

@@ -16,7 +16,7 @@ export type BrawlingSpecialAbility = {
 
   levels?: Activatable.Levels
 
-  type: Activatable.CombatSpecialAbilityType
+  usage_type: Activatable.CombatSpecialAbilityType
 
   select_options?: Activatable.SelectOptions
 
