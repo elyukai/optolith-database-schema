@@ -1,5 +1,5 @@
 /**
- * @main Spell
+ * @main Cantrip
  */
 
 import { validateSchemaCreator } from "../validation/schema.js"

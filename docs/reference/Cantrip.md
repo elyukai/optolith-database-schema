@@ -1,56 +1,49 @@
-# Spell
+# Cantrip
 
 ## Definitions
 
-### <a name="Spell"></a> Spell (`Spell`)
+### <a name="Cantrip"></a> Cantrip (`Cantrip`)
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The spell's identifier. An unique, increasing integer. | <a href="#Spell/id">See details</a>
-`parameters` | Measurable parameters of a spell. | <a href="#Spell/parameters">See details</a>
-`target` | The target category – the kind of creature or object – the skill affects. | <a href="#Spell/target">See details</a>
-`property_id` | The property's identifier. | <a href="#Spell/property_id">See details</a>
-`improvement_cost` | States which column is used to improve the skill. | <a href="#Spell/improvement_cost">See details</a>
-`note` | A note specifying the dissemination of the cantrip in different traditions. Sometimes a cantrip is exclusively available to one or more specific traditions, but usually one the academies and traditions are listed the cantrip is most commonly teached in. | <a href="#Spell/note">See details</a>
-`src` |  | <a href="#Spell/src">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Spell/translations">See details</a>
-`enhancements?` |  | <a href="#Spell/enhancements">See details</a>
+`id` | The cantrip's identifier. An unique, increasing integer. | <a href="#Cantrip/id">See details</a>
+`parameters` | Measurable parameters of a cantrip. | <a href="#Cantrip/parameters">See details</a>
+`target` | The target category – the kind of creature or object – the skill affects. | <a href="#Cantrip/target">See details</a>
+`property_id` | The property's identifier. | <a href="#Cantrip/property_id">See details</a>
+`note` | A note specifying the dissemination of the cantrip in different traditions. Sometimes a cantrip is exclusively available to one or more specific traditions, but usually one the academies and traditions are listed the cantrip is most commonly teached in. | <a href="#Cantrip/note">See details</a>
+`src` |  | <a href="#Cantrip/src">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Cantrip/translations">See details</a>
+`enhancements?` |  | <a href="#Cantrip/enhancements">See details</a>
 
-#### <a name="Spell/id"></a> `id`
+#### <a name="Cantrip/id"></a> `id`
 
-The spell's identifier. An unique, increasing integer.
+The cantrip's identifier. An unique, increasing integer.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="Spell/parameters"></a> `parameters`
+#### <a name="Cantrip/parameters"></a> `parameters`
 
-Measurable parameters of a spell.
+Measurable parameters of a cantrip.
 
 - **Type:** <a href="#PerformanceParameters">PerformanceParameters</a>
 
-#### <a name="Spell/target"></a> `target`
+#### <a name="Cantrip/target"></a> `target`
 
 The target category – the kind of creature or object – the skill affects.
 
 - **Type:** <a href="./_ActivatableSkill.md#TargetCategory/T">TargetCategory/T</a>
 
-#### <a name="Spell/property_id"></a> `property_id`
+#### <a name="Cantrip/property_id"></a> `property_id`
 
 The property's identifier.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="Spell/improvement_cost"></a> `improvement_cost`
-
-States which column is used to improve the skill.
-
-- **Type:** <a href="./_ImprovementCost.md#ImprovementCost">ImprovementCost</a>
-
-#### <a name="Spell/note"></a> `note`
+#### <a name="Cantrip/note"></a> `note`
 
 A note specifying the dissemination of the cantrip in different traditions.
 Sometimes a cantrip is exclusively available to one or more specific
@@ -58,60 +51,60 @@ traditions, but usually one the academies and traditions are listed the
 cantrip is most commonly teached in.
 
 - **Type:** Union
-- **Cases:** <a href="#Spell/note'Exclusive">Spell/note'Exclusive</a> | <a href="#Spell/note'Common">Spell/note'Common</a>
+- **Cases:** <a href="#Cantrip/note'Exclusive">Cantrip/note'Exclusive</a> | <a href="#Cantrip/note'Common">Cantrip/note'Common</a>
 
-#### <a name="Spell/src"></a> `src`
+#### <a name="Cantrip/src"></a> `src`
 
 - **Type:** <a href="./source/_PublicationRef.md#PublicationRefs">PublicationRefs</a>
 
-#### <a name="Spell/translations"></a> `translations`
+#### <a name="Cantrip/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#Spell/translations[key]">Spell/translations[key]</a>
+- **Property Values:** <a href="#Cantrip/translations[key]">Cantrip/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
-#### <a name="Spell/enhancements"></a> `enhancements?`
+#### <a name="Cantrip/enhancements"></a> `enhancements?`
 
 - **Type:** <a href="./_Enhancements.md#Enhancements">Enhancements</a>
 
 ---
 
-### <a name="Spell/note'Exclusive"></a> `Spell/note'Exclusive`
+### <a name="Cantrip/note'Exclusive"></a> `Cantrip/note'Exclusive`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Spell/note'Exclusive/tag">See details</a>
-`traditions` | The traditions the cantrip is exclusively available to. | <a href="#Spell/note'Exclusive/traditions">See details</a>
+`tag` |  | <a href="#Cantrip/note'Exclusive/tag">See details</a>
+`traditions` | The traditions the cantrip is exclusively available to. | <a href="#Cantrip/note'Exclusive/traditions">See details</a>
 
-#### <a name="Spell/note'Exclusive/tag"></a> `tag`
+#### <a name="Cantrip/note'Exclusive/tag"></a> `tag`
 
 - **Constant:** `"Exclusive"`
 
-#### <a name="Spell/note'Exclusive/traditions"></a> `traditions`
+#### <a name="Cantrip/note'Exclusive/traditions"></a> `traditions`
 
 The traditions the cantrip is exclusively available to.
 
 - **Type:** List
-- **Items:** <a href="#Spell/note'Exclusive/traditions[]">Spell/note'Exclusive/traditions[]</a>
+- **Items:** <a href="#Cantrip/note'Exclusive/traditions[]">Cantrip/note'Exclusive/traditions[]</a>
 - **Minimum Items:** `1`
 - **Unique Items:** Yes
 
 ---
 
-### <a name="Spell/note'Exclusive/traditions[]"></a> `Spell/note'Exclusive/traditions[]`
+### <a name="Cantrip/note'Exclusive/traditions[]"></a> `Cantrip/note'Exclusive/traditions[]`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The magical tradition's identifier. | <a href="#Spell/note'Exclusive/traditions[]/id">See details</a>
+`id` | The magical tradition's identifier. | <a href="#Cantrip/note'Exclusive/traditions[]/id">See details</a>
 
-#### <a name="Spell/note'Exclusive/traditions[]/id"></a> `id`
+#### <a name="Cantrip/note'Exclusive/traditions[]/id"></a> `id`
 
 The magical tradition's identifier.
 
@@ -120,59 +113,59 @@ The magical tradition's identifier.
 
 ---
 
-### <a name="Spell/note'Common"></a> `Spell/note'Common`
+### <a name="Cantrip/note'Common"></a> `Cantrip/note'Common`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Spell/note'Common/tag">See details</a>
-`list` | The academies and traditions the cantrip is commonly teached in. | <a href="#Spell/note'Common/list">See details</a>
+`tag` |  | <a href="#Cantrip/note'Common/tag">See details</a>
+`list` | The academies and traditions the cantrip is commonly teached in. | <a href="#Cantrip/note'Common/list">See details</a>
 
-#### <a name="Spell/note'Common/tag"></a> `tag`
+#### <a name="Cantrip/note'Common/tag"></a> `tag`
 
 - **Constant:** `"Common"`
 
-#### <a name="Spell/note'Common/list"></a> `list`
+#### <a name="Cantrip/note'Common/list"></a> `list`
 
 The academies and traditions the cantrip is commonly teached in.
 
 - **Type:** List
-- **Items:** <a href="#Spell/note'Common/list[]">Spell/note'Common/list[]</a>
+- **Items:** <a href="#Cantrip/note'Common/list[]">Cantrip/note'Common/list[]</a>
 - **Minimum Items:** `1`
 - **Unique Items:** Yes
 
 ---
 
-### <a name="Spell/note'Common/list[]"></a> `Spell/note'Common/list[]`
+### <a name="Cantrip/note'Common/list[]"></a> `Cantrip/note'Common/list[]`
 
 - **Type:** <a href="#CommonNote">CommonNote</a>
 
 ---
 
-### <a name="Spell/translations[key]"></a> `Spell/translations[key]`
+### <a name="Cantrip/translations[key]"></a> `Cantrip/translations[key]`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the spell. | <a href="#Spell/translations[key]/name">See details</a>
-`effect` | The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels. | <a href="#Spell/translations[key]/effect">See details</a>
-`casting_time` |  | <a href="#Spell/translations[key]/casting_time">See details</a>
-`cost` |  | <a href="#Spell/translations[key]/cost">See details</a>
-`range` |  | <a href="#Spell/translations[key]/range">See details</a>
-`duration` |  | <a href="#Spell/translations[key]/duration">See details</a>
-`target` |  | <a href="#Spell/translations[key]/target">See details</a>
-`errata?` |  | <a href="#Spell/translations[key]/errata">See details</a>
+`name` | The name of the spell. | <a href="#Cantrip/translations[key]/name">See details</a>
+`effect` | The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels. | <a href="#Cantrip/translations[key]/effect">See details</a>
+`casting_time` |  | <a href="#Cantrip/translations[key]/casting_time">See details</a>
+`cost` |  | <a href="#Cantrip/translations[key]/cost">See details</a>
+`range` |  | <a href="#Cantrip/translations[key]/range">See details</a>
+`duration` |  | <a href="#Cantrip/translations[key]/duration">See details</a>
+`target` |  | <a href="#Cantrip/translations[key]/target">See details</a>
+`errata?` |  | <a href="#Cantrip/translations[key]/errata">See details</a>
 
-#### <a name="Spell/translations[key]/name"></a> `name`
+#### <a name="Cantrip/translations[key]/name"></a> `name`
 
 The name of the spell.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
-#### <a name="Spell/translations[key]/effect"></a> `effect`
+#### <a name="Cantrip/translations[key]/effect"></a> `effect`
 
 The effect description may be either a plain text or a text that is
 divided by a list of effects for each quality level. It may also be a
@@ -180,103 +173,103 @@ list for each two quality levels.
 
 - **Type:** <a href="./_ActivatableSkill.md#Effect/T">Effect/T</a>
 
-#### <a name="Spell/translations[key]/casting_time"></a> `casting_time`
+#### <a name="Cantrip/translations[key]/casting_time"></a> `casting_time`
 
-- **Type:** <a href="#Spell/translations[key]/casting_time">Object</a>
+- **Type:** <a href="#Cantrip/translations[key]/casting_time">Object</a>
 
-#### <a name="Spell/translations[key]/cost"></a> `cost`
+#### <a name="Cantrip/translations[key]/cost"></a> `cost`
 
-- **Type:** <a href="#Spell/translations[key]/cost">Object</a>
+- **Type:** <a href="#Cantrip/translations[key]/cost">Object</a>
 
-#### <a name="Spell/translations[key]/range"></a> `range`
+#### <a name="Cantrip/translations[key]/range"></a> `range`
 
-- **Type:** <a href="#Spell/translations[key]/range">Object</a>
+- **Type:** <a href="#Cantrip/translations[key]/range">Object</a>
 
-#### <a name="Spell/translations[key]/duration"></a> `duration`
+#### <a name="Cantrip/translations[key]/duration"></a> `duration`
 
-- **Type:** <a href="#Spell/translations[key]/duration">Object</a>
+- **Type:** <a href="#Cantrip/translations[key]/duration">Object</a>
 
-#### <a name="Spell/translations[key]/target"></a> `target`
+#### <a name="Cantrip/translations[key]/target"></a> `target`
 
 - **Type:** String
 
-#### <a name="Spell/translations[key]/errata"></a> `errata?`
+#### <a name="Cantrip/translations[key]/errata"></a> `errata?`
 
 - **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
 
 ---
 
-### <a name="Spell/translations[key]/casting_time"></a> `Spell/translations[key]/casting_time`
+### <a name="Cantrip/translations[key]/casting_time"></a> `Cantrip/translations[key]/casting_time`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`full` |  | <a href="#Spell/translations[key]/casting_time/full">See details</a>
-`abbr` |  | <a href="#Spell/translations[key]/casting_time/abbr">See details</a>
+`full` |  | <a href="#Cantrip/translations[key]/casting_time/full">See details</a>
+`abbr` |  | <a href="#Cantrip/translations[key]/casting_time/abbr">See details</a>
 
-#### <a name="Spell/translations[key]/casting_time/full"></a> `full`
+#### <a name="Cantrip/translations[key]/casting_time/full"></a> `full`
 
 - **Type:** String
 
-#### <a name="Spell/translations[key]/casting_time/abbr"></a> `abbr`
+#### <a name="Cantrip/translations[key]/casting_time/abbr"></a> `abbr`
 
 - **Type:** String
 
 ---
 
-### <a name="Spell/translations[key]/cost"></a> `Spell/translations[key]/cost`
+### <a name="Cantrip/translations[key]/cost"></a> `Cantrip/translations[key]/cost`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`full` |  | <a href="#Spell/translations[key]/cost/full">See details</a>
-`abbr` |  | <a href="#Spell/translations[key]/cost/abbr">See details</a>
+`full` |  | <a href="#Cantrip/translations[key]/cost/full">See details</a>
+`abbr` |  | <a href="#Cantrip/translations[key]/cost/abbr">See details</a>
 
-#### <a name="Spell/translations[key]/cost/full"></a> `full`
+#### <a name="Cantrip/translations[key]/cost/full"></a> `full`
 
 - **Type:** String
 
-#### <a name="Spell/translations[key]/cost/abbr"></a> `abbr`
+#### <a name="Cantrip/translations[key]/cost/abbr"></a> `abbr`
 
 - **Type:** String
 
 ---
 
-### <a name="Spell/translations[key]/range"></a> `Spell/translations[key]/range`
+### <a name="Cantrip/translations[key]/range"></a> `Cantrip/translations[key]/range`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`full` |  | <a href="#Spell/translations[key]/range/full">See details</a>
-`abbr` |  | <a href="#Spell/translations[key]/range/abbr">See details</a>
+`full` |  | <a href="#Cantrip/translations[key]/range/full">See details</a>
+`abbr` |  | <a href="#Cantrip/translations[key]/range/abbr">See details</a>
 
-#### <a name="Spell/translations[key]/range/full"></a> `full`
+#### <a name="Cantrip/translations[key]/range/full"></a> `full`
 
 - **Type:** String
 
-#### <a name="Spell/translations[key]/range/abbr"></a> `abbr`
+#### <a name="Cantrip/translations[key]/range/abbr"></a> `abbr`
 
 - **Type:** String
 
 ---
 
-### <a name="Spell/translations[key]/duration"></a> `Spell/translations[key]/duration`
+### <a name="Cantrip/translations[key]/duration"></a> `Cantrip/translations[key]/duration`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`full` |  | <a href="#Spell/translations[key]/duration/full">See details</a>
-`abbr` |  | <a href="#Spell/translations[key]/duration/abbr">See details</a>
+`full` |  | <a href="#Cantrip/translations[key]/duration/full">See details</a>
+`abbr` |  | <a href="#Cantrip/translations[key]/duration/abbr">See details</a>
 
-#### <a name="Spell/translations[key]/duration/full"></a> `full`
+#### <a name="Cantrip/translations[key]/duration/full"></a> `full`
 
 - **Type:** String
 
-#### <a name="Spell/translations[key]/duration/abbr"></a> `abbr`
+#### <a name="Cantrip/translations[key]/duration/abbr"></a> `abbr`
 
 - **Type:** String
 

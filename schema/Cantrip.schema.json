@@ -1,19 +1,19 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "/Cantrip.schema.json",
-  "$ref": "#/definitions/Spell",
+  "$ref": "#/definitions/Cantrip",
   "definitions": {
-    "Spell": {
-      "title": "Spell",
+    "Cantrip": {
+      "title": "Cantrip",
       "type": "object",
       "properties": {
         "id": {
-          "description": "The spell's identifier. An unique, increasing integer.",
+          "description": "The cantrip's identifier. An unique, increasing integer.",
           "type": "integer",
           "minimum": 1
         },
         "parameters": {
-          "description": "Measurable parameters of a spell.",
+          "description": "Measurable parameters of a cantrip.",
           "$ref": "#/definitions/PerformanceParameters"
         },
         "target": {
@@ -24,10 +24,6 @@
           "description": "The property's identifier.",
           "type": "integer",
           "minimum": 1
-        },
-        "improvement_cost": {
-          "description": "States which column is used to improve the skill.",
-          "$ref": "./_ImprovementCost.schema.json#/definitions/ImprovementCost"
         },
         "note": {
           "description": "A note specifying the dissemination of the cantrip in different traditions.\nSometimes a cantrip is exclusively available to one or more specific\ntraditions, but usually one the academies and traditions are listed the\ncantrip is most commonly teached in.",
@@ -203,7 +199,6 @@
         "parameters",
         "target",
         "property_id",
-        "improvement_cost",
         "note",
         "src",
         "translations"
