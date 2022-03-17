@@ -173,6 +173,7 @@ Key | Description | Details
 `value` | The (temporary) AE cost value. | <a href="#PerformanceParameters/cost/value">See details</a>
 `interval?` | Specified if the AE cost `value` has to be paid for each time interval. | <a href="#PerformanceParameters/cost/interval">See details</a>
 `permanent?` | A permanent AE cost, independent from a possible interval. | <a href="#PerformanceParameters/cost/permanent">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PerformanceParameters/cost/translations">See details</a>
 
 #### <a name="PerformanceParameters/cost/value"></a> `value`
 
@@ -192,6 +193,15 @@ Specified if the AE cost `value` has to be paid for each time interval.
 A permanent AE cost, independent from a possible interval.
 
 - **Type:** <a href="#PerformanceParameters/cost/permanent">Object</a>
+
+#### <a name="PerformanceParameters/cost/translations"></a> `translations?`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#PerformanceParameters/cost/translations[key]">PerformanceParameters/cost/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
 
 ---
 
@@ -273,3 +283,49 @@ numeric values.
 - **Type:** String
 - **Minimum Length:** `1`
 - **Pattern:** `\$1`
+
+---
+
+### <a name="PerformanceParameters/cost/translations[key]"></a> `PerformanceParameters/cost/translations[key]`
+
+- **Type:** Object
+- **Minimum Properties:** `1`
+
+Key | Description | Details
+:-- | :-- | :--
+`per?` | The cost have to be per a specific countable entity, e.g. `8 AE per person`. | <a href="#PerformanceParameters/cost/translations[key]/per">See details</a>
+
+#### <a name="PerformanceParameters/cost/translations[key]/per"></a> `per?`
+
+The cost have to be per a specific countable entity, e.g. `8 AE
+per person`.
+
+- **Type:** <a href="#PerformanceParameters/cost/translations[key]/per">Object</a>
+
+---
+
+### <a name="PerformanceParameters/cost/translations[key]/per"></a> `PerformanceParameters/cost/translations[key]/per`
+
+The cost have to be per a specific countable entity, e.g. `8 AE
+per person`.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`default` | The full countable entity name. | <a href="#PerformanceParameters/cost/translations[key]/per/default">See details</a>
+`compressed` | The compressed countable entity name. | <a href="#PerformanceParameters/cost/translations[key]/per/compressed">See details</a>
+
+#### <a name="PerformanceParameters/cost/translations[key]/per/default"></a> `default`
+
+The full countable entity name.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+#### <a name="PerformanceParameters/cost/translations[key]/per/compressed"></a> `compressed`
+
+The compressed countable entity name.
+
+- **Type:** String
+- **Minimum Length:** `1`

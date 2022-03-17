@@ -160,6 +160,36 @@ type PerformanceParameters = {
         }
       }
     }
+
+    /**
+     * All translations for the entry, identified by IETF language tag (BCP47).
+     * @minProperties 1
+     */
+    translations?: {
+      /**
+       * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+       * @minProperties 1
+       */
+      [localeId: string]: {
+        /**
+         * The cost have to be per a specific countable entity, e.g. `8 AE
+         * per person`.
+         */
+        per?: {
+          /**
+           * The full countable entity name.
+           * @minLength 1
+           */
+          default: string
+
+          /**
+           * The compressed countable entity name.
+           * @minLength 1
+           */
+          compressed: string
+        }
+      }
+    }
   }
 }
 

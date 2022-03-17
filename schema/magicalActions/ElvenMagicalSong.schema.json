@@ -177,6 +177,43 @@
                 "value"
               ],
               "additionalProperties": false
+            },
+            "translations": {
+              "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+              "type": "object",
+              "patternProperties": {
+                "^[a-z]{2}-[A-Z]{2}$": {
+                  "type": "object",
+                  "properties": {
+                    "per": {
+                      "description": "The cost have to be per a specific countable entity, e.g. `8 AE\nper person`.",
+                      "type": "object",
+                      "properties": {
+                        "default": {
+                          "description": "The full countable entity name.",
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "compressed": {
+                          "description": "The compressed countable entity name.",
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "default",
+                        "compressed"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [],
+                  "minProperties": 1,
+                  "additionalProperties": false
+                }
+              },
+              "minProperties": 1,
+              "additionalProperties": false
             }
           },
           "required": [
