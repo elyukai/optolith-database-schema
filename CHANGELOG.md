@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.16](https://github.com/elyukai/optolith-database-schema/compare/v0.1.15...v0.1.16) (2022-03-17)
+
+
+### Features
+
+* support countable entities for ae cost of elven magical songs ([2feb0de](https://github.com/elyukai/optolith-database-schema/commit/2feb0deed85b7e823597560fd83523556a283642))
+
+
+### Bug Fixes
+
+* sex restriction of a name group from a culture should be optional ([e09f0b4](https://github.com/elyukai/optolith-database-schema/commit/e09f0b43d8b193303d67247a060fcaad8495a99f))
+
 ### [0.1.15](https://github.com/elyukai/optolith-database-schema/compare/v0.1.14...v0.1.15) (2022-03-16)
 
 
