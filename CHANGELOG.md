@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.19](https://github.com/elyukai/optolith-database-schema/compare/v0.1.18...v0.1.19) (2022-03-21)
+
+
+### Features
+
+* add maximum and radius options to ranges ([2b7b579](https://github.com/elyukai/optolith-database-schema/commit/2b7b579e1ee3b82bb7d779e19c373935816ff8d8))
+
 ### [0.1.18](https://github.com/elyukai/optolith-database-schema/compare/v0.1.17...v0.1.18) (2022-03-21)
 
 
