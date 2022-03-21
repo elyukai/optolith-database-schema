@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.18](https://github.com/elyukai/optolith-database-schema/compare/v0.1.17...v0.1.18) (2022-03-21)
+
+
+### Features
+
+* animist powers can have prerequisites ([3fa06f4](https://github.com/elyukai/optolith-database-schema/commit/3fa06f41cbf84a0fbe54d51b5c2adb78d8c74129))
+* derived animist power costs can have notes ([3ca4f3e](https://github.com/elyukai/optolith-database-schema/commit/3ca4f3edb30847fdf1878a8ed56943930be30d9d))
+
+
+### Bug Fixes
+
+* wrong discriminator for race prerequisite ([dea373f](https://github.com/elyukai/optolith-database-schema/commit/dea373f141a1a64f95dc8f33a3ecbfb0f7d51993))
+
 ### [0.1.17](https://github.com/elyukai/optolith-database-schema/compare/v0.1.16...v0.1.17) (2022-03-21)
 
 
