@@ -623,12 +623,22 @@ export namespace Range {
       tag: "Modifiable"
 
       /**
+       * If `true`, the range is a maximum range.
+       */
+      is_maximum?: true
+
+      /**
        * The initial skill modification identifier/level.
        * @integer
        * @minimum 1
        * @maximum 6
        */
       initial_modification_level: number
+
+      /**
+       * If `true`, the range is a radius.
+       */
+      is_radius?: true
     }
     | { tag: "Sight" }
     | { tag: "Self" }
@@ -642,6 +652,11 @@ export namespace Range {
       tag: "Fixed"
 
       /**
+       * If `true`, the range is a maximum range.
+       */
+      is_maximum?: true
+
+      /**
        * The (unitless) range value.
        * @integer
        * @minimum 1
@@ -652,9 +667,19 @@ export namespace Range {
        * The unit of the `value`.
        */
       unit: Unit
+
+      /**
+       * If `true`, the range is a radius.
+       */
+      is_radius?: true
     }
     | {
       tag: "CheckResultBased"
+
+      /**
+       * If `true`, the range is a maximum range.
+       */
+      is_maximum?: true
 
       /**
        * The base value that is derived from the check result.
@@ -682,6 +707,11 @@ export namespace Range {
        * The range unit.
        */
       unit: Unit
+
+      /**
+       * If `true`, the range is a radius.
+       */
+      is_radius?: true
     }
 
   export enum Unit {

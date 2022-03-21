@@ -1324,11 +1324,19 @@ numeric values.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#Range/RangeValue'Modifiable/tag">See details</a>
+`is_maximum?` | If `true`, the range is a maximum range. | <a href="#Range/RangeValue'Modifiable/is_maximum">See details</a>
 `initial_modification_level` | The initial skill modification identifier/level. | <a href="#Range/RangeValue'Modifiable/initial_modification_level">See details</a>
+`is_radius?` | If `true`, the range is a radius. | <a href="#Range/RangeValue'Modifiable/is_radius">See details</a>
 
 #### <a name="Range/RangeValue'Modifiable/tag"></a> `tag`
 
 - **Constant:** `"Modifiable"`
+
+#### <a name="Range/RangeValue'Modifiable/is_maximum"></a> `is_maximum?`
+
+If `true`, the range is a maximum range.
+
+- **Constant:** `true`
 
 #### <a name="Range/RangeValue'Modifiable/initial_modification_level"></a> `initial_modification_level`
 
@@ -1337,6 +1345,12 @@ The initial skill modification identifier/level.
 - **Type:** Integer
 - **Minimum:** `1`
 - **Maximum:** `6`
+
+#### <a name="Range/RangeValue'Modifiable/is_radius"></a> `is_radius?`
+
+If `true`, the range is a radius.
+
+- **Constant:** `true`
 
 ---
 
@@ -1391,12 +1405,20 @@ German: *dereumfassend*
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#Range/RangeValue'Fixed/tag">See details</a>
+`is_maximum?` | If `true`, the range is a maximum range. | <a href="#Range/RangeValue'Fixed/is_maximum">See details</a>
 `value` | The (unitless) range value. | <a href="#Range/RangeValue'Fixed/value">See details</a>
 `unit` | The unit of the `value`. | <a href="#Range/RangeValue'Fixed/unit">See details</a>
+`is_radius?` | If `true`, the range is a radius. | <a href="#Range/RangeValue'Fixed/is_radius">See details</a>
 
 #### <a name="Range/RangeValue'Fixed/tag"></a> `tag`
 
 - **Constant:** `"Fixed"`
+
+#### <a name="Range/RangeValue'Fixed/is_maximum"></a> `is_maximum?`
+
+If `true`, the range is a maximum range.
+
+- **Constant:** `true`
 
 #### <a name="Range/RangeValue'Fixed/value"></a> `value`
 
@@ -1411,6 +1433,12 @@ The unit of the `value`.
 
 - **Type:** <a href="#Range/Unit">Range/Unit</a>
 
+#### <a name="Range/RangeValue'Fixed/is_radius"></a> `is_radius?`
+
+If `true`, the range is a radius.
+
+- **Constant:** `true`
+
 ---
 
 ### <a name="Range/RangeValue'CheckResultBased"></a> `Range/RangeValue'CheckResultBased`
@@ -1420,13 +1448,21 @@ The unit of the `value`.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#Range/RangeValue'CheckResultBased/tag">See details</a>
+`is_maximum?` | If `true`, the range is a maximum range. | <a href="#Range/RangeValue'CheckResultBased/is_maximum">See details</a>
 `base` | The base value that is derived from the check result. | <a href="#Range/RangeValue'CheckResultBased/base">See details</a>
 `modifier?` | If defined, it modifies the base value. | <a href="#Range/RangeValue'CheckResultBased/modifier">See details</a>
 `unit` | The range unit. | <a href="#Range/RangeValue'CheckResultBased/unit">See details</a>
+`is_radius?` | If `true`, the range is a radius. | <a href="#Range/RangeValue'CheckResultBased/is_radius">See details</a>
 
 #### <a name="Range/RangeValue'CheckResultBased/tag"></a> `tag`
 
 - **Constant:** `"CheckResultBased"`
+
+#### <a name="Range/RangeValue'CheckResultBased/is_maximum"></a> `is_maximum?`
+
+If `true`, the range is a maximum range.
+
+- **Constant:** `true`
 
 #### <a name="Range/RangeValue'CheckResultBased/base"></a> `base`
 
@@ -1445,6 +1481,12 @@ If defined, it modifies the base value.
 The range unit.
 
 - **Type:** <a href="#Range/Unit">Range/Unit</a>
+
+#### <a name="Range/RangeValue'CheckResultBased/is_radius"></a> `is_radius?`
+
+If `true`, the range is a radius.
+
+- **Constant:** `true`
 
 ---
 

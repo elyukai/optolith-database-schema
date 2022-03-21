@@ -922,11 +922,19 @@
               "tag": {
                 "const": "Modifiable"
               },
+              "is_maximum": {
+                "description": "If `true`, the range is a maximum range.",
+                "const": true
+              },
               "initial_modification_level": {
                 "description": "The initial skill modification identifier/level.",
                 "type": "integer",
                 "maximum": 6,
                 "minimum": 1
+              },
+              "is_radius": {
+                "description": "If `true`, the range is a radius.",
+                "const": true
               }
             },
             "required": [
@@ -978,6 +986,10 @@
               "tag": {
                 "const": "Fixed"
               },
+              "is_maximum": {
+                "description": "If `true`, the range is a maximum range.",
+                "const": true
+              },
               "value": {
                 "description": "The (unitless) range value.",
                 "type": "integer",
@@ -986,6 +998,10 @@
               "unit": {
                 "description": "The unit of the `value`.",
                 "$ref": "#/definitions/Range/Unit"
+              },
+              "is_radius": {
+                "description": "If `true`, the range is a radius.",
+                "const": true
               }
             },
             "required": [
@@ -1000,6 +1016,10 @@
             "properties": {
               "tag": {
                 "const": "CheckResultBased"
+              },
+              "is_maximum": {
+                "description": "If `true`, the range is a maximum range.",
+                "const": true
               },
               "base": {
                 "description": "The base value that is derived from the check result.",
@@ -1028,6 +1048,10 @@
               "unit": {
                 "description": "The range unit.",
                 "$ref": "#/definitions/Range/Unit"
+              },
+              "is_radius": {
+                "description": "If `true`, the range is a radius.",
+                "const": true
               }
             },
             "required": [
