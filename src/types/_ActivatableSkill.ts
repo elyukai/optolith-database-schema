@@ -759,7 +759,7 @@ export namespace Duration {
         /**
          * The (unitless) duration.
          * @integer
-         * @minimum 2
+         * @minimum 1
          */
         value: number
 
@@ -1046,6 +1046,7 @@ export namespace Duration {
     Weeks = "Weeks",
     Months = "Months",
     Years = "Years",
+    Centuries = "Centuries",
     CombatRounds = "CombatRounds",
   }
 

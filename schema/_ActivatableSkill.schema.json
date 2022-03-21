@@ -1149,7 +1149,7 @@
                 "value": {
                   "description": "The (unitless) duration.",
                   "type": "integer",
-                  "minimum": 2
+                  "minimum": 1
                 },
                 "unit": {
                   "description": "The duration unit.",
@@ -1553,6 +1553,7 @@
           "Weeks",
           "Months",
           "Years",
+          "Centuries",
           "CombatRounds"
         ]
       },

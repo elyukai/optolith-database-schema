@@ -1623,7 +1623,7 @@ If the duration is the maximum duration, so it may end earlier.
 The (unitless) duration.
 
 - **Type:** Integer
-- **Minimum:** `2`
+- **Minimum:** `1`
 
 #### <a name="Duration/OneTime/T'Fixed/unit"></a> `unit`
 
@@ -2175,7 +2175,7 @@ The sustained skill can be active a maximum amount of time.
 
 ### <a name="Duration/Unit"></a> `Duration/Unit`
 
-- **Possible values:** `"Seconds"`, `"Minutes"`, `"Hours"`, `"Days"`, `"Weeks"`, `"Months"`, `"Years"`, `"CombatRounds"`
+- **Possible values:** `"Seconds"`, `"Minutes"`, `"Hours"`, `"Days"`, `"Weeks"`, `"Months"`, `"Years"`, `"Centuries"`, `"CombatRounds"`
 
 ---
 
