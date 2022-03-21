@@ -109,6 +109,9 @@
             }
           ]
         },
+        "prerequisites": {
+          "$ref": "../_Prerequisite.schema.json#/definitions/AnimistPowerPrerequisites"
+        },
         "levels": {
           "description": "The animist power can have multiple levels. Each level is skilled\nseparately. A previous level must be on at least 10 so that the next higher\nlevel can be activated and skilled. A higher level cannot be skilled higher\nthan a lower level. Each level also adds an effect text to the text of the\nfirst level.",
           "type": "array",

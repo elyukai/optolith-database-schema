@@ -7,6 +7,7 @@ import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import { Duration, Effect } from "../_ActivatableSkill.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
+import { AnimistPowerPrerequisites } from "../_Prerequisite.js"
 import { SkillCheck } from "../_SkillCheck.js"
 
 /**
@@ -73,6 +74,8 @@ export type AnimistPower = {
       value: ImprovementCost
     }
     | { tag: "ByPrimaryPatron" }
+
+  prerequisites?: AnimistPowerPrerequisites
 
   /**
    * The animist power can have multiple levels. Each level is skilled

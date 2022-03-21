@@ -14,6 +14,7 @@ Key | Description | Details
 `property_id` | The property's identifier. | <a href="#AnimistPower/property_id">See details</a>
 `tribe_tradition` | The tribe traditions the animist power is available to. It may be available to all or only specific tribes. | <a href="#AnimistPower/tribe_tradition">See details</a>
 `improvement_cost` | States which column is used to improve the skill. It is a fixed value or depends on the primary patron. | <a href="#AnimistPower/improvement_cost">See details</a>
+`prerequisites?` |  | <a href="#AnimistPower/prerequisites">See details</a>
 `levels?` | The animist power can have multiple levels. Each level is skilled separately. A previous level must be on at least 10 so that the next higher level can be activated and skilled. A higher level cannot be skilled higher than a lower level. Each level also adds an effect text to the text of the first level. | <a href="#AnimistPower/levels">See details</a>
 `src` |  | <a href="#AnimistPower/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#AnimistPower/translations">See details</a>
@@ -59,6 +60,10 @@ depends on the primary patron.
 
 - **Type:** Union
 - **Cases:** <a href="#AnimistPower/improvement_cost'Flat">AnimistPower/improvement_cost'Flat</a> | <a href="#AnimistPower/improvement_cost'ByPrimaryPatron">AnimistPower/improvement_cost'ByPrimaryPatron</a>
+
+#### <a name="AnimistPower/prerequisites"></a> `prerequisites?`
+
+- **Type:** <a href="../_Prerequisite.md#AnimistPowerPrerequisites">AnimistPowerPrerequisites</a>
 
 #### <a name="AnimistPower/levels"></a> `levels?`
 
