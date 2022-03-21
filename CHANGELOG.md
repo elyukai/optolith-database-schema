@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.17](https://github.com/elyukai/optolith-database-schema/compare/v0.1.16...v0.1.17) (2022-03-21)
+
+
+### Bug Fixes
+
+* duration value can be 1 ([9be3bdb](https://github.com/elyukai/optolith-database-schema/commit/9be3bdbc0e0b8502e7d0424f94eaf1b7b57091eb))
+* zibilja rituals need their own custom parameters ([d60ee69](https://github.com/elyukai/optolith-database-schema/commit/d60ee693dda449d2b00d4f77dbef8d0a9e1e1e8b))
+
 ### [0.1.16](https://github.com/elyukai/optolith-database-schema/compare/v0.1.15...v0.1.16) (2022-03-17)
 
 
