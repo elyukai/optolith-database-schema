@@ -290,6 +290,42 @@
                     "interval": {
                       "description": "If defined, half of the AE cost `value` has to be paid each\ninterval.",
                       "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/UnitValue"
+                    },
+                    "translations": {
+                      "description": "All translations for the entry, identified by IETF language tag\n(BCP47).",
+                      "type": "object",
+                      "patternProperties": {
+                        "^[a-z]{2}-[A-Z]{2}$": {
+                          "type": "object",
+                          "properties": {
+                            "note": {
+                              "description": "A note, appended to the generated string in parenthesis.",
+                              "type": "object",
+                              "properties": {
+                                "default": {
+                                  "description": "The full note.",
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "compressed": {
+                                  "description": "A compressed note, if applicable. If not specified it should not\nbe displayed in small location.",
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              },
+                              "required": [
+                                "default"
+                              ],
+                              "additionalProperties": false
+                            }
+                          },
+                          "required": [],
+                          "minProperties": 1,
+                          "additionalProperties": false
+                        }
+                      },
+                      "minProperties": 1,
+                      "additionalProperties": false
                     }
                   },
                   "required": [
@@ -395,6 +431,42 @@
                     "interval": {
                       "description": "Half of the AE cost `value` has to be paid each interval.",
                       "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/UnitValue"
+                    },
+                    "translations": {
+                      "description": "All translations for the entry, identified by IETF language tag\n(BCP47).",
+                      "type": "object",
+                      "patternProperties": {
+                        "^[a-z]{2}-[A-Z]{2}$": {
+                          "type": "object",
+                          "properties": {
+                            "note": {
+                              "description": "A note, appended to the generated string in parenthesis.",
+                              "type": "object",
+                              "properties": {
+                                "default": {
+                                  "description": "The full note.",
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "compressed": {
+                                  "description": "A compressed note, if applicable. If not specified it should not\nbe displayed in small location.",
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              },
+                              "required": [
+                                "default"
+                              ],
+                              "additionalProperties": false
+                            }
+                          },
+                          "required": [],
+                          "minProperties": 1,
+                          "additionalProperties": false
+                        }
+                      },
+                      "minProperties": 1,
+                      "additionalProperties": false
                     }
                   },
                   "required": [

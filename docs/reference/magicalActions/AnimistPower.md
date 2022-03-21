@@ -406,6 +406,7 @@ Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#PerformanceParameters'OneTime/cost'ByPrimaryPatron/tag">See details</a>
 `interval?` | If defined, half of the AE cost `value` has to be paid each interval. | <a href="#PerformanceParameters'OneTime/cost'ByPrimaryPatron/interval">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations">See details</a>
 
 #### <a name="PerformanceParameters'OneTime/cost'ByPrimaryPatron/tag"></a> `tag`
 
@@ -417,6 +418,61 @@ If defined, half of the AE cost `value` has to be paid each
 interval.
 
 - **Type:** <a href="../_ActivatableSkill.md#Duration/UnitValue">Duration/UnitValue</a>
+
+#### <a name="PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations"></a> `translations?`
+
+All translations for the entry, identified by IETF language tag
+(BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations[key]">PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations[key]"></a> `PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations[key]`
+
+- **Type:** Object
+- **Minimum Properties:** `1`
+
+Key | Description | Details
+:-- | :-- | :--
+`note?` | A note, appended to the generated string in parenthesis. | <a href="#PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations[key]/note">See details</a>
+
+#### <a name="PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations[key]/note"></a> `note?`
+
+A note, appended to the generated string in parenthesis.
+
+- **Type:** <a href="#PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations[key]/note">Object</a>
+
+---
+
+### <a name="PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations[key]/note"></a> `PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations[key]/note`
+
+A note, appended to the generated string in parenthesis.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`default` | The full note. | <a href="#PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations[key]/note/default">See details</a>
+`compressed?` | A compressed note, if applicable. If not specified it should not be displayed in small location. | <a href="#PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations[key]/note/compressed">See details</a>
+
+#### <a name="PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations[key]/note/default"></a> `default`
+
+The full note.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+#### <a name="PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations[key]/note/compressed"></a> `compressed?`
+
+A compressed note, if applicable. If not specified it should not
+be displayed in small location.
+
+- **Type:** String
+- **Minimum Length:** `1`
 
 ---
 
@@ -536,6 +592,7 @@ Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#PerformanceParameters'Sustained/cost'ByPrimaryPatron/tag">See details</a>
 `interval` | Half of the AE cost `value` has to be paid each interval. | <a href="#PerformanceParameters'Sustained/cost'ByPrimaryPatron/interval">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations">See details</a>
 
 #### <a name="PerformanceParameters'Sustained/cost'ByPrimaryPatron/tag"></a> `tag`
 
@@ -546,3 +603,58 @@ Key | Description | Details
 Half of the AE cost `value` has to be paid each interval.
 
 - **Type:** <a href="../_ActivatableSkill.md#Duration/UnitValue">Duration/UnitValue</a>
+
+#### <a name="PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations"></a> `translations?`
+
+All translations for the entry, identified by IETF language tag
+(BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations[key]">PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations[key]"></a> `PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations[key]`
+
+- **Type:** Object
+- **Minimum Properties:** `1`
+
+Key | Description | Details
+:-- | :-- | :--
+`note?` | A note, appended to the generated string in parenthesis. | <a href="#PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations[key]/note">See details</a>
+
+#### <a name="PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations[key]/note"></a> `note?`
+
+A note, appended to the generated string in parenthesis.
+
+- **Type:** <a href="#PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations[key]/note">Object</a>
+
+---
+
+### <a name="PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations[key]/note"></a> `PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations[key]/note`
+
+A note, appended to the generated string in parenthesis.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`default` | The full note. | <a href="#PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations[key]/note/default">See details</a>
+`compressed?` | A compressed note, if applicable. If not specified it should not be displayed in small location. | <a href="#PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations[key]/note/compressed">See details</a>
+
+#### <a name="PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations[key]/note/default"></a> `default`
+
+The full note.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+#### <a name="PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations[key]/note/compressed"></a> `compressed?`
+
+A compressed note, if applicable. If not specified it should not
+be displayed in small location.
+
+- **Type:** String
+- **Minimum Length:** `1`

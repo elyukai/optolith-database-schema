@@ -206,6 +206,37 @@ type PerformanceParameters =
          * interval.
          */
         interval?: Duration.UnitValue
+
+        /**
+         * All translations for the entry, identified by IETF language tag
+         * (BCP47).
+         * @minProperties 1
+         */
+        translations?: {
+          /**
+           * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+           * @minProperties 1
+           */
+          [localeId: string]: {
+            /**
+             * A note, appended to the generated string in parenthesis.
+             */
+            note?: {
+              /**
+               * The full note.
+               * @minLength 1
+               */
+              default: string
+
+              /**
+               * A compressed note, if applicable. If not specified it should not
+               * be displayed in small location.
+               * @minLength 1
+               */
+              compressed?: string
+            }
+          }
+        }
       }
 
     /**
@@ -265,6 +296,37 @@ type PerformanceParameters =
          * Half of the AE cost `value` has to be paid each interval.
          */
         interval: Duration.UnitValue
+
+        /**
+         * All translations for the entry, identified by IETF language tag
+         * (BCP47).
+         * @minProperties 1
+         */
+        translations?: {
+          /**
+           * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+           * @minProperties 1
+           */
+          [localeId: string]: {
+            /**
+             * A note, appended to the generated string in parenthesis.
+             */
+            note?: {
+              /**
+               * The full note.
+               * @minLength 1
+               */
+              default: string
+
+              /**
+               * A compressed note, if applicable. If not specified it should not
+               * be displayed in small location.
+               * @minLength 1
+               */
+              compressed?: string
+            }
+          }
+        }
       }
   }
 
