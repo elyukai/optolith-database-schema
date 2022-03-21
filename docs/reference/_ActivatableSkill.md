@@ -400,6 +400,29 @@ Key | Description | Details
 
 ---
 
+### <a name="CastingTime/ModifiableCastingTime"></a> `CastingTime/ModifiableCastingTime`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CastingTime/ModifiableCastingTime/tag">See details</a>
+`initial_modification_level` | The initial skill modification identifier/level. | <a href="#CastingTime/ModifiableCastingTime/initial_modification_level">See details</a>
+
+#### <a name="CastingTime/ModifiableCastingTime/tag"></a> `tag`
+
+- **Constant:** `"Modifiable"`
+
+#### <a name="CastingTime/ModifiableCastingTime/initial_modification_level"></a> `initial_modification_level`
+
+The initial skill modification identifier/level.
+
+- **Type:** Integer
+- **Minimum:** `1`
+- **Maximum:** `6`
+
+---
+
 ### <a name="CastingTime/FastSkillCastingTime"></a> `CastingTime/FastSkillCastingTime`
 
 - **Type:** Object
@@ -463,7 +486,7 @@ Key | Description | Details
 The default casting time definition.
 
 - **Type:** Union
-- **Cases:** <a href="#CastingTime/Fast/default'Modifiable">CastingTime/Fast/default'Modifiable</a> | <a href="#CastingTime/Fast/default'FastSkillCastingTime">CastingTime/Fast/default'FastSkillCastingTime</a>
+- **Cases:** <a href="#CastingTime/Fast/default'ModifiableCastingTime">CastingTime/Fast/default'ModifiableCastingTime</a> | <a href="#CastingTime/Fast/default'FastSkillCastingTime">CastingTime/Fast/default'FastSkillCastingTime</a>
 
 #### <a name="CastingTime/Fast/during_lovemaking"></a> `during_lovemaking?`
 
@@ -475,26 +498,9 @@ during lovemaking.
 
 ---
 
-### <a name="CastingTime/Fast/default'Modifiable"></a> `CastingTime/Fast/default'Modifiable`
+### <a name="CastingTime/Fast/default'ModifiableCastingTime"></a> `CastingTime/Fast/default'ModifiableCastingTime`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#CastingTime/Fast/default'Modifiable/tag">See details</a>
-`initial_modification_level` | The initial skill modification identifier/level. | <a href="#CastingTime/Fast/default'Modifiable/initial_modification_level">See details</a>
-
-#### <a name="CastingTime/Fast/default'Modifiable/tag"></a> `tag`
-
-- **Constant:** `"Modifiable"`
-
-#### <a name="CastingTime/Fast/default'Modifiable/initial_modification_level"></a> `initial_modification_level`
-
-The initial skill modification identifier/level.
-
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `6`
+- **Type:** <a href="#CastingTime/ModifiableCastingTime">CastingTime/ModifiableCastingTime</a>
 
 ---
 
@@ -546,7 +552,7 @@ Key | Description | Details
 The default casting time definition.
 
 - **Type:** Union
-- **Cases:** <a href="#CastingTime/Slow/default'Modifiable">CastingTime/Slow/default'Modifiable</a> | <a href="#CastingTime/Slow/default'SlowSkillCastingTime">CastingTime/Slow/default'SlowSkillCastingTime</a>
+- **Cases:** <a href="#CastingTime/Slow/default'ModifiableCastingTime">CastingTime/Slow/default'ModifiableCastingTime</a> | <a href="#CastingTime/Slow/default'SlowSkillCastingTime">CastingTime/Slow/default'SlowSkillCastingTime</a>
 
 #### <a name="CastingTime/Slow/during_lovemaking"></a> `during_lovemaking?`
 
@@ -558,26 +564,9 @@ during lovemaking.
 
 ---
 
-### <a name="CastingTime/Slow/default'Modifiable"></a> `CastingTime/Slow/default'Modifiable`
+### <a name="CastingTime/Slow/default'ModifiableCastingTime"></a> `CastingTime/Slow/default'ModifiableCastingTime`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#CastingTime/Slow/default'Modifiable/tag">See details</a>
-`initial_modification_level` | The initial skill modification identifier/level. | <a href="#CastingTime/Slow/default'Modifiable/initial_modification_level">See details</a>
-
-#### <a name="CastingTime/Slow/default'Modifiable/tag"></a> `tag`
-
-- **Constant:** `"Modifiable"`
-
-#### <a name="CastingTime/Slow/default'Modifiable/initial_modification_level"></a> `initial_modification_level`
-
-The initial skill modification identifier/level.
-
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `6`
+- **Type:** <a href="#CastingTime/ModifiableCastingTime">CastingTime/ModifiableCastingTime</a>
 
 ---
 

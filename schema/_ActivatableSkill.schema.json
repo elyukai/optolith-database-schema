@@ -284,6 +284,25 @@
       ]
     },
     "CastingTime": {
+      "ModifiableCastingTime": {
+        "type": "object",
+        "properties": {
+          "tag": {
+            "const": "Modifiable"
+          },
+          "initial_modification_level": {
+            "description": "The initial skill modification identifier/level.",
+            "type": "integer",
+            "maximum": 6,
+            "minimum": 1
+          }
+        },
+        "required": [
+          "tag",
+          "initial_modification_level"
+        ],
+        "additionalProperties": false
+      },
       "FastSkillCastingTime": {
         "type": "object",
         "properties": {
@@ -331,23 +350,7 @@
             "description": "The default casting time definition.",
             "oneOf": [
               {
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Modifiable"
-                  },
-                  "initial_modification_level": {
-                    "description": "The initial skill modification identifier/level.",
-                    "type": "integer",
-                    "maximum": 6,
-                    "minimum": 1
-                  }
-                },
-                "required": [
-                  "tag",
-                  "initial_modification_level"
-                ],
-                "additionalProperties": false
+                "$ref": "#/definitions/CastingTime/ModifiableCastingTime"
               },
               {
                 "$ref": "#/definitions/CastingTime/FastSkillCastingTime"
@@ -387,23 +390,7 @@
             "description": "The default casting time definition.",
             "oneOf": [
               {
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Modifiable"
-                  },
-                  "initial_modification_level": {
-                    "description": "The initial skill modification identifier/level.",
-                    "type": "integer",
-                    "maximum": 6,
-                    "minimum": 1
-                  }
-                },
-                "required": [
-                  "tag",
-                  "initial_modification_level"
-                ],
-                "additionalProperties": false
+                "$ref": "#/definitions/CastingTime/ModifiableCastingTime"
               },
               {
                 "$ref": "#/definitions/CastingTime/SlowSkillCastingTime"

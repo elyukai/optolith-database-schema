@@ -175,17 +175,7 @@ export namespace CastingTime {
      * The default casting time definition.
      */
     default:
-      | {
-        tag: "Modifiable"
-
-        /**
-         * The initial skill modification identifier/level.
-         * @integer
-         * @minimum 1
-         * @maximum 6
-         */
-        initial_modification_level: number
-      }
+      | ModifiableCastingTime
       | NonModifiable
 
     /**
@@ -206,6 +196,18 @@ export namespace CastingTime {
        */
       unit: CastingTimeDuringLovemakingUnit
     }
+  }
+
+  export type ModifiableCastingTime = {
+    tag: "Modifiable"
+
+    /**
+     * The initial skill modification identifier/level.
+     * @integer
+     * @minimum 1
+     * @maximum 6
+     */
+    initial_modification_level: number
   }
 
   export type FastSkillCastingTime = {
