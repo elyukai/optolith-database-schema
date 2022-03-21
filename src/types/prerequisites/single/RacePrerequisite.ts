@@ -8,7 +8,7 @@ import { DisplayOption } from "../DisplayOption.js"
  * @title Race Prerequisite
  */
 export type RacePrerequisite = {
-  tag: "Culture"
+  tag: "Race"
 
   id: OneOrManyNumericIdentifiers
 

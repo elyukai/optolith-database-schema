@@ -19,7 +19,7 @@ Key | Description | Details
 
 #### <a name="RacePrerequisite/tag"></a> `tag`
 
-- **Constant:** `"Culture"`
+- **Constant:** `"Race"`
 
 #### <a name="RacePrerequisite/id"></a> `id`
 

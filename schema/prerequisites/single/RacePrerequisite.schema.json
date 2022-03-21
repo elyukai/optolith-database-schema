@@ -8,7 +8,7 @@
       "type": "object",
       "properties": {
         "tag": {
-          "const": "Culture"
+          "const": "Race"
         },
         "id": {
           "$ref": "../../_Identifier.schema.json#/definitions/OneOrManyNumericIdentifiers"
