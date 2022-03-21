@@ -1219,22 +1219,35 @@ All translations for the entry, identified by IETF language tag (BCP47).
 ### <a name="Range/T/translations[key]"></a> `Range/T/translations[key]`
 
 - **Type:** Object
+- **Minimum Properties:** `1`
 
 Key | Description | Details
 :-- | :-- | :--
-`note` | A note, appended to the generated string in parenthesis. | <a href="#Range/T/translations[key]/note">See details</a>
+`note?` | A note, appended to the generated string in parenthesis. If the generated is modified using `replacement`, the note is appended to the modifier string. | <a href="#Range/T/translations[key]/note">See details</a>
+`replacement?` | A replacement string. If `note` is provided, it is appended to the replaced string. | <a href="#Range/T/translations[key]/replacement">See details</a>
 
-#### <a name="Range/T/translations[key]/note"></a> `note`
+#### <a name="Range/T/translations[key]/note"></a> `note?`
 
-A note, appended to the generated string in parenthesis.
+A note, appended to the generated string in parenthesis. If the
+generated is modified using `replacement`, the note is appended to
+the modifier string.
 
 - **Type:** <a href="#Range/T/translations[key]/note">Object</a>
+
+#### <a name="Range/T/translations[key]/replacement"></a> `replacement?`
+
+A replacement string. If `note` is provided, it is appended to the
+replaced string.
+
+- **Type:** <a href="#Range/T/translations[key]/replacement">Object</a>
 
 ---
 
 ### <a name="Range/T/translations[key]/note"></a> `Range/T/translations[key]/note`
 
-A note, appended to the generated string in parenthesis.
+A note, appended to the generated string in parenthesis. If the
+generated is modified using `replacement`, the note is appended to
+the modifier string.
 
 - **Type:** Object
 
@@ -1257,6 +1270,43 @@ be displayed in small location.
 
 - **Type:** String
 - **Minimum Length:** `1`
+
+---
+
+### <a name="Range/T/translations[key]/replacement"></a> `Range/T/translations[key]/replacement`
+
+A replacement string. If `note` is provided, it is appended to the
+replaced string.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`default` | The full replacement string. It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values. | <a href="#Range/T/translations[key]/replacement/default">See details</a>
+`compressed` | A compressed replacement string for use in small areas (e.g. on character sheet). It must contain `$1`, which is going to be replaced with the generated duration string, so additional information can be provided without duplicating concrete numeric values. | <a href="#Range/T/translations[key]/replacement/compressed">See details</a>
+
+#### <a name="Range/T/translations[key]/replacement/default"></a> `default`
+
+The full replacement string. It must contain `$1`, which is
+going to be replaced with the generated duration string, so
+additional information can be provided without duplicating
+concrete numeric values.
+
+- **Type:** String
+- **Minimum Length:** `1`
+- **Pattern:** `\$1`
+
+#### <a name="Range/T/translations[key]/replacement/compressed"></a> `compressed`
+
+A compressed replacement string for use in small areas (e.g. on
+character sheet). It must contain `$1`, which is going to be
+replaced with the generated duration string, so additional
+information can be provided without duplicating concrete
+numeric values.
+
+- **Type:** String
+- **Minimum Length:** `1`
+- **Pattern:** `\$1`
 
 ---
 

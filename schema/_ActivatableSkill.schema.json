@@ -857,7 +857,7 @@
                 "type": "object",
                 "properties": {
                   "note": {
-                    "description": "A note, appended to the generated string in parenthesis.",
+                    "description": "A note, appended to the generated string in parenthesis. If the\ngenerated is modified using `replacement`, the note is appended to\nthe modifier string.",
                     "type": "object",
                     "properties": {
                       "default": {
@@ -875,11 +875,33 @@
                       "default"
                     ],
                     "additionalProperties": false
+                  },
+                  "replacement": {
+                    "description": "A replacement string. If `note` is provided, it is appended to the\nreplaced string.",
+                    "type": "object",
+                    "properties": {
+                      "default": {
+                        "description": "The full replacement string. It must contain `$1`, which is\ngoing to be replaced with the generated duration string, so\nadditional information can be provided without duplicating\nconcrete numeric values.",
+                        "type": "string",
+                        "minLength": 1,
+                        "pattern": "\\$1"
+                      },
+                      "compressed": {
+                        "description": "A compressed replacement string for use in small areas (e.g. on\ncharacter sheet). It must contain `$1`, which is going to be\nreplaced with the generated duration string, so additional\ninformation can be provided without duplicating concrete\nnumeric values.",
+                        "type": "string",
+                        "minLength": 1,
+                        "pattern": "\\$1"
+                      }
+                    },
+                    "required": [
+                      "default",
+                      "compressed"
+                    ],
+                    "additionalProperties": false
                   }
                 },
-                "required": [
-                  "note"
-                ],
+                "required": [],
+                "minProperties": 1,
                 "additionalProperties": false
               }
             },

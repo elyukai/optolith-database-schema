@@ -5,7 +5,7 @@
 import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
-import { Effect, SlowPerformanceParameters, TargetCategory } from "../_ActivatableSkill.js"
+import { CastingTime, Cost, Duration, Effect, Range, TargetCategory } from "../_ActivatableSkill.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
 import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
 
@@ -33,7 +33,7 @@ export type ZibiljaRitual = {
   /**
    * Measurable parameters of a zibilja ritual.
    */
-  parameters: SlowPerformanceParameters
+  parameters: PerformanceParameters
 
   /**
    * The target category – the kind of creature or object – the skill affects.
@@ -104,6 +104,13 @@ export type ZibiljaRitual = {
       errata?: Errata
     }
   }
+}
+
+type PerformanceParameters = {
+  casting_time: CastingTime.ModifiableCastingTime | CastingTime.SlowSkillCastingTime
+  cost: Cost.OneTime.T
+  range: Range.T
+  duration: Duration.OneTime.T
 }
 
 export const validateSchema = validateSchemaCreator<ZibiljaRitual>(import.meta.url)

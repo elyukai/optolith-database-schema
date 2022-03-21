@@ -41,7 +41,7 @@ In some cases, the target's Spirit or Toughness is applied as a penalty.
 
 Measurable parameters of a zibilja ritual.
 
-- **Type:** <a href="../_ActivatableSkill.md#SlowPerformanceParameters">SlowPerformanceParameters</a>
+- **Type:** <a href="#PerformanceParameters">PerformanceParameters</a>
 
 #### <a name="ZibiljaRitual/target"></a> `target`
 
@@ -206,3 +206,45 @@ Key | Description | Details
 #### <a name="ZibiljaRitual/translations[key]/duration/abbr"></a> `abbr`
 
 - **Type:** String
+
+---
+
+### <a name="PerformanceParameters"></a> `PerformanceParameters`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`casting_time` |  | <a href="#PerformanceParameters/casting_time">See details</a>
+`cost` |  | <a href="#PerformanceParameters/cost">See details</a>
+`range` |  | <a href="#PerformanceParameters/range">See details</a>
+`duration` |  | <a href="#PerformanceParameters/duration">See details</a>
+
+#### <a name="PerformanceParameters/casting_time"></a> `casting_time`
+
+- **Type:** Union
+- **Cases:** <a href="#PerformanceParameters/casting_time'ModifiableCastingTime">PerformanceParameters/casting_time'ModifiableCastingTime</a> | <a href="#PerformanceParameters/casting_time'SlowSkillCastingTime">PerformanceParameters/casting_time'SlowSkillCastingTime</a>
+
+#### <a name="PerformanceParameters/cost"></a> `cost`
+
+- **Type:** <a href="../_ActivatableSkill.md#Cost/OneTime/T">Cost/OneTime/T</a>
+
+#### <a name="PerformanceParameters/range"></a> `range`
+
+- **Type:** <a href="../_ActivatableSkill.md#Range/T">Range/T</a>
+
+#### <a name="PerformanceParameters/duration"></a> `duration`
+
+- **Type:** <a href="../_ActivatableSkill.md#Duration/OneTime/T">Duration/OneTime/T</a>
+
+---
+
+### <a name="PerformanceParameters/casting_time'ModifiableCastingTime"></a> `PerformanceParameters/casting_time'ModifiableCastingTime`
+
+- **Type:** <a href="../_ActivatableSkill.md#CastingTime/ModifiableCastingTime">CastingTime/ModifiableCastingTime</a>
+
+---
+
+### <a name="PerformanceParameters/casting_time'SlowSkillCastingTime"></a> `PerformanceParameters/casting_time'SlowSkillCastingTime`
+
+- **Type:** <a href="../_ActivatableSkill.md#CastingTime/SlowSkillCastingTime">CastingTime/SlowSkillCastingTime</a>

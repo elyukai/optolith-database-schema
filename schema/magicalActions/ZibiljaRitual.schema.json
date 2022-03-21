@@ -22,7 +22,7 @@
         },
         "parameters": {
           "description": "Measurable parameters of a zibilja ritual.",
-          "$ref": "../_ActivatableSkill.schema.json#/definitions/SlowPerformanceParameters"
+          "$ref": "#/definitions/PerformanceParameters"
         },
         "target": {
           "description": "The target category – the kind of creature or object – the skill affects.",
@@ -152,6 +152,37 @@
         "improvement_cost",
         "src",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "PerformanceParameters": {
+      "type": "object",
+      "properties": {
+        "casting_time": {
+          "oneOf": [
+            {
+              "$ref": "../_ActivatableSkill.schema.json#/definitions/CastingTime/ModifiableCastingTime"
+            },
+            {
+              "$ref": "../_ActivatableSkill.schema.json#/definitions/CastingTime/SlowSkillCastingTime"
+            }
+          ]
+        },
+        "cost": {
+          "$ref": "../_ActivatableSkill.schema.json#/definitions/Cost/OneTime/T"
+        },
+        "range": {
+          "$ref": "../_ActivatableSkill.schema.json#/definitions/Range/T"
+        },
+        "duration": {
+          "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/OneTime/T"
+        }
+      },
+      "required": [
+        "casting_time",
+        "cost",
+        "range",
+        "duration"
       ],
       "additionalProperties": false
     }

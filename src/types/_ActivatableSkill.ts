@@ -565,12 +565,15 @@ export namespace Range {
     translations?: {
       /**
        * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+       * @minProperties 1
        */
       [localeId: string]: {
         /**
-         * A note, appended to the generated string in parenthesis.
+         * A note, appended to the generated string in parenthesis. If the
+         * generated is modified using `replacement`, the note is appended to
+         * the modifier string.
          */
-        note: {
+        note?: {
           /**
            * The full note.
            * @minLength 1
@@ -583,6 +586,33 @@ export namespace Range {
            * @minLength 1
            */
           compressed?: string
+        }
+
+        /**
+         * A replacement string. If `note` is provided, it is appended to the
+         * replaced string.
+         */
+        replacement?: {
+          /**
+           * The full replacement string. It must contain `$1`, which is
+           * going to be replaced with the generated duration string, so
+           * additional information can be provided without duplicating
+           * concrete numeric values.
+           * @minLength 1
+           * @pattern \$1
+           */
+          default: string
+
+          /**
+           * A compressed replacement string for use in small areas (e.g. on
+           * character sheet). It must contain `$1`, which is going to be
+           * replaced with the generated duration string, so additional
+           * information can be provided without duplicating concrete
+           * numeric values.
+           * @minLength 1
+           * @pattern \$1
+           */
+          compressed: string
         }
       }
     }
