@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.21](https://github.com/elyukai/optolith-database-schema/compare/v0.1.20...v0.1.21) (2022-03-22)
+
+
+### Features
+
+* personality traits ([d800133](https://github.com/elyukai/optolith-database-schema/commit/d80013327924376a13fdee0efcc7efdf6d84e616))
+
 ### [0.1.20](https://github.com/elyukai/optolith-database-schema/compare/v0.1.19...v0.1.20) (2022-03-22)
 
 
