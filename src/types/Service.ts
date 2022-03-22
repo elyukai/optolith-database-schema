@@ -7,7 +7,7 @@ import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
- * @title Service of Summoned Creatures
+ * @title Service of Summoned Creatures and Monstrosities
  */
 export type Service = {
   /**
@@ -16,6 +16,16 @@ export type Service = {
    * @minimum 1
    */
   id: number
+
+  /**
+   * Defines for which creature type(s) the service is available.
+   * @minItems 1
+   * @uniqueItems
+   */
+  availability: (
+    | { tag: "SummonedCreatures" }
+    | { tag: "Monstrosities" }
+  )[]
 
   src: PublicationRefs
 

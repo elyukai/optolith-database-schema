@@ -4,13 +4,47 @@
   "$ref": "#/definitions/Service",
   "definitions": {
     "Service": {
-      "title": "Service of Summoned Creatures",
+      "title": "Service of Summoned Creatures and Monstrosities",
       "type": "object",
       "properties": {
         "id": {
           "description": "The service's identifier. An unique, increasing integer.",
           "type": "integer",
           "minimum": 1
+        },
+        "availability": {
+          "description": "Defines for which creature type(s) the service is available.",
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "tag": {
+                    "const": "SummonedCreatures"
+                  }
+                },
+                "required": [
+                  "tag"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "tag": {
+                    "const": "Monstrosities"
+                  }
+                },
+                "required": [
+                  "tag"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
         },
         "src": {
           "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
@@ -49,6 +83,7 @@
       },
       "required": [
         "id",
+        "availability",
         "src",
         "translations"
       ],
