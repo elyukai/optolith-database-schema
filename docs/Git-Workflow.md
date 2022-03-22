@@ -2,15 +2,15 @@
 
 Welcome to the introduction on how to contribute to Optolith static data using Git!
 
-You'll need a [GitHub account](https://github.com) (which you probably have if you see this), [Git](https://git-scm.com/downloads) locally installed and a code editor. I'll explain the steps you need to take using [Visual Studio Code](https://code.visualstudio.com) (VSCode), because it's a very easy-to-use and lightweight editor. I will try to avoid the command line in this tutorial.
+You'll need a [GitHub account](https://github.com) (which you probably have if you see this), [Git](https://git-scm.com/downloads) locally installed and a code editor. I'll explain the steps you need to take using [Visual Studio Code](https://code.visualstudio.com) (VSCode), because it's a very easy-to-use and lightweight editor. I will try to avoid the command line in this tutorial, although it is necessary for some steps.
 
 This tutorial is intended for helpers who have not yet learned about Git and programming. If you are already familiar with both, just jump to a later point or skip the tutorial altogether!
 
 ## Getting started
 
-Create a new GitHub account, if don't own one already.
+Create a new GitHub account, if you don't own one already.
 
-Install *Git*. You don't need to change any installation options, just click *Next*.
+Install *Git*. You don't need to change any installation options, just click *Next*—you can change the editor to Visual Studio Code, if you want, though.
 
 Let's *clone* the *repository* onto your computer.
 
@@ -48,7 +48,7 @@ git clone https://github.com/elyukai/optolith-data.git .
 **Warning:** Don't put this folder inside a folder synced to a cloud service, since a lot of tiny files will not work with it and may crash your service.
 
 ### On Mac:
-Open the finder and go *to the parent folder* of a folder where you would like to out the copy. Open the terminal, type `cd` and then drag the folder you want the repo in into the terminal. This will insert the path to the folder. It should roughly look like
+Open the finder and go *to the parent folder* of a folder where you would like to put the copy. Open the terminal, type `cd` and then drag the folder you want the repo in into the terminal. This will insert the path to the folder. It should roughly look like
 
 ```shell script
 cd ~/path/to/folder
@@ -77,6 +77,16 @@ If you want to copy the repo into the current folder without an extra subdirecto
 ```shell script
 git clone https://github.com/elyukai/optolith-data.git .
 ```
+
+## Install Node.js and relevant modules
+
+Install the *Current* version of [Node.js](https://nodejs.org/). Then navigate to your cloned folder in the command line, if you are not already inside the correct folder. You can use `cd folder` to move inside `folder`. Then run
+
+```shell script
+npm i
+```
+
+This will install the database configuration, which is necessary to let Visual Studio Code help you entering or changing data.
 
 ## Install and configure VSCode
 
@@ -185,4 +195,4 @@ You'll get notified per e-mail if there are any comments and once you're done an
 
 ## Continue your work
 
-To start on a new feature, create a new branch as explained before. But you need to make sure that you branch off from `develop` and that there are no commits to pull! If you switch to `develop` and the sync indicator says there are one or more changes to pull (incoming changes) you need to sync first! Only then you should create a new branch.
+To start on a new feature, create a new branch as explained before. But you need to make sure that you branch off from `develop` and that there are no commits to pull! If you switch to `develop` and the sync indicator says there are one or more changes to pull (incoming changes) you need to sync first! Only then you should create a new branch. It is recommended to sync the `develop` branch in any case. You also need to make sure that the database configuration is up-to-date, since that might change in other commits to that branch. To do that, simply run `npm i` in the command line again.
