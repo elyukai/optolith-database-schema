@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.20](https://github.com/elyukai/optolith-database-schema/compare/v0.1.19...v0.1.20) (2022-03-22)
+
+
+### Features
+
+* services can be for multiple creature types ([1853485](https://github.com/elyukai/optolith-database-schema/commit/1853485aea88c38339b5ad5d3396aef7dc263888))
+
 ### [0.1.19](https://github.com/elyukai/optolith-database-schema/compare/v0.1.18...v0.1.19) (2022-03-21)
 
 
