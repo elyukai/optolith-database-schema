@@ -38,6 +38,7 @@ import { MetaCondition, validateSchema as validateMetaConditionSchema } from "./
 import { PactCategory, validateSchema as validatePactCategorySchema } from "./types/PactCategory.js"
 import { Patron, validateSchema as validatePatronSchema } from "./types/Patron.js"
 import { PatronCategory, validateSchema as validatePatronCategorySchema } from "./types/PatronCategory.js"
+import { PersonalityTrait, validateSchema as validatePersonalityTraitSchema } from "./types/PersonalityTrait.js"
 import { Property, validateSchema as validatePropertySchema } from "./types/Property.js"
 import { Race, validateSchema as validateRaceSchema } from "./types/Race.js"
 import { Region, validateSchema as validateRegionSchema } from "./types/Region.js"
@@ -190,6 +191,7 @@ export type TypeMap = {
   pactGifts: PactGift
   patronCategories: PatronCategory
   patrons: Patron
+  personalityTraits: PersonalityTrait
   properties: Property
   protectiveWardingCircleSpecialAbilities: ProtectiveWardingCircleSpecialAbility
   publications: Publication
@@ -304,6 +306,7 @@ export const typeValidatorMap: { [K in keyof TypeMap]: TypeValidator<TypeMap[K]>
   pactGifts: validatePactGiftSchema,
   patronCategories: validatePatronCategorySchema,
   patrons: validatePatronSchema,
+  personalityTraits: validatePersonalityTraitSchema,
   properties: validatePropertySchema,
   protectiveWardingCircleSpecialAbilities: validateProtectiveWardingCircleSpecialAbilitySchema,
   publications: validatePublicationSchema,

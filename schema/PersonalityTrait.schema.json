@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "/PersonalityTrait.schema.json",
+  "$ref": "#/definitions/PersonalityTrait",
+  "definitions": {
+    "PersonalityTrait": {
+      "title": "Personality Trait",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The personality trait's identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "level": {
+          "description": "The personality trait's level.",
+          "type": "integer",
+          "maximum": 3,
+          "minimum": 1
+        },
+        "prerequisites": {
+          "$ref": "./_Prerequisite.schema.json#/definitions/PersonalityTraitPrerequisites"
+        },
+        "combination_options": {
+          "description": "The lower-level personality trait(s) this trait can be combined with.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "The referenced personality trait's identifier.",
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "src": {
+          "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "The name of the personality trait.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "effects": {
+                  "description": "The effects of the personality trait. They should be sorted like they\nare in the book.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "label": {
+                        "description": "A label that is displayed and placed before the actual text.",
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "text": {
+                        "description": "The effect text.",
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "text"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1
+                },
+                "errata": {
+                  "$ref": "./source/_Erratum.schema.json#/definitions/Errata"
+                }
+              },
+              "required": [
+                "name",
+                "effects"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "level",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
