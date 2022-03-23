@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.23](https://github.com/elyukai/optolith-database-schema/compare/v0.1.22...v0.1.23) (2022-03-23)
+
+
+### Features
+
+* church influences ([81b96c4](https://github.com/elyukai/optolith-database-schema/commit/81b96c49bb365527bbbededc02afb227b80bff98))
+* core rules ([3be09e3](https://github.com/elyukai/optolith-database-schema/commit/3be09e3707a198ff0697ccf9325e83037ebd6e32))
+* equipment packages ([8fc29ef](https://github.com/elyukai/optolith-database-schema/commit/8fc29ef67ab8679f95234e30e19a49486a05b6fc))
+* magical tradition placeholders# ([bfa1e18](https://github.com/elyukai/optolith-database-schema/commit/bfa1e18195b847925a8fd8d3e56b8ff130d8a584))
+* profession male/female names and groups ([a38b0f4](https://github.com/elyukai/optolith-database-schema/commit/a38b0f4401444318b57bb163eb7192dd58b83d3d))
+* talismans ([22a1a4f](https://github.com/elyukai/optolith-database-schema/commit/22a1a4f00985f70dba7d5b38f2f583263cf0389d))
+* talismans support multiple traditions ([480779e](https://github.com/elyukai/optolith-database-schema/commit/480779e9c41efc6e5685b52cc45339bb04e94c97))
+* update validation config to include latest new definitions ([bb9d856](https://github.com/elyukai/optolith-database-schema/commit/bb9d85685edee1eb3ac30589eb25e09c02bc36da))
+
 ### [0.1.22](https://github.com/elyukai/optolith-database-schema/compare/v0.1.21...v0.1.22) (2022-03-23)
 
 
