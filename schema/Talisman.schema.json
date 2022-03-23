@@ -1,0 +1,169 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "/Talisman.schema.json",
+  "$ref": "#/definitions/Talisman",
+  "definitions": {
+    "Talisman": {
+      "title": "Talisman",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The talisman's identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "tradition": {
+          "description": "The tradition the talisman belongs to.",
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "The blessed traditions's identifier.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "type": {
+          "description": "The talisman type.",
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "MainTalisman"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Talisman"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "MinorTalisman"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Regalia"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "PowerfulTalisman"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "ap_value": {
+          "description": "The AP value for the required trade secret.",
+          "type": "integer",
+          "minimum": 5,
+          "multipleOf": 5
+        },
+        "src": {
+          "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "The name of the talisman.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "description": {
+                  "description": "The effect description.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "activation": {
+                  "description": "The activation parameters.",
+                  "type": "object",
+                  "properties": {
+                    "cost": {
+                      "description": "The KP cost.",
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "duration": {
+                      "description": "The duration.",
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "cost",
+                    "duration"
+                  ],
+                  "additionalProperties": false
+                },
+                "errata": {
+                  "$ref": "./source/_Erratum.schema.json#/definitions/Errata"
+                }
+              },
+              "required": [
+                "name",
+                "description",
+                "activation"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "tradition",
+        "type",
+        "ap_value",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
