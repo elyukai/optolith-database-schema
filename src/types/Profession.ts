@@ -26,6 +26,18 @@ export type Profession = {
   group: Group
 
   /**
+   * The curriculum/academy associated with this magical profession, if any.
+   */
+  curriculum?: {
+    /**
+     * The curriculum's identifier.
+     * @integer
+     * @minimum 1
+     */
+    id: number
+  }
+
+  /**
    * A list of professions representing the same profession but with (slightly)
    * different stats. For example, there may be a profession in a regional
    * sourcebook or in the core rules and a profession in an extension rulebook
@@ -211,6 +223,12 @@ export type ProfessionRepresentationVariant = {
       name: Name
 
       /**
+       * A name addition of the profession. This will contain texts like name of
+       * the academy or the witch circle. It is enclosed in parenthesis.
+       */
+      specification?: Name
+
+      /**
        * Typical advantages for the profession.
        * @minLength 1
        */
@@ -318,9 +336,8 @@ type ProfessionVariant = {
     [localeId: string]: {
       /**
        * Name of the profession variant.
-       * @minLength 1
        */
-      name: string
+      name: Name
     }
   }
 }

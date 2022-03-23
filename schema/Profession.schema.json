@@ -16,6 +16,21 @@
           "description": "The profession group.",
           "$ref": "#/definitions/Group"
         },
+        "curriculum": {
+          "description": "The curriculum/academy associated with this magical profession, if any.",
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "The curriculum's identifier.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        },
         "representations": {
           "description": "A list of professions representing the same profession but with (slightly)\ndifferent stats. For example, there may be a profession in a regional\nsourcebook or in the core rules and a profession in an extension rulebook\nlike Magic of Aventuria, where the profession is basically called the same\nand almost has the same values, but the version from Magic of Aventuria\nfeatures a spell style special ability that does not exist in the core\nrules or regional sourcebook.\n\nThe profession representation may feature different values for different\nexplicitly mentioned experience levels. In most cases, there is only one\nstats package, which targets the experience level *Experienced*.",
           "type": "array",
@@ -267,6 +282,10 @@
               "properties": {
                 "name": {
                   "description": "Name of the basic profession.",
+                  "$ref": "#/definitions/Name"
+                },
+                "specification": {
+                  "description": "A name addition of the profession. This will contain texts like name of\nthe academy or the witch circle. It is enclosed in parenthesis.",
                   "$ref": "#/definitions/Name"
                 },
                 "suggested_advantages": {
@@ -602,8 +621,7 @@
               "properties": {
                 "name": {
                   "description": "Name of the profession variant.",
-                  "type": "string",
-                  "minLength": 1
+                  "$ref": "#/definitions/Name"
                 }
               },
               "required": [

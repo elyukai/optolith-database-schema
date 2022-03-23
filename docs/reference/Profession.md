@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` | The profession's identifier. An unique, increasing integer. | <a href="#Profession/id">See details</a>
 `group` | The profession group. | <a href="#Profession/group">See details</a>
+`curriculum?` | The curriculum/academy associated with this magical profession, if any. | <a href="#Profession/curriculum">See details</a>
 `representations` | A list of professions representing the same profession but with (slightly) different stats. For example, there may be a profession in a regional sourcebook or in the core rules and a profession in an extension rulebook like Magic of Aventuria, where the profession is basically called the same and almost has the same values, but the version from Magic of Aventuria features a spell style special ability that does not exist in the core rules or regional sourcebook. | <a href="#Profession/representations">See details</a>
 
 #### <a name="Profession/id"></a> `id`
@@ -24,6 +25,12 @@ The profession's identifier. An unique, increasing integer.
 The profession group.
 
 - **Type:** <a href="#Group">Group</a>
+
+#### <a name="Profession/curriculum"></a> `curriculum?`
+
+The curriculum/academy associated with this magical profession, if any.
+
+- **Type:** <a href="#Profession/curriculum">Object</a>
 
 #### <a name="Profession/representations"></a> `representations`
 
@@ -42,6 +49,25 @@ stats package, which targets the experience level *Experienced*.
 - **Type:** List
 - **Items:** <a href="#Profession/representations[]">Profession/representations[]</a>
 - **Minimum Items:** `1`
+
+---
+
+### <a name="Profession/curriculum"></a> `Profession/curriculum`
+
+The curriculum/academy associated with this magical profession, if any.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The curriculum's identifier. | <a href="#Profession/curriculum/id">See details</a>
+
+#### <a name="Profession/curriculum/id"></a> `id`
+
+The curriculum's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
 
 ---
 
@@ -438,6 +464,7 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `name` | Name of the basic profession. | <a href="#ProfessionRepresentationVariant/translations[key]/name">See details</a>
+`specification?` | A name addition of the profession. This will contain texts like name of the academy or the witch circle. It is enclosed in parenthesis. | <a href="#ProfessionRepresentationVariant/translations[key]/specification">See details</a>
 `suggested_advantages?` | Typical advantages for the profession. | <a href="#ProfessionRepresentationVariant/translations[key]/suggested_advantages">See details</a>
 `suggested_disadvantages?` | Typical disadvantages for the profession. | <a href="#ProfessionRepresentationVariant/translations[key]/suggested_disadvantages">See details</a>
 `unsuitable_advantages?` | These advantages do not fit well with this profession; to be checked with the GM before taking any of them. | <a href="#ProfessionRepresentationVariant/translations[key]/unsuitable_advantages">See details</a>
@@ -447,6 +474,13 @@ Key | Description | Details
 #### <a name="ProfessionRepresentationVariant/translations[key]/name"></a> `name`
 
 Name of the basic profession.
+
+- **Type:** <a href="#Name">Name</a>
+
+#### <a name="ProfessionRepresentationVariant/translations[key]/specification"></a> `specification?`
+
+A name addition of the profession. This will contain texts like name of
+the academy or the witch circle. It is enclosed in parenthesis.
 
 - **Type:** <a href="#Name">Name</a>
 
@@ -903,8 +937,7 @@ Key | Description | Details
 
 Name of the profession variant.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="#Name">Name</a>
 
 ---
 
