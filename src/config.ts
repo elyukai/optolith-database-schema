@@ -14,6 +14,7 @@ import { Culture, validateSchema as validateCultureSchema } from "./types/Cultur
 import { DerivedCharacteristic, validateSchema as validateDerivedCharacteristicSchema } from "./types/DerivedCharacteristic.js"
 import { Disadvantage, validateSchema as validateDisadvantageSchema } from "./types/Disadvantage.js"
 import { Element, validateSchema as validateElementSchema } from "./types/Element.js"
+import { EquipmentPackage, validateSchema as validateEquipmentPackageSchema } from "./types/equipment/EquipmentPackage.js"
 import { ExperienceLevel, validateSchema as validateExperienceLevelSchema } from "./types/ExperienceLevel.js"
 import { EyeColor, validateSchema as validateEyeColorSchema } from "./types/EyeColor.js"
 import { FamiliarsTrick, validateSchema as validateFamiliarsTrickSchema } from "./types/FamiliarsTrick.js"
@@ -160,6 +161,7 @@ export type TypeMap = {
   dominationRituals: DominationRitual
   elements: Element
   elvenMagicalSongs: ElvenMagicalSong
+  equipmentPackages: EquipmentPackage
   experienceLevels: ExperienceLevel
   eyeColors: EyeColor
   familiarSpecialAbilities: FamiliarSpecialAbility
@@ -280,6 +282,7 @@ export const typeValidatorMap: { [K in keyof TypeMap]: TypeValidator<TypeMap[K]>
   dominationRituals: validateDominationRitualSchema,
   elements: validateElementSchema,
   elvenMagicalSongs: validateElvenMagicalSongSchema,
+  equipmentPackages: validateEquipmentPackageSchema,
   experienceLevels: validateExperienceLevelSchema,
   eyeColors: validateEyeColorSchema,
   familiarSpecialAbilities: validateFamiliarSpecialAbilitySchema,

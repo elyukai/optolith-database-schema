@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "/equipment/EquipmentPackage.schema.json",
+  "$ref": "#/definitions/EquipmentPackage",
+  "definitions": {
+    "EquipmentPackage": {
+      "title": "Equipment Package",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The equipment package's identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "items": {
+          "description": "All items in the package. You have to provide the item (template)\nidentifier and you can optionally provide the number of how often an item\nis included in the package.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "The item's identifier.",
+                "type": "integer",
+                "minimum": 1
+              },
+              "number": {
+                "description": "The number of how often the item is included in the package.",
+                "type": "integer",
+                "minimum": 2
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 2
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "The name of the equipment package.",
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "items",
+        "translations"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
