@@ -9,7 +9,7 @@
 Key | Description | Details
 :-- | :-- | :--
 `id` | The talisman's identifier. An unique, increasing integer. | <a href="#Talisman/id">See details</a>
-`tradition` | The tradition the talisman belongs to. | <a href="#Talisman/tradition">See details</a>
+`tradition` | The tradition(s) the talisman belongs to. | <a href="#Talisman/tradition">See details</a>
 `type` | The talisman type. | <a href="#Talisman/type">See details</a>
 `ap_value` | The AP value for the required trade secret. | <a href="#Talisman/ap_value">See details</a>
 `src` |  | <a href="#Talisman/src">See details</a>
@@ -24,9 +24,11 @@ The talisman's identifier. An unique, increasing integer.
 
 #### <a name="Talisman/tradition"></a> `tradition`
 
-The tradition the talisman belongs to.
+The tradition(s) the talisman belongs to.
 
-- **Type:** <a href="#Talisman/tradition">Object</a>
+- **Type:** List
+- **Items:** <a href="#Talisman/tradition[]">Talisman/tradition[]</a>
+- **Minimum Items:** `1`
 
 #### <a name="Talisman/type"></a> `type`
 
@@ -58,17 +60,15 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="Talisman/tradition"></a> `Talisman/tradition`
-
-The tradition the talisman belongs to.
+### <a name="Talisman/tradition[]"></a> `Talisman/tradition[]`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The blessed traditions's identifier. | <a href="#Talisman/tradition/id">See details</a>
+`id` | The blessed traditions's identifier. | <a href="#Talisman/tradition[]/id">See details</a>
 
-#### <a name="Talisman/tradition/id"></a> `id`
+#### <a name="Talisman/tradition[]/id"></a> `id`
 
 The blessed traditions's identifier.
 

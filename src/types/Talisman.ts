@@ -18,7 +18,8 @@ export type Talisman = {
   id: number
 
   /**
-   * The tradition the talisman belongs to.
+   * The tradition(s) the talisman belongs to.
+   * @minItems 1
    */
   tradition: {
     /**
@@ -27,7 +28,7 @@ export type Talisman = {
      * @minimum 1
      */
     id: number
-  }
+  }[]
 
   /**
    * The talisman type.
