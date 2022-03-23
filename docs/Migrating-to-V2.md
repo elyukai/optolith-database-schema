@@ -29,3 +29,4 @@ Notable transformations of translation strings into data structures include:
 - AE/KP Cost (for spellworks, liturgies and magical actions)
 - Range (for spellworks, liturgies and magical actions)
 - Duration (for spellworks, liturgies and magical actions)
+- Target Categories (for spellworks, liturgies and magical actions)
