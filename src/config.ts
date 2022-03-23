@@ -19,6 +19,7 @@ import { EyeColor, validateSchema as validateEyeColorSchema } from "./types/EyeC
 import { FamiliarsTrick, validateSchema as validateFamiliarsTrickSchema } from "./types/FamiliarsTrick.js"
 import { AnimalType, validateSchema as validateAnimalTypeSchema } from "./types/FamiliarsTrick_AnimalType.js"
 import { HairColor, validateSchema as validateHairColorSchema } from "./types/HairColor.js"
+import { Kirchenpraegung, validateSchema as validateKirchenpraegungSchema } from "./types/Kirchenpraegung.js"
 import { Curriculum, validateSchema as validateCurriculumSchema } from "./types/Lessons_Curriculum.js"
 import { Guideline, validateSchema as validateGuidelineSchema } from "./types/Lessons_Guideline.js"
 import { LiturgicalChant, validateSchema as validateLiturgicalChantSchema } from "./types/LiturgicalChant.js"
@@ -39,10 +40,12 @@ import { PactCategory, validateSchema as validatePactCategorySchema } from "./ty
 import { Patron, validateSchema as validatePatronSchema } from "./types/Patron.js"
 import { PatronCategory, validateSchema as validatePatronCategorySchema } from "./types/PatronCategory.js"
 import { PersonalityTrait, validateSchema as validatePersonalityTraitSchema } from "./types/PersonalityTrait.js"
+import { Profession, validateSchema as validateProfessionSchema } from "./types/Profession.js"
 import { Property, validateSchema as validatePropertySchema } from "./types/Property.js"
 import { Race, validateSchema as validateRaceSchema } from "./types/Race.js"
 import { Region, validateSchema as validateRegionSchema } from "./types/Region.js"
 import { Ritual, validateSchema as validateRitualSchema } from "./types/Ritual.js"
+import { CoreRule, validateSchema as validateCoreRuleSchema } from "./types/rule/CoreRule.js"
 import { FocusRule, validateSchema as validateFocusRuleSchema } from "./types/rule/FocusRule.js"
 import { Subject, validateSchema as validateSubjectSchema } from "./types/rule/FocusRule_Subject.js"
 import { OptionalRule, validateSchema as validateOptionalRuleSchema } from "./types/rule/OptionalRule.js"
@@ -87,6 +90,7 @@ import { validateSchema as validateVampiricGiftSchema, VampiricGift } from "./ty
 import { validateSchema as validateVisionSchema, Vision } from "./types/specialAbility/Vision.js"
 import { Spell, validateSchema as validateSpellSchema } from "./types/Spell.js"
 import { State, validateSchema as validateStateSchema } from "./types/State.js"
+import { Talisman, validateSchema as validateTalismanSchema } from "./types/Talisman.js"
 import { TargetCategory, validateSchema as validateTargetCategorySchema } from "./types/TargetCategory.js"
 import { ArcaneOrbEnchantment, validateSchema as validateArcaneOrbEnchantmentSchema } from "./types/traditionArtifacts/ArcaneOrbEnchantment.js"
 import { AttireEnchantment, validateSchema as validateAttireEnchantmentSchema } from "./types/traditionArtifacts/AttireEnchantment.js"
@@ -146,6 +150,7 @@ export type TypeMap = {
   commandSpecialAbilities: CommandSpecialAbility
   conditions: Condition
   continents: Continent
+  coreRules: CoreRule
   cultures: Culture
   curses: Curse
   daggerRituals: DaggerRitual
@@ -170,6 +175,7 @@ export type TypeMap = {
   instrumentEnchantments: InstrumentEnchantment
   jesterTricks: JesterTrick
   karmaSpecialAbilities: KarmaSpecialAbility
+  kirchenpraegungen: Kirchenpraegung
   krallenkettenzauber: Krallenkettenzauber
   languages: Language
   lessonsCurricula: Curriculum
@@ -192,6 +198,7 @@ export type TypeMap = {
   patronCategories: PatronCategory
   patrons: Patron
   personalityTraits: PersonalityTrait
+  professions: Profession,
   properties: Property
   protectiveWardingCircleSpecialAbilities: ProtectiveWardingCircleSpecialAbility
   publications: Publication
@@ -217,6 +224,7 @@ export type TypeMap = {
   staffEnchantments: StaffEnchantment
   states: State
   targetCategories: TargetCategory
+  talismans: Talisman
   toyEnchantments: ToyEnchantment
   tradeSecrets: TradeSecret
   trinkhornzauber: Trinkhornzauber
@@ -261,6 +269,7 @@ export const typeValidatorMap: { [K in keyof TypeMap]: TypeValidator<TypeMap[K]>
   commandSpecialAbilities: validateCommandSpecialAbilitySchema,
   conditions: validateConditionSchema,
   continents: validateContinentSchema,
+  coreRules: validateCoreRuleSchema,
   cultures: validateCultureSchema,
   curses: validateCurseSchema,
   daggerRituals: validateDaggerRitualSchema,
@@ -285,6 +294,7 @@ export const typeValidatorMap: { [K in keyof TypeMap]: TypeValidator<TypeMap[K]>
   instrumentEnchantments: validateInstrumentEnchantmentSchema,
   jesterTricks: validateJesterTrickSchema,
   karmaSpecialAbilities: validateKarmaSpecialAbilitySchema,
+  kirchenpraegungen: validateKirchenpraegungSchema,
   krallenkettenzauber: validateKrallenkettenzauberSchema,
   languages: validateLanguageSchema,
   lessonsCurricula: validateCurriculumSchema,
@@ -307,6 +317,7 @@ export const typeValidatorMap: { [K in keyof TypeMap]: TypeValidator<TypeMap[K]>
   patronCategories: validatePatronCategorySchema,
   patrons: validatePatronSchema,
   personalityTraits: validatePersonalityTraitSchema,
+  professions: validateProfessionSchema,
   properties: validatePropertySchema,
   protectiveWardingCircleSpecialAbilities: validateProtectiveWardingCircleSpecialAbilitySchema,
   publications: validatePublicationSchema,
@@ -332,6 +343,7 @@ export const typeValidatorMap: { [K in keyof TypeMap]: TypeValidator<TypeMap[K]>
   staffEnchantments: validateStaffEnchantmentSchema,
   states: validateStateSchema,
   targetCategories: validateTargetCategorySchema,
+  talismans: validateTalismanSchema,
   toyEnchantments: validateToyEnchantmentSchema,
   tradeSecrets: validateTradeSecretSchema,
   trinkhornzauber: validateTrinkhornzauberSchema,
