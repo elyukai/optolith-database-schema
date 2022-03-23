@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.25](https://github.com/elyukai/optolith-database-schema/compare/v0.1.24...v0.1.25) (2022-03-23)
+
+
+### Features
+
+* add missing json schema definitions as placeholders ([28d2c6f](https://github.com/elyukai/optolith-database-schema/commit/28d2c6f2758fc090b4854eb8656613932841b252))
+
 ### [0.1.24](https://github.com/elyukai/optolith-database-schema/compare/v0.1.23...v0.1.24) (2022-03-23)
 
 
