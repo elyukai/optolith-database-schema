@@ -52,6 +52,54 @@
         "ChronicleEnchantment"
       ]
     },
+    "SpecialAbilityTag": {
+      "enum": [
+        "GeneralSpecialAbility",
+        "FatePointSpecialAbility",
+        "CombatSpecialAbility",
+        "MagicalSpecialAbility",
+        "StaffEnchantment",
+        "FamiliarSpecialAbility",
+        "KarmaSpecialAbility",
+        "ProtectiveWardingCircleSpecialAbility",
+        "CombatStyleSpecialAbility",
+        "AdvancedCombatSpecialAbility",
+        "CommandSpecialAbility",
+        "MagicStyleSpecialAbility",
+        "AdvancedMagicalSpecialAbility",
+        "SpellSwordEnchantment",
+        "DaggerRitual",
+        "InstrumentEnchantment",
+        "AttireEnchantment",
+        "OrbEnchantment",
+        "WandEnchantment",
+        "BrawlingSpecialAbility",
+        "AncestorGlyph",
+        "CeremonialItemSpecialAbility",
+        "Sermon",
+        "LiturgicalStyleSpecialAbility",
+        "AdvancedKarmaSpecialAbility",
+        "Vision",
+        "MagicalTradition",
+        "BlessedTradition",
+        "PactGift",
+        "SikaryanDrainSpecialAbility",
+        "LycantropicGift",
+        "SkillStyleSpecialAbility",
+        "AdvancedSkillSpecialAbility",
+        "ArcaneOrbEnchantment",
+        "CauldronEnchantment",
+        "FoolsHatEnchantment",
+        "ToyEnchantment",
+        "BowlEnchantment",
+        "FatePointSexSpecialAbility",
+        "SexSpecialAbility",
+        "WeaponEnchantment",
+        "SickleRitual",
+        "RingEnchantment",
+        "ChronicleEnchantment"
+      ]
+    },
     "CombatRelatedSpecialAbilityTag": {
       "enum": [
         "CombatSpecialAbility",
@@ -114,6 +162,33 @@
         "Ceremony"
       ]
     },
+    "SpellworkTag": {
+      "enum": [
+        "Spell",
+        "Ritual"
+      ]
+    },
+    "LiturgyTag": {
+      "enum": [
+        "LiturgicalChant",
+        "Ceremony"
+      ]
+    },
+    "MagicalActionTag": {
+      "enum": [
+        "Spell",
+        "Ritual",
+        "Curse",
+        "ElvenMagicalSong",
+        "DominationRitual",
+        "MagicalMelody",
+        "MagicalDance",
+        "JesterTrick",
+        "AnimistPower",
+        "GeodeRitual",
+        "ZibiljaRitual"
+      ]
+    },
     "RequirableSelectOptionTag": {
       "enum": [
         "General",
@@ -127,6 +202,24 @@
       "properties": {
         "tag": {
           "$ref": "#/definitions/ActivatableTag"
+        },
+        "value": {
+          "description": "The referenced entry's numeric identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "SpecialAbilityIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "$ref": "#/definitions/SpecialAbilityTag"
         },
         "value": {
           "description": "The referenced entry's numeric identifier.",
@@ -289,6 +382,60 @@
       "properties": {
         "tag": {
           "$ref": "#/definitions/SkillWithEnhancementsTag"
+        },
+        "value": {
+          "description": "The referenced entry's numeric identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "LiturgyIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "$ref": "#/definitions/LiturgyTag"
+        },
+        "value": {
+          "description": "The referenced entry's numeric identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "SpellworkIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "$ref": "#/definitions/SpellworkTag"
+        },
+        "value": {
+          "description": "The referenced entry's numeric identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "MagicalActionIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "$ref": "#/definitions/MagicalActionTag"
         },
         "value": {
           "description": "The referenced entry's numeric identifier.",

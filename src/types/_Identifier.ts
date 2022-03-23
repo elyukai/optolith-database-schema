@@ -47,6 +47,53 @@ enum ActivatableTag {
   ChronicleEnchantment = "ChronicleEnchantment",
 }
 
+enum SpecialAbilityTag {
+  GeneralSpecialAbility = "GeneralSpecialAbility",
+  FatePointSpecialAbility = "FatePointSpecialAbility",
+  CombatSpecialAbility = "CombatSpecialAbility",
+  MagicalSpecialAbility = "MagicalSpecialAbility",
+  StaffEnchantment = "StaffEnchantment",
+  FamiliarSpecialAbility = "FamiliarSpecialAbility",
+  KarmaSpecialAbility = "KarmaSpecialAbility",
+  ProtectiveWardingCircleSpecialAbility = "ProtectiveWardingCircleSpecialAbility",
+  CombatStyleSpecialAbility = "CombatStyleSpecialAbility",
+  AdvancedCombatSpecialAbility = "AdvancedCombatSpecialAbility",
+  CommandSpecialAbility = "CommandSpecialAbility",
+  MagicStyleSpecialAbility = "MagicStyleSpecialAbility",
+  AdvancedMagicalSpecialAbility = "AdvancedMagicalSpecialAbility",
+  SpellSwordEnchantment = "SpellSwordEnchantment",
+  DaggerRitual = "DaggerRitual",
+  InstrumentEnchantment = "InstrumentEnchantment",
+  AttireEnchantment = "AttireEnchantment",
+  OrbEnchantment = "OrbEnchantment",
+  WandEnchantment = "WandEnchantment",
+  BrawlingSpecialAbility = "BrawlingSpecialAbility",
+  AncestorGlyph = "AncestorGlyph",
+  CeremonialItemSpecialAbility = "CeremonialItemSpecialAbility",
+  Sermon = "Sermon",
+  LiturgicalStyleSpecialAbility = "LiturgicalStyleSpecialAbility",
+  AdvancedKarmaSpecialAbility = "AdvancedKarmaSpecialAbility",
+  Vision = "Vision",
+  MagicalTradition = "MagicalTradition",
+  BlessedTradition = "BlessedTradition",
+  PactGift = "PactGift",
+  SikaryanDrainSpecialAbility = "SikaryanDrainSpecialAbility",
+  LycantropicGift = "LycantropicGift",
+  SkillStyleSpecialAbility = "SkillStyleSpecialAbility",
+  AdvancedSkillSpecialAbility = "AdvancedSkillSpecialAbility",
+  ArcaneOrbEnchantment = "ArcaneOrbEnchantment",
+  CauldronEnchantment = "CauldronEnchantment",
+  FoolsHatEnchantment = "FoolsHatEnchantment",
+  ToyEnchantment = "ToyEnchantment",
+  BowlEnchantment = "BowlEnchantment",
+  FatePointSexSpecialAbility = "FatePointSexSpecialAbility",
+  SexSpecialAbility = "SexSpecialAbility",
+  WeaponEnchantment = "WeaponEnchantment",
+  SickleRitual = "SickleRitual",
+  RingEnchantment = "RingEnchantment",
+  ChronicleEnchantment = "ChronicleEnchantment",
+}
+
 enum CombatRelatedSpecialAbilityTag {
   CombatSpecialAbility = "CombatSpecialAbility",
   CombatStyleSpecialAbility = "CombatStyleSpecialAbility",
@@ -100,6 +147,30 @@ enum SkillWithEnhancementsTag {
   Ceremony = "Ceremony",
 }
 
+enum SpellworkTag {
+  Spell = "Spell",
+  Ritual = "Ritual",
+}
+
+enum LiturgyTag {
+  LiturgicalChant = "LiturgicalChant",
+  Ceremony = "Ceremony",
+}
+
+enum MagicalActionTag {
+  Spell = "Spell",
+  Ritual = "Ritual",
+  Curse = "Curse",
+  ElvenMagicalSong = "ElvenMagicalSong",
+  DominationRitual = "DominationRitual",
+  MagicalMelody = "MagicalMelody",
+  MagicalDance = "MagicalDance",
+  JesterTrick = "JesterTrick",
+  AnimistPower = "AnimistPower",
+  GeodeRitual = "GeodeRitual",
+  ZibiljaRitual = "ZibiljaRitual",
+}
+
 enum RequirableSelectOptionTag {
   General = "General",
   Skill = "Skill",
@@ -119,6 +190,7 @@ type TaggedIdentifier<Tag> = {
 }
 
 export type ActivatableIdentifier = TaggedIdentifier<ActivatableTag>
+export type SpecialAbilityIdentifier = TaggedIdentifier<SpecialAbilityTag>
 export type CombatRelatedSpecialAbilityIdentifier = TaggedIdentifier<CombatRelatedSpecialAbilityTag>
 export type RatedIdentifier = TaggedIdentifier<RatedTag>
 export type AdvancedSpecialAbilityRestrictedOptionIdentifier = TaggedIdentifier<AdvancedSpecialAbilityRestrictedOptionTag>
@@ -128,6 +200,9 @@ export type MagicalTraditionIdentifier = TaggedIdentifier<MagicalTraditionTag>
 export type PatronIdentifier = TaggedIdentifier<PatronTag>
 export type ExtensionRuleIdentifier = TaggedIdentifier<ExtensionRuleTag>
 export type SkillWithEnhancementsIdentifier = TaggedIdentifier<SkillWithEnhancementsTag>
+export type LiturgyIdentifier = TaggedIdentifier<LiturgyTag>
+export type SpellworkIdentifier = TaggedIdentifier<SpellworkTag>
+export type MagicalActionIdentifier = TaggedIdentifier<MagicalActionTag>
 export type RequirableSelectOptionIdentifier = TaggedIdentifier<RequirableSelectOptionTag>
 
 export type OneOrManyNumericIdentifiers = OneNumericIdentifier | ManyNumericIdentifiers
