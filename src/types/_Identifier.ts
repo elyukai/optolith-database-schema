@@ -178,6 +178,13 @@ enum RequirableSelectOptionTag {
   RangedCombatTechnique = "RangedCombatTechnique",
 }
 
+enum CoreRuleDerivableContentTag {
+  MagicalTradition = "MagicalTradition",
+  FamiliarSpecialAbility = "FamiliarSpecialAbility",
+  MagicalSpecialAbility = "MagicalSpecialAbility",
+  BlessedTradition = "BlessedTradition",
+}
+
 type TaggedIdentifier<Tag> = {
   tag: Tag
 
@@ -204,6 +211,7 @@ export type LiturgyIdentifier = TaggedIdentifier<LiturgyTag>
 export type SpellworkIdentifier = TaggedIdentifier<SpellworkTag>
 export type MagicalActionIdentifier = TaggedIdentifier<MagicalActionTag>
 export type RequirableSelectOptionIdentifier = TaggedIdentifier<RequirableSelectOptionTag>
+export type CoreRuleDerivableContentIdentifier = TaggedIdentifier<CoreRuleDerivableContentTag>
 
 export type OneOrManyNumericIdentifiers = OneNumericIdentifier | ManyNumericIdentifiers
 

@@ -197,6 +197,14 @@
         "RangedCombatTechnique"
       ]
     },
+    "CoreRuleDerivableContentTag": {
+      "enum": [
+        "MagicalTradition",
+        "FamiliarSpecialAbility",
+        "MagicalSpecialAbility",
+        "BlessedTradition"
+      ]
+    },
     "ActivatableIdentifier": {
       "type": "object",
       "properties": {
@@ -454,6 +462,24 @@
       "properties": {
         "tag": {
           "$ref": "#/definitions/RequirableSelectOptionTag"
+        },
+        "value": {
+          "description": "The referenced entry's numeric identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "CoreRuleDerivableContentIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "$ref": "#/definitions/CoreRuleDerivableContentTag"
         },
         "value": {
           "description": "The referenced entry's numeric identifier.",

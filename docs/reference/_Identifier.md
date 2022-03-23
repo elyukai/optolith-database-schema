@@ -92,6 +92,12 @@
 
 ---
 
+### <a name="CoreRuleDerivableContentTag"></a> `CoreRuleDerivableContentTag`
+
+- **Possible values:** `"MagicalTradition"`, `"FamiliarSpecialAbility"`, `"MagicalSpecialAbility"`, `"BlessedTradition"`
+
+---
+
 ### <a name="ActivatableIdentifier"></a> `ActivatableIdentifier`
 
 - **Type:** Object
@@ -414,6 +420,28 @@ Key | Description | Details
 - **Type:** <a href="#RequirableSelectOptionTag">RequirableSelectOptionTag</a>
 
 #### <a name="RequirableSelectOptionIdentifier/value"></a> `value`
+
+The referenced entry's numeric identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="CoreRuleDerivableContentIdentifier"></a> `CoreRuleDerivableContentIdentifier`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CoreRuleDerivableContentIdentifier/tag">See details</a>
+`value` | The referenced entry's numeric identifier. | <a href="#CoreRuleDerivableContentIdentifier/value">See details</a>
+
+#### <a name="CoreRuleDerivableContentIdentifier/tag"></a> `tag`
+
+- **Type:** <a href="#CoreRuleDerivableContentTag">CoreRuleDerivableContentTag</a>
+
+#### <a name="CoreRuleDerivableContentIdentifier/value"></a> `value`
 
 The referenced entry's numeric identifier.
 
