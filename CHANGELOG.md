@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.24](https://github.com/elyukai/optolith-database-schema/compare/v0.1.23...v0.1.24) (2022-03-23)
+
+
+### Features
+
+* add curriculum references and name additions ([468f96c](https://github.com/elyukai/optolith-database-schema/commit/468f96ce9af3b6f3135f959c9dc5d2646ea46e41))
+
 ### [0.1.23](https://github.com/elyukai/optolith-database-schema/compare/v0.1.22...v0.1.23) (2022-03-23)
 
 
