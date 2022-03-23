@@ -35,6 +35,7 @@ import { MagicalDance, validateSchema as validateMagicalDanceSchema } from "./ty
 import { MagicalMelody, validateSchema as validateMagicalMelodySchema } from "./types/magicalActions/MagicalMelody.js"
 import { MagicalRune, validateSchema as validateMagicalRuneSchema } from "./types/magicalActions/MagicalRune.js"
 import { validateSchema as validateZibiljaRitualSchema, ZibiljaRitual } from "./types/magicalActions/ZibiljaRitual.js"
+import { MagicalTraditionPlaceholder, validateSchema as validateMagicalTraditionPlaceholderSchema } from "./types/MagicalTraditionPlaceholder.js"
 import { MetaCondition, validateSchema as validateMetaConditionSchema } from "./types/MetaCondition.js"
 import { PactCategory, validateSchema as validatePactCategorySchema } from "./types/PactCategory.js"
 import { Patron, validateSchema as validatePatronSchema } from "./types/Patron.js"
@@ -189,6 +190,7 @@ export type TypeMap = {
   magicalRunes: MagicalRune
   magicalSpecialAbilities: MagicalSpecialAbility
   magicalTraditions: MagicalTradition
+  magicalTraditionPlaceholders: MagicalTraditionPlaceholder
   magicStyleSpecialAbilities: MagicStyleSpecialAbility
   metaConditions: MetaCondition
   optionalRules: OptionalRule
@@ -308,6 +310,7 @@ export const typeValidatorMap: { [K in keyof TypeMap]: TypeValidator<TypeMap[K]>
   magicalRunes: validateMagicalRuneSchema,
   magicalSpecialAbilities: validateMagicalSpecialAbilitySchema,
   magicalTraditions: validateMagicalTraditionSchema,
+  magicalTraditionPlaceholders: validateMagicalTraditionPlaceholderSchema,
   magicStyleSpecialAbilities: validateMagicStyleSpecialAbilitySchema,
   metaConditions: validateMetaConditionSchema,
   optionalRules: validateOptionalRuleSchema,
