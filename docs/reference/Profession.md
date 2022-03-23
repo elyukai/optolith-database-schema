@@ -9,6 +9,7 @@
 Key | Description | Details
 :-- | :-- | :--
 `id` | The profession's identifier. An unique, increasing integer. | <a href="#Profession/id">See details</a>
+`group` | The profession group. | <a href="#Profession/group">See details</a>
 `representations` | A list of professions representing the same profession but with (slightly) different stats. For example, there may be a profession in a regional sourcebook or in the core rules and a profession in an extension rulebook like Magic of Aventuria, where the profession is basically called the same and almost has the same values, but the version from Magic of Aventuria features a spell style special ability that does not exist in the core rules or regional sourcebook. | <a href="#Profession/representations">See details</a>
 
 #### <a name="Profession/id"></a> `id`
@@ -17,6 +18,12 @@ The profession's identifier. An unique, increasing integer.
 
 - **Type:** Integer
 - **Minimum:** `1`
+
+#### <a name="Profession/group"></a> `group`
+
+The profession group.
+
+- **Type:** <a href="#Group">Group</a>
 
 #### <a name="Profession/representations"></a> `representations`
 
@@ -441,8 +448,7 @@ Key | Description | Details
 
 Name of the basic profession.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="#Name">Name</a>
 
 #### <a name="ProfessionRepresentationVariant/translations[key]/suggested_advantages"></a> `suggested_advantages?`
 
@@ -1950,3 +1956,152 @@ The AP value you can buy skills for.
 
 - **Type:** Integer
 - **Minimum:** `1`
+
+---
+
+### <a name="Name"></a> `Name`
+
+The name of the profession that may have sex-specific names.
+
+- **Type:** Union
+- **Cases:** <a href="#Name'NonEmptyString">Name'NonEmptyString</a> | <a href="#Name'1">Name'1</a>
+
+---
+
+### <a name="Name'NonEmptyString"></a> `Name'NonEmptyString`
+
+- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+
+---
+
+### <a name="Name'1"></a> `Name'1`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`default` | The name from the source publication. | <a href="#Name'1/default">See details</a>
+`male` | The male name. | <a href="#Name'1/male">See details</a>
+`female` | The female name. | <a href="#Name'1/female">See details</a>
+
+#### <a name="Name'1/default"></a> `default`
+
+The name from the source publication.
+
+- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+
+#### <a name="Name'1/male"></a> `male`
+
+The male name.
+
+- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+
+#### <a name="Name'1/female"></a> `female`
+
+The female name.
+
+- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+
+---
+
+### <a name="Group"></a> `Group`
+
+- **Type:** Union
+- **Cases:** <a href="#Group'Mundane">Group'Mundane</a> | <a href="#Group'Magical">Group'Magical</a> | <a href="#Group'Blessed">Group'Blessed</a>
+
+---
+
+### <a name="Group'Mundane"></a> `Group'Mundane`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Group'Mundane/tag">See details</a>
+`sub` |  | <a href="#Group'Mundane/sub">See details</a>
+
+#### <a name="Group'Mundane/tag"></a> `tag`
+
+- **Constant:** `"Mundane"`
+
+#### <a name="Group'Mundane/sub"></a> `sub`
+
+- **Type:** Union
+- **Cases:** <a href="#Group'Mundane/sub'Profane">Group'Mundane/sub'Profane</a> | <a href="#Group'Mundane/sub'Fighter">Group'Mundane/sub'Fighter</a> | <a href="#Group'Mundane/sub'Religious">Group'Mundane/sub'Religious</a>
+
+---
+
+### <a name="Group'Mundane/sub'Profane"></a> `Group'Mundane/sub'Profane`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Group'Mundane/sub'Profane/tag">See details</a>
+
+#### <a name="Group'Mundane/sub'Profane/tag"></a> `tag`
+
+- **Constant:** `"Profane"`
+
+---
+
+### <a name="Group'Mundane/sub'Fighter"></a> `Group'Mundane/sub'Fighter`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Group'Mundane/sub'Fighter/tag">See details</a>
+
+#### <a name="Group'Mundane/sub'Fighter/tag"></a> `tag`
+
+- **Constant:** `"Fighter"`
+
+---
+
+### <a name="Group'Mundane/sub'Religious"></a> `Group'Mundane/sub'Religious`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Group'Mundane/sub'Religious/tag">See details</a>
+
+#### <a name="Group'Mundane/sub'Religious/tag"></a> `tag`
+
+- **Constant:** `"Religious"`
+
+---
+
+### <a name="Group'Magical"></a> `Group'Magical`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Group'Magical/tag">See details</a>
+
+#### <a name="Group'Magical/tag"></a> `tag`
+
+- **Constant:** `"Magical"`
+
+---
+
+### <a name="Group'Blessed"></a> `Group'Blessed`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Group'Blessed/tag">See details</a>
+
+#### <a name="Group'Blessed/tag"></a> `tag`
+
+- **Constant:** `"Blessed"`
+
+---
+
+### <a name="NonEmptyString"></a> `NonEmptyString`
+
+- **Type:** String
+- **Minimum Length:** `1`

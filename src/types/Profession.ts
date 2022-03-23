@@ -21,6 +21,11 @@ export type Profession = {
   id: number
 
   /**
+   * The profession group.
+   */
+  group: Group
+
+  /**
    * A list of professions representing the same profession but with (slightly)
    * different stats. For example, there may be a profession in a regional
    * sourcebook or in the core rules and a profession in an extension rulebook
@@ -202,9 +207,8 @@ export type ProfessionRepresentationVariant = {
     [localeId: string]: {
       /**
        * Name of the basic profession.
-       * @minLength 1
        */
-      name: string
+      name: Name
 
       /**
        * Typical advantages for the profession.
@@ -855,5 +859,44 @@ type SkillsOptions = {
    */
   ap_value: number
 }
+
+/**
+ * The name of the profession that may have sex-specific names.
+ */
+type Name =
+  NonEmptyString
+  | {
+    /**
+     * The name from the source publication.
+     */
+    default: NonEmptyString
+
+    /**
+     * The male name.
+     */
+    male: NonEmptyString
+
+    /**
+     * The female name.
+     */
+    female: NonEmptyString
+  }
+
+type Group =
+  | {
+    tag: "Mundane"
+
+    sub:
+      | { tag: "Profane" }
+      | { tag: "Fighter" }
+      | { tag: "Religious" }
+  }
+  | { tag: "Magical" }
+  | { tag: "Blessed" }
+
+/**
+ * @minLength 1
+ */
+type NonEmptyString = string
 
 export const validateSchema = validateSchemaCreator<Profession>(import.meta.url)

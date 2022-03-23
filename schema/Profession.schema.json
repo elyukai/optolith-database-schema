@@ -12,6 +12,10 @@
           "type": "integer",
           "minimum": 1
         },
+        "group": {
+          "description": "The profession group.",
+          "$ref": "#/definitions/Group"
+        },
         "representations": {
           "description": "A list of professions representing the same profession but with (slightly)\ndifferent stats. For example, there may be a profession in a regional\nsourcebook or in the core rules and a profession in an extension rulebook\nlike Magic of Aventuria, where the profession is basically called the same\nand almost has the same values, but the version from Magic of Aventuria\nfeatures a spell style special ability that does not exist in the core\nrules or regional sourcebook.\n\nThe profession representation may feature different values for different\nexplicitly mentioned experience levels. In most cases, there is only one\nstats package, which targets the experience level *Experienced*.",
           "type": "array",
@@ -95,6 +99,7 @@
       },
       "required": [
         "id",
+        "group",
         "representations"
       ],
       "additionalProperties": false
@@ -262,8 +267,7 @@
               "properties": {
                 "name": {
                   "description": "Name of the basic profession.",
-                  "type": "string",
-                  "minLength": 1
+                  "$ref": "#/definitions/Name"
                 },
                 "suggested_advantages": {
                   "description": "Typical advantages for the profession.",
@@ -1379,6 +1383,122 @@
         "ap_value"
       ],
       "additionalProperties": false
+    },
+    "Name": {
+      "description": "The name of the profession that may have sex-specific names.",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/NonEmptyString"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "default": {
+              "description": "The name from the source publication.",
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            "male": {
+              "description": "The male name.",
+              "$ref": "#/definitions/NonEmptyString"
+            },
+            "female": {
+              "description": "The female name.",
+              "$ref": "#/definitions/NonEmptyString"
+            }
+          },
+          "required": [
+            "default",
+            "male",
+            "female"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "Group": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Mundane"
+            },
+            "sub": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tag": {
+                      "const": "Profane"
+                    }
+                  },
+                  "required": [
+                    "tag"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "tag": {
+                      "const": "Fighter"
+                    }
+                  },
+                  "required": [
+                    "tag"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "tag": {
+                      "const": "Religious"
+                    }
+                  },
+                  "required": [
+                    "tag"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "required": [
+            "tag",
+            "sub"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Magical"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Blessed"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "NonEmptyString": {
+      "type": "string",
+      "minLength": 1
     }
   }
 }
