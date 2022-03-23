@@ -1,0 +1,279 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "Schema/Poison.schema.json",
+  "title": "Poison",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "An unique, increasing integer.",
+      "type": "integer",
+      "minimum": 1
+    },
+    "level": {
+      "description": "The poison's level.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "QL"
+            }
+          },
+          "required": ["type"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "Fixed"
+            },
+            "value": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": ["type", "value"],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "applicationType": {
+      "description": "The poison's application type(s).",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": ["Weapon", "Ingestion", "Inhalation", "Contact"]
+      }
+    },
+    "sourceTypeSpecific": {
+      "description": "The poison's source type and dependent additional values.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "sourceType": {
+              "description": "The poison's source type.",
+              "const": "AnimalVenom"
+            }
+          },
+          "required": ["sourceType"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "sourceType": {
+              "description": "The poison's source type.",
+              "const": "PlantPoison"
+            },
+            "categorySpecific": {
+              "description": "The plant poison category and dependent additional values.",
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "category": {
+                      "description": "The plant poison category.",
+                      "const": "Default"
+                    }
+                  },
+                  "required": ["category"],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "category": {
+                      "description": "The plant poison category.",
+                      "const": "Intoxicant"
+                    },
+                    "legality": {
+                      "description": "Whether the use of the intoxicant is legal or not.",
+                      "enum": ["Legal", "Illegal"]
+                    },
+                    "translations": {
+                      "type": "object",
+                      "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                      "patternProperties": {
+                        "^[a-z]{2}-[A-Z]{2}$": {
+                          "type": "object",
+                          "properties": {
+                            "ingestion": {
+                              "description": "How to ingest the intoxicant.",
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "sideEffect": {
+                              "description": "The intoxicants side effects, if any. Markdown is available.",
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "overdose": {
+                              "description": "What happens if the intoxicant has been overdosed. Markdown is available.",
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "special": {
+                              "description": "What happens if the intoxicant has been overdosed. Markdown is available.",
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "addiction": {
+                              "description": "What happens if the intoxicant has been overdosed. Markdown is available.",
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          },
+                          "required": ["ingestion", "overdose"],
+                          "additionalProperties": false
+                        }
+                      },
+                      "minProperties": 1,
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": ["category", "legality", "translations"],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "required": ["sourceType"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "sourceType": {
+              "description": "The poison's source type.",
+              "const": "AlchemicalPoison"
+            }
+          },
+          "required": ["sourceType"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "sourceType": {
+              "description": "The poison's source type.",
+              "const": "MineralPoison"
+            }
+          },
+          "required": ["sourceType"],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "resistance": {
+      "description": "Use Spirit or Toughness as a modifier for the poison.",
+      "enum": ["Spirit", "Toughness"]
+    },
+    "value": {
+      "description": "The raw (ingredients) value, in silverthalers.",
+      "type": "integer",
+      "minimum": 1
+    },
+    "cost": {
+      "description": "Price for one dose, in silverthalers.",
+      "type": "integer",
+      "minimum": 1
+    },
+    "src": { "$ref": "_SourceRefs.schema.json" },
+    "translations": {
+      "type": "object",
+      "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+      "patternProperties": {
+        "^[a-z]{2}-[A-Z]{2}$": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "description": "The poison's name.",
+              "type": "string",
+              "minLength": 1
+            },
+            "alternativeNames": {
+              "description": "A list of alternative names.",
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "region": {
+                        "description": "The region where this alternative name is used.",
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": ["name", "region"],
+                    "additionalProperties": false
+                  }
+                ]
+              },
+              "minItems": 1
+            },
+            "effect": {
+              "description": "The normal and degraded poison's effects. Markdown is available.",
+              "type": "object",
+              "properties": {
+                "default": {
+                  "description": "The poison’s effects. Markdown is available.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "degraded": {
+                  "description": "The degraded poison’s effects. Markdown is available.",
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": ["default", "degraded"],
+              "additionalProperties": false
+            },
+            "start": {
+              "description": "When the poison takes effect.",
+              "type": "string",
+              "minLength": 1
+            },
+            "duration": {
+              "description": "The normal and degraded poison's duration.",
+              "type": "object",
+              "properties": {
+                "default": {
+                  "description": "The poison’s duration.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "degraded": {
+                  "description": "The degraded poison’s duration.",
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": ["default", "degraded"],
+              "additionalProperties": false
+            },
+            "errata": { "$ref": "_Errata.schema.json" }
+          },
+          "required": ["name", "effect", "start", "duration"],
+          "additionalProperties": false
+        }
+      },
+      "minProperties": 1,
+      "additionalProperties": false
+    }
+  },
+  "required": ["id", "level", "applicationType", "sourceTypeSpecific", "resistance", "value", "cost", "src", "translations"],
+  "additionalProperties": false
+}

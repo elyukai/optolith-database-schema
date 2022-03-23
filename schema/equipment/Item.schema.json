@@ -1,0 +1,424 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "Schema/Item.schema.json",
+  "title": "Item",
+  "type": "object",
+  "properties": {
+    "id": { "$ref": "#/definitions/Id" },
+    "cost": { "$ref": "#/definitions/Cost" },
+    "weight": { "$ref": "#/definitions/Weight" },
+    "complexity": { "$ref": "#/definitions/Complexity" },
+    "typeSpecific": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "Weapon" },
+            "uses": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "const": "Melee"
+                      },
+                      "value": { "$ref": "_Weapon.schema.json#/definitions/MeleeWeapon" }
+                    },
+                    "required": ["type", "value"],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "const": "Ranged"
+                      },
+                      "value": { "$ref": "_Weapon.schema.json#/definitions/RangedWeapon" }
+                    },
+                    "required": ["type", "value"],
+                    "additionalProperties": false
+                  }
+                ]
+              },
+              "minItems": 1
+            },
+            "sanctifiedBy": { "$ref": "_Weapon.schema.json#/definitions/SanctifiedBy" },
+            "restrictedToCultures": { "$ref": "_Weapon.schema.json#/definitions/RestrictedToCultures" },
+            "secondary": {
+              "type": "object",
+              "properties": {
+                "type": { "$ref": "#/definitions/Type" },
+                "structurePoints": { "$ref": "_Weapon.schema.json#/definitions/StructurePoints" }
+              },
+              "required": ["type"],
+              "additionalProperties": false
+            },
+            "translations": {
+              "type": "object",
+              "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+              "patternProperties": {
+                "^[a-z]{2}-[A-Z]{2}$": {
+                  "type": "object",
+                  "properties": {
+                    "name": { "$ref": "#/definitions/Name" },
+                    "secondaryName": { "$ref": "#/definitions/SecondaryName" },
+                    "note": { "$ref": "#/definitions/Note" },
+                    "rules": { "$ref": "#/definitions/Rules" },
+                    "advantage": { "$ref": "#/definitions/Advantage" },
+                    "disadvantage": { "$ref": "#/definitions/Disadvantage" },
+                    "errata": { "$ref": "_Errata.schema.json" }
+                  },
+                  "required": ["name"],
+                  "additionalProperties": false
+                }
+              },
+              "minProperties": 1,
+              "additionalProperties": false
+            }
+          },
+          "required": ["type", "uses", "translations"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "Armor" },
+            "protection": { "$ref": "_Armor.schema.json#/definitions/Protection" },
+            "encumbrance": { "$ref": "_Armor.schema.json#/definitions/Encumbrance" },
+            "hasAdditionalPenalties": { "$ref": "_Armor.schema.json#/definitions/HasAdditionalPenalties" },
+            "armorType": { "$ref": "_Armor.schema.json#/definitions/ArmorType" },
+            "hitZone": { "$ref": "_Armor.schema.json#/definitions/HitZone" },
+            "secondary": {
+              "type": "object",
+              "properties": {
+                "type": { "$ref": "#/definitions/Type" },
+                "structurePoints": { "$ref": "_Weapon.schema.json#/definitions/StructurePoints" }
+              },
+              "required": ["type"],
+              "additionalProperties": false
+            },
+            "translations": {
+              "type": "object",
+              "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+              "patternProperties": {
+                "^[a-z]{2}-[A-Z]{2}$": {
+                  "type": "object",
+                  "properties": {
+                    "name": { "$ref": "#/definitions/Name" },
+                    "secondaryName": { "$ref": "#/definitions/SecondaryName" },
+                    "note": { "$ref": "#/definitions/Note" },
+                    "rules": { "$ref": "#/definitions/Rules" },
+                    "advantage": { "$ref": "#/definitions/Advantage" },
+                    "disadvantage": { "$ref": "#/definitions/Disadvantage" },
+                    "errata": { "$ref": "_Errata.schema.json" }
+                  },
+                  "required": ["name"],
+                  "additionalProperties": false
+                }
+              },
+              "minProperties": 1,
+              "additionalProperties": false
+            }
+          },
+          "required": ["type", "protection", "encumbrance", "hasAdditionalPenalties", "armorType", "translations"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "$ref": "#/definitions/Type" },
+            "combatUses": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "type": { "const": "ImprovisedWeapon" },
+                    "uses": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "const": "Melee"
+                              },
+                              "value": { "$ref": "_Weapon.schema.json#/definitions/MeleeWeapon" }
+                            },
+                            "required": ["type", "value"],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "const": "Ranged"
+                              },
+                              "value": { "$ref": "_Weapon.schema.json#/definitions/RangedWeapon" }
+                            },
+                            "required": ["type", "value"],
+                            "additionalProperties": false
+                          }
+                        ]
+                      },
+                      "minItems": 1
+                    },
+                    "sanctifiedBy": { "$ref": "_Weapon.schema.json#/definitions/SanctifiedBy" },
+                    "restrictedToCultures": { "$ref": "_Weapon.schema.json#/definitions/RestrictedToCultures" },
+                    "translations": {
+                      "type": "object",
+                      "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                      "patternProperties": {
+                        "^[a-z]{2}-[A-Z]{2}$": {
+                          "type": "object",
+                          "properties": {
+                            "advantage": { "$ref": "#/definitions/Advantage" },
+                            "disadvantage": { "$ref": "#/definitions/Disadvantage" }
+                          },
+                          "minProperties": 2,
+                          "required": [],
+                          "additionalProperties": false
+                        }
+                      },
+                      "minProperties": 1,
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": ["type", "uses", "translations"],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "type": { "const": "Armor" },
+                    "protection": { "$ref": "_Armor.schema.json#/definitions/Protection" },
+                    "encumbrance": { "$ref": "_Armor.schema.json#/definitions/Encumbrance" },
+                    "hasAdditionalPenalties": { "$ref": "_Armor.schema.json#/definitions/HasAdditionalPenalties" },
+                    "armorType": { "$ref": "_Armor.schema.json#/definitions/ArmorType" },
+                    "hitZone": { "$ref": "_Armor.schema.json#/definitions/HitZone" },
+                    "translations": {
+                      "type": "object",
+                      "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                      "patternProperties": {
+                        "^[a-z]{2}-[A-Z]{2}$": {
+                          "type": "object",
+                          "properties": {
+                            "advantage": { "$ref": "#/definitions/Advantage" },
+                            "disadvantage": { "$ref": "#/definitions/Disadvantage" }
+                          },
+                          "minProperties": 2,
+                          "required": [],
+                          "additionalProperties": false
+                        }
+                      },
+                      "minProperties": 1,
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": ["type", "protection", "encumbrance", "hasAdditionalPenalties", "armorType", "translations"],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            "structurePoints": { "$ref": "_Weapon.schema.json#/definitions/StructurePoints" },
+            "translations": {
+              "type": "object",
+              "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+              "patternProperties": {
+                "^[a-z]{2}-[A-Z]{2}$": {
+                  "type": "object",
+                  "properties": {
+                    "name": { "$ref": "#/definitions/Name" },
+                    "secondaryName": { "$ref": "#/definitions/SecondaryName" },
+                    "note": { "$ref": "#/definitions/Note" },
+                    "rules": { "$ref": "#/definitions/Rules" },
+                    "errata": { "$ref": "_Errata.schema.json" }
+                  },
+                  "required": ["name"],
+                  "additionalProperties": false
+                }
+              },
+              "minProperties": 1,
+              "additionalProperties": false
+            }
+          },
+          "required": ["type", "translations"],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "src": { "$ref": "_SourceRefs.schema.json" }
+  },
+  "required": ["id", "cost", "complexity", "typeSpecific", "src"],
+  "additionalProperties": false,
+  "definitions": {
+    "Id": {
+      "description": "An unique, increasing integer.",
+      "type": "integer",
+      "minimum": 1
+    },
+    "Name": {
+      "description": "The name of the item.",
+      "type": "string",
+      "minLength": 1
+    },
+    "SecondaryName": {
+      "description": "An auxiliary name or label of the item, if available.",
+      "type": "string",
+      "minLength": 1
+    },
+    "Cost": {
+      "description": "The cost in silverthalers.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "type": { "enum": ["Free", "Various"] }
+          },
+          "required": ["type"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "Fixed" },
+            "value": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "wrapInText": {
+              "type": "object",
+              "description": "Text the range gets wrapped by using a placeholder in the text. The string to choose is identified by IETF language tag (BCP47).",
+              "patternProperties": {
+                "^[a-z]{2}-[A-Z]{2}$": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\{0\\}"
+                }
+              },
+              "minProperties": 1,
+              "additionalProperties": false
+            }
+          },
+          "required": ["type", "value"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "Range" },
+            "from": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "to": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "wrapInText": {
+              "type": "object",
+              "description": "Text the range gets wrapped by using a placeholder in the text. The string to choose is identified by IETF language tag (BCP47).",
+              "patternProperties": {
+                "^[a-z]{2}-[A-Z]{2}$": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "\\{0\\}"
+                }
+              },
+              "minProperties": 1,
+              "additionalProperties": false
+            }
+          },
+          "required": ["type", "from", "to"],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "Weight": {
+      "description": "The weight in kg.",
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "Complexity": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "enum": ["Primitive", "Simple"]
+            }
+          },
+          "required": ["type"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "Complex"
+            },
+            "value": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": ["type", "value"],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "Type": {
+      "enum": [
+        "Ammunition",
+        "WeaponAccessories",
+        "Clothes",
+        "TravelGearAndTools",
+        "Illumination",
+        "BandagesAndRemedies",
+        "Containers",
+        "RopesAndChains",
+        "ThievesTools",
+        "ToolsOfTheTrade",
+        "OrienteeringAids",
+        "Jewelry",
+        "GemsAndPreciousStones",
+        "Stationary",
+        "Books",
+        "MagicalArtifacts",
+        "Alchemicae",
+        "Poisons",
+        "HealingHerbs",
+        "MusicalInstruments",
+        "LuxuryGoods",
+        "Animals",
+        "AnimalCare",
+        "Vehicles",
+        "AusruestungDerGeweihtenschaft",
+        "CeremonialItems",
+        "Liebesspielzeug"
+      ]
+    },
+    "Note": {
+      "description": "Note text.",
+      "type": "string",
+      "minLength": 1
+    },
+    "Rules": {
+      "description": "Special rules text.",
+      "type": "string",
+      "minLength": 1
+    },
+    "Advantage": {
+      "description": "The weapon/armor advantage text. Markdown is available.",
+      "type": "string",
+      "minLength": 1
+    },
+    "Disadvantage": {
+      "description": "The weapon/armor disadvantage text. Markdown is available.",
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

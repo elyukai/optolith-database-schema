@@ -1,0 +1,423 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "Schema/_Weapon.schema.json",
+  "title": "Weapon",
+  "definitions": {
+    "StructurePoints": {
+      "description": "The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.",
+      "oneOf": [
+        {
+          "type": "integer",
+          "minimum": 1
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "uniqueItems": true,
+          "minItems": 2
+        }
+      ]
+    },
+    "SanctifiedBy": {
+      "description": "If the weapon is sanctified by a god and thus restricted to it's Blessed Ones this should be the blessed tranditions numId.",
+      "type": "integer",
+      "minimum": 1
+    },
+    "RestrictedToCultures": {
+      "description": "Define if during character creation this weapon can only be bought by characters of a specific race.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "type": { "enum": ["CulturesOfRace", "Culture"] },
+            "value": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": ["type", "value"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "Cultures" },
+            "value": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "minItems": 2
+            }
+          },
+          "required": ["type", "value"],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "PrimaryAttributeDamageThreshold": {
+      "description": "The primary attribute damage and threshold value. You can either use an integer, an object or a pair. Use an integer if you just have to define a single threshold value for the default primary attribute of the combat technique. Use an object if you need to define the value only or if you need to define the value as well as a single different primary attribute than which the combat technique uses. Use the pair if you need to set the primary attributes to AGI and STR (the combat technique has AGI but this item has AGI/STR) and/or if you need to set different thresholds for AGI and STR (e.g. AGI 14/STR 15). If the same values are in the pair, they will be merged (AGI 14/STR 14 will be AGI/STR 14)",
+      "oneOf": [
+        {
+          "type": "integer",
+          "minimum": 1
+        },
+        {
+          "type": "object",
+          "properties": {
+            "attributeId": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "threshold": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": ["attributeId", "threshold"],
+          "additionalProperties": false
+        },
+        {
+          "type": "array",
+          "items": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "integer",
+              "minimum": 1
+            }
+          ],
+          "minItems": 2,
+          "additionalItems": false
+        }
+      ]
+    },
+    "DamageMelee": {
+      "type": "object",
+      "properties": {
+        "dice": {
+          "title": "Dice",
+          "type": "object",
+          "properties": {
+            "number": {
+              "description": "Number of dice for damage. Example: 2 in \"2D6+4\"",
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "sides": {
+              "description": "Number of dice's sides. Example: 6 in \"2D6+4\"",
+              "type": "integer",
+              "enum": [2, 3, 6, 20],
+              "default": 6
+            }
+          },
+          "required": ["number", "sides"],
+          "additionalProperties": false
+        },
+        "flat": {
+          "description": "Flat damage, if any. Defaults to 0 if not specified. 4 in \"2D6+4\", undefined (leave empty) in \"2D6\", -4 in \"2D6-4\"",
+          "type": "integer",
+          "minimum": 1,
+          "default": 0
+        }
+      },
+      "required": ["dice"],
+      "additionalProperties": false
+    },
+    "DamageRanged": {
+      "oneOf": [
+        { "$ref": "#/definitions/DamageMelee" },
+        { "enum": ["NotApplicable", "Special"] }
+      ]
+    },
+    "Attack": {
+      "description": "The AT modifier.",
+      "type": "integer"
+    },
+    "Parry": {
+      "description": "The PA modifier.",
+      "type": "integer"
+    },
+    "Reach": {
+      "description": "The reach of the weapon. 1 for short, 2 for medium, 3 for long and 4 for extra-long.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4
+    },
+    "Length": {
+      "description": "The length of the weapon in cm.",
+      "type": "integer",
+      "minimum": 1
+    },
+    "ShieldSize": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "description": "The shield size.",
+              "const": "Large"
+            },
+            "value": {
+              "type": "object",
+              "properties": {
+                "attackPenalty": {
+                  "description": "The attack penalty by the shield.",
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": ["attackPenalty"],
+              "additionalProperties": false
+            }
+          },
+          "required": ["type", "value"]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "description": "The shield size.",
+              "enum": ["Small", "Medium"]
+            }
+          },
+          "required": ["type"],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "MeleeWeapon": {
+      "title": "Melee Weapon",
+      "type": "object",
+      "properties": {
+        "combatTechniqueSpecific": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "description": "The combat technique ID.",
+                  "enum": [6, 8]
+                },
+                "value": {
+                  "type": "object",
+                  "properties": {
+                    "damageThreshold": { "$ref": "#/definitions/PrimaryAttributeDamageThreshold" },
+                    "at": { "$ref": "#/definitions/Attack" },
+                    "reach": { "$ref": "#/definitions/Reach" },
+                    "length": { "$ref": "#/definitions/Length" }
+                  },
+                  "required": ["damageThreshold", "at", "reach", "length"],
+                  "additionalProperties": false
+                }
+              },
+              "required": ["type", "value"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "description": "The combat technique ID.",
+                  "enum": [7]
+                },
+                "value": {
+                  "type": "object",
+                  "properties": {
+                    "at": { "$ref": "#/definitions/Attack" },
+                    "length": { "$ref": "#/definitions/Length" }
+                  },
+                  "required": ["length"],
+                  "additionalProperties": false
+                }
+              },
+              "required": ["type", "value"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "description": "The combat technique ID.",
+                  "const": 10
+                },
+                "value": {
+                  "type": "object",
+                  "properties": {
+                    "size": { "$ref": "#/definitions/ShieldSize" },
+                    "damageThreshold": { "$ref": "#/definitions/PrimaryAttributeDamageThreshold" },
+                    "at": { "$ref": "#/definitions/Attack" },
+                    "pa": { "$ref": "#/definitions/Parry" },
+                    "reach": { "$ref": "#/definitions/Reach" }
+                  },
+                  "required": ["size", "damageThreshold", "at", "pa", "reach"],
+                  "additionalProperties": false
+                }
+              },
+              "required": ["type", "value"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "description": "The combat technique ID.",
+                  "enum": [20]
+                },
+                "value": {
+                  "type": "object",
+                  "properties": {
+                    "size": { "$ref": "#/definitions/ShieldSize" },
+                    "damageThreshold": { "$ref": "#/definitions/PrimaryAttributeDamageThreshold" },
+                    "at": { "$ref": "#/definitions/Attack" },
+                    "pa": { "$ref": "#/definitions/Parry" },
+                    "reach": { "$ref": "#/definitions/Reach" },
+                    "length": { "$ref": "#/definitions/Length" }
+                  },
+                  "required": ["size", "damageThreshold", "at", "pa", "reach", "length"],
+                  "additionalProperties": false
+                }
+              },
+              "required": ["type", "value"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "description": "The combat technique ID.",
+                  "enum": [3, 4, 5, 9, 12, 13, 15, 16, 21]
+                },
+                "value": {
+                  "type": "object",
+                  "properties": {
+                    "damageThreshold": { "$ref": "#/definitions/PrimaryAttributeDamageThreshold" },
+                    "at": { "$ref": "#/definitions/Attack" },
+                    "pa": { "$ref": "#/definitions/Parry" },
+                    "reach": { "$ref": "#/definitions/Reach" },
+                    "length": { "$ref": "#/definitions/Length" }
+                  },
+                  "required": ["damageThreshold", "at", "pa", "reach", "length"],
+                  "additionalProperties": false
+                }
+              },
+              "required": ["type", "value"],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "damage": { "$ref": "#/definitions/DamageMelee" },
+        "isParryingWeapon": {
+          "description": "Is the weapon a parrying weapon?",
+          "type": "boolean"
+        },
+        "isTwoHandedWeapon": {
+          "description": "Is the weapon a two-handed weapon?",
+          "type": "boolean"
+        }
+      },
+      "required": ["combatTechniqueSpecific", "damage", "isParryingWeapon", "isTwoHandedWeapon"],
+      "additionalProperties": false
+    },
+    "RangedWeapon": {
+      "title": "Ranged Weapon",
+      "type": "object",
+      "properties": {
+        "combatTechniqueSpecific": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "description": "The combat technique ID.",
+                  "enum": [14]
+                }
+              },
+              "required": ["type"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "description": "The combat technique ID.",
+                  "enum": [1, 2, 11, 17, 18, 19]
+                },
+                "value": {
+                  "type": "object",
+                  "properties": {
+                    "ammunitionId": {
+                      "description": "The needed ammunition. The item template ID.",
+                      "type": "integer",
+                      "minimum": 1
+                    }
+                  },
+                  "required": ["ammunitionId"],
+                  "additionalProperties": false
+                }
+              },
+              "required": ["type", "value"],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "damage": { "$ref": "#/definitions/DamageRanged" },
+        "range": {
+          "description": "The range brackets for the weapon: close, medium, far. Distance in m.",
+          "type": "array",
+          "items": [
+            {
+              "description": "The close range bracket for the weapon. Distance in m.",
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "description": "The medium range bracket for the weapon. Distance in m.",
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "description": "The far range bracket for the weapon. Distance in m.",
+              "type": "integer",
+              "minimum": 1
+            }
+          ],
+          "minItems": 3,
+          "additionalItems": false
+        },
+        "reloadTime": {
+          "description": "The reload time. If you need to provide multiple reload times, use an array.",
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "uniqueItems": true,
+              "minItems": 2
+            }
+          ]
+        },
+        "length": {
+          "description": "The length of the weapon in cm.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": ["combatTechniqueSpecific", "damage", "range", "reloadTime", "length"],
+      "additionalProperties": false
+    }
+  }
+}

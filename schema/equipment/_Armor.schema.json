@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "Schema/_Armor.schema.json",
+  "title": "Armor",
+  "definitions": {
+    "Protection": {
+      "description": "The PRO value.",
+      "type": "integer",
+      "minimum": 0
+    },
+    "Encumbrance": {
+      "description": "The ENC value.",
+      "type": "integer",
+      "minimum": 0
+    },
+    "HasAdditionalPenalties": {
+      "description": "Has armor has additional penalties (MOV -1, INI -1)?",
+      "type": "boolean"
+    },
+    "ArmorType": {
+      "description": "The armor type ID.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10
+    },
+    "HitZone": {
+      "description": "Specify if armor is only available for a specific hit zone.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "description": "The hit zone.",
+              "const": "Head"
+            },
+            "value": {
+              "type": "object",
+              "properties": {
+                "combinationPossibilities": {
+                  "description": "In some cases, mutliple armors for the same hit zone can be combined. They're listed at the item that can be combined with others.",
+                  "type": "object",
+                  "properties": {
+                    "armors": {
+                      "description": "A list of armor IDs that can be combined with this armor.",
+                      "type": "array",
+                      "items": { "type": "integer", "minimum": 1 },
+                      "uniqueItems": true
+                    },
+                    "protection": {
+                      "description": "The PRO value that is added to the PRO value of the other armor. The PRO value of this armor does not have an effect if this is defined.",
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  },
+                  "required": ["armors", "protection"],
+                  "additionalProperties": false
+                }
+              },
+              "required": [],
+              "minProperties": 1,
+              "additionalProperties": false
+            }
+          },
+          "required": ["type"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "description": "The hit zone.",
+              "enum": ["Torso", "Arms", "Legs"]
+            }
+          },
+          "required": ["type"],
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}
