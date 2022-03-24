@@ -13,6 +13,7 @@ import { Continent, validateSchema as validateContinentSchema } from "./types/Co
 import { Culture, validateSchema as validateCultureSchema } from "./types/Culture.js"
 import { DerivedCharacteristic, validateSchema as validateDerivedCharacteristicSchema } from "./types/DerivedCharacteristic.js"
 import { Disadvantage, validateSchema as validateDisadvantageSchema } from "./types/Disadvantage.js"
+import { Disease, validateSchema as validateDiseaseSchema } from "./types/Disease.js"
 import { Element, validateSchema as validateElementSchema } from "./types/Element.js"
 import { EquipmentPackage, validateSchema as validateEquipmentPackageSchema } from "./types/equipment/EquipmentPackage.js"
 import { ExperienceLevel, validateSchema as validateExperienceLevelSchema } from "./types/ExperienceLevel.js"
@@ -158,6 +159,7 @@ export type TypeMap = {
   daggerRituals: DaggerRitual
   derivedCharacteristics: DerivedCharacteristic
   disadvantages: Disadvantage
+  diseases: Disease
   dominationRituals: DominationRitual
   elements: Element
   elvenMagicalSongs: ElvenMagicalSong
@@ -279,6 +281,7 @@ export const typeValidatorMap: { [K in keyof TypeMap]: TypeValidator<TypeMap[K]>
   daggerRituals: validateDaggerRitualSchema,
   derivedCharacteristics: validateDerivedCharacteristicSchema,
   disadvantages: validateDisadvantageSchema,
+  diseases: validateDiseaseSchema,
   dominationRituals: validateDominationRitualSchema,
   elements: validateElementSchema,
   elvenMagicalSongs: validateElvenMagicalSongSchema,
