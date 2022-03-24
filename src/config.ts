@@ -16,6 +16,7 @@ import { Disadvantage, validateSchema as validateDisadvantageSchema } from "./ty
 import { Disease, validateSchema as validateDiseaseSchema } from "./types/Disease.js"
 import { Element, validateSchema as validateElementSchema } from "./types/Element.js"
 import { EquipmentPackage, validateSchema as validateEquipmentPackageSchema } from "./types/equipment/EquipmentPackage.js"
+import { Reach, validateSchema as validateReachSchema } from "./types/equipment/Reach.js"
 import { ExperienceLevel, validateSchema as validateExperienceLevelSchema } from "./types/ExperienceLevel.js"
 import { EyeColor, validateSchema as validateEyeColorSchema } from "./types/EyeColor.js"
 import { FamiliarsTrick, validateSchema as validateFamiliarsTrickSchema } from "./types/FamiliarsTrick.js"
@@ -210,6 +211,7 @@ export type TypeMap = {
   publications: Publication
   races: Race
   rangedCombatTechniques: RangedCombatTechnique
+  reaches: Reach
   regions: Region
   ringEnchantments: RingEnchantment
   rituals: Ritual
@@ -332,6 +334,7 @@ export const typeValidatorMap: { [K in keyof TypeMap]: TypeValidator<TypeMap[K]>
   publications: validatePublicationSchema,
   races: validateRaceSchema,
   rangedCombatTechniques: validateRangedCombatTechniqueSchema,
+  reaches: validateReachSchema,
   regions: validateRegionSchema,
   ringEnchantments: validateRingEnchantmentSchema,
   rituals: validateRitualSchema,
