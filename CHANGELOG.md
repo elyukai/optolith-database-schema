@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.27](https://github.com/elyukai/optolith-database-schema/compare/v0.1.26...v0.1.27) (2022-03-24)
+
+
+### Bug Fixes
+
+* maximum call stack size exceeded with ui schema ([a752342](https://github.com/elyukai/optolith-database-schema/commit/a752342708b2a3e4b98e57a0adcbfd9b449d02fe))
+
 ### [0.1.26](https://github.com/elyukai/optolith-database-schema/compare/v0.1.25...v0.1.26) (2022-03-24)
 
 
