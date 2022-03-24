@@ -1,5 +1,6 @@
 import { Advantage, validateSchema as validateAdvantageSchema } from "./types/Advantage.js"
 import { AnimalDisease, validateSchema as validateAnimalDiseaseSchema } from "./types/AnimalDisease.js"
+import { AnimalType, validateSchema as validateAnimalTypeSchema } from "./types/AnimalType.js"
 import { ArcaneBardTradition, validateSchema as validateArcaneBardTraditionSchema } from "./types/ArcaneBardTradition.js"
 import { ArcaneDancerTradition, validateSchema as validateArcaneDancerTraditionSchema } from "./types/ArcaneDancerTradition.js"
 import { Aspect, validateSchema as validateAspectSchema } from "./types/Aspect.js"
@@ -22,7 +23,6 @@ import { Reach, validateSchema as validateReachSchema } from "./types/equipment/
 import { ExperienceLevel, validateSchema as validateExperienceLevelSchema } from "./types/ExperienceLevel.js"
 import { EyeColor, validateSchema as validateEyeColorSchema } from "./types/EyeColor.js"
 import { FamiliarsTrick, validateSchema as validateFamiliarsTrickSchema } from "./types/FamiliarsTrick.js"
-import { AnimalType, validateSchema as validateAnimalTypeSchema } from "./types/FamiliarsTrick_AnimalType.js"
 import { HairColor, validateSchema as validateHairColorSchema } from "./types/HairColor.js"
 import { Kirchenpraegung, validateSchema as validateKirchenpraegungSchema } from "./types/Kirchenpraegung.js"
 import { Curriculum, validateSchema as validateCurriculumSchema } from "./types/Lessons_Curriculum.js"
@@ -133,6 +133,7 @@ export type TypeMap = {
   animalShapePaths: AnimalShapePath
   animalShapes: AnimalShape
   animalShapeSizes: AnimalShapeSize
+  animalTypes: AnimalType
   animistPowers: AnimistPower
   animistPowerTribes: Tribe
   arcaneBardTraditions: ArcaneBardTradition
@@ -172,7 +173,6 @@ export type TypeMap = {
   experienceLevels: ExperienceLevel
   eyeColors: EyeColor
   familiarSpecialAbilities: FamiliarSpecialAbility
-  familiarsTrickAnimalTypes: AnimalType
   familiarsTricks: FamiliarsTrick
   fatePointSexSpecialAbilities: FatePointSexSpecialAbility
   fatePointSpecialAbilities: FatePointSpecialAbility
@@ -258,6 +258,7 @@ export const typeValidatorMap: { [K in keyof TypeMap]: TypeValidator<TypeMap[K]>
   animalShapePaths: validateAnimalShapePathSchema,
   animalShapes: validateAnimalShapeSchema,
   animalShapeSizes: validateAnimalShapeSizeSchema,
+  animalTypes: validateAnimalTypeSchema,
   animistPowers: validateAnimistPowerSchema,
   animistPowerTribes: validateTribeSchema,
   arcaneBardTraditions: validateArcaneBardTraditionSchema,
@@ -297,7 +298,6 @@ export const typeValidatorMap: { [K in keyof TypeMap]: TypeValidator<TypeMap[K]>
   experienceLevels: validateExperienceLevelSchema,
   eyeColors: validateEyeColorSchema,
   familiarSpecialAbilities: validateFamiliarSpecialAbilitySchema,
-  familiarsTrickAnimalTypes: validateAnimalTypeSchema,
   familiarsTricks: validateFamiliarsTrickSchema,
   fatePointSexSpecialAbilities: validateFatePointSexSpecialAbilitySchema,
   fatePointSpecialAbilities: validateFatePointSpecialAbilitySchema,

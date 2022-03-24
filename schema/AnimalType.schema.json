@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "/FamiliarsTrick_AnimalType.schema.json",
+  "$id": "/AnimalType.schema.json",
   "$ref": "#/definitions/AnimalType",
   "definitions": {
     "AnimalType": {
