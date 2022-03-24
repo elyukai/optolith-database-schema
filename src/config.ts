@@ -122,6 +122,7 @@ import { ToyEnchantment, validateSchema as validateToyEnchantmentSchema } from "
 import { Trinkhornzauber, validateSchema as validateTrinkhornzauberSchema } from "./types/traditionArtifacts/Trinkhornzauber.js"
 import { validateSchema as validateWandEnchantmentSchema, WandEnchantment } from "./types/traditionArtifacts/WandEnchantment.js"
 import { validateSchema as validateWeaponEnchantmentSchema, WeaponEnchantment } from "./types/traditionArtifacts/WeaponEnchantment.js"
+import { UI, validateSchema as validateUISchema } from "./types/UI.js"
 import { TypeValidator } from "./validation/schema.js"
 
 export type TypeMap = {
@@ -244,6 +245,7 @@ export type TypeMap = {
   toyEnchantments: ToyEnchantment
   tradeSecrets: TradeSecret
   trinkhornzauber: Trinkhornzauber
+  ui: UI
   vampiricGifts: VampiricGift
   visions: Vision
   wandEnchantments: WandEnchantment
@@ -371,6 +373,7 @@ export const typeValidatorMap: { [K in keyof TypeMap]: TypeValidator<TypeMap[K]>
   toyEnchantments: validateToyEnchantmentSchema,
   tradeSecrets: validateTradeSecretSchema,
   trinkhornzauber: validateTrinkhornzauberSchema,
+  ui: validateUISchema,
   vampiricGifts: validateVampiricGiftSchema,
   visions: validateVisionSchema,
   wandEnchantments: validateWandEnchantmentSchema,
