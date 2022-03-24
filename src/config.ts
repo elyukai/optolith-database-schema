@@ -1,4 +1,5 @@
 import { Advantage, validateSchema as validateAdvantageSchema } from "./types/Advantage.js"
+import { AnimalDisease, validateSchema as validateAnimalDiseaseSchema } from "./types/AnimalDisease.js"
 import { ArcaneBardTradition, validateSchema as validateArcaneBardTraditionSchema } from "./types/ArcaneBardTradition.js"
 import { ArcaneDancerTradition, validateSchema as validateArcaneDancerTraditionSchema } from "./types/ArcaneDancerTradition.js"
 import { Aspect, validateSchema as validateAspectSchema } from "./types/Aspect.js"
@@ -128,6 +129,7 @@ export type TypeMap = {
   advancedSkillSpecialAbilities: AdvancedSkillSpecialAbility
   advantages: Advantage
   ancestorGlyphs: AncestorGlyph
+  animalDiseases: AnimalDisease
   animalShapePaths: AnimalShapePath
   animalShapes: AnimalShape
   animalShapeSizes: AnimalShapeSize
@@ -252,6 +254,7 @@ export const typeValidatorMap: { [K in keyof TypeMap]: TypeValidator<TypeMap[K]>
   advancedSkillSpecialAbilities: validateAdvancedSkillSpecialAbilitySchema,
   advantages: validateAdvantageSchema,
   ancestorGlyphs: validateAncestorGlyphSchema,
+  animalDiseases: validateAnimalDiseaseSchema,
   animalShapePaths: validateAnimalShapePathSchema,
   animalShapes: validateAnimalShapeSchema,
   animalShapeSizes: validateAnimalShapeSizeSchema,
