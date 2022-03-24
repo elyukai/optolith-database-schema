@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.26](https://github.com/elyukai/optolith-database-schema/compare/v0.1.25...v0.1.26) (2022-03-24)
+
+
+### Features
+
+* animal diseases ([b7d2639](https://github.com/elyukai/optolith-database-schema/commit/b7d263942c14c76b6a3bfda780ecadf6cb7a60df))
+* armor types ([c5b9a22](https://github.com/elyukai/optolith-database-schema/commit/c5b9a22e5c277a28a8bc0c8cbe3b0cc41235087d))
+* diseases ([5e7c8a6](https://github.com/elyukai/optolith-database-schema/commit/5e7c8a6f83ce0b3f7c3854e759b8f042ed7451c8))
+* item groups ([b2678ac](https://github.com/elyukai/optolith-database-schema/commit/b2678aca250d4666f7a894ddfc0fc9c3f6a22bcf))
+* poisons ([fb9898f](https://github.com/elyukai/optolith-database-schema/commit/fb9898fbce8fcaaed0f83f8afe8fafeab8294a28))
+* reaches ([9ed3937](https://github.com/elyukai/optolith-database-schema/commit/9ed39370410a3af29c585a3321c59e794dad70ae))
+* ui status quo ([5cb5058](https://github.com/elyukai/optolith-database-schema/commit/5cb50581de6bb3c9a4ee7a89ae52a1dea957c8d8))
+
 ### [0.1.25](https://github.com/elyukai/optolith-database-schema/compare/v0.1.24...v0.1.25) (2022-03-23)
 
 
