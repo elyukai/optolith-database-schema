@@ -1,35 +1,45 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "Schema/ArmorType.schema.json",
-  "title": "Armor Type",
-  "type": "object",
-  "properties": {
-    "id": {
-      "description": "An unique, increasing integer.",
-      "type": "integer",
-      "minimum": 1
-    },
-    "translations": {
+  "$id": "/equipment/ArmorType.schema.json",
+  "$ref": "#/definitions/ArmorType",
+  "definitions": {
+    "ArmorType": {
+      "title": "Armor Type",
       "type": "object",
-      "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-      "patternProperties": {
-        "^[a-z]{2}-[A-Z]{2}$": {
+      "properties": {
+        "id": {
+          "description": "The armor type's identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
           "type": "object",
-          "properties": {
-            "name": {
-              "description": "The armor type.",
-              "type": "string",
-              "minLength": 1
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "description": "The name of the armor type.",
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false
             }
           },
-          "required": ["name"],
+          "minProperties": 1,
           "additionalProperties": false
         }
       },
-      "minProperties": 1,
+      "required": [
+        "id",
+        "translations"
+      ],
       "additionalProperties": false
     }
-  },
-  "required": ["id", "translations"],
-  "additionalProperties": false
+  }
 }

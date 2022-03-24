@@ -15,6 +15,7 @@ import { DerivedCharacteristic, validateSchema as validateDerivedCharacteristicS
 import { Disadvantage, validateSchema as validateDisadvantageSchema } from "./types/Disadvantage.js"
 import { Disease, validateSchema as validateDiseaseSchema } from "./types/Disease.js"
 import { Element, validateSchema as validateElementSchema } from "./types/Element.js"
+import { ArmorType, validateSchema as validateArmorTypeSchema } from "./types/equipment/ArmorType.js"
 import { EquipmentPackage, validateSchema as validateEquipmentPackageSchema } from "./types/equipment/EquipmentPackage.js"
 import { Reach, validateSchema as validateReachSchema } from "./types/equipment/Reach.js"
 import { ExperienceLevel, validateSchema as validateExperienceLevelSchema } from "./types/ExperienceLevel.js"
@@ -135,6 +136,7 @@ export type TypeMap = {
   arcaneBardTraditions: ArcaneBardTradition
   arcaneDancerTraditions: ArcaneDancerTradition
   arcaneOrbEnchantments: ArcaneOrbEnchantment
+  armorTypes: ArmorType
   aspects: Aspect
   attireEnchantments: AttireEnchantment
   attributes: Attribute
@@ -258,6 +260,7 @@ export const typeValidatorMap: { [K in keyof TypeMap]: TypeValidator<TypeMap[K]>
   arcaneBardTraditions: validateArcaneBardTraditionSchema,
   arcaneDancerTraditions: validateArcaneDancerTraditionSchema,
   arcaneOrbEnchantments: validateArcaneOrbEnchantmentSchema,
+  armorTypes: validateArmorTypeSchema,
   aspects: validateAspectSchema,
   attireEnchantments: validateAttireEnchantmentSchema,
   attributes: validateAttributeSchema,
