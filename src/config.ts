@@ -47,6 +47,7 @@ import { PactCategory, validateSchema as validatePactCategorySchema } from "./ty
 import { Patron, validateSchema as validatePatronSchema } from "./types/Patron.js"
 import { PatronCategory, validateSchema as validatePatronCategorySchema } from "./types/PatronCategory.js"
 import { PersonalityTrait, validateSchema as validatePersonalityTraitSchema } from "./types/PersonalityTrait.js"
+import { Poison, validateSchema as validatePoisonSchema } from "./types/Poison.js"
 import { Profession, validateSchema as validateProfessionSchema } from "./types/Profession.js"
 import { Property, validateSchema as validatePropertySchema } from "./types/Property.js"
 import { Race, validateSchema as validateRaceSchema } from "./types/Race.js"
@@ -211,7 +212,8 @@ export type TypeMap = {
   patronCategories: PatronCategory
   patrons: Patron
   personalityTraits: PersonalityTrait
-  professions: Profession,
+  poisons: Poison
+  professions: Profession
   properties: Property
   protectiveWardingCircleSpecialAbilities: ProtectiveWardingCircleSpecialAbility
   publications: Publication
@@ -337,6 +339,7 @@ export const typeValidatorMap: { [K in keyof TypeMap]: TypeValidator<TypeMap[K]>
   patronCategories: validatePatronCategorySchema,
   patrons: validatePatronSchema,
   personalityTraits: validatePersonalityTraitSchema,
+  poisons: validatePoisonSchema,
   professions: validateProfessionSchema,
   properties: validatePropertySchema,
   protectiveWardingCircleSpecialAbilities: validateProtectiveWardingCircleSpecialAbilitySchema,
