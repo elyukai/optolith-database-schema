@@ -19,6 +19,7 @@ import { Disease, validateSchema as validateDiseaseSchema } from "./types/Diseas
 import { Element, validateSchema as validateElementSchema } from "./types/Element.js"
 import { ArmorType, validateSchema as validateArmorTypeSchema } from "./types/equipment/ArmorType.js"
 import { EquipmentPackage, validateSchema as validateEquipmentPackageSchema } from "./types/equipment/EquipmentPackage.js"
+import { ItemGroup, validateSchema as validateItemGroupSchema } from "./types/equipment/ItemGroup.js"
 import { Reach, validateSchema as validateReachSchema } from "./types/equipment/Reach.js"
 import { ExperienceLevel, validateSchema as validateExperienceLevelSchema } from "./types/ExperienceLevel.js"
 import { EyeColor, validateSchema as validateEyeColorSchema } from "./types/EyeColor.js"
@@ -183,6 +184,7 @@ export type TypeMap = {
   geodeRituals: GeodeRitual
   hairColors: HairColor
   instrumentEnchantments: InstrumentEnchantment
+  itemGroups: ItemGroup
   jesterTricks: JesterTrick
   karmaSpecialAbilities: KarmaSpecialAbility
   kirchenpraegungen: Kirchenpraegung
@@ -308,6 +310,7 @@ export const typeValidatorMap: { [K in keyof TypeMap]: TypeValidator<TypeMap[K]>
   geodeRituals: validateGeodeRitualSchema,
   hairColors: validateHairColorSchema,
   instrumentEnchantments: validateInstrumentEnchantmentSchema,
+  itemGroups: validateItemGroupSchema,
   jesterTricks: validateJesterTrickSchema,
   karmaSpecialAbilities: validateKarmaSpecialAbilitySchema,
   kirchenpraegungen: validateKirchenpraegungSchema,
