@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "/_Dice.schema.json",
+  "definitions": {
+    "Dice": {
+      "title": "Dice",
+      "type": "object",
+      "properties": {
+        "number": {
+          "description": "Number of dice of the same type. Example: 2 in 2D6.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "sides": {
+          "description": "Number of sides on every die. Example: 6 in 2D6.",
+          "$ref": "#/definitions/DieType"
+        }
+      },
+      "required": [
+        "number",
+        "sides"
+      ],
+      "additionalProperties": false
+    },
+    "DieType": {
+      "description": "Number of sides on every dice. Example: 6 in 2D6.",
+      "enum": [
+        3,
+        6,
+        20
+      ]
+    }
+  }
+}

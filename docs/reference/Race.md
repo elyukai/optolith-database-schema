@@ -442,7 +442,7 @@ Number of dice of the same type. Example: 2 in 2D6.
 
 Number of sides on every die. Example: 6 in 2D6.
 
-- **Type:** <a href="#DieType">DieType</a>
+- **Type:** <a href="./_Dice.md#DieType">DieType</a>
 
 #### <a name="Weight/Die/offset_strategy"></a> `offset_strategy`
 
@@ -537,7 +537,7 @@ The base value for the selected experience level.
 The random value for the selected experience level. It is going to be
 added to the base value.
 
-- **Type:** <a href="#Die">Die</a>
+- **Type:** <a href="./_Dice.md#Dice">Dice</a>
 
 ---
 
@@ -879,7 +879,7 @@ The dice used for random height.
 
 ### <a name="Height/random[]"></a> `Height/random[]`
 
-- **Type:** <a href="#Die">Die</a>
+- **Type:** <a href="./_Dice.md#Dice">Dice</a>
 
 ---
 
@@ -1032,35 +1032,3 @@ empty. It is overridden by the same field in race variants.
 #### <a name="RaceTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
-
----
-
-### <a name="Die"></a> Die (`Die`)
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`number` | Number of dice of the same type. Example: 2 in 2D6. | <a href="#Die/number">See details</a>
-`sides` | Number of sides on every die. Example: 6 in 2D6. | <a href="#Die/sides">See details</a>
-
-#### <a name="Die/number"></a> `number`
-
-Number of dice of the same type. Example: 2 in 2D6.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
-#### <a name="Die/sides"></a> `sides`
-
-Number of sides on every die. Example: 6 in 2D6.
-
-- **Type:** <a href="#DieType">DieType</a>
-
----
-
-### <a name="DieType"></a> `DieType`
-
-Number of sides on every dice. Example: 6 in 2D6.
-
-- **Possible values:** `3`, `6`, `20`

@@ -1,7 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "Schema/_Armor.schema.json",
-  "title": "Armor",
+  "$id": "/equipment/_Armor.schema.json",
   "definitions": {
     "Protection": {
       "description": "The PRO value.",
@@ -14,65 +13,110 @@
       "minimum": 0
     },
     "HasAdditionalPenalties": {
-      "description": "Has armor has additional penalties (MOV -1, INI -1)?",
+      "description": "Does the armor have additional penalties (MOV -1, INI -1)?",
       "type": "boolean"
     },
     "ArmorType": {
-      "description": "The armor type ID.",
-      "type": "integer",
-      "minimum": 1,
-      "maximum": 10
+      "title": "Armor Type",
+      "description": "The armor type.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The armor type's identifier.",
+          "type": "integer",
+          "maximum": 10,
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
     },
     "HitZone": {
+      "title": "Hit Zone",
       "description": "Specify if armor is only available for a specific hit zone.",
       "oneOf": [
         {
           "type": "object",
           "properties": {
-            "type": {
-              "description": "The hit zone.",
+            "tag": {
               "const": "Head"
             },
-            "value": {
+            "combination_possibilities": {
+              "description": "In some cases, multiple armors for the same hit zone can be combined.\nThey're listed at the item that can be combined with others.",
               "type": "object",
               "properties": {
-                "combinationPossibilities": {
-                  "description": "In some cases, mutliple armors for the same hit zone can be combined. They're listed at the item that can be combined with others.",
-                  "type": "object",
-                  "properties": {
-                    "armors": {
-                      "description": "A list of armor IDs that can be combined with this armor.",
-                      "type": "array",
-                      "items": { "type": "integer", "minimum": 1 },
-                      "uniqueItems": true
+                "armors": {
+                  "description": "A list of armors that can be combined with this armor.",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "description": "The armor's identifier.",
+                        "type": "integer",
+                        "minimum": 1
+                      }
                     },
-                    "protection": {
-                      "description": "The PRO value that is added to the PRO value of the other armor. The PRO value of this armor does not have an effect if this is defined.",
-                      "type": "integer",
-                      "minimum": 0
-                    }
+                    "required": [
+                      "id"
+                    ],
+                    "additionalProperties": false
                   },
-                  "required": ["armors", "protection"],
-                  "additionalProperties": false
+                  "minItems": 1
+                },
+                "protection": {
+                  "description": "The PRO value that is added to the PRO value of the other armor instead\nof adding the normale PRO value.",
+                  "type": "integer",
+                  "minimum": 0
                 }
               },
-              "required": [],
-              "minProperties": 1,
+              "required": [
+                "armors"
+              ],
               "additionalProperties": false
             }
           },
-          "required": ["type"],
+          "required": [
+            "tag"
+          ],
           "additionalProperties": false
         },
         {
           "type": "object",
           "properties": {
-            "type": {
-              "description": "The hit zone.",
-              "enum": ["Torso", "Arms", "Legs"]
+            "tag": {
+              "const": "Torso"
             }
           },
-          "required": ["type"],
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Arms"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Legs"
+            }
+          },
+          "required": [
+            "tag"
+          ],
           "additionalProperties": false
         }
       ]

@@ -6,6 +6,7 @@ import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
+import { Dice, DieType } from "./_Dice.js"
 
 /**
  * A playable race with stats and skills.
@@ -299,7 +300,7 @@ type StartingAgeConfigForExperienceLevel = {
    * The random value for the selected experience level. It is going to be
    * added to the base value.
    */
-  random: Die
+  random: Dice
 }
 
 /**
@@ -461,7 +462,7 @@ type Height = {
    * The dice used for random height.
    * @minItems 1
    */
-  random: Die[]
+  random: Dice[]
 }
 
 type RaceVariantTranslation = {
@@ -569,32 +570,6 @@ type RaceTranslation = {
   uncommon_disadvantages?: string
 
   errata?: Errata
-}
-
-/**
- * @title Die
- */
-type Die = {
-  /**
-   * Number of dice of the same type. Example: 2 in 2D6.
-   * @integer
-   * @minimum 1
-   */
-  number: number
-
-  /**
-   * Number of sides on every die. Example: 6 in 2D6.
-   */
-  sides: DieType
-}
-
-/**
- * Number of sides on every dice. Example: 6 in 2D6.
- */
-enum DieType {
-  D3 = 3,
-  D6 = 6,
-  D20 = 20,
 }
 
 export const validateSchema = validateSchemaCreator<Race>(import.meta.url)
