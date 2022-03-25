@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.28](https://github.com/elyukai/optolith-database-schema/compare/v0.1.27...v0.1.28) (2022-03-25)
+
+
+### Features
+
+* allow skills in advanced special ability restrictions ([237dbbd](https://github.com/elyukai/optolith-database-schema/commit/237dbbdeddcc0df07387196ae2537a19c1deab16))
+* items status quo ([c4b349b](https://github.com/elyukai/optolith-database-schema/commit/c4b349bf10fca92286c0510cab8ccb67563f0532))
+
 ### [0.1.27](https://github.com/elyukai/optolith-database-schema/compare/v0.1.26...v0.1.27) (2022-03-24)
 
 
