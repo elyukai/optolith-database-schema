@@ -114,6 +114,7 @@ enum RatedTag {
 
 enum AdvancedSpecialAbilityRestrictedOptionTag {
   General = "General",
+  Skill = "Skill",
   Element = "Element",
 }
 

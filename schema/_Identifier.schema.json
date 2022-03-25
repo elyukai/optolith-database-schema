@@ -123,6 +123,7 @@
     "AdvancedSpecialAbilityRestrictedOptionTag": {
       "enum": [
         "General",
+        "Skill",
         "Element"
       ]
     },

@@ -28,7 +28,7 @@
 
 ### <a name="AdvancedSpecialAbilityRestrictedOptionTag"></a> `AdvancedSpecialAbilityRestrictedOptionTag`
 
-- **Possible values:** `"General"`, `"Element"`
+- **Possible values:** `"General"`, `"Skill"`, `"Element"`
 
 ---
 
