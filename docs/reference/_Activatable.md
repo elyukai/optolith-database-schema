@@ -529,7 +529,6 @@ Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#CategoryOption'Skills/tag">See details</a>
 `categories` | A list of skill categories. | <a href="#CategoryOption'Skills/categories">See details</a>
-`prerequisites?` | Generate prerequisites for each entry of the category. | <a href="#CategoryOption'Skills/prerequisites">See details</a>
 `ap_value?` | Generate AP values for each entry. | <a href="#CategoryOption'Skills/ap_value">See details</a>
 
 #### <a name="CategoryOption'Skills/tag"></a> `tag`
@@ -542,14 +541,6 @@ A list of skill categories.
 
 - **Type:** List
 - **Items:** <a href="#CategoryOption'Skills/categories[]">CategoryOption'Skills/categories[]</a>
-- **Minimum Items:** `1`
-
-#### <a name="CategoryOption'Skills/prerequisites"></a> `prerequisites?`
-
-Generate prerequisites for each entry of the category.
-
-- **Type:** List
-- **Items:** <a href="#CategoryOption'Skills/prerequisites[]">CategoryOption'Skills/prerequisites[]</a>
 - **Minimum Items:** `1`
 
 #### <a name="CategoryOption'Skills/ap_value"></a> `ap_value?`
@@ -579,6 +570,7 @@ Key | Description | Details
 `specific?` | Only include (`Intersection`) or exclude (`Difference`) specific skills. | <a href="#CategoryOption'Skills/categories[]'Skills/specific">See details</a>
 `skill_applications?` | Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry. | <a href="#CategoryOption'Skills/categories[]'Skills/skill_applications">See details</a>
 `skill_uses?` | Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry. | <a href="#CategoryOption'Skills/categories[]'Skills/skill_uses">See details</a>
+`prerequisites?` | Generate prerequisites for each entry of the category. | <a href="#CategoryOption'Skills/categories[]'Skills/prerequisites">See details</a>
 
 #### <a name="CategoryOption'Skills/categories[]'Skills/tag"></a> `tag`
 
@@ -621,6 +613,14 @@ name of the origin entry.
 
 - **Type:** List
 - **Items:** <a href="#CategoryOption'Skills/categories[]'Skills/skill_uses[]">CategoryOption'Skills/categories[]'Skills/skill_uses[]</a>
+- **Minimum Items:** `1`
+
+#### <a name="CategoryOption'Skills/categories[]'Skills/prerequisites"></a> `prerequisites?`
+
+Generate prerequisites for each entry of the category.
+
+- **Type:** List
+- **Items:** <a href="#CategoryOption'Skills/categories[]'Skills/prerequisites[]">CategoryOption'Skills/categories[]'Skills/prerequisites[]</a>
 - **Minimum Items:** `1`
 
 ---
@@ -810,6 +810,25 @@ name.
 
 ---
 
+### <a name="CategoryOption'Skills/categories[]'Skills/prerequisites[]"></a> `CategoryOption'Skills/categories[]'Skills/prerequisites[]`
+
+- **Type:** Union
+- **Cases:** <a href="#CategoryOption'Skills/categories[]'Skills/prerequisites[]'OptionSkillSelfPrerequisite">CategoryOption'Skills/categories[]'Skills/prerequisites[]'OptionSkillSelfPrerequisite</a> | <a href="#CategoryOption'Skills/categories[]'Skills/prerequisites[]'OptionOptionPrerequisite">CategoryOption'Skills/categories[]'Skills/prerequisites[]'OptionOptionPrerequisite</a>
+
+---
+
+### <a name="CategoryOption'Skills/categories[]'Skills/prerequisites[]'OptionSkillSelfPrerequisite"></a> `CategoryOption'Skills/categories[]'Skills/prerequisites[]'OptionSkillSelfPrerequisite`
+
+- **Type:** <a href="#OptionSkillSelfPrerequisite">OptionSkillSelfPrerequisite</a>
+
+---
+
+### <a name="CategoryOption'Skills/categories[]'Skills/prerequisites[]'OptionOptionPrerequisite"></a> `CategoryOption'Skills/categories[]'Skills/prerequisites[]'OptionOptionPrerequisite`
+
+- **Type:** <a href="#OptionOptionPrerequisite">OptionOptionPrerequisite</a>
+
+---
+
 ### <a name="CategoryOption'Skills/categories[]'1"></a> `CategoryOption'Skills/categories[]'1`
 
 - **Type:** Object
@@ -818,10 +837,11 @@ Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#CategoryOption'Skills/categories[]'1/tag">See details</a>
 `specific?` | Only include (`Intersection`) or exclude (`Difference`) specific entries. | <a href="#CategoryOption'Skills/categories[]'1/specific">See details</a>
+`prerequisites?` | Generate prerequisites for each entry of the category. | <a href="#CategoryOption'Skills/categories[]'1/prerequisites">See details</a>
 
 #### <a name="CategoryOption'Skills/categories[]'1/tag"></a> `tag`
 
-- **Type:** <a href="./_Identifier.md#SkillWithEnhancementsTag">SkillWithEnhancementsTag</a>
+- **Type:** <a href="#SkillWithEnhancementsCategory">SkillWithEnhancementsCategory</a>
 
 #### <a name="CategoryOption'Skills/categories[]'1/specific"></a> `specific?`
 
@@ -829,6 +849,14 @@ Only include (`Intersection`) or exclude (`Difference`) specific
 entries.
 
 - **Type:** <a href="#CategoryOption'Skills/categories[]'1/specific">Object</a>
+
+#### <a name="CategoryOption'Skills/categories[]'1/prerequisites"></a> `prerequisites?`
+
+Generate prerequisites for each entry of the category.
+
+- **Type:** List
+- **Items:** <a href="#CategoryOption'Skills/categories[]'1/prerequisites[]">CategoryOption'Skills/categories[]'1/prerequisites[]</a>
+- **Minimum Items:** `1`
 
 ---
 
@@ -906,20 +934,20 @@ The entry's identifier.
 
 ---
 
-### <a name="CategoryOption'Skills/prerequisites[]"></a> `CategoryOption'Skills/prerequisites[]`
+### <a name="CategoryOption'Skills/categories[]'1/prerequisites[]"></a> `CategoryOption'Skills/categories[]'1/prerequisites[]`
 
 - **Type:** Union
-- **Cases:** <a href="#CategoryOption'Skills/prerequisites[]'OptionSkillSelfPrerequisite">CategoryOption'Skills/prerequisites[]'OptionSkillSelfPrerequisite</a> | <a href="#CategoryOption'Skills/prerequisites[]'OptionOptionPrerequisite">CategoryOption'Skills/prerequisites[]'OptionOptionPrerequisite</a>
+- **Cases:** <a href="#CategoryOption'Skills/categories[]'1/prerequisites[]'OptionSkillSelfPrerequisite">CategoryOption'Skills/categories[]'1/prerequisites[]'OptionSkillSelfPrerequisite</a> | <a href="#CategoryOption'Skills/categories[]'1/prerequisites[]'OptionOptionPrerequisite">CategoryOption'Skills/categories[]'1/prerequisites[]'OptionOptionPrerequisite</a>
 
 ---
 
-### <a name="CategoryOption'Skills/prerequisites[]'OptionSkillSelfPrerequisite"></a> `CategoryOption'Skills/prerequisites[]'OptionSkillSelfPrerequisite`
+### <a name="CategoryOption'Skills/categories[]'1/prerequisites[]'OptionSkillSelfPrerequisite"></a> `CategoryOption'Skills/categories[]'1/prerequisites[]'OptionSkillSelfPrerequisite`
 
 - **Type:** <a href="#OptionSkillSelfPrerequisite">OptionSkillSelfPrerequisite</a>
 
 ---
 
-### <a name="CategoryOption'Skills/prerequisites[]'OptionOptionPrerequisite"></a> `CategoryOption'Skills/prerequisites[]'OptionOptionPrerequisite`
+### <a name="CategoryOption'Skills/categories[]'1/prerequisites[]'OptionOptionPrerequisite"></a> `CategoryOption'Skills/categories[]'1/prerequisites[]'OptionOptionPrerequisite`
 
 - **Type:** <a href="#OptionOptionPrerequisite">OptionOptionPrerequisite</a>
 
@@ -1020,7 +1048,6 @@ Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/tag">See details</a>
 `categories` | A list of combat technique categories. | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/categories">See details</a>
-`prerequisites?` | Generate prerequisites for each entry of the category. | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/prerequisites">See details</a>
 `ap_value?` | Generate AP values for each entry. | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/ap_value">See details</a>
 
 #### <a name="CategoryOption'Skills/ap_value'CombatTechniques/tag"></a> `tag`
@@ -1033,14 +1060,6 @@ A list of combat technique categories.
 
 - **Type:** List
 - **Items:** <a href="#CategoryOption'Skills/ap_value'CombatTechniques/categories[]">CategoryOption'Skills/ap_value'CombatTechniques/categories[]</a>
-- **Minimum Items:** `1`
-
-#### <a name="CategoryOption'Skills/ap_value'CombatTechniques/prerequisites"></a> `prerequisites?`
-
-Generate prerequisites for each entry of the category.
-
-- **Type:** List
-- **Items:** <a href="#CategoryOption'Skills/ap_value'CombatTechniques/prerequisites[]">CategoryOption'Skills/ap_value'CombatTechniques/prerequisites[]</a>
 - **Minimum Items:** `1`
 
 #### <a name="CategoryOption'Skills/ap_value'CombatTechniques/ap_value"></a> `ap_value?`
@@ -1060,10 +1079,11 @@ Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/categories[]/tag">See details</a>
 `specific?` | Only include (`Intersection`) or exclude (`Difference`) specific entries. | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific">See details</a>
+`prerequisites?` | Generate prerequisites for each entry of the category. | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites">See details</a>
 
 #### <a name="CategoryOption'Skills/ap_value'CombatTechniques/categories[]/tag"></a> `tag`
 
-- **Type:** <a href="./_Identifier.md#CombatTechniqueTag">CombatTechniqueTag</a>
+- **Type:** <a href="#CombatTechniqueCategory">CombatTechniqueCategory</a>
 
 #### <a name="CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific"></a> `specific?`
 
@@ -1071,6 +1091,14 @@ Only include (`Intersection`) or exclude (`Difference`) specific
 entries.
 
 - **Type:** <a href="#CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific">Object</a>
+
+#### <a name="CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites"></a> `prerequisites?`
+
+Generate prerequisites for each entry of the category.
+
+- **Type:** List
+- **Items:** <a href="#CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites[]">CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites[]</a>
+- **Minimum Items:** `1`
 
 ---
 
@@ -1148,20 +1176,20 @@ The entry's identifier.
 
 ---
 
-### <a name="CategoryOption'Skills/ap_value'CombatTechniques/prerequisites[]"></a> `CategoryOption'Skills/ap_value'CombatTechniques/prerequisites[]`
+### <a name="CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites[]"></a> `CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites[]`
 
 - **Type:** Union
-- **Cases:** <a href="#CategoryOption'Skills/ap_value'CombatTechniques/prerequisites[]'OptionSkillSelfPrerequisite">CategoryOption'Skills/ap_value'CombatTechniques/prerequisites[]'OptionSkillSelfPrerequisite</a> | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/prerequisites[]'OptionOptionPrerequisite">CategoryOption'Skills/ap_value'CombatTechniques/prerequisites[]'OptionOptionPrerequisite</a>
+- **Cases:** <a href="#CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites[]'OptionSkillSelfPrerequisite">CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites[]'OptionSkillSelfPrerequisite</a> | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites[]'OptionOptionPrerequisite">CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites[]'OptionOptionPrerequisite</a>
 
 ---
 
-### <a name="CategoryOption'Skills/ap_value'CombatTechniques/prerequisites[]'OptionSkillSelfPrerequisite"></a> `CategoryOption'Skills/ap_value'CombatTechniques/prerequisites[]'OptionSkillSelfPrerequisite`
+### <a name="CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites[]'OptionSkillSelfPrerequisite"></a> `CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites[]'OptionSkillSelfPrerequisite`
 
 - **Type:** <a href="#OptionSkillSelfPrerequisite">OptionSkillSelfPrerequisite</a>
 
 ---
 
-### <a name="CategoryOption'Skills/ap_value'CombatTechniques/prerequisites[]'OptionOptionPrerequisite"></a> `CategoryOption'Skills/ap_value'CombatTechniques/prerequisites[]'OptionOptionPrerequisite`
+### <a name="CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites[]'OptionOptionPrerequisite"></a> `CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites[]'OptionOptionPrerequisite`
 
 - **Type:** <a href="#OptionOptionPrerequisite">OptionOptionPrerequisite</a>
 
@@ -1242,6 +1270,18 @@ The AP value for the specified entry.
 
 - **Type:** Integer
 - **Minimum:** `1`
+
+---
+
+### <a name="SkillWithEnhancementsCategory"></a> `SkillWithEnhancementsCategory`
+
+- **Possible values:** `"spells"`, `"Rituals"`, `"LiturgicalChants"`, `"Ceremonies"`
+
+---
+
+### <a name="CombatTechniqueCategory"></a> `CombatTechniqueCategory`
+
+- **Possible values:** `"CloseCombatTechniques"`, `"RangedCombatTechniques"`
 
 ---
 

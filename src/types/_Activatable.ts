@@ -7,7 +7,7 @@ import { DisplayOption } from "./prerequisites/DisplayOption.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 import { Duration } from "./_ActivatableSkill.js"
-import { ActivatableIdentifier, AdvancedSpecialAbilityRestrictedOptionIdentifier, CombatRelatedSpecialAbilityIdentifier, CombatTechniqueIdentifier, CombatTechniqueTag, MagicalTraditionIdentifier, PatronIdentifier, SkillIdentifier, SkillWithEnhancementsTag, VolumePointsOptionReferenceIdentifier } from "./_Identifier.js"
+import { ActivatableIdentifier, AdvancedSpecialAbilityRestrictedOptionIdentifier, CombatRelatedSpecialAbilityIdentifier, CombatTechniqueIdentifier, MagicalTraditionIdentifier, PatronIdentifier, SkillIdentifier, VolumePointsOptionReferenceIdentifier } from "./_Identifier.js"
 import { GeneralPrerequisites } from "./_Prerequisite.js"
 
 /**
@@ -342,9 +342,18 @@ type CategoryOption =
             }
           }
         }[]
+
+        /**
+         * Generate prerequisites for each entry of the category.
+         * @minItems 1
+         */
+        prerequisites?: (
+          | OptionSkillSelfPrerequisite
+          | OptionOptionPrerequisite
+        )[]
       }
       | {
-        tag: SkillWithEnhancementsTag
+        tag: SkillWithEnhancementsCategory
 
         /**
          * Only include (`Intersection`) or exclude (`Difference`) specific
@@ -370,16 +379,16 @@ type CategoryOption =
             id: number
           }[]
         }
-      }
-    )[]
 
-    /**
-     * Generate prerequisites for each entry of the category.
-     * @minItems 1
-     */
-    prerequisites?: (
-      | OptionSkillSelfPrerequisite
-      | OptionOptionPrerequisite
+        /**
+         * Generate prerequisites for each entry of the category.
+         * @minItems 1
+         */
+        prerequisites?: (
+          | OptionSkillSelfPrerequisite
+          | OptionOptionPrerequisite
+        )[]
+      }
     )[]
 
     /**
@@ -394,7 +403,7 @@ type CategoryOption =
      * @minItems 1
      */
     categories: {
-      tag: CombatTechniqueTag
+      tag: CombatTechniqueCategory
 
       /**
        * Only include (`Intersection`) or exclude (`Difference`) specific
@@ -420,22 +429,34 @@ type CategoryOption =
           id: number
         }[]
       }
-    }[]
 
-    /**
-     * Generate prerequisites for each entry of the category.
-     * @minItems 1
-     */
-    prerequisites?: (
-      | OptionSkillSelfPrerequisite
-      | OptionOptionPrerequisite
-    )[]
+      /**
+       * Generate prerequisites for each entry of the category.
+       * @minItems 1
+       */
+      prerequisites?: (
+        | OptionSkillSelfPrerequisite
+        | OptionOptionPrerequisite
+      )[]
+    }[]
 
     /**
      * Generate AP values for each entry.
      */
     ap_value?: OptionSkillDeriveAdventurePointsValue<CombatTechniqueIdentifier>
   }
+}
+
+enum SkillWithEnhancementsCategory {
+  spells = "spells",
+  Rituals = "Rituals",
+  LiturgicalChants = "LiturgicalChants",
+  Ceremonies = "Ceremonies",
+}
+
+enum CombatTechniqueCategory {
+  CloseCombatTechniques = "CloseCombatTechniques",
+  RangedCombatTechniques = "RangedCombatTechniques",
 }
 
 type OptionSkillSelfPrerequisite = {

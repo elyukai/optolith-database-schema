@@ -131,7 +131,7 @@ enum VolumePointsOptionReferenceTag {
   AnimalShapeSize = "AnimalShapeSize",
 }
 
-export enum CombatTechniqueTag {
+enum CombatTechniqueTag {
   CloseCombatTechnique = "CloseCombatTechnique",
   RangedCombatTechnique = "RangedCombatTechnique",
 }
@@ -149,7 +149,7 @@ enum ExtensionRuleTag {
   OptionalRule = "OptionalRule",
 }
 
-export enum SkillWithEnhancementsTag {
+enum SkillWithEnhancementsTag {
   Spell = "Spell",
   Ritual = "Ritual",
   LiturgicalChant = "LiturgicalChant",

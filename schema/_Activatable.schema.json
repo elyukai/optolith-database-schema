@@ -527,6 +527,21 @@
                           "additionalProperties": false
                         },
                         "minItems": 1
+                      },
+                      "prerequisites": {
+                        "description": "Generate prerequisites for each entry of the category.",
+                        "type": "array",
+                        "items": {
+                          "oneOf": [
+                            {
+                              "$ref": "#/definitions/OptionSkillSelfPrerequisite"
+                            },
+                            {
+                              "$ref": "#/definitions/OptionOptionPrerequisite"
+                            }
+                          ]
+                        },
+                        "minItems": 1
                       }
                     },
                     "required": [
@@ -538,7 +553,7 @@
                     "type": "object",
                     "properties": {
                       "tag": {
-                        "$ref": "./_Identifier.schema.json#/definitions/SkillWithEnhancementsTag"
+                        "$ref": "#/definitions/SkillWithEnhancementsCategory"
                       },
                       "specific": {
                         "description": "Only include (`Intersection`) or exclude (`Difference`) specific\nentries.",
@@ -599,27 +614,27 @@
                           "list"
                         ],
                         "additionalProperties": false
+                      },
+                      "prerequisites": {
+                        "description": "Generate prerequisites for each entry of the category.",
+                        "type": "array",
+                        "items": {
+                          "oneOf": [
+                            {
+                              "$ref": "#/definitions/OptionSkillSelfPrerequisite"
+                            },
+                            {
+                              "$ref": "#/definitions/OptionOptionPrerequisite"
+                            }
+                          ]
+                        },
+                        "minItems": 1
                       }
                     },
                     "required": [
                       "tag"
                     ],
                     "additionalProperties": false
-                  }
-                ]
-              },
-              "minItems": 1
-            },
-            "prerequisites": {
-              "description": "Generate prerequisites for each entry of the category.",
-              "type": "array",
-              "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/OptionSkillSelfPrerequisite"
-                  },
-                  {
-                    "$ref": "#/definitions/OptionOptionPrerequisite"
                   }
                 ]
               },
@@ -704,7 +719,7 @@
                         "type": "object",
                         "properties": {
                           "tag": {
-                            "$ref": "./_Identifier.schema.json#/definitions/CombatTechniqueTag"
+                            "$ref": "#/definitions/CombatTechniqueCategory"
                           },
                           "specific": {
                             "description": "Only include (`Intersection`) or exclude (`Difference`) specific\nentries.",
@@ -765,27 +780,27 @@
                               "list"
                             ],
                             "additionalProperties": false
+                          },
+                          "prerequisites": {
+                            "description": "Generate prerequisites for each entry of the category.",
+                            "type": "array",
+                            "items": {
+                              "oneOf": [
+                                {
+                                  "$ref": "#/definitions/OptionSkillSelfPrerequisite"
+                                },
+                                {
+                                  "$ref": "#/definitions/OptionOptionPrerequisite"
+                                }
+                              ]
+                            },
+                            "minItems": 1
                           }
                         },
                         "required": [
                           "tag"
                         ],
                         "additionalProperties": false
-                      },
-                      "minItems": 1
-                    },
-                    "prerequisites": {
-                      "description": "Generate prerequisites for each entry of the category.",
-                      "type": "array",
-                      "items": {
-                        "oneOf": [
-                          {
-                            "$ref": "#/definitions/OptionSkillSelfPrerequisite"
-                          },
-                          {
-                            "$ref": "#/definitions/OptionOptionPrerequisite"
-                          }
-                        ]
                       },
                       "minItems": 1
                     },
@@ -868,6 +883,20 @@
           ],
           "additionalProperties": false
         }
+      ]
+    },
+    "SkillWithEnhancementsCategory": {
+      "enum": [
+        "spells",
+        "Rituals",
+        "LiturgicalChants",
+        "Ceremonies"
+      ]
+    },
+    "CombatTechniqueCategory": {
+      "enum": [
+        "CloseCombatTechniques",
+        "RangedCombatTechniques"
       ]
     },
     "OptionSkillSelfPrerequisite": {
