@@ -395,6 +395,7 @@ type CategoryOption =
      * Generate AP values for each entry.
      */
     ap_value?: OptionSkillDeriveAdventurePointsValue<SkillIdentifier>
+  }
   | {
     tag: "CombatTechniques"
 
@@ -445,7 +446,6 @@ type CategoryOption =
      */
     ap_value?: OptionSkillDeriveAdventurePointsValue<CombatTechniqueIdentifier>
   }
-}
 
 enum SkillWithEnhancementsCategory {
   Spells = "Spells",
@@ -499,6 +499,11 @@ type OptionOptionPrerequisite = {
  */
 type OptionSkillDeriveAdventurePointsValue<Identifier> =
   | {
+    /**
+     * Derive the cost from the improvement cost of each entry.
+     *
+     * AP Value = Improvement Cost × `multiplier` + `offset`
+     */
     tag: "DerivedFromImprovementCost"
 
     /**
@@ -506,8 +511,17 @@ type OptionSkillDeriveAdventurePointsValue<Identifier> =
      * (A = 1 to D = 4).
      * @integer
      * @minimum 2
+     * @default 1
      */
     multiplier?: number
+
+    /**
+     * This number is added to the maybe multiplied improvement cost of the
+     * entry.
+     * @integer
+     * @default 0
+     */
+    offset?: number
   }
   | {
     tag: "Fixed"

@@ -114,7 +114,7 @@ page.
 ### <a name="CategoryOption"></a> `CategoryOption`
 
 - **Type:** Union
-- **Cases:** <a href="#CategoryOption'Blessings">CategoryOption'Blessings</a> | <a href="#CategoryOption'Cantrips">CategoryOption'Cantrips</a> | <a href="#CategoryOption'TradeSecrets">CategoryOption'TradeSecrets</a> | <a href="#CategoryOption'Scripts">CategoryOption'Scripts</a> | <a href="#CategoryOption'AnimalShapes">CategoryOption'AnimalShapes</a> | <a href="#CategoryOption'ArcaneBardTraditions">CategoryOption'ArcaneBardTraditions</a> | <a href="#CategoryOption'ArcaneDancerTraditions">CategoryOption'ArcaneDancerTraditions</a> | <a href="#CategoryOption'SexPractices">CategoryOption'SexPractices</a> | <a href="#CategoryOption'Races">CategoryOption'Races</a> | <a href="#CategoryOption'Cultures">CategoryOption'Cultures</a> | <a href="#CategoryOption'BlessedTraditions">CategoryOption'BlessedTraditions</a> | <a href="#CategoryOption'Elements">CategoryOption'Elements</a> | <a href="#CategoryOption'Properties">CategoryOption'Properties</a> | <a href="#CategoryOption'Aspects">CategoryOption'Aspects</a> | <a href="#CategoryOption'Diseases">CategoryOption'Diseases</a> | <a href="#CategoryOption'Poisons">CategoryOption'Poisons</a> | <a href="#CategoryOption'Languages">CategoryOption'Languages</a> | <a href="#CategoryOption'Skills">CategoryOption'Skills</a>
+- **Cases:** <a href="#CategoryOption'Blessings">CategoryOption'Blessings</a> | <a href="#CategoryOption'Cantrips">CategoryOption'Cantrips</a> | <a href="#CategoryOption'TradeSecrets">CategoryOption'TradeSecrets</a> | <a href="#CategoryOption'Scripts">CategoryOption'Scripts</a> | <a href="#CategoryOption'AnimalShapes">CategoryOption'AnimalShapes</a> | <a href="#CategoryOption'ArcaneBardTraditions">CategoryOption'ArcaneBardTraditions</a> | <a href="#CategoryOption'ArcaneDancerTraditions">CategoryOption'ArcaneDancerTraditions</a> | <a href="#CategoryOption'SexPractices">CategoryOption'SexPractices</a> | <a href="#CategoryOption'Races">CategoryOption'Races</a> | <a href="#CategoryOption'Cultures">CategoryOption'Cultures</a> | <a href="#CategoryOption'BlessedTraditions">CategoryOption'BlessedTraditions</a> | <a href="#CategoryOption'Elements">CategoryOption'Elements</a> | <a href="#CategoryOption'Properties">CategoryOption'Properties</a> | <a href="#CategoryOption'Aspects">CategoryOption'Aspects</a> | <a href="#CategoryOption'Diseases">CategoryOption'Diseases</a> | <a href="#CategoryOption'Poisons">CategoryOption'Poisons</a> | <a href="#CategoryOption'Languages">CategoryOption'Languages</a> | <a href="#CategoryOption'Skills">CategoryOption'Skills</a> | <a href="#CategoryOption'CombatTechniques">CategoryOption'CombatTechniques</a>
 
 ---
 
@@ -548,7 +548,7 @@ A list of skill categories.
 Generate AP values for each entry.
 
 - **Type:** Union
-- **Cases:** <a href="#CategoryOption'Skills/ap_value'0">CategoryOption'Skills/ap_value'0</a> | <a href="#CategoryOption'Skills/ap_value'CombatTechniques">CategoryOption'Skills/ap_value'CombatTechniques</a>
+- **Cases:** <a href="#CategoryOption'Skills/ap_value'DerivedFromImprovementCost">CategoryOption'Skills/ap_value'DerivedFromImprovementCost</a> | <a href="#CategoryOption'Skills/ap_value'Fixed">CategoryOption'Skills/ap_value'Fixed</a>
 
 ---
 
@@ -953,29 +953,25 @@ The entry's identifier.
 
 ---
 
-### <a name="CategoryOption'Skills/ap_value'0"></a> `CategoryOption'Skills/ap_value'0`
-
-Generate AP values for each entry.
-
-- **Type:** Union
-- **Cases:** <a href="#CategoryOption'Skills/ap_value'0'DerivedFromImprovementCost">CategoryOption'Skills/ap_value'0'DerivedFromImprovementCost</a> | <a href="#CategoryOption'Skills/ap_value'0'Fixed">CategoryOption'Skills/ap_value'0'Fixed</a>
-
----
-
-### <a name="CategoryOption'Skills/ap_value'0'DerivedFromImprovementCost"></a> `CategoryOption'Skills/ap_value'0'DerivedFromImprovementCost`
+### <a name="CategoryOption'Skills/ap_value'DerivedFromImprovementCost"></a> `CategoryOption'Skills/ap_value'DerivedFromImprovementCost`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#CategoryOption'Skills/ap_value'0'DerivedFromImprovementCost/tag">See details</a>
-`multiplier?` | This number is multiplied with the improvement cost of the entry (A = 1 to D = 4). | <a href="#CategoryOption'Skills/ap_value'0'DerivedFromImprovementCost/multiplier">See details</a>
+`tag` | Derive the cost from the improvement cost of each entry. | <a href="#CategoryOption'Skills/ap_value'DerivedFromImprovementCost/tag">See details</a>
+`multiplier?` | This number is multiplied with the improvement cost of the entry (A = 1 to D = 4). | <a href="#CategoryOption'Skills/ap_value'DerivedFromImprovementCost/multiplier">See details</a>
+`offset?` | This number is added to the maybe multiplied improvement cost of the entry. | <a href="#CategoryOption'Skills/ap_value'DerivedFromImprovementCost/offset">See details</a>
 
-#### <a name="CategoryOption'Skills/ap_value'0'DerivedFromImprovementCost/tag"></a> `tag`
+#### <a name="CategoryOption'Skills/ap_value'DerivedFromImprovementCost/tag"></a> `tag`
+
+Derive the cost from the improvement cost of each entry.
+
+AP Value = Improvement Cost × `multiplier` + `offset`
 
 - **Constant:** `"DerivedFromImprovementCost"`
 
-#### <a name="CategoryOption'Skills/ap_value'0'DerivedFromImprovementCost/multiplier"></a> `multiplier?`
+#### <a name="CategoryOption'Skills/ap_value'DerivedFromImprovementCost/multiplier"></a> `multiplier?`
 
 This number is multiplied with the improvement cost of the entry
 (A = 1 to D = 4).
@@ -983,30 +979,37 @@ This number is multiplied with the improvement cost of the entry
 - **Type:** Integer
 - **Minimum:** `2`
 
+#### <a name="CategoryOption'Skills/ap_value'DerivedFromImprovementCost/offset"></a> `offset?`
+
+This number is added to the maybe multiplied improvement cost of the
+entry.
+
+- **Type:** Integer
+
 ---
 
-### <a name="CategoryOption'Skills/ap_value'0'Fixed"></a> `CategoryOption'Skills/ap_value'0'Fixed`
+### <a name="CategoryOption'Skills/ap_value'Fixed"></a> `CategoryOption'Skills/ap_value'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#CategoryOption'Skills/ap_value'0'Fixed/tag">See details</a>
-`map` | A mapping of skill identifiers to their specific AP values. | <a href="#CategoryOption'Skills/ap_value'0'Fixed/map">See details</a>
-`default` | The default value of an entry. Used as a fallback if no value is found in `list`. | <a href="#CategoryOption'Skills/ap_value'0'Fixed/default">See details</a>
+`tag` |  | <a href="#CategoryOption'Skills/ap_value'Fixed/tag">See details</a>
+`map` | A mapping of skill identifiers to their specific AP values. | <a href="#CategoryOption'Skills/ap_value'Fixed/map">See details</a>
+`default` | The default value of an entry. Used as a fallback if no value is found in `list`. | <a href="#CategoryOption'Skills/ap_value'Fixed/default">See details</a>
 
-#### <a name="CategoryOption'Skills/ap_value'0'Fixed/tag"></a> `tag`
+#### <a name="CategoryOption'Skills/ap_value'Fixed/tag"></a> `tag`
 
 - **Constant:** `"Fixed"`
 
-#### <a name="CategoryOption'Skills/ap_value'0'Fixed/map"></a> `map`
+#### <a name="CategoryOption'Skills/ap_value'Fixed/map"></a> `map`
 
 A mapping of skill identifiers to their specific AP values.
 
 - **Type:** List
-- **Items:** <a href="#CategoryOption'Skills/ap_value'0'Fixed/map[]">CategoryOption'Skills/ap_value'0'Fixed/map[]</a>
+- **Items:** <a href="#CategoryOption'Skills/ap_value'Fixed/map[]">CategoryOption'Skills/ap_value'Fixed/map[]</a>
 
-#### <a name="CategoryOption'Skills/ap_value'0'Fixed/default"></a> `default`
+#### <a name="CategoryOption'Skills/ap_value'Fixed/default"></a> `default`
 
 The default value of an entry. Used as a fallback if no value is
 found in `list`.
@@ -1016,22 +1019,22 @@ found in `list`.
 
 ---
 
-### <a name="CategoryOption'Skills/ap_value'0'Fixed/map[]"></a> `CategoryOption'Skills/ap_value'0'Fixed/map[]`
+### <a name="CategoryOption'Skills/ap_value'Fixed/map[]"></a> `CategoryOption'Skills/ap_value'Fixed/map[]`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The skill's identifier. | <a href="#CategoryOption'Skills/ap_value'0'Fixed/map[]/id">See details</a>
-`ap_value` | The AP value for the specified entry. | <a href="#CategoryOption'Skills/ap_value'0'Fixed/map[]/ap_value">See details</a>
+`id` | The skill's identifier. | <a href="#CategoryOption'Skills/ap_value'Fixed/map[]/id">See details</a>
+`ap_value` | The AP value for the specified entry. | <a href="#CategoryOption'Skills/ap_value'Fixed/map[]/ap_value">See details</a>
 
-#### <a name="CategoryOption'Skills/ap_value'0'Fixed/map[]/id"></a> `id`
+#### <a name="CategoryOption'Skills/ap_value'Fixed/map[]/id"></a> `id`
 
 The skill's identifier.
 
 - **Type:** <a href="./_Identifier.md#SkillIdentifier">SkillIdentifier</a>
 
-#### <a name="CategoryOption'Skills/ap_value'0'Fixed/map[]/ap_value"></a> `ap_value`
+#### <a name="CategoryOption'Skills/ap_value'Fixed/map[]/ap_value"></a> `ap_value`
 
 The AP value for the specified entry.
 
@@ -1040,69 +1043,69 @@ The AP value for the specified entry.
 
 ---
 
-### <a name="CategoryOption'Skills/ap_value'CombatTechniques"></a> `CategoryOption'Skills/ap_value'CombatTechniques`
+### <a name="CategoryOption'CombatTechniques"></a> `CategoryOption'CombatTechniques`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/tag">See details</a>
-`categories` | A list of combat technique categories. | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/categories">See details</a>
-`ap_value?` | Generate AP values for each entry. | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/ap_value">See details</a>
+`tag` |  | <a href="#CategoryOption'CombatTechniques/tag">See details</a>
+`categories` | A list of combat technique categories. | <a href="#CategoryOption'CombatTechniques/categories">See details</a>
+`ap_value?` | Generate AP values for each entry. | <a href="#CategoryOption'CombatTechniques/ap_value">See details</a>
 
-#### <a name="CategoryOption'Skills/ap_value'CombatTechniques/tag"></a> `tag`
+#### <a name="CategoryOption'CombatTechniques/tag"></a> `tag`
 
 - **Constant:** `"CombatTechniques"`
 
-#### <a name="CategoryOption'Skills/ap_value'CombatTechniques/categories"></a> `categories`
+#### <a name="CategoryOption'CombatTechniques/categories"></a> `categories`
 
 A list of combat technique categories.
 
 - **Type:** List
-- **Items:** <a href="#CategoryOption'Skills/ap_value'CombatTechniques/categories[]">CategoryOption'Skills/ap_value'CombatTechniques/categories[]</a>
+- **Items:** <a href="#CategoryOption'CombatTechniques/categories[]">CategoryOption'CombatTechniques/categories[]</a>
 - **Minimum Items:** `1`
 
-#### <a name="CategoryOption'Skills/ap_value'CombatTechniques/ap_value"></a> `ap_value?`
+#### <a name="CategoryOption'CombatTechniques/ap_value"></a> `ap_value?`
 
 Generate AP values for each entry.
 
 - **Type:** Union
-- **Cases:** <a href="#CategoryOption'Skills/ap_value'CombatTechniques/ap_value'DerivedFromImprovementCost">CategoryOption'Skills/ap_value'CombatTechniques/ap_value'DerivedFromImprovementCost</a> | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/ap_value'Fixed">CategoryOption'Skills/ap_value'CombatTechniques/ap_value'Fixed</a>
+- **Cases:** <a href="#CategoryOption'CombatTechniques/ap_value'DerivedFromImprovementCost">CategoryOption'CombatTechniques/ap_value'DerivedFromImprovementCost</a> | <a href="#CategoryOption'CombatTechniques/ap_value'Fixed">CategoryOption'CombatTechniques/ap_value'Fixed</a>
 
 ---
 
-### <a name="CategoryOption'Skills/ap_value'CombatTechniques/categories[]"></a> `CategoryOption'Skills/ap_value'CombatTechniques/categories[]`
+### <a name="CategoryOption'CombatTechniques/categories[]"></a> `CategoryOption'CombatTechniques/categories[]`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/categories[]/tag">See details</a>
-`specific?` | Only include (`Intersection`) or exclude (`Difference`) specific entries. | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific">See details</a>
-`prerequisites?` | Generate prerequisites for each entry of the category. | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites">See details</a>
+`tag` |  | <a href="#CategoryOption'CombatTechniques/categories[]/tag">See details</a>
+`specific?` | Only include (`Intersection`) or exclude (`Difference`) specific entries. | <a href="#CategoryOption'CombatTechniques/categories[]/specific">See details</a>
+`prerequisites?` | Generate prerequisites for each entry of the category. | <a href="#CategoryOption'CombatTechniques/categories[]/prerequisites">See details</a>
 
-#### <a name="CategoryOption'Skills/ap_value'CombatTechniques/categories[]/tag"></a> `tag`
+#### <a name="CategoryOption'CombatTechniques/categories[]/tag"></a> `tag`
 
 - **Type:** <a href="#CombatTechniqueCategory">CombatTechniqueCategory</a>
 
-#### <a name="CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific"></a> `specific?`
+#### <a name="CategoryOption'CombatTechniques/categories[]/specific"></a> `specific?`
 
 Only include (`Intersection`) or exclude (`Difference`) specific
 entries.
 
-- **Type:** <a href="#CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific">Object</a>
+- **Type:** <a href="#CategoryOption'CombatTechniques/categories[]/specific">Object</a>
 
-#### <a name="CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites"></a> `prerequisites?`
+#### <a name="CategoryOption'CombatTechniques/categories[]/prerequisites"></a> `prerequisites?`
 
 Generate prerequisites for each entry of the category.
 
 - **Type:** List
-- **Items:** <a href="#CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites[]">CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites[]</a>
+- **Items:** <a href="#CategoryOption'CombatTechniques/categories[]/prerequisites[]">CategoryOption'CombatTechniques/categories[]/prerequisites[]</a>
 - **Minimum Items:** `1`
 
 ---
 
-### <a name="CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific"></a> `CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific`
+### <a name="CategoryOption'CombatTechniques/categories[]/specific"></a> `CategoryOption'CombatTechniques/categories[]/specific`
 
 Only include (`Intersection`) or exclude (`Difference`) specific
 entries.
@@ -1111,62 +1114,62 @@ entries.
 
 Key | Description | Details
 :-- | :-- | :--
-`operation` |  | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific/operation">See details</a>
-`list` | The list of specific entries. | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific/list">See details</a>
+`operation` |  | <a href="#CategoryOption'CombatTechniques/categories[]/specific/operation">See details</a>
+`list` | The list of specific entries. | <a href="#CategoryOption'CombatTechniques/categories[]/specific/list">See details</a>
 
-#### <a name="CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific/operation"></a> `operation`
+#### <a name="CategoryOption'CombatTechniques/categories[]/specific/operation"></a> `operation`
 
 - **Type:** Union
-- **Cases:** <a href="#CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific/operation'Intersection">CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific/operation'Intersection</a> | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific/operation'Difference">CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific/operation'Difference</a>
+- **Cases:** <a href="#CategoryOption'CombatTechniques/categories[]/specific/operation'Intersection">CategoryOption'CombatTechniques/categories[]/specific/operation'Intersection</a> | <a href="#CategoryOption'CombatTechniques/categories[]/specific/operation'Difference">CategoryOption'CombatTechniques/categories[]/specific/operation'Difference</a>
 
-#### <a name="CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific/list"></a> `list`
+#### <a name="CategoryOption'CombatTechniques/categories[]/specific/list"></a> `list`
 
 The list of specific entries.
 
 - **Type:** List
-- **Items:** <a href="#CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific/list[]">CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific/list[]</a>
+- **Items:** <a href="#CategoryOption'CombatTechniques/categories[]/specific/list[]">CategoryOption'CombatTechniques/categories[]/specific/list[]</a>
 - **Minimum Items:** `1`
 - **Unique Items:** Yes
 
 ---
 
-### <a name="CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific/operation'Intersection"></a> `CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific/operation'Intersection`
+### <a name="CategoryOption'CombatTechniques/categories[]/specific/operation'Intersection"></a> `CategoryOption'CombatTechniques/categories[]/specific/operation'Intersection`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific/operation'Intersection/tag">See details</a>
+`tag` |  | <a href="#CategoryOption'CombatTechniques/categories[]/specific/operation'Intersection/tag">See details</a>
 
-#### <a name="CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific/operation'Intersection/tag"></a> `tag`
+#### <a name="CategoryOption'CombatTechniques/categories[]/specific/operation'Intersection/tag"></a> `tag`
 
 - **Constant:** `"Intersection"`
 
 ---
 
-### <a name="CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific/operation'Difference"></a> `CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific/operation'Difference`
+### <a name="CategoryOption'CombatTechniques/categories[]/specific/operation'Difference"></a> `CategoryOption'CombatTechniques/categories[]/specific/operation'Difference`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific/operation'Difference/tag">See details</a>
+`tag` |  | <a href="#CategoryOption'CombatTechniques/categories[]/specific/operation'Difference/tag">See details</a>
 
-#### <a name="CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific/operation'Difference/tag"></a> `tag`
+#### <a name="CategoryOption'CombatTechniques/categories[]/specific/operation'Difference/tag"></a> `tag`
 
 - **Constant:** `"Difference"`
 
 ---
 
-### <a name="CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific/list[]"></a> `CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific/list[]`
+### <a name="CategoryOption'CombatTechniques/categories[]/specific/list[]"></a> `CategoryOption'CombatTechniques/categories[]/specific/list[]`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The entry's identifier. | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific/list[]/id">See details</a>
+`id` | The entry's identifier. | <a href="#CategoryOption'CombatTechniques/categories[]/specific/list[]/id">See details</a>
 
-#### <a name="CategoryOption'Skills/ap_value'CombatTechniques/categories[]/specific/list[]/id"></a> `id`
+#### <a name="CategoryOption'CombatTechniques/categories[]/specific/list[]/id"></a> `id`
 
 The entry's identifier.
 
@@ -1176,39 +1179,44 @@ The entry's identifier.
 
 ---
 
-### <a name="CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites[]"></a> `CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites[]`
+### <a name="CategoryOption'CombatTechniques/categories[]/prerequisites[]"></a> `CategoryOption'CombatTechniques/categories[]/prerequisites[]`
 
 - **Type:** Union
-- **Cases:** <a href="#CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites[]'OptionSkillSelfPrerequisite">CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites[]'OptionSkillSelfPrerequisite</a> | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites[]'OptionOptionPrerequisite">CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites[]'OptionOptionPrerequisite</a>
+- **Cases:** <a href="#CategoryOption'CombatTechniques/categories[]/prerequisites[]'OptionSkillSelfPrerequisite">CategoryOption'CombatTechniques/categories[]/prerequisites[]'OptionSkillSelfPrerequisite</a> | <a href="#CategoryOption'CombatTechniques/categories[]/prerequisites[]'OptionOptionPrerequisite">CategoryOption'CombatTechniques/categories[]/prerequisites[]'OptionOptionPrerequisite</a>
 
 ---
 
-### <a name="CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites[]'OptionSkillSelfPrerequisite"></a> `CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites[]'OptionSkillSelfPrerequisite`
+### <a name="CategoryOption'CombatTechniques/categories[]/prerequisites[]'OptionSkillSelfPrerequisite"></a> `CategoryOption'CombatTechniques/categories[]/prerequisites[]'OptionSkillSelfPrerequisite`
 
 - **Type:** <a href="#OptionSkillSelfPrerequisite">OptionSkillSelfPrerequisite</a>
 
 ---
 
-### <a name="CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites[]'OptionOptionPrerequisite"></a> `CategoryOption'Skills/ap_value'CombatTechniques/categories[]/prerequisites[]'OptionOptionPrerequisite`
+### <a name="CategoryOption'CombatTechniques/categories[]/prerequisites[]'OptionOptionPrerequisite"></a> `CategoryOption'CombatTechniques/categories[]/prerequisites[]'OptionOptionPrerequisite`
 
 - **Type:** <a href="#OptionOptionPrerequisite">OptionOptionPrerequisite</a>
 
 ---
 
-### <a name="CategoryOption'Skills/ap_value'CombatTechniques/ap_value'DerivedFromImprovementCost"></a> `CategoryOption'Skills/ap_value'CombatTechniques/ap_value'DerivedFromImprovementCost`
+### <a name="CategoryOption'CombatTechniques/ap_value'DerivedFromImprovementCost"></a> `CategoryOption'CombatTechniques/ap_value'DerivedFromImprovementCost`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/ap_value'DerivedFromImprovementCost/tag">See details</a>
-`multiplier?` | This number is multiplied with the improvement cost of the entry (A = 1 to D = 4). | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/ap_value'DerivedFromImprovementCost/multiplier">See details</a>
+`tag` | Derive the cost from the improvement cost of each entry. | <a href="#CategoryOption'CombatTechniques/ap_value'DerivedFromImprovementCost/tag">See details</a>
+`multiplier?` | This number is multiplied with the improvement cost of the entry (A = 1 to D = 4). | <a href="#CategoryOption'CombatTechniques/ap_value'DerivedFromImprovementCost/multiplier">See details</a>
+`offset?` | This number is added to the maybe multiplied improvement cost of the entry. | <a href="#CategoryOption'CombatTechniques/ap_value'DerivedFromImprovementCost/offset">See details</a>
 
-#### <a name="CategoryOption'Skills/ap_value'CombatTechniques/ap_value'DerivedFromImprovementCost/tag"></a> `tag`
+#### <a name="CategoryOption'CombatTechniques/ap_value'DerivedFromImprovementCost/tag"></a> `tag`
+
+Derive the cost from the improvement cost of each entry.
+
+AP Value = Improvement Cost × `multiplier` + `offset`
 
 - **Constant:** `"DerivedFromImprovementCost"`
 
-#### <a name="CategoryOption'Skills/ap_value'CombatTechniques/ap_value'DerivedFromImprovementCost/multiplier"></a> `multiplier?`
+#### <a name="CategoryOption'CombatTechniques/ap_value'DerivedFromImprovementCost/multiplier"></a> `multiplier?`
 
 This number is multiplied with the improvement cost of the entry
 (A = 1 to D = 4).
@@ -1216,30 +1224,37 @@ This number is multiplied with the improvement cost of the entry
 - **Type:** Integer
 - **Minimum:** `2`
 
+#### <a name="CategoryOption'CombatTechniques/ap_value'DerivedFromImprovementCost/offset"></a> `offset?`
+
+This number is added to the maybe multiplied improvement cost of the
+entry.
+
+- **Type:** Integer
+
 ---
 
-### <a name="CategoryOption'Skills/ap_value'CombatTechniques/ap_value'Fixed"></a> `CategoryOption'Skills/ap_value'CombatTechniques/ap_value'Fixed`
+### <a name="CategoryOption'CombatTechniques/ap_value'Fixed"></a> `CategoryOption'CombatTechniques/ap_value'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/ap_value'Fixed/tag">See details</a>
-`map` | A mapping of skill identifiers to their specific AP values. | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/ap_value'Fixed/map">See details</a>
-`default` | The default value of an entry. Used as a fallback if no value is found in `list`. | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/ap_value'Fixed/default">See details</a>
+`tag` |  | <a href="#CategoryOption'CombatTechniques/ap_value'Fixed/tag">See details</a>
+`map` | A mapping of skill identifiers to their specific AP values. | <a href="#CategoryOption'CombatTechniques/ap_value'Fixed/map">See details</a>
+`default` | The default value of an entry. Used as a fallback if no value is found in `list`. | <a href="#CategoryOption'CombatTechniques/ap_value'Fixed/default">See details</a>
 
-#### <a name="CategoryOption'Skills/ap_value'CombatTechniques/ap_value'Fixed/tag"></a> `tag`
+#### <a name="CategoryOption'CombatTechniques/ap_value'Fixed/tag"></a> `tag`
 
 - **Constant:** `"Fixed"`
 
-#### <a name="CategoryOption'Skills/ap_value'CombatTechniques/ap_value'Fixed/map"></a> `map`
+#### <a name="CategoryOption'CombatTechniques/ap_value'Fixed/map"></a> `map`
 
 A mapping of skill identifiers to their specific AP values.
 
 - **Type:** List
-- **Items:** <a href="#CategoryOption'Skills/ap_value'CombatTechniques/ap_value'Fixed/map[]">CategoryOption'Skills/ap_value'CombatTechniques/ap_value'Fixed/map[]</a>
+- **Items:** <a href="#CategoryOption'CombatTechniques/ap_value'Fixed/map[]">CategoryOption'CombatTechniques/ap_value'Fixed/map[]</a>
 
-#### <a name="CategoryOption'Skills/ap_value'CombatTechniques/ap_value'Fixed/default"></a> `default`
+#### <a name="CategoryOption'CombatTechniques/ap_value'Fixed/default"></a> `default`
 
 The default value of an entry. Used as a fallback if no value is
 found in `list`.
@@ -1249,22 +1264,22 @@ found in `list`.
 
 ---
 
-### <a name="CategoryOption'Skills/ap_value'CombatTechniques/ap_value'Fixed/map[]"></a> `CategoryOption'Skills/ap_value'CombatTechniques/ap_value'Fixed/map[]`
+### <a name="CategoryOption'CombatTechniques/ap_value'Fixed/map[]"></a> `CategoryOption'CombatTechniques/ap_value'Fixed/map[]`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The skill's identifier. | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/ap_value'Fixed/map[]/id">See details</a>
-`ap_value` | The AP value for the specified entry. | <a href="#CategoryOption'Skills/ap_value'CombatTechniques/ap_value'Fixed/map[]/ap_value">See details</a>
+`id` | The skill's identifier. | <a href="#CategoryOption'CombatTechniques/ap_value'Fixed/map[]/id">See details</a>
+`ap_value` | The AP value for the specified entry. | <a href="#CategoryOption'CombatTechniques/ap_value'Fixed/map[]/ap_value">See details</a>
 
-#### <a name="CategoryOption'Skills/ap_value'CombatTechniques/ap_value'Fixed/map[]/id"></a> `id`
+#### <a name="CategoryOption'CombatTechniques/ap_value'Fixed/map[]/id"></a> `id`
 
 The skill's identifier.
 
 - **Type:** <a href="./_Identifier.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>
 
-#### <a name="CategoryOption'Skills/ap_value'CombatTechniques/ap_value'Fixed/map[]/ap_value"></a> `ap_value`
+#### <a name="CategoryOption'CombatTechniques/ap_value'Fixed/map[]/ap_value"></a> `ap_value`
 
 The AP value for the specified entry.
 

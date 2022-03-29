@@ -644,233 +644,238 @@
               "description": "Generate AP values for each entry.",
               "oneOf": [
                 {
-                  "description": "Generate AP values for each entry.",
-                  "oneOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "tag": {
-                          "const": "DerivedFromImprovementCost"
-                        },
-                        "multiplier": {
-                          "description": "This number is multiplied with the improvement cost of the entry\n(A = 1 to D = 4).",
-                          "type": "integer",
-                          "minimum": 2
-                        }
-                      },
-                      "required": [
-                        "tag"
-                      ],
-                      "additionalProperties": false
+                  "type": "object",
+                  "properties": {
+                    "tag": {
+                      "description": "Derive the cost from the improvement cost of each entry.\n\nAP Value = Improvement Cost × `multiplier` + `offset`",
+                      "const": "DerivedFromImprovementCost"
                     },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "tag": {
-                          "const": "Fixed"
-                        },
-                        "map": {
-                          "description": "A mapping of skill identifiers to their specific AP values.",
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "$ref": "./_Identifier.schema.json#/definitions/SkillIdentifier"
-                              },
-                              "ap_value": {
-                                "description": "The AP value for the specified entry.",
-                                "type": "integer",
-                                "minimum": 1
-                              }
-                            },
-                            "required": [
-                              "id",
-                              "ap_value"
-                            ],
-                            "additionalProperties": false
-                          }
-                        },
-                        "default": {
-                          "description": "The default value of an entry. Used as a fallback if no value is\nfound in `list`.",
-                          "type": "integer",
-                          "minimum": 1
-                        }
-                      },
-                      "required": [
-                        "tag",
-                        "map",
-                        "default"
-                      ],
-                      "additionalProperties": false
+                    "multiplier": {
+                      "description": "This number is multiplied with the improvement cost of the entry\n(A = 1 to D = 4).",
+                      "type": "integer",
+                      "minimum": 2
+                    },
+                    "offset": {
+                      "description": "This number is added to the maybe multiplied improvement cost of the\nentry.",
+                      "type": "integer"
                     }
-                  ]
+                  },
+                  "required": [
+                    "tag"
+                  ],
+                  "additionalProperties": false
                 },
                 {
                   "type": "object",
                   "properties": {
                     "tag": {
-                      "const": "CombatTechniques"
+                      "const": "Fixed"
                     },
-                    "categories": {
-                      "description": "A list of combat technique categories.",
+                    "map": {
+                      "description": "A mapping of skill identifiers to their specific AP values.",
                       "type": "array",
                       "items": {
                         "type": "object",
                         "properties": {
-                          "tag": {
-                            "$ref": "#/definitions/CombatTechniqueCategory"
+                          "id": {
+                            "$ref": "./_Identifier.schema.json#/definitions/SkillIdentifier"
                           },
-                          "specific": {
-                            "description": "Only include (`Intersection`) or exclude (`Difference`) specific\nentries.",
-                            "type": "object",
-                            "properties": {
-                              "operation": {
-                                "oneOf": [
-                                  {
-                                    "type": "object",
-                                    "properties": {
-                                      "tag": {
-                                        "const": "Intersection"
-                                      }
-                                    },
-                                    "required": [
-                                      "tag"
-                                    ],
-                                    "additionalProperties": false
-                                  },
-                                  {
-                                    "type": "object",
-                                    "properties": {
-                                      "tag": {
-                                        "const": "Difference"
-                                      }
-                                    },
-                                    "required": [
-                                      "tag"
-                                    ],
-                                    "additionalProperties": false
-                                  }
-                                ]
-                              },
-                              "list": {
-                                "description": "The list of specific entries.",
-                                "type": "array",
-                                "items": {
-                                  "type": "object",
-                                  "properties": {
-                                    "id": {
-                                      "description": "The entry's identifier.",
-                                      "type": "integer",
-                                      "maximum": 59,
-                                      "minimum": 1
-                                    }
-                                  },
-                                  "required": [
-                                    "id"
-                                  ],
-                                  "additionalProperties": false
-                                },
-                                "minItems": 1,
-                                "uniqueItems": true
-                              }
-                            },
-                            "required": [
-                              "operation",
-                              "list"
-                            ],
-                            "additionalProperties": false
-                          },
-                          "prerequisites": {
-                            "description": "Generate prerequisites for each entry of the category.",
-                            "type": "array",
-                            "items": {
-                              "oneOf": [
-                                {
-                                  "$ref": "#/definitions/OptionSkillSelfPrerequisite"
-                                },
-                                {
-                                  "$ref": "#/definitions/OptionOptionPrerequisite"
-                                }
-                              ]
-                            },
-                            "minItems": 1
+                          "ap_value": {
+                            "description": "The AP value for the specified entry.",
+                            "type": "integer",
+                            "minimum": 1
                           }
                         },
                         "required": [
-                          "tag"
+                          "id",
+                          "ap_value"
                         ],
                         "additionalProperties": false
-                      },
-                      "minItems": 1
+                      }
                     },
-                    "ap_value": {
-                      "description": "Generate AP values for each entry.",
-                      "oneOf": [
-                        {
-                          "type": "object",
-                          "properties": {
-                            "tag": {
-                              "const": "DerivedFromImprovementCost"
-                            },
-                            "multiplier": {
-                              "description": "This number is multiplied with the improvement cost of the entry\n(A = 1 to D = 4).",
-                              "type": "integer",
-                              "minimum": 2
-                            }
-                          },
-                          "required": [
-                            "tag"
-                          ],
-                          "additionalProperties": false
-                        },
-                        {
-                          "type": "object",
-                          "properties": {
-                            "tag": {
-                              "const": "Fixed"
-                            },
-                            "map": {
-                              "description": "A mapping of skill identifiers to their specific AP values.",
-                              "type": "array",
-                              "items": {
-                                "type": "object",
-                                "properties": {
-                                  "id": {
-                                    "$ref": "./_Identifier.schema.json#/definitions/CombatTechniqueIdentifier"
-                                  },
-                                  "ap_value": {
-                                    "description": "The AP value for the specified entry.",
-                                    "type": "integer",
-                                    "minimum": 1
-                                  }
-                                },
-                                "required": [
-                                  "id",
-                                  "ap_value"
-                                ],
-                                "additionalProperties": false
-                              }
-                            },
-                            "default": {
-                              "description": "The default value of an entry. Used as a fallback if no value is\nfound in `list`.",
-                              "type": "integer",
-                              "minimum": 1
-                            }
-                          },
-                          "required": [
-                            "tag",
-                            "map",
-                            "default"
-                          ],
-                          "additionalProperties": false
-                        }
-                      ]
+                    "default": {
+                      "description": "The default value of an entry. Used as a fallback if no value is\nfound in `list`.",
+                      "type": "integer",
+                      "minimum": 1
                     }
                   },
                   "required": [
                     "tag",
-                    "categories"
+                    "map",
+                    "default"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "required": [
+            "tag",
+            "categories"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "CombatTechniques"
+            },
+            "categories": {
+              "description": "A list of combat technique categories.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "tag": {
+                    "$ref": "#/definitions/CombatTechniqueCategory"
+                  },
+                  "specific": {
+                    "description": "Only include (`Intersection`) or exclude (`Difference`) specific\nentries.",
+                    "type": "object",
+                    "properties": {
+                      "operation": {
+                        "oneOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "tag": {
+                                "const": "Intersection"
+                              }
+                            },
+                            "required": [
+                              "tag"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "tag": {
+                                "const": "Difference"
+                              }
+                            },
+                            "required": [
+                              "tag"
+                            ],
+                            "additionalProperties": false
+                          }
+                        ]
+                      },
+                      "list": {
+                        "description": "The list of specific entries.",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "description": "The entry's identifier.",
+                              "type": "integer",
+                              "maximum": 59,
+                              "minimum": 1
+                            }
+                          },
+                          "required": [
+                            "id"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "minItems": 1,
+                        "uniqueItems": true
+                      }
+                    },
+                    "required": [
+                      "operation",
+                      "list"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "prerequisites": {
+                    "description": "Generate prerequisites for each entry of the category.",
+                    "type": "array",
+                    "items": {
+                      "oneOf": [
+                        {
+                          "$ref": "#/definitions/OptionSkillSelfPrerequisite"
+                        },
+                        {
+                          "$ref": "#/definitions/OptionOptionPrerequisite"
+                        }
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "tag"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1
+            },
+            "ap_value": {
+              "description": "Generate AP values for each entry.",
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "tag": {
+                      "description": "Derive the cost from the improvement cost of each entry.\n\nAP Value = Improvement Cost × `multiplier` + `offset`",
+                      "const": "DerivedFromImprovementCost"
+                    },
+                    "multiplier": {
+                      "description": "This number is multiplied with the improvement cost of the entry\n(A = 1 to D = 4).",
+                      "type": "integer",
+                      "minimum": 2
+                    },
+                    "offset": {
+                      "description": "This number is added to the maybe multiplied improvement cost of the\nentry.",
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "tag"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "tag": {
+                      "const": "Fixed"
+                    },
+                    "map": {
+                      "description": "A mapping of skill identifiers to their specific AP values.",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "$ref": "./_Identifier.schema.json#/definitions/CombatTechniqueIdentifier"
+                          },
+                          "ap_value": {
+                            "description": "The AP value for the specified entry.",
+                            "type": "integer",
+                            "minimum": 1
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "ap_value"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "default": {
+                      "description": "The default value of an entry. Used as a fallback if no value is\nfound in `list`.",
+                      "type": "integer",
+                      "minimum": 1
+                    }
+                  },
+                  "required": [
+                    "tag",
+                    "map",
+                    "default"
                   ],
                   "additionalProperties": false
                 }
