@@ -32,12 +32,8 @@
       "type": "object",
       "properties": {
         "derived": {
-          "description": "A list of categories with optional further configuration. All available\nentries from the specified categories will be included as separate select\noptions. You can also specify a set of groups that should only be\nincluded. Groups not mentioned will be excluded then.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/CategoryOption"
-          },
-          "minItems": 1
+          "description": "An entry category with optional further configuration. All available\nentries from the specified categories will be included as separate select\noptions. You can also specify a set of groups that should only be\nincluded. Groups not mentioned will be excluded then.",
+          "$ref": "#/definitions/CategoryOption"
         },
         "explicit": {
           "description": "A list of explicit select options. If the identifier has a specific type,\nits entry is the base of this select option, where values defined here\noverride values from the base. Define the `src` property if the options\nare not derived from the rules text of the advantage/disadvantage/special\nability but instead are listed in a separate block and/or on a separate\npage.",
@@ -359,165 +355,258 @@
             "tag": {
               "const": "Skills"
             },
-            "groups": {
-              "description": "Only include entries of the specified groups.",
+            "categories": {
+              "description": "A list of skill categories.",
               "type": "array",
               "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "description": "The skill group's identifier.",
-                    "type": "integer",
-                    "maximum": 5,
-                    "minimum": 1
-                  }
-                },
-                "required": [
-                  "id"
-                ],
-                "additionalProperties": false
-              },
-              "minItems": 1
-            },
-            "specific": {
-              "description": "Only include (`Intersection`) or exclude (`Difference`) specific skills.",
-              "type": "object",
-              "properties": {
-                "operation": {
-                  "oneOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "tag": {
-                          "const": "Intersection"
-                        }
-                      },
-                      "required": [
-                        "tag"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "tag": {
-                          "const": "Difference"
-                        }
-                      },
-                      "required": [
-                        "tag"
-                      ],
-                      "additionalProperties": false
-                    }
-                  ]
-                },
-                "list": {
-                  "description": "The list of specific skills.",
-                  "type": "array",
-                  "items": {
+                "oneOf": [
+                  {
                     "type": "object",
                     "properties": {
-                      "id": {
-                        "description": "The skill's identifier.",
-                        "type": "integer",
-                        "maximum": 59,
-                        "minimum": 1
+                      "tag": {
+                        "const": "Skills"
+                      },
+                      "groups": {
+                        "description": "Only include entries of the specified groups.",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "description": "The skill group's identifier.",
+                              "type": "integer",
+                              "maximum": 5,
+                              "minimum": 1
+                            }
+                          },
+                          "required": [
+                            "id"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "minItems": 1
+                      },
+                      "specific": {
+                        "description": "Only include (`Intersection`) or exclude (`Difference`) specific\nskills.",
+                        "type": "object",
+                        "properties": {
+                          "operation": {
+                            "oneOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "tag": {
+                                    "const": "Intersection"
+                                  }
+                                },
+                                "required": [
+                                  "tag"
+                                ],
+                                "additionalProperties": false
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "tag": {
+                                    "const": "Difference"
+                                  }
+                                },
+                                "required": [
+                                  "tag"
+                                ],
+                                "additionalProperties": false
+                              }
+                            ]
+                          },
+                          "list": {
+                            "description": "The list of specific skills.",
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "description": "The skill's identifier.",
+                                  "type": "integer",
+                                  "maximum": 59,
+                                  "minimum": 1
+                                }
+                              },
+                              "required": [
+                                "id"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "minItems": 1,
+                            "uniqueItems": true
+                          }
+                        },
+                        "required": [
+                          "operation",
+                          "list"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "skill_applications": {
+                        "description": "Registers new applications, which get enabled once this entry is\nactivated with its respective select option. It specifies an\nentry-unique identifier, the skill it belongs to is derived from the\nselect option automatically. A translation can be left out if its\nname equals the name of the origin entry.",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "description": "The application's identifier. An entry-unique, increasing integer.",
+                              "type": "integer",
+                              "minimum": 1
+                            },
+                            "translations": {
+                              "description": "All translations for the entry, identified by IETF language tag\n(BCP47).",
+                              "type": "object",
+                              "patternProperties": {
+                                "^[a-z]{2}-[A-Z]{2}$": {
+                                  "type": "object",
+                                  "properties": {
+                                    "name": {
+                                      "description": "The name of the application if different from the activatable\nentry's\nname.",
+                                      "type": "string",
+                                      "minLength": 1
+                                    }
+                                  },
+                                  "required": [
+                                    "name"
+                                  ],
+                                  "additionalProperties": false
+                                }
+                              },
+                              "minProperties": 1,
+                              "additionalProperties": false
+                            }
+                          },
+                          "required": [
+                            "id"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "minItems": 1
+                      },
+                      "skill_uses": {
+                        "description": "Registers uses, which get enabled once this entry is activated with\nits respective select option. It specifies an entry-unique\nidentifier, the skill it belongs to is derived from the select option\nautomatically. A translation can be left out if its name equals the\nname of the origin entry.",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "description": "The use's identifier. An entry-unique, increasing integer.",
+                              "type": "integer",
+                              "minimum": 1
+                            },
+                            "translations": {
+                              "description": "All translations for the entry, identified by IETF language tag\n(BCP47).",
+                              "type": "object",
+                              "patternProperties": {
+                                "^[a-z]{2}-[A-Z]{2}$": {
+                                  "type": "object",
+                                  "properties": {
+                                    "name": {
+                                      "description": "The name of the use if different from the activatable entry's\nname.",
+                                      "type": "string",
+                                      "minLength": 1
+                                    }
+                                  },
+                                  "required": [
+                                    "name"
+                                  ],
+                                  "additionalProperties": false
+                                }
+                              },
+                              "minProperties": 1,
+                              "additionalProperties": false
+                            }
+                          },
+                          "required": [
+                            "id"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "minItems": 1
                       }
                     },
                     "required": [
-                      "id"
+                      "tag"
                     ],
                     "additionalProperties": false
                   },
-                  "minItems": 1,
-                  "uniqueItems": true
-                }
-              },
-              "required": [
-                "operation",
-                "list"
-              ],
-              "additionalProperties": false
-            },
-            "skill_applications": {
-              "description": "Registers new applications, which get enabled once this entry is\nactivated with its respective select option. It specifies an entry-unique\nidentifier, the skill it belongs to is derived from the select option\nautomatically. A translation can be left out if its name equals the name\nof the origin entry.",
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "description": "The application's identifier. An entry-unique, increasing integer.",
-                    "type": "integer",
-                    "minimum": 1
-                  },
-                  "translations": {
-                    "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                  {
                     "type": "object",
-                    "patternProperties": {
-                      "^[a-z]{2}-[A-Z]{2}$": {
+                    "properties": {
+                      "tag": {
+                        "$ref": "./_Identifier.schema.json#/definitions/SkillWithEnhancementsTag"
+                      },
+                      "specific": {
+                        "description": "Only include (`Intersection`) or exclude (`Difference`) specific\nentries.",
                         "type": "object",
                         "properties": {
-                          "name": {
-                            "description": "The name of the application if different from the activatable entry's\nname.",
-                            "type": "string",
-                            "minLength": 1
+                          "operation": {
+                            "oneOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "tag": {
+                                    "const": "Intersection"
+                                  }
+                                },
+                                "required": [
+                                  "tag"
+                                ],
+                                "additionalProperties": false
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "tag": {
+                                    "const": "Difference"
+                                  }
+                                },
+                                "required": [
+                                  "tag"
+                                ],
+                                "additionalProperties": false
+                              }
+                            ]
+                          },
+                          "list": {
+                            "description": "The list of specific entries.",
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "description": "The entry's identifier.",
+                                  "type": "integer",
+                                  "maximum": 59,
+                                  "minimum": 1
+                                }
+                              },
+                              "required": [
+                                "id"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "minItems": 1,
+                            "uniqueItems": true
                           }
                         },
                         "required": [
-                          "name"
+                          "operation",
+                          "list"
                         ],
                         "additionalProperties": false
                       }
                     },
-                    "minProperties": 1,
+                    "required": [
+                      "tag"
+                    ],
                     "additionalProperties": false
                   }
-                },
-                "required": [
-                  "id"
-                ],
-                "additionalProperties": false
-              },
-              "minItems": 1
-            },
-            "skill_uses": {
-              "description": "Registers uses, which get enabled once this entry is activated with its\nrespective select option. It specifies an entry-unique identifier, the\nskill it belongs to is derived from the select option automatically. A\ntranslation can be left out if its name equals the name of the origin\nentry.",
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "description": "The use's identifier. An entry-unique, increasing integer.",
-                    "type": "integer",
-                    "minimum": 1
-                  },
-                  "translations": {
-                    "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-                    "type": "object",
-                    "patternProperties": {
-                      "^[a-z]{2}-[A-Z]{2}$": {
-                        "type": "object",
-                        "properties": {
-                          "name": {
-                            "description": "The name of the use if different from the activatable entry's name.",
-                            "type": "string",
-                            "minLength": 1
-                          }
-                        },
-                        "required": [
-                          "name"
-                        ],
-                        "additionalProperties": false
-                      }
-                    },
-                    "minProperties": 1,
-                    "additionalProperties": false
-                  }
-                },
-                "required": [
-                  "id"
-                ],
-                "additionalProperties": false
+                ]
               },
               "minItems": 1
             },
@@ -538,31 +627,20 @@
             },
             "ap_value": {
               "description": "Generate AP values for each entry.",
-              "$ref": "#/definitions/OptionSkillDeriveAdventurePointsValue"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "$ref": "#/definitions/NonSkillSkillCategory"
-            },
-            "specific": {
-              "description": "Only include (`Intersection`) or exclude (`Difference`) specific entries.",
-              "type": "object",
-              "properties": {
-                "operation": {
+              "oneOf": [
+                {
+                  "description": "Generate AP values for each entry.",
                   "oneOf": [
                     {
                       "type": "object",
                       "properties": {
                         "tag": {
-                          "const": "Intersection"
+                          "const": "DerivedFromImprovementCost"
+                        },
+                        "multiplier": {
+                          "description": "This number is multiplied with the improvement cost of the entry\n(A = 1 to D = 4).",
+                          "type": "integer",
+                          "minimum": 2
                         }
                       },
                       "required": [
@@ -574,79 +652,222 @@
                       "type": "object",
                       "properties": {
                         "tag": {
-                          "const": "Difference"
+                          "const": "Fixed"
+                        },
+                        "map": {
+                          "description": "A mapping of skill identifiers to their specific AP values.",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "$ref": "./_Identifier.schema.json#/definitions/SkillIdentifier"
+                              },
+                              "ap_value": {
+                                "description": "The AP value for the specified entry.",
+                                "type": "integer",
+                                "minimum": 1
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "ap_value"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "default": {
+                          "description": "The default value of an entry. Used as a fallback if no value is\nfound in `list`.",
+                          "type": "integer",
+                          "minimum": 1
                         }
                       },
                       "required": [
-                        "tag"
+                        "tag",
+                        "map",
+                        "default"
                       ],
                       "additionalProperties": false
                     }
                   ]
                 },
-                "list": {
-                  "description": "The list of specific entries.",
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "description": "The entry's identifier.",
-                        "type": "integer",
-                        "maximum": 59,
-                        "minimum": 1
-                      }
+                {
+                  "type": "object",
+                  "properties": {
+                    "tag": {
+                      "const": "CombatTechniques"
                     },
-                    "required": [
-                      "id"
-                    ],
-                    "additionalProperties": false
+                    "categories": {
+                      "description": "A list of combat technique categories.",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "tag": {
+                            "$ref": "./_Identifier.schema.json#/definitions/CombatTechniqueTag"
+                          },
+                          "specific": {
+                            "description": "Only include (`Intersection`) or exclude (`Difference`) specific\nentries.",
+                            "type": "object",
+                            "properties": {
+                              "operation": {
+                                "oneOf": [
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "tag": {
+                                        "const": "Intersection"
+                                      }
+                                    },
+                                    "required": [
+                                      "tag"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "tag": {
+                                        "const": "Difference"
+                                      }
+                                    },
+                                    "required": [
+                                      "tag"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                ]
+                              },
+                              "list": {
+                                "description": "The list of specific entries.",
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "description": "The entry's identifier.",
+                                      "type": "integer",
+                                      "maximum": 59,
+                                      "minimum": 1
+                                    }
+                                  },
+                                  "required": [
+                                    "id"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "minItems": 1,
+                                "uniqueItems": true
+                              }
+                            },
+                            "required": [
+                              "operation",
+                              "list"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "tag"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "minItems": 1
+                    },
+                    "prerequisites": {
+                      "description": "Generate prerequisites for each entry of the category.",
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "$ref": "#/definitions/OptionSkillSelfPrerequisite"
+                          },
+                          {
+                            "$ref": "#/definitions/OptionOptionPrerequisite"
+                          }
+                        ]
+                      },
+                      "minItems": 1
+                    },
+                    "ap_value": {
+                      "description": "Generate AP values for each entry.",
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "tag": {
+                              "const": "DerivedFromImprovementCost"
+                            },
+                            "multiplier": {
+                              "description": "This number is multiplied with the improvement cost of the entry\n(A = 1 to D = 4).",
+                              "type": "integer",
+                              "minimum": 2
+                            }
+                          },
+                          "required": [
+                            "tag"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "tag": {
+                              "const": "Fixed"
+                            },
+                            "map": {
+                              "description": "A mapping of skill identifiers to their specific AP values.",
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "$ref": "./_Identifier.schema.json#/definitions/CombatTechniqueIdentifier"
+                                  },
+                                  "ap_value": {
+                                    "description": "The AP value for the specified entry.",
+                                    "type": "integer",
+                                    "minimum": 1
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "ap_value"
+                                ],
+                                "additionalProperties": false
+                              }
+                            },
+                            "default": {
+                              "description": "The default value of an entry. Used as a fallback if no value is\nfound in `list`.",
+                              "type": "integer",
+                              "minimum": 1
+                            }
+                          },
+                          "required": [
+                            "tag",
+                            "map",
+                            "default"
+                          ],
+                          "additionalProperties": false
+                        }
+                      ]
+                    }
                   },
-                  "minItems": 1,
-                  "uniqueItems": true
+                  "required": [
+                    "tag",
+                    "categories"
+                  ],
+                  "additionalProperties": false
                 }
-              },
-              "required": [
-                "operation",
-                "list"
-              ],
-              "additionalProperties": false
-            },
-            "prerequisites": {
-              "description": "Generate prerequisites for each entry of the category.",
-              "type": "array",
-              "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#/definitions/OptionSkillSelfPrerequisite"
-                  },
-                  {
-                    "$ref": "#/definitions/OptionOptionPrerequisite"
-                  }
-                ]
-              },
-              "minItems": 1
-            },
-            "ap_value": {
-              "description": "Generate AP values for each entry.",
-              "$ref": "#/definitions/OptionSkillDeriveAdventurePointsValue"
+              ]
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "categories"
           ],
           "additionalProperties": false
         }
-      ]
-    },
-    "NonSkillSkillCategory": {
-      "enum": [
-        "CloseCombatTechniques",
-        "RangedCombatTechniques",
-        "LiturgicalChants",
-        "Ceremonies",
-        "Spells",
-        "Rituals"
       ]
     },
     "OptionSkillSelfPrerequisite": {
@@ -694,71 +915,6 @@
         "active"
       ],
       "additionalProperties": false
-    },
-    "OptionSkillDeriveAdventurePointsValue": {
-      "description": "Generate AP values for each entry.",
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "DerivedFromImprovementCost"
-            },
-            "multiplier": {
-              "description": "This number is multiplied with the improvement cost of the entry\n(A = 1 to D = 4).",
-              "type": "integer",
-              "minimum": 2
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Fixed"
-            },
-            "map": {
-              "description": "A mapping of skill identifiers to their specific AP values.",
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "description": "The skill's identifier.",
-                    "type": "integer",
-                    "minimum": 1
-                  },
-                  "ap_value": {
-                    "description": "The AP value for the specified entry.",
-                    "type": "integer",
-                    "minimum": 1
-                  }
-                },
-                "required": [
-                  "id",
-                  "ap_value"
-                ],
-                "additionalProperties": false
-              }
-            },
-            "default": {
-              "description": "The default value of an entry. Used as a fallback if no value is\nfound in `list`.",
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          "required": [
-            "tag",
-            "map",
-            "default"
-          ],
-          "additionalProperties": false
-        }
-      ]
     },
     "ExplicitOption": {
       "oneOf": [

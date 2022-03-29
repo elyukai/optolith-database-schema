@@ -120,6 +120,15 @@
         "Ceremony"
       ]
     },
+    "SkillTag": {
+      "enum": [
+        "Skill",
+        "Spell",
+        "Ritual",
+        "LiturgicalChant",
+        "Ceremony"
+      ]
+    },
     "AdvancedSpecialAbilityRestrictedOptionTag": {
       "enum": [
         "General",
@@ -265,6 +274,24 @@
       "properties": {
         "tag": {
           "$ref": "#/definitions/RatedTag"
+        },
+        "value": {
+          "description": "The referenced entry's numeric identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "SkillIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "$ref": "#/definitions/SkillTag"
         },
         "value": {
           "description": "The referenced entry's numeric identifier.",

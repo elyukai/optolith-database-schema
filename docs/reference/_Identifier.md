@@ -26,6 +26,12 @@
 
 ---
 
+### <a name="SkillTag"></a> `SkillTag`
+
+- **Possible values:** `"Skill"`, `"Spell"`, `"Ritual"`, `"LiturgicalChant"`, `"Ceremony"`
+
+---
+
 ### <a name="AdvancedSpecialAbilityRestrictedOptionTag"></a> `AdvancedSpecialAbilityRestrictedOptionTag`
 
 - **Possible values:** `"General"`, `"Skill"`, `"Element"`
@@ -178,6 +184,28 @@ Key | Description | Details
 - **Type:** <a href="#RatedTag">RatedTag</a>
 
 #### <a name="RatedIdentifier/value"></a> `value`
+
+The referenced entry's numeric identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="SkillIdentifier"></a> `SkillIdentifier`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#SkillIdentifier/tag">See details</a>
+`value` | The referenced entry's numeric identifier. | <a href="#SkillIdentifier/value">See details</a>
+
+#### <a name="SkillIdentifier/tag"></a> `tag`
+
+- **Type:** <a href="#SkillTag">SkillTag</a>
+
+#### <a name="SkillIdentifier/value"></a> `value`
 
 The referenced entry's numeric identifier.
 

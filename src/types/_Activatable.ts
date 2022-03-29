@@ -7,7 +7,7 @@ import { DisplayOption } from "./prerequisites/DisplayOption.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 import { Duration } from "./_ActivatableSkill.js"
-import { ActivatableIdentifier, AdvancedSpecialAbilityRestrictedOptionIdentifier, CombatRelatedSpecialAbilityIdentifier, CombatTechniqueIdentifier, MagicalTraditionIdentifier, PatronIdentifier, VolumePointsOptionReferenceIdentifier } from "./_Identifier.js"
+import { ActivatableIdentifier, AdvancedSpecialAbilityRestrictedOptionIdentifier, CombatRelatedSpecialAbilityIdentifier, CombatTechniqueIdentifier, CombatTechniqueTag, MagicalTraditionIdentifier, PatronIdentifier, SkillIdentifier, SkillWithEnhancementsTag, VolumePointsOptionReferenceIdentifier } from "./_Identifier.js"
 import { GeneralPrerequisites } from "./_Prerequisite.js"
 
 /**
@@ -69,13 +69,13 @@ export type Maximum = number
  */
 export type SelectOptions = {
   /**
-   * A list of categories with optional further configuration. All available
+   * An entry category with optional further configuration. All available
    * entries from the specified categories will be included as separate select
    * options. You can also specify a set of groups that should only be
    * included. Groups not mentioned will be excluded then.
    * @minItems 1
    */
-  derived?: CategoryOption[]
+  derived?: CategoryOption
 
   /**
    * A list of explicit select options. If the identifier has a specific type,
@@ -224,111 +224,154 @@ type CategoryOption =
     tag: "Skills"
 
     /**
-     * Only include entries of the specified groups.
+     * A list of skill categories.
      * @minItems 1
      */
-    groups?: {
-      /**
-       * The skill group's identifier.
-       * @integer
-       * @minimum 1
-       * @maximum 5
-       */
-      id: number
-    }[]
+    categories: (
+      | {
+        tag: "Skills"
 
-    /**
-     * Only include (`Intersection`) or exclude (`Difference`) specific skills.
-     */
-    specific?: {
-      operation:
-        | { tag: "Intersection" }
-        | { tag: "Difference" }
-
-      /**
-       * The list of specific skills.
-       * @minItems 1
-       * @uniqueItems
-       */
-      list: {
         /**
-         * The skill's identifier.
-         * @integer
-         * @minimum 1
-         * @maximum 59
+         * Only include entries of the specified groups.
+         * @minItems 1
          */
-        id: number
-      }[]
-    }
-
-    /**
-     * Registers new applications, which get enabled once this entry is
-     * activated with its respective select option. It specifies an entry-unique
-     * identifier, the skill it belongs to is derived from the select option
-     * automatically. A translation can be left out if its name equals the name
-     * of the origin entry.
-     * @minItems 1
-     */
-    skill_applications?: {
-      /**
-       * The application's identifier. An entry-unique, increasing integer.
-       * @integer
-       * @minimum 1
-       */
-      id: number
-
-      /**
-       * All translations for the entry, identified by IETF language tag (BCP47).
-       * @minProperties 1
-       */
-      translations?: {
-        /**
-         * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-         */
-        [localeId: string]: {
+        groups?: {
           /**
-           * The name of the application if different from the activatable entry's
-           * name.
-           * @minLength 1
+           * The skill group's identifier.
+           * @integer
+           * @minimum 1
+           * @maximum 5
            */
-          name: string
+          id: number
+        }[]
+
+        /**
+         * Only include (`Intersection`) or exclude (`Difference`) specific
+         * skills.
+         */
+        specific?: {
+          operation:
+            | { tag: "Intersection" }
+            | { tag: "Difference" }
+
+          /**
+           * The list of specific skills.
+           * @minItems 1
+           * @uniqueItems
+           */
+          list: {
+            /**
+             * The skill's identifier.
+             * @integer
+             * @minimum 1
+             * @maximum 59
+             */
+            id: number
+          }[]
+        }
+
+        /**
+         * Registers new applications, which get enabled once this entry is
+         * activated with its respective select option. It specifies an
+         * entry-unique identifier, the skill it belongs to is derived from the
+         * select option automatically. A translation can be left out if its
+         * name equals the name of the origin entry.
+         * @minItems 1
+         */
+        skill_applications?: {
+          /**
+           * The application's identifier. An entry-unique, increasing integer.
+           * @integer
+           * @minimum 1
+           */
+          id: number
+
+          /**
+           * All translations for the entry, identified by IETF language tag
+           * (BCP47).
+           * @minProperties 1
+           */
+          translations?: {
+            /**
+             * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+             */
+            [localeId: string]: {
+              /**
+               * The name of the application if different from the activatable
+               * entry's
+               * name.
+               * @minLength 1
+               */
+              name: string
+            }
+          }
+        }[]
+
+        /**
+         * Registers uses, which get enabled once this entry is activated with
+         * its respective select option. It specifies an entry-unique
+         * identifier, the skill it belongs to is derived from the select option
+         * automatically. A translation can be left out if its name equals the
+         * name of the origin entry.
+         * @minItems 1
+         */
+        skill_uses?: {
+          /**
+           * The use's identifier. An entry-unique, increasing integer.
+           * @integer
+           * @minimum 1
+           */
+          id: number
+
+          /**
+           * All translations for the entry, identified by IETF language tag
+           * (BCP47).
+           * @minProperties 1
+           */
+          translations?: {
+            /**
+             * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+             */
+            [localeId: string]: {
+              /**
+               * The name of the use if different from the activatable entry's
+               * name.
+               * @minLength 1
+               */
+              name: string
+            }
+          }
+        }[]
+      }
+      | {
+        tag: SkillWithEnhancementsTag
+
+        /**
+         * Only include (`Intersection`) or exclude (`Difference`) specific
+         * entries.
+         */
+        specific?: {
+          operation:
+            | { tag: "Intersection" }
+            | { tag: "Difference" }
+
+          /**
+           * The list of specific entries.
+           * @minItems 1
+           * @uniqueItems
+           */
+          list: {
+            /**
+             * The entry's identifier.
+             * @integer
+             * @minimum 1
+             * @maximum 59
+             */
+            id: number
+          }[]
         }
       }
-    }[]
-
-    /**
-     * Registers uses, which get enabled once this entry is activated with its
-     * respective select option. It specifies an entry-unique identifier, the
-     * skill it belongs to is derived from the select option automatically. A
-     * translation can be left out if its name equals the name of the origin
-     * entry.
-     * @minItems 1
-     */
-    skill_uses?: {
-      /**
-       * The use's identifier. An entry-unique, increasing integer.
-       * @integer
-       * @minimum 1
-       */
-      id: number
-
-      /**
-       * All translations for the entry, identified by IETF language tag (BCP47).
-       * @minProperties 1
-       */
-      translations?: {
-        /**
-         * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-         */
-        [localeId: string]: {
-          /**
-           * The name of the use if different from the activatable entry's name.
-           * @minLength 1
-           */
-          name: string
-        }
-      }
-    }[]
+    )[]
 
     /**
      * Generate prerequisites for each entry of the category.
@@ -342,34 +385,42 @@ type CategoryOption =
     /**
      * Generate AP values for each entry.
      */
-    ap_value?: OptionSkillDeriveAdventurePointsValue
-  }
+    ap_value?: OptionSkillDeriveAdventurePointsValue<SkillIdentifier>
   | {
-    tag: NonSkillSkillCategory
+    tag: "CombatTechniques"
 
     /**
-     * Only include (`Intersection`) or exclude (`Difference`) specific entries.
+     * A list of combat technique categories.
+     * @minItems 1
      */
-    specific?: {
-      operation:
-        | { tag: "Intersection" }
-        | { tag: "Difference" }
+    categories: {
+      tag: CombatTechniqueTag
 
       /**
-       * The list of specific entries.
-       * @minItems 1
-       * @uniqueItems
+       * Only include (`Intersection`) or exclude (`Difference`) specific
+       * entries.
        */
-      list: {
+      specific?: {
+        operation:
+          | { tag: "Intersection" }
+          | { tag: "Difference" }
+
         /**
-         * The entry's identifier.
-         * @integer
-         * @minimum 1
-         * @maximum 59
+         * The list of specific entries.
+         * @minItems 1
+         * @uniqueItems
          */
-        id: number
-      }[]
-    }
+        list: {
+          /**
+           * The entry's identifier.
+           * @integer
+           * @minimum 1
+           * @maximum 59
+           */
+          id: number
+        }[]
+      }
+    }[]
 
     /**
      * Generate prerequisites for each entry of the category.
@@ -383,16 +434,8 @@ type CategoryOption =
     /**
      * Generate AP values for each entry.
      */
-    ap_value?: OptionSkillDeriveAdventurePointsValue
+    ap_value?: OptionSkillDeriveAdventurePointsValue<CombatTechniqueIdentifier>
   }
-
-enum NonSkillSkillCategory {
-  CloseCombatTechniques = "CloseCombatTechniques",
-  RangedCombatTechniques = "RangedCombatTechniques",
-  LiturgicalChants = "LiturgicalChants",
-  Ceremonies = "Ceremonies",
-  Spells = "Spells",
-  Rituals = "Rituals",
 }
 
 type OptionSkillSelfPrerequisite = {
@@ -433,7 +476,7 @@ type OptionOptionPrerequisite = {
 /**
  * Generate AP values for each entry.
  */
-type OptionSkillDeriveAdventurePointsValue =
+type OptionSkillDeriveAdventurePointsValue<Identifier> =
   | {
     tag: "DerivedFromImprovementCost"
 
@@ -457,7 +500,7 @@ type OptionSkillDeriveAdventurePointsValue =
        * @integer
        * @minimum 1
        */
-      id: number
+      id: Identifier
 
       /**
        * The AP value for the specified entry.

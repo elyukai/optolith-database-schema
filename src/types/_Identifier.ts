@@ -112,6 +112,14 @@ enum RatedTag {
   Ceremony = "Ceremony",
 }
 
+enum SkillTag {
+  Skill = "Skill",
+  Spell = "Spell",
+  Ritual = "Ritual",
+  LiturgicalChant = "LiturgicalChant",
+  Ceremony = "Ceremony",
+}
+
 enum AdvancedSpecialAbilityRestrictedOptionTag {
   General = "General",
   Skill = "Skill",
@@ -123,7 +131,7 @@ enum VolumePointsOptionReferenceTag {
   AnimalShapeSize = "AnimalShapeSize",
 }
 
-enum CombatTechniqueTag {
+export enum CombatTechniqueTag {
   CloseCombatTechnique = "CloseCombatTechnique",
   RangedCombatTechnique = "RangedCombatTechnique",
 }
@@ -141,7 +149,7 @@ enum ExtensionRuleTag {
   OptionalRule = "OptionalRule",
 }
 
-enum SkillWithEnhancementsTag {
+export enum SkillWithEnhancementsTag {
   Spell = "Spell",
   Ritual = "Ritual",
   LiturgicalChant = "LiturgicalChant",
@@ -201,6 +209,7 @@ export type ActivatableIdentifier = TaggedIdentifier<ActivatableTag>
 export type SpecialAbilityIdentifier = TaggedIdentifier<SpecialAbilityTag>
 export type CombatRelatedSpecialAbilityIdentifier = TaggedIdentifier<CombatRelatedSpecialAbilityTag>
 export type RatedIdentifier = TaggedIdentifier<RatedTag>
+export type SkillIdentifier = TaggedIdentifier<SkillTag>
 export type AdvancedSpecialAbilityRestrictedOptionIdentifier = TaggedIdentifier<AdvancedSpecialAbilityRestrictedOptionTag>
 export type VolumePointsOptionReferenceIdentifier = TaggedIdentifier<VolumePointsOptionReferenceTag>
 export type CombatTechniqueIdentifier = TaggedIdentifier<CombatTechniqueTag>
