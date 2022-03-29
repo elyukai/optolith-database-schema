@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.3](https://github.com/elyukai/optolith-database-schema/compare/v0.2.2...v0.2.3) (2022-03-29)
+
+
+### Features
+
+* allow dis-/advantages to not contribute to maximum AP value ([9e401d0](https://github.com/elyukai/optolith-database-schema/commit/9e401d0be40797a5758220233af6c162d1ce76fb))
+
+
+### Bug Fixes
+
+* state prerequisite should have unique tag ([7710fd5](https://github.com/elyukai/optolith-database-schema/commit/7710fd538582b85cd67cb81b2f791774102d17db))
+
 ### [0.2.2](https://github.com/elyukai/optolith-database-schema/compare/v0.2.1...v0.2.2) (2022-03-29)
 
 
