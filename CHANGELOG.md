@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/elyukai/optolith-database-schema/compare/v0.1.28...v0.2.0) (2022-03-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* derived select options are not a list anymore
+
+* derived select options are not a list anymore ([fa64a60](https://github.com/elyukai/optolith-database-schema/commit/fa64a60670f0cdf5567a168f3a4eccd7ea71d367))
+
 ### [0.1.28](https://github.com/elyukai/optolith-database-schema/compare/v0.1.27...v0.1.28) (2022-03-25)
 
 
