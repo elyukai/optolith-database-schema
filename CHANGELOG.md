@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.2](https://github.com/elyukai/optolith-database-schema/compare/v0.2.1...v0.2.2) (2022-03-29)
+
+
+### Features
+
+* add offset option for deriving AP value from improvement cost ([f556207](https://github.com/elyukai/optolith-database-schema/commit/f55620751b7a68383c74ba8c4256d11802ab99c7))
+
 ### [0.2.1](https://github.com/elyukai/optolith-database-schema/compare/v0.2.0...v0.2.1) (2022-03-29)
 
 
