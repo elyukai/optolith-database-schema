@@ -6,7 +6,7 @@ import { DisplayOption } from "../DisplayOption.js"
  * @title State Prerequisite
  */
 export type StatePrerequisite = {
-  tag: "Culture"
+  tag: "State"
 
   id: OneOrManyNumericIdentifiers
 

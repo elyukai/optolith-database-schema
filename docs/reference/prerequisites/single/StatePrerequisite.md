@@ -16,7 +16,7 @@ Key | Description | Details
 
 #### <a name="StatePrerequisite/tag"></a> `tag`
 
-- **Constant:** `"Culture"`
+- **Constant:** `"State"`
 
 #### <a name="StatePrerequisite/id"></a> `id`
 
