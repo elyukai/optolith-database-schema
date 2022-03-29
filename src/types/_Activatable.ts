@@ -448,7 +448,7 @@ type CategoryOption =
 }
 
 enum SkillWithEnhancementsCategory {
-  spells = "spells",
+  Spells = "Spells",
   Rituals = "Rituals",
   LiturgicalChants = "LiturgicalChants",
   Ceremonies = "Ceremonies",

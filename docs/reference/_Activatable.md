@@ -1275,7 +1275,7 @@ The AP value for the specified entry.
 
 ### <a name="SkillWithEnhancementsCategory"></a> `SkillWithEnhancementsCategory`
 
-- **Possible values:** `"spells"`, `"Rituals"`, `"LiturgicalChants"`, `"Ceremonies"`
+- **Possible values:** `"Spells"`, `"Rituals"`, `"LiturgicalChants"`, `"Ceremonies"`
 
 ---
 
