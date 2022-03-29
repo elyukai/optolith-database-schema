@@ -3,7 +3,7 @@
   "$id": "/prerequisites/single/TextPrerequisite.schema.json",
   "definitions": {
     "TextPrerequisite": {
-      "title": "Impossible Prerequisite",
+      "title": "Text Prerequisite",
       "description": "A prerequisite that is either not verifyable in general – e.g. roleplay or\nbackground information – or the referenced entities were not made available\nfor use yet – e.g. races –, but which should be displayed, because it is part\nof the prerequisite string from the sources.",
       "type": "object",
       "properties": {

@@ -3,7 +3,7 @@
  * background information – or the referenced entities were not made available
  * for use yet – e.g. races –, but which should be displayed, because it is part
  * of the prerequisite string from the sources.
- * @title Impossible Prerequisite
+ * @title Text Prerequisite
  */
 export type TextPrerequisite = {
   tag: "Text"

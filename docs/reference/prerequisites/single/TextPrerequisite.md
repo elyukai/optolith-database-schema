@@ -2,7 +2,7 @@
 
 ## Definitions
 
-### <a name="TextPrerequisite"></a> Impossible Prerequisite (`TextPrerequisite`)
+### <a name="TextPrerequisite"></a> Text Prerequisite (`TextPrerequisite`)
 
 A prerequisite that is either not verifyable in general – e.g. roleplay or
 background information – or the referenced entities were not made available
