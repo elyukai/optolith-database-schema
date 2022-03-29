@@ -41,7 +41,7 @@ Key | Description | Details
 
 #### <a name="Disadvantage/ap_value"></a> `ap_value`
 
-- **Type:** <a href="./_Activatable.md#AdventurePointsValue">AdventurePointsValue</a>
+- **Type:** <a href="./_Activatable.md#AdventurePointsValueAdvantagesDisadvantages">AdventurePointsValueAdvantagesDisadvantages</a>
 
 #### <a name="Disadvantage/has_no_maximum_spent_influence"></a> `has_no_maximum_spent_influence?`
 

@@ -3328,31 +3328,57 @@
           "type": "object",
           "properties": {
             "tag": {
-              "const": "ByImprovementCost"
+              "description": "Used if AP value is defined by the selected option(s) or special rules.",
+              "const": "Indefinite"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "AdventurePointsValueAdvantagesDisadvantages": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Fixed"
+            },
+            "value": {
+              "description": "A fixed adventure points value. If the entry has levels, this is the cost\nfor each level as well.",
+              "$ref": "#/definitions/AdventurePointsSingleValue"
+            },
+            "does_not_contribute_to_maximum": {
+              "description": "The AP Value of the entry does not contribute to the AP maximum for\nadvantages or disadvantages, so it may also be bought if the maximum has\nalready been reached.",
+              "const": true
+            }
+          },
+          "required": [
+            "tag",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "ByLevel"
             },
             "values": {
-              "description": "An entry with a selection of skills may have different costs for\ndifferent improvement costs of the selected skill.\n\nIf the select options will not have entries with improvement cost A\n(combat techniques only), you may leave out A.",
-              "type": "object",
-              "properties": {
-                "A": {
-                  "$ref": "#/definitions/AdventurePointsSingleValue"
-                },
-                "B": {
-                  "$ref": "#/definitions/AdventurePointsSingleValue"
-                },
-                "C": {
-                  "$ref": "#/definitions/AdventurePointsSingleValue"
-                },
-                "D": {
-                  "$ref": "#/definitions/AdventurePointsSingleValue"
-                }
+              "description": "An entry with levels may have different costs for each level. The length\nof the list must match the amount of levels the special ability has.",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AdventurePointsSingleValue"
               },
-              "required": [
-                "B",
-                "C",
-                "D"
-              ],
-              "additionalProperties": false
+              "minItems": 2
+            },
+            "does_not_contribute_to_maximum": {
+              "description": "The AP Value of the entry does not contribute to the AP maximum for\nadvantages or disadvantages, so it may also be bought if the maximum has\nalready been reached.",
+              "const": true
             }
           },
           "required": [
@@ -3367,6 +3393,10 @@
             "tag": {
               "description": "Used if AP value is defined by the selected option(s) or special rules.",
               "const": "Indefinite"
+            },
+            "does_not_contribute_to_maximum": {
+              "description": "The AP Value of the entry does not contribute to the AP maximum for\nadvantages or disadvantages, so it may also be bought if the maximum has\nalready been reached.",
+              "const": true
             }
           },
           "required": [

@@ -4613,7 +4613,7 @@ The weapon's numeric identifier.
 ### <a name="AdventurePointsValue"></a> `AdventurePointsValue`
 
 - **Type:** Union
-- **Cases:** <a href="#AdventurePointsValue'Fixed">AdventurePointsValue'Fixed</a> | <a href="#AdventurePointsValue'ByLevel">AdventurePointsValue'ByLevel</a> | <a href="#AdventurePointsValue'ByImprovementCost">AdventurePointsValue'ByImprovementCost</a> | <a href="#AdventurePointsValue'Indefinite">AdventurePointsValue'Indefinite</a>
+- **Cases:** <a href="#AdventurePointsValue'Fixed">AdventurePointsValue'Fixed</a> | <a href="#AdventurePointsValue'ByLevel">AdventurePointsValue'ByLevel</a> | <a href="#AdventurePointsValue'Indefinite">AdventurePointsValue'Indefinite</a>
 
 ---
 
@@ -4669,66 +4669,6 @@ of the list must match the amount of levels the special ability has.
 
 ---
 
-### <a name="AdventurePointsValue'ByImprovementCost"></a> `AdventurePointsValue'ByImprovementCost`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#AdventurePointsValue'ByImprovementCost/tag">See details</a>
-`values` | An entry with a selection of skills may have different costs for different improvement costs of the selected skill. | <a href="#AdventurePointsValue'ByImprovementCost/values">See details</a>
-
-#### <a name="AdventurePointsValue'ByImprovementCost/tag"></a> `tag`
-
-- **Constant:** `"ByImprovementCost"`
-
-#### <a name="AdventurePointsValue'ByImprovementCost/values"></a> `values`
-
-An entry with a selection of skills may have different costs for
-different improvement costs of the selected skill.
-
-If the select options will not have entries with improvement cost A
-(combat techniques only), you may leave out A.
-
-- **Type:** <a href="#AdventurePointsValue'ByImprovementCost/values">Object</a>
-
----
-
-### <a name="AdventurePointsValue'ByImprovementCost/values"></a> `AdventurePointsValue'ByImprovementCost/values`
-
-An entry with a selection of skills may have different costs for
-different improvement costs of the selected skill.
-
-If the select options will not have entries with improvement cost A
-(combat techniques only), you may leave out A.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`A?` |  | <a href="#AdventurePointsValue'ByImprovementCost/values/A">See details</a>
-`B` |  | <a href="#AdventurePointsValue'ByImprovementCost/values/B">See details</a>
-`C` |  | <a href="#AdventurePointsValue'ByImprovementCost/values/C">See details</a>
-`D` |  | <a href="#AdventurePointsValue'ByImprovementCost/values/D">See details</a>
-
-#### <a name="AdventurePointsValue'ByImprovementCost/values/A"></a> `A?`
-
-- **Type:** <a href="#AdventurePointsSingleValue">AdventurePointsSingleValue</a>
-
-#### <a name="AdventurePointsValue'ByImprovementCost/values/B"></a> `B`
-
-- **Type:** <a href="#AdventurePointsSingleValue">AdventurePointsSingleValue</a>
-
-#### <a name="AdventurePointsValue'ByImprovementCost/values/C"></a> `C`
-
-- **Type:** <a href="#AdventurePointsSingleValue">AdventurePointsSingleValue</a>
-
-#### <a name="AdventurePointsValue'ByImprovementCost/values/D"></a> `D`
-
-- **Type:** <a href="#AdventurePointsSingleValue">AdventurePointsSingleValue</a>
-
----
-
 ### <a name="AdventurePointsValue'Indefinite"></a> `AdventurePointsValue'Indefinite`
 
 - **Type:** Object
@@ -4742,6 +4682,108 @@ Key | Description | Details
 Used if AP value is defined by the selected option(s) or special rules.
 
 - **Constant:** `"Indefinite"`
+
+---
+
+### <a name="AdventurePointsValueAdvantagesDisadvantages"></a> `AdventurePointsValueAdvantagesDisadvantages`
+
+- **Type:** Union
+- **Cases:** <a href="#AdventurePointsValueAdvantagesDisadvantages'Fixed">AdventurePointsValueAdvantagesDisadvantages'Fixed</a> | <a href="#AdventurePointsValueAdvantagesDisadvantages'ByLevel">AdventurePointsValueAdvantagesDisadvantages'ByLevel</a> | <a href="#AdventurePointsValueAdvantagesDisadvantages'Indefinite">AdventurePointsValueAdvantagesDisadvantages'Indefinite</a>
+
+---
+
+### <a name="AdventurePointsValueAdvantagesDisadvantages'Fixed"></a> `AdventurePointsValueAdvantagesDisadvantages'Fixed`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AdventurePointsValueAdvantagesDisadvantages'Fixed/tag">See details</a>
+`value` | A fixed adventure points value. If the entry has levels, this is the cost for each level as well. | <a href="#AdventurePointsValueAdvantagesDisadvantages'Fixed/value">See details</a>
+`does_not_contribute_to_maximum?` | The AP Value of the entry does not contribute to the AP maximum for advantages or disadvantages, so it may also be bought if the maximum has already been reached. | <a href="#AdventurePointsValueAdvantagesDisadvantages'Fixed/does_not_contribute_to_maximum">See details</a>
+
+#### <a name="AdventurePointsValueAdvantagesDisadvantages'Fixed/tag"></a> `tag`
+
+- **Constant:** `"Fixed"`
+
+#### <a name="AdventurePointsValueAdvantagesDisadvantages'Fixed/value"></a> `value`
+
+A fixed adventure points value. If the entry has levels, this is the cost
+for each level as well.
+
+- **Type:** <a href="#AdventurePointsSingleValue">AdventurePointsSingleValue</a>
+
+#### <a name="AdventurePointsValueAdvantagesDisadvantages'Fixed/does_not_contribute_to_maximum"></a> `does_not_contribute_to_maximum?`
+
+The AP Value of the entry does not contribute to the AP maximum for
+advantages or disadvantages, so it may also be bought if the maximum has
+already been reached.
+
+- **Constant:** `true`
+
+---
+
+### <a name="AdventurePointsValueAdvantagesDisadvantages'ByLevel"></a> `AdventurePointsValueAdvantagesDisadvantages'ByLevel`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AdventurePointsValueAdvantagesDisadvantages'ByLevel/tag">See details</a>
+`values` | An entry with levels may have different costs for each level. The length of the list must match the amount of levels the special ability has. | <a href="#AdventurePointsValueAdvantagesDisadvantages'ByLevel/values">See details</a>
+`does_not_contribute_to_maximum?` | The AP Value of the entry does not contribute to the AP maximum for advantages or disadvantages, so it may also be bought if the maximum has already been reached. | <a href="#AdventurePointsValueAdvantagesDisadvantages'ByLevel/does_not_contribute_to_maximum">See details</a>
+
+#### <a name="AdventurePointsValueAdvantagesDisadvantages'ByLevel/tag"></a> `tag`
+
+- **Constant:** `"ByLevel"`
+
+#### <a name="AdventurePointsValueAdvantagesDisadvantages'ByLevel/values"></a> `values`
+
+An entry with levels may have different costs for each level. The length
+of the list must match the amount of levels the special ability has.
+
+- **Type:** List
+- **Items:** <a href="#AdventurePointsValueAdvantagesDisadvantages'ByLevel/values[]">AdventurePointsValueAdvantagesDisadvantages'ByLevel/values[]</a>
+- **Minimum Items:** `2`
+
+#### <a name="AdventurePointsValueAdvantagesDisadvantages'ByLevel/does_not_contribute_to_maximum"></a> `does_not_contribute_to_maximum?`
+
+The AP Value of the entry does not contribute to the AP maximum for
+advantages or disadvantages, so it may also be bought if the maximum has
+already been reached.
+
+- **Constant:** `true`
+
+---
+
+### <a name="AdventurePointsValueAdvantagesDisadvantages'ByLevel/values[]"></a> `AdventurePointsValueAdvantagesDisadvantages'ByLevel/values[]`
+
+- **Type:** <a href="#AdventurePointsSingleValue">AdventurePointsSingleValue</a>
+
+---
+
+### <a name="AdventurePointsValueAdvantagesDisadvantages'Indefinite"></a> `AdventurePointsValueAdvantagesDisadvantages'Indefinite`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` | Used if AP value is defined by the selected option(s) or special rules. | <a href="#AdventurePointsValueAdvantagesDisadvantages'Indefinite/tag">See details</a>
+`does_not_contribute_to_maximum?` | The AP Value of the entry does not contribute to the AP maximum for advantages or disadvantages, so it may also be bought if the maximum has already been reached. | <a href="#AdventurePointsValueAdvantagesDisadvantages'Indefinite/does_not_contribute_to_maximum">See details</a>
+
+#### <a name="AdventurePointsValueAdvantagesDisadvantages'Indefinite/tag"></a> `tag`
+
+Used if AP value is defined by the selected option(s) or special rules.
+
+- **Constant:** `"Indefinite"`
+
+#### <a name="AdventurePointsValueAdvantagesDisadvantages'Indefinite/does_not_contribute_to_maximum"></a> `does_not_contribute_to_maximum?`
+
+The AP Value of the entry does not contribute to the AP maximum for
+advantages or disadvantages, so it may also be bought if the maximum has
+already been reached.
+
+- **Constant:** `true`
 
 ---
 

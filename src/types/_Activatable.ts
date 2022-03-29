@@ -2169,27 +2169,58 @@ export type AdventurePointsValue =
     values: AdventurePointsSingleValue[]
   }
   | {
-    tag: "ByImprovementCost"
+    /**
+     * Used if AP value is defined by the selected option(s) or special rules.
+     */
+    tag: "Indefinite"
+  }
+
+export type AdventurePointsValueAdvantagesDisadvantages =
+  | {
+    tag: "Fixed"
 
     /**
-     * An entry with a selection of skills may have different costs for
-     * different improvement costs of the selected skill.
-     *
-     * If the select options will not have entries with improvement cost A
-     * (combat techniques only), you may leave out A.
+     * A fixed adventure points value. If the entry has levels, this is the cost
+     * for each level as well.
      */
-    values: {
-      A?: AdventurePointsSingleValue
-      B: AdventurePointsSingleValue
-      C: AdventurePointsSingleValue
-      D: AdventurePointsSingleValue
-    }
+    value: AdventurePointsSingleValue
+
+    /**
+     * The AP Value of the entry does not contribute to the AP maximum for
+     * advantages or disadvantages, so it may also be bought if the maximum has
+     * already been reached.
+     */
+     does_not_contribute_to_maximum?: true
+  }
+  | {
+    tag: "ByLevel"
+
+    /**
+     * An entry with levels may have different costs for each level. The length
+     * of the list must match the amount of levels the special ability has.
+     * @minItems 2
+     */
+    values: AdventurePointsSingleValue[]
+
+    /**
+     * The AP Value of the entry does not contribute to the AP maximum for
+     * advantages or disadvantages, so it may also be bought if the maximum has
+     * already been reached.
+     */
+     does_not_contribute_to_maximum?: true
   }
   | {
     /**
      * Used if AP value is defined by the selected option(s) or special rules.
      */
     tag: "Indefinite"
+
+    /**
+     * The AP Value of the entry does not contribute to the AP maximum for
+     * advantages or disadvantages, so it may also be bought if the maximum has
+     * already been reached.
+     */
+    does_not_contribute_to_maximum?: true
   }
 
 /**
