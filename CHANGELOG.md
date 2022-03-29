@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/elyukai/optolith-database-schema/compare/v0.2.0...v0.2.1) (2022-03-29)
+
+
+### Bug Fixes
+
+* category names and prerequisites should be defined separately ([eb312fe](https://github.com/elyukai/optolith-database-schema/commit/eb312fe2fc9973ef6be36937ebd8af8c8bf30e60))
+
 ## [0.2.0](https://github.com/elyukai/optolith-database-schema/compare/v0.1.28...v0.2.0) (2022-03-29)
 
 
