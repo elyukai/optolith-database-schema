@@ -166,7 +166,7 @@ export type BlessedTradition = {
        * descriptions.
        * @minLength 1
        */
-      name_compressed: string
+      name_compressed?: string
 
       name_in_library?: Activatable.NameInLibrary
 
