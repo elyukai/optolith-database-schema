@@ -455,4 +455,4 @@ Key | Description | Details
 The magical tradition's identifier.
 
 - **Type:** Integer
-- **Minimum:** `2`
+- **Minimum:** `1`

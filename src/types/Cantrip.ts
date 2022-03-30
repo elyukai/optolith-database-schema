@@ -223,7 +223,7 @@ export type CommonNote =
     /**
      * The magical tradition's identifier.
      * @integer
-     * @minimum 2
+     * @minimum 1
      */
     id: number
   }

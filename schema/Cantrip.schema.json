@@ -347,7 +347,7 @@
             "id": {
               "description": "The magical tradition's identifier.",
               "type": "integer",
-              "minimum": 2
+              "minimum": 1
             }
           },
           "required": [
