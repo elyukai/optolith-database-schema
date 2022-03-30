@@ -348,6 +348,28 @@
               "description": "The magical tradition's identifier.",
               "type": "integer",
               "minimum": 1
+            },
+            "translations": {
+              "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+              "type": "object",
+              "patternProperties": {
+                "^[a-z]{2}-[A-Z]{2}$": {
+                  "type": "object",
+                  "properties": {
+                    "note": {
+                      "description": "A note, appended to the generated string in parenthesis.",
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "note"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "minProperties": 1,
+              "additionalProperties": false
             }
           },
           "required": [

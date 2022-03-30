@@ -445,6 +445,7 @@ Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#CommonNote'Tradition/tag">See details</a>
 `id` | The magical tradition's identifier. | <a href="#CommonNote'Tradition/id">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#CommonNote'Tradition/translations">See details</a>
 
 #### <a name="CommonNote'Tradition/tag"></a> `tag`
 
@@ -456,3 +457,29 @@ The magical tradition's identifier.
 
 - **Type:** Integer
 - **Minimum:** `1`
+
+#### <a name="CommonNote'Tradition/translations"></a> `translations?`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#CommonNote'Tradition/translations[key]">CommonNote'Tradition/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="CommonNote'Tradition/translations[key]"></a> `CommonNote'Tradition/translations[key]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`note` | A note, appended to the generated string in parenthesis. | <a href="#CommonNote'Tradition/translations[key]/note">See details</a>
+
+#### <a name="CommonNote'Tradition/translations[key]/note"></a> `note`
+
+A note, appended to the generated string in parenthesis.
+
+- **Type:** String
+- **Minimum Length:** `1`

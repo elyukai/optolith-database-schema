@@ -226,6 +226,23 @@ export type CommonNote =
      * @minimum 1
      */
     id: number
+
+    /**
+     * All translations for the entry, identified by IETF language tag (BCP47).
+     * @minProperties 1
+     */
+    translations?: {
+      /**
+       * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+       */
+      [localeId: string]: {
+        /**
+         * A note, appended to the generated string in parenthesis.
+         * @minLength 1
+         */
+        note: string
+      }
+    }
   }
 
 export const validateSchema = validateSchemaCreator<Cantrip>(import.meta.url)
