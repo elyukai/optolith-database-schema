@@ -121,21 +121,9 @@ type PerformanceParameters = {
         [localeId: string]: {
           /**
            * A description of the duration.
+           * @minLength 1
            */
-          description: {
-            /**
-             * The full description of the duration.
-             * @minLength 1
-             */
-            default: string
-
-            /**
-             * A compressed description of the duration for use in small areas
-             * (e.g. on character sheet).
-             * @minLength 1
-             */
-            compressed: string
-          }
+          description: string
         }
       }
     }

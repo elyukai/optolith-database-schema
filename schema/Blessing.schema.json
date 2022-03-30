@@ -178,24 +178,8 @@
                       "properties": {
                         "description": {
                           "description": "A description of the duration.",
-                          "type": "object",
-                          "properties": {
-                            "default": {
-                              "description": "The full description of the duration.",
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "compressed": {
-                              "description": "A compressed description of the duration for use in small areas\n(e.g. on character sheet).",
-                              "type": "string",
-                              "minLength": 1
-                            }
-                          },
-                          "required": [
-                            "default",
-                            "compressed"
-                          ],
-                          "additionalProperties": false
+                          "type": "string",
+                          "minLength": 1
                         }
                       },
                       "required": [

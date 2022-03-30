@@ -245,32 +245,5 @@ Key | Description | Details
 
 A description of the duration.
 
-- **Type:** <a href="#PerformanceParameters/duration'Indefinite/translations[key]/description">Object</a>
-
----
-
-### <a name="PerformanceParameters/duration'Indefinite/translations[key]/description"></a> `PerformanceParameters/duration'Indefinite/translations[key]/description`
-
-A description of the duration.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`default` | The full description of the duration. | <a href="#PerformanceParameters/duration'Indefinite/translations[key]/description/default">See details</a>
-`compressed` | A compressed description of the duration for use in small areas (e.g. on character sheet). | <a href="#PerformanceParameters/duration'Indefinite/translations[key]/description/compressed">See details</a>
-
-#### <a name="PerformanceParameters/duration'Indefinite/translations[key]/description/default"></a> `default`
-
-The full description of the duration.
-
-- **Type:** String
-- **Minimum Length:** `1`
-
-#### <a name="PerformanceParameters/duration'Indefinite/translations[key]/description/compressed"></a> `compressed`
-
-A compressed description of the duration for use in small areas
-(e.g. on character sheet).
-
 - **Type:** String
 - **Minimum Length:** `1`
