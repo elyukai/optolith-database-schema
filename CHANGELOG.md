@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.4](https://github.com/elyukai/optolith-database-schema/compare/v0.2.3...v0.2.4) (2022-03-30)
+
+
+### Features
+
+* add actions as duration unit ([5e64e38](https://github.com/elyukai/optolith-database-schema/commit/5e64e38dbbcda2980bb70a2b1c1b8d01b3a31324))
+* add cantrips as target category ([ac4cf38](https://github.com/elyukai/optolith-database-schema/commit/ac4cf380bc96ea20c214938fd96eca1af28b3952))
+* add notes to tradition notes of cantrips ([7b37327](https://github.com/elyukai/optolith-database-schema/commit/7b373271312324064b0bac824511248d07f4ffbe))
+* guild mages tradition can be noted as common for in general ([df175d1](https://github.com/elyukai/optolith-database-schema/commit/df175d1f523fb9f09c0e672b4bc71437763f34b1))
+* remove compressed paramater description option ([7897b72](https://github.com/elyukai/optolith-database-schema/commit/7897b723258d97c1c71dcfef422821657c8efea2))
+
+
+### Bug Fixes
+
+* compressed name should be optional ([7281f6a](https://github.com/elyukai/optolith-database-schema/commit/7281f6ae055588511dfdb4ebc186f5e492e823c8))
+* cost needs to be required ([05fd208](https://github.com/elyukai/optolith-database-schema/commit/05fd2086642ee8781f1a33021f98333685234b50))
+
 ### [0.2.3](https://github.com/elyukai/optolith-database-schema/compare/v0.2.2...v0.2.3) (2022-03-29)
 
 
