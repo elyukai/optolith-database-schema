@@ -1107,6 +1107,7 @@ export namespace Duration {
     Months = "Months",
     Years = "Years",
     Centuries = "Centuries",
+    Actions = "Actions",
     CombatRounds = "CombatRounds",
   }
 

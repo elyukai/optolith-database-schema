@@ -1600,6 +1600,7 @@
           "Months",
           "Years",
           "Centuries",
+          "Actions",
           "CombatRounds"
         ]
       },

@@ -2267,7 +2267,7 @@ The sustained skill can be active a maximum amount of time.
 
 ### <a name="Duration/Unit"></a> `Duration/Unit`
 
-- **Possible values:** `"Seconds"`, `"Minutes"`, `"Hours"`, `"Days"`, `"Weeks"`, `"Months"`, `"Years"`, `"Centuries"`, `"CombatRounds"`
+- **Possible values:** `"Seconds"`, `"Minutes"`, `"Hours"`, `"Days"`, `"Weeks"`, `"Months"`, `"Years"`, `"Centuries"`, `"Actions"`, `"CombatRounds"`
 
 ---
 
