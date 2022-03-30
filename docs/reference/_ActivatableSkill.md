@@ -2381,7 +2381,7 @@ A note, appended to the generated string in parenthesis.
 ### <a name="TargetCategory/Identifier"></a> `TargetCategory/Identifier`
 
 - **Type:** Union
-- **Cases:** <a href="#TargetCategory/Identifier'Self">TargetCategory/Identifier'Self</a> | <a href="#TargetCategory/Identifier'Zone">TargetCategory/Identifier'Zone</a> | <a href="#TargetCategory/Identifier'LiturgicalChantsAndCeremonies">TargetCategory/Identifier'LiturgicalChantsAndCeremonies</a> | <a href="#TargetCategory/Identifier'Predefined">TargetCategory/Identifier'Predefined</a>
+- **Cases:** <a href="#TargetCategory/Identifier'Self">TargetCategory/Identifier'Self</a> | <a href="#TargetCategory/Identifier'Zone">TargetCategory/Identifier'Zone</a> | <a href="#TargetCategory/Identifier'LiturgicalChantsAndCeremonies">TargetCategory/Identifier'LiturgicalChantsAndCeremonies</a> | <a href="#TargetCategory/Identifier'Cantrips">TargetCategory/Identifier'Cantrips</a> | <a href="#TargetCategory/Identifier'Predefined">TargetCategory/Identifier'Predefined</a>
 
 ---
 
@@ -2424,6 +2424,20 @@ Key | Description | Details
 #### <a name="TargetCategory/Identifier'LiturgicalChantsAndCeremonies/tag"></a> `tag`
 
 - **Constant:** `"LiturgicalChantsAndCeremonies"`
+
+---
+
+### <a name="TargetCategory/Identifier'Cantrips"></a> `TargetCategory/Identifier'Cantrips`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#TargetCategory/Identifier'Cantrips/tag">See details</a>
+
+#### <a name="TargetCategory/Identifier'Cantrips/tag"></a> `tag`
+
+- **Constant:** `"Cantrips"`
 
 ---
 

@@ -1734,6 +1734,18 @@
             "type": "object",
             "properties": {
               "tag": {
+                "const": "Cantrips"
+              }
+            },
+            "required": [
+              "tag"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "tag": {
                 "const": "Predefined"
               },
               "id": {

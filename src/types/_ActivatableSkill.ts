@@ -1161,6 +1161,7 @@ export namespace TargetCategory {
     | { tag: "Self" }
     | { tag: "Zone" }
     | { tag: "LiturgicalChantsAndCeremonies" }
+    | { tag: "Cantrips" }
     | {
       tag: "Predefined"
 
