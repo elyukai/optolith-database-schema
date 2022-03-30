@@ -345,7 +345,7 @@ The skill's identifier.
 Key | Description | Details
 :-- | :-- | :--
 `name` |  | <a href="#BlessedTradition/translations[key]/name">See details</a>
-`name_compressed` | A shorter name of the tradition's name, used in liturgical chant descriptions. | <a href="#BlessedTradition/translations[key]/name_compressed">See details</a>
+`name_compressed?` | A shorter name of the tradition's name, used in liturgical chant descriptions. | <a href="#BlessedTradition/translations[key]/name_compressed">See details</a>
 `name_in_library?` |  | <a href="#BlessedTradition/translations[key]/name_in_library">See details</a>
 `special_rules` | The special rules of the tradition. They should be sorted like they are in the book. | <a href="#BlessedTradition/translations[key]/special_rules">See details</a>
 `errata?` |  | <a href="#BlessedTradition/translations[key]/errata">See details</a>
@@ -354,7 +354,7 @@ Key | Description | Details
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="BlessedTradition/translations[key]/name_compressed"></a> `name_compressed`
+#### <a name="BlessedTradition/translations[key]/name_compressed"></a> `name_compressed?`
 
 A shorter name of the tradition's name, used in liturgical chant
 descriptions.
