@@ -81,6 +81,7 @@
       "required": [
         "id",
         "volume",
+        "cost",
         "property",
         "ap_value",
         "src",
