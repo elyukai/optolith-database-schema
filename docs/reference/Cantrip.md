@@ -11,7 +11,7 @@ Key | Description | Details
 `id` | The cantrip's identifier. An unique, increasing integer. | <a href="#Cantrip/id">See details</a>
 `parameters` | Measurable parameters of a cantrip. | <a href="#Cantrip/parameters">See details</a>
 `target` | The target category – the kind of creature or object – the skill affects. | <a href="#Cantrip/target">See details</a>
-`property_id` | The property's identifier. | <a href="#Cantrip/property_id">See details</a>
+`property` | The associated property. | <a href="#Cantrip/property">See details</a>
 `note?` | A note specifying the dissemination of the cantrip in different traditions. Sometimes a cantrip is exclusively available to one or more specific traditions, but usually one the academies and traditions are listed the cantrip is most commonly teached in. | <a href="#Cantrip/note">See details</a>
 `src` |  | <a href="#Cantrip/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Cantrip/translations">See details</a>
@@ -36,12 +36,11 @@ The target category – the kind of creature or object – the skill affects.
 
 - **Type:** <a href="./_ActivatableSkill.md#TargetCategory/T">TargetCategory/T</a>
 
-#### <a name="Cantrip/property_id"></a> `property_id`
+#### <a name="Cantrip/property"></a> `property`
 
-The property's identifier.
+The associated property.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="#Cantrip/property">Object</a>
 
 #### <a name="Cantrip/note"></a> `note?`
 
@@ -69,6 +68,25 @@ All translations for the entry, identified by IETF language tag (BCP47).
 #### <a name="Cantrip/enhancements"></a> `enhancements?`
 
 - **Type:** <a href="./_Enhancements.md#Enhancements">Enhancements</a>
+
+---
+
+### <a name="Cantrip/property"></a> `Cantrip/property`
+
+The associated property.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The property's identifier. | <a href="#Cantrip/property/id">See details</a>
+
+#### <a name="Cantrip/property/id"></a> `id`
+
+The property's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
 
 ---
 

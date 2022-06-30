@@ -42,9 +42,17 @@ export type Skill = {
   improvement_cost: ImprovementCost
 
   /**
-   * The identifier of the skill group this skill belongs to.
+   * The skill group this skill belongs to.
    */
-  group_id: number
+  group: {
+    /**
+     * The identifier of the skill group.
+     * @integer
+     * @minimum 1
+     * @maximum 5
+     */
+    id: number
+  }
 
   src: PublicationRefs
 

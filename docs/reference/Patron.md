@@ -9,7 +9,7 @@
 Key | Description | Details
 :-- | :-- | :--
 `id` | The patron's identifier. An unique, increasing integer. | <a href="#Patron/id">See details</a>
-`category_id` | The patron's category identifier. | <a href="#Patron/category_id">See details</a>
+`category` | The patron's category. | <a href="#Patron/category">See details</a>
 `skills` | The patron-specific skills. | <a href="#Patron/skills">See details</a>
 `culture` | The patron is only available to a certain set of cultures. It may be available to all, it may be available to only specific ones (intersection) and it may be available to all except specific ones to the listed cultures (difference). | <a href="#Patron/culture">See details</a>
 `primary_patron_cultures?` | The list of cultures where patrons from this category can be the primary patron of. | <a href="#Patron/primary_patron_cultures">See details</a>
@@ -25,12 +25,11 @@ The patron's identifier. An unique, increasing integer.
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="Patron/category_id"></a> `category_id`
+#### <a name="Patron/category"></a> `category`
 
-The patron's category identifier.
+The patron's category.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="#Patron/category">Object</a>
 
 #### <a name="Patron/skills"></a> `skills`
 
@@ -91,6 +90,25 @@ All translations for the entry, identified by IETF language tag (BCP47).
 - **Property Values:** <a href="#Patron/translations[key]">Patron/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
+
+---
+
+### <a name="Patron/category"></a> `Patron/category`
+
+The patron's category.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The patron's category identifier. | <a href="#Patron/category/id">See details</a>
+
+#### <a name="Patron/category/id"></a> `id`
+
+The patron's category identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
 
 ---
 

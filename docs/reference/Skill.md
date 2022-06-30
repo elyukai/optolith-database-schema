@@ -13,7 +13,7 @@ Key | Description | Details
 `applications` | Lists applications for the skill, if any. This does not necessarily include all possible applications. There may also be new applications that could be purchased via certain advantages or special abilities. | <a href="#Skill/applications">See details</a>
 `encumbrance` | Indicates whether encumbrance gives a penalty for checks with the skill. | <a href="#Skill/encumbrance">See details</a>
 `improvement_cost` | States which column is used to improve the skill. | <a href="#Skill/improvement_cost">See details</a>
-`group_id` | The identifier of the skill group this skill belongs to. | <a href="#Skill/group_id">See details</a>
+`group` | The skill group this skill belongs to. | <a href="#Skill/group">See details</a>
 `src` |  | <a href="#Skill/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Skill/translations">See details</a>
 
@@ -50,11 +50,11 @@ States which column is used to improve the skill.
 
 - **Type:** <a href="./_ImprovementCost.md#ImprovementCost">ImprovementCost</a>
 
-#### <a name="Skill/group_id"></a> `group_id`
+#### <a name="Skill/group"></a> `group`
 
-The identifier of the skill group this skill belongs to.
+The skill group this skill belongs to.
 
-- **Type:** Number
+- **Type:** <a href="#Skill/group">Object</a>
 
 #### <a name="Skill/src"></a> `src`
 
@@ -68,6 +68,26 @@ All translations for the entry, identified by IETF language tag (BCP47).
 - **Property Values:** <a href="#Skill/translations[key]">Skill/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
+
+---
+
+### <a name="Skill/group"></a> `Skill/group`
+
+The skill group this skill belongs to.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The identifier of the skill group. | <a href="#Skill/group/id">See details</a>
+
+#### <a name="Skill/group/id"></a> `id`
+
+The identifier of the skill group.
+
+- **Type:** Integer
+- **Minimum:** `1`
+- **Maximum:** `5`
 
 ---
 

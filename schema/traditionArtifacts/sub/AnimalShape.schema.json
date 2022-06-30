@@ -12,15 +12,35 @@
           "type": "integer",
           "minimum": 1
         },
-        "path_id": {
-          "description": "The identifier of the animal shape's path.",
-          "type": "integer",
-          "minimum": 1
+        "path": {
+          "description": "The animal shape's path.",
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "The identifier of the animal shape's path.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
         },
-        "size_id": {
-          "description": "The identifier of the animal shape's size.",
-          "type": "integer",
-          "minimum": 1
+        "size": {
+          "description": "The animal shape's size.",
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "The identifier of the animal shape's size.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -47,8 +67,8 @@
       },
       "required": [
         "id",
-        "path_id",
-        "size_id",
+        "path",
+        "size",
         "translations"
       ],
       "additionalProperties": false

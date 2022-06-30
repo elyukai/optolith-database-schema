@@ -12,10 +12,20 @@
           "type": "integer",
           "minimum": 1
         },
-        "category_id": {
-          "description": "The patron's category identifier.",
-          "type": "integer",
-          "minimum": 1
+        "category": {
+          "description": "The patron's category.",
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "The patron's category identifier.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
         },
         "skills": {
           "description": "The patron-specific skills.",
@@ -185,7 +195,7 @@
       },
       "required": [
         "id",
-        "category_id",
+        "category",
         "skills",
         "culture",
         "translations"

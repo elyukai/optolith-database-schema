@@ -16,11 +16,16 @@ export type TargetCategory = {
   id: number
 
   /**
-   * The identifier of a superordinate target category, if present.
-   * @integer
-   * @minimum 1
+   * A superordinate target category, if present.
    */
-  parent_id: number
+  parent?: {
+    /**
+     * The identifier of the superordinate target category.
+     * @integer
+     * @minimum 1
+     */
+    id: number
+  }
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).

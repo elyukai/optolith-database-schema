@@ -13,7 +13,7 @@ Key | Description | Details
 `check_penalty?` | In some cases, the target's Spirit or Toughness is applied as a penalty. | <a href="#Spell/check_penalty">See details</a>
 `parameters` | Measurable parameters of a spell. | <a href="#Spell/parameters">See details</a>
 `target` | The target category – the kind of creature or object – the skill affects. | <a href="#Spell/target">See details</a>
-`property_id` | The property's identifier. | <a href="#Spell/property_id">See details</a>
+`property` | The associated property. | <a href="#Spell/property">See details</a>
 `traditions` | The tradition(s) the spell is available for. It may be *generally* available to all traditions or it may be only familiar in specific traditions. | <a href="#Spell/traditions">See details</a>
 `improvement_cost` | States which column is used to improve the skill. | <a href="#Spell/improvement_cost">See details</a>
 `prerequisites?` |  | <a href="#Spell/prerequisites">See details</a>
@@ -52,12 +52,11 @@ The target category – the kind of creature or object – the skill affects.
 
 - **Type:** <a href="./_ActivatableSkill.md#TargetCategory/T">TargetCategory/T</a>
 
-#### <a name="Spell/property_id"></a> `property_id`
+#### <a name="Spell/property"></a> `property`
 
-The property's identifier.
+The associated property.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="#Spell/property">Object</a>
 
 #### <a name="Spell/traditions"></a> `traditions`
 
@@ -94,6 +93,25 @@ All translations for the entry, identified by IETF language tag (BCP47).
 #### <a name="Spell/enhancements"></a> `enhancements?`
 
 - **Type:** <a href="./_Enhancements.md#Enhancements">Enhancements</a>
+
+---
+
+### <a name="Spell/property"></a> `Spell/property`
+
+The associated property.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The property's identifier. | <a href="#Spell/property/id">See details</a>
+
+#### <a name="Spell/property/id"></a> `id`
+
+The property's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
 
 ---
 

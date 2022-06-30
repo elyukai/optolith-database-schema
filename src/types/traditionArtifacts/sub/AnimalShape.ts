@@ -16,18 +16,28 @@ export type AnimalShape = {
   id: number
 
   /**
-   * The identifier of the animal shape's path.
-   * @integer
-   * @minimum 1
+   * The animal shape's path.
    */
-  path_id: number
+  path: {
+    /**
+     * The identifier of the animal shape's path.
+     * @integer
+     * @minimum 1
+     */
+    id: number
+  }
 
   /**
-   * The identifier of the animal shape's size.
-   * @integer
-   * @minimum 1
+   * The animal shape's size.
    */
-  size_id: number
+  size: {
+    /**
+     * The identifier of the animal shape's size.
+     * @integer
+     * @minimum 1
+     */
+    id: number
+  }
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).

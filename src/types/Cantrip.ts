@@ -30,11 +30,16 @@ export type Cantrip = {
   target: TargetCategory.T
 
   /**
-   * The property's identifier.
-   * @integer
-   * @minimum 1
+   * The associated property.
    */
-  property_id: number
+  property: {
+    /**
+     * The property's identifier.
+     * @integer
+     * @minimum 1
+     */
+    id: number
+  }
 
   /**
    * A note specifying the dissemination of the cantrip in different traditions.

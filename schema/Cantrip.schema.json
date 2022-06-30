@@ -20,10 +20,20 @@
           "description": "The target category – the kind of creature or object – the skill affects.",
           "$ref": "./_ActivatableSkill.schema.json#/definitions/TargetCategory/T"
         },
-        "property_id": {
-          "description": "The property's identifier.",
-          "type": "integer",
-          "minimum": 1
+        "property": {
+          "description": "The associated property.",
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "The property's identifier.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
         },
         "note": {
           "description": "A note specifying the dissemination of the cantrip in different traditions.\nSometimes a cantrip is exclusively available to one or more specific\ntraditions, but usually one the academies and traditions are listed the\ncantrip is most commonly teached in.",
@@ -139,7 +149,7 @@
         "id",
         "parameters",
         "target",
-        "property_id",
+        "property",
         "src",
         "translations"
       ],

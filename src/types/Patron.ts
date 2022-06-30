@@ -17,11 +17,16 @@ export type Patron = {
   id: number
 
   /**
-   * The patron's category identifier.
-   * @integer
-   * @minimum 1
+   * The patron's category.
    */
-  category_id: number
+  category: {
+    /**
+     * The patron's category identifier.
+     * @integer
+     * @minimum 1
+     */
+    id: number
+  }
 
   /**
    * The patron-specific skills.

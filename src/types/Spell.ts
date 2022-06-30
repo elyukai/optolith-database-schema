@@ -43,11 +43,16 @@ export type Spell = {
   target: TargetCategory.T
 
   /**
-   * The property's identifier.
-   * @integer
-   * @minimum 1
+   * The associated property.
    */
-  property_id: number
+  property: {
+    /**
+     * The property's identifier.
+     * @integer
+     * @minimum 1
+     */
+    id: number
+  }
 
   /**
    * The tradition(s) the spell is available for. It may be *generally*

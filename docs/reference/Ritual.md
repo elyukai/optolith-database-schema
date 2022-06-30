@@ -13,7 +13,7 @@ Key | Description | Details
 `check_penalty?` | In some cases, the target's Spirit or Toughness is applied as a penalty. | <a href="#Ritual/check_penalty">See details</a>
 `parameters` | Measurable parameters of a ritual. | <a href="#Ritual/parameters">See details</a>
 `target` | The target category – the kind of creature or object – the skill affects. | <a href="#Ritual/target">See details</a>
-`property_id` | The property's identifier. | <a href="#Ritual/property_id">See details</a>
+`property` | The associated property. | <a href="#Ritual/property">See details</a>
 `traditions` | The tradition(s) the ritual is available for. It may be *generally* available to all traditions or it may be only familiar in specific traditions. | <a href="#Ritual/traditions">See details</a>
 `improvement_cost` | States which column is used to improve the skill. | <a href="#Ritual/improvement_cost">See details</a>
 `prerequisites?` |  | <a href="#Ritual/prerequisites">See details</a>
@@ -52,12 +52,11 @@ The target category – the kind of creature or object – the skill affects.
 
 - **Type:** <a href="./_ActivatableSkill.md#TargetCategory/T">TargetCategory/T</a>
 
-#### <a name="Ritual/property_id"></a> `property_id`
+#### <a name="Ritual/property"></a> `property`
 
-The property's identifier.
+The associated property.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="#Ritual/property">Object</a>
 
 #### <a name="Ritual/traditions"></a> `traditions`
 
@@ -94,6 +93,25 @@ All translations for the entry, identified by IETF language tag (BCP47).
 #### <a name="Ritual/enhancements"></a> `enhancements?`
 
 - **Type:** <a href="./_Enhancements.md#Enhancements">Enhancements</a>
+
+---
+
+### <a name="Ritual/property"></a> `Ritual/property`
+
+The associated property.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The property's identifier. | <a href="#Ritual/property/id">See details</a>
+
+#### <a name="Ritual/property/id"></a> `id`
+
+The property's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
 
 ---
 

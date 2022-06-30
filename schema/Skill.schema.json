@@ -28,9 +28,21 @@
           "description": "States which column is used to improve the skill.",
           "$ref": "./_ImprovementCost.schema.json#/definitions/ImprovementCost"
         },
-        "group_id": {
-          "description": "The identifier of the skill group this skill belongs to.",
-          "type": "number"
+        "group": {
+          "description": "The skill group this skill belongs to.",
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "The identifier of the skill group.",
+              "type": "integer",
+              "maximum": 5,
+              "minimum": 1
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
         },
         "src": {
           "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
@@ -106,7 +118,7 @@
         "applications",
         "encumbrance",
         "improvement_cost",
-        "group_id",
+        "group",
         "src",
         "translations"
       ],

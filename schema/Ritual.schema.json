@@ -28,10 +28,20 @@
           "description": "The target category – the kind of creature or object – the skill affects.",
           "$ref": "./_ActivatableSkill.schema.json#/definitions/TargetCategory/T"
         },
-        "property_id": {
-          "description": "The property's identifier.",
-          "type": "integer",
-          "minimum": 1
+        "property": {
+          "description": "The associated property.",
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "The property's identifier.",
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
         },
         "traditions": {
           "description": "The tradition(s) the ritual is available for. It may be *generally*\navailable to all traditions or it may be only familiar in specific\ntraditions.",
@@ -207,7 +217,7 @@
         "check",
         "parameters",
         "target",
-        "property_id",
+        "property",
         "traditions",
         "improvement_cost",
         "src",
