@@ -1,7 +1,7 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/magicalActions/_MusicTradition.schema.json",
-  "definitions": {
+  "$defs": {
     "MusicTraditionReference": {
       "description": "A reference to a music tradition with the music-tradition-specific name of\nthe entry",
       "type": "object",

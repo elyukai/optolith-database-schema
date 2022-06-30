@@ -1,14 +1,14 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/source/_PublicationRef.schema.json",
-  "$ref": "#/definitions/PublicationRefs",
-  "definitions": {
+  "$ref": "#/$defs/PublicationRefs",
+  "$defs": {
     "PublicationRefs": {
       "title": "Publication References",
       "description": "The publications where you can find the entry.",
       "type": "array",
       "items": {
-        "$ref": "#/definitions/PublicationRef"
+        "$ref": "#/$defs/PublicationRef"
       },
       "minItems": 1
     },
@@ -27,7 +27,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "$ref": "#/definitions/Occurrence"
+              "$ref": "#/$defs/Occurrence"
             }
           },
           "minProperties": 1,
@@ -43,13 +43,13 @@
     "Occurrence": {
       "oneOf": [
         {
-          "$ref": "#/definitions/SimpleOccurrence"
+          "$ref": "#/$defs/SimpleOccurrence"
         },
         {
-          "$ref": "#/definitions/SimpleOccurrences"
+          "$ref": "#/$defs/SimpleOccurrences"
         },
         {
-          "$ref": "#/definitions/VersionedOccurrence"
+          "$ref": "#/$defs/VersionedOccurrence"
         }
       ]
     },
@@ -57,7 +57,7 @@
       "title": "Simple Occurrences",
       "type": "array",
       "items": {
-        "$ref": "#/definitions/SimpleOccurrence"
+        "$ref": "#/$defs/SimpleOccurrence"
       },
       "minItems": 1
     },
@@ -99,7 +99,7 @@
               "description": "The initial page references.",
               "type": "array",
               "items": {
-                "$ref": "#/definitions/PageRange"
+                "$ref": "#/$defs/PageRange"
               },
               "minItems": 1
             }
@@ -113,7 +113,7 @@
           "description": "Revisions of the entry, resulting in either changed page references or\nre-addition or removal of an entry.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Revision"
+            "$ref": "#/$defs/Revision"
           },
           "minItems": 1
         }
@@ -142,7 +142,7 @@
               "description": "The changed or new page references.",
               "type": "array",
               "items": {
-                "$ref": "#/definitions/PageRange"
+                "$ref": "#/$defs/PageRange"
               },
               "minItems": 1
             }
@@ -180,11 +180,11 @@
       "properties": {
         "first_page": {
           "description": "The page where it occurs. If the entry spans multiple pages, use this as\nthe first page and `last_page` as the last page.",
-          "$ref": "#/definitions/Page"
+          "$ref": "#/$defs/Page"
         },
         "last_page": {
           "description": "The last page where it occurs. If there is only one page, set this to the\nsame as `first_page` oder remove it.",
-          "$ref": "#/definitions/Page"
+          "$ref": "#/$defs/Page"
         }
       },
       "required": [

@@ -1,7 +1,7 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/prerequisites/single/PublicationPrerequisite.schema.json",
-  "definitions": {
+  "$defs": {
     "PublicationPrerequisite": {
       "title": "Publication Prerequisite",
       "type": "object",
@@ -14,7 +14,7 @@
           "minimum": 1
         },
         "display_option": {
-          "$ref": "../DisplayOption.schema.json#/definitions/DisplayOption"
+          "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"
         }
       },
       "required": [

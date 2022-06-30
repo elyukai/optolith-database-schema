@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/FamiliarsTrick.schema.json",
-  "$ref": "#/definitions/FamiliarsTrick",
-  "definitions": {
+  "$ref": "#/$defs/FamiliarsTrick",
+  "$defs": {
     "FamiliarsTrick": {
       "title": "Familiar's Trick",
       "type": "object",
@@ -63,7 +63,7 @@
         },
         "parameters": {
           "description": "Measurable parameters of a familiar's trick.",
-          "$ref": "#/definitions/PerformanceParameters"
+          "$ref": "#/$defs/PerformanceParameters"
         },
         "property": {
           "description": "The property of the trick.",
@@ -175,7 +175,7 @@
           ]
         },
         "src": {
-          "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+          "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -227,7 +227,7 @@
                   "additionalProperties": false
                 },
                 "errata": {
-                  "$ref": "./source/_Erratum.schema.json#/definitions/Errata"
+                  "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
                 }
               },
               "required": [
@@ -278,7 +278,7 @@
                     },
                     "interval": {
                       "description": "The interval in which you have to pay the AE cost again.",
-                      "$ref": "./_ActivatableSkill.schema.json#/definitions/Duration/UnitValue"
+                      "$ref": "./_ActivatableSkill.schema.json#/$defs/Duration/UnitValue"
                     },
                     "translations": {
                       "description": "All translations for the entry, identified by IETF language tag\n(BCP47).",
@@ -425,7 +425,7 @@
                     },
                     "unit": {
                       "description": "The duration unit.",
-                      "$ref": "./_ActivatableSkill.schema.json#/definitions/Duration/Unit"
+                      "$ref": "./_ActivatableSkill.schema.json#/$defs/Duration/Unit"
                     },
                     "translations": {
                       "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -549,7 +549,7 @@
                 },
                 "interval": {
                   "description": "The duration granted/added by paying the given AE cost.",
-                  "$ref": "./_ActivatableSkill.schema.json#/definitions/Duration/UnitValue"
+                  "$ref": "./_ActivatableSkill.schema.json#/$defs/Duration/UnitValue"
                 }
               },
               "required": [
@@ -581,7 +581,7 @@
                 },
                 "interval": {
                   "description": "The interval in which you have to pay the AE cost again.",
-                  "$ref": "./_ActivatableSkill.schema.json#/definitions/Duration/UnitValue"
+                  "$ref": "./_ActivatableSkill.schema.json#/$defs/Duration/UnitValue"
                 }
               },
               "required": [

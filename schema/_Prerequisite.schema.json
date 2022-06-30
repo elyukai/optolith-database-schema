@@ -1,7 +1,7 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/_Prerequisite.schema.json",
-  "definitions": {
+  "$defs": {
     "PrerequisiteCollection": {},
     "DerivedCharacteristicPrerequisites": {
       "type": "object",
@@ -14,7 +14,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/DerivedCharacteristicPrerequisiteGroup"
+                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/DerivedCharacteristicPrerequisiteGroup"
               },
               {
                 "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
@@ -26,7 +26,7 @@
                   "list": {
                     "type": "array",
                     "items": {
-                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/DerivedCharacteristicPrerequisiteGroup"
+                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/DerivedCharacteristicPrerequisiteGroup"
                     },
                     "minItems": 2
                   },
@@ -72,7 +72,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/PublicationPrerequisiteGroup"
+                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/PublicationPrerequisiteGroup"
               },
               {
                 "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
@@ -84,7 +84,7 @@
                   "list": {
                     "type": "array",
                     "items": {
-                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/PublicationPrerequisiteGroup"
+                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/PublicationPrerequisiteGroup"
                     },
                     "minItems": 2
                   },
@@ -132,7 +132,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/GeneralPrerequisiteGroup"
+                    "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/GeneralPrerequisiteGroup"
                   },
                   {
                     "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
@@ -144,7 +144,7 @@
                       "list": {
                         "type": "array",
                         "items": {
-                          "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/GeneralPrerequisiteGroup"
+                          "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/GeneralPrerequisiteGroup"
                         },
                         "minItems": 2
                       },
@@ -199,7 +199,7 @@
                     "items": {
                       "oneOf": [
                         {
-                          "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/GeneralPrerequisiteGroup"
+                          "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/GeneralPrerequisiteGroup"
                         },
                         {
                           "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
@@ -211,7 +211,7 @@
                             "list": {
                               "type": "array",
                               "items": {
-                                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/GeneralPrerequisiteGroup"
+                                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/GeneralPrerequisiteGroup"
                               },
                               "minItems": 2
                             },
@@ -268,7 +268,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/ProfessionPrerequisiteGroup"
+                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/ProfessionPrerequisiteGroup"
               },
               {
                 "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
@@ -280,7 +280,7 @@
                   "list": {
                     "type": "array",
                     "items": {
-                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/ProfessionPrerequisiteGroup"
+                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/ProfessionPrerequisiteGroup"
                     },
                     "minItems": 2
                   },
@@ -328,7 +328,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/AdvantageDisadvantagePrerequisiteGroup"
+                    "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/AdvantageDisadvantagePrerequisiteGroup"
                   },
                   {
                     "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
@@ -340,7 +340,7 @@
                       "list": {
                         "type": "array",
                         "items": {
-                          "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/AdvantageDisadvantagePrerequisiteGroup"
+                          "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/AdvantageDisadvantagePrerequisiteGroup"
                         },
                         "minItems": 2
                       },
@@ -395,7 +395,7 @@
                     "items": {
                       "oneOf": [
                         {
-                          "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/AdvantageDisadvantagePrerequisiteGroup"
+                          "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/AdvantageDisadvantagePrerequisiteGroup"
                         },
                         {
                           "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
@@ -407,7 +407,7 @@
                             "list": {
                               "type": "array",
                               "items": {
-                                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/AdvantageDisadvantagePrerequisiteGroup"
+                                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/AdvantageDisadvantagePrerequisiteGroup"
                               },
                               "minItems": 2
                             },
@@ -464,7 +464,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/ArcaneTraditionPrerequisiteGroup"
+                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/ArcaneTraditionPrerequisiteGroup"
               },
               {
                 "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
@@ -476,7 +476,7 @@
                   "list": {
                     "type": "array",
                     "items": {
-                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/ArcaneTraditionPrerequisiteGroup"
+                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/ArcaneTraditionPrerequisiteGroup"
                     },
                     "minItems": 2
                   },
@@ -522,7 +522,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/PersonalityTraitPrerequisiteGroup"
+                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/PersonalityTraitPrerequisiteGroup"
               },
               {
                 "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
@@ -534,7 +534,7 @@
                   "list": {
                     "type": "array",
                     "items": {
-                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/PersonalityTraitPrerequisiteGroup"
+                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/PersonalityTraitPrerequisiteGroup"
                     },
                     "minItems": 2
                   },
@@ -580,7 +580,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/SpellworkPrerequisiteGroup"
+                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/SpellworkPrerequisiteGroup"
               },
               {
                 "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
@@ -592,7 +592,7 @@
                   "list": {
                     "type": "array",
                     "items": {
-                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/SpellworkPrerequisiteGroup"
+                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/SpellworkPrerequisiteGroup"
                     },
                     "minItems": 2
                   },
@@ -638,7 +638,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/LiturgyPrerequisiteGroup"
+                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/LiturgyPrerequisiteGroup"
               },
               {
                 "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
@@ -650,7 +650,7 @@
                   "list": {
                     "type": "array",
                     "items": {
-                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/LiturgyPrerequisiteGroup"
+                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/LiturgyPrerequisiteGroup"
                     },
                     "minItems": 2
                   },
@@ -696,7 +696,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/InfluencePrerequisiteGroup"
+                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/InfluencePrerequisiteGroup"
               },
               {
                 "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
@@ -708,7 +708,7 @@
                   "list": {
                     "type": "array",
                     "items": {
-                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/InfluencePrerequisiteGroup"
+                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/InfluencePrerequisiteGroup"
                     },
                     "minItems": 2
                   },
@@ -756,7 +756,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/LanguagePrerequisiteGroup"
+                    "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/LanguagePrerequisiteGroup"
                   },
                   {
                     "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
@@ -768,7 +768,7 @@
                       "list": {
                         "type": "array",
                         "items": {
-                          "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/LanguagePrerequisiteGroup"
+                          "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/LanguagePrerequisiteGroup"
                         },
                         "minItems": 2
                       },
@@ -823,7 +823,7 @@
                     "items": {
                       "oneOf": [
                         {
-                          "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/LanguagePrerequisiteGroup"
+                          "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/LanguagePrerequisiteGroup"
                         },
                         {
                           "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
@@ -835,7 +835,7 @@
                             "list": {
                               "type": "array",
                               "items": {
-                                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/LanguagePrerequisiteGroup"
+                                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/LanguagePrerequisiteGroup"
                               },
                               "minItems": 2
                             },
@@ -892,7 +892,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/AnimistPowerPrerequisiteGroup"
+                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/AnimistPowerPrerequisiteGroup"
               },
               {
                 "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
@@ -904,7 +904,7 @@
                   "list": {
                     "type": "array",
                     "items": {
-                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/AnimistPowerPrerequisiteGroup"
+                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/AnimistPowerPrerequisiteGroup"
                     },
                     "minItems": 2
                   },
@@ -950,7 +950,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/GeodeRitualPrerequisiteGroup"
+                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/GeodeRitualPrerequisiteGroup"
               },
               {
                 "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
@@ -962,7 +962,7 @@
                   "list": {
                     "type": "array",
                     "items": {
-                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/GeodeRitualPrerequisiteGroup"
+                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/GeodeRitualPrerequisiteGroup"
                     },
                     "minItems": 2
                   },
@@ -1008,7 +1008,7 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/EnhancementPrerequisiteGroup"
+                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/EnhancementPrerequisiteGroup"
               },
               {
                 "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
@@ -1020,7 +1020,7 @@
                   "list": {
                     "type": "array",
                     "items": {
-                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/definitions/EnhancementPrerequisiteGroup"
+                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/EnhancementPrerequisiteGroup"
                     },
                     "minItems": 2
                   },

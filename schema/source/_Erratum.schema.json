@@ -1,14 +1,14 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/source/_Erratum.schema.json",
-  "$ref": "#/definitions/Errata",
-  "definitions": {
+  "$ref": "#/$defs/Errata",
+  "$defs": {
     "Errata": {
       "title": "Errata",
       "description": "A list of errata for the entry in the specific language.",
       "type": "array",
       "items": {
-        "$ref": "#/definitions/Erratum"
+        "$ref": "#/$defs/Erratum"
       },
       "minItems": 1
     },

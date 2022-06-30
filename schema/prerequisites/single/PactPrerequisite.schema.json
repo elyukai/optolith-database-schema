@@ -1,7 +1,7 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/prerequisites/single/PactPrerequisite.schema.json",
-  "definitions": {
+  "$defs": {
     "PactPrerequisite": {
       "title": "Pact Prerequisite",
       "description": "Requires a specific pact.",
@@ -19,7 +19,7 @@
           "description": "The required domains' identifiers.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/DomainId"
+            "$ref": "#/$defs/DomainId"
           }
         },
         "level": {
@@ -28,7 +28,7 @@
           "minimum": 1
         },
         "display_option": {
-          "$ref": "../DisplayOption.schema.json#/definitions/DisplayOption"
+          "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"
         }
       },
       "required": [

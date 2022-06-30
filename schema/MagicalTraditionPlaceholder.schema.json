@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/MagicalTraditionPlaceholder.schema.json",
-  "$ref": "#/definitions/MagicalTraditionPlaceholder",
-  "definitions": {
+  "$ref": "#/$defs/MagicalTraditionPlaceholder",
+  "$defs": {
     "MagicalTraditionPlaceholder": {
       "title": "Magical Tradition Placeholder",
       "type": "object",

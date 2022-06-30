@@ -1,7 +1,7 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/_ActivatableSkill.schema.json",
-  "definitions": {
+  "$defs": {
     "Effect": {
       "T": {
         "description": "The effect description may be either a plain text or a text that is divided\nby a list of effects for each quality level. It may also be a list for each\ntwo quality levels.",
@@ -38,29 +38,29 @@
               "quality_levels": {
                 "description": "The list of effects for each quality level.",
                 "type": "array",
-                "items": [
+                "prefixItems": [
                   {
-                    "$ref": "#/definitions/Effect/QualityLevel1"
+                    "$ref": "#/$defs/Effect/QualityLevel1"
                   },
                   {
-                    "$ref": "#/definitions/Effect/QualityLevel2"
+                    "$ref": "#/$defs/Effect/QualityLevel2"
                   },
                   {
-                    "$ref": "#/definitions/Effect/QualityLevel3"
+                    "$ref": "#/$defs/Effect/QualityLevel3"
                   },
                   {
-                    "$ref": "#/definitions/Effect/QualityLevel4"
+                    "$ref": "#/$defs/Effect/QualityLevel4"
                   },
                   {
-                    "$ref": "#/definitions/Effect/QualityLevel5"
+                    "$ref": "#/$defs/Effect/QualityLevel5"
                   },
                   {
-                    "$ref": "#/definitions/Effect/QualityLevel6"
+                    "$ref": "#/$defs/Effect/QualityLevel6"
                   }
                 ],
                 "minItems": 6,
                 "maxItems": 6,
-                "additionalItems": false
+                "items": false
               },
               "text_after": {
                 "description": "The effect description after the list of effects for each quality\nlevel.",
@@ -89,20 +89,20 @@
               "quality_levels": {
                 "description": "The list of effects for each two quality levels.",
                 "type": "array",
-                "items": [
+                "prefixItems": [
                   {
-                    "$ref": "#/definitions/Effect/QualityLevel1To2"
+                    "$ref": "#/$defs/Effect/QualityLevel1To2"
                   },
                   {
-                    "$ref": "#/definitions/Effect/QualityLevel3To4"
+                    "$ref": "#/$defs/Effect/QualityLevel3To4"
                   },
                   {
-                    "$ref": "#/definitions/Effect/QualityLevel5To6"
+                    "$ref": "#/$defs/Effect/QualityLevel5To6"
                   }
                 ],
                 "minItems": 3,
                 "maxItems": 3,
-                "additionalItems": false
+                "items": false
               },
               "text_after": {
                 "description": "The effect description after the list of effects for each quality\nlevel.",
@@ -174,16 +174,16 @@
               "const": "OneTime"
             },
             "casting_time": {
-              "$ref": "#/definitions/CastingTime/Fast"
+              "$ref": "#/$defs/CastingTime/Fast"
             },
             "cost": {
-              "$ref": "#/definitions/Cost/OneTime/T"
+              "$ref": "#/$defs/Cost/OneTime/T"
             },
             "range": {
-              "$ref": "#/definitions/Range/T"
+              "$ref": "#/$defs/Range/T"
             },
             "duration": {
-              "$ref": "#/definitions/Duration/OneTime/T"
+              "$ref": "#/$defs/Duration/OneTime/T"
             }
           },
           "required": [
@@ -202,16 +202,16 @@
               "const": "Sustained"
             },
             "casting_time": {
-              "$ref": "#/definitions/CastingTime/Fast"
+              "$ref": "#/$defs/CastingTime/Fast"
             },
             "cost": {
-              "$ref": "#/definitions/Cost/Sustained/T"
+              "$ref": "#/$defs/Cost/Sustained/T"
             },
             "range": {
-              "$ref": "#/definitions/Range/T"
+              "$ref": "#/$defs/Range/T"
             },
             "duration": {
-              "$ref": "#/definitions/Duration/Sustained/T"
+              "$ref": "#/$defs/Duration/Sustained/T"
             }
           },
           "required": [
@@ -233,16 +233,16 @@
               "const": "OneTime"
             },
             "casting_time": {
-              "$ref": "#/definitions/CastingTime/Slow"
+              "$ref": "#/$defs/CastingTime/Slow"
             },
             "cost": {
-              "$ref": "#/definitions/Cost/OneTime/T"
+              "$ref": "#/$defs/Cost/OneTime/T"
             },
             "range": {
-              "$ref": "#/definitions/Range/T"
+              "$ref": "#/$defs/Range/T"
             },
             "duration": {
-              "$ref": "#/definitions/Duration/OneTime/T"
+              "$ref": "#/$defs/Duration/OneTime/T"
             }
           },
           "required": [
@@ -261,16 +261,16 @@
               "const": "Sustained"
             },
             "casting_time": {
-              "$ref": "#/definitions/CastingTime/Slow"
+              "$ref": "#/$defs/CastingTime/Slow"
             },
             "cost": {
-              "$ref": "#/definitions/Cost/Sustained/T"
+              "$ref": "#/$defs/Cost/Sustained/T"
             },
             "range": {
-              "$ref": "#/definitions/Range/T"
+              "$ref": "#/$defs/Range/T"
             },
             "duration": {
-              "$ref": "#/definitions/Duration/Sustained/T"
+              "$ref": "#/$defs/Duration/Sustained/T"
             }
           },
           "required": [
@@ -333,7 +333,7 @@
             "minimum": 1
           },
           "unit": {
-            "$ref": "./SkillModificationLevel.schema.json#/definitions/SlowSkillCastingTimeUnit"
+            "$ref": "./SkillModificationLevel.schema.json#/$defs/SlowSkillCastingTimeUnit"
           }
         },
         "required": [
@@ -350,10 +350,10 @@
             "description": "The default casting time definition.",
             "oneOf": [
               {
-                "$ref": "#/definitions/CastingTime/ModifiableCastingTime"
+                "$ref": "#/$defs/CastingTime/ModifiableCastingTime"
               },
               {
-                "$ref": "#/definitions/CastingTime/FastSkillCastingTime"
+                "$ref": "#/$defs/CastingTime/FastSkillCastingTime"
               }
             ]
           },
@@ -368,7 +368,7 @@
               },
               "unit": {
                 "description": "The unit of the `value`.",
-                "$ref": "#/definitions/CastingTime/CastingTimeDuringLovemakingUnit"
+                "$ref": "#/$defs/CastingTime/CastingTimeDuringLovemakingUnit"
               }
             },
             "required": [
@@ -390,10 +390,10 @@
             "description": "The default casting time definition.",
             "oneOf": [
               {
-                "$ref": "#/definitions/CastingTime/ModifiableCastingTime"
+                "$ref": "#/$defs/CastingTime/ModifiableCastingTime"
               },
               {
-                "$ref": "#/definitions/CastingTime/SlowSkillCastingTime"
+                "$ref": "#/$defs/CastingTime/SlowSkillCastingTime"
               }
             ]
           },
@@ -408,7 +408,7 @@
               },
               "unit": {
                 "description": "The unit of the `value`.",
-                "$ref": "#/definitions/CastingTime/CastingTimeDuringLovemakingUnit"
+                "$ref": "#/$defs/CastingTime/CastingTimeDuringLovemakingUnit"
               }
             },
             "required": [
@@ -441,7 +441,7 @@
                   "const": "Single"
                 },
                 "value": {
-                  "$ref": "#/definitions/Cost/OneTime/Single"
+                  "$ref": "#/$defs/Cost/OneTime/Single"
                 }
               },
               "required": [
@@ -459,7 +459,7 @@
                 "list": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/definitions/Cost/OneTime/Single"
+                    "$ref": "#/$defs/Cost/OneTime/Single"
                   },
                   "minItems": 2
                 }
@@ -479,7 +479,7 @@
                 "list": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/definitions/Cost/OneTime/Single"
+                    "$ref": "#/$defs/Cost/OneTime/Single"
                   },
                   "minItems": 2
                 }
@@ -497,7 +497,7 @@
                   "const": "Map"
                 },
                 "map": {
-                  "$ref": "#/definitions/Cost/OneTime/Map"
+                  "$ref": "#/$defs/Cost/OneTime/Map"
                 }
               },
               "required": [
@@ -700,7 +700,7 @@
               "description": "The possible costs and associated labels.",
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Cost/OneTime/MapOption"
+                "$ref": "#/$defs/Cost/OneTime/MapOption"
               },
               "minItems": 2
             },
@@ -801,7 +801,7 @@
                 },
                 "interval": {
                   "description": "The sustain interval.",
-                  "$ref": "#/definitions/Duration/UnitValue"
+                  "$ref": "#/$defs/Duration/UnitValue"
                 }
               },
               "required": [
@@ -828,7 +828,7 @@
                 },
                 "interval": {
                   "description": "The sustain interval.",
-                  "$ref": "#/definitions/Duration/UnitValue"
+                  "$ref": "#/$defs/Duration/UnitValue"
                 }
               },
               "required": [
@@ -847,7 +847,7 @@
         "type": "object",
         "properties": {
           "value": {
-            "$ref": "#/definitions/Range/RangeValue"
+            "$ref": "#/$defs/Range/RangeValue"
           },
           "translations": {
             "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -997,7 +997,7 @@
               },
               "unit": {
                 "description": "The unit of the `value`.",
-                "$ref": "#/definitions/Range/Unit"
+                "$ref": "#/$defs/Range/Unit"
               },
               "is_radius": {
                 "description": "If `true`, the range is a radius.",
@@ -1023,7 +1023,7 @@
               },
               "base": {
                 "description": "The base value that is derived from the check result.",
-                "$ref": "#/definitions/Duration/CheckResultValue"
+                "$ref": "#/$defs/Duration/CheckResultValue"
               },
               "modifier": {
                 "description": "If defined, it modifies the base value.",
@@ -1031,7 +1031,7 @@
                 "properties": {
                   "arithmetic": {
                     "description": "The arithmetic how to apply the `value` to the `base`.",
-                    "$ref": "#/definitions/Duration/CheckResultArithmetic"
+                    "$ref": "#/$defs/Duration/CheckResultArithmetic"
                   },
                   "value": {
                     "description": "The value that is applied to the `base` using the defined `arithmetic`.",
@@ -1047,7 +1047,7 @@
               },
               "unit": {
                 "description": "The range unit.",
-                "$ref": "#/definitions/Range/Unit"
+                "$ref": "#/$defs/Range/Unit"
               },
               "is_radius": {
                 "description": "If `true`, the range is a radius.",
@@ -1082,7 +1082,7 @@
                 },
                 "maximum": {
                   "description": "Specified if the duration has a maximum time span.",
-                  "$ref": "#/definitions/Duration/UnitValue"
+                  "$ref": "#/$defs/Duration/UnitValue"
                 },
                 "translations": {
                   "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -1199,7 +1199,7 @@
                 },
                 "unit": {
                   "description": "The duration unit.",
-                  "$ref": "#/definitions/Duration/Unit"
+                  "$ref": "#/$defs/Duration/Unit"
                 },
                 "translations": {
                   "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -1261,7 +1261,7 @@
                 },
                 "base": {
                   "description": "The base value that is derived from the check result.",
-                  "$ref": "#/definitions/Duration/CheckResultValue"
+                  "$ref": "#/$defs/Duration/CheckResultValue"
                 },
                 "modifier": {
                   "description": "If defined, it modifies the base value.",
@@ -1269,7 +1269,7 @@
                   "properties": {
                     "arithmetic": {
                       "description": "The arithmetic how to apply the `value` to the `base`.",
-                      "$ref": "#/definitions/Duration/CheckResultArithmetic"
+                      "$ref": "#/$defs/Duration/CheckResultArithmetic"
                     },
                     "value": {
                       "description": "The value that is applied to the `base` using the defined\n`arithmetic`.",
@@ -1285,7 +1285,7 @@
                 },
                 "unit": {
                   "description": "The duration unit.",
-                  "$ref": "#/definitions/Duration/Unit"
+                  "$ref": "#/$defs/Duration/Unit"
                 },
                 "translations": {
                   "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -1395,7 +1395,7 @@
         "properties": {
           "base": {
             "description": "The base value that is derived from the check result.",
-            "$ref": "#/definitions/Duration/CheckResultValue"
+            "$ref": "#/$defs/Duration/CheckResultValue"
           },
           "modifier": {
             "description": "If defined, it modifies the base value.",
@@ -1403,7 +1403,7 @@
             "properties": {
               "arithmetic": {
                 "description": "The arithmetic how to apply the `value` to the `base`.",
-                "$ref": "#/definitions/Duration/CheckResultArithmetic"
+                "$ref": "#/$defs/Duration/CheckResultArithmetic"
               },
               "value": {
                 "description": "The value that is applied to the `base` using the defined `arithmetic`.",
@@ -1419,7 +1419,7 @@
           },
           "unit": {
             "description": "The duration unit.",
-            "$ref": "#/definitions/Duration/Unit"
+            "$ref": "#/$defs/Duration/Unit"
           }
         },
         "required": [
@@ -1437,7 +1437,7 @@
           },
           "base": {
             "description": "The base value that is derived from the check result.",
-            "$ref": "#/definitions/Duration/CheckResultValue"
+            "$ref": "#/$defs/Duration/CheckResultValue"
           },
           "modifier": {
             "description": "If defined, it modifies the base value.",
@@ -1445,7 +1445,7 @@
             "properties": {
               "arithmetic": {
                 "description": "The arithmetic how to apply the `value` to the `base`.",
-                "$ref": "#/definitions/Duration/CheckResultArithmetic"
+                "$ref": "#/$defs/Duration/CheckResultArithmetic"
               },
               "value": {
                 "description": "The value that is applied to the `base` using the defined `arithmetic`.",
@@ -1461,7 +1461,7 @@
           },
           "unit": {
             "description": "The duration unit.",
-            "$ref": "#/definitions/Duration/Unit"
+            "$ref": "#/$defs/Duration/Unit"
           }
         },
         "required": [
@@ -1483,7 +1483,7 @@
           },
           "base": {
             "description": "The base value that is derived from the check result.",
-            "$ref": "#/definitions/Duration/CheckResultValue"
+            "$ref": "#/$defs/Duration/CheckResultValue"
           },
           "modifier": {
             "description": "If defined, it modifies the base value.",
@@ -1491,7 +1491,7 @@
             "properties": {
               "arithmetic": {
                 "description": "The arithmetic how to apply the `value` to the `base`.",
-                "$ref": "#/definitions/Duration/CheckResultArithmetic"
+                "$ref": "#/$defs/Duration/CheckResultArithmetic"
               },
               "value": {
                 "description": "The value that is applied to the `base` using the defined\n`arithmetic`.",
@@ -1507,7 +1507,7 @@
           },
           "unit": {
             "description": "The duration unit.",
-            "$ref": "#/definitions/Duration/Unit"
+            "$ref": "#/$defs/Duration/Unit"
           }
         },
         "required": [
@@ -1581,7 +1581,7 @@
           "properties": {
             "maximum": {
               "description": "The sustained skill can be active a maximum amount of time.",
-              "$ref": "#/definitions/Duration/UnitValue"
+              "$ref": "#/$defs/Duration/UnitValue"
             }
           },
           "required": [
@@ -1614,7 +1614,7 @@
           },
           "unit": {
             "description": "The unit of the `value`.",
-            "$ref": "#/definitions/Duration/Unit"
+            "$ref": "#/$defs/Duration/Unit"
           }
         },
         "required": [
@@ -1651,7 +1651,7 @@
                   "type": "object",
                   "properties": {
                     "id": {
-                      "$ref": "#/definitions/TargetCategory/Identifier"
+                      "$ref": "#/$defs/TargetCategory/Identifier"
                     },
                     "translations": {
                       "description": "All translations for the entry, identified by IETF language tag (BCP47).",

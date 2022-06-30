@@ -1,7 +1,7 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/_Activatable.schema.json",
-  "definitions": {
+  "$defs": {
     "Id": {
       "description": "The activatable entry's identifier. An unique, increasing integer.",
       "type": "integer",
@@ -33,13 +33,13 @@
       "properties": {
         "derived": {
           "description": "An entry category with optional further configuration. All available\nentries from the specified categories will be included as separate select\noptions. You can also specify a set of groups that should only be\nincluded. Groups not mentioned will be excluded then.",
-          "$ref": "#/definitions/CategoryOption"
+          "$ref": "#/$defs/CategoryOption"
         },
         "explicit": {
           "description": "A list of explicit select options. If the identifier has a specific type,\nits entry is the base of this select option, where values defined here\noverride values from the base. Define the `src` property if the options\nare not derived from the rules text of the advantage/disadvantage/special\nability but instead are listed in a separate block and/or on a separate\npage.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ExplicitOption"
+            "$ref": "#/$defs/ExplicitOption"
           },
           "minItems": 1
         }
@@ -339,7 +339,7 @@
               "description": "Generate prerequisites for each entry of the category.",
               "type": "array",
               "items": {
-                "$ref": "#/definitions/OptionOptionPrerequisite"
+                "$ref": "#/$defs/OptionOptionPrerequisite"
               },
               "minItems": 1
             }
@@ -534,10 +534,10 @@
                         "items": {
                           "oneOf": [
                             {
-                              "$ref": "#/definitions/OptionSkillSelfPrerequisite"
+                              "$ref": "#/$defs/OptionSkillSelfPrerequisite"
                             },
                             {
-                              "$ref": "#/definitions/OptionOptionPrerequisite"
+                              "$ref": "#/$defs/OptionOptionPrerequisite"
                             }
                           ]
                         },
@@ -553,7 +553,7 @@
                     "type": "object",
                     "properties": {
                       "tag": {
-                        "$ref": "#/definitions/SkillWithEnhancementsCategory"
+                        "$ref": "#/$defs/SkillWithEnhancementsCategory"
                       },
                       "specific": {
                         "description": "Only include (`Intersection`) or exclude (`Difference`) specific\nentries.",
@@ -621,10 +621,10 @@
                         "items": {
                           "oneOf": [
                             {
-                              "$ref": "#/definitions/OptionSkillSelfPrerequisite"
+                              "$ref": "#/$defs/OptionSkillSelfPrerequisite"
                             },
                             {
-                              "$ref": "#/definitions/OptionOptionPrerequisite"
+                              "$ref": "#/$defs/OptionOptionPrerequisite"
                             }
                           ]
                         },
@@ -678,7 +678,7 @@
                         "type": "object",
                         "properties": {
                           "id": {
-                            "$ref": "./_Identifier.schema.json#/definitions/SkillIdentifier"
+                            "$ref": "./_Identifier.schema.json#/$defs/SkillIdentifier"
                           },
                           "ap_value": {
                             "description": "The AP value for the specified entry.",
@@ -728,7 +728,7 @@
                 "type": "object",
                 "properties": {
                   "tag": {
-                    "$ref": "#/definitions/CombatTechniqueCategory"
+                    "$ref": "#/$defs/CombatTechniqueCategory"
                   },
                   "specific": {
                     "description": "Only include (`Intersection`) or exclude (`Difference`) specific\nentries.",
@@ -796,10 +796,10 @@
                     "items": {
                       "oneOf": [
                         {
-                          "$ref": "#/definitions/OptionSkillSelfPrerequisite"
+                          "$ref": "#/$defs/OptionSkillSelfPrerequisite"
                         },
                         {
-                          "$ref": "#/definitions/OptionOptionPrerequisite"
+                          "$ref": "#/$defs/OptionOptionPrerequisite"
                         }
                       ]
                     },
@@ -851,7 +851,7 @@
                         "type": "object",
                         "properties": {
                           "id": {
-                            "$ref": "./_Identifier.schema.json#/definitions/CombatTechniqueIdentifier"
+                            "$ref": "./_Identifier.schema.json#/$defs/CombatTechniqueIdentifier"
                           },
                           "ap_value": {
                             "description": "The AP value for the specified entry.",
@@ -931,7 +931,7 @@
         },
         "id": {
           "description": "The target entry's identifier.",
-          "$ref": "./_Identifier.schema.json#/definitions/ActivatableIdentifier"
+          "$ref": "./_Identifier.schema.json#/$defs/ActivatableIdentifier"
         },
         "active": {
           "description": "Is the select option required (`true`) or prohibited (`false`)?",
@@ -969,14 +969,14 @@
             },
             "skill_applications": {
               "description": "Registers new applications, which get enabled once this entry is\nactivated with its respective select option. It specifies an entry-unique\nidentifier and the skill it belongs to. A translation can be left out if\nits name equals the name of the origin select option.",
-              "$ref": "#/definitions/SkillApplications"
+              "$ref": "#/$defs/SkillApplications"
             },
             "skill_uses": {
               "description": "Registers uses, which get enabled once this entry is activated with its\nrespective select option. It specifies an entry-unique identifier and the\nskill it belongs to. A translation can be left out if its name equals the\nname of the origin select option.",
-              "$ref": "#/definitions/SkillUses"
+              "$ref": "#/$defs/SkillUses"
             },
             "prerequisites": {
-              "$ref": "./_Prerequisite.schema.json#/definitions/GeneralPrerequisites"
+              "$ref": "./_Prerequisite.schema.json#/$defs/GeneralPrerequisites"
             },
             "ap_value": {
               "description": "Specific AP cost for the select option.",
@@ -984,7 +984,7 @@
               "minimum": 1
             },
             "src": {
-              "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+              "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
             },
             "translations": {
               "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -1009,7 +1009,7 @@
                       "minLength": 1
                     },
                     "errata": {
-                      "$ref": "./source/_Erratum.schema.json#/definitions/Errata"
+                      "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
                     }
                   },
                   "required": [
@@ -1123,7 +1123,7 @@
               "minItems": 1
             },
             "prerequisites": {
-              "$ref": "./_Prerequisite.schema.json#/definitions/GeneralPrerequisites"
+              "$ref": "./_Prerequisite.schema.json#/$defs/GeneralPrerequisites"
             },
             "ap_value": {
               "description": "Specific AP cost for the select option.",
@@ -1131,7 +1131,7 @@
               "minimum": 1
             },
             "src": {
-              "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+              "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
             },
             "translations": {
               "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -1141,7 +1141,7 @@
                   "type": "object",
                   "properties": {
                     "errata": {
-                      "$ref": "./source/_Erratum.schema.json#/definitions/Errata"
+                      "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
                     }
                   },
                   "required": [],
@@ -1167,10 +1167,10 @@
             },
             "id": {
               "description": "The combat technique's identifier.",
-              "$ref": "./_Identifier.schema.json#/definitions/CombatTechniqueIdentifier"
+              "$ref": "./_Identifier.schema.json#/$defs/CombatTechniqueIdentifier"
             },
             "prerequisites": {
-              "$ref": "./_Prerequisite.schema.json#/definitions/GeneralPrerequisites"
+              "$ref": "./_Prerequisite.schema.json#/$defs/GeneralPrerequisites"
             },
             "ap_value": {
               "description": "Specific AP cost for the select option.",
@@ -1178,7 +1178,7 @@
               "minimum": 1
             },
             "src": {
-              "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+              "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
             },
             "translations": {
               "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -1188,7 +1188,7 @@
                   "type": "object",
                   "properties": {
                     "errata": {
-                      "$ref": "./source/_Erratum.schema.json#/definitions/Errata"
+                      "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
                     }
                   },
                   "required": [],
@@ -1631,7 +1631,7 @@
             },
             "external_id": {
               "description": "The identifier of the combat-related special ability of which the level\ndefines the penalty instead.",
-              "$ref": "./_Identifier.schema.json#/definitions/CombatRelatedSpecialAbilityIdentifier"
+              "$ref": "./_Identifier.schema.json#/$defs/CombatRelatedSpecialAbilityIdentifier"
             }
           },
           "required": [
@@ -1715,7 +1715,7 @@
               "const": "ArcaneEnergyCost"
             },
             "ae_cost": {
-              "$ref": "#/definitions/ArcaneEnergyCost"
+              "$ref": "#/$defs/ArcaneEnergyCost"
             }
           },
           "required": [
@@ -1731,7 +1731,7 @@
               "const": "BindingCost"
             },
             "binding_cost": {
-              "$ref": "#/definitions/BindingCost"
+              "$ref": "#/$defs/BindingCost"
             }
           },
           "required": [
@@ -1762,7 +1762,7 @@
             },
             "interval": {
               "description": "Specified if the AE cost `value` has to be paid for each time interval.",
-              "$ref": "./_ActivatableSkill.schema.json#/definitions/Duration/UnitValue"
+              "$ref": "./_ActivatableSkill.schema.json#/$defs/Duration/UnitValue"
             },
             "per_level": {
               "description": "The AE cost are per level of the enchantment. It may either be displayed\nin a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1\nAE for level I; 2 AE for level II`).",
@@ -1932,7 +1932,7 @@
             },
             "interval": {
               "description": "The time interval for which the AE cost `value` has to be paid.",
-              "$ref": "./_ActivatableSkill.schema.json#/definitions/Duration/UnitValue"
+              "$ref": "./_ActivatableSkill.schema.json#/$defs/Duration/UnitValue"
             }
           },
           "required": [
@@ -2051,7 +2051,7 @@
               "properties": {
                 "value": {
                   "description": "The interval itself.",
-                  "$ref": "./_ActivatableSkill.schema.json#/definitions/Duration/UnitValue"
+                  "$ref": "./_ActivatableSkill.schema.json#/$defs/Duration/UnitValue"
                 },
                 "activation_value": {
                   "description": "The AE cost value for activation.",
@@ -2271,7 +2271,7 @@
               "const": "Map"
             },
             "map": {
-              "$ref": "#/definitions/VolumeMap"
+              "$ref": "#/$defs/VolumeMap"
             }
           },
           "required": [
@@ -2290,7 +2290,7 @@
           "description": "The possible costs and associated labels.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/VolumeMapOption"
+            "$ref": "#/$defs/VolumeMapOption"
           },
           "minItems": 2
         },
@@ -2343,7 +2343,7 @@
             "properties": {
               "id": {
                 "description": "The option's identifier.",
-                "$ref": "./_Identifier.schema.json#/definitions/VolumePointsOptionReferenceIdentifier"
+                "$ref": "./_Identifier.schema.json#/$defs/VolumePointsOptionReferenceIdentifier"
               }
             },
             "required": [
@@ -2432,7 +2432,7 @@
               "const": "Map"
             },
             "map": {
-              "$ref": "#/definitions/BindingCostMap"
+              "$ref": "#/$defs/BindingCostMap"
             }
           },
           "required": [
@@ -2451,7 +2451,7 @@
           "description": "The possible costs and associated labels.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/VolumeMapOption"
+            "$ref": "#/$defs/VolumeMapOption"
           },
           "minItems": 2
         },
@@ -2605,7 +2605,7 @@
               "description": "Specify the select option(s) that only are allowed for the referenced\nadvanced special ability; others are disallowed.",
               "type": "array",
               "items": {
-                "$ref": "./_Identifier.schema.json#/definitions/AdvancedSpecialAbilityRestrictedOptionIdentifier"
+                "$ref": "./_Identifier.schema.json#/$defs/AdvancedSpecialAbilityRestrictedOptionIdentifier"
               },
               "minItems": 1
             }
@@ -2646,12 +2646,12 @@
               "description": "Specify the select option(s) that only are allowed for the referenced\nadvanced special ability; others are disallowed.",
               "type": "array",
               "items": {
-                "$ref": "./_Identifier.schema.json#/definitions/AdvancedSpecialAbilityRestrictedOptionIdentifier"
+                "$ref": "./_Identifier.schema.json#/$defs/AdvancedSpecialAbilityRestrictedOptionIdentifier"
               },
               "minItems": 1
             },
             "display_option": {
-              "$ref": "./prerequisites/DisplayOption.schema.json#/definitions/DisplayOption"
+              "$ref": "./prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
             }
           },
           "required": [
@@ -2670,7 +2670,7 @@
             },
             "external_entry": {
               "description": "The possible advanced special abilities.",
-              "$ref": "#/definitions/AdvancedSpecialAbilityDerivedExternalEntryId"
+              "$ref": "#/$defs/AdvancedSpecialAbilityDerivedExternalEntryId"
             },
             "mappings": {
               "type": "array",
@@ -2679,7 +2679,7 @@
                 "properties": {
                   "from_option": {
                     "description": "The select option's identifier.",
-                    "$ref": "#/definitions/AdvancedSpecialAbilityDerivedExternalEntryOptionId"
+                    "$ref": "#/$defs/AdvancedSpecialAbilityDerivedExternalEntryOptionId"
                   },
                   "to_advanced": {
                     "description": "The advanced special ability's identifier.",
@@ -2706,7 +2706,7 @@
               "minItems": 0
             },
             "display_option": {
-              "$ref": "./prerequisites/DisplayOption.schema.json#/definitions/DisplayOption"
+              "$ref": "./prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
             },
             "is_selection_required_on_purchase": {
               "description": "Do have to choose on when buying the special ability? Otherwise the\ndecision can be made later.",
@@ -2716,7 +2716,7 @@
               "description": "Specify the select option(s) that only are allowed for the referenced\nadvanced special ability; others are disallowed.",
               "type": "array",
               "items": {
-                "$ref": "./_Identifier.schema.json#/definitions/AdvancedSpecialAbilityRestrictedOptionIdentifier"
+                "$ref": "./_Identifier.schema.json#/$defs/AdvancedSpecialAbilityRestrictedOptionIdentifier"
               },
               "minItems": 1
             }
@@ -2733,28 +2733,28 @@
       ]
     },
     "AdvancedSpecialAbilityDerivedExternalEntryId": {
-      "$ref": "./_Identifier.schema.json#/definitions/MagicalTraditionIdentifier"
+      "$ref": "./_Identifier.schema.json#/$defs/MagicalTraditionIdentifier"
     },
     "AdvancedSpecialAbilityDerivedExternalEntryOptionId": {
-      "$ref": "./_Identifier.schema.json#/definitions/PatronIdentifier"
+      "$ref": "./_Identifier.schema.json#/$defs/PatronIdentifier"
     },
     "AdvancedSpecialAbilities": {
       "description": "The Advanced Special Abilities for the respective Style Special Ability.\nSometimes, only a specific select option or a set of select options of an\nentry is allowed, which can be modelled by the option property. It can also\nbe that you can choose from a set of special abilities, but then you can't\nspecify an option.",
       "type": "array",
-      "items": [
+      "prefixItems": [
         {
-          "$ref": "#/definitions/AdvancedSpecialAbility"
+          "$ref": "#/$defs/AdvancedSpecialAbility"
         },
         {
-          "$ref": "#/definitions/AdvancedSpecialAbility"
+          "$ref": "#/$defs/AdvancedSpecialAbility"
         },
         {
-          "$ref": "#/definitions/AdvancedSpecialAbility"
+          "$ref": "#/$defs/AdvancedSpecialAbility"
         }
       ],
       "minItems": 3,
       "maxItems": 3,
-      "additionalItems": false
+      "items": false
     },
     "ApplicableCombatTechniques": {
       "oneOf": [
@@ -2791,7 +2791,7 @@
             "restrictions": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/ApplicableAllCombatTechniquesRestriction"
+                "$ref": "#/$defs/ApplicableAllCombatTechniquesRestriction"
               },
               "minItems": 1
             }
@@ -2810,7 +2810,7 @@
             "restrictions": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/ApplicableCloseCombatTechniquesRestriction"
+                "$ref": "#/$defs/ApplicableCloseCombatTechniquesRestriction"
               },
               "minItems": 1
             }
@@ -2829,7 +2829,7 @@
             "restrictions": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/ApplicableRangedCombatTechniquesRestriction"
+                "$ref": "#/$defs/ApplicableRangedCombatTechniquesRestriction"
               },
               "minItems": 1
             }
@@ -2851,12 +2851,12 @@
                 "type": "object",
                 "properties": {
                   "id": {
-                    "$ref": "./_Identifier.schema.json#/definitions/CombatTechniqueIdentifier"
+                    "$ref": "./_Identifier.schema.json#/$defs/CombatTechniqueIdentifier"
                   },
                   "restrictions": {
                     "type": "array",
                     "items": {
-                      "$ref": "#/definitions/ApplicableSpecificCombatTechniquesRestriction"
+                      "$ref": "#/$defs/ApplicableSpecificCombatTechniquesRestriction"
                     },
                     "minItems": 1
                   }
@@ -2943,7 +2943,7 @@
               "description": "The combat techniques this combat special ability is **not** applicable\nto.",
               "type": "array",
               "items": {
-                "$ref": "./_Identifier.schema.json#/definitions/CombatTechniqueIdentifier"
+                "$ref": "./_Identifier.schema.json#/$defs/CombatTechniqueIdentifier"
               },
               "minItems": 1,
               "uniqueItems": true
@@ -3294,7 +3294,7 @@
             },
             "value": {
               "description": "A fixed adventure points value. If the entry has levels, this is the cost\nfor each level as well.",
-              "$ref": "#/definitions/AdventurePointsSingleValue"
+              "$ref": "#/$defs/AdventurePointsSingleValue"
             }
           },
           "required": [
@@ -3313,7 +3313,7 @@
               "description": "An entry with levels may have different costs for each level. The length\nof the list must match the amount of levels the special ability has.",
               "type": "array",
               "items": {
-                "$ref": "#/definitions/AdventurePointsSingleValue"
+                "$ref": "#/$defs/AdventurePointsSingleValue"
               },
               "minItems": 2
             }
@@ -3349,7 +3349,7 @@
             },
             "value": {
               "description": "A fixed adventure points value. If the entry has levels, this is the cost\nfor each level as well.",
-              "$ref": "#/definitions/AdventurePointsSingleValue"
+              "$ref": "#/$defs/AdventurePointsSingleValue"
             },
             "does_not_contribute_to_maximum": {
               "description": "The AP Value of the entry does not contribute to the AP maximum for\nadvantages or disadvantages, so it may also be bought if the maximum has\nalready been reached.",
@@ -3372,7 +3372,7 @@
               "description": "An entry with levels may have different costs for each level. The length\nof the list must match the amount of levels the special ability has.",
               "type": "array",
               "items": {
-                "$ref": "#/definitions/AdventurePointsSingleValue"
+                "$ref": "#/$defs/AdventurePointsSingleValue"
               },
               "minItems": 2
             },

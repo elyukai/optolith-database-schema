@@ -1,7 +1,7 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/prerequisites/single/ActivatablePrerequisite.schema.json",
-  "definitions": {
+  "$defs": {
     "ActivatablePrerequisite": {
       "title": "Activatable Prerequisite",
       "description": "Requires a specific advantage, disadvantage or special ability.",
@@ -12,7 +12,7 @@
         },
         "id": {
           "description": "The activatable entry's identifier.",
-          "$ref": "../../_Identifier.schema.json#/definitions/ActivatableIdentifier"
+          "$ref": "../../_Identifier.schema.json#/$defs/ActivatableIdentifier"
         },
         "active": {
           "description": "If the required entry should be required to be active or inactive.",
@@ -27,15 +27,15 @@
           "description": "Required select options. Order is important. Typically, you only need the\nfirst array index, though.",
           "type": "array",
           "items": {
-            "$ref": "../../_Identifier.schema.json#/definitions/RequirableSelectOptionIdentifier"
+            "$ref": "../../_Identifier.schema.json#/$defs/RequirableSelectOptionIdentifier"
           },
           "minItems": 1
         },
         "display_option": {
-          "$ref": "../DisplayOption.schema.json#/definitions/DisplayOption"
+          "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"
         },
         "when": {
-          "$ref": "../ConditionalPrerequisites.schema.json#/definitions/Preconditions"
+          "$ref": "../ConditionalPrerequisites.schema.json#/$defs/Preconditions"
         }
       },
       "required": [
@@ -57,7 +57,7 @@
           "description": "The possible activatable entries' identifiers.",
           "type": "array",
           "items": {
-            "$ref": "../../_Identifier.schema.json#/definitions/ActivatableIdentifier"
+            "$ref": "../../_Identifier.schema.json#/$defs/ActivatableIdentifier"
           },
           "minItems": 2
         },
@@ -74,12 +74,12 @@
           "description": "Required select options. Order is important. Typically, you only need the\nfirst array index, though.",
           "type": "array",
           "items": {
-            "$ref": "../../_Identifier.schema.json#/definitions/RequirableSelectOptionIdentifier"
+            "$ref": "../../_Identifier.schema.json#/$defs/RequirableSelectOptionIdentifier"
           },
           "minItems": 1
         },
         "display_option": {
-          "$ref": "../DisplayOption.schema.json#/definitions/DisplayOption"
+          "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"
         }
       },
       "required": [
@@ -99,7 +99,7 @@
         },
         "id": {
           "description": "The activatable entry's identifier.",
-          "$ref": "../../_Identifier.schema.json#/definitions/ActivatableIdentifier"
+          "$ref": "../../_Identifier.schema.json#/$defs/ActivatableIdentifier"
         },
         "active": {
           "description": "If the required entry should be required to be active or inactive.",
@@ -114,7 +114,7 @@
           "description": "The possible set of first options.",
           "type": "array",
           "items": {
-            "$ref": "../../_Identifier.schema.json#/definitions/RequirableSelectOptionIdentifier"
+            "$ref": "../../_Identifier.schema.json#/$defs/RequirableSelectOptionIdentifier"
           },
           "minItems": 2
         },
@@ -122,12 +122,12 @@
           "description": "Required other select options. Order is important.",
           "type": "array",
           "items": {
-            "$ref": "../../_Identifier.schema.json#/definitions/RequirableSelectOptionIdentifier"
+            "$ref": "../../_Identifier.schema.json#/$defs/RequirableSelectOptionIdentifier"
           },
           "minItems": 1
         },
         "display_option": {
-          "$ref": "../DisplayOption.schema.json#/definitions/DisplayOption"
+          "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"
         }
       },
       "required": [

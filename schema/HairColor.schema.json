@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/HairColor.schema.json",
-  "$ref": "#/definitions/HairColor",
-  "definitions": {
+  "$ref": "#/$defs/HairColor",
+  "$defs": {
     "HairColor": {
       "title": "Hair Color",
       "type": "object",

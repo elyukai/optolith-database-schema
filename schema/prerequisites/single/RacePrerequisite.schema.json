@@ -1,7 +1,7 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/prerequisites/single/RacePrerequisite.schema.json",
-  "definitions": {
+  "$defs": {
     "RacePrerequisite": {
       "title": "Race Prerequisite",
       "description": "Requires a specific race or one of a specific set of races. You can also\nprovide an object to say whether the hero must meet one of the races or\nif the entry does not allow one of the races.",
@@ -11,13 +11,13 @@
           "const": "Race"
         },
         "id": {
-          "$ref": "../../_Identifier.schema.json#/definitions/OneOrManyNumericIdentifiers"
+          "$ref": "../../_Identifier.schema.json#/$defs/OneOrManyNumericIdentifiers"
         },
         "active": {
           "type": "boolean"
         },
         "display_option": {
-          "$ref": "../DisplayOption.schema.json#/definitions/DisplayOption"
+          "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"
         }
       },
       "required": [

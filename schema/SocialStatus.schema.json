@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/SocialStatus.schema.json",
-  "$ref": "#/definitions/SocialStatus",
-  "definitions": {
+  "$ref": "#/$defs/SocialStatus",
+  "$defs": {
     "SocialStatus": {
       "title": "Social Status",
       "type": "object",

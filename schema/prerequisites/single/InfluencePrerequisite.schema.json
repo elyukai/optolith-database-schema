@@ -1,7 +1,7 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/prerequisites/single/InfluencePrerequisite.schema.json",
-  "definitions": {
+  "$defs": {
     "InfluencePrerequisite": {
       "title": "Influence Prerequisite",
       "type": "object",
@@ -19,7 +19,7 @@
           "type": "boolean"
         },
         "display_option": {
-          "$ref": "../DisplayOption.schema.json#/definitions/DisplayOption"
+          "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"
         }
       },
       "required": [

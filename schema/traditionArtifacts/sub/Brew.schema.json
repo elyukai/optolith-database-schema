@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/traditionArtifacts/sub/Brew.schema.json",
-  "$ref": "#/definitions/Brew",
-  "definitions": {
+  "$ref": "#/$defs/Brew",
+  "$defs": {
     "Brew": {
       "title": "Brew",
       "type": "object",

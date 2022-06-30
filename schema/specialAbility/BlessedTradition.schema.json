@@ -1,23 +1,23 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/specialAbility/BlessedTradition.schema.json",
-  "$ref": "#/definitions/BlessedTradition",
-  "definitions": {
+  "$ref": "#/$defs/BlessedTradition",
+  "$defs": {
     "BlessedTradition": {
       "title": "Blessed Tradition",
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "../_Activatable.schema.json#/definitions/Id"
+          "$ref": "../_Activatable.schema.json#/$defs/Id"
         },
         "select_options": {
-          "$ref": "../_Activatable.schema.json#/definitions/SelectOptions"
+          "$ref": "../_Activatable.schema.json#/$defs/SelectOptions"
         },
         "skill_applications": {
-          "$ref": "../_Activatable.schema.json#/definitions/SkillApplications"
+          "$ref": "../_Activatable.schema.json#/$defs/SkillApplications"
         },
         "skill_uses": {
-          "$ref": "../_Activatable.schema.json#/definitions/SkillUses"
+          "$ref": "../_Activatable.schema.json#/$defs/SkillUses"
         },
         "primary": {
           "description": "The tradition's primary attribute. Leave empty if the tradition does not\nhave one.",
@@ -38,7 +38,7 @@
         "aspects": {
           "description": "The tradition's aspects, if any",
           "type": "array",
-          "items": [
+          "prefixItems": [
             {
               "type": "object",
               "properties": {
@@ -70,7 +70,7 @@
           ],
           "minItems": 2,
           "maxItems": 2,
-          "additionalItems": false
+          "items": false
         },
         "restricted_blessings": {
           "description": "If a tradition restricts the possible blessings, the blessings that are not\nallowed.",
@@ -145,7 +145,7 @@
                     "properties": {
                       "id": {
                         "description": "The combat technique's identifier.",
-                        "$ref": "../_Identifier.schema.json#/definitions/CombatTechniqueIdentifier"
+                        "$ref": "../_Identifier.schema.json#/$defs/CombatTechniqueIdentifier"
                       }
                     },
                     "required": [
@@ -226,13 +226,13 @@
           "type": "number"
         },
         "prerequisites": {
-          "$ref": "../_Prerequisite.schema.json#/definitions/GeneralPrerequisites"
+          "$ref": "../_Prerequisite.schema.json#/$defs/GeneralPrerequisites"
         },
         "ap_value": {
-          "$ref": "../_Activatable.schema.json#/definitions/AdventurePointsValue"
+          "$ref": "../_Activatable.schema.json#/$defs/AdventurePointsValue"
         },
         "src": {
-          "$ref": "../source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+          "$ref": "../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -242,7 +242,7 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "$ref": "../_Activatable.schema.json#/definitions/Name"
+                  "$ref": "../_Activatable.schema.json#/$defs/Name"
                 },
                 "name_compressed": {
                   "description": "A shorter name of the tradition's name, used in liturgical chant\ndescriptions.",
@@ -250,7 +250,7 @@
                   "minLength": 1
                 },
                 "name_in_library": {
-                  "$ref": "../_Activatable.schema.json#/definitions/NameInLibrary"
+                  "$ref": "../_Activatable.schema.json#/$defs/NameInLibrary"
                 },
                 "special_rules": {
                   "description": "The special rules of the tradition. They should be sorted like they are\nin the book.",
@@ -277,7 +277,7 @@
                   "minItems": 1
                 },
                 "errata": {
-                  "$ref": "../source/_Erratum.schema.json#/definitions/Errata"
+                  "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
                 }
               },
               "required": [

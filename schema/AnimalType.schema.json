@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/AnimalType.schema.json",
-  "$ref": "#/definitions/AnimalType",
-  "definitions": {
+  "$ref": "#/$defs/AnimalType",
+  "$defs": {
     "AnimalType": {
       "title": "Animal Type",
       "type": "object",

@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/traditionArtifacts/sub/AnimalShape.schema.json",
-  "$ref": "#/definitions/AnimalShape",
-  "definitions": {
+  "$ref": "#/$defs/AnimalShape",
+  "$defs": {
     "AnimalShape": {
       "title": "Animal Shape",
       "type": "object",

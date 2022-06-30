@@ -1,13 +1,13 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/Locale.schema.json",
-  "$ref": "#/definitions/Locales",
-  "definitions": {
+  "$ref": "#/$defs/Locales",
+  "$defs": {
     "Locales": {
       "title": "Supported locales",
       "type": "array",
       "items": {
-        "$ref": "#/definitions/Locale"
+        "$ref": "#/$defs/Locale"
       }
     },
     "Locale": {

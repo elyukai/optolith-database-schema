@@ -1,7 +1,7 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/prerequisites/single/RatedPrerequisite.schema.json",
-  "definitions": {
+  "$defs": {
     "RatedPrerequisite": {
       "title": "Rated Prerequisite",
       "type": "object",
@@ -11,7 +11,7 @@
         },
         "id": {
           "description": "The rated entry's identifier.",
-          "$ref": "../../_Identifier.schema.json#/definitions/RatedIdentifier"
+          "$ref": "../../_Identifier.schema.json#/$defs/RatedIdentifier"
         },
         "value": {
           "description": "The required minimum value.",
@@ -19,7 +19,7 @@
           "minimum": 0
         },
         "display_option": {
-          "$ref": "../DisplayOption.schema.json#/definitions/DisplayOption"
+          "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"
         }
       },
       "required": [
@@ -40,7 +40,7 @@
           "description": "The possible rated entries' identifiers.",
           "type": "array",
           "items": {
-            "$ref": "../../_Identifier.schema.json#/definitions/RatedIdentifier"
+            "$ref": "../../_Identifier.schema.json#/$defs/RatedIdentifier"
           },
           "minItems": 2
         },
@@ -50,7 +50,7 @@
           "minimum": 0
         },
         "display_option": {
-          "$ref": "../DisplayOption.schema.json#/definitions/DisplayOption"
+          "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"
         }
       },
       "required": [
@@ -169,7 +169,7 @@
           ]
         },
         "display_option": {
-          "$ref": "../DisplayOption.schema.json#/definitions/DisplayOption"
+          "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"
         }
       },
       "required": [

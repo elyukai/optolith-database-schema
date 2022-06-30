@@ -1,7 +1,7 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/prerequisites/single/StatePrerequisite.schema.json",
-  "definitions": {
+  "$defs": {
     "StatePrerequisite": {
       "title": "State Prerequisite",
       "description": "Requires a specific state or one of a specific set of states.",
@@ -11,10 +11,10 @@
           "const": "State"
         },
         "id": {
-          "$ref": "../../_Identifier.schema.json#/definitions/OneOrManyNumericIdentifiers"
+          "$ref": "../../_Identifier.schema.json#/$defs/OneOrManyNumericIdentifiers"
         },
         "display_option": {
-          "$ref": "../DisplayOption.schema.json#/definitions/DisplayOption"
+          "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"
         }
       },
       "required": [

@@ -1,12 +1,12 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/_Enhancements.schema.json",
-  "definitions": {
+  "$defs": {
     "Enhancements": {
       "description": "A list of enhancements.",
       "type": "array",
       "items": {
-        "$ref": "#/definitions/Enhancement"
+        "$ref": "#/$defs/Enhancement"
       },
       "minItems": 3,
       "maxItems": 5
@@ -32,11 +32,11 @@
           "minimum": 1
         },
         "prerequisites": {
-          "$ref": "./_Prerequisite.schema.json#/definitions/EnhancementPrerequisites"
+          "$ref": "./_Prerequisite.schema.json#/$defs/EnhancementPrerequisites"
         },
         "src": {
           "description": "Only defined if different than the associated skill.",
-          "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+          "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -56,7 +56,7 @@
                   "minLength": 1
                 },
                 "errata": {
-                  "$ref": "./source/_Erratum.schema.json#/definitions/Errata"
+                  "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
                 }
               },
               "required": [

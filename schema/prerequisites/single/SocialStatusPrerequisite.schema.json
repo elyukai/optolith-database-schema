@@ -1,7 +1,7 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/prerequisites/single/SocialStatusPrerequisite.schema.json",
-  "definitions": {
+  "$defs": {
     "SocialStatusPrerequisite": {
       "title": "Social Status Prerequisite",
       "description": "Requires a minimum social status.",
@@ -17,7 +17,7 @@
           "minimum": 2
         },
         "display_option": {
-          "$ref": "../DisplayOption.schema.json#/definitions/DisplayOption"
+          "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"
         }
       },
       "required": [

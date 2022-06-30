@@ -1,20 +1,20 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/specialAbility/CombatStyleSpecialAbility.schema.json",
-  "$ref": "#/definitions/CombatStyleSpecialAbility",
-  "definitions": {
+  "$ref": "#/$defs/CombatStyleSpecialAbility",
+  "$defs": {
     "CombatStyleSpecialAbility": {
       "title": "Combat Style Special Ability",
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "../_Activatable.schema.json#/definitions/Id"
+          "$ref": "../_Activatable.schema.json#/$defs/Id"
         },
         "levels": {
-          "$ref": "../_Activatable.schema.json#/definitions/Levels"
+          "$ref": "../_Activatable.schema.json#/$defs/Levels"
         },
         "usage_type": {
-          "$ref": "../_Activatable.schema.json#/definitions/CombatSpecialAbilityType"
+          "$ref": "../_Activatable.schema.json#/$defs/CombatSpecialAbilityType"
         },
         "type": {
           "description": "Is this an armed or unarmed combat style?",
@@ -46,31 +46,31 @@
           ]
         },
         "select_options": {
-          "$ref": "../_Activatable.schema.json#/definitions/SelectOptions"
+          "$ref": "../_Activatable.schema.json#/$defs/SelectOptions"
         },
         "skill_applications": {
-          "$ref": "../_Activatable.schema.json#/definitions/SkillApplications"
+          "$ref": "../_Activatable.schema.json#/$defs/SkillApplications"
         },
         "skill_uses": {
-          "$ref": "../_Activatable.schema.json#/definitions/SkillUses"
+          "$ref": "../_Activatable.schema.json#/$defs/SkillUses"
         },
         "maximum": {
-          "$ref": "../_Activatable.schema.json#/definitions/Maximum"
+          "$ref": "../_Activatable.schema.json#/$defs/Maximum"
         },
         "advanced": {
-          "$ref": "../_Activatable.schema.json#/definitions/AdvancedSpecialAbilities"
+          "$ref": "../_Activatable.schema.json#/$defs/AdvancedSpecialAbilities"
         },
         "prerequisites": {
-          "$ref": "../_Prerequisite.schema.json#/definitions/GeneralPrerequisites"
+          "$ref": "../_Prerequisite.schema.json#/$defs/GeneralPrerequisites"
         },
         "combat_techniques": {
-          "$ref": "../_Activatable.schema.json#/definitions/ApplicableCombatTechniques"
+          "$ref": "../_Activatable.schema.json#/$defs/ApplicableCombatTechniques"
         },
         "ap_value": {
-          "$ref": "../_Activatable.schema.json#/definitions/AdventurePointsValue"
+          "$ref": "../_Activatable.schema.json#/$defs/AdventurePointsValue"
         },
         "src": {
-          "$ref": "../source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+          "$ref": "../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -80,16 +80,16 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "$ref": "../_Activatable.schema.json#/definitions/Name"
+                  "$ref": "../_Activatable.schema.json#/$defs/Name"
                 },
                 "name_in_library": {
-                  "$ref": "../_Activatable.schema.json#/definitions/NameInLibrary"
+                  "$ref": "../_Activatable.schema.json#/$defs/NameInLibrary"
                 },
                 "rules": {
-                  "$ref": "../_Activatable.schema.json#/definitions/Rules"
+                  "$ref": "../_Activatable.schema.json#/$defs/Rules"
                 },
                 "errata": {
-                  "$ref": "../source/_Erratum.schema.json#/definitions/Errata"
+                  "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
                 }
               },
               "required": [

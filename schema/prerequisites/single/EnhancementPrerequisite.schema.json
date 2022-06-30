@@ -1,7 +1,7 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/prerequisites/single/EnhancementPrerequisite.schema.json",
-  "definitions": {
+  "$defs": {
     "ExternalEnhancementPrerequisite": {
       "title": "External Enhancement Prerequisite",
       "description": "Requires a specific enhancement from a skill. This should **not** be used\nfor enhancements themselves; they can only require enhancements from the same\nskill they enhance.",
@@ -12,7 +12,7 @@
         },
         "skill_id": {
           "description": "The required skill's identifier.",
-          "$ref": "../../_Identifier.schema.json#/definitions/SkillWithEnhancementsIdentifier"
+          "$ref": "../../_Identifier.schema.json#/$defs/SkillWithEnhancementsIdentifier"
         },
         "enhancement_id": {
           "description": "The required enhancement's identifier.",
@@ -20,7 +20,7 @@
           "minimum": 1
         },
         "display_option": {
-          "$ref": "../DisplayOption.schema.json#/definitions/DisplayOption"
+          "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"
         }
       },
       "required": [

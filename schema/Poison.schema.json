@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/Poison.schema.json",
-  "$ref": "#/definitions/Poison",
-  "definitions": {
+  "$ref": "#/$defs/Poison",
+  "$defs": {
     "Poison": {
       "title": "Poison",
       "type": "object",
@@ -299,7 +299,7 @@
           "minimum": 1
         },
         "src": {
-          "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+          "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -384,7 +384,7 @@
                   "additionalProperties": false
                 },
                 "errata": {
-                  "$ref": "./source/_Erratum.schema.json#/definitions/Errata"
+                  "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
                 }
               },
               "required": [

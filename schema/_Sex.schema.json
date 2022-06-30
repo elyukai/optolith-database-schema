@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/_Sex.schema.json",
-  "$ref": "#/definitions/BinarySex",
-  "definitions": {
+  "$ref": "#/$defs/BinarySex",
+  "$defs": {
     "BinarySex": {
       "title": "Binary Sex",
       "oneOf": [

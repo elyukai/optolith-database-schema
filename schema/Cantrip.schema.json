@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/Cantrip.schema.json",
-  "$ref": "#/definitions/Cantrip",
-  "definitions": {
+  "$ref": "#/$defs/Cantrip",
+  "$defs": {
     "Cantrip": {
       "title": "Cantrip",
       "type": "object",
@@ -14,11 +14,11 @@
         },
         "parameters": {
           "description": "Measurable parameters of a cantrip.",
-          "$ref": "#/definitions/PerformanceParameters"
+          "$ref": "#/$defs/PerformanceParameters"
         },
         "target": {
           "description": "The target category – the kind of creature or object – the skill affects.",
-          "$ref": "./_ActivatableSkill.schema.json#/definitions/TargetCategory/T"
+          "$ref": "./_ActivatableSkill.schema.json#/$defs/TargetCategory/T"
         },
         "property": {
           "description": "The associated property.",
@@ -81,7 +81,7 @@
                   "description": "The academies and traditions the cantrip is commonly teached in.",
                   "type": "array",
                   "items": {
-                    "$ref": "#/definitions/CommonNote"
+                    "$ref": "#/$defs/CommonNote"
                   },
                   "minItems": 1,
                   "uniqueItems": true
@@ -96,7 +96,7 @@
           ]
         },
         "src": {
-          "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+          "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -125,7 +125,7 @@
                   "type": "string"
                 },
                 "errata": {
-                  "$ref": "./source/_Erratum.schema.json#/definitions/Errata"
+                  "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
                 }
               },
               "required": [
@@ -142,7 +142,7 @@
           "additionalProperties": false
         },
         "enhancements": {
-          "$ref": "./_Enhancements.schema.json#/definitions/Enhancements"
+          "$ref": "./_Enhancements.schema.json#/$defs/Enhancements"
         }
       },
       "required": [
@@ -240,7 +240,7 @@
                 },
                 "unit": {
                   "description": "The duration unit.",
-                  "$ref": "./_ActivatableSkill.schema.json#/definitions/Duration/Unit"
+                  "$ref": "./_ActivatableSkill.schema.json#/$defs/Duration/Unit"
                 }
               },
               "required": [

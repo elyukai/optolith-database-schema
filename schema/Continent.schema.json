@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/Continent.schema.json",
-  "$ref": "#/definitions/Continent",
-  "definitions": {
+  "$ref": "#/$defs/Continent",
+  "$defs": {
     "Continent": {
       "title": "Continent",
       "description": "Continents are mostly referenced to in languages and scripts that occur on a\nspecific continent.",

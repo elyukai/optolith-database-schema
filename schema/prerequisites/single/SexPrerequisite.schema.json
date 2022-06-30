@@ -1,7 +1,7 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/prerequisites/single/SexPrerequisite.schema.json",
-  "definitions": {
+  "$defs": {
     "SexPrerequisite": {
       "title": "Sex Prerequisite",
       "description": "Requires a specific sex.",
@@ -11,10 +11,10 @@
           "const": "Sex"
         },
         "id": {
-          "$ref": "../../_Sex.schema.json#/definitions/BinarySex"
+          "$ref": "../../_Sex.schema.json#/$defs/BinarySex"
         },
         "display_option": {
-          "$ref": "../DisplayOption.schema.json#/definitions/DisplayOption"
+          "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"
         }
       },
       "required": [

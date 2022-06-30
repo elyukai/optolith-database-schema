@@ -1,7 +1,7 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/prerequisites/single/CulturePrerequisite.schema.json",
-  "definitions": {
+  "$defs": {
     "CulturePrerequisite": {
       "title": "Culture Prerequisite",
       "description": "Requires a specific culture or one of a specific set of cultures.",
@@ -11,10 +11,10 @@
           "const": "Culture"
         },
         "id": {
-          "$ref": "../../_Identifier.schema.json#/definitions/OneOrManyNumericIdentifiers"
+          "$ref": "../../_Identifier.schema.json#/$defs/OneOrManyNumericIdentifiers"
         },
         "display_option": {
-          "$ref": "../DisplayOption.schema.json#/definitions/DisplayOption"
+          "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"
         }
       },
       "required": [

@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/Profession.schema.json",
-  "$ref": "#/definitions/Profession",
-  "definitions": {
+  "$ref": "#/$defs/Profession",
+  "$defs": {
     "Profession": {
       "title": "Profession",
       "type": "object",
@@ -14,7 +14,7 @@
         },
         "group": {
           "description": "The profession group.",
-          "$ref": "#/definitions/Group"
+          "$ref": "#/$defs/Group"
         },
         "curriculum": {
           "description": "The curriculum/academy associated with this magical profession, if any.",
@@ -48,10 +48,10 @@
                     "minimum": 1
                   },
                   "package": {
-                    "$ref": "#/definitions/ProfessionRepresentationVariant"
+                    "$ref": "#/$defs/ProfessionRepresentationVariant"
                   },
                   "src": {
-                    "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+                    "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
                   }
                 },
                 "required": [
@@ -85,7 +85,7 @@
                           "minimum": 1
                         },
                         "package": {
-                          "$ref": "#/definitions/ProfessionRepresentationVariant"
+                          "$ref": "#/$defs/ProfessionRepresentationVariant"
                         }
                       },
                       "required": [
@@ -96,7 +96,7 @@
                     }
                   },
                   "src": {
-                    "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+                    "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
                   }
                 },
                 "required": [
@@ -130,31 +130,31 @@
         },
         "prerequisites": {
           "description": "Which prerequisites must be met to buy the stat block? For example, a\ncharacter might need the advantage Spellcaster or Blessed. Note: the AP\ncost for a profession package does not include these prerequisites.",
-          "$ref": "./_Prerequisite.schema.json#/definitions/ProfessionPrerequisites"
+          "$ref": "./_Prerequisite.schema.json#/$defs/ProfessionPrerequisites"
         },
         "options": {
           "type": "object",
           "properties": {
             "skill_specialization": {
-              "$ref": "#/definitions/SkillSpecializationOptions"
+              "$ref": "#/$defs/SkillSpecializationOptions"
             },
             "languages_scripts": {
-              "$ref": "#/definitions/LanguagesScriptsOptions"
+              "$ref": "#/$defs/LanguagesScriptsOptions"
             },
             "combat_techniques": {
-              "$ref": "#/definitions/CombatTechniquesOptions"
+              "$ref": "#/$defs/CombatTechniquesOptions"
             },
             "cantrips": {
-              "$ref": "#/definitions/CantripsOptions"
+              "$ref": "#/$defs/CantripsOptions"
             },
             "curses": {
-              "$ref": "#/definitions/CursesOptions"
+              "$ref": "#/$defs/CursesOptions"
             },
             "terrain_knowledge": {
-              "$ref": "#/definitions/TerrainKnowledgeOptions"
+              "$ref": "#/$defs/TerrainKnowledgeOptions"
             },
             "skills": {
-              "$ref": "#/definitions/SkillsOptions"
+              "$ref": "#/$defs/SkillsOptions"
             }
           },
           "required": [],
@@ -165,42 +165,42 @@
           "description": "Any special abilities the profession receives from the package.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/SpecialAbility"
+            "$ref": "#/$defs/SpecialAbility"
           }
         },
         "combat_techniques": {
           "description": "Provides ratings for the combat techniques that the hero receives from the\npackage.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/CombatTechnique"
+            "$ref": "#/$defs/CombatTechnique"
           }
         },
         "skills": {
           "description": "The skill ratings the package grants to the hero.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Skill"
+            "$ref": "#/$defs/Skill"
           }
         },
         "spells": {
           "description": "The skill ratings a magical profession receives for spells; these spells\nare considered activated. Spells from an unfamiliar Tradition, if any, are\nidentified as such.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Spell"
+            "$ref": "#/$defs/Spell"
           }
         },
         "liturgical_chants": {
           "description": "Clerical professions receive these liturgical chants at the listed skill\nratings. These liturgical chants are considered activated.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/LiturgicalChant"
+            "$ref": "#/$defs/LiturgicalChant"
           }
         },
         "suggested_advantages": {
           "description": "Typical advantages for the profession.",
           "type": "array",
           "items": {
-            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/definitions/CommonnessRatedAdvantageDisadvantage"
+            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/$defs/CommonnessRatedAdvantageDisadvantage"
           },
           "minItems": 1
         },
@@ -208,7 +208,7 @@
           "description": "Typical disadvantages for the profession.",
           "type": "array",
           "items": {
-            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/definitions/CommonnessRatedAdvantageDisadvantage"
+            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/$defs/CommonnessRatedAdvantageDisadvantage"
           },
           "minItems": 1
         },
@@ -216,7 +216,7 @@
           "description": "These advantages do not fit well with this profession; to be checked with\nthe GM before taking any of them.",
           "type": "array",
           "items": {
-            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/definitions/CommonnessRatedAdvantageDisadvantage"
+            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/$defs/CommonnessRatedAdvantageDisadvantage"
           },
           "minItems": 1
         },
@@ -224,7 +224,7 @@
           "description": "These disadvantages do not fit well with this profession; to be checked\nwith the GM before taking any of them.",
           "type": "array",
           "items": {
-            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/definitions/CommonnessRatedAdvantageDisadvantage"
+            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/$defs/CommonnessRatedAdvantageDisadvantage"
           },
           "minItems": 1
         },
@@ -240,7 +240,7 @@
                 "list": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/definitions/ProfessionVariant"
+                    "$ref": "#/$defs/ProfessionVariant"
                   },
                   "minItems": 2
                 }
@@ -260,7 +260,7 @@
                 "list": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/definitions/ProfessionVariant"
+                    "$ref": "#/$defs/ProfessionVariant"
                   },
                   "minItems": 1
                 }
@@ -282,11 +282,11 @@
               "properties": {
                 "name": {
                   "description": "Name of the basic profession.",
-                  "$ref": "#/definitions/Name"
+                  "$ref": "#/$defs/Name"
                 },
                 "specification": {
                   "description": "A name addition of the profession. This will contain texts like name of\nthe academy or the witch circle. It is enclosed in parenthesis.",
-                  "$ref": "#/definitions/Name"
+                  "$ref": "#/$defs/Name"
                 },
                 "suggested_advantages": {
                   "description": "Typical advantages for the profession.",
@@ -309,7 +309,7 @@
                   "minLength": 1
                 },
                 "errata": {
-                  "$ref": "./source/_Erratum.schema.json#/definitions/Errata"
+                  "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
                 }
               },
               "required": [
@@ -343,7 +343,7 @@
         },
         "prerequisites": {
           "description": "Which prerequisites must be met to buy the stat block? For example, a\ncharacter might need the advantage Spellcaster or Blessed. Note: the AP\ncost for a profession package does not include these prerequisites.",
-          "$ref": "./_Prerequisite.schema.json#/definitions/ProfessionPrerequisites"
+          "$ref": "./_Prerequisite.schema.json#/$defs/ProfessionPrerequisites"
         },
         "options": {
           "type": "object",
@@ -369,7 +369,7 @@
                       "const": "Override"
                     },
                     "value": {
-                      "$ref": "#/definitions/SkillSpecializationOptions"
+                      "$ref": "#/$defs/SkillSpecializationOptions"
                     }
                   },
                   "required": [
@@ -401,7 +401,7 @@
                       "const": "Override"
                     },
                     "value": {
-                      "$ref": "#/definitions/LanguagesScriptsOptions"
+                      "$ref": "#/$defs/LanguagesScriptsOptions"
                     }
                   },
                   "required": [
@@ -433,7 +433,7 @@
                       "const": "Override"
                     },
                     "value": {
-                      "$ref": "#/definitions/CombatTechniquesOptions"
+                      "$ref": "#/$defs/CombatTechniquesOptions"
                     }
                   },
                   "required": [
@@ -465,7 +465,7 @@
                       "const": "Override"
                     },
                     "value": {
-                      "$ref": "#/definitions/CantripsOptions"
+                      "$ref": "#/$defs/CantripsOptions"
                     }
                   },
                   "required": [
@@ -497,7 +497,7 @@
                       "const": "Override"
                     },
                     "value": {
-                      "$ref": "#/definitions/CursesOptions"
+                      "$ref": "#/$defs/CursesOptions"
                     }
                   },
                   "required": [
@@ -529,7 +529,7 @@
                       "const": "Override"
                     },
                     "value": {
-                      "$ref": "#/definitions/TerrainKnowledgeOptions"
+                      "$ref": "#/$defs/TerrainKnowledgeOptions"
                     }
                   },
                   "required": [
@@ -561,7 +561,7 @@
                       "const": "Override"
                     },
                     "value": {
-                      "$ref": "#/definitions/SkillsOptions"
+                      "$ref": "#/$defs/SkillsOptions"
                     }
                   },
                   "required": [
@@ -581,35 +581,35 @@
           "description": "Any special abilities the profession receives from the package variant.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/VariantSpecialAbility"
+            "$ref": "#/$defs/VariantSpecialAbility"
           }
         },
         "combat_techniques": {
           "description": "Provides ratings for the combat techniques that the hero receives from the\npackage variant.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/VariantCombatTechnique"
+            "$ref": "#/$defs/VariantCombatTechnique"
           }
         },
         "skills": {
           "description": "The skill ratings the package variant grants to the hero.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/VariantSkill"
+            "$ref": "#/$defs/VariantSkill"
           }
         },
         "spells": {
           "description": "The skill ratings a magical profession variant receives for spells; these\nspells are considered activated. Spells from an unfamiliar Tradition, if\nany, are identified as such.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/VariantSpell"
+            "$ref": "#/$defs/VariantSpell"
           }
         },
         "liturgical_chants": {
           "description": "Clerical professions receive these liturgical chants at the listed skill\nratings. These liturgical chants are considered activated.",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/VariantLiturgicalChant"
+            "$ref": "#/$defs/VariantLiturgicalChant"
           }
         },
         "translations": {
@@ -621,7 +621,7 @@
               "properties": {
                 "name": {
                   "description": "Name of the profession variant.",
-                  "$ref": "#/definitions/Name"
+                  "$ref": "#/$defs/Name"
                 }
               },
               "required": [
@@ -651,7 +651,7 @@
             },
             "id": {
               "description": "The identifier of the combat technique to provide the rating for.",
-              "$ref": "./_Identifier.schema.json#/definitions/SpecialAbilityIdentifier"
+              "$ref": "./_Identifier.schema.json#/$defs/SpecialAbilityIdentifier"
             },
             "level": {
               "description": "The level of the received special ability.",
@@ -662,7 +662,7 @@
               "description": "Received select options. Order is important. Typically, you only need the\nfirst array index, though.",
               "type": "array",
               "items": {
-                "$ref": "./_Identifier.schema.json#/definitions/RequirableSelectOptionIdentifier"
+                "$ref": "./_Identifier.schema.json#/$defs/RequirableSelectOptionIdentifier"
               },
               "minItems": 1
             }
@@ -686,7 +686,7 @@
                 "properties": {
                   "id": {
                     "description": "The identifier of the combat technique to provide the rating for.",
-                    "$ref": "./_Identifier.schema.json#/definitions/SpecialAbilityIdentifier"
+                    "$ref": "./_Identifier.schema.json#/$defs/SpecialAbilityIdentifier"
                   },
                   "level": {
                     "description": "The level of the received special ability.",
@@ -697,7 +697,7 @@
                     "description": "Received select options. Order is important. Typically, you only need the\nfirst array index, though.",
                     "type": "array",
                     "items": {
-                      "$ref": "./_Identifier.schema.json#/definitions/RequirableSelectOptionIdentifier"
+                      "$ref": "./_Identifier.schema.json#/$defs/RequirableSelectOptionIdentifier"
                     },
                     "minItems": 1
                   }
@@ -728,7 +728,7 @@
             },
             "id": {
               "description": "The identifier of the combat technique to provide the rating for.",
-              "$ref": "./_Identifier.schema.json#/definitions/SpecialAbilityIdentifier"
+              "$ref": "./_Identifier.schema.json#/$defs/SpecialAbilityIdentifier"
             },
             "active": {
               "description": "if set to `false`, if the entry is granted by the basic package, it is\nremoved.",
@@ -743,7 +743,7 @@
               "description": "Received select options. Order is important. Typically, you only need the\nfirst array index, though.",
               "type": "array",
               "items": {
-                "$ref": "./_Identifier.schema.json#/definitions/RequirableSelectOptionIdentifier"
+                "$ref": "./_Identifier.schema.json#/$defs/RequirableSelectOptionIdentifier"
               },
               "minItems": 1
             }
@@ -771,7 +771,7 @@
                 "properties": {
                   "id": {
                     "description": "The identifier of the combat technique to provide the rating for.",
-                    "$ref": "./_Identifier.schema.json#/definitions/SpecialAbilityIdentifier"
+                    "$ref": "./_Identifier.schema.json#/$defs/SpecialAbilityIdentifier"
                   },
                   "level": {
                     "description": "The level of the received special ability.",
@@ -782,7 +782,7 @@
                     "description": "Received select options. Order is important. Typically, you only need the\nfirst array index, though.",
                     "type": "array",
                     "items": {
-                      "$ref": "./_Identifier.schema.json#/definitions/RequirableSelectOptionIdentifier"
+                      "$ref": "./_Identifier.schema.json#/$defs/RequirableSelectOptionIdentifier"
                     },
                     "minItems": 1
                   }
@@ -808,7 +808,7 @@
       "properties": {
         "id": {
           "description": "The identifier of the combat technique to provide the rating for.",
-          "$ref": "./_Identifier.schema.json#/definitions/CombatTechniqueIdentifier"
+          "$ref": "./_Identifier.schema.json#/$defs/CombatTechniqueIdentifier"
         },
         "rating": {
           "description": "The rating provided for the combat technique.",
@@ -827,7 +827,7 @@
       "properties": {
         "id": {
           "description": "The identifier of the combat technique to provide the rating for.",
-          "$ref": "./_Identifier.schema.json#/definitions/CombatTechniqueIdentifier"
+          "$ref": "./_Identifier.schema.json#/$defs/CombatTechniqueIdentifier"
         },
         "rating": {
           "description": "The rating provided for the combat technique. It overrides the basic\npackage's rating.",
@@ -893,7 +893,7 @@
             },
             "id": {
               "description": "The identifier of the spell to provide the rating for.",
-              "$ref": "#/definitions/SpellIdentifier"
+              "$ref": "#/$defs/SpellIdentifier"
             },
             "rating": {
               "description": "The rating provided for the spell.",
@@ -918,7 +918,7 @@
               "description": "The identifiers of the spells to choose from to provide the rating for.",
               "type": "array",
               "items": {
-                "$ref": "#/definitions/SpellIdentifier"
+                "$ref": "#/$defs/SpellIdentifier"
               },
               "minItems": 2
             },
@@ -947,7 +947,7 @@
             },
             "id": {
               "description": "The identifier of the spell to provide the rating for.",
-              "$ref": "#/definitions/SpellIdentifier"
+              "$ref": "#/$defs/SpellIdentifier"
             },
             "rating": {
               "description": "The rating provided for the spell. It overrides the basic package's\nrating.",
@@ -972,7 +972,7 @@
               "description": "The identifiers of the spells to choose from to provide the rating for.",
               "type": "array",
               "items": {
-                "$ref": "#/definitions/SpellIdentifier"
+                "$ref": "#/$defs/SpellIdentifier"
               },
               "minItems": 2
             },
@@ -1001,7 +1001,7 @@
             },
             "id": {
               "description": "The identifier of the spell to provide the rating for.",
-              "$ref": "./_Identifier.schema.json#/definitions/SpellworkIdentifier"
+              "$ref": "./_Identifier.schema.json#/$defs/SpellworkIdentifier"
             },
             "tradition": {
               "description": "If the spell is not part of the magical tradition required by the\npackage, this references the magical tradition it is part of. It can also\nbe used to define the target magical tradition of a spell if multiple\nmagical traditions are required and the spell is available to multiple\nof them.",
@@ -1032,7 +1032,7 @@
             },
             "id": {
               "description": "The identifier of the magical action to provide the rating for.",
-              "$ref": "./_Identifier.schema.json#/definitions/MagicalActionIdentifier"
+              "$ref": "./_Identifier.schema.json#/$defs/MagicalActionIdentifier"
             }
           },
           "required": [
@@ -1053,7 +1053,7 @@
             },
             "id": {
               "description": "The identifier of the liturgical chant to provide the rating for.",
-              "$ref": "./_Identifier.schema.json#/definitions/LiturgyIdentifier"
+              "$ref": "./_Identifier.schema.json#/$defs/LiturgyIdentifier"
             },
             "rating": {
               "description": "The rating provided for the liturgical chant.",
@@ -1078,7 +1078,7 @@
               "description": "The identifiers of the liturgical chants to choose from to provide the\nrating for.",
               "type": "array",
               "items": {
-                "$ref": "./_Identifier.schema.json#/definitions/LiturgyIdentifier"
+                "$ref": "./_Identifier.schema.json#/$defs/LiturgyIdentifier"
               },
               "minItems": 2
             },
@@ -1107,7 +1107,7 @@
             },
             "id": {
               "description": "The identifier of the liturgical chant to provide the rating for.",
-              "$ref": "./_Identifier.schema.json#/definitions/LiturgyIdentifier"
+              "$ref": "./_Identifier.schema.json#/$defs/LiturgyIdentifier"
             },
             "rating": {
               "description": "The rating provided for the liturgical chant. It overrides the basic\npackage's rating.",
@@ -1132,7 +1132,7 @@
               "description": "The identifiers of the liturgical chants to choose from to provide the\nrating for.",
               "type": "array",
               "items": {
-                "$ref": "./_Identifier.schema.json#/definitions/LiturgyIdentifier"
+                "$ref": "./_Identifier.schema.json#/$defs/LiturgyIdentifier"
               },
               "minItems": 2
             },
@@ -1283,7 +1283,7 @@
             "properties": {
               "id": {
                 "description": "The combat technique's identifier.",
-                "$ref": "./_Identifier.schema.json#/definitions/CombatTechniqueIdentifier"
+                "$ref": "./_Identifier.schema.json#/$defs/CombatTechniqueIdentifier"
               }
             },
             "required": [
@@ -1406,22 +1406,22 @@
       "description": "The name of the profession that may have sex-specific names.",
       "oneOf": [
         {
-          "$ref": "#/definitions/NonEmptyString"
+          "$ref": "#/$defs/NonEmptyString"
         },
         {
           "type": "object",
           "properties": {
             "default": {
               "description": "The name from the source publication.",
-              "$ref": "#/definitions/NonEmptyString"
+              "$ref": "#/$defs/NonEmptyString"
             },
             "male": {
               "description": "The male name.",
-              "$ref": "#/definitions/NonEmptyString"
+              "$ref": "#/$defs/NonEmptyString"
             },
             "female": {
               "description": "The female name.",
-              "$ref": "#/definitions/NonEmptyString"
+              "$ref": "#/$defs/NonEmptyString"
             }
           },
           "required": [

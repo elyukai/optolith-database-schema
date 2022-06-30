@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/Element.schema.json",
-  "$ref": "#/definitions/Element",
-  "definitions": {
+  "$ref": "#/$defs/Element",
+  "$defs": {
     "Element": {
       "title": "Element",
       "type": "object",

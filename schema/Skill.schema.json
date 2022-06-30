@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/Skill.schema.json",
-  "$ref": "#/definitions/Skill",
-  "definitions": {
+  "$ref": "#/$defs/Skill",
+  "$defs": {
     "Skill": {
       "title": "Skill",
       "type": "object",
@@ -14,19 +14,19 @@
         },
         "check": {
           "description": "Lists the linked three attributes used to make a skill check.",
-          "$ref": "./_SkillCheck.schema.json#/definitions/SkillCheck"
+          "$ref": "./_SkillCheck.schema.json#/$defs/SkillCheck"
         },
         "applications": {
           "description": "Lists applications for the skill, if any. This does not necessarily include\nall possible applications. There may also be new applications that could be\npurchased via certain advantages or special abilities.",
-          "$ref": "#/definitions/Applications"
+          "$ref": "#/$defs/Applications"
         },
         "encumbrance": {
           "description": "Indicates whether encumbrance gives a penalty for checks with the skill.",
-          "$ref": "#/definitions/Encumbrance"
+          "$ref": "#/$defs/Encumbrance"
         },
         "improvement_cost": {
           "description": "States which column is used to improve the skill.",
-          "$ref": "./_ImprovementCost.schema.json#/definitions/ImprovementCost"
+          "$ref": "./_ImprovementCost.schema.json#/$defs/ImprovementCost"
         },
         "group": {
           "description": "The skill group this skill belongs to.",
@@ -45,7 +45,7 @@
           "additionalProperties": false
         },
         "src": {
-          "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+          "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -95,7 +95,7 @@
                   "minLength": 1
                 },
                 "errata": {
-                  "$ref": "./source/_Erratum.schema.json#/definitions/Errata"
+                  "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
                 }
               },
               "required": [
@@ -176,7 +176,7 @@
             },
             "category": {
               "description": "A category. All available entries from the specified category will be\nincluded as separate applications.",
-              "$ref": "#/definitions/ApplicationCategory"
+              "$ref": "#/$defs/ApplicationCategory"
             }
           },
           "required": [
@@ -195,7 +195,7 @@
               "description": "A list of explicit applications.",
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Application"
+                "$ref": "#/$defs/Application"
               }
             }
           },

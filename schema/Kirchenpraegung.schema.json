@@ -1,11 +1,11 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/Kirchenpraegung.schema.json",
-  "$ref": "#/definitions/Kirchenpraegung",
-  "definitions": {
+  "$ref": "#/$defs/Kirchenpraegung",
+  "$defs": {
     "Kirchenpraegung": {
       "title": "Kirchenprägung",
-      "$ref": "./_Influence.schema.json#/definitions/Influence"
+      "$ref": "./_Influence.schema.json#/$defs/Influence"
     }
   }
 }

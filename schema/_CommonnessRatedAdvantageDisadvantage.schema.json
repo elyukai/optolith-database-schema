@@ -1,7 +1,7 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/_CommonnessRatedAdvantageDisadvantage.schema.json",
-  "definitions": {
+  "$defs": {
     "CommonnessRatedAdvantageDisadvantage": {
       "title": "Commonness-rated Advantage/Disadvantage",
       "description": "Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.",

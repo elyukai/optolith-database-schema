@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/ArcaneDancerTradition.schema.json",
-  "$ref": "#/definitions/ArcaneDancerTradition",
-  "definitions": {
+  "$ref": "#/$defs/ArcaneDancerTradition",
+  "$defs": {
     "ArcaneDancerTradition": {
       "title": "Arcane Dancer Tradition",
       "type": "object",
@@ -13,7 +13,7 @@
           "minimum": 1
         },
         "prerequisites": {
-          "$ref": "./_Prerequisite.schema.json#/definitions/ArcaneTraditionPrerequisites"
+          "$ref": "./_Prerequisite.schema.json#/$defs/ArcaneTraditionPrerequisites"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",

@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/rule/FocusRule_Subject.schema.json",
-  "$ref": "#/definitions/Subject",
-  "definitions": {
+  "$ref": "#/$defs/Subject",
+  "$defs": {
     "Subject": {
       "title": "Subject",
       "description": "Subjects or Subject Areas are the categories of Focus Rules.",

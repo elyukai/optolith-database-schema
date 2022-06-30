@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/Lessons_Curriculum.schema.json",
-  "$ref": "#/definitions/Curriculum",
-  "definitions": {
+  "$ref": "#/$defs/Curriculum",
+  "$defs": {
     "Curriculum": {
       "title": "Curriculum",
       "description": "This is a curriculum of a specified academy, containing the guideline,\nelective and restricted spellworks as well as the lesson packages of that\nacademy.",
@@ -21,18 +21,18 @@
         },
         "elective_spellworks": {
           "description": "The academy's elective spellworks package.",
-          "$ref": "#/definitions/ElectiveSpellworks"
+          "$ref": "#/$defs/ElectiveSpellworks"
         },
         "restricted_spellworks": {
           "description": "The academy's restricted spellworks package.",
-          "$ref": "#/definitions/RestrictedSpellworks"
+          "$ref": "#/$defs/RestrictedSpellworks"
         },
         "lesson_packages": {
           "description": "A list of available lesson packages.",
-          "$ref": "#/definitions/LessonPackages"
+          "$ref": "#/$defs/LessonPackages"
         },
         "src": {
-          "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+          "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -47,7 +47,7 @@
                   "minLength": 1
                 },
                 "errata": {
-                  "$ref": "./source/_Erratum.schema.json#/definitions/Errata"
+                  "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
                 }
               },
               "required": [
@@ -93,7 +93,7 @@
             "list": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/ElectiveSpellwork"
+                "$ref": "#/$defs/ElectiveSpellwork"
               },
               "minItems": 1
             }
@@ -110,11 +110,11 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/definitions/SpellworkId"
+          "$ref": "#/$defs/SpellworkId"
         },
         "restriction": {
           "description": "The elective spellwork may only take effect if a certain condition is met.\nThe condition may be related to professions or profession variants, but it\nis designed so that it can work without a specific profession, as multiple\nmay belong to an institute, but with referencing other entities instead.",
-          "$ref": "#/definitions/ElectiveSpellworkRestriction"
+          "$ref": "#/$defs/ElectiveSpellworkRestriction"
         }
       },
       "required": [
@@ -146,7 +146,7 @@
       "description": "The academy's restricted spellworks package.",
       "type": "array",
       "items": {
-        "$ref": "#/definitions/RestrictedSpellwork"
+        "$ref": "#/$defs/RestrictedSpellwork"
       },
       "minItems": 1
     },
@@ -168,7 +168,7 @@
               "description": "Exclude specific spellworks from the restriction.",
               "type": "array",
               "items": {
-                "$ref": "#/definitions/SpellworkId"
+                "$ref": "#/$defs/SpellworkId"
               },
               "minItems": 1
             },
@@ -184,7 +184,7 @@
           "additionalProperties": false
         },
         {
-          "$ref": "#/definitions/SpellworkId"
+          "$ref": "#/$defs/SpellworkId"
         },
         {
           "type": "object",
@@ -227,17 +227,17 @@
     "LessonPackages": {
       "description": "A list of available lesson packages.",
       "type": "array",
-      "items": [
+      "prefixItems": [
         {
-          "$ref": "#/definitions/LessonPackage"
+          "$ref": "#/$defs/LessonPackage"
         },
         {
-          "$ref": "#/definitions/LessonPackage"
+          "$ref": "#/$defs/LessonPackage"
         }
       ],
       "minItems": 2,
       "maxItems": 2,
-      "additionalItems": false
+      "items": false
     },
     "LessonPackage": {
       "title": "Lesson Package",
@@ -255,10 +255,10 @@
             "type": "object",
             "properties": {
               "base": {
-                "$ref": "#/definitions/SpellworkAdjustment"
+                "$ref": "#/$defs/SpellworkAdjustment"
               },
               "replacement": {
-                "$ref": "#/definitions/SpellworkAdjustment"
+                "$ref": "#/$defs/SpellworkAdjustment"
               }
             },
             "required": [
@@ -272,7 +272,7 @@
         "skills": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/SkillAdjustment"
+            "$ref": "#/$defs/SkillAdjustment"
           }
         },
         "translations": {
@@ -388,7 +388,7 @@
           "additionalProperties": false
         },
         {
-          "$ref": "#/definitions/SpellworkAdjustment"
+          "$ref": "#/$defs/SpellworkAdjustment"
         }
       ]
     },

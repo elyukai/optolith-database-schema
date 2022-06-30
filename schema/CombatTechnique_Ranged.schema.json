@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/CombatTechnique_Ranged.schema.json",
-  "$ref": "#/definitions/RangedCombatTechnique",
-  "definitions": {
+  "$ref": "#/$defs/RangedCombatTechnique",
+  "$defs": {
     "RangedCombatTechnique": {
       "title": "Ranged Combat Technique",
       "type": "object",
@@ -16,7 +16,7 @@
           "description": "The primary attribute(s).",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/PrimaryAttribute"
+            "$ref": "#/$defs/PrimaryAttribute"
           },
           "minItems": 1,
           "maxItems": 2,
@@ -28,10 +28,10 @@
           "minimum": 1
         },
         "improvement_cost": {
-          "$ref": "./_ImprovementCost.schema.json#/definitions/ImprovementCost"
+          "$ref": "./_ImprovementCost.schema.json#/$defs/ImprovementCost"
         },
         "src": {
-          "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+          "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -51,7 +51,7 @@
                   "minLength": 1
                 },
                 "errata": {
-                  "$ref": "./source/_Erratum.schema.json#/definitions/Errata"
+                  "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
                 }
               },
               "required": [

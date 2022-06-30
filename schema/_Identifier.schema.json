@@ -1,7 +1,7 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/_Identifier.schema.json",
-  "definitions": {
+  "$defs": {
     "ActivatableTag": {
       "enum": [
         "Advantage",
@@ -219,7 +219,7 @@
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/definitions/ActivatableTag"
+          "$ref": "#/$defs/ActivatableTag"
         },
         "value": {
           "description": "The referenced entry's numeric identifier.",
@@ -237,7 +237,7 @@
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/definitions/SpecialAbilityTag"
+          "$ref": "#/$defs/SpecialAbilityTag"
         },
         "value": {
           "description": "The referenced entry's numeric identifier.",
@@ -255,7 +255,7 @@
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/definitions/CombatRelatedSpecialAbilityTag"
+          "$ref": "#/$defs/CombatRelatedSpecialAbilityTag"
         },
         "value": {
           "description": "The referenced entry's numeric identifier.",
@@ -273,7 +273,7 @@
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/definitions/RatedTag"
+          "$ref": "#/$defs/RatedTag"
         },
         "value": {
           "description": "The referenced entry's numeric identifier.",
@@ -291,7 +291,7 @@
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/definitions/SkillTag"
+          "$ref": "#/$defs/SkillTag"
         },
         "value": {
           "description": "The referenced entry's numeric identifier.",
@@ -309,7 +309,7 @@
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/definitions/AdvancedSpecialAbilityRestrictedOptionTag"
+          "$ref": "#/$defs/AdvancedSpecialAbilityRestrictedOptionTag"
         },
         "value": {
           "description": "The referenced entry's numeric identifier.",
@@ -327,7 +327,7 @@
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/definitions/VolumePointsOptionReferenceTag"
+          "$ref": "#/$defs/VolumePointsOptionReferenceTag"
         },
         "value": {
           "description": "The referenced entry's numeric identifier.",
@@ -345,7 +345,7 @@
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/definitions/CombatTechniqueTag"
+          "$ref": "#/$defs/CombatTechniqueTag"
         },
         "value": {
           "description": "The referenced entry's numeric identifier.",
@@ -363,7 +363,7 @@
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/definitions/MagicalTraditionTag"
+          "$ref": "#/$defs/MagicalTraditionTag"
         },
         "value": {
           "description": "The referenced entry's numeric identifier.",
@@ -381,7 +381,7 @@
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/definitions/PatronTag"
+          "$ref": "#/$defs/PatronTag"
         },
         "value": {
           "description": "The referenced entry's numeric identifier.",
@@ -399,7 +399,7 @@
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/definitions/ExtensionRuleTag"
+          "$ref": "#/$defs/ExtensionRuleTag"
         },
         "value": {
           "description": "The referenced entry's numeric identifier.",
@@ -417,7 +417,7 @@
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/definitions/SkillWithEnhancementsTag"
+          "$ref": "#/$defs/SkillWithEnhancementsTag"
         },
         "value": {
           "description": "The referenced entry's numeric identifier.",
@@ -435,7 +435,7 @@
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/definitions/LiturgyTag"
+          "$ref": "#/$defs/LiturgyTag"
         },
         "value": {
           "description": "The referenced entry's numeric identifier.",
@@ -453,7 +453,7 @@
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/definitions/SpellworkTag"
+          "$ref": "#/$defs/SpellworkTag"
         },
         "value": {
           "description": "The referenced entry's numeric identifier.",
@@ -471,7 +471,7 @@
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/definitions/MagicalActionTag"
+          "$ref": "#/$defs/MagicalActionTag"
         },
         "value": {
           "description": "The referenced entry's numeric identifier.",
@@ -489,7 +489,7 @@
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/definitions/RequirableSelectOptionTag"
+          "$ref": "#/$defs/RequirableSelectOptionTag"
         },
         "value": {
           "description": "The referenced entry's numeric identifier.",
@@ -507,7 +507,7 @@
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/definitions/CoreRuleDerivableContentTag"
+          "$ref": "#/$defs/CoreRuleDerivableContentTag"
         },
         "value": {
           "description": "The referenced entry's numeric identifier.",
@@ -524,10 +524,10 @@
     "OneOrManyNumericIdentifiers": {
       "oneOf": [
         {
-          "$ref": "#/definitions/OneNumericIdentifier"
+          "$ref": "#/$defs/OneNumericIdentifier"
         },
         {
-          "$ref": "#/definitions/ManyNumericIdentifiers"
+          "$ref": "#/$defs/ManyNumericIdentifiers"
         }
       ]
     },
@@ -538,7 +538,7 @@
     "ManyNumericIdentifiers": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/OneNumericIdentifier"
+        "$ref": "#/$defs/OneNumericIdentifier"
       },
       "minItems": 2
     }

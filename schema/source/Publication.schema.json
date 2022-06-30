@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/source/Publication.schema.json",
-  "$ref": "#/definitions/Publication",
-  "definitions": {
+  "$ref": "#/$defs/Publication",
+  "$defs": {
     "Publication": {
       "title": "Publication",
       "type": "object",
@@ -14,11 +14,11 @@
         },
         "category": {
           "description": "The publication category.",
-          "$ref": "#/definitions/Category"
+          "$ref": "#/$defs/Category"
         },
         "age_restriction": {
           "description": "The age the content is restricted to.",
-          "$ref": "#/definitions/AgeRestriction"
+          "$ref": "#/$defs/AgeRestriction"
         },
         "is_missing_implementation": {
           "description": "The publication is not (fully) implemented and thus needs to be excluded\nfrom * stable releases.",
@@ -26,7 +26,7 @@
         },
         "prerequisites": {
           "description": "The specific other publications this publication depends on data from.",
-          "$ref": "../_Prerequisite.schema.json#/definitions/PublicationPrerequisites"
+          "$ref": "../_Prerequisite.schema.json#/$defs/PublicationPrerequisites"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",

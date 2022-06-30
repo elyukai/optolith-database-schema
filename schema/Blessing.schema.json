@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/Blessing.schema.json",
-  "$ref": "#/definitions/Blessing",
-  "definitions": {
+  "$ref": "#/$defs/Blessing",
+  "$defs": {
     "Blessing": {
       "title": "Blessing",
       "type": "object",
@@ -14,14 +14,14 @@
         },
         "parameters": {
           "description": "Measurable parameters of a blessing.",
-          "$ref": "#/definitions/PerformanceParameters"
+          "$ref": "#/$defs/PerformanceParameters"
         },
         "target": {
           "description": "The target category – the kind of creature or object – the skill affects.",
-          "$ref": "./_ActivatableSkill.schema.json#/definitions/TargetCategory/T"
+          "$ref": "./_ActivatableSkill.schema.json#/$defs/TargetCategory/T"
         },
         "src": {
-          "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+          "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -50,7 +50,7 @@
                   "type": "string"
                 },
                 "errata": {
-                  "$ref": "./source/_Erratum.schema.json#/definitions/Errata"
+                  "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
                 }
               },
               "required": [
@@ -153,7 +153,7 @@
                 },
                 "unit": {
                   "description": "The duration unit.",
-                  "$ref": "./_ActivatableSkill.schema.json#/definitions/Duration/Unit"
+                  "$ref": "./_ActivatableSkill.schema.json#/$defs/Duration/Unit"
                 }
               },
               "required": [

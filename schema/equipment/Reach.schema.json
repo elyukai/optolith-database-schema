@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/equipment/Reach.schema.json",
-  "$ref": "#/definitions/Reach",
-  "definitions": {
+  "$ref": "#/$defs/Reach",
+  "$defs": {
     "Reach": {
       "title": "Reach",
       "type": "object",

@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/Region.schema.json",
-  "$ref": "#/definitions/Region",
-  "definitions": {
+  "$ref": "#/$defs/Region",
+  "$defs": {
     "Region": {
       "title": "Region",
       "type": "object",

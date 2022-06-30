@@ -1,244 +1,244 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/prerequisites/PrerequisiteGroups.schema.json",
-  "definitions": {
+  "$defs": {
     "DerivedCharacteristicPrerequisiteGroup": {
       "oneOf": [
         {
-          "$ref": "./single/RulePrerequisite.schema.json#/definitions/RulePrerequisite"
+          "$ref": "./single/RulePrerequisite.schema.json#/$defs/RulePrerequisite"
         }
       ]
     },
     "PublicationPrerequisiteGroup": {
       "oneOf": [
         {
-          "$ref": "./single/PublicationPrerequisite.schema.json#/definitions/PublicationPrerequisite"
+          "$ref": "./single/PublicationPrerequisite.schema.json#/$defs/PublicationPrerequisite"
         }
       ]
     },
     "GeneralPrerequisiteGroup": {
       "oneOf": [
         {
-          "$ref": "./single/SexPrerequisite.schema.json#/definitions/SexPrerequisite"
+          "$ref": "./single/SexPrerequisite.schema.json#/$defs/SexPrerequisite"
         },
         {
-          "$ref": "./single/RacePrerequisite.schema.json#/definitions/RacePrerequisite"
+          "$ref": "./single/RacePrerequisite.schema.json#/$defs/RacePrerequisite"
         },
         {
-          "$ref": "./single/CulturePrerequisite.schema.json#/definitions/CulturePrerequisite"
+          "$ref": "./single/CulturePrerequisite.schema.json#/$defs/CulturePrerequisite"
         },
         {
-          "$ref": "./single/PactPrerequisite.schema.json#/definitions/PactPrerequisite"
+          "$ref": "./single/PactPrerequisite.schema.json#/$defs/PactPrerequisite"
         },
         {
-          "$ref": "./single/SocialStatusPrerequisite.schema.json#/definitions/SocialStatusPrerequisite"
+          "$ref": "./single/SocialStatusPrerequisite.schema.json#/$defs/SocialStatusPrerequisite"
         },
         {
-          "$ref": "./single/StatePrerequisite.schema.json#/definitions/StatePrerequisite"
+          "$ref": "./single/StatePrerequisite.schema.json#/$defs/StatePrerequisite"
         },
         {
-          "$ref": "./single/RulePrerequisite.schema.json#/definitions/RulePrerequisite"
+          "$ref": "./single/RulePrerequisite.schema.json#/$defs/RulePrerequisite"
         },
         {
-          "$ref": "./single/PrimaryAttributePrerequisite.schema.json#/definitions/PrimaryAttributePrerequisite"
+          "$ref": "./single/PrimaryAttributePrerequisite.schema.json#/$defs/PrimaryAttributePrerequisite"
         },
         {
-          "$ref": "./single/ActivatablePrerequisite.schema.json#/definitions/ActivatablePrerequisite"
+          "$ref": "./single/ActivatablePrerequisite.schema.json#/$defs/ActivatablePrerequisite"
         },
         {
-          "$ref": "./single/ActivatablePrerequisite.schema.json#/definitions/ActivatableSetPrerequisite"
+          "$ref": "./single/ActivatablePrerequisite.schema.json#/$defs/ActivatableSetPrerequisite"
         },
         {
-          "$ref": "./single/ActivatablePrerequisite.schema.json#/definitions/ActivatableOptionSetPrerequisite"
+          "$ref": "./single/ActivatablePrerequisite.schema.json#/$defs/ActivatableOptionSetPrerequisite"
         },
         {
-          "$ref": "./single/TraditionPrerequisite.schema.json#/definitions/BlessedTraditionPrerequisite"
+          "$ref": "./single/TraditionPrerequisite.schema.json#/$defs/BlessedTraditionPrerequisite"
         },
         {
-          "$ref": "./single/TraditionPrerequisite.schema.json#/definitions/MagicalTraditionPrerequisite"
+          "$ref": "./single/TraditionPrerequisite.schema.json#/$defs/MagicalTraditionPrerequisite"
         },
         {
-          "$ref": "./single/RatedPrerequisite.schema.json#/definitions/RatedPrerequisite"
+          "$ref": "./single/RatedPrerequisite.schema.json#/$defs/RatedPrerequisite"
         },
         {
-          "$ref": "./single/RatedPrerequisite.schema.json#/definitions/RatedSetPrerequisite"
+          "$ref": "./single/RatedPrerequisite.schema.json#/$defs/RatedSetPrerequisite"
         },
         {
-          "$ref": "./single/RatedPrerequisite.schema.json#/definitions/RatedMinimumNumberPrerequisite"
+          "$ref": "./single/RatedPrerequisite.schema.json#/$defs/RatedMinimumNumberPrerequisite"
         },
         {
-          "$ref": "./single/EnhancementPrerequisite.schema.json#/definitions/ExternalEnhancementPrerequisite"
+          "$ref": "./single/EnhancementPrerequisite.schema.json#/$defs/ExternalEnhancementPrerequisite"
         },
         {
-          "$ref": "./single/TextPrerequisite.schema.json#/definitions/TextPrerequisite"
+          "$ref": "./single/TextPrerequisite.schema.json#/$defs/TextPrerequisite"
         }
       ]
     },
     "ProfessionPrerequisiteGroup": {
       "oneOf": [
         {
-          "$ref": "./single/SexPrerequisite.schema.json#/definitions/SexPrerequisite"
+          "$ref": "./single/SexPrerequisite.schema.json#/$defs/SexPrerequisite"
         },
         {
-          "$ref": "./single/RacePrerequisite.schema.json#/definitions/RacePrerequisite"
+          "$ref": "./single/RacePrerequisite.schema.json#/$defs/RacePrerequisite"
         },
         {
-          "$ref": "./single/CulturePrerequisite.schema.json#/definitions/CulturePrerequisite"
+          "$ref": "./single/CulturePrerequisite.schema.json#/$defs/CulturePrerequisite"
         },
         {
-          "$ref": "./single/ActivatablePrerequisite.schema.json#/definitions/ActivatablePrerequisite"
+          "$ref": "./single/ActivatablePrerequisite.schema.json#/$defs/ActivatablePrerequisite"
         },
         {
-          "$ref": "./single/RatedPrerequisite.schema.json#/definitions/RatedPrerequisite"
+          "$ref": "./single/RatedPrerequisite.schema.json#/$defs/RatedPrerequisite"
         }
       ]
     },
     "AdvantageDisadvantagePrerequisiteGroup": {
       "oneOf": [
         {
-          "$ref": "./single/CommonSuggestedByRCPPrerequisite.schema.json#/definitions/CommonSuggestedByRCPPrerequisite"
+          "$ref": "./single/CommonSuggestedByRCPPrerequisite.schema.json#/$defs/CommonSuggestedByRCPPrerequisite"
         },
         {
-          "$ref": "./single/SexPrerequisite.schema.json#/definitions/SexPrerequisite"
+          "$ref": "./single/SexPrerequisite.schema.json#/$defs/SexPrerequisite"
         },
         {
-          "$ref": "./single/RacePrerequisite.schema.json#/definitions/RacePrerequisite"
+          "$ref": "./single/RacePrerequisite.schema.json#/$defs/RacePrerequisite"
         },
         {
-          "$ref": "./single/CulturePrerequisite.schema.json#/definitions/CulturePrerequisite"
+          "$ref": "./single/CulturePrerequisite.schema.json#/$defs/CulturePrerequisite"
         },
         {
-          "$ref": "./single/PactPrerequisite.schema.json#/definitions/PactPrerequisite"
+          "$ref": "./single/PactPrerequisite.schema.json#/$defs/PactPrerequisite"
         },
         {
-          "$ref": "./single/SocialStatusPrerequisite.schema.json#/definitions/SocialStatusPrerequisite"
+          "$ref": "./single/SocialStatusPrerequisite.schema.json#/$defs/SocialStatusPrerequisite"
         },
         {
-          "$ref": "./single/StatePrerequisite.schema.json#/definitions/StatePrerequisite"
+          "$ref": "./single/StatePrerequisite.schema.json#/$defs/StatePrerequisite"
         },
         {
-          "$ref": "./single/RulePrerequisite.schema.json#/definitions/RulePrerequisite"
+          "$ref": "./single/RulePrerequisite.schema.json#/$defs/RulePrerequisite"
         },
         {
-          "$ref": "./single/PrimaryAttributePrerequisite.schema.json#/definitions/PrimaryAttributePrerequisite"
+          "$ref": "./single/PrimaryAttributePrerequisite.schema.json#/$defs/PrimaryAttributePrerequisite"
         },
         {
-          "$ref": "./single/ActivatablePrerequisite.schema.json#/definitions/ActivatablePrerequisite"
+          "$ref": "./single/ActivatablePrerequisite.schema.json#/$defs/ActivatablePrerequisite"
         },
         {
-          "$ref": "./single/ActivatablePrerequisite.schema.json#/definitions/ActivatableSetPrerequisite"
+          "$ref": "./single/ActivatablePrerequisite.schema.json#/$defs/ActivatableSetPrerequisite"
         },
         {
-          "$ref": "./single/ActivatablePrerequisite.schema.json#/definitions/ActivatableOptionSetPrerequisite"
+          "$ref": "./single/ActivatablePrerequisite.schema.json#/$defs/ActivatableOptionSetPrerequisite"
         },
         {
-          "$ref": "./single/TraditionPrerequisite.schema.json#/definitions/BlessedTraditionPrerequisite"
+          "$ref": "./single/TraditionPrerequisite.schema.json#/$defs/BlessedTraditionPrerequisite"
         },
         {
-          "$ref": "./single/TraditionPrerequisite.schema.json#/definitions/MagicalTraditionPrerequisite"
+          "$ref": "./single/TraditionPrerequisite.schema.json#/$defs/MagicalTraditionPrerequisite"
         },
         {
-          "$ref": "./single/RatedPrerequisite.schema.json#/definitions/RatedPrerequisite"
+          "$ref": "./single/RatedPrerequisite.schema.json#/$defs/RatedPrerequisite"
         },
         {
-          "$ref": "./single/RatedPrerequisite.schema.json#/definitions/RatedSetPrerequisite"
+          "$ref": "./single/RatedPrerequisite.schema.json#/$defs/RatedSetPrerequisite"
         },
         {
-          "$ref": "./single/RatedPrerequisite.schema.json#/definitions/RatedMinimumNumberPrerequisite"
+          "$ref": "./single/RatedPrerequisite.schema.json#/$defs/RatedMinimumNumberPrerequisite"
         },
         {
-          "$ref": "./single/EnhancementPrerequisite.schema.json#/definitions/ExternalEnhancementPrerequisite"
+          "$ref": "./single/EnhancementPrerequisite.schema.json#/$defs/ExternalEnhancementPrerequisite"
         },
         {
-          "$ref": "./single/TextPrerequisite.schema.json#/definitions/TextPrerequisite"
+          "$ref": "./single/TextPrerequisite.schema.json#/$defs/TextPrerequisite"
         }
       ]
     },
     "ArcaneTraditionPrerequisiteGroup": {
       "oneOf": [
         {
-          "$ref": "./single/SexPrerequisite.schema.json#/definitions/SexPrerequisite"
+          "$ref": "./single/SexPrerequisite.schema.json#/$defs/SexPrerequisite"
         },
         {
-          "$ref": "./single/CulturePrerequisite.schema.json#/definitions/CulturePrerequisite"
+          "$ref": "./single/CulturePrerequisite.schema.json#/$defs/CulturePrerequisite"
         }
       ]
     },
     "PersonalityTraitPrerequisiteGroup": {
       "oneOf": [
         {
-          "$ref": "./single/CulturePrerequisite.schema.json#/definitions/CulturePrerequisite"
+          "$ref": "./single/CulturePrerequisite.schema.json#/$defs/CulturePrerequisite"
         },
         {
-          "$ref": "./single/TextPrerequisite.schema.json#/definitions/TextPrerequisite"
+          "$ref": "./single/TextPrerequisite.schema.json#/$defs/TextPrerequisite"
         }
       ]
     },
     "SpellworkPrerequisiteGroup": {
       "oneOf": [
         {
-          "$ref": "./single/RulePrerequisite.schema.json#/definitions/RulePrerequisite"
+          "$ref": "./single/RulePrerequisite.schema.json#/$defs/RulePrerequisite"
         },
         {
-          "$ref": "./single/RatedPrerequisite.schema.json#/definitions/RatedPrerequisite"
+          "$ref": "./single/RatedPrerequisite.schema.json#/$defs/RatedPrerequisite"
         }
       ]
     },
     "LiturgyPrerequisiteGroup": {
       "oneOf": [
         {
-          "$ref": "./single/RulePrerequisite.schema.json#/definitions/RulePrerequisite"
+          "$ref": "./single/RulePrerequisite.schema.json#/$defs/RulePrerequisite"
         }
       ]
     },
     "InfluencePrerequisiteGroup": {
       "oneOf": [
         {
-          "$ref": "./single/InfluencePrerequisite.schema.json#/definitions/InfluencePrerequisite"
+          "$ref": "./single/InfluencePrerequisite.schema.json#/$defs/InfluencePrerequisite"
         },
         {
-          "$ref": "./single/TextPrerequisite.schema.json#/definitions/TextPrerequisite"
+          "$ref": "./single/TextPrerequisite.schema.json#/$defs/TextPrerequisite"
         }
       ]
     },
     "LanguagePrerequisiteGroup": {
       "oneOf": [
         {
-          "$ref": "./single/RacePrerequisite.schema.json#/definitions/RacePrerequisite"
+          "$ref": "./single/RacePrerequisite.schema.json#/$defs/RacePrerequisite"
         },
         {
-          "$ref": "./single/ActivatablePrerequisite.schema.json#/definitions/ActivatablePrerequisite"
+          "$ref": "./single/ActivatablePrerequisite.schema.json#/$defs/ActivatablePrerequisite"
         },
         {
-          "$ref": "./single/TextPrerequisite.schema.json#/definitions/TextPrerequisite"
+          "$ref": "./single/TextPrerequisite.schema.json#/$defs/TextPrerequisite"
         }
       ]
     },
     "AnimistPowerPrerequisiteGroup": {
       "oneOf": [
         {
-          "$ref": "./single/AnimistPowerPrerequisite.schema.json#/definitions/AnimistPowerPrerequisite"
+          "$ref": "./single/AnimistPowerPrerequisite.schema.json#/$defs/AnimistPowerPrerequisite"
         }
       ]
     },
     "GeodeRitualPrerequisiteGroup": {
       "oneOf": [
         {
-          "$ref": "./single/InfluencePrerequisite.schema.json#/definitions/InfluencePrerequisite"
+          "$ref": "./single/InfluencePrerequisite.schema.json#/$defs/InfluencePrerequisite"
         }
       ]
     },
     "EnhancementPrerequisiteGroup": {
       "oneOf": [
         {
-          "$ref": "./single/EnhancementPrerequisite.schema.json#/definitions/InternalEnhancementPrerequisite"
+          "$ref": "./single/EnhancementPrerequisite.schema.json#/$defs/InternalEnhancementPrerequisite"
         }
       ]
     },
     "PreconditionGroup": {
       "oneOf": [
         {
-          "$ref": "./single/PublicationPrerequisite.schema.json#/definitions/PublicationPrerequisite"
+          "$ref": "./single/PublicationPrerequisite.schema.json#/$defs/PublicationPrerequisite"
         }
       ]
     }

@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/MetaCondition.schema.json",
-  "$ref": "#/definitions/MetaCondition",
-  "definitions": {
+  "$ref": "#/$defs/MetaCondition",
+  "$defs": {
     "MetaCondition": {
       "title": "Meta Condition",
       "description": "Meta Conditions are rule elements that work like conditions in the sense that\nthey have four levels with different effects, but which are not explicitly\nlisted as conditions.",
@@ -14,7 +14,7 @@
           "minimum": 1
         },
         "src": {
-          "$ref": "./source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+          "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -36,26 +36,26 @@
                 "effects": {
                   "description": "The effects for level 1 to 4.",
                   "type": "array",
-                  "items": [
+                  "prefixItems": [
                     {
-                      "$ref": "#/definitions/Effect"
+                      "$ref": "#/$defs/Effect"
                     },
                     {
-                      "$ref": "#/definitions/Effect"
+                      "$ref": "#/$defs/Effect"
                     },
                     {
-                      "$ref": "#/definitions/Effect"
+                      "$ref": "#/$defs/Effect"
                     },
                     {
-                      "$ref": "#/definitions/Effect"
+                      "$ref": "#/$defs/Effect"
                     }
                   ],
                   "minItems": 4,
                   "maxItems": 4,
-                  "additionalItems": false
+                  "items": false
                 },
                 "errata": {
-                  "$ref": "./source/_Erratum.schema.json#/definitions/Errata"
+                  "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
                 }
               },
               "required": [

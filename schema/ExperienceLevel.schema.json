@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/ExperienceLevel.schema.json",
-  "$ref": "#/definitions/ExperienceLevel",
-  "definitions": {
+  "$ref": "#/$defs/ExperienceLevel",
+  "$defs": {
     "ExperienceLevel": {
       "title": "Experience Level",
       "description": "Adventure Points and maximum values at hero creation.",
@@ -46,7 +46,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "$ref": "#/definitions/Translation"
+              "$ref": "#/$defs/Translation"
             }
           },
           "minProperties": 1,

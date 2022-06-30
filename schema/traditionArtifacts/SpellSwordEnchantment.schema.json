@@ -1,41 +1,41 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/traditionArtifacts/SpellSwordEnchantment.schema.json",
-  "$ref": "#/definitions/SpellSwordEnchantment",
-  "definitions": {
+  "$ref": "#/$defs/SpellSwordEnchantment",
+  "$defs": {
     "SpellSwordEnchantment": {
       "title": "Spell-Sword Enchantment",
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "../_Activatable.schema.json#/definitions/Id"
+          "$ref": "../_Activatable.schema.json#/$defs/Id"
         },
         "levels": {
-          "$ref": "../_Activatable.schema.json#/definitions/Levels"
+          "$ref": "../_Activatable.schema.json#/$defs/Levels"
         },
         "select_options": {
-          "$ref": "../_Activatable.schema.json#/definitions/SelectOptions"
+          "$ref": "../_Activatable.schema.json#/$defs/SelectOptions"
         },
         "maximum": {
-          "$ref": "../_Activatable.schema.json#/definitions/Maximum"
+          "$ref": "../_Activatable.schema.json#/$defs/Maximum"
         },
         "prerequisites": {
-          "$ref": "../_Prerequisite.schema.json#/definitions/GeneralPrerequisites"
+          "$ref": "../_Prerequisite.schema.json#/$defs/GeneralPrerequisites"
         },
         "volume": {
-          "$ref": "../_Activatable.schema.json#/definitions/Volume"
+          "$ref": "../_Activatable.schema.json#/$defs/Volume"
         },
         "cost": {
-          "$ref": "../_Activatable.schema.json#/definitions/EnchantmentCost"
+          "$ref": "../_Activatable.schema.json#/$defs/EnchantmentCost"
         },
         "property": {
-          "$ref": "../_Activatable.schema.json#/definitions/Property"
+          "$ref": "../_Activatable.schema.json#/$defs/Property"
         },
         "ap_value": {
-          "$ref": "../_Activatable.schema.json#/definitions/AdventurePointsValue"
+          "$ref": "../_Activatable.schema.json#/$defs/AdventurePointsValue"
         },
         "src": {
-          "$ref": "../source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+          "$ref": "../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -45,13 +45,13 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "$ref": "../_Activatable.schema.json#/definitions/Name"
+                  "$ref": "../_Activatable.schema.json#/$defs/Name"
                 },
                 "name_in_library": {
-                  "$ref": "../_Activatable.schema.json#/definitions/NameInLibrary"
+                  "$ref": "../_Activatable.schema.json#/$defs/NameInLibrary"
                 },
                 "effect": {
-                  "$ref": "../_Activatable.schema.json#/definitions/Effect"
+                  "$ref": "../_Activatable.schema.json#/$defs/Effect"
                 },
                 "volume": {
                   "type": "string"
@@ -63,7 +63,7 @@
                   "type": "string"
                 },
                 "errata": {
-                  "$ref": "../source/_Erratum.schema.json#/definitions/Errata"
+                  "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
                 }
               },
               "required": [

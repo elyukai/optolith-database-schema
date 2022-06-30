@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/equipment/Item.schema.json",
-  "$ref": "#/definitions/Item",
-  "definitions": {
+  "$ref": "#/$defs/Item",
+  "$defs": {
     "Item": {
       "title": "Item",
       "type": "object",
@@ -14,15 +14,15 @@
         },
         "cost": {
           "description": "The cost in silverthalers.",
-          "$ref": "#/definitions/Cost"
+          "$ref": "#/$defs/Cost"
         },
         "weight": {
           "description": "The weight in kg.",
-          "$ref": "#/definitions/Weight"
+          "$ref": "#/$defs/Weight"
         },
         "complexity": {
           "description": "The complexity of crafting the item.",
-          "$ref": "#/definitions/Complexity"
+          "$ref": "#/$defs/Complexity"
         },
         "type": {
           "oneOf": [
@@ -37,29 +37,29 @@
                   "items": {
                     "oneOf": [
                       {
-                        "$ref": "./_Weapon.schema.json#/definitions/MeleeWeapon"
+                        "$ref": "./_Weapon.schema.json#/$defs/MeleeWeapon"
                       },
                       {
-                        "$ref": "./_Weapon.schema.json#/definitions/RangedWeapon"
+                        "$ref": "./_Weapon.schema.json#/$defs/RangedWeapon"
                       }
                     ]
                   },
                   "minItems": 1
                 },
                 "sanctified_by": {
-                  "$ref": "./_Weapon.schema.json#/definitions/SanctifiedBy"
+                  "$ref": "./_Weapon.schema.json#/$defs/SanctifiedBy"
                 },
                 "restricted_to_cultures": {
-                  "$ref": "./_Weapon.schema.json#/definitions/RestrictedToCultures"
+                  "$ref": "./_Weapon.schema.json#/$defs/RestrictedToCultures"
                 },
                 "secondary": {
                   "type": "object",
                   "properties": {
                     "type": {
-                      "$ref": "#/definitions/Type"
+                      "$ref": "#/$defs/Type"
                     },
                     "structure_points": {
-                      "$ref": "./_Weapon.schema.json#/definitions/StructurePoints"
+                      "$ref": "./_Weapon.schema.json#/$defs/StructurePoints"
                     }
                   },
                   "required": [
@@ -76,25 +76,25 @@
                       "type": "object",
                       "properties": {
                         "name": {
-                          "$ref": "#/definitions/Name"
+                          "$ref": "#/$defs/Name"
                         },
                         "secondary_name": {
-                          "$ref": "#/definitions/SecondaryName"
+                          "$ref": "#/$defs/SecondaryName"
                         },
                         "note": {
-                          "$ref": "#/definitions/Note"
+                          "$ref": "#/$defs/Note"
                         },
                         "rules": {
-                          "$ref": "#/definitions/Rules"
+                          "$ref": "#/$defs/Rules"
                         },
                         "advantage": {
-                          "$ref": "#/definitions/Advantage"
+                          "$ref": "#/$defs/Advantage"
                         },
                         "disadvantage": {
-                          "$ref": "#/definitions/Disadvantage"
+                          "$ref": "#/$defs/Disadvantage"
                         },
                         "errata": {
-                          "$ref": "../source/_Erratum.schema.json#/definitions/Errata"
+                          "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
                         }
                       },
                       "required": [
@@ -121,28 +121,28 @@
                   "const": "Armor"
                 },
                 "protection": {
-                  "$ref": "./_Armor.schema.json#/definitions/Protection"
+                  "$ref": "./_Armor.schema.json#/$defs/Protection"
                 },
                 "encumbrance": {
-                  "$ref": "./_Armor.schema.json#/definitions/Encumbrance"
+                  "$ref": "./_Armor.schema.json#/$defs/Encumbrance"
                 },
                 "has_additional_penalties": {
-                  "$ref": "./_Armor.schema.json#/definitions/HasAdditionalPenalties"
+                  "$ref": "./_Armor.schema.json#/$defs/HasAdditionalPenalties"
                 },
                 "armor_type": {
-                  "$ref": "./_Armor.schema.json#/definitions/ArmorType"
+                  "$ref": "./_Armor.schema.json#/$defs/ArmorType"
                 },
                 "hit_zone": {
-                  "$ref": "./_Armor.schema.json#/definitions/HitZone"
+                  "$ref": "./_Armor.schema.json#/$defs/HitZone"
                 },
                 "secondary": {
                   "type": "object",
                   "properties": {
                     "type": {
-                      "$ref": "#/definitions/Type"
+                      "$ref": "#/$defs/Type"
                     },
                     "structure_points": {
-                      "$ref": "./_Weapon.schema.json#/definitions/StructurePoints"
+                      "$ref": "./_Weapon.schema.json#/$defs/StructurePoints"
                     }
                   },
                   "required": [
@@ -159,25 +159,25 @@
                       "type": "object",
                       "properties": {
                         "name": {
-                          "$ref": "#/definitions/Name"
+                          "$ref": "#/$defs/Name"
                         },
                         "secondary_name": {
-                          "$ref": "#/definitions/SecondaryName"
+                          "$ref": "#/$defs/SecondaryName"
                         },
                         "note": {
-                          "$ref": "#/definitions/Note"
+                          "$ref": "#/$defs/Note"
                         },
                         "rules": {
-                          "$ref": "#/definitions/Rules"
+                          "$ref": "#/$defs/Rules"
                         },
                         "advantage": {
-                          "$ref": "#/definitions/Advantage"
+                          "$ref": "#/$defs/Advantage"
                         },
                         "disadvantage": {
-                          "$ref": "#/definitions/Disadvantage"
+                          "$ref": "#/$defs/Disadvantage"
                         },
                         "errata": {
-                          "$ref": "../source/_Erratum.schema.json#/definitions/Errata"
+                          "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
                         }
                       },
                       "required": [
@@ -207,7 +207,7 @@
                   "const": "Default"
                 },
                 "type": {
-                  "$ref": "#/definitions/Type"
+                  "$ref": "#/$defs/Type"
                 },
                 "combat_uses": {
                   "oneOf": [
@@ -222,20 +222,20 @@
                           "items": {
                             "oneOf": [
                               {
-                                "$ref": "./_Weapon.schema.json#/definitions/MeleeWeapon"
+                                "$ref": "./_Weapon.schema.json#/$defs/MeleeWeapon"
                               },
                               {
-                                "$ref": "./_Weapon.schema.json#/definitions/RangedWeapon"
+                                "$ref": "./_Weapon.schema.json#/$defs/RangedWeapon"
                               }
                             ]
                           },
                           "minItems": 1
                         },
                         "sanctified_by": {
-                          "$ref": "./_Weapon.schema.json#/definitions/SanctifiedBy"
+                          "$ref": "./_Weapon.schema.json#/$defs/SanctifiedBy"
                         },
                         "restricted_to_cultures": {
-                          "$ref": "./_Weapon.schema.json#/definitions/RestrictedToCultures"
+                          "$ref": "./_Weapon.schema.json#/$defs/RestrictedToCultures"
                         },
                         "translations": {
                           "description": "All translations for the entry, identified by IETF language tag\n(BCP47).",
@@ -245,10 +245,10 @@
                               "type": "object",
                               "properties": {
                                 "advantage": {
-                                  "$ref": "#/definitions/Advantage"
+                                  "$ref": "#/$defs/Advantage"
                                 },
                                 "disadvantage": {
-                                  "$ref": "#/definitions/Disadvantage"
+                                  "$ref": "#/$defs/Disadvantage"
                                 }
                               },
                               "required": [
@@ -276,19 +276,19 @@
                           "const": "Armor"
                         },
                         "protection": {
-                          "$ref": "./_Armor.schema.json#/definitions/Protection"
+                          "$ref": "./_Armor.schema.json#/$defs/Protection"
                         },
                         "encumbrance": {
-                          "$ref": "./_Armor.schema.json#/definitions/Encumbrance"
+                          "$ref": "./_Armor.schema.json#/$defs/Encumbrance"
                         },
                         "has_additional_penalties": {
-                          "$ref": "./_Armor.schema.json#/definitions/HasAdditionalPenalties"
+                          "$ref": "./_Armor.schema.json#/$defs/HasAdditionalPenalties"
                         },
                         "armor_type": {
-                          "$ref": "./_Armor.schema.json#/definitions/ArmorType"
+                          "$ref": "./_Armor.schema.json#/$defs/ArmorType"
                         },
                         "hit_zone": {
-                          "$ref": "./_Armor.schema.json#/definitions/HitZone"
+                          "$ref": "./_Armor.schema.json#/$defs/HitZone"
                         },
                         "translations": {
                           "description": "All translations for the entry, identified by IETF language tag\n(BCP47).",
@@ -298,10 +298,10 @@
                               "type": "object",
                               "properties": {
                                 "advantage": {
-                                  "$ref": "#/definitions/Advantage"
+                                  "$ref": "#/$defs/Advantage"
                                 },
                                 "disadvantage": {
-                                  "$ref": "#/definitions/Disadvantage"
+                                  "$ref": "#/$defs/Disadvantage"
                                 }
                               },
                               "required": [
@@ -328,7 +328,7 @@
                   ]
                 },
                 "structure_points": {
-                  "$ref": "./_Weapon.schema.json#/definitions/StructurePoints"
+                  "$ref": "./_Weapon.schema.json#/$defs/StructurePoints"
                 },
                 "translations": {
                   "description": "All translations for the entry, identified by IETF language tag\n(BCP47).",
@@ -338,19 +338,19 @@
                       "type": "object",
                       "properties": {
                         "name": {
-                          "$ref": "#/definitions/Name"
+                          "$ref": "#/$defs/Name"
                         },
                         "secondary_name": {
-                          "$ref": "#/definitions/SecondaryName"
+                          "$ref": "#/$defs/SecondaryName"
                         },
                         "note": {
-                          "$ref": "#/definitions/Note"
+                          "$ref": "#/$defs/Note"
                         },
                         "rules": {
-                          "$ref": "#/definitions/Rules"
+                          "$ref": "#/$defs/Rules"
                         },
                         "errata": {
-                          "$ref": "../source/_Erratum.schema.json#/definitions/Errata"
+                          "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
                         }
                       },
                       "required": [
@@ -375,7 +375,7 @@
           ]
         },
         "src": {
-          "$ref": "../source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+          "$ref": "../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
         }
       },
       "required": [

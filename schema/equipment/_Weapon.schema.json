@@ -1,7 +1,7 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/equipment/_Weapon.schema.json",
-  "definitions": {
+  "$defs": {
     "StructurePoints": {
       "title": "Structure Points",
       "description": "The structure points of the item. Use an array if the item consists of\nmultiple components that have individual structure points.",
@@ -204,7 +204,7 @@
       "properties": {
         "dice": {
           "description": "How many dice of which type are rolled to get the damage.",
-          "$ref": "#/definitions/Dice"
+          "$ref": "#/$defs/Dice"
         },
         "flat": {
           "description": "Flat damage, if any. It gets added to the result of the dice rolls.",
@@ -227,7 +227,7 @@
             },
             "dice": {
               "description": "How many dice of which type are rolled to get the damage.",
-              "$ref": "#/definitions/Dice"
+              "$ref": "#/$defs/Dice"
             },
             "flat": {
               "description": "Flat damage, if any. It gets added to the result of the dice rolls.",
@@ -346,16 +346,16 @@
                   "const": "ChainWeapons"
                 },
                 "damage_threshold": {
-                  "$ref": "#/definitions/PrimaryAttributeDamageThreshold"
+                  "$ref": "#/$defs/PrimaryAttributeDamageThreshold"
                 },
                 "at": {
-                  "$ref": "#/definitions/Attack"
+                  "$ref": "#/$defs/Attack"
                 },
                 "reach": {
-                  "$ref": "#/definitions/Reach"
+                  "$ref": "#/$defs/Reach"
                 },
                 "length": {
-                  "$ref": "#/definitions/Length"
+                  "$ref": "#/$defs/Length"
                 }
               },
               "required": [
@@ -374,16 +374,16 @@
                   "const": "Whips"
                 },
                 "damage_threshold": {
-                  "$ref": "#/definitions/PrimaryAttributeDamageThreshold"
+                  "$ref": "#/$defs/PrimaryAttributeDamageThreshold"
                 },
                 "at": {
-                  "$ref": "#/definitions/Attack"
+                  "$ref": "#/$defs/Attack"
                 },
                 "reach": {
-                  "$ref": "#/definitions/Reach"
+                  "$ref": "#/$defs/Reach"
                 },
                 "length": {
-                  "$ref": "#/definitions/Length"
+                  "$ref": "#/$defs/Length"
                 }
               },
               "required": [
@@ -402,10 +402,10 @@
                   "const": "Lances"
                 },
                 "at": {
-                  "$ref": "#/definitions/Attack"
+                  "$ref": "#/$defs/Attack"
                 },
                 "length": {
-                  "$ref": "#/definitions/Length"
+                  "$ref": "#/$defs/Length"
                 }
               },
               "required": [
@@ -422,19 +422,19 @@
                   "const": "Shields"
                 },
                 "size": {
-                  "$ref": "#/definitions/ShieldSize"
+                  "$ref": "#/$defs/ShieldSize"
                 },
                 "damage_threshold": {
-                  "$ref": "#/definitions/PrimaryAttributeDamageThreshold"
+                  "$ref": "#/$defs/PrimaryAttributeDamageThreshold"
                 },
                 "at": {
-                  "$ref": "#/definitions/Attack"
+                  "$ref": "#/$defs/Attack"
                 },
                 "pa": {
-                  "$ref": "#/definitions/Parry"
+                  "$ref": "#/$defs/Parry"
                 },
                 "reach": {
-                  "$ref": "#/definitions/Reach"
+                  "$ref": "#/$defs/Reach"
                 }
               },
               "required": [
@@ -454,22 +454,22 @@
                   "const": "Fans"
                 },
                 "size": {
-                  "$ref": "#/definitions/ShieldSize"
+                  "$ref": "#/$defs/ShieldSize"
                 },
                 "damage_threshold": {
-                  "$ref": "#/definitions/PrimaryAttributeDamageThreshold"
+                  "$ref": "#/$defs/PrimaryAttributeDamageThreshold"
                 },
                 "at": {
-                  "$ref": "#/definitions/Attack"
+                  "$ref": "#/$defs/Attack"
                 },
                 "pa": {
-                  "$ref": "#/definitions/Parry"
+                  "$ref": "#/$defs/Parry"
                 },
                 "reach": {
-                  "$ref": "#/definitions/Reach"
+                  "$ref": "#/$defs/Reach"
                 },
                 "length": {
-                  "$ref": "#/definitions/Length"
+                  "$ref": "#/$defs/Length"
                 }
               },
               "required": [
@@ -495,19 +495,19 @@
                   "minimum": 1
                 },
                 "damage_threshold": {
-                  "$ref": "#/definitions/PrimaryAttributeDamageThreshold"
+                  "$ref": "#/$defs/PrimaryAttributeDamageThreshold"
                 },
                 "at": {
-                  "$ref": "#/definitions/Attack"
+                  "$ref": "#/$defs/Attack"
                 },
                 "pa": {
-                  "$ref": "#/definitions/Parry"
+                  "$ref": "#/$defs/Parry"
                 },
                 "reach": {
-                  "$ref": "#/definitions/Reach"
+                  "$ref": "#/$defs/Reach"
                 },
                 "length": {
-                  "$ref": "#/definitions/Length"
+                  "$ref": "#/$defs/Length"
                 }
               },
               "required": [
@@ -524,7 +524,7 @@
           ]
         },
         "damage": {
-          "$ref": "#/definitions/DamageMelee"
+          "$ref": "#/$defs/DamageMelee"
         },
         "is_parrying_weapon": {
           "description": "Is the weapon a parrying weapon?",
@@ -597,7 +597,7 @@
           ]
         },
         "damage": {
-          "$ref": "#/definitions/DamageRanged"
+          "$ref": "#/$defs/DamageRanged"
         },
         "range": {
           "description": "The range brackets for the weapon: close, medium, far. Distances in m.",
@@ -647,7 +647,7 @@
           "uniqueItems": true
         },
         "length": {
-          "$ref": "#/definitions/Length"
+          "$ref": "#/$defs/Length"
         }
       },
       "required": [

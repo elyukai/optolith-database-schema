@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/magicalActions/JesterTrick.schema.json",
-  "$ref": "#/definitions/JesterTrick",
-  "definitions": {
+  "$ref": "#/$defs/JesterTrick",
+  "$defs": {
     "JesterTrick": {
       "title": "Jester Trick",
       "type": "object",
@@ -14,19 +14,19 @@
         },
         "check": {
           "description": "Lists the linked three attributes used to make a skill check.",
-          "$ref": "../_SkillCheck.schema.json#/definitions/SkillCheck"
+          "$ref": "../_SkillCheck.schema.json#/$defs/SkillCheck"
         },
         "check_penalty": {
           "description": "In some cases, the target's Spirit or Toughness is applied as a penalty.",
-          "$ref": "../_SkillCheck.schema.json#/definitions/SkillCheckPenalty"
+          "$ref": "../_SkillCheck.schema.json#/$defs/SkillCheckPenalty"
         },
         "parameters": {
           "description": "Measurable parameters of a jester trick.",
-          "$ref": "#/definitions/PerformanceParameters"
+          "$ref": "#/$defs/PerformanceParameters"
         },
         "target": {
           "description": "The target category – the kind of creature or object – the skill affects.",
-          "$ref": "../_ActivatableSkill.schema.json#/definitions/TargetCategory/T"
+          "$ref": "../_ActivatableSkill.schema.json#/$defs/TargetCategory/T"
         },
         "property_id": {
           "description": "The property's identifier.",
@@ -35,10 +35,10 @@
         },
         "improvement_cost": {
           "description": "States which column is used to improve the skill.",
-          "$ref": "../_ImprovementCost.schema.json#/definitions/ImprovementCost"
+          "$ref": "../_ImprovementCost.schema.json#/$defs/ImprovementCost"
         },
         "src": {
-          "$ref": "../source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+          "$ref": "../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -54,7 +54,7 @@
                 },
                 "effect": {
                   "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
-                  "$ref": "../_ActivatableSkill.schema.json#/definitions/Effect/T"
+                  "$ref": "../_ActivatableSkill.schema.json#/$defs/Effect/T"
                 },
                 "casting_time": {
                   "type": "object",
@@ -124,7 +124,7 @@
                   "type": "string"
                 },
                 "errata": {
-                  "$ref": "../source/_Erratum.schema.json#/definitions/Errata"
+                  "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
                 }
               },
               "required": [
@@ -264,7 +264,7 @@
                 },
                 "unit": {
                   "description": "The duration unit.",
-                  "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/Unit"
+                  "$ref": "../_ActivatableSkill.schema.json#/$defs/Duration/Unit"
                 }
               },
               "required": [
@@ -275,7 +275,7 @@
               "additionalProperties": false
             },
             {
-              "$ref": "../_ActivatableSkill.schema.json#/definitions/Duration/CheckResultBasedTagged"
+              "$ref": "../_ActivatableSkill.schema.json#/$defs/Duration/CheckResultBasedTagged"
             }
           ]
         }

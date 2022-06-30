@@ -1,32 +1,32 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "$id": "/specialAbility/Sermon.schema.json",
-  "$ref": "#/definitions/Sermon",
-  "definitions": {
+  "$ref": "#/$defs/Sermon",
+  "$defs": {
     "Sermon": {
       "title": "Sermon",
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "../_Activatable.schema.json#/definitions/Id"
+          "$ref": "../_Activatable.schema.json#/$defs/Id"
         },
         "levels": {
-          "$ref": "../_Activatable.schema.json#/definitions/Levels"
+          "$ref": "../_Activatable.schema.json#/$defs/Levels"
         },
         "select_options": {
-          "$ref": "../_Activatable.schema.json#/definitions/SelectOptions"
+          "$ref": "../_Activatable.schema.json#/$defs/SelectOptions"
         },
         "maximum": {
-          "$ref": "../_Activatable.schema.json#/definitions/Maximum"
+          "$ref": "../_Activatable.schema.json#/$defs/Maximum"
         },
         "prerequisites": {
-          "$ref": "../_Prerequisite.schema.json#/definitions/GeneralPrerequisites"
+          "$ref": "../_Prerequisite.schema.json#/$defs/GeneralPrerequisites"
         },
         "ap_value": {
-          "$ref": "../_Activatable.schema.json#/definitions/AdventurePointsValue"
+          "$ref": "../_Activatable.schema.json#/$defs/AdventurePointsValue"
         },
         "src": {
-          "$ref": "../source/_PublicationRef.schema.json#/definitions/PublicationRefs"
+          "$ref": "../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -36,16 +36,16 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "$ref": "../_Activatable.schema.json#/definitions/Name"
+                  "$ref": "../_Activatable.schema.json#/$defs/Name"
                 },
                 "name_in_library": {
-                  "$ref": "../_Activatable.schema.json#/definitions/NameInLibrary"
+                  "$ref": "../_Activatable.schema.json#/$defs/NameInLibrary"
                 },
                 "rules": {
-                  "$ref": "../_Activatable.schema.json#/definitions/Rules"
+                  "$ref": "../_Activatable.schema.json#/$defs/Rules"
                 },
                 "errata": {
-                  "$ref": "../source/_Erratum.schema.json#/definitions/Errata"
+                  "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
                 }
               },
               "required": [

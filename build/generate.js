@@ -9,7 +9,7 @@ generate({
   outputs: [
     {
       targetDir: jsonSchemaDir,
-      renderer: jsonSchema,
+      renderer: jsonSchema(),
     },
     {
       targetDir: markdownDir,
