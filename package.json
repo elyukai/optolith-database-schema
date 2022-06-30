@@ -14,6 +14,7 @@
     "build:ts": "tsc",
     "watch:ts": "tsc -w",
     "build:gen": "node ./build/generate.js",
+    "watch:gen": "node ./build/generate.js -w",
     "build": "npm run build:ts && npm run build:gen",
     "release": "standard-version",
     "test": "echo \"Error: no test specified\" && exit 1"

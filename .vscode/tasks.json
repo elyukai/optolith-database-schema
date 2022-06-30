@@ -1,0 +1,35 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "watch ts build",
+      "type": "shell",
+      "command": "npm run watch:ts",
+      "isBackground": true,
+      "group": "build",
+      "presentation": {
+        "group": "watch"
+      }
+    },
+    {
+      "label": "watch generation from ts",
+      "type": "shell",
+      "command": "npm run watch:gen",
+      "isBackground": true,
+      "group": "build",
+      "presentation": {
+        "group": "watch"
+      }
+    },
+    {
+      "label": "watch",
+      "dependsOn": ["watch ts build", "watch generation from ts"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
