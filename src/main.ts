@@ -1,5 +1,5 @@
-import Ajv, { DefinedError } from "ajv"
 import addFormats from "ajv-formats"
+import Ajv, { DefinedError } from "ajv/dist/2020.js"
 import { lstat, readdir, readFile } from "fs/promises"
 import { join } from "path"
 import YAML from "yaml"
