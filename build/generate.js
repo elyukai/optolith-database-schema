@@ -5,7 +5,8 @@ import { generate } from "optolith-tsjsonschemamd"
 import { jsonSchema, markdown } from "optolith-tsjsonschemamd/renderers"
 import { jsonSchemaDir, markdownDir, sourceDir } from "../config/directories.js"
 
-const generate$ = () => generate({
+/** @type {import("optolith-tsjsonschemamd").GeneratorOptions} */
+const options = {
   sourceDir: sourceDir,
   outputs: [
     {
@@ -18,15 +19,15 @@ const generate$ = () => generate({
     }
   ],
   clean: true
-})
+}
 
 if (process.argv.includes("-w")) {
-  generate$()
+  generate(options)
 
   for await (const _ of watch(sourceDir, { recursive: true })) {
-    generate$()
+    generate(options)
   }
 }
 else {
-  generate$()
+  generate(options)
 }
