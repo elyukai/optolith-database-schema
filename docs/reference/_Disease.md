@@ -1,0 +1,277 @@
+# Disease (shared)
+
+This file defines some shared types for different diseases.
+
+## Definitions
+
+### <a name="Resistance"></a> `Resistance`
+
+Depending on the disease, apply Spirit or Toughness as a penalty to the
+disease roll. It may also happen that the lower of both is applied as a
+penalty.
+
+- **Type:** Union
+- **Cases:** <a href="#Resistance'Spirit">Resistance'Spirit</a> | <a href="#Resistance'Toughness">Resistance'Toughness</a> | <a href="#Resistance'LowerOfSpiritAndToughness">Resistance'LowerOfSpiritAndToughness</a>
+
+---
+
+### <a name="Resistance'Spirit"></a> `Resistance'Spirit`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Resistance'Spirit/tag">See details</a>
+
+#### <a name="Resistance'Spirit/tag"></a> `tag`
+
+- **Constant:** `"Spirit"`
+
+---
+
+### <a name="Resistance'Toughness"></a> `Resistance'Toughness`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Resistance'Toughness/tag">See details</a>
+
+#### <a name="Resistance'Toughness/tag"></a> `tag`
+
+- **Constant:** `"Toughness"`
+
+---
+
+### <a name="Resistance'LowerOfSpiritAndToughness"></a> `Resistance'LowerOfSpiritAndToughness`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Resistance'LowerOfSpiritAndToughness/tag">See details</a>
+
+#### <a name="Resistance'LowerOfSpiritAndToughness/tag"></a> `tag`
+
+- **Constant:** `"LowerOfSpiritAndToughness"`
+
+---
+
+### <a name="Cause"></a> `Cause`
+
+What causes the disease? The GM rolls 1D20 to see if a character gets
+infected. If the infection check succeeds, the GM makes a disease check to
+determine the severity of the infection.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`chance?` | The chance to get infected by this cause, in percent. | <a href="#Cause/chance">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Cause/translations">See details</a>
+
+#### <a name="Cause/chance"></a> `chance?`
+
+The chance to get infected by this cause, in percent.
+
+- **Type:** Integer
+- **Minimum:** `5`
+- **Maximum:** `100`
+- **Multiple of:** `5`
+
+#### <a name="Cause/translations"></a> `translations`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#Cause/translations[key]">Cause/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="Cause/translations[key]"></a> `Cause/translations[key]`
+
+- **Type:** <a href="#CauseTranslation">CauseTranslation</a>
+
+---
+
+### <a name="CauseTranslation"></a> `CauseTranslation`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`name` | The name of the cause. | <a href="#CauseTranslation/name">See details</a>
+`chance?` | The chance to get infected by this cause. If present for this language, this overrides the universal `chance` field; they cannot be used at the same time. | <a href="#CauseTranslation/chance">See details</a>
+`note?` | An additional note about this cause. | <a href="#CauseTranslation/note">See details</a>
+
+#### <a name="CauseTranslation/name"></a> `name`
+
+The name of the cause.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+#### <a name="CauseTranslation/chance"></a> `chance?`
+
+The chance to get infected by this cause. If present for this
+language, this overrides the universal `chance` field; they cannot be
+used at the same time.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+#### <a name="CauseTranslation/note"></a> `note?`
+
+An additional note about this cause.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+---
+
+### <a name="DiseaseTranslation"></a> `DiseaseTranslation`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`name` | The name of the disease. | <a href="#DiseaseTranslation/name">See details</a>
+`alternative_names?` | A list of alternative names. | <a href="#DiseaseTranslation/alternative_names">See details</a>
+`progress` | The disease’s progress, in detail. | <a href="#DiseaseTranslation/progress">See details</a>
+`incubation_time` | After infection, how much time passes before symptoms appear? | <a href="#DiseaseTranslation/incubation_time">See details</a>
+`damage` | The damage caused by the disease. If the disease check fails, apply the lessened effects. | <a href="#DiseaseTranslation/damage">See details</a>
+`duration` | The duration of the disease. If the disease check fails, use the lessened duration. | <a href="#DiseaseTranslation/duration">See details</a>
+`special?` | Special information about the disease. | <a href="#DiseaseTranslation/special">See details</a>
+`treatment` | Methods known to lessen the disease’s progress or relieve symptoms. | <a href="#DiseaseTranslation/treatment">See details</a>
+`cure` | Known remedies for the disease. | <a href="#DiseaseTranslation/cure">See details</a>
+`errata?` |  | <a href="#DiseaseTranslation/errata">See details</a>
+
+#### <a name="DiseaseTranslation/name"></a> `name`
+
+The name of the disease.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+#### <a name="DiseaseTranslation/alternative_names"></a> `alternative_names?`
+
+A list of alternative names.
+
+- **Type:** List
+- **Items:** <a href="#DiseaseTranslation/alternative_names[]">DiseaseTranslation/alternative_names[]</a>
+- **Minimum Items:** `1`
+
+#### <a name="DiseaseTranslation/progress"></a> `progress`
+
+The disease’s progress, in detail.
+
+- **Type:** Markdown-formatted text
+- **Minimum Length:** `1`
+
+#### <a name="DiseaseTranslation/incubation_time"></a> `incubation_time`
+
+After infection, how much time passes before symptoms appear?
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+#### <a name="DiseaseTranslation/damage"></a> `damage`
+
+The damage caused by the disease. If the disease check fails, apply the
+lessened effects.
+
+- **Type:** <a href="#Lessenable">Lessenable</a>
+
+#### <a name="DiseaseTranslation/duration"></a> `duration`
+
+The duration of the disease. If the disease check fails, use the
+lessened duration.
+
+- **Type:** <a href="#Lessenable">Lessenable</a>
+
+#### <a name="DiseaseTranslation/special"></a> `special?`
+
+Special information about the disease.
+
+- **Type:** Markdown-formatted text
+- **Minimum Length:** `1`
+
+#### <a name="DiseaseTranslation/treatment"></a> `treatment`
+
+Methods known to lessen the disease’s progress or relieve symptoms.
+
+- **Type:** Markdown-formatted text
+- **Minimum Length:** `1`
+
+#### <a name="DiseaseTranslation/cure"></a> `cure`
+
+Known remedies for the disease.
+
+- **Type:** Markdown-formatted text
+- **Minimum Length:** `1`
+
+#### <a name="DiseaseTranslation/errata"></a> `errata?`
+
+- **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
+
+---
+
+### <a name="DiseaseTranslation/alternative_names[]"></a> `DiseaseTranslation/alternative_names[]`
+
+- **Type:** <a href="#AlternativeName">AlternativeName</a>
+
+---
+
+### <a name="AlternativeName"></a> `AlternativeName`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`name` | An alternative name of the disease. | <a href="#AlternativeName/name">See details</a>
+`region?` | The region where this alternative name is used. | <a href="#AlternativeName/region">See details</a>
+
+#### <a name="AlternativeName/name"></a> `name`
+
+An alternative name of the disease.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+#### <a name="AlternativeName/region"></a> `region?`
+
+The region where this alternative name is used.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+---
+
+### <a name="Lessenable"></a> `Lessenable`
+
+An effect or other parameter that may be lessened by a failed disease check.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`default` | The default value. In the source, it's the text before the slash. | <a href="#Lessenable/default">See details</a>
+`lessened?` | The lessened value. In the source, it's the text after the slash. Some entries may not have a lessened value. | <a href="#Lessenable/lessened">See details</a>
+
+#### <a name="Lessenable/default"></a> `default`
+
+The default value. In the source, it's the text before the
+slash.
+
+- **Type:** Markdown-formatted text
+- **Minimum Length:** `1`
+
+#### <a name="Lessenable/lessened"></a> `lessened?`
+
+The lessened value. In the source, it's the text after the
+slash. Some entries may not have a lessened value.
+
+- **Type:** Markdown-formatted text
+- **Minimum Length:** `1`

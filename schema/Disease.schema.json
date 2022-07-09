@@ -19,90 +19,13 @@
         },
         "resistance": {
           "description": "Depending on the disease, apply Spirit or Toughness as a penalty to the\ndisease roll. It may also happen that the lower of both is applied as a\npenalty.",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Spirit"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Toughness"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "LowerOfSpiritAndToughness"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            }
-          ]
+          "$ref": "./_Disease.schema.json#/$defs/Resistance"
         },
         "cause": {
           "description": "What causes the disease? The GM rolls 1D20 to see if a character gets\ninfected. If the infection check succeeds, the GM makes a disease check to\ndetermine the severity of the infection.",
           "type": "array",
           "items": {
-            "type": "object",
-            "properties": {
-              "chance": {
-                "description": "The chance to get infected by this cause, in percent.",
-                "type": "integer",
-                "maximum": 100,
-                "minimum": 5,
-                "multipleOf": 5
-              },
-              "translations": {
-                "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-                "type": "object",
-                "patternProperties": {
-                  "^[a-z]{2}-[A-Z]{2}$": {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "description": "The name of the cause.",
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "chance": {
-                        "description": "The chance to get infected by this cause. If present for this\nlanguage, this overrides the universal `chance` field; they cannot be\nused at the same time.",
-                        "type": "string",
-                        "minLength": 1
-                      }
-                    },
-                    "required": [
-                      "name"
-                    ],
-                    "additionalProperties": false
-                  }
-                },
-                "minProperties": 1,
-                "additionalProperties": false
-              }
-            },
-            "required": [
-              "translations"
-            ],
-            "additionalProperties": false
+            "$ref": "./_Disease.schema.json#/$defs/Cause"
           },
           "minItems": 1
         },
@@ -114,116 +37,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The name of the disease.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "alternative_names": {
-                  "description": "A list of alternative names.",
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "description": "An alternative name of the disease.",
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "region": {
-                        "description": "The region where this alternative name is used.",
-                        "type": "string",
-                        "minLength": 1
-                      }
-                    },
-                    "required": [
-                      "name"
-                    ],
-                    "additionalProperties": false
-                  },
-                  "minItems": 1
-                },
-                "progress": {
-                  "description": "The disease’s progress, in detail.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "incubation_time": {
-                  "description": "After infection, how much time passes before symptoms appear?",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "damage": {
-                  "description": "The damage caused by the disease. If the disease check fails, apply the\nlessened effects.",
-                  "type": "object",
-                  "properties": {
-                    "default": {
-                      "description": "The disease’s default damage. In the source, it's the text before the\nslash.",
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "lessened": {
-                      "description": "The disease’s lessened damage. In the source, it's the text after the\nslash.",
-                      "type": "string",
-                      "minLength": 1
-                    }
-                  },
-                  "required": [
-                    "default"
-                  ],
-                  "additionalProperties": false
-                },
-                "duration": {
-                  "description": "The duration of the disease. If the disease check fails, use the\nlessened duration.",
-                  "type": "object",
-                  "properties": {
-                    "default": {
-                      "description": "The default duration of the disease. In the source, it's the text\nbefore the slash.",
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "lessened": {
-                      "description": "The lessened duration of the disease. In the source, it's the text\nafter the slash.",
-                      "type": "string",
-                      "minLength": 1
-                    }
-                  },
-                  "required": [
-                    "default"
-                  ],
-                  "additionalProperties": false
-                },
-                "special": {
-                  "description": "Special information about the disease.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "treatment": {
-                  "description": "Methods known to lessen the disease’s progress or relieve symptoms.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "cure": {
-                  "description": "Known remedies for the disease.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "errata": {
-                  "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "progress",
-                "incubation_time",
-                "damage",
-                "duration",
-                "treatment",
-                "cure"
-              ],
-              "additionalProperties": false
+              "$ref": "./_Disease.schema.json#/$defs/DiseaseTranslation"
             }
           },
           "minProperties": 1,
