@@ -368,6 +368,34 @@
         "id"
       ],
       "additionalProperties": false
+    },
+    "PactCategoryReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The pact category's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "PactDomainReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The domain's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
     }
   }
 }

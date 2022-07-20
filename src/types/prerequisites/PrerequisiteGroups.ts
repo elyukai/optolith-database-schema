@@ -1,6 +1,5 @@
 import { ActivatableOptionSetPrerequisite, ActivatablePrerequisite, ActivatableSetPrerequisite } from "./single/ActivatablePrerequisite.js"
 import { AnimistPowerPrerequisite } from "./single/AnimistPowerPrerequisite.js"
-import { CommonSuggestedByRCPPrerequisite } from "./single/CommonSuggestedByRCPPrerequisite.js"
 import { CulturePrerequisite } from "./single/CulturePrerequisite.js"
 import { ExternalEnhancementPrerequisite, InternalEnhancementPrerequisite } from "./single/EnhancementPrerequisite.js"
 import { InfluencePrerequisite } from "./single/InfluencePrerequisite.js"
@@ -17,91 +16,91 @@ import { TextPrerequisite } from "./single/TextPrerequisite.js"
 import { BlessedTraditionPrerequisite, MagicalTraditionPrerequisite } from "./single/TraditionPrerequisite.js"
 
 export type DerivedCharacteristicPrerequisiteGroup =
-  | RulePrerequisite
+  | { tag: "Rule"; rule: RulePrerequisite }
 
 export type PublicationPrerequisiteGroup =
-  | PublicationPrerequisite
+  | { tag: "Publication"; publication: PublicationPrerequisite }
 
 export type GeneralPrerequisiteGroup =
-  | SexPrerequisite
-  | RacePrerequisite
-  | CulturePrerequisite
-  | PactPrerequisite
-  | SocialStatusPrerequisite
-  | StatePrerequisite
-  | RulePrerequisite
-  | PrimaryAttributePrerequisite
-  | ActivatablePrerequisite
-  | ActivatableSetPrerequisite
-  | ActivatableOptionSetPrerequisite
-  | BlessedTraditionPrerequisite
-  | MagicalTraditionPrerequisite
-  | RatedPrerequisite
-  | RatedSetPrerequisite
-  | RatedMinimumNumberPrerequisite
-  | ExternalEnhancementPrerequisite
-  | TextPrerequisite
+  | { tag: "Sex"; sex: SexPrerequisite }
+  | { tag: "Race"; race: RacePrerequisite }
+  | { tag: "Culture"; culture: CulturePrerequisite }
+  | { tag: "Pact"; pact: PactPrerequisite }
+  | { tag: "SocialStatus"; social_status: SocialStatusPrerequisite }
+  | { tag: "State"; state: StatePrerequisite }
+  | { tag: "Rule"; rule: RulePrerequisite }
+  | { tag: "PrimaryAttribute"; primary_attribute: PrimaryAttributePrerequisite }
+  | { tag: "Activatable"; activatable: ActivatablePrerequisite }
+  | { tag: "ActivatableSet"; activatable_set: ActivatableSetPrerequisite }
+  | { tag: "ActivatableOptionSet"; activatable_option_set: ActivatableOptionSetPrerequisite }
+  | { tag: "BlessedTradition"; blessed_tradition: BlessedTraditionPrerequisite }
+  | { tag: "MagicalTradition"; magical_tradition: MagicalTraditionPrerequisite }
+  | { tag: "Rated"; rated: RatedPrerequisite }
+  | { tag: "RatedSet"; rated_set: RatedSetPrerequisite }
+  | { tag: "RatedMinimumNumber"; rated_minimum_number: RatedMinimumNumberPrerequisite }
+  | { tag: "ExternalEnhancement"; external_enhancement: ExternalEnhancementPrerequisite }
+  | { tag: "Text"; text: TextPrerequisite }
 
 export type ProfessionPrerequisiteGroup =
-  | SexPrerequisite
-  | RacePrerequisite
-  | CulturePrerequisite
-  | ActivatablePrerequisite
-  | RatedPrerequisite
+  | { tag: "Sex"; sex: SexPrerequisite }
+  | { tag: "Race"; race: RacePrerequisite }
+  | { tag: "Culture"; culture: CulturePrerequisite }
+  | { tag: "Activatable"; activatable: ActivatablePrerequisite }
+  | { tag: "Rated"; rated: RatedPrerequisite }
 
 export type AdvantageDisadvantagePrerequisiteGroup =
-  | CommonSuggestedByRCPPrerequisite
-  | SexPrerequisite
-  | RacePrerequisite
-  | CulturePrerequisite
-  | PactPrerequisite
-  | SocialStatusPrerequisite
-  | StatePrerequisite
-  | RulePrerequisite
-  | PrimaryAttributePrerequisite
-  | ActivatablePrerequisite
-  | ActivatableSetPrerequisite
-  | ActivatableOptionSetPrerequisite
-  | BlessedTraditionPrerequisite
-  | MagicalTraditionPrerequisite
-  | RatedPrerequisite
-  | RatedSetPrerequisite
-  | RatedMinimumNumberPrerequisite
-  | ExternalEnhancementPrerequisite
-  | TextPrerequisite
+  | { tag: "CommonSuggestedByRCP" }
+  | { tag: "Sex"; sex: SexPrerequisite }
+  | { tag: "Race"; race: RacePrerequisite }
+  | { tag: "Culture"; culture: CulturePrerequisite }
+  | { tag: "Pact"; pact: PactPrerequisite }
+  | { tag: "SocialStatus"; social_status: SocialStatusPrerequisite }
+  | { tag: "State"; state: StatePrerequisite }
+  | { tag: "Rule"; rule: RulePrerequisite }
+  | { tag: "PrimaryAttribute"; primary_attribute: PrimaryAttributePrerequisite }
+  | { tag: "Activatable"; activatable: ActivatablePrerequisite }
+  | { tag: "ActivatableSet"; activatable_set: ActivatableSetPrerequisite }
+  | { tag: "ActivatableOptionSet"; activatable_option_set: ActivatableOptionSetPrerequisite }
+  | { tag: "BlessedTradition"; blessed_tradition: BlessedTraditionPrerequisite }
+  | { tag: "MagicalTradition"; magical_tradition: MagicalTraditionPrerequisite }
+  | { tag: "Rated"; rated: RatedPrerequisite }
+  | { tag: "RatedSet"; rated_set: RatedSetPrerequisite }
+  | { tag: "RatedMinimumNumber"; rated_minimum_number: RatedMinimumNumberPrerequisite }
+  | { tag: "ExternalEnhancement"; external_enhancement: ExternalEnhancementPrerequisite }
+  | { tag: "Text"; text: TextPrerequisite }
 
 export type ArcaneTraditionPrerequisiteGroup =
-  | SexPrerequisite
-  | CulturePrerequisite
+  | { tag: "Sex"; sex: SexPrerequisite }
+  | { tag: "Culture"; culture: CulturePrerequisite }
 
 export type PersonalityTraitPrerequisiteGroup =
-  | CulturePrerequisite
-  | TextPrerequisite
+  | { tag: "Culture"; culture: CulturePrerequisite }
+  | { tag: "Text"; text: TextPrerequisite }
 
 export type SpellworkPrerequisiteGroup =
-  | RulePrerequisite
-  | RatedPrerequisite
+  | { tag: "Rule"; rule: RulePrerequisite }
+  | { tag: "Rated"; rated: RatedPrerequisite }
 
 export type LiturgyPrerequisiteGroup =
-  | RulePrerequisite
+  | { tag: "Rule"; rule: RulePrerequisite }
 
 export type InfluencePrerequisiteGroup =
-  | InfluencePrerequisite
-  | TextPrerequisite
+  | { tag: "Influence"; influence: InfluencePrerequisite }
+  | { tag: "Text"; text: TextPrerequisite }
 
 export type LanguagePrerequisiteGroup =
-  | RacePrerequisite
-  | ActivatablePrerequisite
-  | TextPrerequisite
+  | { tag: "Race"; race: RacePrerequisite }
+  | { tag: "Activatable"; activatable: ActivatablePrerequisite }
+  | { tag: "Text"; text: TextPrerequisite }
 
 export type AnimistPowerPrerequisiteGroup =
-  | AnimistPowerPrerequisite
+  | { tag: "AnimistPower"; animist_power: AnimistPowerPrerequisite }
 
 export type GeodeRitualPrerequisiteGroup =
-  | InfluencePrerequisite
+  | { tag: "Influence"; influence: InfluencePrerequisite }
 
 export type EnhancementPrerequisiteGroup =
-  | InternalEnhancementPrerequisite
+  | { tag: "InternalEnhancement"; internal_enhancement: InternalEnhancementPrerequisite }
 
 export type PreconditionGroup =
-  | PublicationPrerequisite
+  | { tag: "Publication"; publication: PublicationPrerequisite }

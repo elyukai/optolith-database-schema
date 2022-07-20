@@ -5,8 +5,6 @@ import { DisplayOption } from "../DisplayOption.js"
  * @title Social Status Prerequisite
  */
 export type SocialStatusPrerequisite = {
-  tag: "SocialStatus"
-
   /**
    * The minimum social status' identifier.
    * @integer

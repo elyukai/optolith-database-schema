@@ -4,14 +4,10 @@ import { DisplayOption } from "../DisplayOption.js"
  * @title Primary Attribute Prerequisite
  */
 export type PrimaryAttributePrerequisite = {
-  tag: "PrimaryAttribute"
-
   /**
    * Is the required primary attribute for spellcasters or blessed ones?
    */
-  category:
-    | { tag: "Blessed" }
-    | { tag: "Magical" }
+  category: PrimaryAttributeCategory
 
   /**
    * Required value of the attribute
@@ -22,3 +18,7 @@ export type PrimaryAttributePrerequisite = {
 
   display_option?: DisplayOption
 }
+
+export type PrimaryAttributeCategory =
+  | { tag: "Blessed" }
+  | { tag: "Magical" }

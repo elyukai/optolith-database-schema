@@ -444,3 +444,37 @@ The hair color's identifier.
 
 - **Type:** Integer
 - **Minimum:** `1`
+
+---
+
+### <a name="PactCategoryReference"></a> `PactCategoryReference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The pact category's identifier. | <a href="#PactCategoryReference/id">See details</a>
+
+#### <a name="PactCategoryReference/id"></a> `id`
+
+The pact category's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="PactDomainReference"></a> `PactDomainReference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The domain's identifier. | <a href="#PactDomainReference/id">See details</a>
+
+#### <a name="PactDomainReference/id"></a> `id`
+
+The domain's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`

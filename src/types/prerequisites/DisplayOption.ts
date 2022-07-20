@@ -1,4 +1,5 @@
-import { LocaleMap } from "../_LocaleMap"
+import { LocaleMap } from "../_LocaleMap.js"
+import { NonEmptyString } from "../_NonEmptyString.js"
 
 /**
  * @title Display Option
@@ -14,8 +15,3 @@ export type DisplayOption =
      */
     translations: LocaleMap<NonEmptyString>
   }
-
-/**
- * @minLength 1
- */
-type NonEmptyString = string

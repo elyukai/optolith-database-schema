@@ -7,9 +7,6 @@
       "description": "Requires a specific advantage, disadvantage or special ability.",
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "Activatable"
-        },
         "id": {
           "description": "The activatable entry's identifier.",
           "$ref": "../../_Identifier.schema.json#/$defs/ActivatableIdentifier"
@@ -39,7 +36,6 @@
         }
       },
       "required": [
-        "tag",
         "id",
         "active"
       ],
@@ -50,9 +46,6 @@
       "description": "Requires a specific advantage, disadvantage or special ability from a given\nset of entries.",
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "ActivatableSet"
-        },
         "id": {
           "description": "The possible activatable entries' identifiers.",
           "type": "array",
@@ -83,7 +76,6 @@
         }
       },
       "required": [
-        "tag",
         "id",
         "active"
       ],
@@ -94,9 +86,6 @@
       "description": "Requires one option from a set of options from a specific advantage,\ndisadvantage or special ability.",
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "ActivatableOptionSet"
-        },
         "id": {
           "description": "The activatable entry's identifier.",
           "$ref": "../../_Identifier.schema.json#/$defs/ActivatableIdentifier"
@@ -131,7 +120,6 @@
         }
       },
       "required": [
-        "tag",
         "id",
         "active",
         "first_option"

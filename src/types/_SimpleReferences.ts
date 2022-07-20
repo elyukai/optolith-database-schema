@@ -236,3 +236,21 @@ export type EyeColorReference = {
    */
   id: number
 }
+
+export type PactCategoryReference = {
+  /**
+   * The pact category's identifier.
+   * @integer
+   * @minimum 1
+   */
+  id: number
+}
+
+export type PactDomainReference = {
+  /**
+   * The domain's identifier.
+   * @integer
+   * @minimum 1
+   */
+  id: number
+}

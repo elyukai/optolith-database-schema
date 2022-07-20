@@ -13,13 +13,8 @@ of the prerequisite string from the sources.
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#TextPrerequisite/tag">See details</a>
 `verification` | The method how the prerequisite should be verified. Either is passes all verification text or it denies all verification tests. The latter results in the associated entry to never be available for purchase. | <a href="#TextPrerequisite/verification">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#TextPrerequisite/translations">See details</a>
-
-#### <a name="TextPrerequisite/tag"></a> `tag`
-
-- **Constant:** `"Text"`
 
 #### <a name="TextPrerequisite/verification"></a> `verification`
 
@@ -27,8 +22,7 @@ The method how the prerequisite should be verified. Either is passes all
 verification text or it denies all verification tests. The latter results
 in the associated entry to never be available for purchase.
 
-- **Type:** Union
-- **Cases:** <a href="#TextPrerequisite/verification'Pass">TextPrerequisite/verification'Pass</a> | <a href="#TextPrerequisite/verification'Deny">TextPrerequisite/verification'Deny</a>
+- **Type:** <a href="#TextVerificationRule">TextVerificationRule</a>
 
 #### <a name="TextPrerequisite/translations"></a> `translations`
 
@@ -41,35 +35,47 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="TextPrerequisite/verification'Pass"></a> `TextPrerequisite/verification'Pass`
+### <a name="TextPrerequisite/translations[key]"></a> `TextPrerequisite/translations[key]`
+
+- **Type:** <a href="#TextVerificationRule">TextVerificationRule</a>
+
+---
+
+### <a name="TextVerificationRule"></a> `TextVerificationRule`
+
+- **Type:** Union
+- **Cases:** <a href="#TextVerificationRule'Pass">TextVerificationRule'Pass</a> | <a href="#TextVerificationRule'Deny">TextVerificationRule'Deny</a>
+
+---
+
+### <a name="TextVerificationRule'Pass"></a> `TextVerificationRule'Pass`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#TextPrerequisite/verification'Pass/tag">See details</a>
+`tag` |  | <a href="#TextVerificationRule'Pass/tag">See details</a>
 
-#### <a name="TextPrerequisite/verification'Pass/tag"></a> `tag`
+#### <a name="TextVerificationRule'Pass/tag"></a> `tag`
 
 - **Constant:** `"Pass"`
 
 ---
 
-### <a name="TextPrerequisite/verification'Deny"></a> `TextPrerequisite/verification'Deny`
+### <a name="TextVerificationRule'Deny"></a> `TextVerificationRule'Deny`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#TextPrerequisite/verification'Deny/tag">See details</a>
+`tag` |  | <a href="#TextVerificationRule'Deny/tag">See details</a>
 
-#### <a name="TextPrerequisite/verification'Deny/tag"></a> `tag`
+#### <a name="TextVerificationRule'Deny/tag"></a> `tag`
 
 - **Constant:** `"Deny"`
 
 ---
 
-### <a name="TextPrerequisite/translations[key]"></a> `TextPrerequisite/translations[key]`
+### <a name="TextPrerequisiteTranslation"></a> `TextPrerequisiteTranslation`
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="#NonEmptyMarkdown">NonEmptyMarkdown</a>

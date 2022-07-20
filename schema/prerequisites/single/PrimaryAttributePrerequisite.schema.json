@@ -6,37 +6,9 @@
       "title": "Primary Attribute Prerequisite",
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "PrimaryAttribute"
-        },
         "category": {
           "description": "Is the required primary attribute for spellcasters or blessed ones?",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Blessed"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Magical"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            }
-          ]
+          "$ref": "#/$defs/PrimaryAttributeCategory"
         },
         "value": {
           "description": "Required value of the attribute",
@@ -48,11 +20,38 @@
         }
       },
       "required": [
-        "tag",
         "category",
         "value"
       ],
       "additionalProperties": false
+    },
+    "PrimaryAttributeCategory": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Blessed"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Magical"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
     }
   }
 }

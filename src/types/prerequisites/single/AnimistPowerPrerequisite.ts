@@ -5,8 +5,6 @@ import { DisplayOption } from "../DisplayOption.js"
  * @title Animist Power Prerequisite
  */
 export type AnimistPowerPrerequisite = {
-  tag: "AnimistPower"
-
   /**
    * The animist power's identifier.
    * @integer

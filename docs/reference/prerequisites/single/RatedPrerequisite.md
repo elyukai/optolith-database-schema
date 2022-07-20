@@ -8,14 +8,9 @@
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#RatedPrerequisite/tag">See details</a>
 `id` | The rated entry's identifier. | <a href="#RatedPrerequisite/id">See details</a>
 `value` | The required minimum value. | <a href="#RatedPrerequisite/value">See details</a>
 `display_option?` |  | <a href="#RatedPrerequisite/display_option">See details</a>
-
-#### <a name="RatedPrerequisite/tag"></a> `tag`
-
-- **Constant:** `"Rated"`
 
 #### <a name="RatedPrerequisite/id"></a> `id`
 
@@ -42,14 +37,9 @@ The required minimum value.
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#RatedSetPrerequisite/tag">See details</a>
 `id` | The possible rated entries' identifiers. | <a href="#RatedSetPrerequisite/id">See details</a>
 `value` | The required minimum value. | <a href="#RatedSetPrerequisite/value">See details</a>
 `display_option?` |  | <a href="#RatedSetPrerequisite/display_option">See details</a>
-
-#### <a name="RatedSetPrerequisite/tag"></a> `tag`
-
-- **Constant:** `"RatedSet"`
 
 #### <a name="RatedSetPrerequisite/id"></a> `id`
 
@@ -84,15 +74,10 @@ The required minimum value.
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#RatedMinimumNumberPrerequisite/tag">See details</a>
 `number` | The minimum number of skills that need to be on the defined minimum skill rating. | <a href="#RatedMinimumNumberPrerequisite/number">See details</a>
 `value` | The minimum skill rating the defined minimum number of skills need to be on. | <a href="#RatedMinimumNumberPrerequisite/value">See details</a>
 `targets` | The targets that contribute to satisfying the prerequisite. | <a href="#RatedMinimumNumberPrerequisite/targets">See details</a>
 `display_option?` |  | <a href="#RatedMinimumNumberPrerequisite/display_option">See details</a>
-
-#### <a name="RatedMinimumNumberPrerequisite/tag"></a> `tag`
-
-- **Constant:** `"RatedMinimumNumber"`
 
 #### <a name="RatedMinimumNumberPrerequisite/number"></a> `number`
 
@@ -114,8 +99,7 @@ on.
 
 The targets that contribute to satisfying the prerequisite.
 
-- **Type:** Union
-- **Cases:** <a href="#RatedMinimumNumberPrerequisite/targets'Skills">RatedMinimumNumberPrerequisite/targets'Skills</a> | <a href="#RatedMinimumNumberPrerequisite/targets'Spellworks">RatedMinimumNumberPrerequisite/targets'Spellworks</a> | <a href="#RatedMinimumNumberPrerequisite/targets'Liturgies">RatedMinimumNumberPrerequisite/targets'Liturgies</a>
+- **Type:** <a href="#RatedMinimumNumberPrerequisiteTarget">RatedMinimumNumberPrerequisiteTarget</a>
 
 #### <a name="RatedMinimumNumberPrerequisite/display_option"></a> `display_option?`
 
@@ -123,122 +107,121 @@ The targets that contribute to satisfying the prerequisite.
 
 ---
 
-### <a name="RatedMinimumNumberPrerequisite/targets'Skills"></a> `RatedMinimumNumberPrerequisite/targets'Skills`
+### <a name="RatedMinimumNumberPrerequisiteTarget"></a> `RatedMinimumNumberPrerequisiteTarget`
+
+- **Type:** Union
+- **Cases:** <a href="#RatedMinimumNumberPrerequisiteTarget'Skills">RatedMinimumNumberPrerequisiteTarget'Skills</a> | <a href="#RatedMinimumNumberPrerequisiteTarget'Spellworks">RatedMinimumNumberPrerequisiteTarget'Spellworks</a> | <a href="#RatedMinimumNumberPrerequisiteTarget'Liturgies">RatedMinimumNumberPrerequisiteTarget'Liturgies</a>
+
+---
+
+### <a name="RatedMinimumNumberPrerequisiteTarget'Skills"></a> `RatedMinimumNumberPrerequisiteTarget'Skills`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#RatedMinimumNumberPrerequisite/targets'Skills/tag">See details</a>
-`skills` | The skills that are taken into account for satisfying the prerequisite. | <a href="#RatedMinimumNumberPrerequisite/targets'Skills/skills">See details</a>
+`tag` |  | <a href="#RatedMinimumNumberPrerequisiteTarget'Skills/tag">See details</a>
+`skills` |  | <a href="#RatedMinimumNumberPrerequisiteTarget'Skills/skills">See details</a>
 
-#### <a name="RatedMinimumNumberPrerequisite/targets'Skills/tag"></a> `tag`
+#### <a name="RatedMinimumNumberPrerequisiteTarget'Skills/tag"></a> `tag`
 
 - **Constant:** `"Skills"`
 
-#### <a name="RatedMinimumNumberPrerequisite/targets'Skills/skills"></a> `skills`
+#### <a name="RatedMinimumNumberPrerequisiteTarget'Skills/skills"></a> `skills`
+
+- **Type:** <a href="#RatedMinimumNumberPrerequisiteSkillsTarget">RatedMinimumNumberPrerequisiteSkillsTarget</a>
+
+---
+
+### <a name="RatedMinimumNumberPrerequisiteTarget'Spellworks"></a> `RatedMinimumNumberPrerequisiteTarget'Spellworks`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#RatedMinimumNumberPrerequisiteTarget'Spellworks/tag">See details</a>
+`spellworks` |  | <a href="#RatedMinimumNumberPrerequisiteTarget'Spellworks/spellworks">See details</a>
+
+#### <a name="RatedMinimumNumberPrerequisiteTarget'Spellworks/tag"></a> `tag`
+
+- **Constant:** `"Spellworks"`
+
+#### <a name="RatedMinimumNumberPrerequisiteTarget'Spellworks/spellworks"></a> `spellworks`
+
+- **Type:** <a href="../../_SimpleReferences.md#PropertyReference">PropertyReference</a>
+
+---
+
+### <a name="RatedMinimumNumberPrerequisiteTarget'Liturgies"></a> `RatedMinimumNumberPrerequisiteTarget'Liturgies`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#RatedMinimumNumberPrerequisiteTarget'Liturgies/tag">See details</a>
+`liturgies` |  | <a href="#RatedMinimumNumberPrerequisiteTarget'Liturgies/liturgies">See details</a>
+
+#### <a name="RatedMinimumNumberPrerequisiteTarget'Liturgies/tag"></a> `tag`
+
+- **Constant:** `"Liturgies"`
+
+#### <a name="RatedMinimumNumberPrerequisiteTarget'Liturgies/liturgies"></a> `liturgies`
+
+- **Type:** <a href="../../_SimpleReferences.md#AspectReference">AspectReference</a>
+
+---
+
+### <a name="RatedMinimumNumberPrerequisiteSkillsTarget"></a> `RatedMinimumNumberPrerequisiteSkillsTarget`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`list` | The skills that are taken into account for satisfying the prerequisite. | <a href="#RatedMinimumNumberPrerequisiteSkillsTarget/list">See details</a>
+
+#### <a name="RatedMinimumNumberPrerequisiteSkillsTarget/list"></a> `list`
 
 The skills that are taken into account for satisfying the prerequisite.
 
 - **Type:** List
-- **Items:** <a href="#RatedMinimumNumberPrerequisite/targets'Skills/skills[]">RatedMinimumNumberPrerequisite/targets'Skills/skills[]</a>
+- **Items:** <a href="#RatedMinimumNumberPrerequisiteSkillsTarget/list[]">RatedMinimumNumberPrerequisiteSkillsTarget/list[]</a>
 - **Minimum Items:** `2`
 - **Unique Items:** Yes
 
 ---
 
-### <a name="RatedMinimumNumberPrerequisite/targets'Skills/skills[]"></a> `RatedMinimumNumberPrerequisite/targets'Skills/skills[]`
+### <a name="RatedMinimumNumberPrerequisiteSkillsTarget/list[]"></a> `RatedMinimumNumberPrerequisiteSkillsTarget/list[]`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The skill's identifier. | <a href="#RatedMinimumNumberPrerequisite/targets'Skills/skills[]/id">See details</a>
-
-#### <a name="RatedMinimumNumberPrerequisite/targets'Skills/skills[]/id"></a> `id`
-
-The skill's identifier.
-
-- **Type:** Number
+- **Type:** <a href="../../_SimpleReferences.md#SkillReference">SkillReference</a>
 
 ---
 
-### <a name="RatedMinimumNumberPrerequisite/targets'Spellworks"></a> `RatedMinimumNumberPrerequisite/targets'Spellworks`
+### <a name="RatedMinimumNumberPrerequisiteSpellworksTarget"></a> `RatedMinimumNumberPrerequisiteSpellworksTarget`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#RatedMinimumNumberPrerequisite/targets'Spellworks/tag">See details</a>
-`property` | Spellworks with the referenced property are taken into account for satisfying the prerequisite. | <a href="#RatedMinimumNumberPrerequisite/targets'Spellworks/property">See details</a>
+`property` | The skills that are taken into account for satisfying the prerequisite. | <a href="#RatedMinimumNumberPrerequisiteSpellworksTarget/property">See details</a>
 
-#### <a name="RatedMinimumNumberPrerequisite/targets'Spellworks/tag"></a> `tag`
+#### <a name="RatedMinimumNumberPrerequisiteSpellworksTarget/property"></a> `property`
 
-- **Constant:** `"Spellworks"`
+The skills that are taken into account for satisfying the prerequisite.
 
-#### <a name="RatedMinimumNumberPrerequisite/targets'Spellworks/property"></a> `property`
-
-Spellworks with the referenced property are taken into account for
-satisfying the prerequisite.
-
-- **Type:** <a href="#RatedMinimumNumberPrerequisite/targets'Spellworks/property">Object</a>
+- **Type:** <a href="../../_SimpleReferences.md#PropertyReference">PropertyReference</a>
 
 ---
 
-### <a name="RatedMinimumNumberPrerequisite/targets'Spellworks/property"></a> `RatedMinimumNumberPrerequisite/targets'Spellworks/property`
-
-Spellworks with the referenced property are taken into account for
-satisfying the prerequisite.
+### <a name="RatedMinimumNumberPrerequisiteLiturgiesTarget"></a> `RatedMinimumNumberPrerequisiteLiturgiesTarget`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The property's identifier. | <a href="#RatedMinimumNumberPrerequisite/targets'Spellworks/property/id">See details</a>
+`aspect` | The skills that are taken into account for satisfying the prerequisite. | <a href="#RatedMinimumNumberPrerequisiteLiturgiesTarget/aspect">See details</a>
 
-#### <a name="RatedMinimumNumberPrerequisite/targets'Spellworks/property/id"></a> `id`
+#### <a name="RatedMinimumNumberPrerequisiteLiturgiesTarget/aspect"></a> `aspect`
 
-The property's identifier.
+The skills that are taken into account for satisfying the prerequisite.
 
-- **Type:** Number
-
----
-
-### <a name="RatedMinimumNumberPrerequisite/targets'Liturgies"></a> `RatedMinimumNumberPrerequisite/targets'Liturgies`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#RatedMinimumNumberPrerequisite/targets'Liturgies/tag">See details</a>
-`aspect` | Liturgies with the referenced aspect are taken into account for satisfying the prerequisite. | <a href="#RatedMinimumNumberPrerequisite/targets'Liturgies/aspect">See details</a>
-
-#### <a name="RatedMinimumNumberPrerequisite/targets'Liturgies/tag"></a> `tag`
-
-- **Constant:** `"Liturgies"`
-
-#### <a name="RatedMinimumNumberPrerequisite/targets'Liturgies/aspect"></a> `aspect`
-
-Liturgies with the referenced aspect are taken into account for
-satisfying the prerequisite.
-
-- **Type:** <a href="#RatedMinimumNumberPrerequisite/targets'Liturgies/aspect">Object</a>
-
----
-
-### <a name="RatedMinimumNumberPrerequisite/targets'Liturgies/aspect"></a> `RatedMinimumNumberPrerequisite/targets'Liturgies/aspect`
-
-Liturgies with the referenced aspect are taken into account for
-satisfying the prerequisite.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The aspect's identifier. | <a href="#RatedMinimumNumberPrerequisite/targets'Liturgies/aspect/id">See details</a>
-
-#### <a name="RatedMinimumNumberPrerequisite/targets'Liturgies/aspect/id"></a> `id`
-
-The aspect's identifier.
-
-- **Type:** Number
+- **Type:** <a href="../../_SimpleReferences.md#AspectReference">AspectReference</a>

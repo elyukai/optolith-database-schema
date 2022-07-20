@@ -10,13 +10,8 @@ Requires a specific sex.
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#SexPrerequisite/tag">See details</a>
 `id` |  | <a href="#SexPrerequisite/id">See details</a>
 `display_option?` |  | <a href="#SexPrerequisite/display_option">See details</a>
-
-#### <a name="SexPrerequisite/tag"></a> `tag`
-
-- **Constant:** `"Sex"`
 
 #### <a name="SexPrerequisite/id"></a> `id`
 

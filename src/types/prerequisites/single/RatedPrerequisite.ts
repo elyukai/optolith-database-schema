@@ -1,12 +1,11 @@
 import { RatedIdentifier } from "../../_Identifier.js"
+import { AspectReference, PropertyReference, SkillReference } from "../../_SimpleReferences.js"
 import { DisplayOption } from "../DisplayOption.js"
 
 /**
  * @title Rated Prerequisite
  */
 export type RatedPrerequisite = {
-  tag: "Rated"
-
   /**
    * The rated entry's identifier.
    */
@@ -26,8 +25,6 @@ export type RatedPrerequisite = {
  * @title Rated Set Prerequisite
  */
 export type RatedSetPrerequisite = {
-  tag: "RatedSet"
-
   /**
    * The possible rated entries' identifiers.
    * @minItems 2
@@ -48,8 +45,6 @@ export type RatedSetPrerequisite = {
  * @title Rated Minimum Number Prerequisite
  */
 export type RatedMinimumNumberPrerequisite = {
-  tag: "RatedMinimumNumber"
-
   /**
    * The minimum number of skills that need to be on the defined minimum skill
    * rating.
@@ -69,50 +64,35 @@ export type RatedMinimumNumberPrerequisite = {
   /**
    * The targets that contribute to satisfying the prerequisite.
    */
-  targets:
-    | {
-      tag: "Skills"
-
-      /**
-       * The skills that are taken into account for satisfying the prerequisite.
-       * @minItems 2
-       * @uniqueItems
-       */
-      skills: {
-        /**
-         * The skill's identifier.
-         */
-        id: number
-      }[]
-    }
-    | {
-      tag: "Spellworks"
-
-      /**
-       * Spellworks with the referenced property are taken into account for
-       * satisfying the prerequisite.
-       */
-      property: {
-        /**
-         * The property's identifier.
-         */
-        id: number
-      }
-    }
-    | {
-      tag: "Liturgies"
-
-      /**
-       * Liturgies with the referenced aspect are taken into account for
-       * satisfying the prerequisite.
-       */
-      aspect: {
-        /**
-         * The aspect's identifier.
-         */
-        id: number
-      }
-    }
+  targets: RatedMinimumNumberPrerequisiteTarget
 
   display_option?: DisplayOption
+}
+
+export type RatedMinimumNumberPrerequisiteTarget =
+  | { tag: "Skills"; skills: RatedMinimumNumberPrerequisiteSkillsTarget }
+  | { tag: "Spellworks"; spellworks: PropertyReference }
+  | { tag: "Liturgies"; liturgies: AspectReference }
+
+export type RatedMinimumNumberPrerequisiteSkillsTarget = {
+  /**
+   * The skills that are taken into account for satisfying the prerequisite.
+   * @minItems 2
+   * @uniqueItems
+   */
+  list: SkillReference[]
+}
+
+export type RatedMinimumNumberPrerequisiteSpellworksTarget = {
+  /**
+   * The skills that are taken into account for satisfying the prerequisite.
+   */
+  property: PropertyReference
+}
+
+export type RatedMinimumNumberPrerequisiteLiturgiesTarget = {
+  /**
+   * The skills that are taken into account for satisfying the prerequisite.
+   */
+  aspect: AspectReference
 }

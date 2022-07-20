@@ -6,9 +6,6 @@
       "title": "Influence Prerequisite",
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "Influence"
-        },
         "id": {
           "description": "The influence's identifier.",
           "type": "integer",
@@ -23,7 +20,6 @@
         }
       },
       "required": [
-        "tag",
         "id",
         "active"
       ],

@@ -6,9 +6,6 @@
       "title": "Rule Prerequisite",
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "Rule"
-        },
         "id": {
           "$ref": "../../_Identifier.schema.json#/$defs/ExtensionRuleIdentifier"
         },
@@ -17,7 +14,6 @@
         }
       },
       "required": [
-        "tag",
         "id"
       ],
       "additionalProperties": false

@@ -6,8 +6,6 @@ import { DisplayOption } from "../DisplayOption.js"
  * @title Culture Prerequisite
  */
 export type CulturePrerequisite = {
-  tag: "Culture"
-
   id: OneOrManyNumericIdentifiers
 
   display_option?: DisplayOption

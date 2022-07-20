@@ -12,31 +12,58 @@ skill they enhance.
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#ExternalEnhancementPrerequisite/tag">See details</a>
-`skill_id` | The required skill's identifier. | <a href="#ExternalEnhancementPrerequisite/skill_id">See details</a>
-`enhancement_id` | The required enhancement's identifier. | <a href="#ExternalEnhancementPrerequisite/enhancement_id">See details</a>
+`skill` | The required skill. | <a href="#ExternalEnhancementPrerequisite/skill">See details</a>
+`enhancement` | The required enhancement. | <a href="#ExternalEnhancementPrerequisite/enhancement">See details</a>
 `display_option?` |  | <a href="#ExternalEnhancementPrerequisite/display_option">See details</a>
 
-#### <a name="ExternalEnhancementPrerequisite/tag"></a> `tag`
+#### <a name="ExternalEnhancementPrerequisite/skill"></a> `skill`
 
-- **Constant:** `"Enhancement"`
+The required skill.
 
-#### <a name="ExternalEnhancementPrerequisite/skill_id"></a> `skill_id`
+- **Type:** <a href="#SkillWithEnhancementsReference">SkillWithEnhancementsReference</a>
 
-The required skill's identifier.
+#### <a name="ExternalEnhancementPrerequisite/enhancement"></a> `enhancement`
 
-- **Type:** <a href="../../_Identifier.md#SkillWithEnhancementsIdentifier">SkillWithEnhancementsIdentifier</a>
+The required enhancement.
 
-#### <a name="ExternalEnhancementPrerequisite/enhancement_id"></a> `enhancement_id`
-
-The required enhancement's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="#EnhancementsReference">EnhancementsReference</a>
 
 #### <a name="ExternalEnhancementPrerequisite/display_option"></a> `display_option?`
 
 - **Type:** <a href="../DisplayOption.md#DisplayOption">DisplayOption</a>
+
+---
+
+### <a name="SkillWithEnhancementsReference"></a> `SkillWithEnhancementsReference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The skill's identifier. | <a href="#SkillWithEnhancementsReference/id">See details</a>
+
+#### <a name="SkillWithEnhancementsReference/id"></a> `id`
+
+The skill's identifier.
+
+- **Type:** <a href="../../_Identifier.md#SkillWithEnhancementsIdentifier">SkillWithEnhancementsIdentifier</a>
+
+---
+
+### <a name="EnhancementsReference"></a> `EnhancementsReference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The enhancement's identifier. | <a href="#EnhancementsReference/id">See details</a>
+
+#### <a name="EnhancementsReference/id"></a> `id`
+
+The enhancement's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
 
 ---
 
@@ -45,20 +72,4 @@ The required enhancement's identifier.
 Requires a specific enhancement from a skill. This can only be used by an
 enhancement to require another enhancement from the same skill.
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#InternalEnhancementPrerequisite/tag">See details</a>
-`id` | The enhancement's identifier. | <a href="#InternalEnhancementPrerequisite/id">See details</a>
-
-#### <a name="InternalEnhancementPrerequisite/tag"></a> `tag`
-
-- **Constant:** `"Enhancement"`
-
-#### <a name="InternalEnhancementPrerequisite/id"></a> `id`
-
-The enhancement's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="#EnhancementsReference">EnhancementsReference</a>

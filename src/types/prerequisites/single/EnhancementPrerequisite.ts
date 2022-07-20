@@ -8,31 +8,27 @@ import { DisplayOption } from "../DisplayOption.js"
  * @title External Enhancement Prerequisite
  */
 export type ExternalEnhancementPrerequisite = {
-  tag: "Enhancement"
+  /**
+   * The required skill.
+   */
+  skill: SkillWithEnhancementsReference
 
   /**
-   * The required skill's identifier.
+   * The required enhancement.
    */
-  skill_id: SkillWithEnhancementsIdentifier
-
-  /**
-   * The required enhancement's identifier.
-   * @integer
-   * @minimum 1
-   */
-  enhancement_id: number
+  enhancement: EnhancementsReference
 
   display_option?: DisplayOption
 }
 
-/**
- * Requires a specific enhancement from a skill. This can only be used by an
- * enhancement to require another enhancement from the same skill.
- * @title Internal Enhancement Prerequisite
- */
-export type InternalEnhancementPrerequisite = {
-  tag: "Enhancement"
+export type SkillWithEnhancementsReference = {
+  /**
+   * The skill's identifier.
+   */
+  id: SkillWithEnhancementsIdentifier
+}
 
+export type EnhancementsReference = {
   /**
    * The enhancement's identifier.
    * @integer
@@ -40,3 +36,10 @@ export type InternalEnhancementPrerequisite = {
    */
   id: number
 }
+
+/**
+ * Requires a specific enhancement from a skill. This can only be used by an
+ * enhancement to require another enhancement from the same skill.
+ * @title Internal Enhancement Prerequisite
+ */
+export type InternalEnhancementPrerequisite = EnhancementsReference

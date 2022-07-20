@@ -7,9 +7,6 @@
       "description": "Requires a specific race or one of a specific set of races. You can also\nprovide an object to say whether the hero must meet one of the races or\nif the entry does not allow one of the races.",
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "Race"
-        },
         "id": {
           "$ref": "../../_Identifier.schema.json#/$defs/OneOrManyNumericIdentifiers"
         },
@@ -21,7 +18,6 @@
         }
       },
       "required": [
-        "tag",
         "id",
         "active"
       ],

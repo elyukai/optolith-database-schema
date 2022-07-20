@@ -12,14 +12,9 @@ if the entry does not allow one of the races.
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#RacePrerequisite/tag">See details</a>
 `id` |  | <a href="#RacePrerequisite/id">See details</a>
 `active` |  | <a href="#RacePrerequisite/active">See details</a>
 `display_option?` |  | <a href="#RacePrerequisite/display_option">See details</a>
-
-#### <a name="RacePrerequisite/tag"></a> `tag`
-
-- **Constant:** `"Race"`
 
 #### <a name="RacePrerequisite/id"></a> `id`
 

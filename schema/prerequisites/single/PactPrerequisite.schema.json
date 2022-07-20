@@ -7,19 +7,15 @@
       "description": "Requires a specific pact.",
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "Pact"
-        },
-        "category_id": {
-          "description": "The required pact category's identifier.",
-          "type": "integer",
-          "minimum": 1
+        "category": {
+          "description": "The required pact category.",
+          "$ref": "../../_SimpleReferences.schema.json#/$defs/PactCategoryReference"
         },
         "domain_id": {
-          "description": "The required domains' identifiers.",
+          "description": "The required domain(s).",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/DomainId"
+            "$ref": "../../_SimpleReferences.schema.json#/$defs/PactDomainReference"
           }
         },
         "level": {
@@ -32,15 +28,9 @@
         }
       },
       "required": [
-        "tag",
-        "category_id"
+        "category"
       ],
       "additionalProperties": false
-    },
-    "DomainId": {
-      "description": "A domain's identifier.",
-      "type": "integer",
-      "minimum": 1
     }
   }
 }

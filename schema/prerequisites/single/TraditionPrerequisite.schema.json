@@ -6,91 +6,89 @@
       "title": "Blessed Tradition Prerequisite",
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "BlessedTradition"
-        },
         "restriction": {
           "description": "The blessed tradition prerequisite may only be satified if the blessed\ntradition is either church or shamanistic.",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Church"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Shamanistic"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            }
-          ]
+          "$ref": "#/$defs/BlessedTraditionPrerequisiteRestriction"
         },
         "display_option": {
           "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"
         }
       },
-      "required": [
-        "tag"
-      ],
+      "required": [],
       "additionalProperties": false
+    },
+    "BlessedTraditionPrerequisiteRestriction": {
+      "description": "The blessed tradition prerequisite may only be satified if the blessed\ntradition is either church or shamanistic.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Church"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Shamanistic"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
     },
     "MagicalTraditionPrerequisite": {
       "title": "Magical Tradition Prerequisite",
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "MagicalTradition"
-        },
         "restriction": {
           "description": "The magical tradition prerequisite may only be satified if the magical\ntradition can learn rituals or can bind familiars.",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "CanLearnRituals"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "CanBindFamiliars"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            }
-          ]
+          "$ref": "#/$defs/MagicalTraditionPrerequisiteRestriction"
         },
         "display_option": {
           "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"
         }
       },
-      "required": [
-        "tag"
-      ],
+      "required": [],
       "additionalProperties": false
+    },
+    "MagicalTraditionPrerequisiteRestriction": {
+      "description": "The magical tradition prerequisite may only be satified if the magical\ntradition can learn rituals or can bind familiars.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "CanLearnRituals"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "CanBindFamiliars"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
     }
   }
 }

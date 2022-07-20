@@ -8,13 +8,8 @@
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#RulePrerequisite/tag">See details</a>
 `id` |  | <a href="#RulePrerequisite/id">See details</a>
 `display_option?` |  | <a href="#RulePrerequisite/display_option">See details</a>
-
-#### <a name="RulePrerequisite/tag"></a> `tag`
-
-- **Constant:** `"Rule"`
 
 #### <a name="RulePrerequisite/id"></a> `id`
 

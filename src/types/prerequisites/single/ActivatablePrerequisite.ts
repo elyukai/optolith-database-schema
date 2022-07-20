@@ -7,8 +7,6 @@ import { DisplayOption } from "../DisplayOption.js"
  * @title Activatable Prerequisite
  */
 export type ActivatablePrerequisite = {
-  tag: "Activatable"
-
   /**
    * The activatable entry's identifier.
    */
@@ -44,8 +42,6 @@ export type ActivatablePrerequisite = {
  * @title Activatable Set Prerequisite
  */
 export type ActivatableSetPrerequisite = {
-  tag: "ActivatableSet"
-
   /**
    * The possible activatable entries' identifiers.
    * @minItems 2
@@ -80,8 +76,6 @@ export type ActivatableSetPrerequisite = {
  * @title Activatable Option Set Prerequisite
  */
 export type ActivatableOptionSetPrerequisite = {
-  tag: "ActivatableOptionSet"
-
   /**
    * The activatable entry's identifier.
    */

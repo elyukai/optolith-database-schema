@@ -10,13 +10,8 @@ Requires a specific state or one of a specific set of states.
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#StatePrerequisite/tag">See details</a>
 `id` |  | <a href="#StatePrerequisite/id">See details</a>
 `display_option?` |  | <a href="#StatePrerequisite/display_option">See details</a>
-
-#### <a name="StatePrerequisite/tag"></a> `tag`
-
-- **Constant:** `"State"`
 
 #### <a name="StatePrerequisite/id"></a> `id`
 

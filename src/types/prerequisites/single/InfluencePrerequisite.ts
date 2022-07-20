@@ -4,8 +4,6 @@ import { DisplayOption } from "../DisplayOption.js"
  * @title Influence Prerequisite
  */
 export type InfluencePrerequisite = {
-  tag: "Influence"
-
   /**
    * The influence's identifier.
    * @integer

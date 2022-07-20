@@ -1,3 +1,4 @@
+import { PactCategoryReference, PactDomainReference } from "../../_SimpleReferences.js"
 import { DisplayOption } from "../DisplayOption.js"
 
 /**
@@ -5,19 +6,15 @@ import { DisplayOption } from "../DisplayOption.js"
  * @title Pact Prerequisite
  */
 export type PactPrerequisite = {
-  tag: "Pact"
+  /**
+   * The required pact category.
+   */
+  category: PactCategoryReference
 
   /**
-   * The required pact category's identifier.
-   * @integer
-   * @minimum 1
+   * The required domain(s).
    */
-  category_id: number
-
-  /**
-   * The required domains' identifiers.
-   */
-  domain_id?: DomainId[]
+  domain_id?: PactDomainReference[]
 
   /**
    * The required pact level.
@@ -28,10 +25,3 @@ export type PactPrerequisite = {
 
   display_option?: DisplayOption
 }
-
-/**
- * A domain's identifier.
- * @integer
- * @minimum 1
- */
-type DomainId = number

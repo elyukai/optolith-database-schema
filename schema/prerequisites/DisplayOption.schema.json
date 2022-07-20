@@ -28,7 +28,7 @@
               "type": "object",
               "patternProperties": {
                 "^[a-z]{2}-[A-Z]{2}$": {
-                  "$ref": "#/$defs/NonEmptyString"
+                  "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
                 }
               },
               "minProperties": 1,
@@ -42,10 +42,6 @@
           "additionalProperties": false
         }
       ]
-    },
-    "NonEmptyString": {
-      "type": "string",
-      "minLength": 1
     }
   }
 }

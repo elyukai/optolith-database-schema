@@ -7,37 +7,40 @@
       "description": "Requires a specific enhancement from a skill. This should **not** be used\nfor enhancements themselves; they can only require enhancements from the same\nskill they enhance.",
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "Enhancement"
+        "skill": {
+          "description": "The required skill.",
+          "$ref": "#/$defs/SkillWithEnhancementsReference"
         },
-        "skill_id": {
-          "description": "The required skill's identifier.",
-          "$ref": "../../_Identifier.schema.json#/$defs/SkillWithEnhancementsIdentifier"
-        },
-        "enhancement_id": {
-          "description": "The required enhancement's identifier.",
-          "type": "integer",
-          "minimum": 1
+        "enhancement": {
+          "description": "The required enhancement.",
+          "$ref": "#/$defs/EnhancementsReference"
         },
         "display_option": {
           "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"
         }
       },
       "required": [
-        "tag",
-        "skill_id",
-        "enhancement_id"
+        "skill",
+        "enhancement"
       ],
       "additionalProperties": false
     },
-    "InternalEnhancementPrerequisite": {
-      "title": "Internal Enhancement Prerequisite",
-      "description": "Requires a specific enhancement from a skill. This can only be used by an\nenhancement to require another enhancement from the same skill.",
+    "SkillWithEnhancementsReference": {
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "Enhancement"
-        },
+        "id": {
+          "description": "The skill's identifier.",
+          "$ref": "../../_Identifier.schema.json#/$defs/SkillWithEnhancementsIdentifier"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "EnhancementsReference": {
+      "type": "object",
+      "properties": {
         "id": {
           "description": "The enhancement's identifier.",
           "type": "integer",
@@ -45,10 +48,14 @@
         }
       },
       "required": [
-        "tag",
         "id"
       ],
       "additionalProperties": false
+    },
+    "InternalEnhancementPrerequisite": {
+      "title": "Internal Enhancement Prerequisite",
+      "description": "Requires a specific enhancement from a skill. This can only be used by an\nenhancement to require another enhancement from the same skill.",
+      "$ref": "#/$defs/EnhancementsReference"
     }
   }
 }

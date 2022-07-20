@@ -8,8 +8,6 @@ import { DisplayOption } from "../DisplayOption.js"
  * @title Race Prerequisite
  */
 export type RacePrerequisite = {
-  tag: "Race"
-
   id: OneOrManyNumericIdentifiers
 
   active: boolean

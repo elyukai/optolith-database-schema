@@ -10,17 +10,12 @@ Requires a specific advantage, disadvantage or special ability.
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#ActivatablePrerequisite/tag">See details</a>
 `id` | The activatable entry's identifier. | <a href="#ActivatablePrerequisite/id">See details</a>
 `active` | If the required entry should be required to be active or inactive. | <a href="#ActivatablePrerequisite/active">See details</a>
 `level?` | The required minimum level of the entry. | <a href="#ActivatablePrerequisite/level">See details</a>
 `options?` | Required select options. Order is important. Typically, you only need the first array index, though. | <a href="#ActivatablePrerequisite/options">See details</a>
 `display_option?` |  | <a href="#ActivatablePrerequisite/display_option">See details</a>
 `when?` |  | <a href="#ActivatablePrerequisite/when">See details</a>
-
-#### <a name="ActivatablePrerequisite/tag"></a> `tag`
-
-- **Constant:** `"Activatable"`
 
 #### <a name="ActivatablePrerequisite/id"></a> `id`
 
@@ -75,16 +70,11 @@ set of entries.
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#ActivatableSetPrerequisite/tag">See details</a>
 `id` | The possible activatable entries' identifiers. | <a href="#ActivatableSetPrerequisite/id">See details</a>
 `active` | If the required entry should be required to be active or inactive. | <a href="#ActivatableSetPrerequisite/active">See details</a>
 `level?` | The required minimum level of the entry. | <a href="#ActivatableSetPrerequisite/level">See details</a>
 `options?` | Required select options. Order is important. Typically, you only need the first array index, though. | <a href="#ActivatableSetPrerequisite/options">See details</a>
 `display_option?` |  | <a href="#ActivatableSetPrerequisite/display_option">See details</a>
-
-#### <a name="ActivatableSetPrerequisite/tag"></a> `tag`
-
-- **Constant:** `"ActivatableSet"`
 
 #### <a name="ActivatableSetPrerequisite/id"></a> `id`
 
@@ -143,17 +133,12 @@ disadvantage or special ability.
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#ActivatableOptionSetPrerequisite/tag">See details</a>
 `id` | The activatable entry's identifier. | <a href="#ActivatableOptionSetPrerequisite/id">See details</a>
 `active` | If the required entry should be required to be active or inactive. | <a href="#ActivatableOptionSetPrerequisite/active">See details</a>
 `level?` | The required minimum level of the entry. | <a href="#ActivatableOptionSetPrerequisite/level">See details</a>
 `first_option` | The possible set of first options. | <a href="#ActivatableOptionSetPrerequisite/first_option">See details</a>
 `other_options?` | Required other select options. Order is important. | <a href="#ActivatableOptionSetPrerequisite/other_options">See details</a>
 `display_option?` |  | <a href="#ActivatableOptionSetPrerequisite/display_option">See details</a>
-
-#### <a name="ActivatableOptionSetPrerequisite/tag"></a> `tag`
-
-- **Constant:** `"ActivatableOptionSet"`
 
 #### <a name="ActivatableOptionSetPrerequisite/id"></a> `id`
 

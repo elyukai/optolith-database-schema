@@ -8,21 +8,15 @@
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PrimaryAttributePrerequisite/tag">See details</a>
 `category` | Is the required primary attribute for spellcasters or blessed ones? | <a href="#PrimaryAttributePrerequisite/category">See details</a>
 `value` | Required value of the attribute | <a href="#PrimaryAttributePrerequisite/value">See details</a>
 `display_option?` |  | <a href="#PrimaryAttributePrerequisite/display_option">See details</a>
-
-#### <a name="PrimaryAttributePrerequisite/tag"></a> `tag`
-
-- **Constant:** `"PrimaryAttribute"`
 
 #### <a name="PrimaryAttributePrerequisite/category"></a> `category`
 
 Is the required primary attribute for spellcasters or blessed ones?
 
-- **Type:** Union
-- **Cases:** <a href="#PrimaryAttributePrerequisite/category'Blessed">PrimaryAttributePrerequisite/category'Blessed</a> | <a href="#PrimaryAttributePrerequisite/category'Magical">PrimaryAttributePrerequisite/category'Magical</a>
+- **Type:** <a href="#PrimaryAttributeCategory">PrimaryAttributeCategory</a>
 
 #### <a name="PrimaryAttributePrerequisite/value"></a> `value`
 
@@ -37,28 +31,35 @@ Required value of the attribute
 
 ---
 
-### <a name="PrimaryAttributePrerequisite/category'Blessed"></a> `PrimaryAttributePrerequisite/category'Blessed`
+### <a name="PrimaryAttributeCategory"></a> `PrimaryAttributeCategory`
+
+- **Type:** Union
+- **Cases:** <a href="#PrimaryAttributeCategory'Blessed">PrimaryAttributeCategory'Blessed</a> | <a href="#PrimaryAttributeCategory'Magical">PrimaryAttributeCategory'Magical</a>
+
+---
+
+### <a name="PrimaryAttributeCategory'Blessed"></a> `PrimaryAttributeCategory'Blessed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PrimaryAttributePrerequisite/category'Blessed/tag">See details</a>
+`tag` |  | <a href="#PrimaryAttributeCategory'Blessed/tag">See details</a>
 
-#### <a name="PrimaryAttributePrerequisite/category'Blessed/tag"></a> `tag`
+#### <a name="PrimaryAttributeCategory'Blessed/tag"></a> `tag`
 
 - **Constant:** `"Blessed"`
 
 ---
 
-### <a name="PrimaryAttributePrerequisite/category'Magical"></a> `PrimaryAttributePrerequisite/category'Magical`
+### <a name="PrimaryAttributeCategory'Magical"></a> `PrimaryAttributeCategory'Magical`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PrimaryAttributePrerequisite/category'Magical/tag">See details</a>
+`tag` |  | <a href="#PrimaryAttributeCategory'Magical/tag">See details</a>
 
-#### <a name="PrimaryAttributePrerequisite/category'Magical/tag"></a> `tag`
+#### <a name="PrimaryAttributeCategory'Magical/tag"></a> `tag`
 
 - **Constant:** `"Magical"`

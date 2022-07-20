@@ -6,8 +6,6 @@ import { DisplayOption } from "../DisplayOption.js"
  * @title Sex Prerequisite
  */
 export type SexPrerequisite = {
-  tag: "Sex"
-
   id: BinarySex
 
   display_option?: DisplayOption

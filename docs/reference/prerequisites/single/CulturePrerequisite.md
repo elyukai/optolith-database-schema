@@ -10,13 +10,8 @@ Requires a specific culture or one of a specific set of cultures.
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#CulturePrerequisite/tag">See details</a>
 `id` |  | <a href="#CulturePrerequisite/id">See details</a>
 `display_option?` |  | <a href="#CulturePrerequisite/display_option">See details</a>
-
-#### <a name="CulturePrerequisite/tag"></a> `tag`
-
-- **Constant:** `"Culture"`
 
 #### <a name="CulturePrerequisite/id"></a> `id`
 

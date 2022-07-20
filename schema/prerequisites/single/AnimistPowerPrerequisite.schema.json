@@ -7,9 +7,6 @@
       "description": "Requires a specific animist power to be on a minimum value.",
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "AnimistPower"
-        },
         "id": {
           "description": "The animist power's identifier.",
           "type": "integer",
@@ -30,7 +27,6 @@
         }
       },
       "required": [
-        "tag",
         "id",
         "value"
       ],

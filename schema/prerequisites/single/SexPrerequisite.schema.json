@@ -7,9 +7,6 @@
       "description": "Requires a specific sex.",
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "Sex"
-        },
         "id": {
           "$ref": "../../_Sex.schema.json#/$defs/BinarySex"
         },
@@ -18,7 +15,6 @@
         }
       },
       "required": [
-        "tag",
         "id"
       ],
       "additionalProperties": false

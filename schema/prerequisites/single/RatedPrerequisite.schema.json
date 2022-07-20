@@ -6,9 +6,6 @@
       "title": "Rated Prerequisite",
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "Rated"
-        },
         "id": {
           "description": "The rated entry's identifier.",
           "$ref": "../../_Identifier.schema.json#/$defs/RatedIdentifier"
@@ -23,7 +20,6 @@
         }
       },
       "required": [
-        "tag",
         "id",
         "value"
       ],
@@ -33,9 +29,6 @@
       "title": "Rated Set Prerequisite",
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "RatedSet"
-        },
         "id": {
           "description": "The possible rated entries' identifiers.",
           "type": "array",
@@ -54,7 +47,6 @@
         }
       },
       "required": [
-        "tag",
         "id",
         "value"
       ],
@@ -64,9 +56,6 @@
       "title": "Rated Minimum Number Prerequisite",
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "RatedMinimumNumber"
-        },
         "number": {
           "description": "The minimum number of skills that need to be on the defined minimum skill\nrating.",
           "type": "integer",
@@ -79,104 +68,112 @@
         },
         "targets": {
           "description": "The targets that contribute to satisfying the prerequisite.",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Skills"
-                },
-                "skills": {
-                  "description": "The skills that are taken into account for satisfying the prerequisite.",
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "description": "The skill's identifier.",
-                        "type": "number"
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ],
-                    "additionalProperties": false
-                  },
-                  "minItems": 2,
-                  "uniqueItems": true
-                }
-              },
-              "required": [
-                "tag",
-                "skills"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Spellworks"
-                },
-                "property": {
-                  "description": "Spellworks with the referenced property are taken into account for\nsatisfying the prerequisite.",
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "description": "The property's identifier.",
-                      "type": "number"
-                    }
-                  },
-                  "required": [
-                    "id"
-                  ],
-                  "additionalProperties": false
-                }
-              },
-              "required": [
-                "tag",
-                "property"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Liturgies"
-                },
-                "aspect": {
-                  "description": "Liturgies with the referenced aspect are taken into account for\nsatisfying the prerequisite.",
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "description": "The aspect's identifier.",
-                      "type": "number"
-                    }
-                  },
-                  "required": [
-                    "id"
-                  ],
-                  "additionalProperties": false
-                }
-              },
-              "required": [
-                "tag",
-                "aspect"
-              ],
-              "additionalProperties": false
-            }
-          ]
+          "$ref": "#/$defs/RatedMinimumNumberPrerequisiteTarget"
         },
         "display_option": {
           "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"
         }
       },
       "required": [
-        "tag",
         "number",
         "value",
         "targets"
+      ],
+      "additionalProperties": false
+    },
+    "RatedMinimumNumberPrerequisiteTarget": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Skills"
+            },
+            "skills": {
+              "$ref": "#/$defs/RatedMinimumNumberPrerequisiteSkillsTarget"
+            }
+          },
+          "required": [
+            "tag",
+            "skills"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Spellworks"
+            },
+            "spellworks": {
+              "$ref": "../../_SimpleReferences.schema.json#/$defs/PropertyReference"
+            }
+          },
+          "required": [
+            "tag",
+            "spellworks"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Liturgies"
+            },
+            "liturgies": {
+              "$ref": "../../_SimpleReferences.schema.json#/$defs/AspectReference"
+            }
+          },
+          "required": [
+            "tag",
+            "liturgies"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "RatedMinimumNumberPrerequisiteSkillsTarget": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "description": "The skills that are taken into account for satisfying the prerequisite.",
+          "type": "array",
+          "items": {
+            "$ref": "../../_SimpleReferences.schema.json#/$defs/SkillReference"
+          },
+          "minItems": 2,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "list"
+      ],
+      "additionalProperties": false
+    },
+    "RatedMinimumNumberPrerequisiteSpellworksTarget": {
+      "type": "object",
+      "properties": {
+        "property": {
+          "description": "The skills that are taken into account for satisfying the prerequisite.",
+          "$ref": "../../_SimpleReferences.schema.json#/$defs/PropertyReference"
+        }
+      },
+      "required": [
+        "property"
+      ],
+      "additionalProperties": false
+    },
+    "RatedMinimumNumberPrerequisiteLiturgiesTarget": {
+      "type": "object",
+      "properties": {
+        "aspect": {
+          "description": "The skills that are taken into account for satisfying the prerequisite.",
+          "$ref": "../../_SimpleReferences.schema.json#/$defs/AspectReference"
+        }
+      },
+      "required": [
+        "aspect"
       ],
       "additionalProperties": false
     }

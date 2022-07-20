@@ -10,26 +10,20 @@ Requires a specific pact.
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PactPrerequisite/tag">See details</a>
-`category_id` | The required pact category's identifier. | <a href="#PactPrerequisite/category_id">See details</a>
-`domain_id?` | The required domains' identifiers. | <a href="#PactPrerequisite/domain_id">See details</a>
+`category` | The required pact category. | <a href="#PactPrerequisite/category">See details</a>
+`domain_id?` | The required domain(s). | <a href="#PactPrerequisite/domain_id">See details</a>
 `level?` | The required pact level. | <a href="#PactPrerequisite/level">See details</a>
 `display_option?` |  | <a href="#PactPrerequisite/display_option">See details</a>
 
-#### <a name="PactPrerequisite/tag"></a> `tag`
+#### <a name="PactPrerequisite/category"></a> `category`
 
-- **Constant:** `"Pact"`
+The required pact category.
 
-#### <a name="PactPrerequisite/category_id"></a> `category_id`
-
-The required pact category's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="../../_SimpleReferences.md#PactCategoryReference">PactCategoryReference</a>
 
 #### <a name="PactPrerequisite/domain_id"></a> `domain_id?`
 
-The required domains' identifiers.
+The required domain(s).
 
 - **Type:** List
 - **Items:** <a href="#PactPrerequisite/domain_id[]">PactPrerequisite/domain_id[]</a>
@@ -49,13 +43,4 @@ The required pact level.
 
 ### <a name="PactPrerequisite/domain_id[]"></a> `PactPrerequisite/domain_id[]`
 
-- **Type:** <a href="#DomainId">DomainId</a>
-
----
-
-### <a name="DomainId"></a> `DomainId`
-
-A domain's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="../../_SimpleReferences.md#PactDomainReference">PactDomainReference</a>

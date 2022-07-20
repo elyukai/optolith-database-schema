@@ -7,9 +7,6 @@
       "description": "Requires a specific culture or one of a specific set of cultures.",
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "Culture"
-        },
         "id": {
           "$ref": "../../_Identifier.schema.json#/$defs/OneOrManyNumericIdentifiers"
         },
@@ -18,7 +15,6 @@
         }
       },
       "required": [
-        "tag",
         "id"
       ],
       "additionalProperties": false
