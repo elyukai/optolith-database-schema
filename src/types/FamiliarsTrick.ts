@@ -52,7 +52,6 @@ export type FamiliarsTrick = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations: LocaleMap<FamiliarsTrickTranslation>
 }
@@ -70,7 +69,6 @@ export type Property =
 export type IndefiniteProperty = {
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations: LocaleMap<IndefinitePropertyTranslation>
 }
@@ -161,7 +159,6 @@ export type FixedOneTimeCost = {
   /**
    * All translations for the entry, identified by IETF language tag
    * (BCP47).
-   * @minProperties 1
    */
   translations?: LocaleMap<FixedOneTimeCostTranslation>
 }
@@ -187,7 +184,6 @@ export type IndefiniteOneTimeCost = {
   /**
    * All translations for the entry, identified by IETF language tag
    * (BCP47).
-   * @minProperties 1
    */
   translations: LocaleMap<IndefiniteOneTimeCostTranslation>
 }
@@ -232,7 +228,6 @@ export type FixedOneTimeDuration = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations?: LocaleMap<FixedOneTimeDurationTranslation>
 }
@@ -248,7 +243,6 @@ export type IndefiniteOneTimeDuration = {
   /**
    * All translations for the entry, identified by IETF language tag
    * (BCP47).
-   * @minProperties 1
    */
   translations: LocaleMap<IndefiniteOneTimeDurationTranslation>
 }

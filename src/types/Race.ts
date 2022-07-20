@@ -119,7 +119,6 @@ export type Race = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations: LocaleMap<RaceTranslation>
 }
@@ -349,7 +348,6 @@ export type RaceVariant = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations: LocaleMap<RaceVariantTranslation>
 }

@@ -23,7 +23,6 @@ export type State = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations: LocaleMap<StateTranslation>
 }

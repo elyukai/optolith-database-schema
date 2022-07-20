@@ -29,7 +29,6 @@ export type CoreRule = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations: LocaleMap<CoreRuleTranslation>
 }
@@ -79,7 +78,6 @@ export type ChildNode = {
 export type TextNode = {
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations: LocaleMap<TextNodeTranslation>
 }
@@ -99,7 +97,6 @@ export type ReferenceListNode = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations: LocaleMap<ReferenceListNodeTranslation>
 }

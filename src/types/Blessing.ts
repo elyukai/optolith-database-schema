@@ -35,7 +35,6 @@ export type Blessing = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations: LocaleMap<BlessingTranslation>
 }
@@ -107,7 +106,6 @@ export type FixedBlessingDuration = {
 export type IndefiniteBlessingDuration = {
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations: LocaleMap<IndefiniteDurationTranslation>
 }

@@ -86,7 +86,6 @@ export type NonModifiableOneTimeCost = {
   /**
    * All translations for the entry, identified by IETF language tag
    * (BCP47).
-   * @minProperties 1
    */
   translations?: LocaleMap<NonModifiableOneTimeCostTranslation>
 }
@@ -101,7 +100,6 @@ export type NonModifiableOneTimeCostPerCountable = {
   /**
    * All translations for the entry, identified by IETF language tag
    * (BCP47).
-   * @minProperties 1
    */
   translations: LocaleMap<NonModifiableOneTimeCostPerCountableTranslation>
 }
@@ -123,7 +121,6 @@ export type NonModifiableOneTimeCostTranslation = {
 export type IndefiniteOneTimeCost = {
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations: LocaleMap<IndefiniteOneTimeCostTranslation>
 }
@@ -164,7 +161,6 @@ export type CostMap = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations?: LocaleMap<CostMapTranslation>
 }
@@ -186,7 +182,6 @@ export type CostMapOption = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations?: LocaleMap<CostMapOptionTranslation>
 }

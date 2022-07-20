@@ -27,7 +27,6 @@ export type PublicationRef = {
 
   /**
    * All occurrences of the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   occurrences: LocaleMap<Occurrence>
 }

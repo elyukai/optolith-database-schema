@@ -35,7 +35,6 @@ export type PactCategory = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations: LocaleMap<PactCategoryTranslation>
 }
@@ -59,7 +58,6 @@ export type PactType = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations: LocaleMap<PactTypeTranslation>
 }
@@ -81,7 +79,6 @@ export type PactDomain = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations: LocaleMap<PactDomainTranslation>
 }

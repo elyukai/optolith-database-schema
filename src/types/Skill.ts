@@ -53,7 +53,6 @@ export type Skill = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations: LocaleMap<SkillTranslation>
 }
@@ -141,7 +140,6 @@ export type Application = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations: LocaleMap<ApplicationTranslation>
 }

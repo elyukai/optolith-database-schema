@@ -32,7 +32,6 @@ export type Immediate = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations?: LocaleMap<ImmediateTranslation>
 }
@@ -47,7 +46,6 @@ export type ImmediateTranslation = {
 export type PermanentDuration = {
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations: LocaleMap<PermanentDurationTranslation>
 }
@@ -79,7 +77,6 @@ export type FixedDuration = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations?: LocaleMap<FixedDurationTranslation>
 }
@@ -107,7 +104,6 @@ export type CheckResultBasedDuration = CheckResultBased & {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations?: LocaleMap<CheckResultBasedDurationTranslation>
 }
@@ -129,7 +125,6 @@ export type TaggedCheckResultBasedDuration = CheckResultBasedDuration & {
 export type IndefiniteDuration = {
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations: LocaleMap<IndefiniteDurationTranslation>
 }

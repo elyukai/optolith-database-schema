@@ -198,7 +198,6 @@ export type ProfessionPackageValues = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations: LocaleMap<ProfessionTranslation>
 }
@@ -286,7 +285,7 @@ export type ProfessionVariant = {
   prerequisites?: ProfessionPrerequisites
 
   /**
-   * @minProperties 1
+   *
    */
   options?: ProfessionVariantPackageOptions
 
@@ -321,7 +320,6 @@ export type ProfessionVariant = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations: LocaleMap<ProfessionVariantTranslation>
 }

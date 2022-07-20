@@ -52,7 +52,6 @@ export type Cantrip = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations: LocaleMap<CantripTranslation>
 
@@ -95,7 +94,6 @@ export type CommonCantripTraditionNote = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations?: LocaleMap<CommonCantripTraditionNoteTranslation>
 }
@@ -181,7 +179,6 @@ export type FixedCantripDuration = {
 export type IndefiniteCantripDuration = {
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations: LocaleMap<IndefiniteDurationTranslation>
 }

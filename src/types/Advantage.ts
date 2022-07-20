@@ -45,7 +45,6 @@ export type Advantage = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
   translations: LocaleMap<AdvantageTranslation>
 }
