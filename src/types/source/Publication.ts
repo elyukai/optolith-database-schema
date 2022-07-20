@@ -3,6 +3,8 @@
  */
 
 import { validateSchemaCreator } from "../../validation/schema.js"
+import { LocaleMap } from "../_LocaleMap.js"
+import { NonEmptyString } from "../_NonEmptyString.js"
 import { PublicationPrerequisites } from "../_Prerequisite.js"
 
 /**
@@ -22,15 +24,15 @@ export type Publication = {
   category: Category
 
   /**
-   * The age the content is restricted to.
+   * If the publication may contain adult content.
    */
-  age_restriction: AgeRestriction
+  contains_adult_content: boolean
 
   /**
-   * The publication is not (fully) implemented and thus needs to be excluded
+   * If the publication is not (fully) implemented and thus needs to be excluded
    * from * stable releases.
    */
-  is_missing_implementation?: boolean
+  is_missing_implementation: boolean
 
   /**
    * The specific other publications this publication depends on data from.
@@ -41,59 +43,47 @@ export type Publication = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The publisher's publication identifier.
-       * @minLength 1
-       * @example US25001
-       */
-      id?: string
+  translations: LocaleMap<PublicationTranslation>
+}
 
-      /**
-       * The publication's name.
-       * @minLength 1
-       */
-      name: string
+export type PublicationTranslation = {
+  /**
+   * The publisher's publication identifier.
+   * @minLength 1
+   * @example US25001
+   */
+  id?: string
 
-      /**
-       * The publication's abbreviation.
-       * @minLength 1
-       */
-      abbreviation: string
+  /**
+   * The publication's name.
+   */
+  name: NonEmptyString
 
-      /**
-       * The publication's release date.
-       * @format date
-       */
-      release_date?: string
+  /**
+   * The publication's abbreviation.
+   */
+  abbreviation: NonEmptyString
 
-      /**
-       * This publication translation is not (fully) implemented and thus needs to
-       * be excluded from stable releases.
-       */
-      is_missing_implementation?: boolean
-    }
-  }
+  /**
+   * The publication's release date.
+   * @format date
+   */
+  release_date?: string
+
+  /**
+   * If this publication translation is not (fully) implemented and thus needs
+   * to be excluded from stable releases.
+   */
+  is_missing_implementation: boolean
 }
 
 /**
  * The publication category.
  */
-type Category =
+export type Category =
   | { tag: "CoreRules" }
   | { tag: "ExpansionRules" }
   | { tag: "Sourcebook" }
   | { tag: "RegionalSourcebook" }
-
-/**
- * The age the content is restricted to.
- */
-type AgeRestriction =
-  | { tag: "Adult" }
-  | { tag: "None" }
 
 export const validateSchema = validateSchemaCreator<Publication>(import.meta.url)

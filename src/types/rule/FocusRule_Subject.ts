@@ -3,6 +3,8 @@
  */
 
 import { validateSchemaCreator } from "../../validation/schema.js"
+import { LocaleMap } from "../_LocaleMap.js"
+import { NonEmptyString } from "../_NonEmptyString.js"
 
 /**
  * Subjects or Subject Areas are the categories of Focus Rules.
@@ -20,18 +22,14 @@ export type Subject = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The subject.
-       * @minLength 1
-       */
-      name: string
-    }
-  }
+  translations: LocaleMap<SubjectTranslation>
+}
+
+export type SubjectTranslation = {
+  /**
+   * The subject.
+   */
+  name: NonEmptyString
 }
 
 export const validateSchema = validateSchemaCreator<Subject>(import.meta.url)

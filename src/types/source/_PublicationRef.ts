@@ -2,6 +2,8 @@
  * @main PublicationRefs
  */
 
+import { LocaleMap } from "../_LocaleMap.js"
+
 /**
  * The publications where you can find the entry.
  * @title Publication References
@@ -27,26 +29,21 @@ export type PublicationRef = {
    * All occurrences of the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  occurrences: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: Occurrence
-  }
+  occurrences: LocaleMap<Occurrence>
 }
 
-type Occurrence = SimpleOccurrence | SimpleOccurrences | VersionedOccurrence
+export type Occurrence = SimpleOccurrence | SimpleOccurrences | VersionedOccurrence
 
 /**
  * @title Simple Occurrences
  * @minItems 1
  */
-type SimpleOccurrences = SimpleOccurrence[]
+export type SimpleOccurrences = SimpleOccurrence[]
 
 /**
  * @title Simple Occurrence
  */
-type SimpleOccurrence = {
+export type SimpleOccurrence = {
   /**
    * The page where it occurs. If the entry spans multiple pages, use this as
    * the first page and `last_page` as the last page.
@@ -67,26 +64,11 @@ type SimpleOccurrence = {
 /**
  * @title Versioned Occurrence
  */
-type VersionedOccurrence = {
+export type VersionedOccurrence = {
   /**
    * The initial occurrence of the entry.
-   * @title Initial
    */
-  initial: {
-    /**
-     * The publication's printing since which the entry is present. Leave
-     * empty if present since the beginning.
-     * @integer
-     * @minimum 2
-     */
-    printing?: number
-
-    /**
-     * The initial page references.
-     * @minItems 1
-     */
-    pages: PageRange[]
-  }
+  initial: InitialOccurrence
 
   /**
    * Revisions of the entry, resulting in either changed page references or
@@ -97,43 +79,62 @@ type VersionedOccurrence = {
 }
 
 /**
+ * @title Initial Occurrence
+ */
+export type InitialOccurrence = {
+  /**
+   * The publication's printing since which the entry is present. Leave
+   * empty if present since the beginning.
+   * @integer
+   * @minimum 2
+   */
+  printing?: number
+
+  /**
+   * The initial page references.
+   * @minItems 1
+   */
+  pages: PageRange[]
+}
+
+/**
  * A revision of the entry, resulting in either changed page references or
  * re-addition or removal of an entry.
  * @title Revision
  */
-type Revision =
-  | {
-    tag: "Since"
+export type Revision =
+  | { tag: "Since"; since: Since }
+  | { tag: "Deprecated"; deprecated: Deprecation }
 
-    /**
-     * The publication's printing since which the entry is present again or has
-     * changed page references.
-     * @integer
-     * @minimum 2
-     */
-    printing: number;
+export type Since = {
+  /**
+   * The publication's printing since which the entry is present again or has
+   * changed page references.
+   * @integer
+   * @minimum 2
+   */
+  printing: number;
 
-    /**
-     * The changed or new page references.
-     * @minItems 1
-     */
-    pages: PageRange[]
-  }
-  | {
-    tag: "Deprecated"
+  /**
+   * The changed or new page references.
+   * @minItems 1
+   */
+  pages: PageRange[]
+}
 
-    /**
-     * The publication's printing since which the entry has been removed.
-     * @integer
-     * @minimum 2
-     */
-    printing: number;
-  }
+export type Deprecation = {
+  /**
+   * The publication's printing since which the entry has been removed.
+   * @integer
+   * @minimum 2
+   */
+  printing: number;
+}
 
 /**
  * @title Page Range
  */
-type PageRange = {
+export type PageRange = {
   /**
    * The page where it occurs. If the entry spans multiple pages, use this as
    * the first page and `last_page` as the last page.
@@ -150,15 +151,13 @@ type PageRange = {
 /**
  * @title Page
  */
-type Page =
+export type Page =
   | { tag: "InsideCoverFront" }
   | { tag: "InsideCoverBack" }
-  | {
-    tag: "Numbered"
+  | { tag: "Numbered"; numbered: NumberedPage }
 
-    /**
-     * The page number.
-     * @integer
-     */
-    number: number
-  }
+/**
+ * The page number.
+ * @integer
+ */
+export type NumberedPage = number

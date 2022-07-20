@@ -40,5 +40,4 @@ The date when the change was confirmed and applied to the entry.
 
 A description of what changed.
 
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
+- **Type:** <a href="../_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>

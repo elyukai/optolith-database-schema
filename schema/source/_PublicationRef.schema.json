@@ -23,7 +23,7 @@
           "minimum": 1
         },
         "occurrences": {
-          "description": "All occurrences of the entry, identified by IETF language tag (BCP47).",
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
@@ -86,28 +86,8 @@
       "type": "object",
       "properties": {
         "initial": {
-          "title": "Initial",
           "description": "The initial occurrence of the entry.",
-          "type": "object",
-          "properties": {
-            "printing": {
-              "description": "The publication's printing since which the entry is present. Leave\nempty if present since the beginning.",
-              "type": "integer",
-              "minimum": 2
-            },
-            "pages": {
-              "description": "The initial page references.",
-              "type": "array",
-              "items": {
-                "$ref": "#/$defs/PageRange"
-              },
-              "minItems": 1
-            }
-          },
-          "required": [
-            "pages"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/InitialOccurrence"
         },
         "revisions": {
           "description": "Revisions of the entry, resulting in either changed page references or\nre-addition or removal of an entry.",
@@ -123,6 +103,29 @@
       ],
       "additionalProperties": false
     },
+    "InitialOccurrence": {
+      "title": "Initial Occurrence",
+      "type": "object",
+      "properties": {
+        "printing": {
+          "description": "The publication's printing since which the entry is present. Leave\nempty if present since the beginning.",
+          "type": "integer",
+          "minimum": 2
+        },
+        "pages": {
+          "description": "The initial page references.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PageRange"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "pages"
+      ],
+      "additionalProperties": false
+    },
     "Revision": {
       "title": "Revision",
       "description": "A revision of the entry, resulting in either changed page references or\nre-addition or removal of an entry.",
@@ -133,24 +136,13 @@
             "tag": {
               "const": "Since"
             },
-            "printing": {
-              "description": "The publication's printing since which the entry is present again or has\nchanged page references.",
-              "type": "integer",
-              "minimum": 2
-            },
-            "pages": {
-              "description": "The changed or new page references.",
-              "type": "array",
-              "items": {
-                "$ref": "#/$defs/PageRange"
-              },
-              "minItems": 1
+            "since": {
+              "$ref": "#/$defs/Since"
             }
           },
           "required": [
             "tag",
-            "printing",
-            "pages"
+            "since"
           ],
           "additionalProperties": false
         },
@@ -160,19 +152,54 @@
             "tag": {
               "const": "Deprecated"
             },
-            "printing": {
-              "description": "The publication's printing since which the entry has been removed.",
-              "type": "integer",
-              "minimum": 2
+            "deprecated": {
+              "$ref": "#/$defs/Deprecation"
             }
           },
           "required": [
             "tag",
-            "printing"
+            "deprecated"
           ],
           "additionalProperties": false
         }
       ]
+    },
+    "Since": {
+      "type": "object",
+      "properties": {
+        "printing": {
+          "description": "The publication's printing since which the entry is present again or has\nchanged page references.",
+          "type": "integer",
+          "minimum": 2
+        },
+        "pages": {
+          "description": "The changed or new page references.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PageRange"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "printing",
+        "pages"
+      ],
+      "additionalProperties": false
+    },
+    "Deprecation": {
+      "type": "object",
+      "properties": {
+        "printing": {
+          "description": "The publication's printing since which the entry has been removed.",
+          "type": "integer",
+          "minimum": 2
+        }
+      },
+      "required": [
+        "printing"
+      ],
+      "additionalProperties": false
     },
     "PageRange": {
       "title": "Page Range",
@@ -225,18 +252,21 @@
             "tag": {
               "const": "Numbered"
             },
-            "number": {
-              "description": "The page number.",
-              "type": "integer"
+            "numbered": {
+              "$ref": "#/$defs/NumberedPage"
             }
           },
           "required": [
             "tag",
-            "number"
+            "numbered"
           ],
           "additionalProperties": false
         }
       ]
+    },
+    "NumberedPage": {
+      "description": "The page number.",
+      "type": "integer"
     }
   }
 }

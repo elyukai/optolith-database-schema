@@ -5,6 +5,9 @@
 import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
+import { LocaleMap } from "../_LocaleMap.js"
+import { NonEmptyMarkdown, NonEmptyString } from "../_NonEmptyString.js"
+import { Relevance } from "./_Rule.js"
 
 /**
  * @title Optional Rule
@@ -31,46 +34,21 @@ export type OptionalRule = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the optional rule.
-       * @minLength 1
-       */
-      name: string
-
-      /**
-       * The description of the optional rule.
-       * @markdown
-       * @minLength 1
-       */
-      description: string
-
-      errata?: Errata
-    }
-  }
+  translations: LocaleMap<OptionalRuleTranslation>
 }
 
-/**
- * The relevance of the optional rule for Optolith. It may be that it influences
- * character creating but it may also just influnce the character sheet. If it
- * is linked to systems in Optolith, it may be specified if this rule has not
- * been implemented in Optolith yet.
- */
-type Relevance =
-  | { tag: "Extraneous" }
-  | {
-    tag: "Linked"
+export type OptionalRuleTranslation = {
+  /**
+   * The name of the optional rule.
+   */
+  name: NonEmptyString
 
-    /**
-     * Does the optional rule have an impact on character creation or character
-     * sheet and this effect has not been implemented in Optolith yet? If
-     * `true`, the optional rule cannot be activated.
-     */
-    isMissingImplementation?: boolean
-  }
+  /**
+   * The description of the optional rule.
+   */
+  description: NonEmptyMarkdown
+
+  errata?: Errata
+}
 
 export const validateSchema = validateSchemaCreator<OptionalRule>(import.meta.url)

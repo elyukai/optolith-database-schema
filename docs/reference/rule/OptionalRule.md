@@ -27,7 +27,7 @@ influences character creating but it may also just influnce the character
 sheet. If it is linked to systems in Optolith, it may be specified if this
 rule has not been implemented in Optolith yet.
 
-- **Type:** <a href="#Relevance">Relevance</a>
+- **Type:** <a href="./_Rule.md#Relevance">Relevance</a>
 
 #### <a name="OptionalRule/src"></a> `src`
 
@@ -46,77 +46,32 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="OptionalRule/translations[key]"></a> `OptionalRule/translations[key]`
 
+- **Type:** <a href="#OptionalRuleTranslation">OptionalRuleTranslation</a>
+
+---
+
+### <a name="OptionalRuleTranslation"></a> `OptionalRuleTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the optional rule. | <a href="#OptionalRule/translations[key]/name">See details</a>
-`description` | The description of the optional rule. | <a href="#OptionalRule/translations[key]/description">See details</a>
-`errata?` |  | <a href="#OptionalRule/translations[key]/errata">See details</a>
+`name` | The name of the optional rule. | <a href="#OptionalRuleTranslation/name">See details</a>
+`description` | The description of the optional rule. | <a href="#OptionalRuleTranslation/description">See details</a>
+`errata?` |  | <a href="#OptionalRuleTranslation/errata">See details</a>
 
-#### <a name="OptionalRule/translations[key]/name"></a> `name`
+#### <a name="OptionalRuleTranslation/name"></a> `name`
 
 The name of the optional rule.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="OptionalRule/translations[key]/description"></a> `description`
+#### <a name="OptionalRuleTranslation/description"></a> `description`
 
 The description of the optional rule.
 
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
+- **Type:** <a href="../_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
-#### <a name="OptionalRule/translations[key]/errata"></a> `errata?`
+#### <a name="OptionalRuleTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>
-
----
-
-### <a name="Relevance"></a> `Relevance`
-
-The relevance of the optional rule for Optolith. It may be that it influences
-character creating but it may also just influnce the character sheet. If it
-is linked to systems in Optolith, it may be specified if this rule has not
-been implemented in Optolith yet.
-
-- **Type:** Union
-- **Cases:** <a href="#Relevance'Extraneous">Relevance'Extraneous</a> | <a href="#Relevance'Linked">Relevance'Linked</a>
-
----
-
-### <a name="Relevance'Extraneous"></a> `Relevance'Extraneous`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Relevance'Extraneous/tag">See details</a>
-
-#### <a name="Relevance'Extraneous/tag"></a> `tag`
-
-- **Constant:** `"Extraneous"`
-
----
-
-### <a name="Relevance'Linked"></a> `Relevance'Linked`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Relevance'Linked/tag">See details</a>
-`isMissingImplementation?` | Does the optional rule have an impact on character creation or character sheet and this effect has not been implemented in Optolith yet? If `true`, the optional rule cannot be activated. | <a href="#Relevance'Linked/isMissingImplementation">See details</a>
-
-#### <a name="Relevance'Linked/tag"></a> `tag`
-
-- **Constant:** `"Linked"`
-
-#### <a name="Relevance'Linked/isMissingImplementation"></a> `isMissingImplementation?`
-
-Does the optional rule have an impact on character creation or character
-sheet and this effect has not been implemented in Optolith yet? If
-`true`, the optional rule cannot be activated.
-
-- **Type:** Boolean

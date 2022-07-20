@@ -14,7 +14,7 @@
         },
         "relevance": {
           "description": "The relevance of the optional rule for Optolith. It may be that it\ninfluences character creating but it may also just influnce the character\nsheet. If it is linked to systems in Optolith, it may be specified if this\nrule has not been implemented in Optolith yet.",
-          "$ref": "#/$defs/Relevance"
+          "$ref": "./_Rule.schema.json#/$defs/Relevance"
         },
         "src": {
           "$ref": "../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
@@ -24,27 +24,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The name of the optional rule.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "description": {
-                  "description": "The description of the optional rule.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "errata": {
-                  "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "description"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/OptionalRuleTranslation"
             }
           },
           "minProperties": 1,
@@ -59,38 +39,26 @@
       ],
       "additionalProperties": false
     },
-    "Relevance": {
-      "description": "The relevance of the optional rule for Optolith. It may be that it influences\ncharacter creating but it may also just influnce the character sheet. If it\nis linked to systems in Optolith, it may be specified if this rule has not\nbeen implemented in Optolith yet.",
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Extraneous"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
+    "OptionalRuleTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the optional rule.",
+          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Linked"
-            },
-            "isMissingImplementation": {
-              "description": "Does the optional rule have an impact on character creation or character\nsheet and this effect has not been implemented in Optolith yet? If\n`true`, the optional rule cannot be activated.",
-              "type": "boolean"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
+        "description": {
+          "description": "The description of the optional rule.",
+          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        },
+        "errata": {
+          "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
         }
-      ]
+      },
+      "required": [
+        "name",
+        "description"
+      ],
+      "additionalProperties": false
     }
   }
 }

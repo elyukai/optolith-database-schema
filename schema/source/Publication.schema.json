@@ -16,12 +16,12 @@
           "description": "The publication category.",
           "$ref": "#/$defs/Category"
         },
-        "age_restriction": {
-          "description": "The age the content is restricted to.",
-          "$ref": "#/$defs/AgeRestriction"
+        "contains_adult_content": {
+          "description": "If the publication may contain adult content.",
+          "type": "boolean"
         },
         "is_missing_implementation": {
-          "description": "The publication is not (fully) implemented and thus needs to be excluded\nfrom * stable releases.",
+          "description": "If the publication is not (fully) implemented and thus needs to be excluded\nfrom * stable releases.",
           "type": "boolean"
         },
         "prerequisites": {
@@ -33,38 +33,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "description": "The publisher's publication identifier.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "name": {
-                  "description": "The publication's name.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "abbreviation": {
-                  "description": "The publication's abbreviation.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "release_date": {
-                  "description": "The publication's release date.",
-                  "type": "string",
-                  "format": "date"
-                },
-                "is_missing_implementation": {
-                  "description": "This publication translation is not (fully) implemented and thus needs to\nbe excluded from stable releases.",
-                  "type": "boolean"
-                }
-              },
-              "required": [
-                "name",
-                "abbreviation"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/PublicationTranslation"
             }
           },
           "minProperties": 1,
@@ -74,8 +43,42 @@
       "required": [
         "id",
         "category",
-        "age_restriction",
+        "contains_adult_content",
+        "is_missing_implementation",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "PublicationTranslation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The publisher's publication identifier.",
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "description": "The publication's name.",
+          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "abbreviation": {
+          "description": "The publication's abbreviation.",
+          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "release_date": {
+          "description": "The publication's release date.",
+          "type": "string",
+          "format": "date"
+        },
+        "is_missing_implementation": {
+          "description": "If this publication translation is not (fully) implemented and thus needs\nto be excluded from stable releases.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "abbreviation",
+        "is_missing_implementation"
       ],
       "additionalProperties": false
     },
@@ -123,35 +126,6 @@
           "properties": {
             "tag": {
               "const": "RegionalSourcebook"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        }
-      ]
-    },
-    "AgeRestriction": {
-      "description": "The age the content is restricted to.",
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Adult"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "None"
             }
           },
           "required": [

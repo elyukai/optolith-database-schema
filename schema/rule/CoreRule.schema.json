@@ -15,20 +15,7 @@
         "content": {
           "type": "array",
           "items": {
-            "oneOf": [
-              {
-                "$ref": "#/$defs/ChildNode"
-              },
-              {
-                "$ref": "#/$defs/TextNode"
-              },
-              {
-                "$ref": "#/$defs/ReferenceNode"
-              },
-              {
-                "$ref": "#/$defs/ReferenceListNode"
-              }
-            ]
+            "$ref": "#/$defs/ContentNode"
           },
           "minItems": 1
         },
@@ -40,21 +27,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The name of the optional rule.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "errata": {
-                  "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/CoreRuleTranslation"
             }
           },
           "minProperties": 1,
@@ -69,25 +42,105 @@
       ],
       "additionalProperties": false
     },
+    "CoreRuleTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the optional rule.",
+          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "errata": {
+          "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ContentNode": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Child"
+            },
+            "child": {
+              "$ref": "#/$defs/ChildNode"
+            }
+          },
+          "required": [
+            "tag",
+            "child"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Text"
+            },
+            "text": {
+              "$ref": "#/$defs/TextNode"
+            }
+          },
+          "required": [
+            "tag",
+            "text"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Reference"
+            },
+            "reference": {
+              "$ref": "#/$defs/ReferenceNode"
+            }
+          },
+          "required": [
+            "tag",
+            "reference"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "ReferenceList"
+            },
+            "reference_list": {
+              "$ref": "#/$defs/ReferenceListNode"
+            }
+          },
+          "required": [
+            "tag",
+            "reference_list"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
     "ChildNode": {
       "description": "A core rule nested inside this core rule. It may be displayed as a separate\npage or its content may be included in this rule's text, which will\nautomatically generate a proper heading. No content node of a type other than\n`Child` should follow a child node, since then it may look like the the text\nmay be part of the child node.",
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "Child"
-        },
         "id": {
           "description": "The nested core rule's identifier.",
           "type": "integer",
           "minimum": 1
         },
         "include": {
-          "description": "If `true`, integrate the nested core rule's content into this core rule and\nadd a proper heading. Otherwise create a link to a separate view of that\ncore rule.",
+          "description": "If the nested core rule's content should be integrated into this core rule\nand a proper heading should be added. Otherwise create a link to a separate\nview of that core rule.",
           "type": "boolean"
         }
       },
       "required": [
-        "tag",
         "id",
         "include"
       ],
@@ -97,26 +150,12 @@
       "description": "A simple text block, containing one or multiple paragraphs. Headings are not\nallowed, they should be handled as nested core rules instead.",
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "Text"
-        },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "text": {
-                  "description": "Markdown-formatted text.",
-                  "type": "string",
-                  "minLength": 1
-                }
-              },
-              "required": [
-                "text"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/TextNodeTranslation"
             }
           },
           "minProperties": 1,
@@ -124,8 +163,20 @@
         }
       },
       "required": [
-        "tag",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "TextNodeTranslation": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "description": "Markdown-formatted text.",
+          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        }
+      },
+      "required": [
+        "text"
       ],
       "additionalProperties": false
     },
@@ -133,805 +184,812 @@
       "description": "Generate a list or table from a specific entity type.",
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "DeriveMany"
+        "source": {
+          "$ref": "#/$defs/ReferenceListNodeSource"
         },
-        "content": {
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
           "type": "object",
-          "properties": {
-            "source": {
-              "oneOf": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Attributes"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "QualityLevels"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Conditions"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "States"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "ExperienceLevels"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Races"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Cultures"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Professions"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Advantages"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Disadvantages"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "CombatTechniques"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "SpecialAbilities"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "PrimaryAttributes"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "DerivedCharacteristics"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "StartingAge"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Archetypes"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "RequirementsForRoutineChecks"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "GeneralSpecialAbilities"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "FatePointSpecialAbilities"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "LanguagesAndScripts"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "CloseCombatBotch"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "DefenseBotch"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "MeleeCombatTechniques"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "RangedCombatBotch"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "RangedCombatDefenseBotch"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "RangedCombatTechniques"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "CombatSpecialAbilities"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Properties"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "SpellBotch"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Services"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "ProtectiveAndWardingCircles"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Elixirs"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "StaffEnchantments"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "FamiliarsTricks"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Curses"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "ElvenMagicalSongs"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "MagicalSpecialAbilities"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Cantrips"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Spells"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Rituals"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Aspects"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "LiturgyBotch"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "KarmaSpecialAbilities"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Blessings"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "LiturgicalChants"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Ceremonies"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "SocialStatuses"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Poisons"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Diseases"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "HealingHerbs"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "VisibilityModifier"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Demons"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Elementals"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Animals"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Familiars"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "AnimalSpecialAbilities"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "EquipmentPackages"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Items"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "OptionalRules"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "ImprovementCost"
-                    },
-                    "target": {
-                      "description": "Define if the cost for attributes or skills should be defined. The\ncost for attributes start with value 9, while the cost for skills\nstart with 1 in addition to possible activation cost.",
-                      "oneOf": [
-                        {
-                          "type": "object",
-                          "properties": {
-                            "tag": {
-                              "const": "Attributes"
-                            }
-                          },
-                          "required": [
-                            "tag"
-                          ],
-                          "additionalProperties": false
-                        },
-                        {
-                          "type": "object",
-                          "properties": {
-                            "tag": {
-                              "const": "Skills"
-                            }
-                          },
-                          "required": [
-                            "tag"
-                          ],
-                          "additionalProperties": false
-                        }
-                      ]
-                    },
-                    "maximum_rating": {
-                      "description": "The highest value the improvement cost are displayed for.\n\nThe minimum maximum value should depend on what is the upper bound of\nthe range of adventure point cost that are equal across multiple\nvalues (value increases for attributes are always 15 up to (and\nincluding) value 14, while value increases for skills are always 1 to\n4, depending on the improvement cost, up to (and including) value\n12), since those ranges should be combined into a single table row.",
-                      "type": "integer",
-                      "minimum": 12
-                    }
-                  },
-                  "required": [
-                    "tag",
-                    "target",
-                    "maximum_rating"
-                  ],
-                  "additionalProperties": false
-                }
-              ]
-            },
-            "translations": {
-              "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-              "type": "object",
-              "patternProperties": {
-                "^[a-z]{2}-[A-Z]{2}$": {
-                  "type": "object",
-                  "properties": {
-                    "caption": {
-                      "description": "The list's or table's caption.",
-                      "type": "string",
-                      "minLength": 1
-                    }
-                  },
-                  "required": [
-                    "caption"
-                  ],
-                  "additionalProperties": false
-                }
-              },
-              "minProperties": 1,
-              "additionalProperties": false
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/ReferenceListNodeTranslation"
             }
           },
-          "required": [
-            "source",
-            "translations"
-          ],
+          "minProperties": 1,
           "additionalProperties": false
         }
       },
       "required": [
-        "tag",
-        "content"
+        "source",
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "ReferenceListNodeSource": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Attributes"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "QualityLevels"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Conditions"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "States"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "ExperienceLevels"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Races"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Cultures"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Professions"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Advantages"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Disadvantages"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "CombatTechniques"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "SpecialAbilities"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PrimaryAttributes"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "DerivedCharacteristics"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "StartingAge"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Archetypes"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "RequirementsForRoutineChecks"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "GeneralSpecialAbilities"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "FatePointSpecialAbilities"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "LanguagesAndScripts"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "CloseCombatBotch"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "DefenseBotch"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "MeleeCombatTechniques"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "RangedCombatBotch"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "RangedCombatDefenseBotch"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "RangedCombatTechniques"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "CombatSpecialAbilities"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Properties"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "SpellBotch"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Services"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "ProtectiveAndWardingCircles"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Elixirs"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "StaffEnchantments"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "FamiliarsTricks"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Curses"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "ElvenMagicalSongs"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "MagicalSpecialAbilities"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Cantrips"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Spells"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Rituals"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Aspects"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "LiturgyBotch"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "KarmaSpecialAbilities"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Blessings"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "LiturgicalChants"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Ceremonies"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "SocialStatuses"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Poisons"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Diseases"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "HealingHerbs"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "VisibilityModifier"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Demons"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Elementals"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Animals"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Familiars"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "AnimalSpecialAbilities"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "EquipmentPackages"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Items"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "OptionalRules"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "ImprovementCost"
+            },
+            "improvement_cost": {
+              "$ref": "#/$defs/ReferenceListNodeImprovementCostSource"
+            }
+          },
+          "required": [
+            "tag",
+            "improvement_cost"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "ReferenceListNodeImprovementCostSource": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "description": "Define if the cost for attributes or skills should be defined. The\ncost for attributes start with value 9, while the cost for skills\nstart with 1 in addition to possible activation cost.",
+          "$ref": "#/$defs/ReferenceListNodeImprovementCostSourceTarget"
+        },
+        "maximum_rating": {
+          "description": "The highest value the improvement cost are displayed for.\n\nThe minimum maximum value should depend on what is the upper bound of\nthe range of adventure point cost that are equal across multiple\nvalues (value increases for attributes are always 15 up to (and\nincluding) value 14, while value increases for skills are always 1 to\n4, depending on the improvement cost, up to (and including) value\n12), since those ranges should be combined into a single table row.",
+          "type": "integer",
+          "minimum": 12
+        }
+      },
+      "required": [
+        "target",
+        "maximum_rating"
+      ],
+      "additionalProperties": false
+    },
+    "ReferenceListNodeImprovementCostSourceTarget": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Attributes"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Skills"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "ReferenceListNodeTranslation": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "description": "Markdown-formatted text.",
+          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        }
+      },
+      "required": [
+        "text"
       ],
       "additionalProperties": false
     },
@@ -939,25 +997,12 @@
       "description": "Generate the full text for a single entry as part of this core rule's text.",
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "DeriveOne"
-        },
-        "source": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "$ref": "../_Identifier.schema.json#/$defs/CoreRuleDerivableContentIdentifier"
-            }
-          },
-          "required": [
-            "id"
-          ],
-          "additionalProperties": false
+        "id": {
+          "$ref": "../_Identifier.schema.json#/$defs/CoreRuleDerivableContentIdentifier"
         }
       },
       "required": [
-        "tag",
-        "source"
+        "id"
       ],
       "additionalProperties": false
     }

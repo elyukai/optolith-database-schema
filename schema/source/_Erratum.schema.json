@@ -23,8 +23,7 @@
         },
         "description": {
           "description": "A description of what changed.",
-          "type": "string",
-          "minLength": 1
+          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
         }
       },
       "required": [

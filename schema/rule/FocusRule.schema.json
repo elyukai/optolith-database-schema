@@ -12,16 +12,18 @@
           "type": "integer",
           "minimum": 1
         },
-        "subject_id": {
-          "description": "The focus rule's subject's identifier.",
-          "type": "integer",
-          "minimum": 1
+        "subject": {
+          "description": "The associated subject.",
+          "$ref": "../_SimpleReferences.schema.json#/$defs/FocusRuleSubjectReference"
         },
         "level": {
           "description": "The focus rule's level.",
           "type": "integer",
           "maximum": 4,
           "minimum": 1
+        },
+        "relevance": {
+          "$ref": "./_Rule.schema.json#/$defs/Relevance"
         },
         "src": {
           "$ref": "../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
@@ -31,27 +33,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The name of the focus rule.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "description": {
-                  "description": "The description of the focus rule.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "errata": {
-                  "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "description"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/FocusRuleTranslation"
             }
           },
           "minProperties": 1,
@@ -60,10 +42,32 @@
       },
       "required": [
         "id",
-        "subject_id",
+        "subject",
         "level",
+        "relevance",
         "src",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "FocusRuleTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the focus rule.",
+          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "description": {
+          "description": "The description of the focus rule.",
+          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        },
+        "errata": {
+          "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "description"
       ],
       "additionalProperties": false
     }

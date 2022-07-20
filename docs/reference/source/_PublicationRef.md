@@ -136,7 +136,7 @@ Key | Description | Details
 
 The initial occurrence of the entry.
 
-- **Type:** <a href="#VersionedOccurrence/initial">Object</a>
+- **Type:** <a href="#InitialOccurrence">InitialOccurrence</a>
 
 #### <a name="VersionedOccurrence/revisions"></a> `revisions?`
 
@@ -149,18 +149,22 @@ re-addition or removal of an entry.
 
 ---
 
-### <a name="VersionedOccurrence/initial"></a> Initial (`VersionedOccurrence/initial`)
+### <a name="VersionedOccurrence/revisions[]"></a> `VersionedOccurrence/revisions[]`
 
-The initial occurrence of the entry.
+- **Type:** <a href="#Revision">Revision</a>
+
+---
+
+### <a name="InitialOccurrence"></a> Initial Occurrence (`InitialOccurrence`)
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`printing?` | The publication's printing since which the entry is present. Leave empty if present since the beginning. | <a href="#VersionedOccurrence/initial/printing">See details</a>
-`pages` | The initial page references. | <a href="#VersionedOccurrence/initial/pages">See details</a>
+`printing?` | The publication's printing since which the entry is present. Leave empty if present since the beginning. | <a href="#InitialOccurrence/printing">See details</a>
+`pages` | The initial page references. | <a href="#InitialOccurrence/pages">See details</a>
 
-#### <a name="VersionedOccurrence/initial/printing"></a> `printing?`
+#### <a name="InitialOccurrence/printing"></a> `printing?`
 
 The publication's printing since which the entry is present. Leave
 empty if present since the beginning.
@@ -168,25 +172,19 @@ empty if present since the beginning.
 - **Type:** Integer
 - **Minimum:** `2`
 
-#### <a name="VersionedOccurrence/initial/pages"></a> `pages`
+#### <a name="InitialOccurrence/pages"></a> `pages`
 
 The initial page references.
 
 - **Type:** List
-- **Items:** <a href="#VersionedOccurrence/initial/pages[]">VersionedOccurrence/initial/pages[]</a>
+- **Items:** <a href="#InitialOccurrence/pages[]">InitialOccurrence/pages[]</a>
 - **Minimum Items:** `1`
 
 ---
 
-### <a name="VersionedOccurrence/initial/pages[]"></a> `VersionedOccurrence/initial/pages[]`
+### <a name="InitialOccurrence/pages[]"></a> `InitialOccurrence/pages[]`
 
 - **Type:** <a href="#PageRange">PageRange</a>
-
----
-
-### <a name="VersionedOccurrence/revisions[]"></a> `VersionedOccurrence/revisions[]`
-
-- **Type:** <a href="#Revision">Revision</a>
 
 ---
 
@@ -207,34 +205,15 @@ re-addition or removal of an entry.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#Revision'Since/tag">See details</a>
-`printing` | The publication's printing since which the entry is present again or has changed page references. | <a href="#Revision'Since/printing">See details</a>
-`pages` | The changed or new page references. | <a href="#Revision'Since/pages">See details</a>
+`since` |  | <a href="#Revision'Since/since">See details</a>
 
 #### <a name="Revision'Since/tag"></a> `tag`
 
 - **Constant:** `"Since"`
 
-#### <a name="Revision'Since/printing"></a> `printing`
+#### <a name="Revision'Since/since"></a> `since`
 
-The publication's printing since which the entry is present again or has
-changed page references.
-
-- **Type:** Integer
-- **Minimum:** `2`
-
-#### <a name="Revision'Since/pages"></a> `pages`
-
-The changed or new page references.
-
-- **Type:** List
-- **Items:** <a href="#Revision'Since/pages[]">Revision'Since/pages[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="Revision'Since/pages[]"></a> `Revision'Since/pages[]`
-
-- **Type:** <a href="#PageRange">PageRange</a>
+- **Type:** <a href="#Since">Since</a>
 
 ---
 
@@ -245,13 +224,60 @@ The changed or new page references.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#Revision'Deprecated/tag">See details</a>
-`printing` | The publication's printing since which the entry has been removed. | <a href="#Revision'Deprecated/printing">See details</a>
+`deprecated` |  | <a href="#Revision'Deprecated/deprecated">See details</a>
 
 #### <a name="Revision'Deprecated/tag"></a> `tag`
 
 - **Constant:** `"Deprecated"`
 
-#### <a name="Revision'Deprecated/printing"></a> `printing`
+#### <a name="Revision'Deprecated/deprecated"></a> `deprecated`
+
+- **Type:** <a href="#Deprecation">Deprecation</a>
+
+---
+
+### <a name="Since"></a> `Since`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`printing` | The publication's printing since which the entry is present again or has changed page references. | <a href="#Since/printing">See details</a>
+`pages` | The changed or new page references. | <a href="#Since/pages">See details</a>
+
+#### <a name="Since/printing"></a> `printing`
+
+The publication's printing since which the entry is present again or has
+changed page references.
+
+- **Type:** Integer
+- **Minimum:** `2`
+
+#### <a name="Since/pages"></a> `pages`
+
+The changed or new page references.
+
+- **Type:** List
+- **Items:** <a href="#Since/pages[]">Since/pages[]</a>
+- **Minimum Items:** `1`
+
+---
+
+### <a name="Since/pages[]"></a> `Since/pages[]`
+
+- **Type:** <a href="#PageRange">PageRange</a>
+
+---
+
+### <a name="Deprecation"></a> `Deprecation`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`printing` | The publication's printing since which the entry has been removed. | <a href="#Deprecation/printing">See details</a>
+
+#### <a name="Deprecation/printing"></a> `printing`
 
 The publication's printing since which the entry has been removed.
 
@@ -327,13 +353,19 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#Page'Numbered/tag">See details</a>
-`number` | The page number. | <a href="#Page'Numbered/number">See details</a>
+`numbered` |  | <a href="#Page'Numbered/numbered">See details</a>
 
 #### <a name="Page'Numbered/tag"></a> `tag`
 
 - **Constant:** `"Numbered"`
 
-#### <a name="Page'Numbered/number"></a> `number`
+#### <a name="Page'Numbered/numbered"></a> `numbered`
+
+- **Type:** <a href="#NumberedPage">NumberedPage</a>
+
+---
+
+### <a name="NumberedPage"></a> `NumberedPage`
 
 The page number.
 

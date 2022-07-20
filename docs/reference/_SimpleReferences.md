@@ -2,6 +2,23 @@
 
 ## Definitions
 
+### <a name="FocusRuleSubjectReference"></a> `FocusRuleSubjectReference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The focus rule subject's identifier. | <a href="#FocusRuleSubjectReference/id">See details</a>
+
+#### <a name="FocusRuleSubjectReference/id"></a> `id`
+
+The focus rule subject's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
 ### <a name="RaceReference"></a> `RaceReference`
 
 - **Type:** Object

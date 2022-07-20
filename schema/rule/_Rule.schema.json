@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/rule/_Rule.schema.json",
+  "$defs": {
+    "Relevance": {
+      "description": "The relevance of the rule for Optolith. It may be that it influences\ncharacter creating but it may also just influnce the character sheet. If it\nis linked to systems in Optolith, it may be specified if this rule has not\nbeen implemented in Optolith yet.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Extraneous"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Linked"
+            },
+            "linked": {
+              "$ref": "#/$defs/LinkedRelevance"
+            }
+          },
+          "required": [
+            "tag",
+            "linked"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "LinkedRelevance": {
+      "type": "object",
+      "properties": {
+        "is_missing_implementation": {
+          "description": "Does the optional rule have an impact on character creation or character\nsheet and this effect has not been implemented in Optolith yet?",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "is_missing_implementation"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

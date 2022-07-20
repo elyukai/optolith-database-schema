@@ -35,15 +35,20 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Subject/translations[key]"></a> `Subject/translations[key]`
 
+- **Type:** <a href="#SubjectTranslation">SubjectTranslation</a>
+
+---
+
+### <a name="SubjectTranslation"></a> `SubjectTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The subject. | <a href="#Subject/translations[key]/name">See details</a>
+`name` | The subject. | <a href="#SubjectTranslation/name">See details</a>
 
-#### <a name="Subject/translations[key]/name"></a> `name`
+#### <a name="SubjectTranslation/name"></a> `name`
 
 The subject.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

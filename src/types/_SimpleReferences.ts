@@ -1,5 +1,14 @@
 import { CombatTechniqueIdentifier } from "./_Identifier.js"
 
+export type FocusRuleSubjectReference = {
+  /**
+   * The focus rule subject's identifier.
+   * @integer
+   * @minimum 1
+   */
+  id: number
+}
+
 export type RaceReference = {
   /**
    * The race's identifier.

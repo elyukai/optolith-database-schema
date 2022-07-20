@@ -2,6 +2,8 @@
  * @main Errata
  */
 
+import { NonEmptyMarkdown } from "../_NonEmptyString.js"
+
 /**
  * A list of errata for the entry in the specific language.
  * @title Errata
@@ -24,5 +26,5 @@ export type Erratum = {
    * @markdown
    * @minLength 1
    */
-  description: string
+  description: NonEmptyMarkdown
 }
