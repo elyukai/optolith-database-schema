@@ -3,6 +3,8 @@
  */
 
 import { validateSchemaCreator } from "../validation/schema.js"
+import { LocaleMap } from "./_LocaleMap.js"
+import { NonEmptyString } from "./_NonEmptyString.js"
 import { SkillCheck } from "./_SkillCheck.js"
 
 /**
@@ -23,26 +25,20 @@ import { SkillCheck } from "./_SkillCheck.js"
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The skill group's name.
-       * @minLength 1
-       */
-      name: string
+  translations: LocaleMap<SkillGroupTranslation>
+}
 
-      /**
-       * The skill group's long name.
-       * @minLength 1
-       */
-      long_name: string
-    }
-  }
+export type SkillGroupTranslation = {
+  /**
+   * The skill group's name.
+   */
+  name: NonEmptyString
+
+  /**
+   * The skill group's long name.
+   */
+  long_name: NonEmptyString
 }
 
 export const validateSchema = validateSchemaCreator<SkillGroup>(import.meta.url)

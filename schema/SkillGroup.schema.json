@@ -21,24 +21,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The skill group's name.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "long_name": {
-                  "description": "The skill group's long name.",
-                  "type": "string",
-                  "minLength": 1
-                }
-              },
-              "required": [
-                "name",
-                "long_name"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/SkillGroupTranslation"
             }
           },
           "minProperties": 1,
@@ -49,6 +32,24 @@
         "id",
         "check",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "SkillGroupTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The skill group's name.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "long_name": {
+          "description": "The skill group's long name.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "name",
+        "long_name"
       ],
       "additionalProperties": false
     }

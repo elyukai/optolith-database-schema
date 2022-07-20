@@ -38,23 +38,27 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="SkillGroup/translations[key]"></a> `SkillGroup/translations[key]`
 
+- **Type:** <a href="#SkillGroupTranslation">SkillGroupTranslation</a>
+
+---
+
+### <a name="SkillGroupTranslation"></a> `SkillGroupTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The skill group's name. | <a href="#SkillGroup/translations[key]/name">See details</a>
-`long_name` | The skill group's long name. | <a href="#SkillGroup/translations[key]/long_name">See details</a>
+`name` | The skill group's name. | <a href="#SkillGroupTranslation/name">See details</a>
+`long_name` | The skill group's long name. | <a href="#SkillGroupTranslation/long_name">See details</a>
 
-#### <a name="SkillGroup/translations[key]/name"></a> `name`
+#### <a name="SkillGroupTranslation/name"></a> `name`
 
 The skill group's name.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="SkillGroup/translations[key]/long_name"></a> `long_name`
+#### <a name="SkillGroupTranslation/long_name"></a> `long_name`
 
 The skill group's long name.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
