@@ -10,7 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` | The profession's identifier. An unique, increasing integer. | <a href="#Profession/id">See details</a>
 `group` | The profession group. | <a href="#Profession/group">See details</a>
-`packages` | A list of professions representing the same profession but with (slightly) different stats. For example, there may be a profession in a regional sourcebook or in the core rules and a profession in an extension rulebook like Magic of Aventuria, where the profession is basically called the same and almost has the same values, but the version from Magic of Aventuria features a spell style special ability that does not exist in the core rules or regional sourcebook. | <a href="#Profession/packages">See details</a>
+`versions` | A list of professions representing the same profession but with (slightly) different stats. For example, there may be a profession in a regional sourcebook or in the core rules and a profession in an extension rulebook like Magic of Aventuria, where the profession is basically called the same and almost has the same values, but the version from Magic of Aventuria features a spell style special ability that does not exist in the core rules or regional sourcebook. | <a href="#Profession/versions">See details</a>
 
 #### <a name="Profession/id"></a> `id`
 
@@ -25,7 +25,7 @@ The profession group.
 
 - **Type:** <a href="#ProfessionGroup">ProfessionGroup</a>
 
-#### <a name="Profession/packages"></a> `packages`
+#### <a name="Profession/versions"></a> `versions`
 
 A list of professions representing the same profession but with (slightly)
 different stats. For example, there may be a profession in a regional
@@ -40,14 +40,14 @@ explicitly mentioned experience levels. In most cases, there is only one
 stats package, which targets the experience level *Experienced*.
 
 - **Type:** List
-- **Items:** <a href="#Profession/packages[]">Profession/packages[]</a>
+- **Items:** <a href="#Profession/versions[]">Profession/versions[]</a>
 - **Minimum Items:** `1`
 
 ---
 
-### <a name="Profession/packages[]"></a> `Profession/packages[]`
+### <a name="Profession/versions[]"></a> `Profession/versions[]`
 
-- **Type:** <a href="#ProfessionPackage">ProfessionPackage</a>
+- **Type:** <a href="#ProfessionVersion">ProfessionVersion</a>
 
 ---
 
@@ -175,46 +175,46 @@ The curriculum/academy associated with this magical profession, if any.
 
 ---
 
-### <a name="ProfessionPackage"></a> `ProfessionPackage`
+### <a name="ProfessionVersion"></a> `ProfessionVersion`
 
 - **Type:** Union
-- **Cases:** <a href="#ProfessionPackage'Experienced">ProfessionPackage'Experienced</a> | <a href="#ProfessionPackage'ByExperienceLevel">ProfessionPackage'ByExperienceLevel</a>
+- **Cases:** <a href="#ProfessionVersion'Experienced">ProfessionVersion'Experienced</a> | <a href="#ProfessionVersion'ByExperienceLevel">ProfessionVersion'ByExperienceLevel</a>
 
 ---
 
-### <a name="ProfessionPackage'Experienced"></a> `ProfessionPackage'Experienced`
+### <a name="ProfessionVersion'Experienced"></a> `ProfessionVersion'Experienced`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#ProfessionPackage'Experienced/tag">See details</a>
-`experienced` |  | <a href="#ProfessionPackage'Experienced/experienced">See details</a>
+`tag` |  | <a href="#ProfessionVersion'Experienced/tag">See details</a>
+`experienced` |  | <a href="#ProfessionVersion'Experienced/experienced">See details</a>
 
-#### <a name="ProfessionPackage'Experienced/tag"></a> `tag`
+#### <a name="ProfessionVersion'Experienced/tag"></a> `tag`
 
 - **Constant:** `"Experienced"`
 
-#### <a name="ProfessionPackage'Experienced/experienced"></a> `experienced`
+#### <a name="ProfessionVersion'Experienced/experienced"></a> `experienced`
 
 - **Type:** <a href="#ExperiencedProfessionPackage">ExperiencedProfessionPackage</a>
 
 ---
 
-### <a name="ProfessionPackage'ByExperienceLevel"></a> `ProfessionPackage'ByExperienceLevel`
+### <a name="ProfessionVersion'ByExperienceLevel"></a> `ProfessionVersion'ByExperienceLevel`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#ProfessionPackage'ByExperienceLevel/tag">See details</a>
-`by_experience_level` |  | <a href="#ProfessionPackage'ByExperienceLevel/by_experience_level">See details</a>
+`tag` |  | <a href="#ProfessionVersion'ByExperienceLevel/tag">See details</a>
+`by_experience_level` |  | <a href="#ProfessionVersion'ByExperienceLevel/by_experience_level">See details</a>
 
-#### <a name="ProfessionPackage'ByExperienceLevel/tag"></a> `tag`
+#### <a name="ProfessionVersion'ByExperienceLevel/tag"></a> `tag`
 
 - **Constant:** `"ByExperienceLevel"`
 
-#### <a name="ProfessionPackage'ByExperienceLevel/by_experience_level"></a> `by_experience_level`
+#### <a name="ProfessionVersion'ByExperienceLevel/by_experience_level"></a> `by_experience_level`
 
 - **Type:** <a href="#ProfessionPackagesForDifferentExperienceLevels">ProfessionPackagesForDifferentExperienceLevels</a>
 
@@ -240,7 +240,7 @@ integer.
 
 #### <a name="ExperiencedProfessionPackage/values"></a> `values`
 
-- **Type:** <a href="#ProfessionPackageValues">ProfessionPackageValues</a>
+- **Type:** <a href="#ProfessionPackage">ProfessionPackage</a>
 
 #### <a name="ExperiencedProfessionPackage/src"></a> `src`
 
@@ -303,39 +303,39 @@ must be unique for this representation.
 
 #### <a name="ExperienceLevelDynamicProfessionPackage/values"></a> `values`
 
-- **Type:** <a href="#ProfessionPackageValues">ProfessionPackageValues</a>
+- **Type:** <a href="#ProfessionPackage">ProfessionPackage</a>
 
 ---
 
-### <a name="ProfessionPackageValues"></a> Profession Representation Variant (`ProfessionPackageValues`)
+### <a name="ProfessionPackage"></a> Profession Representation Variant (`ProfessionPackage`)
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`ap_value` | What does the professional package cost in adventure points? | <a href="#ProfessionPackageValues/ap_value">See details</a>
-`prerequisites?` | Which prerequisites must be met to buy the stat block? For example, a character might need the advantage Spellcaster or Blessed. Note: the AP cost for a profession package does not include these prerequisites. | <a href="#ProfessionPackageValues/prerequisites">See details</a>
-`options?` | In some areas, the profession package grants a loose set of stats where the player must choose between different options for the profession package. | <a href="#ProfessionPackageValues/options">See details</a>
-`special_abilities?` | Any special abilities the profession receives from the package. | <a href="#ProfessionPackageValues/special_abilities">See details</a>
-`combat_techniques?` | Provides ratings for the combat techniques that the hero receives from the package. | <a href="#ProfessionPackageValues/combat_techniques">See details</a>
-`skills?` | The skill ratings the package grants to the hero. | <a href="#ProfessionPackageValues/skills">See details</a>
-`spells?` | The skill ratings a magical profession receives for spells; these spells are considered activated. Spells from an unfamiliar Tradition, if any, are identified as such. | <a href="#ProfessionPackageValues/spells">See details</a>
-`liturgical_chants?` | Clerical professions receive these liturgical chants at the listed skill ratings. These liturgical chants are considered activated. | <a href="#ProfessionPackageValues/liturgical_chants">See details</a>
-`suggested_advantages?` | Typical advantages for the profession. | <a href="#ProfessionPackageValues/suggested_advantages">See details</a>
-`suggested_disadvantages?` | Typical disadvantages for the profession. | <a href="#ProfessionPackageValues/suggested_disadvantages">See details</a>
-`unsuitable_advantages?` | These advantages do not fit well with this profession; to be checked with the GM before taking any of them. | <a href="#ProfessionPackageValues/unsuitable_advantages">See details</a>
-`unsuitable_disadvantages?` | These disadvantages do not fit well with this profession; to be checked with the GM before taking any of them. | <a href="#ProfessionPackageValues/unsuitable_disadvantages">See details</a>
-`variants?` | Provides examples of variants for the profession, which may include changes to AP values and additional or modified skill ratings, special abilities, or combat techniques, as compared to the basic profession. Usually picking a variant is optional, but there are some rare exceptions where picking a variant is required. | <a href="#ProfessionPackageValues/variants">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ProfessionPackageValues/translations">See details</a>
+`ap_value` | What does the professional package cost in adventure points? | <a href="#ProfessionPackage/ap_value">See details</a>
+`prerequisites?` | Which prerequisites must be met to buy the stat block? For example, a character might need the advantage Spellcaster or Blessed. Note: the AP cost for a profession package does not include these prerequisites. | <a href="#ProfessionPackage/prerequisites">See details</a>
+`options?` | In some areas, the profession package grants a loose set of stats where the player must choose between different options for the profession package. | <a href="#ProfessionPackage/options">See details</a>
+`special_abilities?` | Any special abilities the profession receives from the package. | <a href="#ProfessionPackage/special_abilities">See details</a>
+`combat_techniques?` | Provides ratings for the combat techniques that the hero receives from the package. | <a href="#ProfessionPackage/combat_techniques">See details</a>
+`skills?` | The skill ratings the package grants to the hero. | <a href="#ProfessionPackage/skills">See details</a>
+`spells?` | The skill ratings a magical profession receives for spells; these spells are considered activated. Spells from an unfamiliar Tradition, if any, are identified as such. | <a href="#ProfessionPackage/spells">See details</a>
+`liturgical_chants?` | Clerical professions receive these liturgical chants at the listed skill ratings. These liturgical chants are considered activated. | <a href="#ProfessionPackage/liturgical_chants">See details</a>
+`suggested_advantages?` | Typical advantages for the profession. | <a href="#ProfessionPackage/suggested_advantages">See details</a>
+`suggested_disadvantages?` | Typical disadvantages for the profession. | <a href="#ProfessionPackage/suggested_disadvantages">See details</a>
+`unsuitable_advantages?` | These advantages do not fit well with this profession; to be checked with the GM before taking any of them. | <a href="#ProfessionPackage/unsuitable_advantages">See details</a>
+`unsuitable_disadvantages?` | These disadvantages do not fit well with this profession; to be checked with the GM before taking any of them. | <a href="#ProfessionPackage/unsuitable_disadvantages">See details</a>
+`variants?` | Provides examples of variants for the profession, which may include changes to AP values and additional or modified skill ratings, special abilities, or combat techniques, as compared to the basic profession. Usually picking a variant is optional, but there are some rare exceptions where picking a variant is required. | <a href="#ProfessionPackage/variants">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ProfessionPackage/translations">See details</a>
 
-#### <a name="ProfessionPackageValues/ap_value"></a> `ap_value`
+#### <a name="ProfessionPackage/ap_value"></a> `ap_value`
 
 What does the professional package cost in adventure points?
 
 - **Type:** Integer
 - **Minimum:** `0`
 
-#### <a name="ProfessionPackageValues/prerequisites"></a> `prerequisites?`
+#### <a name="ProfessionPackage/prerequisites"></a> `prerequisites?`
 
 Which prerequisites must be met to buy the stat block? For example, a
 character might need the advantage Spellcaster or Blessed. Note: the AP
@@ -343,87 +343,87 @@ cost for a profession package does not include these prerequisites.
 
 - **Type:** <a href="./_Prerequisite.md#ProfessionPrerequisites">ProfessionPrerequisites</a>
 
-#### <a name="ProfessionPackageValues/options"></a> `options?`
+#### <a name="ProfessionPackage/options"></a> `options?`
 
 In some areas, the profession package grants a loose set of stats where the
 player must choose between different options for the profession package.
 
 - **Type:** <a href="#ProfessionPackageOptions">ProfessionPackageOptions</a>
 
-#### <a name="ProfessionPackageValues/special_abilities"></a> `special_abilities?`
+#### <a name="ProfessionPackage/special_abilities"></a> `special_abilities?`
 
 Any special abilities the profession receives from the package.
 
 - **Type:** List
-- **Items:** <a href="#ProfessionPackageValues/special_abilities[]">ProfessionPackageValues/special_abilities[]</a>
+- **Items:** <a href="#ProfessionPackage/special_abilities[]">ProfessionPackage/special_abilities[]</a>
 
-#### <a name="ProfessionPackageValues/combat_techniques"></a> `combat_techniques?`
+#### <a name="ProfessionPackage/combat_techniques"></a> `combat_techniques?`
 
 Provides ratings for the combat techniques that the hero receives from the
 package.
 
 - **Type:** List
-- **Items:** <a href="#ProfessionPackageValues/combat_techniques[]">ProfessionPackageValues/combat_techniques[]</a>
+- **Items:** <a href="#ProfessionPackage/combat_techniques[]">ProfessionPackage/combat_techniques[]</a>
 
-#### <a name="ProfessionPackageValues/skills"></a> `skills?`
+#### <a name="ProfessionPackage/skills"></a> `skills?`
 
 The skill ratings the package grants to the hero.
 
 - **Type:** List
-- **Items:** <a href="#ProfessionPackageValues/skills[]">ProfessionPackageValues/skills[]</a>
+- **Items:** <a href="#ProfessionPackage/skills[]">ProfessionPackage/skills[]</a>
 
-#### <a name="ProfessionPackageValues/spells"></a> `spells?`
+#### <a name="ProfessionPackage/spells"></a> `spells?`
 
 The skill ratings a magical profession receives for spells; these spells
 are considered activated. Spells from an unfamiliar Tradition, if any, are
 identified as such.
 
 - **Type:** List
-- **Items:** <a href="#ProfessionPackageValues/spells[]">ProfessionPackageValues/spells[]</a>
+- **Items:** <a href="#ProfessionPackage/spells[]">ProfessionPackage/spells[]</a>
 
-#### <a name="ProfessionPackageValues/liturgical_chants"></a> `liturgical_chants?`
+#### <a name="ProfessionPackage/liturgical_chants"></a> `liturgical_chants?`
 
 Clerical professions receive these liturgical chants at the listed skill
 ratings. These liturgical chants are considered activated.
 
 - **Type:** List
-- **Items:** <a href="#ProfessionPackageValues/liturgical_chants[]">ProfessionPackageValues/liturgical_chants[]</a>
+- **Items:** <a href="#ProfessionPackage/liturgical_chants[]">ProfessionPackage/liturgical_chants[]</a>
 
-#### <a name="ProfessionPackageValues/suggested_advantages"></a> `suggested_advantages?`
+#### <a name="ProfessionPackage/suggested_advantages"></a> `suggested_advantages?`
 
 Typical advantages for the profession.
 
 - **Type:** List
-- **Items:** <a href="#ProfessionPackageValues/suggested_advantages[]">ProfessionPackageValues/suggested_advantages[]</a>
+- **Items:** <a href="#ProfessionPackage/suggested_advantages[]">ProfessionPackage/suggested_advantages[]</a>
 - **Minimum Items:** `1`
 
-#### <a name="ProfessionPackageValues/suggested_disadvantages"></a> `suggested_disadvantages?`
+#### <a name="ProfessionPackage/suggested_disadvantages"></a> `suggested_disadvantages?`
 
 Typical disadvantages for the profession.
 
 - **Type:** List
-- **Items:** <a href="#ProfessionPackageValues/suggested_disadvantages[]">ProfessionPackageValues/suggested_disadvantages[]</a>
+- **Items:** <a href="#ProfessionPackage/suggested_disadvantages[]">ProfessionPackage/suggested_disadvantages[]</a>
 - **Minimum Items:** `1`
 
-#### <a name="ProfessionPackageValues/unsuitable_advantages"></a> `unsuitable_advantages?`
+#### <a name="ProfessionPackage/unsuitable_advantages"></a> `unsuitable_advantages?`
 
 These advantages do not fit well with this profession; to be checked with
 the GM before taking any of them.
 
 - **Type:** List
-- **Items:** <a href="#ProfessionPackageValues/unsuitable_advantages[]">ProfessionPackageValues/unsuitable_advantages[]</a>
+- **Items:** <a href="#ProfessionPackage/unsuitable_advantages[]">ProfessionPackage/unsuitable_advantages[]</a>
 - **Minimum Items:** `1`
 
-#### <a name="ProfessionPackageValues/unsuitable_disadvantages"></a> `unsuitable_disadvantages?`
+#### <a name="ProfessionPackage/unsuitable_disadvantages"></a> `unsuitable_disadvantages?`
 
 These disadvantages do not fit well with this profession; to be checked
 with the GM before taking any of them.
 
 - **Type:** List
-- **Items:** <a href="#ProfessionPackageValues/unsuitable_disadvantages[]">ProfessionPackageValues/unsuitable_disadvantages[]</a>
+- **Items:** <a href="#ProfessionPackage/unsuitable_disadvantages[]">ProfessionPackage/unsuitable_disadvantages[]</a>
 - **Minimum Items:** `1`
 
-#### <a name="ProfessionPackageValues/variants"></a> `variants?`
+#### <a name="ProfessionPackage/variants"></a> `variants?`
 
 Provides examples of variants for the profession, which may include changes
 to AP values and additional or modified skill ratings, special abilities,
@@ -433,72 +433,72 @@ variant is required.
 
 - **Type:** <a href="#ProfessionVariants">ProfessionVariants</a>
 
-#### <a name="ProfessionPackageValues/translations"></a> `translations`
+#### <a name="ProfessionPackage/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#ProfessionPackageValues/translations[key]">ProfessionPackageValues/translations[key]</a>
+- **Property Values:** <a href="#ProfessionPackage/translations[key]">ProfessionPackage/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="ProfessionPackageValues/special_abilities[]"></a> `ProfessionPackageValues/special_abilities[]`
+### <a name="ProfessionPackage/special_abilities[]"></a> `ProfessionPackage/special_abilities[]`
 
 - **Type:** <a href="#SpecialAbility">SpecialAbility</a>
 
 ---
 
-### <a name="ProfessionPackageValues/combat_techniques[]"></a> `ProfessionPackageValues/combat_techniques[]`
+### <a name="ProfessionPackage/combat_techniques[]"></a> `ProfessionPackage/combat_techniques[]`
 
 - **Type:** <a href="#CombatTechniqueRating">CombatTechniqueRating</a>
 
 ---
 
-### <a name="ProfessionPackageValues/skills[]"></a> `ProfessionPackageValues/skills[]`
+### <a name="ProfessionPackage/skills[]"></a> `ProfessionPackage/skills[]`
 
 - **Type:** <a href="#SkillRating">SkillRating</a>
 
 ---
 
-### <a name="ProfessionPackageValues/spells[]"></a> `ProfessionPackageValues/spells[]`
+### <a name="ProfessionPackage/spells[]"></a> `ProfessionPackage/spells[]`
 
 - **Type:** <a href="#SpellRating">SpellRating</a>
 
 ---
 
-### <a name="ProfessionPackageValues/liturgical_chants[]"></a> `ProfessionPackageValues/liturgical_chants[]`
+### <a name="ProfessionPackage/liturgical_chants[]"></a> `ProfessionPackage/liturgical_chants[]`
 
 - **Type:** <a href="#LiturgicalChantRating">LiturgicalChantRating</a>
 
 ---
 
-### <a name="ProfessionPackageValues/suggested_advantages[]"></a> `ProfessionPackageValues/suggested_advantages[]`
+### <a name="ProfessionPackage/suggested_advantages[]"></a> `ProfessionPackage/suggested_advantages[]`
 
 - **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
 
 ---
 
-### <a name="ProfessionPackageValues/suggested_disadvantages[]"></a> `ProfessionPackageValues/suggested_disadvantages[]`
+### <a name="ProfessionPackage/suggested_disadvantages[]"></a> `ProfessionPackage/suggested_disadvantages[]`
 
 - **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
 
 ---
 
-### <a name="ProfessionPackageValues/unsuitable_advantages[]"></a> `ProfessionPackageValues/unsuitable_advantages[]`
+### <a name="ProfessionPackage/unsuitable_advantages[]"></a> `ProfessionPackage/unsuitable_advantages[]`
 
 - **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
 
 ---
 
-### <a name="ProfessionPackageValues/unsuitable_disadvantages[]"></a> `ProfessionPackageValues/unsuitable_disadvantages[]`
+### <a name="ProfessionPackage/unsuitable_disadvantages[]"></a> `ProfessionPackage/unsuitable_disadvantages[]`
 
 - **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
 
 ---
 
-### <a name="ProfessionPackageValues/translations[key]"></a> `ProfessionPackageValues/translations[key]`
+### <a name="ProfessionPackage/translations[key]"></a> `ProfessionPackage/translations[key]`
 
 - **Type:** <a href="#ProfessionTranslation">ProfessionTranslation</a>
 

@@ -42,7 +42,7 @@ export type Profession = {
    * stats package, which targets the experience level *Experienced*.
    * @minItems 1
    */
-  packages: ProfessionPackage[]
+  versions: ProfessionVersion[]
 }
 
 export type ProfessionGroup =
@@ -62,7 +62,7 @@ export type MagicalProfessionGroup = {
   curriculum?: CurriculumReference
 }
 
-export type ProfessionPackage =
+export type ProfessionVersion =
   | { tag: "Experienced"; experienced: ExperiencedProfessionPackage }
   | { tag: "ByExperienceLevel"; by_experience_level: ProfessionPackagesForDifferentExperienceLevels }
 
@@ -75,7 +75,7 @@ export type ExperiencedProfessionPackage = {
    */
   id: number
 
-  values: ProfessionPackageValues
+  values: ProfessionPackage
 
   src: PublicationRefs
 }
@@ -105,13 +105,13 @@ export type ExperienceLevelDynamicProfessionPackage = {
    */
   experience_level_id: number
 
-  values: ProfessionPackageValues
+  values: ProfessionPackage
 }
 
 /**
  * @title Profession Representation Variant
  */
-export type ProfessionPackageValues = {
+export type ProfessionPackage = {
   /**
    * What does the professional package cost in adventure points?
    * @integer

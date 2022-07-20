@@ -16,11 +16,11 @@
           "description": "The profession group.",
           "$ref": "#/$defs/ProfessionGroup"
         },
-        "packages": {
+        "versions": {
           "description": "A list of professions representing the same profession but with (slightly)\ndifferent stats. For example, there may be a profession in a regional\nsourcebook or in the core rules and a profession in an extension rulebook\nlike Magic of Aventuria, where the profession is basically called the same\nand almost has the same values, but the version from Magic of Aventuria\nfeatures a spell style special ability that does not exist in the core\nrules or regional sourcebook.\n\nThe profession representation may feature different values for different\nexplicitly mentioned experience levels. In most cases, there is only one\nstats package, which targets the experience level *Experienced*.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/ProfessionPackage"
+            "$ref": "#/$defs/ProfessionVersion"
           },
           "minItems": 1
         }
@@ -28,7 +28,7 @@
       "required": [
         "id",
         "group",
-        "packages"
+        "versions"
       ],
       "additionalProperties": false
     },
@@ -131,7 +131,7 @@
       "required": [],
       "additionalProperties": false
     },
-    "ProfessionPackage": {
+    "ProfessionVersion": {
       "oneOf": [
         {
           "type": "object",
@@ -176,7 +176,7 @@
           "minimum": 1
         },
         "values": {
-          "$ref": "#/$defs/ProfessionPackageValues"
+          "$ref": "#/$defs/ProfessionPackage"
         },
         "src": {
           "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
@@ -224,7 +224,7 @@
           "minimum": 1
         },
         "values": {
-          "$ref": "#/$defs/ProfessionPackageValues"
+          "$ref": "#/$defs/ProfessionPackage"
         }
       },
       "required": [
@@ -233,7 +233,7 @@
       ],
       "additionalProperties": false
     },
-    "ProfessionPackageValues": {
+    "ProfessionPackage": {
       "title": "Profession Representation Variant",
       "type": "object",
       "properties": {
