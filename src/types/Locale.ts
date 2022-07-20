@@ -44,4 +44,4 @@ export type Locale = {
   is_missing_implementation?: true
 }
 
-export const validateSchema = validateSchemaCreator<Locales>(import.meta.url)
+export const validateSchema = validateSchemaCreator<Locales>(import.meta.url, { ignoreFileNamePattern: true })
