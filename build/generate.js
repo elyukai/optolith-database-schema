@@ -22,11 +22,23 @@ const options = {
 }
 
 if (process.argv.includes("-w")) {
-  generate(options)
-
-  for await (const _ of watch(sourceDir, { recursive: true })) {
+  try {
     generate(options)
   }
+  catch (err) {
+    console.error(err)
+  }
+  finally {
+    for await (const _ of watch(sourceDir, { recursive: true })) {
+      try {
+        generate(options)
+      }
+      catch (err) {
+        console.error(err)
+      }
+    }
+  }
+
 }
 else {
   generate(options)
