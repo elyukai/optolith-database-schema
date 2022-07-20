@@ -16,41 +16,7 @@
           "description": "Types of creatures in this category.",
           "type": "array",
           "items": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "The type's identifier. An unique, increasing integer.",
-                "type": "integer",
-                "minimum": 1
-              },
-              "translations": {
-                "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-                "type": "object",
-                "patternProperties": {
-                  "^[a-z]{2}-[A-Z]{2}$": {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "description": "The name of the type.",
-                        "type": "string",
-                        "minLength": 1
-                      }
-                    },
-                    "required": [
-                      "name"
-                    ],
-                    "additionalProperties": false
-                  }
-                },
-                "minProperties": 1,
-                "additionalProperties": false
-              }
-            },
-            "required": [
-              "id",
-              "translations"
-            ],
-            "additionalProperties": false
+            "$ref": "#/$defs/PactType"
           },
           "minItems": 1
         },
@@ -58,41 +24,7 @@
           "description": "Domains in this category.",
           "type": "array",
           "items": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "The domain's identifier. An unique, increasing integer.",
-                "type": "integer",
-                "minimum": 1
-              },
-              "translations": {
-                "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-                "type": "object",
-                "patternProperties": {
-                  "^[a-z]{2}-[A-Z]{2}$": {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "description": "The name of the domain.",
-                        "type": "string",
-                        "minLength": 1
-                      }
-                    },
-                    "required": [
-                      "name"
-                    ],
-                    "additionalProperties": false
-                  }
-                },
-                "minProperties": 1,
-                "additionalProperties": false
-              }
-            },
-            "required": [
-              "id",
-              "translations"
-            ],
-            "additionalProperties": false
+            "$ref": "#/$defs/PactDomain"
           },
           "minItems": 1
         },
@@ -104,21 +36,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The name of the pact category.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "errata": {
-                  "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/PactCategoryTranslation"
             }
           },
           "minProperties": 1,
@@ -131,6 +49,100 @@
         "domains",
         "src",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "PactCategoryTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the pact category.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "errata": {
+          "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "PactType": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The type's identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/PactTypeTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "PactTypeTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the type.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "PactDomain": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The domain's identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/PactDomainTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "PactDomainTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the domain.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "name"
       ],
       "additionalProperties": false
     }

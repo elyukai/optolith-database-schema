@@ -268,7 +268,7 @@ The effect description may be either a plain text or a text that is
 divided by a list of effects for each quality level. It may also be a
 list for each two quality levels.
 
-- **Type:** <a href="../_ActivatableSkill.md#Effect/T">Effect/T</a>
+- **Type:** <a href="../_ActivatableSkillEffect.md#Effect">Effect</a>
 
 #### <a name="AnimistPower/translations[key]/cost"></a> `cost`
 
@@ -364,7 +364,7 @@ primary patron.
 The duration.
 
 - **Type:** Union
-- **Cases:** <a href="#PerformanceParameters'OneTime/duration'Immediate">PerformanceParameters'OneTime/duration'Immediate</a> | <a href="#PerformanceParameters'OneTime/duration'Fixed">PerformanceParameters'OneTime/duration'Fixed</a> | <a href="#PerformanceParameters'OneTime/duration'CheckResultBasedTaggedAnimistPower">PerformanceParameters'OneTime/duration'CheckResultBasedTaggedAnimistPower</a>
+- **Cases:** <a href="#PerformanceParameters'OneTime/duration'Immediate">PerformanceParameters'OneTime/duration'Immediate</a> | <a href="#PerformanceParameters'OneTime/duration'Fixed">PerformanceParameters'OneTime/duration'Fixed</a> | <a href="#PerformanceParameters'OneTime/duration'TaggedCheckResultBasedDuration">PerformanceParameters'OneTime/duration'TaggedCheckResultBasedDuration</a>
 
 ---
 
@@ -394,7 +394,7 @@ The AE cost value.
 If defined, half of the AE cost `value` has to be paid each
 interval.
 
-- **Type:** <a href="../_ActivatableSkill.md#Duration/UnitValue">Duration/UnitValue</a>
+- **Type:** <a href="../_ActivatableSkillDuration.md#DurationUnitValue">DurationUnitValue</a>
 
 ---
 
@@ -417,7 +417,7 @@ Key | Description | Details
 If defined, half of the AE cost `value` has to be paid each
 interval.
 
-- **Type:** <a href="../_ActivatableSkill.md#Duration/UnitValue">Duration/UnitValue</a>
+- **Type:** <a href="../_ActivatableSkillDuration.md#DurationUnitValue">DurationUnitValue</a>
 
 #### <a name="PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations"></a> `translations?`
 
@@ -522,13 +522,13 @@ The (unitless) duration.
 
 The duration unit.
 
-- **Type:** <a href="../_ActivatableSkill.md#Duration/Unit">Duration/Unit</a>
+- **Type:** <a href="../_ActivatableSkillDuration.md#DurationUnit">DurationUnit</a>
 
 ---
 
-### <a name="PerformanceParameters'OneTime/duration'CheckResultBasedTaggedAnimistPower"></a> `PerformanceParameters'OneTime/duration'CheckResultBasedTaggedAnimistPower`
+### <a name="PerformanceParameters'OneTime/duration'TaggedCheckResultBasedDuration"></a> `PerformanceParameters'OneTime/duration'TaggedCheckResultBasedDuration`
 
-- **Type:** <a href="../_ActivatableSkill.md#Duration/CheckResultBasedTaggedAnimistPower">Duration/CheckResultBasedTaggedAnimistPower</a>
+- **Type:** <a href="../_ActivatableSkillDuration.md#TaggedCheckResultBasedDuration">TaggedCheckResultBasedDuration</a>
 
 ---
 
@@ -580,7 +580,7 @@ The AE cost value.
 
 Half of the AE cost `value` has to be paid each interval.
 
-- **Type:** <a href="../_ActivatableSkill.md#Duration/UnitValue">Duration/UnitValue</a>
+- **Type:** <a href="../_ActivatableSkillDuration.md#DurationUnitValue">DurationUnitValue</a>
 
 ---
 
@@ -602,7 +602,7 @@ Key | Description | Details
 
 Half of the AE cost `value` has to be paid each interval.
 
-- **Type:** <a href="../_ActivatableSkill.md#Duration/UnitValue">Duration/UnitValue</a>
+- **Type:** <a href="../_ActivatableSkillDuration.md#DurationUnitValue">DurationUnitValue</a>
 
 #### <a name="PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations"></a> `translations?`
 

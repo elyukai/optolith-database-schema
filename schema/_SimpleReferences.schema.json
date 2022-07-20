@@ -1,0 +1,359 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/_SimpleReferences.schema.json",
+  "$defs": {
+    "RaceReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The race's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "CultureReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The culture's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ProfessionReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The profession's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ProfessionVariantReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The profession variant's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "AttributeReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The attribute's identifier.",
+          "type": "integer",
+          "minimum": 8
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "SkillReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The skill's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "SkillGroupReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The skill group's identifier.",
+          "type": "integer",
+          "maximum": 5,
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "CombatTechniqueReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The combat technique's identifier.",
+          "$ref": "./_Identifier.schema.json#/$defs/CombatTechniqueIdentifier"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "MagicalTraditionReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The magical tradition's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "PropertyReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The property's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "BlessedTraditionReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The blessed tradition's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "CantripReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The cantrip's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "AspectReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The aspect's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "AdvantageReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The advantage's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "LanguageReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The language's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ScriptReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The script's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "SocialStatusReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The social status's identifier.",
+          "type": "integer",
+          "maximum": 5,
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "CurriculumReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The institution's curriculum's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "GuidelineReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The institution's guideline's identifier.",
+          "type": "integer",
+          "maximum": 6,
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "AnimalTypeReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The animal type's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "TargetCategoryReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The target category's identifier.",
+          "type": "integer",
+          "maximum": 24,
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "PatronCategoryReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The patron category's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "PersonalityTraitReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The personality trait's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "HairColorReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The hair color's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "EyeColorReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The hair color's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

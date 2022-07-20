@@ -3,6 +3,8 @@
  */
 
 import { validateSchemaCreator } from "../validation/schema.js"
+import { LocaleMap } from "./_LocaleMap.js"
+import { NonEmptyString } from "./_NonEmptyString.js"
 import { SkillCheck } from "./_SkillCheck.js"
 
 /**
@@ -26,18 +28,14 @@ export type Property = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The property's name.
-       * @minLength 1
-       */
-      name: string
-    }
-  }
+  translations: LocaleMap<PropertyTranslation>
+}
+
+export type PropertyTranslation = {
+  /**
+   * The property's name.
+   */
+  name: NonEmptyString
 }
 
 export const validateSchema = validateSchemaCreator<Property>(import.meta.url)

@@ -35,7 +35,7 @@ Depending on the disease, apply Spirit or Toughness as a penalty to the
 disease roll. It may also happen that the lower of both is applied as a
 penalty.
 
-- **Type:** <a href="./_Disease.md#Resistance">Resistance</a>
+- **Type:** <a href="./_DiseasePoison.md#Resistance">Resistance</a>
 
 #### <a name="Disease/cause"></a> `cause`
 
@@ -64,10 +64,10 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Disease/cause[]"></a> `Disease/cause[]`
 
-- **Type:** <a href="./_Disease.md#Cause">Cause</a>
+- **Type:** <a href="./_DiseasePoison.md#Cause">Cause</a>
 
 ---
 
 ### <a name="Disease/translations[key]"></a> `Disease/translations[key]`
 
-- **Type:** <a href="./_Disease.md#DiseaseTranslation">DiseaseTranslation</a>
+- **Type:** <a href="./_DiseasePoison.md#DiseaseTranslation">DiseaseTranslation</a>

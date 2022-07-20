@@ -5,7 +5,8 @@
 import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
-import { Duration, Effect } from "../_ActivatableSkill.js"
+import { DurationUnit, TaggedCheckResultBasedDuration } from "../_ActivatableSkillDuration.js"
+import { Effect } from "../_ActivatableSkillEffect.js"
 import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
 
 /**
@@ -63,7 +64,7 @@ export type DominationRitual = {
        * divided by a list of effects for each quality level. It may also be a
        * list for each two quality levels.
        */
-      effect: Effect.T
+      effect: Effect
 
       /**
        * @deprecated
@@ -144,9 +145,9 @@ type PerformanceParameters = {
       /**
        * The unit of the `value`.
        */
-      unit: Duration.Unit
+      unit: DurationUnit
     }
-    | Duration.CheckResultBasedTagged
+    | TaggedCheckResultBasedDuration
     | {
       tag: "Indefinite"
 
@@ -167,9 +168,9 @@ type PerformanceParameters = {
           /**
            * The unit of the `value`.
            */
-          unit: Duration.Unit
+          unit: DurationUnit
         }
-        | Duration.CheckResultBasedTagged
+        | TaggedCheckResultBasedDuration
 
       /**
        * All translations for the entry, identified by IETF language tag (BCP47).

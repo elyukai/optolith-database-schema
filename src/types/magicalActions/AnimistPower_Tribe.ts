@@ -3,6 +3,7 @@
  */
 
 import { validateSchemaCreator } from "../../validation/schema.js"
+import { LocaleMap } from "../_LocaleMap.js"
 
 /**
  * @title Tribe
@@ -19,18 +20,13 @@ export type Tribe = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
+  translations: LocaleMap<{
     /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+     * The tribe name.
+     * @minLength 1
      */
-    [localeId: string]: {
-      /**
-       * The tribe name.
-       * @minLength 1
-       */
-      name: string
-    }
-  }
+    name: string
+  }>
 }
 
 export const validateSchema = validateSchemaCreator<Tribe>(import.meta.url)

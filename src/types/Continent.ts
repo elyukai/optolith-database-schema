@@ -3,6 +3,7 @@
  */
 
 import { validateSchemaCreator } from "../validation/schema.js"
+import { LocaleMap } from "./_LocaleMap.js"
 
 /**
  * Continents are mostly referenced to in languages and scripts that occur on a
@@ -21,18 +22,15 @@ export type Continent = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The continent name.
-       * @minLength 1
-       */
-      name: string
-    }
-  }
+  translations: LocaleMap<ContinentTranslation>
+}
+
+export type ContinentTranslation = {
+  /**
+   * The continent name.
+   * @minLength 1
+   */
+  name: string
 }
 
 export const validateSchema = validateSchemaCreator<Continent>(import.meta.url)

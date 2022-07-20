@@ -1,3 +1,5 @@
+import { LocaleMap } from "../_LocaleMap.js"
+
 /**
  * A reference to a music tradition with the music-tradition-specific name of
  * the entry
@@ -14,16 +16,11 @@ export type MusicTraditionReference = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
+  translations: LocaleMap<{
     /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+     * The music-tradition-specific name of the entry.
+     * @minLength 1
      */
-    [localeId: string]: {
-      /**
-       * The music-tradition-specific name of the entry.
-       * @minLength 1
-       */
-      name: string
-    }
-  }
+    name: string
+  }>
 }

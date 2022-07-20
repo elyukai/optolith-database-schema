@@ -54,108 +54,135 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="PactCategory/types[]"></a> `PactCategory/types[]`
 
+- **Type:** <a href="#PactType">PactType</a>
+
+---
+
+### <a name="PactCategory/domains[]"></a> `PactCategory/domains[]`
+
+- **Type:** <a href="#PactDomain">PactDomain</a>
+
+---
+
+### <a name="PactCategory/translations[key]"></a> `PactCategory/translations[key]`
+
+- **Type:** <a href="#PactCategoryTranslation">PactCategoryTranslation</a>
+
+---
+
+### <a name="PactCategoryTranslation"></a> `PactCategoryTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The type's identifier. An unique, increasing integer. | <a href="#PactCategory/types[]/id">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PactCategory/types[]/translations">See details</a>
+`name` | The name of the pact category. | <a href="#PactCategoryTranslation/name">See details</a>
+`errata?` |  | <a href="#PactCategoryTranslation/errata">See details</a>
 
-#### <a name="PactCategory/types[]/id"></a> `id`
+#### <a name="PactCategoryTranslation/name"></a> `name`
+
+The name of the pact category.
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="PactCategoryTranslation/errata"></a> `errata?`
+
+- **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
+
+---
+
+### <a name="PactType"></a> `PactType`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The type's identifier. An unique, increasing integer. | <a href="#PactType/id">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PactType/translations">See details</a>
+
+#### <a name="PactType/id"></a> `id`
 
 The type's identifier. An unique, increasing integer.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="PactCategory/types[]/translations"></a> `translations`
+#### <a name="PactType/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#PactCategory/types[]/translations[key]">PactCategory/types[]/translations[key]</a>
+- **Property Values:** <a href="#PactType/translations[key]">PactType/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="PactCategory/types[]/translations[key]"></a> `PactCategory/types[]/translations[key]`
+### <a name="PactType/translations[key]"></a> `PactType/translations[key]`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`name` | The name of the type. | <a href="#PactCategory/types[]/translations[key]/name">See details</a>
-
-#### <a name="PactCategory/types[]/translations[key]/name"></a> `name`
-
-The name of the type.
-
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="#PactTypeTranslation">PactTypeTranslation</a>
 
 ---
 
-### <a name="PactCategory/domains[]"></a> `PactCategory/domains[]`
+### <a name="PactTypeTranslation"></a> `PactTypeTranslation`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The domain's identifier. An unique, increasing integer. | <a href="#PactCategory/domains[]/id">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PactCategory/domains[]/translations">See details</a>
+`name` | The name of the type. | <a href="#PactTypeTranslation/name">See details</a>
 
-#### <a name="PactCategory/domains[]/id"></a> `id`
+#### <a name="PactTypeTranslation/name"></a> `name`
+
+The name of the type.
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+---
+
+### <a name="PactDomain"></a> `PactDomain`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The domain's identifier. An unique, increasing integer. | <a href="#PactDomain/id">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PactDomain/translations">See details</a>
+
+#### <a name="PactDomain/id"></a> `id`
 
 The domain's identifier. An unique, increasing integer.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="PactCategory/domains[]/translations"></a> `translations`
+#### <a name="PactDomain/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#PactCategory/domains[]/translations[key]">PactCategory/domains[]/translations[key]</a>
+- **Property Values:** <a href="#PactDomain/translations[key]">PactDomain/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="PactCategory/domains[]/translations[key]"></a> `PactCategory/domains[]/translations[key]`
+### <a name="PactDomain/translations[key]"></a> `PactDomain/translations[key]`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`name` | The name of the domain. | <a href="#PactCategory/domains[]/translations[key]/name">See details</a>
-
-#### <a name="PactCategory/domains[]/translations[key]/name"></a> `name`
-
-The name of the domain.
-
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="#PactDomainTranslation">PactDomainTranslation</a>
 
 ---
 
-### <a name="PactCategory/translations[key]"></a> `PactCategory/translations[key]`
+### <a name="PactDomainTranslation"></a> `PactDomainTranslation`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the pact category. | <a href="#PactCategory/translations[key]/name">See details</a>
-`errata?` |  | <a href="#PactCategory/translations[key]/errata">See details</a>
+`name` | The name of the domain. | <a href="#PactDomainTranslation/name">See details</a>
 
-#### <a name="PactCategory/translations[key]/name"></a> `name`
+#### <a name="PactDomainTranslation/name"></a> `name`
 
-The name of the pact category.
+The name of the domain.
 
-- **Type:** String
-- **Minimum Length:** `1`
-
-#### <a name="PactCategory/translations[key]/errata"></a> `errata?`
-
-- **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

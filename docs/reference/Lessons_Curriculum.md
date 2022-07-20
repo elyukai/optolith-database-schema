@@ -17,7 +17,7 @@ academy.
 Key | Description | Details
 :-- | :-- | :--
 `id` | The curriculum's identifier. An unique, increasing integer. | <a href="#Curriculum/id">See details</a>
-`guideline_id` | The institution's guideline's identifier. | <a href="#Curriculum/guideline_id">See details</a>
+`guideline` | The institution's guideline. | <a href="#Curriculum/guideline">See details</a>
 `elective_spellworks?` | The academy's elective spellworks package. | <a href="#Curriculum/elective_spellworks">See details</a>
 `restricted_spellworks?` | The academy's restricted spellworks package. | <a href="#Curriculum/restricted_spellworks">See details</a>
 `lesson_packages` | A list of available lesson packages. | <a href="#Curriculum/lesson_packages">See details</a>
@@ -31,13 +31,11 @@ The curriculum's identifier. An unique, increasing integer.
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="Curriculum/guideline_id"></a> `guideline_id`
+#### <a name="Curriculum/guideline"></a> `guideline`
 
-The institution's guideline's identifier.
+The institution's guideline.
 
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `6`
+- **Type:** <a href="./_SimpleReferences.md#GuidelineReference">GuidelineReference</a>
 
 #### <a name="Curriculum/elective_spellworks"></a> `elective_spellworks?`
 
@@ -74,21 +72,26 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Curriculum/translations[key]"></a> `Curriculum/translations[key]`
 
+- **Type:** <a href="#CurriculumTranslation">CurriculumTranslation</a>
+
+---
+
+### <a name="CurriculumTranslation"></a> `CurriculumTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the academy. | <a href="#Curriculum/translations[key]/name">See details</a>
-`errata?` |  | <a href="#Curriculum/translations[key]/errata">See details</a>
+`name` | The name of the academy. | <a href="#CurriculumTranslation/name">See details</a>
+`errata?` |  | <a href="#CurriculumTranslation/errata">See details</a>
 
-#### <a name="Curriculum/translations[key]/name"></a> `name`
+#### <a name="CurriculumTranslation/name"></a> `name`
 
 The name of the academy.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Curriculum/translations[key]/errata"></a> `errata?`
+#### <a name="CurriculumTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
 
@@ -99,7 +102,7 @@ The name of the academy.
 The academy's elective spellworks package.
 
 - **Type:** Union
-- **Cases:** <a href="#ElectiveSpellworks'DefinedByGameMaster">ElectiveSpellworks'DefinedByGameMaster</a> | <a href="#ElectiveSpellworks'Explicit">ElectiveSpellworks'Explicit</a>
+- **Cases:** <a href="#ElectiveSpellworks'DefinedByGameMaster">ElectiveSpellworks'DefinedByGameMaster</a> | <a href="#ElectiveSpellworks'Specific">ElectiveSpellworks'Specific</a>
 
 ---
 
@@ -117,28 +120,42 @@ Key | Description | Details
 
 ---
 
-### <a name="ElectiveSpellworks'Explicit"></a> `ElectiveSpellworks'Explicit`
+### <a name="ElectiveSpellworks'Specific"></a> `ElectiveSpellworks'Specific`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#ElectiveSpellworks'Explicit/tag">See details</a>
-`list` |  | <a href="#ElectiveSpellworks'Explicit/list">See details</a>
+`tag` |  | <a href="#ElectiveSpellworks'Specific/tag">See details</a>
+`specific` |  | <a href="#ElectiveSpellworks'Specific/specific">See details</a>
 
-#### <a name="ElectiveSpellworks'Explicit/tag"></a> `tag`
+#### <a name="ElectiveSpellworks'Specific/tag"></a> `tag`
 
-- **Constant:** `"Explicit"`
+- **Constant:** `"Specific"`
 
-#### <a name="ElectiveSpellworks'Explicit/list"></a> `list`
+#### <a name="ElectiveSpellworks'Specific/specific"></a> `specific`
+
+- **Type:** <a href="#SpecificElectiveSpellworks">SpecificElectiveSpellworks</a>
+
+---
+
+### <a name="SpecificElectiveSpellworks"></a> `SpecificElectiveSpellworks`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`list` |  | <a href="#SpecificElectiveSpellworks/list">See details</a>
+
+#### <a name="SpecificElectiveSpellworks/list"></a> `list`
 
 - **Type:** List
-- **Items:** <a href="#ElectiveSpellworks'Explicit/list[]">ElectiveSpellworks'Explicit/list[]</a>
+- **Items:** <a href="#SpecificElectiveSpellworks/list[]">SpecificElectiveSpellworks/list[]</a>
 - **Minimum Items:** `1`
 
 ---
 
-### <a name="ElectiveSpellworks'Explicit/list[]"></a> `ElectiveSpellworks'Explicit/list[]`
+### <a name="SpecificElectiveSpellworks/list[]"></a> `SpecificElectiveSpellworks/list[]`
 
 - **Type:** <a href="#ElectiveSpellwork">ElectiveSpellwork</a>
 
@@ -155,7 +172,7 @@ Key | Description | Details
 
 #### <a name="ElectiveSpellwork/id"></a> `id`
 
-- **Type:** <a href="#SpellworkId">SpellworkId</a>
+- **Type:** <a href="./_Identifier.md#SpellworkIdentifier">SpellworkIdentifier</a>
 
 #### <a name="ElectiveSpellwork/restriction"></a> `restriction?`
 
@@ -217,7 +234,7 @@ The academy's restricted spellworks package.
 The academy's restricted spellworks package.
 
 - **Type:** Union
-- **Cases:** <a href="#RestrictedSpellwork'Property">RestrictedSpellwork'Property</a> | <a href="#RestrictedSpellwork'SpellworkId">RestrictedSpellwork'SpellworkId</a> | <a href="#RestrictedSpellwork'DemonSummoning">RestrictedSpellwork'DemonSummoning</a> | <a href="#RestrictedSpellwork'Borbaradian">RestrictedSpellwork'Borbaradian</a> | <a href="#RestrictedSpellwork'DamageIntelligent">RestrictedSpellwork'DamageIntelligent</a>
+- **Cases:** <a href="#RestrictedSpellwork'Property">RestrictedSpellwork'Property</a> | <a href="#RestrictedSpellwork'Spellwork">RestrictedSpellwork'Spellwork</a> | <a href="#RestrictedSpellwork'DemonSummoning">RestrictedSpellwork'DemonSummoning</a> | <a href="#RestrictedSpellwork'Borbaradian">RestrictedSpellwork'Borbaradian</a> | <a href="#RestrictedSpellwork'DamageIntelligent">RestrictedSpellwork'DamageIntelligent</a>
 
 ---
 
@@ -228,48 +245,34 @@ The academy's restricted spellworks package.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#RestrictedSpellwork'Property/tag">See details</a>
-`id` | The identifier of the property that spellworks are disallowed from. | <a href="#RestrictedSpellwork'Property/id">See details</a>
-`exclude?` | Exclude specific spellworks from the restriction. | <a href="#RestrictedSpellwork'Property/exclude">See details</a>
-`maximum?` | Spellworks from this property up to a certain number are allowed. Spellworks excluded from this restriction definition using `exclude` do not contribute to the maximum. | <a href="#RestrictedSpellwork'Property/maximum">See details</a>
+`property` |  | <a href="#RestrictedSpellwork'Property/property">See details</a>
 
 #### <a name="RestrictedSpellwork'Property/tag"></a> `tag`
 
 - **Constant:** `"Property"`
 
-#### <a name="RestrictedSpellwork'Property/id"></a> `id`
+#### <a name="RestrictedSpellwork'Property/property"></a> `property`
 
-The identifier of the property that spellworks are disallowed from.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
-#### <a name="RestrictedSpellwork'Property/exclude"></a> `exclude?`
-
-Exclude specific spellworks from the restriction.
-
-- **Type:** List
-- **Items:** <a href="#RestrictedSpellwork'Property/exclude[]">RestrictedSpellwork'Property/exclude[]</a>
-- **Minimum Items:** `1`
-
-#### <a name="RestrictedSpellwork'Property/maximum"></a> `maximum?`
-
-Spellworks from this property up to a certain number are allowed.
-Spellworks excluded from this restriction definition using `exclude` do
-not contribute to the maximum.
-
-- **Type:** Number
+- **Type:** <a href="#RestrictedProperty">RestrictedProperty</a>
 
 ---
 
-### <a name="RestrictedSpellwork'Property/exclude[]"></a> `RestrictedSpellwork'Property/exclude[]`
+### <a name="RestrictedSpellwork'Spellwork"></a> `RestrictedSpellwork'Spellwork`
 
-- **Type:** <a href="#SpellworkId">SpellworkId</a>
+- **Type:** Object
 
----
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#RestrictedSpellwork'Spellwork/tag">See details</a>
+`spellwork` |  | <a href="#RestrictedSpellwork'Spellwork/spellwork">See details</a>
 
-### <a name="RestrictedSpellwork'SpellworkId"></a> `RestrictedSpellwork'SpellworkId`
+#### <a name="RestrictedSpellwork'Spellwork/tag"></a> `tag`
 
-- **Type:** <a href="#SpellworkId">SpellworkId</a>
+- **Constant:** `"Spellwork"`
+
+#### <a name="RestrictedSpellwork'Spellwork/spellwork"></a> `spellwork`
+
+- **Type:** <a href="./_Identifier.md#SpellworkIdentifier">SpellworkIdentifier</a>
 
 ---
 
@@ -312,6 +315,47 @@ Key | Description | Details
 #### <a name="RestrictedSpellwork'DamageIntelligent/tag"></a> `tag`
 
 - **Constant:** `"DamageIntelligent"`
+
+---
+
+### <a name="RestrictedProperty"></a> `RestrictedProperty`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The identifier of the property that spellworks are disallowed from. | <a href="#RestrictedProperty/id">See details</a>
+`exclude?` | Exclude specific spellworks from the restriction. | <a href="#RestrictedProperty/exclude">See details</a>
+`maximum?` | Spellworks from this property up to a certain number are allowed. Spellworks excluded from this restriction definition using `exclude` do not contribute to the maximum. | <a href="#RestrictedProperty/maximum">See details</a>
+
+#### <a name="RestrictedProperty/id"></a> `id`
+
+The identifier of the property that spellworks are disallowed from.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="RestrictedProperty/exclude"></a> `exclude?`
+
+Exclude specific spellworks from the restriction.
+
+- **Type:** List
+- **Items:** <a href="#RestrictedProperty/exclude[]">RestrictedProperty/exclude[]</a>
+- **Minimum Items:** `1`
+
+#### <a name="RestrictedProperty/maximum"></a> `maximum?`
+
+Spellworks from this property up to a certain number are allowed.
+Spellworks excluded from this restriction definition using `exclude` do
+not contribute to the maximum.
+
+- **Type:** Number
+
+---
+
+### <a name="RestrictedProperty/exclude[]"></a> `RestrictedProperty/exclude[]`
+
+- **Type:** <a href="./_Identifier.md#SpellworkIdentifier">SpellworkIdentifier</a>
 
 ---
 
@@ -384,150 +428,172 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="LessonPackage/spellwork_changes[]"></a> `LessonPackage/spellwork_changes[]`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`base` |  | <a href="#LessonPackage/spellwork_changes[]/base">See details</a>
-`replacement` |  | <a href="#LessonPackage/spellwork_changes[]/replacement">See details</a>
-
-#### <a name="LessonPackage/spellwork_changes[]/base"></a> `base`
-
-- **Type:** <a href="#SpellworkAdjustment">SpellworkAdjustment</a>
-
-#### <a name="LessonPackage/spellwork_changes[]/replacement"></a> `replacement`
-
-- **Type:** <a href="#SpellworkAdjustment">SpellworkAdjustment</a>
+- **Type:** <a href="#SpellworkChange">SpellworkChange</a>
 
 ---
 
 ### <a name="LessonPackage/skills[]"></a> `LessonPackage/skills[]`
 
-- **Type:** <a href="#SkillAdjustment">SkillAdjustment</a>
+- **Type:** <a href="#AbilityAdjustment">AbilityAdjustment</a>
 
 ---
 
 ### <a name="LessonPackage/translations[key]"></a> `LessonPackage/translations[key]`
 
+- **Type:** <a href="#LessonPackageTranslation">LessonPackageTranslation</a>
+
+---
+
+### <a name="SpellworkChange"></a> `SpellworkChange`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the lesson package. | <a href="#LessonPackage/translations[key]/name">See details</a>
-`spellwork_changes?` | The spell values difference of the lesson package. Use this field to specify a text that is displayed instead of the generated `spellwork_changes` list. The field is displayed even if no list is present. | <a href="#LessonPackage/translations[key]/spellwork_changes">See details</a>
+`base` |  | <a href="#SpellworkChange/base">See details</a>
+`replacement` |  | <a href="#SpellworkChange/replacement">See details</a>
 
-#### <a name="LessonPackage/translations[key]/name"></a> `name`
+#### <a name="SpellworkChange/base"></a> `base`
+
+- **Type:** <a href="#SpellworkAdjustment">SpellworkAdjustment</a>
+
+#### <a name="SpellworkChange/replacement"></a> `replacement`
+
+- **Type:** <a href="#SpellworkAdjustment">SpellworkAdjustment</a>
+
+---
+
+### <a name="LessonPackageTranslation"></a> `LessonPackageTranslation`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`name` | The name of the lesson package. | <a href="#LessonPackageTranslation/name">See details</a>
+`spellwork_changes?` | The spell values difference of the lesson package. Use this field to specify a text that is displayed instead of the generated `spellwork_changes` list. The field is displayed even if no list is present. | <a href="#LessonPackageTranslation/spellwork_changes">See details</a>
+
+#### <a name="LessonPackageTranslation/name"></a> `name`
 
 The name of the lesson package.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="LessonPackage/translations[key]/spellwork_changes"></a> `spellwork_changes?`
+#### <a name="LessonPackageTranslation/spellwork_changes"></a> `spellwork_changes?`
 
 The spell values difference of the lesson package. Use this field to
 specify a text that is displayed instead of the generated
 `spellwork_changes` list. The field is displayed even if no list is
 present.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+---
+
+### <a name="AbilityAdjustment"></a> `AbilityAdjustment`
+
+- **Type:** Union
+- **Cases:** <a href="#AbilityAdjustment'CombatTechnique">AbilityAdjustment'CombatTechnique</a> | <a href="#AbilityAdjustment'Skill">AbilityAdjustment'Skill</a> | <a href="#AbilityAdjustment'Spellwork">AbilityAdjustment'Spellwork</a>
+
+---
+
+### <a name="AbilityAdjustment'CombatTechnique"></a> `AbilityAdjustment'CombatTechnique`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AbilityAdjustment'CombatTechnique/tag">See details</a>
+`combat_technique` |  | <a href="#AbilityAdjustment'CombatTechnique/combat_technique">See details</a>
+
+#### <a name="AbilityAdjustment'CombatTechnique/tag"></a> `tag`
+
+- **Constant:** `"CombatTechnique"`
+
+#### <a name="AbilityAdjustment'CombatTechnique/combat_technique"></a> `combat_technique`
+
+- **Type:** <a href="#CombatTechniqueAdjustment">CombatTechniqueAdjustment</a>
+
+---
+
+### <a name="AbilityAdjustment'Skill"></a> `AbilityAdjustment'Skill`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AbilityAdjustment'Skill/tag">See details</a>
+`skill` |  | <a href="#AbilityAdjustment'Skill/skill">See details</a>
+
+#### <a name="AbilityAdjustment'Skill/tag"></a> `tag`
+
+- **Constant:** `"Skill"`
+
+#### <a name="AbilityAdjustment'Skill/skill"></a> `skill`
+
+- **Type:** <a href="#SkillAdjustment">SkillAdjustment</a>
+
+---
+
+### <a name="AbilityAdjustment'Spellwork"></a> `AbilityAdjustment'Spellwork`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AbilityAdjustment'Spellwork/tag">See details</a>
+`spellwork` |  | <a href="#AbilityAdjustment'Spellwork/spellwork">See details</a>
+
+#### <a name="AbilityAdjustment'Spellwork/tag"></a> `tag`
+
+- **Constant:** `"Spellwork"`
+
+#### <a name="AbilityAdjustment'Spellwork/spellwork"></a> `spellwork`
+
+- **Type:** <a href="#SpellworkAdjustment">SpellworkAdjustment</a>
+
+---
+
+### <a name="CombatTechniqueAdjustment"></a> `CombatTechniqueAdjustment`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` |  | <a href="#CombatTechniqueAdjustment/id">See details</a>
+`points` | The combat technique points that will be added to the current combat technique rating. | <a href="#CombatTechniqueAdjustment/points">See details</a>
+
+#### <a name="CombatTechniqueAdjustment/id"></a> `id`
+
+- **Type:** <a href="./_Identifier.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>
+
+#### <a name="CombatTechniqueAdjustment/points"></a> `points`
+
+The combat technique points that will be added to the current combat
+technique rating.
+
+- **Type:** Integer
+- **Minimum:** `-6`
+- **Maximum:** `6`
 
 ---
 
 ### <a name="SkillAdjustment"></a> `SkillAdjustment`
 
-- **Type:** Union
-- **Cases:** <a href="#SkillAdjustment'MeleeCombatTechnique">SkillAdjustment'MeleeCombatTechnique</a> | <a href="#SkillAdjustment'RangedCombatTechnique">SkillAdjustment'RangedCombatTechnique</a> | <a href="#SkillAdjustment'Skill">SkillAdjustment'Skill</a> | <a href="#SkillAdjustment'SpellworkAdjustment">SkillAdjustment'SpellworkAdjustment</a>
-
----
-
-### <a name="SkillAdjustment'MeleeCombatTechnique"></a> `SkillAdjustment'MeleeCombatTechnique`
-
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#SkillAdjustment'MeleeCombatTechnique/tag">See details</a>
-`id` | The melee combat technique's identifier. | <a href="#SkillAdjustment'MeleeCombatTechnique/id">See details</a>
-`points` | The combat technique points that will be added to the current combat technique rating. | <a href="#SkillAdjustment'MeleeCombatTechnique/points">See details</a>
+`id` | The skill's identifier. | <a href="#SkillAdjustment/id">See details</a>
+`points` | The skill points that will be added to the current skill rating. | <a href="#SkillAdjustment/points">See details</a>
 
-#### <a name="SkillAdjustment'MeleeCombatTechnique/tag"></a> `tag`
-
-- **Constant:** `"MeleeCombatTechnique"`
-
-#### <a name="SkillAdjustment'MeleeCombatTechnique/id"></a> `id`
-
-The melee combat technique's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
-#### <a name="SkillAdjustment'MeleeCombatTechnique/points"></a> `points`
-
-The combat technique points that will be added to the current combat
-technique rating.
-
-- **Type:** Integer
-- **Minimum:** `-6`
-- **Maximum:** `6`
-
----
-
-### <a name="SkillAdjustment'RangedCombatTechnique"></a> `SkillAdjustment'RangedCombatTechnique`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#SkillAdjustment'RangedCombatTechnique/tag">See details</a>
-`id` | The ranged combat technique's identifier. | <a href="#SkillAdjustment'RangedCombatTechnique/id">See details</a>
-`points` | The combat technique points that will be added to the current combat technique rating. | <a href="#SkillAdjustment'RangedCombatTechnique/points">See details</a>
-
-#### <a name="SkillAdjustment'RangedCombatTechnique/tag"></a> `tag`
-
-- **Constant:** `"RangedCombatTechnique"`
-
-#### <a name="SkillAdjustment'RangedCombatTechnique/id"></a> `id`
-
-The ranged combat technique's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
-#### <a name="SkillAdjustment'RangedCombatTechnique/points"></a> `points`
-
-The combat technique points that will be added to the current combat
-technique rating.
-
-- **Type:** Integer
-- **Minimum:** `-6`
-- **Maximum:** `6`
-
----
-
-### <a name="SkillAdjustment'Skill"></a> `SkillAdjustment'Skill`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#SkillAdjustment'Skill/tag">See details</a>
-`id` | The skill's identifier. | <a href="#SkillAdjustment'Skill/id">See details</a>
-`points` | The skill points that will be added to the current skill rating. | <a href="#SkillAdjustment'Skill/points">See details</a>
-
-#### <a name="SkillAdjustment'Skill/tag"></a> `tag`
-
-- **Constant:** `"Skill"`
-
-#### <a name="SkillAdjustment'Skill/id"></a> `id`
+#### <a name="SkillAdjustment/id"></a> `id`
 
 The skill's identifier.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="SkillAdjustment'Skill/points"></a> `points`
+#### <a name="SkillAdjustment/points"></a> `points`
 
 The skill points that will be added to the current skill rating.
 
@@ -537,42 +603,21 @@ The skill points that will be added to the current skill rating.
 
 ---
 
-### <a name="SkillAdjustment'SpellworkAdjustment"></a> `SkillAdjustment'SpellworkAdjustment`
-
-- **Type:** <a href="#SpellworkAdjustment">SpellworkAdjustment</a>
-
----
-
 ### <a name="SpellworkAdjustment"></a> `SpellworkAdjustment`
-
-- **Type:** Union
-- **Cases:** <a href="#SpellworkAdjustment'Spell">SpellworkAdjustment'Spell</a> | <a href="#SpellworkAdjustment'Ritual">SpellworkAdjustment'Ritual</a>
-
----
-
-### <a name="SpellworkAdjustment'Spell"></a> `SpellworkAdjustment'Spell`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#SpellworkAdjustment'Spell/tag">See details</a>
-`id` | The spell's identifier. | <a href="#SpellworkAdjustment'Spell/id">See details</a>
-`points` | The skill points that will be added to the current skill rating. If a spell gets to a skill rating of 0 because of this, it will be removed completely. | <a href="#SpellworkAdjustment'Spell/points">See details</a>
-`tradition_id?` | The target tradition's identifier. If the target spell is not from the Guild Mage tradition, specify the tradition identifier here. | <a href="#SpellworkAdjustment'Spell/tradition_id">See details</a>
+`id` |  | <a href="#SpellworkAdjustment/id">See details</a>
+`points` | The skill points that will be added to the current skill rating. If a spell gets to a skill rating of 0 because of this, it will be removed completely. | <a href="#SpellworkAdjustment/points">See details</a>
+`tradition?` | The target tradition. If the target spell is not from the Guild Mage tradition, specify the tradition identifier here. | <a href="#SpellworkAdjustment/tradition">See details</a>
 
-#### <a name="SpellworkAdjustment'Spell/tag"></a> `tag`
+#### <a name="SpellworkAdjustment/id"></a> `id`
 
-- **Constant:** `"Spell"`
+- **Type:** <a href="./_Identifier.md#SpellworkIdentifier">SpellworkIdentifier</a>
 
-#### <a name="SpellworkAdjustment'Spell/id"></a> `id`
-
-The spell's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
-#### <a name="SpellworkAdjustment'Spell/points"></a> `points`
+#### <a name="SpellworkAdjustment/points"></a> `points`
 
 The skill points that will be added to the current skill rating. If a
 spell gets to a skill rating of 0 because of this, it will be removed
@@ -582,103 +627,9 @@ completely.
 - **Minimum:** `-10`
 - **Maximum:** `10`
 
-#### <a name="SpellworkAdjustment'Spell/tradition_id"></a> `tradition_id?`
+#### <a name="SpellworkAdjustment/tradition"></a> `tradition?`
 
-The target tradition's identifier. If the target spell is not from the
-Guild Mage tradition, specify the tradition identifier here.
+The target tradition. If the target spell is not from the Guild Mage
+tradition, specify the tradition identifier here.
 
-- **Type:** Integer
-- **Minimum:** `2`
-
----
-
-### <a name="SpellworkAdjustment'Ritual"></a> `SpellworkAdjustment'Ritual`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#SpellworkAdjustment'Ritual/tag">See details</a>
-`id` | The ritual's identifier. | <a href="#SpellworkAdjustment'Ritual/id">See details</a>
-`points` | The skill points that will be added to the current skill rating. If a ritual gets to a skill rating of 0 because of this, it will be removed completely. | <a href="#SpellworkAdjustment'Ritual/points">See details</a>
-`tradition_id?` | The target tradition's identifier. If the target ritual is not from the Guild Mage tradition, specify the tradition identifier here. | <a href="#SpellworkAdjustment'Ritual/tradition_id">See details</a>
-
-#### <a name="SpellworkAdjustment'Ritual/tag"></a> `tag`
-
-- **Constant:** `"Ritual"`
-
-#### <a name="SpellworkAdjustment'Ritual/id"></a> `id`
-
-The ritual's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
-#### <a name="SpellworkAdjustment'Ritual/points"></a> `points`
-
-The skill points that will be added to the current skill rating. If a
-ritual gets to a skill rating of 0 because of this, it will be removed
-completely.
-
-- **Type:** Integer
-- **Minimum:** `-10`
-- **Maximum:** `10`
-
-#### <a name="SpellworkAdjustment'Ritual/tradition_id"></a> `tradition_id?`
-
-The target tradition's identifier. If the target ritual is not from the
-Guild Mage tradition, specify the tradition identifier here.
-
-- **Type:** Integer
-- **Minimum:** `2`
-
----
-
-### <a name="SpellworkId"></a> `SpellworkId`
-
-- **Type:** Union
-- **Cases:** <a href="#SpellworkId'Spell">SpellworkId'Spell</a> | <a href="#SpellworkId'Ritual">SpellworkId'Ritual</a>
-
----
-
-### <a name="SpellworkId'Spell"></a> `SpellworkId'Spell`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#SpellworkId'Spell/tag">See details</a>
-`id` | The spell's identifier. | <a href="#SpellworkId'Spell/id">See details</a>
-
-#### <a name="SpellworkId'Spell/tag"></a> `tag`
-
-- **Constant:** `"Spell"`
-
-#### <a name="SpellworkId'Spell/id"></a> `id`
-
-The spell's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="SpellworkId'Ritual"></a> `SpellworkId'Ritual`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#SpellworkId'Ritual/tag">See details</a>
-`id` | The ritual's identifier. | <a href="#SpellworkId'Ritual/id">See details</a>
-
-#### <a name="SpellworkId'Ritual/tag"></a> `tag`
-
-- **Constant:** `"Ritual"`
-
-#### <a name="SpellworkId'Ritual/id"></a> `id`
-
-The ritual's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#MagicalTraditionIdentifier">MagicalTraditionIdentifier</a>

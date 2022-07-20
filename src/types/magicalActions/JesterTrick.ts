@@ -5,7 +5,9 @@
 import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
-import { Duration, Effect, TargetCategory } from "../_ActivatableSkill.js"
+import { DurationUnit, TaggedCheckResultBasedDuration } from "../_ActivatableSkillDuration.js"
+import { Effect } from "../_ActivatableSkillEffect.js"
+import { TargetCategory } from "../_ActivatableSkillTargetCategory.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
 import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
 
@@ -38,7 +40,7 @@ export type JesterTrick = {
   /**
    * The target category – the kind of creature or object – the skill affects.
    */
-  target: TargetCategory.T
+  target: TargetCategory
 
   /**
    * The property's identifier.
@@ -74,7 +76,7 @@ export type JesterTrick = {
        * divided by a list of effects for each quality level. It may also be a
        * list for each two quality levels.
        */
-      effect: Effect.T
+      effect: Effect
 
       /**
        * @deprecated
@@ -173,9 +175,9 @@ type PerformanceParameters = {
       /**
        * The duration unit.
        */
-      unit: Duration.Unit
+      unit: DurationUnit
     }
-    | Duration.CheckResultBasedTagged
+    | TaggedCheckResultBasedDuration
 }
 
 export const validateSchema = validateSchemaCreator<JesterTrick>(import.meta.url)

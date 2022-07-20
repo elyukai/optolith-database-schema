@@ -5,8 +5,10 @@
 import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
-import { Duration, Effect } from "../_ActivatableSkill.js"
+import { DurationUnit, DurationUnitValue, TaggedCheckResultBasedDuration } from "../_ActivatableSkillDuration.js"
+import { Effect } from "../_ActivatableSkillEffect.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
+import { LocaleMap } from "../_LocaleMap.js"
 import { AnimistPowerPrerequisites } from "../_Prerequisite.js"
 import { SkillCheck } from "../_SkillCheck.js"
 
@@ -102,19 +104,14 @@ export type AnimistPower = {
      * All translations for the entry, identified by IETF language tag (BCP47).
      * @minProperties 1
      */
-    translations: {
+    translations: LocaleMap<{
       /**
-       * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+       * An additional effect description for this level.
+       * @markdown
+       * @minLength 1
        */
-      [localeId: string]: {
-        /**
-         * An additional effect description for this level.
-         * @markdown
-         * @minLength 1
-         */
-        effect: string
-      }
-    }
+      effect: string
+    }>
   }[]
 
   src: PublicationRefs
@@ -123,51 +120,46 @@ export type AnimistPower = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
+  translations: LocaleMap<{
     /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+     * The name of the animist power.
+     * @minLength 1
      */
-    [localeId: string]: {
-      /**
-       * The name of the animist power.
-       * @minLength 1
-       */
-      name: string
+    name: string
 
-      /**
-       * The full name of the entry as stated in the sources. Only use when
-       * `name` needs to be different from full name for text generation
-       * purposes.
-       * @minLength 1
-       */
-      name_in_library?: string
+    /**
+     * The full name of the entry as stated in the sources. Only use when
+     * `name` needs to be different from full name for text generation
+     * purposes.
+     * @minLength 1
+     */
+    name_in_library?: string
 
-      /**
-       * The effect description may be either a plain text or a text that is
-       * divided by a list of effects for each quality level. It may also be a
-       * list for each two quality levels.
-       */
-      effect: Effect.T
+    /**
+     * The effect description may be either a plain text or a text that is
+     * divided by a list of effects for each quality level. It may also be a
+     * list for each two quality levels.
+     */
+    effect: Effect
 
-      /**
-       * @deprecated
-       */
-      cost: { full: string; abbr: string }
+    /**
+     * @deprecated
+     */
+    cost: { full: string; abbr: string }
 
-      /**
-       * @deprecated
-       */
-      duration: { full: string; abbr: string }
+    /**
+     * @deprecated
+     */
+    duration: { full: string; abbr: string }
 
-      /**
-       * A prerequisites text.
-       * @deprecated
-       */
-      prerequisites?: string
+    /**
+     * A prerequisites text.
+     * @deprecated
+     */
+    prerequisites?: string
 
-      errata?: Errata
-    }
-  }
+    errata?: Errata
+  }>
 }
 
 /**
@@ -196,7 +188,7 @@ type PerformanceParameters =
          * If defined, half of the AE cost `value` has to be paid each
          * interval.
          */
-        interval?: Duration.UnitValue
+        interval?: DurationUnitValue
       }
       | {
         tag: "ByPrimaryPatron"
@@ -205,7 +197,7 @@ type PerformanceParameters =
          * If defined, half of the AE cost `value` has to be paid each
          * interval.
          */
-        interval?: Duration.UnitValue
+        interval?: DurationUnitValue
 
         /**
          * All translations for the entry, identified by IETF language tag
@@ -262,9 +254,9 @@ type PerformanceParameters =
         /**
          * The duration unit.
          */
-        unit: Duration.Unit
+        unit: DurationUnit
       }
-      | Duration.CheckResultBasedTaggedAnimistPower
+      | TaggedCheckResultBasedDuration
   }
   | {
     tag: "Sustained"
@@ -287,7 +279,7 @@ type PerformanceParameters =
         /**
          * Half of the AE cost `value` has to be paid each interval.
          */
-        interval: Duration.UnitValue
+        interval: DurationUnitValue
       }
       | {
         tag: "ByPrimaryPatron"
@@ -295,7 +287,7 @@ type PerformanceParameters =
         /**
          * Half of the AE cost `value` has to be paid each interval.
          */
-        interval: Duration.UnitValue
+        interval: DurationUnitValue
 
         /**
          * All translations for the entry, identified by IETF language tag

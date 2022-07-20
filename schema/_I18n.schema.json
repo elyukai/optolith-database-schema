@@ -7,32 +7,28 @@
       "type": "object",
       "properties": {
         "zero": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "one": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "two": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "few": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "many": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "other": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         }
       },
       "required": [
         "other"
       ],
       "additionalProperties": false
-    },
-    "NonEmptyString": {
-      "type": "string",
-      "minLength": 1
     }
   }
 }

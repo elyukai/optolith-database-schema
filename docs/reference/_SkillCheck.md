@@ -13,37 +13,19 @@ The attributes' identifiers of the skill check.
 
 ### <a name="SkillCheck[0]"></a> `SkillCheck[0]`
 
-- **Type:** <a href="#Attribute">Attribute</a>
+- **Type:** <a href="./_SimpleReferences.md#AttributeReference">AttributeReference</a>
 
 ---
 
 ### <a name="SkillCheck[1]"></a> `SkillCheck[1]`
 
-- **Type:** <a href="#Attribute">Attribute</a>
+- **Type:** <a href="./_SimpleReferences.md#AttributeReference">AttributeReference</a>
 
 ---
 
 ### <a name="SkillCheck[2]"></a> `SkillCheck[2]`
 
-- **Type:** <a href="#Attribute">Attribute</a>
-
----
-
-### <a name="Attribute"></a> `Attribute`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The attribute's identifier. | <a href="#Attribute/id">See details</a>
-
-#### <a name="Attribute/id"></a> `id`
-
-The attribute's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `8`
+- **Type:** <a href="./_SimpleReferences.md#AttributeReference">AttributeReference</a>
 
 ---
 

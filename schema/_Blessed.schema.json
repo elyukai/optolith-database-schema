@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/_Blessed.schema.json",
+  "$defs": {
+    "SkillTradition": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "GeneralAspect"
+            },
+            "general_aspect": {
+              "$ref": "./_SimpleReferences.schema.json#/$defs/AspectReference"
+            }
+          },
+          "required": [
+            "tag",
+            "general_aspect"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Tradition"
+            },
+            "tradition": {
+              "$ref": "#/$defs/SkillTraditionWithAspects"
+            }
+          },
+          "required": [
+            "tag",
+            "tradition"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "SkillTraditionWithAspects": {
+      "type": "object",
+      "properties": {
+        "tradition": {
+          "description": "The blessed tradition.",
+          "$ref": "./_SimpleReferences.schema.json#/$defs/BlessedTraditionReference"
+        },
+        "aspects": {
+          "description": "The aspect(s) from the tradition the ceremony belongs to. Note that not\nall traditions have aspects. Traditions with aspects must have at least one\naspect specified.",
+          "type": "array",
+          "items": {
+            "$ref": "./_SimpleReferences.schema.json#/$defs/AspectReference"
+          },
+          "minItems": 1,
+          "maxItems": 2
+        }
+      },
+      "required": [
+        "tradition"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

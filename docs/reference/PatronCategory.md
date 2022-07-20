@@ -42,32 +42,26 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="PatronCategory/primary_patron_cultures[]"></a> `PatronCategory/primary_patron_cultures[]`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The culture's identifier. | <a href="#PatronCategory/primary_patron_cultures[]/id">See details</a>
-
-#### <a name="PatronCategory/primary_patron_cultures[]/id"></a> `id`
-
-The culture's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_SimpleReferences.md#CultureReference">CultureReference</a>
 
 ---
 
 ### <a name="PatronCategory/translations[key]"></a> `PatronCategory/translations[key]`
 
+- **Type:** <a href="#PatronCategoryTranslation">PatronCategoryTranslation</a>
+
+---
+
+### <a name="PatronCategoryTranslation"></a> `PatronCategoryTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the patron category. | <a href="#PatronCategory/translations[key]/name">See details</a>
+`name` | The name of the patron category. | <a href="#PatronCategoryTranslation/name">See details</a>
 
-#### <a name="PatronCategory/translations[key]/name"></a> `name`
+#### <a name="PatronCategoryTranslation/name"></a> `name`
 
 The name of the patron category.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

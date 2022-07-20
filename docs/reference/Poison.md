@@ -29,8 +29,7 @@ The poison's identifier. An unique, increasing integer.
 
 The poison's level.
 
-- **Type:** Union
-- **Cases:** <a href="#Poison/level'QualityLevel">Poison/level'QualityLevel</a> | <a href="#Poison/level'Fixed">Poison/level'Fixed</a>
+- **Type:** <a href="#PoisonLevel">PoisonLevel</a>
 
 #### <a name="Poison/application_type"></a> `application_type`
 
@@ -45,15 +44,13 @@ The poison's application type(s).
 
 The poison's source type and dependent additional values.
 
-- **Type:** Union
-- **Cases:** <a href="#Poison/source_type'AnimalVenom">Poison/source_type'AnimalVenom</a> | <a href="#Poison/source_type'PlantPoison">Poison/source_type'PlantPoison</a> | <a href="#Poison/source_type'AlchemicalPoison">Poison/source_type'AlchemicalPoison</a> | <a href="#Poison/source_type'MineralPoison">Poison/source_type'MineralPoison</a>
+- **Type:** <a href="#PoisonSourceType">PoisonSourceType</a>
 
 #### <a name="Poison/resistance"></a> `resistance`
 
 Use Spirit or Toughness as a modifier for the poison.
 
-- **Type:** Union
-- **Cases:** <a href="#Poison/resistance'Spirit">Poison/resistance'Spirit</a> | <a href="#Poison/resistance'Toughness">Poison/resistance'Toughness</a>
+- **Type:** <a href="./_DiseasePoison.md#Resistance">Resistance</a>
 
 #### <a name="Poison/value"></a> `value`
 
@@ -84,441 +81,399 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="Poison/level'QualityLevel"></a> `Poison/level'QualityLevel`
+### <a name="Poison/application_type[]"></a> `Poison/application_type[]`
+
+- **Type:** <a href="#PoisonApplicationType">PoisonApplicationType</a>
+
+---
+
+### <a name="Poison/translations[key]"></a> `Poison/translations[key]`
+
+- **Type:** <a href="#PoisonTranslation">PoisonTranslation</a>
+
+---
+
+### <a name="PoisonLevel"></a> `PoisonLevel`
+
+- **Type:** Union
+- **Cases:** <a href="#PoisonLevel'QualityLevel">PoisonLevel'QualityLevel</a> | <a href="#PoisonLevel'Fixed">PoisonLevel'Fixed</a>
+
+---
+
+### <a name="PoisonLevel'QualityLevel"></a> `PoisonLevel'QualityLevel`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Poison/level'QualityLevel/tag">See details</a>
+`tag` |  | <a href="#PoisonLevel'QualityLevel/tag">See details</a>
 
-#### <a name="Poison/level'QualityLevel/tag"></a> `tag`
+#### <a name="PoisonLevel'QualityLevel/tag"></a> `tag`
 
 - **Constant:** `"QualityLevel"`
 
 ---
 
-### <a name="Poison/level'Fixed"></a> `Poison/level'Fixed`
+### <a name="PoisonLevel'Fixed"></a> `PoisonLevel'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Poison/level'Fixed/tag">See details</a>
-`value` |  | <a href="#Poison/level'Fixed/value">See details</a>
+`tag` |  | <a href="#PoisonLevel'Fixed/tag">See details</a>
+`fixed` |  | <a href="#PoisonLevel'Fixed/fixed">See details</a>
 
-#### <a name="Poison/level'Fixed/tag"></a> `tag`
+#### <a name="PoisonLevel'Fixed/tag"></a> `tag`
 
 - **Constant:** `"Fixed"`
 
-#### <a name="Poison/level'Fixed/value"></a> `value`
+#### <a name="PoisonLevel'Fixed/fixed"></a> `fixed`
+
+- **Type:** <a href="#FixedPoisonLevel">FixedPoisonLevel</a>
+
+---
+
+### <a name="FixedPoisonLevel"></a> `FixedPoisonLevel`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`value` |  | <a href="#FixedPoisonLevel/value">See details</a>
+
+#### <a name="FixedPoisonLevel/value"></a> `value`
 
 - **Type:** Integer
 - **Minimum:** `1`
 
 ---
 
-### <a name="Poison/application_type[]"></a> `Poison/application_type[]`
+### <a name="PoisonApplicationType"></a> `PoisonApplicationType`
 
 - **Type:** Union
-- **Cases:** <a href="#Poison/application_type[]'Weapon">Poison/application_type[]'Weapon</a> | <a href="#Poison/application_type[]'Ingestion">Poison/application_type[]'Ingestion</a> | <a href="#Poison/application_type[]'Inhalation">Poison/application_type[]'Inhalation</a> | <a href="#Poison/application_type[]'Contact">Poison/application_type[]'Contact</a>
+- **Cases:** <a href="#PoisonApplicationType'Weapon">PoisonApplicationType'Weapon</a> | <a href="#PoisonApplicationType'Ingestion">PoisonApplicationType'Ingestion</a> | <a href="#PoisonApplicationType'Inhalation">PoisonApplicationType'Inhalation</a> | <a href="#PoisonApplicationType'Contact">PoisonApplicationType'Contact</a>
 
 ---
 
-### <a name="Poison/application_type[]'Weapon"></a> `Poison/application_type[]'Weapon`
+### <a name="PoisonApplicationType'Weapon"></a> `PoisonApplicationType'Weapon`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Poison/application_type[]'Weapon/tag">See details</a>
+`tag` |  | <a href="#PoisonApplicationType'Weapon/tag">See details</a>
 
-#### <a name="Poison/application_type[]'Weapon/tag"></a> `tag`
+#### <a name="PoisonApplicationType'Weapon/tag"></a> `tag`
 
 - **Constant:** `"Weapon"`
 
 ---
 
-### <a name="Poison/application_type[]'Ingestion"></a> `Poison/application_type[]'Ingestion`
+### <a name="PoisonApplicationType'Ingestion"></a> `PoisonApplicationType'Ingestion`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Poison/application_type[]'Ingestion/tag">See details</a>
+`tag` |  | <a href="#PoisonApplicationType'Ingestion/tag">See details</a>
 
-#### <a name="Poison/application_type[]'Ingestion/tag"></a> `tag`
+#### <a name="PoisonApplicationType'Ingestion/tag"></a> `tag`
 
 - **Constant:** `"Ingestion"`
 
 ---
 
-### <a name="Poison/application_type[]'Inhalation"></a> `Poison/application_type[]'Inhalation`
+### <a name="PoisonApplicationType'Inhalation"></a> `PoisonApplicationType'Inhalation`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Poison/application_type[]'Inhalation/tag">See details</a>
+`tag` |  | <a href="#PoisonApplicationType'Inhalation/tag">See details</a>
 
-#### <a name="Poison/application_type[]'Inhalation/tag"></a> `tag`
+#### <a name="PoisonApplicationType'Inhalation/tag"></a> `tag`
 
 - **Constant:** `"Inhalation"`
 
 ---
 
-### <a name="Poison/application_type[]'Contact"></a> `Poison/application_type[]'Contact`
+### <a name="PoisonApplicationType'Contact"></a> `PoisonApplicationType'Contact`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Poison/application_type[]'Contact/tag">See details</a>
+`tag` |  | <a href="#PoisonApplicationType'Contact/tag">See details</a>
 
-#### <a name="Poison/application_type[]'Contact/tag"></a> `tag`
+#### <a name="PoisonApplicationType'Contact/tag"></a> `tag`
 
 - **Constant:** `"Contact"`
 
 ---
 
-### <a name="Poison/source_type'AnimalVenom"></a> `Poison/source_type'AnimalVenom`
+### <a name="PoisonSourceType"></a> `PoisonSourceType`
+
+- **Type:** Union
+- **Cases:** <a href="#PoisonSourceType'AnimalVenom">PoisonSourceType'AnimalVenom</a> | <a href="#PoisonSourceType'AlchemicalPoison">PoisonSourceType'AlchemicalPoison</a> | <a href="#PoisonSourceType'MineralPoison">PoisonSourceType'MineralPoison</a> | <a href="#PoisonSourceType'PlantPoison">PoisonSourceType'PlantPoison</a>
+
+---
+
+### <a name="PoisonSourceType'AnimalVenom"></a> `PoisonSourceType'AnimalVenom`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Poison/source_type'AnimalVenom/tag">See details</a>
+`tag` |  | <a href="#PoisonSourceType'AnimalVenom/tag">See details</a>
 
-#### <a name="Poison/source_type'AnimalVenom/tag"></a> `tag`
+#### <a name="PoisonSourceType'AnimalVenom/tag"></a> `tag`
 
 - **Constant:** `"AnimalVenom"`
 
 ---
 
-### <a name="Poison/source_type'PlantPoison"></a> `Poison/source_type'PlantPoison`
+### <a name="PoisonSourceType'AlchemicalPoison"></a> `PoisonSourceType'AlchemicalPoison`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Poison/source_type'PlantPoison/tag">See details</a>
-`category` | The plant poison category and dependent additional values. | <a href="#Poison/source_type'PlantPoison/category">See details</a>
+`tag` |  | <a href="#PoisonSourceType'AlchemicalPoison/tag">See details</a>
 
-#### <a name="Poison/source_type'PlantPoison/tag"></a> `tag`
-
-- **Constant:** `"PlantPoison"`
-
-#### <a name="Poison/source_type'PlantPoison/category"></a> `category`
-
-The plant poison category and dependent additional values.
-
-- **Type:** Union
-- **Cases:** <a href="#Poison/source_type'PlantPoison/category'Default">Poison/source_type'PlantPoison/category'Default</a> | <a href="#Poison/source_type'PlantPoison/category'Intoxicant">Poison/source_type'PlantPoison/category'Intoxicant</a>
-
----
-
-### <a name="Poison/source_type'PlantPoison/category'Default"></a> `Poison/source_type'PlantPoison/category'Default`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Poison/source_type'PlantPoison/category'Default/tag">See details</a>
-
-#### <a name="Poison/source_type'PlantPoison/category'Default/tag"></a> `tag`
-
-- **Constant:** `"Default"`
-
----
-
-### <a name="Poison/source_type'PlantPoison/category'Intoxicant"></a> `Poison/source_type'PlantPoison/category'Intoxicant`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Poison/source_type'PlantPoison/category'Intoxicant/tag">See details</a>
-`legality` | Whether the use of the intoxicant is legal or not. | <a href="#Poison/source_type'PlantPoison/category'Intoxicant/legality">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Poison/source_type'PlantPoison/category'Intoxicant/translations">See details</a>
-
-#### <a name="Poison/source_type'PlantPoison/category'Intoxicant/tag"></a> `tag`
-
-- **Constant:** `"Intoxicant"`
-
-#### <a name="Poison/source_type'PlantPoison/category'Intoxicant/legality"></a> `legality`
-
-Whether the use of the intoxicant is legal or not.
-
-- **Type:** Union
-- **Cases:** <a href="#Poison/source_type'PlantPoison/category'Intoxicant/legality'Legal">Poison/source_type'PlantPoison/category'Intoxicant/legality'Legal</a> | <a href="#Poison/source_type'PlantPoison/category'Intoxicant/legality'Illegal">Poison/source_type'PlantPoison/category'Intoxicant/legality'Illegal</a>
-
-#### <a name="Poison/source_type'PlantPoison/category'Intoxicant/translations"></a> `translations`
-
-All translations for the entry, identified by IETF language tag
-(BCP47).
-
-- **Type:** Dictionary
-- **Property Values:** <a href="#Poison/source_type'PlantPoison/category'Intoxicant/translations[key]">Poison/source_type'PlantPoison/category'Intoxicant/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="Poison/source_type'PlantPoison/category'Intoxicant/legality'Legal"></a> `Poison/source_type'PlantPoison/category'Intoxicant/legality'Legal`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Poison/source_type'PlantPoison/category'Intoxicant/legality'Legal/tag">See details</a>
-
-#### <a name="Poison/source_type'PlantPoison/category'Intoxicant/legality'Legal/tag"></a> `tag`
-
-- **Constant:** `"Legal"`
-
----
-
-### <a name="Poison/source_type'PlantPoison/category'Intoxicant/legality'Illegal"></a> `Poison/source_type'PlantPoison/category'Intoxicant/legality'Illegal`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Poison/source_type'PlantPoison/category'Intoxicant/legality'Illegal/tag">See details</a>
-
-#### <a name="Poison/source_type'PlantPoison/category'Intoxicant/legality'Illegal/tag"></a> `tag`
-
-- **Constant:** `"Illegal"`
-
----
-
-### <a name="Poison/source_type'PlantPoison/category'Intoxicant/translations[key]"></a> `Poison/source_type'PlantPoison/category'Intoxicant/translations[key]`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`ingestion` | How to ingest the intoxicant. | <a href="#Poison/source_type'PlantPoison/category'Intoxicant/translations[key]/ingestion">See details</a>
-`side_effect?` | The intoxicants side effects, if any. | <a href="#Poison/source_type'PlantPoison/category'Intoxicant/translations[key]/side_effect">See details</a>
-`overdose` | What happens if the intoxicant has been overdosed. | <a href="#Poison/source_type'PlantPoison/category'Intoxicant/translations[key]/overdose">See details</a>
-`special?` |  | <a href="#Poison/source_type'PlantPoison/category'Intoxicant/translations[key]/special">See details</a>
-`addiction?` |  | <a href="#Poison/source_type'PlantPoison/category'Intoxicant/translations[key]/addiction">See details</a>
-
-#### <a name="Poison/source_type'PlantPoison/category'Intoxicant/translations[key]/ingestion"></a> `ingestion`
-
-How to ingest the intoxicant.
-
-- **Type:** String
-- **Minimum Length:** `1`
-
-#### <a name="Poison/source_type'PlantPoison/category'Intoxicant/translations[key]/side_effect"></a> `side_effect?`
-
-The intoxicants side effects, if any.
-
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
-
-#### <a name="Poison/source_type'PlantPoison/category'Intoxicant/translations[key]/overdose"></a> `overdose`
-
-What happens if the intoxicant has been overdosed.
-
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
-
-#### <a name="Poison/source_type'PlantPoison/category'Intoxicant/translations[key]/special"></a> `special?`
-
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
-
-#### <a name="Poison/source_type'PlantPoison/category'Intoxicant/translations[key]/addiction"></a> `addiction?`
-
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
-
----
-
-### <a name="Poison/source_type'AlchemicalPoison"></a> `Poison/source_type'AlchemicalPoison`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Poison/source_type'AlchemicalPoison/tag">See details</a>
-
-#### <a name="Poison/source_type'AlchemicalPoison/tag"></a> `tag`
+#### <a name="PoisonSourceType'AlchemicalPoison/tag"></a> `tag`
 
 - **Constant:** `"AlchemicalPoison"`
 
 ---
 
-### <a name="Poison/source_type'MineralPoison"></a> `Poison/source_type'MineralPoison`
+### <a name="PoisonSourceType'MineralPoison"></a> `PoisonSourceType'MineralPoison`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Poison/source_type'MineralPoison/tag">See details</a>
+`tag` |  | <a href="#PoisonSourceType'MineralPoison/tag">See details</a>
 
-#### <a name="Poison/source_type'MineralPoison/tag"></a> `tag`
+#### <a name="PoisonSourceType'MineralPoison/tag"></a> `tag`
 
 - **Constant:** `"MineralPoison"`
 
 ---
 
-### <a name="Poison/resistance'Spirit"></a> `Poison/resistance'Spirit`
+### <a name="PoisonSourceType'PlantPoison"></a> `PoisonSourceType'PlantPoison`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Poison/resistance'Spirit/tag">See details</a>
+`tag` |  | <a href="#PoisonSourceType'PlantPoison/tag">See details</a>
+`plant_poison` |  | <a href="#PoisonSourceType'PlantPoison/plant_poison">See details</a>
 
-#### <a name="Poison/resistance'Spirit/tag"></a> `tag`
+#### <a name="PoisonSourceType'PlantPoison/tag"></a> `tag`
 
-- **Constant:** `"Spirit"`
+- **Constant:** `"PlantPoison"`
+
+#### <a name="PoisonSourceType'PlantPoison/plant_poison"></a> `plant_poison`
+
+- **Type:** <a href="#PlantPoison">PlantPoison</a>
 
 ---
 
-### <a name="Poison/resistance'Toughness"></a> `Poison/resistance'Toughness`
+### <a name="PlantPoison"></a> `PlantPoison`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Poison/resistance'Toughness/tag">See details</a>
+`category` | The plant poison category and dependent additional values. | <a href="#PlantPoison/category">See details</a>
 
-#### <a name="Poison/resistance'Toughness/tag"></a> `tag`
+#### <a name="PlantPoison/category"></a> `category`
 
-- **Constant:** `"Toughness"`
+The plant poison category and dependent additional values.
+
+- **Type:** <a href="#PlantPoisonCategory">PlantPoisonCategory</a>
 
 ---
 
-### <a name="Poison/translations[key]"></a> `Poison/translations[key]`
+### <a name="PlantPoisonCategory"></a> `PlantPoisonCategory`
+
+- **Type:** Union
+- **Cases:** <a href="#PlantPoisonCategory'Default">PlantPoisonCategory'Default</a> | <a href="#PlantPoisonCategory'Intoxicant">PlantPoisonCategory'Intoxicant</a>
+
+---
+
+### <a name="PlantPoisonCategory'Default"></a> `PlantPoisonCategory'Default`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the poison. | <a href="#Poison/translations[key]/name">See details</a>
-`alternative_names?` | A list of alternative names. | <a href="#Poison/translations[key]/alternative_names">See details</a>
-`effect` | The normal and degraded poison's effects. | <a href="#Poison/translations[key]/effect">See details</a>
-`start` | When the poison takes effect. | <a href="#Poison/translations[key]/start">See details</a>
-`duration` | The normal and degraded poison's duration. | <a href="#Poison/translations[key]/duration">See details</a>
-`errata?` |  | <a href="#Poison/translations[key]/errata">See details</a>
+`tag` |  | <a href="#PlantPoisonCategory'Default/tag">See details</a>
 
-#### <a name="Poison/translations[key]/name"></a> `name`
+#### <a name="PlantPoisonCategory'Default/tag"></a> `tag`
+
+- **Constant:** `"Default"`
+
+---
+
+### <a name="PlantPoisonCategory'Intoxicant"></a> `PlantPoisonCategory'Intoxicant`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#PlantPoisonCategory'Intoxicant/tag">See details</a>
+`intoxicant` |  | <a href="#PlantPoisonCategory'Intoxicant/intoxicant">See details</a>
+
+#### <a name="PlantPoisonCategory'Intoxicant/tag"></a> `tag`
+
+- **Constant:** `"Intoxicant"`
+
+#### <a name="PlantPoisonCategory'Intoxicant/intoxicant"></a> `intoxicant`
+
+- **Type:** <a href="#Intoxicant">Intoxicant</a>
+
+---
+
+### <a name="Intoxicant"></a> `Intoxicant`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`legality` | Whether the use of the intoxicant is legal or not. | <a href="#Intoxicant/legality">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Intoxicant/translations">See details</a>
+
+#### <a name="Intoxicant/legality"></a> `legality`
+
+Whether the use of the intoxicant is legal or not.
+
+- **Type:** <a href="#IntoxicantLegality">IntoxicantLegality</a>
+
+#### <a name="Intoxicant/translations"></a> `translations`
+
+All translations for the entry, identified by IETF language tag
+(BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#Intoxicant/translations[key]">Intoxicant/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="Intoxicant/translations[key]"></a> `Intoxicant/translations[key]`
+
+- **Type:** <a href="#IntoxicantTranslation">IntoxicantTranslation</a>
+
+---
+
+### <a name="IntoxicantLegality"></a> `IntoxicantLegality`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`is_legal` |  | <a href="#IntoxicantLegality/is_legal">See details</a>
+
+#### <a name="IntoxicantLegality/is_legal"></a> `is_legal`
+
+- **Type:** Boolean
+
+---
+
+### <a name="IntoxicantTranslation"></a> `IntoxicantTranslation`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`ingestion` | How to ingest the intoxicant. | <a href="#IntoxicantTranslation/ingestion">See details</a>
+`side_effect?` | The intoxicants side effects, if any. | <a href="#IntoxicantTranslation/side_effect">See details</a>
+`overdose` | What happens if the intoxicant has been overdosed. | <a href="#IntoxicantTranslation/overdose">See details</a>
+`special?` |  | <a href="#IntoxicantTranslation/special">See details</a>
+`addiction?` |  | <a href="#IntoxicantTranslation/addiction">See details</a>
+
+#### <a name="IntoxicantTranslation/ingestion"></a> `ingestion`
+
+How to ingest the intoxicant.
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="IntoxicantTranslation/side_effect"></a> `side_effect?`
+
+The intoxicants side effects, if any.
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
+
+#### <a name="IntoxicantTranslation/overdose"></a> `overdose`
+
+What happens if the intoxicant has been overdosed.
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
+
+#### <a name="IntoxicantTranslation/special"></a> `special?`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
+
+#### <a name="IntoxicantTranslation/addiction"></a> `addiction?`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
+
+---
+
+### <a name="PoisonTranslation"></a> `PoisonTranslation`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`name` | The name of the poison. | <a href="#PoisonTranslation/name">See details</a>
+`alternative_names?` | A list of alternative names. | <a href="#PoisonTranslation/alternative_names">See details</a>
+`effect` | The normal and degraded poison's effects. | <a href="#PoisonTranslation/effect">See details</a>
+`start` | When the poison takes effect. | <a href="#PoisonTranslation/start">See details</a>
+`duration` | The normal and degraded poison's duration. | <a href="#PoisonTranslation/duration">See details</a>
+`errata?` |  | <a href="#PoisonTranslation/errata">See details</a>
+
+#### <a name="PoisonTranslation/name"></a> `name`
 
 The name of the poison.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Poison/translations[key]/alternative_names"></a> `alternative_names?`
+#### <a name="PoisonTranslation/alternative_names"></a> `alternative_names?`
 
 A list of alternative names.
 
 - **Type:** List
-- **Items:** <a href="#Poison/translations[key]/alternative_names[]">Poison/translations[key]/alternative_names[]</a>
+- **Items:** <a href="#PoisonTranslation/alternative_names[]">PoisonTranslation/alternative_names[]</a>
 - **Minimum Items:** `1`
 
-#### <a name="Poison/translations[key]/effect"></a> `effect`
+#### <a name="PoisonTranslation/effect"></a> `effect`
 
 The normal and degraded poison's effects.
 
-- **Type:** <a href="#Poison/translations[key]/effect">Object</a>
+- **Type:** <a href="./_DiseasePoison.md#Reduceable">Reduceable</a>
 
-#### <a name="Poison/translations[key]/start"></a> `start`
+#### <a name="PoisonTranslation/start"></a> `start`
 
 When the poison takes effect.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
-#### <a name="Poison/translations[key]/duration"></a> `duration`
+#### <a name="PoisonTranslation/duration"></a> `duration`
 
 The normal and degraded poison's duration.
 
-- **Type:** <a href="#Poison/translations[key]/duration">Object</a>
+- **Type:** <a href="./_DiseasePoison.md#Reduceable">Reduceable</a>
 
-#### <a name="Poison/translations[key]/errata"></a> `errata?`
+#### <a name="PoisonTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
 
 ---
 
-### <a name="Poison/translations[key]/alternative_names[]"></a> `Poison/translations[key]/alternative_names[]`
+### <a name="PoisonTranslation/alternative_names[]"></a> `PoisonTranslation/alternative_names[]`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`name` | An alternative name of the poison. | <a href="#Poison/translations[key]/alternative_names[]/name">See details</a>
-`region?` | The region where this alternative name is used. | <a href="#Poison/translations[key]/alternative_names[]/region">See details</a>
-
-#### <a name="Poison/translations[key]/alternative_names[]/name"></a> `name`
-
-An alternative name of the poison.
-
-- **Type:** String
-- **Minimum Length:** `1`
-
-#### <a name="Poison/translations[key]/alternative_names[]/region"></a> `region?`
-
-The region where this alternative name is used.
-
-- **Type:** String
-- **Minimum Length:** `1`
-
----
-
-### <a name="Poison/translations[key]/effect"></a> `Poison/translations[key]/effect`
-
-The normal and degraded poison's effects.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`default` | The poison’s effects. | <a href="#Poison/translations[key]/effect/default">See details</a>
-`degraded?` | The degraded poison’s effects. | <a href="#Poison/translations[key]/effect/degraded">See details</a>
-
-#### <a name="Poison/translations[key]/effect/default"></a> `default`
-
-The poison’s effects.
-
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
-
-#### <a name="Poison/translations[key]/effect/degraded"></a> `degraded?`
-
-The degraded poison’s effects.
-
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
-
----
-
-### <a name="Poison/translations[key]/duration"></a> `Poison/translations[key]/duration`
-
-The normal and degraded poison's duration.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`default` | The poison’s duration. | <a href="#Poison/translations[key]/duration/default">See details</a>
-`degraded` | The degraded poison’s duration. | <a href="#Poison/translations[key]/duration/degraded">See details</a>
-
-#### <a name="Poison/translations[key]/duration/default"></a> `default`
-
-The poison’s duration.
-
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
-
-#### <a name="Poison/translations[key]/duration/degraded"></a> `degraded`
-
-The degraded poison’s duration.
-
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
+- **Type:** <a href="./_DiseasePoison.md#AlternativeName">AlternativeName</a>

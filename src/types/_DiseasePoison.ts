@@ -1,10 +1,11 @@
 /**
- * This file defines some shared types for different diseases.
+ * This file defines some shared types for different diseases and poisons.
  * @title Disease (shared)
  */
 
 import { Errata } from "./source/_Erratum.js"
 import { LocaleMap } from "./_LocaleMap.js"
+import { NonEmptyMarkdown, NonEmptyString } from "./_NonEmptyString.js"
 
 /**
  * Depending on the disease, apply Spirit or Toughness as a penalty to the
@@ -38,7 +39,7 @@ export type Cause = {
   translations: LocaleMap<CauseTranslation>
 }
 
-type CauseTranslation = {
+export type CauseTranslation = {
   /**
    * The name of the cause.
    * @minLength 1
@@ -49,23 +50,20 @@ type CauseTranslation = {
    * The chance to get infected by this cause. If present for this
    * language, this overrides the universal `chance` field; they cannot be
    * used at the same time.
-   * @minLength 1
    */
-  chance?: string
+  chance?: NonEmptyString
 
   /**
    * An additional note about this cause.
-   * @minLength 1
    */
-  note?: string
+  note?: NonEmptyString
 }
 
 export type DiseaseTranslation = {
   /**
    * The name of the disease.
-   * @minLength 1
    */
-  name: string
+  name: NonEmptyString
 
   /**
    * A list of alternative names.
@@ -75,84 +73,72 @@ export type DiseaseTranslation = {
 
   /**
    * The disease’s progress, in detail.
-   * @markdown
-   * @minLength 1
    */
-  progress: string
+  progress: NonEmptyMarkdown
 
   /**
    * After infection, how much time passes before symptoms appear?
-   * @minLength 1
    */
-  incubation_time: string
+  incubation_time: NonEmptyString
 
   /**
    * The damage caused by the disease. If the disease check fails, apply the
    * lessened effects.
    */
-  damage: Lessenable
+  damage: Reduceable
 
   /**
    * The duration of the disease. If the disease check fails, use the
    * lessened duration.
    */
-  duration: Lessenable
+  duration: Reduceable
 
   /**
    * Special information about the disease.
-   * @markdown
-   * @minLength 1
    */
-  special?: string
+  special?: NonEmptyMarkdown
 
   /**
    * Methods known to lessen the disease’s progress or relieve symptoms.
-   * @markdown
-   * @minLength 1
    */
-  treatment: string
+  treatment: NonEmptyMarkdown
 
   /**
    * Known remedies for the disease.
-   * @markdown
-   * @minLength 1
    */
-  cure: string
+  cure: NonEmptyMarkdown
 
   errata?: Errata
 }
 
-type AlternativeName = {
+export type AlternativeName = {
   /**
    * An alternative name of the disease.
-   * @minLength 1
    */
-  name: string
+  name: NonEmptyString
 
   /**
    * The region where this alternative name is used.
-   * @minLength 1
    */
-  region?: string
+  region?: NonEmptyString
 }
 
 /**
- * An effect or other parameter that may be lessened by a failed disease check.
+ * An effect or other parameter that may be reduced by a failed disease check
+ * for lessening or a degraded poison.
+ *
+ * This streamlines the wording for diseases and poison by using a unified
+ * wording for *lessened* (disease) and *degraded* (poison).
  */
-type Lessenable = {
+export type Reduceable = {
   /**
-   * The default value. In the source, it's the text before the
-   * slash.
-   * @markdown
-   * @minLength 1
+   * The default value. In the source, it's the text before the slash.
    */
-  default: string
+  default: NonEmptyMarkdown
 
   /**
-   * The lessened value. In the source, it's the text after the
-   * slash. Some entries may not have a lessened value.
-   * @markdown
-   * @minLength 1
+   * The reduced value. In the source, it's the text after the slash. Some
+   * entries may not have a reduced value.
    */
-  lessened?: string
+  reduced?: NonEmptyMarkdown
 }

@@ -54,7 +54,7 @@ The race’s base values.
 Describes how to raise or lower maximum attribute values during character
 creation.
 
-- **Type:** <a href="#AttributeAdjustments/Config">AttributeAdjustments/Config</a>
+- **Type:** <a href="#AttributeAdjustments">AttributeAdjustments</a>
 
 #### <a name="Race/automatic_advantages"></a> `automatic_advantages?`
 
@@ -126,7 +126,7 @@ in race variants.
 
 Configuration for random weight generation.
 
-- **Type:** <a href="#Weight/Config">Weight/Config</a>
+- **Type:** <a href="#Weight">Weight</a>
 
 #### <a name="Race/starting_age"></a> `starting_age`
 
@@ -146,7 +146,7 @@ defined in the variant configuration need to be set for the whole race.
 This excludes common and uncommon advantages and disadvantages, since they
 may be defined for the whole race even if variants exist.
 
-- **Type:** <a href="#VariantDependent">VariantDependent</a>
+- **Type:** <a href="#RaceVariantDependent">RaceVariantDependent</a>
 
 #### <a name="Race/src"></a> `src`
 
@@ -165,7 +165,7 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Race/automatic_advantages[]"></a> `Race/automatic_advantages[]`
 
-- **Type:** <a href="#AutomaticAdvantage">AutomaticAdvantage</a>
+- **Type:** <a href="./_SimpleReferences.md#AdvantageReference">AdvantageReference</a>
 
 ---
 
@@ -257,136 +257,60 @@ The race’s tactical movement rate.
 
 ---
 
-### <a name="AttributeAdjustments/Config"></a> `AttributeAdjustments/Config`
+### <a name="AttributeAdjustments"></a> `AttributeAdjustments`
 
 Describes how to raise or lower maximum attribute values during character
 creation.
 
-- **Type:** Object
+- **Type:** List
+- **Items:** <a href="#AttributeAdjustments[]">AttributeAdjustments[]</a>
 
-Key | Description | Details
-:-- | :-- | :--
-`fix?` | An array of attribute maximum modifiers. The value will be added to the current maximum of the ID-specified attribute (negative values will lower the maximum). | <a href="#AttributeAdjustments/Config/fix">See details</a>
-`selection` | Used if the player has to choose between different modifiers. | <a href="#AttributeAdjustments/Config/selection">See details</a>
+---
 
-#### <a name="AttributeAdjustments/Config/fix"></a> `fix?`
+### <a name="AttributeAdjustments[]"></a> `AttributeAdjustments[]`
+
+- **Type:** <a href="#AttributeAdjustment">AttributeAdjustment</a>
+
+---
+
+### <a name="AttributeAdjustment"></a> `AttributeAdjustment`
 
 An array of attribute maximum modifiers. The value will be added to the
-current maximum of the ID-specified attribute (negative values will lower
-the maximum).
-
-- **Type:** List
-- **Items:** <a href="#AttributeAdjustments/Config/fix[]">AttributeAdjustments/Config/fix[]</a>
-- **Minimum Items:** `1`
-
-#### <a name="AttributeAdjustments/Config/selection"></a> `selection`
-
-Used if the player has to choose between different modifiers.
-
-- **Type:** <a href="#AttributeAdjustments/Selection">AttributeAdjustments/Selection</a>
-
----
-
-### <a name="AttributeAdjustments/Config/fix[]"></a> `AttributeAdjustments/Config/fix[]`
-
-- **Type:** <a href="#AttributeAdjustments/Fix">AttributeAdjustments/Fix</a>
-
----
-
-### <a name="AttributeAdjustments/Fix"></a> `AttributeAdjustments/Fix`
+current maximum of the selected attribute that has been chosen from the
+listed attributes (negative values will lower the maximum).
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The attribute's identifier. | <a href="#AttributeAdjustments/Fix/id">See details</a>
-`value` | The value by which the attribute's maximum is modified (negative values will lower the maximum). | <a href="#AttributeAdjustments/Fix/value">See details</a>
+`value` | The value by which the selected attribute's maximum is modified (negative values will lower the maximum). | <a href="#AttributeAdjustment/value">See details</a>
+`list` | A list of attributes the player has to choose from. If only one attribute is listed, no attribute has to be chosen. | <a href="#AttributeAdjustment/list">See details</a>
 
-#### <a name="AttributeAdjustments/Fix/id"></a> `id`
-
-The attribute's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `8`
-
-#### <a name="AttributeAdjustments/Fix/value"></a> `value`
-
-The value by which the attribute's maximum is modified (negative values
-will lower the maximum).
-
-- **Type:** Integer
-
----
-
-### <a name="AttributeAdjustments/Selection"></a> `AttributeAdjustments/Selection`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`value` | The value by which the selected attribute's maximum is modified (negative values will lower the maximum). | <a href="#AttributeAdjustments/Selection/value">See details</a>
-`list` | A list of attributes the player has to choose from. | <a href="#AttributeAdjustments/Selection/list">See details</a>
-
-#### <a name="AttributeAdjustments/Selection/value"></a> `value`
+#### <a name="AttributeAdjustment/value"></a> `value`
 
 The value by which the selected attribute's maximum is modified
 (negative values will lower the maximum).
 
 - **Type:** Integer
 
-#### <a name="AttributeAdjustments/Selection/list"></a> `list`
+#### <a name="AttributeAdjustment/list"></a> `list`
 
-A list of attributes the player has to choose from.
+A list of attributes the player has to choose from. If only one attribute
+is listed, no attribute has to be chosen.
 
 - **Type:** List
-- **Items:** <a href="#AttributeAdjustments/Selection/list[]">AttributeAdjustments/Selection/list[]</a>
-- **Minimum Items:** `2`
+- **Items:** <a href="#AttributeAdjustment/list[]">AttributeAdjustment/list[]</a>
+- **Minimum Items:** `1`
 
 ---
 
-### <a name="AttributeAdjustments/Selection/list[]"></a> `AttributeAdjustments/Selection/list[]`
+### <a name="AttributeAdjustment/list[]"></a> `AttributeAdjustment/list[]`
 
-- **Type:** <a href="#AttributeAdjustments/SelectionItem">AttributeAdjustments/SelectionItem</a>
-
----
-
-### <a name="AttributeAdjustments/SelectionItem"></a> `AttributeAdjustments/SelectionItem`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The attribute's identifier. | <a href="#AttributeAdjustments/SelectionItem/id">See details</a>
-
-#### <a name="AttributeAdjustments/SelectionItem/id"></a> `id`
-
-The attribute's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `8`
+- **Type:** <a href="./_SimpleReferences.md#AttributeReference">AttributeReference</a>
 
 ---
 
-### <a name="AutomaticAdvantage"></a> `AutomaticAdvantage`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The advantage's identifier. | <a href="#AutomaticAdvantage/id">See details</a>
-
-#### <a name="AutomaticAdvantage/id"></a> `id`
-
-The advantage's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="Weight/Config"></a> `Weight/Config`
+### <a name="Weight"></a> `Weight`
 
 Configuration for random weight generation.
 
@@ -394,10 +318,10 @@ Configuration for random weight generation.
 
 Key | Description | Details
 :-- | :-- | :--
-`base` | The base value used for random weight. The height subtrahend; in case of `Height - 110 + 2D6` it is `110`. | <a href="#Weight/Config/base">See details</a>
-`random` | The dice used for random weight. | <a href="#Weight/Config/random">See details</a>
+`base` | The base value used for random weight. The height subtrahend; in case of `Height - 110 + 2D6` it is `110`. | <a href="#Weight/base">See details</a>
+`random` | The dice used for random weight. | <a href="#Weight/random">See details</a>
 
-#### <a name="Weight/Config/base"></a> `base`
+#### <a name="Weight/base"></a> `base`
 
 The base value used for random weight. The height subtrahend; in case of
 `Height - 110 + 2D6` it is `110`.
@@ -405,103 +329,103 @@ The base value used for random weight. The height subtrahend; in case of
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="Weight/Config/random"></a> `random`
+#### <a name="Weight/random"></a> `random`
 
 The dice used for random weight.
 
 - **Type:** List
-- **Items:** <a href="#Weight/Config/random[]">Weight/Config/random[]</a>
+- **Items:** <a href="#Weight/random[]">Weight/random[]</a>
 - **Minimum Items:** `1`
 
 ---
 
-### <a name="Weight/Config/random[]"></a> `Weight/Config/random[]`
+### <a name="Weight/random[]"></a> `Weight/random[]`
 
-- **Type:** <a href="#Weight/Die">Weight/Die</a>
+- **Type:** <a href="#WeightDice">WeightDice</a>
 
 ---
 
-### <a name="Weight/Die"></a> `Weight/Die`
+### <a name="WeightDice"></a> `WeightDice`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`number` | Number of dice of the same type. Example: 2 in 2D6. | <a href="#Weight/Die/number">See details</a>
-`sides` | Number of sides on every die. Example: 6 in 2D6. | <a href="#Weight/Die/sides">See details</a>
-`offset_strategy` | The strategy how to offset the randomly generated values against the base value. Either they are all added or subtracted or even results are added and odd results are subtracted. | <a href="#Weight/Die/offset_strategy">See details</a>
+`number` | Number of dice of the same type. Example: 2 in 2D6. | <a href="#WeightDice/number">See details</a>
+`sides` | Number of sides on every die. Example: 6 in 2D6. | <a href="#WeightDice/sides">See details</a>
+`offset_strategy` | The strategy how to offset the randomly generated values against the base value. Either they are all added or subtracted or even results are added and odd results are subtracted. | <a href="#WeightDice/offset_strategy">See details</a>
 
-#### <a name="Weight/Die/number"></a> `number`
+#### <a name="WeightDice/number"></a> `number`
 
 Number of dice of the same type. Example: 2 in 2D6.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="Weight/Die/sides"></a> `sides`
+#### <a name="WeightDice/sides"></a> `sides`
 
 Number of sides on every die. Example: 6 in 2D6.
 
 - **Type:** <a href="./_Dice.md#DieType">DieType</a>
 
-#### <a name="Weight/Die/offset_strategy"></a> `offset_strategy`
+#### <a name="WeightDice/offset_strategy"></a> `offset_strategy`
 
 The strategy how to offset the randomly generated values against the
 base value. Either they are all added or subtracted or even results are
 added and odd results are subtracted.
 
-- **Type:** <a href="#Weight/OffsetStrategy">Weight/OffsetStrategy</a>
+- **Type:** <a href="#WeightDiceOffsetStrategy">WeightDiceOffsetStrategy</a>
 
 ---
 
-### <a name="Weight/OffsetStrategy"></a> `Weight/OffsetStrategy`
+### <a name="WeightDiceOffsetStrategy"></a> `WeightDiceOffsetStrategy`
 
 The strategy how to offset the randomly generated values against the
 base value. Either they are all added or subtracted or even results are
 added and odd results are subtracted.
 
 - **Type:** Union
-- **Cases:** <a href="#Weight/OffsetStrategy'Add">Weight/OffsetStrategy'Add</a> | <a href="#Weight/OffsetStrategy'Subtract">Weight/OffsetStrategy'Subtract</a> | <a href="#Weight/OffsetStrategy'AddEvenSubtractOdd">Weight/OffsetStrategy'AddEvenSubtractOdd</a>
+- **Cases:** <a href="#WeightDiceOffsetStrategy'Add">WeightDiceOffsetStrategy'Add</a> | <a href="#WeightDiceOffsetStrategy'Subtract">WeightDiceOffsetStrategy'Subtract</a> | <a href="#WeightDiceOffsetStrategy'AddEvenSubtractOdd">WeightDiceOffsetStrategy'AddEvenSubtractOdd</a>
 
 ---
 
-### <a name="Weight/OffsetStrategy'Add"></a> `Weight/OffsetStrategy'Add`
+### <a name="WeightDiceOffsetStrategy'Add"></a> `WeightDiceOffsetStrategy'Add`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Weight/OffsetStrategy'Add/tag">See details</a>
+`tag` |  | <a href="#WeightDiceOffsetStrategy'Add/tag">See details</a>
 
-#### <a name="Weight/OffsetStrategy'Add/tag"></a> `tag`
+#### <a name="WeightDiceOffsetStrategy'Add/tag"></a> `tag`
 
 - **Constant:** `"Add"`
 
 ---
 
-### <a name="Weight/OffsetStrategy'Subtract"></a> `Weight/OffsetStrategy'Subtract`
+### <a name="WeightDiceOffsetStrategy'Subtract"></a> `WeightDiceOffsetStrategy'Subtract`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Weight/OffsetStrategy'Subtract/tag">See details</a>
+`tag` |  | <a href="#WeightDiceOffsetStrategy'Subtract/tag">See details</a>
 
-#### <a name="Weight/OffsetStrategy'Subtract/tag"></a> `tag`
+#### <a name="WeightDiceOffsetStrategy'Subtract/tag"></a> `tag`
 
 - **Constant:** `"Subtract"`
 
 ---
 
-### <a name="Weight/OffsetStrategy'AddEvenSubtractOdd"></a> `Weight/OffsetStrategy'AddEvenSubtractOdd`
+### <a name="WeightDiceOffsetStrategy'AddEvenSubtractOdd"></a> `WeightDiceOffsetStrategy'AddEvenSubtractOdd`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Weight/OffsetStrategy'AddEvenSubtractOdd/tag">See details</a>
+`tag` |  | <a href="#WeightDiceOffsetStrategy'AddEvenSubtractOdd/tag">See details</a>
 
-#### <a name="Weight/OffsetStrategy'AddEvenSubtractOdd/tag"></a> `tag`
+#### <a name="WeightDiceOffsetStrategy'AddEvenSubtractOdd/tag"></a> `tag`
 
 - **Constant:** `"AddEvenSubtractOdd"`
 
@@ -541,7 +465,7 @@ added to the base value.
 
 ---
 
-### <a name="VariantDependent"></a> `VariantDependent`
+### <a name="RaceVariantDependent"></a> `RaceVariantDependent`
 
 The race may have variants and associated configuration for each variant.
 If the race is plain (has no variants), the values that would otherwise be
@@ -550,82 +474,102 @@ This excludes common and uncommon advantages and disadvantages, since they
 may be defined for the whole race even if variants exist.
 
 - **Type:** Union
-- **Cases:** <a href="#VariantDependent'HasVariants">VariantDependent'HasVariants</a> | <a href="#VariantDependent'Plain">VariantDependent'Plain</a>
+- **Cases:** <a href="#RaceVariantDependent'HasVariants">RaceVariantDependent'HasVariants</a> | <a href="#RaceVariantDependent'Plain">RaceVariantDependent'Plain</a>
 
 ---
 
-### <a name="VariantDependent'HasVariants"></a> `VariantDependent'HasVariants`
+### <a name="RaceVariantDependent'HasVariants"></a> `RaceVariantDependent'HasVariants`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#VariantDependent'HasVariants/tag">See details</a>
-`variants` | A list of available race variants. | <a href="#VariantDependent'HasVariants/variants">See details</a>
+`tag` |  | <a href="#RaceVariantDependent'HasVariants/tag">See details</a>
+`has_variants` |  | <a href="#RaceVariantDependent'HasVariants/has_variants">See details</a>
 
-#### <a name="VariantDependent'HasVariants/tag"></a> `tag`
+#### <a name="RaceVariantDependent'HasVariants/tag"></a> `tag`
 
 - **Constant:** `"HasVariants"`
 
-#### <a name="VariantDependent'HasVariants/variants"></a> `variants`
+#### <a name="RaceVariantDependent'HasVariants/has_variants"></a> `has_variants`
+
+- **Type:** <a href="#RaceVariants">RaceVariants</a>
+
+---
+
+### <a name="RaceVariantDependent'Plain"></a> `RaceVariantDependent'Plain`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#RaceVariantDependent'Plain/tag">See details</a>
+`plain` |  | <a href="#RaceVariantDependent'Plain/plain">See details</a>
+
+#### <a name="RaceVariantDependent'Plain/tag"></a> `tag`
+
+- **Constant:** `"Plain"`
+
+#### <a name="RaceVariantDependent'Plain/plain"></a> `plain`
+
+- **Type:** <a href="#ValuesForRaceWithoutVariants">ValuesForRaceWithoutVariants</a>
+
+---
+
+### <a name="RaceVariants"></a> `RaceVariants`
 
 A list of available race variants.
 
 - **Type:** List
-- **Items:** <a href="#VariantDependent'HasVariants/variants[]">VariantDependent'HasVariants/variants[]</a>
+- **Items:** <a href="#RaceVariants[]">RaceVariants[]</a>
 - **Minimum Items:** `1`
 
 ---
 
-### <a name="VariantDependent'HasVariants/variants[]"></a> `VariantDependent'HasVariants/variants[]`
+### <a name="RaceVariants[]"></a> `RaceVariants[]`
 
 - **Type:** <a href="#RaceVariant">RaceVariant</a>
 
 ---
 
-### <a name="VariantDependent'Plain"></a> `VariantDependent'Plain`
+### <a name="ValuesForRaceWithoutVariants"></a> `ValuesForRaceWithoutVariants`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#VariantDependent'Plain/tag">See details</a>
-`common_cultures` | The list of common cultures. | <a href="#VariantDependent'Plain/common_cultures">See details</a>
-`hair_color` | An array containing 20 (numeric) hair color identifiers. The array also represents the 20-sided die for a random hair color. | <a href="#VariantDependent'Plain/hair_color">See details</a>
-`eye_color` | An array containing 20 (numeric) eye color identifiers. The array also represents the 20-sided die for a random eye color. | <a href="#VariantDependent'Plain/eye_color">See details</a>
-`height` | Configuration for random height generation. | <a href="#VariantDependent'Plain/height">See details</a>
+`common_cultures` | The list of common cultures. | <a href="#ValuesForRaceWithoutVariants/common_cultures">See details</a>
+`hair_color` | An array containing 20 (numeric) hair color identifiers. The array also represents the 20-sided die for a random hair color. | <a href="#ValuesForRaceWithoutVariants/hair_color">See details</a>
+`eye_color` | An array containing 20 (numeric) eye color identifiers. The array also represents the 20-sided die for a random eye color. | <a href="#ValuesForRaceWithoutVariants/eye_color">See details</a>
+`height` | Configuration for random height generation. | <a href="#ValuesForRaceWithoutVariants/height">See details</a>
 
-#### <a name="VariantDependent'Plain/tag"></a> `tag`
-
-- **Constant:** `"Plain"`
-
-#### <a name="VariantDependent'Plain/common_cultures"></a> `common_cultures`
+#### <a name="ValuesForRaceWithoutVariants/common_cultures"></a> `common_cultures`
 
 The list of common cultures.
 
 - **Type:** List
-- **Items:** <a href="#VariantDependent'Plain/common_cultures[]">VariantDependent'Plain/common_cultures[]</a>
+- **Items:** <a href="#ValuesForRaceWithoutVariants/common_cultures[]">ValuesForRaceWithoutVariants/common_cultures[]</a>
 - **Minimum Items:** `1`
 
-#### <a name="VariantDependent'Plain/hair_color"></a> `hair_color`
+#### <a name="ValuesForRaceWithoutVariants/hair_color"></a> `hair_color`
 
 An array containing 20 (numeric) hair color identifiers. The array also represents the 20-sided die for a random hair color.
 
 - **Type:** List
-- **Items:** <a href="#VariantDependent'Plain/hair_color[]">VariantDependent'Plain/hair_color[]</a>
+- **Items:** <a href="#ValuesForRaceWithoutVariants/hair_color[]">ValuesForRaceWithoutVariants/hair_color[]</a>
 - **Minimum Items:** `20`
 - **Maximum Items:** `20`
 
-#### <a name="VariantDependent'Plain/eye_color"></a> `eye_color`
+#### <a name="ValuesForRaceWithoutVariants/eye_color"></a> `eye_color`
 
 An array containing 20 (numeric) eye color identifiers. The array also represents the 20-sided die for a random eye color.
 
 - **Type:** List
-- **Items:** <a href="#VariantDependent'Plain/eye_color[]">VariantDependent'Plain/eye_color[]</a>
+- **Items:** <a href="#ValuesForRaceWithoutVariants/eye_color[]">ValuesForRaceWithoutVariants/eye_color[]</a>
 - **Minimum Items:** `20`
 - **Maximum Items:** `20`
 
-#### <a name="VariantDependent'Plain/height"></a> `height`
+#### <a name="ValuesForRaceWithoutVariants/height"></a> `height`
 
 Configuration for random height generation.
 
@@ -633,21 +577,21 @@ Configuration for random height generation.
 
 ---
 
-### <a name="VariantDependent'Plain/common_cultures[]"></a> `VariantDependent'Plain/common_cultures[]`
+### <a name="ValuesForRaceWithoutVariants/common_cultures[]"></a> `ValuesForRaceWithoutVariants/common_cultures[]`
 
-- **Type:** <a href="#CommonCulture">CommonCulture</a>
-
----
-
-### <a name="VariantDependent'Plain/hair_color[]"></a> `VariantDependent'Plain/hair_color[]`
-
-- **Type:** <a href="#HairColor">HairColor</a>
+- **Type:** <a href="./_SimpleReferences.md#CultureReference">CultureReference</a>
 
 ---
 
-### <a name="VariantDependent'Plain/eye_color[]"></a> `VariantDependent'Plain/eye_color[]`
+### <a name="ValuesForRaceWithoutVariants/hair_color[]"></a> `ValuesForRaceWithoutVariants/hair_color[]`
 
-- **Type:** <a href="#EyeColor">EyeColor</a>
+- **Type:** <a href="./_SimpleReferences.md#HairColorReference">HairColorReference</a>
+
+---
+
+### <a name="ValuesForRaceWithoutVariants/eye_color[]"></a> `ValuesForRaceWithoutVariants/eye_color[]`
+
+- **Type:** <a href="./_SimpleReferences.md#EyeColorReference">EyeColorReference</a>
 
 ---
 
@@ -752,7 +696,7 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="RaceVariant/common_cultures[]"></a> `RaceVariant/common_cultures[]`
 
-- **Type:** <a href="#CommonCulture">CommonCulture</a>
+- **Type:** <a href="./_SimpleReferences.md#CultureReference">CultureReference</a>
 
 ---
 
@@ -782,70 +726,19 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="RaceVariant/hair_color[]"></a> `RaceVariant/hair_color[]`
 
-- **Type:** <a href="#HairColor">HairColor</a>
+- **Type:** <a href="./_SimpleReferences.md#HairColorReference">HairColorReference</a>
 
 ---
 
 ### <a name="RaceVariant/eye_color[]"></a> `RaceVariant/eye_color[]`
 
-- **Type:** <a href="#EyeColor">EyeColor</a>
+- **Type:** <a href="./_SimpleReferences.md#EyeColorReference">EyeColorReference</a>
 
 ---
 
 ### <a name="RaceVariant/translations[key]"></a> `RaceVariant/translations[key]`
 
 - **Type:** <a href="#RaceVariantTranslation">RaceVariantTranslation</a>
-
----
-
-### <a name="CommonCulture"></a> `CommonCulture`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The culture's identifier. | <a href="#CommonCulture/id">See details</a>
-
-#### <a name="CommonCulture/id"></a> `id`
-
-The culture's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="HairColor"></a> `HairColor`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The hair color's identifier. | <a href="#HairColor/id">See details</a>
-
-#### <a name="HairColor/id"></a> `id`
-
-The hair color's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="EyeColor"></a> `EyeColor`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The hair color's identifier. | <a href="#EyeColor/id">See details</a>
-
-#### <a name="EyeColor/id"></a> `id`
-
-The hair color's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
 
 ---
 
@@ -899,8 +792,7 @@ Key | Description | Details
 
 The race variant's name.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="RaceVariantTranslation/common_advantages"></a> `common_advantages?`
 
@@ -908,8 +800,7 @@ The respective common advantages text from the source book. If common
 advantages are defined by the base race, leave this field empty. This field
 overrides the same field of the base race, if both are defined.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="RaceVariantTranslation/common_disadvantages"></a> `common_disadvantages?`
 
@@ -917,8 +808,7 @@ The respective common disadvantages text from the source book. If common
 disadvantages are defined by the base race, leave this field empty. This
 field overrides the same field of the base race, if both are defined.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="RaceVariantTranslation/uncommon_advantages"></a> `uncommon_advantages?`
 
@@ -926,8 +816,7 @@ The respective uncommon advantages text from the source book. If uncommon
 advantages are defined by the base race, leave this field empty. This field
 overrides the same field of the base race, if both are defined.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="RaceVariantTranslation/uncommon_disadvantages"></a> `uncommon_disadvantages?`
 
@@ -936,8 +825,7 @@ uncommon disadvantages are defined by the base race, leave this field
 empty. This field overrides the same field of the base race, if both are
 defined.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 ---
 
@@ -962,36 +850,32 @@ Key | Description | Details
 
 The race's name.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="RaceTranslation/attribute_adjustments"></a> `attribute_adjustments`
 
 The respective attribute adjustments text from the source book.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="RaceTranslation/automatic_advantages"></a> `automatic_advantages?`
 
 The respective automatic advantages text from the source book.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="RaceTranslation/strongly_recommended_advantages"></a> `strongly_recommended_advantages?`
 
 The respective strongly recommended advantages text from the source book.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="RaceTranslation/strongly_recommended_disadvantages"></a> `strongly_recommended_disadvantages?`
 
-The respective strongly recommended disadvantages text from the source book.
+The respective strongly recommended disadvantages text from the source
+book.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="RaceTranslation/common_advantages"></a> `common_advantages?`
 
@@ -999,8 +883,7 @@ The respective common advantages text from the source book. If common
 advantages are defined by race variants, leave this field empty. It is
 overridden by the same field in race variants.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="RaceTranslation/common_disadvantages"></a> `common_disadvantages?`
 
@@ -1008,8 +891,7 @@ The respective common disadvantages text from the source book. If common
 disadvantages are defined by race variants, leave this field empty. It is
 overridden by the same field in race variants.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="RaceTranslation/uncommon_advantages"></a> `uncommon_advantages?`
 
@@ -1017,8 +899,7 @@ The respective uncommon advantages text from the source book. If uncommon
 advantages are defined by race variants, leave this field empty. It is
 overridden by the same field in race variants.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="RaceTranslation/uncommon_disadvantages"></a> `uncommon_disadvantages?`
 
@@ -1026,8 +907,7 @@ The respective uncommon disadvantages text from the source book. If
 uncommon disadvantages are defined by race variants, leave this field
 empty. It is overridden by the same field in race variants.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="RaceTranslation/errata"></a> `errata?`
 

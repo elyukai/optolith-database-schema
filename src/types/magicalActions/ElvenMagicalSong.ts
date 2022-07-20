@@ -5,7 +5,8 @@
 import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
-import { Duration, Effect } from "../_ActivatableSkill.js"
+import { DurationUnitValue } from "../_ActivatableSkillDuration.js"
+import { Effect } from "../_ActivatableSkillEffect.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
 import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
 import { SkillReference } from "./_SkillReference.js"
@@ -80,7 +81,7 @@ export type ElvenMagicalSong = {
        * divided by a list of effects for each quality level. It may also be a
        * list for each two quality levels.
        */
-      effect: Effect.T
+      effect: Effect
 
       /**
        * @deprecated
@@ -110,7 +111,7 @@ type PerformanceParameters = {
     /**
      * Specified if the AE cost `value` has to be paid for each time interval.
      */
-    interval?: Duration.UnitValue
+    interval?: DurationUnitValue
 
     /**
      * A permanent AE cost, independent from a possible interval.

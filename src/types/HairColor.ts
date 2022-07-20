@@ -3,6 +3,8 @@
  */
 
 import { validateSchemaCreator } from "../validation/schema.js"
+import { LocaleMap } from "./_LocaleMap.js"
+import { NonEmptyString } from "./_NonEmptyString.js"
 
 /**
  * @title Hair Color
@@ -19,18 +21,14 @@ import { validateSchemaCreator } from "../validation/schema.js"
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The hair color.
-       * @minLength 1
-       */
-      name: string
-    }
-  }
+  translations: LocaleMap<HairColorTranslation>
+}
+
+export type HairColorTranslation = {
+  /**
+   * The hair color.
+   */
+  name: NonEmptyString
 }
 
 export const validateSchema = validateSchemaCreator<HairColor>(import.meta.url)

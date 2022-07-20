@@ -5,6 +5,10 @@
 import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
+import { CombatTechniqueIdentifier, MagicalTraditionIdentifier, SpellworkIdentifier } from "./_Identifier.js"
+import { LocaleMap } from "./_LocaleMap.js"
+import { NonEmptyString } from "./_NonEmptyString.js"
+import { GuidelineReference } from "./_SimpleReferences.js"
 
 /**
  * This is a curriculum of a specified academy, containing the guideline,
@@ -21,12 +25,9 @@ export type Curriculum = {
   id: number
 
   /**
-   * The institution's guideline's identifier.
-   * @integer
-   * @minimum 1
-   * @maximum 6
+   * The institution's guideline.
    */
-  guideline_id: number
+  guideline: GuidelineReference
 
   /**
    * The academy's elective spellworks package.
@@ -49,20 +50,16 @@ export type Curriculum = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the academy.
-       * @minLength 1
-       */
-      name: string
+  translations: LocaleMap<CurriculumTranslation>
+}
 
-      errata?: Errata
-    }
-  }
+export type CurriculumTranslation = {
+  /**
+   * The name of the academy.
+   */
+  name: NonEmptyString
+
+  errata?: Errata
 }
 
 /**
@@ -71,16 +68,19 @@ export type Curriculum = {
 type ElectiveSpellworks =
   | { tag: "DefinedByGameMaster" }
   | {
-    tag: "Explicit"
-
-    /**
-     * @minItems 1
-     */
-    list: ElectiveSpellwork[]
+    tag: "Specific"
+    specific: SpecificElectiveSpellworks
   }
 
-type ElectiveSpellwork = {
-  id: SpellworkId
+export type SpecificElectiveSpellworks = {
+  /**
+   * @minItems 1
+   */
+  list: ElectiveSpellwork[]
+}
+
+export type ElectiveSpellwork = {
+  id: SpellworkIdentifier
 
   /**
    * The elective spellwork may only take effect if a certain condition is met.
@@ -97,7 +97,7 @@ type ElectiveSpellwork = {
  * designed so that it can work without a specific profession, as multiple may
  * belong to an institute, but with referencing other entities instead.
  */
-type ElectiveSpellworkRestriction = {
+export type ElectiveSpellworkRestriction = {
   tag: "Element"
 
   /**
@@ -113,50 +113,50 @@ type ElectiveSpellworkRestriction = {
  * The academy's restricted spellworks package.
  * @minItems 1
  */
-type RestrictedSpellworks = RestrictedSpellwork[]
+export type RestrictedSpellworks = RestrictedSpellwork[]
 
 /**
  * The academy's restricted spellworks package.
  */
-type RestrictedSpellwork =
-  | {
-    tag: "Property"
-
-    /**
-     * The identifier of the property that spellworks are disallowed from.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-
-    /**
-     * Exclude specific spellworks from the restriction.
-     * @minItems 1
-     */
-    exclude?: SpellworkId[]
-
-    /**
-     * Spellworks from this property up to a certain number are allowed.
-     * Spellworks excluded from this restriction definition using `exclude` do
-     * not contribute to the maximum.
-     */
-    maximum?: number
-  }
-  | SpellworkId
+export type RestrictedSpellwork =
+  | { tag: "Property"; property: RestrictedProperty }
+  | { tag: "Spellwork"; spellwork: SpellworkIdentifier }
   | { tag: "DemonSummoning" }
   | { tag: "Borbaradian" }
   | { tag: "DamageIntelligent" }
 
+export type RestrictedProperty = {
+  /**
+   * The identifier of the property that spellworks are disallowed from.
+   * @integer
+   * @minimum 1
+   */
+  id: number
+
+  /**
+   * Exclude specific spellworks from the restriction.
+   * @minItems 1
+   */
+  exclude?: SpellworkIdentifier[]
+
+  /**
+   * Spellworks from this property up to a certain number are allowed.
+   * Spellworks excluded from this restriction definition using `exclude` do
+   * not contribute to the maximum.
+   */
+  maximum?: number
+}
+
 /**
  * A list of available lesson packages.
  */
-type LessonPackages = [LessonPackage, LessonPackage]
+export type LessonPackages = [LessonPackage, LessonPackage]
 
 /**
  * @title Lesson Package
  * @minProperties 3
  */
-type LessonPackage = {
+export type LessonPackage = {
   /**
    * The lesson package's identifier. An unique, increasing integer.
    * @integer
@@ -171,179 +171,90 @@ type LessonPackage = {
    * completely.
    * @minItems 1
    */
-  spellwork_changes?: {
-    base: SpellworkAdjustment
-    replacement: SpellworkAdjustment
-  }[]
+  spellwork_changes?: SpellworkChange[]
 
-  skills?: SkillAdjustment[]
+  skills?: AbilityAdjustment[]
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the lesson package.
-       * @minLength 1
-       */
-      name: string
-
-      /**
-       * The spell values difference of the lesson package. Use this field to
-       * specify a text that is displayed instead of the generated
-       * `spellwork_changes` list. The field is displayed even if no list is
-       * present.
-       * @minLength 1
-       */
-      spellwork_changes?: string
-    }
-  }
+  translations: LocaleMap<LessonPackageTranslation>
 }
 
-type SkillAdjustment =
-  | {
-    tag: "MeleeCombatTechnique"
+export type SpellworkChange = {
+  base: SpellworkAdjustment
+  replacement: SpellworkAdjustment
+}
 
-    /**
-     * The melee combat technique's identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
+export type LessonPackageTranslation = {
+  /**
+   * The name of the lesson package.
+   */
+  name: NonEmptyString
 
-    /**
-     * The combat technique points that will be added to the current combat
-     * technique rating.
-     * @integer
-     * @minimum -6
-     * @maximum 6
-     */
-    points: number
-  }
-  | {
-    tag: "RangedCombatTechnique"
+  /**
+   * The spell values difference of the lesson package. Use this field to
+   * specify a text that is displayed instead of the generated
+   * `spellwork_changes` list. The field is displayed even if no list is
+   * present.
+   */
+  spellwork_changes?: NonEmptyString
+}
 
-    /**
-     * The ranged combat technique's identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
+export type AbilityAdjustment =
+  | { tag: "CombatTechnique"; combat_technique: CombatTechniqueAdjustment }
+  | { tag: "Skill"; skill: SkillAdjustment }
+  | { tag: "Spellwork"; spellwork: SpellworkAdjustment }
 
-    /**
-     * The combat technique points that will be added to the current combat
-     * technique rating.
-     * @integer
-     * @minimum -6
-     * @maximum 6
-     */
-    points: number
-  }
-  | {
-    tag: "Skill"
+export type CombatTechniqueAdjustment = {
+  id: CombatTechniqueIdentifier
 
-    /**
-     * The skill's identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
+  /**
+   * The combat technique points that will be added to the current combat
+   * technique rating.
+   * @integer
+   * @minimum -6
+   * @maximum 6
+   */
+  points: number
+}
 
-    /**
-     * The skill points that will be added to the current skill rating.
-     * @integer
-     * @minimum -8
-     * @maximum 8
-     */
-    points: number
-  }
-  | SpellworkAdjustment
+export type SkillAdjustment = {
+  /**
+   * The skill's identifier.
+   * @integer
+   * @minimum 1
+   */
+  id: number
 
-type SpellworkAdjustment =
-  | {
-    tag: "Spell"
+  /**
+   * The skill points that will be added to the current skill rating.
+   * @integer
+   * @minimum -8
+   * @maximum 8
+   */
+  points: number
+}
 
-    /**
-     * The spell's identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
+export type SpellworkAdjustment = {
+  id: SpellworkIdentifier
 
-    /**
-     * The skill points that will be added to the current skill rating. If a
-     * spell gets to a skill rating of 0 because of this, it will be removed
-     * completely.
-     * @integer
-     * @minimum -10
-     * @maximum 10
-     */
-    points: number
+  /**
+   * The skill points that will be added to the current skill rating. If a
+   * spell gets to a skill rating of 0 because of this, it will be removed
+   * completely.
+   * @integer
+   * @minimum -10
+   * @maximum 10
+   */
+  points: number
 
-    /**
-     * The target tradition's identifier. If the target spell is not from the
-     * Guild Mage tradition, specify the tradition identifier here.
-     * @integer
-     * @minimum 2
-     * @default 1
-     */
-    tradition_id?: number
-  }
-  | {
-    tag: "Ritual"
-
-    /**
-     * The ritual's identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-
-    /**
-     * The skill points that will be added to the current skill rating. If a
-     * ritual gets to a skill rating of 0 because of this, it will be removed
-     * completely.
-     * @integer
-     * @minimum -10
-     * @maximum 10
-     */
-    points: number
-
-    /**
-     * The target tradition's identifier. If the target ritual is not from the
-     * Guild Mage tradition, specify the tradition identifier here.
-     * @integer
-     * @minimum 2
-     * @default 1
-     */
-    tradition_id?: number
-  }
-
-type SpellworkId =
-  | {
-    tag: "Spell"
-
-    /**
-     * The spell's identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-  }
-  | {
-    tag: "Ritual"
-
-    /**
-     * The ritual's identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-  }
+  /**
+   * The target tradition. If the target spell is not from the Guild Mage
+   * tradition, specify the tradition identifier here.
+   */
+  tradition?: MagicalTraditionIdentifier
+}
 
 export const validateSchema = validateSchemaCreator<Curriculum>(import.meta.url)

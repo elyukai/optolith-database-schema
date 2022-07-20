@@ -20,27 +20,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The name of the state.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "description": {
-                  "description": "The description of the state.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "errata": {
-                  "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "description"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/StateTranslation"
             }
           },
           "minProperties": 1,
@@ -51,6 +31,27 @@
         "id",
         "src",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "StateTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the state.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "description": {
+          "description": "The description of the state.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        },
+        "errata": {
+          "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "description"
       ],
       "additionalProperties": false
     }

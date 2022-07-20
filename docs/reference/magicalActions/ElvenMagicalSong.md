@@ -113,7 +113,7 @@ The effect description may be either a plain text or a text that is
 divided by a list of effects for each quality level. It may also be a
 list for each two quality levels.
 
-- **Type:** <a href="../_ActivatableSkill.md#Effect/T">Effect/T</a>
+- **Type:** <a href="../_ActivatableSkillEffect.md#Effect">Effect</a>
 
 #### <a name="ElvenMagicalSong/translations[key]/cost"></a> `cost`
 
@@ -186,7 +186,7 @@ The (temporary) AE cost value.
 
 Specified if the AE cost `value` has to be paid for each time interval.
 
-- **Type:** <a href="../_ActivatableSkill.md#Duration/UnitValue">Duration/UnitValue</a>
+- **Type:** <a href="../_ActivatableSkillDuration.md#DurationUnitValue">DurationUnitValue</a>
 
 #### <a name="PerformanceParameters/cost/permanent"></a> `permanent?`
 

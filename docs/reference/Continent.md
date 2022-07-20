@@ -37,13 +37,19 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Continent/translations[key]"></a> `Continent/translations[key]`
 
+- **Type:** <a href="#ContinentTranslation">ContinentTranslation</a>
+
+---
+
+### <a name="ContinentTranslation"></a> `ContinentTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The continent name. | <a href="#Continent/translations[key]/name">See details</a>
+`name` | The continent name. | <a href="#ContinentTranslation/name">See details</a>
 
-#### <a name="Continent/translations[key]/name"></a> `name`
+#### <a name="ContinentTranslation/name"></a> `name`
 
 The continent name.
 

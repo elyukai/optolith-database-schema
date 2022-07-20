@@ -4,8 +4,9 @@
 
 import { validateSchemaCreator } from "../validation/schema.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
-import { Cause, DiseaseTranslation, Resistance } from "./_Disease.js"
+import { Cause, DiseaseTranslation, Resistance } from "./_DiseasePoison.js"
 import { LocaleMap } from "./_LocaleMap.js"
+import { AnimalTypeReference } from "./_SimpleReferences.js"
 
 /**
  * @title Animal Disease
@@ -42,14 +43,20 @@ export type AnimalDisease = {
 
   /**
    * The animal types this disease applies to.
+   *
+   * If no animal types are given, the animal disease applies to all animal
+   * types.
    */
-  animal_types: AnimalTypes
+  animal_types: AnimalTypeReference[]
 
   /**
    * If and at which chance the disease can be communicated to intelligent
    * creatures.
+   *
+   * If no causes are given, the disease is not communicable to intelligent
+   * creatures.
    */
-  communicability_to_intelligent_creatures: CommunicabilityToIntelligentCreatures
+  communicability_to_intelligent_creatures: Cause[]
 
   src: PublicationRefs
 
@@ -59,47 +66,5 @@ export type AnimalDisease = {
    */
   translations: LocaleMap<DiseaseTranslation>
 }
-
-/**
- * The animal types this disease applies to.
- */
-export type AnimalTypes =
-  | { tag: "All" }
-  | {
-    tag: "Specific"
-
-    /**
-     * The list of specific animal types this disease applies to.
-     * @minItems 1
-     */
-    list: AnimalType[]
-  }
-
-export type AnimalType = {
-  /**
-   * The animal type's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-}
-
-/**
- * If and at which chance the disease can be communicated to intelligent
- * creatures.
- */
-export type CommunicabilityToIntelligentCreatures =
-  | { tag: "NonCommunicable" }
-  | {
-    tag: "Communicable"
-
-    /**
-     * What causes the communication? The GM rolls 1D20 to see if a character
-     * gets infected. If the infection check succeeds, the GM makes a disease
-     * check to determine the severity of the infection.
-     * @minItems 1
-     */
-    cause: Cause[]
-  }
 
 export const validateSchema = validateSchemaCreator<AnimalDisease>(import.meta.url)

@@ -19,23 +19,29 @@
         },
         "resistance": {
           "description": "Depending on the disease, apply Spirit or Toughness as a penalty to the\ndisease roll. It may also happen that the lower of both is applied as a\npenalty.",
-          "$ref": "./_Disease.schema.json#/$defs/Resistance"
+          "$ref": "./_DiseasePoison.schema.json#/$defs/Resistance"
         },
         "cause": {
           "description": "What causes the disease? The GM rolls 1D20 to see if a character gets\ninfected. If the infection check succeeds, the GM makes a disease check to\ndetermine the severity of the infection.",
           "type": "array",
           "items": {
-            "$ref": "./_Disease.schema.json#/$defs/Cause"
+            "$ref": "./_DiseasePoison.schema.json#/$defs/Cause"
           },
           "minItems": 1
         },
         "animal_types": {
-          "description": "The animal types this disease applies to.",
-          "$ref": "#/$defs/AnimalTypes"
+          "description": "The animal types this disease applies to.\n\nIf no animal types are given, the animal disease applies to all animal\ntypes.",
+          "type": "array",
+          "items": {
+            "$ref": "./_SimpleReferences.schema.json#/$defs/AnimalTypeReference"
+          }
         },
         "communicability_to_intelligent_creatures": {
-          "description": "If and at which chance the disease can be communicated to intelligent\ncreatures.",
-          "$ref": "#/$defs/CommunicabilityToIntelligentCreatures"
+          "description": "If and at which chance the disease can be communicated to intelligent\ncreatures.\n\nIf no causes are given, the disease is not communicable to intelligent\ncreatures.",
+          "type": "array",
+          "items": {
+            "$ref": "./_DiseasePoison.schema.json#/$defs/Cause"
+          }
         },
         "src": {
           "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
@@ -45,7 +51,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "$ref": "./_Disease.schema.json#/$defs/DiseaseTranslation"
+              "$ref": "./_DiseasePoison.schema.json#/$defs/DiseaseTranslation"
             }
           },
           "minProperties": 1,
@@ -63,96 +69,6 @@
         "translations"
       ],
       "additionalProperties": false
-    },
-    "AnimalTypes": {
-      "description": "The animal types this disease applies to.",
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "All"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Specific"
-            },
-            "list": {
-              "description": "The list of specific animal types this disease applies to.",
-              "type": "array",
-              "items": {
-                "$ref": "#/$defs/AnimalType"
-              },
-              "minItems": 1
-            }
-          },
-          "required": [
-            "tag",
-            "list"
-          ],
-          "additionalProperties": false
-        }
-      ]
-    },
-    "AnimalType": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "The animal type's identifier.",
-          "type": "integer",
-          "minimum": 1
-        }
-      },
-      "required": [
-        "id"
-      ],
-      "additionalProperties": false
-    },
-    "CommunicabilityToIntelligentCreatures": {
-      "description": "If and at which chance the disease can be communicated to intelligent\ncreatures.",
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "NonCommunicable"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Communicable"
-            },
-            "cause": {
-              "description": "What causes the communication? The GM rolls 1D20 to see if a character\ngets infected. If the infection check succeeds, the GM makes a disease\ncheck to determine the severity of the infection.",
-              "type": "array",
-              "items": {
-                "$ref": "./_Disease.schema.json#/$defs/Cause"
-              },
-              "minItems": 1
-            }
-          },
-          "required": [
-            "tag",
-            "cause"
-          ],
-          "additionalProperties": false
-        }
-      ]
     }
   }
 }

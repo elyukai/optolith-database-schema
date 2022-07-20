@@ -6,7 +6,10 @@ import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
-import { Dice, DieType } from "./_Dice.js"
+import { Dice } from "./_Dice.js"
+import { LocaleMap } from "./_LocaleMap.js"
+import { NonEmptyString } from "./_NonEmptyString.js"
+import { AdvantageReference, AttributeReference, CultureReference, EyeColorReference, HairColorReference } from "./_SimpleReferences.js"
 
 /**
  * A playable race with stats and skills.
@@ -36,7 +39,7 @@ export type Race = {
    * Describes how to raise or lower maximum attribute values during character
    * creation.
    */
-  attribute_adjustments: AttributeAdjustments.Config
+  attribute_adjustments: AttributeAdjustments
 
   /**
    * A list of automatically applied advantages. This does only work for
@@ -44,7 +47,7 @@ export type Race = {
    * selection.
    * @minItems 1
    */
-  automatic_advantages?: AutomaticAdvantage[]
+  automatic_advantages?: AdvantageReference[]
 
   /**
    * A list of strongly recommended advantages.
@@ -93,7 +96,7 @@ export type Race = {
   /**
    * Configuration for random weight generation.
    */
-  weight: Weight.Config
+  weight: Weight
 
   /**
    * Defines the starting ages for the race. It depends on the selected
@@ -110,7 +113,7 @@ export type Race = {
    * This excludes common and uncommon advantages and disadvantages, since they
    * may be defined for the whole race even if variants exist.
    */
-  variant_dependent: VariantDependent
+  variant_dependent: RaceVariantDependent
 
   src: PublicationRefs
 
@@ -118,18 +121,13 @@ export type Race = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-   translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: RaceTranslation
-  }
+  translations: LocaleMap<RaceTranslation>
 }
 
 /**
  * The race’s base values.
  */
-type BaseValues = {
+export type BaseValues = {
   /**
    * The race’s life point base value.
    * @integer
@@ -156,131 +154,73 @@ type BaseValues = {
   movement: number
 }
 
-namespace AttributeAdjustments {
+/**
+ * Describes how to raise or lower maximum attribute values during character
+ * creation.
+ */
+export type AttributeAdjustments = AttributeAdjustment[]
+
+/**
+ * An array of attribute maximum modifiers. The value will be added to the
+ * current maximum of the selected attribute that has been chosen from the
+ * listed attributes (negative values will lower the maximum).
+ * @minItems 1
+ */
+export type AttributeAdjustment = {
   /**
-   * Describes how to raise or lower maximum attribute values during character
-   * creation.
+   * The value by which the selected attribute's maximum is modified
+   * (negative values will lower the maximum).
+   * @integer
    */
-   export type Config = {
-    /**
-     * An array of attribute maximum modifiers. The value will be added to the
-     * current maximum of the ID-specified attribute (negative values will lower
-     * the maximum).
-     * @minItems 1
-     */
-    fix?: Fix[]
+  value: number
 
-    /**
-     * Used if the player has to choose between different modifiers.
-     */
-    selection: Selection
-  }
-
-  type Fix = {
-    /**
-     * The attribute's identifier.
-     * @integer
-     * @minimum 1
-     * @maximum 8
-     */
-    id: number
-
-    /**
-     * The value by which the attribute's maximum is modified (negative values
-     * will lower the maximum).
-     * @integer
-     */
-    value: number
-  }
-
-  type Selection = {
-    /**
-     * The value by which the selected attribute's maximum is modified
-     * (negative values will lower the maximum).
-     * @integer
-     */
-    value: number
-
-    /**
-     * A list of attributes the player has to choose from.
-     * @minItems 2
-     */
-    list: SelectionItem[]
-  }
-
-  type SelectionItem = {
-    /**
-     * The attribute's identifier.
-     * @integer
-     * @minimum 1
-     * @maximum 8
-     */
-    id: number
-  }
+  /**
+   * A list of attributes the player has to choose from. If only one attribute
+   * is listed, no attribute has to be chosen.
+   * @minItems 1
+   */
+  list: AttributeReference[]
 }
 
-type AutomaticAdvantage = {
+/**
+ * Configuration for random weight generation.
+ */
+export type Weight = {
   /**
-   * The advantage's identifier.
+   * The base value used for random weight. The height subtrahend; in case of
+   * `Height - 110 + 2D6` it is `110`.
    * @integer
    * @minimum 1
    */
-  id: number
+  base: number
+
+  /**
+   * The dice used for random weight.
+   * @minItems 1
+   */
+  random: WeightDice[]
 }
 
-namespace Weight {
-  /**
-   * Configuration for random weight generation.
-   */
-  export type Config = {
-    /**
-     * The base value used for random weight. The height subtrahend; in case of
-     * `Height - 110 + 2D6` it is `110`.
-     * @integer
-     * @minimum 1
-     */
-    base: number
-
-    /**
-     * The dice used for random weight.
-     * @minItems 1
-     */
-    random: Die[]
-  }
-
-  type Die = {
-    /**
-     * Number of dice of the same type. Example: 2 in 2D6.
-     * @integer
-     * @minimum 1
-     */
-    number: number
-
-    /**
-     * Number of sides on every die. Example: 6 in 2D6.
-     */
-    sides: DieType
-
-    /**
-     * The strategy how to offset the randomly generated values against the
-     * base value. Either they are all added or subtracted or even results are
-     * added and odd results are subtracted.
-     */
-    offset_strategy: OffsetStrategy
-  }
-
+export type WeightDice = Dice & {
   /**
    * The strategy how to offset the randomly generated values against the
    * base value. Either they are all added or subtracted or even results are
    * added and odd results are subtracted.
    */
-  type OffsetStrategy =
-    | { tag: "Add" }
-    | { tag: "Subtract" }
-    | { tag: "AddEvenSubtractOdd" }
+  offset_strategy: WeightDiceOffsetStrategy
 }
 
-type StartingAgeConfigForExperienceLevel = {
+/**
+ * The strategy how to offset the randomly generated values against the
+ * base value. Either they are all added or subtracted or even results are
+ * added and odd results are subtracted.
+ */
+export type WeightDiceOffsetStrategy =
+  | { tag: "Add" }
+  | { tag: "Subtract" }
+  | { tag: "AddEvenSubtractOdd" }
+
+export type StartingAgeConfigForExperienceLevel = {
   /**
    * The selected experience level's identifier.
    * @integer
@@ -310,48 +250,47 @@ type StartingAgeConfigForExperienceLevel = {
  * This excludes common and uncommon advantages and disadvantages, since they
  * may be defined for the whole race even if variants exist.
  */
-type VariantDependent =
-  | {
-    tag: "HasVariants"
-    /**
-     * A list of available race variants.
-     * @minItems 1
-     */
-    variants: RaceVariant[]
-  }
-  | {
-    tag: "Plain"
+export type RaceVariantDependent =
+  | { tag: "HasVariants"; has_variants: RaceVariants }
+  | { tag: "Plain"; plain: ValuesForRaceWithoutVariants }
 
-    /**
-     * The list of common cultures.
-     * @minItems 1
-     */
-    common_cultures: CommonCulture[]
+/**
+ * A list of available race variants.
+ * @minItems 1
+ */
+export type RaceVariants = RaceVariant[]
 
-    /**
-     * An array containing 20 (numeric) hair color identifiers. The array also represents the 20-sided die for a random hair color.
-     * @minItems 20
-     * @maxItems 20
-     */
-    hair_color: HairColor[]
+export type ValuesForRaceWithoutVariants = {
+  /**
+   * The list of common cultures.
+   * @minItems 1
+   */
+  common_cultures: CultureReference[]
 
-    /**
-     * An array containing 20 (numeric) eye color identifiers. The array also represents the 20-sided die for a random eye color.
-     * @minItems 20
-     * @maxItems 20
-     */
-    eye_color: EyeColor[]
+  /**
+   * An array containing 20 (numeric) hair color identifiers. The array also represents the 20-sided die for a random hair color.
+   * @minItems 20
+   * @maxItems 20
+   */
+  hair_color: HairColorReference[]
 
-    /**
-     * Configuration for random height generation.
-     */
-    height: Height
-  }
+  /**
+   * An array containing 20 (numeric) eye color identifiers. The array also represents the 20-sided die for a random eye color.
+   * @minItems 20
+   * @maxItems 20
+   */
+  eye_color: EyeColorReference[]
+
+  /**
+   * Configuration for random height generation.
+   */
+  height: Height
+}
 
 /**
  * @title Race Variant
  */
-type RaceVariant = {
+export type RaceVariant = {
   /**
    * An unique, increasing integer.
    * @integer
@@ -363,7 +302,7 @@ type RaceVariant = {
    * The list of common cultures.
    * @minItems 1
    */
-  common_cultures: CommonCulture[]
+  common_cultures: CultureReference[]
 
   /**
    * A list of common advantages. If common advantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.
@@ -394,14 +333,14 @@ type RaceVariant = {
    * @minItems 20
    * @maxItems 20
    */
-  hair_color: HairColor[]
+  hair_color: HairColorReference[]
 
   /**
    * An array containing 20 (numeric) eye color identifiers. The array also represents the 20-sided die for a random eye color.
    * @minItems 20
    * @maxItems 20
    */
-  eye_color: EyeColor[]
+  eye_color: EyeColorReference[]
 
   /**
    * Configuration for random height generation.
@@ -412,45 +351,13 @@ type RaceVariant = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: RaceVariantTranslation
-  }
-}
-
-type CommonCulture = {
-  /**
-   * The culture's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-}
-
-type HairColor = {
-  /**
-   * The hair color's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-}
-
-type EyeColor = {
-  /**
-   * The hair color's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  translations: LocaleMap<RaceVariantTranslation>
 }
 
 /**
  * Configuration for random height generation.
  */
-type Height = {
+export type Height = {
   /**
    * The base value used for random height.
    * @integer
@@ -465,109 +372,96 @@ type Height = {
   random: Dice[]
 }
 
-type RaceVariantTranslation = {
+export type RaceVariantTranslation = {
   /**
    * The race variant's name.
-   * @minLength 1
    */
-  name: string
+  name: NonEmptyString
 
   /**
    * The respective common advantages text from the source book. If common
    * advantages are defined by the base race, leave this field empty. This field
    * overrides the same field of the base race, if both are defined.
-   * @minLength 1
    */
-  common_advantages?: string
+  common_advantages?: NonEmptyString
 
   /**
    * The respective common disadvantages text from the source book. If common
    * disadvantages are defined by the base race, leave this field empty. This
    * field overrides the same field of the base race, if both are defined.
-   * @minLength 1
    */
-  common_disadvantages?: string
+  common_disadvantages?: NonEmptyString
 
   /**
    * The respective uncommon advantages text from the source book. If uncommon
    * advantages are defined by the base race, leave this field empty. This field
    * overrides the same field of the base race, if both are defined.
-   * @minLength 1
    */
-  uncommon_advantages?: string
+  uncommon_advantages?: NonEmptyString
 
   /**
    * The respective uncommon disadvantages text from the source book. If
    * uncommon disadvantages are defined by the base race, leave this field
    * empty. This field overrides the same field of the base race, if both are
    * defined.
-   * @minLength 1
    */
-  uncommon_disadvantages?: string
+  uncommon_disadvantages?: NonEmptyString
 }
 
-type RaceTranslation = {
+export type RaceTranslation = {
   /**
    * The race's name.
-   * @minLength 1
    */
-  name: string
+  name: NonEmptyString
 
   /**
    * The respective attribute adjustments text from the source book.
-   * @minLength 1
    */
-  attribute_adjustments: string
+  attribute_adjustments: NonEmptyString
 
   /**
    * The respective automatic advantages text from the source book.
-   * @minLength 1
    */
-  automatic_advantages?: string
+  automatic_advantages?: NonEmptyString
 
   /**
    * The respective strongly recommended advantages text from the source book.
-   * @minLength 1
    */
-  strongly_recommended_advantages?: string
+  strongly_recommended_advantages?: NonEmptyString
 
   /**
-   * The respective strongly recommended disadvantages text from the source book.
-   * @minLength 1
+   * The respective strongly recommended disadvantages text from the source
+   * book.
    */
-  strongly_recommended_disadvantages?: string
+  strongly_recommended_disadvantages?: NonEmptyString
 
   /**
    * The respective common advantages text from the source book. If common
    * advantages are defined by race variants, leave this field empty. It is
    * overridden by the same field in race variants.
-   * @minLength 1
    */
-  common_advantages?: string
+  common_advantages?: NonEmptyString
 
   /**
    * The respective common disadvantages text from the source book. If common
    * disadvantages are defined by race variants, leave this field empty. It is
    * overridden by the same field in race variants.
-   * @minLength 1
    */
-  common_disadvantages?: string
+  common_disadvantages?: NonEmptyString
 
   /**
    * The respective uncommon advantages text from the source book. If uncommon
    * advantages are defined by race variants, leave this field empty. It is
    * overridden by the same field in race variants.
-   * @minLength 1
    */
-  uncommon_advantages?: string
+  uncommon_advantages?: NonEmptyString
 
   /**
    * The respective uncommon disadvantages text from the source book. If
    * uncommon disadvantages are defined by race variants, leave this field
    * empty. It is overridden by the same field in race variants.
-   * @minLength 1
    */
-  uncommon_disadvantages?: string
+  uncommon_disadvantages?: NonEmptyString
 
   errata?: Errata
 }

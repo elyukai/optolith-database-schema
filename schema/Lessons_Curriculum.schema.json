@@ -13,11 +13,9 @@
           "type": "integer",
           "minimum": 1
         },
-        "guideline_id": {
-          "description": "The institution's guideline's identifier.",
-          "type": "integer",
-          "maximum": 6,
-          "minimum": 1
+        "guideline": {
+          "description": "The institution's guideline.",
+          "$ref": "./_SimpleReferences.schema.json#/$defs/GuidelineReference"
         },
         "elective_spellworks": {
           "description": "The academy's elective spellworks package.",
@@ -39,21 +37,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The name of the academy.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "errata": {
-                  "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/CurriculumTranslation"
             }
           },
           "minProperties": 1,
@@ -62,10 +46,26 @@
       },
       "required": [
         "id",
-        "guideline_id",
+        "guideline",
         "lesson_packages",
         "src",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "CurriculumTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the academy.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "errata": {
+          "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name"
       ],
       "additionalProperties": false
     },
@@ -88,29 +88,41 @@
           "type": "object",
           "properties": {
             "tag": {
-              "const": "Explicit"
+              "const": "Specific"
             },
-            "list": {
-              "type": "array",
-              "items": {
-                "$ref": "#/$defs/ElectiveSpellwork"
-              },
-              "minItems": 1
+            "specific": {
+              "$ref": "#/$defs/SpecificElectiveSpellworks"
             }
           },
           "required": [
             "tag",
-            "list"
+            "specific"
           ],
           "additionalProperties": false
         }
       ]
     },
+    "SpecificElectiveSpellworks": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ElectiveSpellwork"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "list"
+      ],
+      "additionalProperties": false
+    },
     "ElectiveSpellwork": {
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/$defs/SpellworkId"
+          "$ref": "./_Identifier.schema.json#/$defs/SpellworkIdentifier"
         },
         "restriction": {
           "description": "The elective spellwork may only take effect if a certain condition is met.\nThe condition may be related to professions or profession variants, but it\nis designed so that it can work without a specific profession, as multiple\nmay belong to an institute, but with referencing other entities instead.",
@@ -159,32 +171,31 @@
             "tag": {
               "const": "Property"
             },
-            "id": {
-              "description": "The identifier of the property that spellworks are disallowed from.",
-              "type": "integer",
-              "minimum": 1
-            },
-            "exclude": {
-              "description": "Exclude specific spellworks from the restriction.",
-              "type": "array",
-              "items": {
-                "$ref": "#/$defs/SpellworkId"
-              },
-              "minItems": 1
-            },
-            "maximum": {
-              "description": "Spellworks from this property up to a certain number are allowed.\nSpellworks excluded from this restriction definition using `exclude` do\nnot contribute to the maximum.",
-              "type": "number"
+            "property": {
+              "$ref": "#/$defs/RestrictedProperty"
             }
           },
           "required": [
             "tag",
-            "id"
+            "property"
           ],
           "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/SpellworkId"
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Spellwork"
+            },
+            "spellwork": {
+              "$ref": "./_Identifier.schema.json#/$defs/SpellworkIdentifier"
+            }
+          },
+          "required": [
+            "tag",
+            "spellwork"
+          ],
+          "additionalProperties": false
         },
         {
           "type": "object",
@@ -224,6 +235,32 @@
         }
       ]
     },
+    "RestrictedProperty": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The identifier of the property that spellworks are disallowed from.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "exclude": {
+          "description": "Exclude specific spellworks from the restriction.",
+          "type": "array",
+          "items": {
+            "$ref": "./_Identifier.schema.json#/$defs/SpellworkIdentifier"
+          },
+          "minItems": 1
+        },
+        "maximum": {
+          "description": "Spellworks from this property up to a certain number are allowed.\nSpellworks excluded from this restriction definition using `exclude` do\nnot contribute to the maximum.",
+          "type": "number"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
     "LessonPackages": {
       "description": "A list of available lesson packages.",
       "type": "array",
@@ -252,27 +289,14 @@
           "description": "The spell values difference of the lesson package. This field reflects the\nchanges (difference) to the field of the same name in the profession\npackage. If a spell gets to SR 0 because of this, it will be removed\ncompletely.",
           "type": "array",
           "items": {
-            "type": "object",
-            "properties": {
-              "base": {
-                "$ref": "#/$defs/SpellworkAdjustment"
-              },
-              "replacement": {
-                "$ref": "#/$defs/SpellworkAdjustment"
-              }
-            },
-            "required": [
-              "base",
-              "replacement"
-            ],
-            "additionalProperties": false
+            "$ref": "#/$defs/SpellworkChange"
           },
           "minItems": 1
         },
         "skills": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/SkillAdjustment"
+            "$ref": "#/$defs/AbilityAdjustment"
           }
         },
         "translations": {
@@ -280,23 +304,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The name of the lesson package.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "spellwork_changes": {
-                  "description": "The spell values difference of the lesson package. Use this field to\nspecify a text that is displayed instead of the generated\n`spellwork_changes` list. The field is displayed even if no list is\npresent.",
-                  "type": "string",
-                  "minLength": 1
-                }
-              },
-              "required": [
-                "name"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/LessonPackageTranslation"
             }
           },
           "minProperties": 1,
@@ -310,55 +318,54 @@
       "minProperties": 3,
       "additionalProperties": false
     },
-    "SkillAdjustment": {
+    "SpellworkChange": {
+      "type": "object",
+      "properties": {
+        "base": {
+          "$ref": "#/$defs/SpellworkAdjustment"
+        },
+        "replacement": {
+          "$ref": "#/$defs/SpellworkAdjustment"
+        }
+      },
+      "required": [
+        "base",
+        "replacement"
+      ],
+      "additionalProperties": false
+    },
+    "LessonPackageTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the lesson package.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "spellwork_changes": {
+          "description": "The spell values difference of the lesson package. Use this field to\nspecify a text that is displayed instead of the generated\n`spellwork_changes` list. The field is displayed even if no list is\npresent.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "AbilityAdjustment": {
       "oneOf": [
         {
           "type": "object",
           "properties": {
             "tag": {
-              "const": "MeleeCombatTechnique"
+              "const": "CombatTechnique"
             },
-            "id": {
-              "description": "The melee combat technique's identifier.",
-              "type": "integer",
-              "minimum": 1
-            },
-            "points": {
-              "description": "The combat technique points that will be added to the current combat\ntechnique rating.",
-              "type": "integer",
-              "maximum": 6,
-              "minimum": -6
+            "combat_technique": {
+              "$ref": "#/$defs/CombatTechniqueAdjustment"
             }
           },
           "required": [
             "tag",
-            "id",
-            "points"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "RangedCombatTechnique"
-            },
-            "id": {
-              "description": "The ranged combat technique's identifier.",
-              "type": "integer",
-              "minimum": 1
-            },
-            "points": {
-              "description": "The combat technique points that will be added to the current combat\ntechnique rating.",
-              "type": "integer",
-              "maximum": 6,
-              "minimum": -6
-            }
-          },
-          "required": [
-            "tag",
-            "id",
-            "points"
+            "combat_technique"
           ],
           "additionalProperties": false
         },
@@ -368,133 +375,96 @@
             "tag": {
               "const": "Skill"
             },
-            "id": {
-              "description": "The skill's identifier.",
-              "type": "integer",
-              "minimum": 1
-            },
-            "points": {
-              "description": "The skill points that will be added to the current skill rating.",
-              "type": "integer",
-              "maximum": 8,
-              "minimum": -8
+            "skill": {
+              "$ref": "#/$defs/SkillAdjustment"
             }
           },
           "required": [
             "tag",
-            "id",
-            "points"
+            "skill"
           ],
           "additionalProperties": false
         },
         {
-          "$ref": "#/$defs/SpellworkAdjustment"
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Spellwork"
+            },
+            "spellwork": {
+              "$ref": "#/$defs/SpellworkAdjustment"
+            }
+          },
+          "required": [
+            "tag",
+            "spellwork"
+          ],
+          "additionalProperties": false
         }
       ]
+    },
+    "CombatTechniqueAdjustment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "./_Identifier.schema.json#/$defs/CombatTechniqueIdentifier"
+        },
+        "points": {
+          "description": "The combat technique points that will be added to the current combat\ntechnique rating.",
+          "type": "integer",
+          "maximum": 6,
+          "minimum": -6
+        }
+      },
+      "required": [
+        "id",
+        "points"
+      ],
+      "additionalProperties": false
+    },
+    "SkillAdjustment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The skill's identifier.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "points": {
+          "description": "The skill points that will be added to the current skill rating.",
+          "type": "integer",
+          "maximum": 8,
+          "minimum": -8
+        }
+      },
+      "required": [
+        "id",
+        "points"
+      ],
+      "additionalProperties": false
     },
     "SpellworkAdjustment": {
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Spell"
-            },
-            "id": {
-              "description": "The spell's identifier.",
-              "type": "integer",
-              "minimum": 1
-            },
-            "points": {
-              "description": "The skill points that will be added to the current skill rating. If a\nspell gets to a skill rating of 0 because of this, it will be removed\ncompletely.",
-              "type": "integer",
-              "maximum": 10,
-              "minimum": -10
-            },
-            "tradition_id": {
-              "description": "The target tradition's identifier. If the target spell is not from the\nGuild Mage tradition, specify the tradition identifier here.",
-              "type": "integer",
-              "minimum": 2
-            }
-          },
-          "required": [
-            "tag",
-            "id",
-            "points"
-          ],
-          "additionalProperties": false
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "./_Identifier.schema.json#/$defs/SpellworkIdentifier"
         },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Ritual"
-            },
-            "id": {
-              "description": "The ritual's identifier.",
-              "type": "integer",
-              "minimum": 1
-            },
-            "points": {
-              "description": "The skill points that will be added to the current skill rating. If a\nritual gets to a skill rating of 0 because of this, it will be removed\ncompletely.",
-              "type": "integer",
-              "maximum": 10,
-              "minimum": -10
-            },
-            "tradition_id": {
-              "description": "The target tradition's identifier. If the target ritual is not from the\nGuild Mage tradition, specify the tradition identifier here.",
-              "type": "integer",
-              "minimum": 2
-            }
-          },
-          "required": [
-            "tag",
-            "id",
-            "points"
-          ],
-          "additionalProperties": false
-        }
-      ]
-    },
-    "SpellworkId": {
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Spell"
-            },
-            "id": {
-              "description": "The spell's identifier.",
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          "required": [
-            "tag",
-            "id"
-          ],
-          "additionalProperties": false
+        "points": {
+          "description": "The skill points that will be added to the current skill rating. If a\nspell gets to a skill rating of 0 because of this, it will be removed\ncompletely.",
+          "type": "integer",
+          "maximum": 10,
+          "minimum": -10
         },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Ritual"
-            },
-            "id": {
-              "description": "The ritual's identifier.",
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          "required": [
-            "tag",
-            "id"
-          ],
-          "additionalProperties": false
+        "tradition": {
+          "description": "The target tradition. If the target spell is not from the Guild Mage\ntradition, specify the tradition identifier here.",
+          "$ref": "./_Identifier.schema.json#/$defs/MagicalTraditionIdentifier"
         }
-      ]
+      },
+      "required": [
+        "id",
+        "points"
+      ],
+      "additionalProperties": false
     }
   }
 }

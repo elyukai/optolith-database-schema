@@ -13,53 +13,11 @@
           "minimum": 1
         },
         "animal_types": {
-          "description": "The animal types this trick is available to. Either it is available to all\nor only a list of specific animal types.",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "All"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Specific"
-                },
-                "list": {
-                  "description": "The list of specific animal types.",
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "description": "The animal type's identifier.",
-                        "type": "integer",
-                        "minimum": 1
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ],
-                    "additionalProperties": false
-                  },
-                  "minItems": 1
-                }
-              },
-              "required": [
-                "tag",
-                "list"
-              ],
-              "additionalProperties": false
-            }
-          ]
+          "description": "The animal types this trick is available to. Either it is available to all\nor only a list of specific animal types.\n\nIf no animal types are given, the animal disease applies to all animal\ntypes.",
+          "type": "array",
+          "items": {
+            "$ref": "./_SimpleReferences.schema.json#/$defs/AnimalTypeReference"
+          }
         },
         "parameters": {
           "description": "Measurable parameters of a familiar's trick.",
@@ -67,112 +25,12 @@
         },
         "property": {
           "description": "The property of the trick.",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Fixed"
-                },
-                "id": {
-                  "description": "The property's identifier.",
-                  "type": "integer",
-                  "minimum": 1
-                }
-              },
-              "required": [
-                "tag",
-                "id"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Indefinite"
-                },
-                "translations": {
-                  "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-                  "type": "object",
-                  "patternProperties": {
-                    "^[a-z]{2}-[A-Z]{2}$": {
-                      "type": "object",
-                      "properties": {
-                        "description": {
-                          "description": "A description of the property.",
-                          "type": "object",
-                          "properties": {
-                            "default": {
-                              "description": "The full description of the property.",
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "compressed": {
-                              "description": "A compressed description of the property for use in small areas\n(e.g. on character sheet).",
-                              "type": "string",
-                              "minLength": 1
-                            }
-                          },
-                          "required": [
-                            "default",
-                            "compressed"
-                          ],
-                          "additionalProperties": false
-                        }
-                      },
-                      "required": [
-                        "description"
-                      ],
-                      "additionalProperties": false
-                    }
-                  },
-                  "minProperties": 1,
-                  "additionalProperties": false
-                }
-              },
-              "required": [
-                "tag",
-                "translations"
-              ],
-              "additionalProperties": false
-            }
-          ]
+          "$ref": "#/$defs/Property"
         },
         "ap_value": {
-          "description": "The AP value the familiar has to pay for. It may also be that a specific is\nknown by all familiar by default.",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Fixed"
-                },
-                "value": {
-                  "description": "The adventure points value.",
-                  "type": "integer",
-                  "minimum": 1
-                }
-              },
-              "required": [
-                "tag",
-                "value"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Default"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            }
-          ]
+          "description": "The AP value the familiar has to pay for. It may also be that a specific is\nknown by all familiar by default. In the latter case the field is not set.",
+          "type": "integer",
+          "minimum": 1
         },
         "src": {
           "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
@@ -182,61 +40,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The name of the familiar's trick.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "effect": {
-                  "description": "The effect description.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "cost": {
-                  "type": "object",
-                  "properties": {
-                    "full": {
-                      "type": "string"
-                    },
-                    "abbr": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "full",
-                    "abbr"
-                  ],
-                  "additionalProperties": false
-                },
-                "duration": {
-                  "type": "object",
-                  "properties": {
-                    "full": {
-                      "type": "string"
-                    },
-                    "abbr": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "full",
-                    "abbr"
-                  ],
-                  "additionalProperties": false
-                },
-                "errata": {
-                  "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "effect",
-                "cost",
-                "duration"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/FamiliarsTrickTranslation"
             }
           },
           "minProperties": 1,
@@ -248,9 +52,134 @@
         "animal_types",
         "parameters",
         "property",
-        "ap_value",
         "src",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "Property": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Fixed"
+            },
+            "fixed": {
+              "$ref": "./_SimpleReferences.schema.json#/$defs/PropertyReference"
+            }
+          },
+          "required": [
+            "tag",
+            "fixed"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Indefinite"
+            },
+            "indefinite": {
+              "$ref": "#/$defs/IndefiniteProperty"
+            }
+          },
+          "required": [
+            "tag",
+            "indefinite"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "IndefiniteProperty": {
+      "type": "object",
+      "properties": {
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/IndefinitePropertyTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "IndefinitePropertyTranslation": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "description": "A description of the property.",
+          "$ref": "./_ResponsiveText.schema.json#/$defs/ResponsiveText"
+        }
+      },
+      "required": [
+        "description"
+      ],
+      "additionalProperties": false
+    },
+    "FamiliarsTrickTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the familiar's trick.",
+          "type": "string",
+          "minLength": 1
+        },
+        "effect": {
+          "description": "The effect description.",
+          "type": "string",
+          "minLength": 1
+        },
+        "cost": {
+          "type": "object",
+          "properties": {
+            "full": {
+              "type": "string"
+            },
+            "abbr": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "full",
+            "abbr"
+          ],
+          "additionalProperties": false
+        },
+        "duration": {
+          "type": "object",
+          "properties": {
+            "full": {
+              "type": "string"
+            },
+            "abbr": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "full",
+            "abbr"
+          ],
+          "additionalProperties": false
+        },
+        "errata": {
+          "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "effect",
+        "cost",
+        "duration"
       ],
       "additionalProperties": false
     },
@@ -263,273 +192,13 @@
             "tag": {
               "const": "OneTime"
             },
-            "cost": {
-              "oneOf": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Fixed"
-                    },
-                    "value": {
-                      "description": "The AE cost value.",
-                      "type": "integer",
-                      "minimum": 1
-                    },
-                    "interval": {
-                      "description": "The interval in which you have to pay the AE cost again.",
-                      "$ref": "./_ActivatableSkill.schema.json#/$defs/Duration/UnitValue"
-                    },
-                    "translations": {
-                      "description": "All translations for the entry, identified by IETF language tag\n(BCP47).",
-                      "type": "object",
-                      "patternProperties": {
-                        "^[a-z]{2}-[A-Z]{2}$": {
-                          "type": "object",
-                          "properties": {
-                            "per": {
-                              "description": "The cost have to be per a specific countable entity, e.g. `8 KP\nper person`.",
-                              "type": "object",
-                              "properties": {
-                                "default": {
-                                  "description": "The full countable entity name.",
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "compressed": {
-                                  "description": "The compressed countable entity name.",
-                                  "type": "string",
-                                  "minLength": 1
-                                }
-                              },
-                              "required": [
-                                "default",
-                                "compressed"
-                              ],
-                              "additionalProperties": false
-                            }
-                          },
-                          "required": [],
-                          "minProperties": 1,
-                          "additionalProperties": false
-                        }
-                      },
-                      "minProperties": 1,
-                      "additionalProperties": false
-                    }
-                  },
-                  "required": [
-                    "tag",
-                    "value"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "All"
-                    },
-                    "minimum": {
-                      "description": "The minimum AE the familiar has to have.",
-                      "type": "integer",
-                      "minimum": 1
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Indefinite"
-                    },
-                    "translations": {
-                      "description": "All translations for the entry, identified by IETF language tag\n(BCP47).",
-                      "type": "object",
-                      "patternProperties": {
-                        "^[a-z]{2}-[A-Z]{2}$": {
-                          "type": "object",
-                          "properties": {
-                            "description": {
-                              "description": "A description of the AE cost.",
-                              "type": "object",
-                              "properties": {
-                                "default": {
-                                  "description": "The full description of the AE cost.",
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "compressed": {
-                                  "description": "A compressed description of the AE cost for use in small areas\n(e.g. on character sheet).",
-                                  "type": "string",
-                                  "minLength": 1
-                                }
-                              },
-                              "required": [
-                                "default",
-                                "compressed"
-                              ],
-                              "additionalProperties": false
-                            }
-                          },
-                          "required": [
-                            "description"
-                          ],
-                          "additionalProperties": false
-                        }
-                      },
-                      "minProperties": 1,
-                      "additionalProperties": false
-                    }
-                  },
-                  "required": [
-                    "tag",
-                    "translations"
-                  ],
-                  "additionalProperties": false
-                }
-              ]
-            },
-            "duration": {
-              "oneOf": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Immediate"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Fixed"
-                    },
-                    "is_maximum": {
-                      "description": "If the duration is the maximum duration, so it may end earlier.",
-                      "type": "boolean"
-                    },
-                    "value": {
-                      "description": "The (unitless) duration.",
-                      "type": "integer",
-                      "minimum": 1
-                    },
-                    "unit": {
-                      "description": "The duration unit.",
-                      "$ref": "./_ActivatableSkill.schema.json#/$defs/Duration/Unit"
-                    },
-                    "translations": {
-                      "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-                      "type": "object",
-                      "patternProperties": {
-                        "^[a-z]{2}-[A-Z]{2}$": {
-                          "type": "object",
-                          "properties": {
-                            "replacement": {
-                              "description": "A replacement string.",
-                              "type": "object",
-                              "properties": {
-                                "default": {
-                                  "description": "The full replacement string. It can contain `$1`, which is\ngoing to be replaced with the generated duration string, so\nadditional information can be provided without duplicating\nconcrete numeric values.",
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "compressed": {
-                                  "description": "A compressed replacement string for use in small areas (e.g. on\ncharacter sheet). It can contain `$1`, which is going to be\nreplaced with the generated duration string, so additional\ninformation can be provided without duplicating concrete\nnumeric values.",
-                                  "type": "string",
-                                  "minLength": 1
-                                }
-                              },
-                              "required": [
-                                "default",
-                                "compressed"
-                              ],
-                              "additionalProperties": false
-                            }
-                          },
-                          "required": [],
-                          "minProperties": 1,
-                          "additionalProperties": false
-                        }
-                      },
-                      "minProperties": 1,
-                      "additionalProperties": false
-                    }
-                  },
-                  "required": [
-                    "tag",
-                    "value",
-                    "unit"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Indefinite"
-                    },
-                    "translations": {
-                      "description": "All translations for the entry, identified by IETF language tag\n(BCP47).",
-                      "type": "object",
-                      "patternProperties": {
-                        "^[a-z]{2}-[A-Z]{2}$": {
-                          "type": "object",
-                          "properties": {
-                            "description": {
-                              "description": "A description of the duration.",
-                              "type": "object",
-                              "properties": {
-                                "default": {
-                                  "description": "The full description of the duration.",
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "compressed": {
-                                  "description": "A compressed description of the duration for use in small areas\n(e.g. on character sheet).",
-                                  "type": "string",
-                                  "minLength": 1
-                                }
-                              },
-                              "required": [
-                                "default",
-                                "compressed"
-                              ],
-                              "additionalProperties": false
-                            }
-                          },
-                          "required": [
-                            "description"
-                          ],
-                          "additionalProperties": false
-                        }
-                      },
-                      "minProperties": 1,
-                      "additionalProperties": false
-                    }
-                  },
-                  "required": [
-                    "tag",
-                    "translations"
-                  ],
-                  "additionalProperties": false
-                }
-              ]
+            "one_time": {
+              "$ref": "#/$defs/OneTimePerformanceParameters"
             }
           },
           "required": [
             "tag",
-            "cost",
-            "duration"
+            "one_time"
           ],
           "additionalProperties": false
         },
@@ -539,29 +208,13 @@
             "tag": {
               "const": "OneTimeInterval"
             },
-            "cost": {
-              "type": "object",
-              "properties": {
-                "value": {
-                  "description": "The AE cost value.",
-                  "type": "integer",
-                  "minimum": 1
-                },
-                "interval": {
-                  "description": "The duration granted/added by paying the given AE cost.",
-                  "$ref": "./_ActivatableSkill.schema.json#/$defs/Duration/UnitValue"
-                }
-              },
-              "required": [
-                "value",
-                "interval"
-              ],
-              "additionalProperties": false
+            "one_time_interval": {
+              "$ref": "#/$defs/OneTimeIntervalPerformanceParameters"
             }
           },
           "required": [
             "tag",
-            "cost"
+            "one_time_interval"
           ],
           "additionalProperties": false
         },
@@ -571,33 +224,358 @@
             "tag": {
               "const": "Sustained"
             },
-            "cost": {
-              "type": "object",
-              "properties": {
-                "value": {
-                  "description": "The AE cost value.",
-                  "type": "integer",
-                  "minimum": 1
-                },
-                "interval": {
-                  "description": "The interval in which you have to pay the AE cost again.",
-                  "$ref": "./_ActivatableSkill.schema.json#/$defs/Duration/UnitValue"
-                }
-              },
-              "required": [
-                "value",
-                "interval"
-              ],
-              "additionalProperties": false
+            "sustained": {
+              "$ref": "#/$defs/SustainedPerformanceParameters"
             }
           },
           "required": [
             "tag",
-            "cost"
+            "sustained"
           ],
           "additionalProperties": false
         }
       ]
+    },
+    "OneTimePerformanceParameters": {
+      "type": "object",
+      "properties": {
+        "cost": {
+          "$ref": "#/$defs/OneTimeCost"
+        },
+        "duration": {
+          "$ref": "#/$defs/OneTimeDuration"
+        }
+      },
+      "required": [
+        "cost",
+        "duration"
+      ],
+      "additionalProperties": false
+    },
+    "OneTimeCost": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Fixed"
+            },
+            "fixed": {
+              "$ref": "#/$defs/FixedOneTimeCost"
+            }
+          },
+          "required": [
+            "tag",
+            "fixed"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "All"
+            },
+            "all": {
+              "$ref": "#/$defs/AllOneTimeCost"
+            }
+          },
+          "required": [
+            "tag",
+            "all"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Indefinite"
+            },
+            "indefinite": {
+              "$ref": "#/$defs/IndefiniteOneTimeCost"
+            }
+          },
+          "required": [
+            "tag",
+            "indefinite"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "FixedOneTimeCost": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The AE cost value.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "interval": {
+          "description": "The interval in which you have to pay the AE cost again.",
+          "$ref": "./_ActivatableSkillDuration.schema.json#/$defs/DurationUnitValue"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/FixedOneTimeCostTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "FixedOneTimeCostTranslation": {
+      "type": "object",
+      "properties": {
+        "per": {
+          "description": "The cost have to be per a specific countable entity, e.g. `8 KP\nper person`.",
+          "$ref": "./_ResponsiveText.schema.json#/$defs/ResponsiveText"
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "AllOneTimeCost": {
+      "type": "object",
+      "properties": {
+        "minimum": {
+          "description": "The minimum AE the familiar has to have.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "IndefiniteOneTimeCost": {
+      "type": "object",
+      "properties": {
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/IndefiniteOneTimeCostTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "IndefiniteOneTimeCostTranslation": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "description": "A description of the AE cost.",
+          "$ref": "./_ResponsiveText.schema.json#/$defs/ResponsiveText"
+        }
+      },
+      "required": [
+        "description"
+      ],
+      "additionalProperties": false
+    },
+    "OneTimeDuration": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Immediate"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Fixed"
+            },
+            "fixed": {
+              "$ref": "#/$defs/FixedOneTimeDuration"
+            }
+          },
+          "required": [
+            "tag",
+            "fixed"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Indefinite"
+            },
+            "indefinite": {
+              "$ref": "#/$defs/IndefiniteOneTimeDuration"
+            }
+          },
+          "required": [
+            "tag",
+            "indefinite"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "FixedOneTimeDuration": {
+      "type": "object",
+      "properties": {
+        "is_maximum": {
+          "description": "If the duration is the maximum duration, so it may end earlier.",
+          "type": "boolean"
+        },
+        "value": {
+          "description": "The (unitless) duration.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "unit": {
+          "description": "The duration unit.",
+          "$ref": "./_ActivatableSkillDuration.schema.json#/$defs/DurationUnit"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/FixedOneTimeDurationTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "additionalProperties": false
+    },
+    "FixedOneTimeDurationTranslation": {
+      "type": "object",
+      "properties": {
+        "replacement": {
+          "description": "A replacement string.",
+          "$ref": "./_ResponsiveText.schema.json#/$defs/ResponsiveTextReplace"
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "IndefiniteOneTimeDuration": {
+      "type": "object",
+      "properties": {
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/IndefiniteOneTimeDurationTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "IndefiniteOneTimeDurationTranslation": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "description": "A description of the duration.",
+          "$ref": "./_ResponsiveText.schema.json#/$defs/ResponsiveText"
+        }
+      },
+      "required": [
+        "description"
+      ],
+      "additionalProperties": false
+    },
+    "OneTimeIntervalPerformanceParameters": {
+      "type": "object",
+      "properties": {
+        "cost": {
+          "$ref": "#/$defs/OneTimeIntervalCost"
+        }
+      },
+      "required": [
+        "cost"
+      ],
+      "additionalProperties": false
+    },
+    "OneTimeIntervalCost": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The AE cost value.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "interval": {
+          "description": "The duration granted/added by paying the given AE cost.",
+          "$ref": "./_ActivatableSkillDuration.schema.json#/$defs/DurationUnitValue"
+        }
+      },
+      "required": [
+        "value",
+        "interval"
+      ],
+      "additionalProperties": false
+    },
+    "SustainedPerformanceParameters": {
+      "type": "object",
+      "properties": {
+        "cost": {
+          "$ref": "#/$defs/SustainedCost"
+        }
+      },
+      "required": [
+        "cost"
+      ],
+      "additionalProperties": false
+    },
+    "SustainedCost": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The AE cost value.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "interval": {
+          "description": "The interval in which you have to pay the AE cost again.",
+          "$ref": "./_ActivatableSkillDuration.schema.json#/$defs/DurationUnitValue"
+        }
+      },
+      "required": [
+        "value",
+        "interval"
+      ],
+      "additionalProperties": false
     }
   }
 }

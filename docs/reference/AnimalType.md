@@ -31,15 +31,20 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="AnimalType/translations[key]"></a> `AnimalType/translations[key]`
 
+- **Type:** <a href="#AnimalTypeTranslation">AnimalTypeTranslation</a>
+
+---
+
+### <a name="AnimalTypeTranslation"></a> `AnimalTypeTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The animal type name. | <a href="#AnimalType/translations[key]/name">See details</a>
+`name` | The animal type name. | <a href="#AnimalTypeTranslation/name">See details</a>
 
-#### <a name="AnimalType/translations[key]/name"></a> `name`
+#### <a name="AnimalTypeTranslation/name"></a> `name`
 
 The animal type name.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

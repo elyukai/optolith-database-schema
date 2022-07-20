@@ -47,7 +47,7 @@ Measurable parameters of a zibilja ritual.
 
 The target category – the kind of creature or object – the skill affects.
 
-- **Type:** <a href="../_ActivatableSkill.md#TargetCategory/T">TargetCategory/T</a>
+- **Type:** <a href="../_ActivatableSkillTargetCategory.md#TargetCategory">TargetCategory</a>
 
 #### <a name="ZibiljaRitual/property_id"></a> `property_id`
 
@@ -105,7 +105,7 @@ The effect description may be either a plain text or a text that is
 divided by a list of effects for each quality level. It may also be a
 list for each two quality levels.
 
-- **Type:** <a href="../_ActivatableSkill.md#Effect/T">Effect/T</a>
+- **Type:** <a href="../_ActivatableSkillEffect.md#Effect">Effect</a>
 
 #### <a name="ZibiljaRitual/translations[key]/casting_time"></a> `casting_time`
 
@@ -223,28 +223,54 @@ Key | Description | Details
 #### <a name="PerformanceParameters/casting_time"></a> `casting_time`
 
 - **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/casting_time'ModifiableCastingTime">PerformanceParameters/casting_time'ModifiableCastingTime</a> | <a href="#PerformanceParameters/casting_time'SlowSkillCastingTime">PerformanceParameters/casting_time'SlowSkillCastingTime</a>
+- **Cases:** <a href="#PerformanceParameters/casting_time'Modifiable">PerformanceParameters/casting_time'Modifiable</a> | <a href="#PerformanceParameters/casting_time'NonModifiable">PerformanceParameters/casting_time'NonModifiable</a>
 
 #### <a name="PerformanceParameters/cost"></a> `cost`
 
-- **Type:** <a href="../_ActivatableSkill.md#Cost/OneTime/T">Cost/OneTime/T</a>
+- **Type:** <a href="./_ActivatableSkillCost.md#OneTimeCost">OneTimeCost</a>
 
 #### <a name="PerformanceParameters/range"></a> `range`
 
-- **Type:** <a href="../_ActivatableSkill.md#Range/T">Range/T</a>
+- **Type:** <a href="./_ActivatableSkillRange.md#Range">Range</a>
 
 #### <a name="PerformanceParameters/duration"></a> `duration`
 
-- **Type:** <a href="../_ActivatableSkill.md#Duration/OneTime/T">Duration/OneTime/T</a>
+- **Type:** <a href="./_ActivatableSkillDuration.md#DurationForOneTime">DurationForOneTime</a>
 
 ---
 
-### <a name="PerformanceParameters/casting_time'ModifiableCastingTime"></a> `PerformanceParameters/casting_time'ModifiableCastingTime`
+### <a name="PerformanceParameters/casting_time'Modifiable"></a> `PerformanceParameters/casting_time'Modifiable`
 
-- **Type:** <a href="../_ActivatableSkill.md#CastingTime/ModifiableCastingTime">CastingTime/ModifiableCastingTime</a>
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#PerformanceParameters/casting_time'Modifiable/tag">See details</a>
+`modifiable` |  | <a href="#PerformanceParameters/casting_time'Modifiable/modifiable">See details</a>
+
+#### <a name="PerformanceParameters/casting_time'Modifiable/tag"></a> `tag`
+
+- **Constant:** `"Modifiable"`
+
+#### <a name="PerformanceParameters/casting_time'Modifiable/modifiable"></a> `modifiable`
+
+- **Type:** <a href="../_ActivatableSkillCastingTime.md#ModifiableCastingTime">ModifiableCastingTime</a>
 
 ---
 
-### <a name="PerformanceParameters/casting_time'SlowSkillCastingTime"></a> `PerformanceParameters/casting_time'SlowSkillCastingTime`
+### <a name="PerformanceParameters/casting_time'NonModifiable"></a> `PerformanceParameters/casting_time'NonModifiable`
 
-- **Type:** <a href="../_ActivatableSkill.md#CastingTime/SlowSkillCastingTime">CastingTime/SlowSkillCastingTime</a>
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#PerformanceParameters/casting_time'NonModifiable/tag">See details</a>
+`non_modifiable` |  | <a href="#PerformanceParameters/casting_time'NonModifiable/non_modifiable">See details</a>
+
+#### <a name="PerformanceParameters/casting_time'NonModifiable/tag"></a> `tag`
+
+- **Constant:** `"NonModifiable"`
+
+#### <a name="PerformanceParameters/casting_time'NonModifiable/non_modifiable"></a> `non_modifiable`
+
+- **Type:** <a href="../_ActivatableSkillCastingTime.md#SlowSkillNonModifiableCastingTime">SlowSkillNonModifiableCastingTime</a>

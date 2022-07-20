@@ -28,7 +28,7 @@ The close combat technique's identifier. An unique, increasing integer.
 Special rules for the combat technique that apply to all weapons in this
 category.
 
-- **Type:** <a href="#CloseCombatTechnique/special">Object</a>
+- **Type:** <a href="#CloseCombatTechniqueSpecialRules">CloseCombatTechniqueSpecialRules</a>
 
 #### <a name="CloseCombatTechnique/primary_attribute"></a> `primary_attribute`
 
@@ -66,7 +66,19 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="CloseCombatTechnique/special"></a> `CloseCombatTechnique/special`
+### <a name="CloseCombatTechnique/primary_attribute[]"></a> `CloseCombatTechnique/primary_attribute[]`
+
+- **Type:** <a href="./_SimpleReferences.md#AttributeReference">AttributeReference</a>
+
+---
+
+### <a name="CloseCombatTechnique/translations[key]"></a> `CloseCombatTechnique/translations[key]`
+
+- **Type:** <a href="#CloseCombatTechniqueTranslation">CloseCombatTechniqueTranslation</a>
+
+---
+
+### <a name="CloseCombatTechniqueSpecialRules"></a> `CloseCombatTechniqueSpecialRules`
 
 Special rules for the combat technique that apply to all weapons in this
 category.
@@ -75,92 +87,40 @@ category.
 
 Key | Description | Details
 :-- | :-- | :--
-`parrying` | Is parrying possible with this combat technique? | <a href="#CloseCombatTechnique/special/parrying">See details</a>
+`can_parry` | Is parrying possible with this combat technique? | <a href="#CloseCombatTechniqueSpecialRules/can_parry">See details</a>
 
-#### <a name="CloseCombatTechnique/special/parrying"></a> `parrying`
+#### <a name="CloseCombatTechniqueSpecialRules/can_parry"></a> `can_parry`
 
 Is parrying possible with this combat technique?
 
-- **Type:** <a href="#Parrying">Parrying</a>
+- **Type:** Boolean
 
 ---
 
-### <a name="CloseCombatTechnique/primary_attribute[]"></a> `CloseCombatTechnique/primary_attribute[]`
-
-- **Type:** <a href="#PrimaryAttribute">PrimaryAttribute</a>
-
----
-
-### <a name="CloseCombatTechnique/translations[key]"></a> `CloseCombatTechnique/translations[key]`
+### <a name="CloseCombatTechniqueTranslation"></a> `CloseCombatTechniqueTranslation`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the condition. | <a href="#CloseCombatTechnique/translations[key]/name">See details</a>
-`special?` | Additional rules for the condition, if applicable. | <a href="#CloseCombatTechnique/translations[key]/special">See details</a>
-`errata?` |  | <a href="#CloseCombatTechnique/translations[key]/errata">See details</a>
+`name` | The name of the condition. | <a href="#CloseCombatTechniqueTranslation/name">See details</a>
+`special?` | Additional rules for the condition, if applicable. | <a href="#CloseCombatTechniqueTranslation/special">See details</a>
+`errata?` |  | <a href="#CloseCombatTechniqueTranslation/errata">See details</a>
 
-#### <a name="CloseCombatTechnique/translations[key]/name"></a> `name`
+#### <a name="CloseCombatTechniqueTranslation/name"></a> `name`
 
 The name of the condition.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
-#### <a name="CloseCombatTechnique/translations[key]/special"></a> `special?`
+#### <a name="CloseCombatTechniqueTranslation/special"></a> `special?`
 
 Additional rules for the condition, if applicable.
 
 - **Type:** Markdown-formatted text
 - **Minimum Length:** `1`
 
-#### <a name="CloseCombatTechnique/translations[key]/errata"></a> `errata?`
+#### <a name="CloseCombatTechniqueTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
-
----
-
-### <a name="Parrying"></a> `Parrying`
-
-Is parrying possible with this combat technique?
-
-- **Type:** Union
-- **Cases:** <a href="#Parrying'Possible">Parrying'Possible</a> | <a href="#Parrying'Impossible">Parrying'Impossible</a>
-
----
-
-### <a name="Parrying'Possible"></a> `Parrying'Possible`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Parrying'Possible/tag">See details</a>
-
-#### <a name="Parrying'Possible/tag"></a> `tag`
-
-- **Constant:** `"Possible"`
-
----
-
-### <a name="Parrying'Impossible"></a> `Parrying'Impossible`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Parrying'Impossible/tag">See details</a>
-
-#### <a name="Parrying'Impossible/tag"></a> `tag`
-
-- **Constant:** `"Impossible"`
-
----
-
-### <a name="PrimaryAttribute"></a> `PrimaryAttribute`
-
-The attribute's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`

@@ -52,5 +52,4 @@ Key | Description | Details
 
 The arcane tradition's name.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

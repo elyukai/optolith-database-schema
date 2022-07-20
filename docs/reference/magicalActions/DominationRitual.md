@@ -88,7 +88,7 @@ The effect description may be either a plain text or a text that is
 divided by a list of effects for each quality level. It may also be a
 list for each two quality levels.
 
-- **Type:** <a href="../_ActivatableSkill.md#Effect/T">Effect/T</a>
+- **Type:** <a href="../_ActivatableSkillEffect.md#Effect">Effect</a>
 
 #### <a name="DominationRitual/translations[key]/cost"></a> `cost`
 
@@ -164,7 +164,7 @@ The AE cost.
 The duration.
 
 - **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/duration'Fixed">PerformanceParameters/duration'Fixed</a> | <a href="#PerformanceParameters/duration'CheckResultBasedTagged">PerformanceParameters/duration'CheckResultBasedTagged</a> | <a href="#PerformanceParameters/duration'Indefinite">PerformanceParameters/duration'Indefinite</a>
+- **Cases:** <a href="#PerformanceParameters/duration'Fixed">PerformanceParameters/duration'Fixed</a> | <a href="#PerformanceParameters/duration'TaggedCheckResultBasedDuration">PerformanceParameters/duration'TaggedCheckResultBasedDuration</a> | <a href="#PerformanceParameters/duration'Indefinite">PerformanceParameters/duration'Indefinite</a>
 
 ---
 
@@ -268,13 +268,13 @@ The (unitless) duration value.
 
 The unit of the `value`.
 
-- **Type:** <a href="../_ActivatableSkill.md#Duration/Unit">Duration/Unit</a>
+- **Type:** <a href="../_ActivatableSkillDuration.md#DurationUnit">DurationUnit</a>
 
 ---
 
-### <a name="PerformanceParameters/duration'CheckResultBasedTagged"></a> `PerformanceParameters/duration'CheckResultBasedTagged`
+### <a name="PerformanceParameters/duration'TaggedCheckResultBasedDuration"></a> `PerformanceParameters/duration'TaggedCheckResultBasedDuration`
 
-- **Type:** <a href="../_ActivatableSkill.md#Duration/CheckResultBasedTagged">Duration/CheckResultBasedTagged</a>
+- **Type:** <a href="../_ActivatableSkillDuration.md#TaggedCheckResultBasedDuration">TaggedCheckResultBasedDuration</a>
 
 ---
 
@@ -297,7 +297,7 @@ Key | Description | Details
 Specified if the duration has a maximum time span.
 
 - **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/duration'Indefinite/maximum'Fixed">PerformanceParameters/duration'Indefinite/maximum'Fixed</a> | <a href="#PerformanceParameters/duration'Indefinite/maximum'CheckResultBasedTagged">PerformanceParameters/duration'Indefinite/maximum'CheckResultBasedTagged</a>
+- **Cases:** <a href="#PerformanceParameters/duration'Indefinite/maximum'Fixed">PerformanceParameters/duration'Indefinite/maximum'Fixed</a> | <a href="#PerformanceParameters/duration'Indefinite/maximum'TaggedCheckResultBasedDuration">PerformanceParameters/duration'Indefinite/maximum'TaggedCheckResultBasedDuration</a>
 
 #### <a name="PerformanceParameters/duration'Indefinite/translations"></a> `translations`
 
@@ -335,13 +335,13 @@ The (unitless) maximum duration value.
 
 The unit of the `value`.
 
-- **Type:** <a href="../_ActivatableSkill.md#Duration/Unit">Duration/Unit</a>
+- **Type:** <a href="../_ActivatableSkillDuration.md#DurationUnit">DurationUnit</a>
 
 ---
 
-### <a name="PerformanceParameters/duration'Indefinite/maximum'CheckResultBasedTagged"></a> `PerformanceParameters/duration'Indefinite/maximum'CheckResultBasedTagged`
+### <a name="PerformanceParameters/duration'Indefinite/maximum'TaggedCheckResultBasedDuration"></a> `PerformanceParameters/duration'Indefinite/maximum'TaggedCheckResultBasedDuration`
 
-- **Type:** <a href="../_ActivatableSkill.md#Duration/CheckResultBasedTagged">Duration/CheckResultBasedTagged</a>
+- **Type:** <a href="../_ActivatableSkillDuration.md#TaggedCheckResultBasedDuration">TaggedCheckResultBasedDuration</a>
 
 ---
 

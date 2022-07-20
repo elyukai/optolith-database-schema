@@ -54,7 +54,7 @@
                 },
                 "effect": {
                   "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
-                  "$ref": "../_ActivatableSkill.schema.json#/$defs/Effect/T"
+                  "$ref": "../_ActivatableSkillEffect.schema.json#/$defs/Effect"
                 },
                 "duration": {
                   "type": "object",
@@ -252,23 +252,7 @@
                 },
                 "modifier": {
                   "description": "Specified if the indefinite description's result value is to be\nmodified by a certain number.",
-                  "type": "object",
-                  "properties": {
-                    "arithmetic": {
-                      "description": "The arithmetic how to apply the `value` to the indefinite value.",
-                      "$ref": "../_ActivatableSkill.schema.json#/$defs/Duration/CheckResultArithmetic"
-                    },
-                    "value": {
-                      "description": "The value that is applied to the indefinite value using the defined\n`arithmetic`.",
-                      "type": "integer",
-                      "minimum": 2
-                    }
-                  },
-                  "required": [
-                    "arithmetic",
-                    "value"
-                  ],
-                  "additionalProperties": false
+                  "$ref": "../_ActivatableSkillCheckResultBased.schema.json#/$defs/CheckResultBasedModifier"
                 },
                 "translations": {
                   "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -279,24 +263,7 @@
                       "properties": {
                         "description": {
                           "description": "A description of the duration.",
-                          "type": "object",
-                          "properties": {
-                            "default": {
-                              "description": "The full description of the duration.",
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "compressed": {
-                              "description": "A compressed description of the duration for use in small areas\n(e.g. on character sheet).",
-                              "type": "string",
-                              "minLength": 1
-                            }
-                          },
-                          "required": [
-                            "default",
-                            "compressed"
-                          ],
-                          "additionalProperties": false
+                          "$ref": "../_ResponsiveText.schema.json#/$defs/ResponsiveText"
                         }
                       },
                       "required": [

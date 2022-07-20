@@ -16,7 +16,7 @@
           "description": "The primary attribute(s).",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/PrimaryAttribute"
+            "$ref": "./_SimpleReferences.schema.json#/$defs/AttributeReference"
           },
           "minItems": 1,
           "maxItems": 2,
@@ -38,26 +38,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The name of the condition.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "special": {
-                  "description": "Additional rules for the condition, if applicable.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "errata": {
-                  "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/RangedCombatTechniqueTranslation"
             }
           },
           "minProperties": 1,
@@ -74,10 +55,27 @@
       ],
       "additionalProperties": false
     },
-    "PrimaryAttribute": {
-      "description": "The attribute's identifier.",
-      "type": "integer",
-      "minimum": 1
+    "RangedCombatTechniqueTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the condition.",
+          "type": "string",
+          "minLength": 1
+        },
+        "special": {
+          "description": "Additional rules for the condition, if applicable.",
+          "type": "string",
+          "minLength": 1
+        },
+        "errata": {
+          "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
     }
   }
 }

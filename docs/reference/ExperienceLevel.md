@@ -84,19 +84,19 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="ExperienceLevel/translations[key]"></a> `ExperienceLevel/translations[key]`
 
-- **Type:** <a href="#Translation">Translation</a>
+- **Type:** <a href="#ExperienceLevelTranslation">ExperienceLevelTranslation</a>
 
 ---
 
-### <a name="Translation"></a> `Translation`
+### <a name="ExperienceLevelTranslation"></a> `ExperienceLevelTranslation`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the experience level. | <a href="#Translation/name">See details</a>
+`name` | The name of the experience level. | <a href="#ExperienceLevelTranslation/name">See details</a>
 
-#### <a name="Translation/name"></a> `name`
+#### <a name="ExperienceLevelTranslation/name"></a> `name`
 
 The name of the experience level.
 

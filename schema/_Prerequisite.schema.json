@@ -2,14 +2,13 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "/_Prerequisite.schema.json",
   "$defs": {
-    "PrerequisiteCollection": {},
     "DerivedCharacteristicPrerequisites": {
       "type": "object",
       "properties": {
         "tag": {
           "const": "Plain"
         },
-        "list": {
+        "plain": {
           "type": "array",
           "items": {
             "oneOf": [
@@ -35,8 +34,7 @@
                     "type": "object",
                     "patternProperties": {
                       "^[a-z]{2}-[A-Z]{2}$": {
-                        "type": "string",
-                        "minLength": 1
+                        "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
                       }
                     },
                     "minProperties": 1,
@@ -57,7 +55,7 @@
       },
       "required": [
         "tag",
-        "list"
+        "plain"
       ],
       "additionalProperties": false
     },
@@ -67,7 +65,7 @@
         "tag": {
           "const": "Plain"
         },
-        "list": {
+        "plain": {
           "type": "array",
           "items": {
             "oneOf": [
@@ -93,8 +91,7 @@
                     "type": "object",
                     "patternProperties": {
                       "^[a-z]{2}-[A-Z]{2}$": {
-                        "type": "string",
-                        "minLength": 1
+                        "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
                       }
                     },
                     "minProperties": 1,
@@ -115,7 +112,7 @@
       },
       "required": [
         "tag",
-        "list"
+        "plain"
       ],
       "additionalProperties": false
     },
@@ -127,7 +124,7 @@
             "tag": {
               "const": "Plain"
             },
-            "list": {
+            "plain": {
               "type": "array",
               "items": {
                 "oneOf": [
@@ -153,8 +150,7 @@
                         "type": "object",
                         "patternProperties": {
                           "^[a-z]{2}-[A-Z]{2}$": {
-                            "type": "string",
-                            "minLength": 1
+                            "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
                           }
                         },
                         "minProperties": 1,
@@ -175,7 +171,7 @@
           },
           "required": [
             "tag",
-            "list"
+            "plain"
           ],
           "additionalProperties": false
         },
@@ -185,7 +181,7 @@
             "tag": {
               "const": "ByLevel"
             },
-            "list": {
+            "by_level": {
               "type": "array",
               "items": {
                 "type": "object",
@@ -220,8 +216,7 @@
                               "type": "object",
                               "patternProperties": {
                                 "^[a-z]{2}-[A-Z]{2}$": {
-                                  "type": "string",
-                                  "minLength": 1
+                                  "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
                                 }
                               },
                               "minProperties": 1,
@@ -251,7 +246,7 @@
           },
           "required": [
             "tag",
-            "list"
+            "by_level"
           ],
           "additionalProperties": false
         }
@@ -263,7 +258,7 @@
         "tag": {
           "const": "Plain"
         },
-        "list": {
+        "plain": {
           "type": "array",
           "items": {
             "oneOf": [
@@ -289,8 +284,7 @@
                     "type": "object",
                     "patternProperties": {
                       "^[a-z]{2}-[A-Z]{2}$": {
-                        "type": "string",
-                        "minLength": 1
+                        "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
                       }
                     },
                     "minProperties": 1,
@@ -311,7 +305,7 @@
       },
       "required": [
         "tag",
-        "list"
+        "plain"
       ],
       "additionalProperties": false
     },
@@ -323,7 +317,7 @@
             "tag": {
               "const": "Plain"
             },
-            "list": {
+            "plain": {
               "type": "array",
               "items": {
                 "oneOf": [
@@ -349,8 +343,7 @@
                         "type": "object",
                         "patternProperties": {
                           "^[a-z]{2}-[A-Z]{2}$": {
-                            "type": "string",
-                            "minLength": 1
+                            "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
                           }
                         },
                         "minProperties": 1,
@@ -371,7 +364,7 @@
           },
           "required": [
             "tag",
-            "list"
+            "plain"
           ],
           "additionalProperties": false
         },
@@ -381,7 +374,7 @@
             "tag": {
               "const": "ByLevel"
             },
-            "list": {
+            "by_level": {
               "type": "array",
               "items": {
                 "type": "object",
@@ -416,8 +409,7 @@
                               "type": "object",
                               "patternProperties": {
                                 "^[a-z]{2}-[A-Z]{2}$": {
-                                  "type": "string",
-                                  "minLength": 1
+                                  "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
                                 }
                               },
                               "minProperties": 1,
@@ -447,7 +439,7 @@
           },
           "required": [
             "tag",
-            "list"
+            "by_level"
           ],
           "additionalProperties": false
         }
@@ -459,7 +451,7 @@
         "tag": {
           "const": "Plain"
         },
-        "list": {
+        "plain": {
           "type": "array",
           "items": {
             "oneOf": [
@@ -485,8 +477,7 @@
                     "type": "object",
                     "patternProperties": {
                       "^[a-z]{2}-[A-Z]{2}$": {
-                        "type": "string",
-                        "minLength": 1
+                        "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
                       }
                     },
                     "minProperties": 1,
@@ -507,7 +498,7 @@
       },
       "required": [
         "tag",
-        "list"
+        "plain"
       ],
       "additionalProperties": false
     },
@@ -517,7 +508,7 @@
         "tag": {
           "const": "Plain"
         },
-        "list": {
+        "plain": {
           "type": "array",
           "items": {
             "oneOf": [
@@ -543,8 +534,7 @@
                     "type": "object",
                     "patternProperties": {
                       "^[a-z]{2}-[A-Z]{2}$": {
-                        "type": "string",
-                        "minLength": 1
+                        "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
                       }
                     },
                     "minProperties": 1,
@@ -565,7 +555,7 @@
       },
       "required": [
         "tag",
-        "list"
+        "plain"
       ],
       "additionalProperties": false
     },
@@ -575,7 +565,7 @@
         "tag": {
           "const": "Plain"
         },
-        "list": {
+        "plain": {
           "type": "array",
           "items": {
             "oneOf": [
@@ -601,8 +591,7 @@
                     "type": "object",
                     "patternProperties": {
                       "^[a-z]{2}-[A-Z]{2}$": {
-                        "type": "string",
-                        "minLength": 1
+                        "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
                       }
                     },
                     "minProperties": 1,
@@ -623,7 +612,7 @@
       },
       "required": [
         "tag",
-        "list"
+        "plain"
       ],
       "additionalProperties": false
     },
@@ -633,7 +622,7 @@
         "tag": {
           "const": "Plain"
         },
-        "list": {
+        "plain": {
           "type": "array",
           "items": {
             "oneOf": [
@@ -659,8 +648,7 @@
                     "type": "object",
                     "patternProperties": {
                       "^[a-z]{2}-[A-Z]{2}$": {
-                        "type": "string",
-                        "minLength": 1
+                        "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
                       }
                     },
                     "minProperties": 1,
@@ -681,7 +669,7 @@
       },
       "required": [
         "tag",
-        "list"
+        "plain"
       ],
       "additionalProperties": false
     },
@@ -691,7 +679,7 @@
         "tag": {
           "const": "Plain"
         },
-        "list": {
+        "plain": {
           "type": "array",
           "items": {
             "oneOf": [
@@ -717,8 +705,7 @@
                     "type": "object",
                     "patternProperties": {
                       "^[a-z]{2}-[A-Z]{2}$": {
-                        "type": "string",
-                        "minLength": 1
+                        "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
                       }
                     },
                     "minProperties": 1,
@@ -739,7 +726,7 @@
       },
       "required": [
         "tag",
-        "list"
+        "plain"
       ],
       "additionalProperties": false
     },
@@ -751,7 +738,7 @@
             "tag": {
               "const": "Plain"
             },
-            "list": {
+            "plain": {
               "type": "array",
               "items": {
                 "oneOf": [
@@ -777,8 +764,7 @@
                         "type": "object",
                         "patternProperties": {
                           "^[a-z]{2}-[A-Z]{2}$": {
-                            "type": "string",
-                            "minLength": 1
+                            "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
                           }
                         },
                         "minProperties": 1,
@@ -799,7 +785,7 @@
           },
           "required": [
             "tag",
-            "list"
+            "plain"
           ],
           "additionalProperties": false
         },
@@ -809,7 +795,7 @@
             "tag": {
               "const": "ByLevel"
             },
-            "list": {
+            "by_level": {
               "type": "array",
               "items": {
                 "type": "object",
@@ -844,8 +830,7 @@
                               "type": "object",
                               "patternProperties": {
                                 "^[a-z]{2}-[A-Z]{2}$": {
-                                  "type": "string",
-                                  "minLength": 1
+                                  "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
                                 }
                               },
                               "minProperties": 1,
@@ -875,7 +860,7 @@
           },
           "required": [
             "tag",
-            "list"
+            "by_level"
           ],
           "additionalProperties": false
         }
@@ -887,7 +872,7 @@
         "tag": {
           "const": "Plain"
         },
-        "list": {
+        "plain": {
           "type": "array",
           "items": {
             "oneOf": [
@@ -913,8 +898,7 @@
                     "type": "object",
                     "patternProperties": {
                       "^[a-z]{2}-[A-Z]{2}$": {
-                        "type": "string",
-                        "minLength": 1
+                        "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
                       }
                     },
                     "minProperties": 1,
@@ -935,7 +919,7 @@
       },
       "required": [
         "tag",
-        "list"
+        "plain"
       ],
       "additionalProperties": false
     },
@@ -945,7 +929,7 @@
         "tag": {
           "const": "Plain"
         },
-        "list": {
+        "plain": {
           "type": "array",
           "items": {
             "oneOf": [
@@ -971,8 +955,7 @@
                     "type": "object",
                     "patternProperties": {
                       "^[a-z]{2}-[A-Z]{2}$": {
-                        "type": "string",
-                        "minLength": 1
+                        "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
                       }
                     },
                     "minProperties": 1,
@@ -993,7 +976,7 @@
       },
       "required": [
         "tag",
-        "list"
+        "plain"
       ],
       "additionalProperties": false
     },
@@ -1003,7 +986,7 @@
         "tag": {
           "const": "Plain"
         },
-        "list": {
+        "plain": {
           "type": "array",
           "items": {
             "oneOf": [
@@ -1029,8 +1012,7 @@
                     "type": "object",
                     "patternProperties": {
                       "^[a-z]{2}-[A-Z]{2}$": {
-                        "type": "string",
-                        "minLength": 1
+                        "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
                       }
                     },
                     "minProperties": 1,
@@ -1051,7 +1033,7 @@
       },
       "required": [
         "tag",
-        "list"
+        "plain"
       ],
       "additionalProperties": false
     }

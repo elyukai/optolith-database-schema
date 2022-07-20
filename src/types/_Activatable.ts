@@ -6,8 +6,9 @@
 import { DisplayOption } from "./prerequisites/DisplayOption.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
-import { Duration } from "./_ActivatableSkill.js"
+import { DurationUnitValue } from "./_ActivatableSkillDuration.js"
 import { ActivatableIdentifier, AdvancedSpecialAbilityRestrictedOptionIdentifier, CombatRelatedSpecialAbilityIdentifier, CombatTechniqueIdentifier, MagicalTraditionIdentifier, PatronIdentifier, SkillIdentifier, VolumePointsOptionReferenceIdentifier } from "./_Identifier.js"
+import { LocaleMap } from "./_LocaleMap.js"
 import { GeneralPrerequisites } from "./_Prerequisite.js"
 
 /**
@@ -291,20 +292,15 @@ type CategoryOption =
            * (BCP47).
            * @minProperties 1
            */
-          translations?: {
+          translations?: LocaleMap<{
             /**
-             * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+             * The name of the application if different from the activatable
+             * entry's
+             * name.
+             * @minLength 1
              */
-            [localeId: string]: {
-              /**
-               * The name of the application if different from the activatable
-               * entry's
-               * name.
-               * @minLength 1
-               */
-              name: string
-            }
-          }
+            name: string
+          }>
         }[]
 
         /**
@@ -328,19 +324,14 @@ type CategoryOption =
            * (BCP47).
            * @minProperties 1
            */
-          translations?: {
+          translations?: LocaleMap<{
             /**
-             * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+             * The name of the use if different from the activatable entry's
+             * name.
+             * @minLength 1
              */
-            [localeId: string]: {
-              /**
-               * The name of the use if different from the activatable entry's
-               * name.
-               * @minLength 1
-               */
-              name: string
-            }
-          }
+            name: string
+          }>
         }[]
 
         /**
@@ -604,35 +595,30 @@ type ExplicitOption =
      * All translations for the entry, identified by IETF language tag (BCP47).
      * @minProperties 1
      */
-    translations: {
+    translations: LocaleMap<{
       /**
-       * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+       * The name of the select option.
+       * @minLength 1
        */
-      [localeId: string]: {
-        /**
-         * The name of the select option.
-         * @minLength 1
-         */
-        name: string
+      name: string
 
-        /**
-         * The name of the select option when displayed in a generated
-         * profession text.
-         * @minLength 1
-         */
-        name_in_profession?: string
+      /**
+       * The name of the select option when displayed in a generated
+       * profession text.
+       * @minLength 1
+       */
+      name_in_profession?: string
 
-        /**
-         * The description of the select option. Useful for Bad Habits, Trade
-         * Secrets and other entries where a description is available.
-         * @markdown
-         * @minLength 1
-         */
-        description?: string
+      /**
+       * The description of the select option. Useful for Bad Habits, Trade
+       * Secrets and other entries where a description is available.
+       * @markdown
+       * @minLength 1
+       */
+      description?: string
 
-        errata?: Errata
-      }
-    }
+      errata?: Errata
+    }>
   }
   | {
     tag: "Skill"
@@ -663,19 +649,14 @@ type ExplicitOption =
        * All translations for the entry, identified by IETF language tag (BCP47).
        * @minProperties 1
        */
-      translations?: {
+      translations?: LocaleMap<{
         /**
-         * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+         * The name of the application if different from the activatable entry's
+         * name.
+         * @minLength 1
          */
-        [localeId: string]: {
-          /**
-           * The name of the application if different from the activatable entry's
-           * name.
-           * @minLength 1
-           */
-          name: string
-        }
-      }
+        name: string
+      }>
     }[]
 
     /**
@@ -697,18 +678,13 @@ type ExplicitOption =
        * All translations for the entry, identified by IETF language tag (BCP47).
        * @minProperties 1
        */
-      translations?: {
+      translations?: LocaleMap<{
         /**
-         * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+         * The name of the use if different from the activatable entry's name.
+         * @minLength 1
          */
-        [localeId: string]: {
-          /**
-           * The name of the use if different from the activatable entry's name.
-           * @minLength 1
-           */
-          name: string
-        }
-      }
+        name: string
+      }>
     }[]
 
     prerequisites?: GeneralPrerequisites
@@ -1033,18 +1009,13 @@ export type SkillUses = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations?: {
+  translations?: LocaleMap<{
     /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+     * The name of the use if different from the activatable entry's name.
+     * @minLength 1
      */
-    [localeId: string]: {
-      /**
-       * The name of the use if different from the activatable entry's name.
-       * @minLength 1
-       */
-      name: string
-    }
-  }
+    name: string
+  }>
 }[]
 
 /**
@@ -1234,7 +1205,7 @@ export type ArcaneEnergyCost =
     /**
      * Specified if the AE cost `value` has to be paid for each time interval.
      */
-    interval?: Duration.UnitValue
+    interval?: DurationUnitValue
 
     /**
      * The AE cost are per level of the enchantment. It may either be displayed
@@ -1299,49 +1270,43 @@ export type ArcaneEnergyCost =
      * (BCP47).
      * @minProperties 1
      */
-    translations?: {
+    translations?: LocaleMap<{
       /**
-       * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-       * @minProperties 1
+       * The cost have to be per a specific countable entity, e.g. `8 AE per
+       * person`.
        */
-      [localeId: string]: {
+      per: {
         /**
-         * The cost have to be per a specific countable entity, e.g. `8 AE per
-         * person`.
+         * The full countable entity name.
+         * @minLength 1
          */
-        per: {
-          /**
-           * The full countable entity name.
-           * @minLength 1
-           */
-          default: string
-
-          /**
-           * The compressed countable entity name.
-           * @minLength 1
-           */
-          compressed: string
-        }
+        default: string
 
         /**
-         * A note, appended to the generated string in parenthesis.
+         * The compressed countable entity name.
+         * @minLength 1
          */
-        note?: {
-          /**
-           * The full note.
-           * @minLength 1
-           */
-          default: string
-
-          /**
-           * A compressed note, if applicable. If not specified it should not
-           * be displayed in small location.
-           * @minLength 1
-           */
-          compressed?: string
-        }
+        compressed: string
       }
-    }
+
+      /**
+       * A note, appended to the generated string in parenthesis.
+       */
+      note?: {
+        /**
+         * The full note.
+         * @minLength 1
+         */
+        default: string
+
+        /**
+         * A compressed note, if applicable. If not specified it should not
+         * be displayed in small location.
+         * @minLength 1
+         */
+        compressed?: string
+      }
+    }>
   }
   | {
     tag: "ActivationAndHalfInterval"
@@ -1358,7 +1323,7 @@ export type ArcaneEnergyCost =
     /**
      * The time interval for which the AE cost `value` has to be paid.
      */
-    interval: Duration.UnitValue
+    interval: DurationUnitValue
   }
   | {
     tag: "Indefinite"
@@ -1387,30 +1352,25 @@ export type ArcaneEnergyCost =
      * All translations for the entry, identified by IETF language tag (BCP47).
      * @minProperties 1
      */
-    translations: {
+    translations: LocaleMap<{
       /**
-       * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+       * A description of where the cost come from.
        */
-      [localeId: string]: {
+      description: {
         /**
-         * A description of where the cost come from.
+         * The full description of where the cost come from.
+         * @minLength 1
          */
-        description: {
-          /**
-           * The full description of where the cost come from.
-           * @minLength 1
-           */
-          default: string
+        default: string
 
-          /**
-           * A compressed description of where the cost come from for use in
-           * small areas (e.g. on character sheet).
-           * @minLength 1
-           */
-          compressed: string
-        }
+        /**
+         * A compressed description of where the cost come from for use in
+         * small areas (e.g. on character sheet).
+         * @minLength 1
+         */
+        compressed: string
       }
-    }
+    }>
   }
   | {
     tag: "Disjunction"
@@ -1423,7 +1383,7 @@ export type ArcaneEnergyCost =
       /**
        * The interval itself.
        */
-      value: Duration.UnitValue
+      value: DurationUnitValue
 
       /**
        * The AE cost value for activation.
@@ -1624,30 +1584,25 @@ export type VolumeMap = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations?: {
+  translations?: LocaleMap<{
     /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+     * Place a string between the `for` and the grouped map option labels.
      */
-    [localeId: string]: {
-      /**
-       * Place a string between the `for` and the grouped map option labels.
-       */
-      list_prepend?: string
+    list_prepend?: string
 
-      /**
-       * Place a string after the grouped map option labels.
-       */
-      list_append?: string
+    /**
+     * Place a string after the grouped map option labels.
+     */
+    list_append?: string
 
-      /**
-       * If the string from the book cannot be generated using the default
-       * generation technique, use this string. All options still need to be
-       * inserted propertly, since it may be used by in-game tools to provide a
-       * selection to players.
-       */
-      replacement?: string
-    }
-  }
+    /**
+     * If the string from the book cannot be generated using the default
+     * generation technique, use this string. All options still need to be
+     * inserted propertly, since it may be used by in-game tools to provide a
+     * selection to players.
+     */
+    replacement?: string
+  }>
 }
 
 export type VolumeMapOption = {
@@ -1672,25 +1627,20 @@ export type VolumeMapOption = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations?: {
+  translations?: LocaleMap<{
     /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+     * The description of the option for cost string generation.
+     * @minLength 1
      */
-    [localeId: string]: {
-      /**
-       * The description of the option for cost string generation.
-       * @minLength 1
-       */
-      label: string
+    label: string
 
-      /**
-       * The description of the option if used standalone. Only used if
-       * different from `label`.
-       * @minLength 1
-       */
-      label_standalone?: string
-    }
-  }
+    /**
+     * The description of the option if used standalone. Only used if
+     * different from `label`.
+     * @minLength 1
+     */
+    label_standalone?: string
+  }>
 }
 
 /**
@@ -1764,6 +1714,7 @@ export type BindingCostMap = {
   translations?: {
     /**
      * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+     * @minProperties 1
      */
     [localeId: string]: {
       /**

@@ -29,7 +29,7 @@ The patron's identifier. An unique, increasing integer.
 
 The patron's category.
 
-- **Type:** <a href="#Patron/category">Object</a>
+- **Type:** <a href="./_SimpleReferences.md#PatronCategoryReference">PatronCategoryReference</a>
 
 #### <a name="Patron/skills"></a> `skills`
 
@@ -45,8 +45,7 @@ available to all, it may be available to only specific ones (intersection)
 and it may be available to all except specific ones to the listed cultures
 (difference).
 
-- **Type:** Union
-- **Cases:** <a href="#Patron/culture'All">Patron/culture'All</a> | <a href="#Patron/culture'Intersection">Patron/culture'Intersection</a> | <a href="#Patron/culture'Difference">Patron/culture'Difference</a>
+- **Type:** <a href="#PatronCulture">PatronCulture</a>
 
 #### <a name="Patron/primary_patron_cultures"></a> `primary_patron_cultures?`
 
@@ -55,7 +54,6 @@ patron of.
 
 - **Type:** List
 - **Items:** <a href="#Patron/primary_patron_cultures[]">Patron/primary_patron_cultures[]</a>
-- **Minimum Items:** `1`
 - **Unique Items:** Yes
 
 #### <a name="Patron/powers"></a> `powers?`
@@ -93,145 +91,27 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="Patron/category"></a> `Patron/category`
-
-The patron's category.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The patron's category identifier. | <a href="#Patron/category/id">See details</a>
-
-#### <a name="Patron/category/id"></a> `id`
-
-The patron's category identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
 ### <a name="Patron/skills[0]"></a> `Patron/skills[0]`
 
-- **Type:** <a href="#SkillReference">SkillReference</a>
+- **Type:** <a href="./_SimpleReferences.md#SkillReference">SkillReference</a>
 
 ---
 
 ### <a name="Patron/skills[1]"></a> `Patron/skills[1]`
 
-- **Type:** <a href="#SkillReference">SkillReference</a>
+- **Type:** <a href="./_SimpleReferences.md#SkillReference">SkillReference</a>
 
 ---
 
 ### <a name="Patron/skills[2]"></a> `Patron/skills[2]`
 
-- **Type:** <a href="#SkillReference">SkillReference</a>
-
----
-
-### <a name="Patron/culture'All"></a> `Patron/culture'All`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Patron/culture'All/tag">See details</a>
-
-#### <a name="Patron/culture'All/tag"></a> `tag`
-
-- **Constant:** `"All"`
-
----
-
-### <a name="Patron/culture'Intersection"></a> `Patron/culture'Intersection`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Patron/culture'Intersection/tag">See details</a>
-`list` |  | <a href="#Patron/culture'Intersection/list">See details</a>
-
-#### <a name="Patron/culture'Intersection/tag"></a> `tag`
-
-- **Constant:** `"Intersection"`
-
-#### <a name="Patron/culture'Intersection/list"></a> `list`
-
-- **Type:** List
-- **Items:** <a href="#Patron/culture'Intersection/list[]">Patron/culture'Intersection/list[]</a>
-
----
-
-### <a name="Patron/culture'Intersection/list[]"></a> `Patron/culture'Intersection/list[]`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The culture's identifier. | <a href="#Patron/culture'Intersection/list[]/id">See details</a>
-
-#### <a name="Patron/culture'Intersection/list[]/id"></a> `id`
-
-The culture's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="Patron/culture'Difference"></a> `Patron/culture'Difference`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Patron/culture'Difference/tag">See details</a>
-`list` |  | <a href="#Patron/culture'Difference/list">See details</a>
-
-#### <a name="Patron/culture'Difference/tag"></a> `tag`
-
-- **Constant:** `"Difference"`
-
-#### <a name="Patron/culture'Difference/list"></a> `list`
-
-- **Type:** List
-- **Items:** <a href="#Patron/culture'Difference/list[]">Patron/culture'Difference/list[]</a>
-
----
-
-### <a name="Patron/culture'Difference/list[]"></a> `Patron/culture'Difference/list[]`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The culture's identifier. | <a href="#Patron/culture'Difference/list[]/id">See details</a>
-
-#### <a name="Patron/culture'Difference/list[]/id"></a> `id`
-
-The culture's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_SimpleReferences.md#SkillReference">SkillReference</a>
 
 ---
 
 ### <a name="Patron/primary_patron_cultures[]"></a> `Patron/primary_patron_cultures[]`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The culture's identifier. | <a href="#Patron/primary_patron_cultures[]/id">See details</a>
-
-#### <a name="Patron/primary_patron_cultures[]/id"></a> `id`
-
-The culture's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_SimpleReferences.md#CultureReference">CultureReference</a>
 
 ---
 
@@ -255,32 +135,148 @@ The culture's identifier.
 
 ### <a name="Patron/translations[key]"></a> `Patron/translations[key]`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`name` | The name of the patron. | <a href="#Patron/translations[key]/name">See details</a>
-
-#### <a name="Patron/translations[key]/name"></a> `name`
-
-The name of the patron.
-
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="#PatronTranslation">PatronTranslation</a>
 
 ---
 
-### <a name="SkillReference"></a> `SkillReference`
+### <a name="PatronTranslation"></a> `PatronTranslation`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The skill's identifier. | <a href="#SkillReference/id">See details</a>
+`name` | The name of the patron. | <a href="#PatronTranslation/name">See details</a>
 
-#### <a name="SkillReference/id"></a> `id`
+#### <a name="PatronTranslation/name"></a> `name`
+
+The name of the patron.
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+---
+
+### <a name="PatronCulture"></a> `PatronCulture`
+
+The patron cultures the patron is or is not part of. If the patron is part of
+all patron cultures, the set should be empty and the operation should be
+difference.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`set` |  | <a href="#PatronCulture/set">See details</a>
+`operation` |  | <a href="#PatronCulture/operation">See details</a>
+
+#### <a name="PatronCulture/set"></a> `set`
+
+- **Type:** List
+- **Items:** <a href="#PatronCulture/set[]">PatronCulture/set[]</a>
+
+#### <a name="PatronCulture/operation"></a> `operation`
+
+- **Type:** <a href="#PatronCultureOperation">PatronCultureOperation</a>
+
+---
+
+### <a name="PatronCulture/set[]"></a> `PatronCulture/set[]`
+
+- **Type:** <a href="./_SimpleReferences.md#CultureReference">CultureReference</a>
+
+---
+
+### <a name="PatronCultureOperation"></a> `PatronCultureOperation`
+
+The set operation to combine the set of all patron cultures with the
+specified set of patron cultures: If they should intersect, the patron is
+only part of the given cultures. If they should differ, the patron is only
+part of the cultures that are not given.
+
+- **Type:** Union
+- **Cases:** <a href="#PatronCultureOperation'Intersection">PatronCultureOperation'Intersection</a> | <a href="#PatronCultureOperation'Difference">PatronCultureOperation'Difference</a>
+
+---
+
+### <a name="PatronCultureOperation'Intersection"></a> `PatronCultureOperation'Intersection`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#PatronCultureOperation'Intersection/tag">See details</a>
+
+#### <a name="PatronCultureOperation'Intersection/tag"></a> `tag`
+
+- **Constant:** `"Intersection"`
+
+---
+
+### <a name="PatronCultureOperation'Difference"></a> `PatronCultureOperation'Difference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#PatronCultureOperation'Difference/tag">See details</a>
+
+#### <a name="PatronCultureOperation'Difference/tag"></a> `tag`
+
+- **Constant:** `"Difference"`
+
+---
+
+### <a name="AdvantageAnimalPower"></a> `AdvantageAnimalPower`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The advantage's identifier. | <a href="#AdvantageAnimalPower/id">See details</a>
+`level?` | It grants a higher level of the advantage. | <a href="#AdvantageAnimalPower/level">See details</a>
+`option?` | It grants a specific general option of the advantage. | <a href="#AdvantageAnimalPower/option">See details</a>
+
+#### <a name="AdvantageAnimalPower/id"></a> `id`
+
+The advantage's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="AdvantageAnimalPower/level"></a> `level?`
+
+It grants a higher level of the advantage.
+
+- **Type:** Integer
+- **Minimum:** `2`
+
+#### <a name="AdvantageAnimalPower/option"></a> `option?`
+
+It grants a specific general option of the advantage.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="SkillAnimalPower"></a> `SkillAnimalPower`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The skill's identifier. | <a href="#SkillAnimalPower/id">See details</a>
+`points` | The points that gets added to the skill's rating. | <a href="#SkillAnimalPower/points">See details</a>
+
+#### <a name="SkillAnimalPower/id"></a> `id`
 
 The skill's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="SkillAnimalPower/points"></a> `points`
+
+The points that gets added to the skill's rating.
 
 - **Type:** Integer
 - **Minimum:** `1`
@@ -301,34 +297,15 @@ The skill's identifier.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#AnimalPowerLevel1'Advantage/tag">See details</a>
-`id` | The advantage's identifier. | <a href="#AnimalPowerLevel1'Advantage/id">See details</a>
-`level?` | It grants a higher level of the advantage. | <a href="#AnimalPowerLevel1'Advantage/level">See details</a>
-`option?` | It grants a specific general option of the advantage. | <a href="#AnimalPowerLevel1'Advantage/option">See details</a>
+`advantage` |  | <a href="#AnimalPowerLevel1'Advantage/advantage">See details</a>
 
 #### <a name="AnimalPowerLevel1'Advantage/tag"></a> `tag`
 
 - **Constant:** `"Advantage"`
 
-#### <a name="AnimalPowerLevel1'Advantage/id"></a> `id`
+#### <a name="AnimalPowerLevel1'Advantage/advantage"></a> `advantage`
 
-The advantage's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
-#### <a name="AnimalPowerLevel1'Advantage/level"></a> `level?`
-
-It grants a higher level of the advantage.
-
-- **Type:** Integer
-- **Minimum:** `2`
-
-#### <a name="AnimalPowerLevel1'Advantage/option"></a> `option?`
-
-It grants a specific general option of the advantage.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="#AdvantageAnimalPower">AdvantageAnimalPower</a>
 
 ---
 
@@ -339,26 +316,15 @@ It grants a specific general option of the advantage.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#AnimalPowerLevel1'Skill/tag">See details</a>
-`id` | The skill's identifier. | <a href="#AnimalPowerLevel1'Skill/id">See details</a>
-`points` | The points that gets added to the skill's rating. | <a href="#AnimalPowerLevel1'Skill/points">See details</a>
+`skill` |  | <a href="#AnimalPowerLevel1'Skill/skill">See details</a>
 
 #### <a name="AnimalPowerLevel1'Skill/tag"></a> `tag`
 
 - **Constant:** `"Skill"`
 
-#### <a name="AnimalPowerLevel1'Skill/id"></a> `id`
+#### <a name="AnimalPowerLevel1'Skill/skill"></a> `skill`
 
-The skill's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
-#### <a name="AnimalPowerLevel1'Skill/points"></a> `points`
-
-The points that gets added to the skill's rating.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="#SkillAnimalPower">SkillAnimalPower</a>
 
 ---
 
@@ -376,28 +342,22 @@ The points that gets added to the skill's rating.
 
 ---
 
-### <a name="AnimalPowerLevel2"></a> `AnimalPowerLevel2`
+### <a name="CombatAnimalPower"></a> `CombatAnimalPower`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#AnimalPowerLevel2/tag">See details</a>
-`id` | The combat value. | <a href="#AnimalPowerLevel2/id">See details</a>
-`value` | The value that gets added to the combat value. | <a href="#AnimalPowerLevel2/value">See details</a>
+`id` | The combat value. | <a href="#CombatAnimalPower/id">See details</a>
+`value` | The value that gets added to the combat value. | <a href="#CombatAnimalPower/value">See details</a>
 
-#### <a name="AnimalPowerLevel2/tag"></a> `tag`
-
-- **Constant:** `"Combat"`
-
-#### <a name="AnimalPowerLevel2/id"></a> `id`
+#### <a name="CombatAnimalPower/id"></a> `id`
 
 The combat value.
 
-- **Type:** Union
-- **Cases:** <a href="#AnimalPowerLevel2/id'Attack">AnimalPowerLevel2/id'Attack</a> | <a href="#AnimalPowerLevel2/id'Parry">AnimalPowerLevel2/id'Parry</a> | <a href="#AnimalPowerLevel2/id'RangedCombat">AnimalPowerLevel2/id'RangedCombat</a> | <a href="#AnimalPowerLevel2/id'Dodge">AnimalPowerLevel2/id'Dodge</a> | <a href="#AnimalPowerLevel2/id'DamagePoints">AnimalPowerLevel2/id'DamagePoints</a> | <a href="#AnimalPowerLevel2/id'Protection">AnimalPowerLevel2/id'Protection</a>
+- **Type:** <a href="#CombatAnimalPowerType">CombatAnimalPowerType</a>
 
-#### <a name="AnimalPowerLevel2/value"></a> `value`
+#### <a name="CombatAnimalPower/value"></a> `value`
 
 The value that gets added to the combat value.
 
@@ -406,87 +366,120 @@ The value that gets added to the combat value.
 
 ---
 
-### <a name="AnimalPowerLevel2/id'Attack"></a> `AnimalPowerLevel2/id'Attack`
+### <a name="CombatAnimalPowerType"></a> `CombatAnimalPowerType`
+
+- **Type:** Union
+- **Cases:** <a href="#CombatAnimalPowerType'Attack">CombatAnimalPowerType'Attack</a> | <a href="#CombatAnimalPowerType'Parry">CombatAnimalPowerType'Parry</a> | <a href="#CombatAnimalPowerType'RangedCombat">CombatAnimalPowerType'RangedCombat</a> | <a href="#CombatAnimalPowerType'Dodge">CombatAnimalPowerType'Dodge</a> | <a href="#CombatAnimalPowerType'DamagePoints">CombatAnimalPowerType'DamagePoints</a> | <a href="#CombatAnimalPowerType'Protection">CombatAnimalPowerType'Protection</a>
+
+---
+
+### <a name="CombatAnimalPowerType'Attack"></a> `CombatAnimalPowerType'Attack`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#AnimalPowerLevel2/id'Attack/tag">See details</a>
+`tag` |  | <a href="#CombatAnimalPowerType'Attack/tag">See details</a>
 
-#### <a name="AnimalPowerLevel2/id'Attack/tag"></a> `tag`
+#### <a name="CombatAnimalPowerType'Attack/tag"></a> `tag`
 
 - **Constant:** `"Attack"`
 
 ---
 
-### <a name="AnimalPowerLevel2/id'Parry"></a> `AnimalPowerLevel2/id'Parry`
+### <a name="CombatAnimalPowerType'Parry"></a> `CombatAnimalPowerType'Parry`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#AnimalPowerLevel2/id'Parry/tag">See details</a>
+`tag` |  | <a href="#CombatAnimalPowerType'Parry/tag">See details</a>
 
-#### <a name="AnimalPowerLevel2/id'Parry/tag"></a> `tag`
+#### <a name="CombatAnimalPowerType'Parry/tag"></a> `tag`
 
 - **Constant:** `"Parry"`
 
 ---
 
-### <a name="AnimalPowerLevel2/id'RangedCombat"></a> `AnimalPowerLevel2/id'RangedCombat`
+### <a name="CombatAnimalPowerType'RangedCombat"></a> `CombatAnimalPowerType'RangedCombat`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#AnimalPowerLevel2/id'RangedCombat/tag">See details</a>
+`tag` |  | <a href="#CombatAnimalPowerType'RangedCombat/tag">See details</a>
 
-#### <a name="AnimalPowerLevel2/id'RangedCombat/tag"></a> `tag`
+#### <a name="CombatAnimalPowerType'RangedCombat/tag"></a> `tag`
 
 - **Constant:** `"RangedCombat"`
 
 ---
 
-### <a name="AnimalPowerLevel2/id'Dodge"></a> `AnimalPowerLevel2/id'Dodge`
+### <a name="CombatAnimalPowerType'Dodge"></a> `CombatAnimalPowerType'Dodge`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#AnimalPowerLevel2/id'Dodge/tag">See details</a>
+`tag` |  | <a href="#CombatAnimalPowerType'Dodge/tag">See details</a>
 
-#### <a name="AnimalPowerLevel2/id'Dodge/tag"></a> `tag`
+#### <a name="CombatAnimalPowerType'Dodge/tag"></a> `tag`
 
 - **Constant:** `"Dodge"`
 
 ---
 
-### <a name="AnimalPowerLevel2/id'DamagePoints"></a> `AnimalPowerLevel2/id'DamagePoints`
+### <a name="CombatAnimalPowerType'DamagePoints"></a> `CombatAnimalPowerType'DamagePoints`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#AnimalPowerLevel2/id'DamagePoints/tag">See details</a>
+`tag` |  | <a href="#CombatAnimalPowerType'DamagePoints/tag">See details</a>
 
-#### <a name="AnimalPowerLevel2/id'DamagePoints/tag"></a> `tag`
+#### <a name="CombatAnimalPowerType'DamagePoints/tag"></a> `tag`
 
 - **Constant:** `"DamagePoints"`
 
 ---
 
-### <a name="AnimalPowerLevel2/id'Protection"></a> `AnimalPowerLevel2/id'Protection`
+### <a name="CombatAnimalPowerType'Protection"></a> `CombatAnimalPowerType'Protection`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#AnimalPowerLevel2/id'Protection/tag">See details</a>
+`tag` |  | <a href="#CombatAnimalPowerType'Protection/tag">See details</a>
 
-#### <a name="AnimalPowerLevel2/id'Protection/tag"></a> `tag`
+#### <a name="CombatAnimalPowerType'Protection/tag"></a> `tag`
 
 - **Constant:** `"Protection"`
+
+---
+
+### <a name="AnimalPowerLevel2"></a> `AnimalPowerLevel2`
+
+- **Type:** Union
+- **Cases:** <a href="#AnimalPowerLevel2'Combat">AnimalPowerLevel2'Combat</a>
+
+---
+
+### <a name="AnimalPowerLevel2'Combat"></a> `AnimalPowerLevel2'Combat`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AnimalPowerLevel2'Combat/tag">See details</a>
+`combat` |  | <a href="#AnimalPowerLevel2'Combat/combat">See details</a>
+
+#### <a name="AnimalPowerLevel2'Combat/tag"></a> `tag`
+
+- **Constant:** `"Combat"`
+
+#### <a name="AnimalPowerLevel2'Combat/combat"></a> `combat`
+
+- **Type:** <a href="#CombatAnimalPower">CombatAnimalPower</a>
 
 ---
 
@@ -504,33 +497,54 @@ Key | Description | Details
 
 ---
 
-### <a name="AnimalPowerLevel3"></a> `AnimalPowerLevel3`
+### <a name="AttributeAnimalPower"></a> `AttributeAnimalPower`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#AnimalPowerLevel3/tag">See details</a>
-`id` | The attribute's identifier. | <a href="#AnimalPowerLevel3/id">See details</a>
-`value` | The value that gets added to the attribute. | <a href="#AnimalPowerLevel3/value">See details</a>
+`id` | The attribute's identifier. | <a href="#AttributeAnimalPower/id">See details</a>
+`value` | The value that gets added to the attribute. | <a href="#AttributeAnimalPower/value">See details</a>
 
-#### <a name="AnimalPowerLevel3/tag"></a> `tag`
-
-- **Constant:** `"Attribute"`
-
-#### <a name="AnimalPowerLevel3/id"></a> `id`
+#### <a name="AttributeAnimalPower/id"></a> `id`
 
 The attribute's identifier.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="AnimalPowerLevel3/value"></a> `value`
+#### <a name="AttributeAnimalPower/value"></a> `value`
 
 The value that gets added to the attribute.
 
 - **Type:** Integer
 - **Minimum:** `1`
+
+---
+
+### <a name="AnimalPowerLevel3"></a> `AnimalPowerLevel3`
+
+- **Type:** Union
+- **Cases:** <a href="#AnimalPowerLevel3'Attribute">AnimalPowerLevel3'Attribute</a>
+
+---
+
+### <a name="AnimalPowerLevel3'Attribute"></a> `AnimalPowerLevel3'Attribute`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AnimalPowerLevel3'Attribute/tag">See details</a>
+`attribute` |  | <a href="#AnimalPowerLevel3'Attribute/attribute">See details</a>
+
+#### <a name="AnimalPowerLevel3'Attribute/tag"></a> `tag`
+
+- **Constant:** `"Attribute"`
+
+#### <a name="AnimalPowerLevel3'Attribute/attribute"></a> `attribute`
+
+- **Type:** <a href="#AttributeAnimalPower">AttributeAnimalPower</a>
 
 ---
 

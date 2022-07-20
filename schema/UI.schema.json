@@ -9,261 +9,261 @@
       "properties": {
         "macosmenubar.aboutapp": {
           "description": "- `0`: Name of the app",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "macosmenubar.preferences": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "macosmenubar.quit": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "macosmenubar.edit": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "macosmenubar.view": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "initialization.loadtableserror": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.heroes": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.groups": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.wiki": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.faq": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.about": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.imprint": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.thirdpartylicenses": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.lastchanges": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.profile": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.overview": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.personaldata": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.charactersheet": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.pact": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.rules": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.racecultureandprofession": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.race": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.culture": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.profession": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.attributes": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.advantagesanddisadvantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.advantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.disadvantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.abilities": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.skills": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.combattechniques": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.specialabilities": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.spells": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.liturgicalchants": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.belongings": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.equipment": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.hitzonearmor": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.tabs.pets": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.apleft": {
           "description": "- `0`: AP left",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.savebtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.aptooltip.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.aptooltip.total": {
           "description": "- `0`: AP Total",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.aptooltip.spent": {
           "description": "- `0`: AP Spent",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.aptooltip.spentonadvantages": {
           "description": "- `0`: Current AP spent on advantages\n- `1`: Maximum possible AP spent on advantages",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.aptooltip.spentonmagicadvantages": {
           "description": "- `0`: Current AP spent on magic advantages\n- `1`: Maximum possible AP spent on magic advantages",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.aptooltip.spentonblessedadvantages": {
           "description": "- `0`: Current AP spent on blessed advantages\n- `1`: Maximum possible AP spent on blessed advantages",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.aptooltip.spentondisadvantages": {
           "description": "- `0`: Current AP spent on disadvantages\n- `1`: Maximum possible AP spent on disadvantages",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.aptooltip.spentonmagicdisadvantages": {
           "description": "- `0`: Current AP spent on magic disadvantages\n- `1`: Maximum possible AP spent on magic disadvantages",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.aptooltip.spentonblesseddisadvantages": {
           "description": "- `0`: Current AP spent on blessed disadvantages\n- `1`: Maximum possible AP spent on blessed disadvantages",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.aptooltip.spentonrace": {
           "description": "- `0`: AP spent on race",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.aptooltip.spentonprofession": {
           "description": "- `0`: AP spent on profession",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.aptooltip.spentonattributes": {
           "description": "- `0`: AP spent on attributes",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.aptooltip.spentonskills": {
           "description": "- `0`: AP spent on skills",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.aptooltip.spentoncombattechniques": {
           "description": "- `0`: AP spent on combat techniques",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.aptooltip.spentonspells": {
           "description": "- `0`: AP spent on spells",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.aptooltip.spentoncantrips": {
           "description": "- `0`: AP spent on cantrips",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.aptooltip.spentonliturgicalchants": {
           "description": "- `0`: AP spent on liturgical chants",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.aptooltip.spentonblessings": {
           "description": "- `0`: AP spent on blessings",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.aptooltip.spentonspecialabilities": {
           "description": "- `0`: AP spent on special abilities",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.aptooltip.spentonenergies": {
           "description": "- `0`: AP spent on energies (LP/AE/KP)",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.dialogs.herosaved": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.dialogs.allsaved": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.dialogs.everythingelsesaved": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.dialogs.saveconfigerror.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.dialogs.saveconfigerror.message": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.dialogs.saveheroeserror.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.dialogs.saveheroeserror.message": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.weightvalue": {
           "description": "- `0`: Weight in kg",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.pricevalue": {
           "description": "- `0`: Price in silverthalers",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.lengthvalue": {
           "description": "- `0`: Length in cm",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.dice": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.none": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.or": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.and": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.error": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.errorcode": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.emptylistplaceholder": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.emptylistnoresultsplaceholder": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.apvalue": {
           "description": "- `0`: AP value",
@@ -271,2283 +271,2283 @@
         },
         "general.apvalue.short": {
           "description": "- `0`: AP value",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.withapvalue": {
           "description": "- `0`: Name of element\n- `1`: AP value",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.filters.searchfield.placeholder": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.filters.sort.alphabetically": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.filters.sort.bydatemodified": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.filters.sort.bygroup": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.filters.sort.byimprovementcost": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.filters.sort.byproperty": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.filters.sort.bylocation": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.filters.sort.bycost": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.filters.sort.byweight": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.filters.showactivatedentries": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.dialogs.savebtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.dialogs.donebtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.dialogs.deletebtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.dialogs.yesbtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.dialogs.nobtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.dialogs.okbtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.dialogs.cancelbtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.dialogs.copybtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.dialogs.createbtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.dialogs.applybtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.dialogs.addbtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.dialogs.notenoughap.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.dialogs.notenoughap.message": {
           "description": "- `0`: Missing AP",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.dialogs.reachedaplimit.title": {
           "description": "- `0`: Category in which the limit is reached",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.dialogs.reachedaplimit.message": {
           "description": "- `0`: Missing AP\n- `1`: Maximum possible AP spent on category\n- `2`: Category in which the limit is reached",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.dialogs.reachedaplimit.advantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.dialogs.reachedaplimit.magicaladvantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.dialogs.reachedaplimit.blessedadvantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.dialogs.reachedaplimit.disadvantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.dialogs.reachedaplimit.magicaldisadvantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.dialogs.reachedaplimit.blesseddisadvantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "settings.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "settings.language": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "settings.fallbacklanguage": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "settings.systemlanguage": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "settings.languagehint": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "settings.theme": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "settings.theme.dark": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "settings.theme.light": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "settings.showanimations": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "settings.enableeditingheroaftercreationphase": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "settings.checkforupdatesbtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "settings.newversionavailable.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "settings.newversionavailable.message": {
           "description": "- `0`: Version number",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "settings.newversionavailable.messagewithsize": {
           "description": "- `0`: Version number\n- `1`: Size of update package",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "settings.newversionavailable.updatebtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "settings.nonewversionavailable.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "settings.nonewversionavailable.message": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "settings.downloadingupdate.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.filters.origin.allheroes": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.filters.origin.ownheroes": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.filters.origin.sharedheroes": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.importherobtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.createherobtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.exportheroasjsonbtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.duplicateherobtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.deleteherobtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.openherobtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.saveherobtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.unsavedhero.name": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.list.adventurepoints": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.dialogs.herosaved": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.dialogs.importheroerror.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.dialogs.importheroerror.message": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.dialogs.heroexportsavelocation.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.dialogs.herojsonsaveerror.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.dialogs.herojsonsaveerror.message": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.dialogs.unsavedactions.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.dialogs.unsavedactions.message": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.dialogs.unsavedactions.quit": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.dialogs.unsavedactions.saveandquit": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.dialogs.deletehero.title": {
           "description": "- `0`: Name of the hero to delete",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.dialogs.deletehero.message": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.dialogs.herocreation.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.dialogs.herocreation.nameofhero": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.dialogs.herocreation.sex.placeholder": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.dialogs.herocreation.sex.male": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.dialogs.herocreation.sex.female": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.dialogs.herocreation.experiencelevel.placeholder": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.dialogs.herocreation.startbtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "wiki.chooseacategory": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "wiki.chooseacategorytodisplayalist": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "wiki.filters.races": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "wiki.filters.cultures": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "wiki.filters.professions": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "wiki.filters.advantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "wiki.filters.disadvantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "wiki.filters.skills": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "wiki.filters.skills.all": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "wiki.filters.combattechniques": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "wiki.filters.combattechniques.all": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "wiki.filters.magic": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "wiki.filters.magic.all": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "wiki.filters.liturgicalchants": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "wiki.filters.liturgicalchants.all": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "wiki.filters.specialabilities": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "wiki.filters.specialabilities.all": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "wiki.filters.itemtemplates": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "wiki.filters.itemtemplates.all": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "imprint.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "profile.editprofessionnamebtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "profile.addadventurepointsbtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "profile.endherocreationbtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "profile.changeheroavatarbtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "profile.deleteavatarbtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "profile.dialogs.changeheroavatar.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "profile.dialogs.changeheroavatar.selectfilebtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "profile.dialogs.changeheroavatar.imagefiletype": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "profile.dialogs.changeheroavatar.invalidfilewarning": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "profile.dialogs.addadventurepoints.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "profile.dialogs.addadventurepoints.label": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "profile.advantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "profile.disadvantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "personaldata.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "personaldata.sex.male": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "personaldata.sex.female": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "personaldata.family": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "personaldata.placeofbirth": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "personaldata.dateofbirth": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "personaldata.age": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "personaldata.haircolor": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "personaldata.eyecolor": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "personaldata.size": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "personaldata.weight": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "personaldata.rank": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "personaldata.socialstatus": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "personaldata.characteristics": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "personaldata.otherinfo": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "personaldata.cultureareaknowledge": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.printtopdfbtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.dialogs.pdfexportsavelocation.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.dialogs.pdfsaved": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.dialogs.pdfsaveerror.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.dialogs.pdfsaveerror.message": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.dialogs.pdfcreationerror.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.dialogs.pdfcreationerror.message": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.showattributevalues": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.useparchment": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.zoomfactor": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.charactersheet": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.attributemodifiers.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.name": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.family": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.placeofbirth": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.dateofbirth": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.age": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.sex": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.race": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.size": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.weight": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.haircolor": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.eyecolor": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.culture": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.socialstatus": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.profession": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.rank": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.characteristics": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.otherinfo": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.experiencelevellabel": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.totalaplabel": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.apcollectedlabel": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.apspentlabel": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.avatarlabel": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.advantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.disadvantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.generalspecialabilites": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.fatepoints": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.derivedcharacteristics.labels.value": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.derivedcharacteristics.labels.bonuspenalty": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.derivedcharacteristics.labels.bonus": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.derivedcharacteristics.labels.bought": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.derivedcharacteristics.labels.max": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.derivedcharacteristics.labels.current": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.derivedcharacteristics.labels.basestat": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.mainsheet.derivedcharacteristics.labels.permanentlylostboughtback": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.gamestatssheet.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.gamestatssheet.skillstable.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.gamestatssheet.skillstable.labels.skill": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.gamestatssheet.skillstable.labels.check": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.gamestatssheet.skillstable.labels.encumbrance": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.gamestatssheet.skillstable.labels.improvementcost": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.gamestatssheet.skillstable.labels.skillrating": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.gamestatssheet.skillstable.labels.routinechecks": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.gamestatssheet.skillstable.labels.notes": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.gamestatssheet.skillstable.encumbrance.yes": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.gamestatssheet.skillstable.encumbrance.no": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.gamestatssheet.skillstable.encumbrance.maybe": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.gamestatssheet.skillstable.groups.pages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.gamestatssheet.languages.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.gamestatssheet.languages.nativetongue": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.gamestatssheet.knownscripts.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.gamestatssheet.routinechecks.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.gamestatssheet.routinechecks.textRow1": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.gamestatssheet.routinechecks.textRow2": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.gamestatssheet.routinechecks.textRow3": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.gamestatssheet.routinechecks.textRow4": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.gamestatssheet.routinechecks.labels.checkmod": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.gamestatssheet.routinechecks.labels.neededsr": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.gamestatssheet.routinechecks.from3on": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.gamestatssheet.qualitylevels.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.gamestatssheet.qualitylevels.labels.skillpoints": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.gamestatssheet.qualitylevels.labels.qualitylevel": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.combattechniquestable.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.combattechniquestable.labels.combattechnique": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.combattechniquestable.labels.primaryattribute": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.combattechniquestable.labels.improvementcost": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.combattechniquestable.labels.combattechniquerating": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.combattechniquestable.labels.attackrangecombat": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.combattechniquestable.labels.parry": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.lifepoints.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.lifepoints.max": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.lifepoints.current": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.lifepoints.pain1": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.lifepoints.pain2": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.lifepoints.pain3": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.lifepoints.pain4": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.lifepoints.dying": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.closecombatweapons": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.closecombatweapons.labels.weapon": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.closecombatweapons.labels.combattechnique": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.closecombatweapons.labels.damagebonus": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.closecombatweapons.labels.damagepoints": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.closecombatweapons.labels.attackparrymodifier": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.closecombatweapons.labels.reach": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.closecombatweapons.labels.breakingpointrating": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.closecombatweapons.labels.damaged": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.closecombatweapons.labels.attack": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.closecombatweapons.labels.parry": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.closecombatweapons.labels.weight": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.rangedcombatweapons": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.rangedcombatweapons.labels.weapon": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.rangedcombatweapons.labels.combattechnique": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.rangedcombatweapons.labels.reloadtime": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.rangedcombatweapons.labels.damagepoints": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.rangedcombatweapons.labels.ammunition": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.rangedcombatweapons.labels.rangebrackets": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.rangedcombatweapons.labels.breakingpointrating": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.rangedcombatweapons.labels.damaged": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.rangedcombatweapons.labels.rangedcombat": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.rangedcombatweapons.labels.weight": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.armors.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.armors.labels.armor": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.armors.labels.sturdinessrating": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.armors.labels.wear": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.armors.labels.protection": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.armors.labels.encumbrance": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.armors.labels.movementinitiative": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.armors.labels.carriedwhereexamples": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.armors.labels.head": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.armors.labels.torso": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.armors.labels.leftarm": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.armors.labels.rightarm": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.armors.labels.leftleg": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.armors.labels.rightleg": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.armors.labels.weight": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.shieldparryingweapon.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.shieldparryingweapon.labels.shieldparryingweapon": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.shieldparryingweapon.labels.structurepoints": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.shieldparryingweapon.labels.breakingpointrating": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.shieldparryingweapon.labels.damaged": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.shieldparryingweapon.labels.attackparrymodifier": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.shieldparryingweapon.labels.weight": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.actions": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.combatspecialabilities": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.conditions": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.combatsheet.states": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.equipmenttable.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.equipmenttable.labels.item": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.equipmenttable.labels.number": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.equipmenttable.labels.price": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.equipmenttable.labels.weight": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.equipmenttable.labels.carriedwhere": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.equipmenttable.labels.total": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.purse.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.purse.ducats": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.purse.silverthalers": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.purse.halers": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.purse.kreutzers": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.purse.gems": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.purse.jewelry": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.purse.other": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.carryingcapacity.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.carryingcapacity.calc": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.carryingcapacity.label": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.animal.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.animal.name": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.animal.sizecategory": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.animal.type": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.animal.ap": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.animal.protection": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.animal.attackname": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.animal.attack": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.animal.parry": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.animal.damagepoints": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.animal.reach": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.animal.actions": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.animal.skills": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.animal.specialabilities": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.belongingssheet.animal.notes": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.spellssheet.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.spellssheet.header.labels.aemax": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.spellssheet.header.labels.aecurrent": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.spellssheet.spellstable.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.spellssheet.spellstable.labels.spellorritual": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.spellssheet.spellstable.labels.check": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.spellssheet.spellstable.labels.skillrating": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.spellssheet.spellstable.labels.cost": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.spellssheet.spellstable.labels.castingtime": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.spellssheet.spellstable.labels.range": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.spellssheet.spellstable.labels.duration": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.spellssheet.spellstable.labels.property": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.spellssheet.spellstable.labels.improvementcost": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.spellssheet.spellstable.labels.effect": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.spellssheet.spellstable.labels.pages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.spellssheet.spellstable.unfamiliarspell": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.spellssheet.primaryattribute": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.spellssheet.properties": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.spellssheet.tradition": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.spellssheet.magicalspecialabilities": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.spellssheet.cantrips": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.chantssheet.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.chantssheet.header.labels.kpmax": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.chantssheet.header.labels.kpcurrent": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.chantssheet.chantstable.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.chantssheet.chantstable.labels.chant": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.chantssheet.chantstable.labels.check": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.chantssheet.chantstable.labels.skillrating": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.chantssheet.chantstable.labels.cost": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.chantssheet.chantstable.labels.castingtime": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.chantssheet.chantstable.labels.range": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.chantssheet.chantstable.labels.duration": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.chantssheet.chantstable.labels.aspect": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.chantssheet.chantstable.labels.improvementcost": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.chantssheet.chantstable.labels.effect": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.chantssheet.chantstable.labels.pages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.chantssheet.primaryattribute": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.chantssheet.aspects": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.chantssheet.tradition": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.chantssheet.blessedspecialabilities": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.chantssheet.blessings": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pacts.pactcategory": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pacts.nopact": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pacts.pactlevel": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pacts.fairytype": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pacts.domain": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pacts.userdefined": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pacts.demontype": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pacts.circleofdamnation": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pacts.minorpact": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pacts.pactisincompletehint": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pacts.name": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rules.rulebase": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rules.enableallrulebooks": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rules.focusrules": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rules.optionalrules": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rules.manualherodatarepair": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rules.manualherodatarepairexplanation": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.complementarysources": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "race.header.name": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "race.header.adventurepoints": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "race.header.adventurepoints.tooltip": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.apvalue": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.adventurepoints": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.lifepointbasevalue": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.spiritbasevalue": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.toughnessbasevalue": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.movementbasevalue": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.attributeadjustments": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.automaticadvantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.stronglyrecommendedadvantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.stronglyrecommendeddisadvantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.commoncultures": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.commonadvantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.commondisadvantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.uncommonadvantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.uncommondisadvantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "culture.filters.common.allcultures": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "culture.filters.common.commoncultures": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "culture.header.name": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.language": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.script": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.areaknowledge": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.socialstatus": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.commonprofessions": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.commonprofessions.mundane": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.commonprofessions.magic": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.commonprofessions.blessed": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.commonskills": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.uncommonskills": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.commonnames": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.culturalpackage": {
           "description": "- `0`: Name of cultural package\n- `1`: AP cost of the cultural package",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "profession.ownprofession": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "profession.variants.novariant": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "profession.filters.common.allprofessions": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "profession.filters.common.commonprofessions": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "profession.filters.groups.allprofessiongroups": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "profession.filters.groups.mundaneprofessions": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "profession.filters.groups.magicalprofessions": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "profession.filters.groups.blessedprofessions": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "profession.header.name": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "profession.header.adventurepoints": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "profession.header.adventurepoints.tooltip": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.prerequisites": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.race": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.specialabilities": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.languagesandliteracytotalingap": {
           "description": "- `0`: AP given",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.skillspecialization": {
           "description": "- `0`: Skill name(s)",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.skillsselection": {
           "description": "- `0`: AP given\n- `1`: Skill group",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.combattechniques": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.combattechniqueselection": {
           "description": "- `0`: Amount of combat techniques to choose\n- `1`: CtR of the selected combat techniques after application\n- `2`: List of possible combat techniques",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.combattechnique.one": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.combattechnique.two": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.combattechniquesecondselection": {
           "description": "- `0`: Amount of combat techniques to choose\n- `1`: CtR of the selected combat techniques after application\n- `2`: Amount of combat techniques to choose in a second selection\n- `3`: CtR of the selected combat techniques from second selection after application\n- `4`: List of possible combat techniques",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.skills": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.spells": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.cursestotalingap": {
           "description": "- `0`: AP given",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.cantripsfromlist": {
           "description": "- `0`: Amount of cantrips to choose\n- `1`: List of possible cantrips",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.cantrip.one": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.cantrip.two": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.liturgicalchants": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.thetwelveblessings": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.thetwelveblessingsexceptions": {
           "description": "- `0`: name of first excluded blessing\n- `1`: name of second excluded blessing\n- `2`: name of third excluded blessing",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.sixblessings": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.suggestedadvantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.suggesteddisadvantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.unsuitableadvantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.unsuitabledisadvantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.variants": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.insteadof": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rcpselectoptions.race": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rcpselectoptions.culture": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rcpselectoptions.profession": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rcpselectoptions.cantripsfromlist": {
           "description": "- `0`: Amount of cantrips to choose",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rcpselectoptions.cantrip.one": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rcpselectoptions.cantrip.two": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rcpselectoptions.combattechniqueselection": {
           "description": "- `0`: Amount of combat techniques to choose\n- `1`: CtR of the selected combat techniques after application",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rcpselectoptions.combattechnique.one": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rcpselectoptions.combattechnique.two": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rcpselectoptions.selectattributeadjustment": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rcpselectoptions.buyculturalpackage": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rcpselectoptions.nativetongue.placeholder": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rcpselectoptions.buyscript": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rcpselectoptions.script.placeholder": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rcpselectoptions.combattechniquesecondselection": {
           "description": "- `0`: Amount of combat techniques to choose in a second selection\n- `1`: CtR of the selected combat techniques from second selection after application",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rcpselectoptions.cursestotalingapleft": {
           "description": "- `0`: AP given\n- `1`: AP left",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rcpselectoptions.languagesandliteracytotalingapleft": {
           "description": "- `0`: AP given\n- `1`: AP left",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rcpselectoptions.applicationforskillspecialization": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rcpselectoptions.skillselectionap": {
           "description": "- `0`: Skill group\n- `1`: AP given\n- `2`: AP left",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rcpselectoptions.skillspecialization": {
           "description": "- `0`: Skill name(s)",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rcpselectoptions.completebtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rcpselectoptions.unfamiliarspells": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rcpselectoptions.unfamiliarspellselectionfortraditionguildmage": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rcpselectoptions.unfamiliarspell.placeholder": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rcpselectoptions.unfamiliarspell": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "attributes.totalpoints": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "attributes.attributeadjustmentselection": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "attributes.derivedcharacteristics.tooltips.modifier": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "attributes.derivedcharacteristics.tooltips.bought": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "attributes.derivedcharacteristics.tooltips.losttotal": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "attributes.derivedcharacteristics.tooltips.boughtback": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "attributes.lostpermanently.lifepoints": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "attributes.lostpermanently.lifepoints.short": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "attributes.lostpermanently.arcaneenergy": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "attributes.lostpermanently.arcaneenergy.short": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "attributes.lostpermanently.karmapoints": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "attributes.lostpermanently.karmapoints.short": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "attributes.removeenergypointslostpermanently.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "attributes.removeenergypointslostpermanently.message": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "attributes.removeenergypointslostpermanently.removebtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "attributes.pointslostpermanentlyeditor.boughtback": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "attributes.pointslostpermanentlyeditor.spent": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "advantages.filters.commonadvantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "disadvantages.filters.commondisadvantages": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "advantagesdisadvantages.addbtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "advantagesdisadvantages.afraidof": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "advantagesdisadvantages.immunityto": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "advantagesdisadvantages.hatredfor": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "advantagesdisadvantages.header.name": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "advantagesdisadvantages.header.adventurepoints": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "advantagesdisadvantages.header.adventurepoints.tooltip": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "advantagesdisadvantages.apspent.spentonadvantages": {
           "description": "- `0`: Current AP spent on advantages\n- `1`: Maximum possible AP spent on advantages",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "advantagesdisadvantages.apspent.spentonmagicadvantages": {
           "description": "- `0`: Current AP spent on magic advantages\n- `1`: Maximum possible AP spent on magic advantages",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "advantagesdisadvantages.apspent.spentonblessedadvantages": {
           "description": "- `0`: Current AP spent on blessed advantages\n- `1`: Maximum possible AP spent on blessed advantages",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "advantagesdisadvantages.apspent.spentondisadvantages": {
           "description": "- `0`: Current AP spent on disadvantages\n- `1`: Maximum possible AP spent on disadvantages",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "advantagesdisadvantages.apspent.spentonmagicdisadvantages": {
           "description": "- `0`: Current AP spent on magic disadvantages\n- `1`: Maximum possible AP spent on magic disadvantages",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "advantagesdisadvantages.apspent.spentonblesseddisadvantages": {
           "description": "- `0`: Current AP spent on blessed disadvantages\n- `1`: Maximum possible AP spent on blessed disadvantages",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "advantagesdisadvantages.dialogs.customcost.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "advantagesdisadvantages.dialogs.customcost.for": {
           "description": "- `0`: Entry name",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "specialabilities.addbtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "specialabilities.header.name": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "specialabilities.header.group": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "specialabilities.header.adventurepoints": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "specialabilities.header.adventurepoints.tooltip": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "specialabilities.nativetonguelevel": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.rule": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.effect": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.extendedcombatspecialabilities": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.extendedmagicalspecialabilities": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.extendedblessedspecialabilities": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.extendedskillspecialabilities": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.penalty": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.level": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.perlevel": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.volume": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.aspect": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.bindingcost": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.protectivecircle": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.wardingcircle": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.actions": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.racecultureorprofessionrequiresautomaticorsuggested": {
           "description": "- `0`: Entry name\n- `1`: category (advantage, disadvantage, …)",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.advantage": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.disadvantage": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.primaryattributeofthetradition": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.knowledgeofspell": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.knowledgeofliturgicalchant": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.appropriatecombatstylespecialability": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.appropriatemagicalstylespecialability": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.appropriateblessedstylespecialability": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.appropriateskillstylespecialability": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.sex": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.sex.male": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.sex.female": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.combattechniques.groups.all": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.combattechniques.groups.allmeleecombattechniques": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.combattechniques.groups.allrangedcombattechniques": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.combattechniques.groups.allmeleecombattechniqueswithparry": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.combattechniques.groups.allmeleecombattechniquesforonehandedweapons": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.socialstatusxorhigher": {
           "description": "- `0`: Minimum social status",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "skills.commonskills": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "skills.header.name": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "skills.header.skillrating": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "skills.header.skillrating.tooltip": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "skills.header.group": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "skills.header.check": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "skills.header.improvementcost": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "skills.header.improvementcost.tooltip": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.check": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.newapplications": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.applications": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.uses": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.encumbrance": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.encumbrance.yes": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.encumbrance.no": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.encumbrance.maybe": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.tools": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.quality": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.failedcheck": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.criticalsuccess": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.botch": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.improvementcost": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "showfrequency.stronglyrecommended": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "showfrequency.common": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "showfrequency.uncommon": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "showfrequency.unfamiliarspells": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "combattechniques.header.name": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "combattechniques.header.group": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "combattechniques.header.combattechniquerating": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "combattechniques.header.combattechniquerating.tooltip": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "combattechniques.header.improvementcost": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "combattechniques.header.improvementcost.tooltip": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "combattechniques.header.primaryattribute": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "combattechniques.header.primaryattribute.tooltip": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "combattechniques.header.attack": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "combattechniques.header.attack.tooltip": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "combattechniques.header.parry": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "combattechniques.header.parry.tooltip": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.special": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.primaryattribute": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "spells.addbtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "spells.header.name": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "spells.header.property": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "spells.header.group": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "spells.header.skillrating": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "spells.header.skillrating.tooltip": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "spells.header.check": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "spells.header.checkmodifier": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "spells.header.checkmodifier.tooltip": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "spells.header.improvementcost": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "spells.header.improvementcost.tooltip": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "spells.groups.cantrip": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "spells.traditions.general": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "magicalactions.animistforces.tribes.general": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.castingtime": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.ritualtime": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.aecost": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.range": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.duration": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.targetcategory": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.property": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.traditions": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.skill": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.lengthoftime": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.musictradition": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.youcannotuseamodificationonthisspellscastingtime": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.youcannotuseamodificationonthisspellsritualtime": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.youcannotuseamodificationonthisspellscost": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.youcannotuseamodificationonthisspellsrange": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.youcannotuseamodificationonthisspellsduration": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.spellenhancements": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.spellenhancements.title": {
           "description": "- `0`: Enhancement name\n- `1`: Required Skill Rating\n- `2`: AP value\n- `3`: Description",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.tribaltraditions": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.brew": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.spirithalf": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.spirithalf.short": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.spiritortoughness": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.spiritortoughness.short": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.note": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "liturgicalchants.addbtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "liturgicalchants.header.name": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "liturgicalchants.header.traditions": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "liturgicalchants.header.group": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "liturgicalchants.header.skillrating": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "liturgicalchants.header.skillrating.tooltip": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "liturgicalchants.header.check": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "liturgicalchants.header.checkmodifier": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "liturgicalchants.header.checkmodifier.tooltip": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "liturgicalchants.header.improvementcost": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "liturgicalchants.header.improvementcost.tooltip": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "liturgicalchants.groups.blessing": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "liturgicalchants.aspects.general": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.liturgicaltime": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.ceremonialtime": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.kpcost": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.youcannotuseamodificationonthischantsliturgicaltime": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.youcannotuseamodificationonthischantsceremonialtime": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.youcannotuseamodificationonthischantscost": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.youcannotuseamodificationonthischantsrange": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.youcannotuseamodificationonthischantsduration": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.liturgicalchantenhancements": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.liturgicalchantenhancements.title": {
           "description": "- `0`: Enhancement name\n- `1`: Required Skill Rating\n- `2`: AP value\n- `3`: Description",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.header.name": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.header.group": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.addbtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.createbtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.filters.allcombattechniques": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.purse.title": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.purse.ducats": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.purse.silverthalers": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.purse.halers": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.purse.kreutzers": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.purse.carryingcapacity": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.purse.initialstartingwealthandcarryingcapacity": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.purse.earnpay": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.purse.earn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.purse.pay": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.purse.notefirst": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.purse.notesecond": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.purse.currentcredit": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.purse.amount": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.damage": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.length": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.range": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.edititem": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.createitem": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.number": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.name": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.price": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.weight": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.carriedwhere": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.itemgroup": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.itemgrouphint": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.improvisedweapon": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.improvisedweapongroup": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.template": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.combattechnique": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.primaryattributeanddamagethreshold": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.primaryattribute": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.primaryattribute.short": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.damagethreshold": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.separatedamagethresholds": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.breakingpointratingmodifier": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.damaged": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.reach": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.attackparrymodifier": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.structurepoints": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.lengthwithunit": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.parryingweapon": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.twohandedweapon": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.reloadtime": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.rangeclose": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.rangemedium": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.rangefar": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.ammunition": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.protection": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.encumbrance": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.armortype": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.sturdinessmodifier": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.wear": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.hitzonearmoronly": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.movementmodifier": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.initiativemodifier": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "equipment.dialogs.addedit.additionalpenalties": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "hitzonearmors.header.name": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "hitzonearmors.createbtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "hitzonearmors.dialogs.addedit.name": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "hitzonearmors.dialogs.addedit.edithitzonearmor": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "hitzonearmors.dialogs.addedit.createhitzonearmor": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "hitzonearmors.dialogs.addedit.head": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "hitzonearmors.dialogs.addedit.torso": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "hitzonearmors.dialogs.addedit.leftarm": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "hitzonearmors.dialogs.addedit.rightarm": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "hitzonearmors.dialogs.addedit.leftleg": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "hitzonearmors.dialogs.addedit.rightleg": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "hitzonearmors.dialogs.addedit.wear": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.equipment.weight": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.equipment.price": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.equipment.ammunition": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.equipment.combattechnique": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.equipment.damage": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.equipment.primaryattributeanddamagethreshold": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.equipment.attackparrymodifier": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.equipment.reach": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.equipment.length": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.equipment.reloadtime": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.equipment.range": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.equipment.actionsvalue": {
           "description": "- `0`: Number of actions",
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.equipment.protection": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.equipment.encumbrance": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.equipment.additionalpenalties": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.equipment.note": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.equipment.rules": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.equipment.weaponadvantage": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.equipment.weapondisadvantage": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.equipment.armoradvantage": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.equipment.armordisadvantage": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pets.dialogs.addedit.deleteavatarbtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pets.dialogs.addedit.name": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pets.dialogs.addedit.sizecategory": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pets.dialogs.addedit.type": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pets.dialogs.addedit.apspent": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pets.dialogs.addedit.totalap": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pets.dialogs.addedit.protection": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pets.dialogs.addedit.attackname": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pets.dialogs.addedit.attack": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pets.dialogs.addedit.parry": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pets.dialogs.addedit.damagepoints": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pets.dialogs.addedit.reach": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pets.dialogs.addedit.actions": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pets.dialogs.addedit.skills": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pets.dialogs.addedit.specialabilities": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pets.dialogs.addedit.notes": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pets.dialogs.addedit.addbtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "pets.dialogs.addedit.savebtn": {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         }
       },
       "required": [
@@ -3380,10 +3380,6 @@
         "pets.dialogs.addedit.savebtn"
       ],
       "additionalProperties": false
-    },
-    "NonEmptyString": {
-      "type": "string",
-      "minLength": 1
     }
   }
 }

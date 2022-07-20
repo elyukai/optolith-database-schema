@@ -30,19 +30,7 @@
         },
         "group": {
           "description": "The skill group this skill belongs to.",
-          "type": "object",
-          "properties": {
-            "id": {
-              "description": "The identifier of the skill group.",
-              "type": "integer",
-              "maximum": 5,
-              "minimum": 1
-            }
-          },
-          "required": [
-            "id"
-          ],
-          "additionalProperties": false
+          "$ref": "./_SimpleReferences.schema.json#/$defs/SkillGroupReference"
         },
         "src": {
           "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
@@ -52,60 +40,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The name of the skill.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "applications_input_label": {
-                  "description": "If there are options available that can not be put into a selection\nlist (like different cults), provide the label text for the input\nelement here. Otherwise leave empty.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "encumbrance_description": {
-                  "description": "The text listing the certain circumstances in which the encumbrance may\ncount. This text must be used if `encumbrance` is set to `\"Maybe\"`,\notherwise it is ignored if defined.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "tools": {
-                  "description": "Mentions any tools from the equipment list that are necessary to employ\nthe skill.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "quality": {
-                  "description": "Gives examples of the effects that various QL might provide.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "failed": {
-                  "description": "Lists examples of results for a failed check.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "critical": {
-                  "description": "Lists examples of results for a critical success.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "botch": {
-                  "description": "Lists examples of results for botches.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "errata": {
-                  "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "quality",
-                "failed",
-                "critical",
-                "botch"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/SkillTranslation"
             }
           },
           "minProperties": 1,
@@ -121,6 +56,54 @@
         "group",
         "src",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "SkillTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the skill.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "applications_input_label": {
+          "description": "If there are options available that can not be put into a selection\nlist (like different cults), provide the label text for the input\nelement here. Otherwise leave empty.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "encumbrance_description": {
+          "description": "The text listing the certain circumstances in which the encumbrance may\ncount. This text must be used if `encumbrance` is set to `\"Maybe\"`,\notherwise it is ignored if defined.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "tools": {
+          "description": "Mentions any tools from the equipment list that are necessary to employ\nthe skill.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        },
+        "quality": {
+          "description": "Gives examples of the effects that various QL might provide.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        },
+        "failed": {
+          "description": "Lists examples of results for a failed check.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        },
+        "critical": {
+          "description": "Lists examples of results for a critical success.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        },
+        "botch": {
+          "description": "Lists examples of results for botches.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        },
+        "errata": {
+          "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "quality",
+        "failed",
+        "critical",
+        "botch"
       ],
       "additionalProperties": false
     },
@@ -174,14 +157,13 @@
             "tag": {
               "const": "Derived"
             },
-            "category": {
-              "description": "A category. All available entries from the specified category will be\nincluded as separate applications.",
+            "derived": {
               "$ref": "#/$defs/ApplicationCategory"
             }
           },
           "required": [
             "tag",
-            "category"
+            "derived"
           ],
           "additionalProperties": false
         },
@@ -191,21 +173,24 @@
             "tag": {
               "const": "Explicit"
             },
-            "list": {
-              "description": "A list of explicit applications.",
-              "type": "array",
-              "items": {
-                "$ref": "#/$defs/Application"
-              }
+            "explicit": {
+              "$ref": "#/$defs/SpecificApplications"
             }
           },
           "required": [
             "tag",
-            "list"
+            "explicit"
           ],
           "additionalProperties": false
         }
       ]
+    },
+    "SpecificApplications": {
+      "description": "A list of explicit applications.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Application"
+      }
     },
     "Application": {
       "description": "An explicit skill application.",
@@ -221,18 +206,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The skill application's name.",
-                  "type": "string",
-                  "minLength": 1
-                }
-              },
-              "required": [
-                "name"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/ApplicationTranslation"
             }
           },
           "minProperties": 1,
@@ -242,6 +216,19 @@
       "required": [
         "id",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "ApplicationTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The skill application's name.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "name"
       ],
       "additionalProperties": false
     },

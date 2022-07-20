@@ -31,15 +31,20 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="EyeColor/translations[key]"></a> `EyeColor/translations[key]`
 
+- **Type:** <a href="#EyeColorTranslation">EyeColorTranslation</a>
+
+---
+
+### <a name="EyeColorTranslation"></a> `EyeColorTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The eye color. | <a href="#EyeColor/translations[key]/name">See details</a>
+`name` | The eye color. | <a href="#EyeColorTranslation/name">See details</a>
 
-#### <a name="EyeColor/translations[key]/name"></a> `name`
+#### <a name="EyeColorTranslation/name"></a> `name`
 
 The eye color.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

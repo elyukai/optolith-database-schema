@@ -3,6 +3,8 @@
  */
 
 import { validateSchemaCreator } from "../validation/schema.js"
+import { LocaleMap } from "./_LocaleMap.js"
+import { NonEmptyString } from "./_NonEmptyString.js"
 
 /**
  * @title Animal Type
@@ -19,18 +21,14 @@ export type AnimalType = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The animal type name.
-       * @minLength 1
-       */
-      name: string
-    }
-  }
+  translations: LocaleMap<AnimalTypeTranslation>
+}
+
+export type AnimalTypeTranslation = {
+  /**
+   * The animal type name.
+   */
+  name: NonEmptyString
 }
 
 export const validateSchema = validateSchemaCreator<AnimalType>(import.meta.url)

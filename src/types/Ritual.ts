@@ -5,11 +5,16 @@
 import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
-import { Effect, SlowPerformanceParameters, TargetCategory } from "./_ActivatableSkill.js"
+import { SlowPerformanceParameters } from "./_ActivatableSkill.js"
+import { Effect } from "./_ActivatableSkillEffect.js"
+import { TargetCategory } from "./_ActivatableSkillTargetCategory.js"
 import { Enhancements } from "./_Enhancements.js"
 import { ImprovementCost } from "./_ImprovementCost.js"
+import { LocaleMap } from "./_LocaleMap.js"
 import { SpellworkPrerequisites } from "./_Prerequisite.js"
+import { PropertyReference } from "./_SimpleReferences.js"
 import { SkillCheck, SkillCheckPenalty } from "./_SkillCheck.js"
+import { Traditions } from "./_Spellwork.js"
 
 /**
  * @title Ritual
@@ -40,51 +45,19 @@ export type Ritual = {
   /**
    * The target category – the kind of creature or object – the skill affects.
    */
-  target: TargetCategory.T
+  target: TargetCategory
 
   /**
    * The associated property.
    */
-  property: {
-    /**
-     * The property's identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-  }
+  property: PropertyReference
 
   /**
    * The tradition(s) the ritual is available for. It may be *generally*
    * available to all traditions or it may be only familiar in specific
    * traditions.
    */
-  traditions:
-    | { tag: "General" }
-    | {
-      tag: "Specific"
-
-      /**
-       * A list of specific traditions.
-       * @minItems 1
-       */
-      list: {
-        /**
-         * The magical tradition's identifier. If `is_placeholder` is `true`
-         * then this is the magical tradition's placeholder identifier
-         * instead.
-         * @integer
-         * @minimum 1
-         */
-        id: number
-
-        /**
-         * If set to `true`, the tradition is not available as a special ability
-         * yet.
-         */
-        is_placeholder?: true
-      }[]
-    }
+  traditions: Traditions
 
   /**
    * States which column is used to improve the skill.
@@ -99,54 +72,51 @@ export type Ritual = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the ritual.
-       * @minLength 1
-       */
-      name: string
-
-      /**
-       * The effect description may be either a plain text or a text that is
-       * divided by a list of effects for each quality level. It may also be a
-       * list for each two quality levels.
-       */
-      effect: Effect.T
-
-      /**
-       * @deprecated
-       */
-      casting_time: { full: string; abbr: string }
-
-      /**
-       * @deprecated
-       */
-      cost: { full: string; abbr: string }
-
-      /**
-       * @deprecated
-       */
-      range: { full: string; abbr: string }
-
-      /**
-       * @deprecated
-       */
-      duration: { full: string; abbr: string }
-
-      /**
-       * @deprecated
-       */
-      target: string
-
-      errata?: Errata
-    }
-  }
+  translations: LocaleMap<RitualTranslation>
 
   enhancements?: Enhancements
+}
+
+export type RitualTranslation = {
+  /**
+   * The name of the ritual.
+   * @minLength 1
+   */
+  name: string
+
+  /**
+   * The effect description may be either a plain text or a text that is
+   * divided by a list of effects for each quality level. It may also be a
+   * list for each two quality levels.
+   */
+  effect: Effect
+
+  /**
+   * @deprecated
+   */
+  casting_time: { full: string; abbr: string }
+
+  /**
+   * @deprecated
+   */
+  cost: { full: string; abbr: string }
+
+  /**
+   * @deprecated
+   */
+  range: { full: string; abbr: string }
+
+  /**
+   * @deprecated
+   */
+  duration: { full: string; abbr: string }
+
+  /**
+   * @deprecated
+   */
+  target: string
+
+  errata?: Errata
 }
 
 export const validateSchema = validateSchemaCreator<Ritual>(import.meta.url)

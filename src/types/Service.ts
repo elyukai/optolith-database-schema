@@ -5,6 +5,8 @@
 import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
+import { LocaleMap } from "./_LocaleMap.js"
+import { NonEmptyMarkdown, NonEmptyString } from "./_NonEmptyString.js"
 
 /**
  * @title Service of Summoned Creatures and Monstrosities
@@ -22,10 +24,7 @@ export type Service = {
    * @minItems 1
    * @uniqueItems
    */
-  availability: (
-    | { tag: "SummonedCreatures" }
-    | { tag: "Monstrosities" }
-  )[]
+  availability: ServiceAvailability[]
 
   src: PublicationRefs
 
@@ -33,27 +32,25 @@ export type Service = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the service.
-       * @minLength 1
-       */
-      name: string
+  translations: LocaleMap<ServiceTranslation>
+}
 
-      /**
-       * The description of the service.
-       * @markdown
-       * @minLength 1
-       */
-      description: string
+export type ServiceAvailability =
+  | { tag: "SummonedCreatures" }
+  | { tag: "Monstrosities" }
 
-      errata?: Errata
-    }
-  }
+export type ServiceTranslation = {
+  /**
+   * The name of the service.
+   */
+  name: NonEmptyString
+
+  /**
+   * The description of the service.
+   */
+  description: NonEmptyMarkdown
+
+  errata?: Errata
 }
 
 export const validateSchema = validateSchemaCreator<Service>(import.meta.url)

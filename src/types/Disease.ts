@@ -4,7 +4,7 @@
 
 import { validateSchemaCreator } from "../validation/schema.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
-import { Cause, DiseaseTranslation, Resistance } from "./_Disease.js"
+import { Cause, DiseaseTranslation, Resistance } from "./_DiseasePoison.js"
 import { LocaleMap } from "./_LocaleMap.js"
 
 /**

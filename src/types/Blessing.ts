@@ -5,7 +5,10 @@
 import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
-import { Duration, TargetCategory } from "./_ActivatableSkill.js"
+import { DurationUnit } from "./_ActivatableSkillDuration.js"
+import { FixedRange } from "./_ActivatableSkillRange.js"
+import { TargetCategory } from "./_ActivatableSkillTargetCategory.js"
+import { LocaleMap } from "./_LocaleMap.js"
 
 /**
  * @title Blessing
@@ -21,12 +24,12 @@ export type Blessing = {
   /**
    * Measurable parameters of a blessing.
    */
-  parameters: PerformanceParameters
+  parameters: BlessingPerformanceParameters
 
   /**
    * The target category – the kind of creature or object – the skill affects.
    */
-  target: TargetCategory.T
+  target: TargetCategory
 
   src: PublicationRefs
 
@@ -34,99 +37,87 @@ export type Blessing = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the blessing.
-       * @minLength 1
-       */
-      name: string
+  translations: LocaleMap<BlessingTranslation>
+}
 
-      /**
-       * The effect description.
-       * @markdown
-       * @minLength 1
-       */
-      effect: string
+export type BlessingTranslation = {
+  /**
+   * The name of the blessing.
+   * @minLength 1
+   */
+  name: string
 
-      /**
-       * @deprecated
-       */
-      range: string
+  /**
+   * The effect description.
+   * @markdown
+   * @minLength 1
+   */
+  effect: string
 
-      /**
-       * @deprecated
-       */
-      duration: string
+  /**
+   * @deprecated
+   */
+  range: string
 
-      /**
-       * @deprecated
-       */
-      target: string
+  /**
+   * @deprecated
+   */
+  duration: string
 
-      errata?: Errata
-    }
-  }
+  /**
+   * @deprecated
+   */
+  target: string
+
+  errata?: Errata
 }
 
 /**
  * Measurable parameters of a blessing.
  */
-type PerformanceParameters = {
-  range:
-    | { tag: "Self" }
-    | { tag: "Touch" }
-    | {
-      tag: "Fixed"
+export type BlessingPerformanceParameters = {
+  range: BlessingRange
+  duration: BlessingDuration
+}
 
-      /**
-       * The range in steps/m.
-       * @integer
-       * @minimum 1
-       */
-      value: number
-    }
+export type BlessingRange =
+  | { tag: "Self" }
+  | { tag: "Touch" }
+  | { tag: "Fixed"; fixed: FixedRange }
 
-  duration:
-    | { tag: "Immediate" }
-    | {
-      tag: "Fixed"
+export type BlessingDuration =
+  | { tag: "Immediate" }
+  | { tag: "Fixed"; fixed: FixedBlessingDuration }
+  | { tag: "Indefinite"; indefinite: IndefiniteBlessingDuration }
 
-      /**
-       * The (unitless) duration.
-       * @integer
-       * @minimum 1
-       */
-      value: number
+export type FixedBlessingDuration = {
+  /**
+   * The (unitless) duration.
+   * @integer
+   * @minimum 1
+   */
+  value: number
 
-      /**
-       * The duration unit.
-       */
-      unit: Duration.Unit
-    }
-    | {
-      tag: "Indefinite"
+  /**
+   * The duration unit.
+   */
+  unit: DurationUnit
+}
 
-      /**
-       * All translations for the entry, identified by IETF language tag (BCP47).
-       * @minProperties 1
-       */
-      translations: {
-        /**
-         * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-         */
-        [localeId: string]: {
-          /**
-           * A description of the duration.
-           * @minLength 1
-           */
-          description: string
-        }
-      }
-    }
+export type IndefiniteBlessingDuration = {
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   * @minProperties 1
+   */
+  translations: LocaleMap<IndefiniteDurationTranslation>
+}
+
+export type IndefiniteDurationTranslation = {
+  /**
+   * A description of the duration.
+   * @minLength 1
+   */
+  description: string
 }
 
 export const validateSchema = validateSchemaCreator<Blessing>(import.meta.url)

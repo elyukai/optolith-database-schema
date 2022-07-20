@@ -54,7 +54,7 @@ States which column is used to improve the skill.
 
 The skill group this skill belongs to.
 
-- **Type:** <a href="#Skill/group">Object</a>
+- **Type:** <a href="./_SimpleReferences.md#SkillGroupReference">SkillGroupReference</a>
 
 #### <a name="Skill/src"></a> `src`
 
@@ -71,104 +71,82 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="Skill/group"></a> `Skill/group`
+### <a name="Skill/translations[key]"></a> `Skill/translations[key]`
 
-The skill group this skill belongs to.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The identifier of the skill group. | <a href="#Skill/group/id">See details</a>
-
-#### <a name="Skill/group/id"></a> `id`
-
-The identifier of the skill group.
-
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `5`
+- **Type:** <a href="#SkillTranslation">SkillTranslation</a>
 
 ---
 
-### <a name="Skill/translations[key]"></a> `Skill/translations[key]`
+### <a name="SkillTranslation"></a> `SkillTranslation`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the skill. | <a href="#Skill/translations[key]/name">See details</a>
-`applications_input_label?` | If there are options available that can not be put into a selection list (like different cults), provide the label text for the input element here. Otherwise leave empty. | <a href="#Skill/translations[key]/applications_input_label">See details</a>
-`encumbrance_description?` | The text listing the certain circumstances in which the encumbrance may count. This text must be used if `encumbrance` is set to `"Maybe"`, otherwise it is ignored if defined. | <a href="#Skill/translations[key]/encumbrance_description">See details</a>
-`tools?` | Mentions any tools from the equipment list that are necessary to employ the skill. | <a href="#Skill/translations[key]/tools">See details</a>
-`quality` | Gives examples of the effects that various QL might provide. | <a href="#Skill/translations[key]/quality">See details</a>
-`failed` | Lists examples of results for a failed check. | <a href="#Skill/translations[key]/failed">See details</a>
-`critical` | Lists examples of results for a critical success. | <a href="#Skill/translations[key]/critical">See details</a>
-`botch` | Lists examples of results for botches. | <a href="#Skill/translations[key]/botch">See details</a>
-`errata?` |  | <a href="#Skill/translations[key]/errata">See details</a>
+`name` | The name of the skill. | <a href="#SkillTranslation/name">See details</a>
+`applications_input_label?` | If there are options available that can not be put into a selection list (like different cults), provide the label text for the input element here. Otherwise leave empty. | <a href="#SkillTranslation/applications_input_label">See details</a>
+`encumbrance_description?` | The text listing the certain circumstances in which the encumbrance may count. This text must be used if `encumbrance` is set to `"Maybe"`, otherwise it is ignored if defined. | <a href="#SkillTranslation/encumbrance_description">See details</a>
+`tools?` | Mentions any tools from the equipment list that are necessary to employ the skill. | <a href="#SkillTranslation/tools">See details</a>
+`quality` | Gives examples of the effects that various QL might provide. | <a href="#SkillTranslation/quality">See details</a>
+`failed` | Lists examples of results for a failed check. | <a href="#SkillTranslation/failed">See details</a>
+`critical` | Lists examples of results for a critical success. | <a href="#SkillTranslation/critical">See details</a>
+`botch` | Lists examples of results for botches. | <a href="#SkillTranslation/botch">See details</a>
+`errata?` |  | <a href="#SkillTranslation/errata">See details</a>
 
-#### <a name="Skill/translations[key]/name"></a> `name`
+#### <a name="SkillTranslation/name"></a> `name`
 
 The name of the skill.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Skill/translations[key]/applications_input_label"></a> `applications_input_label?`
+#### <a name="SkillTranslation/applications_input_label"></a> `applications_input_label?`
 
 If there are options available that can not be put into a selection
 list (like different cults), provide the label text for the input
 element here. Otherwise leave empty.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Skill/translations[key]/encumbrance_description"></a> `encumbrance_description?`
+#### <a name="SkillTranslation/encumbrance_description"></a> `encumbrance_description?`
 
 The text listing the certain circumstances in which the encumbrance may
 count. This text must be used if `encumbrance` is set to `"Maybe"`,
 otherwise it is ignored if defined.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Skill/translations[key]/tools"></a> `tools?`
+#### <a name="SkillTranslation/tools"></a> `tools?`
 
 Mentions any tools from the equipment list that are necessary to employ
 the skill.
 
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
-#### <a name="Skill/translations[key]/quality"></a> `quality`
+#### <a name="SkillTranslation/quality"></a> `quality`
 
 Gives examples of the effects that various QL might provide.
 
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
-#### <a name="Skill/translations[key]/failed"></a> `failed`
+#### <a name="SkillTranslation/failed"></a> `failed`
 
 Lists examples of results for a failed check.
 
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
-#### <a name="Skill/translations[key]/critical"></a> `critical`
+#### <a name="SkillTranslation/critical"></a> `critical`
 
 Lists examples of results for a critical success.
 
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
-#### <a name="Skill/translations[key]/botch"></a> `botch`
+#### <a name="SkillTranslation/botch"></a> `botch`
 
 Lists examples of results for botches.
 
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
-#### <a name="Skill/translations[key]/errata"></a> `errata?`
+#### <a name="SkillTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
 
@@ -242,16 +220,13 @@ The skill's applications.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#Applications'Derived/tag">See details</a>
-`category` | A category. All available entries from the specified category will be included as separate applications. | <a href="#Applications'Derived/category">See details</a>
+`derived` |  | <a href="#Applications'Derived/derived">See details</a>
 
 #### <a name="Applications'Derived/tag"></a> `tag`
 
 - **Constant:** `"Derived"`
 
-#### <a name="Applications'Derived/category"></a> `category`
-
-A category. All available entries from the specified category will be
-included as separate applications.
+#### <a name="Applications'Derived/derived"></a> `derived`
 
 - **Type:** <a href="#ApplicationCategory">ApplicationCategory</a>
 
@@ -264,22 +239,28 @@ included as separate applications.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#Applications'Explicit/tag">See details</a>
-`list` | A list of explicit applications. | <a href="#Applications'Explicit/list">See details</a>
+`explicit` |  | <a href="#Applications'Explicit/explicit">See details</a>
 
 #### <a name="Applications'Explicit/tag"></a> `tag`
 
 - **Constant:** `"Explicit"`
 
-#### <a name="Applications'Explicit/list"></a> `list`
+#### <a name="Applications'Explicit/explicit"></a> `explicit`
+
+- **Type:** <a href="#SpecificApplications">SpecificApplications</a>
+
+---
+
+### <a name="SpecificApplications"></a> `SpecificApplications`
 
 A list of explicit applications.
 
 - **Type:** List
-- **Items:** <a href="#Applications'Explicit/list[]">Applications'Explicit/list[]</a>
+- **Items:** <a href="#SpecificApplications[]">SpecificApplications[]</a>
 
 ---
 
-### <a name="Applications'Explicit/list[]"></a> `Applications'Explicit/list[]`
+### <a name="SpecificApplications[]"></a> `SpecificApplications[]`
 
 - **Type:** <a href="#Application">Application</a>
 
@@ -316,18 +297,23 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Application/translations[key]"></a> `Application/translations[key]`
 
+- **Type:** <a href="#ApplicationTranslation">ApplicationTranslation</a>
+
+---
+
+### <a name="ApplicationTranslation"></a> `ApplicationTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The skill application's name. | <a href="#Application/translations[key]/name">See details</a>
+`name` | The skill application's name. | <a href="#ApplicationTranslation/name">See details</a>
 
-#### <a name="Application/translations[key]/name"></a> `name`
+#### <a name="ApplicationTranslation/name"></a> `name`
 
 The skill application's name.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 ---
 

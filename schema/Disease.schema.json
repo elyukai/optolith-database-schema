@@ -19,13 +19,13 @@
         },
         "resistance": {
           "description": "Depending on the disease, apply Spirit or Toughness as a penalty to the\ndisease roll. It may also happen that the lower of both is applied as a\npenalty.",
-          "$ref": "./_Disease.schema.json#/$defs/Resistance"
+          "$ref": "./_DiseasePoison.schema.json#/$defs/Resistance"
         },
         "cause": {
           "description": "What causes the disease? The GM rolls 1D20 to see if a character gets\ninfected. If the infection check succeeds, the GM makes a disease check to\ndetermine the severity of the infection.",
           "type": "array",
           "items": {
-            "$ref": "./_Disease.schema.json#/$defs/Cause"
+            "$ref": "./_DiseasePoison.schema.json#/$defs/Cause"
           },
           "minItems": 1
         },
@@ -37,7 +37,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "$ref": "./_Disease.schema.json#/$defs/DiseaseTranslation"
+              "$ref": "./_DiseasePoison.schema.json#/$defs/DiseaseTranslation"
             }
           },
           "minProperties": 1,

@@ -52,4 +52,4 @@ Region in which the language is spoken in it's language.
 The language is not (fully) implemented and thus needs to be excluded from
 stable releases.
 
-- **Type:** Boolean
+- **Constant:** `true`

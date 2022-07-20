@@ -14,8 +14,8 @@ Key | Description | Details
 `maximum?` |  | <a href="#Disadvantage/maximum">See details</a>
 `prerequisites?` |  | <a href="#Disadvantage/prerequisites">See details</a>
 `ap_value` |  | <a href="#Disadvantage/ap_value">See details</a>
-`has_no_maximum_spent_influence?` | Does this disadvantage not count towards the maximum of AP to be granted by disadvantages? | <a href="#Disadvantage/has_no_maximum_spent_influence">See details</a>
-`is_exclusive_to_arcane_spellworks?` | Does this disadvantage exclusively applies to arcane spellworks but not to magical actions and applications? | <a href="#Disadvantage/is_exclusive_to_arcane_spellworks">See details</a>
+`has_maximum_spent_influence` | Does this disadvantage count towards the maximum of AP to be spent on disadvantages? | <a href="#Disadvantage/has_maximum_spent_influence">See details</a>
+`is_exclusive_to_arcane_spellworks` | Does this disadvantage exclusively applies to arcane spellworks and not to magical actions and magical applications? | <a href="#Disadvantage/is_exclusive_to_arcane_spellworks">See details</a>
 `src` |  | <a href="#Disadvantage/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Disadvantage/translations">See details</a>
 
@@ -43,19 +43,19 @@ Key | Description | Details
 
 - **Type:** <a href="./_Activatable.md#AdventurePointsValueAdvantagesDisadvantages">AdventurePointsValueAdvantagesDisadvantages</a>
 
-#### <a name="Disadvantage/has_no_maximum_spent_influence"></a> `has_no_maximum_spent_influence?`
+#### <a name="Disadvantage/has_maximum_spent_influence"></a> `has_maximum_spent_influence`
 
-Does this disadvantage not count towards the maximum of AP to be granted by
+Does this disadvantage count towards the maximum of AP to be spent on
 disadvantages?
 
-- **Constant:** `true`
+- **Type:** Boolean
 
-#### <a name="Disadvantage/is_exclusive_to_arcane_spellworks"></a> `is_exclusive_to_arcane_spellworks?`
+#### <a name="Disadvantage/is_exclusive_to_arcane_spellworks"></a> `is_exclusive_to_arcane_spellworks`
 
-Does this disadvantage exclusively applies to arcane spellworks but not
-to magical actions and applications?
+Does this disadvantage exclusively applies to arcane spellworks and not
+to magical actions and magical applications?
 
-- **Constant:** `true`
+- **Type:** Boolean
 
 #### <a name="Disadvantage/src"></a> `src`
 
@@ -74,35 +74,41 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Disadvantage/translations[key]"></a> `Disadvantage/translations[key]`
 
+- **Type:** <a href="#DisadvantageTranslation">DisadvantageTranslation</a>
+
+---
+
+### <a name="DisadvantageTranslation"></a> `DisadvantageTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#Disadvantage/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#Disadvantage/translations[key]/name_in_library">See details</a>
-`rules` |  | <a href="#Disadvantage/translations[key]/rules">See details</a>
-`range?` | The range. | <a href="#Disadvantage/translations[key]/range">See details</a>
-`errata?` |  | <a href="#Disadvantage/translations[key]/errata">See details</a>
+`name` |  | <a href="#DisadvantageTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#DisadvantageTranslation/name_in_library">See details</a>
+`rules` |  | <a href="#DisadvantageTranslation/rules">See details</a>
+`range?` | The range. | <a href="#DisadvantageTranslation/range">See details</a>
+`errata?` |  | <a href="#DisadvantageTranslation/errata">See details</a>
 
-#### <a name="Disadvantage/translations[key]/name"></a> `name`
+#### <a name="DisadvantageTranslation/name"></a> `name`
 
 - **Type:** <a href="./_Activatable.md#Name">Name</a>
 
-#### <a name="Disadvantage/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="DisadvantageTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="./_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="Disadvantage/translations[key]/rules"></a> `rules`
+#### <a name="DisadvantageTranslation/rules"></a> `rules`
 
 - **Type:** <a href="./_Activatable.md#Rules">Rules</a>
 
-#### <a name="Disadvantage/translations[key]/range"></a> `range?`
+#### <a name="DisadvantageTranslation/range"></a> `range?`
 
 The range.
 
 - **Type:** Markdown-formatted text
 - **Minimum Length:** `1`
 
-#### <a name="Disadvantage/translations[key]/errata"></a> `errata?`
+#### <a name="DisadvantageTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>

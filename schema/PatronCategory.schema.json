@@ -16,18 +16,7 @@
           "description": "The list of cultures where patrons from this category can be the primary\npatron of.",
           "type": "array",
           "items": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "The culture's identifier.",
-                "type": "integer",
-                "minimum": 1
-              }
-            },
-            "required": [
-              "id"
-            ],
-            "additionalProperties": false
+            "$ref": "./_SimpleReferences.schema.json#/$defs/CultureReference"
           },
           "minItems": 1,
           "uniqueItems": true
@@ -37,18 +26,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The name of the patron category.",
-                  "type": "string",
-                  "minLength": 1
-                }
-              },
-              "required": [
-                "name"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/PatronCategoryTranslation"
             }
           },
           "minProperties": 1,
@@ -59,6 +37,19 @@
         "id",
         "primary_patron_cultures",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "PatronCategoryTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the patron category.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "name"
       ],
       "additionalProperties": false
     }

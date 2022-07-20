@@ -7,7 +7,10 @@ import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
 import { CombatTechniqueIdentifier, LiturgyIdentifier, MagicalActionIdentifier, RequirableSelectOptionIdentifier, SpecialAbilityIdentifier, SpellworkIdentifier } from "./_Identifier.js"
+import { LocaleMap } from "./_LocaleMap.js"
+import { NonEmptyString } from "./_NonEmptyString.js"
 import { ProfessionPrerequisites } from "./_Prerequisite.js"
+import { CantripReference, CombatTechniqueReference, CurriculumReference, SkillGroupReference, SkillReference } from "./_SimpleReferences.js"
 
 /**
  * @title Profession
@@ -23,19 +26,7 @@ export type Profession = {
   /**
    * The profession group.
    */
-  group: Group
-
-  /**
-   * The curriculum/academy associated with this magical profession, if any.
-   */
-  curriculum?: {
-    /**
-     * The curriculum's identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-  }
+  group: ProfessionGroup
 
   /**
    * A list of professions representing the same profession but with (slightly)
@@ -51,56 +42,76 @@ export type Profession = {
    * stats package, which targets the experience level *Experienced*.
    * @minItems 1
    */
-  representations: (
-    | {
-      tag: "Experienced"
+  packages: ProfessionPackage[]
+}
 
-      /**
-       * The profession representation variant's identifier. An unique, increasing
-       * integer.
-       * @integer
-       * @minimum 1
-       */
-      id: number
+export type ProfessionGroup =
+  | { tag: "Mundane"; mundane: MundaneProfessionGroup }
+  | { tag: "Magical"; magical: MagicalProfessionGroup }
+  | { tag: "Blessed" }
 
-      package: ProfessionRepresentationVariant
+export type MundaneProfessionGroup =
+  | { tag: "Profane" }
+  | { tag: "Fighter" }
+  | { tag: "Religious" }
 
-      src: PublicationRefs
-    }
-    | {
-      tag: "ByExperienceLevel"
+export type MagicalProfessionGroup = {
+  /**
+   * The curriculum/academy associated with this magical profession, if any.
+   */
+  curriculum?: CurriculumReference
+}
 
-      /**
-       * The profession representation variant's identifier. An unique, increasing
-       * integer.
-       * @integer
-       * @minimum 1
-       */
-      id: number
+export type ProfessionPackage =
+  | { tag: "Experienced"; experienced: ExperiencedProfessionPackage }
+  | { tag: "ByExperienceLevel"; by_experience_level: ProfessionPackagesForDifferentExperienceLevels }
 
-      packages: {
-        /**
-         * The experience level this profession targets. The experience level
-         * must be unique for this representation.
-         * @integer
-         * @minimum 1
-         * @maximum 7
-         * @default 3
-         */
-        experience_level_id: number
+export type ExperiencedProfessionPackage = {
+  /**
+   * The profession representation variant's identifier. An unique, increasing
+   * integer.
+   * @integer
+   * @minimum 1
+   */
+  id: number
 
-        package: ProfessionRepresentationVariant
-      }[]
+  values: ProfessionPackageValues
 
-      src: PublicationRefs
-    }
-  )[]
+  src: PublicationRefs
+}
+
+export type ProfessionPackagesForDifferentExperienceLevels = {
+  /**
+   * The profession representation variant's identifier. An unique, increasing
+   * integer.
+   * @integer
+   * @minimum 1
+   */
+  id: number
+
+  values_map: ExperienceLevelDynamicProfessionPackage[]
+
+  src: PublicationRefs
+}
+
+export type ExperienceLevelDynamicProfessionPackage = {
+  /**
+   * The experience level this profession targets. The experience level
+   * must be unique for this representation.
+   * @integer
+   * @minimum 1
+   * @maximum 7
+   * @default 3
+   */
+  experience_level_id: number
+
+  values: ProfessionPackageValues
 }
 
 /**
  * @title Profession Representation Variant
  */
-export type ProfessionRepresentationVariant = {
+export type ProfessionPackageValues = {
   /**
    * What does the professional package cost in adventure points?
    * @integer
@@ -116,17 +127,10 @@ export type ProfessionRepresentationVariant = {
   prerequisites?: ProfessionPrerequisites
 
   /**
-   * @minProperties 1
+   * In some areas, the profession package grants a loose set of stats where the
+   * player must choose between different options for the profession package.
    */
-  options?: {
-    skill_specialization?: SkillSpecializationOptions
-    languages_scripts?: LanguagesScriptsOptions
-    combat_techniques?: CombatTechniquesOptions
-    cantrips?: CantripsOptions
-    curses?: CursesOptions
-    terrain_knowledge?: TerrainKnowledgeOptions
-    skills?: SkillsOptions
-  }
+  options?: ProfessionPackageOptions
 
   /**
    * Any special abilities the profession receives from the package.
@@ -137,25 +141,25 @@ export type ProfessionRepresentationVariant = {
    * Provides ratings for the combat techniques that the hero receives from the
    * package.
    */
-  combat_techniques?: CombatTechnique[]
+  combat_techniques?: CombatTechniqueRating[]
 
   /**
    * The skill ratings the package grants to the hero.
    */
-  skills?: Skill[]
+  skills?: SkillRating[]
 
   /**
    * The skill ratings a magical profession receives for spells; these spells
    * are considered activated. Spells from an unfamiliar Tradition, if any, are
    * identified as such.
    */
-  spells?: Spell[]
+  spells?: SpellRating[]
 
   /**
    * Clerical professions receive these liturgical chants at the listed skill
    * ratings. These liturgical chants are considered activated.
    */
-  liturgical_chants?: LiturgicalChant[]
+  liturgical_chants?: LiturgicalChantRating[]
 
   /**
    * Typical advantages for the profession.
@@ -190,79 +194,77 @@ export type ProfessionRepresentationVariant = {
    * a variant is optional, but there are some rare exceptions where picking a
    * variant is required.
    */
-  variants?:
-    | {
-      tag: "Required"
-
-      /**
-       * @minItems 2
-       */
-      list: ProfessionVariant[]
-    }
-    | {
-      tag: "Optional"
-
-      /**
-       * @minItems 1
-       */
-      list: ProfessionVariant[]
-    }
+  variants?: ProfessionVariants
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * Name of the basic profession.
-       */
-      name: Name
+  translations: LocaleMap<ProfessionTranslation>
+}
 
-      /**
-       * A name addition of the profession. This will contain texts like name of
-       * the academy or the witch circle. It is enclosed in parenthesis.
-       */
-      specification?: Name
+export type ProfessionTranslation = {
+  /**
+   * Name of the basic profession.
+   */
+  name: ProfessionName
 
-      /**
-       * Typical advantages for the profession.
-       * @minLength 1
-       */
-      suggested_advantages?: string
+  /**
+   * A name addition of the profession. This will contain texts like name of
+   * the academy or the witch circle. It is enclosed in parenthesis, but the
+   * database entry must not contain parenthesis.
+   */
+  specification?: ProfessionName
 
-      /**
-       * Typical disadvantages for the profession.
-       * @minLength 1
-       */
-      suggested_disadvantages?: string
+  /**
+   * Typical advantages for the profession.
+   */
+  suggested_advantages?: NonEmptyString
 
-      /**
-       * These advantages do not fit well with this profession; to be checked with
-       * the GM before taking any of them.
-       * @minLength 1
-       */
-      unsuitable_advantages?: string
+  /**
+   * Typical disadvantages for the profession.
+   */
+  suggested_disadvantages?: NonEmptyString
 
-      /**
-       * These disadvantages do not fit well with this profession; to be checked
-       * with the GM before taking any of them.
-       * @minLength 1
-       */
-      unsuitable_disadvantages?: string
+  /**
+   * These advantages do not fit well with this profession; to be checked with
+   * the GM before taking any of them.
+   */
+  unsuitable_advantages?: NonEmptyString
 
-      errata?: Errata
-    }
-  }
+  /**
+   * These disadvantages do not fit well with this profession; to be checked
+   * with the GM before taking any of them.
+   */
+  unsuitable_disadvantages?: NonEmptyString
+
+  errata?: Errata
+}
+
+/**
+ * Provides examples of variants for the profession, which may include changes
+ * to AP values and additional or modified skill ratings, special abilities, or
+ * combat techniques, as compared to the basic profession. Usually picking a
+ * variant is optional, but there are some rare exceptions where picking a
+ * variant is required.
+ */
+export type ProfessionVariants = {
+  /**
+   * If the selection of a profession variant is required.
+   */
+  is_selection_required: boolean
+
+  /**
+   * The list of profession variants.
+   * @minItems 1
+   */
+  list: ProfessionVariant[]
 }
 
 /**
  * @title Profession Variant
  */
-type ProfessionVariant = {
+export type ProfessionVariant = {
   /**
    * The profession variant's identifier. An unique, increasing integer.
    * @integer
@@ -286,15 +288,7 @@ type ProfessionVariant = {
   /**
    * @minProperties 1
    */
-  options?: {
-    skill_specialization?: VariantOptionAction<SkillSpecializationOptions>
-    languages_scripts?: VariantOptionAction<LanguagesScriptsOptions>
-    combat_techniques?: VariantOptionAction<CombatTechniquesOptions>
-    cantrips?: VariantOptionAction<CantripsOptions>
-    curses?: VariantOptionAction<CursesOptions>
-    terrain_knowledge?: VariantOptionAction<TerrainKnowledgeOptions>
-    skills?: VariantOptionAction<SkillsOptions>
-  }
+  options?: ProfessionVariantPackageOptions
 
   /**
    * Any special abilities the profession receives from the package variant.
@@ -305,187 +299,115 @@ type ProfessionVariant = {
    * Provides ratings for the combat techniques that the hero receives from the
    * package variant.
    */
-  combat_techniques?: VariantCombatTechnique[]
+  combat_techniques?: CombatTechniqueRating[]
 
   /**
    * The skill ratings the package variant grants to the hero.
    */
-  skills?: VariantSkill[]
+  skills?: SkillRating[]
 
   /**
    * The skill ratings a magical profession variant receives for spells; these
    * spells are considered activated. Spells from an unfamiliar Tradition, if
    * any, are identified as such.
    */
-  spells?: VariantSpell[]
+  spells?: SpellRating[]
 
   /**
    * Clerical professions receive these liturgical chants at the listed skill
    * ratings. These liturgical chants are considered activated.
    */
-  liturgical_chants?: VariantLiturgicalChant[]
+  liturgical_chants?: LiturgicalChantRating[]
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * Name of the profession variant.
-       */
-      name: Name
-    }
-  }
+  translations: LocaleMap<ProfessionVariantTranslation>
 }
 
-type SpecialAbility =
-  | {
-    tag: "Fixed"
+export type ProfessionVariantTranslation = {
+  /**
+   * Name of the profession variant.
+   */
+  name: ProfessionName
+}
 
-    /**
-     * The identifier of the combat technique to provide the rating for.
-     */
-    id: SpecialAbilityIdentifier
+export type SpecialAbility =
+  | { tag: "Fixed"; fixed: FixedSpecialAbility }
+  | { tag: "Selection"; selection: SpecialAbilitySelection }
 
-    /**
-     * The level of the received special ability.
-     * @integer
-     * @minimum 1
-     */
-    level?: number
+export type FixedSpecialAbility = SpecialAbilityDefinition
 
-    /**
-     * Received select options. Order is important. Typically, you only need the
-     * first array index, though.
-     * @minItems 1
-     */
-    options?: RequirableSelectOptionIdentifier[]
-  }
-  | {
-    tag: "Selection"
+export type SpecialAbilitySelection = {
+  /**
+   * @minItems 2
+   */
+  options: SpecialAbilityDefinition[]
+}
 
-    /**
-     * @minItems 2
-     */
-    options: {
-      /**
-       * The identifier of the combat technique to provide the rating for.
-       */
-      id: SpecialAbilityIdentifier
-
-      /**
-       * The level of the received special ability.
-       * @integer
-       * @minimum 1
-       */
-      level?: number
-
-      /**
-       * Received select options. Order is important. Typically, you only need the
-       * first array index, though.
-       * @minItems 1
-       */
-      options?: RequirableSelectOptionIdentifier[]
-    }[]
-  }
-
-type VariantSpecialAbility =
-  | {
-    tag: "Fixed"
-
-    /**
-     * The identifier of the combat technique to provide the rating for.
-     */
-    id: SpecialAbilityIdentifier
-
-    /**
-     * if set to `false`, if the entry is granted by the basic package, it is
-     * removed.
-     */
-    active?: false
-
-    /**
-     * The level of the received special ability.
-     * @integer
-     * @minimum 1
-     */
-    level?: number
-
-    /**
-     * Received select options. Order is important. Typically, you only need the
-     * first array index, though.
-     * @minItems 1
-     */
-    options?: RequirableSelectOptionIdentifier[]
-  }
-  | {
-    tag: "Selection"
-
-    /**
-     * if set to `false`, if the selection is granted by the basic package, it
-     * is removed.
-     */
-    active?: false
-
-    /**
-     * @minItems 2
-     */
-    options: {
-      /**
-       * The identifier of the combat technique to provide the rating for.
-       */
-      id: SpecialAbilityIdentifier
-
-      /**
-       * The level of the received special ability.
-       * @integer
-       * @minimum 1
-       */
-      level?: number
-
-      /**
-       * Received select options. Order is important. Typically, you only need the
-       * first array index, though.
-       * @minItems 1
-       */
-      options?: RequirableSelectOptionIdentifier[]
-    }[]
-  }
-
-type CombatTechnique = {
+export type SpecialAbilityDefinition = {
   /**
    * The identifier of the combat technique to provide the rating for.
    */
-  id: CombatTechniqueIdentifier
+  id: SpecialAbilityIdentifier
 
   /**
-   * The rating provided for the combat technique.
+   * The level of the received special ability.
    * @integer
-   * @minimum 7
+   * @minimum 1
    */
-  rating: number
+  level?: number
+
+  /**
+   * Received select options. Order is important. Typically, you only need the
+   * first array index, though.
+   * @minItems 1
+   */
+  options?: RequirableSelectOptionIdentifier[]
 }
 
-type VariantCombatTechnique = {
+export type VariantSpecialAbility =
+  | { tag: "Fixed"; fixed: FixedVariantSpecialAbility }
+  | { tag: "Selection"; selection: VariantSpecialAbilitySelection }
+
+export type FixedVariantSpecialAbility = SpecialAbilityDefinition & {
+  /**
+   * if set to `false`, if the selection is granted by the basic package, it
+   * is removed.
+   */
+  active?: false
+}
+
+export type VariantSpecialAbilitySelection = {
+  /**
+   * if set to `false`, if the selection is granted by the basic package, it
+   * is removed.
+   */
+  active?: false
+
+  /**
+   * @minItems 2
+   */
+  options: SpecialAbilityDefinition[]
+}
+
+export type CombatTechniqueRating = {
   /**
    * The identifier of the combat technique to provide the rating for.
    */
   id: CombatTechniqueIdentifier
 
   /**
-   * The rating provided for the combat technique. It overrides the basic
-   * package's rating.
+   * The rating provided for the combat technique. If used in a profession
+   * variant, it overrides the basic package's rating.
    * @integer
    * @minimum 6
    */
   rating: number
 }
 
-type Skill = {
+export type SkillRating = {
   /**
    * The identifier of the skill to provide the rating for.
    * @integer
@@ -495,99 +417,33 @@ type Skill = {
   id: number
 
   /**
-   * The rating provided for the skill.
-   * @integer
-   * @minimum 1
-   */
-  rating: number
-}
-
-type VariantSkill = {
-  /**
-   * The identifier of the skill to provide the rating for.
-   * @integer
-   * @minimum 1
-   * @maximum 59
-   */
-  id: number
-
-  /**
-   * The rating provided for the skill. It overrides the basic package's rating.
+   * The rating provided for the skill. If used in a profession variant, it
+   * overrides the basic package's rating.
    * @integer
    * @minimum 0
    */
   rating: number
 }
 
-type Spell =
-  | {
-    tag: "Fixed"
+export type SpellRating = {
+  /**
+   * The identifier(s) of the spell(s) to choose from to provide the rating for.
+   * If multiple spells are provided, they must all have the same improvement
+   * cost.
+   * @minItems 1
+   */
+  id: SpellIdentifier[]
 
-    /**
-     * The identifier of the spell to provide the rating for.
-     */
-    id: SpellIdentifier
+  /**
+   * The rating provided for the (selected) spell. If used in a profession
+   * variant, it overrides the basic package's rating.
+   * @integer
+   * @minimum 0
+   */
+  rating: number
+}
 
-    /**
-     * The rating provided for the spell.
-     * @integer
-     * @minimum 1
-     */
-    rating: number
-  }
-  | {
-    tag: "Selection"
-
-    /**
-     * The identifiers of the spells to choose from to provide the rating for.
-     * @minItems 2
-     */
-    id: SpellIdentifier[]
-
-    /**
-     * The rating provided for the selected spell.
-     * @integer
-     * @minimum 1
-     */
-    rating: number
-  }
-
-type VariantSpell =
-  | {
-    tag: "Fixed"
-
-    /**
-     * The identifier of the spell to provide the rating for.
-     */
-    id: SpellIdentifier
-
-    /**
-     * The rating provided for the spell. It overrides the basic package's
-     * rating.
-     * @integer
-     * @minimum 0
-     */
-    rating: number
-  }
-  | {
-    tag: "Selection"
-
-    /**
-     * The identifiers of the spells to choose from to provide the rating for.
-     * @minItems 2
-     */
-    id: SpellIdentifier[]
-
-    /**
-     * The rating provided for the selected spell. It overrides the basic
-     * package's rating.
-     * @integer
-     * @minimum 0
-     */
-    rating: number
-  }
-
-type SpellIdentifier =
+export type SpellIdentifier =
   | {
     tag: "Spellwork"
 
@@ -606,6 +462,8 @@ type SpellIdentifier =
     tradition?: {
       /**
        * The unfamiliar or ambiguous magical tradition's identifier.
+       * @integer
+       * @minimum 1
        */
       id: number
     }
@@ -619,132 +477,83 @@ type SpellIdentifier =
     id: MagicalActionIdentifier
   }
 
-type LiturgicalChant =
-  | {
-    tag: "Fixed"
+export type LiturgicalChantRating = {
+  /**
+   * The identifier(s) of the liturgical chant(s) to choose from to provide
+   * the rating for. If multiple liturgical chants are provided, they must all
+   * have the same improvement cost.
+   * @minItems 1
+   */
+  id: LiturgyIdentifier[]
 
-    /**
-     * The identifier of the liturgical chant to provide the rating for.
-     */
-    id: LiturgyIdentifier
+  /**
+   * The rating provided for the selected liturgical chant. If used in a
+   * profession variant, it overrides the basic package's rating.
+   * @integer
+   * @minimum 0
+   */
+  rating: number
+}
 
-    /**
-     * The rating provided for the liturgical chant.
-     * @integer
-     * @minimum 1
-     */
-    rating: number
-  }
-  | {
-    tag: "Selection"
+/**
+ * In some areas, the profession package grants a loose set of stats where the
+ * player must choose between different options for the profession package.
+ * @minProperties 1
+ */
+export type ProfessionPackageOptions = {
+  skill_specialization?: SkillSpecializationOptions
+  languages_scripts?: LanguagesScriptsOptions
+  combat_techniques?: CombatTechniquesOptions
+  cantrips?: CantripsOptions
+  curses?: CursesOptions
+  terrain_knowledge?: TerrainKnowledgeOptions
+  skills?: SkillsOptions
+}
 
-    /**
-     * The identifiers of the liturgical chants to choose from to provide the
-     * rating for.
-     * @minItems 2
-     */
-    id: LiturgyIdentifier[]
+/**
+ * In some areas, the profession package grants a loose set of stats where the
+ * player must choose between different options for the profession package. The
+ * variant may override or remove those options.
+ * @minProperties 1
+ */
+export type ProfessionVariantPackageOptions = {
+  skill_specialization?: VariantOptionAction<SkillSpecializationOptions>
+  languages_scripts?: VariantOptionAction<LanguagesScriptsOptions>
+  combat_techniques?: VariantOptionAction<CombatTechniquesOptions>
+  cantrips?: VariantOptionAction<CantripsOptions>
+  curses?: VariantOptionAction<CursesOptions>
+  terrain_knowledge?: VariantOptionAction<TerrainKnowledgeOptions>
+  skills?: VariantOptionAction<SkillsOptions>
+}
 
-    /**
-     * The rating provided for the selected liturgical chant.
-     * @integer
-     * @minimum 1
-     */
-    rating: number
-  }
-
-type VariantLiturgicalChant =
-  | {
-    tag: "Fixed"
-
-    /**
-     * The identifier of the liturgical chant to provide the rating for.
-     */
-    id: LiturgyIdentifier
-
-    /**
-     * The rating provided for the liturgical chant. It overrides the basic
-     * package's rating.
-     * @integer
-     * @minimum 0
-     */
-    rating: number
-  }
-  | {
-    tag: "Selection"
-
-    /**
-     * The identifiers of the liturgical chants to choose from to provide the
-     * rating for.
-     * @minItems 2
-     */
-    id: LiturgyIdentifier[]
-
-    /**
-     * The rating provided for the selected liturgical chant. It overrides the
-     * basic package's rating.
-     * @integer
-     * @minimum 0
-     */
-    rating: number
-  }
-
-type VariantOptionAction<T> =
+export type VariantOptionAction<T> =
   | { tag: "Remove" }
-  | {
-    tag: "Override"
-
-    value: T
-  }
+  | { tag: "Override"; override: T }
 
 /**
  * Select an application from a skill or from one of a list of skills where you
  * get a skill specialization for. You can also specify a skill groups from
  * which you can choose a skill.
  */
-type SkillSpecializationOptions =
-  | {
-    tag: "Single"
+export type SkillSpecializationOptions =
+  | { tag: "Single"; single: SingleSkillSpecializationOption }
+  | { tag: "Group"; group: SkillGroupSkillSpecializationOption }
 
-    /**
-     * The referenced skill's identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-  }
-  | {
-    tag: "Selection"
+export type SingleSkillSpecializationOption = {
+  /**
+   * Possible skills to get a skill specialization for.
+   * @minItems 1
+   * @uniqueItems
+   */
+  options: SkillReference[]
+}
 
-    /**
-     * Possible skills to get a skill specialization for.
-     * @minItems 2
-     */
-    options: {
-      /**
-       * The referenced skill's identifier.
-       * @integer
-       * @minimum 1
-       */
-      id: number
-    }[]
-  }
-  | {
-    tag: "Group"
-
-    /**
-     * The referenced skill group's identifier.
-     * @integer
-     * @minimum 1
-     * @maximum 5
-     */
-    id: number
-  }
+export type SkillGroupSkillSpecializationOption = SkillGroupReference
 
 /**
  * Buy languages and scripts for a specific amount of AP.
  */
-type LanguagesScriptsOptions = {
+export type LanguagesScriptsOptions = {
   /**
    * The AP value you can buy languages and scripts for.
    * @integer
@@ -757,28 +566,14 @@ type LanguagesScriptsOptions = {
 /**
  * Select one or more combat techniques you get a CtR bonus for.
  */
-type CombatTechniquesOptions = {
+export type CombatTechniquesOptions = {
   /**
    * Specify the number of combat techniques that can be selected so that they
    * get increased to a specific CtR. There can be multiple selections with
    * different CtRs.
    * @minItems 1
    */
-  fixed: {
-    /**
-     * The number of selectable combat techniques.
-     * @integer
-     * @minimum 1
-     */
-    number: number
-
-    /**
-     * The rating provided for the selected combat technique(s).
-     * @integer
-     * @minimum 7
-     */
-    rating: number
-  }[]
+  fixed: RatingForCombatTechniquesNumber[]
 
   /**
    * Define if after the fixed selections the remaining unselected combat
@@ -792,18 +587,29 @@ type CombatTechniquesOptions = {
    * The list of combat techniques to choose from.
    * @minItems 2
    */
-  options: {
-    /**
-     * The combat technique's identifier.
-     */
-    id: CombatTechniqueIdentifier
-  }[]
+  options: CombatTechniqueReference[]
+}
+
+export type RatingForCombatTechniquesNumber = {
+  /**
+   * The number of selectable combat techniques.
+   * @integer
+   * @minimum 1
+   */
+  number: number
+
+  /**
+   * The rating provided for the selected combat technique(s).
+   * @integer
+   * @minimum 7
+   */
+  rating: number
 }
 
 /**
  * Select one or more cantrips you receive.
  */
-type CantripsOptions = {
+export type CantripsOptions = {
   /**
    * The number of selectable cantrips.
    * @integer
@@ -815,20 +621,13 @@ type CantripsOptions = {
    * The list of cantrips to choose from.
    * @minItems 2
    */
-  options: {
-    /**
-     * The cantrip's identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-  }[]
+  options: CantripReference[]
 }
 
 /**
  * Buy curses for a specific amount of AP.
  */
-type CursesOptions = {
+export type CursesOptions = {
   /**
    * The AP value you can buy curses for.
    * @integer
@@ -841,33 +640,32 @@ type CursesOptions = {
 /**
  * Select one of a list of possible terrain knowledges
  */
-type TerrainKnowledgeOptions = {
+export type TerrainKnowledgeOptions = {
   /**
    * The list of possible terrain knowledges.
    * @minItems 2
    */
-  options: {
-    /**
-     * The terrain knowledge option's identifier.
-     * @integer
-     * @minimum 1
-     * @maximum 10
-     */
-    id: number
-  }[]
+  options: TerrainKnowledgeOptionReference[]
+}
+
+export type TerrainKnowledgeOptionReference = {
+  /**
+   * The terrain knowledge option's identifier.
+   * @integer
+   * @minimum 1
+   * @maximum 10
+   */
+  id: number
 }
 
 /**
  * Buy skills for a specific amount of AP.
  */
-type SkillsOptions = {
+export type SkillsOptions = {
   /**
    * If specified, you may only choose from skills of the specified group.
-   * @integer
-   * @minimum 1
-   * @maximum 1
    */
-  group_id?: number
+  group?: SkillGroupReference
 
   /**
    * The AP value you can buy skills for.
@@ -880,7 +678,7 @@ type SkillsOptions = {
 /**
  * The name of the profession that may have sex-specific names.
  */
-type Name =
+export type ProfessionName =
   NonEmptyString
   | {
     /**
@@ -898,22 +696,5 @@ type Name =
      */
     female: NonEmptyString
   }
-
-type Group =
-  | {
-    tag: "Mundane"
-
-    sub:
-      | { tag: "Profane" }
-      | { tag: "Fighter" }
-      | { tag: "Religious" }
-  }
-  | { tag: "Magical" }
-  | { tag: "Blessed" }
-
-/**
- * @minLength 1
- */
-type NonEmptyString = string
 
 export const validateSchema = validateSchemaCreator<Profession>(import.meta.url)

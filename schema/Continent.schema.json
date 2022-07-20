@@ -18,18 +18,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The continent name.",
-                  "type": "string",
-                  "minLength": 1
-                }
-              },
-              "required": [
-                "name"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/ContinentTranslation"
             }
           },
           "minProperties": 1,
@@ -39,6 +28,20 @@
       "required": [
         "id",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "ContinentTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The continent name.",
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "name"
       ],
       "additionalProperties": false
     }

@@ -50,13 +50,13 @@ Measurable parameters of a spell.
 
 The target category – the kind of creature or object – the skill affects.
 
-- **Type:** <a href="./_ActivatableSkill.md#TargetCategory/T">TargetCategory/T</a>
+- **Type:** <a href="./_ActivatableSkillTargetCategory.md#TargetCategory">TargetCategory</a>
 
 #### <a name="Spell/property"></a> `property`
 
 The associated property.
 
-- **Type:** <a href="#Spell/property">Object</a>
+- **Type:** <a href="./_SimpleReferences.md#PropertyReference">PropertyReference</a>
 
 #### <a name="Spell/traditions"></a> `traditions`
 
@@ -64,8 +64,7 @@ The tradition(s) the spell is available for. It may be *generally*
 available to all traditions or it may be only familiar in specific
 traditions.
 
-- **Type:** Union
-- **Cases:** <a href="#Spell/traditions'General">Spell/traditions'General</a> | <a href="#Spell/traditions'Specific">Spell/traditions'Specific</a>
+- **Type:** <a href="./_Spellwork.md#Traditions">Traditions</a>
 
 #### <a name="Spell/improvement_cost"></a> `improvement_cost`
 
@@ -96,215 +95,137 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="Spell/property"></a> `Spell/property`
-
-The associated property.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The property's identifier. | <a href="#Spell/property/id">See details</a>
-
-#### <a name="Spell/property/id"></a> `id`
-
-The property's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="Spell/traditions'General"></a> `Spell/traditions'General`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Spell/traditions'General/tag">See details</a>
-
-#### <a name="Spell/traditions'General/tag"></a> `tag`
-
-- **Constant:** `"General"`
-
----
-
-### <a name="Spell/traditions'Specific"></a> `Spell/traditions'Specific`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Spell/traditions'Specific/tag">See details</a>
-`list` | A list of specific traditions. | <a href="#Spell/traditions'Specific/list">See details</a>
-
-#### <a name="Spell/traditions'Specific/tag"></a> `tag`
-
-- **Constant:** `"Specific"`
-
-#### <a name="Spell/traditions'Specific/list"></a> `list`
-
-A list of specific traditions.
-
-- **Type:** List
-- **Items:** <a href="#Spell/traditions'Specific/list[]">Spell/traditions'Specific/list[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="Spell/traditions'Specific/list[]"></a> `Spell/traditions'Specific/list[]`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The magical tradition's identifier. If `is_placeholder` is `true` then this is the magical tradition's placeholder identifier instead. | <a href="#Spell/traditions'Specific/list[]/id">See details</a>
-`is_placeholder?` | If set to `true`, the tradition is not available as a special ability yet. | <a href="#Spell/traditions'Specific/list[]/is_placeholder">See details</a>
-
-#### <a name="Spell/traditions'Specific/list[]/id"></a> `id`
-
-The magical tradition's identifier. If `is_placeholder` is `true`
-then this is the magical tradition's placeholder identifier
-instead.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
-#### <a name="Spell/traditions'Specific/list[]/is_placeholder"></a> `is_placeholder?`
-
-If set to `true`, the tradition is not available as a special ability
-yet.
-
-- **Constant:** `true`
-
----
-
 ### <a name="Spell/translations[key]"></a> `Spell/translations[key]`
 
+- **Type:** <a href="#SpellTranslation">SpellTranslation</a>
+
+---
+
+### <a name="SpellTranslation"></a> `SpellTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the spell. | <a href="#Spell/translations[key]/name">See details</a>
-`effect` | The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels. | <a href="#Spell/translations[key]/effect">See details</a>
-`casting_time` |  | <a href="#Spell/translations[key]/casting_time">See details</a>
-`cost` |  | <a href="#Spell/translations[key]/cost">See details</a>
-`range` |  | <a href="#Spell/translations[key]/range">See details</a>
-`duration` |  | <a href="#Spell/translations[key]/duration">See details</a>
-`target` |  | <a href="#Spell/translations[key]/target">See details</a>
-`errata?` |  | <a href="#Spell/translations[key]/errata">See details</a>
+`name` | The name of the spell. | <a href="#SpellTranslation/name">See details</a>
+`effect` | The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels. | <a href="#SpellTranslation/effect">See details</a>
+`casting_time` |  | <a href="#SpellTranslation/casting_time">See details</a>
+`cost` |  | <a href="#SpellTranslation/cost">See details</a>
+`range` |  | <a href="#SpellTranslation/range">See details</a>
+`duration` |  | <a href="#SpellTranslation/duration">See details</a>
+`target` |  | <a href="#SpellTranslation/target">See details</a>
+`errata?` |  | <a href="#SpellTranslation/errata">See details</a>
 
-#### <a name="Spell/translations[key]/name"></a> `name`
+#### <a name="SpellTranslation/name"></a> `name`
 
 The name of the spell.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Spell/translations[key]/effect"></a> `effect`
+#### <a name="SpellTranslation/effect"></a> `effect`
 
 The effect description may be either a plain text or a text that is
 divided by a list of effects for each quality level. It may also be a
 list for each two quality levels.
 
-- **Type:** <a href="./_ActivatableSkill.md#Effect/T">Effect/T</a>
+- **Type:** <a href="./_ActivatableSkillEffect.md#Effect">Effect</a>
 
-#### <a name="Spell/translations[key]/casting_time"></a> `casting_time`
+#### <a name="SpellTranslation/casting_time"></a> `casting_time`
 
-- **Type:** <a href="#Spell/translations[key]/casting_time">Object</a>
+- **Type:** <a href="#SpellTranslation/casting_time">Object</a>
 
-#### <a name="Spell/translations[key]/cost"></a> `cost`
+#### <a name="SpellTranslation/cost"></a> `cost`
 
-- **Type:** <a href="#Spell/translations[key]/cost">Object</a>
+- **Type:** <a href="#SpellTranslation/cost">Object</a>
 
-#### <a name="Spell/translations[key]/range"></a> `range`
+#### <a name="SpellTranslation/range"></a> `range`
 
-- **Type:** <a href="#Spell/translations[key]/range">Object</a>
+- **Type:** <a href="#SpellTranslation/range">Object</a>
 
-#### <a name="Spell/translations[key]/duration"></a> `duration`
+#### <a name="SpellTranslation/duration"></a> `duration`
 
-- **Type:** <a href="#Spell/translations[key]/duration">Object</a>
+- **Type:** <a href="#SpellTranslation/duration">Object</a>
 
-#### <a name="Spell/translations[key]/target"></a> `target`
+#### <a name="SpellTranslation/target"></a> `target`
 
 - **Type:** String
 
-#### <a name="Spell/translations[key]/errata"></a> `errata?`
+#### <a name="SpellTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
 
 ---
 
-### <a name="Spell/translations[key]/casting_time"></a> `Spell/translations[key]/casting_time`
+### <a name="SpellTranslation/casting_time"></a> `SpellTranslation/casting_time`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`full` |  | <a href="#Spell/translations[key]/casting_time/full">See details</a>
-`abbr` |  | <a href="#Spell/translations[key]/casting_time/abbr">See details</a>
+`full` |  | <a href="#SpellTranslation/casting_time/full">See details</a>
+`abbr` |  | <a href="#SpellTranslation/casting_time/abbr">See details</a>
 
-#### <a name="Spell/translations[key]/casting_time/full"></a> `full`
+#### <a name="SpellTranslation/casting_time/full"></a> `full`
 
 - **Type:** String
 
-#### <a name="Spell/translations[key]/casting_time/abbr"></a> `abbr`
+#### <a name="SpellTranslation/casting_time/abbr"></a> `abbr`
 
 - **Type:** String
 
 ---
 
-### <a name="Spell/translations[key]/cost"></a> `Spell/translations[key]/cost`
+### <a name="SpellTranslation/cost"></a> `SpellTranslation/cost`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`full` |  | <a href="#Spell/translations[key]/cost/full">See details</a>
-`abbr` |  | <a href="#Spell/translations[key]/cost/abbr">See details</a>
+`full` |  | <a href="#SpellTranslation/cost/full">See details</a>
+`abbr` |  | <a href="#SpellTranslation/cost/abbr">See details</a>
 
-#### <a name="Spell/translations[key]/cost/full"></a> `full`
+#### <a name="SpellTranslation/cost/full"></a> `full`
 
 - **Type:** String
 
-#### <a name="Spell/translations[key]/cost/abbr"></a> `abbr`
+#### <a name="SpellTranslation/cost/abbr"></a> `abbr`
 
 - **Type:** String
 
 ---
 
-### <a name="Spell/translations[key]/range"></a> `Spell/translations[key]/range`
+### <a name="SpellTranslation/range"></a> `SpellTranslation/range`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`full` |  | <a href="#Spell/translations[key]/range/full">See details</a>
-`abbr` |  | <a href="#Spell/translations[key]/range/abbr">See details</a>
+`full` |  | <a href="#SpellTranslation/range/full">See details</a>
+`abbr` |  | <a href="#SpellTranslation/range/abbr">See details</a>
 
-#### <a name="Spell/translations[key]/range/full"></a> `full`
+#### <a name="SpellTranslation/range/full"></a> `full`
 
 - **Type:** String
 
-#### <a name="Spell/translations[key]/range/abbr"></a> `abbr`
+#### <a name="SpellTranslation/range/abbr"></a> `abbr`
 
 - **Type:** String
 
 ---
 
-### <a name="Spell/translations[key]/duration"></a> `Spell/translations[key]/duration`
+### <a name="SpellTranslation/duration"></a> `SpellTranslation/duration`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`full` |  | <a href="#Spell/translations[key]/duration/full">See details</a>
-`abbr` |  | <a href="#Spell/translations[key]/duration/abbr">See details</a>
+`full` |  | <a href="#SpellTranslation/duration/full">See details</a>
+`abbr` |  | <a href="#SpellTranslation/duration/abbr">See details</a>
 
-#### <a name="Spell/translations[key]/duration/full"></a> `full`
+#### <a name="SpellTranslation/duration/full"></a> `full`
 
 - **Type:** String
 
-#### <a name="Spell/translations[key]/duration/abbr"></a> `abbr`
+#### <a name="SpellTranslation/duration/abbr"></a> `abbr`
 
 - **Type:** String

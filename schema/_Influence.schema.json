@@ -23,46 +23,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The influence name.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "effects": {
-                  "description": "The effects of the influence. They should be sorted like they are in\nthe book.",
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "label": {
-                        "description": "An optional label that is displayed and placed before the actual\ntext.",
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "text": {
-                        "description": "The effect text.",
-                        "type": "string",
-                        "minLength": 1
-                      }
-                    },
-                    "required": [
-                      "text"
-                    ],
-                    "additionalProperties": false
-                  },
-                  "minItems": 1
-                },
-                "errata": {
-                  "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "effects"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/InfluenceTranslation"
             }
           },
           "minProperties": 1,
@@ -74,6 +35,48 @@
         "prerequisites",
         "src",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "InfluenceTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The influence name.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "effects": {
+          "description": "The effects of the influence. They should be sorted like they are in\nthe book.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/InfluenceEffect"
+          },
+          "minItems": 1
+        },
+        "errata": {
+          "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "effects"
+      ],
+      "additionalProperties": false
+    },
+    "InfluenceEffect": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "description": "An optional label that is displayed and placed before the actual\ntext.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "text": {
+          "description": "The effect text.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "text"
       ],
       "additionalProperties": false
     }

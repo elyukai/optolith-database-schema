@@ -14,100 +14,13 @@
         },
         "group": {
           "description": "The profession group.",
-          "$ref": "#/$defs/Group"
+          "$ref": "#/$defs/ProfessionGroup"
         },
-        "curriculum": {
-          "description": "The curriculum/academy associated with this magical profession, if any.",
-          "type": "object",
-          "properties": {
-            "id": {
-              "description": "The curriculum's identifier.",
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          "required": [
-            "id"
-          ],
-          "additionalProperties": false
-        },
-        "representations": {
+        "packages": {
           "description": "A list of professions representing the same profession but with (slightly)\ndifferent stats. For example, there may be a profession in a regional\nsourcebook or in the core rules and a profession in an extension rulebook\nlike Magic of Aventuria, where the profession is basically called the same\nand almost has the same values, but the version from Magic of Aventuria\nfeatures a spell style special ability that does not exist in the core\nrules or regional sourcebook.\n\nThe profession representation may feature different values for different\nexplicitly mentioned experience levels. In most cases, there is only one\nstats package, which targets the experience level *Experienced*.",
           "type": "array",
           "items": {
-            "oneOf": [
-              {
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Experienced"
-                  },
-                  "id": {
-                    "description": "The profession representation variant's identifier. An unique, increasing\ninteger.",
-                    "type": "integer",
-                    "minimum": 1
-                  },
-                  "package": {
-                    "$ref": "#/$defs/ProfessionRepresentationVariant"
-                  },
-                  "src": {
-                    "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
-                  }
-                },
-                "required": [
-                  "tag",
-                  "id",
-                  "package",
-                  "src"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "ByExperienceLevel"
-                  },
-                  "id": {
-                    "description": "The profession representation variant's identifier. An unique, increasing\ninteger.",
-                    "type": "integer",
-                    "minimum": 1
-                  },
-                  "packages": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "experience_level_id": {
-                          "description": "The experience level this profession targets. The experience level\nmust be unique for this representation.",
-                          "type": "integer",
-                          "maximum": 7,
-                          "minimum": 1
-                        },
-                        "package": {
-                          "$ref": "#/$defs/ProfessionRepresentationVariant"
-                        }
-                      },
-                      "required": [
-                        "experience_level_id",
-                        "package"
-                      ],
-                      "additionalProperties": false
-                    }
-                  },
-                  "src": {
-                    "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
-                  }
-                },
-                "required": [
-                  "tag",
-                  "id",
-                  "packages",
-                  "src"
-                ],
-                "additionalProperties": false
-              }
-            ]
+            "$ref": "#/$defs/ProfessionPackage"
           },
           "minItems": 1
         }
@@ -115,11 +28,212 @@
       "required": [
         "id",
         "group",
-        "representations"
+        "packages"
       ],
       "additionalProperties": false
     },
-    "ProfessionRepresentationVariant": {
+    "ProfessionGroup": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Mundane"
+            },
+            "mundane": {
+              "$ref": "#/$defs/MundaneProfessionGroup"
+            }
+          },
+          "required": [
+            "tag",
+            "mundane"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Magical"
+            },
+            "magical": {
+              "$ref": "#/$defs/MagicalProfessionGroup"
+            }
+          },
+          "required": [
+            "tag",
+            "magical"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Blessed"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "MundaneProfessionGroup": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Profane"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Fighter"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Religious"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "MagicalProfessionGroup": {
+      "type": "object",
+      "properties": {
+        "curriculum": {
+          "description": "The curriculum/academy associated with this magical profession, if any.",
+          "$ref": "./_SimpleReferences.schema.json#/$defs/CurriculumReference"
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "ProfessionPackage": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Experienced"
+            },
+            "experienced": {
+              "$ref": "#/$defs/ExperiencedProfessionPackage"
+            }
+          },
+          "required": [
+            "tag",
+            "experienced"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "ByExperienceLevel"
+            },
+            "by_experience_level": {
+              "$ref": "#/$defs/ProfessionPackagesForDifferentExperienceLevels"
+            }
+          },
+          "required": [
+            "tag",
+            "by_experience_level"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "ExperiencedProfessionPackage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The profession representation variant's identifier. An unique, increasing\ninteger.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "values": {
+          "$ref": "#/$defs/ProfessionPackageValues"
+        },
+        "src": {
+          "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
+        }
+      },
+      "required": [
+        "id",
+        "values",
+        "src"
+      ],
+      "additionalProperties": false
+    },
+    "ProfessionPackagesForDifferentExperienceLevels": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The profession representation variant's identifier. An unique, increasing\ninteger.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "values_map": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ExperienceLevelDynamicProfessionPackage"
+          }
+        },
+        "src": {
+          "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
+        }
+      },
+      "required": [
+        "id",
+        "values_map",
+        "src"
+      ],
+      "additionalProperties": false
+    },
+    "ExperienceLevelDynamicProfessionPackage": {
+      "type": "object",
+      "properties": {
+        "experience_level_id": {
+          "description": "The experience level this profession targets. The experience level\nmust be unique for this representation.",
+          "type": "integer",
+          "maximum": 7,
+          "minimum": 1
+        },
+        "values": {
+          "$ref": "#/$defs/ProfessionPackageValues"
+        }
+      },
+      "required": [
+        "experience_level_id",
+        "values"
+      ],
+      "additionalProperties": false
+    },
+    "ProfessionPackageValues": {
       "title": "Profession Representation Variant",
       "type": "object",
       "properties": {
@@ -133,33 +247,8 @@
           "$ref": "./_Prerequisite.schema.json#/$defs/ProfessionPrerequisites"
         },
         "options": {
-          "type": "object",
-          "properties": {
-            "skill_specialization": {
-              "$ref": "#/$defs/SkillSpecializationOptions"
-            },
-            "languages_scripts": {
-              "$ref": "#/$defs/LanguagesScriptsOptions"
-            },
-            "combat_techniques": {
-              "$ref": "#/$defs/CombatTechniquesOptions"
-            },
-            "cantrips": {
-              "$ref": "#/$defs/CantripsOptions"
-            },
-            "curses": {
-              "$ref": "#/$defs/CursesOptions"
-            },
-            "terrain_knowledge": {
-              "$ref": "#/$defs/TerrainKnowledgeOptions"
-            },
-            "skills": {
-              "$ref": "#/$defs/SkillsOptions"
-            }
-          },
-          "required": [],
-          "minProperties": 1,
-          "additionalProperties": false
+          "description": "In some areas, the profession package grants a loose set of stats where the\nplayer must choose between different options for the profession package.",
+          "$ref": "#/$defs/ProfessionPackageOptions"
         },
         "special_abilities": {
           "description": "Any special abilities the profession receives from the package.",
@@ -172,28 +261,28 @@
           "description": "Provides ratings for the combat techniques that the hero receives from the\npackage.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/CombatTechnique"
+            "$ref": "#/$defs/CombatTechniqueRating"
           }
         },
         "skills": {
           "description": "The skill ratings the package grants to the hero.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Skill"
+            "$ref": "#/$defs/SkillRating"
           }
         },
         "spells": {
           "description": "The skill ratings a magical profession receives for spells; these spells\nare considered activated. Spells from an unfamiliar Tradition, if any, are\nidentified as such.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Spell"
+            "$ref": "#/$defs/SpellRating"
           }
         },
         "liturgical_chants": {
           "description": "Clerical professions receive these liturgical chants at the listed skill\nratings. These liturgical chants are considered activated.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/LiturgicalChant"
+            "$ref": "#/$defs/LiturgicalChantRating"
           }
         },
         "suggested_advantages": {
@@ -230,92 +319,14 @@
         },
         "variants": {
           "description": "Provides examples of variants for the profession, which may include changes\nto AP values and additional or modified skill ratings, special abilities,\nor combat techniques, as compared to the basic profession. Usually picking\na variant is optional, but there are some rare exceptions where picking a\nvariant is required.",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Required"
-                },
-                "list": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/$defs/ProfessionVariant"
-                  },
-                  "minItems": 2
-                }
-              },
-              "required": [
-                "tag",
-                "list"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Optional"
-                },
-                "list": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/$defs/ProfessionVariant"
-                  },
-                  "minItems": 1
-                }
-              },
-              "required": [
-                "tag",
-                "list"
-              ],
-              "additionalProperties": false
-            }
-          ]
+          "$ref": "#/$defs/ProfessionVariants"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "Name of the basic profession.",
-                  "$ref": "#/$defs/Name"
-                },
-                "specification": {
-                  "description": "A name addition of the profession. This will contain texts like name of\nthe academy or the witch circle. It is enclosed in parenthesis.",
-                  "$ref": "#/$defs/Name"
-                },
-                "suggested_advantages": {
-                  "description": "Typical advantages for the profession.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "suggested_disadvantages": {
-                  "description": "Typical disadvantages for the profession.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "unsuitable_advantages": {
-                  "description": "These advantages do not fit well with this profession; to be checked with\nthe GM before taking any of them.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "unsuitable_disadvantages": {
-                  "description": "These disadvantages do not fit well with this profession; to be checked\nwith the GM before taking any of them.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "errata": {
-                  "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/ProfessionTranslation"
             }
           },
           "minProperties": 1,
@@ -325,6 +336,65 @@
       "required": [
         "ap_value",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "ProfessionTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Name of the basic profession.",
+          "$ref": "#/$defs/ProfessionName"
+        },
+        "specification": {
+          "description": "A name addition of the profession. This will contain texts like name of\nthe academy or the witch circle. It is enclosed in parenthesis, but the\ndatabase entry must not contain parenthesis.",
+          "$ref": "#/$defs/ProfessionName"
+        },
+        "suggested_advantages": {
+          "description": "Typical advantages for the profession.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "suggested_disadvantages": {
+          "description": "Typical disadvantages for the profession.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "unsuitable_advantages": {
+          "description": "These advantages do not fit well with this profession; to be checked with\nthe GM before taking any of them.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "unsuitable_disadvantages": {
+          "description": "These disadvantages do not fit well with this profession; to be checked\nwith the GM before taking any of them.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "errata": {
+          "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ProfessionVariants": {
+      "description": "Provides examples of variants for the profession, which may include changes\nto AP values and additional or modified skill ratings, special abilities, or\ncombat techniques, as compared to the basic profession. Usually picking a\nvariant is optional, but there are some rare exceptions where picking a\nvariant is required.",
+      "type": "object",
+      "properties": {
+        "is_selection_required": {
+          "description": "If the selection of a profession variant is required.",
+          "type": "boolean"
+        },
+        "list": {
+          "description": "The list of profession variants.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ProfessionVariant"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "is_selection_required",
+        "list"
       ],
       "additionalProperties": false
     },
@@ -346,236 +416,7 @@
           "$ref": "./_Prerequisite.schema.json#/$defs/ProfessionPrerequisites"
         },
         "options": {
-          "type": "object",
-          "properties": {
-            "skill_specialization": {
-              "oneOf": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Remove"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Override"
-                    },
-                    "value": {
-                      "$ref": "#/$defs/SkillSpecializationOptions"
-                    }
-                  },
-                  "required": [
-                    "tag",
-                    "value"
-                  ],
-                  "additionalProperties": false
-                }
-              ]
-            },
-            "languages_scripts": {
-              "oneOf": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Remove"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Override"
-                    },
-                    "value": {
-                      "$ref": "#/$defs/LanguagesScriptsOptions"
-                    }
-                  },
-                  "required": [
-                    "tag",
-                    "value"
-                  ],
-                  "additionalProperties": false
-                }
-              ]
-            },
-            "combat_techniques": {
-              "oneOf": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Remove"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Override"
-                    },
-                    "value": {
-                      "$ref": "#/$defs/CombatTechniquesOptions"
-                    }
-                  },
-                  "required": [
-                    "tag",
-                    "value"
-                  ],
-                  "additionalProperties": false
-                }
-              ]
-            },
-            "cantrips": {
-              "oneOf": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Remove"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Override"
-                    },
-                    "value": {
-                      "$ref": "#/$defs/CantripsOptions"
-                    }
-                  },
-                  "required": [
-                    "tag",
-                    "value"
-                  ],
-                  "additionalProperties": false
-                }
-              ]
-            },
-            "curses": {
-              "oneOf": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Remove"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Override"
-                    },
-                    "value": {
-                      "$ref": "#/$defs/CursesOptions"
-                    }
-                  },
-                  "required": [
-                    "tag",
-                    "value"
-                  ],
-                  "additionalProperties": false
-                }
-              ]
-            },
-            "terrain_knowledge": {
-              "oneOf": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Remove"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Override"
-                    },
-                    "value": {
-                      "$ref": "#/$defs/TerrainKnowledgeOptions"
-                    }
-                  },
-                  "required": [
-                    "tag",
-                    "value"
-                  ],
-                  "additionalProperties": false
-                }
-              ]
-            },
-            "skills": {
-              "oneOf": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Remove"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Override"
-                    },
-                    "value": {
-                      "$ref": "#/$defs/SkillsOptions"
-                    }
-                  },
-                  "required": [
-                    "tag",
-                    "value"
-                  ],
-                  "additionalProperties": false
-                }
-              ]
-            }
-          },
-          "required": [],
-          "minProperties": 1,
-          "additionalProperties": false
+          "$ref": "#/$defs/ProfessionVariantPackageOptions"
         },
         "special_abilities": {
           "description": "Any special abilities the profession receives from the package variant.",
@@ -588,28 +429,28 @@
           "description": "Provides ratings for the combat techniques that the hero receives from the\npackage variant.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/VariantCombatTechnique"
+            "$ref": "#/$defs/CombatTechniqueRating"
           }
         },
         "skills": {
           "description": "The skill ratings the package variant grants to the hero.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/VariantSkill"
+            "$ref": "#/$defs/SkillRating"
           }
         },
         "spells": {
           "description": "The skill ratings a magical profession variant receives for spells; these\nspells are considered activated. Spells from an unfamiliar Tradition, if\nany, are identified as such.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/VariantSpell"
+            "$ref": "#/$defs/SpellRating"
           }
         },
         "liturgical_chants": {
           "description": "Clerical professions receive these liturgical chants at the listed skill\nratings. These liturgical chants are considered activated.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/VariantLiturgicalChant"
+            "$ref": "#/$defs/LiturgicalChantRating"
           }
         },
         "translations": {
@@ -617,17 +458,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "Name of the profession variant.",
-                  "$ref": "#/$defs/Name"
-                }
-              },
-              "required": [
-                "name"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/ProfessionVariantTranslation"
             }
           },
           "minProperties": 1,
@@ -641,6 +472,19 @@
       ],
       "additionalProperties": false
     },
+    "ProfessionVariantTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Name of the profession variant.",
+          "$ref": "#/$defs/ProfessionName"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
     "SpecialAbility": {
       "oneOf": [
         {
@@ -649,27 +493,13 @@
             "tag": {
               "const": "Fixed"
             },
-            "id": {
-              "description": "The identifier of the combat technique to provide the rating for.",
-              "$ref": "./_Identifier.schema.json#/$defs/SpecialAbilityIdentifier"
-            },
-            "level": {
-              "description": "The level of the received special ability.",
-              "type": "integer",
-              "minimum": 1
-            },
-            "options": {
-              "description": "Received select options. Order is important. Typically, you only need the\nfirst array index, though.",
-              "type": "array",
-              "items": {
-                "$ref": "./_Identifier.schema.json#/$defs/RequirableSelectOptionIdentifier"
-              },
-              "minItems": 1
+            "fixed": {
+              "$ref": "#/$defs/FixedSpecialAbility"
             }
           },
           "required": [
             "tag",
-            "id"
+            "fixed"
           ],
           "additionalProperties": false
         },
@@ -679,44 +509,62 @@
             "tag": {
               "const": "Selection"
             },
-            "options": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "description": "The identifier of the combat technique to provide the rating for.",
-                    "$ref": "./_Identifier.schema.json#/$defs/SpecialAbilityIdentifier"
-                  },
-                  "level": {
-                    "description": "The level of the received special ability.",
-                    "type": "integer",
-                    "minimum": 1
-                  },
-                  "options": {
-                    "description": "Received select options. Order is important. Typically, you only need the\nfirst array index, though.",
-                    "type": "array",
-                    "items": {
-                      "$ref": "./_Identifier.schema.json#/$defs/RequirableSelectOptionIdentifier"
-                    },
-                    "minItems": 1
-                  }
-                },
-                "required": [
-                  "id"
-                ],
-                "additionalProperties": false
-              },
-              "minItems": 2
+            "selection": {
+              "$ref": "#/$defs/SpecialAbilitySelection"
             }
           },
           "required": [
             "tag",
-            "options"
+            "selection"
           ],
           "additionalProperties": false
         }
       ]
+    },
+    "FixedSpecialAbility": {
+      "$ref": "#/$defs/SpecialAbilityDefinition"
+    },
+    "SpecialAbilitySelection": {
+      "type": "object",
+      "properties": {
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SpecialAbilityDefinition"
+          },
+          "minItems": 2
+        }
+      },
+      "required": [
+        "options"
+      ],
+      "additionalProperties": false
+    },
+    "SpecialAbilityDefinition": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The identifier of the combat technique to provide the rating for.",
+          "$ref": "./_Identifier.schema.json#/$defs/SpecialAbilityIdentifier"
+        },
+        "level": {
+          "description": "The level of the received special ability.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "options": {
+          "description": "Received select options. Order is important. Typically, you only need the\nfirst array index, though.",
+          "type": "array",
+          "items": {
+            "$ref": "./_Identifier.schema.json#/$defs/RequirableSelectOptionIdentifier"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
     },
     "VariantSpecialAbility": {
       "oneOf": [
@@ -726,31 +574,13 @@
             "tag": {
               "const": "Fixed"
             },
-            "id": {
-              "description": "The identifier of the combat technique to provide the rating for.",
-              "$ref": "./_Identifier.schema.json#/$defs/SpecialAbilityIdentifier"
-            },
-            "active": {
-              "description": "if set to `false`, if the entry is granted by the basic package, it is\nremoved.",
-              "const": false
-            },
-            "level": {
-              "description": "The level of the received special ability.",
-              "type": "integer",
-              "minimum": 1
-            },
-            "options": {
-              "description": "Received select options. Order is important. Typically, you only need the\nfirst array index, though.",
-              "type": "array",
-              "items": {
-                "$ref": "./_Identifier.schema.json#/$defs/RequirableSelectOptionIdentifier"
-              },
-              "minItems": 1
+            "fixed": {
+              "$ref": "#/$defs/FixedVariantSpecialAbility"
             }
           },
           "required": [
             "tag",
-            "id"
+            "fixed"
           ],
           "additionalProperties": false
         },
@@ -760,69 +590,69 @@
             "tag": {
               "const": "Selection"
             },
-            "active": {
-              "description": "if set to `false`, if the selection is granted by the basic package, it\nis removed.",
-              "const": false
-            },
-            "options": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "description": "The identifier of the combat technique to provide the rating for.",
-                    "$ref": "./_Identifier.schema.json#/$defs/SpecialAbilityIdentifier"
-                  },
-                  "level": {
-                    "description": "The level of the received special ability.",
-                    "type": "integer",
-                    "minimum": 1
-                  },
-                  "options": {
-                    "description": "Received select options. Order is important. Typically, you only need the\nfirst array index, though.",
-                    "type": "array",
-                    "items": {
-                      "$ref": "./_Identifier.schema.json#/$defs/RequirableSelectOptionIdentifier"
-                    },
-                    "minItems": 1
-                  }
-                },
-                "required": [
-                  "id"
-                ],
-                "additionalProperties": false
-              },
-              "minItems": 2
+            "selection": {
+              "$ref": "#/$defs/VariantSpecialAbilitySelection"
             }
           },
           "required": [
             "tag",
-            "options"
+            "selection"
           ],
           "additionalProperties": false
         }
       ]
     },
-    "CombatTechnique": {
+    "FixedVariantSpecialAbility": {
       "type": "object",
       "properties": {
         "id": {
           "description": "The identifier of the combat technique to provide the rating for.",
-          "$ref": "./_Identifier.schema.json#/$defs/CombatTechniqueIdentifier"
+          "$ref": "./_Identifier.schema.json#/$defs/SpecialAbilityIdentifier"
         },
-        "rating": {
-          "description": "The rating provided for the combat technique.",
+        "level": {
+          "description": "The level of the received special ability.",
           "type": "integer",
-          "minimum": 7
+          "minimum": 1
+        },
+        "options": {
+          "description": "Received select options. Order is important. Typically, you only need the\nfirst array index, though.",
+          "type": "array",
+          "items": {
+            "$ref": "./_Identifier.schema.json#/$defs/RequirableSelectOptionIdentifier"
+          },
+          "minItems": 1
+        },
+        "active": {
+          "description": "if set to `false`, if the selection is granted by the basic package, it\nis removed.",
+          "const": false
         }
       },
       "required": [
-        "id",
-        "rating"
+        "id"
       ],
       "additionalProperties": false
     },
-    "VariantCombatTechnique": {
+    "VariantSpecialAbilitySelection": {
+      "type": "object",
+      "properties": {
+        "active": {
+          "description": "if set to `false`, if the selection is granted by the basic package, it\nis removed.",
+          "const": false
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SpecialAbilityDefinition"
+          },
+          "minItems": 2
+        }
+      },
+      "required": [
+        "options"
+      ],
+      "additionalProperties": false
+    },
+    "CombatTechniqueRating": {
       "type": "object",
       "properties": {
         "id": {
@@ -830,7 +660,7 @@
           "$ref": "./_Identifier.schema.json#/$defs/CombatTechniqueIdentifier"
         },
         "rating": {
-          "description": "The rating provided for the combat technique. It overrides the basic\npackage's rating.",
+          "description": "The rating provided for the combat technique. If used in a profession\nvariant, it overrides the basic package's rating.",
           "type": "integer",
           "minimum": 6
         }
@@ -841,7 +671,7 @@
       ],
       "additionalProperties": false
     },
-    "Skill": {
+    "SkillRating": {
       "type": "object",
       "properties": {
         "id": {
@@ -851,28 +681,7 @@
           "minimum": 1
         },
         "rating": {
-          "description": "The rating provided for the skill.",
-          "type": "integer",
-          "minimum": 1
-        }
-      },
-      "required": [
-        "id",
-        "rating"
-      ],
-      "additionalProperties": false
-    },
-    "VariantSkill": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "The identifier of the skill to provide the rating for.",
-          "type": "integer",
-          "maximum": 59,
-          "minimum": 1
-        },
-        "rating": {
-          "description": "The rating provided for the skill. It overrides the basic package's rating.",
+          "description": "The rating provided for the skill. If used in a profession variant, it\noverrides the basic package's rating.",
           "type": "integer",
           "minimum": 0
         }
@@ -883,113 +692,28 @@
       ],
       "additionalProperties": false
     },
-    "Spell": {
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Fixed"
-            },
-            "id": {
-              "description": "The identifier of the spell to provide the rating for.",
-              "$ref": "#/$defs/SpellIdentifier"
-            },
-            "rating": {
-              "description": "The rating provided for the spell.",
-              "type": "integer",
-              "minimum": 1
-            }
+    "SpellRating": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The identifier(s) of the spell(s) to choose from to provide the rating for.\nIf multiple spells are provided, they must all have the same improvement\ncost.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SpellIdentifier"
           },
-          "required": [
-            "tag",
-            "id",
-            "rating"
-          ],
-          "additionalProperties": false
+          "minItems": 1
         },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Selection"
-            },
-            "id": {
-              "description": "The identifiers of the spells to choose from to provide the rating for.",
-              "type": "array",
-              "items": {
-                "$ref": "#/$defs/SpellIdentifier"
-              },
-              "minItems": 2
-            },
-            "rating": {
-              "description": "The rating provided for the selected spell.",
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          "required": [
-            "tag",
-            "id",
-            "rating"
-          ],
-          "additionalProperties": false
+        "rating": {
+          "description": "The rating provided for the (selected) spell. If used in a profession\nvariant, it overrides the basic package's rating.",
+          "type": "integer",
+          "minimum": 0
         }
-      ]
-    },
-    "VariantSpell": {
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Fixed"
-            },
-            "id": {
-              "description": "The identifier of the spell to provide the rating for.",
-              "$ref": "#/$defs/SpellIdentifier"
-            },
-            "rating": {
-              "description": "The rating provided for the spell. It overrides the basic package's\nrating.",
-              "type": "integer",
-              "minimum": 0
-            }
-          },
-          "required": [
-            "tag",
-            "id",
-            "rating"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Selection"
-            },
-            "id": {
-              "description": "The identifiers of the spells to choose from to provide the rating for.",
-              "type": "array",
-              "items": {
-                "$ref": "#/$defs/SpellIdentifier"
-              },
-              "minItems": 2
-            },
-            "rating": {
-              "description": "The rating provided for the selected spell. It overrides the basic\npackage's rating.",
-              "type": "integer",
-              "minimum": 0
-            }
-          },
-          "required": [
-            "tag",
-            "id",
-            "rating"
-          ],
-          "additionalProperties": false
-        }
-      ]
+      },
+      "required": [
+        "id",
+        "rating"
+      ],
+      "additionalProperties": false
     },
     "SpellIdentifier": {
       "oneOf": [
@@ -1009,7 +733,8 @@
               "properties": {
                 "id": {
                   "description": "The unfamiliar or ambiguous magical tradition's identifier.",
-                  "type": "number"
+                  "type": "integer",
+                  "minimum": 1
                 }
               },
               "required": [
@@ -1043,113 +768,291 @@
         }
       ]
     },
-    "LiturgicalChant": {
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Fixed"
-            },
-            "id": {
-              "description": "The identifier of the liturgical chant to provide the rating for.",
-              "$ref": "./_Identifier.schema.json#/$defs/LiturgyIdentifier"
-            },
-            "rating": {
-              "description": "The rating provided for the liturgical chant.",
-              "type": "integer",
-              "minimum": 1
-            }
+    "LiturgicalChantRating": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The identifier(s) of the liturgical chant(s) to choose from to provide\nthe rating for. If multiple liturgical chants are provided, they must all\nhave the same improvement cost.",
+          "type": "array",
+          "items": {
+            "$ref": "./_Identifier.schema.json#/$defs/LiturgyIdentifier"
           },
-          "required": [
-            "tag",
-            "id",
-            "rating"
-          ],
-          "additionalProperties": false
+          "minItems": 1
         },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Selection"
-            },
-            "id": {
-              "description": "The identifiers of the liturgical chants to choose from to provide the\nrating for.",
-              "type": "array",
-              "items": {
-                "$ref": "./_Identifier.schema.json#/$defs/LiturgyIdentifier"
-              },
-              "minItems": 2
-            },
-            "rating": {
-              "description": "The rating provided for the selected liturgical chant.",
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          "required": [
-            "tag",
-            "id",
-            "rating"
-          ],
-          "additionalProperties": false
+        "rating": {
+          "description": "The rating provided for the selected liturgical chant. If used in a\nprofession variant, it overrides the basic package's rating.",
+          "type": "integer",
+          "minimum": 0
         }
-      ]
+      },
+      "required": [
+        "id",
+        "rating"
+      ],
+      "additionalProperties": false
     },
-    "VariantLiturgicalChant": {
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Fixed"
-            },
-            "id": {
-              "description": "The identifier of the liturgical chant to provide the rating for.",
-              "$ref": "./_Identifier.schema.json#/$defs/LiturgyIdentifier"
-            },
-            "rating": {
-              "description": "The rating provided for the liturgical chant. It overrides the basic\npackage's rating.",
-              "type": "integer",
-              "minimum": 0
-            }
-          },
-          "required": [
-            "tag",
-            "id",
-            "rating"
-          ],
-          "additionalProperties": false
+    "ProfessionPackageOptions": {
+      "description": "In some areas, the profession package grants a loose set of stats where the\nplayer must choose between different options for the profession package.",
+      "type": "object",
+      "properties": {
+        "skill_specialization": {
+          "$ref": "#/$defs/SkillSpecializationOptions"
         },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Selection"
-            },
-            "id": {
-              "description": "The identifiers of the liturgical chants to choose from to provide the\nrating for.",
-              "type": "array",
-              "items": {
-                "$ref": "./_Identifier.schema.json#/$defs/LiturgyIdentifier"
-              },
-              "minItems": 2
-            },
-            "rating": {
-              "description": "The rating provided for the selected liturgical chant. It overrides the\nbasic package's rating.",
-              "type": "integer",
-              "minimum": 0
-            }
-          },
-          "required": [
-            "tag",
-            "id",
-            "rating"
-          ],
-          "additionalProperties": false
+        "languages_scripts": {
+          "$ref": "#/$defs/LanguagesScriptsOptions"
+        },
+        "combat_techniques": {
+          "$ref": "#/$defs/CombatTechniquesOptions"
+        },
+        "cantrips": {
+          "$ref": "#/$defs/CantripsOptions"
+        },
+        "curses": {
+          "$ref": "#/$defs/CursesOptions"
+        },
+        "terrain_knowledge": {
+          "$ref": "#/$defs/TerrainKnowledgeOptions"
+        },
+        "skills": {
+          "$ref": "#/$defs/SkillsOptions"
         }
-      ]
+      },
+      "required": [],
+      "minProperties": 1,
+      "additionalProperties": false
+    },
+    "ProfessionVariantPackageOptions": {
+      "description": "In some areas, the profession package grants a loose set of stats where the\nplayer must choose between different options for the profession package. The\nvariant may override or remove those options.",
+      "type": "object",
+      "properties": {
+        "skill_specialization": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Remove"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Override"
+                },
+                "override": {
+                  "$ref": "#/$defs/SkillSpecializationOptions"
+                }
+              },
+              "required": [
+                "tag",
+                "override"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "languages_scripts": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Remove"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Override"
+                },
+                "override": {
+                  "$ref": "#/$defs/LanguagesScriptsOptions"
+                }
+              },
+              "required": [
+                "tag",
+                "override"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "combat_techniques": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Remove"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Override"
+                },
+                "override": {
+                  "$ref": "#/$defs/CombatTechniquesOptions"
+                }
+              },
+              "required": [
+                "tag",
+                "override"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "cantrips": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Remove"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Override"
+                },
+                "override": {
+                  "$ref": "#/$defs/CantripsOptions"
+                }
+              },
+              "required": [
+                "tag",
+                "override"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "curses": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Remove"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Override"
+                },
+                "override": {
+                  "$ref": "#/$defs/CursesOptions"
+                }
+              },
+              "required": [
+                "tag",
+                "override"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "terrain_knowledge": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Remove"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Override"
+                },
+                "override": {
+                  "$ref": "#/$defs/TerrainKnowledgeOptions"
+                }
+              },
+              "required": [
+                "tag",
+                "override"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "skills": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Remove"
+                }
+              },
+              "required": [
+                "tag"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Override"
+                },
+                "override": {
+                  "$ref": "#/$defs/SkillsOptions"
+                }
+              },
+              "required": [
+                "tag",
+                "override"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "required": [],
+      "minProperties": 1,
+      "additionalProperties": false
     },
     "SkillSpecializationOptions": {
       "description": "Select an application from a skill or from one of a list of skills where you\nget a skill specialization for. You can also specify a skill groups from\nwhich you can choose a skill.",
@@ -1160,47 +1063,13 @@
             "tag": {
               "const": "Single"
             },
-            "id": {
-              "description": "The referenced skill's identifier.",
-              "type": "integer",
-              "minimum": 1
+            "single": {
+              "$ref": "#/$defs/SingleSkillSpecializationOption"
             }
           },
           "required": [
             "tag",
-            "id"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Selection"
-            },
-            "options": {
-              "description": "Possible skills to get a skill specialization for.",
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "description": "The referenced skill's identifier.",
-                    "type": "integer",
-                    "minimum": 1
-                  }
-                },
-                "required": [
-                  "id"
-                ],
-                "additionalProperties": false
-              },
-              "minItems": 2
-            }
-          },
-          "required": [
-            "tag",
-            "options"
+            "single"
           ],
           "additionalProperties": false
         },
@@ -1210,20 +1079,38 @@
             "tag": {
               "const": "Group"
             },
-            "id": {
-              "description": "The referenced skill group's identifier.",
-              "type": "integer",
-              "maximum": 5,
-              "minimum": 1
+            "group": {
+              "$ref": "#/$defs/SkillGroupSkillSpecializationOption"
             }
           },
           "required": [
             "tag",
-            "id"
+            "group"
           ],
           "additionalProperties": false
         }
       ]
+    },
+    "SingleSkillSpecializationOption": {
+      "type": "object",
+      "properties": {
+        "options": {
+          "description": "Possible skills to get a skill specialization for.",
+          "type": "array",
+          "items": {
+            "$ref": "./_SimpleReferences.schema.json#/$defs/SkillReference"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "options"
+      ],
+      "additionalProperties": false
+    },
+    "SkillGroupSkillSpecializationOption": {
+      "$ref": "./_SimpleReferences.schema.json#/$defs/SkillGroupReference"
     },
     "LanguagesScriptsOptions": {
       "description": "Buy languages and scripts for a specific amount of AP.",
@@ -1249,24 +1136,7 @@
           "description": "Specify the number of combat techniques that can be selected so that they\nget increased to a specific CtR. There can be multiple selections with\ndifferent CtRs.",
           "type": "array",
           "items": {
-            "type": "object",
-            "properties": {
-              "number": {
-                "description": "The number of selectable combat techniques.",
-                "type": "integer",
-                "minimum": 1
-              },
-              "rating": {
-                "description": "The rating provided for the selected combat technique(s).",
-                "type": "integer",
-                "minimum": 7
-              }
-            },
-            "required": [
-              "number",
-              "rating"
-            ],
-            "additionalProperties": false
+            "$ref": "#/$defs/RatingForCombatTechniquesNumber"
           },
           "minItems": 1
         },
@@ -1279,17 +1149,7 @@
           "description": "The list of combat techniques to choose from.",
           "type": "array",
           "items": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "The combat technique's identifier.",
-                "$ref": "./_Identifier.schema.json#/$defs/CombatTechniqueIdentifier"
-              }
-            },
-            "required": [
-              "id"
-            ],
-            "additionalProperties": false
+            "$ref": "./_SimpleReferences.schema.json#/$defs/CombatTechniqueReference"
           },
           "minItems": 2
         }
@@ -1297,6 +1157,26 @@
       "required": [
         "fixed",
         "options"
+      ],
+      "additionalProperties": false
+    },
+    "RatingForCombatTechniquesNumber": {
+      "type": "object",
+      "properties": {
+        "number": {
+          "description": "The number of selectable combat techniques.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "rating": {
+          "description": "The rating provided for the selected combat technique(s).",
+          "type": "integer",
+          "minimum": 7
+        }
+      },
+      "required": [
+        "number",
+        "rating"
       ],
       "additionalProperties": false
     },
@@ -1313,18 +1193,7 @@
           "description": "The list of cantrips to choose from.",
           "type": "array",
           "items": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "The cantrip's identifier.",
-                "type": "integer",
-                "minimum": 1
-              }
-            },
-            "required": [
-              "id"
-            ],
-            "additionalProperties": false
+            "$ref": "./_SimpleReferences.schema.json#/$defs/CantripReference"
           },
           "minItems": 2
         }
@@ -1359,19 +1228,7 @@
           "description": "The list of possible terrain knowledges.",
           "type": "array",
           "items": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "The terrain knowledge option's identifier.",
-                "type": "integer",
-                "maximum": 10,
-                "minimum": 1
-              }
-            },
-            "required": [
-              "id"
-            ],
-            "additionalProperties": false
+            "$ref": "#/$defs/TerrainKnowledgeOptionReference"
           },
           "minItems": 2
         }
@@ -1381,15 +1238,28 @@
       ],
       "additionalProperties": false
     },
+    "TerrainKnowledgeOptionReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The terrain knowledge option's identifier.",
+          "type": "integer",
+          "maximum": 10,
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
     "SkillsOptions": {
       "description": "Buy skills for a specific amount of AP.",
       "type": "object",
       "properties": {
-        "group_id": {
+        "group": {
           "description": "If specified, you may only choose from skills of the specified group.",
-          "type": "integer",
-          "maximum": 1,
-          "minimum": 1
+          "$ref": "./_SimpleReferences.schema.json#/$defs/SkillGroupReference"
         },
         "ap_value": {
           "description": "The AP value you can buy skills for.",
@@ -1402,26 +1272,26 @@
       ],
       "additionalProperties": false
     },
-    "Name": {
+    "ProfessionName": {
       "description": "The name of the profession that may have sex-specific names.",
       "oneOf": [
         {
-          "$ref": "#/$defs/NonEmptyString"
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         {
           "type": "object",
           "properties": {
             "default": {
               "description": "The name from the source publication.",
-              "$ref": "#/$defs/NonEmptyString"
+              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
             },
             "male": {
               "description": "The male name.",
-              "$ref": "#/$defs/NonEmptyString"
+              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
             },
             "female": {
               "description": "The female name.",
-              "$ref": "#/$defs/NonEmptyString"
+              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
             }
           },
           "required": [
@@ -1432,91 +1302,6 @@
           "additionalProperties": false
         }
       ]
-    },
-    "Group": {
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Mundane"
-            },
-            "sub": {
-              "oneOf": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Profane"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Fighter"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Religious"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                }
-              ]
-            }
-          },
-          "required": [
-            "tag",
-            "sub"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Magical"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Blessed"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        }
-      ]
-    },
-    "NonEmptyString": {
-      "type": "string",
-      "minLength": 1
     }
   }
 }

@@ -5,7 +5,9 @@
 import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
-import { Duration, Effect } from "../_ActivatableSkill.js"
+import { DurationUnit, TaggedCheckResultBasedDuration } from "../_ActivatableSkillDuration.js"
+import { Effect } from "../_ActivatableSkillEffect.js"
+import { LocaleMap } from "../_LocaleMap.js"
 import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
 
 /**
@@ -47,37 +49,32 @@ export type Curse = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
+  translations: LocaleMap<{
     /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
+     * The name of the curse.
+     * @minLength 1
      */
-    [localeId: string]: {
-      /**
-       * The name of the curse.
-       * @minLength 1
-       */
-      name: string
+    name: string
 
-      /**
-       * The effect description may be either a plain text or a text that is
-       * divided by a list of effects for each quality level. It may also be a
-       * list for each two quality levels.
-       */
-      effect: Effect.T
+    /**
+     * The effect description may be either a plain text or a text that is
+     * divided by a list of effects for each quality level. It may also be a
+     * list for each two quality levels.
+     */
+    effect: Effect
 
-      /**
-       * @deprecated
-       */
-      cost: { full: string; abbr: string }
+    /**
+     * @deprecated
+     */
+    cost: { full: string; abbr: string }
 
-      /**
-       * @deprecated
-       */
-      duration: { full: string; abbr: string }
+    /**
+     * @deprecated
+     */
+    duration: { full: string; abbr: string }
 
-      errata?: Errata
-    }
-  }
+    errata?: Errata
+  }>
 }
 
 /**
@@ -197,9 +194,9 @@ type PerformanceParameters = {
       /**
        * The unit of the `value`.
        */
-      unit: Duration.Unit
+      unit: DurationUnit
     }
-    | Duration.CheckResultBasedTagged
+    | TaggedCheckResultBasedDuration
     | {
       tag: "Indefinite"
 
@@ -220,9 +217,9 @@ type PerformanceParameters = {
           /**
            * The unit of the `value`.
            */
-          unit: Duration.Unit
+          unit: DurationUnit
         }
-        | Duration.CheckResultBasedTagged
+        | TaggedCheckResultBasedDuration
 
       /**
        * All translations for the entry, identified by IETF language tag (BCP47).

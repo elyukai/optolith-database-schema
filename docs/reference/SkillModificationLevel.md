@@ -25,13 +25,13 @@ The skill modification level's identifier.
 
 Configuration for this level for fast skills (spells, liturgical chants).
 
-- **Type:** <a href="#SkillModificationLevel/fast">Object</a>
+- **Type:** <a href="#FastSkillModificationLevelConfig">FastSkillModificationLevelConfig</a>
 
 #### <a name="SkillModificationLevel/slow"></a> `slow`
 
 Configuration for this level for slow skills (rituals, ceremonies).
 
-- **Type:** <a href="#SkillModificationLevel/slow">Object</a>
+- **Type:** <a href="#SlowSkillModificationLevelConfig">SlowSkillModificationLevelConfig</a>
 
 #### <a name="SkillModificationLevel/translations"></a> `translations?`
 
@@ -44,33 +44,37 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="SkillModificationLevel/fast"></a> `SkillModificationLevel/fast`
+### <a name="SkillModificationLevel/translations[key]"></a> `SkillModificationLevel/translations[key]`
 
-Configuration for this level for fast skills (spells, liturgical chants).
+- **Type:** <a href="#SkillModificationLevelTranslation">SkillModificationLevelTranslation</a>
+
+---
+
+### <a name="FastSkillModificationLevelConfig"></a> `FastSkillModificationLevelConfig`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`casting_time` | The casting time in actions. | <a href="#SkillModificationLevel/fast/casting_time">See details</a>
-`range` | The range in meters. | <a href="#SkillModificationLevel/fast/range">See details</a>
-`cost` | The cost in AE/KP. | <a href="#SkillModificationLevel/fast/cost">See details</a>
+`casting_time` | The casting time in actions. | <a href="#FastSkillModificationLevelConfig/casting_time">See details</a>
+`range` | The range in meters. | <a href="#FastSkillModificationLevelConfig/range">See details</a>
+`cost` | The cost in AE/KP. | <a href="#FastSkillModificationLevelConfig/cost">See details</a>
 
-#### <a name="SkillModificationLevel/fast/casting_time"></a> `casting_time`
+#### <a name="FastSkillModificationLevelConfig/casting_time"></a> `casting_time`
 
 The casting time in actions.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="SkillModificationLevel/fast/range"></a> `range`
+#### <a name="FastSkillModificationLevelConfig/range"></a> `range`
 
 The range in meters.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="SkillModificationLevel/fast/cost"></a> `cost`
+#### <a name="FastSkillModificationLevelConfig/cost"></a> `cost`
 
 The cost in AE/KP.
 
@@ -79,32 +83,30 @@ The cost in AE/KP.
 
 ---
 
-### <a name="SkillModificationLevel/slow"></a> `SkillModificationLevel/slow`
-
-Configuration for this level for slow skills (rituals, ceremonies).
+### <a name="SlowSkillModificationLevelConfig"></a> `SlowSkillModificationLevelConfig`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`casting_time` | The casting time. | <a href="#SkillModificationLevel/slow/casting_time">See details</a>
-`range` | The range in meters. | <a href="#SkillModificationLevel/slow/range">See details</a>
-`cost` | The cost in AE/KP. | <a href="#SkillModificationLevel/slow/cost">See details</a>
+`casting_time` | The casting time. | <a href="#SlowSkillModificationLevelConfig/casting_time">See details</a>
+`range` | The range in meters. | <a href="#SlowSkillModificationLevelConfig/range">See details</a>
+`cost` | The cost in AE/KP. | <a href="#SlowSkillModificationLevelConfig/cost">See details</a>
 
-#### <a name="SkillModificationLevel/slow/casting_time"></a> `casting_time`
+#### <a name="SlowSkillModificationLevelConfig/casting_time"></a> `casting_time`
 
 The casting time.
 
-- **Type:** <a href="#SkillModificationLevel/slow/casting_time">Object</a>
+- **Type:** <a href="#SlowSkillCastingTime">SlowSkillCastingTime</a>
 
-#### <a name="SkillModificationLevel/slow/range"></a> `range`
+#### <a name="SlowSkillModificationLevelConfig/range"></a> `range`
 
 The range in meters.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="SkillModificationLevel/slow/cost"></a> `cost`
+#### <a name="SlowSkillModificationLevelConfig/cost"></a> `cost`
 
 The cost in AE/KP.
 
@@ -113,25 +115,23 @@ The cost in AE/KP.
 
 ---
 
-### <a name="SkillModificationLevel/slow/casting_time"></a> `SkillModificationLevel/slow/casting_time`
-
-The casting time.
+### <a name="SlowSkillCastingTime"></a> `SlowSkillCastingTime`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`value` | The (unitless) casting time. | <a href="#SkillModificationLevel/slow/casting_time/value">See details</a>
-`unit` | The unit for the `value`. | <a href="#SkillModificationLevel/slow/casting_time/unit">See details</a>
+`value` | The (unitless) casting time. | <a href="#SlowSkillCastingTime/value">See details</a>
+`unit` | The unit for the `value`. | <a href="#SlowSkillCastingTime/unit">See details</a>
 
-#### <a name="SkillModificationLevel/slow/casting_time/value"></a> `value`
+#### <a name="SlowSkillCastingTime/value"></a> `value`
 
 The (unitless) casting time.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="SkillModificationLevel/slow/casting_time/unit"></a> `unit`
+#### <a name="SlowSkillCastingTime/unit"></a> `unit`
 
 The unit for the `value`.
 
@@ -139,35 +139,35 @@ The unit for the `value`.
 
 ---
 
-### <a name="SkillModificationLevel/translations[key]"></a> `SkillModificationLevel/translations[key]`
+### <a name="SlowSkillCastingTimeUnit"></a> `SlowSkillCastingTimeUnit`
+
+- **Possible values:** `"Minutes"`, `"Hours"`
+
+---
+
+### <a name="SkillModificationLevelTranslation"></a> `SkillModificationLevelTranslation`
 
 - **Type:** Object
 - **Minimum Properties:** `1`
 
 Key | Description | Details
 :-- | :-- | :--
-`fast?` | Configuration for this level for fast skills (spells, liturgical chants). Values set here override the default generated text. | <a href="#SkillModificationLevel/translations[key]/fast">See details</a>
-`slow?` | Configuration for this level for slow skills (rituals, ceremonies). Values set here override the default generated text. | <a href="#SkillModificationLevel/translations[key]/slow">See details</a>
+`fast?` | Configuration for this level for fast skills (spells, liturgical chants). Values set here override the default generated text. | <a href="#SkillModificationLevelTranslation/fast">See details</a>
+`slow?` | Configuration for this level for slow skills (rituals, ceremonies). Values set here override the default generated text. | <a href="#SkillModificationLevelTranslation/slow">See details</a>
 
-#### <a name="SkillModificationLevel/translations[key]/fast"></a> `fast?`
+#### <a name="SkillModificationLevelTranslation/fast"></a> `fast?`
 
 Configuration for this level for fast skills (spells, liturgical chants).
 Values set here override the default generated text.
 
 - **Type:** <a href="#LevelTypeConfigTranslation">LevelTypeConfigTranslation</a>
 
-#### <a name="SkillModificationLevel/translations[key]/slow"></a> `slow?`
+#### <a name="SkillModificationLevelTranslation/slow"></a> `slow?`
 
 Configuration for this level for slow skills (rituals, ceremonies). Values
 set here override the default generated text.
 
 - **Type:** <a href="#LevelTypeConfigTranslation">LevelTypeConfigTranslation</a>
-
----
-
-### <a name="SlowSkillCastingTimeUnit"></a> `SlowSkillCastingTimeUnit`
-
-- **Possible values:** `"Minutes"`, `"Hours"`
 
 ---
 
@@ -184,5 +184,4 @@ Key | Description | Details
 
 #### <a name="LevelTypeConfigTranslation/range"></a> `range`
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

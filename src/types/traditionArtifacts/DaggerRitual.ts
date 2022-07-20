@@ -6,6 +6,7 @@ import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import * as Activatable from "../_Activatable.js"
+import { ArcaneEnergyCost, BindingCost } from "../_Activatable.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 
 /**
@@ -24,7 +25,7 @@ export type DaggerRitual = {
 
   volume: Activatable.Volume
 
-  cost?: Activatable.EnchantmentCost
+  cost: DaggerRitualCost
 
   property: Activatable.Property
 
@@ -78,5 +79,28 @@ export type DaggerRitual = {
     }
   }
 }
+
+export type DaggerRitualCost =
+  | {
+    tag: "ArcaneEnergyCost"
+
+    ae_cost: ArcaneEnergyCost
+
+    lp_cost?: {
+      tag: "Fixed"
+
+      /**
+       * The LP cost value.
+       * @integer
+       * @minimum 1
+       */
+      value: number
+    }
+  }
+  | {
+    tag: "BindingCost"
+
+    binding_cost: BindingCost
+  }
 
 export const validateSchema = validateSchemaCreator<DaggerRitual>(import.meta.url)

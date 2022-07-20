@@ -31,15 +31,20 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="SocialStatus/translations[key]"></a> `SocialStatus/translations[key]`
 
+- **Type:** <a href="#SocialStatusTranslation">SocialStatusTranslation</a>
+
+---
+
+### <a name="SocialStatusTranslation"></a> `SocialStatusTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The social status name. | <a href="#SocialStatus/translations[key]/name">See details</a>
+`name` | The social status name. | <a href="#SocialStatusTranslation/name">See details</a>
 
-#### <a name="SocialStatus/translations[key]/name"></a> `name`
+#### <a name="SocialStatusTranslation/name"></a> `name`
 
 The social status name.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

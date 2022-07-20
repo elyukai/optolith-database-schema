@@ -16,7 +16,7 @@
           "description": "A list of native languages (usually it is only one).",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Language"
+            "$ref": "./_SimpleReferences.schema.json#/$defs/LanguageReference"
           },
           "minItems": 1
         },
@@ -24,7 +24,7 @@
           "description": "A list of native scripts (usually it is only one). If the culture does not\nuse any script, leave this field empty.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Script"
+            "$ref": "./_SimpleReferences.schema.json#/$defs/ScriptReference"
           },
           "minItems": 1
         },
@@ -36,13 +36,13 @@
           "description": "A list of possible social status in the respective culture.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/SocialStatus"
+            "$ref": "./_SimpleReferences.schema.json#/$defs/SocialStatusReference"
           },
           "minItems": 1
         },
         "common_professions": {
           "description": "A list of professions that are typical for the culture, as well as\nprofessions that are rarely practiced or encountered in the culture. The\nlist is either defined by group (as multiple lists) or plain (as a single\nlist).",
-          "$ref": "#/$defs/CommonProfessions/Config"
+          "$ref": "#/$defs/CommonProfessions"
         },
         "common_advantages": {
           "description": "A list of common advantages.",
@@ -108,7 +108,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "$ref": "#/$defs/Translation"
+              "$ref": "#/$defs/CultureTranslation"
             }
           },
           "minProperties": 1,
@@ -128,42 +128,28 @@
       ],
       "additionalProperties": false
     },
-    "Language": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "The language's identifier.",
-          "type": "integer",
-          "minimum": 1
-        }
-      },
-      "required": [
-        "id"
-      ],
-      "additionalProperties": false
-    },
-    "Script": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "The script's identifier.",
-          "type": "integer",
-          "minimum": 1
-        }
-      },
-      "required": [
-        "id"
-      ],
-      "additionalProperties": false
-    },
     "AreaKnowledge": {
       "description": "If the area knowledge has a fixed value or can be adjusted.",
+      "type": "object",
+      "properties": {
+        "is_fixed": {
+          "description": "`true` if the area knowledge has a fixed value, `false` if it can be\nadjusted.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "is_fixed"
+      ],
+      "additionalProperties": false
+    },
+    "Weight": {
+      "description": "The \"weight\" difference compared to other professions or profession variants.\nSome professions or profession variants are simply more common (Mostly), but\nsometimes only specific elements are used (Only).",
       "oneOf": [
         {
           "type": "object",
           "properties": {
             "tag": {
-              "const": "Fixed"
+              "const": "Mostly"
             }
           },
           "required": [
@@ -175,7 +161,7 @@
           "type": "object",
           "properties": {
             "tag": {
-              "const": "Adjustable"
+              "const": "Only"
             }
           },
           "required": [
@@ -185,497 +171,431 @@
         }
       ]
     },
-    "SocialStatus": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "The social status's identifier.",
-          "type": "integer",
-          "minimum": 1
-        }
-      },
-      "required": [
-        "id"
-      ],
-      "additionalProperties": false
-    },
-    "CommonProfessions": {
-      "Profession": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "description": "The profession's identifier.",
-            "type": "integer",
-            "minimum": 1
-          }
-        },
-        "required": [
-          "id"
-        ],
-        "additionalProperties": false
-      },
-      "ProfessionVariant": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "description": "The profession variant's identifier.",
-            "type": "integer",
-            "minimum": 1
-          }
-        },
-        "required": [
-          "id"
-        ],
-        "additionalProperties": false
-      },
-      "Plain": {
-        "Constraint": {
+    "CommonProfessionConstraintsOperation": {
+      "description": "This defines how the list of constraints should be offset against the\nlist of all mundane professions: Either only the professions are kept\nthat intersect with the constraints (include) or only the professions\nare kept that are different from the constraints (exclude).",
+      "oneOf": [
+        {
           "type": "object",
           "properties": {
             "tag": {
-              "const": "Profession"
-            },
-            "id": {
-              "description": "The profession's identifier.",
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          "required": [
-            "tag",
-            "id"
-          ],
-          "additionalProperties": false
-        },
-        "T": {
-          "description": "A plain list of professions.",
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Plain"
-            },
-            "constraints": {
-              "description": "The list of professions.",
-              "type": "array",
-              "items": {
-                "$ref": "#/$defs/CommonProfessions/Plain/Constraint"
-              },
-              "minItems": 1
-            }
-          },
-          "required": [
-            "tag",
-            "constraints"
-          ],
-          "additionalProperties": false
-        }
-      },
-      "Grouped": {
-        "Constraints": {
-          "WeightedVariants": {
-            "description": "Some profession variants are more common than others. There may be\ncultures where some variants are not represented at all.",
-            "type": "object",
-            "properties": {
-              "variants": {
-                "description": "The list of more common variants.",
-                "type": "array",
-                "items": {
-                  "$ref": "#/$defs/CommonProfessions/ProfessionVariant"
-                },
-                "minItems": 1
-              },
-              "weight": {
-                "description": "The \"weight\" difference compared to other variants. Some variants are\nsimply more common (Mostly), but sometimes only specific variants are\nused (Only).",
-                "$ref": "#/$defs/CommonProfessions/Grouped/Weight"
-              }
-            },
-            "required": [
-              "variants",
-              "weight"
-            ],
-            "additionalProperties": false
-          },
-          "Profession": {
-            "type": "object",
-            "properties": {
-              "tag": {
-                "const": "Profession"
-              },
-              "id": {
-                "description": "The profession's identifier.",
-                "type": "integer",
-                "minimum": 1
-              },
-              "weighted_variants": {
-                "description": "Some profession variants are more common than others. There may be\ncultures where some variants are not represented at all.",
-                "$ref": "#/$defs/CommonProfessions/Grouped/Constraints/WeightedVariants"
-              },
-              "rarity": {
-                "description": "Some professions may be found in a culture, but are not that\ncommon.",
-                "$ref": "#/$defs/CommonProfessions/Grouped/Rarity"
-              }
-            },
-            "required": [
-              "tag",
-              "id"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "Weight": {
-          "description": "The \"weight\" difference compared to other variants. Some variants are\nsimply more common (Mostly), but sometimes only specific variants are\nused (Only).",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Mostly"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Only"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            }
-          ]
-        },
-        "Rarity": {
-          "description": "Some professions may be found in a culture, but are not that common.",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Rare"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "VeryRare"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            }
-          ]
-        },
-        "Mundane": {
-          "ProfessionSubgroup": {
-            "description": "Some professions may be found in a culture, but are not that common.",
-            "oneOf": [
-              {
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Profane"
-                  }
-                },
-                "required": [
-                  "tag"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Fighter"
-                  }
-                },
-                "required": [
-                  "tag"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Religious"
-                  }
-                },
-                "required": [
-                  "tag"
-                ],
-                "additionalProperties": false
-              }
-            ]
-          },
-          "Constraint": {
-            "oneOf": [
-              {
-                "$ref": "#/$defs/CommonProfessions/Grouped/Constraints/Profession"
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "ProfessionSubgroup"
-                  },
-                  "subgroup": {
-                    "$ref": "#/$defs/CommonProfessions/Grouped/Mundane/ProfessionSubgroup"
-                  }
-                },
-                "required": [
-                  "tag",
-                  "subgroup"
-                ],
-                "additionalProperties": false
-              }
-            ]
-          },
-          "Operation": {
-            "description": "This defines how the list of constraints should be offset against the\nlist of all mundane professions: Either only the professions are kept\nthat intersect with the constraints (include) or only the professions\nare kept that are different from the constraints (exclude).",
-            "oneOf": [
-              {
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Intersection"
-                  }
-                },
-                "required": [
-                  "tag"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Difference"
-                  }
-                },
-                "required": [
-                  "tag"
-                ],
-                "additionalProperties": false
-              }
-            ]
-          },
-          "T": {
-            "description": "A list of professions. The filter specifies how the list is applied to\nall mundane professions.",
-            "type": "object",
-            "properties": {
-              "constraints": {
-                "description": "The list of professions.",
-                "type": "array",
-                "items": {
-                  "$ref": "#/$defs/CommonProfessions/Grouped/Mundane/Constraint"
-                },
-                "minItems": 1
-              },
-              "operation": {
-                "description": "This defines how the list of constraints should be offset against the\nlist of all mundane professions: Either only the professions are kept\nthat intersect with the constraints (include) or only the professions\nare kept that are different from the constraints (exclude).",
-                "$ref": "#/$defs/CommonProfessions/Grouped/Mundane/Operation"
-              }
-            },
-            "required": [
-              "constraints",
-              "operation"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "Magic": {
-          "WeightedProfessions": {
-            "description": "Some professions are more common than others. There may be cultures\nwhere some professions are not represented at all.",
-            "type": "object",
-            "properties": {
-              "professions": {
-                "description": "The list of more common variants.",
-                "type": "array",
-                "items": {
-                  "$ref": "#/$defs/CommonProfessions/Profession"
-                },
-                "minItems": 1
-              },
-              "weight": {
-                "description": "The \"weight\" difference compared to other professions. Some\nprofessions are simply more common (Mostly), but sometimes only\nspecific professions are used (Only).",
-                "$ref": "#/$defs/CommonProfessions/Grouped/Weight"
-              }
-            },
-            "required": [
-              "professions",
-              "weight"
-            ],
-            "additionalProperties": false
-          },
-          "Constraint": {
-            "oneOf": [
-              {
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Tradition"
-                  },
-                  "id": {
-                    "description": "The magical tradition's identifier.",
-                    "type": "integer",
-                    "minimum": 1
-                  },
-                  "weighted_professions": {
-                    "description": "Some professions are more common than others. There may be cultures\nwhere some professions are not represented at all.",
-                    "$ref": "#/$defs/CommonProfessions/Grouped/Magic/WeightedProfessions"
-                  },
-                  "rarity": {
-                    "description": "Some traditions may be found in a culture, but are not that common.",
-                    "$ref": "#/$defs/CommonProfessions/Grouped/Rarity"
-                  }
-                },
-                "required": [
-                  "tag",
-                  "id"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "MagicDilettante"
-                  }
-                },
-                "required": [
-                  "tag"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "$ref": "#/$defs/CommonProfessions/Grouped/Constraints/Profession"
-              }
-            ]
-          },
-          "T": {
-            "type": "object",
-            "properties": {
-              "constraints": {
-                "description": "The list of professions.",
-                "type": "array",
-                "items": {
-                  "$ref": "#/$defs/CommonProfessions/Grouped/Magic/Constraint"
-                },
-                "minItems": 1
-              }
-            },
-            "required": [
-              "constraints"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "Blessed": {
-          "Constraint": {
-            "type": "object",
-            "properties": {
-              "tag": {
-                "const": "Tradition"
-              },
-              "id": {
-                "description": "The blessed tradition's identifier.",
-                "type": "integer",
-                "minimum": 1
-              },
-              "rarity": {
-                "description": "Some traditions may be found in a culture, but are not that common.",
-                "$ref": "#/$defs/CommonProfessions/Grouped/Rarity"
-              }
-            },
-            "required": [
-              "tag",
-              "id"
-            ],
-            "additionalProperties": false
-          },
-          "T": {
-            "type": "object",
-            "properties": {
-              "constraints": {
-                "description": "The list of professions.",
-                "type": "array",
-                "items": {
-                  "$ref": "#/$defs/CommonProfessions/Grouped/Blessed/Constraint"
-                },
-                "minItems": 1
-              }
-            },
-            "required": [
-              "constraints"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "T": {
-          "description": "Lists of professions by group.",
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Grouped"
-            },
-            "mundane": {
-              "description": "A list of professions. The filter specifies how the list is applied to\nall mundane professions.",
-              "$ref": "#/$defs/CommonProfessions/Grouped/Mundane/T"
-            },
-            "magic": {
-              "$ref": "#/$defs/CommonProfessions/Grouped/Magic/T"
-            },
-            "blessed": {
-              "$ref": "#/$defs/CommonProfessions/Grouped/Blessed/T"
+              "const": "Intersection"
             }
           },
           "required": [
             "tag"
           ],
-          "minProperties": 2,
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Difference"
+            }
+          },
+          "required": [
+            "tag"
+          ],
           "additionalProperties": false
         }
-      },
-      "Config": {
-        "description": "A list of professions that are typical for the culture, as well as\nprofessions that are rarely practiced or encountered in the culture. The\nlist is either defined by group (as multiple lists) or plain (as a single\nlist).",
-        "oneOf": [
-          {
-            "$ref": "#/$defs/CommonProfessions/Plain/T"
-          },
-          {
-            "$ref": "#/$defs/CommonProfessions/Grouped/T"
-          }
-        ]
-      }
+      ]
     },
-    "CommonnessRatedSkill": {
+    "Rarity": {
+      "description": "Some professions may be found in a culture, but are not that common.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Rare"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "VeryRare"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "ProfessionConstraint": {
       "type": "object",
       "properties": {
         "id": {
-          "description": "The skill's identifier.",
+          "description": "The profession's identifier.",
           "type": "integer",
           "minimum": 1
+        },
+        "weighted_variants": {
+          "description": "Some professions or profession variants are more common than others. There\nmay be cultures where some professions or profession variants are not\nrepresented at all.",
+          "type": "object",
+          "properties": {
+            "elements": {
+              "description": "The list of more common professions or profession variants.",
+              "type": "array",
+              "items": {
+                "$ref": "./_SimpleReferences.schema.json#/$defs/ProfessionVariantReference"
+              },
+              "minItems": 1
+            },
+            "weight": {
+              "description": "The \"weight\" difference compared to other professions or profession\nvariants. Some professions or profession variants are simply more common\n(Mostly), but sometimes only specific elements are used (Only).",
+              "$ref": "#/$defs/Weight"
+            }
+          },
+          "required": [
+            "elements",
+            "weight"
+          ],
+          "additionalProperties": false
+        },
+        "rarity": {
+          "description": "Some professions may be found in a culture, but are not that\ncommon.",
+          "$ref": "#/$defs/Rarity"
         }
       },
       "required": [
         "id"
       ],
       "additionalProperties": false
+    },
+    "MundaneProfessionSubgroupConstraint": {
+      "description": "Some professions may be found in a culture, but are not that common.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Profane"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Fighter"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Religious"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "TraditionConstraint": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The magical tradition's identifier.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "weighted_professions": {
+          "description": "Some professions or profession variants are more common than others. There\nmay be cultures where some professions or profession variants are not\nrepresented at all.",
+          "type": "object",
+          "properties": {
+            "elements": {
+              "description": "The list of more common professions or profession variants.",
+              "type": "array",
+              "items": {
+                "$ref": "./_SimpleReferences.schema.json#/$defs/ProfessionReference"
+              },
+              "minItems": 1
+            },
+            "weight": {
+              "description": "The \"weight\" difference compared to other professions or profession\nvariants. Some professions or profession variants are simply more common\n(Mostly), but sometimes only specific elements are used (Only).",
+              "$ref": "#/$defs/Weight"
+            }
+          },
+          "required": [
+            "elements",
+            "weight"
+          ],
+          "additionalProperties": false
+        },
+        "rarity": {
+          "description": "Some traditions may be found in a culture, but are not that common.",
+          "$ref": "#/$defs/Rarity"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "MundaneCommonProfessionConstraint": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Profession"
+            },
+            "profession": {
+              "$ref": "#/$defs/ProfessionConstraint"
+            }
+          },
+          "required": [
+            "tag",
+            "profession"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "ProfessionSubgroup"
+            },
+            "profession_subgroup": {
+              "$ref": "#/$defs/ProfessionConstraint"
+            }
+          },
+          "required": [
+            "tag",
+            "profession_subgroup"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "MagicCommonProfessionConstraint": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Tradition"
+            },
+            "tradition": {
+              "$ref": "#/$defs/TraditionConstraint"
+            }
+          },
+          "required": [
+            "tag",
+            "tradition"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "MagicDilettante"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Profession"
+            },
+            "profession": {
+              "$ref": "#/$defs/ProfessionConstraint"
+            }
+          },
+          "required": [
+            "tag",
+            "profession"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "BlessedCommonProfessionConstraint": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Tradition"
+            },
+            "tradition": {
+              "$ref": "#/$defs/TraditionConstraint"
+            }
+          },
+          "required": [
+            "tag",
+            "tradition"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "PlainCommonProfessions": {
+      "description": "A list of professions. The filter specifies how the list is applied to\nall mundane professions.",
+      "type": "object",
+      "properties": {
+        "constraints": {
+          "description": "The list of constraints.",
+          "type": "array",
+          "items": {
+            "$ref": "./_SimpleReferences.schema.json#/$defs/ProfessionReference"
+          },
+          "minItems": 1
+        },
+        "operation": {
+          "description": "This defines how the list of constraints should be offset against the\nlist of all mundane professions: Either only the professions are kept\nthat intersect with the constraints (include) or only the professions\nare kept that are different from the constraints (exclude).",
+          "$ref": "#/$defs/CommonProfessionConstraintsOperation"
+        }
+      },
+      "required": [
+        "constraints",
+        "operation"
+      ],
+      "additionalProperties": false
+    },
+    "GroupedCommonProfessions": {
+      "description": "Lists of professions by group.",
+      "type": "object",
+      "properties": {
+        "mundane": {
+          "description": "A list of professions. The filter specifies how the list is applied to\nall mundane professions.",
+          "type": "object",
+          "properties": {
+            "constraints": {
+              "description": "The list of constraints.",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/MundaneCommonProfessionConstraint"
+              },
+              "minItems": 1
+            },
+            "operation": {
+              "description": "This defines how the list of constraints should be offset against the\nlist of all mundane professions: Either only the professions are kept\nthat intersect with the constraints (include) or only the professions\nare kept that are different from the constraints (exclude).",
+              "$ref": "#/$defs/CommonProfessionConstraintsOperation"
+            }
+          },
+          "required": [
+            "constraints",
+            "operation"
+          ],
+          "additionalProperties": false
+        },
+        "magic": {
+          "description": "A list of professions. The filter specifies how the list is applied to\nall mundane professions.",
+          "type": "object",
+          "properties": {
+            "constraints": {
+              "description": "The list of constraints.",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/MagicCommonProfessionConstraint"
+              },
+              "minItems": 1
+            },
+            "operation": {
+              "description": "This defines how the list of constraints should be offset against the\nlist of all mundane professions: Either only the professions are kept\nthat intersect with the constraints (include) or only the professions\nare kept that are different from the constraints (exclude).",
+              "$ref": "#/$defs/CommonProfessionConstraintsOperation"
+            }
+          },
+          "required": [
+            "constraints",
+            "operation"
+          ],
+          "additionalProperties": false
+        },
+        "blessed": {
+          "description": "A list of professions. The filter specifies how the list is applied to\nall mundane professions.",
+          "type": "object",
+          "properties": {
+            "constraints": {
+              "description": "The list of constraints.",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/BlessedCommonProfessionConstraint"
+              },
+              "minItems": 1
+            },
+            "operation": {
+              "description": "This defines how the list of constraints should be offset against the\nlist of all mundane professions: Either only the professions are kept\nthat intersect with the constraints (include) or only the professions\nare kept that are different from the constraints (exclude).",
+              "$ref": "#/$defs/CommonProfessionConstraintsOperation"
+            }
+          },
+          "required": [
+            "constraints",
+            "operation"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [],
+      "minProperties": 2,
+      "additionalProperties": false
+    },
+    "CommonProfessions": {
+      "description": "A list of professions that are typical for the culture, as well as\nprofessions that are rarely practiced or encountered in the culture. The\nlist is either defined by group (as multiple lists) or plain (as a single\nlist).",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Plain"
+            },
+            "plain": {
+              "$ref": "#/$defs/PlainCommonProfessions"
+            }
+          },
+          "required": [
+            "tag",
+            "plain"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Grouped"
+            },
+            "grouped": {
+              "$ref": "#/$defs/GroupedCommonProfessions"
+            }
+          },
+          "required": [
+            "tag",
+            "grouped"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "CommonnessRatedSkill": {
+      "$ref": "./_SimpleReferences.schema.json#/$defs/SkillReference"
     },
     "CulturalPackageItem": {
       "type": "object",
@@ -698,7 +618,7 @@
       ],
       "additionalProperties": false
     },
-    "Translation": {
+    "CultureTranslation": {
       "type": "object",
       "properties": {
         "name": {
@@ -712,23 +632,19 @@
         },
         "common_advantages": {
           "description": "The respective common advantages text from the source book.",
-          "type": "string",
-          "minLength": 1
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "common_disadvantages": {
           "description": "The respective common disadvantages text from the source book.",
-          "type": "string",
-          "minLength": 1
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "uncommon_advantages": {
           "description": "The respective uncommon advantages text from the source book.",
-          "type": "string",
-          "minLength": 1
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "uncommon_disadvantages": {
           "description": "The respective uncommon disadvantages text from the source book.",
-          "type": "string",
-          "minLength": 1
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "common_names": {
           "description": "Structured description of common names.",
@@ -775,8 +691,17 @@
       "additionalProperties": false
     },
     "AreaKnowledgeExample": {
-      "type": "string",
-      "minLength": 1
+      "type": "object",
+      "properties": {
+        "area": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "area"
+      ],
+      "additionalProperties": false
     },
     "CommonNames": {
       "description": "Structured description of common names.",
@@ -800,8 +725,7 @@
         },
         "naming_rules": {
           "description": "Special naming rules.",
-          "type": "string",
-          "minLength": 1
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         }
       },
       "required": [],
@@ -813,8 +737,7 @@
       "properties": {
         "label": {
           "description": "The group label.",
-          "type": "string",
-          "minLength": 1
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sex": {
           "description": "The binary sex if the group is only for a certain binary sex.",
@@ -839,13 +762,11 @@
       "type": "object",
       "properties": {
         "name": {
-          "type": "string",
-          "minLength": 1
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "note": {
           "description": "Additional information about the name, appended in parenthesis.",
-          "type": "string",
-          "minLength": 1
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         }
       },
       "required": [

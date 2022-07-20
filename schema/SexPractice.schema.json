@@ -20,41 +20,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The sex practice's name.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "rules": {
-                  "description": "The rules of the sex practice.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "duration": {
-                  "description": "How long a round of this sex practice takes.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "prerequisites": {
-                  "description": "Prerequisites of participants and environment. Do not specify if the\nsex practice has no prerequisites.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "failed": {
-                  "description": "Effects of a failed *Seduction* check.",
-                  "type": "string",
-                  "minLength": 1
-                }
-              },
-              "required": [
-                "name",
-                "rules",
-                "duration",
-                "failed"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/SexPracticeTranslation"
             }
           },
           "minProperties": 1,
@@ -65,6 +31,38 @@
         "id",
         "src",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "SexPracticeTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The sex practice's name.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "rules": {
+          "description": "The rules of the sex practice.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "duration": {
+          "description": "How long a round of this sex practice takes.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "prerequisites": {
+          "description": "Prerequisites of participants and environment. Do not specify if the\nsex practice has no prerequisites.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "failed": {
+          "description": "Effects of a failed *Seduction* check.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "name",
+        "rules",
+        "duration",
+        "failed"
       ],
       "additionalProperties": false
     }

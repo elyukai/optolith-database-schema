@@ -1,6 +1,6 @@
 # Disease (shared)
 
-This file defines some shared types for different diseases.
+This file defines some shared types for different diseases and poisons.
 
 ## Definitions
 
@@ -119,15 +119,13 @@ The chance to get infected by this cause. If present for this
 language, this overrides the universal `chance` field; they cannot be
 used at the same time.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="CauseTranslation/note"></a> `note?`
 
 An additional note about this cause.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 ---
 
@@ -152,8 +150,7 @@ Key | Description | Details
 
 The name of the disease.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="DiseaseTranslation/alternative_names"></a> `alternative_names?`
 
@@ -167,50 +164,45 @@ A list of alternative names.
 
 The disease’s progress, in detail.
 
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
 #### <a name="DiseaseTranslation/incubation_time"></a> `incubation_time`
 
 After infection, how much time passes before symptoms appear?
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="DiseaseTranslation/damage"></a> `damage`
 
 The damage caused by the disease. If the disease check fails, apply the
 lessened effects.
 
-- **Type:** <a href="#Lessenable">Lessenable</a>
+- **Type:** <a href="#Reduceable">Reduceable</a>
 
 #### <a name="DiseaseTranslation/duration"></a> `duration`
 
 The duration of the disease. If the disease check fails, use the
 lessened duration.
 
-- **Type:** <a href="#Lessenable">Lessenable</a>
+- **Type:** <a href="#Reduceable">Reduceable</a>
 
 #### <a name="DiseaseTranslation/special"></a> `special?`
 
 Special information about the disease.
 
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
 #### <a name="DiseaseTranslation/treatment"></a> `treatment`
 
 Methods known to lessen the disease’s progress or relieve symptoms.
 
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
 #### <a name="DiseaseTranslation/cure"></a> `cure`
 
 Known remedies for the disease.
 
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
 #### <a name="DiseaseTranslation/errata"></a> `errata?`
 
@@ -237,41 +229,40 @@ Key | Description | Details
 
 An alternative name of the disease.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="AlternativeName/region"></a> `region?`
 
 The region where this alternative name is used.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 ---
 
-### <a name="Lessenable"></a> `Lessenable`
+### <a name="Reduceable"></a> `Reduceable`
 
-An effect or other parameter that may be lessened by a failed disease check.
+An effect or other parameter that may be reduced by a failed disease check
+for lessening or a degraded poison.
+
+This streamlines the wording for diseases and poison by using a unified
+wording for *lessened* (disease) and *degraded* (poison).
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`default` | The default value. In the source, it's the text before the slash. | <a href="#Lessenable/default">See details</a>
-`lessened?` | The lessened value. In the source, it's the text after the slash. Some entries may not have a lessened value. | <a href="#Lessenable/lessened">See details</a>
+`default` | The default value. In the source, it's the text before the slash. | <a href="#Reduceable/default">See details</a>
+`reduced?` | The reduced value. In the source, it's the text after the slash. Some entries may not have a reduced value. | <a href="#Reduceable/reduced">See details</a>
 
-#### <a name="Lessenable/default"></a> `default`
+#### <a name="Reduceable/default"></a> `default`
 
-The default value. In the source, it's the text before the
-slash.
+The default value. In the source, it's the text before the slash.
 
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
-#### <a name="Lessenable/lessened"></a> `lessened?`
+#### <a name="Reduceable/reduced"></a> `reduced?`
 
-The lessened value. In the source, it's the text after the
-slash. Some entries may not have a lessened value.
+The reduced value. In the source, it's the text after the slash. Some
+entries may not have a reduced value.
 
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>

@@ -16,85 +16,13 @@
           "description": "The tradition(s) the talisman belongs to.",
           "type": "array",
           "items": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "The blessed traditions's identifier.",
-                "type": "integer",
-                "minimum": 1
-              }
-            },
-            "required": [
-              "id"
-            ],
-            "additionalProperties": false
+            "$ref": "./_SimpleReferences.schema.json#/$defs/BlessedTraditionReference"
           },
           "minItems": 1
         },
         "type": {
           "description": "The talisman type.",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "MainTalisman"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Talisman"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "MinorTalisman"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Regalia"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "PowerfulTalisman"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            }
-          ]
+          "$ref": "#/$defs/TalismanType"
         },
         "ap_value": {
           "description": "The AP value for the required trade secret.",
@@ -110,49 +38,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The name of the talisman.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "description": {
-                  "description": "The effect description.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "activation": {
-                  "description": "The activation parameters.",
-                  "type": "object",
-                  "properties": {
-                    "cost": {
-                      "description": "The KP cost.",
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "duration": {
-                      "description": "The duration.",
-                      "type": "string",
-                      "minLength": 1
-                    }
-                  },
-                  "required": [
-                    "cost",
-                    "duration"
-                  ],
-                  "additionalProperties": false
-                },
-                "errata": {
-                  "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "description",
-                "activation"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/TalismanTranslation"
             }
           },
           "minProperties": 1,
@@ -166,6 +52,114 @@
         "ap_value",
         "src",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "TalismanType": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "MainTalisman"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Talisman"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "MinorTalisman"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Regalia"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PowerfulTalisman"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "TalismanTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the talisman.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "description": {
+          "description": "The effect description.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        },
+        "activation": {
+          "description": "The activation parameters.",
+          "$ref": "#/$defs/TalismanActivationTranslation"
+        },
+        "errata": {
+          "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "description",
+        "activation"
+      ],
+      "additionalProperties": false
+    },
+    "TalismanActivationTranslation": {
+      "type": "object",
+      "properties": {
+        "cost": {
+          "description": "The KP cost.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "duration": {
+          "description": "The duration.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "cost",
+        "duration"
       ],
       "additionalProperties": false
     }

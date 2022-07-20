@@ -3,6 +3,7 @@
  */
 
 import { LocaleMap } from "./_LocaleMap.js"
+import { NonEmptyString } from "./_NonEmptyString.js"
 import { ArcaneTraditionPrerequisites } from "./_Prerequisite.js"
 
 /**
@@ -28,7 +29,6 @@ export type ArcaneTradition = {
 export type ArcaneTraditionTranslation = {
   /**
    * The arcane tradition's name.
-   * @minLength 1
    */
-  name: string
+  name: NonEmptyString
 }

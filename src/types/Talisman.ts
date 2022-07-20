@@ -5,6 +5,9 @@
 import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
+import { LocaleMap } from "./_LocaleMap.js"
+import { NonEmptyMarkdown, NonEmptyString } from "./_NonEmptyString.js"
+import { BlessedTraditionReference } from "./_SimpleReferences.js"
 
 /**
  * @title Talisman
@@ -21,24 +24,12 @@ export type Talisman = {
    * The tradition(s) the talisman belongs to.
    * @minItems 1
    */
-  tradition: {
-    /**
-     * The blessed traditions's identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-  }[]
+  tradition: BlessedTraditionReference[]
 
   /**
    * The talisman type.
    */
-  type:
-    | { tag: "MainTalisman" }
-    | { tag: "Talisman" }
-    | { tag: "MinorTalisman" }
-    | { tag: "Regalia" }
-    | { tag: "PowerfulTalisman" }
+  type: TalismanType
 
   /**
    * The AP value for the required trade secret.
@@ -54,44 +45,45 @@ export type Talisman = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the talisman.
-       * @minLength 1
-       */
-      name: string
+  translations: LocaleMap<TalismanTranslation>
+}
 
-      /**
-       * The effect description.
-       * @markdown
-       * @minLength 1
-       */
-      description: string
+export type TalismanType =
+  | { tag: "MainTalisman" }
+  | { tag: "Talisman" }
+  | { tag: "MinorTalisman" }
+  | { tag: "Regalia" }
+  | { tag: "PowerfulTalisman" }
 
-      /**
-       * The activation parameters.
-       */
-      activation: {
-        /**
-         * The KP cost.
-         * @minLength 1
-         */
-        cost: string
+export type TalismanTranslation = {
+  /**
+   * The name of the talisman.
+   */
+  name: NonEmptyString
 
-        /**
-         * The duration.
-         * @minLength 1
-         */
-        duration: string
-      }
+  /**
+   * The effect description.
+   */
+  description: NonEmptyMarkdown
 
-      errata?: Errata
-    }
-  }
+  /**
+   * The activation parameters.
+   */
+  activation: TalismanActivationTranslation
+
+  errata?: Errata
+}
+
+export type TalismanActivationTranslation = {
+  /**
+   * The KP cost.
+   */
+  cost: NonEmptyString
+
+  /**
+   * The duration.
+   */
+  duration: NonEmptyString
 }
 
 export const validateSchema = validateSchemaCreator<Talisman>(import.meta.url)

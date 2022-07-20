@@ -1,3 +1,5 @@
+import { NonEmptyString } from "./_NonEmptyString.js"
+
 /**
  * The item can be present in multiple pluralization categories; this object
  * unifies handling of them. Not all of the options must be present, however,
@@ -31,8 +33,3 @@ export type PluralizationCategories = {
   many?: NonEmptyString
   other: NonEmptyString
 }
-
-/**
- * @minLength 1
- */
-type NonEmptyString = string

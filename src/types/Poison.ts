@@ -5,6 +5,9 @@
 import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
+import { AlternativeName, Reduceable, Resistance } from "./_DiseasePoison.js"
+import { LocaleMap } from "./_LocaleMap.js"
+import { NonEmptyMarkdown, NonEmptyString } from "./_NonEmptyString.js"
 
 /**
  * @title Poison
@@ -22,109 +25,24 @@ export type Poison = {
    * @integer
    * @minimum 1
    */
-  level:
-    | { tag: "QualityLevel" }
-    | {
-      tag: "Fixed"
-
-      /**
-       * @integer
-       * @minimum 1
-       */
-      value: number
-    }
+  level: PoisonLevel
 
   /**
    * The poison's application type(s).
    * @minItems 1
    * @uniqueItems
    */
-  application_type: (
-    | { tag: "Weapon" }
-    | { tag: "Ingestion" }
-    | { tag: "Inhalation" }
-    | { tag: "Contact" }
-  )[]
+  application_type: PoisonApplicationType[]
 
   /**
    * The poison's source type and dependent additional values.
    */
-  source_type:
-    | { tag: "AnimalVenom" }
-    | {
-      tag: "PlantPoison"
-
-      /**
-       * The plant poison category and dependent additional values.
-       */
-      category:
-        | { tag: "Default" }
-        | {
-          tag: "Intoxicant"
-
-          /**
-           * Whether the use of the intoxicant is legal or not.
-           */
-          legality:
-            | { tag: "Legal" }
-            | { tag: "Illegal" }
-
-          /**
-           * All translations for the entry, identified by IETF language tag
-           * (BCP47).
-           * @minProperties 1
-           */
-          translations: {
-            /**
-             * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-             */
-            [localeId: string]: {
-              /**
-               * How to ingest the intoxicant.
-               * @minLength 1
-               */
-              ingestion: string
-
-              /**
-               * The intoxicants side effects, if any.
-               * @markdown
-               * @minLength 1
-               */
-              side_effect?: string
-
-              /**
-               * What happens if the intoxicant has been overdosed.
-               * @markdown
-               * @minLength 1
-               */
-              overdose: string
-
-              /**
-               *
-               * @markdown
-               * @minLength 1
-               */
-              special?: string
-
-              /**
-               *
-               * @markdown
-               * @minLength 1
-               */
-              addiction?: string
-            }
-          }
-        }
-    }
-    | { tag: "AlchemicalPoison" }
-    | { tag: "MineralPoison" }
+  source_type: PoisonSourceType
 
   /**
    * Use Spirit or Toughness as a modifier for the poison.
    */
-  resistance:
-    | { tag: "Spirit" }
-    | { tag: "Toughness" }
+  resistance: Resistance
 
   /**
    * The raw (ingredients) value, in silverthalers.
@@ -146,82 +64,118 @@ export type Poison = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the poison.
-       * @minLength 1
-       */
-      name: string
+  translations: LocaleMap<PoisonTranslation>
+}
 
-      /**
-       * A list of alternative names.
-       * @minItems 1
-       */
-      alternative_names?: {
-        /**
-         * An alternative name of the poison.
-         * @minLength 1
-         */
-        name: string
+export type PoisonLevel =
+  | { tag: "QualityLevel" }
+  | { tag: "Fixed"; fixed: FixedPoisonLevel }
 
-        /**
-         * The region where this alternative name is used.
-         * @minLength 1
-         */
-        region?: string
-      }[]
+export type FixedPoisonLevel = {
+  /**
+   * @integer
+   * @minimum 1
+   */
+  value: number
+}
 
-      /**
-       * The normal and degraded poison's effects.
-       */
-      effect: {
-        /**
-         * The poison’s effects.
-         * @markdown
-         * @minLength 1
-         */
-        default: string
+export type PoisonApplicationType =
+  | { tag: "Weapon" }
+  | { tag: "Ingestion" }
+  | { tag: "Inhalation" }
+  | { tag: "Contact" }
 
-        /**
-         * The degraded poison’s effects.
-         * @markdown
-         * @minLength 1
-         */
-        degraded?: string
-      }
+export type PoisonSourceType =
+  | { tag: "AnimalVenom" }
+  | { tag: "AlchemicalPoison" }
+  | { tag: "MineralPoison" }
+  | { tag: "PlantPoison"; plant_poison: PlantPoison }
 
-      /**
-       * When the poison takes effect.
-       * @minLength 1
-       */
-      start: string
+export type PlantPoison = {
+  /**
+   * The plant poison category and dependent additional values.
+   */
+  category: PlantPoisonCategory
+}
 
-      /**
-       * The normal and degraded poison's duration.
-       */
-      duration: {
-        /**
-         * The poison’s duration.
-         * @markdown
-         * @minLength 1
-         */
-        default: string
+export type PlantPoisonCategory =
+  | { tag: "Default" }
+  | { tag: "Intoxicant"; intoxicant: Intoxicant }
 
-        /**
-         * The degraded poison’s duration.
-         * @markdown
-         * @minLength 1
-         */
-        degraded: string
-      }
+export type Intoxicant = {
+  /**
+   * Whether the use of the intoxicant is legal or not.
+   */
+  legality: IntoxicantLegality
 
-      errata?: Errata
-    }
-  }
+  /**
+   * All translations for the entry, identified by IETF language tag
+   * (BCP47).
+   * @minProperties 1
+   */
+  translations: LocaleMap<IntoxicantTranslation>
+}
+
+export type IntoxicantLegality = {
+  is_legal: boolean
+}
+
+export type IntoxicantTranslation = {
+  /**
+   * How to ingest the intoxicant.
+   */
+  ingestion: NonEmptyString
+
+  /**
+   * The intoxicants side effects, if any.
+   */
+  side_effect?: NonEmptyMarkdown
+
+  /**
+   * What happens if the intoxicant has been overdosed.
+   */
+  overdose: NonEmptyMarkdown
+
+  /**
+   *
+   */
+  special?: NonEmptyMarkdown
+
+  /**
+   *
+   */
+  addiction?: NonEmptyMarkdown
+}
+
+export type PoisonTranslation = {
+  /**
+   * The name of the poison.
+   */
+  name: NonEmptyString
+
+  /**
+   * A list of alternative names.
+   * @minItems 1
+   */
+  alternative_names?: AlternativeName[]
+
+  /**
+   * The normal and degraded poison's effects.
+   */
+  effect: Reduceable
+
+  /**
+   * When the poison takes effect.
+   * @minLength 1
+   */
+  start: string
+
+  /**
+   * The normal and degraded poison's duration.
+   */
+  duration: Reduceable
+
+  errata?: Errata
 }
 
 export const validateSchema = validateSchemaCreator<Poison>(import.meta.url)

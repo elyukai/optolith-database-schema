@@ -47,7 +47,7 @@ Measurable parameters of a jester trick.
 
 The target category – the kind of creature or object – the skill affects.
 
-- **Type:** <a href="../_ActivatableSkill.md#TargetCategory/T">TargetCategory/T</a>
+- **Type:** <a href="../_ActivatableSkillTargetCategory.md#TargetCategory">TargetCategory</a>
 
 #### <a name="JesterTrick/property_id"></a> `property_id`
 
@@ -105,7 +105,7 @@ The effect description may be either a plain text or a text that is
 divided by a list of effects for each quality level. It may also be a
 list for each two quality levels.
 
-- **Type:** <a href="../_ActivatableSkill.md#Effect/T">Effect/T</a>
+- **Type:** <a href="../_ActivatableSkillEffect.md#Effect">Effect</a>
 
 #### <a name="JesterTrick/translations[key]/casting_time"></a> `casting_time`
 
@@ -246,7 +246,7 @@ The range.
 The duration.
 
 - **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/duration'Immediate">PerformanceParameters/duration'Immediate</a> | <a href="#PerformanceParameters/duration'Fixed">PerformanceParameters/duration'Fixed</a> | <a href="#PerformanceParameters/duration'CheckResultBasedTagged">PerformanceParameters/duration'CheckResultBasedTagged</a>
+- **Cases:** <a href="#PerformanceParameters/duration'Immediate">PerformanceParameters/duration'Immediate</a> | <a href="#PerformanceParameters/duration'Fixed">PerformanceParameters/duration'Fixed</a> | <a href="#PerformanceParameters/duration'TaggedCheckResultBasedDuration">PerformanceParameters/duration'TaggedCheckResultBasedDuration</a>
 
 ---
 
@@ -377,10 +377,10 @@ The (unitless) duration.
 
 The duration unit.
 
-- **Type:** <a href="../_ActivatableSkill.md#Duration/Unit">Duration/Unit</a>
+- **Type:** <a href="../_ActivatableSkillDuration.md#DurationUnit">DurationUnit</a>
 
 ---
 
-### <a name="PerformanceParameters/duration'CheckResultBasedTagged"></a> `PerformanceParameters/duration'CheckResultBasedTagged`
+### <a name="PerformanceParameters/duration'TaggedCheckResultBasedDuration"></a> `PerformanceParameters/duration'TaggedCheckResultBasedDuration`
 
-- **Type:** <a href="../_ActivatableSkill.md#Duration/CheckResultBasedTagged">Duration/CheckResultBasedTagged</a>
+- **Type:** <a href="../_ActivatableSkillDuration.md#TaggedCheckResultBasedDuration">TaggedCheckResultBasedDuration</a>

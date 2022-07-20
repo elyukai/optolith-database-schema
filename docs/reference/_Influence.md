@@ -41,56 +41,65 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Influence/translations[key]"></a> `Influence/translations[key]`
 
+- **Type:** <a href="#InfluenceTranslation">InfluenceTranslation</a>
+
+---
+
+### <a name="InfluenceTranslation"></a> `InfluenceTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The influence name. | <a href="#Influence/translations[key]/name">See details</a>
-`effects` | The effects of the influence. They should be sorted like they are in the book. | <a href="#Influence/translations[key]/effects">See details</a>
-`errata?` |  | <a href="#Influence/translations[key]/errata">See details</a>
+`name` | The influence name. | <a href="#InfluenceTranslation/name">See details</a>
+`effects` | The effects of the influence. They should be sorted like they are in the book. | <a href="#InfluenceTranslation/effects">See details</a>
+`errata?` |  | <a href="#InfluenceTranslation/errata">See details</a>
 
-#### <a name="Influence/translations[key]/name"></a> `name`
+#### <a name="InfluenceTranslation/name"></a> `name`
 
 The influence name.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Influence/translations[key]/effects"></a> `effects`
+#### <a name="InfluenceTranslation/effects"></a> `effects`
 
 The effects of the influence. They should be sorted like they are in
 the book.
 
 - **Type:** List
-- **Items:** <a href="#Influence/translations[key]/effects[]">Influence/translations[key]/effects[]</a>
+- **Items:** <a href="#InfluenceTranslation/effects[]">InfluenceTranslation/effects[]</a>
 - **Minimum Items:** `1`
 
-#### <a name="Influence/translations[key]/errata"></a> `errata?`
+#### <a name="InfluenceTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
 
 ---
 
-### <a name="Influence/translations[key]/effects[]"></a> `Influence/translations[key]/effects[]`
+### <a name="InfluenceTranslation/effects[]"></a> `InfluenceTranslation/effects[]`
+
+- **Type:** <a href="#InfluenceEffect">InfluenceEffect</a>
+
+---
+
+### <a name="InfluenceEffect"></a> `InfluenceEffect`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`label?` | An optional label that is displayed and placed before the actual text. | <a href="#Influence/translations[key]/effects[]/label">See details</a>
-`text` | The effect text. | <a href="#Influence/translations[key]/effects[]/text">See details</a>
+`label?` | An optional label that is displayed and placed before the actual text. | <a href="#InfluenceEffect/label">See details</a>
+`text` | The effect text. | <a href="#InfluenceEffect/text">See details</a>
 
-#### <a name="Influence/translations[key]/effects[]/label"></a> `label?`
+#### <a name="InfluenceEffect/label"></a> `label?`
 
 An optional label that is displayed and placed before the actual
 text.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Influence/translations[key]/effects[]/text"></a> `text`
+#### <a name="InfluenceEffect/text"></a> `text`
 
 The effect text.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

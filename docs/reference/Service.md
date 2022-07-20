@@ -46,63 +46,73 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Service/availability[]"></a> `Service/availability[]`
 
-- **Type:** Union
-- **Cases:** <a href="#Service/availability[]'SummonedCreatures">Service/availability[]'SummonedCreatures</a> | <a href="#Service/availability[]'Monstrosities">Service/availability[]'Monstrosities</a>
-
----
-
-### <a name="Service/availability[]'SummonedCreatures"></a> `Service/availability[]'SummonedCreatures`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Service/availability[]'SummonedCreatures/tag">See details</a>
-
-#### <a name="Service/availability[]'SummonedCreatures/tag"></a> `tag`
-
-- **Constant:** `"SummonedCreatures"`
-
----
-
-### <a name="Service/availability[]'Monstrosities"></a> `Service/availability[]'Monstrosities`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Service/availability[]'Monstrosities/tag">See details</a>
-
-#### <a name="Service/availability[]'Monstrosities/tag"></a> `tag`
-
-- **Constant:** `"Monstrosities"`
+- **Type:** <a href="#ServiceAvailability">ServiceAvailability</a>
 
 ---
 
 ### <a name="Service/translations[key]"></a> `Service/translations[key]`
 
+- **Type:** <a href="#ServiceTranslation">ServiceTranslation</a>
+
+---
+
+### <a name="ServiceAvailability"></a> `ServiceAvailability`
+
+- **Type:** Union
+- **Cases:** <a href="#ServiceAvailability'SummonedCreatures">ServiceAvailability'SummonedCreatures</a> | <a href="#ServiceAvailability'Monstrosities">ServiceAvailability'Monstrosities</a>
+
+---
+
+### <a name="ServiceAvailability'SummonedCreatures"></a> `ServiceAvailability'SummonedCreatures`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the service. | <a href="#Service/translations[key]/name">See details</a>
-`description` | The description of the service. | <a href="#Service/translations[key]/description">See details</a>
-`errata?` |  | <a href="#Service/translations[key]/errata">See details</a>
+`tag` |  | <a href="#ServiceAvailability'SummonedCreatures/tag">See details</a>
 
-#### <a name="Service/translations[key]/name"></a> `name`
+#### <a name="ServiceAvailability'SummonedCreatures/tag"></a> `tag`
+
+- **Constant:** `"SummonedCreatures"`
+
+---
+
+### <a name="ServiceAvailability'Monstrosities"></a> `ServiceAvailability'Monstrosities`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ServiceAvailability'Monstrosities/tag">See details</a>
+
+#### <a name="ServiceAvailability'Monstrosities/tag"></a> `tag`
+
+- **Constant:** `"Monstrosities"`
+
+---
+
+### <a name="ServiceTranslation"></a> `ServiceTranslation`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`name` | The name of the service. | <a href="#ServiceTranslation/name">See details</a>
+`description` | The description of the service. | <a href="#ServiceTranslation/description">See details</a>
+`errata?` |  | <a href="#ServiceTranslation/errata">See details</a>
+
+#### <a name="ServiceTranslation/name"></a> `name`
 
 The name of the service.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Service/translations[key]/description"></a> `description`
+#### <a name="ServiceTranslation/description"></a> `description`
 
 The description of the service.
 
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
-#### <a name="Service/translations[key]/errata"></a> `errata?`
+#### <a name="ServiceTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>

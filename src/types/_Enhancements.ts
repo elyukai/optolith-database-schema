@@ -4,6 +4,7 @@
 
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
+import { LocaleMap } from "./_LocaleMap.js"
 import { EnhancementPrerequisites } from "./_Prerequisite.js"
 
 /**
@@ -52,25 +53,22 @@ export type Enhancement = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the enhancement.
-       * @minLength 1
-       */
-      name: string
+  translations: LocaleMap<EnhancementTranslation>
+}
 
-      /**
-       * The effect description.
-       * @markdown
-       * @minLength 1
-       */
-      effect: string
+export type EnhancementTranslation = {
+  /**
+   * The name of the enhancement.
+   * @minLength 1
+   */
+  name: string
 
-      errata?: Errata
-    }
-  }
+  /**
+   * The effect description.
+   * @markdown
+   * @minLength 1
+   */
+  effect: string
+
+  errata?: Errata
 }

@@ -31,15 +31,20 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Region/translations[key]"></a> `Region/translations[key]`
 
+- **Type:** <a href="#RegionTranslation">RegionTranslation</a>
+
+---
+
+### <a name="RegionTranslation"></a> `RegionTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The region name. | <a href="#Region/translations[key]/name">See details</a>
+`name` | The region name. | <a href="#RegionTranslation/name">See details</a>
 
-#### <a name="Region/translations[key]/name"></a> `name`
+#### <a name="RegionTranslation/name"></a> `name`
 
 The region name.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

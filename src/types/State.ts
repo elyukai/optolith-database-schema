@@ -5,6 +5,8 @@
 import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
+import { LocaleMap } from "./_LocaleMap.js"
+import { NonEmptyMarkdown, NonEmptyString } from "./_NonEmptyString.js"
 
 /**
  * @title State
@@ -23,27 +25,21 @@ export type State = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the state.
-       * @minLength 1
-       */
-      name: string
+  translations: LocaleMap<StateTranslation>
+}
 
-      /**
-       * The description of the state.
-       * @markdown
-       * @minLength 1
-       */
-      description: string
+export type StateTranslation = {
+  /**
+   * The name of the state.
+   */
+  name: NonEmptyString
 
-      errata?: Errata
-    }
-  }
+  /**
+   * The description of the state.
+   */
+  description: NonEmptyMarkdown
+
+  errata?: Errata
 }
 
 export const validateSchema = validateSchemaCreator<State>(import.meta.url)

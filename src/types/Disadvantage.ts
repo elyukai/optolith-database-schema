@@ -6,6 +6,7 @@ import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 import * as Activatable from "./_Activatable.js"
+import { LocaleMap } from "./_LocaleMap.js"
 import { AdvantageDisadvantagePrerequisites } from "./_Prerequisite.js"
 
 /**
@@ -25,16 +26,16 @@ export type Disadvantage = {
   ap_value: Activatable.AdventurePointsValueAdvantagesDisadvantages
 
   /**
-   * Does this disadvantage not count towards the maximum of AP to be granted by
+   * Does this disadvantage count towards the maximum of AP to be spent on
    * disadvantages?
    */
-  has_no_maximum_spent_influence?: true
+  has_maximum_spent_influence: boolean
 
   /**
-   * Does this disadvantage exclusively applies to arcane spellworks but not
-   * to magical actions and applications?
+   * Does this disadvantage exclusively applies to arcane spellworks and not
+   * to magical actions and magical applications?
    */
-  is_exclusive_to_arcane_spellworks?: true
+  is_exclusive_to_arcane_spellworks: boolean
 
   src: PublicationRefs
 
@@ -42,39 +43,36 @@ export type Disadvantage = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      name: Activatable.Name
+  translations: LocaleMap<DisadvantageTranslation>
+}
 
-      name_in_library?: Activatable.NameInLibrary
+export type DisadvantageTranslation = {
+  name: Activatable.Name
 
-      // input?: Activatable.Input
+  name_in_library?: Activatable.NameInLibrary
 
-      rules: Activatable.Rules
+  // input?: Activatable.Input
 
-      /**
-       * The range.
-       * @markdown
-       * @minLength 1
-       */
-      range?: string
+  rules: Activatable.Rules
 
-      // prerequisites?: Activatable.PrerequisitesReplacement
+  /**
+   * The range.
+   * @markdown
+   * @minLength 1
+   */
+  range?: string
 
-      // prerequisites_start?: Activatable.PrerequisitesStart
+  // prerequisites?: Activatable.PrerequisitesReplacement
 
-      // prerequisites_end?: Activatable.PrerequisitesEnd
+  // prerequisites_start?: Activatable.PrerequisitesStart
 
-      // ap_value?: Activatable.AdventurePointsValueReplacement
+  // prerequisites_end?: Activatable.PrerequisitesEnd
 
-      // ap_value_append?: Activatable.AdventurePointsValueAppend
+  // ap_value?: Activatable.AdventurePointsValueReplacement
 
-      errata?: Errata
-    }
-  }
+  // ap_value_append?: Activatable.AdventurePointsValueAppend
+
+  errata?: Errata
 }
 
 export const validateSchema = validateSchemaCreator<Disadvantage>(import.meta.url)

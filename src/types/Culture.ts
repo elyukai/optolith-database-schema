@@ -6,7 +6,10 @@ import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
+import { LocaleMap } from "./_LocaleMap.js"
+import { NonEmptyString } from "./_NonEmptyString.js"
 import { BinarySex } from "./_Sex.js"
+import { LanguageReference, ProfessionReference, ProfessionVariantReference, ScriptReference, SkillReference, SocialStatusReference } from "./_SimpleReferences.js"
 
 /**
  * @title Culture
@@ -23,14 +26,14 @@ export type Culture = {
    * A list of native languages (usually it is only one).
    * @minItems 1
    */
-  language: Language[]
+  language: LanguageReference[]
 
   /**
    * A list of native scripts (usually it is only one). If the culture does not
    * use any script, leave this field empty.
    * @minItems 1
    */
-  script?: Script[]
+  script?: ScriptReference[]
 
   /**
    * If the area knowledge has a fixed value or can be adjusted.
@@ -41,7 +44,7 @@ export type Culture = {
    * A list of possible social status in the respective culture.
    * @minItems 1
    */
-  social_status: SocialStatus[]
+  social_status: SocialStatusReference[]
 
   /**
    * A list of professions that are typical for the culture, as well as
@@ -49,7 +52,7 @@ export type Culture = {
    * list is either defined by group (as multiple lists) or plain (as a single
    * list).
    */
-  common_professions: CommonProfessions.Config
+  common_professions: CommonProfessions
 
   /**
    * A list of common advantages.
@@ -99,320 +102,172 @@ export type Culture = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: Translation
-  }
-}
-
-type Language = {
-  /**
-   * The language's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-}
-
-type Script = {
-  /**
-   * The script's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  translations: LocaleMap<CultureTranslation>
 }
 
 /**
  * If the area knowledge has a fixed value or can be adjusted.
  */
-type AreaKnowledge =
-  | { tag: "Fixed" }
-  | { tag: "Adjustable" }
-
-type SocialStatus = {
+export type AreaKnowledge = {
   /**
-   * The social status's identifier.
-   * @integer
-   * @minimum 1
+   * `true` if the area knowledge has a fixed value, `false` if it can be
+   * adjusted.
    */
-  id: number
+  is_fixed: boolean
 }
 
 /**
- * @title Common Professions
+ * The "weight" difference compared to other professions or profession variants.
+ * Some professions or profession variants are simply more common (Mostly), but
+ * sometimes only specific elements are used (Only).
  */
-namespace CommonProfessions {
-  export type Profession = {
-    /**
-     * The profession's identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-  }
+export type Weight =
+  | { tag: "Mostly" }
+  | { tag: "Only" }
 
-  export type ProfessionVariant = {
-    /**
-     * The profession variant's identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-  }
-
-  export namespace Plain {
-    type Constraint = {
-      tag: "Profession"
-
-      /**
-       * The profession's identifier.
-       * @integer
-       * @minimum 1
-       */
-      id: number
-    }
-
-    /**
-     * A plain list of professions.
-     */
-    export type T = {
-      tag: "Plain"
-
-      /**
-       * The list of professions.
-       * @minItems 1
-       */
-      constraints: Constraint[]
-    }
-  }
-
-  export namespace Grouped {
-    export namespace Constraints {
-      /**
-       * Some profession variants are more common than others. There may be
-       * cultures where some variants are not represented at all.
-       */
-      export type WeightedVariants = {
-        /**
-         * The list of more common variants.
-         * @minItems 1
-         */
-        variants: ProfessionVariant[]
-
-        /**
-         * The "weight" difference compared to other variants. Some variants are
-         * simply more common (Mostly), but sometimes only specific variants are
-         * used (Only).
-         */
-        weight: Weight
-      }
-
-      export type Profession = {
-        tag: "Profession"
-
-        /**
-         * The profession's identifier.
-         * @integer
-         * @minimum 1
-         */
-        id: number
-
-        /**
-         * Some profession variants are more common than others. There may be
-         * cultures where some variants are not represented at all.
-         */
-        weighted_variants?: WeightedVariants
-
-        /**
-         * Some professions may be found in a culture, but are not that
-         * common.
-         */
-        rarity?: Rarity
-      }
-    }
-
-    /**
-     * The "weight" difference compared to other variants. Some variants are
-     * simply more common (Mostly), but sometimes only specific variants are
-     * used (Only).
-     */
-    export type Weight =
-      | { tag: "Mostly" }
-      | { tag: "Only" }
-
-    /**
-     * Some professions may be found in a culture, but are not that common.
-     */
-    export type Rarity =
-      | { tag: "Rare" }
-      | { tag: "VeryRare" }
-
-    export namespace Mundane {
-      /**
-       * Some professions may be found in a culture, but are not that common.
-       */
-      export type ProfessionSubgroup =
-        | { tag: "Profane" }
-        | { tag: "Fighter" }
-        | { tag: "Religious" }
-
-      export type Constraint =
-        | Constraints.Profession
-        | {
-          tag: "ProfessionSubgroup"
-          subgroup: ProfessionSubgroup
-        }
-
-      /**
-       * This defines how the list of constraints should be offset against the
-       * list of all mundane professions: Either only the professions are kept
-       * that intersect with the constraints (include) or only the professions
-       * are kept that are different from the constraints (exclude).
-       */
-      export type Operation =
-        | { tag: "Intersection" }
-        | { tag: "Difference" }
-
-      /**
-       * A list of professions. The filter specifies how the list is applied to
-       * all mundane professions.
-       */
-      export type T = {
-        /**
-         * The list of professions.
-         * @minItems 1
-         */
-        constraints: Constraint[]
-
-        /**
-         * This defines how the list of constraints should be offset against the
-         * list of all mundane professions: Either only the professions are kept
-         * that intersect with the constraints (include) or only the professions
-         * are kept that are different from the constraints (exclude).
-         */
-        operation: Operation
-      }
-    }
-
-    export namespace Magic {
-      /**
-       * Some professions are more common than others. There may be cultures
-       * where some professions are not represented at all.
-       */
-      export type WeightedProfessions = {
-        /**
-         * The list of more common variants.
-         * @minItems 1
-         */
-        professions: Profession[]
-
-        /**
-         * The "weight" difference compared to other professions. Some
-         * professions are simply more common (Mostly), but sometimes only
-         * specific professions are used (Only).
-         */
-        weight: Weight
-      }
-
-      export type Constraint =
-        | {
-          tag: "Tradition"
-
-          /**
-           * The magical tradition's identifier.
-           * @integer
-           * @minimum 1
-           */
-          id: number
-
-          /**
-           * Some professions are more common than others. There may be cultures
-           * where some professions are not represented at all.
-           */
-          weighted_professions?: WeightedProfessions
-
-          /**
-           * Some traditions may be found in a culture, but are not that common.
-           */
-          rarity?: Rarity
-        }
-        | { tag: "MagicDilettante" }
-        | Constraints.Profession
-
-      export type T = {
-        /**
-         * The list of professions.
-         * @minItems 1
-         */
-        constraints: Constraint[]
-      }
-    }
-
-    export namespace Blessed {
-      export type Constraint = {
-        tag: "Tradition"
-
-        /**
-         * The blessed tradition's identifier.
-         * @integer
-         * @minimum 1
-         */
-        id: number
-
-        /**
-         * Some traditions may be found in a culture, but are not that common.
-         */
-        rarity?: Rarity
-      }
-
-      export type T = {
-        /**
-         * The list of professions.
-         * @minItems 1
-         */
-        constraints: Constraint[]
-      }
-    }
-
-    /**
-     * Lists of professions by group.
-     * @minProperties 2
-     */
-    export type T = {
-      tag: "Grouped"
-
-      /**
-       * A list of professions. The filter specifies how the list is applied to
-       * all mundane professions.
-       */
-      mundane?: Mundane.T
-      magic?: Magic.T
-      blessed?: Blessed.T
-    }
-  }
+/**
+ * Some professions or profession variants are more common than others. There
+ * may be cultures where some professions or profession variants are not
+ * represented at all.
+ */
+export type Weighted<ProfessionOrVariant> = {
+  /**
+   * The list of more common professions or profession variants.
+   * @minItems 1
+   */
+  elements: ProfessionOrVariant[]
 
   /**
-   * A list of professions that are typical for the culture, as well as
-   * professions that are rarely practiced or encountered in the culture. The
-   * list is either defined by group (as multiple lists) or plain (as a single
-   * list).
+   * The "weight" difference compared to other professions or profession
+   * variants. Some professions or profession variants are simply more common
+   * (Mostly), but sometimes only specific elements are used (Only).
    */
-  export type Config = Plain.T | Grouped.T
+  weight: Weight
 }
 
-type CommonnessRatedSkill = {
+/**
+ * This defines how the list of constraints should be offset against the
+ * list of all mundane professions: Either only the professions are kept
+ * that intersect with the constraints (include) or only the professions
+ * are kept that are different from the constraints (exclude).
+ */
+export type CommonProfessionConstraintsOperation =
+  | { tag: "Intersection" }
+  | { tag: "Difference" }
+
+/**
+ * A list of professions. The filter specifies how the list is applied to
+ * all mundane professions.
+ */
+export type CommonProfessionConstraints<Constraint> = {
   /**
-   * The skill's identifier.
+   * The list of constraints.
+   * @minItems 1
+   */
+  constraints: Constraint[]
+
+  /**
+   * This defines how the list of constraints should be offset against the
+   * list of all mundane professions: Either only the professions are kept
+   * that intersect with the constraints (include) or only the professions
+   * are kept that are different from the constraints (exclude).
+   */
+  operation: CommonProfessionConstraintsOperation
+}
+
+/**
+ * Some professions may be found in a culture, but are not that common.
+ */
+export type Rarity =
+  | { tag: "Rare" }
+  | { tag: "VeryRare" }
+
+export type ProfessionConstraint = {
+  /**
+   * The profession's identifier.
    * @integer
    * @minimum 1
    */
   id: number
+
+  /**
+   * Some profession variants are more common than others. There may be
+   * cultures where some variants are not represented at all.
+   */
+  weighted_variants?: Weighted<ProfessionVariantReference>
+
+  /**
+   * Some professions may be found in a culture, but are not that
+   * common.
+   */
+  rarity?: Rarity
 }
 
-type CulturalPackageItem = {
+/**
+ * Some professions may be found in a culture, but are not that common.
+ */
+export type MundaneProfessionSubgroupConstraint =
+  | { tag: "Profane" }
+  | { tag: "Fighter" }
+  | { tag: "Religious" }
+
+export type TraditionConstraint = {
+  /**
+   * The magical tradition's identifier.
+   * @integer
+   * @minimum 1
+   */
+  id: number
+
+  /**
+   * Some professions are more common than others. There may be cultures
+   * where some professions are not represented at all.
+   */
+  weighted_professions?: Weighted<ProfessionReference>
+
+  /**
+   * Some traditions may be found in a culture, but are not that common.
+   */
+  rarity?: Rarity
+}
+
+export type MundaneCommonProfessionConstraint =
+  | { tag: "Profession"; profession: ProfessionConstraint }
+  | { tag: "ProfessionSubgroup"; profession_subgroup: ProfessionConstraint }
+
+export type MagicCommonProfessionConstraint =
+  | { tag: "Tradition"; tradition: TraditionConstraint }
+  | { tag: "MagicDilettante" }
+  | { tag: "Profession"; profession: ProfessionConstraint }
+
+export type BlessedCommonProfessionConstraint =
+  | { tag: "Tradition"; tradition: TraditionConstraint }
+
+export type PlainCommonProfessions = CommonProfessionConstraints<ProfessionReference>
+
+/**
+ * Lists of professions by group.
+ * @minProperties 2
+ */
+export type GroupedCommonProfessions = {
+  mundane?: CommonProfessionConstraints<MundaneCommonProfessionConstraint>
+  magic?: CommonProfessionConstraints<MagicCommonProfessionConstraint>
+  blessed?: CommonProfessionConstraints<BlessedCommonProfessionConstraint>
+}
+
+/**
+ * A list of professions that are typical for the culture, as well as
+ * professions that are rarely practiced or encountered in the culture. The
+ * list is either defined by group (as multiple lists) or plain (as a single
+ * list).
+ */
+export type CommonProfessions =
+  | { tag: "Plain"; plain: PlainCommonProfessions }
+  | { tag: "Grouped"; grouped: GroupedCommonProfessions }
+
+export type CommonnessRatedSkill = SkillReference
+
+export type CulturalPackageItem = {
   /**
    * The skill's identifier.
    * @integer
@@ -430,7 +285,7 @@ type CulturalPackageItem = {
   points: number
 }
 
-type Translation = {
+export type CultureTranslation = {
   /**
    * The name of the state.
    * @minLength 1
@@ -444,27 +299,23 @@ type Translation = {
 
   /**
    * The respective common advantages text from the source book.
-   * @minLength 1
    */
-  common_advantages?: string
+  common_advantages?: NonEmptyString
 
   /**
    * The respective common disadvantages text from the source book.
-   * @minLength 1
    */
-  common_disadvantages?: string
+  common_disadvantages?: NonEmptyString
 
   /**
    * The respective uncommon advantages text from the source book.
-   * @minLength 1
    */
-  uncommon_advantages?: string
+  uncommon_advantages?: NonEmptyString
 
   /**
    * The respective uncommon disadvantages text from the source book.
-   * @minLength 1
    */
-  uncommon_disadvantages?: string
+  uncommon_disadvantages?: NonEmptyString
 
   /**
    * Structured description of common names.
@@ -498,16 +349,18 @@ type AreaKnowledgeTranslation = {
   examples?: AreaKnowledgeExample[]
 }
 
-/**
- * @minLength 1
- */
-type AreaKnowledgeExample = string
+export type AreaKnowledgeExample = {
+  /**
+   * @minLength 1
+   */
+  area: string
+}
 
 /**
  * Structured description of common names.
  * @minProperties 1
  */
-type CommonNames = {
+export type CommonNames = {
   /**
    * First names can be gender-neutral, but they can also be for a specific
    * binary sex. They are sorted into groups.
@@ -524,17 +377,15 @@ type CommonNames = {
 
   /**
    * Special naming rules.
-   * @minLength 1
    */
-  naming_rules?: string
+  naming_rules?: NonEmptyString
 }
 
-type NameGroup = {
+export type NameGroup = {
   /**
    * The group label.
-   * @minLength 1
    */
-  label: string
+  label: NonEmptyString
 
   /**
    * The binary sex if the group is only for a certain binary sex.
@@ -548,17 +399,13 @@ type NameGroup = {
   names: Name[]
 }
 
-type Name = {
-  /**
-   * @minLength 1
-   */
-  name: string
+export type Name = {
+  name: NonEmptyString
 
   /**
    * Additional information about the name, appended in parenthesis.
-   * @minLength 1
    */
-  note?: string
+  note?: NonEmptyString
 }
 
 export const validateSchema = validateSchemaCreator<Culture>(import.meta.url)

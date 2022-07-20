@@ -458,7 +458,7 @@
                               "minimum": 1
                             },
                             "translations": {
-                              "description": "All translations for the entry, identified by IETF language tag\n(BCP47).",
+                              "description": "All translations for the entry, identified by IETF language tag (BCP47).",
                               "type": "object",
                               "patternProperties": {
                                 "^[a-z]{2}-[A-Z]{2}$": {
@@ -499,7 +499,7 @@
                               "minimum": 1
                             },
                             "translations": {
-                              "description": "All translations for the entry, identified by IETF language tag\n(BCP47).",
+                              "description": "All translations for the entry, identified by IETF language tag (BCP47).",
                               "type": "object",
                               "patternProperties": {
                                 "^[a-z]{2}-[A-Z]{2}$": {
@@ -1762,7 +1762,7 @@
             },
             "interval": {
               "description": "Specified if the AE cost `value` has to be paid for each time interval.",
-              "$ref": "./_ActivatableSkill.schema.json#/$defs/Duration/UnitValue"
+              "$ref": "./_ActivatableSkillDuration.schema.json#/$defs/DurationUnitValue"
             },
             "per_level": {
               "description": "The AE cost are per level of the enchantment. It may either be displayed\nin a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1\nAE for level I; 2 AE for level II`).",
@@ -1853,7 +1853,7 @@
               "minimum": 1
             },
             "translations": {
-              "description": "All translations for the entry, identified by IETF language tag\n(BCP47).",
+              "description": "All translations for the entry, identified by IETF language tag (BCP47).",
               "type": "object",
               "patternProperties": {
                 "^[a-z]{2}-[A-Z]{2}$": {
@@ -1904,7 +1904,6 @@
                   "required": [
                     "per"
                   ],
-                  "minProperties": 1,
                   "additionalProperties": false
                 }
               },
@@ -1932,7 +1931,7 @@
             },
             "interval": {
               "description": "The time interval for which the AE cost `value` has to be paid.",
-              "$ref": "./_ActivatableSkill.schema.json#/$defs/Duration/UnitValue"
+              "$ref": "./_ActivatableSkillDuration.schema.json#/$defs/DurationUnitValue"
             }
           },
           "required": [
@@ -2051,7 +2050,7 @@
               "properties": {
                 "value": {
                   "description": "The interval itself.",
-                  "$ref": "./_ActivatableSkill.schema.json#/$defs/Duration/UnitValue"
+                  "$ref": "./_ActivatableSkillDuration.schema.json#/$defs/DurationUnitValue"
                 },
                 "activation_value": {
                   "description": "The AE cost value for activation.",
@@ -2476,6 +2475,7 @@
                 }
               },
               "required": [],
+              "minProperties": 1,
               "additionalProperties": false
             }
           },

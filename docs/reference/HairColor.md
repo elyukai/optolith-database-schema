@@ -31,15 +31,20 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="HairColor/translations[key]"></a> `HairColor/translations[key]`
 
+- **Type:** <a href="#HairColorTranslation">HairColorTranslation</a>
+
+---
+
+### <a name="HairColorTranslation"></a> `HairColorTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The hair color. | <a href="#HairColor/translations[key]/name">See details</a>
+`name` | The hair color. | <a href="#HairColorTranslation/name">See details</a>
 
-#### <a name="HairColor/translations[key]/name"></a> `name`
+#### <a name="HairColorTranslation/name"></a> `name`
 
 The hair color.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

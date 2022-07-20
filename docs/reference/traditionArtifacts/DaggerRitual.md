@@ -14,7 +14,7 @@ Key | Description | Details
 `maximum?` |  | <a href="#DaggerRitual/maximum">See details</a>
 `prerequisites?` |  | <a href="#DaggerRitual/prerequisites">See details</a>
 `volume` |  | <a href="#DaggerRitual/volume">See details</a>
-`cost?` |  | <a href="#DaggerRitual/cost">See details</a>
+`cost` |  | <a href="#DaggerRitual/cost">See details</a>
 `property` |  | <a href="#DaggerRitual/property">See details</a>
 `ap_value` |  | <a href="#DaggerRitual/ap_value">See details</a>
 `src` |  | <a href="#DaggerRitual/src">See details</a>
@@ -44,9 +44,9 @@ Key | Description | Details
 
 - **Type:** <a href="../_Activatable.md#Volume">Volume</a>
 
-#### <a name="DaggerRitual/cost"></a> `cost?`
+#### <a name="DaggerRitual/cost"></a> `cost`
 
-- **Type:** <a href="../_Activatable.md#EnchantmentCost">EnchantmentCost</a>
+- **Type:** <a href="#DaggerRitualCost">DaggerRitualCost</a>
 
 #### <a name="DaggerRitual/property"></a> `property`
 
@@ -112,3 +112,75 @@ Key | Description | Details
 #### <a name="DaggerRitual/translations[key]/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>
+
+---
+
+### <a name="DaggerRitualCost"></a> `DaggerRitualCost`
+
+- **Type:** Union
+- **Cases:** <a href="#DaggerRitualCost'ArcaneEnergyCost">DaggerRitualCost'ArcaneEnergyCost</a> | <a href="#DaggerRitualCost'BindingCost">DaggerRitualCost'BindingCost</a>
+
+---
+
+### <a name="DaggerRitualCost'ArcaneEnergyCost"></a> `DaggerRitualCost'ArcaneEnergyCost`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#DaggerRitualCost'ArcaneEnergyCost/tag">See details</a>
+`ae_cost` |  | <a href="#DaggerRitualCost'ArcaneEnergyCost/ae_cost">See details</a>
+`lp_cost?` |  | <a href="#DaggerRitualCost'ArcaneEnergyCost/lp_cost">See details</a>
+
+#### <a name="DaggerRitualCost'ArcaneEnergyCost/tag"></a> `tag`
+
+- **Constant:** `"ArcaneEnergyCost"`
+
+#### <a name="DaggerRitualCost'ArcaneEnergyCost/ae_cost"></a> `ae_cost`
+
+- **Type:** <a href="../_Activatable.md#ArcaneEnergyCost">ArcaneEnergyCost</a>
+
+#### <a name="DaggerRitualCost'ArcaneEnergyCost/lp_cost"></a> `lp_cost?`
+
+- **Type:** <a href="#DaggerRitualCost'ArcaneEnergyCost/lp_cost">Object</a>
+
+---
+
+### <a name="DaggerRitualCost'ArcaneEnergyCost/lp_cost"></a> `DaggerRitualCost'ArcaneEnergyCost/lp_cost`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#DaggerRitualCost'ArcaneEnergyCost/lp_cost/tag">See details</a>
+`value` | The LP cost value. | <a href="#DaggerRitualCost'ArcaneEnergyCost/lp_cost/value">See details</a>
+
+#### <a name="DaggerRitualCost'ArcaneEnergyCost/lp_cost/tag"></a> `tag`
+
+- **Constant:** `"Fixed"`
+
+#### <a name="DaggerRitualCost'ArcaneEnergyCost/lp_cost/value"></a> `value`
+
+The LP cost value.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="DaggerRitualCost'BindingCost"></a> `DaggerRitualCost'BindingCost`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#DaggerRitualCost'BindingCost/tag">See details</a>
+`binding_cost` |  | <a href="#DaggerRitualCost'BindingCost/binding_cost">See details</a>
+
+#### <a name="DaggerRitualCost'BindingCost/tag"></a> `tag`
+
+- **Constant:** `"BindingCost"`
+
+#### <a name="DaggerRitualCost'BindingCost/binding_cost"></a> `binding_cost`
+
+- **Type:** <a href="../_Activatable.md#BindingCost">BindingCost</a>

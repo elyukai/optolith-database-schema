@@ -10,8 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` | The profession's identifier. An unique, increasing integer. | <a href="#Profession/id">See details</a>
 `group` | The profession group. | <a href="#Profession/group">See details</a>
-`curriculum?` | The curriculum/academy associated with this magical profession, if any. | <a href="#Profession/curriculum">See details</a>
-`representations` | A list of professions representing the same profession but with (slightly) different stats. For example, there may be a profession in a regional sourcebook or in the core rules and a profession in an extension rulebook like Magic of Aventuria, where the profession is basically called the same and almost has the same values, but the version from Magic of Aventuria features a spell style special ability that does not exist in the core rules or regional sourcebook. | <a href="#Profession/representations">See details</a>
+`packages` | A list of professions representing the same profession but with (slightly) different stats. For example, there may be a profession in a regional sourcebook or in the core rules and a profession in an extension rulebook like Magic of Aventuria, where the profession is basically called the same and almost has the same values, but the version from Magic of Aventuria features a spell style special ability that does not exist in the core rules or regional sourcebook. | <a href="#Profession/packages">See details</a>
 
 #### <a name="Profession/id"></a> `id`
 
@@ -24,15 +23,9 @@ The profession's identifier. An unique, increasing integer.
 
 The profession group.
 
-- **Type:** <a href="#Group">Group</a>
+- **Type:** <a href="#ProfessionGroup">ProfessionGroup</a>
 
-#### <a name="Profession/curriculum"></a> `curriculum?`
-
-The curriculum/academy associated with this magical profession, if any.
-
-- **Type:** <a href="#Profession/curriculum">Object</a>
-
-#### <a name="Profession/representations"></a> `representations`
+#### <a name="Profession/packages"></a> `packages`
 
 A list of professions representing the same profession but with (slightly)
 different stats. For example, there may be a profession in a regional
@@ -47,86 +40,197 @@ explicitly mentioned experience levels. In most cases, there is only one
 stats package, which targets the experience level *Experienced*.
 
 - **Type:** List
-- **Items:** <a href="#Profession/representations[]">Profession/representations[]</a>
+- **Items:** <a href="#Profession/packages[]">Profession/packages[]</a>
 - **Minimum Items:** `1`
 
 ---
 
-### <a name="Profession/curriculum"></a> `Profession/curriculum`
+### <a name="Profession/packages[]"></a> `Profession/packages[]`
+
+- **Type:** <a href="#ProfessionPackage">ProfessionPackage</a>
+
+---
+
+### <a name="ProfessionGroup"></a> `ProfessionGroup`
+
+- **Type:** Union
+- **Cases:** <a href="#ProfessionGroup'Mundane">ProfessionGroup'Mundane</a> | <a href="#ProfessionGroup'Magical">ProfessionGroup'Magical</a> | <a href="#ProfessionGroup'Blessed">ProfessionGroup'Blessed</a>
+
+---
+
+### <a name="ProfessionGroup'Mundane"></a> `ProfessionGroup'Mundane`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ProfessionGroup'Mundane/tag">See details</a>
+`mundane` |  | <a href="#ProfessionGroup'Mundane/mundane">See details</a>
+
+#### <a name="ProfessionGroup'Mundane/tag"></a> `tag`
+
+- **Constant:** `"Mundane"`
+
+#### <a name="ProfessionGroup'Mundane/mundane"></a> `mundane`
+
+- **Type:** <a href="#MundaneProfessionGroup">MundaneProfessionGroup</a>
+
+---
+
+### <a name="ProfessionGroup'Magical"></a> `ProfessionGroup'Magical`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ProfessionGroup'Magical/tag">See details</a>
+`magical` |  | <a href="#ProfessionGroup'Magical/magical">See details</a>
+
+#### <a name="ProfessionGroup'Magical/tag"></a> `tag`
+
+- **Constant:** `"Magical"`
+
+#### <a name="ProfessionGroup'Magical/magical"></a> `magical`
+
+- **Type:** <a href="#MagicalProfessionGroup">MagicalProfessionGroup</a>
+
+---
+
+### <a name="ProfessionGroup'Blessed"></a> `ProfessionGroup'Blessed`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ProfessionGroup'Blessed/tag">See details</a>
+
+#### <a name="ProfessionGroup'Blessed/tag"></a> `tag`
+
+- **Constant:** `"Blessed"`
+
+---
+
+### <a name="MundaneProfessionGroup"></a> `MundaneProfessionGroup`
+
+- **Type:** Union
+- **Cases:** <a href="#MundaneProfessionGroup'Profane">MundaneProfessionGroup'Profane</a> | <a href="#MundaneProfessionGroup'Fighter">MundaneProfessionGroup'Fighter</a> | <a href="#MundaneProfessionGroup'Religious">MundaneProfessionGroup'Religious</a>
+
+---
+
+### <a name="MundaneProfessionGroup'Profane"></a> `MundaneProfessionGroup'Profane`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#MundaneProfessionGroup'Profane/tag">See details</a>
+
+#### <a name="MundaneProfessionGroup'Profane/tag"></a> `tag`
+
+- **Constant:** `"Profane"`
+
+---
+
+### <a name="MundaneProfessionGroup'Fighter"></a> `MundaneProfessionGroup'Fighter`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#MundaneProfessionGroup'Fighter/tag">See details</a>
+
+#### <a name="MundaneProfessionGroup'Fighter/tag"></a> `tag`
+
+- **Constant:** `"Fighter"`
+
+---
+
+### <a name="MundaneProfessionGroup'Religious"></a> `MundaneProfessionGroup'Religious`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#MundaneProfessionGroup'Religious/tag">See details</a>
+
+#### <a name="MundaneProfessionGroup'Religious/tag"></a> `tag`
+
+- **Constant:** `"Religious"`
+
+---
+
+### <a name="MagicalProfessionGroup"></a> `MagicalProfessionGroup`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`curriculum?` | The curriculum/academy associated with this magical profession, if any. | <a href="#MagicalProfessionGroup/curriculum">See details</a>
+
+#### <a name="MagicalProfessionGroup/curriculum"></a> `curriculum?`
 
 The curriculum/academy associated with this magical profession, if any.
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The curriculum's identifier. | <a href="#Profession/curriculum/id">See details</a>
-
-#### <a name="Profession/curriculum/id"></a> `id`
-
-The curriculum's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_SimpleReferences.md#CurriculumReference">CurriculumReference</a>
 
 ---
 
-### <a name="Profession/representations[]"></a> `Profession/representations[]`
+### <a name="ProfessionPackage"></a> `ProfessionPackage`
 
 - **Type:** Union
-- **Cases:** <a href="#Profession/representations[]'Experienced">Profession/representations[]'Experienced</a> | <a href="#Profession/representations[]'ByExperienceLevel">Profession/representations[]'ByExperienceLevel</a>
+- **Cases:** <a href="#ProfessionPackage'Experienced">ProfessionPackage'Experienced</a> | <a href="#ProfessionPackage'ByExperienceLevel">ProfessionPackage'ByExperienceLevel</a>
 
 ---
 
-### <a name="Profession/representations[]'Experienced"></a> `Profession/representations[]'Experienced`
+### <a name="ProfessionPackage'Experienced"></a> `ProfessionPackage'Experienced`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Profession/representations[]'Experienced/tag">See details</a>
-`id` | The profession representation variant's identifier. An unique, increasing integer. | <a href="#Profession/representations[]'Experienced/id">See details</a>
-`package` |  | <a href="#Profession/representations[]'Experienced/package">See details</a>
-`src` |  | <a href="#Profession/representations[]'Experienced/src">See details</a>
+`tag` |  | <a href="#ProfessionPackage'Experienced/tag">See details</a>
+`experienced` |  | <a href="#ProfessionPackage'Experienced/experienced">See details</a>
 
-#### <a name="Profession/representations[]'Experienced/tag"></a> `tag`
+#### <a name="ProfessionPackage'Experienced/tag"></a> `tag`
 
 - **Constant:** `"Experienced"`
 
-#### <a name="Profession/representations[]'Experienced/id"></a> `id`
+#### <a name="ProfessionPackage'Experienced/experienced"></a> `experienced`
 
-The profession representation variant's identifier. An unique, increasing
-integer.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
-#### <a name="Profession/representations[]'Experienced/package"></a> `package`
-
-- **Type:** <a href="#ProfessionRepresentationVariant">ProfessionRepresentationVariant</a>
-
-#### <a name="Profession/representations[]'Experienced/src"></a> `src`
-
-- **Type:** <a href="./source/_PublicationRef.md#PublicationRefs">PublicationRefs</a>
+- **Type:** <a href="#ExperiencedProfessionPackage">ExperiencedProfessionPackage</a>
 
 ---
 
-### <a name="Profession/representations[]'ByExperienceLevel"></a> `Profession/representations[]'ByExperienceLevel`
+### <a name="ProfessionPackage'ByExperienceLevel"></a> `ProfessionPackage'ByExperienceLevel`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Profession/representations[]'ByExperienceLevel/tag">See details</a>
-`id` | The profession representation variant's identifier. An unique, increasing integer. | <a href="#Profession/representations[]'ByExperienceLevel/id">See details</a>
-`packages` |  | <a href="#Profession/representations[]'ByExperienceLevel/packages">See details</a>
-`src` |  | <a href="#Profession/representations[]'ByExperienceLevel/src">See details</a>
+`tag` |  | <a href="#ProfessionPackage'ByExperienceLevel/tag">See details</a>
+`by_experience_level` |  | <a href="#ProfessionPackage'ByExperienceLevel/by_experience_level">See details</a>
 
-#### <a name="Profession/representations[]'ByExperienceLevel/tag"></a> `tag`
+#### <a name="ProfessionPackage'ByExperienceLevel/tag"></a> `tag`
 
 - **Constant:** `"ByExperienceLevel"`
 
-#### <a name="Profession/representations[]'ByExperienceLevel/id"></a> `id`
+#### <a name="ProfessionPackage'ByExperienceLevel/by_experience_level"></a> `by_experience_level`
+
+- **Type:** <a href="#ProfessionPackagesForDifferentExperienceLevels">ProfessionPackagesForDifferentExperienceLevels</a>
+
+---
+
+### <a name="ExperiencedProfessionPackage"></a> `ExperiencedProfessionPackage`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The profession representation variant's identifier. An unique, increasing integer. | <a href="#ExperiencedProfessionPackage/id">See details</a>
+`values` |  | <a href="#ExperiencedProfessionPackage/values">See details</a>
+`src` |  | <a href="#ExperiencedProfessionPackage/src">See details</a>
+
+#### <a name="ExperiencedProfessionPackage/id"></a> `id`
 
 The profession representation variant's identifier. An unique, increasing
 integer.
@@ -134,27 +238,61 @@ integer.
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="Profession/representations[]'ByExperienceLevel/packages"></a> `packages`
+#### <a name="ExperiencedProfessionPackage/values"></a> `values`
 
-- **Type:** List
-- **Items:** <a href="#Profession/representations[]'ByExperienceLevel/packages[]">Profession/representations[]'ByExperienceLevel/packages[]</a>
+- **Type:** <a href="#ProfessionPackageValues">ProfessionPackageValues</a>
 
-#### <a name="Profession/representations[]'ByExperienceLevel/src"></a> `src`
+#### <a name="ExperiencedProfessionPackage/src"></a> `src`
 
 - **Type:** <a href="./source/_PublicationRef.md#PublicationRefs">PublicationRefs</a>
 
 ---
 
-### <a name="Profession/representations[]'ByExperienceLevel/packages[]"></a> `Profession/representations[]'ByExperienceLevel/packages[]`
+### <a name="ProfessionPackagesForDifferentExperienceLevels"></a> `ProfessionPackagesForDifferentExperienceLevels`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`experience_level_id` | The experience level this profession targets. The experience level must be unique for this representation. | <a href="#Profession/representations[]'ByExperienceLevel/packages[]/experience_level_id">See details</a>
-`package` |  | <a href="#Profession/representations[]'ByExperienceLevel/packages[]/package">See details</a>
+`id` | The profession representation variant's identifier. An unique, increasing integer. | <a href="#ProfessionPackagesForDifferentExperienceLevels/id">See details</a>
+`values_map` |  | <a href="#ProfessionPackagesForDifferentExperienceLevels/values_map">See details</a>
+`src` |  | <a href="#ProfessionPackagesForDifferentExperienceLevels/src">See details</a>
 
-#### <a name="Profession/representations[]'ByExperienceLevel/packages[]/experience_level_id"></a> `experience_level_id`
+#### <a name="ProfessionPackagesForDifferentExperienceLevels/id"></a> `id`
+
+The profession representation variant's identifier. An unique, increasing
+integer.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="ProfessionPackagesForDifferentExperienceLevels/values_map"></a> `values_map`
+
+- **Type:** List
+- **Items:** <a href="#ProfessionPackagesForDifferentExperienceLevels/values_map[]">ProfessionPackagesForDifferentExperienceLevels/values_map[]</a>
+
+#### <a name="ProfessionPackagesForDifferentExperienceLevels/src"></a> `src`
+
+- **Type:** <a href="./source/_PublicationRef.md#PublicationRefs">PublicationRefs</a>
+
+---
+
+### <a name="ProfessionPackagesForDifferentExperienceLevels/values_map[]"></a> `ProfessionPackagesForDifferentExperienceLevels/values_map[]`
+
+- **Type:** <a href="#ExperienceLevelDynamicProfessionPackage">ExperienceLevelDynamicProfessionPackage</a>
+
+---
+
+### <a name="ExperienceLevelDynamicProfessionPackage"></a> `ExperienceLevelDynamicProfessionPackage`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`experience_level_id` | The experience level this profession targets. The experience level must be unique for this representation. | <a href="#ExperienceLevelDynamicProfessionPackage/experience_level_id">See details</a>
+`values` |  | <a href="#ExperienceLevelDynamicProfessionPackage/values">See details</a>
+
+#### <a name="ExperienceLevelDynamicProfessionPackage/experience_level_id"></a> `experience_level_id`
 
 The experience level this profession targets. The experience level
 must be unique for this representation.
@@ -163,41 +301,41 @@ must be unique for this representation.
 - **Minimum:** `1`
 - **Maximum:** `7`
 
-#### <a name="Profession/representations[]'ByExperienceLevel/packages[]/package"></a> `package`
+#### <a name="ExperienceLevelDynamicProfessionPackage/values"></a> `values`
 
-- **Type:** <a href="#ProfessionRepresentationVariant">ProfessionRepresentationVariant</a>
+- **Type:** <a href="#ProfessionPackageValues">ProfessionPackageValues</a>
 
 ---
 
-### <a name="ProfessionRepresentationVariant"></a> Profession Representation Variant (`ProfessionRepresentationVariant`)
+### <a name="ProfessionPackageValues"></a> Profession Representation Variant (`ProfessionPackageValues`)
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`ap_value` | What does the professional package cost in adventure points? | <a href="#ProfessionRepresentationVariant/ap_value">See details</a>
-`prerequisites?` | Which prerequisites must be met to buy the stat block? For example, a character might need the advantage Spellcaster or Blessed. Note: the AP cost for a profession package does not include these prerequisites. | <a href="#ProfessionRepresentationVariant/prerequisites">See details</a>
-`options?` |  | <a href="#ProfessionRepresentationVariant/options">See details</a>
-`special_abilities?` | Any special abilities the profession receives from the package. | <a href="#ProfessionRepresentationVariant/special_abilities">See details</a>
-`combat_techniques?` | Provides ratings for the combat techniques that the hero receives from the package. | <a href="#ProfessionRepresentationVariant/combat_techniques">See details</a>
-`skills?` | The skill ratings the package grants to the hero. | <a href="#ProfessionRepresentationVariant/skills">See details</a>
-`spells?` | The skill ratings a magical profession receives for spells; these spells are considered activated. Spells from an unfamiliar Tradition, if any, are identified as such. | <a href="#ProfessionRepresentationVariant/spells">See details</a>
-`liturgical_chants?` | Clerical professions receive these liturgical chants at the listed skill ratings. These liturgical chants are considered activated. | <a href="#ProfessionRepresentationVariant/liturgical_chants">See details</a>
-`suggested_advantages?` | Typical advantages for the profession. | <a href="#ProfessionRepresentationVariant/suggested_advantages">See details</a>
-`suggested_disadvantages?` | Typical disadvantages for the profession. | <a href="#ProfessionRepresentationVariant/suggested_disadvantages">See details</a>
-`unsuitable_advantages?` | These advantages do not fit well with this profession; to be checked with the GM before taking any of them. | <a href="#ProfessionRepresentationVariant/unsuitable_advantages">See details</a>
-`unsuitable_disadvantages?` | These disadvantages do not fit well with this profession; to be checked with the GM before taking any of them. | <a href="#ProfessionRepresentationVariant/unsuitable_disadvantages">See details</a>
-`variants?` | Provides examples of variants for the profession, which may include changes to AP values and additional or modified skill ratings, special abilities, or combat techniques, as compared to the basic profession. Usually picking a variant is optional, but there are some rare exceptions where picking a variant is required. | <a href="#ProfessionRepresentationVariant/variants">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ProfessionRepresentationVariant/translations">See details</a>
+`ap_value` | What does the professional package cost in adventure points? | <a href="#ProfessionPackageValues/ap_value">See details</a>
+`prerequisites?` | Which prerequisites must be met to buy the stat block? For example, a character might need the advantage Spellcaster or Blessed. Note: the AP cost for a profession package does not include these prerequisites. | <a href="#ProfessionPackageValues/prerequisites">See details</a>
+`options?` | In some areas, the profession package grants a loose set of stats where the player must choose between different options for the profession package. | <a href="#ProfessionPackageValues/options">See details</a>
+`special_abilities?` | Any special abilities the profession receives from the package. | <a href="#ProfessionPackageValues/special_abilities">See details</a>
+`combat_techniques?` | Provides ratings for the combat techniques that the hero receives from the package. | <a href="#ProfessionPackageValues/combat_techniques">See details</a>
+`skills?` | The skill ratings the package grants to the hero. | <a href="#ProfessionPackageValues/skills">See details</a>
+`spells?` | The skill ratings a magical profession receives for spells; these spells are considered activated. Spells from an unfamiliar Tradition, if any, are identified as such. | <a href="#ProfessionPackageValues/spells">See details</a>
+`liturgical_chants?` | Clerical professions receive these liturgical chants at the listed skill ratings. These liturgical chants are considered activated. | <a href="#ProfessionPackageValues/liturgical_chants">See details</a>
+`suggested_advantages?` | Typical advantages for the profession. | <a href="#ProfessionPackageValues/suggested_advantages">See details</a>
+`suggested_disadvantages?` | Typical disadvantages for the profession. | <a href="#ProfessionPackageValues/suggested_disadvantages">See details</a>
+`unsuitable_advantages?` | These advantages do not fit well with this profession; to be checked with the GM before taking any of them. | <a href="#ProfessionPackageValues/unsuitable_advantages">See details</a>
+`unsuitable_disadvantages?` | These disadvantages do not fit well with this profession; to be checked with the GM before taking any of them. | <a href="#ProfessionPackageValues/unsuitable_disadvantages">See details</a>
+`variants?` | Provides examples of variants for the profession, which may include changes to AP values and additional or modified skill ratings, special abilities, or combat techniques, as compared to the basic profession. Usually picking a variant is optional, but there are some rare exceptions where picking a variant is required. | <a href="#ProfessionPackageValues/variants">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ProfessionPackageValues/translations">See details</a>
 
-#### <a name="ProfessionRepresentationVariant/ap_value"></a> `ap_value`
+#### <a name="ProfessionPackageValues/ap_value"></a> `ap_value`
 
 What does the professional package cost in adventure points?
 
 - **Type:** Integer
 - **Minimum:** `0`
 
-#### <a name="ProfessionRepresentationVariant/prerequisites"></a> `prerequisites?`
+#### <a name="ProfessionPackageValues/prerequisites"></a> `prerequisites?`
 
 Which prerequisites must be met to buy the stat block? For example, a
 character might need the advantage Spellcaster or Blessed. Note: the AP
@@ -205,84 +343,87 @@ cost for a profession package does not include these prerequisites.
 
 - **Type:** <a href="./_Prerequisite.md#ProfessionPrerequisites">ProfessionPrerequisites</a>
 
-#### <a name="ProfessionRepresentationVariant/options"></a> `options?`
+#### <a name="ProfessionPackageValues/options"></a> `options?`
 
-- **Type:** <a href="#ProfessionRepresentationVariant/options">Object</a>
+In some areas, the profession package grants a loose set of stats where the
+player must choose between different options for the profession package.
 
-#### <a name="ProfessionRepresentationVariant/special_abilities"></a> `special_abilities?`
+- **Type:** <a href="#ProfessionPackageOptions">ProfessionPackageOptions</a>
+
+#### <a name="ProfessionPackageValues/special_abilities"></a> `special_abilities?`
 
 Any special abilities the profession receives from the package.
 
 - **Type:** List
-- **Items:** <a href="#ProfessionRepresentationVariant/special_abilities[]">ProfessionRepresentationVariant/special_abilities[]</a>
+- **Items:** <a href="#ProfessionPackageValues/special_abilities[]">ProfessionPackageValues/special_abilities[]</a>
 
-#### <a name="ProfessionRepresentationVariant/combat_techniques"></a> `combat_techniques?`
+#### <a name="ProfessionPackageValues/combat_techniques"></a> `combat_techniques?`
 
 Provides ratings for the combat techniques that the hero receives from the
 package.
 
 - **Type:** List
-- **Items:** <a href="#ProfessionRepresentationVariant/combat_techniques[]">ProfessionRepresentationVariant/combat_techniques[]</a>
+- **Items:** <a href="#ProfessionPackageValues/combat_techniques[]">ProfessionPackageValues/combat_techniques[]</a>
 
-#### <a name="ProfessionRepresentationVariant/skills"></a> `skills?`
+#### <a name="ProfessionPackageValues/skills"></a> `skills?`
 
 The skill ratings the package grants to the hero.
 
 - **Type:** List
-- **Items:** <a href="#ProfessionRepresentationVariant/skills[]">ProfessionRepresentationVariant/skills[]</a>
+- **Items:** <a href="#ProfessionPackageValues/skills[]">ProfessionPackageValues/skills[]</a>
 
-#### <a name="ProfessionRepresentationVariant/spells"></a> `spells?`
+#### <a name="ProfessionPackageValues/spells"></a> `spells?`
 
 The skill ratings a magical profession receives for spells; these spells
 are considered activated. Spells from an unfamiliar Tradition, if any, are
 identified as such.
 
 - **Type:** List
-- **Items:** <a href="#ProfessionRepresentationVariant/spells[]">ProfessionRepresentationVariant/spells[]</a>
+- **Items:** <a href="#ProfessionPackageValues/spells[]">ProfessionPackageValues/spells[]</a>
 
-#### <a name="ProfessionRepresentationVariant/liturgical_chants"></a> `liturgical_chants?`
+#### <a name="ProfessionPackageValues/liturgical_chants"></a> `liturgical_chants?`
 
 Clerical professions receive these liturgical chants at the listed skill
 ratings. These liturgical chants are considered activated.
 
 - **Type:** List
-- **Items:** <a href="#ProfessionRepresentationVariant/liturgical_chants[]">ProfessionRepresentationVariant/liturgical_chants[]</a>
+- **Items:** <a href="#ProfessionPackageValues/liturgical_chants[]">ProfessionPackageValues/liturgical_chants[]</a>
 
-#### <a name="ProfessionRepresentationVariant/suggested_advantages"></a> `suggested_advantages?`
+#### <a name="ProfessionPackageValues/suggested_advantages"></a> `suggested_advantages?`
 
 Typical advantages for the profession.
 
 - **Type:** List
-- **Items:** <a href="#ProfessionRepresentationVariant/suggested_advantages[]">ProfessionRepresentationVariant/suggested_advantages[]</a>
+- **Items:** <a href="#ProfessionPackageValues/suggested_advantages[]">ProfessionPackageValues/suggested_advantages[]</a>
 - **Minimum Items:** `1`
 
-#### <a name="ProfessionRepresentationVariant/suggested_disadvantages"></a> `suggested_disadvantages?`
+#### <a name="ProfessionPackageValues/suggested_disadvantages"></a> `suggested_disadvantages?`
 
 Typical disadvantages for the profession.
 
 - **Type:** List
-- **Items:** <a href="#ProfessionRepresentationVariant/suggested_disadvantages[]">ProfessionRepresentationVariant/suggested_disadvantages[]</a>
+- **Items:** <a href="#ProfessionPackageValues/suggested_disadvantages[]">ProfessionPackageValues/suggested_disadvantages[]</a>
 - **Minimum Items:** `1`
 
-#### <a name="ProfessionRepresentationVariant/unsuitable_advantages"></a> `unsuitable_advantages?`
+#### <a name="ProfessionPackageValues/unsuitable_advantages"></a> `unsuitable_advantages?`
 
 These advantages do not fit well with this profession; to be checked with
 the GM before taking any of them.
 
 - **Type:** List
-- **Items:** <a href="#ProfessionRepresentationVariant/unsuitable_advantages[]">ProfessionRepresentationVariant/unsuitable_advantages[]</a>
+- **Items:** <a href="#ProfessionPackageValues/unsuitable_advantages[]">ProfessionPackageValues/unsuitable_advantages[]</a>
 - **Minimum Items:** `1`
 
-#### <a name="ProfessionRepresentationVariant/unsuitable_disadvantages"></a> `unsuitable_disadvantages?`
+#### <a name="ProfessionPackageValues/unsuitable_disadvantages"></a> `unsuitable_disadvantages?`
 
 These disadvantages do not fit well with this profession; to be checked
 with the GM before taking any of them.
 
 - **Type:** List
-- **Items:** <a href="#ProfessionRepresentationVariant/unsuitable_disadvantages[]">ProfessionRepresentationVariant/unsuitable_disadvantages[]</a>
+- **Items:** <a href="#ProfessionPackageValues/unsuitable_disadvantages[]">ProfessionPackageValues/unsuitable_disadvantages[]</a>
 - **Minimum Items:** `1`
 
-#### <a name="ProfessionRepresentationVariant/variants"></a> `variants?`
+#### <a name="ProfessionPackageValues/variants"></a> `variants?`
 
 Provides examples of variants for the profession, which may include changes
 to AP values and additional or modified skill ratings, special abilities,
@@ -290,233 +431,173 @@ or combat techniques, as compared to the basic profession. Usually picking
 a variant is optional, but there are some rare exceptions where picking a
 variant is required.
 
-- **Type:** Union
-- **Cases:** <a href="#ProfessionRepresentationVariant/variants'Required">ProfessionRepresentationVariant/variants'Required</a> | <a href="#ProfessionRepresentationVariant/variants'Optional">ProfessionRepresentationVariant/variants'Optional</a>
+- **Type:** <a href="#ProfessionVariants">ProfessionVariants</a>
 
-#### <a name="ProfessionRepresentationVariant/translations"></a> `translations`
+#### <a name="ProfessionPackageValues/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#ProfessionRepresentationVariant/translations[key]">ProfessionRepresentationVariant/translations[key]</a>
+- **Property Values:** <a href="#ProfessionPackageValues/translations[key]">ProfessionPackageValues/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="ProfessionRepresentationVariant/options"></a> `ProfessionRepresentationVariant/options`
-
-- **Type:** Object
-- **Minimum Properties:** `1`
-
-Key | Description | Details
-:-- | :-- | :--
-`skill_specialization?` |  | <a href="#ProfessionRepresentationVariant/options/skill_specialization">See details</a>
-`languages_scripts?` |  | <a href="#ProfessionRepresentationVariant/options/languages_scripts">See details</a>
-`combat_techniques?` |  | <a href="#ProfessionRepresentationVariant/options/combat_techniques">See details</a>
-`cantrips?` |  | <a href="#ProfessionRepresentationVariant/options/cantrips">See details</a>
-`curses?` |  | <a href="#ProfessionRepresentationVariant/options/curses">See details</a>
-`terrain_knowledge?` |  | <a href="#ProfessionRepresentationVariant/options/terrain_knowledge">See details</a>
-`skills?` |  | <a href="#ProfessionRepresentationVariant/options/skills">See details</a>
-
-#### <a name="ProfessionRepresentationVariant/options/skill_specialization"></a> `skill_specialization?`
-
-- **Type:** <a href="#SkillSpecializationOptions">SkillSpecializationOptions</a>
-
-#### <a name="ProfessionRepresentationVariant/options/languages_scripts"></a> `languages_scripts?`
-
-- **Type:** <a href="#LanguagesScriptsOptions">LanguagesScriptsOptions</a>
-
-#### <a name="ProfessionRepresentationVariant/options/combat_techniques"></a> `combat_techniques?`
-
-- **Type:** <a href="#CombatTechniquesOptions">CombatTechniquesOptions</a>
-
-#### <a name="ProfessionRepresentationVariant/options/cantrips"></a> `cantrips?`
-
-- **Type:** <a href="#CantripsOptions">CantripsOptions</a>
-
-#### <a name="ProfessionRepresentationVariant/options/curses"></a> `curses?`
-
-- **Type:** <a href="#CursesOptions">CursesOptions</a>
-
-#### <a name="ProfessionRepresentationVariant/options/terrain_knowledge"></a> `terrain_knowledge?`
-
-- **Type:** <a href="#TerrainKnowledgeOptions">TerrainKnowledgeOptions</a>
-
-#### <a name="ProfessionRepresentationVariant/options/skills"></a> `skills?`
-
-- **Type:** <a href="#SkillsOptions">SkillsOptions</a>
-
----
-
-### <a name="ProfessionRepresentationVariant/special_abilities[]"></a> `ProfessionRepresentationVariant/special_abilities[]`
+### <a name="ProfessionPackageValues/special_abilities[]"></a> `ProfessionPackageValues/special_abilities[]`
 
 - **Type:** <a href="#SpecialAbility">SpecialAbility</a>
 
 ---
 
-### <a name="ProfessionRepresentationVariant/combat_techniques[]"></a> `ProfessionRepresentationVariant/combat_techniques[]`
+### <a name="ProfessionPackageValues/combat_techniques[]"></a> `ProfessionPackageValues/combat_techniques[]`
 
-- **Type:** <a href="#CombatTechnique">CombatTechnique</a>
-
----
-
-### <a name="ProfessionRepresentationVariant/skills[]"></a> `ProfessionRepresentationVariant/skills[]`
-
-- **Type:** <a href="#Skill">Skill</a>
+- **Type:** <a href="#CombatTechniqueRating">CombatTechniqueRating</a>
 
 ---
 
-### <a name="ProfessionRepresentationVariant/spells[]"></a> `ProfessionRepresentationVariant/spells[]`
+### <a name="ProfessionPackageValues/skills[]"></a> `ProfessionPackageValues/skills[]`
 
-- **Type:** <a href="#Spell">Spell</a>
-
----
-
-### <a name="ProfessionRepresentationVariant/liturgical_chants[]"></a> `ProfessionRepresentationVariant/liturgical_chants[]`
-
-- **Type:** <a href="#LiturgicalChant">LiturgicalChant</a>
+- **Type:** <a href="#SkillRating">SkillRating</a>
 
 ---
 
-### <a name="ProfessionRepresentationVariant/suggested_advantages[]"></a> `ProfessionRepresentationVariant/suggested_advantages[]`
+### <a name="ProfessionPackageValues/spells[]"></a> `ProfessionPackageValues/spells[]`
+
+- **Type:** <a href="#SpellRating">SpellRating</a>
+
+---
+
+### <a name="ProfessionPackageValues/liturgical_chants[]"></a> `ProfessionPackageValues/liturgical_chants[]`
+
+- **Type:** <a href="#LiturgicalChantRating">LiturgicalChantRating</a>
+
+---
+
+### <a name="ProfessionPackageValues/suggested_advantages[]"></a> `ProfessionPackageValues/suggested_advantages[]`
 
 - **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
 
 ---
 
-### <a name="ProfessionRepresentationVariant/suggested_disadvantages[]"></a> `ProfessionRepresentationVariant/suggested_disadvantages[]`
+### <a name="ProfessionPackageValues/suggested_disadvantages[]"></a> `ProfessionPackageValues/suggested_disadvantages[]`
 
 - **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
 
 ---
 
-### <a name="ProfessionRepresentationVariant/unsuitable_advantages[]"></a> `ProfessionRepresentationVariant/unsuitable_advantages[]`
+### <a name="ProfessionPackageValues/unsuitable_advantages[]"></a> `ProfessionPackageValues/unsuitable_advantages[]`
 
 - **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
 
 ---
 
-### <a name="ProfessionRepresentationVariant/unsuitable_disadvantages[]"></a> `ProfessionRepresentationVariant/unsuitable_disadvantages[]`
+### <a name="ProfessionPackageValues/unsuitable_disadvantages[]"></a> `ProfessionPackageValues/unsuitable_disadvantages[]`
 
 - **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
 
 ---
 
-### <a name="ProfessionRepresentationVariant/variants'Required"></a> `ProfessionRepresentationVariant/variants'Required`
+### <a name="ProfessionPackageValues/translations[key]"></a> `ProfessionPackageValues/translations[key]`
+
+- **Type:** <a href="#ProfessionTranslation">ProfessionTranslation</a>
+
+---
+
+### <a name="ProfessionTranslation"></a> `ProfessionTranslation`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#ProfessionRepresentationVariant/variants'Required/tag">See details</a>
-`list` |  | <a href="#ProfessionRepresentationVariant/variants'Required/list">See details</a>
+`name` | Name of the basic profession. | <a href="#ProfessionTranslation/name">See details</a>
+`specification?` | A name addition of the profession. This will contain texts like name of the academy or the witch circle. It is enclosed in parenthesis, but the database entry must not contain parenthesis. | <a href="#ProfessionTranslation/specification">See details</a>
+`suggested_advantages?` | Typical advantages for the profession. | <a href="#ProfessionTranslation/suggested_advantages">See details</a>
+`suggested_disadvantages?` | Typical disadvantages for the profession. | <a href="#ProfessionTranslation/suggested_disadvantages">See details</a>
+`unsuitable_advantages?` | These advantages do not fit well with this profession; to be checked with the GM before taking any of them. | <a href="#ProfessionTranslation/unsuitable_advantages">See details</a>
+`unsuitable_disadvantages?` | These disadvantages do not fit well with this profession; to be checked with the GM before taking any of them. | <a href="#ProfessionTranslation/unsuitable_disadvantages">See details</a>
+`errata?` |  | <a href="#ProfessionTranslation/errata">See details</a>
 
-#### <a name="ProfessionRepresentationVariant/variants'Required/tag"></a> `tag`
-
-- **Constant:** `"Required"`
-
-#### <a name="ProfessionRepresentationVariant/variants'Required/list"></a> `list`
-
-- **Type:** List
-- **Items:** <a href="#ProfessionRepresentationVariant/variants'Required/list[]">ProfessionRepresentationVariant/variants'Required/list[]</a>
-- **Minimum Items:** `2`
-
----
-
-### <a name="ProfessionRepresentationVariant/variants'Required/list[]"></a> `ProfessionRepresentationVariant/variants'Required/list[]`
-
-- **Type:** <a href="#ProfessionVariant">ProfessionVariant</a>
-
----
-
-### <a name="ProfessionRepresentationVariant/variants'Optional"></a> `ProfessionRepresentationVariant/variants'Optional`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ProfessionRepresentationVariant/variants'Optional/tag">See details</a>
-`list` |  | <a href="#ProfessionRepresentationVariant/variants'Optional/list">See details</a>
-
-#### <a name="ProfessionRepresentationVariant/variants'Optional/tag"></a> `tag`
-
-- **Constant:** `"Optional"`
-
-#### <a name="ProfessionRepresentationVariant/variants'Optional/list"></a> `list`
-
-- **Type:** List
-- **Items:** <a href="#ProfessionRepresentationVariant/variants'Optional/list[]">ProfessionRepresentationVariant/variants'Optional/list[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="ProfessionRepresentationVariant/variants'Optional/list[]"></a> `ProfessionRepresentationVariant/variants'Optional/list[]`
-
-- **Type:** <a href="#ProfessionVariant">ProfessionVariant</a>
-
----
-
-### <a name="ProfessionRepresentationVariant/translations[key]"></a> `ProfessionRepresentationVariant/translations[key]`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`name` | Name of the basic profession. | <a href="#ProfessionRepresentationVariant/translations[key]/name">See details</a>
-`specification?` | A name addition of the profession. This will contain texts like name of the academy or the witch circle. It is enclosed in parenthesis. | <a href="#ProfessionRepresentationVariant/translations[key]/specification">See details</a>
-`suggested_advantages?` | Typical advantages for the profession. | <a href="#ProfessionRepresentationVariant/translations[key]/suggested_advantages">See details</a>
-`suggested_disadvantages?` | Typical disadvantages for the profession. | <a href="#ProfessionRepresentationVariant/translations[key]/suggested_disadvantages">See details</a>
-`unsuitable_advantages?` | These advantages do not fit well with this profession; to be checked with the GM before taking any of them. | <a href="#ProfessionRepresentationVariant/translations[key]/unsuitable_advantages">See details</a>
-`unsuitable_disadvantages?` | These disadvantages do not fit well with this profession; to be checked with the GM before taking any of them. | <a href="#ProfessionRepresentationVariant/translations[key]/unsuitable_disadvantages">See details</a>
-`errata?` |  | <a href="#ProfessionRepresentationVariant/translations[key]/errata">See details</a>
-
-#### <a name="ProfessionRepresentationVariant/translations[key]/name"></a> `name`
+#### <a name="ProfessionTranslation/name"></a> `name`
 
 Name of the basic profession.
 
-- **Type:** <a href="#Name">Name</a>
+- **Type:** <a href="#ProfessionName">ProfessionName</a>
 
-#### <a name="ProfessionRepresentationVariant/translations[key]/specification"></a> `specification?`
+#### <a name="ProfessionTranslation/specification"></a> `specification?`
 
 A name addition of the profession. This will contain texts like name of
-the academy or the witch circle. It is enclosed in parenthesis.
+the academy or the witch circle. It is enclosed in parenthesis, but the
+database entry must not contain parenthesis.
 
-- **Type:** <a href="#Name">Name</a>
+- **Type:** <a href="#ProfessionName">ProfessionName</a>
 
-#### <a name="ProfessionRepresentationVariant/translations[key]/suggested_advantages"></a> `suggested_advantages?`
+#### <a name="ProfessionTranslation/suggested_advantages"></a> `suggested_advantages?`
 
 Typical advantages for the profession.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="ProfessionRepresentationVariant/translations[key]/suggested_disadvantages"></a> `suggested_disadvantages?`
+#### <a name="ProfessionTranslation/suggested_disadvantages"></a> `suggested_disadvantages?`
 
 Typical disadvantages for the profession.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="ProfessionRepresentationVariant/translations[key]/unsuitable_advantages"></a> `unsuitable_advantages?`
+#### <a name="ProfessionTranslation/unsuitable_advantages"></a> `unsuitable_advantages?`
 
 These advantages do not fit well with this profession; to be checked with
 the GM before taking any of them.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="ProfessionRepresentationVariant/translations[key]/unsuitable_disadvantages"></a> `unsuitable_disadvantages?`
+#### <a name="ProfessionTranslation/unsuitable_disadvantages"></a> `unsuitable_disadvantages?`
 
 These disadvantages do not fit well with this profession; to be checked
 with the GM before taking any of them.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="ProfessionRepresentationVariant/translations[key]/errata"></a> `errata?`
+#### <a name="ProfessionTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
+
+---
+
+### <a name="ProfessionVariants"></a> `ProfessionVariants`
+
+Provides examples of variants for the profession, which may include changes
+to AP values and additional or modified skill ratings, special abilities, or
+combat techniques, as compared to the basic profession. Usually picking a
+variant is optional, but there are some rare exceptions where picking a
+variant is required.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`is_selection_required` | If the selection of a profession variant is required. | <a href="#ProfessionVariants/is_selection_required">See details</a>
+`list` | The list of profession variants. | <a href="#ProfessionVariants/list">See details</a>
+
+#### <a name="ProfessionVariants/is_selection_required"></a> `is_selection_required`
+
+If the selection of a profession variant is required.
+
+- **Type:** Boolean
+
+#### <a name="ProfessionVariants/list"></a> `list`
+
+The list of profession variants.
+
+- **Type:** List
+- **Items:** <a href="#ProfessionVariants/list[]">ProfessionVariants/list[]</a>
+- **Minimum Items:** `1`
+
+---
+
+### <a name="ProfessionVariants/list[]"></a> `ProfessionVariants/list[]`
+
+- **Type:** <a href="#ProfessionVariant">ProfessionVariant</a>
 
 ---
 
@@ -560,7 +641,7 @@ cost for a profession package does not include these prerequisites.
 
 #### <a name="ProfessionVariant/options"></a> `options?`
 
-- **Type:** <a href="#ProfessionVariant/options">Object</a>
+- **Type:** <a href="#ProfessionVariantPackageOptions">ProfessionVariantPackageOptions</a>
 
 #### <a name="ProfessionVariant/special_abilities"></a> `special_abilities?`
 
@@ -612,289 +693,6 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="ProfessionVariant/options"></a> `ProfessionVariant/options`
-
-- **Type:** Object
-- **Minimum Properties:** `1`
-
-Key | Description | Details
-:-- | :-- | :--
-`skill_specialization?` |  | <a href="#ProfessionVariant/options/skill_specialization">See details</a>
-`languages_scripts?` |  | <a href="#ProfessionVariant/options/languages_scripts">See details</a>
-`combat_techniques?` |  | <a href="#ProfessionVariant/options/combat_techniques">See details</a>
-`cantrips?` |  | <a href="#ProfessionVariant/options/cantrips">See details</a>
-`curses?` |  | <a href="#ProfessionVariant/options/curses">See details</a>
-`terrain_knowledge?` |  | <a href="#ProfessionVariant/options/terrain_knowledge">See details</a>
-`skills?` |  | <a href="#ProfessionVariant/options/skills">See details</a>
-
-#### <a name="ProfessionVariant/options/skill_specialization"></a> `skill_specialization?`
-
-- **Type:** Union
-- **Cases:** <a href="#ProfessionVariant/options/skill_specialization'Remove">ProfessionVariant/options/skill_specialization'Remove</a> | <a href="#ProfessionVariant/options/skill_specialization'Override">ProfessionVariant/options/skill_specialization'Override</a>
-
-#### <a name="ProfessionVariant/options/languages_scripts"></a> `languages_scripts?`
-
-- **Type:** Union
-- **Cases:** <a href="#ProfessionVariant/options/languages_scripts'Remove">ProfessionVariant/options/languages_scripts'Remove</a> | <a href="#ProfessionVariant/options/languages_scripts'Override">ProfessionVariant/options/languages_scripts'Override</a>
-
-#### <a name="ProfessionVariant/options/combat_techniques"></a> `combat_techniques?`
-
-- **Type:** Union
-- **Cases:** <a href="#ProfessionVariant/options/combat_techniques'Remove">ProfessionVariant/options/combat_techniques'Remove</a> | <a href="#ProfessionVariant/options/combat_techniques'Override">ProfessionVariant/options/combat_techniques'Override</a>
-
-#### <a name="ProfessionVariant/options/cantrips"></a> `cantrips?`
-
-- **Type:** Union
-- **Cases:** <a href="#ProfessionVariant/options/cantrips'Remove">ProfessionVariant/options/cantrips'Remove</a> | <a href="#ProfessionVariant/options/cantrips'Override">ProfessionVariant/options/cantrips'Override</a>
-
-#### <a name="ProfessionVariant/options/curses"></a> `curses?`
-
-- **Type:** Union
-- **Cases:** <a href="#ProfessionVariant/options/curses'Remove">ProfessionVariant/options/curses'Remove</a> | <a href="#ProfessionVariant/options/curses'Override">ProfessionVariant/options/curses'Override</a>
-
-#### <a name="ProfessionVariant/options/terrain_knowledge"></a> `terrain_knowledge?`
-
-- **Type:** Union
-- **Cases:** <a href="#ProfessionVariant/options/terrain_knowledge'Remove">ProfessionVariant/options/terrain_knowledge'Remove</a> | <a href="#ProfessionVariant/options/terrain_knowledge'Override">ProfessionVariant/options/terrain_knowledge'Override</a>
-
-#### <a name="ProfessionVariant/options/skills"></a> `skills?`
-
-- **Type:** Union
-- **Cases:** <a href="#ProfessionVariant/options/skills'Remove">ProfessionVariant/options/skills'Remove</a> | <a href="#ProfessionVariant/options/skills'Override">ProfessionVariant/options/skills'Override</a>
-
----
-
-### <a name="ProfessionVariant/options/skill_specialization'Remove"></a> `ProfessionVariant/options/skill_specialization'Remove`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariant/options/skill_specialization'Remove/tag">See details</a>
-
-#### <a name="ProfessionVariant/options/skill_specialization'Remove/tag"></a> `tag`
-
-- **Constant:** `"Remove"`
-
----
-
-### <a name="ProfessionVariant/options/skill_specialization'Override"></a> `ProfessionVariant/options/skill_specialization'Override`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariant/options/skill_specialization'Override/tag">See details</a>
-`value` |  | <a href="#ProfessionVariant/options/skill_specialization'Override/value">See details</a>
-
-#### <a name="ProfessionVariant/options/skill_specialization'Override/tag"></a> `tag`
-
-- **Constant:** `"Override"`
-
-#### <a name="ProfessionVariant/options/skill_specialization'Override/value"></a> `value`
-
-- **Type:** <a href="#SkillSpecializationOptions">SkillSpecializationOptions</a>
-
----
-
-### <a name="ProfessionVariant/options/languages_scripts'Remove"></a> `ProfessionVariant/options/languages_scripts'Remove`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariant/options/languages_scripts'Remove/tag">See details</a>
-
-#### <a name="ProfessionVariant/options/languages_scripts'Remove/tag"></a> `tag`
-
-- **Constant:** `"Remove"`
-
----
-
-### <a name="ProfessionVariant/options/languages_scripts'Override"></a> `ProfessionVariant/options/languages_scripts'Override`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariant/options/languages_scripts'Override/tag">See details</a>
-`value` |  | <a href="#ProfessionVariant/options/languages_scripts'Override/value">See details</a>
-
-#### <a name="ProfessionVariant/options/languages_scripts'Override/tag"></a> `tag`
-
-- **Constant:** `"Override"`
-
-#### <a name="ProfessionVariant/options/languages_scripts'Override/value"></a> `value`
-
-- **Type:** <a href="#LanguagesScriptsOptions">LanguagesScriptsOptions</a>
-
----
-
-### <a name="ProfessionVariant/options/combat_techniques'Remove"></a> `ProfessionVariant/options/combat_techniques'Remove`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariant/options/combat_techniques'Remove/tag">See details</a>
-
-#### <a name="ProfessionVariant/options/combat_techniques'Remove/tag"></a> `tag`
-
-- **Constant:** `"Remove"`
-
----
-
-### <a name="ProfessionVariant/options/combat_techniques'Override"></a> `ProfessionVariant/options/combat_techniques'Override`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariant/options/combat_techniques'Override/tag">See details</a>
-`value` |  | <a href="#ProfessionVariant/options/combat_techniques'Override/value">See details</a>
-
-#### <a name="ProfessionVariant/options/combat_techniques'Override/tag"></a> `tag`
-
-- **Constant:** `"Override"`
-
-#### <a name="ProfessionVariant/options/combat_techniques'Override/value"></a> `value`
-
-- **Type:** <a href="#CombatTechniquesOptions">CombatTechniquesOptions</a>
-
----
-
-### <a name="ProfessionVariant/options/cantrips'Remove"></a> `ProfessionVariant/options/cantrips'Remove`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariant/options/cantrips'Remove/tag">See details</a>
-
-#### <a name="ProfessionVariant/options/cantrips'Remove/tag"></a> `tag`
-
-- **Constant:** `"Remove"`
-
----
-
-### <a name="ProfessionVariant/options/cantrips'Override"></a> `ProfessionVariant/options/cantrips'Override`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariant/options/cantrips'Override/tag">See details</a>
-`value` |  | <a href="#ProfessionVariant/options/cantrips'Override/value">See details</a>
-
-#### <a name="ProfessionVariant/options/cantrips'Override/tag"></a> `tag`
-
-- **Constant:** `"Override"`
-
-#### <a name="ProfessionVariant/options/cantrips'Override/value"></a> `value`
-
-- **Type:** <a href="#CantripsOptions">CantripsOptions</a>
-
----
-
-### <a name="ProfessionVariant/options/curses'Remove"></a> `ProfessionVariant/options/curses'Remove`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariant/options/curses'Remove/tag">See details</a>
-
-#### <a name="ProfessionVariant/options/curses'Remove/tag"></a> `tag`
-
-- **Constant:** `"Remove"`
-
----
-
-### <a name="ProfessionVariant/options/curses'Override"></a> `ProfessionVariant/options/curses'Override`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariant/options/curses'Override/tag">See details</a>
-`value` |  | <a href="#ProfessionVariant/options/curses'Override/value">See details</a>
-
-#### <a name="ProfessionVariant/options/curses'Override/tag"></a> `tag`
-
-- **Constant:** `"Override"`
-
-#### <a name="ProfessionVariant/options/curses'Override/value"></a> `value`
-
-- **Type:** <a href="#CursesOptions">CursesOptions</a>
-
----
-
-### <a name="ProfessionVariant/options/terrain_knowledge'Remove"></a> `ProfessionVariant/options/terrain_knowledge'Remove`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariant/options/terrain_knowledge'Remove/tag">See details</a>
-
-#### <a name="ProfessionVariant/options/terrain_knowledge'Remove/tag"></a> `tag`
-
-- **Constant:** `"Remove"`
-
----
-
-### <a name="ProfessionVariant/options/terrain_knowledge'Override"></a> `ProfessionVariant/options/terrain_knowledge'Override`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariant/options/terrain_knowledge'Override/tag">See details</a>
-`value` |  | <a href="#ProfessionVariant/options/terrain_knowledge'Override/value">See details</a>
-
-#### <a name="ProfessionVariant/options/terrain_knowledge'Override/tag"></a> `tag`
-
-- **Constant:** `"Override"`
-
-#### <a name="ProfessionVariant/options/terrain_knowledge'Override/value"></a> `value`
-
-- **Type:** <a href="#TerrainKnowledgeOptions">TerrainKnowledgeOptions</a>
-
----
-
-### <a name="ProfessionVariant/options/skills'Remove"></a> `ProfessionVariant/options/skills'Remove`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariant/options/skills'Remove/tag">See details</a>
-
-#### <a name="ProfessionVariant/options/skills'Remove/tag"></a> `tag`
-
-- **Constant:** `"Remove"`
-
----
-
-### <a name="ProfessionVariant/options/skills'Override"></a> `ProfessionVariant/options/skills'Override`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariant/options/skills'Override/tag">See details</a>
-`value` |  | <a href="#ProfessionVariant/options/skills'Override/value">See details</a>
-
-#### <a name="ProfessionVariant/options/skills'Override/tag"></a> `tag`
-
-- **Constant:** `"Override"`
-
-#### <a name="ProfessionVariant/options/skills'Override/value"></a> `value`
-
-- **Type:** <a href="#SkillsOptions">SkillsOptions</a>
-
----
-
 ### <a name="ProfessionVariant/special_abilities[]"></a> `ProfessionVariant/special_abilities[]`
 
 - **Type:** <a href="#VariantSpecialAbility">VariantSpecialAbility</a>
@@ -903,41 +701,47 @@ Key | Description | Details
 
 ### <a name="ProfessionVariant/combat_techniques[]"></a> `ProfessionVariant/combat_techniques[]`
 
-- **Type:** <a href="#VariantCombatTechnique">VariantCombatTechnique</a>
+- **Type:** <a href="#CombatTechniqueRating">CombatTechniqueRating</a>
 
 ---
 
 ### <a name="ProfessionVariant/skills[]"></a> `ProfessionVariant/skills[]`
 
-- **Type:** <a href="#VariantSkill">VariantSkill</a>
+- **Type:** <a href="#SkillRating">SkillRating</a>
 
 ---
 
 ### <a name="ProfessionVariant/spells[]"></a> `ProfessionVariant/spells[]`
 
-- **Type:** <a href="#VariantSpell">VariantSpell</a>
+- **Type:** <a href="#SpellRating">SpellRating</a>
 
 ---
 
 ### <a name="ProfessionVariant/liturgical_chants[]"></a> `ProfessionVariant/liturgical_chants[]`
 
-- **Type:** <a href="#VariantLiturgicalChant">VariantLiturgicalChant</a>
+- **Type:** <a href="#LiturgicalChantRating">LiturgicalChantRating</a>
 
 ---
 
 ### <a name="ProfessionVariant/translations[key]"></a> `ProfessionVariant/translations[key]`
 
+- **Type:** <a href="#ProfessionVariantTranslation">ProfessionVariantTranslation</a>
+
+---
+
+### <a name="ProfessionVariantTranslation"></a> `ProfessionVariantTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | Name of the profession variant. | <a href="#ProfessionVariant/translations[key]/name">See details</a>
+`name` | Name of the profession variant. | <a href="#ProfessionVariantTranslation/name">See details</a>
 
-#### <a name="ProfessionVariant/translations[key]/name"></a> `name`
+#### <a name="ProfessionVariantTranslation/name"></a> `name`
 
 Name of the profession variant.
 
-- **Type:** <a href="#Name">Name</a>
+- **Type:** <a href="#ProfessionName">ProfessionName</a>
 
 ---
 
@@ -955,41 +759,15 @@ Name of the profession variant.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#SpecialAbility'Fixed/tag">See details</a>
-`id` | The identifier of the combat technique to provide the rating for. | <a href="#SpecialAbility'Fixed/id">See details</a>
-`level?` | The level of the received special ability. | <a href="#SpecialAbility'Fixed/level">See details</a>
-`options?` | Received select options. Order is important. Typically, you only need the first array index, though. | <a href="#SpecialAbility'Fixed/options">See details</a>
+`fixed` |  | <a href="#SpecialAbility'Fixed/fixed">See details</a>
 
 #### <a name="SpecialAbility'Fixed/tag"></a> `tag`
 
 - **Constant:** `"Fixed"`
 
-#### <a name="SpecialAbility'Fixed/id"></a> `id`
+#### <a name="SpecialAbility'Fixed/fixed"></a> `fixed`
 
-The identifier of the combat technique to provide the rating for.
-
-- **Type:** <a href="./_Identifier.md#SpecialAbilityIdentifier">SpecialAbilityIdentifier</a>
-
-#### <a name="SpecialAbility'Fixed/level"></a> `level?`
-
-The level of the received special ability.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
-#### <a name="SpecialAbility'Fixed/options"></a> `options?`
-
-Received select options. Order is important. Typically, you only need the
-first array index, though.
-
-- **Type:** List
-- **Items:** <a href="#SpecialAbility'Fixed/options[]">SpecialAbility'Fixed/options[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="SpecialAbility'Fixed/options[]"></a> `SpecialAbility'Fixed/options[]`
-
-- **Type:** <a href="./_Identifier.md#RequirableSelectOptionIdentifier">RequirableSelectOptionIdentifier</a>
+- **Type:** <a href="#FixedSpecialAbility">FixedSpecialAbility</a>
 
 ---
 
@@ -1000,55 +778,81 @@ first array index, though.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#SpecialAbility'Selection/tag">See details</a>
-`options` |  | <a href="#SpecialAbility'Selection/options">See details</a>
+`selection` |  | <a href="#SpecialAbility'Selection/selection">See details</a>
 
 #### <a name="SpecialAbility'Selection/tag"></a> `tag`
 
 - **Constant:** `"Selection"`
 
-#### <a name="SpecialAbility'Selection/options"></a> `options`
+#### <a name="SpecialAbility'Selection/selection"></a> `selection`
 
-- **Type:** List
-- **Items:** <a href="#SpecialAbility'Selection/options[]">SpecialAbility'Selection/options[]</a>
-- **Minimum Items:** `2`
+- **Type:** <a href="#SpecialAbilitySelection">SpecialAbilitySelection</a>
 
 ---
 
-### <a name="SpecialAbility'Selection/options[]"></a> `SpecialAbility'Selection/options[]`
+### <a name="FixedSpecialAbility"></a> `FixedSpecialAbility`
+
+- **Type:** <a href="#SpecialAbilityDefinition">SpecialAbilityDefinition</a>
+
+---
+
+### <a name="SpecialAbilitySelection"></a> `SpecialAbilitySelection`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The identifier of the combat technique to provide the rating for. | <a href="#SpecialAbility'Selection/options[]/id">See details</a>
-`level?` | The level of the received special ability. | <a href="#SpecialAbility'Selection/options[]/level">See details</a>
-`options?` | Received select options. Order is important. Typically, you only need the first array index, though. | <a href="#SpecialAbility'Selection/options[]/options">See details</a>
+`options` |  | <a href="#SpecialAbilitySelection/options">See details</a>
 
-#### <a name="SpecialAbility'Selection/options[]/id"></a> `id`
+#### <a name="SpecialAbilitySelection/options"></a> `options`
+
+- **Type:** List
+- **Items:** <a href="#SpecialAbilitySelection/options[]">SpecialAbilitySelection/options[]</a>
+- **Minimum Items:** `2`
+
+---
+
+### <a name="SpecialAbilitySelection/options[]"></a> `SpecialAbilitySelection/options[]`
+
+- **Type:** <a href="#SpecialAbilityDefinition">SpecialAbilityDefinition</a>
+
+---
+
+### <a name="SpecialAbilityDefinition"></a> `SpecialAbilityDefinition`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The identifier of the combat technique to provide the rating for. | <a href="#SpecialAbilityDefinition/id">See details</a>
+`level?` | The level of the received special ability. | <a href="#SpecialAbilityDefinition/level">See details</a>
+`options?` | Received select options. Order is important. Typically, you only need the first array index, though. | <a href="#SpecialAbilityDefinition/options">See details</a>
+
+#### <a name="SpecialAbilityDefinition/id"></a> `id`
 
 The identifier of the combat technique to provide the rating for.
 
 - **Type:** <a href="./_Identifier.md#SpecialAbilityIdentifier">SpecialAbilityIdentifier</a>
 
-#### <a name="SpecialAbility'Selection/options[]/level"></a> `level?`
+#### <a name="SpecialAbilityDefinition/level"></a> `level?`
 
 The level of the received special ability.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="SpecialAbility'Selection/options[]/options"></a> `options?`
+#### <a name="SpecialAbilityDefinition/options"></a> `options?`
 
 Received select options. Order is important. Typically, you only need the
 first array index, though.
 
 - **Type:** List
-- **Items:** <a href="#SpecialAbility'Selection/options[]/options[]">SpecialAbility'Selection/options[]/options[]</a>
+- **Items:** <a href="#SpecialAbilityDefinition/options[]">SpecialAbilityDefinition/options[]</a>
 - **Minimum Items:** `1`
 
 ---
 
-### <a name="SpecialAbility'Selection/options[]/options[]"></a> `SpecialAbility'Selection/options[]/options[]`
+### <a name="SpecialAbilityDefinition/options[]"></a> `SpecialAbilityDefinition/options[]`
 
 - **Type:** <a href="./_Identifier.md#RequirableSelectOptionIdentifier">RequirableSelectOptionIdentifier</a>
 
@@ -1068,49 +872,15 @@ first array index, though.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#VariantSpecialAbility'Fixed/tag">See details</a>
-`id` | The identifier of the combat technique to provide the rating for. | <a href="#VariantSpecialAbility'Fixed/id">See details</a>
-`active?` | if set to `false`, if the entry is granted by the basic package, it is removed. | <a href="#VariantSpecialAbility'Fixed/active">See details</a>
-`level?` | The level of the received special ability. | <a href="#VariantSpecialAbility'Fixed/level">See details</a>
-`options?` | Received select options. Order is important. Typically, you only need the first array index, though. | <a href="#VariantSpecialAbility'Fixed/options">See details</a>
+`fixed` |  | <a href="#VariantSpecialAbility'Fixed/fixed">See details</a>
 
 #### <a name="VariantSpecialAbility'Fixed/tag"></a> `tag`
 
 - **Constant:** `"Fixed"`
 
-#### <a name="VariantSpecialAbility'Fixed/id"></a> `id`
+#### <a name="VariantSpecialAbility'Fixed/fixed"></a> `fixed`
 
-The identifier of the combat technique to provide the rating for.
-
-- **Type:** <a href="./_Identifier.md#SpecialAbilityIdentifier">SpecialAbilityIdentifier</a>
-
-#### <a name="VariantSpecialAbility'Fixed/active"></a> `active?`
-
-if set to `false`, if the entry is granted by the basic package, it is
-removed.
-
-- **Constant:** `false`
-
-#### <a name="VariantSpecialAbility'Fixed/level"></a> `level?`
-
-The level of the received special ability.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
-#### <a name="VariantSpecialAbility'Fixed/options"></a> `options?`
-
-Received select options. Order is important. Typically, you only need the
-first array index, though.
-
-- **Type:** List
-- **Items:** <a href="#VariantSpecialAbility'Fixed/options[]">VariantSpecialAbility'Fixed/options[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="VariantSpecialAbility'Fixed/options[]"></a> `VariantSpecialAbility'Fixed/options[]`
-
-- **Type:** <a href="./_Identifier.md#RequirableSelectOptionIdentifier">RequirableSelectOptionIdentifier</a>
+- **Type:** <a href="#FixedVariantSpecialAbility">FixedVariantSpecialAbility</a>
 
 ---
 
@@ -1121,127 +891,131 @@ first array index, though.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#VariantSpecialAbility'Selection/tag">See details</a>
-`active?` | if set to `false`, if the selection is granted by the basic package, it is removed. | <a href="#VariantSpecialAbility'Selection/active">See details</a>
-`options` |  | <a href="#VariantSpecialAbility'Selection/options">See details</a>
+`selection` |  | <a href="#VariantSpecialAbility'Selection/selection">See details</a>
 
 #### <a name="VariantSpecialAbility'Selection/tag"></a> `tag`
 
 - **Constant:** `"Selection"`
 
-#### <a name="VariantSpecialAbility'Selection/active"></a> `active?`
+#### <a name="VariantSpecialAbility'Selection/selection"></a> `selection`
 
-if set to `false`, if the selection is granted by the basic package, it
-is removed.
-
-- **Constant:** `false`
-
-#### <a name="VariantSpecialAbility'Selection/options"></a> `options`
-
-- **Type:** List
-- **Items:** <a href="#VariantSpecialAbility'Selection/options[]">VariantSpecialAbility'Selection/options[]</a>
-- **Minimum Items:** `2`
+- **Type:** <a href="#VariantSpecialAbilitySelection">VariantSpecialAbilitySelection</a>
 
 ---
 
-### <a name="VariantSpecialAbility'Selection/options[]"></a> `VariantSpecialAbility'Selection/options[]`
+### <a name="FixedVariantSpecialAbility"></a> `FixedVariantSpecialAbility`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The identifier of the combat technique to provide the rating for. | <a href="#VariantSpecialAbility'Selection/options[]/id">See details</a>
-`level?` | The level of the received special ability. | <a href="#VariantSpecialAbility'Selection/options[]/level">See details</a>
-`options?` | Received select options. Order is important. Typically, you only need the first array index, though. | <a href="#VariantSpecialAbility'Selection/options[]/options">See details</a>
+`id` | The identifier of the combat technique to provide the rating for. | <a href="#FixedVariantSpecialAbility/id">See details</a>
+`level?` | The level of the received special ability. | <a href="#FixedVariantSpecialAbility/level">See details</a>
+`options?` | Received select options. Order is important. Typically, you only need the first array index, though. | <a href="#FixedVariantSpecialAbility/options">See details</a>
+`active?` | if set to `false`, if the selection is granted by the basic package, it is removed. | <a href="#FixedVariantSpecialAbility/active">See details</a>
 
-#### <a name="VariantSpecialAbility'Selection/options[]/id"></a> `id`
+#### <a name="FixedVariantSpecialAbility/id"></a> `id`
 
 The identifier of the combat technique to provide the rating for.
 
 - **Type:** <a href="./_Identifier.md#SpecialAbilityIdentifier">SpecialAbilityIdentifier</a>
 
-#### <a name="VariantSpecialAbility'Selection/options[]/level"></a> `level?`
+#### <a name="FixedVariantSpecialAbility/level"></a> `level?`
 
 The level of the received special ability.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="VariantSpecialAbility'Selection/options[]/options"></a> `options?`
+#### <a name="FixedVariantSpecialAbility/options"></a> `options?`
 
 Received select options. Order is important. Typically, you only need the
 first array index, though.
 
 - **Type:** List
-- **Items:** <a href="#VariantSpecialAbility'Selection/options[]/options[]">VariantSpecialAbility'Selection/options[]/options[]</a>
+- **Items:** <a href="#FixedVariantSpecialAbility/options[]">FixedVariantSpecialAbility/options[]</a>
 - **Minimum Items:** `1`
+
+#### <a name="FixedVariantSpecialAbility/active"></a> `active?`
+
+if set to `false`, if the selection is granted by the basic package, it
+is removed.
+
+- **Constant:** `false`
 
 ---
 
-### <a name="VariantSpecialAbility'Selection/options[]/options[]"></a> `VariantSpecialAbility'Selection/options[]/options[]`
+### <a name="FixedVariantSpecialAbility/options[]"></a> `FixedVariantSpecialAbility/options[]`
 
 - **Type:** <a href="./_Identifier.md#RequirableSelectOptionIdentifier">RequirableSelectOptionIdentifier</a>
 
 ---
 
-### <a name="CombatTechnique"></a> `CombatTechnique`
+### <a name="VariantSpecialAbilitySelection"></a> `VariantSpecialAbilitySelection`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The identifier of the combat technique to provide the rating for. | <a href="#CombatTechnique/id">See details</a>
-`rating` | The rating provided for the combat technique. | <a href="#CombatTechnique/rating">See details</a>
+`active?` | if set to `false`, if the selection is granted by the basic package, it is removed. | <a href="#VariantSpecialAbilitySelection/active">See details</a>
+`options` |  | <a href="#VariantSpecialAbilitySelection/options">See details</a>
 
-#### <a name="CombatTechnique/id"></a> `id`
+#### <a name="VariantSpecialAbilitySelection/active"></a> `active?`
 
-The identifier of the combat technique to provide the rating for.
+if set to `false`, if the selection is granted by the basic package, it
+is removed.
 
-- **Type:** <a href="./_Identifier.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>
+- **Constant:** `false`
 
-#### <a name="CombatTechnique/rating"></a> `rating`
+#### <a name="VariantSpecialAbilitySelection/options"></a> `options`
 
-The rating provided for the combat technique.
-
-- **Type:** Integer
-- **Minimum:** `7`
+- **Type:** List
+- **Items:** <a href="#VariantSpecialAbilitySelection/options[]">VariantSpecialAbilitySelection/options[]</a>
+- **Minimum Items:** `2`
 
 ---
 
-### <a name="VariantCombatTechnique"></a> `VariantCombatTechnique`
+### <a name="VariantSpecialAbilitySelection/options[]"></a> `VariantSpecialAbilitySelection/options[]`
+
+- **Type:** <a href="#SpecialAbilityDefinition">SpecialAbilityDefinition</a>
+
+---
+
+### <a name="CombatTechniqueRating"></a> `CombatTechniqueRating`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The identifier of the combat technique to provide the rating for. | <a href="#VariantCombatTechnique/id">See details</a>
-`rating` | The rating provided for the combat technique. It overrides the basic package's rating. | <a href="#VariantCombatTechnique/rating">See details</a>
+`id` | The identifier of the combat technique to provide the rating for. | <a href="#CombatTechniqueRating/id">See details</a>
+`rating` | The rating provided for the combat technique. If used in a profession variant, it overrides the basic package's rating. | <a href="#CombatTechniqueRating/rating">See details</a>
 
-#### <a name="VariantCombatTechnique/id"></a> `id`
+#### <a name="CombatTechniqueRating/id"></a> `id`
 
 The identifier of the combat technique to provide the rating for.
 
 - **Type:** <a href="./_Identifier.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>
 
-#### <a name="VariantCombatTechnique/rating"></a> `rating`
+#### <a name="CombatTechniqueRating/rating"></a> `rating`
 
-The rating provided for the combat technique. It overrides the basic
-package's rating.
+The rating provided for the combat technique. If used in a profession
+variant, it overrides the basic package's rating.
 
 - **Type:** Integer
 - **Minimum:** `6`
 
 ---
 
-### <a name="Skill"></a> `Skill`
+### <a name="SkillRating"></a> `SkillRating`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The identifier of the skill to provide the rating for. | <a href="#Skill/id">See details</a>
-`rating` | The rating provided for the skill. | <a href="#Skill/rating">See details</a>
+`id` | The identifier of the skill to provide the rating for. | <a href="#SkillRating/id">See details</a>
+`rating` | The rating provided for the skill. If used in a profession variant, it overrides the basic package's rating. | <a href="#SkillRating/rating">See details</a>
 
-#### <a name="Skill/id"></a> `id`
+#### <a name="SkillRating/id"></a> `id`
 
 The identifier of the skill to provide the rating for.
 
@@ -1249,184 +1023,46 @@ The identifier of the skill to provide the rating for.
 - **Minimum:** `1`
 - **Maximum:** `59`
 
-#### <a name="Skill/rating"></a> `rating`
+#### <a name="SkillRating/rating"></a> `rating`
 
-The rating provided for the skill.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="VariantSkill"></a> `VariantSkill`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The identifier of the skill to provide the rating for. | <a href="#VariantSkill/id">See details</a>
-`rating` | The rating provided for the skill. It overrides the basic package's rating. | <a href="#VariantSkill/rating">See details</a>
-
-#### <a name="VariantSkill/id"></a> `id`
-
-The identifier of the skill to provide the rating for.
-
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `59`
-
-#### <a name="VariantSkill/rating"></a> `rating`
-
-The rating provided for the skill. It overrides the basic package's rating.
+The rating provided for the skill. If used in a profession variant, it
+overrides the basic package's rating.
 
 - **Type:** Integer
 - **Minimum:** `0`
 
 ---
 
-### <a name="Spell"></a> `Spell`
-
-- **Type:** Union
-- **Cases:** <a href="#Spell'Fixed">Spell'Fixed</a> | <a href="#Spell'Selection">Spell'Selection</a>
-
----
-
-### <a name="Spell'Fixed"></a> `Spell'Fixed`
+### <a name="SpellRating"></a> `SpellRating`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Spell'Fixed/tag">See details</a>
-`id` | The identifier of the spell to provide the rating for. | <a href="#Spell'Fixed/id">See details</a>
-`rating` | The rating provided for the spell. | <a href="#Spell'Fixed/rating">See details</a>
+`id` | The identifier(s) of the spell(s) to choose from to provide the rating for. If multiple spells are provided, they must all have the same improvement cost. | <a href="#SpellRating/id">See details</a>
+`rating` | The rating provided for the (selected) spell. If used in a profession variant, it overrides the basic package's rating. | <a href="#SpellRating/rating">See details</a>
 
-#### <a name="Spell'Fixed/tag"></a> `tag`
+#### <a name="SpellRating/id"></a> `id`
 
-- **Constant:** `"Fixed"`
-
-#### <a name="Spell'Fixed/id"></a> `id`
-
-The identifier of the spell to provide the rating for.
-
-- **Type:** <a href="#SpellIdentifier">SpellIdentifier</a>
-
-#### <a name="Spell'Fixed/rating"></a> `rating`
-
-The rating provided for the spell.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="Spell'Selection"></a> `Spell'Selection`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Spell'Selection/tag">See details</a>
-`id` | The identifiers of the spells to choose from to provide the rating for. | <a href="#Spell'Selection/id">See details</a>
-`rating` | The rating provided for the selected spell. | <a href="#Spell'Selection/rating">See details</a>
-
-#### <a name="Spell'Selection/tag"></a> `tag`
-
-- **Constant:** `"Selection"`
-
-#### <a name="Spell'Selection/id"></a> `id`
-
-The identifiers of the spells to choose from to provide the rating for.
+The identifier(s) of the spell(s) to choose from to provide the rating for.
+If multiple spells are provided, they must all have the same improvement
+cost.
 
 - **Type:** List
-- **Items:** <a href="#Spell'Selection/id[]">Spell'Selection/id[]</a>
-- **Minimum Items:** `2`
+- **Items:** <a href="#SpellRating/id[]">SpellRating/id[]</a>
+- **Minimum Items:** `1`
 
-#### <a name="Spell'Selection/rating"></a> `rating`
+#### <a name="SpellRating/rating"></a> `rating`
 
-The rating provided for the selected spell.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="Spell'Selection/id[]"></a> `Spell'Selection/id[]`
-
-- **Type:** <a href="#SpellIdentifier">SpellIdentifier</a>
-
----
-
-### <a name="VariantSpell"></a> `VariantSpell`
-
-- **Type:** Union
-- **Cases:** <a href="#VariantSpell'Fixed">VariantSpell'Fixed</a> | <a href="#VariantSpell'Selection">VariantSpell'Selection</a>
-
----
-
-### <a name="VariantSpell'Fixed"></a> `VariantSpell'Fixed`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#VariantSpell'Fixed/tag">See details</a>
-`id` | The identifier of the spell to provide the rating for. | <a href="#VariantSpell'Fixed/id">See details</a>
-`rating` | The rating provided for the spell. It overrides the basic package's rating. | <a href="#VariantSpell'Fixed/rating">See details</a>
-
-#### <a name="VariantSpell'Fixed/tag"></a> `tag`
-
-- **Constant:** `"Fixed"`
-
-#### <a name="VariantSpell'Fixed/id"></a> `id`
-
-The identifier of the spell to provide the rating for.
-
-- **Type:** <a href="#SpellIdentifier">SpellIdentifier</a>
-
-#### <a name="VariantSpell'Fixed/rating"></a> `rating`
-
-The rating provided for the spell. It overrides the basic package's
-rating.
+The rating provided for the (selected) spell. If used in a profession
+variant, it overrides the basic package's rating.
 
 - **Type:** Integer
 - **Minimum:** `0`
 
 ---
 
-### <a name="VariantSpell'Selection"></a> `VariantSpell'Selection`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#VariantSpell'Selection/tag">See details</a>
-`id` | The identifiers of the spells to choose from to provide the rating for. | <a href="#VariantSpell'Selection/id">See details</a>
-`rating` | The rating provided for the selected spell. It overrides the basic package's rating. | <a href="#VariantSpell'Selection/rating">See details</a>
-
-#### <a name="VariantSpell'Selection/tag"></a> `tag`
-
-- **Constant:** `"Selection"`
-
-#### <a name="VariantSpell'Selection/id"></a> `id`
-
-The identifiers of the spells to choose from to provide the rating for.
-
-- **Type:** List
-- **Items:** <a href="#VariantSpell'Selection/id[]">VariantSpell'Selection/id[]</a>
-- **Minimum Items:** `2`
-
-#### <a name="VariantSpell'Selection/rating"></a> `rating`
-
-The rating provided for the selected spell. It overrides the basic
-package's rating.
-
-- **Type:** Integer
-- **Minimum:** `0`
-
----
-
-### <a name="VariantSpell'Selection/id[]"></a> `VariantSpell'Selection/id[]`
+### <a name="SpellRating/id[]"></a> `SpellRating/id[]`
 
 - **Type:** <a href="#SpellIdentifier">SpellIdentifier</a>
 
@@ -1489,7 +1125,8 @@ Key | Description | Details
 
 The unfamiliar or ambiguous magical tradition's identifier.
 
-- **Type:** Number
+- **Type:** Integer
+- **Minimum:** `1`
 
 ---
 
@@ -1514,153 +1151,373 @@ The identifier of the magical action to provide the rating for.
 
 ---
 
-### <a name="LiturgicalChant"></a> `LiturgicalChant`
-
-- **Type:** Union
-- **Cases:** <a href="#LiturgicalChant'Fixed">LiturgicalChant'Fixed</a> | <a href="#LiturgicalChant'Selection">LiturgicalChant'Selection</a>
-
----
-
-### <a name="LiturgicalChant'Fixed"></a> `LiturgicalChant'Fixed`
+### <a name="LiturgicalChantRating"></a> `LiturgicalChantRating`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#LiturgicalChant'Fixed/tag">See details</a>
-`id` | The identifier of the liturgical chant to provide the rating for. | <a href="#LiturgicalChant'Fixed/id">See details</a>
-`rating` | The rating provided for the liturgical chant. | <a href="#LiturgicalChant'Fixed/rating">See details</a>
+`id` | The identifier(s) of the liturgical chant(s) to choose from to provide the rating for. If multiple liturgical chants are provided, they must all have the same improvement cost. | <a href="#LiturgicalChantRating/id">See details</a>
+`rating` | The rating provided for the selected liturgical chant. If used in a profession variant, it overrides the basic package's rating. | <a href="#LiturgicalChantRating/rating">See details</a>
 
-#### <a name="LiturgicalChant'Fixed/tag"></a> `tag`
+#### <a name="LiturgicalChantRating/id"></a> `id`
 
-- **Constant:** `"Fixed"`
-
-#### <a name="LiturgicalChant'Fixed/id"></a> `id`
-
-The identifier of the liturgical chant to provide the rating for.
-
-- **Type:** <a href="./_Identifier.md#LiturgyIdentifier">LiturgyIdentifier</a>
-
-#### <a name="LiturgicalChant'Fixed/rating"></a> `rating`
-
-The rating provided for the liturgical chant.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="LiturgicalChant'Selection"></a> `LiturgicalChant'Selection`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#LiturgicalChant'Selection/tag">See details</a>
-`id` | The identifiers of the liturgical chants to choose from to provide the rating for. | <a href="#LiturgicalChant'Selection/id">See details</a>
-`rating` | The rating provided for the selected liturgical chant. | <a href="#LiturgicalChant'Selection/rating">See details</a>
-
-#### <a name="LiturgicalChant'Selection/tag"></a> `tag`
-
-- **Constant:** `"Selection"`
-
-#### <a name="LiturgicalChant'Selection/id"></a> `id`
-
-The identifiers of the liturgical chants to choose from to provide the
-rating for.
+The identifier(s) of the liturgical chant(s) to choose from to provide
+the rating for. If multiple liturgical chants are provided, they must all
+have the same improvement cost.
 
 - **Type:** List
-- **Items:** <a href="#LiturgicalChant'Selection/id[]">LiturgicalChant'Selection/id[]</a>
-- **Minimum Items:** `2`
+- **Items:** <a href="#LiturgicalChantRating/id[]">LiturgicalChantRating/id[]</a>
+- **Minimum Items:** `1`
 
-#### <a name="LiturgicalChant'Selection/rating"></a> `rating`
+#### <a name="LiturgicalChantRating/rating"></a> `rating`
 
-The rating provided for the selected liturgical chant.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="LiturgicalChant'Selection/id[]"></a> `LiturgicalChant'Selection/id[]`
-
-- **Type:** <a href="./_Identifier.md#LiturgyIdentifier">LiturgyIdentifier</a>
-
----
-
-### <a name="VariantLiturgicalChant"></a> `VariantLiturgicalChant`
-
-- **Type:** Union
-- **Cases:** <a href="#VariantLiturgicalChant'Fixed">VariantLiturgicalChant'Fixed</a> | <a href="#VariantLiturgicalChant'Selection">VariantLiturgicalChant'Selection</a>
-
----
-
-### <a name="VariantLiturgicalChant'Fixed"></a> `VariantLiturgicalChant'Fixed`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#VariantLiturgicalChant'Fixed/tag">See details</a>
-`id` | The identifier of the liturgical chant to provide the rating for. | <a href="#VariantLiturgicalChant'Fixed/id">See details</a>
-`rating` | The rating provided for the liturgical chant. It overrides the basic package's rating. | <a href="#VariantLiturgicalChant'Fixed/rating">See details</a>
-
-#### <a name="VariantLiturgicalChant'Fixed/tag"></a> `tag`
-
-- **Constant:** `"Fixed"`
-
-#### <a name="VariantLiturgicalChant'Fixed/id"></a> `id`
-
-The identifier of the liturgical chant to provide the rating for.
-
-- **Type:** <a href="./_Identifier.md#LiturgyIdentifier">LiturgyIdentifier</a>
-
-#### <a name="VariantLiturgicalChant'Fixed/rating"></a> `rating`
-
-The rating provided for the liturgical chant. It overrides the basic
-package's rating.
+The rating provided for the selected liturgical chant. If used in a
+profession variant, it overrides the basic package's rating.
 
 - **Type:** Integer
 - **Minimum:** `0`
 
 ---
 
-### <a name="VariantLiturgicalChant'Selection"></a> `VariantLiturgicalChant'Selection`
+### <a name="LiturgicalChantRating/id[]"></a> `LiturgicalChantRating/id[]`
+
+- **Type:** <a href="./_Identifier.md#LiturgyIdentifier">LiturgyIdentifier</a>
+
+---
+
+### <a name="ProfessionPackageOptions"></a> `ProfessionPackageOptions`
+
+In some areas, the profession package grants a loose set of stats where the
+player must choose between different options for the profession package.
+
+- **Type:** Object
+- **Minimum Properties:** `1`
+
+Key | Description | Details
+:-- | :-- | :--
+`skill_specialization?` |  | <a href="#ProfessionPackageOptions/skill_specialization">See details</a>
+`languages_scripts?` |  | <a href="#ProfessionPackageOptions/languages_scripts">See details</a>
+`combat_techniques?` |  | <a href="#ProfessionPackageOptions/combat_techniques">See details</a>
+`cantrips?` |  | <a href="#ProfessionPackageOptions/cantrips">See details</a>
+`curses?` |  | <a href="#ProfessionPackageOptions/curses">See details</a>
+`terrain_knowledge?` |  | <a href="#ProfessionPackageOptions/terrain_knowledge">See details</a>
+`skills?` |  | <a href="#ProfessionPackageOptions/skills">See details</a>
+
+#### <a name="ProfessionPackageOptions/skill_specialization"></a> `skill_specialization?`
+
+- **Type:** <a href="#SkillSpecializationOptions">SkillSpecializationOptions</a>
+
+#### <a name="ProfessionPackageOptions/languages_scripts"></a> `languages_scripts?`
+
+- **Type:** <a href="#LanguagesScriptsOptions">LanguagesScriptsOptions</a>
+
+#### <a name="ProfessionPackageOptions/combat_techniques"></a> `combat_techniques?`
+
+- **Type:** <a href="#CombatTechniquesOptions">CombatTechniquesOptions</a>
+
+#### <a name="ProfessionPackageOptions/cantrips"></a> `cantrips?`
+
+- **Type:** <a href="#CantripsOptions">CantripsOptions</a>
+
+#### <a name="ProfessionPackageOptions/curses"></a> `curses?`
+
+- **Type:** <a href="#CursesOptions">CursesOptions</a>
+
+#### <a name="ProfessionPackageOptions/terrain_knowledge"></a> `terrain_knowledge?`
+
+- **Type:** <a href="#TerrainKnowledgeOptions">TerrainKnowledgeOptions</a>
+
+#### <a name="ProfessionPackageOptions/skills"></a> `skills?`
+
+- **Type:** <a href="#SkillsOptions">SkillsOptions</a>
+
+---
+
+### <a name="ProfessionVariantPackageOptions"></a> `ProfessionVariantPackageOptions`
+
+In some areas, the profession package grants a loose set of stats where the
+player must choose between different options for the profession package. The
+variant may override or remove those options.
+
+- **Type:** Object
+- **Minimum Properties:** `1`
+
+Key | Description | Details
+:-- | :-- | :--
+`skill_specialization?` |  | <a href="#ProfessionVariantPackageOptions/skill_specialization">See details</a>
+`languages_scripts?` |  | <a href="#ProfessionVariantPackageOptions/languages_scripts">See details</a>
+`combat_techniques?` |  | <a href="#ProfessionVariantPackageOptions/combat_techniques">See details</a>
+`cantrips?` |  | <a href="#ProfessionVariantPackageOptions/cantrips">See details</a>
+`curses?` |  | <a href="#ProfessionVariantPackageOptions/curses">See details</a>
+`terrain_knowledge?` |  | <a href="#ProfessionVariantPackageOptions/terrain_knowledge">See details</a>
+`skills?` |  | <a href="#ProfessionVariantPackageOptions/skills">See details</a>
+
+#### <a name="ProfessionVariantPackageOptions/skill_specialization"></a> `skill_specialization?`
+
+- **Type:** Union
+- **Cases:** <a href="#ProfessionVariantPackageOptions/skill_specialization'Remove">ProfessionVariantPackageOptions/skill_specialization'Remove</a> | <a href="#ProfessionVariantPackageOptions/skill_specialization'Override">ProfessionVariantPackageOptions/skill_specialization'Override</a>
+
+#### <a name="ProfessionVariantPackageOptions/languages_scripts"></a> `languages_scripts?`
+
+- **Type:** Union
+- **Cases:** <a href="#ProfessionVariantPackageOptions/languages_scripts'Remove">ProfessionVariantPackageOptions/languages_scripts'Remove</a> | <a href="#ProfessionVariantPackageOptions/languages_scripts'Override">ProfessionVariantPackageOptions/languages_scripts'Override</a>
+
+#### <a name="ProfessionVariantPackageOptions/combat_techniques"></a> `combat_techniques?`
+
+- **Type:** Union
+- **Cases:** <a href="#ProfessionVariantPackageOptions/combat_techniques'Remove">ProfessionVariantPackageOptions/combat_techniques'Remove</a> | <a href="#ProfessionVariantPackageOptions/combat_techniques'Override">ProfessionVariantPackageOptions/combat_techniques'Override</a>
+
+#### <a name="ProfessionVariantPackageOptions/cantrips"></a> `cantrips?`
+
+- **Type:** Union
+- **Cases:** <a href="#ProfessionVariantPackageOptions/cantrips'Remove">ProfessionVariantPackageOptions/cantrips'Remove</a> | <a href="#ProfessionVariantPackageOptions/cantrips'Override">ProfessionVariantPackageOptions/cantrips'Override</a>
+
+#### <a name="ProfessionVariantPackageOptions/curses"></a> `curses?`
+
+- **Type:** Union
+- **Cases:** <a href="#ProfessionVariantPackageOptions/curses'Remove">ProfessionVariantPackageOptions/curses'Remove</a> | <a href="#ProfessionVariantPackageOptions/curses'Override">ProfessionVariantPackageOptions/curses'Override</a>
+
+#### <a name="ProfessionVariantPackageOptions/terrain_knowledge"></a> `terrain_knowledge?`
+
+- **Type:** Union
+- **Cases:** <a href="#ProfessionVariantPackageOptions/terrain_knowledge'Remove">ProfessionVariantPackageOptions/terrain_knowledge'Remove</a> | <a href="#ProfessionVariantPackageOptions/terrain_knowledge'Override">ProfessionVariantPackageOptions/terrain_knowledge'Override</a>
+
+#### <a name="ProfessionVariantPackageOptions/skills"></a> `skills?`
+
+- **Type:** Union
+- **Cases:** <a href="#ProfessionVariantPackageOptions/skills'Remove">ProfessionVariantPackageOptions/skills'Remove</a> | <a href="#ProfessionVariantPackageOptions/skills'Override">ProfessionVariantPackageOptions/skills'Override</a>
+
+---
+
+### <a name="ProfessionVariantPackageOptions/skill_specialization'Remove"></a> `ProfessionVariantPackageOptions/skill_specialization'Remove`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#VariantLiturgicalChant'Selection/tag">See details</a>
-`id` | The identifiers of the liturgical chants to choose from to provide the rating for. | <a href="#VariantLiturgicalChant'Selection/id">See details</a>
-`rating` | The rating provided for the selected liturgical chant. It overrides the basic package's rating. | <a href="#VariantLiturgicalChant'Selection/rating">See details</a>
+`tag` |  | <a href="#ProfessionVariantPackageOptions/skill_specialization'Remove/tag">See details</a>
 
-#### <a name="VariantLiturgicalChant'Selection/tag"></a> `tag`
+#### <a name="ProfessionVariantPackageOptions/skill_specialization'Remove/tag"></a> `tag`
 
-- **Constant:** `"Selection"`
-
-#### <a name="VariantLiturgicalChant'Selection/id"></a> `id`
-
-The identifiers of the liturgical chants to choose from to provide the
-rating for.
-
-- **Type:** List
-- **Items:** <a href="#VariantLiturgicalChant'Selection/id[]">VariantLiturgicalChant'Selection/id[]</a>
-- **Minimum Items:** `2`
-
-#### <a name="VariantLiturgicalChant'Selection/rating"></a> `rating`
-
-The rating provided for the selected liturgical chant. It overrides the
-basic package's rating.
-
-- **Type:** Integer
-- **Minimum:** `0`
+- **Constant:** `"Remove"`
 
 ---
 
-### <a name="VariantLiturgicalChant'Selection/id[]"></a> `VariantLiturgicalChant'Selection/id[]`
+### <a name="ProfessionVariantPackageOptions/skill_specialization'Override"></a> `ProfessionVariantPackageOptions/skill_specialization'Override`
 
-- **Type:** <a href="./_Identifier.md#LiturgyIdentifier">LiturgyIdentifier</a>
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ProfessionVariantPackageOptions/skill_specialization'Override/tag">See details</a>
+`override` |  | <a href="#ProfessionVariantPackageOptions/skill_specialization'Override/override">See details</a>
+
+#### <a name="ProfessionVariantPackageOptions/skill_specialization'Override/tag"></a> `tag`
+
+- **Constant:** `"Override"`
+
+#### <a name="ProfessionVariantPackageOptions/skill_specialization'Override/override"></a> `override`
+
+- **Type:** <a href="#SkillSpecializationOptions">SkillSpecializationOptions</a>
+
+---
+
+### <a name="ProfessionVariantPackageOptions/languages_scripts'Remove"></a> `ProfessionVariantPackageOptions/languages_scripts'Remove`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ProfessionVariantPackageOptions/languages_scripts'Remove/tag">See details</a>
+
+#### <a name="ProfessionVariantPackageOptions/languages_scripts'Remove/tag"></a> `tag`
+
+- **Constant:** `"Remove"`
+
+---
+
+### <a name="ProfessionVariantPackageOptions/languages_scripts'Override"></a> `ProfessionVariantPackageOptions/languages_scripts'Override`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ProfessionVariantPackageOptions/languages_scripts'Override/tag">See details</a>
+`override` |  | <a href="#ProfessionVariantPackageOptions/languages_scripts'Override/override">See details</a>
+
+#### <a name="ProfessionVariantPackageOptions/languages_scripts'Override/tag"></a> `tag`
+
+- **Constant:** `"Override"`
+
+#### <a name="ProfessionVariantPackageOptions/languages_scripts'Override/override"></a> `override`
+
+- **Type:** <a href="#LanguagesScriptsOptions">LanguagesScriptsOptions</a>
+
+---
+
+### <a name="ProfessionVariantPackageOptions/combat_techniques'Remove"></a> `ProfessionVariantPackageOptions/combat_techniques'Remove`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ProfessionVariantPackageOptions/combat_techniques'Remove/tag">See details</a>
+
+#### <a name="ProfessionVariantPackageOptions/combat_techniques'Remove/tag"></a> `tag`
+
+- **Constant:** `"Remove"`
+
+---
+
+### <a name="ProfessionVariantPackageOptions/combat_techniques'Override"></a> `ProfessionVariantPackageOptions/combat_techniques'Override`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ProfessionVariantPackageOptions/combat_techniques'Override/tag">See details</a>
+`override` |  | <a href="#ProfessionVariantPackageOptions/combat_techniques'Override/override">See details</a>
+
+#### <a name="ProfessionVariantPackageOptions/combat_techniques'Override/tag"></a> `tag`
+
+- **Constant:** `"Override"`
+
+#### <a name="ProfessionVariantPackageOptions/combat_techniques'Override/override"></a> `override`
+
+- **Type:** <a href="#CombatTechniquesOptions">CombatTechniquesOptions</a>
+
+---
+
+### <a name="ProfessionVariantPackageOptions/cantrips'Remove"></a> `ProfessionVariantPackageOptions/cantrips'Remove`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ProfessionVariantPackageOptions/cantrips'Remove/tag">See details</a>
+
+#### <a name="ProfessionVariantPackageOptions/cantrips'Remove/tag"></a> `tag`
+
+- **Constant:** `"Remove"`
+
+---
+
+### <a name="ProfessionVariantPackageOptions/cantrips'Override"></a> `ProfessionVariantPackageOptions/cantrips'Override`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ProfessionVariantPackageOptions/cantrips'Override/tag">See details</a>
+`override` |  | <a href="#ProfessionVariantPackageOptions/cantrips'Override/override">See details</a>
+
+#### <a name="ProfessionVariantPackageOptions/cantrips'Override/tag"></a> `tag`
+
+- **Constant:** `"Override"`
+
+#### <a name="ProfessionVariantPackageOptions/cantrips'Override/override"></a> `override`
+
+- **Type:** <a href="#CantripsOptions">CantripsOptions</a>
+
+---
+
+### <a name="ProfessionVariantPackageOptions/curses'Remove"></a> `ProfessionVariantPackageOptions/curses'Remove`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ProfessionVariantPackageOptions/curses'Remove/tag">See details</a>
+
+#### <a name="ProfessionVariantPackageOptions/curses'Remove/tag"></a> `tag`
+
+- **Constant:** `"Remove"`
+
+---
+
+### <a name="ProfessionVariantPackageOptions/curses'Override"></a> `ProfessionVariantPackageOptions/curses'Override`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ProfessionVariantPackageOptions/curses'Override/tag">See details</a>
+`override` |  | <a href="#ProfessionVariantPackageOptions/curses'Override/override">See details</a>
+
+#### <a name="ProfessionVariantPackageOptions/curses'Override/tag"></a> `tag`
+
+- **Constant:** `"Override"`
+
+#### <a name="ProfessionVariantPackageOptions/curses'Override/override"></a> `override`
+
+- **Type:** <a href="#CursesOptions">CursesOptions</a>
+
+---
+
+### <a name="ProfessionVariantPackageOptions/terrain_knowledge'Remove"></a> `ProfessionVariantPackageOptions/terrain_knowledge'Remove`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ProfessionVariantPackageOptions/terrain_knowledge'Remove/tag">See details</a>
+
+#### <a name="ProfessionVariantPackageOptions/terrain_knowledge'Remove/tag"></a> `tag`
+
+- **Constant:** `"Remove"`
+
+---
+
+### <a name="ProfessionVariantPackageOptions/terrain_knowledge'Override"></a> `ProfessionVariantPackageOptions/terrain_knowledge'Override`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ProfessionVariantPackageOptions/terrain_knowledge'Override/tag">See details</a>
+`override` |  | <a href="#ProfessionVariantPackageOptions/terrain_knowledge'Override/override">See details</a>
+
+#### <a name="ProfessionVariantPackageOptions/terrain_knowledge'Override/tag"></a> `tag`
+
+- **Constant:** `"Override"`
+
+#### <a name="ProfessionVariantPackageOptions/terrain_knowledge'Override/override"></a> `override`
+
+- **Type:** <a href="#TerrainKnowledgeOptions">TerrainKnowledgeOptions</a>
+
+---
+
+### <a name="ProfessionVariantPackageOptions/skills'Remove"></a> `ProfessionVariantPackageOptions/skills'Remove`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ProfessionVariantPackageOptions/skills'Remove/tag">See details</a>
+
+#### <a name="ProfessionVariantPackageOptions/skills'Remove/tag"></a> `tag`
+
+- **Constant:** `"Remove"`
+
+---
+
+### <a name="ProfessionVariantPackageOptions/skills'Override"></a> `ProfessionVariantPackageOptions/skills'Override`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ProfessionVariantPackageOptions/skills'Override/tag">See details</a>
+`override` |  | <a href="#ProfessionVariantPackageOptions/skills'Override/override">See details</a>
+
+#### <a name="ProfessionVariantPackageOptions/skills'Override/tag"></a> `tag`
+
+- **Constant:** `"Override"`
+
+#### <a name="ProfessionVariantPackageOptions/skills'Override/override"></a> `override`
+
+- **Type:** <a href="#SkillsOptions">SkillsOptions</a>
 
 ---
 
@@ -1671,7 +1528,7 @@ get a skill specialization for. You can also specify a skill groups from
 which you can choose a skill.
 
 - **Type:** Union
-- **Cases:** <a href="#SkillSpecializationOptions'Single">SkillSpecializationOptions'Single</a> | <a href="#SkillSpecializationOptions'Selection">SkillSpecializationOptions'Selection</a> | <a href="#SkillSpecializationOptions'Group">SkillSpecializationOptions'Group</a>
+- **Cases:** <a href="#SkillSpecializationOptions'Single">SkillSpecializationOptions'Single</a> | <a href="#SkillSpecializationOptions'Group">SkillSpecializationOptions'Group</a>
 
 ---
 
@@ -1682,58 +1539,15 @@ which you can choose a skill.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#SkillSpecializationOptions'Single/tag">See details</a>
-`id` | The referenced skill's identifier. | <a href="#SkillSpecializationOptions'Single/id">See details</a>
+`single` |  | <a href="#SkillSpecializationOptions'Single/single">See details</a>
 
 #### <a name="SkillSpecializationOptions'Single/tag"></a> `tag`
 
 - **Constant:** `"Single"`
 
-#### <a name="SkillSpecializationOptions'Single/id"></a> `id`
+#### <a name="SkillSpecializationOptions'Single/single"></a> `single`
 
-The referenced skill's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="SkillSpecializationOptions'Selection"></a> `SkillSpecializationOptions'Selection`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#SkillSpecializationOptions'Selection/tag">See details</a>
-`options` | Possible skills to get a skill specialization for. | <a href="#SkillSpecializationOptions'Selection/options">See details</a>
-
-#### <a name="SkillSpecializationOptions'Selection/tag"></a> `tag`
-
-- **Constant:** `"Selection"`
-
-#### <a name="SkillSpecializationOptions'Selection/options"></a> `options`
-
-Possible skills to get a skill specialization for.
-
-- **Type:** List
-- **Items:** <a href="#SkillSpecializationOptions'Selection/options[]">SkillSpecializationOptions'Selection/options[]</a>
-- **Minimum Items:** `2`
-
----
-
-### <a name="SkillSpecializationOptions'Selection/options[]"></a> `SkillSpecializationOptions'Selection/options[]`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The referenced skill's identifier. | <a href="#SkillSpecializationOptions'Selection/options[]/id">See details</a>
-
-#### <a name="SkillSpecializationOptions'Selection/options[]/id"></a> `id`
-
-The referenced skill's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="#SingleSkillSpecializationOption">SingleSkillSpecializationOption</a>
 
 ---
 
@@ -1744,19 +1558,46 @@ The referenced skill's identifier.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#SkillSpecializationOptions'Group/tag">See details</a>
-`id` | The referenced skill group's identifier. | <a href="#SkillSpecializationOptions'Group/id">See details</a>
+`group` |  | <a href="#SkillSpecializationOptions'Group/group">See details</a>
 
 #### <a name="SkillSpecializationOptions'Group/tag"></a> `tag`
 
 - **Constant:** `"Group"`
 
-#### <a name="SkillSpecializationOptions'Group/id"></a> `id`
+#### <a name="SkillSpecializationOptions'Group/group"></a> `group`
 
-The referenced skill group's identifier.
+- **Type:** <a href="#SkillGroupSkillSpecializationOption">SkillGroupSkillSpecializationOption</a>
 
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `5`
+---
+
+### <a name="SingleSkillSpecializationOption"></a> `SingleSkillSpecializationOption`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`options` | Possible skills to get a skill specialization for. | <a href="#SingleSkillSpecializationOption/options">See details</a>
+
+#### <a name="SingleSkillSpecializationOption/options"></a> `options`
+
+Possible skills to get a skill specialization for.
+
+- **Type:** List
+- **Items:** <a href="#SingleSkillSpecializationOption/options[]">SingleSkillSpecializationOption/options[]</a>
+- **Minimum Items:** `1`
+- **Unique Items:** Yes
+
+---
+
+### <a name="SingleSkillSpecializationOption/options[]"></a> `SingleSkillSpecializationOption/options[]`
+
+- **Type:** <a href="./_SimpleReferences.md#SkillReference">SkillReference</a>
+
+---
+
+### <a name="SkillGroupSkillSpecializationOption"></a> `SkillGroupSkillSpecializationOption`
+
+- **Type:** <a href="./_SimpleReferences.md#SkillGroupReference">SkillGroupReference</a>
 
 ---
 
@@ -1822,42 +1663,38 @@ The list of combat techniques to choose from.
 
 ### <a name="CombatTechniquesOptions/fixed[]"></a> `CombatTechniquesOptions/fixed[]`
 
+- **Type:** <a href="#RatingForCombatTechniquesNumber">RatingForCombatTechniquesNumber</a>
+
+---
+
+### <a name="CombatTechniquesOptions/options[]"></a> `CombatTechniquesOptions/options[]`
+
+- **Type:** <a href="./_SimpleReferences.md#CombatTechniqueReference">CombatTechniqueReference</a>
+
+---
+
+### <a name="RatingForCombatTechniquesNumber"></a> `RatingForCombatTechniquesNumber`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`number` | The number of selectable combat techniques. | <a href="#CombatTechniquesOptions/fixed[]/number">See details</a>
-`rating` | The rating provided for the selected combat technique(s). | <a href="#CombatTechniquesOptions/fixed[]/rating">See details</a>
+`number` | The number of selectable combat techniques. | <a href="#RatingForCombatTechniquesNumber/number">See details</a>
+`rating` | The rating provided for the selected combat technique(s). | <a href="#RatingForCombatTechniquesNumber/rating">See details</a>
 
-#### <a name="CombatTechniquesOptions/fixed[]/number"></a> `number`
+#### <a name="RatingForCombatTechniquesNumber/number"></a> `number`
 
 The number of selectable combat techniques.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="CombatTechniquesOptions/fixed[]/rating"></a> `rating`
+#### <a name="RatingForCombatTechniquesNumber/rating"></a> `rating`
 
 The rating provided for the selected combat technique(s).
 
 - **Type:** Integer
 - **Minimum:** `7`
-
----
-
-### <a name="CombatTechniquesOptions/options[]"></a> `CombatTechniquesOptions/options[]`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The combat technique's identifier. | <a href="#CombatTechniquesOptions/options[]/id">See details</a>
-
-#### <a name="CombatTechniquesOptions/options[]/id"></a> `id`
-
-The combat technique's identifier.
-
-- **Type:** <a href="./_Identifier.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>
 
 ---
 
@@ -1891,18 +1728,7 @@ The list of cantrips to choose from.
 
 ### <a name="CantripsOptions/options[]"></a> `CantripsOptions/options[]`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The cantrip's identifier. | <a href="#CantripsOptions/options[]/id">See details</a>
-
-#### <a name="CantripsOptions/options[]/id"></a> `id`
-
-The cantrip's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_SimpleReferences.md#CantripReference">CantripReference</a>
 
 ---
 
@@ -1948,13 +1774,19 @@ The list of possible terrain knowledges.
 
 ### <a name="TerrainKnowledgeOptions/options[]"></a> `TerrainKnowledgeOptions/options[]`
 
+- **Type:** <a href="#TerrainKnowledgeOptionReference">TerrainKnowledgeOptionReference</a>
+
+---
+
+### <a name="TerrainKnowledgeOptionReference"></a> `TerrainKnowledgeOptionReference`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The terrain knowledge option's identifier. | <a href="#TerrainKnowledgeOptions/options[]/id">See details</a>
+`id` | The terrain knowledge option's identifier. | <a href="#TerrainKnowledgeOptionReference/id">See details</a>
 
-#### <a name="TerrainKnowledgeOptions/options[]/id"></a> `id`
+#### <a name="TerrainKnowledgeOptionReference/id"></a> `id`
 
 The terrain knowledge option's identifier.
 
@@ -1972,16 +1804,14 @@ Buy skills for a specific amount of AP.
 
 Key | Description | Details
 :-- | :-- | :--
-`group_id?` | If specified, you may only choose from skills of the specified group. | <a href="#SkillsOptions/group_id">See details</a>
+`group?` | If specified, you may only choose from skills of the specified group. | <a href="#SkillsOptions/group">See details</a>
 `ap_value` | The AP value you can buy skills for. | <a href="#SkillsOptions/ap_value">See details</a>
 
-#### <a name="SkillsOptions/group_id"></a> `group_id?`
+#### <a name="SkillsOptions/group"></a> `group?`
 
 If specified, you may only choose from skills of the specified group.
 
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `1`
+- **Type:** <a href="./_SimpleReferences.md#SkillGroupReference">SkillGroupReference</a>
 
 #### <a name="SkillsOptions/ap_value"></a> `ap_value`
 
@@ -1992,149 +1822,45 @@ The AP value you can buy skills for.
 
 ---
 
-### <a name="Name"></a> `Name`
+### <a name="ProfessionName"></a> `ProfessionName`
 
 The name of the profession that may have sex-specific names.
 
 - **Type:** Union
-- **Cases:** <a href="#Name'NonEmptyString">Name'NonEmptyString</a> | <a href="#Name'1">Name'1</a>
+- **Cases:** <a href="#ProfessionName'NonEmptyString">ProfessionName'NonEmptyString</a> | <a href="#ProfessionName'1">ProfessionName'1</a>
 
 ---
 
-### <a name="Name'NonEmptyString"></a> `Name'NonEmptyString`
+### <a name="ProfessionName'NonEmptyString"></a> `ProfessionName'NonEmptyString`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 ---
 
-### <a name="Name'1"></a> `Name'1`
+### <a name="ProfessionName'1"></a> `ProfessionName'1`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`default` | The name from the source publication. | <a href="#Name'1/default">See details</a>
-`male` | The male name. | <a href="#Name'1/male">See details</a>
-`female` | The female name. | <a href="#Name'1/female">See details</a>
+`default` | The name from the source publication. | <a href="#ProfessionName'1/default">See details</a>
+`male` | The male name. | <a href="#ProfessionName'1/male">See details</a>
+`female` | The female name. | <a href="#ProfessionName'1/female">See details</a>
 
-#### <a name="Name'1/default"></a> `default`
+#### <a name="ProfessionName'1/default"></a> `default`
 
 The name from the source publication.
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Name'1/male"></a> `male`
+#### <a name="ProfessionName'1/male"></a> `male`
 
 The male name.
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Name'1/female"></a> `female`
+#### <a name="ProfessionName'1/female"></a> `female`
 
 The female name.
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
-
----
-
-### <a name="Group"></a> `Group`
-
-- **Type:** Union
-- **Cases:** <a href="#Group'Mundane">Group'Mundane</a> | <a href="#Group'Magical">Group'Magical</a> | <a href="#Group'Blessed">Group'Blessed</a>
-
----
-
-### <a name="Group'Mundane"></a> `Group'Mundane`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Group'Mundane/tag">See details</a>
-`sub` |  | <a href="#Group'Mundane/sub">See details</a>
-
-#### <a name="Group'Mundane/tag"></a> `tag`
-
-- **Constant:** `"Mundane"`
-
-#### <a name="Group'Mundane/sub"></a> `sub`
-
-- **Type:** Union
-- **Cases:** <a href="#Group'Mundane/sub'Profane">Group'Mundane/sub'Profane</a> | <a href="#Group'Mundane/sub'Fighter">Group'Mundane/sub'Fighter</a> | <a href="#Group'Mundane/sub'Religious">Group'Mundane/sub'Religious</a>
-
----
-
-### <a name="Group'Mundane/sub'Profane"></a> `Group'Mundane/sub'Profane`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Group'Mundane/sub'Profane/tag">See details</a>
-
-#### <a name="Group'Mundane/sub'Profane/tag"></a> `tag`
-
-- **Constant:** `"Profane"`
-
----
-
-### <a name="Group'Mundane/sub'Fighter"></a> `Group'Mundane/sub'Fighter`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Group'Mundane/sub'Fighter/tag">See details</a>
-
-#### <a name="Group'Mundane/sub'Fighter/tag"></a> `tag`
-
-- **Constant:** `"Fighter"`
-
----
-
-### <a name="Group'Mundane/sub'Religious"></a> `Group'Mundane/sub'Religious`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Group'Mundane/sub'Religious/tag">See details</a>
-
-#### <a name="Group'Mundane/sub'Religious/tag"></a> `tag`
-
-- **Constant:** `"Religious"`
-
----
-
-### <a name="Group'Magical"></a> `Group'Magical`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Group'Magical/tag">See details</a>
-
-#### <a name="Group'Magical/tag"></a> `tag`
-
-- **Constant:** `"Magical"`
-
----
-
-### <a name="Group'Blessed"></a> `Group'Blessed`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Group'Blessed/tag">See details</a>
-
-#### <a name="Group'Blessed/tag"></a> `tag`
-
-- **Constant:** `"Blessed"`
-
----
-
-### <a name="NonEmptyString"></a> `NonEmptyString`
-
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

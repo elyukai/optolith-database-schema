@@ -26,75 +26,15 @@
         },
         "target": {
           "description": "The target category – the kind of creature or object – the skill affects.",
-          "$ref": "./_ActivatableSkill.schema.json#/$defs/TargetCategory/T"
+          "$ref": "./_ActivatableSkillTargetCategory.schema.json#/$defs/TargetCategory"
         },
         "property": {
           "description": "The associated property.",
-          "type": "object",
-          "properties": {
-            "id": {
-              "description": "The property's identifier.",
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          "required": [
-            "id"
-          ],
-          "additionalProperties": false
+          "$ref": "./_SimpleReferences.schema.json#/$defs/PropertyReference"
         },
         "traditions": {
           "description": "The tradition(s) the spell is available for. It may be *generally*\navailable to all traditions or it may be only familiar in specific\ntraditions.",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "General"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Specific"
-                },
-                "list": {
-                  "description": "A list of specific traditions.",
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "description": "The magical tradition's identifier. If `is_placeholder` is `true`\nthen this is the magical tradition's placeholder identifier\ninstead.",
-                        "type": "integer",
-                        "minimum": 1
-                      },
-                      "is_placeholder": {
-                        "description": "If set to `true`, the tradition is not available as a special ability\nyet.",
-                        "const": true
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ],
-                    "additionalProperties": false
-                  },
-                  "minItems": 1
-                }
-              },
-              "required": [
-                "tag",
-                "list"
-              ],
-              "additionalProperties": false
-            }
-          ]
+          "$ref": "./_Spellwork.schema.json#/$defs/Traditions"
         },
         "improvement_cost": {
           "description": "States which column is used to improve the skill.",
@@ -111,98 +51,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The name of the spell.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "effect": {
-                  "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
-                  "$ref": "./_ActivatableSkill.schema.json#/$defs/Effect/T"
-                },
-                "casting_time": {
-                  "type": "object",
-                  "properties": {
-                    "full": {
-                      "type": "string"
-                    },
-                    "abbr": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "full",
-                    "abbr"
-                  ],
-                  "additionalProperties": false
-                },
-                "cost": {
-                  "type": "object",
-                  "properties": {
-                    "full": {
-                      "type": "string"
-                    },
-                    "abbr": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "full",
-                    "abbr"
-                  ],
-                  "additionalProperties": false
-                },
-                "range": {
-                  "type": "object",
-                  "properties": {
-                    "full": {
-                      "type": "string"
-                    },
-                    "abbr": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "full",
-                    "abbr"
-                  ],
-                  "additionalProperties": false
-                },
-                "duration": {
-                  "type": "object",
-                  "properties": {
-                    "full": {
-                      "type": "string"
-                    },
-                    "abbr": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "full",
-                    "abbr"
-                  ],
-                  "additionalProperties": false
-                },
-                "target": {
-                  "type": "string"
-                },
-                "errata": {
-                  "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "effect",
-                "casting_time",
-                "cost",
-                "range",
-                "duration",
-                "target"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/SpellTranslation"
             }
           },
           "minProperties": 1,
@@ -222,6 +71,99 @@
         "improvement_cost",
         "src",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "SpellTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the spell.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "effect": {
+          "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
+          "$ref": "./_ActivatableSkillEffect.schema.json#/$defs/Effect"
+        },
+        "casting_time": {
+          "type": "object",
+          "properties": {
+            "full": {
+              "type": "string"
+            },
+            "abbr": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "full",
+            "abbr"
+          ],
+          "additionalProperties": false
+        },
+        "cost": {
+          "type": "object",
+          "properties": {
+            "full": {
+              "type": "string"
+            },
+            "abbr": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "full",
+            "abbr"
+          ],
+          "additionalProperties": false
+        },
+        "range": {
+          "type": "object",
+          "properties": {
+            "full": {
+              "type": "string"
+            },
+            "abbr": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "full",
+            "abbr"
+          ],
+          "additionalProperties": false
+        },
+        "duration": {
+          "type": "object",
+          "properties": {
+            "full": {
+              "type": "string"
+            },
+            "abbr": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "full",
+            "abbr"
+          ],
+          "additionalProperties": false
+        },
+        "target": {
+          "type": "string"
+        },
+        "errata": {
+          "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "effect",
+        "casting_time",
+        "cost",
+        "range",
+        "duration",
+        "target"
       ],
       "additionalProperties": false
     }

@@ -41,7 +41,7 @@ export type Locale = {
    * The language is not (fully) implemented and thus needs to be excluded from
    * stable releases.
    */
-  is_missing_implementation?: boolean
+  is_missing_implementation?: true
 }
 
 export const validateSchema = validateSchemaCreator<Locales>(import.meta.url)

@@ -49,5 +49,11 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="DisplayOption'ReplaceWith/translations[key]"></a> `DisplayOption'ReplaceWith/translations[key]`
 
+- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+
+---
+
+### <a name="NonEmptyString"></a> `NonEmptyString`
+
 - **Type:** String
 - **Minimum Length:** `1`

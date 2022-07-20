@@ -3,11 +3,13 @@
  */
 
 import { validateSchemaCreator } from "../validation/schema.js"
+import { LocaleMap } from "./_LocaleMap.js"
+import { NonEmptyString } from "./_NonEmptyString.js"
 
 /**
  * @title Guideline
  */
- export type Guideline = {
+export type Guideline = {
   /**
    * The region's identifier. An unique, increasing integer.
    * @integer
@@ -26,18 +28,14 @@ import { validateSchemaCreator } from "../validation/schema.js"
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The guideline name.
-       * @minLength 1
-       */
-      name: string
-    }
-  }
+  translations: LocaleMap<GuidelineTranslation>
+}
+
+export type GuidelineTranslation = {
+  /**
+   * The guideline name.
+   */
+  name: NonEmptyString
 }
 
 export const validateSchema = validateSchemaCreator<Guideline>(import.meta.url)

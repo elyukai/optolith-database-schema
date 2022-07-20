@@ -8,33 +8,18 @@
       "type": "array",
       "prefixItems": [
         {
-          "$ref": "#/$defs/Attribute"
+          "$ref": "./_SimpleReferences.schema.json#/$defs/AttributeReference"
         },
         {
-          "$ref": "#/$defs/Attribute"
+          "$ref": "./_SimpleReferences.schema.json#/$defs/AttributeReference"
         },
         {
-          "$ref": "#/$defs/Attribute"
+          "$ref": "./_SimpleReferences.schema.json#/$defs/AttributeReference"
         }
       ],
       "minItems": 3,
       "maxItems": 3,
       "items": false
-    },
-    "Attribute": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "The attribute's identifier.",
-          "type": "integer",
-          "maximum": 8,
-          "minimum": 1
-        }
-      },
-      "required": [
-        "id"
-      ],
-      "additionalProperties": false
     },
     "SkillCheckPenalty": {
       "title": "Skill Check Penalty",

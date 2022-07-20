@@ -174,7 +174,7 @@ The effect description may be either a plain text or a text that is
 divided by a list of effects for each quality level. It may also be a
 list for each two quality levels.
 
-- **Type:** <a href="../_ActivatableSkill.md#Effect/T">Effect/T</a>
+- **Type:** <a href="../_ActivatableSkillEffect.md#Effect">Effect</a>
 
 #### <a name="MagicalRune/translations[key]/cost"></a> `cost`
 
@@ -586,10 +586,10 @@ Key | Description | Details
 
 The duration on slow rune application.
 
-- **Type:** <a href="../_ActivatableSkill.md#Duration/CheckResultBased">Duration/CheckResultBased</a>
+- **Type:** <a href="../_ActivatableSkillDuration.md#CheckResultBasedDuration">CheckResultBasedDuration</a>
 
 #### <a name="PerformanceParameters/duration/fast"></a> `fast`
 
 The duration on fast rune application.
 
-- **Type:** <a href="../_ActivatableSkill.md#Duration/CheckResultBased">Duration/CheckResultBased</a>
+- **Type:** <a href="../_ActivatableSkillDuration.md#CheckResultBasedDuration">CheckResultBasedDuration</a>

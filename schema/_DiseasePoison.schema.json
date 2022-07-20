@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "/_Disease.schema.json",
+  "$id": "/_DiseasePoison.schema.json",
   "$defs": {
     "Resistance": {
       "description": "Depending on the disease, apply Spirit or Toughness as a penalty to the\ndisease roll. It may also happen that the lower of both is applied as a\npenalty.",
@@ -81,13 +81,11 @@
         },
         "chance": {
           "description": "The chance to get infected by this cause. If present for this\nlanguage, this overrides the universal `chance` field; they cannot be\nused at the same time.",
-          "type": "string",
-          "minLength": 1
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "note": {
           "description": "An additional note about this cause.",
-          "type": "string",
-          "minLength": 1
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         }
       },
       "required": [
@@ -100,8 +98,7 @@
       "properties": {
         "name": {
           "description": "The name of the disease.",
-          "type": "string",
-          "minLength": 1
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "alternative_names": {
           "description": "A list of alternative names.",
@@ -113,36 +110,31 @@
         },
         "progress": {
           "description": "The disease’s progress, in detail.",
-          "type": "string",
-          "minLength": 1
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
         },
         "incubation_time": {
           "description": "After infection, how much time passes before symptoms appear?",
-          "type": "string",
-          "minLength": 1
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "damage": {
           "description": "The damage caused by the disease. If the disease check fails, apply the\nlessened effects.",
-          "$ref": "#/$defs/Lessenable"
+          "$ref": "#/$defs/Reduceable"
         },
         "duration": {
           "description": "The duration of the disease. If the disease check fails, use the\nlessened duration.",
-          "$ref": "#/$defs/Lessenable"
+          "$ref": "#/$defs/Reduceable"
         },
         "special": {
           "description": "Special information about the disease.",
-          "type": "string",
-          "minLength": 1
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
         },
         "treatment": {
           "description": "Methods known to lessen the disease’s progress or relieve symptoms.",
-          "type": "string",
-          "minLength": 1
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
         },
         "cure": {
           "description": "Known remedies for the disease.",
-          "type": "string",
-          "minLength": 1
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
         },
         "errata": {
           "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
@@ -164,13 +156,11 @@
       "properties": {
         "name": {
           "description": "An alternative name of the disease.",
-          "type": "string",
-          "minLength": 1
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "region": {
           "description": "The region where this alternative name is used.",
-          "type": "string",
-          "minLength": 1
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         }
       },
       "required": [
@@ -178,19 +168,17 @@
       ],
       "additionalProperties": false
     },
-    "Lessenable": {
-      "description": "An effect or other parameter that may be lessened by a failed disease check.",
+    "Reduceable": {
+      "description": "An effect or other parameter that may be reduced by a failed disease check\nfor lessening or a degraded poison.\n\nThis streamlines the wording for diseases and poison by using a unified\nwording for *lessened* (disease) and *degraded* (poison).",
       "type": "object",
       "properties": {
         "default": {
-          "description": "The default value. In the source, it's the text before the\nslash.",
-          "type": "string",
-          "minLength": 1
+          "description": "The default value. In the source, it's the text before the slash.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
         },
-        "lessened": {
-          "description": "The lessened value. In the source, it's the text after the\nslash. Some entries may not have a lessened value.",
-          "type": "string",
-          "minLength": 1
+        "reduced": {
+          "description": "The reduced value. In the source, it's the text after the slash. Some\nentries may not have a reduced value.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
         }
       },
       "required": [

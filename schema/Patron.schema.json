@@ -14,31 +14,20 @@
         },
         "category": {
           "description": "The patron's category.",
-          "type": "object",
-          "properties": {
-            "id": {
-              "description": "The patron's category identifier.",
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          "required": [
-            "id"
-          ],
-          "additionalProperties": false
+          "$ref": "./_SimpleReferences.schema.json#/$defs/PatronCategoryReference"
         },
         "skills": {
           "description": "The patron-specific skills.",
           "type": "array",
           "prefixItems": [
             {
-              "$ref": "#/$defs/SkillReference"
+              "$ref": "./_SimpleReferences.schema.json#/$defs/SkillReference"
             },
             {
-              "$ref": "#/$defs/SkillReference"
+              "$ref": "./_SimpleReferences.schema.json#/$defs/SkillReference"
             },
             {
-              "$ref": "#/$defs/SkillReference"
+              "$ref": "./_SimpleReferences.schema.json#/$defs/SkillReference"
             }
           ],
           "minItems": 3,
@@ -47,99 +36,14 @@
         },
         "culture": {
           "description": "The patron is only available to a certain set of cultures. It may be\navailable to all, it may be available to only specific ones (intersection)\nand it may be available to all except specific ones to the listed cultures\n(difference).",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "All"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Intersection"
-                },
-                "list": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "description": "The culture's identifier.",
-                        "type": "integer",
-                        "minimum": 1
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ],
-                    "additionalProperties": false
-                  }
-                }
-              },
-              "required": [
-                "tag",
-                "list"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Difference"
-                },
-                "list": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "description": "The culture's identifier.",
-                        "type": "integer",
-                        "minimum": 1
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ],
-                    "additionalProperties": false
-                  }
-                }
-              },
-              "required": [
-                "tag",
-                "list"
-              ],
-              "additionalProperties": false
-            }
-          ]
+          "$ref": "#/$defs/PatronCulture"
         },
         "primary_patron_cultures": {
           "description": "The list of cultures where patrons from this category can be the primary\npatron of.",
           "type": "array",
           "items": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "The culture's identifier.",
-                "type": "integer",
-                "minimum": 1
-              }
-            },
-            "required": [
-              "id"
-            ],
-            "additionalProperties": false
+            "$ref": "./_SimpleReferences.schema.json#/$defs/CultureReference"
           },
-          "minItems": 1,
           "uniqueItems": true
         },
         "powers": {
@@ -175,18 +79,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The name of the patron.",
-                  "type": "string",
-                  "minLength": 1
-                }
-              },
-              "required": [
-                "name"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/PatronTranslation"
             }
           },
           "minProperties": 1,
@@ -202,17 +95,109 @@
       ],
       "additionalProperties": false
     },
-    "SkillReference": {
+    "PatronTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the patron.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "PatronCulture": {
+      "description": "The patron cultures the patron is or is not part of. If the patron is part of\nall patron cultures, the set should be empty and the operation should be\ndifference.",
+      "type": "object",
+      "properties": {
+        "set": {
+          "type": "array",
+          "items": {
+            "$ref": "./_SimpleReferences.schema.json#/$defs/CultureReference"
+          }
+        },
+        "operation": {
+          "$ref": "#/$defs/PatronCultureOperation"
+        }
+      },
+      "required": [
+        "set",
+        "operation"
+      ],
+      "additionalProperties": false
+    },
+    "PatronCultureOperation": {
+      "description": "The set operation to combine the set of all patron cultures with the\nspecified set of patron cultures: If they should intersect, the patron is\nonly part of the given cultures. If they should differ, the patron is only\npart of the cultures that are not given.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Intersection"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Difference"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "AdvantageAnimalPower": {
       "type": "object",
       "properties": {
         "id": {
-          "description": "The skill's identifier.",
+          "description": "The advantage's identifier.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "level": {
+          "description": "It grants a higher level of the advantage.",
+          "type": "integer",
+          "minimum": 2
+        },
+        "option": {
+          "description": "It grants a specific general option of the advantage.",
           "type": "integer",
           "minimum": 1
         }
       },
       "required": [
         "id"
+      ],
+      "additionalProperties": false
+    },
+    "SkillAnimalPower": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The skill's identifier.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "points": {
+          "description": "The points that gets added to the skill's rating.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id",
+        "points"
       ],
       "additionalProperties": false
     },
@@ -224,25 +209,13 @@
             "tag": {
               "const": "Advantage"
             },
-            "id": {
-              "description": "The advantage's identifier.",
-              "type": "integer",
-              "minimum": 1
-            },
-            "level": {
-              "description": "It grants a higher level of the advantage.",
-              "type": "integer",
-              "minimum": 2
-            },
-            "option": {
-              "description": "It grants a specific general option of the advantage.",
-              "type": "integer",
-              "minimum": 1
+            "advantage": {
+              "$ref": "#/$defs/AdvantageAnimalPower"
             }
           },
           "required": [
             "tag",
-            "id"
+            "advantage"
           ],
           "additionalProperties": false
         },
@@ -252,21 +225,13 @@
             "tag": {
               "const": "Skill"
             },
-            "id": {
-              "description": "The skill's identifier.",
-              "type": "integer",
-              "minimum": 1
-            },
-            "points": {
-              "description": "The points that gets added to the skill's rating.",
-              "type": "integer",
-              "minimum": 1
+            "skill": {
+              "$ref": "#/$defs/SkillAnimalPower"
             }
           },
           "required": [
             "tag",
-            "id",
-            "points"
+            "skill"
           ],
           "additionalProperties": false
         }
@@ -279,88 +244,12 @@
       },
       "minItems": 1
     },
-    "AnimalPowerLevel2": {
+    "CombatAnimalPower": {
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "Combat"
-        },
         "id": {
           "description": "The combat value.",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Attack"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Parry"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "RangedCombat"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Dodge"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "DamagePoints"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Protection"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            }
-          ]
+          "$ref": "#/$defs/CombatAnimalPowerType"
         },
         "value": {
           "description": "The value that gets added to the combat value.",
@@ -369,11 +258,106 @@
         }
       },
       "required": [
-        "tag",
         "id",
         "value"
       ],
       "additionalProperties": false
+    },
+    "CombatAnimalPowerType": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Attack"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Parry"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "RangedCombat"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Dodge"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "DamagePoints"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Protection"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "AnimalPowerLevel2": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Combat"
+            },
+            "combat": {
+              "$ref": "#/$defs/CombatAnimalPower"
+            }
+          },
+          "required": [
+            "tag",
+            "combat"
+          ],
+          "additionalProperties": false
+        }
+      ]
     },
     "AnimalPowersLevel2": {
       "type": "array",
@@ -382,12 +366,9 @@
       },
       "minItems": 1
     },
-    "AnimalPowerLevel3": {
+    "AttributeAnimalPower": {
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "Attribute"
-        },
         "id": {
           "description": "The attribute's identifier.",
           "type": "integer",
@@ -400,11 +381,30 @@
         }
       },
       "required": [
-        "tag",
         "id",
         "value"
       ],
       "additionalProperties": false
+    },
+    "AnimalPowerLevel3": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Attribute"
+            },
+            "attribute": {
+              "$ref": "#/$defs/AttributeAnimalPower"
+            }
+          },
+          "required": [
+            "tag",
+            "attribute"
+          ],
+          "additionalProperties": false
+        }
+      ]
     },
     "AnimalPowersLevel3": {
       "type": "array",

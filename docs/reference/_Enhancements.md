@@ -78,28 +78,34 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Enhancement/translations[key]"></a> `Enhancement/translations[key]`
 
+- **Type:** <a href="#EnhancementTranslation">EnhancementTranslation</a>
+
+---
+
+### <a name="EnhancementTranslation"></a> `EnhancementTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the enhancement. | <a href="#Enhancement/translations[key]/name">See details</a>
-`effect` | The effect description. | <a href="#Enhancement/translations[key]/effect">See details</a>
-`errata?` |  | <a href="#Enhancement/translations[key]/errata">See details</a>
+`name` | The name of the enhancement. | <a href="#EnhancementTranslation/name">See details</a>
+`effect` | The effect description. | <a href="#EnhancementTranslation/effect">See details</a>
+`errata?` |  | <a href="#EnhancementTranslation/errata">See details</a>
 
-#### <a name="Enhancement/translations[key]/name"></a> `name`
+#### <a name="EnhancementTranslation/name"></a> `name`
 
 The name of the enhancement.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
-#### <a name="Enhancement/translations[key]/effect"></a> `effect`
+#### <a name="EnhancementTranslation/effect"></a> `effect`
 
 The effect description.
 
 - **Type:** Markdown-formatted text
 - **Minimum Length:** `1`
 
-#### <a name="Enhancement/translations[key]/errata"></a> `errata?`
+#### <a name="EnhancementTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>

@@ -28,19 +28,19 @@ The cantrip's identifier. An unique, increasing integer.
 
 Measurable parameters of a cantrip.
 
-- **Type:** <a href="#PerformanceParameters">PerformanceParameters</a>
+- **Type:** <a href="#CantripPerformanceParameters">CantripPerformanceParameters</a>
 
 #### <a name="Cantrip/target"></a> `target`
 
 The target category – the kind of creature or object – the skill affects.
 
-- **Type:** <a href="./_ActivatableSkill.md#TargetCategory/T">TargetCategory/T</a>
+- **Type:** <a href="./_ActivatableSkillTargetCategory.md#TargetCategory">TargetCategory</a>
 
 #### <a name="Cantrip/property"></a> `property`
 
 The associated property.
 
-- **Type:** <a href="#Cantrip/property">Object</a>
+- **Type:** <a href="./_SimpleReferences.md#PropertyReference">PropertyReference</a>
 
 #### <a name="Cantrip/note"></a> `note?`
 
@@ -49,8 +49,7 @@ Sometimes a cantrip is exclusively available to one or more specific
 traditions, but usually one the academies and traditions are listed the
 cantrip is most commonly teached in.
 
-- **Type:** Union
-- **Cases:** <a href="#Cantrip/note'Exclusive">Cantrip/note'Exclusive</a> | <a href="#Cantrip/note'Common">Cantrip/note'Common</a>
+- **Type:** <a href="#CantripNote">CantripNote</a>
 
 #### <a name="Cantrip/src"></a> `src`
 
@@ -71,142 +70,248 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="Cantrip/property"></a> `Cantrip/property`
+### <a name="Cantrip/translations[key]"></a> `Cantrip/translations[key]`
 
-The associated property.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The property's identifier. | <a href="#Cantrip/property/id">See details</a>
-
-#### <a name="Cantrip/property/id"></a> `id`
-
-The property's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="#CantripTranslation">CantripTranslation</a>
 
 ---
 
-### <a name="Cantrip/note'Exclusive"></a> `Cantrip/note'Exclusive`
+### <a name="CantripNote"></a> `CantripNote`
+
+- **Type:** Union
+- **Cases:** <a href="#CantripNote'Exclusive">CantripNote'Exclusive</a> | <a href="#CantripNote'Common">CantripNote'Common</a>
+
+---
+
+### <a name="CantripNote'Exclusive"></a> `CantripNote'Exclusive`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Cantrip/note'Exclusive/tag">See details</a>
-`traditions` | The traditions the cantrip is exclusively available to. | <a href="#Cantrip/note'Exclusive/traditions">See details</a>
+`tag` |  | <a href="#CantripNote'Exclusive/tag">See details</a>
+`exclusive` |  | <a href="#CantripNote'Exclusive/exclusive">See details</a>
 
-#### <a name="Cantrip/note'Exclusive/tag"></a> `tag`
+#### <a name="CantripNote'Exclusive/tag"></a> `tag`
 
 - **Constant:** `"Exclusive"`
 
-#### <a name="Cantrip/note'Exclusive/traditions"></a> `traditions`
+#### <a name="CantripNote'Exclusive/exclusive"></a> `exclusive`
+
+- **Type:** <a href="#ExclusiveCantripNote">ExclusiveCantripNote</a>
+
+---
+
+### <a name="CantripNote'Common"></a> `CantripNote'Common`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CantripNote'Common/tag">See details</a>
+`common` |  | <a href="#CantripNote'Common/common">See details</a>
+
+#### <a name="CantripNote'Common/tag"></a> `tag`
+
+- **Constant:** `"Common"`
+
+#### <a name="CantripNote'Common/common"></a> `common`
+
+- **Type:** <a href="#CommonCantripNotes">CommonCantripNotes</a>
+
+---
+
+### <a name="ExclusiveCantripNote"></a> `ExclusiveCantripNote`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`traditions` | The traditions the cantrip is exclusively available to. | <a href="#ExclusiveCantripNote/traditions">See details</a>
+
+#### <a name="ExclusiveCantripNote/traditions"></a> `traditions`
 
 The traditions the cantrip is exclusively available to.
 
 - **Type:** List
-- **Items:** <a href="#Cantrip/note'Exclusive/traditions[]">Cantrip/note'Exclusive/traditions[]</a>
+- **Items:** <a href="#ExclusiveCantripNote/traditions[]">ExclusiveCantripNote/traditions[]</a>
 - **Minimum Items:** `1`
 - **Unique Items:** Yes
 
 ---
 
-### <a name="Cantrip/note'Exclusive/traditions[]"></a> `Cantrip/note'Exclusive/traditions[]`
+### <a name="ExclusiveCantripNote/traditions[]"></a> `ExclusiveCantripNote/traditions[]`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The magical tradition's identifier. | <a href="#Cantrip/note'Exclusive/traditions[]/id">See details</a>
-
-#### <a name="Cantrip/note'Exclusive/traditions[]/id"></a> `id`
-
-The magical tradition's identifier.
-
-- **Type:** Integer
-- **Minimum:** `2`
+- **Type:** <a href="./_SimpleReferences.md#MagicalTraditionReference">MagicalTraditionReference</a>
 
 ---
 
-### <a name="Cantrip/note'Common"></a> `Cantrip/note'Common`
+### <a name="CommonCantripNotes"></a> `CommonCantripNotes`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Cantrip/note'Common/tag">See details</a>
-`list` | The academies and traditions the cantrip is commonly teached in. | <a href="#Cantrip/note'Common/list">See details</a>
+`list` | The academies and traditions the cantrip is commonly teached in. | <a href="#CommonCantripNotes/list">See details</a>
 
-#### <a name="Cantrip/note'Common/tag"></a> `tag`
-
-- **Constant:** `"Common"`
-
-#### <a name="Cantrip/note'Common/list"></a> `list`
+#### <a name="CommonCantripNotes/list"></a> `list`
 
 The academies and traditions the cantrip is commonly teached in.
 
 - **Type:** List
-- **Items:** <a href="#Cantrip/note'Common/list[]">Cantrip/note'Common/list[]</a>
+- **Items:** <a href="#CommonCantripNotes/list[]">CommonCantripNotes/list[]</a>
 - **Minimum Items:** `1`
 - **Unique Items:** Yes
 
 ---
 
-### <a name="Cantrip/note'Common/list[]"></a> `Cantrip/note'Common/list[]`
+### <a name="CommonCantripNotes/list[]"></a> `CommonCantripNotes/list[]`
 
-- **Type:** <a href="#CommonNote">CommonNote</a>
+- **Type:** <a href="#CommonCantripNote">CommonCantripNote</a>
 
 ---
 
-### <a name="Cantrip/translations[key]"></a> `Cantrip/translations[key]`
+### <a name="CommonCantripNote"></a> `CommonCantripNote`
+
+- **Type:** Union
+- **Cases:** <a href="#CommonCantripNote'Academy">CommonCantripNote'Academy</a> | <a href="#CommonCantripNote'Tradition">CommonCantripNote'Tradition</a>
+
+---
+
+### <a name="CommonCantripNote'Academy"></a> `CommonCantripNote'Academy`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the spell. | <a href="#Cantrip/translations[key]/name">See details</a>
-`effect` | The effect description. | <a href="#Cantrip/translations[key]/effect">See details</a>
-`range` |  | <a href="#Cantrip/translations[key]/range">See details</a>
-`duration` |  | <a href="#Cantrip/translations[key]/duration">See details</a>
-`target` |  | <a href="#Cantrip/translations[key]/target">See details</a>
-`errata?` |  | <a href="#Cantrip/translations[key]/errata">See details</a>
+`tag` |  | <a href="#CommonCantripNote'Academy/tag">See details</a>
+`academy` |  | <a href="#CommonCantripNote'Academy/academy">See details</a>
 
-#### <a name="Cantrip/translations[key]/name"></a> `name`
+#### <a name="CommonCantripNote'Academy/tag"></a> `tag`
+
+- **Constant:** `"Academy"`
+
+#### <a name="CommonCantripNote'Academy/academy"></a> `academy`
+
+- **Type:** <a href="./_SimpleReferences.md#CurriculumReference">CurriculumReference</a>
+
+---
+
+### <a name="CommonCantripNote'Tradition"></a> `CommonCantripNote'Tradition`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CommonCantripNote'Tradition/tag">See details</a>
+`tradition` |  | <a href="#CommonCantripNote'Tradition/tradition">See details</a>
+
+#### <a name="CommonCantripNote'Tradition/tag"></a> `tag`
+
+- **Constant:** `"Tradition"`
+
+#### <a name="CommonCantripNote'Tradition/tradition"></a> `tradition`
+
+- **Type:** <a href="#CommonCantripTraditionNote">CommonCantripTraditionNote</a>
+
+---
+
+### <a name="CommonCantripTraditionNote"></a> `CommonCantripTraditionNote`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The magical tradition's identifier. | <a href="#CommonCantripTraditionNote/id">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#CommonCantripTraditionNote/translations">See details</a>
+
+#### <a name="CommonCantripTraditionNote/id"></a> `id`
+
+The magical tradition's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="CommonCantripTraditionNote/translations"></a> `translations?`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#CommonCantripTraditionNote/translations[key]">CommonCantripTraditionNote/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="CommonCantripTraditionNote/translations[key]"></a> `CommonCantripTraditionNote/translations[key]`
+
+- **Type:** <a href="#CommonCantripTraditionNoteTranslation">CommonCantripTraditionNoteTranslation</a>
+
+---
+
+### <a name="CommonCantripTraditionNoteTranslation"></a> `CommonCantripTraditionNoteTranslation`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`note` | A note, appended to the generated string in parenthesis. | <a href="#CommonCantripTraditionNoteTranslation/note">See details</a>
+
+#### <a name="CommonCantripTraditionNoteTranslation/note"></a> `note`
+
+A note, appended to the generated string in parenthesis.
+
+- **Type:** String
+- **Minimum Length:** `1`
+
+---
+
+### <a name="CantripTranslation"></a> `CantripTranslation`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`name` | The name of the spell. | <a href="#CantripTranslation/name">See details</a>
+`effect` | The effect description. | <a href="#CantripTranslation/effect">See details</a>
+`range` |  | <a href="#CantripTranslation/range">See details</a>
+`duration` |  | <a href="#CantripTranslation/duration">See details</a>
+`target` |  | <a href="#CantripTranslation/target">See details</a>
+`errata?` |  | <a href="#CantripTranslation/errata">See details</a>
+
+#### <a name="CantripTranslation/name"></a> `name`
 
 The name of the spell.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
-#### <a name="Cantrip/translations[key]/effect"></a> `effect`
+#### <a name="CantripTranslation/effect"></a> `effect`
 
 The effect description.
 
 - **Type:** Markdown-formatted text
 - **Minimum Length:** `1`
 
-#### <a name="Cantrip/translations[key]/range"></a> `range`
+#### <a name="CantripTranslation/range"></a> `range`
 
 - **Type:** String
 
-#### <a name="Cantrip/translations[key]/duration"></a> `duration`
+#### <a name="CantripTranslation/duration"></a> `duration`
 
 - **Type:** String
 
-#### <a name="Cantrip/translations[key]/target"></a> `target`
+#### <a name="CantripTranslation/target"></a> `target`
 
 - **Type:** String
 
-#### <a name="Cantrip/translations[key]/errata"></a> `errata?`
+#### <a name="CantripTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
 
 ---
 
-### <a name="PerformanceParameters"></a> `PerformanceParameters`
+### <a name="CantripPerformanceParameters"></a> `CantripPerformanceParameters`
 
 Measurable parameters of a blessing.
 
@@ -214,290 +319,217 @@ Measurable parameters of a blessing.
 
 Key | Description | Details
 :-- | :-- | :--
-`range` |  | <a href="#PerformanceParameters/range">See details</a>
-`duration` |  | <a href="#PerformanceParameters/duration">See details</a>
+`range` |  | <a href="#CantripPerformanceParameters/range">See details</a>
+`duration` |  | <a href="#CantripPerformanceParameters/duration">See details</a>
 
-#### <a name="PerformanceParameters/range"></a> `range`
+#### <a name="CantripPerformanceParameters/range"></a> `range`
 
-- **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/range'Self">PerformanceParameters/range'Self</a> | <a href="#PerformanceParameters/range'Touch">PerformanceParameters/range'Touch</a> | <a href="#PerformanceParameters/range'Fixed">PerformanceParameters/range'Fixed</a>
+- **Type:** <a href="#CantripRange">CantripRange</a>
 
-#### <a name="PerformanceParameters/duration"></a> `duration`
+#### <a name="CantripPerformanceParameters/duration"></a> `duration`
 
-- **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/duration'Immediate">PerformanceParameters/duration'Immediate</a> | <a href="#PerformanceParameters/duration'Fixed">PerformanceParameters/duration'Fixed</a> | <a href="#PerformanceParameters/duration'DuringLovemaking">PerformanceParameters/duration'DuringLovemaking</a> | <a href="#PerformanceParameters/duration'Indefinite">PerformanceParameters/duration'Indefinite</a>
+- **Type:** <a href="#CantripDuration">CantripDuration</a>
 
 ---
 
-### <a name="PerformanceParameters/range'Self"></a> `PerformanceParameters/range'Self`
+### <a name="CantripRange"></a> `CantripRange`
+
+- **Type:** Union
+- **Cases:** <a href="#CantripRange'Self">CantripRange'Self</a> | <a href="#CantripRange'Touch">CantripRange'Touch</a> | <a href="#CantripRange'Fixed">CantripRange'Fixed</a>
+
+---
+
+### <a name="CantripRange'Self"></a> `CantripRange'Self`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/range'Self/tag">See details</a>
+`tag` |  | <a href="#CantripRange'Self/tag">See details</a>
 
-#### <a name="PerformanceParameters/range'Self/tag"></a> `tag`
+#### <a name="CantripRange'Self/tag"></a> `tag`
 
 - **Constant:** `"Self"`
 
 ---
 
-### <a name="PerformanceParameters/range'Touch"></a> `PerformanceParameters/range'Touch`
+### <a name="CantripRange'Touch"></a> `CantripRange'Touch`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/range'Touch/tag">See details</a>
+`tag` |  | <a href="#CantripRange'Touch/tag">See details</a>
 
-#### <a name="PerformanceParameters/range'Touch/tag"></a> `tag`
+#### <a name="CantripRange'Touch/tag"></a> `tag`
 
 - **Constant:** `"Touch"`
 
 ---
 
-### <a name="PerformanceParameters/range'Fixed"></a> `PerformanceParameters/range'Fixed`
+### <a name="CantripRange'Fixed"></a> `CantripRange'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/range'Fixed/tag">See details</a>
-`value` | The range in steps/m. | <a href="#PerformanceParameters/range'Fixed/value">See details</a>
-`is_radius?` | If `true`, the range is a radius. | <a href="#PerformanceParameters/range'Fixed/is_radius">See details</a>
+`tag` |  | <a href="#CantripRange'Fixed/tag">See details</a>
+`fixed` |  | <a href="#CantripRange'Fixed/fixed">See details</a>
 
-#### <a name="PerformanceParameters/range'Fixed/tag"></a> `tag`
+#### <a name="CantripRange'Fixed/tag"></a> `tag`
 
 - **Constant:** `"Fixed"`
 
-#### <a name="PerformanceParameters/range'Fixed/value"></a> `value`
+#### <a name="CantripRange'Fixed/fixed"></a> `fixed`
 
-The range in steps/m.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
-#### <a name="PerformanceParameters/range'Fixed/is_radius"></a> `is_radius?`
-
-If `true`, the range is a radius.
-
-- **Constant:** `true`
+- **Type:** <a href="./_ActivatableSkillRange.md#FixedRange">FixedRange</a>
 
 ---
 
-### <a name="PerformanceParameters/duration'Immediate"></a> `PerformanceParameters/duration'Immediate`
+### <a name="CantripDuration"></a> `CantripDuration`
+
+- **Type:** Union
+- **Cases:** <a href="#CantripDuration'Immediate">CantripDuration'Immediate</a> | <a href="#CantripDuration'Fixed">CantripDuration'Fixed</a> | <a href="#CantripDuration'DuringLovemaking">CantripDuration'DuringLovemaking</a> | <a href="#CantripDuration'Indefinite">CantripDuration'Indefinite</a>
+
+---
+
+### <a name="CantripDuration'Immediate"></a> `CantripDuration'Immediate`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration'Immediate/tag">See details</a>
+`tag` |  | <a href="#CantripDuration'Immediate/tag">See details</a>
 
-#### <a name="PerformanceParameters/duration'Immediate/tag"></a> `tag`
+#### <a name="CantripDuration'Immediate/tag"></a> `tag`
 
 - **Constant:** `"Immediate"`
 
 ---
 
-### <a name="PerformanceParameters/duration'Fixed"></a> `PerformanceParameters/duration'Fixed`
+### <a name="CantripDuration'Fixed"></a> `CantripDuration'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration'Fixed/tag">See details</a>
-`is_maximum?` | If `true`, the duration is a maximum duration. | <a href="#PerformanceParameters/duration'Fixed/is_maximum">See details</a>
-`value` | The (unitless) duration. | <a href="#PerformanceParameters/duration'Fixed/value">See details</a>
-`unit` | The duration unit. | <a href="#PerformanceParameters/duration'Fixed/unit">See details</a>
+`tag` |  | <a href="#CantripDuration'Fixed/tag">See details</a>
+`fixed` |  | <a href="#CantripDuration'Fixed/fixed">See details</a>
 
-#### <a name="PerformanceParameters/duration'Fixed/tag"></a> `tag`
+#### <a name="CantripDuration'Fixed/tag"></a> `tag`
 
 - **Constant:** `"Fixed"`
 
-#### <a name="PerformanceParameters/duration'Fixed/is_maximum"></a> `is_maximum?`
+#### <a name="CantripDuration'Fixed/fixed"></a> `fixed`
+
+- **Type:** <a href="#FixedCantripDuration">FixedCantripDuration</a>
+
+---
+
+### <a name="CantripDuration'DuringLovemaking"></a> `CantripDuration'DuringLovemaking`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CantripDuration'DuringLovemaking/tag">See details</a>
+`during_lovemaking` |  | <a href="#CantripDuration'DuringLovemaking/during_lovemaking">See details</a>
+
+#### <a name="CantripDuration'DuringLovemaking/tag"></a> `tag`
+
+- **Constant:** `"DuringLovemaking"`
+
+#### <a name="CantripDuration'DuringLovemaking/during_lovemaking"></a> `during_lovemaking`
+
+- **Type:** <a href="./_ActivatableSkillCastingTime.md#CastingTimeDuringLovemaking">CastingTimeDuringLovemaking</a>
+
+---
+
+### <a name="CantripDuration'Indefinite"></a> `CantripDuration'Indefinite`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CantripDuration'Indefinite/tag">See details</a>
+`indefinite` |  | <a href="#CantripDuration'Indefinite/indefinite">See details</a>
+
+#### <a name="CantripDuration'Indefinite/tag"></a> `tag`
+
+- **Constant:** `"Indefinite"`
+
+#### <a name="CantripDuration'Indefinite/indefinite"></a> `indefinite`
+
+- **Type:** <a href="#IndefiniteCantripDuration">IndefiniteCantripDuration</a>
+
+---
+
+### <a name="FixedCantripDuration"></a> `FixedCantripDuration`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`is_maximum?` | If `true`, the duration is a maximum duration. | <a href="#FixedCantripDuration/is_maximum">See details</a>
+`value` | The (unitless) duration. | <a href="#FixedCantripDuration/value">See details</a>
+`unit` | The duration unit. | <a href="#FixedCantripDuration/unit">See details</a>
+
+#### <a name="FixedCantripDuration/is_maximum"></a> `is_maximum?`
 
 If `true`, the duration is a maximum duration.
 
 - **Constant:** `true`
 
-#### <a name="PerformanceParameters/duration'Fixed/value"></a> `value`
+#### <a name="FixedCantripDuration/value"></a> `value`
 
 The (unitless) duration.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="PerformanceParameters/duration'Fixed/unit"></a> `unit`
+#### <a name="FixedCantripDuration/unit"></a> `unit`
 
 The duration unit.
 
-- **Type:** <a href="./_ActivatableSkill.md#Duration/Unit">Duration/Unit</a>
+- **Type:** <a href="./_ActivatableSkillDuration.md#DurationUnit">DurationUnit</a>
 
 ---
 
-### <a name="PerformanceParameters/duration'DuringLovemaking"></a> `PerformanceParameters/duration'DuringLovemaking`
+### <a name="IndefiniteCantripDuration"></a> `IndefiniteCantripDuration`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration'DuringLovemaking/tag">See details</a>
-`value` | The duration in rounds. | <a href="#PerformanceParameters/duration'DuringLovemaking/value">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#IndefiniteCantripDuration/translations">See details</a>
 
-#### <a name="PerformanceParameters/duration'DuringLovemaking/tag"></a> `tag`
-
-- **Constant:** `"DuringLovemaking"`
-
-#### <a name="PerformanceParameters/duration'DuringLovemaking/value"></a> `value`
-
-The duration in rounds.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="PerformanceParameters/duration'Indefinite"></a> `PerformanceParameters/duration'Indefinite`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration'Indefinite/tag">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PerformanceParameters/duration'Indefinite/translations">See details</a>
-
-#### <a name="PerformanceParameters/duration'Indefinite/tag"></a> `tag`
-
-- **Constant:** `"Indefinite"`
-
-#### <a name="PerformanceParameters/duration'Indefinite/translations"></a> `translations`
+#### <a name="IndefiniteCantripDuration/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#PerformanceParameters/duration'Indefinite/translations[key]">PerformanceParameters/duration'Indefinite/translations[key]</a>
+- **Property Values:** <a href="#IndefiniteCantripDuration/translations[key]">IndefiniteCantripDuration/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="PerformanceParameters/duration'Indefinite/translations[key]"></a> `PerformanceParameters/duration'Indefinite/translations[key]`
+### <a name="IndefiniteCantripDuration/translations[key]"></a> `IndefiniteCantripDuration/translations[key]`
+
+- **Type:** <a href="#IndefiniteDurationTranslation">IndefiniteDurationTranslation</a>
+
+---
+
+### <a name="IndefiniteDurationTranslation"></a> `IndefiniteDurationTranslation`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`description` | A description of the duration. | <a href="#PerformanceParameters/duration'Indefinite/translations[key]/description">See details</a>
+`description` | A description of the duration. | <a href="#IndefiniteDurationTranslation/description">See details</a>
 
-#### <a name="PerformanceParameters/duration'Indefinite/translations[key]/description"></a> `description`
+#### <a name="IndefiniteDurationTranslation/description"></a> `description`
 
 A description of the duration.
 
-- **Type:** <a href="#PerformanceParameters/duration'Indefinite/translations[key]/description">Object</a>
-
----
-
-### <a name="PerformanceParameters/duration'Indefinite/translations[key]/description"></a> `PerformanceParameters/duration'Indefinite/translations[key]/description`
-
-A description of the duration.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`default` | The full description of the duration. | <a href="#PerformanceParameters/duration'Indefinite/translations[key]/description/default">See details</a>
-`compressed` | A compressed description of the duration for use in small areas (e.g. on character sheet). | <a href="#PerformanceParameters/duration'Indefinite/translations[key]/description/compressed">See details</a>
-
-#### <a name="PerformanceParameters/duration'Indefinite/translations[key]/description/default"></a> `default`
-
-The full description of the duration.
-
-- **Type:** String
-- **Minimum Length:** `1`
-
-#### <a name="PerformanceParameters/duration'Indefinite/translations[key]/description/compressed"></a> `compressed`
-
-A compressed description of the duration for use in small areas
-(e.g. on character sheet).
-
-- **Type:** String
-- **Minimum Length:** `1`
-
----
-
-### <a name="CommonNote"></a> `CommonNote`
-
-- **Type:** Union
-- **Cases:** <a href="#CommonNote'Academy">CommonNote'Academy</a> | <a href="#CommonNote'Tradition">CommonNote'Tradition</a>
-
----
-
-### <a name="CommonNote'Academy"></a> `CommonNote'Academy`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#CommonNote'Academy/tag">See details</a>
-`id` | The academy's curriculum identifier. | <a href="#CommonNote'Academy/id">See details</a>
-
-#### <a name="CommonNote'Academy/tag"></a> `tag`
-
-- **Constant:** `"Academy"`
-
-#### <a name="CommonNote'Academy/id"></a> `id`
-
-The academy's curriculum identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="CommonNote'Tradition"></a> `CommonNote'Tradition`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#CommonNote'Tradition/tag">See details</a>
-`id` | The magical tradition's identifier. | <a href="#CommonNote'Tradition/id">See details</a>
-`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#CommonNote'Tradition/translations">See details</a>
-
-#### <a name="CommonNote'Tradition/tag"></a> `tag`
-
-- **Constant:** `"Tradition"`
-
-#### <a name="CommonNote'Tradition/id"></a> `id`
-
-The magical tradition's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
-#### <a name="CommonNote'Tradition/translations"></a> `translations?`
-
-All translations for the entry, identified by IETF language tag (BCP47).
-
-- **Type:** Dictionary
-- **Property Values:** <a href="#CommonNote'Tradition/translations[key]">CommonNote'Tradition/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="CommonNote'Tradition/translations[key]"></a> `CommonNote'Tradition/translations[key]`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`note` | A note, appended to the generated string in parenthesis. | <a href="#CommonNote'Tradition/translations[key]/note">See details</a>
-
-#### <a name="CommonNote'Tradition/translations[key]/note"></a> `note`
-
-A note, appended to the generated string in parenthesis.
-
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_ResponsiveText.md#ResponsiveText">ResponsiveText</a>

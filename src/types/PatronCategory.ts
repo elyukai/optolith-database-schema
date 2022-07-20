@@ -3,6 +3,9 @@
  */
 
 import { validateSchemaCreator } from "../validation/schema.js"
+import { LocaleMap } from "./_LocaleMap.js"
+import { NonEmptyString } from "./_NonEmptyString.js"
+import { CultureReference } from "./_SimpleReferences.js"
 
 /**
  * @title Patron Category
@@ -21,31 +24,20 @@ export type PatronCategory = {
    * @minItems 1
    * @uniqueItems
    */
-  primary_patron_cultures: {
-    /**
-     * The culture's identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-  }[]
+  primary_patron_cultures: CultureReference[]
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the patron category.
-       * @minLength 1
-       */
-      name: string
-    }
-  }
+  translations: LocaleMap<PatronCategoryTranslation>
+}
+
+export type PatronCategoryTranslation = {
+  /**
+   * The name of the patron category.
+   */
+  name: NonEmptyString
 }
 
 export const validateSchema = validateSchemaCreator<PatronCategory>(import.meta.url)

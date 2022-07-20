@@ -840,367 +840,367 @@ Key | Description | Details
 
 - `0`: Name of the app
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/macosmenubar.preferences"></a> `macosmenubar.preferences`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/macosmenubar.quit"></a> `macosmenubar.quit`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/macosmenubar.edit"></a> `macosmenubar.edit`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/macosmenubar.view"></a> `macosmenubar.view`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/initialization.loadtableserror"></a> `initialization.loadtableserror`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.heroes"></a> `header.tabs.heroes`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.groups"></a> `header.tabs.groups`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.wiki"></a> `header.tabs.wiki`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.faq"></a> `header.tabs.faq`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.about"></a> `header.tabs.about`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.imprint"></a> `header.tabs.imprint`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.thirdpartylicenses"></a> `header.tabs.thirdpartylicenses`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.lastchanges"></a> `header.tabs.lastchanges`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.profile"></a> `header.tabs.profile`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.overview"></a> `header.tabs.overview`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.personaldata"></a> `header.tabs.personaldata`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.charactersheet"></a> `header.tabs.charactersheet`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.pact"></a> `header.tabs.pact`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.rules"></a> `header.tabs.rules`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.racecultureandprofession"></a> `header.tabs.racecultureandprofession`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.race"></a> `header.tabs.race`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.culture"></a> `header.tabs.culture`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.profession"></a> `header.tabs.profession`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.attributes"></a> `header.tabs.attributes`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.advantagesanddisadvantages"></a> `header.tabs.advantagesanddisadvantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.advantages"></a> `header.tabs.advantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.disadvantages"></a> `header.tabs.disadvantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.abilities"></a> `header.tabs.abilities`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.skills"></a> `header.tabs.skills`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.combattechniques"></a> `header.tabs.combattechniques`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.specialabilities"></a> `header.tabs.specialabilities`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.spells"></a> `header.tabs.spells`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.liturgicalchants"></a> `header.tabs.liturgicalchants`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.belongings"></a> `header.tabs.belongings`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.equipment"></a> `header.tabs.equipment`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.hitzonearmor"></a> `header.tabs.hitzonearmor`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.tabs.pets"></a> `header.tabs.pets`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.apleft"></a> `header.apleft`
 
 - `0`: AP left
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.savebtn"></a> `header.savebtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.aptooltip.title"></a> `header.aptooltip.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.aptooltip.total"></a> `header.aptooltip.total`
 
 - `0`: AP Total
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.aptooltip.spent"></a> `header.aptooltip.spent`
 
 - `0`: AP Spent
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.aptooltip.spentonadvantages"></a> `header.aptooltip.spentonadvantages`
 
 - `0`: Current AP spent on advantages
 - `1`: Maximum possible AP spent on advantages
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.aptooltip.spentonmagicadvantages"></a> `header.aptooltip.spentonmagicadvantages`
 
 - `0`: Current AP spent on magic advantages
 - `1`: Maximum possible AP spent on magic advantages
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.aptooltip.spentonblessedadvantages"></a> `header.aptooltip.spentonblessedadvantages`
 
 - `0`: Current AP spent on blessed advantages
 - `1`: Maximum possible AP spent on blessed advantages
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.aptooltip.spentondisadvantages"></a> `header.aptooltip.spentondisadvantages`
 
 - `0`: Current AP spent on disadvantages
 - `1`: Maximum possible AP spent on disadvantages
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.aptooltip.spentonmagicdisadvantages"></a> `header.aptooltip.spentonmagicdisadvantages`
 
 - `0`: Current AP spent on magic disadvantages
 - `1`: Maximum possible AP spent on magic disadvantages
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.aptooltip.spentonblesseddisadvantages"></a> `header.aptooltip.spentonblesseddisadvantages`
 
 - `0`: Current AP spent on blessed disadvantages
 - `1`: Maximum possible AP spent on blessed disadvantages
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.aptooltip.spentonrace"></a> `header.aptooltip.spentonrace`
 
 - `0`: AP spent on race
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.aptooltip.spentonprofession"></a> `header.aptooltip.spentonprofession`
 
 - `0`: AP spent on profession
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.aptooltip.spentonattributes"></a> `header.aptooltip.spentonattributes`
 
 - `0`: AP spent on attributes
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.aptooltip.spentonskills"></a> `header.aptooltip.spentonskills`
 
 - `0`: AP spent on skills
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.aptooltip.spentoncombattechniques"></a> `header.aptooltip.spentoncombattechniques`
 
 - `0`: AP spent on combat techniques
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.aptooltip.spentonspells"></a> `header.aptooltip.spentonspells`
 
 - `0`: AP spent on spells
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.aptooltip.spentoncantrips"></a> `header.aptooltip.spentoncantrips`
 
 - `0`: AP spent on cantrips
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.aptooltip.spentonliturgicalchants"></a> `header.aptooltip.spentonliturgicalchants`
 
 - `0`: AP spent on liturgical chants
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.aptooltip.spentonblessings"></a> `header.aptooltip.spentonblessings`
 
 - `0`: AP spent on blessings
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.aptooltip.spentonspecialabilities"></a> `header.aptooltip.spentonspecialabilities`
 
 - `0`: AP spent on special abilities
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.aptooltip.spentonenergies"></a> `header.aptooltip.spentonenergies`
 
 - `0`: AP spent on energies (LP/AE/KP)
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.dialogs.herosaved"></a> `header.dialogs.herosaved`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.dialogs.allsaved"></a> `header.dialogs.allsaved`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.dialogs.everythingelsesaved"></a> `header.dialogs.everythingelsesaved`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.dialogs.saveconfigerror.title"></a> `header.dialogs.saveconfigerror.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.dialogs.saveconfigerror.message"></a> `header.dialogs.saveconfigerror.message`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.dialogs.saveheroeserror.title"></a> `header.dialogs.saveheroeserror.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.dialogs.saveheroeserror.message"></a> `header.dialogs.saveheroeserror.message`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.weightvalue"></a> `general.weightvalue`
 
 - `0`: Weight in kg
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.pricevalue"></a> `general.pricevalue`
 
 - `0`: Price in silverthalers
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.lengthvalue"></a> `general.lengthvalue`
 
 - `0`: Length in cm
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.dice"></a> `general.dice`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.none"></a> `general.none`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.or"></a> `general.or`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.and"></a> `general.and`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.error"></a> `general.error`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.errorcode"></a> `general.errorcode`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.emptylistplaceholder"></a> `general.emptylistplaceholder`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.emptylistnoresultsplaceholder"></a> `general.emptylistnoresultsplaceholder`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.apvalue"></a> `general.apvalue`
 
@@ -1212,114 +1212,114 @@ Key | Description | Details
 
 - `0`: AP value
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.withapvalue"></a> `general.withapvalue`
 
 - `0`: Name of element
 - `1`: AP value
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.filters.searchfield.placeholder"></a> `general.filters.searchfield.placeholder`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.filters.sort.alphabetically"></a> `general.filters.sort.alphabetically`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.filters.sort.bydatemodified"></a> `general.filters.sort.bydatemodified`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.filters.sort.bygroup"></a> `general.filters.sort.bygroup`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.filters.sort.byimprovementcost"></a> `general.filters.sort.byimprovementcost`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.filters.sort.byproperty"></a> `general.filters.sort.byproperty`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.filters.sort.bylocation"></a> `general.filters.sort.bylocation`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.filters.sort.bycost"></a> `general.filters.sort.bycost`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.filters.sort.byweight"></a> `general.filters.sort.byweight`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.filters.showactivatedentries"></a> `general.filters.showactivatedentries`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.dialogs.savebtn"></a> `general.dialogs.savebtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.dialogs.donebtn"></a> `general.dialogs.donebtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.dialogs.deletebtn"></a> `general.dialogs.deletebtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.dialogs.yesbtn"></a> `general.dialogs.yesbtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.dialogs.nobtn"></a> `general.dialogs.nobtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.dialogs.okbtn"></a> `general.dialogs.okbtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.dialogs.cancelbtn"></a> `general.dialogs.cancelbtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.dialogs.copybtn"></a> `general.dialogs.copybtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.dialogs.createbtn"></a> `general.dialogs.createbtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.dialogs.applybtn"></a> `general.dialogs.applybtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.dialogs.addbtn"></a> `general.dialogs.addbtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.dialogs.notenoughap.title"></a> `general.dialogs.notenoughap.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.dialogs.notenoughap.message"></a> `general.dialogs.notenoughap.message`
 
 - `0`: Missing AP
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.dialogs.reachedaplimit.title"></a> `general.dialogs.reachedaplimit.title`
 
 - `0`: Category in which the limit is reached
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.dialogs.reachedaplimit.message"></a> `general.dialogs.reachedaplimit.message`
 
@@ -1327,1572 +1327,1572 @@ Key | Description | Details
 - `1`: Maximum possible AP spent on category
 - `2`: Category in which the limit is reached
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.dialogs.reachedaplimit.advantages"></a> `general.dialogs.reachedaplimit.advantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.dialogs.reachedaplimit.magicaladvantages"></a> `general.dialogs.reachedaplimit.magicaladvantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.dialogs.reachedaplimit.blessedadvantages"></a> `general.dialogs.reachedaplimit.blessedadvantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.dialogs.reachedaplimit.disadvantages"></a> `general.dialogs.reachedaplimit.disadvantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.dialogs.reachedaplimit.magicaldisadvantages"></a> `general.dialogs.reachedaplimit.magicaldisadvantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.dialogs.reachedaplimit.blesseddisadvantages"></a> `general.dialogs.reachedaplimit.blesseddisadvantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/settings.title"></a> `settings.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/settings.language"></a> `settings.language`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/settings.fallbacklanguage"></a> `settings.fallbacklanguage`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/settings.systemlanguage"></a> `settings.systemlanguage`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/settings.languagehint"></a> `settings.languagehint`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/settings.theme"></a> `settings.theme`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/settings.theme.dark"></a> `settings.theme.dark`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/settings.theme.light"></a> `settings.theme.light`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/settings.showanimations"></a> `settings.showanimations`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/settings.enableeditingheroaftercreationphase"></a> `settings.enableeditingheroaftercreationphase`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/settings.checkforupdatesbtn"></a> `settings.checkforupdatesbtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/settings.newversionavailable.title"></a> `settings.newversionavailable.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/settings.newversionavailable.message"></a> `settings.newversionavailable.message`
 
 - `0`: Version number
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/settings.newversionavailable.messagewithsize"></a> `settings.newversionavailable.messagewithsize`
 
 - `0`: Version number
 - `1`: Size of update package
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/settings.newversionavailable.updatebtn"></a> `settings.newversionavailable.updatebtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/settings.nonewversionavailable.title"></a> `settings.nonewversionavailable.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/settings.nonewversionavailable.message"></a> `settings.nonewversionavailable.message`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/settings.downloadingupdate.title"></a> `settings.downloadingupdate.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.filters.origin.allheroes"></a> `heroes.filters.origin.allheroes`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.filters.origin.ownheroes"></a> `heroes.filters.origin.ownheroes`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.filters.origin.sharedheroes"></a> `heroes.filters.origin.sharedheroes`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.importherobtn"></a> `heroes.importherobtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.createherobtn"></a> `heroes.createherobtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.exportheroasjsonbtn"></a> `heroes.exportheroasjsonbtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.duplicateherobtn"></a> `heroes.duplicateherobtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.deleteherobtn"></a> `heroes.deleteherobtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.openherobtn"></a> `heroes.openherobtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.saveherobtn"></a> `heroes.saveherobtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.unsavedhero.name"></a> `heroes.unsavedhero.name`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.list.adventurepoints"></a> `heroes.list.adventurepoints`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.dialogs.herosaved"></a> `heroes.dialogs.herosaved`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.dialogs.importheroerror.title"></a> `heroes.dialogs.importheroerror.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.dialogs.importheroerror.message"></a> `heroes.dialogs.importheroerror.message`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.dialogs.heroexportsavelocation.title"></a> `heroes.dialogs.heroexportsavelocation.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.dialogs.herojsonsaveerror.title"></a> `heroes.dialogs.herojsonsaveerror.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.dialogs.herojsonsaveerror.message"></a> `heroes.dialogs.herojsonsaveerror.message`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.dialogs.unsavedactions.title"></a> `heroes.dialogs.unsavedactions.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.dialogs.unsavedactions.message"></a> `heroes.dialogs.unsavedactions.message`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.dialogs.unsavedactions.quit"></a> `heroes.dialogs.unsavedactions.quit`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.dialogs.unsavedactions.saveandquit"></a> `heroes.dialogs.unsavedactions.saveandquit`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.dialogs.deletehero.title"></a> `heroes.dialogs.deletehero.title`
 
 - `0`: Name of the hero to delete
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.dialogs.deletehero.message"></a> `heroes.dialogs.deletehero.message`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.dialogs.herocreation.title"></a> `heroes.dialogs.herocreation.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.dialogs.herocreation.nameofhero"></a> `heroes.dialogs.herocreation.nameofhero`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.dialogs.herocreation.sex.placeholder"></a> `heroes.dialogs.herocreation.sex.placeholder`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.dialogs.herocreation.sex.male"></a> `heroes.dialogs.herocreation.sex.male`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.dialogs.herocreation.sex.female"></a> `heroes.dialogs.herocreation.sex.female`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.dialogs.herocreation.experiencelevel.placeholder"></a> `heroes.dialogs.herocreation.experiencelevel.placeholder`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/heroes.dialogs.herocreation.startbtn"></a> `heroes.dialogs.herocreation.startbtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/wiki.chooseacategory"></a> `wiki.chooseacategory`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/wiki.chooseacategorytodisplayalist"></a> `wiki.chooseacategorytodisplayalist`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/wiki.filters.races"></a> `wiki.filters.races`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/wiki.filters.cultures"></a> `wiki.filters.cultures`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/wiki.filters.professions"></a> `wiki.filters.professions`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/wiki.filters.advantages"></a> `wiki.filters.advantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/wiki.filters.disadvantages"></a> `wiki.filters.disadvantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/wiki.filters.skills"></a> `wiki.filters.skills`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/wiki.filters.skills.all"></a> `wiki.filters.skills.all`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/wiki.filters.combattechniques"></a> `wiki.filters.combattechniques`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/wiki.filters.combattechniques.all"></a> `wiki.filters.combattechniques.all`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/wiki.filters.magic"></a> `wiki.filters.magic`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/wiki.filters.magic.all"></a> `wiki.filters.magic.all`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/wiki.filters.liturgicalchants"></a> `wiki.filters.liturgicalchants`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/wiki.filters.liturgicalchants.all"></a> `wiki.filters.liturgicalchants.all`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/wiki.filters.specialabilities"></a> `wiki.filters.specialabilities`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/wiki.filters.specialabilities.all"></a> `wiki.filters.specialabilities.all`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/wiki.filters.itemtemplates"></a> `wiki.filters.itemtemplates`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/wiki.filters.itemtemplates.all"></a> `wiki.filters.itemtemplates.all`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/imprint.title"></a> `imprint.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/profile.editprofessionnamebtn"></a> `profile.editprofessionnamebtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/profile.addadventurepointsbtn"></a> `profile.addadventurepointsbtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/profile.endherocreationbtn"></a> `profile.endherocreationbtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/profile.changeheroavatarbtn"></a> `profile.changeheroavatarbtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/profile.deleteavatarbtn"></a> `profile.deleteavatarbtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/profile.dialogs.changeheroavatar.title"></a> `profile.dialogs.changeheroavatar.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/profile.dialogs.changeheroavatar.selectfilebtn"></a> `profile.dialogs.changeheroavatar.selectfilebtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/profile.dialogs.changeheroavatar.imagefiletype"></a> `profile.dialogs.changeheroavatar.imagefiletype`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/profile.dialogs.changeheroavatar.invalidfilewarning"></a> `profile.dialogs.changeheroavatar.invalidfilewarning`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/profile.dialogs.addadventurepoints.title"></a> `profile.dialogs.addadventurepoints.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/profile.dialogs.addadventurepoints.label"></a> `profile.dialogs.addadventurepoints.label`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/profile.advantages"></a> `profile.advantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/profile.disadvantages"></a> `profile.disadvantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/personaldata.title"></a> `personaldata.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/personaldata.sex.male"></a> `personaldata.sex.male`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/personaldata.sex.female"></a> `personaldata.sex.female`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/personaldata.family"></a> `personaldata.family`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/personaldata.placeofbirth"></a> `personaldata.placeofbirth`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/personaldata.dateofbirth"></a> `personaldata.dateofbirth`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/personaldata.age"></a> `personaldata.age`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/personaldata.haircolor"></a> `personaldata.haircolor`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/personaldata.eyecolor"></a> `personaldata.eyecolor`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/personaldata.size"></a> `personaldata.size`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/personaldata.weight"></a> `personaldata.weight`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/personaldata.rank"></a> `personaldata.rank`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/personaldata.socialstatus"></a> `personaldata.socialstatus`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/personaldata.characteristics"></a> `personaldata.characteristics`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/personaldata.otherinfo"></a> `personaldata.otherinfo`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/personaldata.cultureareaknowledge"></a> `personaldata.cultureareaknowledge`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.printtopdfbtn"></a> `sheets.printtopdfbtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.dialogs.pdfexportsavelocation.title"></a> `sheets.dialogs.pdfexportsavelocation.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.dialogs.pdfsaved"></a> `sheets.dialogs.pdfsaved`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.dialogs.pdfsaveerror.title"></a> `sheets.dialogs.pdfsaveerror.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.dialogs.pdfsaveerror.message"></a> `sheets.dialogs.pdfsaveerror.message`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.dialogs.pdfcreationerror.title"></a> `sheets.dialogs.pdfcreationerror.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.dialogs.pdfcreationerror.message"></a> `sheets.dialogs.pdfcreationerror.message`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.showattributevalues"></a> `sheets.showattributevalues`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.useparchment"></a> `sheets.useparchment`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.zoomfactor"></a> `sheets.zoomfactor`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.charactersheet"></a> `sheets.charactersheet`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.attributemodifiers.title"></a> `sheets.attributemodifiers.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.title"></a> `sheets.mainsheet.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.name"></a> `sheets.mainsheet.name`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.family"></a> `sheets.mainsheet.family`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.placeofbirth"></a> `sheets.mainsheet.placeofbirth`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.dateofbirth"></a> `sheets.mainsheet.dateofbirth`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.age"></a> `sheets.mainsheet.age`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.sex"></a> `sheets.mainsheet.sex`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.race"></a> `sheets.mainsheet.race`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.size"></a> `sheets.mainsheet.size`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.weight"></a> `sheets.mainsheet.weight`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.haircolor"></a> `sheets.mainsheet.haircolor`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.eyecolor"></a> `sheets.mainsheet.eyecolor`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.culture"></a> `sheets.mainsheet.culture`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.socialstatus"></a> `sheets.mainsheet.socialstatus`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.profession"></a> `sheets.mainsheet.profession`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.rank"></a> `sheets.mainsheet.rank`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.characteristics"></a> `sheets.mainsheet.characteristics`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.otherinfo"></a> `sheets.mainsheet.otherinfo`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.experiencelevellabel"></a> `sheets.mainsheet.experiencelevellabel`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.totalaplabel"></a> `sheets.mainsheet.totalaplabel`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.apcollectedlabel"></a> `sheets.mainsheet.apcollectedlabel`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.apspentlabel"></a> `sheets.mainsheet.apspentlabel`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.avatarlabel"></a> `sheets.mainsheet.avatarlabel`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.advantages"></a> `sheets.mainsheet.advantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.disadvantages"></a> `sheets.mainsheet.disadvantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.generalspecialabilites"></a> `sheets.mainsheet.generalspecialabilites`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.fatepoints"></a> `sheets.mainsheet.fatepoints`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.derivedcharacteristics.labels.value"></a> `sheets.mainsheet.derivedcharacteristics.labels.value`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.derivedcharacteristics.labels.bonuspenalty"></a> `sheets.mainsheet.derivedcharacteristics.labels.bonuspenalty`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.derivedcharacteristics.labels.bonus"></a> `sheets.mainsheet.derivedcharacteristics.labels.bonus`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.derivedcharacteristics.labels.bought"></a> `sheets.mainsheet.derivedcharacteristics.labels.bought`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.derivedcharacteristics.labels.max"></a> `sheets.mainsheet.derivedcharacteristics.labels.max`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.derivedcharacteristics.labels.current"></a> `sheets.mainsheet.derivedcharacteristics.labels.current`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.derivedcharacteristics.labels.basestat"></a> `sheets.mainsheet.derivedcharacteristics.labels.basestat`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.mainsheet.derivedcharacteristics.labels.permanentlylostboughtback"></a> `sheets.mainsheet.derivedcharacteristics.labels.permanentlylostboughtback`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.gamestatssheet.title"></a> `sheets.gamestatssheet.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.gamestatssheet.skillstable.title"></a> `sheets.gamestatssheet.skillstable.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.gamestatssheet.skillstable.labels.skill"></a> `sheets.gamestatssheet.skillstable.labels.skill`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.gamestatssheet.skillstable.labels.check"></a> `sheets.gamestatssheet.skillstable.labels.check`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.gamestatssheet.skillstable.labels.encumbrance"></a> `sheets.gamestatssheet.skillstable.labels.encumbrance`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.gamestatssheet.skillstable.labels.improvementcost"></a> `sheets.gamestatssheet.skillstable.labels.improvementcost`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.gamestatssheet.skillstable.labels.skillrating"></a> `sheets.gamestatssheet.skillstable.labels.skillrating`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.gamestatssheet.skillstable.labels.routinechecks"></a> `sheets.gamestatssheet.skillstable.labels.routinechecks`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.gamestatssheet.skillstable.labels.notes"></a> `sheets.gamestatssheet.skillstable.labels.notes`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.gamestatssheet.skillstable.encumbrance.yes"></a> `sheets.gamestatssheet.skillstable.encumbrance.yes`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.gamestatssheet.skillstable.encumbrance.no"></a> `sheets.gamestatssheet.skillstable.encumbrance.no`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.gamestatssheet.skillstable.encumbrance.maybe"></a> `sheets.gamestatssheet.skillstable.encumbrance.maybe`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.gamestatssheet.skillstable.groups.pages"></a> `sheets.gamestatssheet.skillstable.groups.pages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.gamestatssheet.languages.title"></a> `sheets.gamestatssheet.languages.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.gamestatssheet.languages.nativetongue"></a> `sheets.gamestatssheet.languages.nativetongue`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.gamestatssheet.knownscripts.title"></a> `sheets.gamestatssheet.knownscripts.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.gamestatssheet.routinechecks.title"></a> `sheets.gamestatssheet.routinechecks.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.gamestatssheet.routinechecks.textRow1"></a> `sheets.gamestatssheet.routinechecks.textRow1`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.gamestatssheet.routinechecks.textRow2"></a> `sheets.gamestatssheet.routinechecks.textRow2`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.gamestatssheet.routinechecks.textRow3"></a> `sheets.gamestatssheet.routinechecks.textRow3`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.gamestatssheet.routinechecks.textRow4"></a> `sheets.gamestatssheet.routinechecks.textRow4`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.gamestatssheet.routinechecks.labels.checkmod"></a> `sheets.gamestatssheet.routinechecks.labels.checkmod`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.gamestatssheet.routinechecks.labels.neededsr"></a> `sheets.gamestatssheet.routinechecks.labels.neededsr`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.gamestatssheet.routinechecks.from3on"></a> `sheets.gamestatssheet.routinechecks.from3on`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.gamestatssheet.qualitylevels.title"></a> `sheets.gamestatssheet.qualitylevels.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.gamestatssheet.qualitylevels.labels.skillpoints"></a> `sheets.gamestatssheet.qualitylevels.labels.skillpoints`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.gamestatssheet.qualitylevels.labels.qualitylevel"></a> `sheets.gamestatssheet.qualitylevels.labels.qualitylevel`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.title"></a> `sheets.combatsheet.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.combattechniquestable.title"></a> `sheets.combatsheet.combattechniquestable.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.combattechniquestable.labels.combattechnique"></a> `sheets.combatsheet.combattechniquestable.labels.combattechnique`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.combattechniquestable.labels.primaryattribute"></a> `sheets.combatsheet.combattechniquestable.labels.primaryattribute`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.combattechniquestable.labels.improvementcost"></a> `sheets.combatsheet.combattechniquestable.labels.improvementcost`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.combattechniquestable.labels.combattechniquerating"></a> `sheets.combatsheet.combattechniquestable.labels.combattechniquerating`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.combattechniquestable.labels.attackrangecombat"></a> `sheets.combatsheet.combattechniquestable.labels.attackrangecombat`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.combattechniquestable.labels.parry"></a> `sheets.combatsheet.combattechniquestable.labels.parry`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.lifepoints.title"></a> `sheets.combatsheet.lifepoints.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.lifepoints.max"></a> `sheets.combatsheet.lifepoints.max`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.lifepoints.current"></a> `sheets.combatsheet.lifepoints.current`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.lifepoints.pain1"></a> `sheets.combatsheet.lifepoints.pain1`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.lifepoints.pain2"></a> `sheets.combatsheet.lifepoints.pain2`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.lifepoints.pain3"></a> `sheets.combatsheet.lifepoints.pain3`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.lifepoints.pain4"></a> `sheets.combatsheet.lifepoints.pain4`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.lifepoints.dying"></a> `sheets.combatsheet.lifepoints.dying`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.closecombatweapons"></a> `sheets.combatsheet.closecombatweapons`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.closecombatweapons.labels.weapon"></a> `sheets.combatsheet.closecombatweapons.labels.weapon`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.closecombatweapons.labels.combattechnique"></a> `sheets.combatsheet.closecombatweapons.labels.combattechnique`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.closecombatweapons.labels.damagebonus"></a> `sheets.combatsheet.closecombatweapons.labels.damagebonus`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.closecombatweapons.labels.damagepoints"></a> `sheets.combatsheet.closecombatweapons.labels.damagepoints`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.closecombatweapons.labels.attackparrymodifier"></a> `sheets.combatsheet.closecombatweapons.labels.attackparrymodifier`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.closecombatweapons.labels.reach"></a> `sheets.combatsheet.closecombatweapons.labels.reach`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.closecombatweapons.labels.breakingpointrating"></a> `sheets.combatsheet.closecombatweapons.labels.breakingpointrating`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.closecombatweapons.labels.damaged"></a> `sheets.combatsheet.closecombatweapons.labels.damaged`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.closecombatweapons.labels.attack"></a> `sheets.combatsheet.closecombatweapons.labels.attack`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.closecombatweapons.labels.parry"></a> `sheets.combatsheet.closecombatweapons.labels.parry`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.closecombatweapons.labels.weight"></a> `sheets.combatsheet.closecombatweapons.labels.weight`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.rangedcombatweapons"></a> `sheets.combatsheet.rangedcombatweapons`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.rangedcombatweapons.labels.weapon"></a> `sheets.combatsheet.rangedcombatweapons.labels.weapon`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.rangedcombatweapons.labels.combattechnique"></a> `sheets.combatsheet.rangedcombatweapons.labels.combattechnique`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.rangedcombatweapons.labels.reloadtime"></a> `sheets.combatsheet.rangedcombatweapons.labels.reloadtime`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.rangedcombatweapons.labels.damagepoints"></a> `sheets.combatsheet.rangedcombatweapons.labels.damagepoints`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.rangedcombatweapons.labels.ammunition"></a> `sheets.combatsheet.rangedcombatweapons.labels.ammunition`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.rangedcombatweapons.labels.rangebrackets"></a> `sheets.combatsheet.rangedcombatweapons.labels.rangebrackets`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.rangedcombatweapons.labels.breakingpointrating"></a> `sheets.combatsheet.rangedcombatweapons.labels.breakingpointrating`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.rangedcombatweapons.labels.damaged"></a> `sheets.combatsheet.rangedcombatweapons.labels.damaged`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.rangedcombatweapons.labels.rangedcombat"></a> `sheets.combatsheet.rangedcombatweapons.labels.rangedcombat`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.rangedcombatweapons.labels.weight"></a> `sheets.combatsheet.rangedcombatweapons.labels.weight`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.armors.title"></a> `sheets.combatsheet.armors.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.armors.labels.armor"></a> `sheets.combatsheet.armors.labels.armor`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.armors.labels.sturdinessrating"></a> `sheets.combatsheet.armors.labels.sturdinessrating`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.armors.labels.wear"></a> `sheets.combatsheet.armors.labels.wear`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.armors.labels.protection"></a> `sheets.combatsheet.armors.labels.protection`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.armors.labels.encumbrance"></a> `sheets.combatsheet.armors.labels.encumbrance`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.armors.labels.movementinitiative"></a> `sheets.combatsheet.armors.labels.movementinitiative`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.armors.labels.carriedwhereexamples"></a> `sheets.combatsheet.armors.labels.carriedwhereexamples`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.armors.labels.head"></a> `sheets.combatsheet.armors.labels.head`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.armors.labels.torso"></a> `sheets.combatsheet.armors.labels.torso`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.armors.labels.leftarm"></a> `sheets.combatsheet.armors.labels.leftarm`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.armors.labels.rightarm"></a> `sheets.combatsheet.armors.labels.rightarm`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.armors.labels.leftleg"></a> `sheets.combatsheet.armors.labels.leftleg`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.armors.labels.rightleg"></a> `sheets.combatsheet.armors.labels.rightleg`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.armors.labels.weight"></a> `sheets.combatsheet.armors.labels.weight`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.shieldparryingweapon.title"></a> `sheets.combatsheet.shieldparryingweapon.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.shieldparryingweapon.labels.shieldparryingweapon"></a> `sheets.combatsheet.shieldparryingweapon.labels.shieldparryingweapon`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.shieldparryingweapon.labels.structurepoints"></a> `sheets.combatsheet.shieldparryingweapon.labels.structurepoints`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.shieldparryingweapon.labels.breakingpointrating"></a> `sheets.combatsheet.shieldparryingweapon.labels.breakingpointrating`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.shieldparryingweapon.labels.damaged"></a> `sheets.combatsheet.shieldparryingweapon.labels.damaged`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.shieldparryingweapon.labels.attackparrymodifier"></a> `sheets.combatsheet.shieldparryingweapon.labels.attackparrymodifier`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.shieldparryingweapon.labels.weight"></a> `sheets.combatsheet.shieldparryingweapon.labels.weight`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.actions"></a> `sheets.combatsheet.actions`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.combatspecialabilities"></a> `sheets.combatsheet.combatspecialabilities`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.conditions"></a> `sheets.combatsheet.conditions`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.combatsheet.states"></a> `sheets.combatsheet.states`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.title"></a> `sheets.belongingssheet.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.equipmenttable.title"></a> `sheets.belongingssheet.equipmenttable.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.equipmenttable.labels.item"></a> `sheets.belongingssheet.equipmenttable.labels.item`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.equipmenttable.labels.number"></a> `sheets.belongingssheet.equipmenttable.labels.number`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.equipmenttable.labels.price"></a> `sheets.belongingssheet.equipmenttable.labels.price`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.equipmenttable.labels.weight"></a> `sheets.belongingssheet.equipmenttable.labels.weight`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.equipmenttable.labels.carriedwhere"></a> `sheets.belongingssheet.equipmenttable.labels.carriedwhere`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.equipmenttable.labels.total"></a> `sheets.belongingssheet.equipmenttable.labels.total`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.purse.title"></a> `sheets.belongingssheet.purse.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.purse.ducats"></a> `sheets.belongingssheet.purse.ducats`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.purse.silverthalers"></a> `sheets.belongingssheet.purse.silverthalers`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.purse.halers"></a> `sheets.belongingssheet.purse.halers`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.purse.kreutzers"></a> `sheets.belongingssheet.purse.kreutzers`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.purse.gems"></a> `sheets.belongingssheet.purse.gems`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.purse.jewelry"></a> `sheets.belongingssheet.purse.jewelry`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.purse.other"></a> `sheets.belongingssheet.purse.other`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.carryingcapacity.title"></a> `sheets.belongingssheet.carryingcapacity.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.carryingcapacity.calc"></a> `sheets.belongingssheet.carryingcapacity.calc`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.carryingcapacity.label"></a> `sheets.belongingssheet.carryingcapacity.label`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.animal.title"></a> `sheets.belongingssheet.animal.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.animal.name"></a> `sheets.belongingssheet.animal.name`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.animal.sizecategory"></a> `sheets.belongingssheet.animal.sizecategory`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.animal.type"></a> `sheets.belongingssheet.animal.type`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.animal.ap"></a> `sheets.belongingssheet.animal.ap`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.animal.protection"></a> `sheets.belongingssheet.animal.protection`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.animal.attackname"></a> `sheets.belongingssheet.animal.attackname`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.animal.attack"></a> `sheets.belongingssheet.animal.attack`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.animal.parry"></a> `sheets.belongingssheet.animal.parry`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.animal.damagepoints"></a> `sheets.belongingssheet.animal.damagepoints`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.animal.reach"></a> `sheets.belongingssheet.animal.reach`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.animal.actions"></a> `sheets.belongingssheet.animal.actions`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.animal.skills"></a> `sheets.belongingssheet.animal.skills`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.animal.specialabilities"></a> `sheets.belongingssheet.animal.specialabilities`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.belongingssheet.animal.notes"></a> `sheets.belongingssheet.animal.notes`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.spellssheet.title"></a> `sheets.spellssheet.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.spellssheet.header.labels.aemax"></a> `sheets.spellssheet.header.labels.aemax`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.spellssheet.header.labels.aecurrent"></a> `sheets.spellssheet.header.labels.aecurrent`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.spellssheet.spellstable.title"></a> `sheets.spellssheet.spellstable.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.spellssheet.spellstable.labels.spellorritual"></a> `sheets.spellssheet.spellstable.labels.spellorritual`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.spellssheet.spellstable.labels.check"></a> `sheets.spellssheet.spellstable.labels.check`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.spellssheet.spellstable.labels.skillrating"></a> `sheets.spellssheet.spellstable.labels.skillrating`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.spellssheet.spellstable.labels.cost"></a> `sheets.spellssheet.spellstable.labels.cost`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.spellssheet.spellstable.labels.castingtime"></a> `sheets.spellssheet.spellstable.labels.castingtime`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.spellssheet.spellstable.labels.range"></a> `sheets.spellssheet.spellstable.labels.range`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.spellssheet.spellstable.labels.duration"></a> `sheets.spellssheet.spellstable.labels.duration`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.spellssheet.spellstable.labels.property"></a> `sheets.spellssheet.spellstable.labels.property`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.spellssheet.spellstable.labels.improvementcost"></a> `sheets.spellssheet.spellstable.labels.improvementcost`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.spellssheet.spellstable.labels.effect"></a> `sheets.spellssheet.spellstable.labels.effect`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.spellssheet.spellstable.labels.pages"></a> `sheets.spellssheet.spellstable.labels.pages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.spellssheet.spellstable.unfamiliarspell"></a> `sheets.spellssheet.spellstable.unfamiliarspell`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.spellssheet.primaryattribute"></a> `sheets.spellssheet.primaryattribute`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.spellssheet.properties"></a> `sheets.spellssheet.properties`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.spellssheet.tradition"></a> `sheets.spellssheet.tradition`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.spellssheet.magicalspecialabilities"></a> `sheets.spellssheet.magicalspecialabilities`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.spellssheet.cantrips"></a> `sheets.spellssheet.cantrips`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.chantssheet.title"></a> `sheets.chantssheet.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.chantssheet.header.labels.kpmax"></a> `sheets.chantssheet.header.labels.kpmax`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.chantssheet.header.labels.kpcurrent"></a> `sheets.chantssheet.header.labels.kpcurrent`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.chantssheet.chantstable.title"></a> `sheets.chantssheet.chantstable.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.chantssheet.chantstable.labels.chant"></a> `sheets.chantssheet.chantstable.labels.chant`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.chantssheet.chantstable.labels.check"></a> `sheets.chantssheet.chantstable.labels.check`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.chantssheet.chantstable.labels.skillrating"></a> `sheets.chantssheet.chantstable.labels.skillrating`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.chantssheet.chantstable.labels.cost"></a> `sheets.chantssheet.chantstable.labels.cost`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.chantssheet.chantstable.labels.castingtime"></a> `sheets.chantssheet.chantstable.labels.castingtime`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.chantssheet.chantstable.labels.range"></a> `sheets.chantssheet.chantstable.labels.range`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.chantssheet.chantstable.labels.duration"></a> `sheets.chantssheet.chantstable.labels.duration`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.chantssheet.chantstable.labels.aspect"></a> `sheets.chantssheet.chantstable.labels.aspect`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.chantssheet.chantstable.labels.improvementcost"></a> `sheets.chantssheet.chantstable.labels.improvementcost`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.chantssheet.chantstable.labels.effect"></a> `sheets.chantssheet.chantstable.labels.effect`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.chantssheet.chantstable.labels.pages"></a> `sheets.chantssheet.chantstable.labels.pages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.chantssheet.primaryattribute"></a> `sheets.chantssheet.primaryattribute`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.chantssheet.aspects"></a> `sheets.chantssheet.aspects`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.chantssheet.tradition"></a> `sheets.chantssheet.tradition`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.chantssheet.blessedspecialabilities"></a> `sheets.chantssheet.blessedspecialabilities`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/sheets.chantssheet.blessings"></a> `sheets.chantssheet.blessings`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pacts.pactcategory"></a> `pacts.pactcategory`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pacts.nopact"></a> `pacts.nopact`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pacts.pactlevel"></a> `pacts.pactlevel`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pacts.fairytype"></a> `pacts.fairytype`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pacts.domain"></a> `pacts.domain`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pacts.userdefined"></a> `pacts.userdefined`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pacts.demontype"></a> `pacts.demontype`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pacts.circleofdamnation"></a> `pacts.circleofdamnation`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pacts.minorpact"></a> `pacts.minorpact`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pacts.pactisincompletehint"></a> `pacts.pactisincompletehint`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pacts.name"></a> `pacts.name`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rules.rulebase"></a> `rules.rulebase`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rules.enableallrulebooks"></a> `rules.enableallrulebooks`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rules.focusrules"></a> `rules.focusrules`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rules.optionalrules"></a> `rules.optionalrules`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rules.manualherodatarepair"></a> `rules.manualherodatarepair`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rules.manualherodatarepairexplanation"></a> `rules.manualherodatarepairexplanation`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.complementarysources"></a> `inlinewiki.complementarysources`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/race.header.name"></a> `race.header.name`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/race.header.adventurepoints"></a> `race.header.adventurepoints`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/race.header.adventurepoints.tooltip"></a> `race.header.adventurepoints.tooltip`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.apvalue"></a> `inlinewiki.apvalue`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.adventurepoints"></a> `inlinewiki.adventurepoints`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.lifepointbasevalue"></a> `inlinewiki.lifepointbasevalue`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.spiritbasevalue"></a> `inlinewiki.spiritbasevalue`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.toughnessbasevalue"></a> `inlinewiki.toughnessbasevalue`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.movementbasevalue"></a> `inlinewiki.movementbasevalue`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.attributeadjustments"></a> `inlinewiki.attributeadjustments`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.automaticadvantages"></a> `inlinewiki.automaticadvantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.stronglyrecommendedadvantages"></a> `inlinewiki.stronglyrecommendedadvantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.stronglyrecommendeddisadvantages"></a> `inlinewiki.stronglyrecommendeddisadvantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.commoncultures"></a> `inlinewiki.commoncultures`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.commonadvantages"></a> `inlinewiki.commonadvantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.commondisadvantages"></a> `inlinewiki.commondisadvantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.uncommonadvantages"></a> `inlinewiki.uncommonadvantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.uncommondisadvantages"></a> `inlinewiki.uncommondisadvantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/culture.filters.common.allcultures"></a> `culture.filters.common.allcultures`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/culture.filters.common.commoncultures"></a> `culture.filters.common.commoncultures`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/culture.header.name"></a> `culture.header.name`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.language"></a> `inlinewiki.language`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.script"></a> `inlinewiki.script`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.areaknowledge"></a> `inlinewiki.areaknowledge`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.socialstatus"></a> `inlinewiki.socialstatus`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.commonprofessions"></a> `inlinewiki.commonprofessions`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.commonprofessions.mundane"></a> `inlinewiki.commonprofessions.mundane`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.commonprofessions.magic"></a> `inlinewiki.commonprofessions.magic`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.commonprofessions.blessed"></a> `inlinewiki.commonprofessions.blessed`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.commonskills"></a> `inlinewiki.commonskills`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.uncommonskills"></a> `inlinewiki.uncommonskills`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.commonnames"></a> `inlinewiki.commonnames`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.culturalpackage"></a> `inlinewiki.culturalpackage`
 
 - `0`: Name of cultural package
 - `1`: AP cost of the cultural package
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/profession.ownprofession"></a> `profession.ownprofession`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/profession.variants.novariant"></a> `profession.variants.novariant`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/profession.filters.common.allprofessions"></a> `profession.filters.common.allprofessions`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/profession.filters.common.commonprofessions"></a> `profession.filters.common.commonprofessions`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/profession.filters.groups.allprofessiongroups"></a> `profession.filters.groups.allprofessiongroups`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/profession.filters.groups.mundaneprofessions"></a> `profession.filters.groups.mundaneprofessions`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/profession.filters.groups.magicalprofessions"></a> `profession.filters.groups.magicalprofessions`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/profession.filters.groups.blessedprofessions"></a> `profession.filters.groups.blessedprofessions`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/profession.header.name"></a> `profession.header.name`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/profession.header.adventurepoints"></a> `profession.header.adventurepoints`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/profession.header.adventurepoints.tooltip"></a> `profession.header.adventurepoints.tooltip`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.prerequisites"></a> `inlinewiki.prerequisites`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.race"></a> `inlinewiki.race`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.specialabilities"></a> `inlinewiki.specialabilities`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.languagesandliteracytotalingap"></a> `inlinewiki.languagesandliteracytotalingap`
 
 - `0`: AP given
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.skillspecialization"></a> `inlinewiki.skillspecialization`
 
 - `0`: Skill name(s)
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.skillsselection"></a> `inlinewiki.skillsselection`
 
 - `0`: AP given
 - `1`: Skill group
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.combattechniques"></a> `inlinewiki.combattechniques`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.combattechniqueselection"></a> `inlinewiki.combattechniqueselection`
 
@@ -2900,15 +2900,15 @@ Key | Description | Details
 - `1`: CtR of the selected combat techniques after application
 - `2`: List of possible combat techniques
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.combattechnique.one"></a> `inlinewiki.combattechnique.one`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.combattechnique.two"></a> `inlinewiki.combattechnique.two`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.combattechniquesecondselection"></a> `inlinewiki.combattechniquesecondselection`
 
@@ -2918,44 +2918,44 @@ Key | Description | Details
 - `3`: CtR of the selected combat techniques from second selection after application
 - `4`: List of possible combat techniques
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.skills"></a> `inlinewiki.skills`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.spells"></a> `inlinewiki.spells`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.cursestotalingap"></a> `inlinewiki.cursestotalingap`
 
 - `0`: AP given
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.cantripsfromlist"></a> `inlinewiki.cantripsfromlist`
 
 - `0`: Amount of cantrips to choose
 - `1`: List of possible cantrips
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.cantrip.one"></a> `inlinewiki.cantrip.one`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.cantrip.two"></a> `inlinewiki.cantrip.two`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.liturgicalchants"></a> `inlinewiki.liturgicalchants`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.thetwelveblessings"></a> `inlinewiki.thetwelveblessings`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.thetwelveblessingsexceptions"></a> `inlinewiki.thetwelveblessingsexceptions`
 
@@ -2963,121 +2963,121 @@ Key | Description | Details
 - `1`: name of second excluded blessing
 - `2`: name of third excluded blessing
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.sixblessings"></a> `inlinewiki.sixblessings`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.suggestedadvantages"></a> `inlinewiki.suggestedadvantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.suggesteddisadvantages"></a> `inlinewiki.suggesteddisadvantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.unsuitableadvantages"></a> `inlinewiki.unsuitableadvantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.unsuitabledisadvantages"></a> `inlinewiki.unsuitabledisadvantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.variants"></a> `inlinewiki.variants`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.insteadof"></a> `inlinewiki.insteadof`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rcpselectoptions.race"></a> `rcpselectoptions.race`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rcpselectoptions.culture"></a> `rcpselectoptions.culture`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rcpselectoptions.profession"></a> `rcpselectoptions.profession`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rcpselectoptions.cantripsfromlist"></a> `rcpselectoptions.cantripsfromlist`
 
 - `0`: Amount of cantrips to choose
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rcpselectoptions.cantrip.one"></a> `rcpselectoptions.cantrip.one`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rcpselectoptions.cantrip.two"></a> `rcpselectoptions.cantrip.two`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rcpselectoptions.combattechniqueselection"></a> `rcpselectoptions.combattechniqueselection`
 
 - `0`: Amount of combat techniques to choose
 - `1`: CtR of the selected combat techniques after application
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rcpselectoptions.combattechnique.one"></a> `rcpselectoptions.combattechnique.one`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rcpselectoptions.combattechnique.two"></a> `rcpselectoptions.combattechnique.two`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rcpselectoptions.selectattributeadjustment"></a> `rcpselectoptions.selectattributeadjustment`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rcpselectoptions.buyculturalpackage"></a> `rcpselectoptions.buyculturalpackage`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rcpselectoptions.nativetongue.placeholder"></a> `rcpselectoptions.nativetongue.placeholder`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rcpselectoptions.buyscript"></a> `rcpselectoptions.buyscript`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rcpselectoptions.script.placeholder"></a> `rcpselectoptions.script.placeholder`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rcpselectoptions.combattechniquesecondselection"></a> `rcpselectoptions.combattechniquesecondselection`
 
 - `0`: Amount of combat techniques to choose in a second selection
 - `1`: CtR of the selected combat techniques from second selection after application
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rcpselectoptions.cursestotalingapleft"></a> `rcpselectoptions.cursestotalingapleft`
 
 - `0`: AP given
 - `1`: AP left
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rcpselectoptions.languagesandliteracytotalingapleft"></a> `rcpselectoptions.languagesandliteracytotalingapleft`
 
 - `0`: AP given
 - `1`: AP left
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rcpselectoptions.applicationforskillspecialization"></a> `rcpselectoptions.applicationforskillspecialization`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rcpselectoptions.skillselectionap"></a> `rcpselectoptions.skillselectionap`
 
@@ -3085,638 +3085,638 @@ Key | Description | Details
 - `1`: AP given
 - `2`: AP left
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rcpselectoptions.skillspecialization"></a> `rcpselectoptions.skillspecialization`
 
 - `0`: Skill name(s)
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rcpselectoptions.completebtn"></a> `rcpselectoptions.completebtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rcpselectoptions.unfamiliarspells"></a> `rcpselectoptions.unfamiliarspells`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rcpselectoptions.unfamiliarspellselectionfortraditionguildmage"></a> `rcpselectoptions.unfamiliarspellselectionfortraditionguildmage`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rcpselectoptions.unfamiliarspell.placeholder"></a> `rcpselectoptions.unfamiliarspell.placeholder`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/rcpselectoptions.unfamiliarspell"></a> `rcpselectoptions.unfamiliarspell`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/attributes.totalpoints"></a> `attributes.totalpoints`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/attributes.attributeadjustmentselection"></a> `attributes.attributeadjustmentselection`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/attributes.derivedcharacteristics.tooltips.modifier"></a> `attributes.derivedcharacteristics.tooltips.modifier`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/attributes.derivedcharacteristics.tooltips.bought"></a> `attributes.derivedcharacteristics.tooltips.bought`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/attributes.derivedcharacteristics.tooltips.losttotal"></a> `attributes.derivedcharacteristics.tooltips.losttotal`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/attributes.derivedcharacteristics.tooltips.boughtback"></a> `attributes.derivedcharacteristics.tooltips.boughtback`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/attributes.lostpermanently.lifepoints"></a> `attributes.lostpermanently.lifepoints`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/attributes.lostpermanently.lifepoints.short"></a> `attributes.lostpermanently.lifepoints.short`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/attributes.lostpermanently.arcaneenergy"></a> `attributes.lostpermanently.arcaneenergy`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/attributes.lostpermanently.arcaneenergy.short"></a> `attributes.lostpermanently.arcaneenergy.short`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/attributes.lostpermanently.karmapoints"></a> `attributes.lostpermanently.karmapoints`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/attributes.lostpermanently.karmapoints.short"></a> `attributes.lostpermanently.karmapoints.short`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/attributes.removeenergypointslostpermanently.title"></a> `attributes.removeenergypointslostpermanently.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/attributes.removeenergypointslostpermanently.message"></a> `attributes.removeenergypointslostpermanently.message`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/attributes.removeenergypointslostpermanently.removebtn"></a> `attributes.removeenergypointslostpermanently.removebtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/attributes.pointslostpermanentlyeditor.boughtback"></a> `attributes.pointslostpermanentlyeditor.boughtback`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/attributes.pointslostpermanentlyeditor.spent"></a> `attributes.pointslostpermanentlyeditor.spent`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/advantages.filters.commonadvantages"></a> `advantages.filters.commonadvantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/disadvantages.filters.commondisadvantages"></a> `disadvantages.filters.commondisadvantages`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/advantagesdisadvantages.addbtn"></a> `advantagesdisadvantages.addbtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/advantagesdisadvantages.afraidof"></a> `advantagesdisadvantages.afraidof`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/advantagesdisadvantages.immunityto"></a> `advantagesdisadvantages.immunityto`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/advantagesdisadvantages.hatredfor"></a> `advantagesdisadvantages.hatredfor`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/advantagesdisadvantages.header.name"></a> `advantagesdisadvantages.header.name`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/advantagesdisadvantages.header.adventurepoints"></a> `advantagesdisadvantages.header.adventurepoints`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/advantagesdisadvantages.header.adventurepoints.tooltip"></a> `advantagesdisadvantages.header.adventurepoints.tooltip`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/advantagesdisadvantages.apspent.spentonadvantages"></a> `advantagesdisadvantages.apspent.spentonadvantages`
 
 - `0`: Current AP spent on advantages
 - `1`: Maximum possible AP spent on advantages
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/advantagesdisadvantages.apspent.spentonmagicadvantages"></a> `advantagesdisadvantages.apspent.spentonmagicadvantages`
 
 - `0`: Current AP spent on magic advantages
 - `1`: Maximum possible AP spent on magic advantages
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/advantagesdisadvantages.apspent.spentonblessedadvantages"></a> `advantagesdisadvantages.apspent.spentonblessedadvantages`
 
 - `0`: Current AP spent on blessed advantages
 - `1`: Maximum possible AP spent on blessed advantages
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/advantagesdisadvantages.apspent.spentondisadvantages"></a> `advantagesdisadvantages.apspent.spentondisadvantages`
 
 - `0`: Current AP spent on disadvantages
 - `1`: Maximum possible AP spent on disadvantages
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/advantagesdisadvantages.apspent.spentonmagicdisadvantages"></a> `advantagesdisadvantages.apspent.spentonmagicdisadvantages`
 
 - `0`: Current AP spent on magic disadvantages
 - `1`: Maximum possible AP spent on magic disadvantages
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/advantagesdisadvantages.apspent.spentonblesseddisadvantages"></a> `advantagesdisadvantages.apspent.spentonblesseddisadvantages`
 
 - `0`: Current AP spent on blessed disadvantages
 - `1`: Maximum possible AP spent on blessed disadvantages
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/advantagesdisadvantages.dialogs.customcost.title"></a> `advantagesdisadvantages.dialogs.customcost.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/advantagesdisadvantages.dialogs.customcost.for"></a> `advantagesdisadvantages.dialogs.customcost.for`
 
 - `0`: Entry name
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/specialabilities.addbtn"></a> `specialabilities.addbtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/specialabilities.header.name"></a> `specialabilities.header.name`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/specialabilities.header.group"></a> `specialabilities.header.group`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/specialabilities.header.adventurepoints"></a> `specialabilities.header.adventurepoints`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/specialabilities.header.adventurepoints.tooltip"></a> `specialabilities.header.adventurepoints.tooltip`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/specialabilities.nativetonguelevel"></a> `specialabilities.nativetonguelevel`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.rule"></a> `inlinewiki.rule`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.effect"></a> `inlinewiki.effect`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.extendedcombatspecialabilities"></a> `inlinewiki.extendedcombatspecialabilities`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.extendedmagicalspecialabilities"></a> `inlinewiki.extendedmagicalspecialabilities`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.extendedblessedspecialabilities"></a> `inlinewiki.extendedblessedspecialabilities`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.extendedskillspecialabilities"></a> `inlinewiki.extendedskillspecialabilities`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.penalty"></a> `inlinewiki.penalty`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.level"></a> `inlinewiki.level`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.perlevel"></a> `inlinewiki.perlevel`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.volume"></a> `inlinewiki.volume`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.aspect"></a> `inlinewiki.aspect`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.bindingcost"></a> `inlinewiki.bindingcost`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.protectivecircle"></a> `inlinewiki.protectivecircle`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.wardingcircle"></a> `inlinewiki.wardingcircle`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.actions"></a> `inlinewiki.actions`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.racecultureorprofessionrequiresautomaticorsuggested"></a> `inlinewiki.racecultureorprofessionrequiresautomaticorsuggested`
 
 - `0`: Entry name
 - `1`: category (advantage, disadvantage, …)
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.advantage"></a> `inlinewiki.advantage`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.disadvantage"></a> `inlinewiki.disadvantage`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.primaryattributeofthetradition"></a> `inlinewiki.primaryattributeofthetradition`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.knowledgeofspell"></a> `inlinewiki.knowledgeofspell`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.knowledgeofliturgicalchant"></a> `inlinewiki.knowledgeofliturgicalchant`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.appropriatecombatstylespecialability"></a> `inlinewiki.appropriatecombatstylespecialability`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.appropriatemagicalstylespecialability"></a> `inlinewiki.appropriatemagicalstylespecialability`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.appropriateblessedstylespecialability"></a> `inlinewiki.appropriateblessedstylespecialability`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.appropriateskillstylespecialability"></a> `inlinewiki.appropriateskillstylespecialability`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.sex"></a> `inlinewiki.sex`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.sex.male"></a> `inlinewiki.sex.male`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.sex.female"></a> `inlinewiki.sex.female`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.combattechniques.groups.all"></a> `inlinewiki.combattechniques.groups.all`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.combattechniques.groups.allmeleecombattechniques"></a> `inlinewiki.combattechniques.groups.allmeleecombattechniques`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.combattechniques.groups.allrangedcombattechniques"></a> `inlinewiki.combattechniques.groups.allrangedcombattechniques`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.combattechniques.groups.allmeleecombattechniqueswithparry"></a> `inlinewiki.combattechniques.groups.allmeleecombattechniqueswithparry`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.combattechniques.groups.allmeleecombattechniquesforonehandedweapons"></a> `inlinewiki.combattechniques.groups.allmeleecombattechniquesforonehandedweapons`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.socialstatusxorhigher"></a> `inlinewiki.socialstatusxorhigher`
 
 - `0`: Minimum social status
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/skills.commonskills"></a> `skills.commonskills`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/skills.header.name"></a> `skills.header.name`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/skills.header.skillrating"></a> `skills.header.skillrating`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/skills.header.skillrating.tooltip"></a> `skills.header.skillrating.tooltip`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/skills.header.group"></a> `skills.header.group`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/skills.header.check"></a> `skills.header.check`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/skills.header.improvementcost"></a> `skills.header.improvementcost`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/skills.header.improvementcost.tooltip"></a> `skills.header.improvementcost.tooltip`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.check"></a> `inlinewiki.check`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.newapplications"></a> `inlinewiki.newapplications`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.applications"></a> `inlinewiki.applications`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.uses"></a> `inlinewiki.uses`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.encumbrance"></a> `inlinewiki.encumbrance`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.encumbrance.yes"></a> `inlinewiki.encumbrance.yes`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.encumbrance.no"></a> `inlinewiki.encumbrance.no`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.encumbrance.maybe"></a> `inlinewiki.encumbrance.maybe`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.tools"></a> `inlinewiki.tools`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.quality"></a> `inlinewiki.quality`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.failedcheck"></a> `inlinewiki.failedcheck`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.criticalsuccess"></a> `inlinewiki.criticalsuccess`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.botch"></a> `inlinewiki.botch`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.improvementcost"></a> `inlinewiki.improvementcost`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/showfrequency.stronglyrecommended"></a> `showfrequency.stronglyrecommended`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/showfrequency.common"></a> `showfrequency.common`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/showfrequency.uncommon"></a> `showfrequency.uncommon`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/showfrequency.unfamiliarspells"></a> `showfrequency.unfamiliarspells`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/combattechniques.header.name"></a> `combattechniques.header.name`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/combattechniques.header.group"></a> `combattechniques.header.group`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/combattechniques.header.combattechniquerating"></a> `combattechniques.header.combattechniquerating`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/combattechniques.header.combattechniquerating.tooltip"></a> `combattechniques.header.combattechniquerating.tooltip`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/combattechniques.header.improvementcost"></a> `combattechniques.header.improvementcost`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/combattechniques.header.improvementcost.tooltip"></a> `combattechniques.header.improvementcost.tooltip`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/combattechniques.header.primaryattribute"></a> `combattechniques.header.primaryattribute`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/combattechniques.header.primaryattribute.tooltip"></a> `combattechniques.header.primaryattribute.tooltip`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/combattechniques.header.attack"></a> `combattechniques.header.attack`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/combattechniques.header.attack.tooltip"></a> `combattechniques.header.attack.tooltip`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/combattechniques.header.parry"></a> `combattechniques.header.parry`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/combattechniques.header.parry.tooltip"></a> `combattechniques.header.parry.tooltip`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.special"></a> `inlinewiki.special`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.primaryattribute"></a> `inlinewiki.primaryattribute`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/spells.addbtn"></a> `spells.addbtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/spells.header.name"></a> `spells.header.name`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/spells.header.property"></a> `spells.header.property`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/spells.header.group"></a> `spells.header.group`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/spells.header.skillrating"></a> `spells.header.skillrating`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/spells.header.skillrating.tooltip"></a> `spells.header.skillrating.tooltip`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/spells.header.check"></a> `spells.header.check`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/spells.header.checkmodifier"></a> `spells.header.checkmodifier`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/spells.header.checkmodifier.tooltip"></a> `spells.header.checkmodifier.tooltip`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/spells.header.improvementcost"></a> `spells.header.improvementcost`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/spells.header.improvementcost.tooltip"></a> `spells.header.improvementcost.tooltip`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/spells.groups.cantrip"></a> `spells.groups.cantrip`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/spells.traditions.general"></a> `spells.traditions.general`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/magicalactions.animistforces.tribes.general"></a> `magicalactions.animistforces.tribes.general`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.castingtime"></a> `inlinewiki.castingtime`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.ritualtime"></a> `inlinewiki.ritualtime`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.aecost"></a> `inlinewiki.aecost`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.range"></a> `inlinewiki.range`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.duration"></a> `inlinewiki.duration`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.targetcategory"></a> `inlinewiki.targetcategory`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.property"></a> `inlinewiki.property`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.traditions"></a> `inlinewiki.traditions`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.skill"></a> `inlinewiki.skill`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.lengthoftime"></a> `inlinewiki.lengthoftime`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.musictradition"></a> `inlinewiki.musictradition`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.youcannotuseamodificationonthisspellscastingtime"></a> `inlinewiki.youcannotuseamodificationonthisspellscastingtime`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.youcannotuseamodificationonthisspellsritualtime"></a> `inlinewiki.youcannotuseamodificationonthisspellsritualtime`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.youcannotuseamodificationonthisspellscost"></a> `inlinewiki.youcannotuseamodificationonthisspellscost`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.youcannotuseamodificationonthisspellsrange"></a> `inlinewiki.youcannotuseamodificationonthisspellsrange`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.youcannotuseamodificationonthisspellsduration"></a> `inlinewiki.youcannotuseamodificationonthisspellsduration`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.spellenhancements"></a> `inlinewiki.spellenhancements`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.spellenhancements.title"></a> `inlinewiki.spellenhancements.title`
 
@@ -3725,123 +3725,123 @@ Key | Description | Details
 - `2`: AP value
 - `3`: Description
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.tribaltraditions"></a> `inlinewiki.tribaltraditions`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.brew"></a> `inlinewiki.brew`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.spirithalf"></a> `inlinewiki.spirithalf`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.spirithalf.short"></a> `inlinewiki.spirithalf.short`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.spiritortoughness"></a> `inlinewiki.spiritortoughness`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.spiritortoughness.short"></a> `inlinewiki.spiritortoughness.short`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.note"></a> `inlinewiki.note`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/liturgicalchants.addbtn"></a> `liturgicalchants.addbtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/liturgicalchants.header.name"></a> `liturgicalchants.header.name`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/liturgicalchants.header.traditions"></a> `liturgicalchants.header.traditions`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/liturgicalchants.header.group"></a> `liturgicalchants.header.group`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/liturgicalchants.header.skillrating"></a> `liturgicalchants.header.skillrating`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/liturgicalchants.header.skillrating.tooltip"></a> `liturgicalchants.header.skillrating.tooltip`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/liturgicalchants.header.check"></a> `liturgicalchants.header.check`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/liturgicalchants.header.checkmodifier"></a> `liturgicalchants.header.checkmodifier`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/liturgicalchants.header.checkmodifier.tooltip"></a> `liturgicalchants.header.checkmodifier.tooltip`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/liturgicalchants.header.improvementcost"></a> `liturgicalchants.header.improvementcost`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/liturgicalchants.header.improvementcost.tooltip"></a> `liturgicalchants.header.improvementcost.tooltip`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/liturgicalchants.groups.blessing"></a> `liturgicalchants.groups.blessing`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/liturgicalchants.aspects.general"></a> `liturgicalchants.aspects.general`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.liturgicaltime"></a> `inlinewiki.liturgicaltime`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.ceremonialtime"></a> `inlinewiki.ceremonialtime`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.kpcost"></a> `inlinewiki.kpcost`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.youcannotuseamodificationonthischantsliturgicaltime"></a> `inlinewiki.youcannotuseamodificationonthischantsliturgicaltime`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.youcannotuseamodificationonthischantsceremonialtime"></a> `inlinewiki.youcannotuseamodificationonthischantsceremonialtime`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.youcannotuseamodificationonthischantscost"></a> `inlinewiki.youcannotuseamodificationonthischantscost`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.youcannotuseamodificationonthischantsrange"></a> `inlinewiki.youcannotuseamodificationonthischantsrange`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.youcannotuseamodificationonthischantsduration"></a> `inlinewiki.youcannotuseamodificationonthischantsduration`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.liturgicalchantenhancements"></a> `inlinewiki.liturgicalchantenhancements`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.liturgicalchantenhancements.title"></a> `inlinewiki.liturgicalchantenhancements.title`
 
@@ -3850,465 +3850,458 @@ Key | Description | Details
 - `2`: AP value
 - `3`: Description
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.header.name"></a> `equipment.header.name`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.header.group"></a> `equipment.header.group`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.addbtn"></a> `equipment.addbtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.createbtn"></a> `equipment.createbtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.filters.allcombattechniques"></a> `equipment.filters.allcombattechniques`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.purse.title"></a> `equipment.purse.title`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.purse.ducats"></a> `equipment.purse.ducats`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.purse.silverthalers"></a> `equipment.purse.silverthalers`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.purse.halers"></a> `equipment.purse.halers`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.purse.kreutzers"></a> `equipment.purse.kreutzers`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.purse.carryingcapacity"></a> `equipment.purse.carryingcapacity`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.purse.initialstartingwealthandcarryingcapacity"></a> `equipment.purse.initialstartingwealthandcarryingcapacity`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.purse.earnpay"></a> `equipment.purse.earnpay`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.purse.earn"></a> `equipment.purse.earn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.purse.pay"></a> `equipment.purse.pay`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.purse.notefirst"></a> `equipment.purse.notefirst`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.purse.notesecond"></a> `equipment.purse.notesecond`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.purse.currentcredit"></a> `equipment.purse.currentcredit`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.purse.amount"></a> `equipment.purse.amount`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.damage"></a> `equipment.dialogs.addedit.damage`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.length"></a> `equipment.dialogs.addedit.length`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.range"></a> `equipment.dialogs.addedit.range`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.edititem"></a> `equipment.dialogs.addedit.edititem`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.createitem"></a> `equipment.dialogs.addedit.createitem`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.number"></a> `equipment.dialogs.addedit.number`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.name"></a> `equipment.dialogs.addedit.name`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.price"></a> `equipment.dialogs.addedit.price`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.weight"></a> `equipment.dialogs.addedit.weight`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.carriedwhere"></a> `equipment.dialogs.addedit.carriedwhere`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.itemgroup"></a> `equipment.dialogs.addedit.itemgroup`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.itemgrouphint"></a> `equipment.dialogs.addedit.itemgrouphint`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.improvisedweapon"></a> `equipment.dialogs.addedit.improvisedweapon`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.improvisedweapongroup"></a> `equipment.dialogs.addedit.improvisedweapongroup`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.template"></a> `equipment.dialogs.addedit.template`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.combattechnique"></a> `equipment.dialogs.addedit.combattechnique`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.primaryattributeanddamagethreshold"></a> `equipment.dialogs.addedit.primaryattributeanddamagethreshold`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.primaryattribute"></a> `equipment.dialogs.addedit.primaryattribute`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.primaryattribute.short"></a> `equipment.dialogs.addedit.primaryattribute.short`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.damagethreshold"></a> `equipment.dialogs.addedit.damagethreshold`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.separatedamagethresholds"></a> `equipment.dialogs.addedit.separatedamagethresholds`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.breakingpointratingmodifier"></a> `equipment.dialogs.addedit.breakingpointratingmodifier`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.damaged"></a> `equipment.dialogs.addedit.damaged`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.reach"></a> `equipment.dialogs.addedit.reach`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.attackparrymodifier"></a> `equipment.dialogs.addedit.attackparrymodifier`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.structurepoints"></a> `equipment.dialogs.addedit.structurepoints`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.lengthwithunit"></a> `equipment.dialogs.addedit.lengthwithunit`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.parryingweapon"></a> `equipment.dialogs.addedit.parryingweapon`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.twohandedweapon"></a> `equipment.dialogs.addedit.twohandedweapon`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.reloadtime"></a> `equipment.dialogs.addedit.reloadtime`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.rangeclose"></a> `equipment.dialogs.addedit.rangeclose`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.rangemedium"></a> `equipment.dialogs.addedit.rangemedium`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.rangefar"></a> `equipment.dialogs.addedit.rangefar`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.ammunition"></a> `equipment.dialogs.addedit.ammunition`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.protection"></a> `equipment.dialogs.addedit.protection`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.encumbrance"></a> `equipment.dialogs.addedit.encumbrance`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.armortype"></a> `equipment.dialogs.addedit.armortype`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.sturdinessmodifier"></a> `equipment.dialogs.addedit.sturdinessmodifier`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.wear"></a> `equipment.dialogs.addedit.wear`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.hitzonearmoronly"></a> `equipment.dialogs.addedit.hitzonearmoronly`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.movementmodifier"></a> `equipment.dialogs.addedit.movementmodifier`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.initiativemodifier"></a> `equipment.dialogs.addedit.initiativemodifier`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/equipment.dialogs.addedit.additionalpenalties"></a> `equipment.dialogs.addedit.additionalpenalties`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/hitzonearmors.header.name"></a> `hitzonearmors.header.name`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/hitzonearmors.createbtn"></a> `hitzonearmors.createbtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/hitzonearmors.dialogs.addedit.name"></a> `hitzonearmors.dialogs.addedit.name`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/hitzonearmors.dialogs.addedit.edithitzonearmor"></a> `hitzonearmors.dialogs.addedit.edithitzonearmor`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/hitzonearmors.dialogs.addedit.createhitzonearmor"></a> `hitzonearmors.dialogs.addedit.createhitzonearmor`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/hitzonearmors.dialogs.addedit.head"></a> `hitzonearmors.dialogs.addedit.head`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/hitzonearmors.dialogs.addedit.torso"></a> `hitzonearmors.dialogs.addedit.torso`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/hitzonearmors.dialogs.addedit.leftarm"></a> `hitzonearmors.dialogs.addedit.leftarm`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/hitzonearmors.dialogs.addedit.rightarm"></a> `hitzonearmors.dialogs.addedit.rightarm`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/hitzonearmors.dialogs.addedit.leftleg"></a> `hitzonearmors.dialogs.addedit.leftleg`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/hitzonearmors.dialogs.addedit.rightleg"></a> `hitzonearmors.dialogs.addedit.rightleg`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/hitzonearmors.dialogs.addedit.wear"></a> `hitzonearmors.dialogs.addedit.wear`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.equipment.weight"></a> `inlinewiki.equipment.weight`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.equipment.price"></a> `inlinewiki.equipment.price`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.equipment.ammunition"></a> `inlinewiki.equipment.ammunition`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.equipment.combattechnique"></a> `inlinewiki.equipment.combattechnique`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.equipment.damage"></a> `inlinewiki.equipment.damage`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.equipment.primaryattributeanddamagethreshold"></a> `inlinewiki.equipment.primaryattributeanddamagethreshold`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.equipment.attackparrymodifier"></a> `inlinewiki.equipment.attackparrymodifier`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.equipment.reach"></a> `inlinewiki.equipment.reach`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.equipment.length"></a> `inlinewiki.equipment.length`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.equipment.reloadtime"></a> `inlinewiki.equipment.reloadtime`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.equipment.range"></a> `inlinewiki.equipment.range`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.equipment.actionsvalue"></a> `inlinewiki.equipment.actionsvalue`
 
 - `0`: Number of actions
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.equipment.protection"></a> `inlinewiki.equipment.protection`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.equipment.encumbrance"></a> `inlinewiki.equipment.encumbrance`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.equipment.additionalpenalties"></a> `inlinewiki.equipment.additionalpenalties`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.equipment.note"></a> `inlinewiki.equipment.note`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.equipment.rules"></a> `inlinewiki.equipment.rules`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.equipment.weaponadvantage"></a> `inlinewiki.equipment.weaponadvantage`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.equipment.weapondisadvantage"></a> `inlinewiki.equipment.weapondisadvantage`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.equipment.armoradvantage"></a> `inlinewiki.equipment.armoradvantage`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.equipment.armordisadvantage"></a> `inlinewiki.equipment.armordisadvantage`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pets.dialogs.addedit.deleteavatarbtn"></a> `pets.dialogs.addedit.deleteavatarbtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pets.dialogs.addedit.name"></a> `pets.dialogs.addedit.name`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pets.dialogs.addedit.sizecategory"></a> `pets.dialogs.addedit.sizecategory`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pets.dialogs.addedit.type"></a> `pets.dialogs.addedit.type`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pets.dialogs.addedit.apspent"></a> `pets.dialogs.addedit.apspent`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pets.dialogs.addedit.totalap"></a> `pets.dialogs.addedit.totalap`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pets.dialogs.addedit.protection"></a> `pets.dialogs.addedit.protection`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pets.dialogs.addedit.attackname"></a> `pets.dialogs.addedit.attackname`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pets.dialogs.addedit.attack"></a> `pets.dialogs.addedit.attack`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pets.dialogs.addedit.parry"></a> `pets.dialogs.addedit.parry`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pets.dialogs.addedit.damagepoints"></a> `pets.dialogs.addedit.damagepoints`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pets.dialogs.addedit.reach"></a> `pets.dialogs.addedit.reach`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pets.dialogs.addedit.actions"></a> `pets.dialogs.addedit.actions`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pets.dialogs.addedit.skills"></a> `pets.dialogs.addedit.skills`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pets.dialogs.addedit.specialabilities"></a> `pets.dialogs.addedit.specialabilities`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pets.dialogs.addedit.notes"></a> `pets.dialogs.addedit.notes`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pets.dialogs.addedit.addbtn"></a> `pets.dialogs.addedit.addbtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/pets.dialogs.addedit.savebtn"></a> `pets.dialogs.addedit.savebtn`
 
-- **Type:** <a href="#NonEmptyString">NonEmptyString</a>
-
----
-
-### <a name="NonEmptyString"></a> `NonEmptyString`
-
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

@@ -14,279 +14,24 @@
         },
         "level": {
           "description": "The poison's level.",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "QualityLevel"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Fixed"
-                },
-                "value": {
-                  "type": "integer",
-                  "minimum": 1
-                }
-              },
-              "required": [
-                "tag",
-                "value"
-              ],
-              "additionalProperties": false
-            }
-          ]
+          "$ref": "#/$defs/PoisonLevel"
         },
         "application_type": {
           "description": "The poison's application type(s).",
           "type": "array",
           "items": {
-            "oneOf": [
-              {
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Weapon"
-                  }
-                },
-                "required": [
-                  "tag"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Ingestion"
-                  }
-                },
-                "required": [
-                  "tag"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Inhalation"
-                  }
-                },
-                "required": [
-                  "tag"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Contact"
-                  }
-                },
-                "required": [
-                  "tag"
-                ],
-                "additionalProperties": false
-              }
-            ]
+            "$ref": "#/$defs/PoisonApplicationType"
           },
           "minItems": 1,
           "uniqueItems": true
         },
         "source_type": {
           "description": "The poison's source type and dependent additional values.",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "AnimalVenom"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "PlantPoison"
-                },
-                "category": {
-                  "description": "The plant poison category and dependent additional values.",
-                  "oneOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "tag": {
-                          "const": "Default"
-                        }
-                      },
-                      "required": [
-                        "tag"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "tag": {
-                          "const": "Intoxicant"
-                        },
-                        "legality": {
-                          "description": "Whether the use of the intoxicant is legal or not.",
-                          "oneOf": [
-                            {
-                              "type": "object",
-                              "properties": {
-                                "tag": {
-                                  "const": "Legal"
-                                }
-                              },
-                              "required": [
-                                "tag"
-                              ],
-                              "additionalProperties": false
-                            },
-                            {
-                              "type": "object",
-                              "properties": {
-                                "tag": {
-                                  "const": "Illegal"
-                                }
-                              },
-                              "required": [
-                                "tag"
-                              ],
-                              "additionalProperties": false
-                            }
-                          ]
-                        },
-                        "translations": {
-                          "description": "All translations for the entry, identified by IETF language tag\n(BCP47).",
-                          "type": "object",
-                          "patternProperties": {
-                            "^[a-z]{2}-[A-Z]{2}$": {
-                              "type": "object",
-                              "properties": {
-                                "ingestion": {
-                                  "description": "How to ingest the intoxicant.",
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "side_effect": {
-                                  "description": "The intoxicants side effects, if any.",
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "overdose": {
-                                  "description": "What happens if the intoxicant has been overdosed.",
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "special": {
-                                  "type": "string",
-                                  "minLength": 1
-                                },
-                                "addiction": {
-                                  "type": "string",
-                                  "minLength": 1
-                                }
-                              },
-                              "required": [
-                                "ingestion",
-                                "overdose"
-                              ],
-                              "additionalProperties": false
-                            }
-                          },
-                          "minProperties": 1,
-                          "additionalProperties": false
-                        }
-                      },
-                      "required": [
-                        "tag",
-                        "legality",
-                        "translations"
-                      ],
-                      "additionalProperties": false
-                    }
-                  ]
-                }
-              },
-              "required": [
-                "tag",
-                "category"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "AlchemicalPoison"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "MineralPoison"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            }
-          ]
+          "$ref": "#/$defs/PoisonSourceType"
         },
         "resistance": {
           "description": "Use Spirit or Toughness as a modifier for the poison.",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Spirit"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Toughness"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            }
-          ]
+          "$ref": "./_DiseasePoison.schema.json#/$defs/Resistance"
         },
         "value": {
           "description": "The raw (ingredients) value, in silverthalers.",
@@ -306,94 +51,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The name of the poison.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "alternative_names": {
-                  "description": "A list of alternative names.",
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "description": "An alternative name of the poison.",
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "region": {
-                        "description": "The region where this alternative name is used.",
-                        "type": "string",
-                        "minLength": 1
-                      }
-                    },
-                    "required": [
-                      "name"
-                    ],
-                    "additionalProperties": false
-                  },
-                  "minItems": 1
-                },
-                "effect": {
-                  "description": "The normal and degraded poison's effects.",
-                  "type": "object",
-                  "properties": {
-                    "default": {
-                      "description": "The poison’s effects.",
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "degraded": {
-                      "description": "The degraded poison’s effects.",
-                      "type": "string",
-                      "minLength": 1
-                    }
-                  },
-                  "required": [
-                    "default"
-                  ],
-                  "additionalProperties": false
-                },
-                "start": {
-                  "description": "When the poison takes effect.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "duration": {
-                  "description": "The normal and degraded poison's duration.",
-                  "type": "object",
-                  "properties": {
-                    "default": {
-                      "description": "The poison’s duration.",
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "degraded": {
-                      "description": "The degraded poison’s duration.",
-                      "type": "string",
-                      "minLength": 1
-                    }
-                  },
-                  "required": [
-                    "default",
-                    "degraded"
-                  ],
-                  "additionalProperties": false
-                },
-                "errata": {
-                  "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "effect",
-                "start",
-                "duration"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/PoisonTranslation"
             }
           },
           "minProperties": 1,
@@ -410,6 +68,309 @@
         "cost",
         "src",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "PoisonLevel": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "QualityLevel"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Fixed"
+            },
+            "fixed": {
+              "$ref": "#/$defs/FixedPoisonLevel"
+            }
+          },
+          "required": [
+            "tag",
+            "fixed"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "FixedPoisonLevel": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "PoisonApplicationType": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Weapon"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Ingestion"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Inhalation"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Contact"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "PoisonSourceType": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "AnimalVenom"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "AlchemicalPoison"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "MineralPoison"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PlantPoison"
+            },
+            "plant_poison": {
+              "$ref": "#/$defs/PlantPoison"
+            }
+          },
+          "required": [
+            "tag",
+            "plant_poison"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "PlantPoison": {
+      "type": "object",
+      "properties": {
+        "category": {
+          "description": "The plant poison category and dependent additional values.",
+          "$ref": "#/$defs/PlantPoisonCategory"
+        }
+      },
+      "required": [
+        "category"
+      ],
+      "additionalProperties": false
+    },
+    "PlantPoisonCategory": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Default"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Intoxicant"
+            },
+            "intoxicant": {
+              "$ref": "#/$defs/Intoxicant"
+            }
+          },
+          "required": [
+            "tag",
+            "intoxicant"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "Intoxicant": {
+      "type": "object",
+      "properties": {
+        "legality": {
+          "description": "Whether the use of the intoxicant is legal or not.",
+          "$ref": "#/$defs/IntoxicantLegality"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/IntoxicantTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "legality",
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "IntoxicantLegality": {
+      "type": "object",
+      "properties": {
+        "is_legal": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "is_legal"
+      ],
+      "additionalProperties": false
+    },
+    "IntoxicantTranslation": {
+      "type": "object",
+      "properties": {
+        "ingestion": {
+          "description": "How to ingest the intoxicant.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "side_effect": {
+          "description": "The intoxicants side effects, if any.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        },
+        "overdose": {
+          "description": "What happens if the intoxicant has been overdosed.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        },
+        "special": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        },
+        "addiction": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        }
+      },
+      "required": [
+        "ingestion",
+        "overdose"
+      ],
+      "additionalProperties": false
+    },
+    "PoisonTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the poison.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "alternative_names": {
+          "description": "A list of alternative names.",
+          "type": "array",
+          "items": {
+            "$ref": "./_DiseasePoison.schema.json#/$defs/AlternativeName"
+          },
+          "minItems": 1
+        },
+        "effect": {
+          "description": "The normal and degraded poison's effects.",
+          "$ref": "./_DiseasePoison.schema.json#/$defs/Reduceable"
+        },
+        "start": {
+          "description": "When the poison takes effect.",
+          "type": "string",
+          "minLength": 1
+        },
+        "duration": {
+          "description": "The normal and degraded poison's duration.",
+          "$ref": "./_DiseasePoison.schema.json#/$defs/Reduceable"
+        },
+        "errata": {
+          "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "effect",
+        "start",
+        "duration"
       ],
       "additionalProperties": false
     }

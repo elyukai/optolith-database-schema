@@ -31,31 +31,34 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Attribute/translations[key]"></a> `Attribute/translations[key]`
 
+- **Type:** <a href="#AttributeTranslation">AttributeTranslation</a>
+
+---
+
+### <a name="AttributeTranslation"></a> `AttributeTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The attribute's name. | <a href="#Attribute/translations[key]/name">See details</a>
-`abbreviation` | The abbreviation of the attribute's name. | <a href="#Attribute/translations[key]/abbreviation">See details</a>
-`description` | The description of the attribute. | <a href="#Attribute/translations[key]/description">See details</a>
+`name` | The attribute's name. | <a href="#AttributeTranslation/name">See details</a>
+`abbreviation` | The abbreviation of the attribute's name. | <a href="#AttributeTranslation/abbreviation">See details</a>
+`description` | The description of the attribute. | <a href="#AttributeTranslation/description">See details</a>
 
-#### <a name="Attribute/translations[key]/name"></a> `name`
+#### <a name="AttributeTranslation/name"></a> `name`
 
 The attribute's name.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Attribute/translations[key]/abbreviation"></a> `abbreviation`
+#### <a name="AttributeTranslation/abbreviation"></a> `abbreviation`
 
 The abbreviation of the attribute's name.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Attribute/translations[key]/description"></a> `description`
+#### <a name="AttributeTranslation/description"></a> `description`
 
 The description of the attribute.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

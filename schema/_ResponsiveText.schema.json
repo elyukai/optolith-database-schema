@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/_ResponsiveText.schema.json",
+  "$defs": {
+    "ResponsiveText": {
+      "description": "A text from the source that can be also displayed in small areas using a\ncompressed version.",
+      "type": "object",
+      "properties": {
+        "full": {
+          "description": "The full text from the source.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "compressed": {
+          "description": "A compressed text for use in small areas (e.g. on character sheet).",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "full",
+        "compressed"
+      ],
+      "additionalProperties": false
+    },
+    "ResponsiveTextReplace": {
+      "description": "A text from the source that can be also displayed in small areas using a\ncompressed version. It is used as a replacement for a generated text while\nthe generated text is still provided and should be used.",
+      "type": "object",
+      "properties": {
+        "default": {
+          "description": "The full replacement string. It must contain `$1`, which is going to be\nreplaced with the generated string, so additional information can be\nprovided without duplicating concrete numeric values.",
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\$1"
+        },
+        "compressed": {
+          "description": "A compressed replacement string for use in small areas (e.g. on character\nsheet). It must contain `$1`, which is going to be replaced with the\ngenerated string, so additional information can be provided without\nduplicating concrete numeric values.",
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\$1"
+        }
+      },
+      "required": [
+        "default",
+        "compressed"
+      ],
+      "additionalProperties": false
+    },
+    "ResponsiveTextOptional": {
+      "description": "A text from the source that can be also displayed in small areas using a\ncompressed version, if available.",
+      "type": "object",
+      "properties": {
+        "full": {
+          "description": "The full text from the source.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "compressed": {
+          "description": "A compressed text for use in small areas (e.g. on character sheet). If this\nis not present, it should not appear in those areas.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "full"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

@@ -5,9 +5,15 @@
 import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
+import { LocaleMap } from "./_LocaleMap.js"
+import { NonEmptyString } from "./_NonEmptyString.js"
 import { PersonalityTraitPrerequisites } from "./_Prerequisite.js"
+import { PersonalityTraitReference } from "./_SimpleReferences.js"
 
 /**
+ * A personality trait describes character aspects of a person from a certain
+ * region. Higher trait levels only cover a part of the region covered by
+ * lower-level traits.
  * @title Personality Trait
  */
 export type PersonalityTrait = {
@@ -33,14 +39,7 @@ export type PersonalityTrait = {
    * @minItems 1
    * @uniqueItems
    */
-  combination_options?: {
-    /**
-     * The referenced personality trait's identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-  }[]
+  combination_options?: PersonalityTraitReference[]
 
   src: PublicationRefs
 
@@ -48,39 +47,35 @@ export type PersonalityTrait = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the personality trait.
-       * @minLength 1
-       */
-      name: string
+  translations: LocaleMap<PersonalityTraitTranslation>
+}
 
-      /**
-       * The effects of the personality trait. They should be sorted like they
-       * are in the book.
-       * @minItems 1
-       */
-      effects: {
-        /**
-         * A label that is displayed and placed before the actual text.
-         * @minLength 1
-         */
-        label?: string
+export type PersonalityTraitTranslation = {
+  /**
+   * The name of the personality trait.
+   */
+  name: NonEmptyString
 
-        /**
-         * The effect text.
-         * @minLength 1
-         */
-        text: string
-      }[]
+  /**
+   * The effects of the personality trait. They should be sorted like they
+   * are in the book.
+   * @minItems 1
+   */
+  effects: PersonalityTraitEffect[]
 
-      errata?: Errata
-    }
-  }
+  errata?: Errata
+}
+
+export type PersonalityTraitEffect = {
+  /**
+   * A label that is displayed and placed before the actual text.
+   */
+  label?: NonEmptyString
+
+  /**
+   * The effect text.
+   */
+  text: NonEmptyString
 }
 
 export const validateSchema = validateSchemaCreator<PersonalityTrait>(import.meta.url)

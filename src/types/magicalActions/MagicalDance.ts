@@ -5,8 +5,10 @@
 import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
-import { Duration, Effect } from "../_ActivatableSkill.js"
+import { CheckResultBasedModifier } from "../_ActivatableSkillCheckResultBased.js"
+import { Effect } from "../_ActivatableSkillEffect.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
+import { ResponsiveText } from "../_ResponsiveText.js"
 import { SkillCheck } from "../_SkillCheck.js"
 import { MusicTraditionReference } from "./_MusicTradition.js"
 
@@ -72,7 +74,7 @@ export type MagicalDance = {
        * divided by a list of effects for each quality level. It may also be a
        * list for each two quality levels.
        */
-      effect: Effect.T
+      effect: Effect
 
       /**
        * @deprecated
@@ -149,20 +151,7 @@ type PerformanceParameters = {
        * Specified if the indefinite description's result value is to be
        * modified by a certain number.
        */
-      modifier?: {
-        /**
-         * The arithmetic how to apply the `value` to the indefinite value.
-         */
-        arithmetic: Duration.CheckResultArithmetic
-
-        /**
-         * The value that is applied to the indefinite value using the defined
-         * `arithmetic`.
-         * @integer
-         * @minimum 2
-         */
-        value: number
-      }
+      modifier?: CheckResultBasedModifier
 
       /**
        * All translations for the entry, identified by IETF language tag (BCP47).
@@ -177,20 +166,7 @@ type PerformanceParameters = {
            * A description of the duration.
            * @minLength 1
            */
-          description: {
-            /**
-             * The full description of the duration.
-             * @minLength 1
-             */
-            default: string
-
-            /**
-             * A compressed description of the duration for use in small areas
-             * (e.g. on character sheet).
-             * @minLength 1
-             */
-            compressed: string
-          }
+          description: ResponsiveText
         }
       }
     }

@@ -17,23 +17,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The aspect name.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "master_of_aspect_suffix": {
-                  "description": "The aspect's name appended to the simple name (not `name_in_library`)\nof the special ability *Master of (Aspect)*.",
-                  "type": "string",
-                  "minLength": 1
-                }
-              },
-              "required": [
-                "name"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/AspectTranslation"
             }
           },
           "minProperties": 1,
@@ -43,6 +27,23 @@
       "required": [
         "id",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "AspectTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The aspect name.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "master_of_aspect_suffix": {
+          "description": "The aspect's name appended to the simple name (not `name_in_library`)\nof the special ability *Master of (Aspect)*.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "name"
       ],
       "additionalProperties": false
     }

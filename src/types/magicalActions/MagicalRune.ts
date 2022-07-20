@@ -5,7 +5,8 @@
 import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
-import { Duration, Effect } from "../_ActivatableSkill.js"
+import { CheckResultBasedDuration } from "../_ActivatableSkillDuration.js"
+import { Effect } from "../_ActivatableSkillEffect.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
 import { SkillCheck } from "../_SkillCheck.js"
 
@@ -106,7 +107,7 @@ export type MagicalRune = {
        * divided by a list of effects for each quality level. It may also be a
        * list for each two quality levels.
        */
-      effect: Effect.T
+      effect: Effect
 
       /**
        * @deprecated
@@ -247,12 +248,12 @@ type PerformanceParameters = {
     /**
      * The duration on slow rune application.
      */
-    slow: Duration.CheckResultBased
+    slow: CheckResultBasedDuration
 
     /**
      * The duration on fast rune application.
      */
-    fast: Duration.CheckResultBased
+    fast: CheckResultBasedDuration
   }
 }
 

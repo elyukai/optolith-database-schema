@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/_Spellwork.schema.json",
+  "$defs": {
+    "Traditions": {
+      "description": "The tradition(s) the ritual is available for. It may be *generally*\navailable to all traditions or it may be only familiar in specific\ntraditions.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "General"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Specific"
+            },
+            "specific": {
+              "$ref": "#/$defs/SpecificTraditions"
+            }
+          },
+          "required": [
+            "tag",
+            "specific"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "SpecificTraditions": {
+      "description": "A list of specific traditions.",
+      "type": "array",
+      "items": {
+        "$ref": "./_Identifier.schema.json#/$defs/MagicalTraditionIdentifier"
+      },
+      "minItems": 1
+    }
+  }
+}

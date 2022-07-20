@@ -16,8 +16,8 @@ Key | Description | Details
 `maximum?` |  | <a href="#Advantage/maximum">See details</a>
 `prerequisites?` |  | <a href="#Advantage/prerequisites">See details</a>
 `ap_value` |  | <a href="#Advantage/ap_value">See details</a>
-`has_no_maximum_spent_influence?` | Does this advantage not count towards the maximum of AP to be spent on advantages? | <a href="#Advantage/has_no_maximum_spent_influence">See details</a>
-`is_exclusive_to_arcane_spellworks?` | Does this advantage exclusively applies to arcane spellworks but not to magical actions and applications? | <a href="#Advantage/is_exclusive_to_arcane_spellworks">See details</a>
+`has_maximum_spent_influence` | Does this advantage count towards the maximum of AP to be spent on advantages? | <a href="#Advantage/has_maximum_spent_influence">See details</a>
+`is_exclusive_to_arcane_spellworks` | Does this advantage exclusively applies to arcane spellworks and not to magical actions and magical applications? | <a href="#Advantage/is_exclusive_to_arcane_spellworks">See details</a>
 `src` |  | <a href="#Advantage/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Advantage/translations">See details</a>
 
@@ -53,19 +53,19 @@ Key | Description | Details
 
 - **Type:** <a href="./_Activatable.md#AdventurePointsValueAdvantagesDisadvantages">AdventurePointsValueAdvantagesDisadvantages</a>
 
-#### <a name="Advantage/has_no_maximum_spent_influence"></a> `has_no_maximum_spent_influence?`
+#### <a name="Advantage/has_maximum_spent_influence"></a> `has_maximum_spent_influence`
 
-Does this advantage not count towards the maximum of AP to be spent
-on advantages?
+Does this advantage count towards the maximum of AP to be spent on
+advantages?
 
-- **Constant:** `true`
+- **Type:** Boolean
 
-#### <a name="Advantage/is_exclusive_to_arcane_spellworks"></a> `is_exclusive_to_arcane_spellworks?`
+#### <a name="Advantage/is_exclusive_to_arcane_spellworks"></a> `is_exclusive_to_arcane_spellworks`
 
-Does this advantage exclusively applies to arcane spellworks but not
-to magical actions and applications?
+Does this advantage exclusively applies to arcane spellworks and not
+to magical actions and magical applications?
 
-- **Constant:** `true`
+- **Type:** Boolean
 
 #### <a name="Advantage/src"></a> `src`
 
@@ -84,35 +84,41 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Advantage/translations[key]"></a> `Advantage/translations[key]`
 
+- **Type:** <a href="#AdvantageTranslation">AdvantageTranslation</a>
+
+---
+
+### <a name="AdvantageTranslation"></a> `AdvantageTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#Advantage/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#Advantage/translations[key]/name_in_library">See details</a>
-`rules` |  | <a href="#Advantage/translations[key]/rules">See details</a>
-`range?` | The range. | <a href="#Advantage/translations[key]/range">See details</a>
-`errata?` |  | <a href="#Advantage/translations[key]/errata">See details</a>
+`name` |  | <a href="#AdvantageTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#AdvantageTranslation/name_in_library">See details</a>
+`rules` |  | <a href="#AdvantageTranslation/rules">See details</a>
+`range?` | The range. | <a href="#AdvantageTranslation/range">See details</a>
+`errata?` |  | <a href="#AdvantageTranslation/errata">See details</a>
 
-#### <a name="Advantage/translations[key]/name"></a> `name`
+#### <a name="AdvantageTranslation/name"></a> `name`
 
 - **Type:** <a href="./_Activatable.md#Name">Name</a>
 
-#### <a name="Advantage/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="AdvantageTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="./_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="Advantage/translations[key]/rules"></a> `rules`
+#### <a name="AdvantageTranslation/rules"></a> `rules`
 
 - **Type:** <a href="./_Activatable.md#Rules">Rules</a>
 
-#### <a name="Advantage/translations[key]/range"></a> `range?`
+#### <a name="AdvantageTranslation/range"></a> `range?`
 
 The range.
 
 - **Type:** Markdown-formatted text
 - **Minimum Length:** `1`
 
-#### <a name="Advantage/translations[key]/errata"></a> `errata?`
+#### <a name="AdvantageTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>

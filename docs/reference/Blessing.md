@@ -25,13 +25,13 @@ The blessing's identifier. An unique, increasing integer.
 
 Measurable parameters of a blessing.
 
-- **Type:** <a href="#PerformanceParameters">PerformanceParameters</a>
+- **Type:** <a href="#BlessingPerformanceParameters">BlessingPerformanceParameters</a>
 
 #### <a name="Blessing/target"></a> `target`
 
 The target category – the kind of creature or object – the skill affects.
 
-- **Type:** <a href="./_ActivatableSkill.md#TargetCategory/T">TargetCategory/T</a>
+- **Type:** <a href="./_ActivatableSkillTargetCategory.md#TargetCategory">TargetCategory</a>
 
 #### <a name="Blessing/src"></a> `src`
 
@@ -50,50 +50,56 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Blessing/translations[key]"></a> `Blessing/translations[key]`
 
+- **Type:** <a href="#BlessingTranslation">BlessingTranslation</a>
+
+---
+
+### <a name="BlessingTranslation"></a> `BlessingTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the blessing. | <a href="#Blessing/translations[key]/name">See details</a>
-`effect` | The effect description. | <a href="#Blessing/translations[key]/effect">See details</a>
-`range` |  | <a href="#Blessing/translations[key]/range">See details</a>
-`duration` |  | <a href="#Blessing/translations[key]/duration">See details</a>
-`target` |  | <a href="#Blessing/translations[key]/target">See details</a>
-`errata?` |  | <a href="#Blessing/translations[key]/errata">See details</a>
+`name` | The name of the blessing. | <a href="#BlessingTranslation/name">See details</a>
+`effect` | The effect description. | <a href="#BlessingTranslation/effect">See details</a>
+`range` |  | <a href="#BlessingTranslation/range">See details</a>
+`duration` |  | <a href="#BlessingTranslation/duration">See details</a>
+`target` |  | <a href="#BlessingTranslation/target">See details</a>
+`errata?` |  | <a href="#BlessingTranslation/errata">See details</a>
 
-#### <a name="Blessing/translations[key]/name"></a> `name`
+#### <a name="BlessingTranslation/name"></a> `name`
 
 The name of the blessing.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
-#### <a name="Blessing/translations[key]/effect"></a> `effect`
+#### <a name="BlessingTranslation/effect"></a> `effect`
 
 The effect description.
 
 - **Type:** Markdown-formatted text
 - **Minimum Length:** `1`
 
-#### <a name="Blessing/translations[key]/range"></a> `range`
+#### <a name="BlessingTranslation/range"></a> `range`
 
 - **Type:** String
 
-#### <a name="Blessing/translations[key]/duration"></a> `duration`
+#### <a name="BlessingTranslation/duration"></a> `duration`
 
 - **Type:** String
 
-#### <a name="Blessing/translations[key]/target"></a> `target`
+#### <a name="BlessingTranslation/target"></a> `target`
 
 - **Type:** String
 
-#### <a name="Blessing/translations[key]/errata"></a> `errata?`
+#### <a name="BlessingTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
 
 ---
 
-### <a name="PerformanceParameters"></a> `PerformanceParameters`
+### <a name="BlessingPerformanceParameters"></a> `BlessingPerformanceParameters`
 
 Measurable parameters of a blessing.
 
@@ -101,147 +107,190 @@ Measurable parameters of a blessing.
 
 Key | Description | Details
 :-- | :-- | :--
-`range` |  | <a href="#PerformanceParameters/range">See details</a>
-`duration` |  | <a href="#PerformanceParameters/duration">See details</a>
+`range` |  | <a href="#BlessingPerformanceParameters/range">See details</a>
+`duration` |  | <a href="#BlessingPerformanceParameters/duration">See details</a>
 
-#### <a name="PerformanceParameters/range"></a> `range`
+#### <a name="BlessingPerformanceParameters/range"></a> `range`
 
-- **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/range'Self">PerformanceParameters/range'Self</a> | <a href="#PerformanceParameters/range'Touch">PerformanceParameters/range'Touch</a> | <a href="#PerformanceParameters/range'Fixed">PerformanceParameters/range'Fixed</a>
+- **Type:** <a href="#BlessingRange">BlessingRange</a>
 
-#### <a name="PerformanceParameters/duration"></a> `duration`
+#### <a name="BlessingPerformanceParameters/duration"></a> `duration`
 
-- **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/duration'Immediate">PerformanceParameters/duration'Immediate</a> | <a href="#PerformanceParameters/duration'Fixed">PerformanceParameters/duration'Fixed</a> | <a href="#PerformanceParameters/duration'Indefinite">PerformanceParameters/duration'Indefinite</a>
+- **Type:** <a href="#BlessingDuration">BlessingDuration</a>
 
 ---
 
-### <a name="PerformanceParameters/range'Self"></a> `PerformanceParameters/range'Self`
+### <a name="BlessingRange"></a> `BlessingRange`
+
+- **Type:** Union
+- **Cases:** <a href="#BlessingRange'Self">BlessingRange'Self</a> | <a href="#BlessingRange'Touch">BlessingRange'Touch</a> | <a href="#BlessingRange'Fixed">BlessingRange'Fixed</a>
+
+---
+
+### <a name="BlessingRange'Self"></a> `BlessingRange'Self`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/range'Self/tag">See details</a>
+`tag` |  | <a href="#BlessingRange'Self/tag">See details</a>
 
-#### <a name="PerformanceParameters/range'Self/tag"></a> `tag`
+#### <a name="BlessingRange'Self/tag"></a> `tag`
 
 - **Constant:** `"Self"`
 
 ---
 
-### <a name="PerformanceParameters/range'Touch"></a> `PerformanceParameters/range'Touch`
+### <a name="BlessingRange'Touch"></a> `BlessingRange'Touch`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/range'Touch/tag">See details</a>
+`tag` |  | <a href="#BlessingRange'Touch/tag">See details</a>
 
-#### <a name="PerformanceParameters/range'Touch/tag"></a> `tag`
+#### <a name="BlessingRange'Touch/tag"></a> `tag`
 
 - **Constant:** `"Touch"`
 
 ---
 
-### <a name="PerformanceParameters/range'Fixed"></a> `PerformanceParameters/range'Fixed`
+### <a name="BlessingRange'Fixed"></a> `BlessingRange'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/range'Fixed/tag">See details</a>
-`value` | The range in steps/m. | <a href="#PerformanceParameters/range'Fixed/value">See details</a>
+`tag` |  | <a href="#BlessingRange'Fixed/tag">See details</a>
+`fixed` |  | <a href="#BlessingRange'Fixed/fixed">See details</a>
 
-#### <a name="PerformanceParameters/range'Fixed/tag"></a> `tag`
+#### <a name="BlessingRange'Fixed/tag"></a> `tag`
 
 - **Constant:** `"Fixed"`
 
-#### <a name="PerformanceParameters/range'Fixed/value"></a> `value`
+#### <a name="BlessingRange'Fixed/fixed"></a> `fixed`
 
-The range in steps/m.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_ActivatableSkillRange.md#FixedRange">FixedRange</a>
 
 ---
 
-### <a name="PerformanceParameters/duration'Immediate"></a> `PerformanceParameters/duration'Immediate`
+### <a name="BlessingDuration"></a> `BlessingDuration`
+
+- **Type:** Union
+- **Cases:** <a href="#BlessingDuration'Immediate">BlessingDuration'Immediate</a> | <a href="#BlessingDuration'Fixed">BlessingDuration'Fixed</a> | <a href="#BlessingDuration'Indefinite">BlessingDuration'Indefinite</a>
+
+---
+
+### <a name="BlessingDuration'Immediate"></a> `BlessingDuration'Immediate`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration'Immediate/tag">See details</a>
+`tag` |  | <a href="#BlessingDuration'Immediate/tag">See details</a>
 
-#### <a name="PerformanceParameters/duration'Immediate/tag"></a> `tag`
+#### <a name="BlessingDuration'Immediate/tag"></a> `tag`
 
 - **Constant:** `"Immediate"`
 
 ---
 
-### <a name="PerformanceParameters/duration'Fixed"></a> `PerformanceParameters/duration'Fixed`
+### <a name="BlessingDuration'Fixed"></a> `BlessingDuration'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration'Fixed/tag">See details</a>
-`value` | The (unitless) duration. | <a href="#PerformanceParameters/duration'Fixed/value">See details</a>
-`unit` | The duration unit. | <a href="#PerformanceParameters/duration'Fixed/unit">See details</a>
+`tag` |  | <a href="#BlessingDuration'Fixed/tag">See details</a>
+`fixed` |  | <a href="#BlessingDuration'Fixed/fixed">See details</a>
 
-#### <a name="PerformanceParameters/duration'Fixed/tag"></a> `tag`
+#### <a name="BlessingDuration'Fixed/tag"></a> `tag`
 
 - **Constant:** `"Fixed"`
 
-#### <a name="PerformanceParameters/duration'Fixed/value"></a> `value`
+#### <a name="BlessingDuration'Fixed/fixed"></a> `fixed`
+
+- **Type:** <a href="#FixedBlessingDuration">FixedBlessingDuration</a>
+
+---
+
+### <a name="BlessingDuration'Indefinite"></a> `BlessingDuration'Indefinite`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#BlessingDuration'Indefinite/tag">See details</a>
+`indefinite` |  | <a href="#BlessingDuration'Indefinite/indefinite">See details</a>
+
+#### <a name="BlessingDuration'Indefinite/tag"></a> `tag`
+
+- **Constant:** `"Indefinite"`
+
+#### <a name="BlessingDuration'Indefinite/indefinite"></a> `indefinite`
+
+- **Type:** <a href="#IndefiniteBlessingDuration">IndefiniteBlessingDuration</a>
+
+---
+
+### <a name="FixedBlessingDuration"></a> `FixedBlessingDuration`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`value` | The (unitless) duration. | <a href="#FixedBlessingDuration/value">See details</a>
+`unit` | The duration unit. | <a href="#FixedBlessingDuration/unit">See details</a>
+
+#### <a name="FixedBlessingDuration/value"></a> `value`
 
 The (unitless) duration.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="PerformanceParameters/duration'Fixed/unit"></a> `unit`
+#### <a name="FixedBlessingDuration/unit"></a> `unit`
 
 The duration unit.
 
-- **Type:** <a href="./_ActivatableSkill.md#Duration/Unit">Duration/Unit</a>
+- **Type:** <a href="./_ActivatableSkillDuration.md#DurationUnit">DurationUnit</a>
 
 ---
 
-### <a name="PerformanceParameters/duration'Indefinite"></a> `PerformanceParameters/duration'Indefinite`
+### <a name="IndefiniteBlessingDuration"></a> `IndefiniteBlessingDuration`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration'Indefinite/tag">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PerformanceParameters/duration'Indefinite/translations">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#IndefiniteBlessingDuration/translations">See details</a>
 
-#### <a name="PerformanceParameters/duration'Indefinite/tag"></a> `tag`
-
-- **Constant:** `"Indefinite"`
-
-#### <a name="PerformanceParameters/duration'Indefinite/translations"></a> `translations`
+#### <a name="IndefiniteBlessingDuration/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#PerformanceParameters/duration'Indefinite/translations[key]">PerformanceParameters/duration'Indefinite/translations[key]</a>
+- **Property Values:** <a href="#IndefiniteBlessingDuration/translations[key]">IndefiniteBlessingDuration/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="PerformanceParameters/duration'Indefinite/translations[key]"></a> `PerformanceParameters/duration'Indefinite/translations[key]`
+### <a name="IndefiniteBlessingDuration/translations[key]"></a> `IndefiniteBlessingDuration/translations[key]`
+
+- **Type:** <a href="#IndefiniteDurationTranslation">IndefiniteDurationTranslation</a>
+
+---
+
+### <a name="IndefiniteDurationTranslation"></a> `IndefiniteDurationTranslation`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`description` | A description of the duration. | <a href="#PerformanceParameters/duration'Indefinite/translations[key]/description">See details</a>
+`description` | A description of the duration. | <a href="#IndefiniteDurationTranslation/description">See details</a>
 
-#### <a name="PerformanceParameters/duration'Indefinite/translations[key]/description"></a> `description`
+#### <a name="IndefiniteDurationTranslation/description"></a> `description`
 
 A description of the duration.
 

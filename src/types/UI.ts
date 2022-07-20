@@ -4,6 +4,7 @@
 
 import { validateSchemaCreator } from "../validation/schema.js"
 import { PluralizationCategories } from "./_I18n.js"
+import { NonEmptyString } from "./_NonEmptyString.js"
 
 /**
  * @title UI
@@ -1060,10 +1061,5 @@ export type UI = {
   "pets.dialogs.addedit.addbtn": NonEmptyString
   "pets.dialogs.addedit.savebtn": NonEmptyString
 }
-
-/**
- * @minLength 1
- */
-type NonEmptyString = string
 
 export const validateSchema = validateSchemaCreator<UI>(import.meta.url)

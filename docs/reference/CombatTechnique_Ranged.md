@@ -60,43 +60,40 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="RangedCombatTechnique/primary_attribute[]"></a> `RangedCombatTechnique/primary_attribute[]`
 
-- **Type:** <a href="#PrimaryAttribute">PrimaryAttribute</a>
+- **Type:** <a href="./_SimpleReferences.md#AttributeReference">AttributeReference</a>
 
 ---
 
 ### <a name="RangedCombatTechnique/translations[key]"></a> `RangedCombatTechnique/translations[key]`
 
+- **Type:** <a href="#RangedCombatTechniqueTranslation">RangedCombatTechniqueTranslation</a>
+
+---
+
+### <a name="RangedCombatTechniqueTranslation"></a> `RangedCombatTechniqueTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the condition. | <a href="#RangedCombatTechnique/translations[key]/name">See details</a>
-`special?` | Additional rules for the condition, if applicable. | <a href="#RangedCombatTechnique/translations[key]/special">See details</a>
-`errata?` |  | <a href="#RangedCombatTechnique/translations[key]/errata">See details</a>
+`name` | The name of the condition. | <a href="#RangedCombatTechniqueTranslation/name">See details</a>
+`special?` | Additional rules for the condition, if applicable. | <a href="#RangedCombatTechniqueTranslation/special">See details</a>
+`errata?` |  | <a href="#RangedCombatTechniqueTranslation/errata">See details</a>
 
-#### <a name="RangedCombatTechnique/translations[key]/name"></a> `name`
+#### <a name="RangedCombatTechniqueTranslation/name"></a> `name`
 
 The name of the condition.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
-#### <a name="RangedCombatTechnique/translations[key]/special"></a> `special?`
+#### <a name="RangedCombatTechniqueTranslation/special"></a> `special?`
 
 Additional rules for the condition, if applicable.
 
 - **Type:** Markdown-formatted text
 - **Minimum Length:** `1`
 
-#### <a name="RangedCombatTechnique/translations[key]/errata"></a> `errata?`
+#### <a name="RangedCombatTechniqueTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
-
----
-
-### <a name="PrimaryAttribute"></a> `PrimaryAttribute`
-
-The attribute's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`

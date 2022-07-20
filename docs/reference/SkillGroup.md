@@ -43,7 +43,7 @@ All translations for the entry, identified by IETF language tag (BCP47).
 Key | Description | Details
 :-- | :-- | :--
 `name` | The skill group's name. | <a href="#SkillGroup/translations[key]/name">See details</a>
-`full_name` | The skill group's full name. | <a href="#SkillGroup/translations[key]/full_name">See details</a>
+`long_name` | The skill group's long name. | <a href="#SkillGroup/translations[key]/long_name">See details</a>
 
 #### <a name="SkillGroup/translations[key]/name"></a> `name`
 
@@ -52,9 +52,9 @@ The skill group's name.
 - **Type:** String
 - **Minimum Length:** `1`
 
-#### <a name="SkillGroup/translations[key]/full_name"></a> `full_name`
+#### <a name="SkillGroup/translations[key]/long_name"></a> `long_name`
 
-The skill group's full name.
+The skill group's long name.
 
 - **Type:** String
 - **Minimum Length:** `1`

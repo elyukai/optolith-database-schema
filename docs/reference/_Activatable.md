@@ -2482,7 +2482,7 @@ Set to `true` if the AE costs are permanent.
 
 Specified if the AE cost `value` has to be paid for each time interval.
 
-- **Type:** <a href="./_ActivatableSkill.md#Duration/UnitValue">Duration/UnitValue</a>
+- **Type:** <a href="./_ActivatableSkillDuration.md#DurationUnitValue">DurationUnitValue</a>
 
 #### <a name="ArcaneEnergyCost'Fixed/per_level"></a> `per_level?`
 
@@ -2623,7 +2623,6 @@ All translations for the entry, identified by IETF language tag
 ### <a name="ArcaneEnergyCost'PerCountable/translations[key]"></a> `ArcaneEnergyCost'PerCountable/translations[key]`
 
 - **Type:** Object
-- **Minimum Properties:** `1`
 
 Key | Description | Details
 :-- | :-- | :--
@@ -2728,7 +2727,7 @@ has to be payed each interval.
 
 The time interval for which the AE cost `value` has to be paid.
 
-- **Type:** <a href="./_ActivatableSkill.md#Duration/UnitValue">Duration/UnitValue</a>
+- **Type:** <a href="./_ActivatableSkillDuration.md#DurationUnitValue">DurationUnitValue</a>
 
 ---
 
@@ -2910,7 +2909,7 @@ Key | Description | Details
 
 The interval itself.
 
-- **Type:** <a href="./_ActivatableSkill.md#Duration/UnitValue">Duration/UnitValue</a>
+- **Type:** <a href="./_ActivatableSkillDuration.md#DurationUnitValue">DurationUnitValue</a>
 
 #### <a name="ArcaneEnergyCost'Disjunction/interval/activation_value"></a> `activation_value`
 
@@ -3524,6 +3523,7 @@ All translations for the entry, identified by IETF language tag (BCP47).
 ### <a name="BindingCostMap/translations[key]"></a> `BindingCostMap/translations[key]`
 
 - **Type:** Object
+- **Minimum Properties:** `1`
 
 Key | Description | Details
 :-- | :-- | :--

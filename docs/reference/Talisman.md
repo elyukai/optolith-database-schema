@@ -34,8 +34,7 @@ The tradition(s) the talisman belongs to.
 
 The talisman type.
 
-- **Type:** Union
-- **Cases:** <a href="#Talisman/type'MainTalisman">Talisman/type'MainTalisman</a> | <a href="#Talisman/type'Talisman">Talisman/type'Talisman</a> | <a href="#Talisman/type'MinorTalisman">Talisman/type'MinorTalisman</a> | <a href="#Talisman/type'Regalia">Talisman/type'Regalia</a> | <a href="#Talisman/type'PowerfulTalisman">Talisman/type'PowerfulTalisman</a>
+- **Type:** <a href="#TalismanType">TalismanType</a>
 
 #### <a name="Talisman/ap_value"></a> `ap_value`
 
@@ -62,149 +61,145 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Talisman/tradition[]"></a> `Talisman/tradition[]`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The blessed traditions's identifier. | <a href="#Talisman/tradition[]/id">See details</a>
-
-#### <a name="Talisman/tradition[]/id"></a> `id`
-
-The blessed traditions's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="Talisman/type'MainTalisman"></a> `Talisman/type'MainTalisman`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Talisman/type'MainTalisman/tag">See details</a>
-
-#### <a name="Talisman/type'MainTalisman/tag"></a> `tag`
-
-- **Constant:** `"MainTalisman"`
-
----
-
-### <a name="Talisman/type'Talisman"></a> `Talisman/type'Talisman`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Talisman/type'Talisman/tag">See details</a>
-
-#### <a name="Talisman/type'Talisman/tag"></a> `tag`
-
-- **Constant:** `"Talisman"`
-
----
-
-### <a name="Talisman/type'MinorTalisman"></a> `Talisman/type'MinorTalisman`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Talisman/type'MinorTalisman/tag">See details</a>
-
-#### <a name="Talisman/type'MinorTalisman/tag"></a> `tag`
-
-- **Constant:** `"MinorTalisman"`
-
----
-
-### <a name="Talisman/type'Regalia"></a> `Talisman/type'Regalia`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Talisman/type'Regalia/tag">See details</a>
-
-#### <a name="Talisman/type'Regalia/tag"></a> `tag`
-
-- **Constant:** `"Regalia"`
-
----
-
-### <a name="Talisman/type'PowerfulTalisman"></a> `Talisman/type'PowerfulTalisman`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Talisman/type'PowerfulTalisman/tag">See details</a>
-
-#### <a name="Talisman/type'PowerfulTalisman/tag"></a> `tag`
-
-- **Constant:** `"PowerfulTalisman"`
+- **Type:** <a href="./_SimpleReferences.md#BlessedTraditionReference">BlessedTraditionReference</a>
 
 ---
 
 ### <a name="Talisman/translations[key]"></a> `Talisman/translations[key]`
 
+- **Type:** <a href="#TalismanTranslation">TalismanTranslation</a>
+
+---
+
+### <a name="TalismanType"></a> `TalismanType`
+
+- **Type:** Union
+- **Cases:** <a href="#TalismanType'MainTalisman">TalismanType'MainTalisman</a> | <a href="#TalismanType'Talisman">TalismanType'Talisman</a> | <a href="#TalismanType'MinorTalisman">TalismanType'MinorTalisman</a> | <a href="#TalismanType'Regalia">TalismanType'Regalia</a> | <a href="#TalismanType'PowerfulTalisman">TalismanType'PowerfulTalisman</a>
+
+---
+
+### <a name="TalismanType'MainTalisman"></a> `TalismanType'MainTalisman`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the talisman. | <a href="#Talisman/translations[key]/name">See details</a>
-`description` | The effect description. | <a href="#Talisman/translations[key]/description">See details</a>
-`activation` | The activation parameters. | <a href="#Talisman/translations[key]/activation">See details</a>
-`errata?` |  | <a href="#Talisman/translations[key]/errata">See details</a>
+`tag` |  | <a href="#TalismanType'MainTalisman/tag">See details</a>
 
-#### <a name="Talisman/translations[key]/name"></a> `name`
+#### <a name="TalismanType'MainTalisman/tag"></a> `tag`
+
+- **Constant:** `"MainTalisman"`
+
+---
+
+### <a name="TalismanType'Talisman"></a> `TalismanType'Talisman`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#TalismanType'Talisman/tag">See details</a>
+
+#### <a name="TalismanType'Talisman/tag"></a> `tag`
+
+- **Constant:** `"Talisman"`
+
+---
+
+### <a name="TalismanType'MinorTalisman"></a> `TalismanType'MinorTalisman`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#TalismanType'MinorTalisman/tag">See details</a>
+
+#### <a name="TalismanType'MinorTalisman/tag"></a> `tag`
+
+- **Constant:** `"MinorTalisman"`
+
+---
+
+### <a name="TalismanType'Regalia"></a> `TalismanType'Regalia`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#TalismanType'Regalia/tag">See details</a>
+
+#### <a name="TalismanType'Regalia/tag"></a> `tag`
+
+- **Constant:** `"Regalia"`
+
+---
+
+### <a name="TalismanType'PowerfulTalisman"></a> `TalismanType'PowerfulTalisman`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#TalismanType'PowerfulTalisman/tag">See details</a>
+
+#### <a name="TalismanType'PowerfulTalisman/tag"></a> `tag`
+
+- **Constant:** `"PowerfulTalisman"`
+
+---
+
+### <a name="TalismanTranslation"></a> `TalismanTranslation`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`name` | The name of the talisman. | <a href="#TalismanTranslation/name">See details</a>
+`description` | The effect description. | <a href="#TalismanTranslation/description">See details</a>
+`activation` | The activation parameters. | <a href="#TalismanTranslation/activation">See details</a>
+`errata?` |  | <a href="#TalismanTranslation/errata">See details</a>
+
+#### <a name="TalismanTranslation/name"></a> `name`
 
 The name of the talisman.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Talisman/translations[key]/description"></a> `description`
+#### <a name="TalismanTranslation/description"></a> `description`
 
 The effect description.
 
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
-#### <a name="Talisman/translations[key]/activation"></a> `activation`
+#### <a name="TalismanTranslation/activation"></a> `activation`
 
 The activation parameters.
 
-- **Type:** <a href="#Talisman/translations[key]/activation">Object</a>
+- **Type:** <a href="#TalismanActivationTranslation">TalismanActivationTranslation</a>
 
-#### <a name="Talisman/translations[key]/errata"></a> `errata?`
+#### <a name="TalismanTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
 
 ---
 
-### <a name="Talisman/translations[key]/activation"></a> `Talisman/translations[key]/activation`
-
-The activation parameters.
+### <a name="TalismanActivationTranslation"></a> `TalismanActivationTranslation`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`cost` | The KP cost. | <a href="#Talisman/translations[key]/activation/cost">See details</a>
-`duration` | The duration. | <a href="#Talisman/translations[key]/activation/duration">See details</a>
+`cost` | The KP cost. | <a href="#TalismanActivationTranslation/cost">See details</a>
+`duration` | The duration. | <a href="#TalismanActivationTranslation/duration">See details</a>
 
-#### <a name="Talisman/translations[key]/activation/cost"></a> `cost`
+#### <a name="TalismanActivationTranslation/cost"></a> `cost`
 
 The KP cost.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Talisman/translations[key]/activation/duration"></a> `duration`
+#### <a name="TalismanActivationTranslation/duration"></a> `duration`
 
 The duration.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

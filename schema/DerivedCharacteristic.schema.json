@@ -23,7 +23,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "$ref": "#/$defs/Translation"
+              "$ref": "#/$defs/DerivedCharacteristicTranslation"
             }
           },
           "minProperties": 1,
@@ -37,7 +37,7 @@
       ],
       "additionalProperties": false
     },
-    "Translation": {
+    "DerivedCharacteristicTranslation": {
       "type": "object",
       "properties": {
         "name": {

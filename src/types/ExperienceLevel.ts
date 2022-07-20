@@ -3,6 +3,7 @@
  */
 
 import { validateSchemaCreator } from "../validation/schema.js"
+import { LocaleMap } from "./_LocaleMap.js"
 
 /**
  * Adventure Points and maximum values at hero creation.
@@ -62,15 +63,10 @@ export type ExperienceLevel = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: Translation
-  }
+  translations: LocaleMap<ExperienceLevelTranslation>
 }
 
-type Translation = {
+export type ExperienceLevelTranslation = {
   /**
    * The name of the experience level.
    * @minLength 1

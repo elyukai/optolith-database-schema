@@ -20,48 +20,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The condition's name.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "rules": {
-                  "description": "Additional rules for the condition, if applicable.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "effects": {
-                  "description": "The effects for level 1 to 4.",
-                  "type": "array",
-                  "prefixItems": [
-                    {
-                      "$ref": "#/$defs/Effect"
-                    },
-                    {
-                      "$ref": "#/$defs/Effect"
-                    },
-                    {
-                      "$ref": "#/$defs/Effect"
-                    },
-                    {
-                      "$ref": "#/$defs/Effect"
-                    }
-                  ],
-                  "minItems": 4,
-                  "maxItems": 4,
-                  "items": false
-                },
-                "errata": {
-                  "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "effects"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/ConditionTranslation"
             }
           },
           "minProperties": 1,
@@ -75,10 +34,47 @@
       ],
       "additionalProperties": false
     },
-    "Effect": {
-      "description": "The effect on a level.",
-      "type": "string",
-      "minLength": 1
+    "ConditionTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The condition's name.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "rules": {
+          "description": "Additional rules for the condition, if applicable.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        },
+        "effects": {
+          "description": "The effects for level 1 to 4.",
+          "type": "array",
+          "prefixItems": [
+            {
+              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+            },
+            {
+              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+            },
+            {
+              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+            },
+            {
+              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+            }
+          ],
+          "minItems": 4,
+          "maxItems": 4,
+          "items": false
+        },
+        "errata": {
+          "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "effects"
+      ],
+      "additionalProperties": false
     }
   }
 }

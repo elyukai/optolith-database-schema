@@ -3,6 +3,8 @@
  */
 
 import { validateSchemaCreator } from "../validation/schema.js"
+import { LocaleMap } from "./_LocaleMap.js"
+import { NonEmptyString } from "./_NonEmptyString.js"
 
 /**
  * @title Target Category
@@ -18,31 +20,32 @@ export type TargetCategory = {
   /**
    * A superordinate target category, if present.
    */
-  parent?: {
-    /**
-     * The identifier of the superordinate target category.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-  }
+  parent?: TargetCategoryParent
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The target category name.
-       * @minLength 1
-       */
-      name: string
-    }
-  }
+  translations: LocaleMap<TargetCategoryTranslation>
+}
+
+/**
+ * A superordinate target category, if present.
+ */
+export type TargetCategoryParent = {
+  /**
+   * The identifier of the superordinate target category.
+   * @integer
+   * @minimum 1
+   */
+  id: number
+}
+
+export type TargetCategoryTranslation = {
+  /**
+   * The target category name.
+   */
+  name: NonEmptyString
 }
 
 export const validateSchema = validateSchemaCreator<TargetCategory>(import.meta.url)

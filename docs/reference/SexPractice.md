@@ -36,48 +36,49 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="SexPractice/translations[key]"></a> `SexPractice/translations[key]`
 
+- **Type:** <a href="#SexPracticeTranslation">SexPracticeTranslation</a>
+
+---
+
+### <a name="SexPracticeTranslation"></a> `SexPracticeTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The sex practice's name. | <a href="#SexPractice/translations[key]/name">See details</a>
-`rules` | The rules of the sex practice. | <a href="#SexPractice/translations[key]/rules">See details</a>
-`duration` | How long a round of this sex practice takes. | <a href="#SexPractice/translations[key]/duration">See details</a>
-`prerequisites?` | Prerequisites of participants and environment. Do not specify if the sex practice has no prerequisites. | <a href="#SexPractice/translations[key]/prerequisites">See details</a>
-`failed` | Effects of a failed *Seduction* check. | <a href="#SexPractice/translations[key]/failed">See details</a>
+`name` | The sex practice's name. | <a href="#SexPracticeTranslation/name">See details</a>
+`rules` | The rules of the sex practice. | <a href="#SexPracticeTranslation/rules">See details</a>
+`duration` | How long a round of this sex practice takes. | <a href="#SexPracticeTranslation/duration">See details</a>
+`prerequisites?` | Prerequisites of participants and environment. Do not specify if the sex practice has no prerequisites. | <a href="#SexPracticeTranslation/prerequisites">See details</a>
+`failed` | Effects of a failed *Seduction* check. | <a href="#SexPracticeTranslation/failed">See details</a>
 
-#### <a name="SexPractice/translations[key]/name"></a> `name`
+#### <a name="SexPracticeTranslation/name"></a> `name`
 
 The sex practice's name.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="SexPractice/translations[key]/rules"></a> `rules`
+#### <a name="SexPracticeTranslation/rules"></a> `rules`
 
 The rules of the sex practice.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="SexPractice/translations[key]/duration"></a> `duration`
+#### <a name="SexPracticeTranslation/duration"></a> `duration`
 
 How long a round of this sex practice takes.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="SexPractice/translations[key]/prerequisites"></a> `prerequisites?`
+#### <a name="SexPracticeTranslation/prerequisites"></a> `prerequisites?`
 
 Prerequisites of participants and environment. Do not specify if the
 sex practice has no prerequisites.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="SexPractice/translations[key]/failed"></a> `failed`
+#### <a name="SexPracticeTranslation/failed"></a> `failed`
 
 Effects of a failed *Seduction* check.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

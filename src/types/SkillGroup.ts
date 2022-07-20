@@ -37,10 +37,10 @@ import { SkillCheck } from "./_SkillCheck.js"
       name: string
 
       /**
-       * The skill group's full name.
+       * The skill group's long name.
        * @minLength 1
        */
-      full_name: string
+      long_name: string
     }
   }
 }

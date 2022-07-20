@@ -36,28 +36,32 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="State/translations[key]"></a> `State/translations[key]`
 
+- **Type:** <a href="#StateTranslation">StateTranslation</a>
+
+---
+
+### <a name="StateTranslation"></a> `StateTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the state. | <a href="#State/translations[key]/name">See details</a>
-`description` | The description of the state. | <a href="#State/translations[key]/description">See details</a>
-`errata?` |  | <a href="#State/translations[key]/errata">See details</a>
+`name` | The name of the state. | <a href="#StateTranslation/name">See details</a>
+`description` | The description of the state. | <a href="#StateTranslation/description">See details</a>
+`errata?` |  | <a href="#StateTranslation/errata">See details</a>
 
-#### <a name="State/translations[key]/name"></a> `name`
+#### <a name="StateTranslation/name"></a> `name`
 
 The name of the state.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="State/translations[key]/description"></a> `description`
+#### <a name="StateTranslation/description"></a> `description`
 
 The description of the state.
 
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
-#### <a name="State/translations[key]/errata"></a> `errata?`
+#### <a name="StateTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>

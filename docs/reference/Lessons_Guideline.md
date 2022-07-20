@@ -39,15 +39,20 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Guideline/translations[key]"></a> `Guideline/translations[key]`
 
+- **Type:** <a href="#GuidelineTranslation">GuidelineTranslation</a>
+
+---
+
+### <a name="GuidelineTranslation"></a> `GuidelineTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The guideline name. | <a href="#Guideline/translations[key]/name">See details</a>
+`name` | The guideline name. | <a href="#GuidelineTranslation/name">See details</a>
 
-#### <a name="Guideline/translations[key]/name"></a> `name`
+#### <a name="GuidelineTranslation/name"></a> `name`
 
 The guideline name.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

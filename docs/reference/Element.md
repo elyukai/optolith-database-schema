@@ -31,13 +31,19 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Element/translations[key]"></a> `Element/translations[key]`
 
+- **Type:** <a href="#ElementTranslation">ElementTranslation</a>
+
+---
+
+### <a name="ElementTranslation"></a> `ElementTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The element's name. | <a href="#Element/translations[key]/name">See details</a>
+`name` | The element's name. | <a href="#ElementTranslation/name">See details</a>
 
-#### <a name="Element/translations[key]/name"></a> `name`
+#### <a name="ElementTranslation/name"></a> `name`
 
 The element's name.
 

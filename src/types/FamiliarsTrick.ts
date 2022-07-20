@@ -5,7 +5,10 @@
 import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
-import { Duration } from "./_ActivatableSkill.js"
+import { DurationUnit, DurationUnitValue } from "./_ActivatableSkillDuration.js"
+import { LocaleMap } from "./_LocaleMap.js"
+import { ResponsiveText, ResponsiveTextReplace } from "./_ResponsiveText.js"
+import { AnimalTypeReference, PropertyReference } from "./_SimpleReferences.js"
 
 /**
  * @title Familiar's Trick
@@ -21,25 +24,11 @@ export type FamiliarsTrick = {
   /**
    * The animal types this trick is available to. Either it is available to all
    * or only a list of specific animal types.
+   *
+   * If no animal types are given, the animal disease applies to all animal
+   * types.
    */
-  animal_types:
-    | { tag: "All" }
-    | {
-      tag: "Specific"
-
-      /**
-       * The list of specific animal types.
-       * @minItems 1
-       */
-      list: {
-        /**
-         * The animal type's identifier.
-         * @integer
-         * @minimum 1
-         */
-        id: number
-      }[]
-    }
+  animal_types: AnimalTypeReference[]
 
   /**
    * Measurable parameters of a familiar's trick.
@@ -49,66 +38,15 @@ export type FamiliarsTrick = {
   /**
    * The property of the trick.
    */
-  property:
-    | {
-      tag: "Fixed"
-
-      /**
-       * The property's identifier.
-       * @integer
-       * @minimum 1
-       */
-      id: number
-    }
-    | {
-      tag: "Indefinite"
-
-      /**
-       * All translations for the entry, identified by IETF language tag (BCP47).
-       * @minProperties 1
-       */
-      translations: {
-        /**
-         * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-         */
-        [localeId: string]: {
-          /**
-           * A description of the property.
-           */
-          description: {
-            /**
-             * The full description of the property.
-             * @minLength 1
-             */
-            default: string
-
-            /**
-             * A compressed description of the property for use in small areas
-             * (e.g. on character sheet).
-             * @minLength 1
-             */
-            compressed: string
-          }
-        }
-      }
-    }
+  property: Property
 
   /**
    * The AP value the familiar has to pay for. It may also be that a specific is
-   * known by all familiar by default.
+   * known by all familiar by default. In the latter case the field is not set.
+   * @integer
+   * @minimum 1
    */
-  ap_value:
-    | {
-      tag: "Fixed"
-
-      /**
-       * The adventure points value.
-       * @integer
-       * @minimum 1
-       */
-      value: number
-    }
-    | { tag: "Default" }
+  ap_value?: number
 
   src: PublicationRefs
 
@@ -116,262 +54,246 @@ export type FamiliarsTrick = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the familiar's trick.
-       * @minLength 1
-       */
-      name: string
+  translations: LocaleMap<FamiliarsTrickTranslation>
+}
 
-      /**
-       * The effect description.
-       * @markdown
-       * @minLength 1
-       */
-      effect: string
-
-      /**
-       * @deprecated
-       */
-      cost: { full: string; abbr: string }
-
-      /**
-       * @deprecated
-       */
-      duration: { full: string; abbr: string }
-
-      errata?: Errata
-    }
+export type Property =
+  | {
+    tag: "Fixed"
+    fixed: PropertyReference
   }
+  | {
+    tag: "Indefinite"
+    indefinite: IndefiniteProperty
+  }
+
+export type IndefiniteProperty = {
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   * @minProperties 1
+   */
+  translations: LocaleMap<IndefinitePropertyTranslation>
+}
+
+export type IndefinitePropertyTranslation = {
+  /**
+   * A description of the property.
+   */
+  description: ResponsiveText
+}
+
+export type FamiliarsTrickTranslation = {
+  /**
+   * The name of the familiar's trick.
+   * @minLength 1
+   */
+  name: string
+
+  /**
+   * The effect description.
+   * @markdown
+   * @minLength 1
+   */
+  effect: string
+
+  /**
+   * @deprecated
+   */
+  cost: { full: string; abbr: string }
+
+  /**
+   * @deprecated
+   */
+  duration: { full: string; abbr: string }
+
+  errata?: Errata
 }
 
 /**
  * Measurable parameters of a familiar's trick.
  */
-type PerformanceParameters =
+export type PerformanceParameters =
   | {
     tag: "OneTime"
-
-    cost:
-      | {
-        tag: "Fixed"
-
-        /**
-         * The AE cost value.
-         * @integer
-         * @minimum 1
-         */
-        value: number
-
-        /**
-         * The interval in which you have to pay the AE cost again.
-         */
-        interval?: Duration.UnitValue
-
-        /**
-         * All translations for the entry, identified by IETF language tag
-         * (BCP47).
-         * @minProperties 1
-         */
-        translations?: {
-          /**
-           * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-           * @minProperties 1
-           */
-          [localeId: string]: {
-            /**
-             * The cost have to be per a specific countable entity, e.g. `8 KP
-             * per person`.
-             */
-            per?: {
-              /**
-               * The full countable entity name.
-               * @minLength 1
-               */
-              default: string
-
-              /**
-               * The compressed countable entity name.
-               * @minLength 1
-               */
-              compressed: string
-            }
-          }
-        }
-      }
-      | {
-        tag: "All"
-
-        /**
-         * The minimum AE the familiar has to have.
-         * @integer
-         * @minimum 1
-         */
-        minimum?: number
-      }
-      | {
-        tag: "Indefinite"
-
-        /**
-         * All translations for the entry, identified by IETF language tag
-         * (BCP47).
-         * @minProperties 1
-         */
-        translations: {
-          /**
-           * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-           */
-          [localeId: string]: {
-            /**
-             * A description of the AE cost.
-             */
-            description: {
-              /**
-               * The full description of the AE cost.
-               * @minLength 1
-               */
-              default: string
-
-              /**
-               * A compressed description of the AE cost for use in small areas
-               * (e.g. on character sheet).
-               * @minLength 1
-               */
-              compressed: string
-            }
-          }
-        }
-      }
-
-    duration:
-      | { tag: "Immediate" }
-      | {
-        tag: "Fixed"
-
-        /**
-         * If the duration is the maximum duration, so it may end earlier.
-         */
-        is_maximum?: boolean
-
-        /**
-         * The (unitless) duration.
-         * @integer
-         * @minimum 1
-         */
-        value: number
-
-        /**
-         * The duration unit.
-         */
-        unit: Duration.Unit
-
-        /**
-         * All translations for the entry, identified by IETF language tag (BCP47).
-         * @minProperties 1
-         */
-        translations?: {
-          /**
-           * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-           * @minProperties 1
-           */
-          [localeId: string]: {
-            /**
-             * A replacement string.
-             */
-            replacement?: {
-              /**
-               * The full replacement string. It can contain `$1`, which is
-               * going to be replaced with the generated duration string, so
-               * additional information can be provided without duplicating
-               * concrete numeric values.
-               * @minLength 1
-               */
-              default: string
-
-              /**
-               * A compressed replacement string for use in small areas (e.g. on
-               * character sheet). It can contain `$1`, which is going to be
-               * replaced with the generated duration string, so additional
-               * information can be provided without duplicating concrete
-               * numeric values.
-               * @minLength 1
-               */
-              compressed: string
-            }
-          }
-        }
-      }
-      | {
-        tag: "Indefinite"
-
-        /**
-         * All translations for the entry, identified by IETF language tag
-         * (BCP47).
-         * @minProperties 1
-         */
-        translations: {
-          /**
-           * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-           */
-          [localeId: string]: {
-            /**
-             * A description of the duration.
-             */
-            description: {
-              /**
-               * The full description of the duration.
-               * @minLength 1
-               */
-              default: string
-
-              /**
-               * A compressed description of the duration for use in small areas
-               * (e.g. on character sheet).
-               * @minLength 1
-               */
-              compressed: string
-            }
-          }
-        }
-      }
+    one_time: OneTimePerformanceParameters
   }
   | {
     tag: "OneTimeInterval"
-
-    cost: {
-      /**
-       * The AE cost value.
-       * @integer
-       * @minimum 1
-       */
-      value: number
-
-      /**
-       * The duration granted/added by paying the given AE cost.
-       */
-      interval: Duration.UnitValue
-    }
+    one_time_interval: OneTimeIntervalPerformanceParameters
   }
   | {
     tag: "Sustained"
-
-    cost: {
-      /**
-       * The AE cost value.
-       * @integer
-       * @minimum 1
-       */
-      value: number
-
-      /**
-       * The interval in which you have to pay the AE cost again.
-       */
-      interval: Duration.UnitValue
-    }
+    sustained: SustainedPerformanceParameters
   }
+
+export type OneTimePerformanceParameters = {
+  cost: OneTimeCost
+  duration: OneTimeDuration
+}
+
+export type OneTimeCost =
+  | {
+    tag: "Fixed"
+    fixed: FixedOneTimeCost
+  }
+  | {
+    tag: "All"
+    all: AllOneTimeCost
+  }
+  | {
+    tag: "Indefinite"
+    indefinite: IndefiniteOneTimeCost
+  }
+
+export type FixedOneTimeCost = {
+  /**
+   * The AE cost value.
+   * @integer
+   * @minimum 1
+   */
+  value: number
+
+  /**
+   * The interval in which you have to pay the AE cost again.
+   */
+  interval?: DurationUnitValue
+
+  /**
+   * All translations for the entry, identified by IETF language tag
+   * (BCP47).
+   * @minProperties 1
+   */
+  translations?: LocaleMap<FixedOneTimeCostTranslation>
+}
+
+export type FixedOneTimeCostTranslation = {
+  /**
+   * The cost have to be per a specific countable entity, e.g. `8 KP
+   * per person`.
+   */
+  per?: ResponsiveText
+}
+
+export type AllOneTimeCost = {
+  /**
+   * The minimum AE the familiar has to have.
+   * @integer
+   * @minimum 1
+   */
+  minimum?: number
+}
+
+export type IndefiniteOneTimeCost = {
+  /**
+   * All translations for the entry, identified by IETF language tag
+   * (BCP47).
+   * @minProperties 1
+   */
+  translations: LocaleMap<IndefiniteOneTimeCostTranslation>
+}
+
+export type IndefiniteOneTimeCostTranslation = {
+  /**
+   * A description of the AE cost.
+   */
+  description: ResponsiveText
+}
+
+export type OneTimeDuration =
+  | {
+    tag: "Immediate"
+  }
+  | {
+    tag: "Fixed"
+    fixed: FixedOneTimeDuration
+  }
+  | {
+    tag: "Indefinite"
+    indefinite: IndefiniteOneTimeDuration
+  }
+
+export type FixedOneTimeDuration = {
+  /**
+   * If the duration is the maximum duration, so it may end earlier.
+   */
+  is_maximum?: boolean
+
+  /**
+   * The (unitless) duration.
+   * @integer
+   * @minimum 1
+   */
+  value: number
+
+  /**
+   * The duration unit.
+   */
+  unit: DurationUnit
+
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   * @minProperties 1
+   */
+  translations?: LocaleMap<FixedOneTimeDurationTranslation>
+}
+
+export type FixedOneTimeDurationTranslation = {
+  /**
+   * A replacement string.
+   */
+  replacement?: ResponsiveTextReplace
+}
+
+export type IndefiniteOneTimeDuration = {
+  /**
+   * All translations for the entry, identified by IETF language tag
+   * (BCP47).
+   * @minProperties 1
+   */
+  translations: LocaleMap<IndefiniteOneTimeDurationTranslation>
+}
+
+export type IndefiniteOneTimeDurationTranslation = {
+  /**
+   * A description of the duration.
+   */
+  description: ResponsiveText
+}
+
+export type OneTimeIntervalPerformanceParameters = {
+  cost: OneTimeIntervalCost
+}
+
+export type OneTimeIntervalCost = {
+  /**
+   * The AE cost value.
+   * @integer
+   * @minimum 1
+   */
+  value: number
+
+  /**
+   * The duration granted/added by paying the given AE cost.
+   */
+  interval: DurationUnitValue
+}
+
+export type SustainedPerformanceParameters = {
+  cost: SustainedCost
+}
+
+export type SustainedCost = {
+  /**
+   * The AE cost value.
+   * @integer
+   * @minimum 1
+   */
+  value: number
+
+  /**
+   * The interval in which you have to pay the AE cost again.
+   */
+  interval: DurationUnitValue
+}
 
 export const validateSchema = validateSchemaCreator<FamiliarsTrick>(import.meta.url)

@@ -38,7 +38,7 @@ export type CauldronEnchantment = {
     id: number
   }
 
-  cost?: Activatable.EnchantmentCost
+  cost: Activatable.EnchantmentCost
 
   property: Activatable.Property
 

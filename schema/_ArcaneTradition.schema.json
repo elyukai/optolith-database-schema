@@ -39,8 +39,7 @@
       "properties": {
         "name": {
           "description": "The arcane tradition's name.",
-          "type": "string",
-          "minLength": 1
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         }
       },
       "required": [

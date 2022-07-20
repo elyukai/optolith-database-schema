@@ -104,7 +104,7 @@ The effect description may be either a plain text or a text that is
 divided by a list of effects for each quality level. It may also be a
 list for each two quality levels.
 
-- **Type:** <a href="../_ActivatableSkill.md#Effect/T">Effect/T</a>
+- **Type:** <a href="../_ActivatableSkillEffect.md#Effect">Effect</a>
 
 #### <a name="MagicalDance/translations[key]/duration"></a> `duration`
 
@@ -354,7 +354,7 @@ Key | Description | Details
 Specified if the indefinite description's result value is to be
 modified by a certain number.
 
-- **Type:** <a href="#PerformanceParameters/cost'Indefinite/modifier">Object</a>
+- **Type:** <a href="../_ActivatableSkillCheckResultBased.md#CheckResultBasedModifier">CheckResultBasedModifier</a>
 
 #### <a name="PerformanceParameters/cost'Indefinite/translations"></a> `translations`
 
@@ -364,34 +364,6 @@ All translations for the entry, identified by IETF language tag (BCP47).
 - **Property Values:** <a href="#PerformanceParameters/cost'Indefinite/translations[key]">PerformanceParameters/cost'Indefinite/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
-
----
-
-### <a name="PerformanceParameters/cost'Indefinite/modifier"></a> `PerformanceParameters/cost'Indefinite/modifier`
-
-Specified if the indefinite description's result value is to be
-modified by a certain number.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`arithmetic` | The arithmetic how to apply the `value` to the indefinite value. | <a href="#PerformanceParameters/cost'Indefinite/modifier/arithmetic">See details</a>
-`value` | The value that is applied to the indefinite value using the defined `arithmetic`. | <a href="#PerformanceParameters/cost'Indefinite/modifier/value">See details</a>
-
-#### <a name="PerformanceParameters/cost'Indefinite/modifier/arithmetic"></a> `arithmetic`
-
-The arithmetic how to apply the `value` to the indefinite value.
-
-- **Type:** <a href="../_ActivatableSkill.md#Duration/CheckResultArithmetic">Duration/CheckResultArithmetic</a>
-
-#### <a name="PerformanceParameters/cost'Indefinite/modifier/value"></a> `value`
-
-The value that is applied to the indefinite value using the defined
-`arithmetic`.
-
-- **Type:** Integer
-- **Minimum:** `2`
 
 ---
 
@@ -407,32 +379,4 @@ Key | Description | Details
 
 A description of the duration.
 
-- **Type:** <a href="#PerformanceParameters/cost'Indefinite/translations[key]/description">Object</a>
-
----
-
-### <a name="PerformanceParameters/cost'Indefinite/translations[key]/description"></a> `PerformanceParameters/cost'Indefinite/translations[key]/description`
-
-A description of the duration.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`default` | The full description of the duration. | <a href="#PerformanceParameters/cost'Indefinite/translations[key]/description/default">See details</a>
-`compressed` | A compressed description of the duration for use in small areas (e.g. on character sheet). | <a href="#PerformanceParameters/cost'Indefinite/translations[key]/description/compressed">See details</a>
-
-#### <a name="PerformanceParameters/cost'Indefinite/translations[key]/description/default"></a> `default`
-
-The full description of the duration.
-
-- **Type:** String
-- **Minimum Length:** `1`
-
-#### <a name="PerformanceParameters/cost'Indefinite/translations[key]/description/compressed"></a> `compressed`
-
-A compressed description of the duration for use in small areas
-(e.g. on character sheet).
-
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../_ResponsiveText.md#ResponsiveText">ResponsiveText</a>

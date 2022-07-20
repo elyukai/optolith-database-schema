@@ -28,15 +28,15 @@
                   "type": "string",
                   "minLength": 1
                 },
-                "full_name": {
-                  "description": "The skill group's full name.",
+                "long_name": {
+                  "description": "The skill group's long name.",
                   "type": "string",
                   "minLength": 1
                 }
               },
               "required": [
                 "name",
-                "full_name"
+                "long_name"
               ],
               "additionalProperties": false
             }

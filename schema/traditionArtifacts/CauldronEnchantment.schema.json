@@ -98,6 +98,7 @@
         "id",
         "volume",
         "brew",
+        "cost",
         "property",
         "ap_value",
         "src",

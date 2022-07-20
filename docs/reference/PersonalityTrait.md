@@ -1,8 +1,16 @@
 # Personality Trait
 
+A personality trait describes character aspects of a person from a certain
+region. Higher trait levels only cover a part of the region covered by
+lower-level traits.
+
 ## Definitions
 
 ### <a name="PersonalityTrait"></a> Personality Trait (`PersonalityTrait`)
+
+A personality trait describes character aspects of a person from a certain
+region. Higher trait levels only cover a part of the region covered by
+lower-level traits.
 
 - **Type:** Object
 
@@ -60,72 +68,70 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="PersonalityTrait/combination_options[]"></a> `PersonalityTrait/combination_options[]`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The referenced personality trait's identifier. | <a href="#PersonalityTrait/combination_options[]/id">See details</a>
-
-#### <a name="PersonalityTrait/combination_options[]/id"></a> `id`
-
-The referenced personality trait's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_SimpleReferences.md#PersonalityTraitReference">PersonalityTraitReference</a>
 
 ---
 
 ### <a name="PersonalityTrait/translations[key]"></a> `PersonalityTrait/translations[key]`
 
+- **Type:** <a href="#PersonalityTraitTranslation">PersonalityTraitTranslation</a>
+
+---
+
+### <a name="PersonalityTraitTranslation"></a> `PersonalityTraitTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the personality trait. | <a href="#PersonalityTrait/translations[key]/name">See details</a>
-`effects` | The effects of the personality trait. They should be sorted like they are in the book. | <a href="#PersonalityTrait/translations[key]/effects">See details</a>
-`errata?` |  | <a href="#PersonalityTrait/translations[key]/errata">See details</a>
+`name` | The name of the personality trait. | <a href="#PersonalityTraitTranslation/name">See details</a>
+`effects` | The effects of the personality trait. They should be sorted like they are in the book. | <a href="#PersonalityTraitTranslation/effects">See details</a>
+`errata?` |  | <a href="#PersonalityTraitTranslation/errata">See details</a>
 
-#### <a name="PersonalityTrait/translations[key]/name"></a> `name`
+#### <a name="PersonalityTraitTranslation/name"></a> `name`
 
 The name of the personality trait.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="PersonalityTrait/translations[key]/effects"></a> `effects`
+#### <a name="PersonalityTraitTranslation/effects"></a> `effects`
 
 The effects of the personality trait. They should be sorted like they
 are in the book.
 
 - **Type:** List
-- **Items:** <a href="#PersonalityTrait/translations[key]/effects[]">PersonalityTrait/translations[key]/effects[]</a>
+- **Items:** <a href="#PersonalityTraitTranslation/effects[]">PersonalityTraitTranslation/effects[]</a>
 - **Minimum Items:** `1`
 
-#### <a name="PersonalityTrait/translations[key]/errata"></a> `errata?`
+#### <a name="PersonalityTraitTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
 
 ---
 
-### <a name="PersonalityTrait/translations[key]/effects[]"></a> `PersonalityTrait/translations[key]/effects[]`
+### <a name="PersonalityTraitTranslation/effects[]"></a> `PersonalityTraitTranslation/effects[]`
+
+- **Type:** <a href="#PersonalityTraitEffect">PersonalityTraitEffect</a>
+
+---
+
+### <a name="PersonalityTraitEffect"></a> `PersonalityTraitEffect`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`label?` | A label that is displayed and placed before the actual text. | <a href="#PersonalityTrait/translations[key]/effects[]/label">See details</a>
-`text` | The effect text. | <a href="#PersonalityTrait/translations[key]/effects[]/text">See details</a>
+`label?` | A label that is displayed and placed before the actual text. | <a href="#PersonalityTraitEffect/label">See details</a>
+`text` | The effect text. | <a href="#PersonalityTraitEffect/text">See details</a>
 
-#### <a name="PersonalityTrait/translations[key]/effects[]/label"></a> `label?`
+#### <a name="PersonalityTraitEffect/label"></a> `label?`
 
 A label that is displayed and placed before the actual text.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="PersonalityTrait/translations[key]/effects[]/text"></a> `text`
+#### <a name="PersonalityTraitEffect/text"></a> `text`
 
 The effect text.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

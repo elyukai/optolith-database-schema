@@ -31,7 +31,7 @@
         },
         "is_missing_implementation": {
           "description": "The language is not (fully) implemented and thus needs to be excluded from\nstable releases.",
-          "type": "boolean"
+          "const": true
         }
       },
       "required": [

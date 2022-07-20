@@ -49,7 +49,7 @@ Measurable parameters of a ceremony.
 
 The target category – the kind of creature or object – the skill affects.
 
-- **Type:** <a href="./_ActivatableSkill.md#TargetCategory/T">TargetCategory/T</a>
+- **Type:** <a href="./_ActivatableSkillTargetCategory.md#TargetCategory">TargetCategory</a>
 
 #### <a name="Ceremony/traditions"></a> `traditions`
 
@@ -92,225 +92,150 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Ceremony/traditions[]"></a> `Ceremony/traditions[]`
 
-- **Type:** <a href="#Tradition">Tradition</a>
+- **Type:** <a href="./_Blessed.md#SkillTradition">SkillTradition</a>
 
 ---
 
 ### <a name="Ceremony/translations[key]"></a> `Ceremony/translations[key]`
 
+- **Type:** <a href="#CeremonyTranslation">CeremonyTranslation</a>
+
+---
+
+### <a name="CeremonyTranslation"></a> `CeremonyTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the ceremony. | <a href="#Ceremony/translations[key]/name">See details</a>
-`name_compressed?` | A compressed name of the ceremony for use in small areas (e.g. on character sheet). Should only be defined if the `name` does not fit on character sheet. | <a href="#Ceremony/translations[key]/name_compressed">See details</a>
-`effect` | The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels. | <a href="#Ceremony/translations[key]/effect">See details</a>
-`casting_time` |  | <a href="#Ceremony/translations[key]/casting_time">See details</a>
-`cost` |  | <a href="#Ceremony/translations[key]/cost">See details</a>
-`range` |  | <a href="#Ceremony/translations[key]/range">See details</a>
-`duration` |  | <a href="#Ceremony/translations[key]/duration">See details</a>
-`target` |  | <a href="#Ceremony/translations[key]/target">See details</a>
-`errata?` |  | <a href="#Ceremony/translations[key]/errata">See details</a>
+`name` | The name of the ceremony. | <a href="#CeremonyTranslation/name">See details</a>
+`name_compressed?` | A compressed name of the ceremony for use in small areas (e.g. on character sheet). Should only be defined if the `name` does not fit on character sheet. | <a href="#CeremonyTranslation/name_compressed">See details</a>
+`effect` | The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels. | <a href="#CeremonyTranslation/effect">See details</a>
+`casting_time` |  | <a href="#CeremonyTranslation/casting_time">See details</a>
+`cost` |  | <a href="#CeremonyTranslation/cost">See details</a>
+`range` |  | <a href="#CeremonyTranslation/range">See details</a>
+`duration` |  | <a href="#CeremonyTranslation/duration">See details</a>
+`target` |  | <a href="#CeremonyTranslation/target">See details</a>
+`errata?` |  | <a href="#CeremonyTranslation/errata">See details</a>
 
-#### <a name="Ceremony/translations[key]/name"></a> `name`
+#### <a name="CeremonyTranslation/name"></a> `name`
 
 The name of the ceremony.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Ceremony/translations[key]/name_compressed"></a> `name_compressed?`
+#### <a name="CeremonyTranslation/name_compressed"></a> `name_compressed?`
 
 A compressed name of the ceremony for use in small areas (e.g. on
 character sheet). Should only be defined if the `name` does not fit on
 character sheet.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Ceremony/translations[key]/effect"></a> `effect`
+#### <a name="CeremonyTranslation/effect"></a> `effect`
 
 The effect description may be either a plain text or a text that is
 divided by a list of effects for each quality level. It may also be a
 list for each two quality levels.
 
-- **Type:** <a href="./_ActivatableSkill.md#Effect/T">Effect/T</a>
+- **Type:** <a href="./_ActivatableSkillEffect.md#Effect">Effect</a>
 
-#### <a name="Ceremony/translations[key]/casting_time"></a> `casting_time`
+#### <a name="CeremonyTranslation/casting_time"></a> `casting_time`
 
-- **Type:** <a href="#Ceremony/translations[key]/casting_time">Object</a>
+- **Type:** <a href="#CeremonyTranslation/casting_time">Object</a>
 
-#### <a name="Ceremony/translations[key]/cost"></a> `cost`
+#### <a name="CeremonyTranslation/cost"></a> `cost`
 
-- **Type:** <a href="#Ceremony/translations[key]/cost">Object</a>
+- **Type:** <a href="#CeremonyTranslation/cost">Object</a>
 
-#### <a name="Ceremony/translations[key]/range"></a> `range`
+#### <a name="CeremonyTranslation/range"></a> `range`
 
-- **Type:** <a href="#Ceremony/translations[key]/range">Object</a>
+- **Type:** <a href="#CeremonyTranslation/range">Object</a>
 
-#### <a name="Ceremony/translations[key]/duration"></a> `duration`
+#### <a name="CeremonyTranslation/duration"></a> `duration`
 
-- **Type:** <a href="#Ceremony/translations[key]/duration">Object</a>
+- **Type:** <a href="#CeremonyTranslation/duration">Object</a>
 
-#### <a name="Ceremony/translations[key]/target"></a> `target`
+#### <a name="CeremonyTranslation/target"></a> `target`
 
 - **Type:** String
 
-#### <a name="Ceremony/translations[key]/errata"></a> `errata?`
+#### <a name="CeremonyTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
 
 ---
 
-### <a name="Ceremony/translations[key]/casting_time"></a> `Ceremony/translations[key]/casting_time`
+### <a name="CeremonyTranslation/casting_time"></a> `CeremonyTranslation/casting_time`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`full` |  | <a href="#Ceremony/translations[key]/casting_time/full">See details</a>
-`abbr` |  | <a href="#Ceremony/translations[key]/casting_time/abbr">See details</a>
+`full` |  | <a href="#CeremonyTranslation/casting_time/full">See details</a>
+`abbr` |  | <a href="#CeremonyTranslation/casting_time/abbr">See details</a>
 
-#### <a name="Ceremony/translations[key]/casting_time/full"></a> `full`
+#### <a name="CeremonyTranslation/casting_time/full"></a> `full`
 
 - **Type:** String
 
-#### <a name="Ceremony/translations[key]/casting_time/abbr"></a> `abbr`
+#### <a name="CeremonyTranslation/casting_time/abbr"></a> `abbr`
 
 - **Type:** String
 
 ---
 
-### <a name="Ceremony/translations[key]/cost"></a> `Ceremony/translations[key]/cost`
+### <a name="CeremonyTranslation/cost"></a> `CeremonyTranslation/cost`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`full` |  | <a href="#Ceremony/translations[key]/cost/full">See details</a>
-`abbr` |  | <a href="#Ceremony/translations[key]/cost/abbr">See details</a>
+`full` |  | <a href="#CeremonyTranslation/cost/full">See details</a>
+`abbr` |  | <a href="#CeremonyTranslation/cost/abbr">See details</a>
 
-#### <a name="Ceremony/translations[key]/cost/full"></a> `full`
+#### <a name="CeremonyTranslation/cost/full"></a> `full`
 
 - **Type:** String
 
-#### <a name="Ceremony/translations[key]/cost/abbr"></a> `abbr`
+#### <a name="CeremonyTranslation/cost/abbr"></a> `abbr`
 
 - **Type:** String
 
 ---
 
-### <a name="Ceremony/translations[key]/range"></a> `Ceremony/translations[key]/range`
+### <a name="CeremonyTranslation/range"></a> `CeremonyTranslation/range`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`full` |  | <a href="#Ceremony/translations[key]/range/full">See details</a>
-`abbr` |  | <a href="#Ceremony/translations[key]/range/abbr">See details</a>
+`full` |  | <a href="#CeremonyTranslation/range/full">See details</a>
+`abbr` |  | <a href="#CeremonyTranslation/range/abbr">See details</a>
 
-#### <a name="Ceremony/translations[key]/range/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="Ceremony/translations[key]/range/abbr"></a> `abbr`
+#### <a name="CeremonyTranslation/range/full"></a> `full`
 
 - **Type:** String
 
----
-
-### <a name="Ceremony/translations[key]/duration"></a> `Ceremony/translations[key]/duration`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#Ceremony/translations[key]/duration/full">See details</a>
-`abbr` |  | <a href="#Ceremony/translations[key]/duration/abbr">See details</a>
-
-#### <a name="Ceremony/translations[key]/duration/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="Ceremony/translations[key]/duration/abbr"></a> `abbr`
+#### <a name="CeremonyTranslation/range/abbr"></a> `abbr`
 
 - **Type:** String
 
 ---
 
-### <a name="Tradition"></a> `Tradition`
-
-- **Type:** Union
-- **Cases:** <a href="#Tradition'GeneralAspect">Tradition'GeneralAspect</a> | <a href="#Tradition'Tradition">Tradition'Tradition</a>
-
----
-
-### <a name="Tradition'GeneralAspect"></a> `Tradition'GeneralAspect`
+### <a name="CeremonyTranslation/duration"></a> `CeremonyTranslation/duration`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Tradition'GeneralAspect/tag">See details</a>
-`id` | A general aspect's identifier. | <a href="#Tradition'GeneralAspect/id">See details</a>
+`full` |  | <a href="#CeremonyTranslation/duration/full">See details</a>
+`abbr` |  | <a href="#CeremonyTranslation/duration/abbr">See details</a>
 
-#### <a name="Tradition'GeneralAspect/tag"></a> `tag`
+#### <a name="CeremonyTranslation/duration/full"></a> `full`
 
-- **Constant:** `"GeneralAspect"`
+- **Type:** String
 
-#### <a name="Tradition'GeneralAspect/id"></a> `id`
+#### <a name="CeremonyTranslation/duration/abbr"></a> `abbr`
 
-A general aspect's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="Tradition'Tradition"></a> `Tradition'Tradition`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Tradition'Tradition/tag">See details</a>
-`id` | The blessed tradition's identifier. | <a href="#Tradition'Tradition/id">See details</a>
-`aspects?` | The aspect(s) from the tradition the ceremony belongs to. Note that not all traditions have aspects. | <a href="#Tradition'Tradition/aspects">See details</a>
-
-#### <a name="Tradition'Tradition/tag"></a> `tag`
-
-- **Constant:** `"Tradition"`
-
-#### <a name="Tradition'Tradition/id"></a> `id`
-
-The blessed tradition's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
-#### <a name="Tradition'Tradition/aspects"></a> `aspects?`
-
-The aspect(s) from the tradition the ceremony belongs to. Note that not
-all traditions have aspects.
-
-- **Type:** List
-- **Items:** <a href="#Tradition'Tradition/aspects[]">Tradition'Tradition/aspects[]</a>
-- **Minimum Items:** `1`
-- **Maximum Items:** `2`
-
----
-
-### <a name="Tradition'Tradition/aspects[]"></a> `Tradition'Tradition/aspects[]`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The aspect's identifier. | <a href="#Tradition'Tradition/aspects[]/id">See details</a>
-
-#### <a name="Tradition'Tradition/aspects[]/id"></a> `id`
-
-The aspect's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** String

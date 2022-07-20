@@ -17,18 +17,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The eye color.",
-                  "type": "string",
-                  "minLength": 1
-                }
-              },
-              "required": [
-                "name"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/EyeColorTranslation"
             }
           },
           "minProperties": 1,
@@ -38,6 +27,19 @@
       "required": [
         "id",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "EyeColorTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The eye color.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "name"
       ],
       "additionalProperties": false
     }

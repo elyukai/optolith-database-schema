@@ -41,35 +41,35 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="DerivedCharacteristic/translations[key]"></a> `DerivedCharacteristic/translations[key]`
 
-- **Type:** <a href="#Translation">Translation</a>
+- **Type:** <a href="#DerivedCharacteristicTranslation">DerivedCharacteristicTranslation</a>
 
 ---
 
-### <a name="Translation"></a> `Translation`
+### <a name="DerivedCharacteristicTranslation"></a> `DerivedCharacteristicTranslation`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The characteristic's name. | <a href="#Translation/name">See details</a>
-`abbreviation` | The characteristic's abbreviation. | <a href="#Translation/abbreviation">See details</a>
-`calculation?` | Possible calculation strings for the final value. | <a href="#Translation/calculation">See details</a>
+`name` | The characteristic's name. | <a href="#DerivedCharacteristicTranslation/name">See details</a>
+`abbreviation` | The characteristic's abbreviation. | <a href="#DerivedCharacteristicTranslation/abbreviation">See details</a>
+`calculation?` | Possible calculation strings for the final value. | <a href="#DerivedCharacteristicTranslation/calculation">See details</a>
 
-#### <a name="Translation/name"></a> `name`
+#### <a name="DerivedCharacteristicTranslation/name"></a> `name`
 
 The characteristic's name.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
-#### <a name="Translation/abbreviation"></a> `abbreviation`
+#### <a name="DerivedCharacteristicTranslation/abbreviation"></a> `abbreviation`
 
 The characteristic's abbreviation.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
-#### <a name="Translation/calculation"></a> `calculation?`
+#### <a name="DerivedCharacteristicTranslation/calculation"></a> `calculation?`
 
 Possible calculation strings for the final value.
 

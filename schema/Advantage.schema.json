@@ -31,13 +31,13 @@
         "ap_value": {
           "$ref": "./_Activatable.schema.json#/$defs/AdventurePointsValueAdvantagesDisadvantages"
         },
-        "has_no_maximum_spent_influence": {
-          "description": "Does this advantage not count towards the maximum of AP to be spent\non advantages?",
-          "const": true
+        "has_maximum_spent_influence": {
+          "description": "Does this advantage count towards the maximum of AP to be spent on\nadvantages?",
+          "type": "boolean"
         },
         "is_exclusive_to_arcane_spellworks": {
-          "description": "Does this advantage exclusively applies to arcane spellworks but not\nto magical actions and applications?",
-          "const": true
+          "description": "Does this advantage exclusively applies to arcane spellworks and not\nto magical actions and magical applications?",
+          "type": "boolean"
         },
         "src": {
           "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
@@ -47,31 +47,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "$ref": "./_Activatable.schema.json#/$defs/Name"
-                },
-                "name_in_library": {
-                  "$ref": "./_Activatable.schema.json#/$defs/NameInLibrary"
-                },
-                "rules": {
-                  "$ref": "./_Activatable.schema.json#/$defs/Rules"
-                },
-                "range": {
-                  "description": "The range.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "errata": {
-                  "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "rules"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/AdvantageTranslation"
             }
           },
           "minProperties": 1,
@@ -81,8 +57,37 @@
       "required": [
         "id",
         "ap_value",
+        "has_maximum_spent_influence",
+        "is_exclusive_to_arcane_spellworks",
         "src",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "AdvantageTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref": "./_Activatable.schema.json#/$defs/Name"
+        },
+        "name_in_library": {
+          "$ref": "./_Activatable.schema.json#/$defs/NameInLibrary"
+        },
+        "rules": {
+          "$ref": "./_Activatable.schema.json#/$defs/Rules"
+        },
+        "range": {
+          "description": "The range.",
+          "type": "string",
+          "minLength": 1
+        },
+        "errata": {
+          "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "rules"
       ],
       "additionalProperties": false
     }

@@ -6,6 +6,9 @@ import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 import { ImprovementCost } from "./_ImprovementCost.js"
+import { LocaleMap } from "./_LocaleMap.js"
+import { NonEmptyMarkdown, NonEmptyString } from "./_NonEmptyString.js"
+import { SkillGroupReference } from "./_SimpleReferences.js"
 import { SkillCheck } from "./_SkillCheck.js"
 
 /**
@@ -44,15 +47,7 @@ export type Skill = {
   /**
    * The skill group this skill belongs to.
    */
-  group: {
-    /**
-     * The identifier of the skill group.
-     * @integer
-     * @minimum 1
-     * @maximum 5
-     */
-    id: number
-  }
+  group: SkillGroupReference
 
   src: PublicationRefs
 
@@ -60,79 +55,63 @@ export type Skill = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the skill.
-       * @minLength 1
-       */
-      name: string
+  translations: LocaleMap<SkillTranslation>
+}
 
-      /**
-       * If there are options available that can not be put into a selection
-       * list (like different cults), provide the label text for the input
-       * element here. Otherwise leave empty.
-       * @minLength 1
-       */
-      applications_input_label?: string
+export type SkillTranslation = {
+  /**
+   * The name of the skill.
+   */
+  name: NonEmptyString
 
-      /**
-       * The text listing the certain circumstances in which the encumbrance may
-       * count. This text must be used if `encumbrance` is set to `"Maybe"`,
-       * otherwise it is ignored if defined.
-       * @minLength 1
-       */
-      encumbrance_description?: string
+  /**
+   * If there are options available that can not be put into a selection
+   * list (like different cults), provide the label text for the input
+   * element here. Otherwise leave empty.
+   */
+  applications_input_label?: NonEmptyString
 
-      /**
-       * Mentions any tools from the equipment list that are necessary to employ
-       * the skill.
-       * @markdown
-       * @minLength 1
-       */
-      tools?: string
+  /**
+   * The text listing the certain circumstances in which the encumbrance may
+   * count. This text must be used if `encumbrance` is set to `"Maybe"`,
+   * otherwise it is ignored if defined.
+   */
+  encumbrance_description?: NonEmptyString
 
-      /**
-       * Gives examples of the effects that various QL might provide.
-       * @markdown
-       * @minLength 1
-       */
-      quality: string
+  /**
+   * Mentions any tools from the equipment list that are necessary to employ
+   * the skill.
+   */
+  tools?: NonEmptyMarkdown
 
-      /**
-       * Lists examples of results for a failed check.
-       * @markdown
-       * @minLength 1
-       */
-      failed: string
+  /**
+   * Gives examples of the effects that various QL might provide.
+   */
+  quality: NonEmptyMarkdown
 
-      /**
-       * Lists examples of results for a critical success.
-       * @markdown
-       * @minLength 1
-       */
-      critical: string
+  /**
+   * Lists examples of results for a failed check.
+   */
+  failed: NonEmptyMarkdown
 
-      /**
-       * Lists examples of results for botches.
-       * @markdown
-       * @minLength 1
-       */
-      botch: string
+  /**
+   * Lists examples of results for a critical success.
+   */
+  critical: NonEmptyMarkdown
 
-      errata?: Errata
-    }
-  }
+  /**
+   * Lists examples of results for botches.
+   */
+  botch: NonEmptyMarkdown
+
+  errata?: Errata
 }
 
 /**
  * A category. All available entries from the specified category will be
  * included as separate applications.
  */
-type ApplicationCategory =
+export type ApplicationCategory =
   | { tag: "BlessedTraditions" }
   | { tag: "Diseases" }
   | { tag: "Regions" }
@@ -140,29 +119,19 @@ type ApplicationCategory =
 /**
  * The skill's applications.
  */
-type Applications =
-  | {
-    tag: "Derived"
+export type Applications =
+  | { tag: "Derived"; derived: ApplicationCategory }
+  | { tag: "Explicit"; explicit: SpecificApplications }
 
-    /**
-     * A category. All available entries from the specified category will be
-     * included as separate applications.
-     */
-    category: ApplicationCategory
-  }
-  | {
-    tag: "Explicit"
-
-    /**
-     * A list of explicit applications.
-     */
-    list: Application[]
-  }
+/**
+ * A list of explicit applications.
+ */
+export type SpecificApplications = Application[]
 
 /**
  * An explicit skill application.
  */
-type Application = {
+export type Application = {
   /**
    * The skill application's identifier. An unique, increasing integer.
    * @integer
@@ -174,24 +143,20 @@ type Application = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The skill application's name.
-       * @minLength 1
-       */
-      name: string
-    }
-  }
+  translations: LocaleMap<ApplicationTranslation>
+}
+
+export type ApplicationTranslation = {
+  /**
+   * The skill application's name.
+   */
+  name: NonEmptyString
 }
 
 /**
  * Indicates whether encumbrance gives a penalty for checks with the skill.
  */
-type Encumbrance =
+export type Encumbrance =
   | { tag: "True" }
   | { tag: "False" }
   | { tag: "Maybe" }

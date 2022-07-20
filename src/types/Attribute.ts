@@ -4,6 +4,8 @@
 
 import { getReferencialIntegrityErrorsForTranslatable, ReferencialIntegrityValidators } from "../validation/integrity.js"
 import { validateSchemaCreator } from "../validation/schema.js"
+import { LocaleMap } from "./_LocaleMap.js"
+import { NonEmptyString } from "./_NonEmptyString.js"
 
 /**
  * @title Attribute
@@ -20,30 +22,24 @@ export type Attribute = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The attribute's name.
-       * @minLength 1
-       */
-      name: string
+  translations: LocaleMap<AttributeTranslation>
+}
 
-      /**
-       * The abbreviation of the attribute's name.
-       * @minLength 1
-       */
-      abbreviation: string
+export type AttributeTranslation = {
+  /**
+   * The attribute's name.
+   */
+  name: NonEmptyString
 
-      /**
-       * The description of the attribute.
-       * @minLength 1
-       */
-      description: string
-    }
-  }
+  /**
+   * The abbreviation of the attribute's name.
+   */
+  abbreviation: NonEmptyString
+
+  /**
+   * The description of the attribute.
+   */
+  description: NonEmptyString
 }
 
 export const validateIntegrity = (

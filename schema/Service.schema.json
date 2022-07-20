@@ -16,32 +16,7 @@
           "description": "Defines for which creature type(s) the service is available.",
           "type": "array",
           "items": {
-            "oneOf": [
-              {
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "SummonedCreatures"
-                  }
-                },
-                "required": [
-                  "tag"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Monstrosities"
-                  }
-                },
-                "required": [
-                  "tag"
-                ],
-                "additionalProperties": false
-              }
-            ]
+            "$ref": "#/$defs/ServiceAvailability"
           },
           "minItems": 1,
           "uniqueItems": true
@@ -54,27 +29,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The name of the service.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "description": {
-                  "description": "The description of the service.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "errata": {
-                  "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "description"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/ServiceTranslation"
             }
           },
           "minProperties": 1,
@@ -86,6 +41,55 @@
         "availability",
         "src",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "ServiceAvailability": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "SummonedCreatures"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Monstrosities"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "ServiceTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the service.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "description": {
+          "description": "The description of the service.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        },
+        "errata": {
+          "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "description"
       ],
       "additionalProperties": false
     }

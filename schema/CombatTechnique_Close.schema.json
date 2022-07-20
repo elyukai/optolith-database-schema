@@ -14,23 +14,13 @@
         },
         "special": {
           "description": "Special rules for the combat technique that apply to all weapons in this\ncategory.",
-          "type": "object",
-          "properties": {
-            "parrying": {
-              "description": "Is parrying possible with this combat technique?",
-              "$ref": "#/$defs/Parrying"
-            }
-          },
-          "required": [
-            "parrying"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/CloseCombatTechniqueSpecialRules"
         },
         "primary_attribute": {
           "description": "The primary attribute(s).",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/PrimaryAttribute"
+            "$ref": "./_SimpleReferences.schema.json#/$defs/AttributeReference"
           },
           "minItems": 1,
           "maxItems": 2,
@@ -52,26 +42,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The name of the condition.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "special": {
-                  "description": "Additional rules for the condition, if applicable.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "errata": {
-                  "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/CloseCombatTechniqueTranslation"
             }
           },
           "minProperties": 1,
@@ -89,39 +60,41 @@
       ],
       "additionalProperties": false
     },
-    "Parrying": {
-      "description": "Is parrying possible with this combat technique?",
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Possible"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Impossible"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
+    "CloseCombatTechniqueSpecialRules": {
+      "description": "Special rules for the combat technique that apply to all weapons in this\ncategory.",
+      "type": "object",
+      "properties": {
+        "can_parry": {
+          "description": "Is parrying possible with this combat technique?",
+          "type": "boolean"
         }
-      ]
+      },
+      "required": [
+        "can_parry"
+      ],
+      "additionalProperties": false
     },
-    "PrimaryAttribute": {
-      "description": "The attribute's identifier.",
-      "type": "integer",
-      "minimum": 1
+    "CloseCombatTechniqueTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the condition.",
+          "type": "string",
+          "minLength": 1
+        },
+        "special": {
+          "description": "Additional rules for the condition, if applicable.",
+          "type": "string",
+          "minLength": 1
+        },
+        "errata": {
+          "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
     }
   }
 }

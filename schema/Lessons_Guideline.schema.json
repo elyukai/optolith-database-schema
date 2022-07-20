@@ -22,18 +22,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The guideline name.",
-                  "type": "string",
-                  "minLength": 1
-                }
-              },
-              "required": [
-                "name"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/GuidelineTranslation"
             }
           },
           "minProperties": 1,
@@ -44,6 +33,19 @@
         "id",
         "spellwork_changes_allowed",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "GuidelineTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The guideline name.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "name"
       ],
       "additionalProperties": false
     }

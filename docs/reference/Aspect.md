@@ -31,24 +31,28 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Aspect/translations[key]"></a> `Aspect/translations[key]`
 
+- **Type:** <a href="#AspectTranslation">AspectTranslation</a>
+
+---
+
+### <a name="AspectTranslation"></a> `AspectTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The aspect name. | <a href="#Aspect/translations[key]/name">See details</a>
-`master_of_aspect_suffix?` | The aspect's name appended to the simple name (not `name_in_library`) of the special ability *Master of (Aspect)*. | <a href="#Aspect/translations[key]/master_of_aspect_suffix">See details</a>
+`name` | The aspect name. | <a href="#AspectTranslation/name">See details</a>
+`master_of_aspect_suffix?` | The aspect's name appended to the simple name (not `name_in_library`) of the special ability *Master of (Aspect)*. | <a href="#AspectTranslation/master_of_aspect_suffix">See details</a>
 
-#### <a name="Aspect/translations[key]/name"></a> `name`
+#### <a name="AspectTranslation/name"></a> `name`
 
 The aspect name.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Aspect/translations[key]/master_of_aspect_suffix"></a> `master_of_aspect_suffix?`
+#### <a name="AspectTranslation/master_of_aspect_suffix"></a> `master_of_aspect_suffix?`
 
 The aspect's name appended to the simple name (not `name_in_library`)
 of the special ability *Master of (Aspect)*.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

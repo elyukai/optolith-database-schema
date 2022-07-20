@@ -6,5 +6,5 @@ export type LocaleMap<T> = {
   /**
    * @patternProperties ^[a-z]{2}-[A-Z]{2}$
    */
-  [locale: string]: T
+  [localeId: string]: T
 }

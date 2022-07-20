@@ -4,6 +4,7 @@
 
 import { validateSchemaCreator } from "../validation/schema.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
+import { LocaleMap } from "./_LocaleMap.js"
 import { DerivedCharacteristicPrerequisites } from "./_Prerequisite.js"
 
 /**
@@ -25,15 +26,10 @@ export type DerivedCharacteristic = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: Translation
-  }
+  translations: LocaleMap<DerivedCharacteristicTranslation>
 }
 
-type Translation = {
+export type DerivedCharacteristicTranslation = {
   /**
    * The characteristic's name.
    * @minLength 1
@@ -55,7 +51,7 @@ type Translation = {
 /**
  * Possible calculation strings for the final value.
  */
-type Calculation = {
+export type Calculation = {
   /**
    * The default calculation string.
    * @minLength 1

@@ -36,69 +36,64 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Condition/translations[key]"></a> `Condition/translations[key]`
 
+- **Type:** <a href="#ConditionTranslation">ConditionTranslation</a>
+
+---
+
+### <a name="ConditionTranslation"></a> `ConditionTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The condition's name. | <a href="#Condition/translations[key]/name">See details</a>
-`rules?` | Additional rules for the condition, if applicable. | <a href="#Condition/translations[key]/rules">See details</a>
-`effects` | The effects for level 1 to 4. | <a href="#Condition/translations[key]/effects">See details</a>
-`errata?` |  | <a href="#Condition/translations[key]/errata">See details</a>
+`name` | The condition's name. | <a href="#ConditionTranslation/name">See details</a>
+`rules?` | Additional rules for the condition, if applicable. | <a href="#ConditionTranslation/rules">See details</a>
+`effects` | The effects for level 1 to 4. | <a href="#ConditionTranslation/effects">See details</a>
+`errata?` |  | <a href="#ConditionTranslation/errata">See details</a>
 
-#### <a name="Condition/translations[key]/name"></a> `name`
+#### <a name="ConditionTranslation/name"></a> `name`
 
 The condition's name.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Condition/translations[key]/rules"></a> `rules?`
+#### <a name="ConditionTranslation/rules"></a> `rules?`
 
 Additional rules for the condition, if applicable.
 
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
-#### <a name="Condition/translations[key]/effects"></a> `effects`
+#### <a name="ConditionTranslation/effects"></a> `effects`
 
 The effects for level 1 to 4.
 
 - **Type:** Tuple
-- **Items:** [<a href="Condition/translations[key]/effects[0]">Condition/translations[key]/effects[0]</a>, <a href="Condition/translations[key]/effects[1]">Condition/translations[key]/effects[1]</a>, <a href="Condition/translations[key]/effects[2]">Condition/translations[key]/effects[2]</a>, <a href="Condition/translations[key]/effects[3]">Condition/translations[key]/effects[3]</a>]
+- **Items:** [<a href="ConditionTranslation/effects[0]">ConditionTranslation/effects[0]</a>, <a href="ConditionTranslation/effects[1]">ConditionTranslation/effects[1]</a>, <a href="ConditionTranslation/effects[2]">ConditionTranslation/effects[2]</a>, <a href="ConditionTranslation/effects[3]">ConditionTranslation/effects[3]</a>]
 
-#### <a name="Condition/translations[key]/errata"></a> `errata?`
+#### <a name="ConditionTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
 
 ---
 
-### <a name="Condition/translations[key]/effects[0]"></a> `Condition/translations[key]/effects[0]`
+### <a name="ConditionTranslation/effects[0]"></a> `ConditionTranslation/effects[0]`
 
-- **Type:** <a href="#Effect">Effect</a>
-
----
-
-### <a name="Condition/translations[key]/effects[1]"></a> `Condition/translations[key]/effects[1]`
-
-- **Type:** <a href="#Effect">Effect</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
 ---
 
-### <a name="Condition/translations[key]/effects[2]"></a> `Condition/translations[key]/effects[2]`
+### <a name="ConditionTranslation/effects[1]"></a> `ConditionTranslation/effects[1]`
 
-- **Type:** <a href="#Effect">Effect</a>
-
----
-
-### <a name="Condition/translations[key]/effects[3]"></a> `Condition/translations[key]/effects[3]`
-
-- **Type:** <a href="#Effect">Effect</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
 ---
 
-### <a name="Effect"></a> `Effect`
+### <a name="ConditionTranslation/effects[2]"></a> `ConditionTranslation/effects[2]`
 
-The effect on a level.
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
+---
+
+### <a name="ConditionTranslation/effects[3]"></a> `ConditionTranslation/effects[3]`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>

@@ -5,6 +5,8 @@
 import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
+import { LocaleMap } from "./_LocaleMap.js"
+import { NonEmptyString } from "./_NonEmptyString.js"
 
 /**
  * @title Pact Category
@@ -21,61 +23,13 @@ export type PactCategory = {
    * Types of creatures in this category.
    * @minItems 1
    */
-  types: {
-    /**
-     * The type's identifier. An unique, increasing integer.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-
-    /**
-     * All translations for the entry, identified by IETF language tag (BCP47).
-     * @minProperties 1
-     */
-    translations: {
-      /**
-       * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-       */
-      [localeId: string]: {
-        /**
-         * The name of the type.
-         * @minLength 1
-         */
-        name: string
-      }
-    }
-  }[]
+  types: PactType[]
 
   /**
    * Domains in this category.
    * @minItems 1
    */
-   domains: {
-    /**
-     * The domain's identifier. An unique, increasing integer.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-
-    /**
-     * All translations for the entry, identified by IETF language tag (BCP47).
-     * @minProperties 1
-     */
-    translations: {
-      /**
-       * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-       */
-      [localeId: string]: {
-        /**
-         * The name of the domain.
-         * @minLength 1
-         */
-        name: string
-      }
-    }
-  }[]
+  domains: PactDomain[]
 
   src: PublicationRefs
 
@@ -83,20 +37,61 @@ export type PactCategory = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the pact category.
-       * @minLength 1
-       */
-      name: string
-
-      errata?: Errata
-    }
-  }
+  translations: LocaleMap<PactCategoryTranslation>
 }
+
+export type PactCategoryTranslation = {
+  /**
+   * The name of the pact category.
+   */
+  name: NonEmptyString
+
+  errata?: Errata
+}
+
+export type PactType = {
+  /**
+   * The type's identifier. An unique, increasing integer.
+   * @integer
+   * @minimum 1
+   */
+  id: number
+
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   * @minProperties 1
+   */
+  translations: LocaleMap<PactTypeTranslation>
+}
+
+export type PactTypeTranslation = {
+  /**
+   * The name of the type.
+   */
+  name: NonEmptyString
+}
+
+export type PactDomain = {
+  /**
+   * The domain's identifier. An unique, increasing integer.
+   * @integer
+   * @minimum 1
+   */
+  id: number
+
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   * @minProperties 1
+   */
+  translations: LocaleMap<PactDomainTranslation>
+}
+
+export type PactDomainTranslation = {
+  /**
+   * The name of the domain.
+   */
+  name: NonEmptyString
+}
+
 
 export const validateSchema = validateSchemaCreator<PactCategory>(import.meta.url)

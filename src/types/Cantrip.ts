@@ -5,8 +5,14 @@
 import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
-import { Duration, TargetCategory } from "./_ActivatableSkill.js"
+import { CastingTimeDuringLovemaking } from "./_ActivatableSkillCastingTime.js"
+import { DurationUnit } from "./_ActivatableSkillDuration.js"
+import { FixedRange } from "./_ActivatableSkillRange.js"
+import { TargetCategory } from "./_ActivatableSkillTargetCategory.js"
 import { Enhancements } from "./_Enhancements.js"
+import { LocaleMap } from "./_LocaleMap.js"
+import { ResponsiveText } from "./_ResponsiveText.js"
+import { CurriculumReference, MagicalTraditionReference, PropertyReference } from "./_SimpleReferences.js"
 
 /**
  * @title Cantrip
@@ -22,24 +28,17 @@ export type Cantrip = {
   /**
    * Measurable parameters of a cantrip.
    */
-  parameters: PerformanceParameters
+  parameters: CantripPerformanceParameters
 
   /**
    * The target category – the kind of creature or object – the skill affects.
    */
-  target: TargetCategory.T
+  target: TargetCategory
 
   /**
    * The associated property.
    */
-  property: {
-    /**
-     * The property's identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-  }
+  property: PropertyReference
 
   /**
    * A note specifying the dissemination of the cantrip in different traditions.
@@ -47,34 +46,7 @@ export type Cantrip = {
    * traditions, but usually one the academies and traditions are listed the
    * cantrip is most commonly teached in.
    */
-  note?:
-    | {
-      tag: "Exclusive"
-
-      /**
-       * The traditions the cantrip is exclusively available to.
-       * @minItems 1
-       * @uniqueItems
-       */
-      traditions: {
-        /**
-         * The magical tradition's identifier.
-         * @integer
-         * @minimum 2
-         */
-        id: number
-      }[]
-    }
-    | {
-      tag: "Common"
-
-      /**
-       * The academies and traditions the cantrip is commonly teached in.
-       * @minItems 1
-       * @uniqueItems
-       */
-      list: CommonNote[]
-    }
+  note?: CantripNote
 
   src: PublicationRefs
 
@@ -82,172 +54,143 @@ export type Cantrip = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the spell.
-       * @minLength 1
-       */
-      name: string
-
-      /**
-       * The effect description.
-       * @markdown
-       * @minLength 1
-       */
-      effect: string
-
-      /**
-       * @deprecated
-       */
-      range: string
-
-      /**
-       * @deprecated
-       */
-      duration: string
-
-      /**
-       * @deprecated
-       */
-      target: string
-
-      errata?: Errata
-    }
-  }
+  translations: LocaleMap<CantripTranslation>
 
   enhancements?: Enhancements
+}
+
+export type CantripNote =
+  | { tag: "Exclusive"; exclusive: ExclusiveCantripNote }
+  | { tag: "Common"; common: CommonCantripNotes }
+
+export type ExclusiveCantripNote = {
+  /**
+   * The traditions the cantrip is exclusively available to.
+   * @minItems 1
+   * @uniqueItems
+   */
+  traditions: MagicalTraditionReference[]
+}
+
+export type CommonCantripNotes = {
+  /**
+   * The academies and traditions the cantrip is commonly teached in.
+   * @minItems 1
+   * @uniqueItems
+   */
+  list: CommonCantripNote[]
+}
+
+export type CommonCantripNote =
+  | { tag: "Academy"; academy: CurriculumReference }
+  | { tag: "Tradition"; tradition: CommonCantripTraditionNote }
+
+export type CommonCantripTraditionNote = {
+  /**
+   * The magical tradition's identifier.
+   * @integer
+   * @minimum 1
+   */
+  id: number
+
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   * @minProperties 1
+   */
+  translations?: LocaleMap<CommonCantripTraditionNoteTranslation>
+}
+
+export type CommonCantripTraditionNoteTranslation = {
+  /**
+   * A note, appended to the generated string in parenthesis.
+   * @minLength 1
+   */
+  note: string
+}
+
+export type CantripTranslation = {
+  /**
+   * The name of the spell.
+   * @minLength 1
+   */
+  name: string
+
+  /**
+   * The effect description.
+   * @markdown
+   * @minLength 1
+   */
+  effect: string
+
+  /**
+   * @deprecated
+   */
+  range: string
+
+  /**
+   * @deprecated
+   */
+  duration: string
+
+  /**
+   * @deprecated
+   */
+  target: string
+
+  errata?: Errata
 }
 
 /**
  * Measurable parameters of a blessing.
  */
-type PerformanceParameters = {
-  range:
-    | { tag: "Self" }
-    | { tag: "Touch" }
-    | {
-      tag: "Fixed"
-
-      /**
-       * The range in steps/m.
-       * @integer
-       * @minimum 1
-       */
-      value: number
-
-      /**
-       * If `true`, the range is a radius.
-       */
-      is_radius?: true
-    }
-
-  duration:
-    | { tag: "Immediate" }
-    | {
-      tag: "Fixed"
-
-      /**
-       * If `true`, the duration is a maximum duration.
-       */
-      is_maximum?: true
-
-      /**
-       * The (unitless) duration.
-       * @integer
-       * @minimum 1
-       */
-      value: number
-
-      /**
-       * The duration unit.
-       */
-      unit: Duration.Unit
-    }
-    | {
-      tag: "DuringLovemaking"
-
-      /**
-       * The duration in rounds.
-       * @integer
-       * @minimum 1
-       */
-      value: number
-    }
-    | {
-      tag: "Indefinite"
-
-      /**
-       * All translations for the entry, identified by IETF language tag (BCP47).
-       * @minProperties 1
-       */
-      translations: {
-        /**
-         * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-         */
-        [localeId: string]: {
-          /**
-           * A description of the duration.
-           */
-          description: {
-            /**
-             * The full description of the duration.
-             * @minLength 1
-             */
-            default: string
-
-            /**
-             * A compressed description of the duration for use in small areas
-             * (e.g. on character sheet).
-             * @minLength 1
-             */
-            compressed: string
-          }
-        }
-      }
-    }
+export type CantripPerformanceParameters = {
+  range: CantripRange
+  duration: CantripDuration
 }
 
-export type CommonNote =
-  | {
-    tag: "Academy"
+export type CantripRange =
+  | { tag: "Self" }
+  | { tag: "Touch" }
+  | { tag: "Fixed"; fixed: FixedRange }
 
-    /**
-     * The academy's curriculum identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-  }
-  | {
-    tag: "Tradition"
+export type CantripDuration =
+  | { tag: "Immediate" }
+  | { tag: "Fixed"; fixed: FixedCantripDuration }
+  | { tag: "DuringLovemaking"; during_lovemaking: CastingTimeDuringLovemaking }
+  | { tag: "Indefinite"; indefinite: IndefiniteCantripDuration }
 
-    /**
-     * The magical tradition's identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
+export type FixedCantripDuration = {
+  /**
+   * If `true`, the duration is a maximum duration.
+   */
+  is_maximum?: true
 
-    /**
-     * All translations for the entry, identified by IETF language tag (BCP47).
-     * @minProperties 1
-     */
-    translations?: {
-      /**
-       * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-       */
-      [localeId: string]: {
-        /**
-         * A note, appended to the generated string in parenthesis.
-         * @minLength 1
-         */
-        note: string
-      }
-    }
-  }
+  /**
+   * The (unitless) duration.
+   * @integer
+   * @minimum 1
+   */
+  value: number
+
+  /**
+   * The duration unit.
+   */
+  unit: DurationUnit
+}
+
+export type IndefiniteCantripDuration = {
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   * @minProperties 1
+   */
+  translations: LocaleMap<IndefiniteDurationTranslation>
+}
+
+export type IndefiniteDurationTranslation = {
+  /**
+   * A description of the duration.
+   */
+  description: ResponsiveText
+}
 
 export const validateSchema = validateSchemaCreator<Cantrip>(import.meta.url)

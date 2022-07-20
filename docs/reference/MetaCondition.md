@@ -44,69 +44,64 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="MetaCondition/translations[key]"></a> `MetaCondition/translations[key]`
 
+- **Type:** <a href="#MetaConditionTranslation">MetaConditionTranslation</a>
+
+---
+
+### <a name="MetaConditionTranslation"></a> `MetaConditionTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The meta condition's name. | <a href="#MetaCondition/translations[key]/name">See details</a>
-`rules?` | Additional rules for the meta condition, if applicable. | <a href="#MetaCondition/translations[key]/rules">See details</a>
-`effects` | The effects for level 1 to 4. | <a href="#MetaCondition/translations[key]/effects">See details</a>
-`errata?` |  | <a href="#MetaCondition/translations[key]/errata">See details</a>
+`name` | The meta condition's name. | <a href="#MetaConditionTranslation/name">See details</a>
+`rules?` | Additional rules for the meta condition, if applicable. | <a href="#MetaConditionTranslation/rules">See details</a>
+`effects` | The effects for level 1 to 4. | <a href="#MetaConditionTranslation/effects">See details</a>
+`errata?` |  | <a href="#MetaConditionTranslation/errata">See details</a>
 
-#### <a name="MetaCondition/translations[key]/name"></a> `name`
+#### <a name="MetaConditionTranslation/name"></a> `name`
 
 The meta condition's name.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="MetaCondition/translations[key]/rules"></a> `rules?`
+#### <a name="MetaConditionTranslation/rules"></a> `rules?`
 
 Additional rules for the meta condition, if applicable.
 
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
-#### <a name="MetaCondition/translations[key]/effects"></a> `effects`
+#### <a name="MetaConditionTranslation/effects"></a> `effects`
 
 The effects for level 1 to 4.
 
 - **Type:** Tuple
-- **Items:** [<a href="MetaCondition/translations[key]/effects[0]">MetaCondition/translations[key]/effects[0]</a>, <a href="MetaCondition/translations[key]/effects[1]">MetaCondition/translations[key]/effects[1]</a>, <a href="MetaCondition/translations[key]/effects[2]">MetaCondition/translations[key]/effects[2]</a>, <a href="MetaCondition/translations[key]/effects[3]">MetaCondition/translations[key]/effects[3]</a>]
+- **Items:** [<a href="MetaConditionTranslation/effects[0]">MetaConditionTranslation/effects[0]</a>, <a href="MetaConditionTranslation/effects[1]">MetaConditionTranslation/effects[1]</a>, <a href="MetaConditionTranslation/effects[2]">MetaConditionTranslation/effects[2]</a>, <a href="MetaConditionTranslation/effects[3]">MetaConditionTranslation/effects[3]</a>]
 
-#### <a name="MetaCondition/translations[key]/errata"></a> `errata?`
+#### <a name="MetaConditionTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
 
 ---
 
-### <a name="MetaCondition/translations[key]/effects[0]"></a> `MetaCondition/translations[key]/effects[0]`
+### <a name="MetaConditionTranslation/effects[0]"></a> `MetaConditionTranslation/effects[0]`
 
-- **Type:** <a href="#Effect">Effect</a>
-
----
-
-### <a name="MetaCondition/translations[key]/effects[1]"></a> `MetaCondition/translations[key]/effects[1]`
-
-- **Type:** <a href="#Effect">Effect</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
 ---
 
-### <a name="MetaCondition/translations[key]/effects[2]"></a> `MetaCondition/translations[key]/effects[2]`
+### <a name="MetaConditionTranslation/effects[1]"></a> `MetaConditionTranslation/effects[1]`
 
-- **Type:** <a href="#Effect">Effect</a>
-
----
-
-### <a name="MetaCondition/translations[key]/effects[3]"></a> `MetaCondition/translations[key]/effects[3]`
-
-- **Type:** <a href="#Effect">Effect</a>
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
 ---
 
-### <a name="Effect"></a> `Effect`
+### <a name="MetaConditionTranslation/effects[2]"></a> `MetaConditionTranslation/effects[2]`
 
-The effect on a level.
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
+---
+
+### <a name="MetaConditionTranslation/effects[3]"></a> `MetaConditionTranslation/effects[3]`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>

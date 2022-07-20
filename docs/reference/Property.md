@@ -39,15 +39,20 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Property/translations[key]"></a> `Property/translations[key]`
 
+- **Type:** <a href="#PropertyTranslation">PropertyTranslation</a>
+
+---
+
+### <a name="PropertyTranslation"></a> `PropertyTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The property's name. | <a href="#Property/translations[key]/name">See details</a>
+`name` | The property's name. | <a href="#PropertyTranslation/name">See details</a>
 
-#### <a name="Property/translations[key]/name"></a> `name`
+#### <a name="PropertyTranslation/name"></a> `name`
 
 The property's name.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

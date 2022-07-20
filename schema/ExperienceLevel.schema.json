@@ -46,7 +46,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "$ref": "#/$defs/Translation"
+              "$ref": "#/$defs/ExperienceLevelTranslation"
             }
           },
           "minProperties": 1,
@@ -66,7 +66,7 @@
       ],
       "additionalProperties": false
     },
-    "Translation": {
+    "ExperienceLevelTranslation": {
       "type": "object",
       "properties": {
         "name": {

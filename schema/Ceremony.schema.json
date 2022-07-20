@@ -26,13 +26,13 @@
         },
         "target": {
           "description": "The target category – the kind of creature or object – the skill affects.",
-          "$ref": "./_ActivatableSkill.schema.json#/$defs/TargetCategory/T"
+          "$ref": "./_ActivatableSkillTargetCategory.schema.json#/$defs/TargetCategory"
         },
         "traditions": {
           "description": "The tradition(s) the ceremony is available for. Note that general aspects\ndo not have an associated tradition and thus need to be defined in a\nspecial way.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/Tradition"
+            "$ref": "./_Blessed.schema.json#/$defs/SkillTradition"
           },
           "minItems": 1
         },
@@ -51,103 +51,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The name of the ceremony.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "name_compressed": {
-                  "description": "A compressed name of the ceremony for use in small areas (e.g. on\ncharacter sheet). Should only be defined if the `name` does not fit on\ncharacter sheet.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "effect": {
-                  "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
-                  "$ref": "./_ActivatableSkill.schema.json#/$defs/Effect/T"
-                },
-                "casting_time": {
-                  "type": "object",
-                  "properties": {
-                    "full": {
-                      "type": "string"
-                    },
-                    "abbr": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "full",
-                    "abbr"
-                  ],
-                  "additionalProperties": false
-                },
-                "cost": {
-                  "type": "object",
-                  "properties": {
-                    "full": {
-                      "type": "string"
-                    },
-                    "abbr": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "full",
-                    "abbr"
-                  ],
-                  "additionalProperties": false
-                },
-                "range": {
-                  "type": "object",
-                  "properties": {
-                    "full": {
-                      "type": "string"
-                    },
-                    "abbr": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "full",
-                    "abbr"
-                  ],
-                  "additionalProperties": false
-                },
-                "duration": {
-                  "type": "object",
-                  "properties": {
-                    "full": {
-                      "type": "string"
-                    },
-                    "abbr": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "full",
-                    "abbr"
-                  ],
-                  "additionalProperties": false
-                },
-                "target": {
-                  "type": "string"
-                },
-                "errata": {
-                  "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "effect",
-                "casting_time",
-                "cost",
-                "range",
-                "duration",
-                "target"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/CeremonyTranslation"
             }
           },
           "minProperties": 1,
@@ -169,65 +73,102 @@
       ],
       "additionalProperties": false
     },
-    "Tradition": {
-      "oneOf": [
-        {
+    "CeremonyTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the ceremony.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "name_compressed": {
+          "description": "A compressed name of the ceremony for use in small areas (e.g. on\ncharacter sheet). Should only be defined if the `name` does not fit on\ncharacter sheet.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "effect": {
+          "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
+          "$ref": "./_ActivatableSkillEffect.schema.json#/$defs/Effect"
+        },
+        "casting_time": {
           "type": "object",
           "properties": {
-            "tag": {
-              "const": "GeneralAspect"
+            "full": {
+              "type": "string"
             },
-            "id": {
-              "description": "A general aspect's identifier.",
-              "type": "integer",
-              "minimum": 1
+            "abbr": {
+              "type": "string"
             }
           },
           "required": [
-            "tag",
-            "id"
+            "full",
+            "abbr"
           ],
           "additionalProperties": false
         },
-        {
+        "cost": {
           "type": "object",
           "properties": {
-            "tag": {
-              "const": "Tradition"
+            "full": {
+              "type": "string"
             },
-            "id": {
-              "description": "The blessed tradition's identifier.",
-              "type": "integer",
-              "minimum": 1
-            },
-            "aspects": {
-              "description": "The aspect(s) from the tradition the ceremony belongs to. Note that not\nall traditions have aspects.",
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "description": "The aspect's identifier.",
-                    "type": "integer",
-                    "minimum": 1
-                  }
-                },
-                "required": [
-                  "id"
-                ],
-                "additionalProperties": false
-              },
-              "minItems": 1,
-              "maxItems": 2
+            "abbr": {
+              "type": "string"
             }
           },
           "required": [
-            "tag",
-            "id"
+            "full",
+            "abbr"
           ],
           "additionalProperties": false
+        },
+        "range": {
+          "type": "object",
+          "properties": {
+            "full": {
+              "type": "string"
+            },
+            "abbr": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "full",
+            "abbr"
+          ],
+          "additionalProperties": false
+        },
+        "duration": {
+          "type": "object",
+          "properties": {
+            "full": {
+              "type": "string"
+            },
+            "abbr": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "full",
+            "abbr"
+          ],
+          "additionalProperties": false
+        },
+        "target": {
+          "type": "string"
+        },
+        "errata": {
+          "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
         }
-      ]
+      },
+      "required": [
+        "name",
+        "effect",
+        "casting_time",
+        "cost",
+        "range",
+        "duration",
+        "target"
+      ],
+      "additionalProperties": false
     }
   }
 }

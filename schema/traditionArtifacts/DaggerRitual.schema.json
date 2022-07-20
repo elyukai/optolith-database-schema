@@ -26,7 +26,7 @@
           "$ref": "../_Activatable.schema.json#/$defs/Volume"
         },
         "cost": {
-          "$ref": "../_Activatable.schema.json#/$defs/EnchantmentCost"
+          "$ref": "#/$defs/DaggerRitualCost"
         },
         "property": {
           "$ref": "../_Activatable.schema.json#/$defs/Property"
@@ -81,12 +81,67 @@
       "required": [
         "id",
         "volume",
+        "cost",
         "property",
         "ap_value",
         "src",
         "translations"
       ],
       "additionalProperties": false
+    },
+    "DaggerRitualCost": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "ArcaneEnergyCost"
+            },
+            "ae_cost": {
+              "$ref": "../_Activatable.schema.json#/$defs/ArcaneEnergyCost"
+            },
+            "lp_cost": {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Fixed"
+                },
+                "value": {
+                  "description": "The LP cost value.",
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "tag",
+                "value"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "tag",
+            "ae_cost"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "BindingCost"
+            },
+            "binding_cost": {
+              "$ref": "../_Activatable.schema.json#/$defs/BindingCost"
+            }
+          },
+          "required": [
+            "tag",
+            "binding_cost"
+          ],
+          "additionalProperties": false
+        }
+      ]
     }
   }
 }
