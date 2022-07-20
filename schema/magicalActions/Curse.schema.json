@@ -22,12 +22,11 @@
         },
         "parameters": {
           "description": "Measurable parameters of a curse.",
-          "$ref": "#/$defs/PerformanceParameters"
+          "$ref": "#/$defs/CursePerformanceParameters"
         },
-        "property_id": {
-          "description": "The property's identifier.",
-          "type": "integer",
-          "minimum": 1
+        "property": {
+          "description": "The associated property.",
+          "$ref": "../_SimpleReferences.schema.json#/$defs/PropertyReference"
         },
         "src": {
           "$ref": "../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
@@ -37,60 +36,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The name of the curse.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "effect": {
-                  "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
-                  "$ref": "../_ActivatableSkillEffect.schema.json#/$defs/Effect"
-                },
-                "cost": {
-                  "type": "object",
-                  "properties": {
-                    "full": {
-                      "type": "string"
-                    },
-                    "abbr": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "full",
-                    "abbr"
-                  ],
-                  "additionalProperties": false
-                },
-                "duration": {
-                  "type": "object",
-                  "properties": {
-                    "full": {
-                      "type": "string"
-                    },
-                    "abbr": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "full",
-                    "abbr"
-                  ],
-                  "additionalProperties": false
-                },
-                "errata": {
-                  "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "effect",
-                "cost",
-                "duration"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/CurseTranslation"
             }
           },
           "minProperties": 1,
@@ -101,271 +47,78 @@
         "id",
         "check",
         "parameters",
-        "property_id",
+        "property",
         "src",
         "translations"
       ],
       "additionalProperties": false
     },
-    "PerformanceParameters": {
+    "CurseTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the curse.",
+          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "effect": {
+          "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
+          "$ref": "../_ActivatableSkillEffect.schema.json#/$defs/Effect"
+        },
+        "cost": {
+          "type": "object",
+          "properties": {
+            "full": {
+              "type": "string"
+            },
+            "abbr": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "full",
+            "abbr"
+          ],
+          "additionalProperties": false
+        },
+        "duration": {
+          "type": "object",
+          "properties": {
+            "full": {
+              "type": "string"
+            },
+            "abbr": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "full",
+            "abbr"
+          ],
+          "additionalProperties": false
+        },
+        "errata": {
+          "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "effect",
+        "cost",
+        "duration"
+      ],
+      "additionalProperties": false
+    },
+    "CursePerformanceParameters": {
       "description": "Measurable parameters of a curse.",
       "type": "object",
       "properties": {
         "cost": {
           "description": "The AE cost.",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Fixed"
-                },
-                "value": {
-                  "description": "The (temporary) AE cost value.",
-                  "type": "integer",
-                  "minimum": 1
-                },
-                "translations": {
-                  "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-                  "type": "object",
-                  "patternProperties": {
-                    "^[a-z]{2}-[A-Z]{2}$": {
-                      "type": "object",
-                      "properties": {
-                        "per": {
-                          "description": "The cost have to be per a specific countable entity, e.g. `8 KP\nper person`.",
-                          "type": "object",
-                          "properties": {
-                            "default": {
-                              "description": "The full countable entity name.",
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "compressed": {
-                              "description": "The compressed countable entity name.",
-                              "type": "string",
-                              "minLength": 1
-                            }
-                          },
-                          "required": [
-                            "default",
-                            "compressed"
-                          ],
-                          "additionalProperties": false
-                        },
-                        "note": {
-                          "description": "A note, appended to the generated string in parenthesis.",
-                          "type": "object",
-                          "properties": {
-                            "default": {
-                              "description": "The full note.",
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "compressed": {
-                              "description": "A compressed note, if applicable. If not specified it should not\nbe displayed in small location.",
-                              "type": "string",
-                              "minLength": 1
-                            }
-                          },
-                          "required": [
-                            "default"
-                          ],
-                          "additionalProperties": false
-                        }
-                      },
-                      "required": [],
-                      "minProperties": 1,
-                      "additionalProperties": false
-                    }
-                  },
-                  "minProperties": 1,
-                  "additionalProperties": false
-                }
-              },
-              "required": [
-                "tag",
-                "value"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Indefinite"
-                },
-                "translations": {
-                  "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-                  "type": "object",
-                  "patternProperties": {
-                    "^[a-z]{2}-[A-Z]{2}$": {
-                      "type": "object",
-                      "properties": {
-                        "description": {
-                          "description": "A description of where the cost come from.",
-                          "type": "object",
-                          "properties": {
-                            "default": {
-                              "description": "The full description of where the cost come from.",
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "compressed": {
-                              "description": "A compressed description of where the cost come from for use in\nsmall areas (e.g. on character sheet).",
-                              "type": "string",
-                              "minLength": 1
-                            }
-                          },
-                          "required": [
-                            "default",
-                            "compressed"
-                          ],
-                          "additionalProperties": false
-                        }
-                      },
-                      "required": [
-                        "description"
-                      ],
-                      "additionalProperties": false
-                    }
-                  },
-                  "minProperties": 1,
-                  "additionalProperties": false
-                }
-              },
-              "required": [
-                "tag",
-                "translations"
-              ],
-              "additionalProperties": false
-            }
-          ]
+          "$ref": "#/$defs/CurseCost"
         },
         "duration": {
           "description": "The duration.",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Immediate"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Fixed"
-                },
-                "value": {
-                  "description": "The (unitless) duration value.",
-                  "type": "integer",
-                  "minimum": 1
-                },
-                "unit": {
-                  "description": "The unit of the `value`.",
-                  "$ref": "../_ActivatableSkillDuration.schema.json#/$defs/DurationUnit"
-                }
-              },
-              "required": [
-                "tag",
-                "value",
-                "unit"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "$ref": "../_ActivatableSkillDuration.schema.json#/$defs/TaggedCheckResultBasedDuration"
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Indefinite"
-                },
-                "maximum": {
-                  "description": "Specified if the duration has a maximum time span.",
-                  "oneOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "tag": {
-                          "const": "Fixed"
-                        },
-                        "value": {
-                          "description": "The (unitless) maximum duration value.",
-                          "type": "integer",
-                          "minimum": 1
-                        },
-                        "unit": {
-                          "description": "The unit of the `value`.",
-                          "$ref": "../_ActivatableSkillDuration.schema.json#/$defs/DurationUnit"
-                        }
-                      },
-                      "required": [
-                        "tag",
-                        "value",
-                        "unit"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "$ref": "../_ActivatableSkillDuration.schema.json#/$defs/TaggedCheckResultBasedDuration"
-                    }
-                  ]
-                },
-                "translations": {
-                  "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-                  "type": "object",
-                  "patternProperties": {
-                    "^[a-z]{2}-[A-Z]{2}$": {
-                      "type": "object",
-                      "properties": {
-                        "description": {
-                          "description": "A description of the duration.",
-                          "type": "object",
-                          "properties": {
-                            "default": {
-                              "description": "The full description of the duration.",
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "compressed": {
-                              "description": "A compressed description of the duration for use in small areas\n(e.g. on character sheet).",
-                              "type": "string",
-                              "minLength": 1
-                            }
-                          },
-                          "required": [
-                            "default",
-                            "compressed"
-                          ],
-                          "additionalProperties": false
-                        }
-                      },
-                      "required": [
-                        "description"
-                      ],
-                      "additionalProperties": false
-                    }
-                  },
-                  "minProperties": 1,
-                  "additionalProperties": false
-                }
-              },
-              "required": [
-                "tag",
-                "translations"
-              ],
-              "additionalProperties": false
-            }
-          ]
+          "$ref": "#/$defs/CurseDuration"
         }
       },
       "required": [
@@ -373,6 +126,226 @@
         "duration"
       ],
       "additionalProperties": false
+    },
+    "CurseCost": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Fixed"
+            },
+            "fixed": {
+              "$ref": "#/$defs/FixedCurseCost"
+            }
+          },
+          "required": [
+            "tag",
+            "fixed"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Indefinite"
+            },
+            "indefinite": {
+              "$ref": "../_ActivatableSkillCost.schema.json#/$defs/IndefiniteOneTimeCost"
+            }
+          },
+          "required": [
+            "tag",
+            "indefinite"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "FixedCurseCost": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The (temporary) AE cost value.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/FixedCurseCostTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "FixedCurseCostTranslation": {
+      "type": "object",
+      "properties": {
+        "per": {
+          "description": "The cost have to be per a specific countable entity, e.g. `8 KP\nper person`.",
+          "$ref": "../_ResponsiveText.schema.json#/$defs/ResponsiveText"
+        },
+        "note": {
+          "description": "A note, appended to the generated string in parenthesis.",
+          "$ref": "../_ResponsiveText.schema.json#/$defs/ResponsiveTextOptional"
+        }
+      },
+      "required": [],
+      "minProperties": 1,
+      "additionalProperties": false
+    },
+    "CurseDuration": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Immediate"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Fixed"
+            },
+            "fixed": {
+              "$ref": "#/$defs/FixedCurseDuration"
+            }
+          },
+          "required": [
+            "tag",
+            "fixed"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "CheckResultBased"
+            },
+            "check_result_based": {
+              "$ref": "../_ActivatableSkillDuration.schema.json#/$defs/CheckResultBasedDuration"
+            }
+          },
+          "required": [
+            "tag",
+            "check_result_based"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Indefinite"
+            },
+            "indefinite": {
+              "$ref": "#/$defs/IndefiniteCurseDuration"
+            }
+          },
+          "required": [
+            "tag",
+            "indefinite"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "FixedCurseDuration": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The (unitless) duration value.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "unit": {
+          "description": "The unit of the `value`.",
+          "$ref": "../_ActivatableSkillDuration.schema.json#/$defs/DurationUnit"
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "additionalProperties": false
+    },
+    "IndefiniteCurseDuration": {
+      "type": "object",
+      "properties": {
+        "maximum": {
+          "description": "Specified if the duration has a maximum time span.",
+          "$ref": "#/$defs/MaximumIndefiniteCurseDuration"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "../_ActivatableSkillDuration.schema.json#/$defs/IndefiniteDurationTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "MaximumIndefiniteCurseDuration": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Fixed"
+            },
+            "fixed": {
+              "$ref": "#/$defs/FixedCurseDuration"
+            }
+          },
+          "required": [
+            "tag",
+            "fixed"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "CheckResultBased"
+            },
+            "check_result_based": {
+              "$ref": "../_ActivatableSkillDuration.schema.json#/$defs/CheckResultBasedDuration"
+            }
+          },
+          "required": [
+            "tag",
+            "check_result_based"
+          ],
+          "additionalProperties": false
+        }
+      ]
     }
   }
 }

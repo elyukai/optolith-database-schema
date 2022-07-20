@@ -8,6 +8,10 @@ import { PublicationRefs } from "../source/_PublicationRef.js"
 import { CheckResultBasedDuration } from "../_ActivatableSkillDuration.js"
 import { Effect } from "../_ActivatableSkillEffect.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
+import { LocaleMap } from "../_LocaleMap.js"
+import { NonEmptyString } from "../_NonEmptyString.js"
+import { ResponsiveText, ResponsiveTextOptional } from "../_ResponsiveText.js"
+import { PropertyReference } from "../_SimpleReferences.js"
 import { SkillCheck } from "../_SkillCheck.js"
 
 /**
@@ -29,50 +33,17 @@ export type MagicalRune = {
   /**
    * In some cases, the target's Spirit or Toughness is applied as a penalty.
    */
-  check_penalty?:
-    | {
-      tag: "CloseCombatTechnique"
-
-      /**
-       * A map from close combat techniques to their modifiers.
-       * @minItems 1
-       */
-      map: {
-        /**
-         * The close combat technique's identifier.
-         * @integer
-         * @minimum 1
-         */
-        combat_technique_id: number
-
-        /**
-         * The check modifier for the specified close combat technique.
-         * @integer
-         */
-        modifier: number
-      }[]
-
-      other: {
-        /**
-         * The check modifier for close combat techniques not specified in
-         * `map`.
-         * @integer
-         */
-        modifier: number
-      }
-    }
+  check_penalty?: MagicalRuneCheckPenalty
 
   /**
    * Measurable parameters of a magical rune.
    */
-  parameters: PerformanceParameters
+  parameters: MagicalRunePerformanceParameters
 
   /**
-   * The property's identifier.
-   * @integer
-   * @minimum 1
+   * The associated property.
    */
-  property_id: number
+  property: PropertyReference
 
   /**
    * States which column is used to improve the skill.
@@ -83,178 +54,171 @@ export type MagicalRune = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the magical rune.
-       * @minLength 1
-       */
-      name: string
+  translations: LocaleMap<MagicalRuneTranslation>
+}
 
-      /**
-       * The native name of the magical rune.
-       * @minLength 1
-       */
-      native_name: string
+export type MagicalRuneTranslation = {
+  /**
+   * The name of the magical rune.
+   */
+  name: NonEmptyString
 
-      /**
-       * The effect description may be either a plain text or a text that is
-       * divided by a list of effects for each quality level. It may also be a
-       * list for each two quality levels.
-       */
-      effect: Effect
+  /**
+   * The native name of the magical rune.
+   */
+  native_name: NonEmptyString
 
-      /**
-       * @deprecated
-       */
-      cost: { full: string; abbr: string }
+  /**
+   * The effect description may be either a plain text or a text that is
+   * divided by a list of effects for each quality level. It may also be a
+   * list for each two quality levels.
+   */
+  effect: Effect
 
-      /**
-       * @deprecated
-       */
-      crafting_time: {
-        slow: { full: string; abbr: string }
-        fast: { full: string; abbr: string }
-      }
+  /**
+   * @deprecated
+   */
+  cost: { full: string; abbr: string }
 
-      /**
-       * @deprecated
-       */
-      duration: {
-        slow: { full: string; abbr: string }
-        fast: { full: string; abbr: string }
-      }
-
-      errata?: Errata
-    }
+  /**
+   * @deprecated
+   */
+  crafting_time: {
+    slow: { full: string; abbr: string }
+    fast: { full: string; abbr: string }
   }
+
+  /**
+   * @deprecated
+   */
+  duration: {
+    slow: { full: string; abbr: string }
+    fast: { full: string; abbr: string }
+  }
+
+  errata?: Errata
+}
+
+export type MagicalRuneCheckPenalty =
+  | { tag: "CloseCombatTechnique"; close_combat_technique: MagicalRuneCloseCombatTechniqueCheckPenalty }
+
+export type MagicalRuneCloseCombatTechniqueCheckPenalty = {
+  /**
+   * A map from close combat techniques to their modifiers.
+   * @minItems 1
+   */
+  map: MagicalRuneCloseCombatTechniqueCheckPenaltyMapping[]
+
+  rest: MagicalRuneCloseCombatTechniqueCheckPenaltyRest
+}
+
+export type MagicalRuneCloseCombatTechniqueCheckPenaltyMapping = {
+  /**
+   * The close combat technique's identifier.
+   * @integer
+   * @minimum 1
+   */
+  combat_technique_id: number
+
+  /**
+   * The check modifier for the specified close combat technique.
+   * @integer
+   */
+  modifier: number
+}
+
+export type MagicalRuneCloseCombatTechniqueCheckPenaltyRest = {
+  /**
+   * The check modifier for close combat techniques not specified in `map`.
+   * @integer
+   */
+  modifier: number
 }
 
 /**
  * Measurable parameters of a magical rune.
  */
-type PerformanceParameters = {
+export type MagicalRunePerformanceParameters = {
   /**
    * The AE cost.
    */
-  cost:
-    | {
-      tag: "Single"
-
-      /**
-       * The AE cost value.
-       * @integer
-       * @minimum 1
-       */
-      value: number
-
-      /**
-       * All translations for the entry, identified by IETF language tag
-       * (BCP47).
-       * @minProperties 1
-       */
-      translations?: {
-        /**
-         * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-         * @minProperties 1
-         */
-        [localeId: string]: {
-          /**
-           * A note, appended to the generated string in parenthesis.
-           */
-          note?: {
-            /**
-             * The full note.
-             * @minLength 1
-             */
-            default: string
-
-            /**
-             * A compressed note, if applicable. If not specified it should not
-             * be displayed in small location.
-             * @minLength 1
-             */
-            compressed?: string
-          }
-        }
-      }
-    }
-    | {
-      tag: "Disjunction"
-
-      /**
-       * A set of possible AE cost values.
-       * @minItems 2
-       */
-      list: {
-        /**
-          * The AE cost value.
-          * @integer
-          * @minimum 1
-          */
-        value: number
-      }[]
-    }
+  cost: MagicalRuneCost
 
   /**
    * The crafting time.
    */
-  crafting_time: {
-    /**
-     * The (unitless) crafting time.
-     */
-    value: 1 | 2 | 4
-
-    /**
-     * All translations for the entry, identified by IETF language tag (BCP47).
-     * @minProperties 1
-     */
-    translations?: {
-      /**
-       * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-       * @minProperties 1
-       */
-      [localeId: string]: {
-        /**
-         * The crafting time has to be per a specific countable entity, e.g. `8
-         * action per person`.
-         */
-        per?: {
-          /**
-           * The full countable entity name.
-           * @minLength 1
-           */
-          default: string
-
-          /**
-           * The compressed countable entity name.
-           * @minLength 1
-           */
-          compressed: string
-        }
-      }
-    }
-  }
+  crafting_time: MagicalRuneCraftingTime
 
   /**
    * The duration.
    */
-  duration: {
-    /**
-     * The duration on slow rune application.
-     */
-    slow: CheckResultBasedDuration
+  duration: MagicalRuneDuration
+}
 
-    /**
-     * The duration on fast rune application.
-     */
-    fast: CheckResultBasedDuration
-  }
+export type MagicalRuneCost =
+  | { tag: "Single"; single: SingleMagicalRuneCost }
+  | { tag: "Disjunction"; disjunction: MagicalRuneCostDisjunction }
+
+export type SingleMagicalRuneCost = {
+  /**
+   * The AE cost value.
+   * @integer
+   * @minimum 1
+   */
+  value: number
+
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translations?: LocaleMap<SingleMagicalRuneCostTranslation>
+}
+
+export type SingleMagicalRuneCostTranslation = {
+  /**
+   * A note, appended to the generated string in parenthesis.
+   */
+  note: ResponsiveTextOptional
+}
+
+export type MagicalRuneCostDisjunction = {
+  /**
+   * A set of possible AE cost values.
+   * @minItems 2
+   */
+  list: SingleMagicalRuneCost[]
+}
+
+export type MagicalRuneCraftingTime = {
+  /**
+   * The (unitless) crafting time.
+   */
+  value: 1 | 2 | 4
+
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translations?: LocaleMap<MagicalRuneCraftingTimeTranslation>
+}
+
+export type MagicalRuneCraftingTimeTranslation = {
+  /**
+   * The crafting time has to be per a specific countable entity, e.g. `8
+   * action per person`.
+   */
+  per: ResponsiveText
+}
+
+export type MagicalRuneDuration = {
+  /**
+   * The duration on slow rune application.
+   */
+  slow: CheckResultBasedDuration
+
+  /**
+   * The duration on fast rune application.
+   */
+  fast: CheckResultBasedDuration
 }
 
 export const validateSchema = validateSchemaCreator<MagicalRune>(import.meta.url)

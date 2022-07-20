@@ -12,7 +12,7 @@ Key | Description | Details
 `check` | Lists the linked three attributes used to make a skill check. | <a href="#Curse/check">See details</a>
 `check_penalty?` | In some cases, the target's Spirit or Toughness is applied as a penalty. | <a href="#Curse/check_penalty">See details</a>
 `parameters` | Measurable parameters of a curse. | <a href="#Curse/parameters">See details</a>
-`property_id` | The property's identifier. | <a href="#Curse/property_id">See details</a>
+`property` | The associated property. | <a href="#Curse/property">See details</a>
 `src` |  | <a href="#Curse/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Curse/translations">See details</a>
 
@@ -39,14 +39,13 @@ In some cases, the target's Spirit or Toughness is applied as a penalty.
 
 Measurable parameters of a curse.
 
-- **Type:** <a href="#PerformanceParameters">PerformanceParameters</a>
+- **Type:** <a href="#CursePerformanceParameters">CursePerformanceParameters</a>
 
-#### <a name="Curse/property_id"></a> `property_id`
+#### <a name="Curse/property"></a> `property`
 
-The property's identifier.
+The associated property.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="../_SimpleReferences.md#PropertyReference">PropertyReference</a>
 
 #### <a name="Curse/src"></a> `src`
 
@@ -65,24 +64,29 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Curse/translations[key]"></a> `Curse/translations[key]`
 
+- **Type:** <a href="#CurseTranslation">CurseTranslation</a>
+
+---
+
+### <a name="CurseTranslation"></a> `CurseTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the curse. | <a href="#Curse/translations[key]/name">See details</a>
-`effect` | The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels. | <a href="#Curse/translations[key]/effect">See details</a>
-`cost` |  | <a href="#Curse/translations[key]/cost">See details</a>
-`duration` |  | <a href="#Curse/translations[key]/duration">See details</a>
-`errata?` |  | <a href="#Curse/translations[key]/errata">See details</a>
+`name` | The name of the curse. | <a href="#CurseTranslation/name">See details</a>
+`effect` | The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels. | <a href="#CurseTranslation/effect">See details</a>
+`cost` |  | <a href="#CurseTranslation/cost">See details</a>
+`duration` |  | <a href="#CurseTranslation/duration">See details</a>
+`errata?` |  | <a href="#CurseTranslation/errata">See details</a>
 
-#### <a name="Curse/translations[key]/name"></a> `name`
+#### <a name="CurseTranslation/name"></a> `name`
 
 The name of the curse.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Curse/translations[key]/effect"></a> `effect`
+#### <a name="CurseTranslation/effect"></a> `effect`
 
 The effect description may be either a plain text or a text that is
 divided by a list of effects for each quality level. It may also be a
@@ -90,59 +94,59 @@ list for each two quality levels.
 
 - **Type:** <a href="../_ActivatableSkillEffect.md#Effect">Effect</a>
 
-#### <a name="Curse/translations[key]/cost"></a> `cost`
+#### <a name="CurseTranslation/cost"></a> `cost`
 
-- **Type:** <a href="#Curse/translations[key]/cost">Object</a>
+- **Type:** <a href="#CurseTranslation/cost">Object</a>
 
-#### <a name="Curse/translations[key]/duration"></a> `duration`
+#### <a name="CurseTranslation/duration"></a> `duration`
 
-- **Type:** <a href="#Curse/translations[key]/duration">Object</a>
+- **Type:** <a href="#CurseTranslation/duration">Object</a>
 
-#### <a name="Curse/translations[key]/errata"></a> `errata?`
+#### <a name="CurseTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>
 
 ---
 
-### <a name="Curse/translations[key]/cost"></a> `Curse/translations[key]/cost`
+### <a name="CurseTranslation/cost"></a> `CurseTranslation/cost`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`full` |  | <a href="#Curse/translations[key]/cost/full">See details</a>
-`abbr` |  | <a href="#Curse/translations[key]/cost/abbr">See details</a>
+`full` |  | <a href="#CurseTranslation/cost/full">See details</a>
+`abbr` |  | <a href="#CurseTranslation/cost/abbr">See details</a>
 
-#### <a name="Curse/translations[key]/cost/full"></a> `full`
+#### <a name="CurseTranslation/cost/full"></a> `full`
 
 - **Type:** String
 
-#### <a name="Curse/translations[key]/cost/abbr"></a> `abbr`
+#### <a name="CurseTranslation/cost/abbr"></a> `abbr`
 
 - **Type:** String
 
 ---
 
-### <a name="Curse/translations[key]/duration"></a> `Curse/translations[key]/duration`
+### <a name="CurseTranslation/duration"></a> `CurseTranslation/duration`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`full` |  | <a href="#Curse/translations[key]/duration/full">See details</a>
-`abbr` |  | <a href="#Curse/translations[key]/duration/abbr">See details</a>
+`full` |  | <a href="#CurseTranslation/duration/full">See details</a>
+`abbr` |  | <a href="#CurseTranslation/duration/abbr">See details</a>
 
-#### <a name="Curse/translations[key]/duration/full"></a> `full`
+#### <a name="CurseTranslation/duration/full"></a> `full`
 
 - **Type:** String
 
-#### <a name="Curse/translations[key]/duration/abbr"></a> `abbr`
+#### <a name="CurseTranslation/duration/abbr"></a> `abbr`
 
 - **Type:** String
 
 ---
 
-### <a name="PerformanceParameters"></a> `PerformanceParameters`
+### <a name="CursePerformanceParameters"></a> `CursePerformanceParameters`
 
 Measurable parameters of a curse.
 
@@ -150,242 +154,221 @@ Measurable parameters of a curse.
 
 Key | Description | Details
 :-- | :-- | :--
-`cost` | The AE cost. | <a href="#PerformanceParameters/cost">See details</a>
-`duration` | The duration. | <a href="#PerformanceParameters/duration">See details</a>
+`cost` | The AE cost. | <a href="#CursePerformanceParameters/cost">See details</a>
+`duration` | The duration. | <a href="#CursePerformanceParameters/duration">See details</a>
 
-#### <a name="PerformanceParameters/cost"></a> `cost`
+#### <a name="CursePerformanceParameters/cost"></a> `cost`
 
 The AE cost.
 
-- **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/cost'Fixed">PerformanceParameters/cost'Fixed</a> | <a href="#PerformanceParameters/cost'Indefinite">PerformanceParameters/cost'Indefinite</a>
+- **Type:** <a href="#CurseCost">CurseCost</a>
 
-#### <a name="PerformanceParameters/duration"></a> `duration`
+#### <a name="CursePerformanceParameters/duration"></a> `duration`
 
 The duration.
 
-- **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/duration'Immediate">PerformanceParameters/duration'Immediate</a> | <a href="#PerformanceParameters/duration'Fixed">PerformanceParameters/duration'Fixed</a> | <a href="#PerformanceParameters/duration'TaggedCheckResultBasedDuration">PerformanceParameters/duration'TaggedCheckResultBasedDuration</a> | <a href="#PerformanceParameters/duration'Indefinite">PerformanceParameters/duration'Indefinite</a>
+- **Type:** <a href="#CurseDuration">CurseDuration</a>
 
 ---
 
-### <a name="PerformanceParameters/cost'Fixed"></a> `PerformanceParameters/cost'Fixed`
+### <a name="CurseCost"></a> `CurseCost`
+
+- **Type:** Union
+- **Cases:** <a href="#CurseCost'Fixed">CurseCost'Fixed</a> | <a href="#CurseCost'Indefinite">CurseCost'Indefinite</a>
+
+---
+
+### <a name="CurseCost'Fixed"></a> `CurseCost'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/cost'Fixed/tag">See details</a>
-`value` | The (temporary) AE cost value. | <a href="#PerformanceParameters/cost'Fixed/value">See details</a>
-`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PerformanceParameters/cost'Fixed/translations">See details</a>
+`tag` |  | <a href="#CurseCost'Fixed/tag">See details</a>
+`fixed` |  | <a href="#CurseCost'Fixed/fixed">See details</a>
 
-#### <a name="PerformanceParameters/cost'Fixed/tag"></a> `tag`
+#### <a name="CurseCost'Fixed/tag"></a> `tag`
 
 - **Constant:** `"Fixed"`
 
-#### <a name="PerformanceParameters/cost'Fixed/value"></a> `value`
+#### <a name="CurseCost'Fixed/fixed"></a> `fixed`
+
+- **Type:** <a href="#FixedCurseCost">FixedCurseCost</a>
+
+---
+
+### <a name="CurseCost'Indefinite"></a> `CurseCost'Indefinite`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CurseCost'Indefinite/tag">See details</a>
+`indefinite` |  | <a href="#CurseCost'Indefinite/indefinite">See details</a>
+
+#### <a name="CurseCost'Indefinite/tag"></a> `tag`
+
+- **Constant:** `"Indefinite"`
+
+#### <a name="CurseCost'Indefinite/indefinite"></a> `indefinite`
+
+- **Type:** <a href="../_ActivatableSkillCost.md#IndefiniteOneTimeCost">IndefiniteOneTimeCost</a>
+
+---
+
+### <a name="FixedCurseCost"></a> `FixedCurseCost`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`value` | The (temporary) AE cost value. | <a href="#FixedCurseCost/value">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#FixedCurseCost/translations">See details</a>
+
+#### <a name="FixedCurseCost/value"></a> `value`
 
 The (temporary) AE cost value.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="PerformanceParameters/cost'Fixed/translations"></a> `translations?`
+#### <a name="FixedCurseCost/translations"></a> `translations?`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#PerformanceParameters/cost'Fixed/translations[key]">PerformanceParameters/cost'Fixed/translations[key]</a>
+- **Property Values:** <a href="#FixedCurseCost/translations[key]">FixedCurseCost/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="PerformanceParameters/cost'Fixed/translations[key]"></a> `PerformanceParameters/cost'Fixed/translations[key]`
+### <a name="FixedCurseCost/translations[key]"></a> `FixedCurseCost/translations[key]`
+
+- **Type:** <a href="#FixedCurseCostTranslation">FixedCurseCostTranslation</a>
+
+---
+
+### <a name="FixedCurseCostTranslation"></a> `FixedCurseCostTranslation`
 
 - **Type:** Object
 - **Minimum Properties:** `1`
 
 Key | Description | Details
 :-- | :-- | :--
-`per?` | The cost have to be per a specific countable entity, e.g. `8 KP per person`. | <a href="#PerformanceParameters/cost'Fixed/translations[key]/per">See details</a>
-`note?` | A note, appended to the generated string in parenthesis. | <a href="#PerformanceParameters/cost'Fixed/translations[key]/note">See details</a>
+`per?` | The cost have to be per a specific countable entity, e.g. `8 KP per person`. | <a href="#FixedCurseCostTranslation/per">See details</a>
+`note?` | A note, appended to the generated string in parenthesis. | <a href="#FixedCurseCostTranslation/note">See details</a>
 
-#### <a name="PerformanceParameters/cost'Fixed/translations[key]/per"></a> `per?`
-
-The cost have to be per a specific countable entity, e.g. `8 KP
-per person`.
-
-- **Type:** <a href="#PerformanceParameters/cost'Fixed/translations[key]/per">Object</a>
-
-#### <a name="PerformanceParameters/cost'Fixed/translations[key]/note"></a> `note?`
-
-A note, appended to the generated string in parenthesis.
-
-- **Type:** <a href="#PerformanceParameters/cost'Fixed/translations[key]/note">Object</a>
-
----
-
-### <a name="PerformanceParameters/cost'Fixed/translations[key]/per"></a> `PerformanceParameters/cost'Fixed/translations[key]/per`
+#### <a name="FixedCurseCostTranslation/per"></a> `per?`
 
 The cost have to be per a specific countable entity, e.g. `8 KP
 per person`.
 
-- **Type:** Object
+- **Type:** <a href="../_ResponsiveText.md#ResponsiveText">ResponsiveText</a>
 
-Key | Description | Details
-:-- | :-- | :--
-`default` | The full countable entity name. | <a href="#PerformanceParameters/cost'Fixed/translations[key]/per/default">See details</a>
-`compressed` | The compressed countable entity name. | <a href="#PerformanceParameters/cost'Fixed/translations[key]/per/compressed">See details</a>
-
-#### <a name="PerformanceParameters/cost'Fixed/translations[key]/per/default"></a> `default`
-
-The full countable entity name.
-
-- **Type:** String
-- **Minimum Length:** `1`
-
-#### <a name="PerformanceParameters/cost'Fixed/translations[key]/per/compressed"></a> `compressed`
-
-The compressed countable entity name.
-
-- **Type:** String
-- **Minimum Length:** `1`
-
----
-
-### <a name="PerformanceParameters/cost'Fixed/translations[key]/note"></a> `PerformanceParameters/cost'Fixed/translations[key]/note`
+#### <a name="FixedCurseCostTranslation/note"></a> `note?`
 
 A note, appended to the generated string in parenthesis.
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`default` | The full note. | <a href="#PerformanceParameters/cost'Fixed/translations[key]/note/default">See details</a>
-`compressed?` | A compressed note, if applicable. If not specified it should not be displayed in small location. | <a href="#PerformanceParameters/cost'Fixed/translations[key]/note/compressed">See details</a>
-
-#### <a name="PerformanceParameters/cost'Fixed/translations[key]/note/default"></a> `default`
-
-The full note.
-
-- **Type:** String
-- **Minimum Length:** `1`
-
-#### <a name="PerformanceParameters/cost'Fixed/translations[key]/note/compressed"></a> `compressed?`
-
-A compressed note, if applicable. If not specified it should not
-be displayed in small location.
-
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../_ResponsiveText.md#ResponsiveTextOptional">ResponsiveTextOptional</a>
 
 ---
 
-### <a name="PerformanceParameters/cost'Indefinite"></a> `PerformanceParameters/cost'Indefinite`
+### <a name="CurseDuration"></a> `CurseDuration`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/cost'Indefinite/tag">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PerformanceParameters/cost'Indefinite/translations">See details</a>
-
-#### <a name="PerformanceParameters/cost'Indefinite/tag"></a> `tag`
-
-- **Constant:** `"Indefinite"`
-
-#### <a name="PerformanceParameters/cost'Indefinite/translations"></a> `translations`
-
-All translations for the entry, identified by IETF language tag (BCP47).
-
-- **Type:** Dictionary
-- **Property Values:** <a href="#PerformanceParameters/cost'Indefinite/translations[key]">PerformanceParameters/cost'Indefinite/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** Union
+- **Cases:** <a href="#CurseDuration'Immediate">CurseDuration'Immediate</a> | <a href="#CurseDuration'Fixed">CurseDuration'Fixed</a> | <a href="#CurseDuration'CheckResultBased">CurseDuration'CheckResultBased</a> | <a href="#CurseDuration'Indefinite">CurseDuration'Indefinite</a>
 
 ---
 
-### <a name="PerformanceParameters/cost'Indefinite/translations[key]"></a> `PerformanceParameters/cost'Indefinite/translations[key]`
+### <a name="CurseDuration'Immediate"></a> `CurseDuration'Immediate`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`description` | A description of where the cost come from. | <a href="#PerformanceParameters/cost'Indefinite/translations[key]/description">See details</a>
+`tag` |  | <a href="#CurseDuration'Immediate/tag">See details</a>
 
-#### <a name="PerformanceParameters/cost'Indefinite/translations[key]/description"></a> `description`
-
-A description of where the cost come from.
-
-- **Type:** <a href="#PerformanceParameters/cost'Indefinite/translations[key]/description">Object</a>
-
----
-
-### <a name="PerformanceParameters/cost'Indefinite/translations[key]/description"></a> `PerformanceParameters/cost'Indefinite/translations[key]/description`
-
-A description of where the cost come from.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`default` | The full description of where the cost come from. | <a href="#PerformanceParameters/cost'Indefinite/translations[key]/description/default">See details</a>
-`compressed` | A compressed description of where the cost come from for use in small areas (e.g. on character sheet). | <a href="#PerformanceParameters/cost'Indefinite/translations[key]/description/compressed">See details</a>
-
-#### <a name="PerformanceParameters/cost'Indefinite/translations[key]/description/default"></a> `default`
-
-The full description of where the cost come from.
-
-- **Type:** String
-- **Minimum Length:** `1`
-
-#### <a name="PerformanceParameters/cost'Indefinite/translations[key]/description/compressed"></a> `compressed`
-
-A compressed description of where the cost come from for use in
-small areas (e.g. on character sheet).
-
-- **Type:** String
-- **Minimum Length:** `1`
-
----
-
-### <a name="PerformanceParameters/duration'Immediate"></a> `PerformanceParameters/duration'Immediate`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration'Immediate/tag">See details</a>
-
-#### <a name="PerformanceParameters/duration'Immediate/tag"></a> `tag`
+#### <a name="CurseDuration'Immediate/tag"></a> `tag`
 
 - **Constant:** `"Immediate"`
 
 ---
 
-### <a name="PerformanceParameters/duration'Fixed"></a> `PerformanceParameters/duration'Fixed`
+### <a name="CurseDuration'Fixed"></a> `CurseDuration'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration'Fixed/tag">See details</a>
-`value` | The (unitless) duration value. | <a href="#PerformanceParameters/duration'Fixed/value">See details</a>
-`unit` | The unit of the `value`. | <a href="#PerformanceParameters/duration'Fixed/unit">See details</a>
+`tag` |  | <a href="#CurseDuration'Fixed/tag">See details</a>
+`fixed` |  | <a href="#CurseDuration'Fixed/fixed">See details</a>
 
-#### <a name="PerformanceParameters/duration'Fixed/tag"></a> `tag`
+#### <a name="CurseDuration'Fixed/tag"></a> `tag`
 
 - **Constant:** `"Fixed"`
 
-#### <a name="PerformanceParameters/duration'Fixed/value"></a> `value`
+#### <a name="CurseDuration'Fixed/fixed"></a> `fixed`
+
+- **Type:** <a href="#FixedCurseDuration">FixedCurseDuration</a>
+
+---
+
+### <a name="CurseDuration'CheckResultBased"></a> `CurseDuration'CheckResultBased`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CurseDuration'CheckResultBased/tag">See details</a>
+`check_result_based` |  | <a href="#CurseDuration'CheckResultBased/check_result_based">See details</a>
+
+#### <a name="CurseDuration'CheckResultBased/tag"></a> `tag`
+
+- **Constant:** `"CheckResultBased"`
+
+#### <a name="CurseDuration'CheckResultBased/check_result_based"></a> `check_result_based`
+
+- **Type:** <a href="../_ActivatableSkillDuration.md#CheckResultBasedDuration">CheckResultBasedDuration</a>
+
+---
+
+### <a name="CurseDuration'Indefinite"></a> `CurseDuration'Indefinite`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CurseDuration'Indefinite/tag">See details</a>
+`indefinite` |  | <a href="#CurseDuration'Indefinite/indefinite">See details</a>
+
+#### <a name="CurseDuration'Indefinite/tag"></a> `tag`
+
+- **Constant:** `"Indefinite"`
+
+#### <a name="CurseDuration'Indefinite/indefinite"></a> `indefinite`
+
+- **Type:** <a href="#IndefiniteCurseDuration">IndefiniteCurseDuration</a>
+
+---
+
+### <a name="FixedCurseDuration"></a> `FixedCurseDuration`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`value` | The (unitless) duration value. | <a href="#FixedCurseDuration/value">See details</a>
+`unit` | The unit of the `value`. | <a href="#FixedCurseDuration/unit">See details</a>
+
+#### <a name="FixedCurseDuration/value"></a> `value`
 
 The (unitless) duration value.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="PerformanceParameters/duration'Fixed/unit"></a> `unit`
+#### <a name="FixedCurseDuration/unit"></a> `unit`
 
 The unit of the `value`.
 
@@ -393,117 +376,77 @@ The unit of the `value`.
 
 ---
 
-### <a name="PerformanceParameters/duration'TaggedCheckResultBasedDuration"></a> `PerformanceParameters/duration'TaggedCheckResultBasedDuration`
-
-- **Type:** <a href="../_ActivatableSkillDuration.md#TaggedCheckResultBasedDuration">TaggedCheckResultBasedDuration</a>
-
----
-
-### <a name="PerformanceParameters/duration'Indefinite"></a> `PerformanceParameters/duration'Indefinite`
+### <a name="IndefiniteCurseDuration"></a> `IndefiniteCurseDuration`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration'Indefinite/tag">See details</a>
-`maximum?` | Specified if the duration has a maximum time span. | <a href="#PerformanceParameters/duration'Indefinite/maximum">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PerformanceParameters/duration'Indefinite/translations">See details</a>
+`maximum?` | Specified if the duration has a maximum time span. | <a href="#IndefiniteCurseDuration/maximum">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#IndefiniteCurseDuration/translations">See details</a>
 
-#### <a name="PerformanceParameters/duration'Indefinite/tag"></a> `tag`
-
-- **Constant:** `"Indefinite"`
-
-#### <a name="PerformanceParameters/duration'Indefinite/maximum"></a> `maximum?`
+#### <a name="IndefiniteCurseDuration/maximum"></a> `maximum?`
 
 Specified if the duration has a maximum time span.
 
-- **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/duration'Indefinite/maximum'Fixed">PerformanceParameters/duration'Indefinite/maximum'Fixed</a> | <a href="#PerformanceParameters/duration'Indefinite/maximum'TaggedCheckResultBasedDuration">PerformanceParameters/duration'Indefinite/maximum'TaggedCheckResultBasedDuration</a>
+- **Type:** <a href="#MaximumIndefiniteCurseDuration">MaximumIndefiniteCurseDuration</a>
 
-#### <a name="PerformanceParameters/duration'Indefinite/translations"></a> `translations`
+#### <a name="IndefiniteCurseDuration/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#PerformanceParameters/duration'Indefinite/translations[key]">PerformanceParameters/duration'Indefinite/translations[key]</a>
+- **Property Values:** <a href="#IndefiniteCurseDuration/translations[key]">IndefiniteCurseDuration/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="PerformanceParameters/duration'Indefinite/maximum'Fixed"></a> `PerformanceParameters/duration'Indefinite/maximum'Fixed`
+### <a name="IndefiniteCurseDuration/translations[key]"></a> `IndefiniteCurseDuration/translations[key]`
+
+- **Type:** <a href="../_ActivatableSkillDuration.md#IndefiniteDurationTranslation">IndefiniteDurationTranslation</a>
+
+---
+
+### <a name="MaximumIndefiniteCurseDuration"></a> `MaximumIndefiniteCurseDuration`
+
+- **Type:** Union
+- **Cases:** <a href="#MaximumIndefiniteCurseDuration'Fixed">MaximumIndefiniteCurseDuration'Fixed</a> | <a href="#MaximumIndefiniteCurseDuration'CheckResultBased">MaximumIndefiniteCurseDuration'CheckResultBased</a>
+
+---
+
+### <a name="MaximumIndefiniteCurseDuration'Fixed"></a> `MaximumIndefiniteCurseDuration'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration'Indefinite/maximum'Fixed/tag">See details</a>
-`value` | The (unitless) maximum duration value. | <a href="#PerformanceParameters/duration'Indefinite/maximum'Fixed/value">See details</a>
-`unit` | The unit of the `value`. | <a href="#PerformanceParameters/duration'Indefinite/maximum'Fixed/unit">See details</a>
+`tag` |  | <a href="#MaximumIndefiniteCurseDuration'Fixed/tag">See details</a>
+`fixed` |  | <a href="#MaximumIndefiniteCurseDuration'Fixed/fixed">See details</a>
 
-#### <a name="PerformanceParameters/duration'Indefinite/maximum'Fixed/tag"></a> `tag`
+#### <a name="MaximumIndefiniteCurseDuration'Fixed/tag"></a> `tag`
 
 - **Constant:** `"Fixed"`
 
-#### <a name="PerformanceParameters/duration'Indefinite/maximum'Fixed/value"></a> `value`
+#### <a name="MaximumIndefiniteCurseDuration'Fixed/fixed"></a> `fixed`
 
-The (unitless) maximum duration value.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
-#### <a name="PerformanceParameters/duration'Indefinite/maximum'Fixed/unit"></a> `unit`
-
-The unit of the `value`.
-
-- **Type:** <a href="../_ActivatableSkillDuration.md#DurationUnit">DurationUnit</a>
+- **Type:** <a href="#FixedCurseDuration">FixedCurseDuration</a>
 
 ---
 
-### <a name="PerformanceParameters/duration'Indefinite/maximum'TaggedCheckResultBasedDuration"></a> `PerformanceParameters/duration'Indefinite/maximum'TaggedCheckResultBasedDuration`
-
-- **Type:** <a href="../_ActivatableSkillDuration.md#TaggedCheckResultBasedDuration">TaggedCheckResultBasedDuration</a>
-
----
-
-### <a name="PerformanceParameters/duration'Indefinite/translations[key]"></a> `PerformanceParameters/duration'Indefinite/translations[key]`
+### <a name="MaximumIndefiniteCurseDuration'CheckResultBased"></a> `MaximumIndefiniteCurseDuration'CheckResultBased`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`description` | A description of the duration. | <a href="#PerformanceParameters/duration'Indefinite/translations[key]/description">See details</a>
+`tag` |  | <a href="#MaximumIndefiniteCurseDuration'CheckResultBased/tag">See details</a>
+`check_result_based` |  | <a href="#MaximumIndefiniteCurseDuration'CheckResultBased/check_result_based">See details</a>
 
-#### <a name="PerformanceParameters/duration'Indefinite/translations[key]/description"></a> `description`
+#### <a name="MaximumIndefiniteCurseDuration'CheckResultBased/tag"></a> `tag`
 
-A description of the duration.
+- **Constant:** `"CheckResultBased"`
 
-- **Type:** <a href="#PerformanceParameters/duration'Indefinite/translations[key]/description">Object</a>
+#### <a name="MaximumIndefiniteCurseDuration'CheckResultBased/check_result_based"></a> `check_result_based`
 
----
-
-### <a name="PerformanceParameters/duration'Indefinite/translations[key]/description"></a> `PerformanceParameters/duration'Indefinite/translations[key]/description`
-
-A description of the duration.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`default` | The full description of the duration. | <a href="#PerformanceParameters/duration'Indefinite/translations[key]/description/default">See details</a>
-`compressed` | A compressed description of the duration for use in small areas (e.g. on character sheet). | <a href="#PerformanceParameters/duration'Indefinite/translations[key]/description/compressed">See details</a>
-
-#### <a name="PerformanceParameters/duration'Indefinite/translations[key]/description/default"></a> `default`
-
-The full description of the duration.
-
-- **Type:** String
-- **Minimum Length:** `1`
-
-#### <a name="PerformanceParameters/duration'Indefinite/translations[key]/description/compressed"></a> `compressed`
-
-A compressed description of the duration for use in small areas
-(e.g. on character sheet).
-
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../_ActivatableSkillDuration.md#CheckResultBasedDuration">CheckResultBasedDuration</a>

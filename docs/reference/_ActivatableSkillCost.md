@@ -302,9 +302,9 @@ The countable entity name.
 
 Key | Description | Details
 :-- | :-- | :--
-`note?` | A note, appended to the generated string in parenthesis. | <a href="#NonModifiableOneTimeCostTranslation/note">See details</a>
+`note` | A note, appended to the generated string in parenthesis. | <a href="#NonModifiableOneTimeCostTranslation/note">See details</a>
 
-#### <a name="NonModifiableOneTimeCostTranslation/note"></a> `note?`
+#### <a name="NonModifiableOneTimeCostTranslation/note"></a> `note`
 
 A note, appended to the generated string in parenthesis.
 

@@ -5,8 +5,12 @@
 import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
-import { DurationUnit, TaggedCheckResultBasedDuration } from "../_ActivatableSkillDuration.js"
+import { CheckResultBasedDuration, DurationUnit, IndefiniteDurationTranslation } from "../_ActivatableSkillDuration.js"
 import { Effect } from "../_ActivatableSkillEffect.js"
+import { LocaleMap } from "../_LocaleMap.js"
+import { NonEmptyString } from "../_NonEmptyString.js"
+import { ResponsiveText } from "../_ResponsiveText.js"
+import { PropertyReference } from "../_SimpleReferences.js"
 import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
 
 /**
@@ -33,174 +37,118 @@ export type DominationRitual = {
   /**
    * Measurable parameters of a curse.
    */
-  parameters: PerformanceParameters
+  parameters: DominationRitualPerformanceParameters
 
   /**
-   * The property's identifier.
-   * @integer
-   * @minimum 1
+   * The associated property.
    */
-  property_id: number
+  property: PropertyReference
 
   src: PublicationRefs
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the domination ritual.
-       * @minLength 1
-       */
-      name: string
+  translations: LocaleMap<DominationRitualTranslation>
+}
 
-      /**
-       * The effect description may be either a plain text or a text that is
-       * divided by a list of effects for each quality level. It may also be a
-       * list for each two quality levels.
-       */
-      effect: Effect
+export type DominationRitualTranslation = {
+  /**
+   * The name of the domination ritual.
+   */
+  name: NonEmptyString
 
-      /**
-       * @deprecated
-       */
-      cost: { full: string; abbr: string }
+  /**
+   * The effect description may be either a plain text or a text that is
+   * divided by a list of effects for each quality level. It may also be a
+   * list for each two quality levels.
+   */
+  effect: Effect
 
-      /**
-       * @deprecated
-       */
-      duration: { full: string; abbr: string }
+  /**
+   * @deprecated
+   */
+  cost: { full: string; abbr: string }
 
-      errata?: Errata
-    }
-  }
+  /**
+   * @deprecated
+   */
+  duration: { full: string; abbr: string }
+
+  errata?: Errata
 }
 
 /**
  * Measurable parameters of a curse.
  */
-type PerformanceParameters = {
+export type DominationRitualPerformanceParameters = {
   /**
    * The AE cost.
    */
-  cost: {
-    /**
-     * The initial skill modification identifier/level.
-     * @integer
-     * @minimum 1
-     * @maximum 6
-     */
-    initial_modification_level: number
-
-    /**
-     * All translations for the entry, identified by IETF language tag (BCP47).
-     * @minProperties 1
-     */
-    translations?: {
-      /**
-       * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-       * @minProperties 1
-       */
-      [localeId: string]: {
-        /**
-         * AE cost in addition to the normal AE cost.
-         */
-        additional?: {
-          /**
-           * The full description of where the cost come from.
-           * @minLength 1
-           */
-          default: string
-
-          /**
-           * A compressed description of where the cost come from for use in
-           * small areas (e.g. on character sheet).
-           * @minLength 1
-           */
-          compressed: string
-        }
-      }
-    }
-  }
+  cost: DominationRitualCost
 
   /**
    * The duration.
    */
-  duration:
-    | {
-      tag: "Fixed"
-
-      /**
-       * The (unitless) duration value.
-       * @integer
-       * @minimum 1
-       */
-      value: number
-
-      /**
-       * The unit of the `value`.
-       */
-      unit: DurationUnit
-    }
-    | TaggedCheckResultBasedDuration
-    | {
-      tag: "Indefinite"
-
-      /**
-       * Specified if the duration has a maximum time span.
-       */
-      maximum?:
-        | {
-          tag: "Fixed"
-
-          /**
-           * The (unitless) maximum duration value.
-           * @integer
-           * @minimum 1
-           */
-          value: number
-
-          /**
-           * The unit of the `value`.
-           */
-          unit: DurationUnit
-        }
-        | TaggedCheckResultBasedDuration
-
-      /**
-       * All translations for the entry, identified by IETF language tag (BCP47).
-       * @minProperties 1
-       */
-      translations: {
-        /**
-         * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-         */
-        [localeId: string]: {
-          /**
-           * A description of the duration.
-           */
-          description: {
-            /**
-             * The full description of the duration.
-             * @minLength 1
-             */
-            default: string
-
-            /**
-             * A compressed description of the duration for use in small areas
-             * (e.g. on character sheet).
-             * @minLength 1
-             */
-            compressed: string
-          }
-        }
-      }
-    }
+  duration: DominationRitualDuration
 }
+
+export type DominationRitualCost = {
+  /**
+   * The initial skill modification identifier/level.
+   * @integer
+   * @minimum 1
+   * @maximum 6
+   */
+  initial_modification_level: number
+
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   * @minProperties 1
+   */
+  translations?: LocaleMap<DominationRitualCostTranslation>
+}
+
+export type DominationRitualCostTranslation = {
+  /**
+   * AE cost in addition to the normal AE cost.
+   */
+  additional: ResponsiveText
+}
+
+export type DominationRitualDuration =
+  | { tag: "Fixed"; fixed: FixedDominationRitualDuration }
+  | { tag: "CheckResultBased"; check_result_based: CheckResultBasedDuration }
+  | { tag: "Indefinite"; indefinite: IndefiniteDominationRitualDuration }
+
+export type FixedDominationRitualDuration = {
+  /**
+   * The (unitless) duration value.
+   * @integer
+   * @minimum 1
+   */
+  value: number
+
+  /**
+   * The unit of the `value`.
+   */
+  unit: DurationUnit
+}
+
+export type IndefiniteDominationRitualDuration = {
+  /**
+   * Specified if the duration has a maximum time span.
+   */
+  maximum?: MaximumIndefiniteCurseDuration
+
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translations: LocaleMap<IndefiniteDurationTranslation>
+}
+
+export type MaximumIndefiniteCurseDuration =
+  | { tag: "Fixed"; fixed: FixedDominationRitualDuration }
+  | { tag: "CheckResultBased"; check_result_based: CheckResultBasedDuration }
 
 export const validateSchema = validateSchemaCreator<DominationRitual>(import.meta.url)

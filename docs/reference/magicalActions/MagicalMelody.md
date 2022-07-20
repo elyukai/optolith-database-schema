@@ -13,7 +13,7 @@ Key | Description | Details
 `check_penalty?` | In some cases, the target's Spirit or Toughness is applied as a penalty. | <a href="#MagicalMelody/check_penalty">See details</a>
 `skill` | Arcane bards must make a *Singing (area of application)* or *Music (area of application)* check for each magical melody. | <a href="#MagicalMelody/skill">See details</a>
 `parameters` | Measurable parameters of a magical melody. | <a href="#MagicalMelody/parameters">See details</a>
-`property_id` | The property's identifier. | <a href="#MagicalMelody/property_id">See details</a>
+`property` | The associated property. | <a href="#MagicalMelody/property">See details</a>
 `music_tradition` | The music tradition(s) the magical melody is available for. This also defines the different names in each music tradition. | <a href="#MagicalMelody/music_tradition">See details</a>
 `improvement_cost` | States which column is used to improve the skill. | <a href="#MagicalMelody/improvement_cost">See details</a>
 `src` |  | <a href="#MagicalMelody/src">See details</a>
@@ -53,14 +53,13 @@ application)* check for each magical melody.
 
 Measurable parameters of a magical melody.
 
-- **Type:** <a href="#PerformanceParameters">PerformanceParameters</a>
+- **Type:** <a href="#MagicalMelodyPerformanceParameters">MagicalMelodyPerformanceParameters</a>
 
-#### <a name="MagicalMelody/property_id"></a> `property_id`
+#### <a name="MagicalMelody/property"></a> `property`
 
-The property's identifier.
+The associated property.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="../_SimpleReferences.md#PropertyReference">PropertyReference</a>
 
 #### <a name="MagicalMelody/music_tradition"></a> `music_tradition`
 
@@ -94,7 +93,7 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="MagicalMelody/skill[]"></a> `MagicalMelody/skill[]`
 
-- **Type:** <a href="./_SkillReference.md#SkillReference">SkillReference</a>
+- **Type:** <a href="./_SkillReference.md#MusicalSkillReference">MusicalSkillReference</a>
 
 ---
 
@@ -106,24 +105,29 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="MagicalMelody/translations[key]"></a> `MagicalMelody/translations[key]`
 
+- **Type:** <a href="#MagicalMelodyTranslation">MagicalMelodyTranslation</a>
+
+---
+
+### <a name="MagicalMelodyTranslation"></a> `MagicalMelodyTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the magical melody. | <a href="#MagicalMelody/translations[key]/name">See details</a>
-`effect` | The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels. | <a href="#MagicalMelody/translations[key]/effect">See details</a>
-`duration` |  | <a href="#MagicalMelody/translations[key]/duration">See details</a>
-`cost` |  | <a href="#MagicalMelody/translations[key]/cost">See details</a>
-`errata?` |  | <a href="#MagicalMelody/translations[key]/errata">See details</a>
+`name` | The name of the magical melody. | <a href="#MagicalMelodyTranslation/name">See details</a>
+`effect` | The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels. | <a href="#MagicalMelodyTranslation/effect">See details</a>
+`duration` |  | <a href="#MagicalMelodyTranslation/duration">See details</a>
+`cost` |  | <a href="#MagicalMelodyTranslation/cost">See details</a>
+`errata?` |  | <a href="#MagicalMelodyTranslation/errata">See details</a>
 
-#### <a name="MagicalMelody/translations[key]/name"></a> `name`
+#### <a name="MagicalMelodyTranslation/name"></a> `name`
 
 The name of the magical melody.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="MagicalMelody/translations[key]/effect"></a> `effect`
+#### <a name="MagicalMelodyTranslation/effect"></a> `effect`
 
 The effect description may be either a plain text or a text that is
 divided by a list of effects for each quality level. It may also be a
@@ -131,59 +135,59 @@ list for each two quality levels.
 
 - **Type:** <a href="../_ActivatableSkillEffect.md#Effect">Effect</a>
 
-#### <a name="MagicalMelody/translations[key]/duration"></a> `duration`
+#### <a name="MagicalMelodyTranslation/duration"></a> `duration`
 
-- **Type:** <a href="#MagicalMelody/translations[key]/duration">Object</a>
+- **Type:** <a href="#MagicalMelodyTranslation/duration">Object</a>
 
-#### <a name="MagicalMelody/translations[key]/cost"></a> `cost`
+#### <a name="MagicalMelodyTranslation/cost"></a> `cost`
 
-- **Type:** <a href="#MagicalMelody/translations[key]/cost">Object</a>
+- **Type:** <a href="#MagicalMelodyTranslation/cost">Object</a>
 
-#### <a name="MagicalMelody/translations[key]/errata"></a> `errata?`
+#### <a name="MagicalMelodyTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>
 
 ---
 
-### <a name="MagicalMelody/translations[key]/duration"></a> `MagicalMelody/translations[key]/duration`
+### <a name="MagicalMelodyTranslation/duration"></a> `MagicalMelodyTranslation/duration`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`full` |  | <a href="#MagicalMelody/translations[key]/duration/full">See details</a>
-`abbr` |  | <a href="#MagicalMelody/translations[key]/duration/abbr">See details</a>
+`full` |  | <a href="#MagicalMelodyTranslation/duration/full">See details</a>
+`abbr` |  | <a href="#MagicalMelodyTranslation/duration/abbr">See details</a>
 
-#### <a name="MagicalMelody/translations[key]/duration/full"></a> `full`
+#### <a name="MagicalMelodyTranslation/duration/full"></a> `full`
 
 - **Type:** String
 
-#### <a name="MagicalMelody/translations[key]/duration/abbr"></a> `abbr`
+#### <a name="MagicalMelodyTranslation/duration/abbr"></a> `abbr`
 
 - **Type:** String
 
 ---
 
-### <a name="MagicalMelody/translations[key]/cost"></a> `MagicalMelody/translations[key]/cost`
+### <a name="MagicalMelodyTranslation/cost"></a> `MagicalMelodyTranslation/cost`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`full` |  | <a href="#MagicalMelody/translations[key]/cost/full">See details</a>
-`abbr` |  | <a href="#MagicalMelody/translations[key]/cost/abbr">See details</a>
+`full` |  | <a href="#MagicalMelodyTranslation/cost/full">See details</a>
+`abbr` |  | <a href="#MagicalMelodyTranslation/cost/abbr">See details</a>
 
-#### <a name="MagicalMelody/translations[key]/cost/full"></a> `full`
+#### <a name="MagicalMelodyTranslation/cost/full"></a> `full`
 
 - **Type:** String
 
-#### <a name="MagicalMelody/translations[key]/cost/abbr"></a> `abbr`
+#### <a name="MagicalMelodyTranslation/cost/abbr"></a> `abbr`
 
 - **Type:** String
 
 ---
 
-### <a name="PerformanceParameters"></a> `PerformanceParameters`
+### <a name="MagicalMelodyPerformanceParameters"></a> `MagicalMelodyPerformanceParameters`
 
 Measurable parameters of a magical melody.
 
@@ -191,111 +195,73 @@ Measurable parameters of a magical melody.
 
 Key | Description | Details
 :-- | :-- | :--
-`duration` |  | <a href="#PerformanceParameters/duration">See details</a>
-`cost` |  | <a href="#PerformanceParameters/cost">See details</a>
+`duration` |  | <a href="#MagicalMelodyPerformanceParameters/duration">See details</a>
+`cost` |  | <a href="#MagicalMelodyPerformanceParameters/cost">See details</a>
 
-#### <a name="PerformanceParameters/duration"></a> `duration`
+#### <a name="MagicalMelodyPerformanceParameters/duration"></a> `duration`
 
-- **Type:** <a href="#PerformanceParameters/duration">Object</a>
+- **Type:** <a href="./_MusicTradition.md#MusicDuration">MusicDuration</a>
 
-#### <a name="PerformanceParameters/cost"></a> `cost`
+#### <a name="MagicalMelodyPerformanceParameters/cost"></a> `cost`
+
+- **Type:** <a href="#MagicalMelodyCost">MagicalMelodyCost</a>
+
+---
+
+### <a name="MagicalMelodyCost"></a> `MagicalMelodyCost`
 
 - **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/cost'Fixed">PerformanceParameters/cost'Fixed</a> | <a href="#PerformanceParameters/cost'FirstPerson">PerformanceParameters/cost'FirstPerson</a>
+- **Cases:** <a href="#MagicalMelodyCost'Fixed">MagicalMelodyCost'Fixed</a> | <a href="#MagicalMelodyCost'FirstPerson">MagicalMelodyCost'FirstPerson</a>
 
 ---
 
-### <a name="PerformanceParameters/duration"></a> `PerformanceParameters/duration`
+### <a name="MagicalMelodyCost'Fixed"></a> `MagicalMelodyCost'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`length` |  | <a href="#PerformanceParameters/duration/length">See details</a>
-`reusability` |  | <a href="#PerformanceParameters/duration/reusability">See details</a>
+`tag` |  | <a href="#MagicalMelodyCost'Fixed/tag">See details</a>
+`fixed` |  | <a href="#MagicalMelodyCost'Fixed/fixed">See details</a>
 
-#### <a name="PerformanceParameters/duration/length"></a> `length`
-
-- **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/duration/length'Long">PerformanceParameters/duration/length'Long</a> | <a href="#PerformanceParameters/duration/length'Short">PerformanceParameters/duration/length'Short</a>
-
-#### <a name="PerformanceParameters/duration/reusability"></a> `reusability`
-
-- **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/duration/reusability'OneTime">PerformanceParameters/duration/reusability'OneTime</a> | <a href="#PerformanceParameters/duration/reusability'Sustainable">PerformanceParameters/duration/reusability'Sustainable</a>
-
----
-
-### <a name="PerformanceParameters/duration/length'Long"></a> `PerformanceParameters/duration/length'Long`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration/length'Long/tag">See details</a>
-
-#### <a name="PerformanceParameters/duration/length'Long/tag"></a> `tag`
-
-- **Constant:** `"Long"`
-
----
-
-### <a name="PerformanceParameters/duration/length'Short"></a> `PerformanceParameters/duration/length'Short`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration/length'Short/tag">See details</a>
-
-#### <a name="PerformanceParameters/duration/length'Short/tag"></a> `tag`
-
-- **Constant:** `"Short"`
-
----
-
-### <a name="PerformanceParameters/duration/reusability'OneTime"></a> `PerformanceParameters/duration/reusability'OneTime`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration/reusability'OneTime/tag">See details</a>
-
-#### <a name="PerformanceParameters/duration/reusability'OneTime/tag"></a> `tag`
-
-- **Constant:** `"OneTime"`
-
----
-
-### <a name="PerformanceParameters/duration/reusability'Sustainable"></a> `PerformanceParameters/duration/reusability'Sustainable`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration/reusability'Sustainable/tag">See details</a>
-
-#### <a name="PerformanceParameters/duration/reusability'Sustainable/tag"></a> `tag`
-
-- **Constant:** `"Sustainable"`
-
----
-
-### <a name="PerformanceParameters/cost'Fixed"></a> `PerformanceParameters/cost'Fixed`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/cost'Fixed/tag">See details</a>
-`value` | The (temporary) AE cost value. | <a href="#PerformanceParameters/cost'Fixed/value">See details</a>
-
-#### <a name="PerformanceParameters/cost'Fixed/tag"></a> `tag`
+#### <a name="MagicalMelodyCost'Fixed/tag"></a> `tag`
 
 - **Constant:** `"Fixed"`
 
-#### <a name="PerformanceParameters/cost'Fixed/value"></a> `value`
+#### <a name="MagicalMelodyCost'Fixed/fixed"></a> `fixed`
+
+- **Type:** <a href="#FixedMagicalMelodyCost">FixedMagicalMelodyCost</a>
+
+---
+
+### <a name="MagicalMelodyCost'FirstPerson"></a> `MagicalMelodyCost'FirstPerson`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#MagicalMelodyCost'FirstPerson/tag">See details</a>
+`first_person` |  | <a href="#MagicalMelodyCost'FirstPerson/first_person">See details</a>
+
+#### <a name="MagicalMelodyCost'FirstPerson/tag"></a> `tag`
+
+- **Constant:** `"FirstPerson"`
+
+#### <a name="MagicalMelodyCost'FirstPerson/first_person"></a> `first_person`
+
+- **Type:** <a href="#FirstPersonMagicalMelodyCost">FirstPersonMagicalMelodyCost</a>
+
+---
+
+### <a name="FixedMagicalMelodyCost"></a> `FixedMagicalMelodyCost`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`value` | The (temporary) AE cost value. | <a href="#FixedMagicalMelodyCost/value">See details</a>
+
+#### <a name="FixedMagicalMelodyCost/value"></a> `value`
 
 The (temporary) AE cost value.
 
@@ -304,20 +270,15 @@ The (temporary) AE cost value.
 
 ---
 
-### <a name="PerformanceParameters/cost'FirstPerson"></a> `PerformanceParameters/cost'FirstPerson`
+### <a name="FirstPersonMagicalMelodyCost"></a> `FirstPersonMagicalMelodyCost`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/cost'FirstPerson/tag">See details</a>
-`value` | The (temporary) AE cost value for the first targeted person. The AE cost for each additional person is half this value. | <a href="#PerformanceParameters/cost'FirstPerson/value">See details</a>
+`value` | The (temporary) AE cost value for the first targeted person. The AE cost for each additional person is half this value. | <a href="#FirstPersonMagicalMelodyCost/value">See details</a>
 
-#### <a name="PerformanceParameters/cost'FirstPerson/tag"></a> `tag`
-
-- **Constant:** `"FirstPerson"`
-
-#### <a name="PerformanceParameters/cost'FirstPerson/value"></a> `value`
+#### <a name="FirstPersonMagicalMelodyCost/value"></a> `value`
 
 The (temporary) AE cost value for the first targeted person. The AE
 cost for each additional person is half this value.

@@ -8,8 +8,12 @@ import { PublicationRefs } from "../source/_PublicationRef.js"
 import { DurationUnitValue } from "../_ActivatableSkillDuration.js"
 import { Effect } from "../_ActivatableSkillEffect.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
+import { LocaleMap } from "../_LocaleMap.js"
+import { NonEmptyString } from "../_NonEmptyString.js"
+import { ResponsiveText, ResponsiveTextReplace } from "../_ResponsiveText.js"
+import { PropertyReference } from "../_SimpleReferences.js"
 import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
-import { SkillReference } from "./_SkillReference.js"
+import { MusicalSkillReference } from "./_SkillReference.js"
 
 /**
  * @title Elven Magical Song
@@ -40,19 +44,17 @@ export type ElvenMagicalSong = {
    * @maxItems 2
    * @uniqueItems
    */
-  skill: SkillReference[]
+  skill: MusicalSkillReference[]
 
   /**
    * Measurable parameters of an elven magical song.
    */
-  parameters: PerformanceParameters
+  parameters: ElvenMagicalSongPerformanceParameters
 
   /**
-   * The property's identifier.
-   * @integer
-   * @minimum 1
+   * The associated property.
    */
-  property_id: number
+  property: PropertyReference
 
   /**
    * States which column is used to improve the skill.
@@ -63,135 +65,92 @@ export type ElvenMagicalSong = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the elven magical song.
-       * @minLength 1
-       */
-      name: string
+  translations: LocaleMap<ElvenMagicalSongTranslation>
+}
 
-      /**
-       * The effect description may be either a plain text or a text that is
-       * divided by a list of effects for each quality level. It may also be a
-       * list for each two quality levels.
-       */
-      effect: Effect
+export type ElvenMagicalSongTranslation = {
+  /**
+   * The name of the elven magical song.
+   */
+  name: NonEmptyString
 
-      /**
-       * @deprecated
-       */
-      cost: { full: string; abbr: string }
+  /**
+   * The effect description may be either a plain text or a text that is
+   * divided by a list of effects for each quality level. It may also be a
+   * list for each two quality levels.
+   */
+  effect: Effect
 
-      errata?: Errata
-    }
-  }
+  /**
+   * @deprecated
+   */
+  cost: { full: string; abbr: string }
+
+  errata?: Errata
 }
 
 /**
  * Measurable parameters of an elven magical song.
  */
-type PerformanceParameters = {
+export type ElvenMagicalSongPerformanceParameters = {
   /**
    * The AE cost.
    */
-  cost: {
-    /**
-     * The (temporary) AE cost value.
-     * @integer
-     * @minimum 1
-     */
-    value: number
+  cost: ElvenMagicalSongCost
+}
 
-    /**
-     * Specified if the AE cost `value` has to be paid for each time interval.
-     */
-    interval?: DurationUnitValue
+export type ElvenMagicalSongCost = {
+  /**
+   * The (temporary) AE cost value.
+   * @integer
+   * @minimum 1
+   */
+  value: number
 
-    /**
-     * A permanent AE cost, independent from a possible interval.
-     */
-    permanent?: {
-      /**
-       * The permanent AE cost value.
-       * @integer
-       * @minimum 1
-       */
-      value: number
+  /**
+   * Specified if the AE cost `value` has to be paid for each time interval.
+   */
+  interval?: DurationUnitValue
 
-      /**
-       * All translations for the entry, identified by IETF language tag (BCP47).
-       * @minProperties 1
-       */
-      translations?: {
-        /**
-         * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-         */
-        [localeId: string]: {
-          /**
-           * A replacement string for the permanent cost.
-           */
-          replacement: {
-            /**
-             * The full replacement string. It must contain `$1`, which is
-             * going to be replaced with the generated AE cost string, so
-             * additional information can be provided without duplicating
-             * concrete numeric values.
-             * @minLength 1
-             * @pattern \$1
-             */
-            default: string
+  /**
+   * A permanent AE cost, independent from a possible interval.
+   */
+  permanent?: ElvenMagicalSongPermanentCost
 
-            /**
-             * A compressed replacement string for use in small areas (e.g. on
-             * character sheet). It must contain `$1`, which is going to be
-             * replaced with the generated AE cost string, so additional
-             * information can be provided without duplicating concrete
-             * numeric values.
-             * @minLength 1
-             * @pattern \$1
-             */
-            compressed: string
-          }
-        }
-      }
-    }
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translations?: LocaleMap<ElvenMagicalSongCostTranslation>
+}
 
-    /**
-     * All translations for the entry, identified by IETF language tag (BCP47).
-     * @minProperties 1
-     */
-    translations?: {
-      /**
-       * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-       * @minProperties 1
-       */
-      [localeId: string]: {
-        /**
-         * The cost have to be per a specific countable entity, e.g. `8 AE
-         * per person`.
-         */
-        per?: {
-          /**
-           * The full countable entity name.
-           * @minLength 1
-           */
-          default: string
+export type ElvenMagicalSongPermanentCost = {
+  /**
+   * The permanent AE cost value.
+   * @integer
+   * @minimum 1
+   */
+  value: number
 
-          /**
-           * The compressed countable entity name.
-           * @minLength 1
-           */
-          compressed: string
-        }
-      }
-    }
-  }
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translations?: LocaleMap<ElvenMagicalSongPermanentCostTranslation>
+}
+
+export type ElvenMagicalSongPermanentCostTranslation = {
+  /**
+   * A replacement string for the permanent cost.
+   */
+  replacement: ResponsiveTextReplace
+}
+
+export type ElvenMagicalSongCostTranslation = {
+  /**
+   * The cost have to be per a specific countable entity, e.g. `8 AE
+   * per person`.
+   */
+  per: ResponsiveText
 }
 
 export const validateSchema = validateSchemaCreator<ElvenMagicalSong>(import.meta.url)

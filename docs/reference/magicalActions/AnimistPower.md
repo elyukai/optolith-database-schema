@@ -11,7 +11,7 @@ Key | Description | Details
 `id` | The animist power's identifier. An unique, increasing integer. | <a href="#AnimistPower/id">See details</a>
 `check` | Lists the linked three attributes used to make a skill check. | <a href="#AnimistPower/check">See details</a>
 `parameters` | Measurable parameters of a animist power. | <a href="#AnimistPower/parameters">See details</a>
-`property_id` | The property's identifier. | <a href="#AnimistPower/property_id">See details</a>
+`property` | The associated property. | <a href="#AnimistPower/property">See details</a>
 `tribe_tradition` | The tribe traditions the animist power is available to. It may be available to all or only specific tribes. | <a href="#AnimistPower/tribe_tradition">See details</a>
 `improvement_cost` | States which column is used to improve the skill. It is a fixed value or depends on the primary patron. | <a href="#AnimistPower/improvement_cost">See details</a>
 `prerequisites?` |  | <a href="#AnimistPower/prerequisites">See details</a>
@@ -36,30 +36,33 @@ Lists the linked three attributes used to make a skill check.
 
 Measurable parameters of a animist power.
 
-- **Type:** <a href="#PerformanceParameters">PerformanceParameters</a>
+- **Type:** <a href="#AnimistPowerPerformanceParameters">AnimistPowerPerformanceParameters</a>
 
-#### <a name="AnimistPower/property_id"></a> `property_id`
+#### <a name="AnimistPower/property"></a> `property`
 
-The property's identifier.
+The associated property.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="../_SimpleReferences.md#PropertyReference">PropertyReference</a>
 
 #### <a name="AnimistPower/tribe_tradition"></a> `tribe_tradition`
 
 The tribe traditions the animist power is available to. It may be available
 to all or only specific tribes.
 
-- **Type:** Union
-- **Cases:** <a href="#AnimistPower/tribe_tradition'General">AnimistPower/tribe_tradition'General</a> | <a href="#AnimistPower/tribe_tradition'Specific">AnimistPower/tribe_tradition'Specific</a>
+If no tribe tradition is given, the animist power is generally available to
+all tribe traditions.
+
+- **Type:** List
+- **Items:** <a href="#AnimistPower/tribe_tradition[]">AnimistPower/tribe_tradition[]</a>
+- **Minimum Items:** `1`
+- **Unique Items:** Yes
 
 #### <a name="AnimistPower/improvement_cost"></a> `improvement_cost`
 
 States which column is used to improve the skill. It is a fixed value or
 depends on the primary patron.
 
-- **Type:** Union
-- **Cases:** <a href="#AnimistPower/improvement_cost'Flat">AnimistPower/improvement_cost'Flat</a> | <a href="#AnimistPower/improvement_cost'ByPrimaryPatron">AnimistPower/improvement_cost'ByPrimaryPatron</a>
+- **Type:** <a href="#AnimistPowerImprovementCost">AnimistPowerImprovementCost</a>
 
 #### <a name="AnimistPower/prerequisites"></a> `prerequisites?`
 
@@ -92,177 +95,53 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="AnimistPower/tribe_tradition'General"></a> `AnimistPower/tribe_tradition'General`
+### <a name="AnimistPower/tribe_tradition[]"></a> `AnimistPower/tribe_tradition[]`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#AnimistPower/tribe_tradition'General/tag">See details</a>
-
-#### <a name="AnimistPower/tribe_tradition'General/tag"></a> `tag`
-
-- **Constant:** `"General"`
-
----
-
-### <a name="AnimistPower/tribe_tradition'Specific"></a> `AnimistPower/tribe_tradition'Specific`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#AnimistPower/tribe_tradition'Specific/tag">See details</a>
-`list` | The specific tribe traditions this animist power is available to. | <a href="#AnimistPower/tribe_tradition'Specific/list">See details</a>
-
-#### <a name="AnimistPower/tribe_tradition'Specific/tag"></a> `tag`
-
-- **Constant:** `"Specific"`
-
-#### <a name="AnimistPower/tribe_tradition'Specific/list"></a> `list`
-
-The specific tribe traditions this animist power is available to.
-
-- **Type:** List
-- **Items:** <a href="#AnimistPower/tribe_tradition'Specific/list[]">AnimistPower/tribe_tradition'Specific/list[]</a>
-- **Minimum Items:** `1`
-- **Unique Items:** Yes
-
----
-
-### <a name="AnimistPower/tribe_tradition'Specific/list[]"></a> `AnimistPower/tribe_tradition'Specific/list[]`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The tribe's identifier. | <a href="#AnimistPower/tribe_tradition'Specific/list[]/id">See details</a>
-
-#### <a name="AnimistPower/tribe_tradition'Specific/list[]/id"></a> `id`
-
-The tribe's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `6`
-
----
-
-### <a name="AnimistPower/improvement_cost'Flat"></a> `AnimistPower/improvement_cost'Flat`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#AnimistPower/improvement_cost'Flat/tag">See details</a>
-`value` |  | <a href="#AnimistPower/improvement_cost'Flat/value">See details</a>
-
-#### <a name="AnimistPower/improvement_cost'Flat/tag"></a> `tag`
-
-- **Constant:** `"Flat"`
-
-#### <a name="AnimistPower/improvement_cost'Flat/value"></a> `value`
-
-- **Type:** <a href="../_ImprovementCost.md#ImprovementCost">ImprovementCost</a>
-
----
-
-### <a name="AnimistPower/improvement_cost'ByPrimaryPatron"></a> `AnimistPower/improvement_cost'ByPrimaryPatron`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#AnimistPower/improvement_cost'ByPrimaryPatron/tag">See details</a>
-
-#### <a name="AnimistPower/improvement_cost'ByPrimaryPatron/tag"></a> `tag`
-
-- **Constant:** `"ByPrimaryPatron"`
+- **Type:** <a href="../_SimpleReferences.md#AnimistTribeReference">AnimistTribeReference</a>
 
 ---
 
 ### <a name="AnimistPower/levels[]"></a> `AnimistPower/levels[]`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`level` | The level number. | <a href="#AnimistPower/levels[]/level">See details</a>
-`src?` | The source references, if different than the references for level 1. | <a href="#AnimistPower/levels[]/src">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#AnimistPower/levels[]/translations">See details</a>
-
-#### <a name="AnimistPower/levels[]/level"></a> `level`
-
-The level number.
-
-- **Type:** Integer
-- **Minimum:** `2`
-
-#### <a name="AnimistPower/levels[]/src"></a> `src?`
-
-The source references, if different than the references for level 1.
-
-- **Type:** <a href="../source/_PublicationRef.md#PublicationRefs">PublicationRefs</a>
-
-#### <a name="AnimistPower/levels[]/translations"></a> `translations`
-
-All translations for the entry, identified by IETF language tag (BCP47).
-
-- **Type:** Dictionary
-- **Property Values:** <a href="#AnimistPower/levels[]/translations[key]">AnimistPower/levels[]/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="AnimistPower/levels[]/translations[key]"></a> `AnimistPower/levels[]/translations[key]`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`effect` | An additional effect description for this level. | <a href="#AnimistPower/levels[]/translations[key]/effect">See details</a>
-
-#### <a name="AnimistPower/levels[]/translations[key]/effect"></a> `effect`
-
-An additional effect description for this level.
-
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
+- **Type:** <a href="#AnimistPowerLevel">AnimistPowerLevel</a>
 
 ---
 
 ### <a name="AnimistPower/translations[key]"></a> `AnimistPower/translations[key]`
 
+- **Type:** <a href="#AnimistPowerTranslation">AnimistPowerTranslation</a>
+
+---
+
+### <a name="AnimistPowerTranslation"></a> `AnimistPowerTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the animist power. | <a href="#AnimistPower/translations[key]/name">See details</a>
-`name_in_library?` | The full name of the entry as stated in the sources. Only use when `name` needs to be different from full name for text generation purposes. | <a href="#AnimistPower/translations[key]/name_in_library">See details</a>
-`effect` | The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels. | <a href="#AnimistPower/translations[key]/effect">See details</a>
-`cost` |  | <a href="#AnimistPower/translations[key]/cost">See details</a>
-`duration` |  | <a href="#AnimistPower/translations[key]/duration">See details</a>
-`prerequisites?` | A prerequisites text. | <a href="#AnimistPower/translations[key]/prerequisites">See details</a>
-`errata?` |  | <a href="#AnimistPower/translations[key]/errata">See details</a>
+`name` | The name of the animist power. | <a href="#AnimistPowerTranslation/name">See details</a>
+`name_in_library?` | The full name of the entry as stated in the sources. Only use when `name` needs to be different from full name for text generation purposes. | <a href="#AnimistPowerTranslation/name_in_library">See details</a>
+`effect` | The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels. | <a href="#AnimistPowerTranslation/effect">See details</a>
+`cost` |  | <a href="#AnimistPowerTranslation/cost">See details</a>
+`duration` |  | <a href="#AnimistPowerTranslation/duration">See details</a>
+`prerequisites?` | A prerequisites text. | <a href="#AnimistPowerTranslation/prerequisites">See details</a>
+`errata?` |  | <a href="#AnimistPowerTranslation/errata">See details</a>
 
-#### <a name="AnimistPower/translations[key]/name"></a> `name`
+#### <a name="AnimistPowerTranslation/name"></a> `name`
 
 The name of the animist power.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="AnimistPower/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="AnimistPowerTranslation/name_in_library"></a> `name_in_library?`
 
 The full name of the entry as stated in the sources. Only use when
 `name` needs to be different from full name for text generation
 purposes.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="AnimistPower/translations[key]/effect"></a> `effect`
+#### <a name="AnimistPowerTranslation/effect"></a> `effect`
 
 The effect description may be either a plain text or a text that is
 divided by a list of effects for each quality level. It may also be a
@@ -270,313 +149,430 @@ list for each two quality levels.
 
 - **Type:** <a href="../_ActivatableSkillEffect.md#Effect">Effect</a>
 
-#### <a name="AnimistPower/translations[key]/cost"></a> `cost`
+#### <a name="AnimistPowerTranslation/cost"></a> `cost`
 
-- **Type:** <a href="#AnimistPower/translations[key]/cost">Object</a>
+- **Type:** <a href="#AnimistPowerTranslation/cost">Object</a>
 
-#### <a name="AnimistPower/translations[key]/duration"></a> `duration`
+#### <a name="AnimistPowerTranslation/duration"></a> `duration`
 
-- **Type:** <a href="#AnimistPower/translations[key]/duration">Object</a>
+- **Type:** <a href="#AnimistPowerTranslation/duration">Object</a>
 
-#### <a name="AnimistPower/translations[key]/prerequisites"></a> `prerequisites?`
+#### <a name="AnimistPowerTranslation/prerequisites"></a> `prerequisites?`
 
 A prerequisites text.
 
 - **Type:** String
 
-#### <a name="AnimistPower/translations[key]/errata"></a> `errata?`
+#### <a name="AnimistPowerTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>
 
 ---
 
-### <a name="AnimistPower/translations[key]/cost"></a> `AnimistPower/translations[key]/cost`
+### <a name="AnimistPowerTranslation/cost"></a> `AnimistPowerTranslation/cost`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`full` |  | <a href="#AnimistPower/translations[key]/cost/full">See details</a>
-`abbr` |  | <a href="#AnimistPower/translations[key]/cost/abbr">See details</a>
+`full` |  | <a href="#AnimistPowerTranslation/cost/full">See details</a>
+`abbr` |  | <a href="#AnimistPowerTranslation/cost/abbr">See details</a>
 
-#### <a name="AnimistPower/translations[key]/cost/full"></a> `full`
+#### <a name="AnimistPowerTranslation/cost/full"></a> `full`
 
 - **Type:** String
 
-#### <a name="AnimistPower/translations[key]/cost/abbr"></a> `abbr`
+#### <a name="AnimistPowerTranslation/cost/abbr"></a> `abbr`
 
 - **Type:** String
 
 ---
 
-### <a name="AnimistPower/translations[key]/duration"></a> `AnimistPower/translations[key]/duration`
+### <a name="AnimistPowerTranslation/duration"></a> `AnimistPowerTranslation/duration`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`full` |  | <a href="#AnimistPower/translations[key]/duration/full">See details</a>
-`abbr` |  | <a href="#AnimistPower/translations[key]/duration/abbr">See details</a>
+`full` |  | <a href="#AnimistPowerTranslation/duration/full">See details</a>
+`abbr` |  | <a href="#AnimistPowerTranslation/duration/abbr">See details</a>
 
-#### <a name="AnimistPower/translations[key]/duration/full"></a> `full`
+#### <a name="AnimistPowerTranslation/duration/full"></a> `full`
 
 - **Type:** String
 
-#### <a name="AnimistPower/translations[key]/duration/abbr"></a> `abbr`
+#### <a name="AnimistPowerTranslation/duration/abbr"></a> `abbr`
 
 - **Type:** String
 
 ---
 
-### <a name="PerformanceParameters"></a> `PerformanceParameters`
+### <a name="AnimistPowerLevel"></a> `AnimistPowerLevel`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`level` | The level number. | <a href="#AnimistPowerLevel/level">See details</a>
+`src?` | The source references, if different than the references for level 1. | <a href="#AnimistPowerLevel/src">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#AnimistPowerLevel/translations">See details</a>
+
+#### <a name="AnimistPowerLevel/level"></a> `level`
+
+The level number.
+
+- **Type:** Integer
+- **Minimum:** `2`
+
+#### <a name="AnimistPowerLevel/src"></a> `src?`
+
+The source references, if different than the references for level 1.
+
+- **Type:** <a href="../source/_PublicationRef.md#PublicationRefs">PublicationRefs</a>
+
+#### <a name="AnimistPowerLevel/translations"></a> `translations`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#AnimistPowerLevel/translations[key]">AnimistPowerLevel/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="AnimistPowerLevel/translations[key]"></a> `AnimistPowerLevel/translations[key]`
+
+- **Type:** <a href="#AnimistPowerLevelTranslation">AnimistPowerLevelTranslation</a>
+
+---
+
+### <a name="AnimistPowerLevelTranslation"></a> `AnimistPowerLevelTranslation`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`effect` | An additional effect description for this level. | <a href="#AnimistPowerLevelTranslation/effect">See details</a>
+
+#### <a name="AnimistPowerLevelTranslation/effect"></a> `effect`
+
+An additional effect description for this level.
+
+- **Type:** <a href="../_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
+
+---
+
+### <a name="AnimistPowerPerformanceParameters"></a> `AnimistPowerPerformanceParameters`
 
 Measurable parameters of a animist power.
 
 - **Type:** Union
-- **Cases:** <a href="#PerformanceParameters'OneTime">PerformanceParameters'OneTime</a> | <a href="#PerformanceParameters'Sustained">PerformanceParameters'Sustained</a>
+- **Cases:** <a href="#AnimistPowerPerformanceParameters'OneTime">AnimistPowerPerformanceParameters'OneTime</a> | <a href="#AnimistPowerPerformanceParameters'Sustained">AnimistPowerPerformanceParameters'Sustained</a>
 
 ---
 
-### <a name="PerformanceParameters'OneTime"></a> `PerformanceParameters'OneTime`
+### <a name="AnimistPowerPerformanceParameters'OneTime"></a> `AnimistPowerPerformanceParameters'OneTime`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters'OneTime/tag">See details</a>
-`cost` | The AE cost value, either a flat value or defined dynamically by the primary patron. | <a href="#PerformanceParameters'OneTime/cost">See details</a>
-`duration` | The duration. | <a href="#PerformanceParameters'OneTime/duration">See details</a>
+`tag` |  | <a href="#AnimistPowerPerformanceParameters'OneTime/tag">See details</a>
+`one_time` |  | <a href="#AnimistPowerPerformanceParameters'OneTime/one_time">See details</a>
 
-#### <a name="PerformanceParameters'OneTime/tag"></a> `tag`
+#### <a name="AnimistPowerPerformanceParameters'OneTime/tag"></a> `tag`
 
 - **Constant:** `"OneTime"`
 
-#### <a name="PerformanceParameters'OneTime/cost"></a> `cost`
+#### <a name="AnimistPowerPerformanceParameters'OneTime/one_time"></a> `one_time`
+
+- **Type:** <a href="#OneTimeAnimistPowerPerformanceParameters">OneTimeAnimistPowerPerformanceParameters</a>
+
+---
+
+### <a name="AnimistPowerPerformanceParameters'Sustained"></a> `AnimistPowerPerformanceParameters'Sustained`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AnimistPowerPerformanceParameters'Sustained/tag">See details</a>
+`sustained` |  | <a href="#AnimistPowerPerformanceParameters'Sustained/sustained">See details</a>
+
+#### <a name="AnimistPowerPerformanceParameters'Sustained/tag"></a> `tag`
+
+- **Constant:** `"Sustained"`
+
+#### <a name="AnimistPowerPerformanceParameters'Sustained/sustained"></a> `sustained`
+
+- **Type:** <a href="#SustainedAnimistPowerPerformanceParameters">SustainedAnimistPowerPerformanceParameters</a>
+
+---
+
+### <a name="OneTimeAnimistPowerPerformanceParameters"></a> `OneTimeAnimistPowerPerformanceParameters`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`cost` | The AE cost value, either a flat value or defined dynamically by the primary patron. | <a href="#OneTimeAnimistPowerPerformanceParameters/cost">See details</a>
+`duration` | The duration. | <a href="#OneTimeAnimistPowerPerformanceParameters/duration">See details</a>
+
+#### <a name="OneTimeAnimistPowerPerformanceParameters/cost"></a> `cost`
 
 The AE cost value, either a flat value or defined dynamically by the
 primary patron.
 
-- **Type:** Union
-- **Cases:** <a href="#PerformanceParameters'OneTime/cost'Fixed">PerformanceParameters'OneTime/cost'Fixed</a> | <a href="#PerformanceParameters'OneTime/cost'ByPrimaryPatron">PerformanceParameters'OneTime/cost'ByPrimaryPatron</a>
+- **Type:** <a href="#OneTimeAnimistPowerCost">OneTimeAnimistPowerCost</a>
 
-#### <a name="PerformanceParameters'OneTime/duration"></a> `duration`
+#### <a name="OneTimeAnimistPowerPerformanceParameters/duration"></a> `duration`
 
 The duration.
 
-- **Type:** Union
-- **Cases:** <a href="#PerformanceParameters'OneTime/duration'Immediate">PerformanceParameters'OneTime/duration'Immediate</a> | <a href="#PerformanceParameters'OneTime/duration'Fixed">PerformanceParameters'OneTime/duration'Fixed</a> | <a href="#PerformanceParameters'OneTime/duration'TaggedCheckResultBasedDuration">PerformanceParameters'OneTime/duration'TaggedCheckResultBasedDuration</a>
+- **Type:** <a href="#OneTimeAnimistPowerDuration">OneTimeAnimistPowerDuration</a>
 
 ---
 
-### <a name="PerformanceParameters'OneTime/cost'Fixed"></a> `PerformanceParameters'OneTime/cost'Fixed`
+### <a name="OneTimeAnimistPowerCost"></a> `OneTimeAnimistPowerCost`
+
+- **Type:** Union
+- **Cases:** <a href="#OneTimeAnimistPowerCost'Fixed">OneTimeAnimistPowerCost'Fixed</a> | <a href="#OneTimeAnimistPowerCost'ByPrimaryPatron">OneTimeAnimistPowerCost'ByPrimaryPatron</a>
+
+---
+
+### <a name="OneTimeAnimistPowerCost'Fixed"></a> `OneTimeAnimistPowerCost'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters'OneTime/cost'Fixed/tag">See details</a>
-`value` | The AE cost value. | <a href="#PerformanceParameters'OneTime/cost'Fixed/value">See details</a>
-`interval?` | If defined, half of the AE cost `value` has to be paid each interval. | <a href="#PerformanceParameters'OneTime/cost'Fixed/interval">See details</a>
+`tag` |  | <a href="#OneTimeAnimistPowerCost'Fixed/tag">See details</a>
+`fixed` |  | <a href="#OneTimeAnimistPowerCost'Fixed/fixed">See details</a>
 
-#### <a name="PerformanceParameters'OneTime/cost'Fixed/tag"></a> `tag`
+#### <a name="OneTimeAnimistPowerCost'Fixed/tag"></a> `tag`
 
 - **Constant:** `"Fixed"`
 
-#### <a name="PerformanceParameters'OneTime/cost'Fixed/value"></a> `value`
+#### <a name="OneTimeAnimistPowerCost'Fixed/fixed"></a> `fixed`
+
+- **Type:** <a href="#FixedOneTimeAnimistPowerCost">FixedOneTimeAnimistPowerCost</a>
+
+---
+
+### <a name="OneTimeAnimistPowerCost'ByPrimaryPatron"></a> `OneTimeAnimistPowerCost'ByPrimaryPatron`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#OneTimeAnimistPowerCost'ByPrimaryPatron/tag">See details</a>
+`by_primary_patron` |  | <a href="#OneTimeAnimistPowerCost'ByPrimaryPatron/by_primary_patron">See details</a>
+
+#### <a name="OneTimeAnimistPowerCost'ByPrimaryPatron/tag"></a> `tag`
+
+- **Constant:** `"ByPrimaryPatron"`
+
+#### <a name="OneTimeAnimistPowerCost'ByPrimaryPatron/by_primary_patron"></a> `by_primary_patron`
+
+- **Type:** <a href="#OneTimeAnimistPowerCostByPrimaryPatron">OneTimeAnimistPowerCostByPrimaryPatron</a>
+
+---
+
+### <a name="FixedOneTimeAnimistPowerCost"></a> `FixedOneTimeAnimistPowerCost`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`value` | The AE cost value. | <a href="#FixedOneTimeAnimistPowerCost/value">See details</a>
+`interval?` | If defined, half of the AE cost `value` has to be paid each interval. | <a href="#FixedOneTimeAnimistPowerCost/interval">See details</a>
+
+#### <a name="FixedOneTimeAnimistPowerCost/value"></a> `value`
 
 The AE cost value.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="PerformanceParameters'OneTime/cost'Fixed/interval"></a> `interval?`
+#### <a name="FixedOneTimeAnimistPowerCost/interval"></a> `interval?`
 
-If defined, half of the AE cost `value` has to be paid each
-interval.
+If defined, half of the AE cost `value` has to be paid each interval.
 
 - **Type:** <a href="../_ActivatableSkillDuration.md#DurationUnitValue">DurationUnitValue</a>
 
 ---
 
-### <a name="PerformanceParameters'OneTime/cost'ByPrimaryPatron"></a> `PerformanceParameters'OneTime/cost'ByPrimaryPatron`
+### <a name="OneTimeAnimistPowerCostByPrimaryPatron"></a> `OneTimeAnimistPowerCostByPrimaryPatron`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters'OneTime/cost'ByPrimaryPatron/tag">See details</a>
-`interval?` | If defined, half of the AE cost `value` has to be paid each interval. | <a href="#PerformanceParameters'OneTime/cost'ByPrimaryPatron/interval">See details</a>
-`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations">See details</a>
+`interval?` | If defined, half of the AE cost `value` has to be paid each interval. | <a href="#OneTimeAnimistPowerCostByPrimaryPatron/interval">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#OneTimeAnimistPowerCostByPrimaryPatron/translations">See details</a>
 
-#### <a name="PerformanceParameters'OneTime/cost'ByPrimaryPatron/tag"></a> `tag`
+#### <a name="OneTimeAnimistPowerCostByPrimaryPatron/interval"></a> `interval?`
 
-- **Constant:** `"ByPrimaryPatron"`
-
-#### <a name="PerformanceParameters'OneTime/cost'ByPrimaryPatron/interval"></a> `interval?`
-
-If defined, half of the AE cost `value` has to be paid each
-interval.
+If defined, half of the AE cost `value` has to be paid each interval.
 
 - **Type:** <a href="../_ActivatableSkillDuration.md#DurationUnitValue">DurationUnitValue</a>
 
-#### <a name="PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations"></a> `translations?`
+#### <a name="OneTimeAnimistPowerCostByPrimaryPatron/translations"></a> `translations?`
 
-All translations for the entry, identified by IETF language tag
-(BCP47).
+All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations[key]">PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations[key]</a>
+- **Property Values:** <a href="#OneTimeAnimistPowerCostByPrimaryPatron/translations[key]">OneTimeAnimistPowerCostByPrimaryPatron/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations[key]"></a> `PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations[key]`
+### <a name="OneTimeAnimistPowerCostByPrimaryPatron/translations[key]"></a> `OneTimeAnimistPowerCostByPrimaryPatron/translations[key]`
 
-- **Type:** Object
-- **Minimum Properties:** `1`
-
-Key | Description | Details
-:-- | :-- | :--
-`note?` | A note, appended to the generated string in parenthesis. | <a href="#PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations[key]/note">See details</a>
-
-#### <a name="PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations[key]/note"></a> `note?`
-
-A note, appended to the generated string in parenthesis.
-
-- **Type:** <a href="#PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations[key]/note">Object</a>
+- **Type:** <a href="#AnimistPowerCostByPrimaryPatronTranslation">AnimistPowerCostByPrimaryPatronTranslation</a>
 
 ---
 
-### <a name="PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations[key]/note"></a> `PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations[key]/note`
+### <a name="OneTimeAnimistPowerDuration"></a> `OneTimeAnimistPowerDuration`
 
-A note, appended to the generated string in parenthesis.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`default` | The full note. | <a href="#PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations[key]/note/default">See details</a>
-`compressed?` | A compressed note, if applicable. If not specified it should not be displayed in small location. | <a href="#PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations[key]/note/compressed">See details</a>
-
-#### <a name="PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations[key]/note/default"></a> `default`
-
-The full note.
-
-- **Type:** String
-- **Minimum Length:** `1`
-
-#### <a name="PerformanceParameters'OneTime/cost'ByPrimaryPatron/translations[key]/note/compressed"></a> `compressed?`
-
-A compressed note, if applicable. If not specified it should not
-be displayed in small location.
-
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** Union
+- **Cases:** <a href="#OneTimeAnimistPowerDuration'Immediate">OneTimeAnimistPowerDuration'Immediate</a> | <a href="#OneTimeAnimistPowerDuration'Fixed">OneTimeAnimistPowerDuration'Fixed</a> | <a href="#OneTimeAnimistPowerDuration'CheckResultBased">OneTimeAnimistPowerDuration'CheckResultBased</a>
 
 ---
 
-### <a name="PerformanceParameters'OneTime/duration'Immediate"></a> `PerformanceParameters'OneTime/duration'Immediate`
+### <a name="OneTimeAnimistPowerDuration'Immediate"></a> `OneTimeAnimistPowerDuration'Immediate`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters'OneTime/duration'Immediate/tag">See details</a>
+`tag` |  | <a href="#OneTimeAnimistPowerDuration'Immediate/tag">See details</a>
 
-#### <a name="PerformanceParameters'OneTime/duration'Immediate/tag"></a> `tag`
+#### <a name="OneTimeAnimistPowerDuration'Immediate/tag"></a> `tag`
 
 - **Constant:** `"Immediate"`
 
 ---
 
-### <a name="PerformanceParameters'OneTime/duration'Fixed"></a> `PerformanceParameters'OneTime/duration'Fixed`
+### <a name="OneTimeAnimistPowerDuration'Fixed"></a> `OneTimeAnimistPowerDuration'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters'OneTime/duration'Fixed/tag">See details</a>
-`is_maximum?` | If the duration is the maximum duration, so it may end earlier. | <a href="#PerformanceParameters'OneTime/duration'Fixed/is_maximum">See details</a>
-`value` | The (unitless) duration. | <a href="#PerformanceParameters'OneTime/duration'Fixed/value">See details</a>
-`unit` | The duration unit. | <a href="#PerformanceParameters'OneTime/duration'Fixed/unit">See details</a>
+`tag` |  | <a href="#OneTimeAnimistPowerDuration'Fixed/tag">See details</a>
+`fixed` |  | <a href="#OneTimeAnimistPowerDuration'Fixed/fixed">See details</a>
 
-#### <a name="PerformanceParameters'OneTime/duration'Fixed/tag"></a> `tag`
+#### <a name="OneTimeAnimistPowerDuration'Fixed/tag"></a> `tag`
 
 - **Constant:** `"Fixed"`
 
-#### <a name="PerformanceParameters'OneTime/duration'Fixed/is_maximum"></a> `is_maximum?`
+#### <a name="OneTimeAnimistPowerDuration'Fixed/fixed"></a> `fixed`
 
-If the duration is the maximum duration, so it may end earlier.
-
-- **Type:** Boolean
-
-#### <a name="PerformanceParameters'OneTime/duration'Fixed/value"></a> `value`
-
-The (unitless) duration.
-
-- **Type:** Integer
-- **Minimum:** `2`
-
-#### <a name="PerformanceParameters'OneTime/duration'Fixed/unit"></a> `unit`
-
-The duration unit.
-
-- **Type:** <a href="../_ActivatableSkillDuration.md#DurationUnit">DurationUnit</a>
+- **Type:** <a href="../FamiliarsTrick.md#FixedOneTimeDuration">FixedOneTimeDuration</a>
 
 ---
 
-### <a name="PerformanceParameters'OneTime/duration'TaggedCheckResultBasedDuration"></a> `PerformanceParameters'OneTime/duration'TaggedCheckResultBasedDuration`
-
-- **Type:** <a href="../_ActivatableSkillDuration.md#TaggedCheckResultBasedDuration">TaggedCheckResultBasedDuration</a>
-
----
-
-### <a name="PerformanceParameters'Sustained"></a> `PerformanceParameters'Sustained`
+### <a name="OneTimeAnimistPowerDuration'CheckResultBased"></a> `OneTimeAnimistPowerDuration'CheckResultBased`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters'Sustained/tag">See details</a>
-`cost` | The AE cost value, either a flat value or defined dynamically by the primary patron. | <a href="#PerformanceParameters'Sustained/cost">See details</a>
+`tag` |  | <a href="#OneTimeAnimistPowerDuration'CheckResultBased/tag">See details</a>
+`check_result_based` |  | <a href="#OneTimeAnimistPowerDuration'CheckResultBased/check_result_based">See details</a>
 
-#### <a name="PerformanceParameters'Sustained/tag"></a> `tag`
+#### <a name="OneTimeAnimistPowerDuration'CheckResultBased/tag"></a> `tag`
 
-- **Constant:** `"Sustained"`
+- **Constant:** `"CheckResultBased"`
 
-#### <a name="PerformanceParameters'Sustained/cost"></a> `cost`
+#### <a name="OneTimeAnimistPowerDuration'CheckResultBased/check_result_based"></a> `check_result_based`
+
+- **Type:** <a href="../_ActivatableSkillDuration.md#CheckResultBasedDuration">CheckResultBasedDuration</a>
+
+---
+
+### <a name="SustainedAnimistPowerPerformanceParameters"></a> `SustainedAnimistPowerPerformanceParameters`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`cost` | The AE cost value, either a flat value or defined dynamically by the primary patron. | <a href="#SustainedAnimistPowerPerformanceParameters/cost">See details</a>
+
+#### <a name="SustainedAnimistPowerPerformanceParameters/cost"></a> `cost`
 
 The AE cost value, either a flat value or defined dynamically by the
 primary patron.
 
-- **Type:** Union
-- **Cases:** <a href="#PerformanceParameters'Sustained/cost'Fixed">PerformanceParameters'Sustained/cost'Fixed</a> | <a href="#PerformanceParameters'Sustained/cost'ByPrimaryPatron">PerformanceParameters'Sustained/cost'ByPrimaryPatron</a>
+- **Type:** <a href="#SustainedAnimistPowerCost">SustainedAnimistPowerCost</a>
 
 ---
 
-### <a name="PerformanceParameters'Sustained/cost'Fixed"></a> `PerformanceParameters'Sustained/cost'Fixed`
+### <a name="SustainedAnimistPowerCost"></a> `SustainedAnimistPowerCost`
+
+- **Type:** Union
+- **Cases:** <a href="#SustainedAnimistPowerCost'Fixed">SustainedAnimistPowerCost'Fixed</a> | <a href="#SustainedAnimistPowerCost'ByPrimaryPatron">SustainedAnimistPowerCost'ByPrimaryPatron</a>
+
+---
+
+### <a name="SustainedAnimistPowerCost'Fixed"></a> `SustainedAnimistPowerCost'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters'Sustained/cost'Fixed/tag">See details</a>
-`value` | The AE cost value. | <a href="#PerformanceParameters'Sustained/cost'Fixed/value">See details</a>
-`interval` | Half of the AE cost `value` has to be paid each interval. | <a href="#PerformanceParameters'Sustained/cost'Fixed/interval">See details</a>
+`tag` |  | <a href="#SustainedAnimistPowerCost'Fixed/tag">See details</a>
+`fixed` |  | <a href="#SustainedAnimistPowerCost'Fixed/fixed">See details</a>
 
-#### <a name="PerformanceParameters'Sustained/cost'Fixed/tag"></a> `tag`
+#### <a name="SustainedAnimistPowerCost'Fixed/tag"></a> `tag`
 
 - **Constant:** `"Fixed"`
 
-#### <a name="PerformanceParameters'Sustained/cost'Fixed/value"></a> `value`
+#### <a name="SustainedAnimistPowerCost'Fixed/fixed"></a> `fixed`
+
+- **Type:** <a href="#FixedSustainedAnimistPowerCost">FixedSustainedAnimistPowerCost</a>
+
+---
+
+### <a name="SustainedAnimistPowerCost'ByPrimaryPatron"></a> `SustainedAnimistPowerCost'ByPrimaryPatron`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#SustainedAnimistPowerCost'ByPrimaryPatron/tag">See details</a>
+`by_primary_patron` |  | <a href="#SustainedAnimistPowerCost'ByPrimaryPatron/by_primary_patron">See details</a>
+
+#### <a name="SustainedAnimistPowerCost'ByPrimaryPatron/tag"></a> `tag`
+
+- **Constant:** `"ByPrimaryPatron"`
+
+#### <a name="SustainedAnimistPowerCost'ByPrimaryPatron/by_primary_patron"></a> `by_primary_patron`
+
+- **Type:** <a href="#SustainedAnimistPowerCostByPrimaryPatron">SustainedAnimistPowerCostByPrimaryPatron</a>
+
+---
+
+### <a name="FixedSustainedAnimistPowerCost"></a> `FixedSustainedAnimistPowerCost`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`value` | The AE cost value. | <a href="#FixedSustainedAnimistPowerCost/value">See details</a>
+`interval` | Half of the AE cost `value` has to be paid each interval. | <a href="#FixedSustainedAnimistPowerCost/interval">See details</a>
+
+#### <a name="FixedSustainedAnimistPowerCost/value"></a> `value`
 
 The AE cost value.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="PerformanceParameters'Sustained/cost'Fixed/interval"></a> `interval`
+#### <a name="FixedSustainedAnimistPowerCost/interval"></a> `interval`
 
 Half of the AE cost `value` has to be paid each interval.
 
@@ -584,77 +580,88 @@ Half of the AE cost `value` has to be paid each interval.
 
 ---
 
-### <a name="PerformanceParameters'Sustained/cost'ByPrimaryPatron"></a> `PerformanceParameters'Sustained/cost'ByPrimaryPatron`
+### <a name="SustainedAnimistPowerCostByPrimaryPatron"></a> `SustainedAnimistPowerCostByPrimaryPatron`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters'Sustained/cost'ByPrimaryPatron/tag">See details</a>
-`interval` | Half of the AE cost `value` has to be paid each interval. | <a href="#PerformanceParameters'Sustained/cost'ByPrimaryPatron/interval">See details</a>
-`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations">See details</a>
+`interval` | Half of the AE cost `value` has to be paid each interval. | <a href="#SustainedAnimistPowerCostByPrimaryPatron/interval">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#SustainedAnimistPowerCostByPrimaryPatron/translations">See details</a>
 
-#### <a name="PerformanceParameters'Sustained/cost'ByPrimaryPatron/tag"></a> `tag`
-
-- **Constant:** `"ByPrimaryPatron"`
-
-#### <a name="PerformanceParameters'Sustained/cost'ByPrimaryPatron/interval"></a> `interval`
+#### <a name="SustainedAnimistPowerCostByPrimaryPatron/interval"></a> `interval`
 
 Half of the AE cost `value` has to be paid each interval.
 
 - **Type:** <a href="../_ActivatableSkillDuration.md#DurationUnitValue">DurationUnitValue</a>
 
-#### <a name="PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations"></a> `translations?`
+#### <a name="SustainedAnimistPowerCostByPrimaryPatron/translations"></a> `translations?`
 
-All translations for the entry, identified by IETF language tag
-(BCP47).
+All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations[key]">PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations[key]</a>
+- **Property Values:** <a href="#SustainedAnimistPowerCostByPrimaryPatron/translations[key]">SustainedAnimistPowerCostByPrimaryPatron/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations[key]"></a> `PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations[key]`
+### <a name="SustainedAnimistPowerCostByPrimaryPatron/translations[key]"></a> `SustainedAnimistPowerCostByPrimaryPatron/translations[key]`
 
-- **Type:** Object
-- **Minimum Properties:** `1`
-
-Key | Description | Details
-:-- | :-- | :--
-`note?` | A note, appended to the generated string in parenthesis. | <a href="#PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations[key]/note">See details</a>
-
-#### <a name="PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations[key]/note"></a> `note?`
-
-A note, appended to the generated string in parenthesis.
-
-- **Type:** <a href="#PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations[key]/note">Object</a>
+- **Type:** <a href="#AnimistPowerCostByPrimaryPatronTranslation">AnimistPowerCostByPrimaryPatronTranslation</a>
 
 ---
 
-### <a name="PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations[key]/note"></a> `PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations[key]/note`
-
-A note, appended to the generated string in parenthesis.
+### <a name="AnimistPowerCostByPrimaryPatronTranslation"></a> `AnimistPowerCostByPrimaryPatronTranslation`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`default` | The full note. | <a href="#PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations[key]/note/default">See details</a>
-`compressed?` | A compressed note, if applicable. If not specified it should not be displayed in small location. | <a href="#PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations[key]/note/compressed">See details</a>
+`note` | A note, appended to the generated string in parenthesis. | <a href="#AnimistPowerCostByPrimaryPatronTranslation/note">See details</a>
 
-#### <a name="PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations[key]/note/default"></a> `default`
+#### <a name="AnimistPowerCostByPrimaryPatronTranslation/note"></a> `note`
 
-The full note.
+A note, appended to the generated string in parenthesis.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../_ResponsiveText.md#ResponsiveTextOptional">ResponsiveTextOptional</a>
 
-#### <a name="PerformanceParameters'Sustained/cost'ByPrimaryPatron/translations[key]/note/compressed"></a> `compressed?`
+---
 
-A compressed note, if applicable. If not specified it should not
-be displayed in small location.
+### <a name="AnimistPowerImprovementCost"></a> `AnimistPowerImprovementCost`
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** Union
+- **Cases:** <a href="#AnimistPowerImprovementCost'Fixed">AnimistPowerImprovementCost'Fixed</a> | <a href="#AnimistPowerImprovementCost'ByPrimaryPatron">AnimistPowerImprovementCost'ByPrimaryPatron</a>
+
+---
+
+### <a name="AnimistPowerImprovementCost'Fixed"></a> `AnimistPowerImprovementCost'Fixed`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AnimistPowerImprovementCost'Fixed/tag">See details</a>
+`fixed` |  | <a href="#AnimistPowerImprovementCost'Fixed/fixed">See details</a>
+
+#### <a name="AnimistPowerImprovementCost'Fixed/tag"></a> `tag`
+
+- **Constant:** `"Fixed"`
+
+#### <a name="AnimistPowerImprovementCost'Fixed/fixed"></a> `fixed`
+
+- **Type:** <a href="../_ImprovementCost.md#ImprovementCost">ImprovementCost</a>
+
+---
+
+### <a name="AnimistPowerImprovementCost'ByPrimaryPatron"></a> `AnimistPowerImprovementCost'ByPrimaryPatron`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AnimistPowerImprovementCost'ByPrimaryPatron/tag">See details</a>
+
+#### <a name="AnimistPowerImprovementCost'ByPrimaryPatron/tag"></a> `tag`
+
+- **Constant:** `"ByPrimaryPatron"`

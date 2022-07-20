@@ -396,6 +396,21 @@
         "id"
       ],
       "additionalProperties": false
+    },
+    "AnimistTribeReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The tribe's identifier.",
+          "type": "integer",
+          "maximum": 6,
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
     }
   }
 }

@@ -5,9 +5,13 @@
 import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
-import { DurationUnit, TaggedCheckResultBasedDuration } from "../_ActivatableSkillDuration.js"
+import { IndefiniteOneTimeCost } from "../_ActivatableSkillCost.js"
+import { CheckResultBasedDuration, DurationUnit, IndefiniteDurationTranslation } from "../_ActivatableSkillDuration.js"
 import { Effect } from "../_ActivatableSkillEffect.js"
 import { LocaleMap } from "../_LocaleMap.js"
+import { NonEmptyString } from "../_NonEmptyString.js"
+import { ResponsiveText, ResponsiveTextOptional } from "../_ResponsiveText.js"
+import { PropertyReference } from "../_SimpleReferences.js"
 import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
 
 /**
@@ -34,222 +38,130 @@ export type Curse = {
   /**
    * Measurable parameters of a curse.
    */
-  parameters: PerformanceParameters
+  parameters: CursePerformanceParameters
 
   /**
-   * The property's identifier.
-   * @integer
-   * @minimum 1
+   * The associated property.
    */
-  property_id: number
+  property: PropertyReference
 
   src: PublicationRefs
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: LocaleMap<{
-    /**
-     * The name of the curse.
-     * @minLength 1
-     */
-    name: string
+  translations: LocaleMap<CurseTranslation>
+}
 
-    /**
-     * The effect description may be either a plain text or a text that is
-     * divided by a list of effects for each quality level. It may also be a
-     * list for each two quality levels.
-     */
-    effect: Effect
+export type CurseTranslation = {
+  /**
+   * The name of the curse.
+   */
+  name: NonEmptyString
 
-    /**
-     * @deprecated
-     */
-    cost: { full: string; abbr: string }
+  /**
+   * The effect description may be either a plain text or a text that is
+   * divided by a list of effects for each quality level. It may also be a
+   * list for each two quality levels.
+   */
+  effect: Effect
 
-    /**
-     * @deprecated
-     */
-    duration: { full: string; abbr: string }
+  /**
+   * @deprecated
+   */
+  cost: { full: string; abbr: string }
 
-    errata?: Errata
-  }>
+  /**
+   * @deprecated
+   */
+  duration: { full: string; abbr: string }
+
+  errata?: Errata
 }
 
 /**
  * Measurable parameters of a curse.
  */
-type PerformanceParameters = {
+export type CursePerformanceParameters = {
   /**
    * The AE cost.
    */
-  cost:
-    | {
-      tag: "Fixed"
-
-      /**
-       * The (temporary) AE cost value.
-       * @integer
-       * @minimum 1
-       */
-      value: number
-
-      /**
-       * All translations for the entry, identified by IETF language tag (BCP47).
-       * @minProperties 1
-       */
-      translations?: {
-        /**
-         * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-         * @minProperties 1
-         */
-        [localeId: string]: {
-          /**
-           * The cost have to be per a specific countable entity, e.g. `8 KP
-           * per person`.
-           */
-          per?: {
-            /**
-             * The full countable entity name.
-             * @minLength 1
-             */
-            default: string
-
-            /**
-             * The compressed countable entity name.
-             * @minLength 1
-             */
-            compressed: string
-          }
-
-          /**
-           * A note, appended to the generated string in parenthesis.
-           */
-          note?: {
-            /**
-             * The full note.
-             * @minLength 1
-             */
-            default: string
-
-            /**
-             * A compressed note, if applicable. If not specified it should not
-             * be displayed in small location.
-             * @minLength 1
-             */
-            compressed?: string
-          }
-        }
-      }
-    }
-    | {
-      tag: "Indefinite"
-
-      /**
-       * All translations for the entry, identified by IETF language tag (BCP47).
-       * @minProperties 1
-       */
-      translations: {
-        /**
-         * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-         */
-        [localeId: string]: {
-          /**
-           * A description of where the cost come from.
-           */
-          description: {
-            /**
-             * The full description of where the cost come from.
-             * @minLength 1
-             */
-            default: string
-
-            /**
-             * A compressed description of where the cost come from for use in
-             * small areas (e.g. on character sheet).
-             * @minLength 1
-             */
-            compressed: string
-          }
-        }
-      }
-    }
+  cost: CurseCost
 
   /**
    * The duration.
    */
-  duration:
-    | { tag: "Immediate" }
-    | {
-      tag: "Fixed"
-
-      /**
-       * The (unitless) duration value.
-       * @integer
-       * @minimum 1
-       */
-      value: number
-
-      /**
-       * The unit of the `value`.
-       */
-      unit: DurationUnit
-    }
-    | TaggedCheckResultBasedDuration
-    | {
-      tag: "Indefinite"
-
-      /**
-       * Specified if the duration has a maximum time span.
-       */
-      maximum?:
-        | {
-          tag: "Fixed"
-
-          /**
-           * The (unitless) maximum duration value.
-           * @integer
-           * @minimum 1
-           */
-          value: number
-
-          /**
-           * The unit of the `value`.
-           */
-          unit: DurationUnit
-        }
-        | TaggedCheckResultBasedDuration
-
-      /**
-       * All translations for the entry, identified by IETF language tag (BCP47).
-       * @minProperties 1
-       */
-      translations: {
-        /**
-         * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-         */
-        [localeId: string]: {
-          /**
-           * A description of the duration.
-           */
-          description: {
-            /**
-             * The full description of the duration.
-             * @minLength 1
-             */
-            default: string
-
-            /**
-             * A compressed description of the duration for use in small areas
-             * (e.g. on character sheet).
-             * @minLength 1
-             */
-            compressed: string
-          }
-        }
-      }
-    }
+  duration: CurseDuration
 }
+
+export type CurseCost =
+  | { tag: "Fixed"; fixed: FixedCurseCost }
+  | { tag: "Indefinite"; indefinite: IndefiniteOneTimeCost }
+
+export type FixedCurseCost = {
+  /**
+   * The (temporary) AE cost value.
+   * @integer
+   * @minimum 1
+   */
+  value: number
+
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translations?: LocaleMap<FixedCurseCostTranslation>
+}
+
+/**
+ * @minProperties 1
+ */
+export type FixedCurseCostTranslation = {
+  /**
+   * The cost have to be per a specific countable entity, e.g. `8 KP
+   * per person`.
+   */
+  per?: ResponsiveText
+
+  /**
+   * A note, appended to the generated string in parenthesis.
+   */
+  note?: ResponsiveTextOptional
+}
+
+export type CurseDuration =
+  | { tag: "Immediate" }
+  | { tag: "Fixed"; fixed: FixedCurseDuration }
+  | { tag: "CheckResultBased"; check_result_based: CheckResultBasedDuration }
+  | { tag: "Indefinite"; indefinite: IndefiniteCurseDuration }
+
+export type FixedCurseDuration = {
+  /**
+   * The (unitless) duration value.
+   * @integer
+   * @minimum 1
+   */
+  value: number
+
+  /**
+   * The unit of the `value`.
+   */
+  unit: DurationUnit
+}
+
+export type IndefiniteCurseDuration = {
+  /**
+   * Specified if the duration has a maximum time span.
+   */
+  maximum?: MaximumIndefiniteCurseDuration
+
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translations: LocaleMap<IndefiniteDurationTranslation>
+}
+
+export type MaximumIndefiniteCurseDuration =
+  | { tag: "Fixed"; fixed: FixedCurseDuration }
+  | { tag: "CheckResultBased"; check_result_based: CheckResultBasedDuration }
 
 export const validateSchema = validateSchemaCreator<Curse>(import.meta.url)

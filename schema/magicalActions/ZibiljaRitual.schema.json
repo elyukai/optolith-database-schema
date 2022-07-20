@@ -22,16 +22,15 @@
         },
         "parameters": {
           "description": "Measurable parameters of a zibilja ritual.",
-          "$ref": "#/$defs/PerformanceParameters"
+          "$ref": "#/$defs/ZibiljaRitualPerformanceParameters"
         },
         "target": {
           "description": "The target category – the kind of creature or object – the skill affects.",
           "$ref": "../_ActivatableSkillTargetCategory.schema.json#/$defs/TargetCategory"
         },
-        "property_id": {
-          "description": "The property's identifier.",
-          "type": "integer",
-          "minimum": 1
+        "property": {
+          "description": "The associated property.",
+          "$ref": "../_SimpleReferences.schema.json#/$defs/PropertyReference"
         },
         "improvement_cost": {
           "description": "States which column is used to improve the skill.",
@@ -45,98 +44,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The name of the zibilja ritual.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "effect": {
-                  "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
-                  "$ref": "../_ActivatableSkillEffect.schema.json#/$defs/Effect"
-                },
-                "casting_time": {
-                  "type": "object",
-                  "properties": {
-                    "full": {
-                      "type": "string"
-                    },
-                    "abbr": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "full",
-                    "abbr"
-                  ],
-                  "additionalProperties": false
-                },
-                "cost": {
-                  "type": "object",
-                  "properties": {
-                    "full": {
-                      "type": "string"
-                    },
-                    "abbr": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "full",
-                    "abbr"
-                  ],
-                  "additionalProperties": false
-                },
-                "range": {
-                  "type": "object",
-                  "properties": {
-                    "full": {
-                      "type": "string"
-                    },
-                    "abbr": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "full",
-                    "abbr"
-                  ],
-                  "additionalProperties": false
-                },
-                "duration": {
-                  "type": "object",
-                  "properties": {
-                    "full": {
-                      "type": "string"
-                    },
-                    "abbr": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "full",
-                    "abbr"
-                  ],
-                  "additionalProperties": false
-                },
-                "target": {
-                  "type": "string"
-                },
-                "errata": {
-                  "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "effect",
-                "casting_time",
-                "cost",
-                "range",
-                "duration",
-                "target"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/ZibiljaRitualTranslation"
             }
           },
           "minProperties": 1,
@@ -148,14 +56,107 @@
         "check",
         "parameters",
         "target",
-        "property_id",
+        "property",
         "improvement_cost",
         "src",
         "translations"
       ],
       "additionalProperties": false
     },
-    "PerformanceParameters": {
+    "ZibiljaRitualTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the zibilja ritual.",
+          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "effect": {
+          "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
+          "$ref": "../_ActivatableSkillEffect.schema.json#/$defs/Effect"
+        },
+        "casting_time": {
+          "type": "object",
+          "properties": {
+            "full": {
+              "type": "string"
+            },
+            "abbr": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "full",
+            "abbr"
+          ],
+          "additionalProperties": false
+        },
+        "cost": {
+          "type": "object",
+          "properties": {
+            "full": {
+              "type": "string"
+            },
+            "abbr": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "full",
+            "abbr"
+          ],
+          "additionalProperties": false
+        },
+        "range": {
+          "type": "object",
+          "properties": {
+            "full": {
+              "type": "string"
+            },
+            "abbr": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "full",
+            "abbr"
+          ],
+          "additionalProperties": false
+        },
+        "duration": {
+          "type": "object",
+          "properties": {
+            "full": {
+              "type": "string"
+            },
+            "abbr": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "full",
+            "abbr"
+          ],
+          "additionalProperties": false
+        },
+        "target": {
+          "type": "string"
+        },
+        "errata": {
+          "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "effect",
+        "casting_time",
+        "cost",
+        "range",
+        "duration",
+        "target"
+      ],
+      "additionalProperties": false
+    },
+    "ZibiljaRitualPerformanceParameters": {
       "type": "object",
       "properties": {
         "casting_time": {

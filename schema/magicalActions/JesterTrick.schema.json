@@ -22,16 +22,15 @@
         },
         "parameters": {
           "description": "Measurable parameters of a jester trick.",
-          "$ref": "#/$defs/PerformanceParameters"
+          "$ref": "#/$defs/JesterTrickPerformanceParameters"
         },
         "target": {
           "description": "The target category – the kind of creature or object – the skill affects.",
           "$ref": "../_ActivatableSkillTargetCategory.schema.json#/$defs/TargetCategory"
         },
-        "property_id": {
-          "description": "The property's identifier.",
-          "type": "integer",
-          "minimum": 1
+        "property": {
+          "description": "The associated property.",
+          "$ref": "../_SimpleReferences.schema.json#/$defs/PropertyReference"
         },
         "improvement_cost": {
           "description": "States which column is used to improve the skill.",
@@ -45,98 +44,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The name of the jester trick.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "effect": {
-                  "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
-                  "$ref": "../_ActivatableSkillEffect.schema.json#/$defs/Effect"
-                },
-                "casting_time": {
-                  "type": "object",
-                  "properties": {
-                    "full": {
-                      "type": "string"
-                    },
-                    "abbr": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "full",
-                    "abbr"
-                  ],
-                  "additionalProperties": false
-                },
-                "cost": {
-                  "type": "object",
-                  "properties": {
-                    "full": {
-                      "type": "string"
-                    },
-                    "abbr": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "full",
-                    "abbr"
-                  ],
-                  "additionalProperties": false
-                },
-                "range": {
-                  "type": "object",
-                  "properties": {
-                    "full": {
-                      "type": "string"
-                    },
-                    "abbr": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "full",
-                    "abbr"
-                  ],
-                  "additionalProperties": false
-                },
-                "duration": {
-                  "type": "object",
-                  "properties": {
-                    "full": {
-                      "type": "string"
-                    },
-                    "abbr": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "full",
-                    "abbr"
-                  ],
-                  "additionalProperties": false
-                },
-                "target": {
-                  "type": "string"
-                },
-                "errata": {
-                  "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "effect",
-                "casting_time",
-                "cost",
-                "range",
-                "duration",
-                "target"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/JesterTrickTranslation"
             }
           },
           "minProperties": 1,
@@ -148,136 +56,125 @@
         "check",
         "parameters",
         "target",
-        "property_id",
+        "property",
         "improvement_cost",
         "src",
         "translations"
       ],
       "additionalProperties": false
     },
-    "PerformanceParameters": {
-      "description": "Measurable parameters of a jester trick.",
+    "JesterTrickTranslation": {
       "type": "object",
       "properties": {
+        "name": {
+          "description": "The name of the jester trick.",
+          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "effect": {
+          "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
+          "$ref": "../_ActivatableSkillEffect.schema.json#/$defs/Effect"
+        },
         "casting_time": {
-          "description": "The casting time.",
           "type": "object",
           "properties": {
-            "value": {
-              "description": "The casting time in actions.",
-              "type": "integer",
-              "minimum": 1
+            "full": {
+              "type": "string"
+            },
+            "abbr": {
+              "type": "string"
             }
           },
           "required": [
-            "value"
+            "full",
+            "abbr"
           ],
           "additionalProperties": false
         },
         "cost": {
-          "description": "The AE cost.",
           "type": "object",
           "properties": {
-            "value": {
-              "description": "The AE cost value.",
-              "type": "integer",
-              "minimum": 1
+            "full": {
+              "type": "string"
+            },
+            "abbr": {
+              "type": "string"
             }
           },
           "required": [
-            "value"
+            "full",
+            "abbr"
           ],
           "additionalProperties": false
         },
         "range": {
-          "description": "The range.",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Touch"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
+          "type": "object",
+          "properties": {
+            "full": {
+              "type": "string"
             },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Self"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Fixed"
-                },
-                "value": {
-                  "description": "The range in steps/m.",
-                  "type": "integer",
-                  "minimum": 2
-                }
-              },
-              "required": [
-                "tag",
-                "value"
-              ],
-              "additionalProperties": false
+            "abbr": {
+              "type": "string"
             }
-          ]
+          },
+          "required": [
+            "full",
+            "abbr"
+          ],
+          "additionalProperties": false
+        },
+        "duration": {
+          "type": "object",
+          "properties": {
+            "full": {
+              "type": "string"
+            },
+            "abbr": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "full",
+            "abbr"
+          ],
+          "additionalProperties": false
+        },
+        "target": {
+          "type": "string"
+        },
+        "errata": {
+          "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "effect",
+        "casting_time",
+        "cost",
+        "range",
+        "duration",
+        "target"
+      ],
+      "additionalProperties": false
+    },
+    "JesterTrickPerformanceParameters": {
+      "description": "Measurable parameters of a geode ritual.",
+      "type": "object",
+      "properties": {
+        "casting_time": {
+          "description": "The casting time.",
+          "$ref": "#/$defs/JesterTrickCastingTime"
+        },
+        "cost": {
+          "description": "The AE cost.",
+          "$ref": "#/$defs/JesterTrickCost"
+        },
+        "range": {
+          "description": "The range.",
+          "$ref": "#/$defs/JesterTrickRange"
         },
         "duration": {
           "description": "The duration.",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Immediate"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Fixed"
-                },
-                "value": {
-                  "description": "The (unitless) duration.",
-                  "type": "integer",
-                  "minimum": 2
-                },
-                "unit": {
-                  "description": "The duration unit.",
-                  "$ref": "../_ActivatableSkillDuration.schema.json#/$defs/DurationUnit"
-                }
-              },
-              "required": [
-                "tag",
-                "value",
-                "unit"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "$ref": "../_ActivatableSkillDuration.schema.json#/$defs/TaggedCheckResultBasedDuration"
-            }
-          ]
+          "$ref": "#/$defs/JesterTrickDuration"
         }
       },
       "required": [
@@ -285,6 +182,159 @@
         "cost",
         "range",
         "duration"
+      ],
+      "additionalProperties": false
+    },
+    "JesterTrickCastingTime": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The casting time in actions.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "JesterTrickCost": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The AE cost value.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "JesterTrickRange": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Touch"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Self"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Fixed"
+            },
+            "fixed": {
+              "$ref": "#/$defs/FixedJesterTrickRange"
+            }
+          },
+          "required": [
+            "tag",
+            "fixed"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "FixedJesterTrickRange": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The range in steps/m.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "JesterTrickDuration": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Immediate"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Fixed"
+            },
+            "fixed": {
+              "$ref": "#/$defs/FixedJesterTrickDuration"
+            }
+          },
+          "required": [
+            "tag",
+            "fixed"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "CheckResultBased"
+            },
+            "check_result_based": {
+              "$ref": "../_ActivatableSkillDuration.schema.json#/$defs/CheckResultBasedDuration"
+            }
+          },
+          "required": [
+            "tag",
+            "check_result_based"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "FixedJesterTrickDuration": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The (unitless) duration.",
+          "type": "integer",
+          "minimum": 2
+        },
+        "unit": {
+          "description": "The duration unit.",
+          "$ref": "../_ActivatableSkillDuration.schema.json#/$defs/DurationUnit"
+        }
+      },
+      "required": [
+        "value",
+        "unit"
       ],
       "additionalProperties": false
     }

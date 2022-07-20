@@ -24,7 +24,7 @@
           "description": "Arcane bards must make a *Singing (area of application)* or *Music (area of\napplication)* check for each magical melody.",
           "type": "array",
           "items": {
-            "$ref": "./_SkillReference.schema.json#/$defs/SkillReference"
+            "$ref": "./_SkillReference.schema.json#/$defs/MusicalSkillReference"
           },
           "minItems": 1,
           "maxItems": 2,
@@ -32,12 +32,11 @@
         },
         "parameters": {
           "description": "Measurable parameters of a magical melody.",
-          "$ref": "#/$defs/PerformanceParameters"
+          "$ref": "#/$defs/MagicalMelodyPerformanceParameters"
         },
-        "property_id": {
-          "description": "The property's identifier.",
-          "type": "integer",
-          "minimum": 1
+        "property": {
+          "description": "The associated property.",
+          "$ref": "../_SimpleReferences.schema.json#/$defs/PropertyReference"
         },
         "music_tradition": {
           "description": "The music tradition(s) the magical melody is available for. This also\ndefines the different names in each music tradition.",
@@ -59,60 +58,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The name of the magical melody.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "effect": {
-                  "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
-                  "$ref": "../_ActivatableSkillEffect.schema.json#/$defs/Effect"
-                },
-                "duration": {
-                  "type": "object",
-                  "properties": {
-                    "full": {
-                      "type": "string"
-                    },
-                    "abbr": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "full",
-                    "abbr"
-                  ],
-                  "additionalProperties": false
-                },
-                "cost": {
-                  "type": "object",
-                  "properties": {
-                    "full": {
-                      "type": "string"
-                    },
-                    "abbr": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "full",
-                    "abbr"
-                  ],
-                  "additionalProperties": false
-                },
-                "errata": {
-                  "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "effect",
-                "duration",
-                "cost"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/MagicalMelodyTranslation"
             }
           },
           "minProperties": 1,
@@ -124,7 +70,7 @@
         "check",
         "skill",
         "parameters",
-        "property_id",
+        "property",
         "music_tradition",
         "improvement_cost",
         "src",
@@ -132,121 +78,140 @@
       ],
       "additionalProperties": false
     },
-    "PerformanceParameters": {
-      "description": "Measurable parameters of a magical melody.",
+    "MagicalMelodyTranslation": {
       "type": "object",
       "properties": {
+        "name": {
+          "description": "The name of the magical melody.",
+          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "effect": {
+          "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
+          "$ref": "../_ActivatableSkillEffect.schema.json#/$defs/Effect"
+        },
         "duration": {
           "type": "object",
           "properties": {
-            "length": {
-              "oneOf": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Long"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Short"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                }
-              ]
+            "full": {
+              "type": "string"
             },
-            "reusability": {
-              "oneOf": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "OneTime"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Sustainable"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                }
-              ]
+            "abbr": {
+              "type": "string"
             }
           },
           "required": [
-            "length",
-            "reusability"
+            "full",
+            "abbr"
           ],
           "additionalProperties": false
         },
         "cost": {
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Fixed"
-                },
-                "value": {
-                  "description": "The (temporary) AE cost value.",
-                  "type": "integer",
-                  "minimum": 1
-                }
-              },
-              "required": [
-                "tag",
-                "value"
-              ],
-              "additionalProperties": false
+          "type": "object",
+          "properties": {
+            "full": {
+              "type": "string"
             },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "FirstPerson"
-                },
-                "value": {
-                  "description": "The (temporary) AE cost value for the first targeted person. The AE\ncost for each additional person is half this value.",
-                  "type": "integer",
-                  "minimum": 1,
-                  "multipleOf": 2
-                }
-              },
-              "required": [
-                "tag",
-                "value"
-              ],
-              "additionalProperties": false
+            "abbr": {
+              "type": "string"
             }
-          ]
+          },
+          "required": [
+            "full",
+            "abbr"
+          ],
+          "additionalProperties": false
+        },
+        "errata": {
+          "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "effect",
+        "duration",
+        "cost"
+      ],
+      "additionalProperties": false
+    },
+    "MagicalMelodyPerformanceParameters": {
+      "description": "Measurable parameters of a magical melody.",
+      "type": "object",
+      "properties": {
+        "duration": {
+          "$ref": "./_MusicTradition.schema.json#/$defs/MusicDuration"
+        },
+        "cost": {
+          "$ref": "#/$defs/MagicalMelodyCost"
         }
       },
       "required": [
         "duration",
         "cost"
+      ],
+      "additionalProperties": false
+    },
+    "MagicalMelodyCost": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Fixed"
+            },
+            "fixed": {
+              "$ref": "#/$defs/FixedMagicalMelodyCost"
+            }
+          },
+          "required": [
+            "tag",
+            "fixed"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "FirstPerson"
+            },
+            "first_person": {
+              "$ref": "#/$defs/FirstPersonMagicalMelodyCost"
+            }
+          },
+          "required": [
+            "tag",
+            "first_person"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "FixedMagicalMelodyCost": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The (temporary) AE cost value.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "FirstPersonMagicalMelodyCost": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The (temporary) AE cost value for the first targeted person. The AE\ncost for each additional person is half this value.",
+          "type": "integer",
+          "minimum": 1,
+          "multipleOf": 2
+        }
+      },
+      "required": [
+        "value"
       ],
       "additionalProperties": false
     }

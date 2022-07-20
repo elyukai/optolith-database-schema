@@ -24,7 +24,7 @@
           "description": "To enhance their songs, elves can make a check on either *Singing\n(Two-Voiced Singing)* or *Music (appropriate application)* before making\nthe check for the song.",
           "type": "array",
           "items": {
-            "$ref": "./_SkillReference.schema.json#/$defs/SkillReference"
+            "$ref": "./_SkillReference.schema.json#/$defs/MusicalSkillReference"
           },
           "minItems": 1,
           "maxItems": 2,
@@ -32,12 +32,11 @@
         },
         "parameters": {
           "description": "Measurable parameters of an elven magical song.",
-          "$ref": "#/$defs/PerformanceParameters"
+          "$ref": "#/$defs/ElvenMagicalSongPerformanceParameters"
         },
-        "property_id": {
-          "description": "The property's identifier.",
-          "type": "integer",
-          "minimum": 1
+        "property": {
+          "description": "The associated property.",
+          "$ref": "../_SimpleReferences.schema.json#/$defs/PropertyReference"
         },
         "improvement_cost": {
           "description": "States which column is used to improve the skill.",
@@ -51,43 +50,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The name of the elven magical song.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "effect": {
-                  "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
-                  "$ref": "../_ActivatableSkillEffect.schema.json#/$defs/Effect"
-                },
-                "cost": {
-                  "type": "object",
-                  "properties": {
-                    "full": {
-                      "type": "string"
-                    },
-                    "abbr": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "full",
-                    "abbr"
-                  ],
-                  "additionalProperties": false
-                },
-                "errata": {
-                  "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "effect",
-                "cost"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/ElvenMagicalSongTranslation"
             }
           },
           "minProperties": 1,
@@ -99,131 +62,146 @@
         "check",
         "skill",
         "parameters",
-        "property_id",
+        "property",
         "improvement_cost",
         "src",
         "translations"
       ],
       "additionalProperties": false
     },
-    "PerformanceParameters": {
+    "ElvenMagicalSongTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the elven magical song.",
+          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "effect": {
+          "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
+          "$ref": "../_ActivatableSkillEffect.schema.json#/$defs/Effect"
+        },
+        "cost": {
+          "type": "object",
+          "properties": {
+            "full": {
+              "type": "string"
+            },
+            "abbr": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "full",
+            "abbr"
+          ],
+          "additionalProperties": false
+        },
+        "errata": {
+          "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "effect",
+        "cost"
+      ],
+      "additionalProperties": false
+    },
+    "ElvenMagicalSongPerformanceParameters": {
       "description": "Measurable parameters of an elven magical song.",
       "type": "object",
       "properties": {
         "cost": {
           "description": "The AE cost.",
-          "type": "object",
-          "properties": {
-            "value": {
-              "description": "The (temporary) AE cost value.",
-              "type": "integer",
-              "minimum": 1
-            },
-            "interval": {
-              "description": "Specified if the AE cost `value` has to be paid for each time interval.",
-              "$ref": "../_ActivatableSkillDuration.schema.json#/$defs/DurationUnitValue"
-            },
-            "permanent": {
-              "description": "A permanent AE cost, independent from a possible interval.",
-              "type": "object",
-              "properties": {
-                "value": {
-                  "description": "The permanent AE cost value.",
-                  "type": "integer",
-                  "minimum": 1
-                },
-                "translations": {
-                  "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-                  "type": "object",
-                  "patternProperties": {
-                    "^[a-z]{2}-[A-Z]{2}$": {
-                      "type": "object",
-                      "properties": {
-                        "replacement": {
-                          "description": "A replacement string for the permanent cost.",
-                          "type": "object",
-                          "properties": {
-                            "default": {
-                              "description": "The full replacement string. It must contain `$1`, which is\ngoing to be replaced with the generated AE cost string, so\nadditional information can be provided without duplicating\nconcrete numeric values.",
-                              "type": "string",
-                              "minLength": 1,
-                              "pattern": "\\$1"
-                            },
-                            "compressed": {
-                              "description": "A compressed replacement string for use in small areas (e.g. on\ncharacter sheet). It must contain `$1`, which is going to be\nreplaced with the generated AE cost string, so additional\ninformation can be provided without duplicating concrete\nnumeric values.",
-                              "type": "string",
-                              "minLength": 1,
-                              "pattern": "\\$1"
-                            }
-                          },
-                          "required": [
-                            "default",
-                            "compressed"
-                          ],
-                          "additionalProperties": false
-                        }
-                      },
-                      "required": [
-                        "replacement"
-                      ],
-                      "additionalProperties": false
-                    }
-                  },
-                  "minProperties": 1,
-                  "additionalProperties": false
-                }
-              },
-              "required": [
-                "value"
-              ],
-              "additionalProperties": false
-            },
-            "translations": {
-              "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-              "type": "object",
-              "patternProperties": {
-                "^[a-z]{2}-[A-Z]{2}$": {
-                  "type": "object",
-                  "properties": {
-                    "per": {
-                      "description": "The cost have to be per a specific countable entity, e.g. `8 AE\nper person`.",
-                      "type": "object",
-                      "properties": {
-                        "default": {
-                          "description": "The full countable entity name.",
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "compressed": {
-                          "description": "The compressed countable entity name.",
-                          "type": "string",
-                          "minLength": 1
-                        }
-                      },
-                      "required": [
-                        "default",
-                        "compressed"
-                      ],
-                      "additionalProperties": false
-                    }
-                  },
-                  "required": [],
-                  "minProperties": 1,
-                  "additionalProperties": false
-                }
-              },
-              "minProperties": 1,
-              "additionalProperties": false
-            }
-          },
-          "required": [
-            "value"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/ElvenMagicalSongCost"
         }
       },
       "required": [
         "cost"
+      ],
+      "additionalProperties": false
+    },
+    "ElvenMagicalSongCost": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The (temporary) AE cost value.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "interval": {
+          "description": "Specified if the AE cost `value` has to be paid for each time interval.",
+          "$ref": "../_ActivatableSkillDuration.schema.json#/$defs/DurationUnitValue"
+        },
+        "permanent": {
+          "description": "A permanent AE cost, independent from a possible interval.",
+          "$ref": "#/$defs/ElvenMagicalSongPermanentCost"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/ElvenMagicalSongCostTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "ElvenMagicalSongPermanentCost": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The permanent AE cost value.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/ElvenMagicalSongPermanentCostTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "ElvenMagicalSongPermanentCostTranslation": {
+      "type": "object",
+      "properties": {
+        "replacement": {
+          "description": "A replacement string for the permanent cost.",
+          "$ref": "../_ResponsiveText.schema.json#/$defs/ResponsiveTextReplace"
+        }
+      },
+      "required": [
+        "replacement"
+      ],
+      "additionalProperties": false
+    },
+    "ElvenMagicalSongCostTranslation": {
+      "type": "object",
+      "properties": {
+        "per": {
+          "description": "The cost have to be per a specific countable entity, e.g. `8 AE\nper person`.",
+          "$ref": "../_ResponsiveText.schema.json#/$defs/ResponsiveText"
+        }
+      },
+      "required": [
+        "per"
       ],
       "additionalProperties": false
     }

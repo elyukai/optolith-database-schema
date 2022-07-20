@@ -252,48 +252,6 @@
       ],
       "additionalProperties": false
     },
-    "TaggedCheckResultBasedDuration": {
-      "description": "Defines the duration being based on a check result.",
-      "type": "object",
-      "properties": {
-        "base": {
-          "description": "The base value that is derived from the check result.",
-          "$ref": "./_ActivatableSkillCheckResultBased.schema.json#/$defs/CheckResultValue"
-        },
-        "modifier": {
-          "description": "If defined, it modifies the base value.",
-          "$ref": "./_ActivatableSkillCheckResultBased.schema.json#/$defs/CheckResultBasedModifier"
-        },
-        "is_maximum": {
-          "description": "If the duration is the maximum duration, so it may end earlier.",
-          "const": true
-        },
-        "unit": {
-          "description": "The duration unit.",
-          "$ref": "#/$defs/DurationUnit"
-        },
-        "translations": {
-          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-          "type": "object",
-          "patternProperties": {
-            "^[a-z]{2}-[A-Z]{2}$": {
-              "$ref": "#/$defs/CheckResultBasedDurationTranslation"
-            }
-          },
-          "minProperties": 1,
-          "additionalProperties": false
-        },
-        "tag": {
-          "const": "CheckResultBased"
-        }
-      },
-      "required": [
-        "base",
-        "unit",
-        "tag"
-      ],
-      "additionalProperties": false
-    },
     "IndefiniteDuration": {
       "type": "object",
       "properties": {

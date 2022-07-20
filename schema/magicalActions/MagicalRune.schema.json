@@ -18,68 +18,15 @@
         },
         "check_penalty": {
           "description": "In some cases, the target's Spirit or Toughness is applied as a penalty.",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "CloseCombatTechnique"
-                },
-                "map": {
-                  "description": "A map from close combat techniques to their modifiers.",
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "combat_technique_id": {
-                        "description": "The close combat technique's identifier.",
-                        "type": "integer",
-                        "minimum": 1
-                      },
-                      "modifier": {
-                        "description": "The check modifier for the specified close combat technique.",
-                        "type": "integer"
-                      }
-                    },
-                    "required": [
-                      "combat_technique_id",
-                      "modifier"
-                    ],
-                    "additionalProperties": false
-                  },
-                  "minItems": 1
-                },
-                "other": {
-                  "type": "object",
-                  "properties": {
-                    "modifier": {
-                      "description": "The check modifier for close combat techniques not specified in\n`map`.",
-                      "type": "integer"
-                    }
-                  },
-                  "required": [
-                    "modifier"
-                  ],
-                  "additionalProperties": false
-                }
-              },
-              "required": [
-                "tag",
-                "map",
-                "other"
-              ],
-              "additionalProperties": false
-            }
-          ]
+          "$ref": "#/$defs/MagicalRuneCheckPenalty"
         },
         "parameters": {
           "description": "Measurable parameters of a magical rune.",
-          "$ref": "#/$defs/PerformanceParameters"
+          "$ref": "#/$defs/MagicalRunePerformanceParameters"
         },
-        "property_id": {
-          "description": "The property's identifier.",
-          "type": "integer",
-          "minimum": 1
+        "property": {
+          "description": "The associated property.",
+          "$ref": "../_SimpleReferences.schema.json#/$defs/PropertyReference"
         },
         "improvement_cost": {
           "description": "States which column is used to improve the skill.",
@@ -93,135 +40,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The name of the magical rune.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "native_name": {
-                  "description": "The native name of the magical rune.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "effect": {
-                  "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
-                  "$ref": "../_ActivatableSkillEffect.schema.json#/$defs/Effect"
-                },
-                "cost": {
-                  "type": "object",
-                  "properties": {
-                    "full": {
-                      "type": "string"
-                    },
-                    "abbr": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "full",
-                    "abbr"
-                  ],
-                  "additionalProperties": false
-                },
-                "crafting_time": {
-                  "type": "object",
-                  "properties": {
-                    "slow": {
-                      "type": "object",
-                      "properties": {
-                        "full": {
-                          "type": "string"
-                        },
-                        "abbr": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "full",
-                        "abbr"
-                      ],
-                      "additionalProperties": false
-                    },
-                    "fast": {
-                      "type": "object",
-                      "properties": {
-                        "full": {
-                          "type": "string"
-                        },
-                        "abbr": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "full",
-                        "abbr"
-                      ],
-                      "additionalProperties": false
-                    }
-                  },
-                  "required": [
-                    "slow",
-                    "fast"
-                  ],
-                  "additionalProperties": false
-                },
-                "duration": {
-                  "type": "object",
-                  "properties": {
-                    "slow": {
-                      "type": "object",
-                      "properties": {
-                        "full": {
-                          "type": "string"
-                        },
-                        "abbr": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "full",
-                        "abbr"
-                      ],
-                      "additionalProperties": false
-                    },
-                    "fast": {
-                      "type": "object",
-                      "properties": {
-                        "full": {
-                          "type": "string"
-                        },
-                        "abbr": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "full",
-                        "abbr"
-                      ],
-                      "additionalProperties": false
-                    }
-                  },
-                  "required": [
-                    "slow",
-                    "fast"
-                  ],
-                  "additionalProperties": false
-                },
-                "errata": {
-                  "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "native_name",
-                "effect",
-                "cost",
-                "crafting_time",
-                "duration"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/MagicalRuneTranslation"
             }
           },
           "minProperties": 1,
@@ -232,180 +51,78 @@
         "id",
         "check",
         "parameters",
-        "property_id",
+        "property",
         "improvement_cost",
         "src",
         "translations"
       ],
       "additionalProperties": false
     },
-    "PerformanceParameters": {
-      "description": "Measurable parameters of a magical rune.",
+    "MagicalRuneTranslation": {
       "type": "object",
       "properties": {
-        "cost": {
-          "description": "The AE cost.",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Single"
-                },
-                "value": {
-                  "description": "The AE cost value.",
-                  "type": "integer",
-                  "minimum": 1
-                },
-                "translations": {
-                  "description": "All translations for the entry, identified by IETF language tag\n(BCP47).",
-                  "type": "object",
-                  "patternProperties": {
-                    "^[a-z]{2}-[A-Z]{2}$": {
-                      "type": "object",
-                      "properties": {
-                        "note": {
-                          "description": "A note, appended to the generated string in parenthesis.",
-                          "type": "object",
-                          "properties": {
-                            "default": {
-                              "description": "The full note.",
-                              "type": "string",
-                              "minLength": 1
-                            },
-                            "compressed": {
-                              "description": "A compressed note, if applicable. If not specified it should not\nbe displayed in small location.",
-                              "type": "string",
-                              "minLength": 1
-                            }
-                          },
-                          "required": [
-                            "default"
-                          ],
-                          "additionalProperties": false
-                        }
-                      },
-                      "required": [],
-                      "minProperties": 1,
-                      "additionalProperties": false
-                    }
-                  },
-                  "minProperties": 1,
-                  "additionalProperties": false
-                }
-              },
-              "required": [
-                "tag",
-                "value"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Disjunction"
-                },
-                "list": {
-                  "description": "A set of possible AE cost values.",
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "value": {
-                        "description": "The AE cost value.",
-                        "type": "integer",
-                        "minimum": 1
-                      }
-                    },
-                    "required": [
-                      "value"
-                    ],
-                    "additionalProperties": false
-                  },
-                  "minItems": 2
-                }
-              },
-              "required": [
-                "tag",
-                "list"
-              ],
-              "additionalProperties": false
-            }
-          ]
+        "name": {
+          "description": "The name of the magical rune.",
+          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "crafting_time": {
-          "description": "The crafting time.",
+        "native_name": {
+          "description": "The native name of the magical rune.",
+          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "effect": {
+          "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
+          "$ref": "../_ActivatableSkillEffect.schema.json#/$defs/Effect"
+        },
+        "cost": {
           "type": "object",
           "properties": {
-            "value": {
-              "description": "The (unitless) crafting time.",
-              "oneOf": [
-                {
-                  "const": 1
-                },
-                {
-                  "const": 2
-                },
-                {
-                  "const": 4
-                }
-              ]
+            "full": {
+              "type": "string"
             },
-            "translations": {
-              "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-              "type": "object",
-              "patternProperties": {
-                "^[a-z]{2}-[A-Z]{2}$": {
-                  "type": "object",
-                  "properties": {
-                    "per": {
-                      "description": "The crafting time has to be per a specific countable entity, e.g. `8\naction per person`.",
-                      "type": "object",
-                      "properties": {
-                        "default": {
-                          "description": "The full countable entity name.",
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "compressed": {
-                          "description": "The compressed countable entity name.",
-                          "type": "string",
-                          "minLength": 1
-                        }
-                      },
-                      "required": [
-                        "default",
-                        "compressed"
-                      ],
-                      "additionalProperties": false
-                    }
-                  },
-                  "required": [],
-                  "minProperties": 1,
-                  "additionalProperties": false
-                }
-              },
-              "minProperties": 1,
-              "additionalProperties": false
+            "abbr": {
+              "type": "string"
             }
           },
           "required": [
-            "value"
+            "full",
+            "abbr"
           ],
           "additionalProperties": false
         },
-        "duration": {
-          "description": "The duration.",
+        "crafting_time": {
           "type": "object",
           "properties": {
             "slow": {
-              "description": "The duration on slow rune application.",
-              "$ref": "../_ActivatableSkillDuration.schema.json#/$defs/CheckResultBasedDuration"
+              "type": "object",
+              "properties": {
+                "full": {
+                  "type": "string"
+                },
+                "abbr": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "full",
+                "abbr"
+              ],
+              "additionalProperties": false
             },
             "fast": {
-              "description": "The duration on fast rune application.",
-              "$ref": "../_ActivatableSkillDuration.schema.json#/$defs/CheckResultBasedDuration"
+              "type": "object",
+              "properties": {
+                "full": {
+                  "type": "string"
+                },
+                "abbr": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "full",
+                "abbr"
+              ],
+              "additionalProperties": false
             }
           },
           "required": [
@@ -413,12 +130,313 @@
             "fast"
           ],
           "additionalProperties": false
+        },
+        "duration": {
+          "type": "object",
+          "properties": {
+            "slow": {
+              "type": "object",
+              "properties": {
+                "full": {
+                  "type": "string"
+                },
+                "abbr": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "full",
+                "abbr"
+              ],
+              "additionalProperties": false
+            },
+            "fast": {
+              "type": "object",
+              "properties": {
+                "full": {
+                  "type": "string"
+                },
+                "abbr": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "full",
+                "abbr"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "slow",
+            "fast"
+          ],
+          "additionalProperties": false
+        },
+        "errata": {
+          "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "native_name",
+        "effect",
+        "cost",
+        "crafting_time",
+        "duration"
+      ],
+      "additionalProperties": false
+    },
+    "MagicalRuneCheckPenalty": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "CloseCombatTechnique"
+            },
+            "close_combat_technique": {
+              "$ref": "#/$defs/MagicalRuneCloseCombatTechniqueCheckPenalty"
+            }
+          },
+          "required": [
+            "tag",
+            "close_combat_technique"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "MagicalRuneCloseCombatTechniqueCheckPenalty": {
+      "type": "object",
+      "properties": {
+        "map": {
+          "description": "A map from close combat techniques to their modifiers.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/MagicalRuneCloseCombatTechniqueCheckPenaltyMapping"
+          },
+          "minItems": 1
+        },
+        "rest": {
+          "$ref": "#/$defs/MagicalRuneCloseCombatTechniqueCheckPenaltyRest"
+        }
+      },
+      "required": [
+        "map",
+        "rest"
+      ],
+      "additionalProperties": false
+    },
+    "MagicalRuneCloseCombatTechniqueCheckPenaltyMapping": {
+      "type": "object",
+      "properties": {
+        "combat_technique_id": {
+          "description": "The close combat technique's identifier.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "modifier": {
+          "description": "The check modifier for the specified close combat technique.",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "combat_technique_id",
+        "modifier"
+      ],
+      "additionalProperties": false
+    },
+    "MagicalRuneCloseCombatTechniqueCheckPenaltyRest": {
+      "type": "object",
+      "properties": {
+        "modifier": {
+          "description": "The check modifier for close combat techniques not specified in `map`.",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "modifier"
+      ],
+      "additionalProperties": false
+    },
+    "MagicalRunePerformanceParameters": {
+      "description": "Measurable parameters of a magical rune.",
+      "type": "object",
+      "properties": {
+        "cost": {
+          "description": "The AE cost.",
+          "$ref": "#/$defs/MagicalRuneCost"
+        },
+        "crafting_time": {
+          "description": "The crafting time.",
+          "$ref": "#/$defs/MagicalRuneCraftingTime"
+        },
+        "duration": {
+          "description": "The duration.",
+          "$ref": "#/$defs/MagicalRuneDuration"
         }
       },
       "required": [
         "cost",
         "crafting_time",
         "duration"
+      ],
+      "additionalProperties": false
+    },
+    "MagicalRuneCost": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Single"
+            },
+            "single": {
+              "$ref": "#/$defs/SingleMagicalRuneCost"
+            }
+          },
+          "required": [
+            "tag",
+            "single"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Disjunction"
+            },
+            "disjunction": {
+              "$ref": "#/$defs/MagicalRuneCostDisjunction"
+            }
+          },
+          "required": [
+            "tag",
+            "disjunction"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "SingleMagicalRuneCost": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The AE cost value.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/SingleMagicalRuneCostTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "SingleMagicalRuneCostTranslation": {
+      "type": "object",
+      "properties": {
+        "note": {
+          "description": "A note, appended to the generated string in parenthesis.",
+          "$ref": "../_ResponsiveText.schema.json#/$defs/ResponsiveTextOptional"
+        }
+      },
+      "required": [
+        "note"
+      ],
+      "additionalProperties": false
+    },
+    "MagicalRuneCostDisjunction": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "description": "A set of possible AE cost values.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SingleMagicalRuneCost"
+          },
+          "minItems": 2
+        }
+      },
+      "required": [
+        "list"
+      ],
+      "additionalProperties": false
+    },
+    "MagicalRuneCraftingTime": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The (unitless) crafting time.",
+          "oneOf": [
+            {
+              "const": 1
+            },
+            {
+              "const": 2
+            },
+            {
+              "const": 4
+            }
+          ]
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/MagicalRuneCraftingTimeTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "MagicalRuneCraftingTimeTranslation": {
+      "type": "object",
+      "properties": {
+        "per": {
+          "description": "The crafting time has to be per a specific countable entity, e.g. `8\naction per person`.",
+          "$ref": "../_ResponsiveText.schema.json#/$defs/ResponsiveText"
+        }
+      },
+      "required": [
+        "per"
+      ],
+      "additionalProperties": false
+    },
+    "MagicalRuneDuration": {
+      "type": "object",
+      "properties": {
+        "slow": {
+          "description": "The duration on slow rune application.",
+          "$ref": "../_ActivatableSkillDuration.schema.json#/$defs/CheckResultBasedDuration"
+        },
+        "fast": {
+          "description": "The duration on fast rune application.",
+          "$ref": "../_ActivatableSkillDuration.schema.json#/$defs/CheckResultBasedDuration"
+        }
+      },
+      "required": [
+        "slow",
+        "fast"
       ],
       "additionalProperties": false
     }

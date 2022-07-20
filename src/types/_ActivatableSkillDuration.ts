@@ -115,13 +115,6 @@ export type CheckResultBasedDurationTranslation = {
   replacement: ResponsiveTextReplace
 }
 
-/**
- * Defines the duration being based on a check result.
- */
-export type TaggedCheckResultBasedDuration = CheckResultBasedDuration & {
-  tag: "CheckResultBased"
-}
-
 export type IndefiniteDuration = {
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).

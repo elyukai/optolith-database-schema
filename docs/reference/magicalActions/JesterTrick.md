@@ -13,7 +13,7 @@ Key | Description | Details
 `check_penalty?` | In some cases, the target's Spirit or Toughness is applied as a penalty. | <a href="#JesterTrick/check_penalty">See details</a>
 `parameters` | Measurable parameters of a jester trick. | <a href="#JesterTrick/parameters">See details</a>
 `target` | The target category – the kind of creature or object – the skill affects. | <a href="#JesterTrick/target">See details</a>
-`property_id` | The property's identifier. | <a href="#JesterTrick/property_id">See details</a>
+`property` | The associated property. | <a href="#JesterTrick/property">See details</a>
 `improvement_cost` | States which column is used to improve the skill. | <a href="#JesterTrick/improvement_cost">See details</a>
 `src` |  | <a href="#JesterTrick/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#JesterTrick/translations">See details</a>
@@ -41,7 +41,7 @@ In some cases, the target's Spirit or Toughness is applied as a penalty.
 
 Measurable parameters of a jester trick.
 
-- **Type:** <a href="#PerformanceParameters">PerformanceParameters</a>
+- **Type:** <a href="#JesterTrickPerformanceParameters">JesterTrickPerformanceParameters</a>
 
 #### <a name="JesterTrick/target"></a> `target`
 
@@ -49,12 +49,11 @@ The target category – the kind of creature or object – the skill affects.
 
 - **Type:** <a href="../_ActivatableSkillTargetCategory.md#TargetCategory">TargetCategory</a>
 
-#### <a name="JesterTrick/property_id"></a> `property_id`
+#### <a name="JesterTrick/property"></a> `property`
 
-The property's identifier.
+The associated property.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="../_SimpleReferences.md#PropertyReference">PropertyReference</a>
 
 #### <a name="JesterTrick/improvement_cost"></a> `improvement_cost`
 
@@ -79,27 +78,32 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="JesterTrick/translations[key]"></a> `JesterTrick/translations[key]`
 
+- **Type:** <a href="#JesterTrickTranslation">JesterTrickTranslation</a>
+
+---
+
+### <a name="JesterTrickTranslation"></a> `JesterTrickTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the jester trick. | <a href="#JesterTrick/translations[key]/name">See details</a>
-`effect` | The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels. | <a href="#JesterTrick/translations[key]/effect">See details</a>
-`casting_time` |  | <a href="#JesterTrick/translations[key]/casting_time">See details</a>
-`cost` |  | <a href="#JesterTrick/translations[key]/cost">See details</a>
-`range` |  | <a href="#JesterTrick/translations[key]/range">See details</a>
-`duration` |  | <a href="#JesterTrick/translations[key]/duration">See details</a>
-`target` |  | <a href="#JesterTrick/translations[key]/target">See details</a>
-`errata?` |  | <a href="#JesterTrick/translations[key]/errata">See details</a>
+`name` | The name of the jester trick. | <a href="#JesterTrickTranslation/name">See details</a>
+`effect` | The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels. | <a href="#JesterTrickTranslation/effect">See details</a>
+`casting_time` |  | <a href="#JesterTrickTranslation/casting_time">See details</a>
+`cost` |  | <a href="#JesterTrickTranslation/cost">See details</a>
+`range` |  | <a href="#JesterTrickTranslation/range">See details</a>
+`duration` |  | <a href="#JesterTrickTranslation/duration">See details</a>
+`target` |  | <a href="#JesterTrickTranslation/target">See details</a>
+`errata?` |  | <a href="#JesterTrickTranslation/errata">See details</a>
 
-#### <a name="JesterTrick/translations[key]/name"></a> `name`
+#### <a name="JesterTrickTranslation/name"></a> `name`
 
 The name of the jester trick.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="JesterTrick/translations[key]/effect"></a> `effect`
+#### <a name="JesterTrickTranslation/effect"></a> `effect`
 
 The effect description may be either a plain text or a text that is
 divided by a list of effects for each quality level. It may also be a
@@ -107,160 +111,156 @@ list for each two quality levels.
 
 - **Type:** <a href="../_ActivatableSkillEffect.md#Effect">Effect</a>
 
-#### <a name="JesterTrick/translations[key]/casting_time"></a> `casting_time`
+#### <a name="JesterTrickTranslation/casting_time"></a> `casting_time`
 
-- **Type:** <a href="#JesterTrick/translations[key]/casting_time">Object</a>
+- **Type:** <a href="#JesterTrickTranslation/casting_time">Object</a>
 
-#### <a name="JesterTrick/translations[key]/cost"></a> `cost`
+#### <a name="JesterTrickTranslation/cost"></a> `cost`
 
-- **Type:** <a href="#JesterTrick/translations[key]/cost">Object</a>
+- **Type:** <a href="#JesterTrickTranslation/cost">Object</a>
 
-#### <a name="JesterTrick/translations[key]/range"></a> `range`
+#### <a name="JesterTrickTranslation/range"></a> `range`
 
-- **Type:** <a href="#JesterTrick/translations[key]/range">Object</a>
+- **Type:** <a href="#JesterTrickTranslation/range">Object</a>
 
-#### <a name="JesterTrick/translations[key]/duration"></a> `duration`
+#### <a name="JesterTrickTranslation/duration"></a> `duration`
 
-- **Type:** <a href="#JesterTrick/translations[key]/duration">Object</a>
+- **Type:** <a href="#JesterTrickTranslation/duration">Object</a>
 
-#### <a name="JesterTrick/translations[key]/target"></a> `target`
+#### <a name="JesterTrickTranslation/target"></a> `target`
 
 - **Type:** String
 
-#### <a name="JesterTrick/translations[key]/errata"></a> `errata?`
+#### <a name="JesterTrickTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>
 
 ---
 
-### <a name="JesterTrick/translations[key]/casting_time"></a> `JesterTrick/translations[key]/casting_time`
+### <a name="JesterTrickTranslation/casting_time"></a> `JesterTrickTranslation/casting_time`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`full` |  | <a href="#JesterTrick/translations[key]/casting_time/full">See details</a>
-`abbr` |  | <a href="#JesterTrick/translations[key]/casting_time/abbr">See details</a>
+`full` |  | <a href="#JesterTrickTranslation/casting_time/full">See details</a>
+`abbr` |  | <a href="#JesterTrickTranslation/casting_time/abbr">See details</a>
 
-#### <a name="JesterTrick/translations[key]/casting_time/full"></a> `full`
+#### <a name="JesterTrickTranslation/casting_time/full"></a> `full`
 
 - **Type:** String
 
-#### <a name="JesterTrick/translations[key]/casting_time/abbr"></a> `abbr`
+#### <a name="JesterTrickTranslation/casting_time/abbr"></a> `abbr`
 
 - **Type:** String
 
 ---
 
-### <a name="JesterTrick/translations[key]/cost"></a> `JesterTrick/translations[key]/cost`
+### <a name="JesterTrickTranslation/cost"></a> `JesterTrickTranslation/cost`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`full` |  | <a href="#JesterTrick/translations[key]/cost/full">See details</a>
-`abbr` |  | <a href="#JesterTrick/translations[key]/cost/abbr">See details</a>
+`full` |  | <a href="#JesterTrickTranslation/cost/full">See details</a>
+`abbr` |  | <a href="#JesterTrickTranslation/cost/abbr">See details</a>
 
-#### <a name="JesterTrick/translations[key]/cost/full"></a> `full`
+#### <a name="JesterTrickTranslation/cost/full"></a> `full`
 
 - **Type:** String
 
-#### <a name="JesterTrick/translations[key]/cost/abbr"></a> `abbr`
+#### <a name="JesterTrickTranslation/cost/abbr"></a> `abbr`
 
 - **Type:** String
 
 ---
 
-### <a name="JesterTrick/translations[key]/range"></a> `JesterTrick/translations[key]/range`
+### <a name="JesterTrickTranslation/range"></a> `JesterTrickTranslation/range`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`full` |  | <a href="#JesterTrick/translations[key]/range/full">See details</a>
-`abbr` |  | <a href="#JesterTrick/translations[key]/range/abbr">See details</a>
+`full` |  | <a href="#JesterTrickTranslation/range/full">See details</a>
+`abbr` |  | <a href="#JesterTrickTranslation/range/abbr">See details</a>
 
-#### <a name="JesterTrick/translations[key]/range/full"></a> `full`
+#### <a name="JesterTrickTranslation/range/full"></a> `full`
 
 - **Type:** String
 
-#### <a name="JesterTrick/translations[key]/range/abbr"></a> `abbr`
+#### <a name="JesterTrickTranslation/range/abbr"></a> `abbr`
 
 - **Type:** String
 
 ---
 
-### <a name="JesterTrick/translations[key]/duration"></a> `JesterTrick/translations[key]/duration`
+### <a name="JesterTrickTranslation/duration"></a> `JesterTrickTranslation/duration`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`full` |  | <a href="#JesterTrick/translations[key]/duration/full">See details</a>
-`abbr` |  | <a href="#JesterTrick/translations[key]/duration/abbr">See details</a>
+`full` |  | <a href="#JesterTrickTranslation/duration/full">See details</a>
+`abbr` |  | <a href="#JesterTrickTranslation/duration/abbr">See details</a>
 
-#### <a name="JesterTrick/translations[key]/duration/full"></a> `full`
+#### <a name="JesterTrickTranslation/duration/full"></a> `full`
 
 - **Type:** String
 
-#### <a name="JesterTrick/translations[key]/duration/abbr"></a> `abbr`
+#### <a name="JesterTrickTranslation/duration/abbr"></a> `abbr`
 
 - **Type:** String
 
 ---
 
-### <a name="PerformanceParameters"></a> `PerformanceParameters`
+### <a name="JesterTrickPerformanceParameters"></a> `JesterTrickPerformanceParameters`
 
-Measurable parameters of a jester trick.
+Measurable parameters of a geode ritual.
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`casting_time` | The casting time. | <a href="#PerformanceParameters/casting_time">See details</a>
-`cost` | The AE cost. | <a href="#PerformanceParameters/cost">See details</a>
-`range` | The range. | <a href="#PerformanceParameters/range">See details</a>
-`duration` | The duration. | <a href="#PerformanceParameters/duration">See details</a>
+`casting_time` | The casting time. | <a href="#JesterTrickPerformanceParameters/casting_time">See details</a>
+`cost` | The AE cost. | <a href="#JesterTrickPerformanceParameters/cost">See details</a>
+`range` | The range. | <a href="#JesterTrickPerformanceParameters/range">See details</a>
+`duration` | The duration. | <a href="#JesterTrickPerformanceParameters/duration">See details</a>
 
-#### <a name="PerformanceParameters/casting_time"></a> `casting_time`
+#### <a name="JesterTrickPerformanceParameters/casting_time"></a> `casting_time`
 
 The casting time.
 
-- **Type:** <a href="#PerformanceParameters/casting_time">Object</a>
+- **Type:** <a href="#JesterTrickCastingTime">JesterTrickCastingTime</a>
 
-#### <a name="PerformanceParameters/cost"></a> `cost`
+#### <a name="JesterTrickPerformanceParameters/cost"></a> `cost`
 
 The AE cost.
 
-- **Type:** <a href="#PerformanceParameters/cost">Object</a>
+- **Type:** <a href="#JesterTrickCost">JesterTrickCost</a>
 
-#### <a name="PerformanceParameters/range"></a> `range`
+#### <a name="JesterTrickPerformanceParameters/range"></a> `range`
 
 The range.
 
-- **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/range'Touch">PerformanceParameters/range'Touch</a> | <a href="#PerformanceParameters/range'Self">PerformanceParameters/range'Self</a> | <a href="#PerformanceParameters/range'Fixed">PerformanceParameters/range'Fixed</a>
+- **Type:** <a href="#JesterTrickRange">JesterTrickRange</a>
 
-#### <a name="PerformanceParameters/duration"></a> `duration`
+#### <a name="JesterTrickPerformanceParameters/duration"></a> `duration`
 
 The duration.
 
-- **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/duration'Immediate">PerformanceParameters/duration'Immediate</a> | <a href="#PerformanceParameters/duration'Fixed">PerformanceParameters/duration'Fixed</a> | <a href="#PerformanceParameters/duration'TaggedCheckResultBasedDuration">PerformanceParameters/duration'TaggedCheckResultBasedDuration</a>
+- **Type:** <a href="#JesterTrickDuration">JesterTrickDuration</a>
 
 ---
 
-### <a name="PerformanceParameters/casting_time"></a> `PerformanceParameters/casting_time`
-
-The casting time.
+### <a name="JesterTrickCastingTime"></a> `JesterTrickCastingTime`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`value` | The casting time in actions. | <a href="#PerformanceParameters/casting_time/value">See details</a>
+`value` | The casting time in actions. | <a href="#JesterTrickCastingTime/value">See details</a>
 
-#### <a name="PerformanceParameters/casting_time/value"></a> `value`
+#### <a name="JesterTrickCastingTime/value"></a> `value`
 
 The casting time in actions.
 
@@ -269,17 +269,15 @@ The casting time in actions.
 
 ---
 
-### <a name="PerformanceParameters/cost"></a> `PerformanceParameters/cost`
-
-The AE cost.
+### <a name="JesterTrickCost"></a> `JesterTrickCost`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`value` | The AE cost value. | <a href="#PerformanceParameters/cost/value">See details</a>
+`value` | The AE cost value. | <a href="#JesterTrickCost/value">See details</a>
 
-#### <a name="PerformanceParameters/cost/value"></a> `value`
+#### <a name="JesterTrickCost/value"></a> `value`
 
 The AE cost value.
 
@@ -288,99 +286,154 @@ The AE cost value.
 
 ---
 
-### <a name="PerformanceParameters/range'Touch"></a> `PerformanceParameters/range'Touch`
+### <a name="JesterTrickRange"></a> `JesterTrickRange`
+
+- **Type:** Union
+- **Cases:** <a href="#JesterTrickRange'Touch">JesterTrickRange'Touch</a> | <a href="#JesterTrickRange'Self">JesterTrickRange'Self</a> | <a href="#JesterTrickRange'Fixed">JesterTrickRange'Fixed</a>
+
+---
+
+### <a name="JesterTrickRange'Touch"></a> `JesterTrickRange'Touch`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/range'Touch/tag">See details</a>
+`tag` |  | <a href="#JesterTrickRange'Touch/tag">See details</a>
 
-#### <a name="PerformanceParameters/range'Touch/tag"></a> `tag`
+#### <a name="JesterTrickRange'Touch/tag"></a> `tag`
 
 - **Constant:** `"Touch"`
 
 ---
 
-### <a name="PerformanceParameters/range'Self"></a> `PerformanceParameters/range'Self`
+### <a name="JesterTrickRange'Self"></a> `JesterTrickRange'Self`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/range'Self/tag">See details</a>
+`tag` |  | <a href="#JesterTrickRange'Self/tag">See details</a>
 
-#### <a name="PerformanceParameters/range'Self/tag"></a> `tag`
+#### <a name="JesterTrickRange'Self/tag"></a> `tag`
 
 - **Constant:** `"Self"`
 
 ---
 
-### <a name="PerformanceParameters/range'Fixed"></a> `PerformanceParameters/range'Fixed`
+### <a name="JesterTrickRange'Fixed"></a> `JesterTrickRange'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/range'Fixed/tag">See details</a>
-`value` | The range in steps/m. | <a href="#PerformanceParameters/range'Fixed/value">See details</a>
+`tag` |  | <a href="#JesterTrickRange'Fixed/tag">See details</a>
+`fixed` |  | <a href="#JesterTrickRange'Fixed/fixed">See details</a>
 
-#### <a name="PerformanceParameters/range'Fixed/tag"></a> `tag`
+#### <a name="JesterTrickRange'Fixed/tag"></a> `tag`
 
 - **Constant:** `"Fixed"`
 
-#### <a name="PerformanceParameters/range'Fixed/value"></a> `value`
+#### <a name="JesterTrickRange'Fixed/fixed"></a> `fixed`
+
+- **Type:** <a href="#FixedJesterTrickRange">FixedJesterTrickRange</a>
+
+---
+
+### <a name="FixedJesterTrickRange"></a> `FixedJesterTrickRange`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`value` | The range in steps/m. | <a href="#FixedJesterTrickRange/value">See details</a>
+
+#### <a name="FixedJesterTrickRange/value"></a> `value`
 
 The range in steps/m.
 
 - **Type:** Integer
-- **Minimum:** `2`
+- **Minimum:** `1`
 
 ---
 
-### <a name="PerformanceParameters/duration'Immediate"></a> `PerformanceParameters/duration'Immediate`
+### <a name="JesterTrickDuration"></a> `JesterTrickDuration`
+
+- **Type:** Union
+- **Cases:** <a href="#JesterTrickDuration'Immediate">JesterTrickDuration'Immediate</a> | <a href="#JesterTrickDuration'Fixed">JesterTrickDuration'Fixed</a> | <a href="#JesterTrickDuration'CheckResultBased">JesterTrickDuration'CheckResultBased</a>
+
+---
+
+### <a name="JesterTrickDuration'Immediate"></a> `JesterTrickDuration'Immediate`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration'Immediate/tag">See details</a>
+`tag` |  | <a href="#JesterTrickDuration'Immediate/tag">See details</a>
 
-#### <a name="PerformanceParameters/duration'Immediate/tag"></a> `tag`
+#### <a name="JesterTrickDuration'Immediate/tag"></a> `tag`
 
 - **Constant:** `"Immediate"`
 
 ---
 
-### <a name="PerformanceParameters/duration'Fixed"></a> `PerformanceParameters/duration'Fixed`
+### <a name="JesterTrickDuration'Fixed"></a> `JesterTrickDuration'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration'Fixed/tag">See details</a>
-`value` | The (unitless) duration. | <a href="#PerformanceParameters/duration'Fixed/value">See details</a>
-`unit` | The duration unit. | <a href="#PerformanceParameters/duration'Fixed/unit">See details</a>
+`tag` |  | <a href="#JesterTrickDuration'Fixed/tag">See details</a>
+`fixed` |  | <a href="#JesterTrickDuration'Fixed/fixed">See details</a>
 
-#### <a name="PerformanceParameters/duration'Fixed/tag"></a> `tag`
+#### <a name="JesterTrickDuration'Fixed/tag"></a> `tag`
 
 - **Constant:** `"Fixed"`
 
-#### <a name="PerformanceParameters/duration'Fixed/value"></a> `value`
+#### <a name="JesterTrickDuration'Fixed/fixed"></a> `fixed`
+
+- **Type:** <a href="#FixedJesterTrickDuration">FixedJesterTrickDuration</a>
+
+---
+
+### <a name="JesterTrickDuration'CheckResultBased"></a> `JesterTrickDuration'CheckResultBased`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#JesterTrickDuration'CheckResultBased/tag">See details</a>
+`check_result_based` |  | <a href="#JesterTrickDuration'CheckResultBased/check_result_based">See details</a>
+
+#### <a name="JesterTrickDuration'CheckResultBased/tag"></a> `tag`
+
+- **Constant:** `"CheckResultBased"`
+
+#### <a name="JesterTrickDuration'CheckResultBased/check_result_based"></a> `check_result_based`
+
+- **Type:** <a href="../_ActivatableSkillDuration.md#CheckResultBasedDuration">CheckResultBasedDuration</a>
+
+---
+
+### <a name="FixedJesterTrickDuration"></a> `FixedJesterTrickDuration`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`value` | The (unitless) duration. | <a href="#FixedJesterTrickDuration/value">See details</a>
+`unit` | The duration unit. | <a href="#FixedJesterTrickDuration/unit">See details</a>
+
+#### <a name="FixedJesterTrickDuration/value"></a> `value`
 
 The (unitless) duration.
 
 - **Type:** Integer
 - **Minimum:** `2`
 
-#### <a name="PerformanceParameters/duration'Fixed/unit"></a> `unit`
+#### <a name="FixedJesterTrickDuration/unit"></a> `unit`
 
 The duration unit.
 
 - **Type:** <a href="../_ActivatableSkillDuration.md#DurationUnit">DurationUnit</a>
-
----
-
-### <a name="PerformanceParameters/duration'TaggedCheckResultBasedDuration"></a> `PerformanceParameters/duration'TaggedCheckResultBasedDuration`
-
-- **Type:** <a href="../_ActivatableSkillDuration.md#TaggedCheckResultBasedDuration">TaggedCheckResultBasedDuration</a>

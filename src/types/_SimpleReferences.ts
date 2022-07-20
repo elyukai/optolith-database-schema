@@ -254,3 +254,13 @@ export type PactDomainReference = {
    */
   id: number
 }
+
+export type AnimistTribeReference = {
+  /**
+   * The tribe's identifier.
+   * @integer
+   * @minimum 1
+   * @maximum 6
+   */
+  id: number
+}

@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "/magicalActions/_SkillReference.schema.json",
   "$defs": {
-    "SkillReference": {
+    "MusicalSkillReference": {
       "description": "A reference to a skill used for performing melodies.",
       "type": "object",
       "properties": {

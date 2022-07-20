@@ -115,7 +115,7 @@ export type NonModifiableOneTimeCostTranslation = {
   /**
    * A note, appended to the generated string in parenthesis.
    */
-  note?: ResponsiveTextOptional
+  note: ResponsiveTextOptional
 }
 
 export type IndefiniteOneTimeCost = {

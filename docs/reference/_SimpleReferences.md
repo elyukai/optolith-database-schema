@@ -478,3 +478,21 @@ The domain's identifier.
 
 - **Type:** Integer
 - **Minimum:** `1`
+
+---
+
+### <a name="AnimistTribeReference"></a> `AnimistTribeReference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The tribe's identifier. | <a href="#AnimistTribeReference/id">See details</a>
+
+#### <a name="AnimistTribeReference/id"></a> `id`
+
+The tribe's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+- **Maximum:** `6`

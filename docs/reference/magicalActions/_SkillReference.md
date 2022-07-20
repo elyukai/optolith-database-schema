@@ -2,7 +2,7 @@
 
 ## Definitions
 
-### <a name="SkillReference"></a> `SkillReference`
+### <a name="MusicalSkillReference"></a> `MusicalSkillReference`
 
 A reference to a skill used for performing melodies.
 
@@ -10,9 +10,9 @@ A reference to a skill used for performing melodies.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The skill's identifier. | <a href="#SkillReference/id">See details</a>
+`id` | The skill's identifier. | <a href="#MusicalSkillReference/id">See details</a>
 
-#### <a name="SkillReference/id"></a> `id`
+#### <a name="MusicalSkillReference/id"></a> `id`
 
 The skill's identifier.
 

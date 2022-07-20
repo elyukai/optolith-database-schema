@@ -5,10 +5,13 @@
 import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
-import { DurationUnit, TaggedCheckResultBasedDuration } from "../_ActivatableSkillDuration.js"
+import { CheckResultBasedDuration, DurationUnit } from "../_ActivatableSkillDuration.js"
 import { Effect } from "../_ActivatableSkillEffect.js"
 import { TargetCategory } from "../_ActivatableSkillTargetCategory.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
+import { LocaleMap } from "../_LocaleMap.js"
+import { NonEmptyString } from "../_NonEmptyString.js"
+import { PropertyReference } from "../_SimpleReferences.js"
 import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
 
 /**
@@ -35,7 +38,7 @@ export type JesterTrick = {
   /**
    * Measurable parameters of a jester trick.
    */
-  parameters: PerformanceParameters
+  parameters: JesterTrickPerformanceParameters
 
   /**
    * The target category – the kind of creature or object – the skill affects.
@@ -43,11 +46,9 @@ export type JesterTrick = {
   target: TargetCategory
 
   /**
-   * The property's identifier.
-   * @integer
-   * @minimum 1
+   * The associated property.
    */
-  property_id: number
+  property: PropertyReference
 
   /**
    * States which column is used to improve the skill.
@@ -58,126 +59,125 @@ export type JesterTrick = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the jester trick.
-       * @minLength 1
-       */
-      name: string
+  translations: LocaleMap<JesterTrickTranslation>
+}
 
-      /**
-       * The effect description may be either a plain text or a text that is
-       * divided by a list of effects for each quality level. It may also be a
-       * list for each two quality levels.
-       */
-      effect: Effect
+export type JesterTrickTranslation = {
+  /**
+   * The name of the jester trick.
+   */
+  name: NonEmptyString
 
-      /**
-       * @deprecated
-       */
-      casting_time: { full: string; abbr: string }
+  /**
+   * The effect description may be either a plain text or a text that is
+   * divided by a list of effects for each quality level. It may also be a
+   * list for each two quality levels.
+   */
+  effect: Effect
 
-      /**
-       * @deprecated
-       */
-      cost: { full: string; abbr: string }
+  /**
+   * @deprecated
+   */
+  casting_time: { full: string; abbr: string }
 
-      /**
-       * @deprecated
-       */
-      range: { full: string; abbr: string }
+  /**
+   * @deprecated
+   */
+  cost: { full: string; abbr: string }
 
-      /**
-       * @deprecated
-       */
-      duration: { full: string; abbr: string }
+  /**
+   * @deprecated
+   */
+  range: { full: string; abbr: string }
 
-      /**
-       * @deprecated
-       */
-      target: string
+  /**
+   * @deprecated
+   */
+  duration: { full: string; abbr: string }
 
-      errata?: Errata
-    }
-  }
+  /**
+   * @deprecated
+   */
+  target: string
+
+  errata?: Errata
 }
 
 /**
- * Measurable parameters of a jester trick.
+ * Measurable parameters of a geode ritual.
  */
-type PerformanceParameters = {
+export type JesterTrickPerformanceParameters = {
   /**
    * The casting time.
-   * @integer
-   * @minimum 1
    */
-  casting_time: {
-    /**
-     * The casting time in actions.
-     * @integer
-     * @minimum 1
-     */
-    value: number
-  }
+  casting_time: JesterTrickCastingTime
 
   /**
    * The AE cost.
-   * @integer
-   * @minimum 1
    */
-  cost: {
-    /**
-     * The AE cost value.
-     * @integer
-     * @minimum 1
-     */
-    value: number
-  }
+  cost: JesterTrickCost
 
   /**
    * The range.
    */
-  range:
-    | { tag: "Touch" }
-    | { tag: "Self" }
-    | {
-      tag: "Fixed"
-
-      /**
-       * The range in steps/m.
-       * @integer
-       * @minimum 2
-       */
-      value: number
-    }
+  range: JesterTrickRange
 
   /**
    * The duration.
    */
-  duration:
-    | { tag: "Immediate" }
-    | {
-      tag: "Fixed"
+  duration: JesterTrickDuration
+}
 
-      /**
-       * The (unitless) duration.
-       * @integer
-       * @minimum 2
-       */
-      value: number
+export type JesterTrickCastingTime = {
+  /**
+   * The casting time in actions.
+   * @integer
+   * @minimum 1
+   */
+  value: number
+}
 
-      /**
-       * The duration unit.
-       */
-      unit: DurationUnit
-    }
-    | TaggedCheckResultBasedDuration
+export type JesterTrickCost = {
+  /**
+   * The AE cost value.
+   * @integer
+   * @minimum 1
+   */
+  value: number
+}
+
+export type JesterTrickRange =
+  | { tag: "Touch" }
+  | { tag: "Self" }
+  | { tag: "Fixed"; fixed: FixedJesterTrickRange }
+
+export type FixedJesterTrickRange = {
+  /**
+   * The range in steps/m.
+   * @integer
+   * @minimum 1
+   */
+  value: number
+}
+
+export type JesterTrickDuration =
+  | { tag: "Immediate" }
+  | { tag: "Fixed"; fixed: FixedJesterTrickDuration }
+  | { tag: "CheckResultBased"; check_result_based: CheckResultBasedDuration }
+
+export type FixedJesterTrickDuration = {
+  /**
+   * The (unitless) duration.
+   * @integer
+   * @minimum 2
+   */
+  value: number
+
+  /**
+   * The duration unit.
+   */
+  unit: DurationUnit
 }
 
 export const validateSchema = validateSchemaCreator<JesterTrick>(import.meta.url)

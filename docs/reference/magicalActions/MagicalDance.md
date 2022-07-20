@@ -11,7 +11,7 @@ Key | Description | Details
 `id` | The magical dance's identifier. An unique, increasing integer. | <a href="#MagicalDance/id">See details</a>
 `check` | Lists the linked three attributes used to make a skill check. | <a href="#MagicalDance/check">See details</a>
 `parameters` | Measurable parameters of a magical dance. | <a href="#MagicalDance/parameters">See details</a>
-`property_id` | The property's identifier. | <a href="#MagicalDance/property_id">See details</a>
+`property` | The associated property. | <a href="#MagicalDance/property">See details</a>
 `music_tradition` | The music tradition(s) the magical dance is available for. This also defines the different names in each music tradition. | <a href="#MagicalDance/music_tradition">See details</a>
 `improvement_cost` | States which column is used to improve the skill. | <a href="#MagicalDance/improvement_cost">See details</a>
 `src` |  | <a href="#MagicalDance/src">See details</a>
@@ -34,14 +34,13 @@ Lists the linked three attributes used to make a skill check.
 
 Measurable parameters of a magical dance.
 
-- **Type:** <a href="#PerformanceParameters">PerformanceParameters</a>
+- **Type:** <a href="#MagicalDancePerformanceParameters">MagicalDancePerformanceParameters</a>
 
-#### <a name="MagicalDance/property_id"></a> `property_id`
+#### <a name="MagicalDance/property"></a> `property`
 
-The property's identifier.
+The associated property.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="../_SimpleReferences.md#PropertyReference">PropertyReference</a>
 
 #### <a name="MagicalDance/music_tradition"></a> `music_tradition`
 
@@ -81,24 +80,29 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="MagicalDance/translations[key]"></a> `MagicalDance/translations[key]`
 
+- **Type:** <a href="#MagicalDanceTranslation">MagicalDanceTranslation</a>
+
+---
+
+### <a name="MagicalDanceTranslation"></a> `MagicalDanceTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the magical dance. | <a href="#MagicalDance/translations[key]/name">See details</a>
-`effect` | The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels. | <a href="#MagicalDance/translations[key]/effect">See details</a>
-`duration` |  | <a href="#MagicalDance/translations[key]/duration">See details</a>
-`cost` |  | <a href="#MagicalDance/translations[key]/cost">See details</a>
-`errata?` |  | <a href="#MagicalDance/translations[key]/errata">See details</a>
+`name` | The name of the magical dance. | <a href="#MagicalDanceTranslation/name">See details</a>
+`effect` | The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels. | <a href="#MagicalDanceTranslation/effect">See details</a>
+`duration` |  | <a href="#MagicalDanceTranslation/duration">See details</a>
+`cost` |  | <a href="#MagicalDanceTranslation/cost">See details</a>
+`errata?` |  | <a href="#MagicalDanceTranslation/errata">See details</a>
 
-#### <a name="MagicalDance/translations[key]/name"></a> `name`
+#### <a name="MagicalDanceTranslation/name"></a> `name`
 
 The name of the magical dance.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="MagicalDance/translations[key]/effect"></a> `effect`
+#### <a name="MagicalDanceTranslation/effect"></a> `effect`
 
 The effect description may be either a plain text or a text that is
 divided by a list of effects for each quality level. It may also be a
@@ -106,59 +110,59 @@ list for each two quality levels.
 
 - **Type:** <a href="../_ActivatableSkillEffect.md#Effect">Effect</a>
 
-#### <a name="MagicalDance/translations[key]/duration"></a> `duration`
+#### <a name="MagicalDanceTranslation/duration"></a> `duration`
 
-- **Type:** <a href="#MagicalDance/translations[key]/duration">Object</a>
+- **Type:** <a href="#MagicalDanceTranslation/duration">Object</a>
 
-#### <a name="MagicalDance/translations[key]/cost"></a> `cost`
+#### <a name="MagicalDanceTranslation/cost"></a> `cost`
 
-- **Type:** <a href="#MagicalDance/translations[key]/cost">Object</a>
+- **Type:** <a href="#MagicalDanceTranslation/cost">Object</a>
 
-#### <a name="MagicalDance/translations[key]/errata"></a> `errata?`
+#### <a name="MagicalDanceTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>
 
 ---
 
-### <a name="MagicalDance/translations[key]/duration"></a> `MagicalDance/translations[key]/duration`
+### <a name="MagicalDanceTranslation/duration"></a> `MagicalDanceTranslation/duration`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`full` |  | <a href="#MagicalDance/translations[key]/duration/full">See details</a>
-`abbr` |  | <a href="#MagicalDance/translations[key]/duration/abbr">See details</a>
+`full` |  | <a href="#MagicalDanceTranslation/duration/full">See details</a>
+`abbr` |  | <a href="#MagicalDanceTranslation/duration/abbr">See details</a>
 
-#### <a name="MagicalDance/translations[key]/duration/full"></a> `full`
+#### <a name="MagicalDanceTranslation/duration/full"></a> `full`
 
 - **Type:** String
 
-#### <a name="MagicalDance/translations[key]/duration/abbr"></a> `abbr`
+#### <a name="MagicalDanceTranslation/duration/abbr"></a> `abbr`
 
 - **Type:** String
 
 ---
 
-### <a name="MagicalDance/translations[key]/cost"></a> `MagicalDance/translations[key]/cost`
+### <a name="MagicalDanceTranslation/cost"></a> `MagicalDanceTranslation/cost`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`full` |  | <a href="#MagicalDance/translations[key]/cost/full">See details</a>
-`abbr` |  | <a href="#MagicalDance/translations[key]/cost/abbr">See details</a>
+`full` |  | <a href="#MagicalDanceTranslation/cost/full">See details</a>
+`abbr` |  | <a href="#MagicalDanceTranslation/cost/abbr">See details</a>
 
-#### <a name="MagicalDance/translations[key]/cost/full"></a> `full`
+#### <a name="MagicalDanceTranslation/cost/full"></a> `full`
 
 - **Type:** String
 
-#### <a name="MagicalDance/translations[key]/cost/abbr"></a> `abbr`
+#### <a name="MagicalDanceTranslation/cost/abbr"></a> `abbr`
 
 - **Type:** String
 
 ---
 
-### <a name="PerformanceParameters"></a> `PerformanceParameters`
+### <a name="MagicalDancePerformanceParameters"></a> `MagicalDancePerformanceParameters`
 
 Measurable parameters of a magical dance.
 
@@ -166,217 +170,124 @@ Measurable parameters of a magical dance.
 
 Key | Description | Details
 :-- | :-- | :--
-`duration` |  | <a href="#PerformanceParameters/duration">See details</a>
-`cost` |  | <a href="#PerformanceParameters/cost">See details</a>
+`duration` |  | <a href="#MagicalDancePerformanceParameters/duration">See details</a>
+`cost` |  | <a href="#MagicalDancePerformanceParameters/cost">See details</a>
 
-#### <a name="PerformanceParameters/duration"></a> `duration`
+#### <a name="MagicalDancePerformanceParameters/duration"></a> `duration`
 
-- **Type:** <a href="#PerformanceParameters/duration">Object</a>
+- **Type:** <a href="./_MusicTradition.md#MusicDuration">MusicDuration</a>
 
-#### <a name="PerformanceParameters/cost"></a> `cost`
+#### <a name="MagicalDancePerformanceParameters/cost"></a> `cost`
+
+- **Type:** <a href="#MagicalDanceCost">MagicalDanceCost</a>
+
+---
+
+### <a name="MagicalDanceCost"></a> `MagicalDanceCost`
 
 - **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/cost'Fixed">PerformanceParameters/cost'Fixed</a> | <a href="#PerformanceParameters/cost'Indefinite">PerformanceParameters/cost'Indefinite</a>
+- **Cases:** <a href="#MagicalDanceCost'Fixed">MagicalDanceCost'Fixed</a> | <a href="#MagicalDanceCost'Indefinite">MagicalDanceCost'Indefinite</a>
 
 ---
 
-### <a name="PerformanceParameters/duration"></a> `PerformanceParameters/duration`
+### <a name="MagicalDanceCost'Fixed"></a> `MagicalDanceCost'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`length` |  | <a href="#PerformanceParameters/duration/length">See details</a>
-`reusability` |  | <a href="#PerformanceParameters/duration/reusability">See details</a>
+`tag` |  | <a href="#MagicalDanceCost'Fixed/tag">See details</a>
+`fixed` |  | <a href="#MagicalDanceCost'Fixed/fixed">See details</a>
 
-#### <a name="PerformanceParameters/duration/length"></a> `length`
-
-- **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/duration/length'Long">PerformanceParameters/duration/length'Long</a> | <a href="#PerformanceParameters/duration/length'Short">PerformanceParameters/duration/length'Short</a>
-
-#### <a name="PerformanceParameters/duration/reusability"></a> `reusability`
-
-- **Type:** Union
-- **Cases:** <a href="#PerformanceParameters/duration/reusability'OneTime">PerformanceParameters/duration/reusability'OneTime</a> | <a href="#PerformanceParameters/duration/reusability'Sustainable">PerformanceParameters/duration/reusability'Sustainable</a>
-
----
-
-### <a name="PerformanceParameters/duration/length'Long"></a> `PerformanceParameters/duration/length'Long`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration/length'Long/tag">See details</a>
-
-#### <a name="PerformanceParameters/duration/length'Long/tag"></a> `tag`
-
-- **Constant:** `"Long"`
-
----
-
-### <a name="PerformanceParameters/duration/length'Short"></a> `PerformanceParameters/duration/length'Short`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration/length'Short/tag">See details</a>
-
-#### <a name="PerformanceParameters/duration/length'Short/tag"></a> `tag`
-
-- **Constant:** `"Short"`
-
----
-
-### <a name="PerformanceParameters/duration/reusability'OneTime"></a> `PerformanceParameters/duration/reusability'OneTime`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration/reusability'OneTime/tag">See details</a>
-
-#### <a name="PerformanceParameters/duration/reusability'OneTime/tag"></a> `tag`
-
-- **Constant:** `"OneTime"`
-
----
-
-### <a name="PerformanceParameters/duration/reusability'Sustainable"></a> `PerformanceParameters/duration/reusability'Sustainable`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/duration/reusability'Sustainable/tag">See details</a>
-
-#### <a name="PerformanceParameters/duration/reusability'Sustainable/tag"></a> `tag`
-
-- **Constant:** `"Sustainable"`
-
----
-
-### <a name="PerformanceParameters/cost'Fixed"></a> `PerformanceParameters/cost'Fixed`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/cost'Fixed/tag">See details</a>
-`value` | The (temporary) AE cost value. | <a href="#PerformanceParameters/cost'Fixed/value">See details</a>
-`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PerformanceParameters/cost'Fixed/translations">See details</a>
-
-#### <a name="PerformanceParameters/cost'Fixed/tag"></a> `tag`
+#### <a name="MagicalDanceCost'Fixed/tag"></a> `tag`
 
 - **Constant:** `"Fixed"`
 
-#### <a name="PerformanceParameters/cost'Fixed/value"></a> `value`
+#### <a name="MagicalDanceCost'Fixed/fixed"></a> `fixed`
+
+- **Type:** <a href="#FixedMagicalDanceCost">FixedMagicalDanceCost</a>
+
+---
+
+### <a name="MagicalDanceCost'Indefinite"></a> `MagicalDanceCost'Indefinite`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#MagicalDanceCost'Indefinite/tag">See details</a>
+`indefinite` |  | <a href="#MagicalDanceCost'Indefinite/indefinite">See details</a>
+
+#### <a name="MagicalDanceCost'Indefinite/tag"></a> `tag`
+
+- **Constant:** `"Indefinite"`
+
+#### <a name="MagicalDanceCost'Indefinite/indefinite"></a> `indefinite`
+
+- **Type:** <a href="#IndefiniteMagicalDanceCost">IndefiniteMagicalDanceCost</a>
+
+---
+
+### <a name="FixedMagicalDanceCost"></a> `FixedMagicalDanceCost`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`value` | The (temporary) AE cost value. | <a href="#FixedMagicalDanceCost/value">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#FixedMagicalDanceCost/translations">See details</a>
+
+#### <a name="FixedMagicalDanceCost/value"></a> `value`
 
 The (temporary) AE cost value.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="PerformanceParameters/cost'Fixed/translations"></a> `translations?`
+#### <a name="FixedMagicalDanceCost/translations"></a> `translations?`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#PerformanceParameters/cost'Fixed/translations[key]">PerformanceParameters/cost'Fixed/translations[key]</a>
+- **Property Values:** <a href="#FixedMagicalDanceCost/translations[key]">FixedMagicalDanceCost/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="PerformanceParameters/cost'Fixed/translations[key]"></a> `PerformanceParameters/cost'Fixed/translations[key]`
+### <a name="FixedMagicalDanceCost/translations[key]"></a> `FixedMagicalDanceCost/translations[key]`
 
-- **Type:** Object
-- **Minimum Properties:** `1`
-
-Key | Description | Details
-:-- | :-- | :--
-`per?` | The cost have to be per a specific countable entity, e.g. `8 AE per person`. | <a href="#PerformanceParameters/cost'Fixed/translations[key]/per">See details</a>
-
-#### <a name="PerformanceParameters/cost'Fixed/translations[key]/per"></a> `per?`
-
-The cost have to be per a specific countable entity, e.g. `8 AE per
-person`.
-
-- **Type:** <a href="#PerformanceParameters/cost'Fixed/translations[key]/per">Object</a>
+- **Type:** <a href="../FamiliarsTrick.md#FixedOneTimeCostTranslation">FixedOneTimeCostTranslation</a>
 
 ---
 
-### <a name="PerformanceParameters/cost'Fixed/translations[key]/per"></a> `PerformanceParameters/cost'Fixed/translations[key]/per`
-
-The cost have to be per a specific countable entity, e.g. `8 AE per
-person`.
+### <a name="IndefiniteMagicalDanceCost"></a> `IndefiniteMagicalDanceCost`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`default` | The full countable entity name. | <a href="#PerformanceParameters/cost'Fixed/translations[key]/per/default">See details</a>
-`compressed` | The compressed countable entity name. | <a href="#PerformanceParameters/cost'Fixed/translations[key]/per/compressed">See details</a>
+`modifier?` | Specified if the indefinite description's result value is to be modified by a certain number. | <a href="#IndefiniteMagicalDanceCost/modifier">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#IndefiniteMagicalDanceCost/translations">See details</a>
 
-#### <a name="PerformanceParameters/cost'Fixed/translations[key]/per/default"></a> `default`
-
-The full countable entity name.
-
-- **Type:** String
-- **Minimum Length:** `1`
-
-#### <a name="PerformanceParameters/cost'Fixed/translations[key]/per/compressed"></a> `compressed`
-
-The compressed countable entity name.
-
-- **Type:** String
-- **Minimum Length:** `1`
-
----
-
-### <a name="PerformanceParameters/cost'Indefinite"></a> `PerformanceParameters/cost'Indefinite`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PerformanceParameters/cost'Indefinite/tag">See details</a>
-`modifier?` | Specified if the indefinite description's result value is to be modified by a certain number. | <a href="#PerformanceParameters/cost'Indefinite/modifier">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PerformanceParameters/cost'Indefinite/translations">See details</a>
-
-#### <a name="PerformanceParameters/cost'Indefinite/tag"></a> `tag`
-
-- **Constant:** `"Indefinite"`
-
-#### <a name="PerformanceParameters/cost'Indefinite/modifier"></a> `modifier?`
+#### <a name="IndefiniteMagicalDanceCost/modifier"></a> `modifier?`
 
 Specified if the indefinite description's result value is to be
 modified by a certain number.
 
 - **Type:** <a href="../_ActivatableSkillCheckResultBased.md#CheckResultBasedModifier">CheckResultBasedModifier</a>
 
-#### <a name="PerformanceParameters/cost'Indefinite/translations"></a> `translations`
+#### <a name="IndefiniteMagicalDanceCost/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#PerformanceParameters/cost'Indefinite/translations[key]">PerformanceParameters/cost'Indefinite/translations[key]</a>
+- **Property Values:** <a href="#IndefiniteMagicalDanceCost/translations[key]">IndefiniteMagicalDanceCost/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="PerformanceParameters/cost'Indefinite/translations[key]"></a> `PerformanceParameters/cost'Indefinite/translations[key]`
+### <a name="IndefiniteMagicalDanceCost/translations[key]"></a> `IndefiniteMagicalDanceCost/translations[key]`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`description` | A description of the duration. | <a href="#PerformanceParameters/cost'Indefinite/translations[key]/description">See details</a>
-
-#### <a name="PerformanceParameters/cost'Indefinite/translations[key]/description"></a> `description`
-
-A description of the duration.
-
-- **Type:** <a href="../_ResponsiveText.md#ResponsiveText">ResponsiveText</a>
+- **Type:** <a href="../_ActivatableSkillCost.md#IndefiniteOneTimeCostTranslation">IndefiniteOneTimeCostTranslation</a>

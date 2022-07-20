@@ -16,18 +16,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The music-tradition-specific name of the entry.",
-                  "type": "string",
-                  "minLength": 1
-                }
-              },
-              "required": [
-                "name"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/MusicTraditionReferenceTranslation"
             }
           },
           "minProperties": 1,
@@ -39,6 +28,91 @@
         "translations"
       ],
       "additionalProperties": false
+    },
+    "MusicTraditionReferenceTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The music-tradition-specific name of the entry.",
+          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "MusicDuration": {
+      "type": "object",
+      "properties": {
+        "length": {
+          "$ref": "#/$defs/MusicLength"
+        },
+        "reusability": {
+          "$ref": "#/$defs/MusicReusability"
+        }
+      },
+      "required": [
+        "length",
+        "reusability"
+      ],
+      "additionalProperties": false
+    },
+    "MusicLength": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Long"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Short"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "MusicReusability": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "OneTime"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Sustainable"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
     }
   }
 }

@@ -1,4 +1,5 @@
 import { LocaleMap } from "../_LocaleMap.js"
+import { NonEmptyString } from "../_NonEmptyString.js"
 
 /**
  * A reference to a music tradition with the music-tradition-specific name of
@@ -14,13 +15,26 @@ export type MusicTraditionReference = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: LocaleMap<{
-    /**
-     * The music-tradition-specific name of the entry.
-     * @minLength 1
-     */
-    name: string
-  }>
+  translations: LocaleMap<MusicTraditionReferenceTranslation>
 }
+
+export type MusicTraditionReferenceTranslation = {
+  /**
+   * The music-tradition-specific name of the entry.
+   */
+  name: NonEmptyString
+}
+
+export type MusicDuration = {
+  length: MusicLength
+  reusability: MusicReusability
+}
+
+export type MusicLength =
+  | { tag: "Long" }
+  | { tag: "Short" }
+
+export type MusicReusability =
+  | { tag: "OneTime" }
+  | { tag: "Sustainable" }

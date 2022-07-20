@@ -7,9 +7,12 @@ import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import { Effect } from "../_ActivatableSkillEffect.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
+import { LocaleMap } from "../_LocaleMap.js"
+import { NonEmptyString } from "../_NonEmptyString.js"
+import { PropertyReference } from "../_SimpleReferences.js"
 import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
-import { MusicTraditionReference } from "./_MusicTradition.js"
-import { SkillReference } from "./_SkillReference.js"
+import { MusicDuration, MusicTraditionReference } from "./_MusicTradition.js"
+import { MusicalSkillReference } from "./_SkillReference.js"
 
 /**
  * @title Magical Melody
@@ -39,19 +42,17 @@ export type MagicalMelody = {
    * @maxItems 2
    * @uniqueItems
    */
-  skill: SkillReference[]
+  skill: MusicalSkillReference[]
 
   /**
    * Measurable parameters of a magical melody.
    */
-  parameters: PerformanceParameters
+  parameters: MagicalMelodyPerformanceParameters
 
   /**
-   * The property's identifier.
-   * @integer
-   * @minimum 1
+   * The associated property.
    */
-  property_id: number
+  property: PropertyReference
 
   /**
    * The music tradition(s) the magical melody is available for. This also
@@ -69,76 +70,66 @@ export type MagicalMelody = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the magical melody.
-       * @minLength 1
-       */
-      name: string
+  translations: LocaleMap<MagicalMelodyTranslation>
+}
 
-      /**
-       * The effect description may be either a plain text or a text that is
-       * divided by a list of effects for each quality level. It may also be a
-       * list for each two quality levels.
-       */
-      effect: Effect
+export type MagicalMelodyTranslation = {
+  /**
+   * The name of the magical melody.
+   */
+  name: NonEmptyString
 
-      /**
-       * @deprecated
-       */
-      duration: { full: string; abbr: string }
+  /**
+   * The effect description may be either a plain text or a text that is
+   * divided by a list of effects for each quality level. It may also be a
+   * list for each two quality levels.
+   */
+  effect: Effect
 
-      /**
-       * @deprecated
-       */
-      cost: { full: string; abbr: string }
+  /**
+   * @deprecated
+   */
+  duration: { full: string; abbr: string }
 
-      errata?: Errata
-    }
-  }
+  /**
+   * @deprecated
+   */
+  cost: { full: string; abbr: string }
+
+  errata?: Errata
 }
 
 /**
  * Measurable parameters of a magical melody.
  */
-type PerformanceParameters = {
-  duration: {
-    length:
-      | { tag: "Long" }
-      | { tag: "Short" }
-    reusability:
-      | { tag: "OneTime" }
-      | { tag: "Sustainable" }
-  }
-  cost:
-    | {
-      tag: "Fixed"
+export type MagicalMelodyPerformanceParameters = {
+  duration: MusicDuration
+  cost: MagicalMelodyCost
+}
 
-      /**
-       * The (temporary) AE cost value.
-       * @integer
-       * @minimum 1
-       */
-      value: number
-    }
-    | {
-      tag: "FirstPerson"
+export type MagicalMelodyCost =
+  | { tag: "Fixed"; fixed: FixedMagicalMelodyCost }
+  | { tag: "FirstPerson"; first_person: FirstPersonMagicalMelodyCost }
 
-      /**
-       * The (temporary) AE cost value for the first targeted person. The AE
-       * cost for each additional person is half this value.
-       * @integer
-       * @minimum 1
-       * @multipleOf 2
-       */
-      value: number
-    }
+export type FixedMagicalMelodyCost = {
+  /**
+   * The (temporary) AE cost value.
+   * @integer
+   * @minimum 1
+   */
+  value: number
+}
+
+export type FirstPersonMagicalMelodyCost = {
+  /**
+   * The (temporary) AE cost value for the first targeted person. The AE
+   * cost for each additional person is half this value.
+   * @integer
+   * @minimum 1
+   * @multipleOf 2
+   */
+  value: number
 }
 
 export const validateSchema = validateSchemaCreator<MagicalMelody>(import.meta.url)

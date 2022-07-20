@@ -1,7 +1,7 @@
 /**
  * A reference to a skill used for performing melodies.
  */
-export type SkillReference = {
+export type MusicalSkillReference = {
   /**
    * The skill's identifier.
    */

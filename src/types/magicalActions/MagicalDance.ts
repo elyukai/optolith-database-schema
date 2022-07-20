@@ -3,14 +3,18 @@
  */
 
 import { validateSchemaCreator } from "../../validation/schema.js"
+import { FixedOneTimeCostTranslation } from "../FamiliarsTrick.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import { CheckResultBasedModifier } from "../_ActivatableSkillCheckResultBased.js"
+import { IndefiniteOneTimeCostTranslation } from "../_ActivatableSkillCost.js"
 import { Effect } from "../_ActivatableSkillEffect.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
-import { ResponsiveText } from "../_ResponsiveText.js"
+import { LocaleMap } from "../_LocaleMap.js"
+import { NonEmptyString } from "../_NonEmptyString.js"
+import { PropertyReference } from "../_SimpleReferences.js"
 import { SkillCheck } from "../_SkillCheck.js"
-import { MusicTraditionReference } from "./_MusicTradition.js"
+import { MusicDuration, MusicTraditionReference } from "./_MusicTradition.js"
 
 /**
  * @title Magical Dance
@@ -31,14 +35,12 @@ export type MagicalDance = {
   /**
    * Measurable parameters of a magical dance.
    */
-  parameters: PerformanceParameters
+  parameters: MagicalDancePerformanceParameters
 
   /**
-   * The property's identifier.
-   * @integer
-   * @minimum 1
+   * The associated property.
    */
-  property_id: number
+  property: PropertyReference
 
   /**
    * The music tradition(s) the magical dance is available for. This also
@@ -56,120 +58,73 @@ export type MagicalDance = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the magical dance.
-       * @minLength 1
-       */
-      name: string
+  translations: LocaleMap<MagicalDanceTranslation>
+}
 
-      /**
-       * The effect description may be either a plain text or a text that is
-       * divided by a list of effects for each quality level. It may also be a
-       * list for each two quality levels.
-       */
-      effect: Effect
+export type MagicalDanceTranslation = {
+  /**
+   * The name of the magical dance.
+   */
+  name: NonEmptyString
 
-      /**
-       * @deprecated
-       */
-      duration: { full: string; abbr: string }
+  /**
+   * The effect description may be either a plain text or a text that is
+   * divided by a list of effects for each quality level. It may also be a
+   * list for each two quality levels.
+   */
+  effect: Effect
 
-      /**
-       * @deprecated
-       */
-      cost: { full: string; abbr: string }
+  /**
+   * @deprecated
+   */
+  duration: { full: string; abbr: string }
 
-      errata?: Errata
-    }
-  }
+  /**
+   * @deprecated
+   */
+  cost: { full: string; abbr: string }
+
+  errata?: Errata
 }
 
 /**
  * Measurable parameters of a magical dance.
  */
-type PerformanceParameters = {
-  duration: {
-    length:
-      | { tag: "Long" }
-      | { tag: "Short" }
-    reusability:
-      | { tag: "OneTime" }
-      | { tag: "Sustainable" }
-  }
-  cost:
-    | {
-      tag: "Fixed"
+export type MagicalDancePerformanceParameters = {
+  duration: MusicDuration
+  cost: MagicalDanceCost
+}
 
-      /**
-       * The (temporary) AE cost value.
-       * @integer
-       * @minimum 1
-       */
-      value: number
+export type MagicalDanceCost =
+  | { tag: "Fixed"; fixed: FixedMagicalDanceCost }
+  | { tag: "Indefinite"; indefinite: IndefiniteMagicalDanceCost }
 
-      /**
-       * All translations for the entry, identified by IETF language tag (BCP47).
-       * @minProperties 1
-       */
-      translations?: {
-        /**
-         * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-         * @minProperties 1
-         */
-        [localeId: string]: {
-          /**
-           * The cost have to be per a specific countable entity, e.g. `8 AE per
-           * person`.
-           */
-          per?: {
-            /**
-             * The full countable entity name.
-             * @minLength 1
-             */
-            default: string
+export type FixedMagicalDanceCost = {
+  /**
+   * The (temporary) AE cost value.
+   * @integer
+   * @minimum 1
+   */
+  value: number
 
-            /**
-             * The compressed countable entity name.
-             * @minLength 1
-             */
-            compressed: string
-          }
-        }
-      }
-    }
-    | {
-      tag: "Indefinite"
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translations?: LocaleMap<FixedOneTimeCostTranslation>
+}
 
-      /**
-       * Specified if the indefinite description's result value is to be
-       * modified by a certain number.
-       */
-      modifier?: CheckResultBasedModifier
+export type IndefiniteMagicalDanceCost = {
+  /**
+   * Specified if the indefinite description's result value is to be
+   * modified by a certain number.
+   */
+  modifier?: CheckResultBasedModifier
 
-      /**
-       * All translations for the entry, identified by IETF language tag (BCP47).
-       * @minProperties 1
-       */
-      translations: {
-        /**
-         * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-         */
-        [localeId: string]: {
-          /**
-           * A description of the duration.
-           * @minLength 1
-           */
-          description: ResponsiveText
-        }
-      }
-    }
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translations: LocaleMap<IndefiniteOneTimeCostTranslation>
 }
 
 export const validateSchema = validateSchemaCreator<MagicalDance>(import.meta.url)

@@ -10,6 +10,9 @@ import { CastingTime, SlowSkillNonModifiableCastingTime } from "../_ActivatableS
 import { Effect } from "../_ActivatableSkillEffect.js"
 import { TargetCategory } from "../_ActivatableSkillTargetCategory.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
+import { LocaleMap } from "../_LocaleMap.js"
+import { NonEmptyString } from "../_NonEmptyString.js"
+import { PropertyReference } from "../_SimpleReferences.js"
 import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
 
 /**
@@ -36,7 +39,7 @@ export type ZibiljaRitual = {
   /**
    * Measurable parameters of a zibilja ritual.
    */
-  parameters: PerformanceParameters
+  parameters: ZibiljaRitualPerformanceParameters
 
   /**
    * The target category – the kind of creature or object – the skill affects.
@@ -44,11 +47,9 @@ export type ZibiljaRitual = {
   target: TargetCategory
 
   /**
-   * The property's identifier.
-   * @integer
-   * @minimum 1
+   * The associated property.
    */
-  property_id: number
+  property: PropertyReference
 
   /**
    * States which column is used to improve the skill.
@@ -59,56 +60,51 @@ export type ZibiljaRitual = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the zibilja ritual.
-       * @minLength 1
-       */
-      name: string
-
-      /**
-       * The effect description may be either a plain text or a text that is
-       * divided by a list of effects for each quality level. It may also be a
-       * list for each two quality levels.
-       */
-      effect: Effect
-
-      /**
-       * @deprecated
-       */
-      casting_time: { full: string; abbr: string }
-
-      /**
-       * @deprecated
-       */
-      cost: { full: string; abbr: string }
-
-      /**
-       * @deprecated
-       */
-      range: { full: string; abbr: string }
-
-      /**
-       * @deprecated
-       */
-      duration: { full: string; abbr: string }
-
-      /**
-       * @deprecated
-       */
-      target: string
-
-      errata?: Errata
-    }
-  }
+  translations: LocaleMap<ZibiljaRitualTranslation>
 }
 
-type PerformanceParameters = OneTimePerformanceParameters<CastingTime<SlowSkillNonModifiableCastingTime>>
+export type ZibiljaRitualTranslation = {
+  /**
+   * The name of the zibilja ritual.
+   */
+  name: NonEmptyString
+
+  /**
+   * The effect description may be either a plain text or a text that is
+   * divided by a list of effects for each quality level. It may also be a
+   * list for each two quality levels.
+   */
+  effect: Effect
+
+  /**
+   * @deprecated
+   */
+  casting_time: { full: string; abbr: string }
+
+  /**
+   * @deprecated
+   */
+  cost: { full: string; abbr: string }
+
+  /**
+   * @deprecated
+   */
+  range: { full: string; abbr: string }
+
+  /**
+   * @deprecated
+   */
+  duration: { full: string; abbr: string }
+
+  /**
+   * @deprecated
+   */
+  target: string
+
+  errata?: Errata
+}
+
+export type ZibiljaRitualPerformanceParameters = OneTimePerformanceParameters<CastingTime<SlowSkillNonModifiableCastingTime>>
 
 export const validateSchema = validateSchemaCreator<ZibiljaRitual>(import.meta.url)

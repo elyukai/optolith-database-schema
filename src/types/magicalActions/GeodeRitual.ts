@@ -7,10 +7,13 @@ import { SlowSkillCastingTimeUnit } from "../SkillModificationLevel.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import { CostMap } from "../_ActivatableSkillCost.js"
-import { DurationUnit, TaggedCheckResultBasedDuration } from "../_ActivatableSkillDuration.js"
+import { CheckResultBasedDuration, DurationUnit } from "../_ActivatableSkillDuration.js"
 import { Effect } from "../_ActivatableSkillEffect.js"
 import { TargetCategory } from "../_ActivatableSkillTargetCategory.js"
+import { LocaleMap } from "../_LocaleMap.js"
+import { NonEmptyString } from "../_NonEmptyString.js"
 import { GeodeRitualPrerequisites } from "../_Prerequisite.js"
+import { PropertyReference } from "../_SimpleReferences.js"
 import { SkillCheck } from "../_SkillCheck.js"
 
 /**
@@ -32,7 +35,7 @@ export type GeodeRitual = {
   /**
    * Measurable parameters of a geode ritual.
    */
-  parameters: PerformanceParameters
+  parameters: GeodeRitualPerformanceParameters
 
   /**
    * The target category – the kind of creature or object – the skill affects.
@@ -40,11 +43,9 @@ export type GeodeRitual = {
   target: TargetCategory
 
   /**
-   * The property's identifier.
-   * @integer
-   * @minimum 1
+   * The associated property.
    */
-  property_id: number
+  property: PropertyReference
 
   prerequisites?: GeodeRitualPrerequisites
 
@@ -52,134 +53,133 @@ export type GeodeRitual = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the geode ritual.
-       * @minLength 1
-       */
-      name: string
+  translations: LocaleMap<GeodeRitualTranslation>
+}
 
-      /**
-       * The effect description may be either a plain text or a text that is
-       * divided by a list of effects for each quality level. It may also be a
-       * list for each two quality levels.
-       */
-      effect: Effect
+export type GeodeRitualTranslation = {
+  /**
+   * The name of the geode ritual.
+   */
+  name: NonEmptyString
 
-      /**
-       * @deprecated
-       */
-      casting_time: { full: string; abbr: string }
+  /**
+   * The effect description may be either a plain text or a text that is
+   * divided by a list of effects for each quality level. It may also be a
+   * list for each two quality levels.
+   */
+  effect: Effect
 
-      /**
-       * @deprecated
-       */
-      cost: { full: string; abbr: string }
+  /**
+   * @deprecated
+   */
+  casting_time: { full: string; abbr: string }
 
-      /**
-       * @deprecated
-       */
-      range: { full: string; abbr: string }
+  /**
+   * @deprecated
+   */
+  cost: { full: string; abbr: string }
 
-      /**
-       * @deprecated
-       */
-      duration: { full: string; abbr: string }
+  /**
+   * @deprecated
+   */
+  range: { full: string; abbr: string }
 
-      /**
-       * @deprecated
-       */
-      target: string
+  /**
+   * @deprecated
+   */
+  duration: { full: string; abbr: string }
 
-      errata?: Errata
-    }
-  }
+  /**
+   * @deprecated
+   */
+  target: string
+
+  errata?: Errata
 }
 
 /**
  * Measurable parameters of a geode ritual.
  */
-type PerformanceParameters = {
+export type GeodeRitualPerformanceParameters = {
   /**
    * The casting time.
    */
-  casting_time: {
-    /**
-     * The (unitless) casting time.
-     * @integer
-     * @minimum 1
-     */
-    value: number
-
-    /**
-     * The casting time unit.
-     */
-    unit: SlowSkillCastingTimeUnit
-  }
+  casting_time: GeodeRitualCastingTime
 
   /**
    * The AE cost.
    */
-  cost:
-    | {
-      tag: "Fixed"
-
-      /**
-       * The AE cost value.
-       * @integer
-       * @minimum 1
-       */
-      value: number
-    }
-    | {
-      tag: "Map"
-
-      map: CostMap
-    }
+  cost: GeodeRitualCost
 
   /**
    * The range.
    */
-  range:
-    | { tag: "Self" }
-    | {
-      tag: "Fixed"
-
-      /**
-       * The range in steps/m.
-       * @integer
-       * @minimum 1
-       */
-      value: number
-    }
+  range: GeodeRitualRange
 
   /**
    * The duration.
    */
-  duration:
-    | { tag: "Immediate" }
-    | {
-      tag: "Fixed"
+  duration: GeodeRitualDuration
+}
 
-      /**
-       * The (unitless) duration.
-       * @integer
-       * @minimum 2
-       */
-      value: number
+export type GeodeRitualCastingTime = {
+  /**
+   * The (unitless) casting time.
+   * @integer
+   * @minimum 1
+   */
+  value: number
 
-      /**
-       * The duration unit.
-       */
-      unit: DurationUnit
-    }
-    | TaggedCheckResultBasedDuration
+  /**
+   * The casting time unit.
+   */
+  unit: SlowSkillCastingTimeUnit
+}
+
+export type GeodeRitualCost =
+  | { tag: "Fixed"; fixed: FixedGeodeRitualCost }
+  | { tag: "Map"; map: CostMap }
+
+export type FixedGeodeRitualCost = {
+  /**
+   * The AE cost value.
+   * @integer
+   * @minimum 1
+   */
+  value: number
+}
+
+export type GeodeRitualRange =
+  | { tag: "Self" }
+  | { tag: "Fixed"; fixed: FixedGeodeRitualRange }
+
+export type FixedGeodeRitualRange = {
+  /**
+   * The range in steps/m.
+   * @integer
+   * @minimum 1
+   */
+  value: number
+}
+
+export type GeodeRitualDuration =
+  | { tag: "Immediate" }
+  | { tag: "Fixed"; fixed: FixedGeodeRitualDuration }
+  | { tag: "CheckResultBased"; check_result_based: CheckResultBasedDuration }
+
+export type FixedGeodeRitualDuration = {
+  /**
+   * The (unitless) duration.
+   * @integer
+   * @minimum 2
+   */
+  value: number
+
+  /**
+   * The duration unit.
+   */
+  unit: DurationUnit
 }
 
 export const validateSchema = validateSchemaCreator<GeodeRitual>(import.meta.url)

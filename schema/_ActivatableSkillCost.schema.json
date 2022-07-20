@@ -232,7 +232,9 @@
           "$ref": "./_ResponsiveText.schema.json#/$defs/ResponsiveTextOptional"
         }
       },
-      "required": [],
+      "required": [
+        "note"
+      ],
       "additionalProperties": false
     },
     "IndefiniteOneTimeCost": {
