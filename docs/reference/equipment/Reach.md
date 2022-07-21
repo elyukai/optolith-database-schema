@@ -31,15 +31,20 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Reach/translations[key]"></a> `Reach/translations[key]`
 
+- **Type:** <a href="#ReachTranslation">ReachTranslation</a>
+
+---
+
+### <a name="ReachTranslation"></a> `ReachTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the reach. | <a href="#Reach/translations[key]/name">See details</a>
+`name` | The name of the reach. | <a href="#ReachTranslation/name">See details</a>
 
-#### <a name="Reach/translations[key]/name"></a> `name`
+#### <a name="ReachTranslation/name"></a> `name`
 
 The name of the reach.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

@@ -3,6 +3,8 @@
  */
 
 import { validateSchemaCreator } from "../../validation/schema.js"
+import { LocaleMap } from "../_LocaleMap.js"
+import { NonEmptyString } from "../_NonEmptyString.js"
 
 /**
  * @title Reach
@@ -17,20 +19,15 @@ export type Reach = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the reach.
-       * @minLength 1
-       */
-      name: string
-    }
-  }
+  translations: LocaleMap<ReachTranslation>
+}
+
+export type ReachTranslation = {
+  /**
+   * The name of the reach.
+   */
+  name: NonEmptyString
 }
 
 export const validateSchema = validateSchemaCreator<Reach>(import.meta.url)
