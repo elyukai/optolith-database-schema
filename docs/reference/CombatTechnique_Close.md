@@ -88,10 +88,30 @@ category.
 Key | Description | Details
 :-- | :-- | :--
 `can_parry` | Is parrying possible with this combat technique? | <a href="#CloseCombatTechniqueSpecialRules/can_parry">See details</a>
+`has_damage_threshold` |  | <a href="#CloseCombatTechniqueSpecialRules/has_damage_threshold">See details</a>
+`has_reach` |  | <a href="#CloseCombatTechniqueSpecialRules/has_reach">See details</a>
+`has_length` |  | <a href="#CloseCombatTechniqueSpecialRules/has_length">See details</a>
+`has_shield_size` |  | <a href="#CloseCombatTechniqueSpecialRules/has_shield_size">See details</a>
 
 #### <a name="CloseCombatTechniqueSpecialRules/can_parry"></a> `can_parry`
 
 Is parrying possible with this combat technique?
+
+- **Type:** Boolean
+
+#### <a name="CloseCombatTechniqueSpecialRules/has_damage_threshold"></a> `has_damage_threshold`
+
+- **Type:** Boolean
+
+#### <a name="CloseCombatTechniqueSpecialRules/has_reach"></a> `has_reach`
+
+- **Type:** Boolean
+
+#### <a name="CloseCombatTechniqueSpecialRules/has_length"></a> `has_length`
+
+- **Type:** Boolean
+
+#### <a name="CloseCombatTechniqueSpecialRules/has_shield_size"></a> `has_shield_size`
 
 - **Type:** Boolean
 

@@ -9,6 +9,7 @@
 Key | Description | Details
 :-- | :-- | :--
 `id` | The ranged combat technique's identifier. An unique, increasing integer. | <a href="#RangedCombatTechnique/id">See details</a>
+`special` | Special rules for the combat technique that apply to all weapons in this category. | <a href="#RangedCombatTechnique/special">See details</a>
 `primary_attribute` | The primary attribute(s). | <a href="#RangedCombatTechnique/primary_attribute">See details</a>
 `breaking_point_rating` | The *Breaking Point Rating* of the respective combat technique. | <a href="#RangedCombatTechnique/breaking_point_rating">See details</a>
 `improvement_cost` |  | <a href="#RangedCombatTechnique/improvement_cost">See details</a>
@@ -21,6 +22,13 @@ The ranged combat technique's identifier. An unique, increasing integer.
 
 - **Type:** Integer
 - **Minimum:** `1`
+
+#### <a name="RangedCombatTechnique/special"></a> `special`
+
+Special rules for the combat technique that apply to all weapons in this
+category.
+
+- **Type:** <a href="#RangedCombatTechniqueSpecialRules">RangedCombatTechniqueSpecialRules</a>
 
 #### <a name="RangedCombatTechnique/primary_attribute"></a> `primary_attribute`
 
@@ -67,6 +75,23 @@ All translations for the entry, identified by IETF language tag (BCP47).
 ### <a name="RangedCombatTechnique/translations[key]"></a> `RangedCombatTechnique/translations[key]`
 
 - **Type:** <a href="#RangedCombatTechniqueTranslation">RangedCombatTechniqueTranslation</a>
+
+---
+
+### <a name="RangedCombatTechniqueSpecialRules"></a> `RangedCombatTechniqueSpecialRules`
+
+Special rules for the combat technique that apply to all weapons in this
+category.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`has_ammunition` |  | <a href="#RangedCombatTechniqueSpecialRules/has_ammunition">See details</a>
+
+#### <a name="RangedCombatTechniqueSpecialRules/has_ammunition"></a> `has_ammunition`
+
+- **Type:** Boolean
 
 ---
 

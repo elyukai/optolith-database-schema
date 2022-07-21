@@ -21,6 +21,12 @@ export type RangedCombatTechnique = {
   id: number
 
   /**
+   * Special rules for the combat technique that apply to all weapons in this
+   * category.
+   */
+  special: RangedCombatTechniqueSpecialRules
+
+  /**
    * The primary attribute(s).
    * @minItems 1
    * @maxItems 2
@@ -43,6 +49,14 @@ export type RangedCombatTechnique = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    */
   translations: LocaleMap<RangedCombatTechniqueTranslation>
+}
+
+/**
+ * Special rules for the combat technique that apply to all weapons in this
+ * category.
+ */
+export type RangedCombatTechniqueSpecialRules = {
+  has_ammunition: boolean
 }
 
 export type RangedCombatTechniqueTranslation = {

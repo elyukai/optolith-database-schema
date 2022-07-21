@@ -67,10 +67,26 @@
         "can_parry": {
           "description": "Is parrying possible with this combat technique?",
           "type": "boolean"
+        },
+        "has_damage_threshold": {
+          "type": "boolean"
+        },
+        "has_reach": {
+          "type": "boolean"
+        },
+        "has_length": {
+          "type": "boolean"
+        },
+        "has_shield_size": {
+          "type": "boolean"
         }
       },
       "required": [
-        "can_parry"
+        "can_parry",
+        "has_damage_threshold",
+        "has_reach",
+        "has_length",
+        "has_shield_size"
       ],
       "additionalProperties": false
     },

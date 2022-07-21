@@ -60,6 +60,14 @@ export type CloseCombatTechniqueSpecialRules = {
    * Is parrying possible with this combat technique?
    */
   can_parry: boolean
+
+  has_damage_threshold: boolean
+
+  has_reach: boolean
+
+  has_length: boolean
+
+  has_shield_size: boolean
 }
 
 export type CloseCombatTechniqueTranslation = {
