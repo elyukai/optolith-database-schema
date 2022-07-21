@@ -215,6 +215,39 @@
         "BlessedTradition"
       ]
     },
+    "EquipmentTag": {
+      "enum": [
+        "Alchemicum",
+        "Ammunition",
+        "Animal",
+        "AnimalCare",
+        "Armor",
+        "BandageOrRemedy",
+        "Book",
+        "CeremonialItem",
+        "Clothes",
+        "Container",
+        "EquipmentOfBlessedOnes",
+        "GemOrPreciousStone",
+        "HealingHerb",
+        "Illumination",
+        "Jewelry",
+        "Liebesspielzeug",
+        "LuxuryGood",
+        "MagicalArtifact",
+        "MusicalInstrument",
+        "OrienteeringAid",
+        "Poison",
+        "RopeOrChain",
+        "Stationary",
+        "ThievesTool",
+        "ToolOfTheTrade",
+        "TravelGearOrTool",
+        "Vehicle",
+        "Weapon",
+        "WeaponAccessory"
+      ]
+    },
     "ActivatableIdentifier": {
       "type": "object",
       "properties": {
@@ -508,6 +541,24 @@
       "properties": {
         "tag": {
           "$ref": "#/$defs/CoreRuleDerivableContentTag"
+        },
+        "value": {
+          "description": "The referenced entry's numeric identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "EquipmentIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "$ref": "#/$defs/EquipmentTag"
         },
         "value": {
           "description": "The referenced entry's numeric identifier.",

@@ -104,6 +104,12 @@
 
 ---
 
+### <a name="EquipmentTag"></a> `EquipmentTag`
+
+- **Possible values:** `"Alchemicum"`, `"Ammunition"`, `"Animal"`, `"AnimalCare"`, `"Armor"`, `"BandageOrRemedy"`, `"Book"`, `"CeremonialItem"`, `"Clothes"`, `"Container"`, `"EquipmentOfBlessedOnes"`, `"GemOrPreciousStone"`, `"HealingHerb"`, `"Illumination"`, `"Jewelry"`, `"Liebesspielzeug"`, `"LuxuryGood"`, `"MagicalArtifact"`, `"MusicalInstrument"`, `"OrienteeringAid"`, `"Poison"`, `"RopeOrChain"`, `"Stationary"`, `"ThievesTool"`, `"ToolOfTheTrade"`, `"TravelGearOrTool"`, `"Vehicle"`, `"Weapon"`, `"WeaponAccessory"`
+
+---
+
 ### <a name="ActivatableIdentifier"></a> `ActivatableIdentifier`
 
 - **Type:** Object
@@ -470,6 +476,28 @@ Key | Description | Details
 - **Type:** <a href="#CoreRuleDerivableContentTag">CoreRuleDerivableContentTag</a>
 
 #### <a name="CoreRuleDerivableContentIdentifier/value"></a> `value`
+
+The referenced entry's numeric identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="EquipmentIdentifier"></a> `EquipmentIdentifier`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#EquipmentIdentifier/tag">See details</a>
+`value` | The referenced entry's numeric identifier. | <a href="#EquipmentIdentifier/value">See details</a>
+
+#### <a name="EquipmentIdentifier/tag"></a> `tag`
+
+- **Type:** <a href="#EquipmentTag">EquipmentTag</a>
+
+#### <a name="EquipmentIdentifier/value"></a> `value`
 
 The referenced entry's numeric identifier.
 

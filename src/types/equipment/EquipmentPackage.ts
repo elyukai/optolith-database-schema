@@ -3,6 +3,9 @@
  */
 
 import { validateSchemaCreator } from "../../validation/schema.js"
+import { EquipmentIdentifier } from "../_Identifier.js"
+import { LocaleMap } from "../_LocaleMap.js"
+import { NonEmptyString } from "../_NonEmptyString.js"
 
 /**
  * @title Equipment Package
@@ -21,39 +24,34 @@ export type EquipmentPackage = {
    * is included in the package.
    * @minItems 2
    */
-  items: {
-    /**
-     * The item's identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-
-    /**
-     * The number of how often the item is included in the package.
-     * @integer
-     * @minimum 2
-     * @default 1
-     */
-    number?: number
-  }[]
+  items: EquipmentPackageItem[]
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the equipment package.
-       * @minLength 1
-       */
-      name: string
-    }
-  }
+  translations: LocaleMap<EquipmentPackageTranslation>
+}
+
+export type EquipmentPackageItem = {
+  /**
+   * The item's identifier.
+   */
+  id: EquipmentIdentifier
+
+  /**
+   * The number of how often the item is included in the package.
+   * @integer
+   * @minimum 2
+   * @default 1
+   */
+  number?: number
+}
+
+export type EquipmentPackageTranslation = {
+  /**
+   * The name of the equipment package.
+   */
+  name: NonEmptyString
 }
 
 export const validateSchema = validateSchemaCreator<EquipmentPackage>(import.meta.url)

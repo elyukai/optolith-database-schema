@@ -194,6 +194,38 @@ enum CoreRuleDerivableContentTag {
   BlessedTradition = "BlessedTradition",
 }
 
+enum EquipmentTag {
+  Alchemicum = "Alchemicum",
+  Ammunition = "Ammunition",
+  Animal = "Animal",
+  AnimalCare = "AnimalCare",
+  Armor = "Armor",
+  BandageOrRemedy = "BandageOrRemedy",
+  Book = "Book",
+  CeremonialItem = "CeremonialItem",
+  Clothes = "Clothes",
+  Container = "Container",
+  EquipmentOfBlessedOnes = "EquipmentOfBlessedOnes",
+  GemOrPreciousStone = "GemOrPreciousStone",
+  HealingHerb = "HealingHerb",
+  Illumination = "Illumination",
+  Jewelry = "Jewelry",
+  Liebesspielzeug = "Liebesspielzeug",
+  LuxuryGood = "LuxuryGood",
+  MagicalArtifact = "MagicalArtifact",
+  MusicalInstrument = "MusicalInstrument",
+  OrienteeringAid = "OrienteeringAid",
+  Poison = "Poison",
+  RopeOrChain = "RopeOrChain",
+  Stationary = "Stationary",
+  ThievesTool = "ThievesTool",
+  ToolOfTheTrade = "ToolOfTheTrade",
+  TravelGearOrTool = "TravelGearOrTool",
+  Vehicle = "Vehicle",
+  Weapon = "Weapon",
+  WeaponAccessory = "WeaponAccessory",
+}
+
 type TaggedIdentifier<Tag> = {
   tag: Tag
 
@@ -222,6 +254,7 @@ export type SpellworkIdentifier = TaggedIdentifier<SpellworkTag>
 export type MagicalActionIdentifier = TaggedIdentifier<MagicalActionTag>
 export type RequirableSelectOptionIdentifier = TaggedIdentifier<RequirableSelectOptionTag>
 export type CoreRuleDerivableContentIdentifier = TaggedIdentifier<CoreRuleDerivableContentTag>
+export type EquipmentIdentifier = TaggedIdentifier<EquipmentTag>
 
 export type OneOrManyNumericIdentifiers = OneNumericIdentifier | ManyNumericIdentifiers
 

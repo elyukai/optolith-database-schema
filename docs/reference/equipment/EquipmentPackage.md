@@ -42,21 +42,32 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="EquipmentPackage/items[]"></a> `EquipmentPackage/items[]`
 
+- **Type:** <a href="#EquipmentPackageItem">EquipmentPackageItem</a>
+
+---
+
+### <a name="EquipmentPackage/translations[key]"></a> `EquipmentPackage/translations[key]`
+
+- **Type:** <a href="#EquipmentPackageTranslation">EquipmentPackageTranslation</a>
+
+---
+
+### <a name="EquipmentPackageItem"></a> `EquipmentPackageItem`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The item's identifier. | <a href="#EquipmentPackage/items[]/id">See details</a>
-`number?` | The number of how often the item is included in the package. | <a href="#EquipmentPackage/items[]/number">See details</a>
+`id` | The item's identifier. | <a href="#EquipmentPackageItem/id">See details</a>
+`number?` | The number of how often the item is included in the package. | <a href="#EquipmentPackageItem/number">See details</a>
 
-#### <a name="EquipmentPackage/items[]/id"></a> `id`
+#### <a name="EquipmentPackageItem/id"></a> `id`
 
 The item's identifier.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="../_Identifier.md#EquipmentIdentifier">EquipmentIdentifier</a>
 
-#### <a name="EquipmentPackage/items[]/number"></a> `number?`
+#### <a name="EquipmentPackageItem/number"></a> `number?`
 
 The number of how often the item is included in the package.
 
@@ -65,17 +76,16 @@ The number of how often the item is included in the package.
 
 ---
 
-### <a name="EquipmentPackage/translations[key]"></a> `EquipmentPackage/translations[key]`
+### <a name="EquipmentPackageTranslation"></a> `EquipmentPackageTranslation`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the equipment package. | <a href="#EquipmentPackage/translations[key]/name">See details</a>
+`name` | The name of the equipment package. | <a href="#EquipmentPackageTranslation/name">See details</a>
 
-#### <a name="EquipmentPackage/translations[key]/name"></a> `name`
+#### <a name="EquipmentPackageTranslation/name"></a> `name`
 
 The name of the equipment package.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
