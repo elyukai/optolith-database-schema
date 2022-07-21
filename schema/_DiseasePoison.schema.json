@@ -104,7 +104,7 @@
           "description": "A list of alternative names.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/AlternativeName"
+            "$ref": "./_AlternativeNames.schema.json#/$defs/AlternativeName"
           },
           "minItems": 1
         },
@@ -148,23 +148,6 @@
         "duration",
         "treatment",
         "cure"
-      ],
-      "additionalProperties": false
-    },
-    "AlternativeName": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "description": "An alternative name of the disease.",
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "region": {
-          "description": "The region where this alternative name is used.",
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        }
-      },
-      "required": [
-        "name"
       ],
       "additionalProperties": false
     },

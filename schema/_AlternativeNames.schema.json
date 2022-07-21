@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/_AlternativeNames.schema.json",
+  "$defs": {
+    "AlternativeName": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "An alternative name of the disease.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "region": {
+          "description": "The region where this alternative name is used.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

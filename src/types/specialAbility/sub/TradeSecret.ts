@@ -5,6 +5,8 @@
 import { validateSchemaCreator } from "../../../validation/schema.js"
 import { Errata } from "../../source/_Erratum.js"
 import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { LocaleMap } from "../../_LocaleMap.js"
+import { NonEmptyMarkdown, NonEmptyString } from "../../_NonEmptyString.js"
 import { GeneralPrerequisites } from "../../_Prerequisite.js"
 
 /**
@@ -36,29 +38,22 @@ export type TradeSecret = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the trade secret.
-       * @minLength 1
-       */
-      name: string
+  translations: LocaleMap<TradeSecretTranslation>
+}
 
-      /**
-       * The description of the trade secret.
-       * @markdown
-       * @minLength 1
-       */
-      description?: string
+export type TradeSecretTranslation = {
+  /**
+   * The name of the trade secret.
+   */
+  name: NonEmptyString
 
-      errata?: Errata
-    }
-  }
+  /**
+   * The description of the trade secret.
+   */
+  description?: NonEmptyMarkdown
+
+  errata?: Errata
 }
 
 export const validateSchema = validateSchemaCreator<TradeSecret>(import.meta.url)

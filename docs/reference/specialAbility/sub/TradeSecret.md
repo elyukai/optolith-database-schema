@@ -56,28 +56,32 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="TradeSecret/translations[key]"></a> `TradeSecret/translations[key]`
 
+- **Type:** <a href="#TradeSecretTranslation">TradeSecretTranslation</a>
+
+---
+
+### <a name="TradeSecretTranslation"></a> `TradeSecretTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the trade secret. | <a href="#TradeSecret/translations[key]/name">See details</a>
-`description?` | The description of the trade secret. | <a href="#TradeSecret/translations[key]/description">See details</a>
-`errata?` |  | <a href="#TradeSecret/translations[key]/errata">See details</a>
+`name` | The name of the trade secret. | <a href="#TradeSecretTranslation/name">See details</a>
+`description?` | The description of the trade secret. | <a href="#TradeSecretTranslation/description">See details</a>
+`errata?` |  | <a href="#TradeSecretTranslation/errata">See details</a>
 
-#### <a name="TradeSecret/translations[key]/name"></a> `name`
+#### <a name="TradeSecretTranslation/name"></a> `name`
 
 The name of the trade secret.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="TradeSecret/translations[key]/description"></a> `description?`
+#### <a name="TradeSecretTranslation/description"></a> `description?`
 
 The description of the trade secret.
 
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
+- **Type:** <a href="../../_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
-#### <a name="TradeSecret/translations[key]/errata"></a> `errata?`
+#### <a name="TradeSecretTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../../source/_Erratum.md#Errata">Errata</a>

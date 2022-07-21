@@ -36,8 +36,7 @@ The continents this language is present on.
 Language-specific specializations. Either a list of possible options or a
 indefinite description of what may be a specialization.
 
-- **Type:** Union
-- **Cases:** <a href="#Language/specializations'Specific">Language/specializations'Specific</a> | <a href="#Language/specializations'Indefinite">Language/specializations'Indefinite</a>
+- **Type:** <a href="#Specializations">Specializations</a>
 
 #### <a name="Language/prerequisites"></a> `prerequisites?`
 
@@ -69,203 +68,228 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Language/continent[]"></a> `Language/continent[]`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The continent's identifier. | <a href="#Language/continent[]/id">See details</a>
-`is_extinct` | Is the language considered virtually extinct in this continent? | <a href="#Language/continent[]/is_extinct">See details</a>
-
-#### <a name="Language/continent[]/id"></a> `id`
-
-The continent's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `3`
-
-#### <a name="Language/continent[]/is_extinct"></a> `is_extinct`
-
-Is the language considered virtually extinct in this continent?
-
-- **Type:** Boolean
+- **Type:** <a href="./_LanguageScript.md#AssociatedContinent">AssociatedContinent</a>
 
 ---
 
-### <a name="Language/specializations'Specific"></a> `Language/specializations'Specific`
+### <a name="Language/translations[key]"></a> `Language/translations[key]`
+
+- **Type:** <a href="#LanguageTranslation">LanguageTranslation</a>
+
+---
+
+### <a name="Specializations"></a> `Specializations`
+
+- **Type:** Union
+- **Cases:** <a href="#Specializations'Specific">Specializations'Specific</a> | <a href="#Specializations'Indefinite">Specializations'Indefinite</a>
+
+---
+
+### <a name="Specializations'Specific"></a> `Specializations'Specific`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Language/specializations'Specific/tag">See details</a>
-`list` | A list of specific possible specializations. | <a href="#Language/specializations'Specific/list">See details</a>
+`tag` |  | <a href="#Specializations'Specific/tag">See details</a>
+`specific` |  | <a href="#Specializations'Specific/specific">See details</a>
 
-#### <a name="Language/specializations'Specific/tag"></a> `tag`
+#### <a name="Specializations'Specific/tag"></a> `tag`
 
 - **Constant:** `"Specific"`
 
-#### <a name="Language/specializations'Specific/list"></a> `list`
+#### <a name="Specializations'Specific/specific"></a> `specific`
+
+- **Type:** <a href="#SpecificSpecializations">SpecificSpecializations</a>
+
+---
+
+### <a name="Specializations'Indefinite"></a> `Specializations'Indefinite`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Specializations'Indefinite/tag">See details</a>
+`indefinite` |  | <a href="#Specializations'Indefinite/indefinite">See details</a>
+
+#### <a name="Specializations'Indefinite/tag"></a> `tag`
+
+- **Constant:** `"Indefinite"`
+
+#### <a name="Specializations'Indefinite/indefinite"></a> `indefinite`
+
+- **Type:** <a href="#IndefiniteSpecializations">IndefiniteSpecializations</a>
+
+---
+
+### <a name="SpecificSpecializations"></a> `SpecificSpecializations`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`list` | A list of specific possible specializations. | <a href="#SpecificSpecializations/list">See details</a>
+
+#### <a name="SpecificSpecializations/list"></a> `list`
 
 A list of specific possible specializations.
 
 - **Type:** List
-- **Items:** <a href="#Language/specializations'Specific/list[]">Language/specializations'Specific/list[]</a>
+- **Items:** <a href="#SpecificSpecializations/list[]">SpecificSpecializations/list[]</a>
+- **Minimum Items:** `1`
 
 ---
 
-### <a name="Language/specializations'Specific/list[]"></a> `Language/specializations'Specific/list[]`
+### <a name="SpecificSpecializations/list[]"></a> `SpecificSpecializations/list[]`
+
+- **Type:** <a href="#SpecificSpecialization">SpecificSpecialization</a>
+
+---
+
+### <a name="SpecificSpecialization"></a> `SpecificSpecialization`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The specialization's identifier. An unique, increasing integer. | <a href="#Language/specializations'Specific/list[]/id">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Language/specializations'Specific/list[]/translations">See details</a>
+`id` | The specialization's identifier. An unique, increasing integer. | <a href="#SpecificSpecialization/id">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#SpecificSpecialization/translations">See details</a>
 
-#### <a name="Language/specializations'Specific/list[]/id"></a> `id`
+#### <a name="SpecificSpecialization/id"></a> `id`
 
 The specialization's identifier. An unique, increasing integer.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="Language/specializations'Specific/list[]/translations"></a> `translations`
+#### <a name="SpecificSpecialization/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#Language/specializations'Specific/list[]/translations[key]">Language/specializations'Specific/list[]/translations[key]</a>
+- **Property Values:** <a href="#SpecificSpecialization/translations[key]">SpecificSpecialization/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="Language/specializations'Specific/list[]/translations[key]"></a> `Language/specializations'Specific/list[]/translations[key]`
+### <a name="SpecificSpecialization/translations[key]"></a> `SpecificSpecialization/translations[key]`
+
+- **Type:** <a href="#SpecificSpecializationTranslation">SpecificSpecializationTranslation</a>
+
+---
+
+### <a name="SpecificSpecializationTranslation"></a> `SpecificSpecializationTranslation`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the specialization. | <a href="#Language/specializations'Specific/list[]/translations[key]/name">See details</a>
-`description?` | The specialization description. It will be appended to the name in parenthesis. | <a href="#Language/specializations'Specific/list[]/translations[key]/description">See details</a>
+`name` | The name of the specialization. | <a href="#SpecificSpecializationTranslation/name">See details</a>
+`description?` | The specialization description. It will be appended to the name in parenthesis. | <a href="#SpecificSpecializationTranslation/description">See details</a>
 
-#### <a name="Language/specializations'Specific/list[]/translations[key]/name"></a> `name`
+#### <a name="SpecificSpecializationTranslation/name"></a> `name`
 
 The name of the specialization.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Language/specializations'Specific/list[]/translations[key]/description"></a> `description?`
+#### <a name="SpecificSpecializationTranslation/description"></a> `description?`
 
 The specialization description. It will be appended to the name in
 parenthesis.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 ---
 
-### <a name="Language/specializations'Indefinite"></a> `Language/specializations'Indefinite`
+### <a name="IndefiniteSpecializations"></a> `IndefiniteSpecializations`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Language/specializations'Indefinite/tag">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Language/specializations'Indefinite/translations">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#IndefiniteSpecializations/translations">See details</a>
 
-#### <a name="Language/specializations'Indefinite/tag"></a> `tag`
-
-- **Constant:** `"Indefinite"`
-
-#### <a name="Language/specializations'Indefinite/translations"></a> `translations`
+#### <a name="IndefiniteSpecializations/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#Language/specializations'Indefinite/translations[key]">Language/specializations'Indefinite/translations[key]</a>
+- **Property Values:** <a href="#IndefiniteSpecializations/translations[key]">IndefiniteSpecializations/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="Language/specializations'Indefinite/translations[key]"></a> `Language/specializations'Indefinite/translations[key]`
+### <a name="IndefiniteSpecializations/translations[key]"></a> `IndefiniteSpecializations/translations[key]`
+
+- **Type:** <a href="#IndefiniteSpecializationsTranslation">IndefiniteSpecializationsTranslation</a>
+
+---
+
+### <a name="IndefiniteSpecializationsTranslation"></a> `IndefiniteSpecializationsTranslation`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`description` | The specializations description. | <a href="#Language/specializations'Indefinite/translations[key]/description">See details</a>
-`label?` | An input label or placeholder text for an UI element if it differs from the `description`. | <a href="#Language/specializations'Indefinite/translations[key]/label">See details</a>
+`description` | The specializations description. | <a href="#IndefiniteSpecializationsTranslation/description">See details</a>
+`label?` | An input label or placeholder text for an UI element if it differs from the `description`. | <a href="#IndefiniteSpecializationsTranslation/label">See details</a>
 
-#### <a name="Language/specializations'Indefinite/translations[key]/description"></a> `description`
+#### <a name="IndefiniteSpecializationsTranslation/description"></a> `description`
 
 The specializations description.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Language/specializations'Indefinite/translations[key]/label"></a> `label?`
+#### <a name="IndefiniteSpecializationsTranslation/label"></a> `label?`
 
 An input label or placeholder text for an UI element if it differs
 from the `description`.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 ---
 
-### <a name="Language/translations[key]"></a> `Language/translations[key]`
+### <a name="LanguageTranslation"></a> `LanguageTranslation`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the language. | <a href="#Language/translations[key]/name">See details</a>
-`alternative_names?` | A list of alternative names. | <a href="#Language/translations[key]/alternative_names">See details</a>
-`description?` | The description of the language. | <a href="#Language/translations[key]/description">See details</a>
-`errata?` |  | <a href="#Language/translations[key]/errata">See details</a>
+`name` | The name of the language. | <a href="#LanguageTranslation/name">See details</a>
+`alternative_names?` | A list of alternative names. | <a href="#LanguageTranslation/alternative_names">See details</a>
+`description?` | The description of the language. | <a href="#LanguageTranslation/description">See details</a>
+`errata?` |  | <a href="#LanguageTranslation/errata">See details</a>
 
-#### <a name="Language/translations[key]/name"></a> `name`
+#### <a name="LanguageTranslation/name"></a> `name`
 
 The name of the language.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Language/translations[key]/alternative_names"></a> `alternative_names?`
+#### <a name="LanguageTranslation/alternative_names"></a> `alternative_names?`
 
 A list of alternative names.
 
 - **Type:** List
-- **Items:** <a href="#Language/translations[key]/alternative_names[]">Language/translations[key]/alternative_names[]</a>
+- **Items:** <a href="#LanguageTranslation/alternative_names[]">LanguageTranslation/alternative_names[]</a>
+- **Minimum Items:** `1`
 
-#### <a name="Language/translations[key]/description"></a> `description?`
+#### <a name="LanguageTranslation/description"></a> `description?`
 
 The description of the language.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Language/translations[key]/errata"></a> `errata?`
+#### <a name="LanguageTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../../source/_Erratum.md#Errata">Errata</a>
 
 ---
 
-### <a name="Language/translations[key]/alternative_names[]"></a> `Language/translations[key]/alternative_names[]`
+### <a name="LanguageTranslation/alternative_names[]"></a> `LanguageTranslation/alternative_names[]`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`name` | An alternative name of the language. | <a href="#Language/translations[key]/alternative_names[]/name">See details</a>
-
-#### <a name="Language/translations[key]/alternative_names[]/name"></a> `name`
-
-An alternative name of the language.
-
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../../_AlternativeNames.md#AlternativeName">AlternativeName</a>

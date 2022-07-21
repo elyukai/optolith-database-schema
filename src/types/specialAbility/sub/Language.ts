@@ -5,7 +5,11 @@
 import { validateSchemaCreator } from "../../../validation/schema.js"
 import { Errata } from "../../source/_Erratum.js"
 import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { AlternativeName } from "../../_AlternativeNames.js"
+import { LocaleMap } from "../../_LocaleMap.js"
+import { NonEmptyString } from "../../_NonEmptyString.js"
 import { LanguagePrerequisites } from "../../_Prerequisite.js"
+import { AssociatedContinent } from "./_LanguageScript.js"
 
 /**
  * @title Language
@@ -22,92 +26,13 @@ export type Language = {
    * The continents this language is present on.
    * @minItems 1
    */
-  continent: {
-    /**
-     * The continent's identifier.
-     * @integer
-     * @minimum 1
-     * @maximum 3
-     */
-    id: number
-
-    /**
-     * Is the language considered virtually extinct in this continent?
-     */
-    is_extinct: boolean
-  }[]
+  continent: AssociatedContinent[]
 
   /**
    * Language-specific specializations. Either a list of possible options or a
    * indefinite description of what may be a specialization.
    */
-  specializations:
-    | {
-      tag: "Specific"
-
-      /**
-       * A list of specific possible specializations.
-       */
-      list: {
-        /**
-         * The specialization's identifier. An unique, increasing integer.
-         * @integer
-         * @minimum 1
-         */
-        id: number
-
-        /**
-         * All translations for the entry, identified by IETF language tag (BCP47).
-         * @minProperties 1
-         */
-        translations: {
-          /**
-           * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-           */
-          [localeId: string]: {
-            /**
-             * The name of the specialization.
-             * @minLength 1
-             */
-            name: string
-
-            /**
-             * The specialization description. It will be appended to the name in
-             * parenthesis.
-             * @minLength 1
-             */
-            description?: string
-          }
-        }
-      }[]
-    }
-    | {
-      tag: "Indefinite"
-
-      /**
-       * All translations for the entry, identified by IETF language tag (BCP47).
-       * @minProperties 1
-       */
-      translations: {
-        /**
-         * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-         */
-        [localeId: string]: {
-          /**
-           * The specializations description.
-           * @minLength 1
-           */
-          description: string
-
-          /**
-           * An input label or placeholder text for an UI element if it differs
-           * from the `description`.
-           * @minLength 1
-           */
-          label?: string
-        }
-      }
-    }
+  specializations: Specializations
 
   prerequisites?: LanguagePrerequisites
 
@@ -124,40 +49,87 @@ export type Language = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the language.
-       * @minLength 1
-       */
-      name: string
+  translations: LocaleMap<LanguageTranslation>
+}
 
-      /**
-       * A list of alternative names.
-       * @minLength 1
-       */
-      alternative_names?: {
-        /**
-         * An alternative name of the language.
-         * @minLength 1
-         */
-        name: string
-      }[]
+export type Specializations =
+  | { tag: "Specific"; specific: SpecificSpecializations }
+  | { tag: "Indefinite"; indefinite: IndefiniteSpecializations }
 
-      /**
-       * The description of the language.
-       * @minLength 1
-       */
-      description?: string
+export type SpecificSpecializations = {
+  /**
+   * A list of specific possible specializations.
+   * @minItems 1
+   */
+  list: SpecificSpecialization[]
+}
 
-      errata?: Errata
-    }
-  }
+export type SpecificSpecialization = {
+  /**
+   * The specialization's identifier. An unique, increasing integer.
+   * @integer
+   * @minimum 1
+   */
+  id: number
+
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translations: LocaleMap<SpecificSpecializationTranslation>
+}
+
+export type SpecificSpecializationTranslation = {
+  /**
+   * The name of the specialization.
+   */
+  name: NonEmptyString
+
+  /**
+   * The specialization description. It will be appended to the name in
+   * parenthesis.
+   */
+  description?: NonEmptyString
+}
+
+export type IndefiniteSpecializations = {
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translations: LocaleMap<IndefiniteSpecializationsTranslation>
+}
+
+export type IndefiniteSpecializationsTranslation = {
+  /**
+   * The specializations description.
+   */
+  description: NonEmptyString
+
+  /**
+   * An input label or placeholder text for an UI element if it differs
+   * from the `description`.
+   */
+  label?: NonEmptyString
+}
+
+export type LanguageTranslation = {
+  /**
+   * The name of the language.
+   */
+  name: NonEmptyString
+
+  /**
+   * A list of alternative names.
+   * @minItems 1
+   */
+  alternative_names?: AlternativeName[]
+
+  /**
+   * The description of the language.
+   */
+  description?: NonEmptyString
+
+  errata?: Errata
 }
 
 export const validateSchema = validateSchemaCreator<Language>(import.meta.url)

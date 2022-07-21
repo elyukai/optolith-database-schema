@@ -4,6 +4,7 @@
  */
 
 import { Errata } from "./source/_Erratum.js"
+import { AlternativeName } from "./_AlternativeNames.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "./_NonEmptyString.js"
 
@@ -108,18 +109,6 @@ export type DiseaseTranslation = {
   cure: NonEmptyMarkdown
 
   errata?: Errata
-}
-
-export type AlternativeName = {
-  /**
-   * An alternative name of the disease.
-   */
-  name: NonEmptyString
-
-  /**
-   * The region where this alternative name is used.
-   */
-  region?: NonEmptyString
 }
 
 /**

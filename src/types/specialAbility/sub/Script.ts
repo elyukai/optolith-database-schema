@@ -5,6 +5,11 @@
 import { validateSchemaCreator } from "../../../validation/schema.js"
 import { Errata } from "../../source/_Erratum.js"
 import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { AlternativeName } from "../../_AlternativeNames.js"
+import { LocaleMap } from "../../_LocaleMap.js"
+import { NonEmptyString } from "../../_NonEmptyString.js"
+import { LanguageReference } from "../../_SimpleReferences.js"
+import { AssociatedContinent } from "./_LanguageScript.js"
 
 /**
  * @title Script
@@ -28,72 +33,40 @@ export type Script = {
   /**
    * A list of languages that use this script.
    */
-  associated_languages: {
-    /**
-     * The language's identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-  }[]
+  associated_languages: LanguageReference[]
 
   /**
    * The continents this script is present on.
    * @minItems 1
    */
-  continent: {
-    /**
-     * The continent's identifier.
-     * @integer
-     * @minimum 1
-     * @maximum 3
-     */
-    id: number
-
-    /**
-     * Is the script considered virtually extinct in this continent?
-     */
-    is_extinct: boolean
-  }[]
+  continent: AssociatedContinent[]
 
   src: PublicationRefs
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the language.
-       * @minLength 1
-       */
-      name: string
+  translations: LocaleMap<ScriptTranslation>
+}
 
-      /**
-       * A list of alternative names.
-       * @minLength 1
-       */
-      alternative_names?: {
-        /**
-         * An alternative name of the language.
-         * @minLength 1
-         */
-        name: string
-      }[]
+export type ScriptTranslation = {
+  /**
+   * The name of the language.
+   */
+  name: NonEmptyString
 
-      /**
-       * The description of the alphabet.
-       * @minLength 1
-       */
-       alphabet?: string
+  /**
+   * A list of alternative names.
+   * @minItems 1
+   */
+  alternative_names?: AlternativeName[]
 
-      errata?: Errata
-    }
-  }
+  /**
+   * The description of the alphabet.
+   */
+  alphabet?: NonEmptyString
+
+  errata?: Errata
 }
 
 export const validateSchema = validateSchemaCreator<Script>(import.meta.url)

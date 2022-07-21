@@ -5,7 +5,8 @@
 import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
-import { AlternativeName, Reduceable, Resistance } from "./_DiseasePoison.js"
+import { AlternativeName } from "./_AlternativeNames.js"
+import { Reduceable, Resistance } from "./_DiseasePoison.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "./_NonEmptyString.js"
 

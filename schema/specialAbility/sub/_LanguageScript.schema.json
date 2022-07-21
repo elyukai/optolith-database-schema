@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/specialAbility/sub/_LanguageScript.schema.json",
+  "$defs": {
+    "AssociatedContinent": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The continent's identifier.",
+          "type": "integer",
+          "maximum": 3,
+          "minimum": 1
+        },
+        "is_extinct": {
+          "description": "Is the language considered virtually extinct in this continent?",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "is_extinct"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

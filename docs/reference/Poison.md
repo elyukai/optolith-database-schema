@@ -476,4 +476,4 @@ The normal and degraded poison's duration.
 
 ### <a name="PoisonTranslation/alternative_names[]"></a> `PoisonTranslation/alternative_names[]`
 
-- **Type:** <a href="./_DiseasePoison.md#AlternativeName">AlternativeName</a>
+- **Type:** <a href="./_AlternativeNames.md#AlternativeName">AlternativeName</a>

@@ -345,7 +345,7 @@
           "description": "A list of alternative names.",
           "type": "array",
           "items": {
-            "$ref": "./_DiseasePoison.schema.json#/$defs/AlternativeName"
+            "$ref": "./_AlternativeNames.schema.json#/$defs/AlternativeName"
           },
           "minItems": 1
         },

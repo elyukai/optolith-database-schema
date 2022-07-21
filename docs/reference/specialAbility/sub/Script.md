@@ -62,95 +62,59 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Script/associated_languages[]"></a> `Script/associated_languages[]`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The language's identifier. | <a href="#Script/associated_languages[]/id">See details</a>
-
-#### <a name="Script/associated_languages[]/id"></a> `id`
-
-The language's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="../../_SimpleReferences.md#LanguageReference">LanguageReference</a>
 
 ---
 
 ### <a name="Script/continent[]"></a> `Script/continent[]`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The continent's identifier. | <a href="#Script/continent[]/id">See details</a>
-`is_extinct` | Is the script considered virtually extinct in this continent? | <a href="#Script/continent[]/is_extinct">See details</a>
-
-#### <a name="Script/continent[]/id"></a> `id`
-
-The continent's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `3`
-
-#### <a name="Script/continent[]/is_extinct"></a> `is_extinct`
-
-Is the script considered virtually extinct in this continent?
-
-- **Type:** Boolean
+- **Type:** <a href="./_LanguageScript.md#AssociatedContinent">AssociatedContinent</a>
 
 ---
 
 ### <a name="Script/translations[key]"></a> `Script/translations[key]`
 
+- **Type:** <a href="#ScriptTranslation">ScriptTranslation</a>
+
+---
+
+### <a name="ScriptTranslation"></a> `ScriptTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The name of the language. | <a href="#Script/translations[key]/name">See details</a>
-`alternative_names?` | A list of alternative names. | <a href="#Script/translations[key]/alternative_names">See details</a>
-`alphabet?` | The description of the alphabet. | <a href="#Script/translations[key]/alphabet">See details</a>
-`errata?` |  | <a href="#Script/translations[key]/errata">See details</a>
+`name` | The name of the language. | <a href="#ScriptTranslation/name">See details</a>
+`alternative_names?` | A list of alternative names. | <a href="#ScriptTranslation/alternative_names">See details</a>
+`alphabet?` | The description of the alphabet. | <a href="#ScriptTranslation/alphabet">See details</a>
+`errata?` |  | <a href="#ScriptTranslation/errata">See details</a>
 
-#### <a name="Script/translations[key]/name"></a> `name`
+#### <a name="ScriptTranslation/name"></a> `name`
 
 The name of the language.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Script/translations[key]/alternative_names"></a> `alternative_names?`
+#### <a name="ScriptTranslation/alternative_names"></a> `alternative_names?`
 
 A list of alternative names.
 
 - **Type:** List
-- **Items:** <a href="#Script/translations[key]/alternative_names[]">Script/translations[key]/alternative_names[]</a>
+- **Items:** <a href="#ScriptTranslation/alternative_names[]">ScriptTranslation/alternative_names[]</a>
+- **Minimum Items:** `1`
 
-#### <a name="Script/translations[key]/alphabet"></a> `alphabet?`
+#### <a name="ScriptTranslation/alphabet"></a> `alphabet?`
 
 The description of the alphabet.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Script/translations[key]/errata"></a> `errata?`
+#### <a name="ScriptTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../../source/_Erratum.md#Errata">Errata</a>
 
 ---
 
-### <a name="Script/translations[key]/alternative_names[]"></a> `Script/translations[key]/alternative_names[]`
+### <a name="ScriptTranslation/alternative_names[]"></a> `ScriptTranslation/alternative_names[]`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`name` | An alternative name of the language. | <a href="#Script/translations[key]/alternative_names[]/name">See details</a>
-
-#### <a name="Script/translations[key]/alternative_names[]/name"></a> `name`
-
-An alternative name of the language.
-
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../../_AlternativeNames.md#AlternativeName">AlternativeName</a>
