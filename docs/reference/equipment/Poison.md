@@ -50,7 +50,7 @@ The poison's source type and dependent additional values.
 
 Use Spirit or Toughness as a modifier for the poison.
 
-- **Type:** <a href="./_DiseasePoison.md#Resistance">Resistance</a>
+- **Type:** <a href="../_DiseasePoison.md#Resistance">Resistance</a>
 
 #### <a name="Poison/value"></a> `value`
 
@@ -68,7 +68,7 @@ Price for one dose, in silverthalers.
 
 #### <a name="Poison/src"></a> `src`
 
-- **Type:** <a href="./source/_PublicationRef.md#PublicationRefs">PublicationRefs</a>
+- **Type:** <a href="../source/_PublicationRef.md#PublicationRefs">PublicationRefs</a>
 
 #### <a name="Poison/translations"></a> `translations`
 
@@ -398,27 +398,27 @@ Key | Description | Details
 
 How to ingest the intoxicant.
 
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="IntoxicantTranslation/side_effect"></a> `side_effect?`
 
 The intoxicants side effects, if any.
 
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
+- **Type:** <a href="../_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
 #### <a name="IntoxicantTranslation/overdose"></a> `overdose`
 
 What happens if the intoxicant has been overdosed.
 
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
+- **Type:** <a href="../_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
 #### <a name="IntoxicantTranslation/special"></a> `special?`
 
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
+- **Type:** <a href="../_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
 #### <a name="IntoxicantTranslation/addiction"></a> `addiction?`
 
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
+- **Type:** <a href="../_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
 ---
 
@@ -439,7 +439,7 @@ Key | Description | Details
 
 The name of the poison.
 
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="PoisonTranslation/alternative_names"></a> `alternative_names?`
 
@@ -453,7 +453,7 @@ A list of alternative names.
 
 The normal and degraded poison's effects.
 
-- **Type:** <a href="./_DiseasePoison.md#Reduceable">Reduceable</a>
+- **Type:** <a href="../_DiseasePoison.md#Reduceable">Reduceable</a>
 
 #### <a name="PoisonTranslation/start"></a> `start`
 
@@ -466,14 +466,14 @@ When the poison takes effect.
 
 The normal and degraded poison's duration.
 
-- **Type:** <a href="./_DiseasePoison.md#Reduceable">Reduceable</a>
+- **Type:** <a href="../_DiseasePoison.md#Reduceable">Reduceable</a>
 
 #### <a name="PoisonTranslation/errata"></a> `errata?`
 
-- **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
+- **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>
 
 ---
 
 ### <a name="PoisonTranslation/alternative_names[]"></a> `PoisonTranslation/alternative_names[]`
 
-- **Type:** <a href="./_AlternativeNames.md#AlternativeName">AlternativeName</a>
+- **Type:** <a href="../_AlternativeNames.md#AlternativeName">AlternativeName</a>
