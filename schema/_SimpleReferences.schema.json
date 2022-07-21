@@ -78,7 +78,8 @@
         "id": {
           "description": "The attribute's identifier.",
           "type": "integer",
-          "minimum": 8
+          "maximum": 8,
+          "minimum": 1
         }
       },
       "required": [
@@ -558,6 +559,20 @@
       "properties": {
         "id": {
           "description": "The weapon's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ArmorReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The armor's identifier.",
           "type": "integer",
           "minimum": 1
         }

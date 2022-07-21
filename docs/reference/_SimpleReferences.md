@@ -100,7 +100,8 @@ Key | Description | Details
 The attribute's identifier.
 
 - **Type:** Integer
-- **Minimum:** `8`
+- **Minimum:** `1`
+- **Maximum:** `8`
 
 ---
 
@@ -681,6 +682,23 @@ Key | Description | Details
 #### <a name="WeaponReference/id"></a> `id`
 
 The weapon's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="ArmorReference"></a> `ArmorReference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The armor's identifier. | <a href="#ArmorReference/id">See details</a>
+
+#### <a name="ArmorReference/id"></a> `id`
+
+The armor's identifier.
 
 - **Type:** Integer
 - **Minimum:** `1`

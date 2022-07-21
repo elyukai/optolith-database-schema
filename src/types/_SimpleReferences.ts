@@ -50,7 +50,7 @@ export type AttributeReference = {
    * The attribute's identifier.
    * @integer
    * @minimum 1
-   * @minimum 8
+   * @maximum 8
    */
   id: number
 }
@@ -359,6 +359,15 @@ export type ElementReference = {
 export type WeaponReference = {
   /**
    * The weapon's identifier.
+   * @integer
+   * @minimum 1
+   */
+  id: number
+}
+
+export type ArmorReference = {
+  /**
+   * The armor's identifier.
    * @integer
    * @minimum 1
    */
