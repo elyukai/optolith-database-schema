@@ -4,7 +4,56 @@
   "$ref": "#/$defs/AnimalCare",
   "$defs": {
     "AnimalCare": {
-      "$ref": "./_Item.schema.json#/$defs/DefaultItem"
+      "type": "object",
+      "properties": {
+        "cost": {
+          "description": "The cost in silverthalers.",
+          "$ref": "#/$defs/AnimalCareCost"
+        },
+        "src": {
+          "$ref": "../../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "./_Item.schema.json#/$defs/DefaultItemTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "cost",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "AnimalCareCost": {
+      "oneOf": [
+        {
+          "$ref": "./_Item.schema.json#/$defs/Cost"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PerWeek"
+            },
+            "per_week": {
+              "$ref": "./_Item.schema.json#/$defs/FixedCost"
+            }
+          },
+          "required": [
+            "tag",
+            "per_week"
+          ],
+          "additionalProperties": false
+        }
+      ]
     }
   }
 }
