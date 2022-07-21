@@ -73,42 +73,48 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="BowlEnchantment/translations[key]"></a> `BowlEnchantment/translations[key]`
 
+- **Type:** <a href="#BowlEnchantmentTranslation">BowlEnchantmentTranslation</a>
+
+---
+
+### <a name="BowlEnchantmentTranslation"></a> `BowlEnchantmentTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#BowlEnchantment/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#BowlEnchantment/translations[key]/name_in_library">See details</a>
-`effect` |  | <a href="#BowlEnchantment/translations[key]/effect">See details</a>
-`volume` |  | <a href="#BowlEnchantment/translations[key]/volume">See details</a>
-`aeCost?` |  | <a href="#BowlEnchantment/translations[key]/aeCost">See details</a>
-`bindingCost?` |  | <a href="#BowlEnchantment/translations[key]/bindingCost">See details</a>
-`errata?` |  | <a href="#BowlEnchantment/translations[key]/errata">See details</a>
+`name` |  | <a href="#BowlEnchantmentTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#BowlEnchantmentTranslation/name_in_library">See details</a>
+`effect` |  | <a href="#BowlEnchantmentTranslation/effect">See details</a>
+`volume` |  | <a href="#BowlEnchantmentTranslation/volume">See details</a>
+`aeCost?` |  | <a href="#BowlEnchantmentTranslation/aeCost">See details</a>
+`bindingCost?` |  | <a href="#BowlEnchantmentTranslation/bindingCost">See details</a>
+`errata?` |  | <a href="#BowlEnchantmentTranslation/errata">See details</a>
 
-#### <a name="BowlEnchantment/translations[key]/name"></a> `name`
+#### <a name="BowlEnchantmentTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="BowlEnchantment/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="BowlEnchantmentTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="BowlEnchantment/translations[key]/effect"></a> `effect`
+#### <a name="BowlEnchantmentTranslation/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
 
-#### <a name="BowlEnchantment/translations[key]/volume"></a> `volume`
+#### <a name="BowlEnchantmentTranslation/volume"></a> `volume`
 
 - **Type:** String
 
-#### <a name="BowlEnchantment/translations[key]/aeCost"></a> `aeCost?`
+#### <a name="BowlEnchantmentTranslation/aeCost"></a> `aeCost?`
 
 - **Type:** String
 
-#### <a name="BowlEnchantment/translations[key]/bindingCost"></a> `bindingCost?`
+#### <a name="BowlEnchantmentTranslation/bindingCost"></a> `bindingCost?`
 
 - **Type:** String
 
-#### <a name="BowlEnchantment/translations[key]/errata"></a> `errata?`
+#### <a name="BowlEnchantmentTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

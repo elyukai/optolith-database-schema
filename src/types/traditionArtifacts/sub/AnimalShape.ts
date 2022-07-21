@@ -3,6 +3,8 @@
  */
 
 import { validateSchemaCreator } from "../../../validation/schema.js"
+import { LocaleMap } from "../../_LocaleMap.js"
+import { NonEmptyString } from "../../_NonEmptyString.js"
 
 /**
  * @title Animal Shape
@@ -18,43 +20,42 @@ export type AnimalShape = {
   /**
    * The animal shape's path.
    */
-  path: {
-    /**
-     * The identifier of the animal shape's path.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-  }
+  path: AnimalShapePathReference
 
   /**
    * The animal shape's size.
    */
-  size: {
-    /**
-     * The identifier of the animal shape's size.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-  }
+  size: AnimalShapeSizeReference
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The animal shape name.
-       * @minLength 1
-       */
-      name: string
-    }
-  }
+  translations: LocaleMap<AnimalShapeTranslation>
+}
+
+export type AnimalShapePathReference = {
+  /**
+   * The identifier of the animal shape's path.
+   * @integer
+   * @minimum 1
+   */
+  id: number
+}
+
+export type AnimalShapeSizeReference = {
+  /**
+   * The identifier of the animal shape's size.
+   * @integer
+   * @minimum 1
+   */
+  id: number
+}
+
+export type AnimalShapeTranslation = {
+  /**
+   * The animal shape name.
+   */
+  name: NonEmptyString
 }
 
 export const validateSchema = validateSchemaCreator<AnimalShape>(import.meta.url)

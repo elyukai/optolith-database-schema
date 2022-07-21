@@ -73,42 +73,48 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="SpellSwordEnchantment/translations[key]"></a> `SpellSwordEnchantment/translations[key]`
 
+- **Type:** <a href="#SpellSwordEnchantmentTranslation">SpellSwordEnchantmentTranslation</a>
+
+---
+
+### <a name="SpellSwordEnchantmentTranslation"></a> `SpellSwordEnchantmentTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#SpellSwordEnchantment/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#SpellSwordEnchantment/translations[key]/name_in_library">See details</a>
-`effect` |  | <a href="#SpellSwordEnchantment/translations[key]/effect">See details</a>
-`volume` |  | <a href="#SpellSwordEnchantment/translations[key]/volume">See details</a>
-`aeCost?` |  | <a href="#SpellSwordEnchantment/translations[key]/aeCost">See details</a>
-`bindingCost?` |  | <a href="#SpellSwordEnchantment/translations[key]/bindingCost">See details</a>
-`errata?` |  | <a href="#SpellSwordEnchantment/translations[key]/errata">See details</a>
+`name` |  | <a href="#SpellSwordEnchantmentTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#SpellSwordEnchantmentTranslation/name_in_library">See details</a>
+`effect` |  | <a href="#SpellSwordEnchantmentTranslation/effect">See details</a>
+`volume` |  | <a href="#SpellSwordEnchantmentTranslation/volume">See details</a>
+`aeCost?` |  | <a href="#SpellSwordEnchantmentTranslation/aeCost">See details</a>
+`bindingCost?` |  | <a href="#SpellSwordEnchantmentTranslation/bindingCost">See details</a>
+`errata?` |  | <a href="#SpellSwordEnchantmentTranslation/errata">See details</a>
 
-#### <a name="SpellSwordEnchantment/translations[key]/name"></a> `name`
+#### <a name="SpellSwordEnchantmentTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="SpellSwordEnchantment/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="SpellSwordEnchantmentTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="SpellSwordEnchantment/translations[key]/effect"></a> `effect`
+#### <a name="SpellSwordEnchantmentTranslation/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
 
-#### <a name="SpellSwordEnchantment/translations[key]/volume"></a> `volume`
+#### <a name="SpellSwordEnchantmentTranslation/volume"></a> `volume`
 
 - **Type:** String
 
-#### <a name="SpellSwordEnchantment/translations[key]/aeCost"></a> `aeCost?`
+#### <a name="SpellSwordEnchantmentTranslation/aeCost"></a> `aeCost?`
 
 - **Type:** String
 
-#### <a name="SpellSwordEnchantment/translations[key]/bindingCost"></a> `bindingCost?`
+#### <a name="SpellSwordEnchantmentTranslation/bindingCost"></a> `bindingCost?`
 
 - **Type:** String
 
-#### <a name="SpellSwordEnchantment/translations[key]/errata"></a> `errata?`
+#### <a name="SpellSwordEnchantmentTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

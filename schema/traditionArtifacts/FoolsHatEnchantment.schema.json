@@ -42,36 +42,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "$ref": "../_Activatable.schema.json#/$defs/Name"
-                },
-                "name_in_library": {
-                  "$ref": "../_Activatable.schema.json#/$defs/NameInLibrary"
-                },
-                "effect": {
-                  "$ref": "../_Activatable.schema.json#/$defs/Effect"
-                },
-                "volume": {
-                  "type": "string"
-                },
-                "aeCost": {
-                  "type": "string"
-                },
-                "bindingCost": {
-                  "type": "string"
-                },
-                "errata": {
-                  "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "effect",
-                "volume"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/FoolsHatEnchantmentTranslation"
             }
           },
           "minProperties": 1,
@@ -85,6 +56,38 @@
         "ap_value",
         "src",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "FoolsHatEnchantmentTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref": "../_Activatable.schema.json#/$defs/Name"
+        },
+        "name_in_library": {
+          "$ref": "../_Activatable.schema.json#/$defs/NameInLibrary"
+        },
+        "effect": {
+          "$ref": "../_Activatable.schema.json#/$defs/Effect"
+        },
+        "volume": {
+          "type": "string"
+        },
+        "aeCost": {
+          "type": "string"
+        },
+        "bindingCost": {
+          "type": "string"
+        },
+        "errata": {
+          "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "effect",
+        "volume"
       ],
       "additionalProperties": false
     }

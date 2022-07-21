@@ -73,42 +73,48 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="ChronicleEnchantment/translations[key]"></a> `ChronicleEnchantment/translations[key]`
 
+- **Type:** <a href="#ChronicleEnchantmentTranslation">ChronicleEnchantmentTranslation</a>
+
+---
+
+### <a name="ChronicleEnchantmentTranslation"></a> `ChronicleEnchantmentTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#ChronicleEnchantment/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#ChronicleEnchantment/translations[key]/name_in_library">See details</a>
-`effect` |  | <a href="#ChronicleEnchantment/translations[key]/effect">See details</a>
-`volume` |  | <a href="#ChronicleEnchantment/translations[key]/volume">See details</a>
-`aeCost?` |  | <a href="#ChronicleEnchantment/translations[key]/aeCost">See details</a>
-`bindingCost?` |  | <a href="#ChronicleEnchantment/translations[key]/bindingCost">See details</a>
-`errata?` |  | <a href="#ChronicleEnchantment/translations[key]/errata">See details</a>
+`name` |  | <a href="#ChronicleEnchantmentTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#ChronicleEnchantmentTranslation/name_in_library">See details</a>
+`effect` |  | <a href="#ChronicleEnchantmentTranslation/effect">See details</a>
+`volume` |  | <a href="#ChronicleEnchantmentTranslation/volume">See details</a>
+`aeCost?` |  | <a href="#ChronicleEnchantmentTranslation/aeCost">See details</a>
+`bindingCost?` |  | <a href="#ChronicleEnchantmentTranslation/bindingCost">See details</a>
+`errata?` |  | <a href="#ChronicleEnchantmentTranslation/errata">See details</a>
 
-#### <a name="ChronicleEnchantment/translations[key]/name"></a> `name`
+#### <a name="ChronicleEnchantmentTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="ChronicleEnchantment/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="ChronicleEnchantmentTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="ChronicleEnchantment/translations[key]/effect"></a> `effect`
+#### <a name="ChronicleEnchantmentTranslation/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
 
-#### <a name="ChronicleEnchantment/translations[key]/volume"></a> `volume`
+#### <a name="ChronicleEnchantmentTranslation/volume"></a> `volume`
 
 - **Type:** String
 
-#### <a name="ChronicleEnchantment/translations[key]/aeCost"></a> `aeCost?`
+#### <a name="ChronicleEnchantmentTranslation/aeCost"></a> `aeCost?`
 
 - **Type:** String
 
-#### <a name="ChronicleEnchantment/translations[key]/bindingCost"></a> `bindingCost?`
+#### <a name="ChronicleEnchantmentTranslation/bindingCost"></a> `bindingCost?`
 
 - **Type:** String
 
-#### <a name="ChronicleEnchantment/translations[key]/errata"></a> `errata?`
+#### <a name="ChronicleEnchantmentTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

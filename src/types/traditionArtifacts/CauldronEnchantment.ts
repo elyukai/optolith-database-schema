@@ -6,6 +6,7 @@ import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import * as Activatable from "../_Activatable.js"
+import { LocaleMap } from "../_LocaleMap.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 
 /**
@@ -28,15 +29,7 @@ export type CauldronEnchantment = {
    * Witches can learn to brew special things in their Witch's Cauldron. These
    * brews can be categorized in different types.
    */
-  brew: {
-    /**
-     * The brew's identifier.
-     * @integer
-     * @minimum 1
-     * @maximum 4
-     */
-    id: number
-  }
+  brew: BrewReference
 
   cost: Activatable.EnchantmentCost
 
@@ -48,49 +41,55 @@ export type CauldronEnchantment = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      name: Activatable.Name
+  translations: LocaleMap<CauldronEnchantmentTranslation>
+}
 
-      name_in_library?: Activatable.NameInLibrary
+export type BrewReference = {
+  /**
+   * The brew's identifier.
+   * @integer
+   * @minimum 1
+   * @maximum 4
+   */
+  id: number
+}
 
-      // input?: Activatable.Input
+export type CauldronEnchantmentTranslation = {
+  name: Activatable.Name
 
-      effect: Activatable.Effect
+  name_in_library?: Activatable.NameInLibrary
 
-      // prerequisites?: Activatable.PrerequisitesReplacement
+  // input?: Activatable.Input
 
-      // prerequisites_start?: Activatable.PrerequisitesStart
+  effect: Activatable.Effect
 
-      // prerequisites_end?: Activatable.PrerequisitesEnd
+  // prerequisites?: Activatable.PrerequisitesReplacement
 
-      /**
-       * @deprecated
-       */
-      volume: string
+  // prerequisites_start?: Activatable.PrerequisitesStart
 
-      /**
-       * @deprecated
-       */
-      aeCost?: string
+  // prerequisites_end?: Activatable.PrerequisitesEnd
 
-      /**
-       * @deprecated
-       */
-      bindingCost?: string
+  /**
+   * @deprecated
+   */
+  volume: string
 
-      // ap_value?: Activatable.AdventurePointsValueReplacement
+  /**
+   * @deprecated
+   */
+  aeCost?: string
 
-      // ap_value_append?: Activatable.AdventurePointsValueAppend
+  /**
+   * @deprecated
+   */
+  bindingCost?: string
 
-      errata?: Errata
-    }
-  }
+  // ap_value?: Activatable.AdventurePointsValueReplacement
+
+  // ap_value_append?: Activatable.AdventurePointsValueAppend
+
+  errata?: Errata
 }
 
 export const validateSchema = validateSchemaCreator<CauldronEnchantment>(import.meta.url)

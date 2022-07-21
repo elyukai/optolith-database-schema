@@ -73,45 +73,7 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="DaggerRitual/translations[key]"></a> `DaggerRitual/translations[key]`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`name` |  | <a href="#DaggerRitual/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#DaggerRitual/translations[key]/name_in_library">See details</a>
-`effect` |  | <a href="#DaggerRitual/translations[key]/effect">See details</a>
-`volume` |  | <a href="#DaggerRitual/translations[key]/volume">See details</a>
-`aeCost?` |  | <a href="#DaggerRitual/translations[key]/aeCost">See details</a>
-`bindingCost?` |  | <a href="#DaggerRitual/translations[key]/bindingCost">See details</a>
-`errata?` |  | <a href="#DaggerRitual/translations[key]/errata">See details</a>
-
-#### <a name="DaggerRitual/translations[key]/name"></a> `name`
-
-- **Type:** <a href="../_Activatable.md#Name">Name</a>
-
-#### <a name="DaggerRitual/translations[key]/name_in_library"></a> `name_in_library?`
-
-- **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
-
-#### <a name="DaggerRitual/translations[key]/effect"></a> `effect`
-
-- **Type:** <a href="../_Activatable.md#Effect">Effect</a>
-
-#### <a name="DaggerRitual/translations[key]/volume"></a> `volume`
-
-- **Type:** String
-
-#### <a name="DaggerRitual/translations[key]/aeCost"></a> `aeCost?`
-
-- **Type:** String
-
-#### <a name="DaggerRitual/translations[key]/bindingCost"></a> `bindingCost?`
-
-- **Type:** String
-
-#### <a name="DaggerRitual/translations[key]/errata"></a> `errata?`
-
-- **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>
+- **Type:** <a href="#DaggerRitualTranslation">DaggerRitualTranslation</a>
 
 ---
 
@@ -129,42 +91,15 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#DaggerRitualCost'ArcaneEnergyCost/tag">See details</a>
-`ae_cost` |  | <a href="#DaggerRitualCost'ArcaneEnergyCost/ae_cost">See details</a>
-`lp_cost?` |  | <a href="#DaggerRitualCost'ArcaneEnergyCost/lp_cost">See details</a>
+`arcane_energy_cost` |  | <a href="#DaggerRitualCost'ArcaneEnergyCost/arcane_energy_cost">See details</a>
 
 #### <a name="DaggerRitualCost'ArcaneEnergyCost/tag"></a> `tag`
 
 - **Constant:** `"ArcaneEnergyCost"`
 
-#### <a name="DaggerRitualCost'ArcaneEnergyCost/ae_cost"></a> `ae_cost`
+#### <a name="DaggerRitualCost'ArcaneEnergyCost/arcane_energy_cost"></a> `arcane_energy_cost`
 
-- **Type:** <a href="../_Activatable.md#ArcaneEnergyCost">ArcaneEnergyCost</a>
-
-#### <a name="DaggerRitualCost'ArcaneEnergyCost/lp_cost"></a> `lp_cost?`
-
-- **Type:** <a href="#DaggerRitualCost'ArcaneEnergyCost/lp_cost">Object</a>
-
----
-
-### <a name="DaggerRitualCost'ArcaneEnergyCost/lp_cost"></a> `DaggerRitualCost'ArcaneEnergyCost/lp_cost`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#DaggerRitualCost'ArcaneEnergyCost/lp_cost/tag">See details</a>
-`value` | The LP cost value. | <a href="#DaggerRitualCost'ArcaneEnergyCost/lp_cost/value">See details</a>
-
-#### <a name="DaggerRitualCost'ArcaneEnergyCost/lp_cost/tag"></a> `tag`
-
-- **Constant:** `"Fixed"`
-
-#### <a name="DaggerRitualCost'ArcaneEnergyCost/lp_cost/value"></a> `value`
-
-The LP cost value.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="#DaggerRitualArcaneEnergyCost">DaggerRitualArcaneEnergyCost</a>
 
 ---
 
@@ -184,3 +119,109 @@ Key | Description | Details
 #### <a name="DaggerRitualCost'BindingCost/binding_cost"></a> `binding_cost`
 
 - **Type:** <a href="../_Activatable.md#BindingCost">BindingCost</a>
+
+---
+
+### <a name="DaggerRitualArcaneEnergyCost"></a> `DaggerRitualArcaneEnergyCost`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`ae_cost` |  | <a href="#DaggerRitualArcaneEnergyCost/ae_cost">See details</a>
+`lp_cost?` |  | <a href="#DaggerRitualArcaneEnergyCost/lp_cost">See details</a>
+
+#### <a name="DaggerRitualArcaneEnergyCost/ae_cost"></a> `ae_cost`
+
+- **Type:** <a href="../_Activatable.md#ArcaneEnergyCost">ArcaneEnergyCost</a>
+
+#### <a name="DaggerRitualArcaneEnergyCost/lp_cost"></a> `lp_cost?`
+
+- **Type:** <a href="#LifePointsCost">LifePointsCost</a>
+
+---
+
+### <a name="LifePointsCost"></a> `LifePointsCost`
+
+- **Type:** Union
+- **Cases:** <a href="#LifePointsCost'Fixed">LifePointsCost'Fixed</a>
+
+---
+
+### <a name="LifePointsCost'Fixed"></a> `LifePointsCost'Fixed`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#LifePointsCost'Fixed/tag">See details</a>
+`fixed` |  | <a href="#LifePointsCost'Fixed/fixed">See details</a>
+
+#### <a name="LifePointsCost'Fixed/tag"></a> `tag`
+
+- **Constant:** `"Fixed"`
+
+#### <a name="LifePointsCost'Fixed/fixed"></a> `fixed`
+
+- **Type:** <a href="#FixedLifePointsCost">FixedLifePointsCost</a>
+
+---
+
+### <a name="FixedLifePointsCost"></a> `FixedLifePointsCost`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`value` | The LP cost value. | <a href="#FixedLifePointsCost/value">See details</a>
+
+#### <a name="FixedLifePointsCost/value"></a> `value`
+
+The LP cost value.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="DaggerRitualTranslation"></a> `DaggerRitualTranslation`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`name` |  | <a href="#DaggerRitualTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#DaggerRitualTranslation/name_in_library">See details</a>
+`effect` |  | <a href="#DaggerRitualTranslation/effect">See details</a>
+`volume` |  | <a href="#DaggerRitualTranslation/volume">See details</a>
+`aeCost?` |  | <a href="#DaggerRitualTranslation/aeCost">See details</a>
+`bindingCost?` |  | <a href="#DaggerRitualTranslation/bindingCost">See details</a>
+`errata?` |  | <a href="#DaggerRitualTranslation/errata">See details</a>
+
+#### <a name="DaggerRitualTranslation/name"></a> `name`
+
+- **Type:** <a href="../_Activatable.md#Name">Name</a>
+
+#### <a name="DaggerRitualTranslation/name_in_library"></a> `name_in_library?`
+
+- **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
+
+#### <a name="DaggerRitualTranslation/effect"></a> `effect`
+
+- **Type:** <a href="../_Activatable.md#Effect">Effect</a>
+
+#### <a name="DaggerRitualTranslation/volume"></a> `volume`
+
+- **Type:** String
+
+#### <a name="DaggerRitualTranslation/aeCost"></a> `aeCost?`
+
+- **Type:** String
+
+#### <a name="DaggerRitualTranslation/bindingCost"></a> `bindingCost?`
+
+- **Type:** String
+
+#### <a name="DaggerRitualTranslation/errata"></a> `errata?`
+
+- **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

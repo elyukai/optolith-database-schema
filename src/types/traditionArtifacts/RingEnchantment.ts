@@ -6,6 +6,7 @@ import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import * as Activatable from "../_Activatable.js"
+import { LocaleMap } from "../_LocaleMap.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 
 /**
@@ -34,49 +35,45 @@ export type RingEnchantment = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      name: Activatable.Name
+  translations: LocaleMap<RingEnchantmentTranslation>
+}
 
-      name_in_library?: Activatable.NameInLibrary
+export type RingEnchantmentTranslation = {
+  name: Activatable.Name
 
-      // input?: Activatable.Input
+  name_in_library?: Activatable.NameInLibrary
 
-      effect: Activatable.Effect
+  // input?: Activatable.Input
 
-      // prerequisites?: Activatable.PrerequisitesReplacement
+  effect: Activatable.Effect
 
-      // prerequisites_start?: Activatable.PrerequisitesStart
+  // prerequisites?: Activatable.PrerequisitesReplacement
 
-      // prerequisites_end?: Activatable.PrerequisitesEnd
+  // prerequisites_start?: Activatable.PrerequisitesStart
 
-      /**
-       * @deprecated
-       */
-      volume: string
+  // prerequisites_end?: Activatable.PrerequisitesEnd
 
-      /**
-       * @deprecated
-       */
-      aeCost?: string
+  /**
+   * @deprecated
+   */
+  volume: string
 
-      /**
-       * @deprecated
-       */
-      bindingCost?: string
+  /**
+   * @deprecated
+   */
+  aeCost?: string
 
-      // ap_value?: Activatable.AdventurePointsValueReplacement
+  /**
+   * @deprecated
+   */
+  bindingCost?: string
 
-      // ap_value_append?: Activatable.AdventurePointsValueAppend
+  // ap_value?: Activatable.AdventurePointsValueReplacement
 
-      errata?: Errata
-    }
-  }
+  // ap_value_append?: Activatable.AdventurePointsValueAppend
+
+  errata?: Errata
 }
 
 export const validateSchema = validateSchemaCreator<RingEnchantment>(import.meta.url)

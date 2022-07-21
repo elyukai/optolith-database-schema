@@ -7,6 +7,7 @@ import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import * as Activatable from "../_Activatable.js"
 import { ArcaneEnergyCost, BindingCost } from "../_Activatable.js"
+import { LocaleMap } from "../_LocaleMap.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 
 /**
@@ -35,72 +36,66 @@ export type DaggerRitual = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      name: Activatable.Name
-
-      name_in_library?: Activatable.NameInLibrary
-
-      // input?: Activatable.Input
-
-      effect: Activatable.Effect
-
-      // prerequisites?: Activatable.PrerequisitesReplacement
-
-      // prerequisites_start?: Activatable.PrerequisitesStart
-
-      // prerequisites_end?: Activatable.PrerequisitesEnd
-
-      /**
-       * @deprecated
-       */
-      volume: string
-
-      /**
-       * @deprecated
-       */
-      aeCost?: string
-
-      /**
-       * @deprecated
-       */
-      bindingCost?: string
-
-      // ap_value?: Activatable.AdventurePointsValueReplacement
-
-      // ap_value_append?: Activatable.AdventurePointsValueAppend
-
-      errata?: Errata
-    }
-  }
+  translations: LocaleMap<DaggerRitualTranslation>
 }
 
 export type DaggerRitualCost =
-  | {
-    tag: "ArcaneEnergyCost"
+  | { tag: "ArcaneEnergyCost"; arcane_energy_cost: DaggerRitualArcaneEnergyCost }
+  | { tag: "BindingCost"; binding_cost: BindingCost }
 
-    ae_cost: ArcaneEnergyCost
+export type DaggerRitualArcaneEnergyCost = {
+  ae_cost: ArcaneEnergyCost
+  lp_cost?: LifePointsCost
+}
 
-    lp_cost?: {
-      tag: "Fixed"
+export type LifePointsCost =
+  | { tag: "Fixed"; fixed: FixedLifePointsCost }
 
-      /**
-       * The LP cost value.
-       * @integer
-       * @minimum 1
-       */
-      value: number
-    }
-  }
-  | {
-    tag: "BindingCost"
+export type FixedLifePointsCost = {
+  /**
+   * The LP cost value.
+   * @integer
+   * @minimum 1
+   */
+  value: number
+}
 
-    binding_cost: BindingCost
-  }
+export type DaggerRitualTranslation = {
+  name: Activatable.Name
+
+  name_in_library?: Activatable.NameInLibrary
+
+  // input?: Activatable.Input
+
+  effect: Activatable.Effect
+
+  // prerequisites?: Activatable.PrerequisitesReplacement
+
+  // prerequisites_start?: Activatable.PrerequisitesStart
+
+  // prerequisites_end?: Activatable.PrerequisitesEnd
+
+  /**
+   * @deprecated
+   */
+  volume: string
+
+  /**
+   * @deprecated
+   */
+  aeCost?: string
+
+  /**
+   * @deprecated
+   */
+  bindingCost?: string
+
+  // ap_value?: Activatable.AdventurePointsValueReplacement
+
+  // ap_value_append?: Activatable.AdventurePointsValueAppend
+
+  errata?: Errata
+}
 
 export const validateSchema = validateSchemaCreator<DaggerRitual>(import.meta.url)

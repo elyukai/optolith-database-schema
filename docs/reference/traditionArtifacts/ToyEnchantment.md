@@ -73,42 +73,48 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="ToyEnchantment/translations[key]"></a> `ToyEnchantment/translations[key]`
 
+- **Type:** <a href="#ToyEnchantmentTranslation">ToyEnchantmentTranslation</a>
+
+---
+
+### <a name="ToyEnchantmentTranslation"></a> `ToyEnchantmentTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#ToyEnchantment/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#ToyEnchantment/translations[key]/name_in_library">See details</a>
-`effect` |  | <a href="#ToyEnchantment/translations[key]/effect">See details</a>
-`volume` |  | <a href="#ToyEnchantment/translations[key]/volume">See details</a>
-`aeCost?` |  | <a href="#ToyEnchantment/translations[key]/aeCost">See details</a>
-`bindingCost?` |  | <a href="#ToyEnchantment/translations[key]/bindingCost">See details</a>
-`errata?` |  | <a href="#ToyEnchantment/translations[key]/errata">See details</a>
+`name` |  | <a href="#ToyEnchantmentTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#ToyEnchantmentTranslation/name_in_library">See details</a>
+`effect` |  | <a href="#ToyEnchantmentTranslation/effect">See details</a>
+`volume` |  | <a href="#ToyEnchantmentTranslation/volume">See details</a>
+`aeCost?` |  | <a href="#ToyEnchantmentTranslation/aeCost">See details</a>
+`bindingCost?` |  | <a href="#ToyEnchantmentTranslation/bindingCost">See details</a>
+`errata?` |  | <a href="#ToyEnchantmentTranslation/errata">See details</a>
 
-#### <a name="ToyEnchantment/translations[key]/name"></a> `name`
+#### <a name="ToyEnchantmentTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="ToyEnchantment/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="ToyEnchantmentTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="ToyEnchantment/translations[key]/effect"></a> `effect`
+#### <a name="ToyEnchantmentTranslation/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
 
-#### <a name="ToyEnchantment/translations[key]/volume"></a> `volume`
+#### <a name="ToyEnchantmentTranslation/volume"></a> `volume`
 
 - **Type:** String
 
-#### <a name="ToyEnchantment/translations[key]/aeCost"></a> `aeCost?`
+#### <a name="ToyEnchantmentTranslation/aeCost"></a> `aeCost?`
 
 - **Type:** String
 
-#### <a name="ToyEnchantment/translations[key]/bindingCost"></a> `bindingCost?`
+#### <a name="ToyEnchantmentTranslation/bindingCost"></a> `bindingCost?`
 
 - **Type:** String
 
-#### <a name="ToyEnchantment/translations[key]/errata"></a> `errata?`
+#### <a name="ToyEnchantmentTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

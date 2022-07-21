@@ -73,42 +73,48 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="InstrumentEnchantment/translations[key]"></a> `InstrumentEnchantment/translations[key]`
 
+- **Type:** <a href="#InstrumentEnchantmentTranslation">InstrumentEnchantmentTranslation</a>
+
+---
+
+### <a name="InstrumentEnchantmentTranslation"></a> `InstrumentEnchantmentTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#InstrumentEnchantment/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#InstrumentEnchantment/translations[key]/name_in_library">See details</a>
-`effect` |  | <a href="#InstrumentEnchantment/translations[key]/effect">See details</a>
-`volume` |  | <a href="#InstrumentEnchantment/translations[key]/volume">See details</a>
-`aeCost?` |  | <a href="#InstrumentEnchantment/translations[key]/aeCost">See details</a>
-`bindingCost?` |  | <a href="#InstrumentEnchantment/translations[key]/bindingCost">See details</a>
-`errata?` |  | <a href="#InstrumentEnchantment/translations[key]/errata">See details</a>
+`name` |  | <a href="#InstrumentEnchantmentTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#InstrumentEnchantmentTranslation/name_in_library">See details</a>
+`effect` |  | <a href="#InstrumentEnchantmentTranslation/effect">See details</a>
+`volume` |  | <a href="#InstrumentEnchantmentTranslation/volume">See details</a>
+`aeCost?` |  | <a href="#InstrumentEnchantmentTranslation/aeCost">See details</a>
+`bindingCost?` |  | <a href="#InstrumentEnchantmentTranslation/bindingCost">See details</a>
+`errata?` |  | <a href="#InstrumentEnchantmentTranslation/errata">See details</a>
 
-#### <a name="InstrumentEnchantment/translations[key]/name"></a> `name`
+#### <a name="InstrumentEnchantmentTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="InstrumentEnchantment/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="InstrumentEnchantmentTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="InstrumentEnchantment/translations[key]/effect"></a> `effect`
+#### <a name="InstrumentEnchantmentTranslation/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
 
-#### <a name="InstrumentEnchantment/translations[key]/volume"></a> `volume`
+#### <a name="InstrumentEnchantmentTranslation/volume"></a> `volume`
 
 - **Type:** String
 
-#### <a name="InstrumentEnchantment/translations[key]/aeCost"></a> `aeCost?`
+#### <a name="InstrumentEnchantmentTranslation/aeCost"></a> `aeCost?`
 
 - **Type:** String
 
-#### <a name="InstrumentEnchantment/translations[key]/bindingCost"></a> `bindingCost?`
+#### <a name="InstrumentEnchantmentTranslation/bindingCost"></a> `bindingCost?`
 
 - **Type:** String
 
-#### <a name="InstrumentEnchantment/translations[key]/errata"></a> `errata?`
+#### <a name="InstrumentEnchantmentTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

@@ -73,42 +73,48 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="SickleRitual/translations[key]"></a> `SickleRitual/translations[key]`
 
+- **Type:** <a href="#SickleRitualTranslation">SickleRitualTranslation</a>
+
+---
+
+### <a name="SickleRitualTranslation"></a> `SickleRitualTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#SickleRitual/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#SickleRitual/translations[key]/name_in_library">See details</a>
-`effect` |  | <a href="#SickleRitual/translations[key]/effect">See details</a>
-`volume` |  | <a href="#SickleRitual/translations[key]/volume">See details</a>
-`aeCost?` |  | <a href="#SickleRitual/translations[key]/aeCost">See details</a>
-`bindingCost?` |  | <a href="#SickleRitual/translations[key]/bindingCost">See details</a>
-`errata?` |  | <a href="#SickleRitual/translations[key]/errata">See details</a>
+`name` |  | <a href="#SickleRitualTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#SickleRitualTranslation/name_in_library">See details</a>
+`effect` |  | <a href="#SickleRitualTranslation/effect">See details</a>
+`volume` |  | <a href="#SickleRitualTranslation/volume">See details</a>
+`aeCost?` |  | <a href="#SickleRitualTranslation/aeCost">See details</a>
+`bindingCost?` |  | <a href="#SickleRitualTranslation/bindingCost">See details</a>
+`errata?` |  | <a href="#SickleRitualTranslation/errata">See details</a>
 
-#### <a name="SickleRitual/translations[key]/name"></a> `name`
+#### <a name="SickleRitualTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="SickleRitual/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="SickleRitualTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="SickleRitual/translations[key]/effect"></a> `effect`
+#### <a name="SickleRitualTranslation/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
 
-#### <a name="SickleRitual/translations[key]/volume"></a> `volume`
+#### <a name="SickleRitualTranslation/volume"></a> `volume`
 
 - **Type:** String
 
-#### <a name="SickleRitual/translations[key]/aeCost"></a> `aeCost?`
+#### <a name="SickleRitualTranslation/aeCost"></a> `aeCost?`
 
 - **Type:** String
 
-#### <a name="SickleRitual/translations[key]/bindingCost"></a> `bindingCost?`
+#### <a name="SickleRitualTranslation/bindingCost"></a> `bindingCost?`
 
 - **Type:** String
 
-#### <a name="SickleRitual/translations[key]/errata"></a> `errata?`
+#### <a name="SickleRitualTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

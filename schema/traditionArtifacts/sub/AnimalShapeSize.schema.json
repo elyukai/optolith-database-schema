@@ -27,18 +27,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The animal shape size name.",
-                  "type": "string",
-                  "minLength": 1
-                }
-              },
-              "required": [
-                "name"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/AnimalShapeSizeTranslation"
             }
           },
           "minProperties": 1,
@@ -50,6 +39,19 @@
         "volume",
         "ap_value",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "AnimalShapeSizeTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The animal shape size name.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "name"
       ],
       "additionalProperties": false
     }

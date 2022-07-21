@@ -73,42 +73,48 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="OrbEnchantment/translations[key]"></a> `OrbEnchantment/translations[key]`
 
+- **Type:** <a href="#OrbEnchantmentTranslation">OrbEnchantmentTranslation</a>
+
+---
+
+### <a name="OrbEnchantmentTranslation"></a> `OrbEnchantmentTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#OrbEnchantment/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#OrbEnchantment/translations[key]/name_in_library">See details</a>
-`effect` |  | <a href="#OrbEnchantment/translations[key]/effect">See details</a>
-`volume` |  | <a href="#OrbEnchantment/translations[key]/volume">See details</a>
-`aeCost?` |  | <a href="#OrbEnchantment/translations[key]/aeCost">See details</a>
-`bindingCost?` |  | <a href="#OrbEnchantment/translations[key]/bindingCost">See details</a>
-`errata?` |  | <a href="#OrbEnchantment/translations[key]/errata">See details</a>
+`name` |  | <a href="#OrbEnchantmentTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#OrbEnchantmentTranslation/name_in_library">See details</a>
+`effect` |  | <a href="#OrbEnchantmentTranslation/effect">See details</a>
+`volume` |  | <a href="#OrbEnchantmentTranslation/volume">See details</a>
+`aeCost?` |  | <a href="#OrbEnchantmentTranslation/aeCost">See details</a>
+`bindingCost?` |  | <a href="#OrbEnchantmentTranslation/bindingCost">See details</a>
+`errata?` |  | <a href="#OrbEnchantmentTranslation/errata">See details</a>
 
-#### <a name="OrbEnchantment/translations[key]/name"></a> `name`
+#### <a name="OrbEnchantmentTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="OrbEnchantment/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="OrbEnchantmentTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="OrbEnchantment/translations[key]/effect"></a> `effect`
+#### <a name="OrbEnchantmentTranslation/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
 
-#### <a name="OrbEnchantment/translations[key]/volume"></a> `volume`
+#### <a name="OrbEnchantmentTranslation/volume"></a> `volume`
 
 - **Type:** String
 
-#### <a name="OrbEnchantment/translations[key]/aeCost"></a> `aeCost?`
+#### <a name="OrbEnchantmentTranslation/aeCost"></a> `aeCost?`
 
 - **Type:** String
 
-#### <a name="OrbEnchantment/translations[key]/bindingCost"></a> `bindingCost?`
+#### <a name="OrbEnchantmentTranslation/bindingCost"></a> `bindingCost?`
 
 - **Type:** String
 
-#### <a name="OrbEnchantment/translations[key]/errata"></a> `errata?`
+#### <a name="OrbEnchantmentTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

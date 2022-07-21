@@ -73,42 +73,48 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Krallenkettenzauber/translations[key]"></a> `Krallenkettenzauber/translations[key]`
 
+- **Type:** <a href="#KrallenkettenzauberTranslation">KrallenkettenzauberTranslation</a>
+
+---
+
+### <a name="KrallenkettenzauberTranslation"></a> `KrallenkettenzauberTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#Krallenkettenzauber/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#Krallenkettenzauber/translations[key]/name_in_library">See details</a>
-`effect` |  | <a href="#Krallenkettenzauber/translations[key]/effect">See details</a>
-`volume` |  | <a href="#Krallenkettenzauber/translations[key]/volume">See details</a>
-`aeCost?` |  | <a href="#Krallenkettenzauber/translations[key]/aeCost">See details</a>
-`bindingCost?` |  | <a href="#Krallenkettenzauber/translations[key]/bindingCost">See details</a>
-`errata?` |  | <a href="#Krallenkettenzauber/translations[key]/errata">See details</a>
+`name` |  | <a href="#KrallenkettenzauberTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#KrallenkettenzauberTranslation/name_in_library">See details</a>
+`effect` |  | <a href="#KrallenkettenzauberTranslation/effect">See details</a>
+`volume` |  | <a href="#KrallenkettenzauberTranslation/volume">See details</a>
+`aeCost?` |  | <a href="#KrallenkettenzauberTranslation/aeCost">See details</a>
+`bindingCost?` |  | <a href="#KrallenkettenzauberTranslation/bindingCost">See details</a>
+`errata?` |  | <a href="#KrallenkettenzauberTranslation/errata">See details</a>
 
-#### <a name="Krallenkettenzauber/translations[key]/name"></a> `name`
+#### <a name="KrallenkettenzauberTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="Krallenkettenzauber/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="KrallenkettenzauberTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="Krallenkettenzauber/translations[key]/effect"></a> `effect`
+#### <a name="KrallenkettenzauberTranslation/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
 
-#### <a name="Krallenkettenzauber/translations[key]/volume"></a> `volume`
+#### <a name="KrallenkettenzauberTranslation/volume"></a> `volume`
 
 - **Type:** String
 
-#### <a name="Krallenkettenzauber/translations[key]/aeCost"></a> `aeCost?`
+#### <a name="KrallenkettenzauberTranslation/aeCost"></a> `aeCost?`
 
 - **Type:** String
 
-#### <a name="Krallenkettenzauber/translations[key]/bindingCost"></a> `bindingCost?`
+#### <a name="KrallenkettenzauberTranslation/bindingCost"></a> `bindingCost?`
 
 - **Type:** String
 
-#### <a name="Krallenkettenzauber/translations[key]/errata"></a> `errata?`
+#### <a name="KrallenkettenzauberTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

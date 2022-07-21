@@ -73,42 +73,48 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Trinkhornzauber/translations[key]"></a> `Trinkhornzauber/translations[key]`
 
+- **Type:** <a href="#TrinkhornzauberTranslation">TrinkhornzauberTranslation</a>
+
+---
+
+### <a name="TrinkhornzauberTranslation"></a> `TrinkhornzauberTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#Trinkhornzauber/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#Trinkhornzauber/translations[key]/name_in_library">See details</a>
-`effect` |  | <a href="#Trinkhornzauber/translations[key]/effect">See details</a>
-`volume` |  | <a href="#Trinkhornzauber/translations[key]/volume">See details</a>
-`aeCost?` |  | <a href="#Trinkhornzauber/translations[key]/aeCost">See details</a>
-`bindingCost?` |  | <a href="#Trinkhornzauber/translations[key]/bindingCost">See details</a>
-`errata?` |  | <a href="#Trinkhornzauber/translations[key]/errata">See details</a>
+`name` |  | <a href="#TrinkhornzauberTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#TrinkhornzauberTranslation/name_in_library">See details</a>
+`effect` |  | <a href="#TrinkhornzauberTranslation/effect">See details</a>
+`volume` |  | <a href="#TrinkhornzauberTranslation/volume">See details</a>
+`aeCost?` |  | <a href="#TrinkhornzauberTranslation/aeCost">See details</a>
+`bindingCost?` |  | <a href="#TrinkhornzauberTranslation/bindingCost">See details</a>
+`errata?` |  | <a href="#TrinkhornzauberTranslation/errata">See details</a>
 
-#### <a name="Trinkhornzauber/translations[key]/name"></a> `name`
+#### <a name="TrinkhornzauberTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="Trinkhornzauber/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="TrinkhornzauberTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="Trinkhornzauber/translations[key]/effect"></a> `effect`
+#### <a name="TrinkhornzauberTranslation/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
 
-#### <a name="Trinkhornzauber/translations[key]/volume"></a> `volume`
+#### <a name="TrinkhornzauberTranslation/volume"></a> `volume`
 
 - **Type:** String
 
-#### <a name="Trinkhornzauber/translations[key]/aeCost"></a> `aeCost?`
+#### <a name="TrinkhornzauberTranslation/aeCost"></a> `aeCost?`
 
 - **Type:** String
 
-#### <a name="Trinkhornzauber/translations[key]/bindingCost"></a> `bindingCost?`
+#### <a name="TrinkhornzauberTranslation/bindingCost"></a> `bindingCost?`
 
 - **Type:** String
 
-#### <a name="Trinkhornzauber/translations[key]/errata"></a> `errata?`
+#### <a name="TrinkhornzauberTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

@@ -73,42 +73,48 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="FoolsHatEnchantment/translations[key]"></a> `FoolsHatEnchantment/translations[key]`
 
+- **Type:** <a href="#FoolsHatEnchantmentTranslation">FoolsHatEnchantmentTranslation</a>
+
+---
+
+### <a name="FoolsHatEnchantmentTranslation"></a> `FoolsHatEnchantmentTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#FoolsHatEnchantment/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#FoolsHatEnchantment/translations[key]/name_in_library">See details</a>
-`effect` |  | <a href="#FoolsHatEnchantment/translations[key]/effect">See details</a>
-`volume` |  | <a href="#FoolsHatEnchantment/translations[key]/volume">See details</a>
-`aeCost?` |  | <a href="#FoolsHatEnchantment/translations[key]/aeCost">See details</a>
-`bindingCost?` |  | <a href="#FoolsHatEnchantment/translations[key]/bindingCost">See details</a>
-`errata?` |  | <a href="#FoolsHatEnchantment/translations[key]/errata">See details</a>
+`name` |  | <a href="#FoolsHatEnchantmentTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#FoolsHatEnchantmentTranslation/name_in_library">See details</a>
+`effect` |  | <a href="#FoolsHatEnchantmentTranslation/effect">See details</a>
+`volume` |  | <a href="#FoolsHatEnchantmentTranslation/volume">See details</a>
+`aeCost?` |  | <a href="#FoolsHatEnchantmentTranslation/aeCost">See details</a>
+`bindingCost?` |  | <a href="#FoolsHatEnchantmentTranslation/bindingCost">See details</a>
+`errata?` |  | <a href="#FoolsHatEnchantmentTranslation/errata">See details</a>
 
-#### <a name="FoolsHatEnchantment/translations[key]/name"></a> `name`
+#### <a name="FoolsHatEnchantmentTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="FoolsHatEnchantment/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="FoolsHatEnchantmentTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="FoolsHatEnchantment/translations[key]/effect"></a> `effect`
+#### <a name="FoolsHatEnchantmentTranslation/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
 
-#### <a name="FoolsHatEnchantment/translations[key]/volume"></a> `volume`
+#### <a name="FoolsHatEnchantmentTranslation/volume"></a> `volume`
 
 - **Type:** String
 
-#### <a name="FoolsHatEnchantment/translations[key]/aeCost"></a> `aeCost?`
+#### <a name="FoolsHatEnchantmentTranslation/aeCost"></a> `aeCost?`
 
 - **Type:** String
 
-#### <a name="FoolsHatEnchantment/translations[key]/bindingCost"></a> `bindingCost?`
+#### <a name="FoolsHatEnchantmentTranslation/bindingCost"></a> `bindingCost?`
 
 - **Type:** String
 
-#### <a name="FoolsHatEnchantment/translations[key]/errata"></a> `errata?`
+#### <a name="FoolsHatEnchantmentTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

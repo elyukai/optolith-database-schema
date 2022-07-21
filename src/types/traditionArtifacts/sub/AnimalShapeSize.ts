@@ -3,11 +3,13 @@
  */
 
 import { validateSchemaCreator } from "../../../validation/schema.js"
+import { LocaleMap } from "../../_LocaleMap.js"
+import { NonEmptyString } from "../../_NonEmptyString.js"
 
 /**
  * @title Animal Shape Size
  */
- export type AnimalShapeSize = {
+export type AnimalShapeSize = {
   /**
    * The animal shape's identifier. An unique, increasing integer.
    * @integer
@@ -31,20 +33,15 @@ import { validateSchemaCreator } from "../../../validation/schema.js"
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The animal shape size name.
-       * @minLength 1
-       */
-      name: string
-    }
-  }
+  translations: LocaleMap<AnimalShapeSizeTranslation>
+}
+
+export type AnimalShapeSizeTranslation = {
+  /**
+   * The animal shape size name.
+   */
+  name: NonEmptyString
 }
 
 export const validateSchema = validateSchemaCreator<AnimalShapeSize>(import.meta.url)

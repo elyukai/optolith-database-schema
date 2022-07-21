@@ -64,51 +64,48 @@ Key | Description | Details
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#WeaponEnchantment/translations[key]">WeaponEnchantment/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="#WeaponEnchantmentTranslation">WeaponEnchantmentTranslation</a>
 
 ---
 
-### <a name="WeaponEnchantment/translations[key]"></a> `WeaponEnchantment/translations[key]`
+### <a name="WeaponEnchantmentTranslation"></a> `WeaponEnchantmentTranslation`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#WeaponEnchantment/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#WeaponEnchantment/translations[key]/name_in_library">See details</a>
-`effect` |  | <a href="#WeaponEnchantment/translations[key]/effect">See details</a>
-`volume` |  | <a href="#WeaponEnchantment/translations[key]/volume">See details</a>
-`aeCost?` |  | <a href="#WeaponEnchantment/translations[key]/aeCost">See details</a>
-`bindingCost?` |  | <a href="#WeaponEnchantment/translations[key]/bindingCost">See details</a>
-`errata?` |  | <a href="#WeaponEnchantment/translations[key]/errata">See details</a>
+`name` |  | <a href="#WeaponEnchantmentTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#WeaponEnchantmentTranslation/name_in_library">See details</a>
+`effect` |  | <a href="#WeaponEnchantmentTranslation/effect">See details</a>
+`volume` |  | <a href="#WeaponEnchantmentTranslation/volume">See details</a>
+`aeCost?` |  | <a href="#WeaponEnchantmentTranslation/aeCost">See details</a>
+`bindingCost?` |  | <a href="#WeaponEnchantmentTranslation/bindingCost">See details</a>
+`errata?` |  | <a href="#WeaponEnchantmentTranslation/errata">See details</a>
 
-#### <a name="WeaponEnchantment/translations[key]/name"></a> `name`
+#### <a name="WeaponEnchantmentTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="WeaponEnchantment/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="WeaponEnchantmentTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="WeaponEnchantment/translations[key]/effect"></a> `effect`
+#### <a name="WeaponEnchantmentTranslation/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
 
-#### <a name="WeaponEnchantment/translations[key]/volume"></a> `volume`
+#### <a name="WeaponEnchantmentTranslation/volume"></a> `volume`
 
 - **Type:** String
 
-#### <a name="WeaponEnchantment/translations[key]/aeCost"></a> `aeCost?`
+#### <a name="WeaponEnchantmentTranslation/aeCost"></a> `aeCost?`
 
 - **Type:** String
 
-#### <a name="WeaponEnchantment/translations[key]/bindingCost"></a> `bindingCost?`
+#### <a name="WeaponEnchantmentTranslation/bindingCost"></a> `bindingCost?`
 
 - **Type:** String
 
-#### <a name="WeaponEnchantment/translations[key]/errata"></a> `errata?`
+#### <a name="WeaponEnchantmentTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

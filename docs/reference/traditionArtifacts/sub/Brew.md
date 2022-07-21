@@ -31,15 +31,20 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Brew/translations[key]"></a> `Brew/translations[key]`
 
+- **Type:** <a href="#BrewTranslation">BrewTranslation</a>
+
+---
+
+### <a name="BrewTranslation"></a> `BrewTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The brew name. | <a href="#Brew/translations[key]/name">See details</a>
+`name` | The brew name. | <a href="#BrewTranslation/name">See details</a>
 
-#### <a name="Brew/translations[key]/name"></a> `name`
+#### <a name="BrewTranslation/name"></a> `name`
 
 The brew name.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

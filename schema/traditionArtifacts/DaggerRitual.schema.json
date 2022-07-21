@@ -42,36 +42,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "$ref": "../_Activatable.schema.json#/$defs/Name"
-                },
-                "name_in_library": {
-                  "$ref": "../_Activatable.schema.json#/$defs/NameInLibrary"
-                },
-                "effect": {
-                  "$ref": "../_Activatable.schema.json#/$defs/Effect"
-                },
-                "volume": {
-                  "type": "string"
-                },
-                "aeCost": {
-                  "type": "string"
-                },
-                "bindingCost": {
-                  "type": "string"
-                },
-                "errata": {
-                  "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "effect",
-                "volume"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/DaggerRitualTranslation"
             }
           },
           "minProperties": 1,
@@ -97,31 +68,13 @@
             "tag": {
               "const": "ArcaneEnergyCost"
             },
-            "ae_cost": {
-              "$ref": "../_Activatable.schema.json#/$defs/ArcaneEnergyCost"
-            },
-            "lp_cost": {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Fixed"
-                },
-                "value": {
-                  "description": "The LP cost value.",
-                  "type": "integer",
-                  "minimum": 1
-                }
-              },
-              "required": [
-                "tag",
-                "value"
-              ],
-              "additionalProperties": false
+            "arcane_energy_cost": {
+              "$ref": "#/$defs/DaggerRitualArcaneEnergyCost"
             }
           },
           "required": [
             "tag",
-            "ae_cost"
+            "arcane_energy_cost"
           ],
           "additionalProperties": false
         },
@@ -142,6 +95,87 @@
           "additionalProperties": false
         }
       ]
+    },
+    "DaggerRitualArcaneEnergyCost": {
+      "type": "object",
+      "properties": {
+        "ae_cost": {
+          "$ref": "../_Activatable.schema.json#/$defs/ArcaneEnergyCost"
+        },
+        "lp_cost": {
+          "$ref": "#/$defs/LifePointsCost"
+        }
+      },
+      "required": [
+        "ae_cost"
+      ],
+      "additionalProperties": false
+    },
+    "LifePointsCost": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Fixed"
+            },
+            "fixed": {
+              "$ref": "#/$defs/FixedLifePointsCost"
+            }
+          },
+          "required": [
+            "tag",
+            "fixed"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "FixedLifePointsCost": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The LP cost value.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "DaggerRitualTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref": "../_Activatable.schema.json#/$defs/Name"
+        },
+        "name_in_library": {
+          "$ref": "../_Activatable.schema.json#/$defs/NameInLibrary"
+        },
+        "effect": {
+          "$ref": "../_Activatable.schema.json#/$defs/Effect"
+        },
+        "volume": {
+          "type": "string"
+        },
+        "aeCost": {
+          "type": "string"
+        },
+        "bindingCost": {
+          "type": "string"
+        },
+        "errata": {
+          "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "effect",
+        "volume"
+      ],
+      "additionalProperties": false
     }
   }
 }

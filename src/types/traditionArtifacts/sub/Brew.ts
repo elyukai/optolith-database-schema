@@ -3,6 +3,8 @@
  */
 
 import { validateSchemaCreator } from "../../../validation/schema.js"
+import { LocaleMap } from "../../_LocaleMap.js"
+import { NonEmptyString } from "../../_NonEmptyString.js"
 
 /**
  * @title Brew
@@ -17,20 +19,15 @@ export type Brew = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The brew name.
-       * @minLength 1
-       */
-      name: string
-    }
-  }
+  translations: LocaleMap<BrewTranslation>
+}
+
+export type BrewTranslation = {
+  /**
+   * The brew name.
+   */
+  name: NonEmptyString
 }
 
 export const validateSchema = validateSchemaCreator<Brew>(import.meta.url)

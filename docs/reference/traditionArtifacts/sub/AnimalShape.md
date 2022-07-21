@@ -24,13 +24,13 @@ The animal shape's identifier. An unique, increasing integer.
 
 The animal shape's path.
 
-- **Type:** <a href="#AnimalShape/path">Object</a>
+- **Type:** <a href="#AnimalShapePathReference">AnimalShapePathReference</a>
 
 #### <a name="AnimalShape/size"></a> `size`
 
 The animal shape's size.
 
-- **Type:** <a href="#AnimalShape/size">Object</a>
+- **Type:** <a href="#AnimalShapeSizeReference">AnimalShapeSizeReference</a>
 
 #### <a name="AnimalShape/translations"></a> `translations`
 
@@ -43,17 +43,21 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="AnimalShape/path"></a> `AnimalShape/path`
+### <a name="AnimalShape/translations[key]"></a> `AnimalShape/translations[key]`
 
-The animal shape's path.
+- **Type:** <a href="#AnimalShapeTranslation">AnimalShapeTranslation</a>
+
+---
+
+### <a name="AnimalShapePathReference"></a> `AnimalShapePathReference`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The identifier of the animal shape's path. | <a href="#AnimalShape/path/id">See details</a>
+`id` | The identifier of the animal shape's path. | <a href="#AnimalShapePathReference/id">See details</a>
 
-#### <a name="AnimalShape/path/id"></a> `id`
+#### <a name="AnimalShapePathReference/id"></a> `id`
 
 The identifier of the animal shape's path.
 
@@ -62,17 +66,15 @@ The identifier of the animal shape's path.
 
 ---
 
-### <a name="AnimalShape/size"></a> `AnimalShape/size`
-
-The animal shape's size.
+### <a name="AnimalShapeSizeReference"></a> `AnimalShapeSizeReference`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The identifier of the animal shape's size. | <a href="#AnimalShape/size/id">See details</a>
+`id` | The identifier of the animal shape's size. | <a href="#AnimalShapeSizeReference/id">See details</a>
 
-#### <a name="AnimalShape/size/id"></a> `id`
+#### <a name="AnimalShapeSizeReference/id"></a> `id`
 
 The identifier of the animal shape's size.
 
@@ -81,17 +83,16 @@ The identifier of the animal shape's size.
 
 ---
 
-### <a name="AnimalShape/translations[key]"></a> `AnimalShape/translations[key]`
+### <a name="AnimalShapeTranslation"></a> `AnimalShapeTranslation`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The animal shape name. | <a href="#AnimalShape/translations[key]/name">See details</a>
+`name` | The animal shape name. | <a href="#AnimalShapeTranslation/name">See details</a>
 
-#### <a name="AnimalShape/translations[key]/name"></a> `name`
+#### <a name="AnimalShapeTranslation/name"></a> `name`
 
 The animal shape name.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

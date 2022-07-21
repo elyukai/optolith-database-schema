@@ -3,6 +3,8 @@
  */
 
 import { validateSchemaCreator } from "../../../validation/schema.js"
+import { LocaleMap } from "../../_LocaleMap.js"
+import { NonEmptyString } from "../../_NonEmptyString.js"
 
 /**
  * @title Animal Shape Path
@@ -17,20 +19,15 @@ import { validateSchemaCreator } from "../../../validation/schema.js"
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The animal shape path's name.
-       * @minLength 1
-       */
-      name: string
-    }
-  }
+  translations: LocaleMap<AnimalShapePathTranslation>
+}
+
+export type AnimalShapePathTranslation = {
+  /**
+   * The animal shape path's name.
+   */
+  name: NonEmptyString
 }
 
 export const validateSchema = validateSchemaCreator<AnimalShapePath>(import.meta.url)

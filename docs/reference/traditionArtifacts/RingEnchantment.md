@@ -73,42 +73,48 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="RingEnchantment/translations[key]"></a> `RingEnchantment/translations[key]`
 
+- **Type:** <a href="#RingEnchantmentTranslation">RingEnchantmentTranslation</a>
+
+---
+
+### <a name="RingEnchantmentTranslation"></a> `RingEnchantmentTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#RingEnchantment/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#RingEnchantment/translations[key]/name_in_library">See details</a>
-`effect` |  | <a href="#RingEnchantment/translations[key]/effect">See details</a>
-`volume` |  | <a href="#RingEnchantment/translations[key]/volume">See details</a>
-`aeCost?` |  | <a href="#RingEnchantment/translations[key]/aeCost">See details</a>
-`bindingCost?` |  | <a href="#RingEnchantment/translations[key]/bindingCost">See details</a>
-`errata?` |  | <a href="#RingEnchantment/translations[key]/errata">See details</a>
+`name` |  | <a href="#RingEnchantmentTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#RingEnchantmentTranslation/name_in_library">See details</a>
+`effect` |  | <a href="#RingEnchantmentTranslation/effect">See details</a>
+`volume` |  | <a href="#RingEnchantmentTranslation/volume">See details</a>
+`aeCost?` |  | <a href="#RingEnchantmentTranslation/aeCost">See details</a>
+`bindingCost?` |  | <a href="#RingEnchantmentTranslation/bindingCost">See details</a>
+`errata?` |  | <a href="#RingEnchantmentTranslation/errata">See details</a>
 
-#### <a name="RingEnchantment/translations[key]/name"></a> `name`
+#### <a name="RingEnchantmentTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="RingEnchantment/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="RingEnchantmentTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="RingEnchantment/translations[key]/effect"></a> `effect`
+#### <a name="RingEnchantmentTranslation/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
 
-#### <a name="RingEnchantment/translations[key]/volume"></a> `volume`
+#### <a name="RingEnchantmentTranslation/volume"></a> `volume`
 
 - **Type:** String
 
-#### <a name="RingEnchantment/translations[key]/aeCost"></a> `aeCost?`
+#### <a name="RingEnchantmentTranslation/aeCost"></a> `aeCost?`
 
 - **Type:** String
 
-#### <a name="RingEnchantment/translations[key]/bindingCost"></a> `bindingCost?`
+#### <a name="RingEnchantmentTranslation/bindingCost"></a> `bindingCost?`
 
 - **Type:** String
 
-#### <a name="RingEnchantment/translations[key]/errata"></a> `errata?`
+#### <a name="RingEnchantmentTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

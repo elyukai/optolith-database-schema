@@ -73,42 +73,48 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="StaffEnchantment/translations[key]"></a> `StaffEnchantment/translations[key]`
 
+- **Type:** <a href="#StaffEnchantmentTranslation">StaffEnchantmentTranslation</a>
+
+---
+
+### <a name="StaffEnchantmentTranslation"></a> `StaffEnchantmentTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#StaffEnchantment/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#StaffEnchantment/translations[key]/name_in_library">See details</a>
-`effect` |  | <a href="#StaffEnchantment/translations[key]/effect">See details</a>
-`volume` |  | <a href="#StaffEnchantment/translations[key]/volume">See details</a>
-`aeCost?` |  | <a href="#StaffEnchantment/translations[key]/aeCost">See details</a>
-`bindingCost?` |  | <a href="#StaffEnchantment/translations[key]/bindingCost">See details</a>
-`errata?` |  | <a href="#StaffEnchantment/translations[key]/errata">See details</a>
+`name` |  | <a href="#StaffEnchantmentTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#StaffEnchantmentTranslation/name_in_library">See details</a>
+`effect` |  | <a href="#StaffEnchantmentTranslation/effect">See details</a>
+`volume` |  | <a href="#StaffEnchantmentTranslation/volume">See details</a>
+`aeCost?` |  | <a href="#StaffEnchantmentTranslation/aeCost">See details</a>
+`bindingCost?` |  | <a href="#StaffEnchantmentTranslation/bindingCost">See details</a>
+`errata?` |  | <a href="#StaffEnchantmentTranslation/errata">See details</a>
 
-#### <a name="StaffEnchantment/translations[key]/name"></a> `name`
+#### <a name="StaffEnchantmentTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="StaffEnchantment/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="StaffEnchantmentTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="StaffEnchantment/translations[key]/effect"></a> `effect`
+#### <a name="StaffEnchantmentTranslation/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
 
-#### <a name="StaffEnchantment/translations[key]/volume"></a> `volume`
+#### <a name="StaffEnchantmentTranslation/volume"></a> `volume`
 
 - **Type:** String
 
-#### <a name="StaffEnchantment/translations[key]/aeCost"></a> `aeCost?`
+#### <a name="StaffEnchantmentTranslation/aeCost"></a> `aeCost?`
 
 - **Type:** String
 
-#### <a name="StaffEnchantment/translations[key]/bindingCost"></a> `bindingCost?`
+#### <a name="StaffEnchantmentTranslation/bindingCost"></a> `bindingCost?`
 
 - **Type:** String
 
-#### <a name="StaffEnchantment/translations[key]/errata"></a> `errata?`
+#### <a name="StaffEnchantmentTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

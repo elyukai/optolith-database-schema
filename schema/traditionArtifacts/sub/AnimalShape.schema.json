@@ -14,51 +14,18 @@
         },
         "path": {
           "description": "The animal shape's path.",
-          "type": "object",
-          "properties": {
-            "id": {
-              "description": "The identifier of the animal shape's path.",
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          "required": [
-            "id"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/AnimalShapePathReference"
         },
         "size": {
           "description": "The animal shape's size.",
-          "type": "object",
-          "properties": {
-            "id": {
-              "description": "The identifier of the animal shape's size.",
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          "required": [
-            "id"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/AnimalShapeSizeReference"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The animal shape name.",
-                  "type": "string",
-                  "minLength": 1
-                }
-              },
-              "required": [
-                "name"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/AnimalShapeTranslation"
             }
           },
           "minProperties": 1,
@@ -70,6 +37,47 @@
         "path",
         "size",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "AnimalShapePathReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The identifier of the animal shape's path.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "AnimalShapeSizeReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The identifier of the animal shape's size.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "AnimalShapeTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The animal shape name.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "name"
       ],
       "additionalProperties": false
     }

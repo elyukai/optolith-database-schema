@@ -47,15 +47,20 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="AnimalShapeSize/translations[key]"></a> `AnimalShapeSize/translations[key]`
 
+- **Type:** <a href="#AnimalShapeSizeTranslation">AnimalShapeSizeTranslation</a>
+
+---
+
+### <a name="AnimalShapeSizeTranslation"></a> `AnimalShapeSizeTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The animal shape size name. | <a href="#AnimalShapeSize/translations[key]/name">See details</a>
+`name` | The animal shape size name. | <a href="#AnimalShapeSizeTranslation/name">See details</a>
 
-#### <a name="AnimalShapeSize/translations[key]/name"></a> `name`
+#### <a name="AnimalShapeSizeTranslation/name"></a> `name`
 
 The animal shape size name.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

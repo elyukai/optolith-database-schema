@@ -31,15 +31,20 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="AnimalShapePath/translations[key]"></a> `AnimalShapePath/translations[key]`
 
+- **Type:** <a href="#AnimalShapePathTranslation">AnimalShapePathTranslation</a>
+
+---
+
+### <a name="AnimalShapePathTranslation"></a> `AnimalShapePathTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The animal shape path's name. | <a href="#AnimalShapePath/translations[key]/name">See details</a>
+`name` | The animal shape path's name. | <a href="#AnimalShapePathTranslation/name">See details</a>
 
-#### <a name="AnimalShapePath/translations[key]/name"></a> `name`
+#### <a name="AnimalShapePathTranslation/name"></a> `name`
 
 The animal shape path's name.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

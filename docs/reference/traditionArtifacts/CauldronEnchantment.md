@@ -50,7 +50,7 @@ Key | Description | Details
 Witches can learn to brew special things in their Witch's Cauldron. These
 brews can be categorized in different types.
 
-- **Type:** <a href="#CauldronEnchantment/brew">Object</a>
+- **Type:** <a href="#BrewReference">BrewReference</a>
 
 #### <a name="CauldronEnchantment/cost"></a> `cost`
 
@@ -79,18 +79,21 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="CauldronEnchantment/brew"></a> `CauldronEnchantment/brew`
+### <a name="CauldronEnchantment/translations[key]"></a> `CauldronEnchantment/translations[key]`
 
-Witches can learn to brew special things in their Witch's Cauldron. These
-brews can be categorized in different types.
+- **Type:** <a href="#CauldronEnchantmentTranslation">CauldronEnchantmentTranslation</a>
+
+---
+
+### <a name="BrewReference"></a> `BrewReference`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The brew's identifier. | <a href="#CauldronEnchantment/brew/id">See details</a>
+`id` | The brew's identifier. | <a href="#BrewReference/id">See details</a>
 
-#### <a name="CauldronEnchantment/brew/id"></a> `id`
+#### <a name="BrewReference/id"></a> `id`
 
 The brew's identifier.
 
@@ -100,44 +103,44 @@ The brew's identifier.
 
 ---
 
-### <a name="CauldronEnchantment/translations[key]"></a> `CauldronEnchantment/translations[key]`
+### <a name="CauldronEnchantmentTranslation"></a> `CauldronEnchantmentTranslation`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#CauldronEnchantment/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#CauldronEnchantment/translations[key]/name_in_library">See details</a>
-`effect` |  | <a href="#CauldronEnchantment/translations[key]/effect">See details</a>
-`volume` |  | <a href="#CauldronEnchantment/translations[key]/volume">See details</a>
-`aeCost?` |  | <a href="#CauldronEnchantment/translations[key]/aeCost">See details</a>
-`bindingCost?` |  | <a href="#CauldronEnchantment/translations[key]/bindingCost">See details</a>
-`errata?` |  | <a href="#CauldronEnchantment/translations[key]/errata">See details</a>
+`name` |  | <a href="#CauldronEnchantmentTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#CauldronEnchantmentTranslation/name_in_library">See details</a>
+`effect` |  | <a href="#CauldronEnchantmentTranslation/effect">See details</a>
+`volume` |  | <a href="#CauldronEnchantmentTranslation/volume">See details</a>
+`aeCost?` |  | <a href="#CauldronEnchantmentTranslation/aeCost">See details</a>
+`bindingCost?` |  | <a href="#CauldronEnchantmentTranslation/bindingCost">See details</a>
+`errata?` |  | <a href="#CauldronEnchantmentTranslation/errata">See details</a>
 
-#### <a name="CauldronEnchantment/translations[key]/name"></a> `name`
+#### <a name="CauldronEnchantmentTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="CauldronEnchantment/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="CauldronEnchantmentTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="CauldronEnchantment/translations[key]/effect"></a> `effect`
+#### <a name="CauldronEnchantmentTranslation/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
 
-#### <a name="CauldronEnchantment/translations[key]/volume"></a> `volume`
+#### <a name="CauldronEnchantmentTranslation/volume"></a> `volume`
 
 - **Type:** String
 
-#### <a name="CauldronEnchantment/translations[key]/aeCost"></a> `aeCost?`
+#### <a name="CauldronEnchantmentTranslation/aeCost"></a> `aeCost?`
 
 - **Type:** String
 
-#### <a name="CauldronEnchantment/translations[key]/bindingCost"></a> `bindingCost?`
+#### <a name="CauldronEnchantmentTranslation/bindingCost"></a> `bindingCost?`
 
 - **Type:** String
 
-#### <a name="CauldronEnchantment/translations[key]/errata"></a> `errata?`
+#### <a name="CauldronEnchantmentTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

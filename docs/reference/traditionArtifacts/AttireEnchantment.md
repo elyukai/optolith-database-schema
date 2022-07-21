@@ -73,42 +73,48 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="AttireEnchantment/translations[key]"></a> `AttireEnchantment/translations[key]`
 
+- **Type:** <a href="#AttireEnchantmentTranslation">AttireEnchantmentTranslation</a>
+
+---
+
+### <a name="AttireEnchantmentTranslation"></a> `AttireEnchantmentTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#AttireEnchantment/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#AttireEnchantment/translations[key]/name_in_library">See details</a>
-`effect` |  | <a href="#AttireEnchantment/translations[key]/effect">See details</a>
-`volume` |  | <a href="#AttireEnchantment/translations[key]/volume">See details</a>
-`aeCost?` |  | <a href="#AttireEnchantment/translations[key]/aeCost">See details</a>
-`bindingCost?` |  | <a href="#AttireEnchantment/translations[key]/bindingCost">See details</a>
-`errata?` |  | <a href="#AttireEnchantment/translations[key]/errata">See details</a>
+`name` |  | <a href="#AttireEnchantmentTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#AttireEnchantmentTranslation/name_in_library">See details</a>
+`effect` |  | <a href="#AttireEnchantmentTranslation/effect">See details</a>
+`volume` |  | <a href="#AttireEnchantmentTranslation/volume">See details</a>
+`aeCost?` |  | <a href="#AttireEnchantmentTranslation/aeCost">See details</a>
+`bindingCost?` |  | <a href="#AttireEnchantmentTranslation/bindingCost">See details</a>
+`errata?` |  | <a href="#AttireEnchantmentTranslation/errata">See details</a>
 
-#### <a name="AttireEnchantment/translations[key]/name"></a> `name`
+#### <a name="AttireEnchantmentTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="AttireEnchantment/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="AttireEnchantmentTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="AttireEnchantment/translations[key]/effect"></a> `effect`
+#### <a name="AttireEnchantmentTranslation/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
 
-#### <a name="AttireEnchantment/translations[key]/volume"></a> `volume`
+#### <a name="AttireEnchantmentTranslation/volume"></a> `volume`
 
 - **Type:** String
 
-#### <a name="AttireEnchantment/translations[key]/aeCost"></a> `aeCost?`
+#### <a name="AttireEnchantmentTranslation/aeCost"></a> `aeCost?`
 
 - **Type:** String
 
-#### <a name="AttireEnchantment/translations[key]/bindingCost"></a> `bindingCost?`
+#### <a name="AttireEnchantmentTranslation/bindingCost"></a> `bindingCost?`
 
 - **Type:** String
 
-#### <a name="AttireEnchantment/translations[key]/errata"></a> `errata?`
+#### <a name="AttireEnchantmentTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>
