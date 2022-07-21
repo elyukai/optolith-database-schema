@@ -5,13 +5,17 @@ import { libDir } from "../../config/directories.js"
 
 export type FileNameError = {
   keyword: "filename"
+  instancePath: string
+  message: string
 }
 
-const fileNameError: FileNameError = {
-  keyword: "filename"
-}
+const fileNameError = (fileName: string): FileNameError => ({
+  keyword: "filename",
+  instancePath: "",
+  message: `the file name "${fileName}" does not match the pattern ^[1-9][0-9]*_[A-Z][a-z]*(?:-[a-zA-Z][a-z]*)\\.yml$`
+})
 
-const baseNamePattern = /^[1-9][0-9]*_[A-Z][a-z]*(?:-[a-zA-Z][a-z]*)$/
+const baseNamePattern = /^[1-9][0-9]*_[A-Z][a-z]*(?:-[a-zA-Z][a-z]*)\.yml$/
 
 export type TypeValidationError = DefinedError | FileNameError
 
@@ -42,7 +46,8 @@ export const validateSchemaCreator = <T>(
     const schemaId = schemaIdFromSourcePath(importMetaUrl)
 
     return (validator: Ajv, data: unknown, filePath: string): TypeValidationResult<T> => {
-      const correctFileName = ignoreFileNamePattern || baseNamePattern.test(basename(filePath))
+      const fileName = basename(filePath)
+      const correctFileName = ignoreFileNamePattern || baseNamePattern.test(fileName)
 
       if (validator.validate(schemaId, data) && correctFileName) {
         return { tag: "Ok", value: data as T}
@@ -50,7 +55,7 @@ export const validateSchemaCreator = <T>(
       else {
         const errors: TypeValidationError[] = [
           ...(validator.errors as DefinedError[] ?? []),
-          ...(!correctFileName ? [fileNameError] : [])
+          ...(!correctFileName ? [fileNameError(fileName)] : [])
         ]
 
         return { tag: "Error", errors }

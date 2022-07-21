@@ -5,7 +5,7 @@ import { join } from "path"
 import YAML from "yaml"
 import { jsonSchemaDir } from "../config/directories.js"
 import { TypeMap, typeValidatorMap } from "./config.js"
-import { TypeValidationResult } from "./validation/schema.js"
+import { TypeValidationError, TypeValidationResult } from "./validation/schema.js"
 
 type RawResultMap = { [K in keyof TypeMap]: Record<string, TypeValidationResult<TypeMap[K]>> }
 
@@ -153,7 +153,7 @@ export const validate = async (entityDirPaths: EntityDirectoryPaths, checkIntegr
   return rawResultMapToResult(rawResultMap)
 }
 
-export const printErrors = (errorsByFile: Record<string, DefinedError[]>) =>
+export const printErrors = (errorsByFile: Record<string, TypeValidationError[]>) =>
   Object.entries(errorsByFile)
     .flatMap(
       ([filePath, errors]) =>
