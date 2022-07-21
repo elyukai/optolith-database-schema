@@ -18,10 +18,37 @@ import * as Disadvantage from "./types/Disadvantage.js"
 import * as Disease from "./types/Disease.js"
 import * as Element from "./types/Element.js"
 import * as EquipmentPackage from "./types/equipment/EquipmentPackage.js"
+import * as Alchemicum from "./types/equipment/item/Alchemicum.js"
+import * as Ammunition from "./types/equipment/item/Ammunition.js"
+import * as Animal from "./types/equipment/item/Animal.js"
+import * as AnimalCare from "./types/equipment/item/AnimalCare.js"
+import * as Armor from "./types/equipment/item/Armor.js"
+import * as BandageOrRemedy from "./types/equipment/item/BandageOrRemedy.js"
+import * as Book from "./types/equipment/item/Book.js"
+import * as CeremonialItem from "./types/equipment/item/CeremonialItem.js"
+import * as Clothes from "./types/equipment/item/Clothes.js"
+import * as Container from "./types/equipment/item/Container.js"
+import * as EquipmentOfBlessedOnes from "./types/equipment/item/EquipmentOfBlessedOnes.js"
+import * as GemOrPreciousStone from "./types/equipment/item/GemOrPreciousStone.js"
+import * as HealingHerb from "./types/equipment/item/HealingHerb.js"
+import * as Illumination from "./types/equipment/item/Illumination.js"
+import * as Jewelry from "./types/equipment/item/Jewelry.js"
+import * as Liebesspielzeug from "./types/equipment/item/Liebesspielzeug.js"
+import * as LuxuryGood from "./types/equipment/item/LuxuryGood.js"
+import * as MagicalArtifact from "./types/equipment/item/MagicalArtifact.js"
+import * as MusicalInstrument from "./types/equipment/item/MusicalInstrument.js"
+import * as OrienteeringAid from "./types/equipment/item/OrienteeringAid.js"
 import * as Poison from "./types/equipment/item/Poison.js"
+import * as RopeOrChain from "./types/equipment/item/RopeOrChain.js"
+import * as Stationary from "./types/equipment/item/Stationary.js"
 import * as ArmorType from "./types/equipment/item/sub/ArmorType.js"
 import * as Reach from "./types/equipment/item/sub/Reach.js"
-import * as ItemGroup from "./types/equipment/ItemGroup.js"
+import * as ThievesTool from "./types/equipment/item/ThievesTool.js"
+import * as ToolOfTheTrade from "./types/equipment/item/ToolOfTheTrade.js"
+import * as TravelGearOrTool from "./types/equipment/item/TravelGearOrTool.js"
+import * as Vehicle from "./types/equipment/item/Vehicle.js"
+import * as Weapon from "./types/equipment/item/Weapon.js"
+import * as WeaponAccessory from "./types/equipment/item/WeaponAccessory.js"
 import * as ExperienceLevel from "./types/ExperienceLevel.js"
 import * as EyeColor from "./types/EyeColor.js"
 import * as FamiliarsTrick from "./types/FamiliarsTrick.js"
@@ -130,8 +157,12 @@ export type TypeMap = {
   advancedMagicalSpecialAbilities: AdvancedMagicalSpecialAbility.AdvancedMagicalSpecialAbility
   advancedSkillSpecialAbilities: AdvancedSkillSpecialAbility.AdvancedSkillSpecialAbility
   advantages: Advantage.Advantage
+  alchemicae: Alchemicum.Alchemicum
+  ammunition: Ammunition.Ammunition
   ancestorGlyphs: AncestorGlyph.AncestorGlyph
+  animalCare: AnimalCare.AnimalCare
   animalDiseases: AnimalDisease.AnimalDisease
+  animals: Animal.Animal
   animalShapePaths: AnimalShapePath.AnimalShapePath
   animalShapes: AnimalShape.AnimalShape
   animalShapeSizes: AnimalShapeSize.AnimalShapeSize
@@ -141,25 +172,31 @@ export type TypeMap = {
   arcaneBardTraditions: ArcaneBardTradition.ArcaneBardTradition
   arcaneDancerTraditions: ArcaneDancerTradition.ArcaneDancerTradition
   arcaneOrbEnchantments: ArcaneOrbEnchantment.ArcaneOrbEnchantment
+  armors: Armor.Armor
   armorTypes: ArmorType.ArmorType
   aspects: Aspect.Aspect
   attireEnchantments: AttireEnchantment.AttireEnchantment
   attributes: Attribute.Attribute
+  bandagesAndRemedies: BandageOrRemedy.BandageOrRemedy
   blessedTraditions: BlessedTradition.BlessedTradition
   blessings: Blessing.Blessing
+  books: Book.Book
   bowlEnchantments: BowlEnchantment.BowlEnchantment
   brawlingSpecialAbilities: BrawlingSpecialAbility.BrawlingSpecialAbility
   brews: Brew.Brew
   cantrips: Cantrip.Cantrip
   cauldronEnchantments: CauldronEnchantment.CauldronEnchantment
+  ceremonialItems: CeremonialItem.CeremonialItem
   ceremonialItemSpecialAbilities: CeremonialItemSpecialAbility.CeremonialItemSpecialAbility
   ceremonies: Ceremony.Ceremony
   chronicleEnchantments: ChronicleEnchantment.ChronicleEnchantment
   closeCombatTechniques: CloseCombatTechnique.CloseCombatTechnique
+  clothes: Clothes.Clothes
   combatSpecialAbilities: CombatSpecialAbility.CombatSpecialAbility
   combatStyleSpecialAbilities: CombatStyleSpecialAbility.CombatStyleSpecialAbility
   commandSpecialAbilities: CommandSpecialAbility.CommandSpecialAbility
   conditions: Condition.Condition
+  containers: Container.Container
   continents: Continent.Continent
   coreRules: CoreRule.CoreRule
   cultures: Culture.Culture
@@ -171,6 +208,7 @@ export type TypeMap = {
   dominationRituals: DominationRitual.DominationRitual
   elements: Element.Element
   elvenMagicalSongs: ElvenMagicalSong.ElvenMagicalSong
+  equipmentOfBlessedOnes: EquipmentOfBlessedOnes.EquipmentOfBlessedOnes
   equipmentPackages: EquipmentPackage.EquipmentPackage
   experienceLevels: ExperienceLevel.ExperienceLevel
   eyeColors: EyeColor.EyeColor
@@ -181,22 +219,28 @@ export type TypeMap = {
   focusRules: FocusRule.FocusRule
   focusRuleSubjects: Subject.Subject
   foolsHatEnchantments: FoolsHatEnchantment.FoolsHatEnchantment
+  gemsAndPreciousStones: GemOrPreciousStone.GemOrPreciousStone
   generalSpecialAbilities: GeneralSpecialAbility.GeneralSpecialAbility
   geodeRituals: GeodeRitual.GeodeRitual
   hairColors: HairColor.HairColor
+  healingHerbs: HealingHerb.HealingHerb
+  illumination: Illumination.Illumination
   instrumentEnchantments: InstrumentEnchantment.InstrumentEnchantment
-  itemGroups: ItemGroup.ItemGroup
   jesterTricks: JesterTrick.JesterTrick
+  jewelry: Jewelry.Jewelry
   karmaSpecialAbilities: KarmaSpecialAbility.KarmaSpecialAbility
   kirchenpraegungen: Kirchenpraegung.Kirchenpraegung
   krallenkettenzauber: Krallenkettenzauber.Krallenkettenzauber
   languages: Language.Language
   lessonsCurricula: Curriculum.Curriculum
   lessonsGuidelines: Guideline.Guideline
+  liebesspielzeug: Liebesspielzeug.Liebesspielzeug
   liturgicalChants: LiturgicalChant.LiturgicalChant
   liturgicalStyleSpecialAbilities: LiturgicalStyleSpecialAbility.LiturgicalStyleSpecialAbility
   locales: Locales.Locales
+  luxuryGoods: LuxuryGood.LuxuryGood
   lycantropicGifts: LycantropicGift.LycantropicGift
+  magicalArtifacts: MagicalArtifact.MagicalArtifact
   magicalDances: MagicalDance.MagicalDance
   magicalMelodies: MagicalMelody.MagicalMelody
   magicalRunes: MagicalRune.MagicalRune
@@ -204,8 +248,10 @@ export type TypeMap = {
   magicalTraditions: MagicalTradition.MagicalTradition
   magicStyleSpecialAbilities: MagicStyleSpecialAbility.MagicStyleSpecialAbility
   metaConditions: MetaCondition.MetaCondition
+  musicalInstruments: MusicalInstrument.MusicalInstrument
   optionalRules: OptionalRule.OptionalRule
   orbEnchantments: OrbEnchantment.OrbEnchantment
+  orienteeringAids: OrienteeringAid.OrienteeringAid
   pactCategories: PactCategory.PactCategory
   pactGifts: PactGift.PactGift
   patronCategories: PatronCategory.PatronCategory
@@ -222,6 +268,7 @@ export type TypeMap = {
   regions: Region.Region
   ringEnchantments: RingEnchantment.RingEnchantment
   rituals: Ritual.Ritual
+  ropesAndChains: RopeOrChain.RopeOrChain
   scripts: Script.Script
   sermons: Sermon.Sermon
   services: Service.Service
@@ -238,16 +285,23 @@ export type TypeMap = {
   spellSwordEnchantments: SpellSwordEnchantment.SpellSwordEnchantment
   staffEnchantments: StaffEnchantment.StaffEnchantment
   states: State.State
-  targetCategories: TargetCategory.TargetCategory
+  stationary: Stationary.Stationary
   talismans: Talisman.Talisman
+  targetCategories: TargetCategory.TargetCategory
+  thievesTools: ThievesTool.ThievesTool
+  toolsOfTheTrade: ToolOfTheTrade.ToolOfTheTrade
   toyEnchantments: ToyEnchantment.ToyEnchantment
   tradeSecrets: TradeSecret.TradeSecret
+  travelGearAndTools: TravelGearOrTool.TravelGearOrTool
   trinkhornzauber: Trinkhornzauber.Trinkhornzauber
   ui: UI.UI
   vampiricGifts: VampiricGift.VampiricGift
+  vehicles: Vehicle.Vehicle
   visions: Vision.Vision
   wandEnchantments: WandEnchantment.WandEnchantment
+  weaponAccessories: WeaponAccessory.WeaponAccessory
   weaponEnchantments: WeaponEnchantment.WeaponEnchantment
+  weapons: Weapon.Weapon
   zibiljaRituals: ZibiljaRitual.ZibiljaRitual
 }
 
@@ -257,8 +311,12 @@ export const typeValidatorMap: { [K in keyof TypeMap]: TypeValidator<TypeMap[K]>
   advancedMagicalSpecialAbilities: AdvancedMagicalSpecialAbility.validateSchema,
   advancedSkillSpecialAbilities: AdvancedSkillSpecialAbility.validateSchema,
   advantages: Advantage.validateSchema,
+  alchemicae: Alchemicum.validateSchema,
+  ammunition: Ammunition.validateSchema,
   ancestorGlyphs: AncestorGlyph.validateSchema,
+  animalCare: AnimalCare.validateSchema,
   animalDiseases: AnimalDisease.validateSchema,
+  animals: Animal.validateSchema,
   animalShapePaths: AnimalShapePath.validateSchema,
   animalShapes: AnimalShape.validateSchema,
   animalShapeSizes: AnimalShapeSize.validateSchema,
@@ -268,25 +326,31 @@ export const typeValidatorMap: { [K in keyof TypeMap]: TypeValidator<TypeMap[K]>
   arcaneBardTraditions: ArcaneBardTradition.validateSchema,
   arcaneDancerTraditions: ArcaneDancerTradition.validateSchema,
   arcaneOrbEnchantments: ArcaneOrbEnchantment.validateSchema,
+  armors: Armor.validateSchema,
   armorTypes: ArmorType.validateSchema,
   aspects: Aspect.validateSchema,
   attireEnchantments: AttireEnchantment.validateSchema,
   attributes: Attribute.validateSchema,
+  bandagesAndRemedies: BandageOrRemedy.validateSchema,
   blessedTraditions: BlessedTradition.validateSchema,
   blessings: Blessing.validateSchema,
+  books: Book.validateSchema,
   bowlEnchantments: BowlEnchantment.validateSchema,
   brawlingSpecialAbilities: BrawlingSpecialAbility.validateSchema,
   brews: Brew.validateSchema,
   cantrips: Cantrip.validateSchema,
   cauldronEnchantments: CauldronEnchantment.validateSchema,
+  ceremonialItems: CeremonialItem.validateSchema,
   ceremonialItemSpecialAbilities: CeremonialItemSpecialAbility.validateSchema,
   ceremonies: Ceremony.validateSchema,
   chronicleEnchantments: ChronicleEnchantment.validateSchema,
   closeCombatTechniques: CloseCombatTechnique.validateSchema,
+  clothes: Clothes.validateSchema,
   combatSpecialAbilities: CombatSpecialAbility.validateSchema,
   combatStyleSpecialAbilities: CombatStyleSpecialAbility.validateSchema,
   commandSpecialAbilities: CommandSpecialAbility.validateSchema,
   conditions: Condition.validateSchema,
+  containers: Container.validateSchema,
   continents: Continent.validateSchema,
   coreRules: CoreRule.validateSchema,
   cultures: Culture.validateSchema,
@@ -298,6 +362,7 @@ export const typeValidatorMap: { [K in keyof TypeMap]: TypeValidator<TypeMap[K]>
   dominationRituals: DominationRitual.validateSchema,
   elements: Element.validateSchema,
   elvenMagicalSongs: ElvenMagicalSong.validateSchema,
+  equipmentOfBlessedOnes: EquipmentOfBlessedOnes.validateSchema,
   equipmentPackages: EquipmentPackage.validateSchema,
   experienceLevels: ExperienceLevel.validateSchema,
   eyeColors: EyeColor.validateSchema,
@@ -308,22 +373,28 @@ export const typeValidatorMap: { [K in keyof TypeMap]: TypeValidator<TypeMap[K]>
   focusRules: FocusRule.validateSchema,
   focusRuleSubjects: Subject.validateSchema,
   foolsHatEnchantments: FoolsHatEnchantment.validateSchema,
+  gemsAndPreciousStones: GemOrPreciousStone.validateSchema,
   generalSpecialAbilities: GeneralSpecialAbility.validateSchema,
   geodeRituals: GeodeRitual.validateSchema,
   hairColors: HairColor.validateSchema,
+  healingHerbs: HealingHerb.validateSchema,
+  illumination: Illumination.validateSchema,
   instrumentEnchantments: InstrumentEnchantment.validateSchema,
-  itemGroups: ItemGroup.validateSchema,
   jesterTricks: JesterTrick.validateSchema,
+  jewelry: Jewelry.validateSchema,
   karmaSpecialAbilities: KarmaSpecialAbility.validateSchema,
   kirchenpraegungen: Kirchenpraegung.validateSchema,
   krallenkettenzauber: Krallenkettenzauber.validateSchema,
   languages: Language.validateSchema,
   lessonsCurricula: Curriculum.validateSchema,
   lessonsGuidelines: Guideline.validateSchema,
+  liebesspielzeug: Liebesspielzeug.validateSchema,
   liturgicalChants: LiturgicalChant.validateSchema,
   liturgicalStyleSpecialAbilities: LiturgicalStyleSpecialAbility.validateSchema,
   locales: Locales.validateSchema,
+  luxuryGoods: LuxuryGood.validateSchema,
   lycantropicGifts: LycantropicGift.validateSchema,
+  magicalArtifacts: MagicalArtifact.validateSchema,
   magicalDances: MagicalDance.validateSchema,
   magicalMelodies: MagicalMelody.validateSchema,
   magicalRunes: MagicalRune.validateSchema,
@@ -331,8 +402,10 @@ export const typeValidatorMap: { [K in keyof TypeMap]: TypeValidator<TypeMap[K]>
   magicalTraditions: MagicalTradition.validateSchema,
   magicStyleSpecialAbilities: MagicStyleSpecialAbility.validateSchema,
   metaConditions: MetaCondition.validateSchema,
+  musicalInstruments: MusicalInstrument.validateSchema,
   optionalRules: OptionalRule.validateSchema,
   orbEnchantments: OrbEnchantment.validateSchema,
+  orienteeringAids: OrienteeringAid.validateSchema,
   pactCategories: PactCategory.validateSchema,
   pactGifts: PactGift.validateSchema,
   patronCategories: PatronCategory.validateSchema,
@@ -349,6 +422,7 @@ export const typeValidatorMap: { [K in keyof TypeMap]: TypeValidator<TypeMap[K]>
   regions: Region.validateSchema,
   ringEnchantments: RingEnchantment.validateSchema,
   rituals: Ritual.validateSchema,
+  ropesAndChains: RopeOrChain.validateSchema,
   scripts: Script.validateSchema,
   sermons: Sermon.validateSchema,
   services: Service.validateSchema,
@@ -365,15 +439,22 @@ export const typeValidatorMap: { [K in keyof TypeMap]: TypeValidator<TypeMap[K]>
   spellSwordEnchantments: SpellSwordEnchantment.validateSchema,
   staffEnchantments: StaffEnchantment.validateSchema,
   states: State.validateSchema,
-  targetCategories: TargetCategory.validateSchema,
+  stationary: Stationary.validateSchema,
   talismans: Talisman.validateSchema,
+  targetCategories: TargetCategory.validateSchema,
+  thievesTools: ThievesTool.validateSchema,
+  toolsOfTheTrade: ToolOfTheTrade.validateSchema,
   toyEnchantments: ToyEnchantment.validateSchema,
   tradeSecrets: TradeSecret.validateSchema,
+  travelGearAndTools: TravelGearOrTool.validateSchema,
   trinkhornzauber: Trinkhornzauber.validateSchema,
   ui: UI.validateSchema,
   vampiricGifts: VampiricGift.validateSchema,
+  vehicles: Vehicle.validateSchema,
   visions: Vision.validateSchema,
   wandEnchantments: WandEnchantment.validateSchema,
+  weaponAccessories: WeaponAccessory.validateSchema,
   weaponEnchantments: WeaponEnchantment.validateSchema,
+  weapons: Weapon.validateSchema,
   zibiljaRituals: ZibiljaRitual.validateSchema,
 }
