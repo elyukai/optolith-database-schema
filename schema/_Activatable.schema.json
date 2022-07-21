@@ -33,13 +33,17 @@
       "properties": {
         "derived": {
           "description": "An entry category with optional further configuration. All available\nentries from the specified categories will be included as separate select\noptions. You can also specify a set of groups that should only be\nincluded. Groups not mentioned will be excluded then.",
-          "$ref": "#/$defs/CategoryOption"
+          "type": "array",
+          "items": {
+            "$ref": "./_ActivatableSelectOptionCategory.schema.json#/$defs/SelectOptionCategory"
+          },
+          "minItems": 1
         },
         "explicit": {
           "description": "A list of explicit select options. If the identifier has a specific type,\nits entry is the base of this select option, where values defined here\noverride values from the base. Define the `src` property if the options\nare not derived from the rules text of the advantage/disadvantage/special\nability but instead are listed in a separate block and/or on a separate\npage.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/ExplicitOption"
+            "$ref": "#/$defs/ExplicitSelectOption"
           },
           "minItems": 1
         }
@@ -48,909 +52,7 @@
       "minProperties": 1,
       "additionalProperties": false
     },
-    "CategoryOption": {
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Blessings"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Cantrips"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "TradeSecrets"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Scripts"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "AnimalShapes"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "ArcaneBardTraditions"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "ArcaneDancerTraditions"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "SexPractices"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Races"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Cultures"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "BlessedTraditions"
-            },
-            "require_principles": {
-              "description": "Should the principles (code) of the tradition be required to select the\nrespective tradition?",
-              "const": true
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Elements"
-            },
-            "specific": {
-              "description": "Only include entries with the listed identifiers.",
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "description": "The element's identifier.",
-                    "type": "integer",
-                    "maximum": 6,
-                    "minimum": 1
-                  }
-                },
-                "required": [
-                  "id"
-                ],
-                "additionalProperties": false
-              },
-              "minItems": 1,
-              "uniqueItems": true
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Properties"
-            },
-            "require_knowledge": {
-              "description": "Does each property require it's corresponding property knowledge?",
-              "const": true
-            },
-            "require_minimum_spellworks_on": {
-              "description": "Require a minimum number of spellworks of the respective property to be\non a minimum skill rating.",
-              "type": "object",
-              "properties": {
-                "number": {
-                  "description": "The minimum number of spellworks that need to be on the defined minimum\nskill rating.",
-                  "type": "integer",
-                  "minimum": 1
-                },
-                "value": {
-                  "description": "The minimum skill rating the defined minimum number of spellworks need\nto be on.",
-                  "type": "integer",
-                  "minimum": 1
-                }
-              },
-              "required": [
-                "number",
-                "value"
-              ],
-              "additionalProperties": false
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Aspects"
-            },
-            "require_knowledge": {
-              "description": "Does each aspect require it's corresponding aspect knowledge?",
-              "const": true
-            },
-            "use_master_of_suffix_as_name": {
-              "description": "The generated name should be the *Master of (Aspect)* suffix for this\naspect instead of the aspect's name. If an aspect does not provide a\nsuffix (such as the General aspect), it is automatically excluded from\nthe list.",
-              "const": true
-            },
-            "require_minimum_liturgies_on": {
-              "description": "Require a minimum number of liturgies of the respective aspect to be on a\nminimum skill rating.",
-              "type": "object",
-              "properties": {
-                "number": {
-                  "description": "The minimum number of liturgies that need to be on the defined minimum\nskill rating.",
-                  "type": "integer",
-                  "minimum": 1
-                },
-                "value": {
-                  "description": "The minimum skill rating the defined minimum number of liturgies need\nto be on.",
-                  "type": "integer",
-                  "minimum": 1
-                }
-              },
-              "required": [
-                "number",
-                "value"
-              ],
-              "additionalProperties": false
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Diseases"
-            },
-            "use_half_level_as_ap_value": {
-              "description": "Only convert half the disease level into the AP value.",
-              "const": true
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Poisons"
-            },
-            "use_half_level_as_ap_value": {
-              "description": "Only convert half the poison level into the AP value.",
-              "const": true
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Languages"
-            },
-            "prerequisites": {
-              "description": "Generate prerequisites for each entry of the category.",
-              "type": "array",
-              "items": {
-                "$ref": "#/$defs/OptionOptionPrerequisite"
-              },
-              "minItems": 1
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Skills"
-            },
-            "categories": {
-              "description": "A list of skill categories.",
-              "type": "array",
-              "items": {
-                "oneOf": [
-                  {
-                    "type": "object",
-                    "properties": {
-                      "tag": {
-                        "const": "Skills"
-                      },
-                      "groups": {
-                        "description": "Only include entries of the specified groups.",
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "description": "The skill group's identifier.",
-                              "type": "integer",
-                              "maximum": 5,
-                              "minimum": 1
-                            }
-                          },
-                          "required": [
-                            "id"
-                          ],
-                          "additionalProperties": false
-                        },
-                        "minItems": 1
-                      },
-                      "specific": {
-                        "description": "Only include (`Intersection`) or exclude (`Difference`) specific\nskills.",
-                        "type": "object",
-                        "properties": {
-                          "operation": {
-                            "oneOf": [
-                              {
-                                "type": "object",
-                                "properties": {
-                                  "tag": {
-                                    "const": "Intersection"
-                                  }
-                                },
-                                "required": [
-                                  "tag"
-                                ],
-                                "additionalProperties": false
-                              },
-                              {
-                                "type": "object",
-                                "properties": {
-                                  "tag": {
-                                    "const": "Difference"
-                                  }
-                                },
-                                "required": [
-                                  "tag"
-                                ],
-                                "additionalProperties": false
-                              }
-                            ]
-                          },
-                          "list": {
-                            "description": "The list of specific skills.",
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "id": {
-                                  "description": "The skill's identifier.",
-                                  "type": "integer",
-                                  "maximum": 59,
-                                  "minimum": 1
-                                }
-                              },
-                              "required": [
-                                "id"
-                              ],
-                              "additionalProperties": false
-                            },
-                            "minItems": 1,
-                            "uniqueItems": true
-                          }
-                        },
-                        "required": [
-                          "operation",
-                          "list"
-                        ],
-                        "additionalProperties": false
-                      },
-                      "skill_applications": {
-                        "description": "Registers new applications, which get enabled once this entry is\nactivated with its respective select option. It specifies an\nentry-unique identifier, the skill it belongs to is derived from the\nselect option automatically. A translation can be left out if its\nname equals the name of the origin entry.",
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "description": "The application's identifier. An entry-unique, increasing integer.",
-                              "type": "integer",
-                              "minimum": 1
-                            },
-                            "translations": {
-                              "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-                              "type": "object",
-                              "patternProperties": {
-                                "^[a-z]{2}-[A-Z]{2}$": {
-                                  "type": "object",
-                                  "properties": {
-                                    "name": {
-                                      "description": "The name of the application if different from the activatable\nentry's\nname.",
-                                      "type": "string",
-                                      "minLength": 1
-                                    }
-                                  },
-                                  "required": [
-                                    "name"
-                                  ],
-                                  "additionalProperties": false
-                                }
-                              },
-                              "minProperties": 1,
-                              "additionalProperties": false
-                            }
-                          },
-                          "required": [
-                            "id"
-                          ],
-                          "additionalProperties": false
-                        },
-                        "minItems": 1
-                      },
-                      "skill_uses": {
-                        "description": "Registers uses, which get enabled once this entry is activated with\nits respective select option. It specifies an entry-unique\nidentifier, the skill it belongs to is derived from the select option\nautomatically. A translation can be left out if its name equals the\nname of the origin entry.",
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "description": "The use's identifier. An entry-unique, increasing integer.",
-                              "type": "integer",
-                              "minimum": 1
-                            },
-                            "translations": {
-                              "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-                              "type": "object",
-                              "patternProperties": {
-                                "^[a-z]{2}-[A-Z]{2}$": {
-                                  "type": "object",
-                                  "properties": {
-                                    "name": {
-                                      "description": "The name of the use if different from the activatable entry's\nname.",
-                                      "type": "string",
-                                      "minLength": 1
-                                    }
-                                  },
-                                  "required": [
-                                    "name"
-                                  ],
-                                  "additionalProperties": false
-                                }
-                              },
-                              "minProperties": 1,
-                              "additionalProperties": false
-                            }
-                          },
-                          "required": [
-                            "id"
-                          ],
-                          "additionalProperties": false
-                        },
-                        "minItems": 1
-                      },
-                      "prerequisites": {
-                        "description": "Generate prerequisites for each entry of the category.",
-                        "type": "array",
-                        "items": {
-                          "oneOf": [
-                            {
-                              "$ref": "#/$defs/OptionSkillSelfPrerequisite"
-                            },
-                            {
-                              "$ref": "#/$defs/OptionOptionPrerequisite"
-                            }
-                          ]
-                        },
-                        "minItems": 1
-                      }
-                    },
-                    "required": [
-                      "tag"
-                    ],
-                    "additionalProperties": false
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "tag": {
-                        "$ref": "#/$defs/SkillWithEnhancementsCategory"
-                      },
-                      "specific": {
-                        "description": "Only include (`Intersection`) or exclude (`Difference`) specific\nentries.",
-                        "type": "object",
-                        "properties": {
-                          "operation": {
-                            "oneOf": [
-                              {
-                                "type": "object",
-                                "properties": {
-                                  "tag": {
-                                    "const": "Intersection"
-                                  }
-                                },
-                                "required": [
-                                  "tag"
-                                ],
-                                "additionalProperties": false
-                              },
-                              {
-                                "type": "object",
-                                "properties": {
-                                  "tag": {
-                                    "const": "Difference"
-                                  }
-                                },
-                                "required": [
-                                  "tag"
-                                ],
-                                "additionalProperties": false
-                              }
-                            ]
-                          },
-                          "list": {
-                            "description": "The list of specific entries.",
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "id": {
-                                  "description": "The entry's identifier.",
-                                  "type": "integer",
-                                  "maximum": 59,
-                                  "minimum": 1
-                                }
-                              },
-                              "required": [
-                                "id"
-                              ],
-                              "additionalProperties": false
-                            },
-                            "minItems": 1,
-                            "uniqueItems": true
-                          }
-                        },
-                        "required": [
-                          "operation",
-                          "list"
-                        ],
-                        "additionalProperties": false
-                      },
-                      "prerequisites": {
-                        "description": "Generate prerequisites for each entry of the category.",
-                        "type": "array",
-                        "items": {
-                          "oneOf": [
-                            {
-                              "$ref": "#/$defs/OptionSkillSelfPrerequisite"
-                            },
-                            {
-                              "$ref": "#/$defs/OptionOptionPrerequisite"
-                            }
-                          ]
-                        },
-                        "minItems": 1
-                      }
-                    },
-                    "required": [
-                      "tag"
-                    ],
-                    "additionalProperties": false
-                  }
-                ]
-              },
-              "minItems": 1
-            },
-            "ap_value": {
-              "description": "Generate AP values for each entry.",
-              "oneOf": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "description": "Derive the cost from the improvement cost of each entry.\n\nAP Value = Improvement Cost × `multiplier` + `offset`",
-                      "const": "DerivedFromImprovementCost"
-                    },
-                    "multiplier": {
-                      "description": "This number is multiplied with the improvement cost of the entry\n(A = 1 to D = 4).",
-                      "type": "integer",
-                      "minimum": 2
-                    },
-                    "offset": {
-                      "description": "This number is added to the maybe multiplied improvement cost of the\nentry.",
-                      "type": "integer"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Fixed"
-                    },
-                    "map": {
-                      "description": "A mapping of skill identifiers to their specific AP values.",
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "$ref": "./_Identifier.schema.json#/$defs/SkillIdentifier"
-                          },
-                          "ap_value": {
-                            "description": "The AP value for the specified entry.",
-                            "type": "integer",
-                            "minimum": 1
-                          }
-                        },
-                        "required": [
-                          "id",
-                          "ap_value"
-                        ],
-                        "additionalProperties": false
-                      }
-                    },
-                    "default": {
-                      "description": "The default value of an entry. Used as a fallback if no value is\nfound in `list`.",
-                      "type": "integer",
-                      "minimum": 1
-                    }
-                  },
-                  "required": [
-                    "tag",
-                    "map",
-                    "default"
-                  ],
-                  "additionalProperties": false
-                }
-              ]
-            }
-          },
-          "required": [
-            "tag",
-            "categories"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "CombatTechniques"
-            },
-            "categories": {
-              "description": "A list of combat technique categories.",
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "$ref": "#/$defs/CombatTechniqueCategory"
-                  },
-                  "specific": {
-                    "description": "Only include (`Intersection`) or exclude (`Difference`) specific\nentries.",
-                    "type": "object",
-                    "properties": {
-                      "operation": {
-                        "oneOf": [
-                          {
-                            "type": "object",
-                            "properties": {
-                              "tag": {
-                                "const": "Intersection"
-                              }
-                            },
-                            "required": [
-                              "tag"
-                            ],
-                            "additionalProperties": false
-                          },
-                          {
-                            "type": "object",
-                            "properties": {
-                              "tag": {
-                                "const": "Difference"
-                              }
-                            },
-                            "required": [
-                              "tag"
-                            ],
-                            "additionalProperties": false
-                          }
-                        ]
-                      },
-                      "list": {
-                        "description": "The list of specific entries.",
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "description": "The entry's identifier.",
-                              "type": "integer",
-                              "maximum": 59,
-                              "minimum": 1
-                            }
-                          },
-                          "required": [
-                            "id"
-                          ],
-                          "additionalProperties": false
-                        },
-                        "minItems": 1,
-                        "uniqueItems": true
-                      }
-                    },
-                    "required": [
-                      "operation",
-                      "list"
-                    ],
-                    "additionalProperties": false
-                  },
-                  "prerequisites": {
-                    "description": "Generate prerequisites for each entry of the category.",
-                    "type": "array",
-                    "items": {
-                      "oneOf": [
-                        {
-                          "$ref": "#/$defs/OptionSkillSelfPrerequisite"
-                        },
-                        {
-                          "$ref": "#/$defs/OptionOptionPrerequisite"
-                        }
-                      ]
-                    },
-                    "minItems": 1
-                  }
-                },
-                "required": [
-                  "tag"
-                ],
-                "additionalProperties": false
-              },
-              "minItems": 1
-            },
-            "ap_value": {
-              "description": "Generate AP values for each entry.",
-              "oneOf": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "description": "Derive the cost from the improvement cost of each entry.\n\nAP Value = Improvement Cost × `multiplier` + `offset`",
-                      "const": "DerivedFromImprovementCost"
-                    },
-                    "multiplier": {
-                      "description": "This number is multiplied with the improvement cost of the entry\n(A = 1 to D = 4).",
-                      "type": "integer",
-                      "minimum": 2
-                    },
-                    "offset": {
-                      "description": "This number is added to the maybe multiplied improvement cost of the\nentry.",
-                      "type": "integer"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Fixed"
-                    },
-                    "map": {
-                      "description": "A mapping of skill identifiers to their specific AP values.",
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "id": {
-                            "$ref": "./_Identifier.schema.json#/$defs/CombatTechniqueIdentifier"
-                          },
-                          "ap_value": {
-                            "description": "The AP value for the specified entry.",
-                            "type": "integer",
-                            "minimum": 1
-                          }
-                        },
-                        "required": [
-                          "id",
-                          "ap_value"
-                        ],
-                        "additionalProperties": false
-                      }
-                    },
-                    "default": {
-                      "description": "The default value of an entry. Used as a fallback if no value is\nfound in `list`.",
-                      "type": "integer",
-                      "minimum": 1
-                    }
-                  },
-                  "required": [
-                    "tag",
-                    "map",
-                    "default"
-                  ],
-                  "additionalProperties": false
-                }
-              ]
-            }
-          },
-          "required": [
-            "tag",
-            "categories"
-          ],
-          "additionalProperties": false
-        }
-      ]
-    },
-    "SkillWithEnhancementsCategory": {
-      "enum": [
-        "Spells",
-        "Rituals",
-        "LiturgicalChants",
-        "Ceremonies"
-      ]
-    },
-    "CombatTechniqueCategory": {
-      "enum": [
-        "CloseCombatTechniques",
-        "RangedCombatTechniques"
-      ]
-    },
-    "OptionSkillSelfPrerequisite": {
-      "type": "object",
-      "properties": {
-        "tag": {
-          "const": "Self"
-        },
-        "value": {
-          "description": "The entry requires itself on a certain Skill Rating.",
-          "type": "integer",
-          "minimum": 1
-        }
-      },
-      "required": [
-        "tag",
-        "value"
-      ],
-      "additionalProperties": false
-    },
-    "OptionOptionPrerequisite": {
-      "description": "The entry requires or prohibits itself as a select option of another entry.",
-      "type": "object",
-      "properties": {
-        "tag": {
-          "const": "SelectOption"
-        },
-        "id": {
-          "description": "The target entry's identifier.",
-          "$ref": "./_Identifier.schema.json#/$defs/ActivatableIdentifier"
-        },
-        "active": {
-          "description": "Is the select option required (`true`) or prohibited (`false`)?",
-          "type": "boolean"
-        },
-        "level": {
-          "description": "The required level, if any.",
-          "type": "integer",
-          "minimum": 2
-        }
-      },
-      "required": [
-        "tag",
-        "id",
-        "active"
-      ],
-      "additionalProperties": false
-    },
-    "ExplicitOption": {
+    "ExplicitSelectOption": {
       "oneOf": [
         {
           "type": "object",
@@ -958,74 +60,13 @@
             "tag": {
               "const": "General"
             },
-            "id": {
-              "description": "The option's identifier. An unique, increasing integer.",
-              "type": "integer",
-              "minimum": 1
-            },
-            "profession_only": {
-              "description": "Sometimes, professions use specific text selections that are not\ncontained in described lists. This ensures you can use them for\nprofessions only. They are not going to be displayed as options to the\nuser.",
-              "const": true
-            },
-            "skill_applications": {
-              "description": "Registers new applications, which get enabled once this entry is\nactivated with its respective select option. It specifies an entry-unique\nidentifier and the skill it belongs to. A translation can be left out if\nits name equals the name of the origin select option.",
-              "$ref": "#/$defs/SkillApplications"
-            },
-            "skill_uses": {
-              "description": "Registers uses, which get enabled once this entry is activated with its\nrespective select option. It specifies an entry-unique identifier and the\nskill it belongs to. A translation can be left out if its name equals the\nname of the origin select option.",
-              "$ref": "#/$defs/SkillUses"
-            },
-            "prerequisites": {
-              "$ref": "./_Prerequisite.schema.json#/$defs/GeneralPrerequisites"
-            },
-            "ap_value": {
-              "description": "Specific AP cost for the select option.",
-              "type": "integer",
-              "minimum": 1
-            },
-            "src": {
-              "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
-            },
-            "translations": {
-              "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-              "type": "object",
-              "patternProperties": {
-                "^[a-z]{2}-[A-Z]{2}$": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "description": "The name of the select option.",
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "name_in_profession": {
-                      "description": "The name of the select option when displayed in a generated\nprofession text.",
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "description": {
-                      "description": "The description of the select option. Useful for Bad Habits, Trade\nSecrets and other entries where a description is available.",
-                      "type": "string",
-                      "minLength": 1
-                    },
-                    "errata": {
-                      "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
-                    }
-                  },
-                  "required": [
-                    "name"
-                  ],
-                  "additionalProperties": false
-                }
-              },
-              "minProperties": 1,
-              "additionalProperties": false
+            "general": {
+              "$ref": "#/$defs/ExplicitGeneralSelectOption"
             }
           },
           "required": [
             "tag",
-            "id",
-            "translations"
+            "general"
           ],
           "additionalProperties": false
         },
@@ -1035,127 +76,13 @@
             "tag": {
               "const": "Skill"
             },
-            "id": {
-              "description": "The skill's identifier. An unique, increasing integer.",
-              "type": "integer",
-              "minimum": 1
-            },
-            "skill_applications": {
-              "description": "Registers new applications, which get enabled once this entry is\nactivated with its respective select option. It specifies an entry-unique\nidentifier and the skill it belongs to. A translation can be left out if\nits name equals the name of the origin select option.",
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "description": "The application's identifier. An entry-unique, increasing integer.",
-                    "type": "integer",
-                    "minimum": 1
-                  },
-                  "translations": {
-                    "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-                    "type": "object",
-                    "patternProperties": {
-                      "^[a-z]{2}-[A-Z]{2}$": {
-                        "type": "object",
-                        "properties": {
-                          "name": {
-                            "description": "The name of the application if different from the activatable entry's\nname.",
-                            "type": "string",
-                            "minLength": 1
-                          }
-                        },
-                        "required": [
-                          "name"
-                        ],
-                        "additionalProperties": false
-                      }
-                    },
-                    "minProperties": 1,
-                    "additionalProperties": false
-                  }
-                },
-                "required": [
-                  "id"
-                ],
-                "additionalProperties": false
-              },
-              "minItems": 1
-            },
-            "skill_uses": {
-              "description": "Registers uses, which get enabled once this entry is activated with its\nrespective select option. It specifies an entry-unique identifier and the\nskill it belongs to. A translation can be left out if its name equals the\nname of the origin select option.",
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "description": "The use's identifier. An entry-unique, increasing integer.",
-                    "type": "integer",
-                    "minimum": 1
-                  },
-                  "translations": {
-                    "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-                    "type": "object",
-                    "patternProperties": {
-                      "^[a-z]{2}-[A-Z]{2}$": {
-                        "type": "object",
-                        "properties": {
-                          "name": {
-                            "description": "The name of the use if different from the activatable entry's name.",
-                            "type": "string",
-                            "minLength": 1
-                          }
-                        },
-                        "required": [
-                          "name"
-                        ],
-                        "additionalProperties": false
-                      }
-                    },
-                    "minProperties": 1,
-                    "additionalProperties": false
-                  }
-                },
-                "required": [
-                  "id"
-                ],
-                "additionalProperties": false
-              },
-              "minItems": 1
-            },
-            "prerequisites": {
-              "$ref": "./_Prerequisite.schema.json#/$defs/GeneralPrerequisites"
-            },
-            "ap_value": {
-              "description": "Specific AP cost for the select option.",
-              "type": "integer",
-              "minimum": 1
-            },
-            "src": {
-              "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
-            },
-            "translations": {
-              "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-              "type": "object",
-              "patternProperties": {
-                "^[a-z]{2}-[A-Z]{2}$": {
-                  "type": "object",
-                  "properties": {
-                    "errata": {
-                      "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
-                    }
-                  },
-                  "required": [],
-                  "minProperties": 1,
-                  "additionalProperties": false
-                }
-              },
-              "minProperties": 1,
-              "additionalProperties": false
+            "skill": {
+              "$ref": "#/$defs/ExplicitSkillSelectOption"
             }
           },
           "required": [
             "tag",
-            "id"
+            "skill"
           ],
           "additionalProperties": false
         },
@@ -1165,60 +92,212 @@
             "tag": {
               "const": "CombatTechnique"
             },
-            "id": {
-              "description": "The combat technique's identifier.",
-              "$ref": "./_Identifier.schema.json#/$defs/CombatTechniqueIdentifier"
-            },
-            "prerequisites": {
-              "$ref": "./_Prerequisite.schema.json#/$defs/GeneralPrerequisites"
-            },
-            "ap_value": {
-              "description": "Specific AP cost for the select option.",
-              "type": "integer",
-              "minimum": 1
-            },
-            "src": {
-              "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
-            },
-            "translations": {
-              "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-              "type": "object",
-              "patternProperties": {
-                "^[a-z]{2}-[A-Z]{2}$": {
-                  "type": "object",
-                  "properties": {
-                    "errata": {
-                      "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
-                    }
-                  },
-                  "required": [],
-                  "minProperties": 1,
-                  "additionalProperties": false
-                }
-              },
-              "minProperties": 1,
-              "additionalProperties": false
+            "combat_technique": {
+              "$ref": "#/$defs/ExplicitCombatTechniqueSelectOption"
             }
           },
           "required": [
             "tag",
-            "id"
+            "combat_technique"
           ],
           "additionalProperties": false
         }
       ]
     },
+    "ExplicitGeneralSelectOption": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The option's identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "profession_only": {
+          "description": "Sometimes, professions use specific text selections that are not\ncontained in described lists. This ensures you can use them for\nprofessions only. They are not going to be displayed as options to the\nuser.",
+          "const": true
+        },
+        "skill_applications": {
+          "description": "Registers new applications, which get enabled once this entry is\nactivated with its respective select option. It specifies an entry-unique\nidentifier and the skill it belongs to. A translation can be left out if\nits name equals the name of the origin select option.",
+          "$ref": "#/$defs/SkillApplications"
+        },
+        "skill_uses": {
+          "description": "Registers uses, which get enabled once this entry is activated with its\nrespective select option. It specifies an entry-unique identifier and the\nskill it belongs to. A translation can be left out if its name equals the\nname of the origin select option.",
+          "$ref": "#/$defs/SkillUses"
+        },
+        "prerequisites": {
+          "$ref": "./_Prerequisite.schema.json#/$defs/GeneralPrerequisites"
+        },
+        "ap_value": {
+          "description": "Specific AP cost for the select option.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "src": {
+          "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/ExplicitGeneralSelectOptionTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "ExplicitGeneralSelectOptionTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the select option.",
+          "type": "string",
+          "minLength": 1
+        },
+        "name_in_profession": {
+          "description": "The name of the select option when displayed in a generated\nprofession text.",
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "description": "The description of the select option. Useful for Bad Habits, Trade\nSecrets and other entries where a description is available.",
+          "type": "string",
+          "minLength": 1
+        },
+        "errata": {
+          "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "ExplicitSkillSelectOption": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The skill's identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "skill_applications": {
+          "description": "Registers new applications, which get enabled once this entry is\nactivated with its respective select option. It specifies an entry-unique\nidentifier and the skill it belongs to. A translation can be left out if\nits name equals the name of the origin select option.",
+          "type": "array",
+          "items": {
+            "$ref": "./_ActivatableSelectOptionCategory.schema.json#/$defs/SkillApplicationOrUse"
+          },
+          "minItems": 1
+        },
+        "skill_uses": {
+          "description": "Registers uses, which get enabled once this entry is activated with its\nrespective select option. It specifies an entry-unique identifier and the\nskill it belongs to. A translation can be left out if its name equals the\nname of the origin select option.",
+          "type": "array",
+          "items": {
+            "$ref": "./_ActivatableSelectOptionCategory.schema.json#/$defs/SkillApplicationOrUse"
+          },
+          "minItems": 1
+        },
+        "prerequisites": {
+          "$ref": "./_Prerequisite.schema.json#/$defs/GeneralPrerequisites"
+        },
+        "ap_value": {
+          "description": "Specific AP cost for the select option.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "src": {
+          "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/ExplicitSkillSelectOptionTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ExplicitSkillSelectOptionTranslation": {
+      "type": "object",
+      "properties": {
+        "errata": {
+          "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [],
+      "minProperties": 1,
+      "additionalProperties": false
+    },
+    "ExplicitCombatTechniqueSelectOption": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The combat technique's identifier.",
+          "$ref": "./_Identifier.schema.json#/$defs/CombatTechniqueIdentifier"
+        },
+        "prerequisites": {
+          "$ref": "./_Prerequisite.schema.json#/$defs/GeneralPrerequisites"
+        },
+        "ap_value": {
+          "description": "Specific AP cost for the select option.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "src": {
+          "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/ExplicitCombatTechniqueSelectOptionTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ExplicitCombatTechniqueSelectOptionTranslation": {
+      "type": "object",
+      "properties": {
+        "errata": {
+          "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [],
+      "minProperties": 1,
+      "additionalProperties": false
+    },
     "Rules": {
       "description": "The rule text.",
-      "type": "string",
-      "minLength": 1
+      "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
     },
     "Effect": {
       "description": "The effect description.",
-      "type": "string",
-      "minLength": 1
+      "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
     },
-    "CombatSpecialAbilityType": {
+    "CombatSpecialAbilityUsageType": {
       "description": "The definition of how the combat special ability can be used in combat.",
       "oneOf": [
         {
@@ -1259,204 +338,247 @@
         }
       ]
     },
+    "CombatSpecialAbilityType": {
+      "description": "The definition of if the combat special ability can be used when armed or\nwhen unarmed.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Armed"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Unarmed"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
     "SkillApplications": {
       "description": "Registers new skill applications, which get enabled once this entry is\nactivated. It specifies an entry-unique identifier and the skill it belongs\nto. A translation can be left out if its name equals the name of the origin\nactivatable entry.",
       "type": "array",
       "items": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "description": "The application's identifier. An entry-unique, increasing integer.",
-            "type": "integer",
-            "minimum": 1
-          },
-          "skill": {
-            "description": "The skill(s) this application belongs to.",
-            "oneOf": [
-              {
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Single"
-                  },
-                  "id": {
-                    "description": "The referenced skill's identifier.",
-                    "type": "integer",
-                    "minimum": 1
-                  }
-                },
-                "required": [
-                  "tag",
-                  "id"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Multiple"
-                  },
-                  "list": {
-                    "description": "The skills this application belongs to.",
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "description": "The referenced skill's identifier.",
-                          "type": "integer",
-                          "minimum": 1
-                        }
-                      },
-                      "required": [
-                        "id"
-                      ],
-                      "additionalProperties": false
-                    },
-                    "minItems": 2
-                  },
-                  "required_skill_rating": {
-                    "description": "If an application applies to multiple skills, it may need to ensure the\nrespective skill is on a certain skill rating if the activatable entry\ncannot ensure this prerequisite.",
-                    "type": "integer",
-                    "minimum": 1
-                  }
-                },
-                "required": [
-                  "tag",
-                  "list"
-                ],
-                "additionalProperties": false
-              }
-            ]
-          },
-          "translations": {
-            "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-            "type": "object",
-            "patternProperties": {
-              "^[a-z]{2}-[A-Z]{2}$": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "description": "The name of the application if different from the activatable entry's\nname.",
-                    "type": "string",
-                    "minLength": 1
-                  }
-                },
-                "required": [
-                  "name"
-                ],
-                "additionalProperties": false
-              }
-            },
-            "minProperties": 1,
-            "additionalProperties": false
-          }
-        },
-        "required": [
-          "id",
-          "skill"
-        ],
-        "additionalProperties": false
+        "$ref": "#/$defs/SkillApplication"
       },
       "minItems": 1
+    },
+    "SkillApplication": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The application's identifier. An entry-unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "skill": {
+          "description": "The skill(s) this application belongs to.",
+          "$ref": "#/$defs/SkillApplicationAssociatedSkill"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/SkillApplicationTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "skill"
+      ],
+      "additionalProperties": false
+    },
+    "SkillApplicationAssociatedSkill": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Single"
+            },
+            "single": {
+              "$ref": "./_SimpleReferences.schema.json#/$defs/SkillReference"
+            }
+          },
+          "required": [
+            "tag",
+            "single"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Multiple"
+            },
+            "multiple": {
+              "$ref": "#/$defs/SkillApplicationAssociatedSkills"
+            }
+          },
+          "required": [
+            "tag",
+            "multiple"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "SkillApplicationAssociatedSkills": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "description": "The skills this application belongs to.",
+          "type": "array",
+          "items": {
+            "$ref": "./_SimpleReferences.schema.json#/$defs/SkillReference"
+          },
+          "minItems": 2
+        },
+        "required_skill_rating": {
+          "description": "If an application applies to multiple skills, it may need to ensure the\nrespective skill is on a certain skill rating if the activatable entry\ncannot ensure this prerequisite.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "list"
+      ],
+      "additionalProperties": false
+    },
+    "SkillApplicationTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the application if different from the activatable entry's name.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
     },
     "SkillUses": {
       "description": "Registers uses, which get enabled once this entry is activated. It specifies\nan entry-unique identifier and the skill it belongs to. A translation can be\nleft out if its name equals the name of the origin activatable entry.",
       "type": "array",
       "items": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "description": "The use's identifier. An entry-unique, increasing integer.",
-            "type": "integer",
-            "minimum": 1
-          },
-          "skill": {
-            "description": "The skill(s) this use belongs to.",
-            "oneOf": [
-              {
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Single"
-                  },
-                  "id": {
-                    "description": "The referenced skill's identifier.",
-                    "type": "integer",
-                    "minimum": 1
-                  }
-                },
-                "required": [
-                  "tag",
-                  "id"
-                ],
-                "additionalProperties": false
-              },
-              {
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Multiple"
-                  },
-                  "list": {
-                    "description": "The skills this use belongs to.",
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "id": {
-                          "description": "The referenced skill's identifier.",
-                          "type": "integer",
-                          "minimum": 1
-                        }
-                      },
-                      "required": [
-                        "id"
-                      ],
-                      "additionalProperties": false
-                    },
-                    "minItems": 2
-                  }
-                },
-                "required": [
-                  "tag",
-                  "list"
-                ],
-                "additionalProperties": false
-              }
-            ]
-          },
-          "translations": {
-            "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-            "type": "object",
-            "patternProperties": {
-              "^[a-z]{2}-[A-Z]{2}$": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "description": "The name of the use if different from the activatable entry's name.",
-                    "type": "string",
-                    "minLength": 1
-                  }
-                },
-                "required": [
-                  "name"
-                ],
-                "additionalProperties": false
-              }
-            },
-            "minProperties": 1,
-            "additionalProperties": false
-          }
-        },
-        "required": [
-          "id",
-          "skill"
-        ],
-        "additionalProperties": false
+        "$ref": "#/$defs/SkillUse"
       },
       "minItems": 1
+    },
+    "SkillUse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The use's identifier. An entry-unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "skill": {
+          "description": "The skill(s) this use belongs to.",
+          "$ref": "#/$defs/SkillUseAssociatedSkill"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/SkillUseTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "skill"
+      ],
+      "additionalProperties": false
+    },
+    "SkillUseAssociatedSkill": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Single"
+            },
+            "single": {
+              "$ref": "./_SimpleReferences.schema.json#/$defs/SkillReference"
+            }
+          },
+          "required": [
+            "tag",
+            "single"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Multiple"
+            },
+            "multiple": {
+              "$ref": "#/$defs/SkillUseAssociatedSkills"
+            }
+          },
+          "required": [
+            "tag",
+            "multiple"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "SkillUseAssociatedSkills": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "description": "The skills this use belongs to.",
+          "type": "array",
+          "items": {
+            "$ref": "./_SimpleReferences.schema.json#/$defs/SkillReference"
+          },
+          "minItems": 2
+        }
+      },
+      "required": [
+        "list"
+      ],
+      "additionalProperties": false
+    },
+    "SkillUseTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the use if different from the activatable entry's name.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
     },
     "Penalty": {
       "description": "The penalty the special ability gives when used.",
@@ -1467,18 +589,13 @@
             "tag": {
               "const": "Single"
             },
-            "value": {
-              "description": "The penalty value.",
-              "type": "integer"
-            },
-            "applies_to_parry": {
-              "description": "Set to `true` if the penalty applies to the parry instead of the attack.",
-              "const": true
+            "single": {
+              "$ref": "#/$defs/SinglePenalty"
             }
           },
           "required": [
             "tag",
-            "value"
+            "single"
           ],
           "additionalProperties": false
         },
@@ -1488,23 +605,13 @@
             "tag": {
               "const": "ByHandedness"
             },
-            "one_handed": {
-              "description": "The penalty value for one-handed weapons.",
-              "type": "integer"
-            },
-            "two_handed": {
-              "description": "The penalty value for two-handed weapons.",
-              "type": "integer"
-            },
-            "applies_to_parry": {
-              "description": "Set to `true` if the penalty applies to the parry instead of the attack.",
-              "const": true
+            "by_handedness": {
+              "$ref": "#/$defs/PenaltyByHandedness"
             }
           },
           "required": [
             "tag",
-            "one_handed",
-            "two_handed"
+            "by_handedness"
           ],
           "additionalProperties": false
         },
@@ -1514,23 +621,13 @@
             "tag": {
               "const": "ByActivation"
             },
-            "active": {
-              "description": "The penalty value if the entry has been bought by the character.",
-              "type": "integer"
-            },
-            "inactive": {
-              "description": "The penalty value if the entry has not been bought by the character.",
-              "type": "integer"
-            },
-            "applies_to_parry": {
-              "description": "Set to `true` if the penalty applies to the parry instead of the attack.",
-              "const": true
+            "by_activation": {
+              "$ref": "#/$defs/PenaltyByActivation"
             }
           },
           "required": [
             "tag",
-            "active",
-            "inactive"
+            "by_activation"
           ],
           "additionalProperties": false
         },
@@ -1540,68 +637,13 @@
             "tag": {
               "const": "Selection"
             },
-            "options": {
-              "oneOf": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Specific"
-                    },
-                    "list": {
-                      "description": "The list of specific penalty options.",
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "value": {
-                            "description": "The penalty value.",
-                            "type": "integer"
-                          }
-                        },
-                        "required": [
-                          "value"
-                        ],
-                        "additionalProperties": false
-                      },
-                      "minItems": 2,
-                      "uniqueItems": true
-                    }
-                  },
-                  "required": [
-                    "tag",
-                    "list"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Range"
-                    },
-                    "minimum": {
-                      "description": "The minimum penalty value.",
-                      "type": "integer"
-                    },
-                    "maximum": {
-                      "description": "The maximum penalty value.",
-                      "type": "integer"
-                    }
-                  },
-                  "required": [
-                    "tag",
-                    "minimum",
-                    "maximum"
-                  ],
-                  "additionalProperties": false
-                }
-              ]
+            "selection": {
+              "$ref": "#/$defs/PenaltySelection"
             }
           },
           "required": [
             "tag",
-            "options"
+            "selection"
           ],
           "additionalProperties": false
         },
@@ -1611,32 +653,13 @@
             "tag": {
               "const": "ByLevel"
             },
-            "levels": {
-              "description": "A continuous range of penalties for each level. The first element is the\npenalty for the first level, the second element is the penalty for the\nsecond level, and so on.",
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "description": "The penalty value for this level.",
-                    "type": "integer"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
-              },
-              "minItems": 2
-            },
-            "external_id": {
-              "description": "The identifier of the combat-related special ability of which the level\ndefines the penalty instead.",
-              "$ref": "./_Identifier.schema.json#/$defs/CombatRelatedSpecialAbilityIdentifier"
+            "by_level": {
+              "$ref": "#/$defs/PenaltyByLevel"
             }
           },
           "required": [
             "tag",
-            "levels"
+            "by_level"
           ],
           "additionalProperties": false
         },
@@ -1646,49 +669,13 @@
             "tag": {
               "const": "ByAttack"
             },
-            "list": {
-              "description": "A list of penalties for subsequent attacks. The first element is the\npenalty for the first attack, the second element is the penalty for the\nsecond attack, and so on. The order of the first element may be changed\nusing `initial_order`, so that e.g. if set to `2`, the first element is\nthe penalty for the second attack, the second element is the penalty for\nthe third attack, and so on.",
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "description": "The penalty value for this order.",
-                    "type": "integer"
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
-              },
-              "minItems": 1
-            },
-            "initial_order": {
-              "description": "The order of the first element in the `list` of penalties.",
-              "type": "number"
-            },
-            "attack_replacement": {
-              "description": "Set if a predefined different word should be used instead of the word\n`attack` for display purposes.",
-              "oneOf": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Throw"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                }
-              ]
+            "by_attack": {
+              "$ref": "#/$defs/PenaltyByAttack"
             }
           },
           "required": [
             "tag",
-            "list"
+            "by_attack"
           ],
           "additionalProperties": false
         },
@@ -1706,6 +693,267 @@
         }
       ]
     },
+    "SinglePenalty": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The penalty value.",
+          "type": "integer"
+        },
+        "applies_to_parry": {
+          "description": "Set to `true` if the penalty applies to the parry instead of the attack.",
+          "const": true
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "PenaltyByHandedness": {
+      "type": "object",
+      "properties": {
+        "one_handed": {
+          "description": "The penalty value for one-handed weapons.",
+          "type": "integer"
+        },
+        "two_handed": {
+          "description": "The penalty value for two-handed weapons.",
+          "type": "integer"
+        },
+        "applies_to_parry": {
+          "description": "Set to `true` if the penalty applies to the parry instead of the attack.",
+          "const": true
+        }
+      },
+      "required": [
+        "one_handed",
+        "two_handed"
+      ],
+      "additionalProperties": false
+    },
+    "PenaltyByActivation": {
+      "type": "object",
+      "properties": {
+        "active": {
+          "description": "The penalty value if the entry has been bought by the character.",
+          "type": "integer"
+        },
+        "inactive": {
+          "description": "The penalty value if the entry has not been bought by the character.",
+          "type": "integer"
+        },
+        "applies_to_parry": {
+          "description": "Set to `true` if the penalty applies to the parry instead of the attack.",
+          "const": true
+        }
+      },
+      "required": [
+        "active",
+        "inactive"
+      ],
+      "additionalProperties": false
+    },
+    "PenaltySelection": {
+      "type": "object",
+      "properties": {
+        "options": {
+          "$ref": "#/$defs/PenaltySelectionOptions"
+        }
+      },
+      "required": [
+        "options"
+      ],
+      "additionalProperties": false
+    },
+    "PenaltySelectionOptions": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Specific"
+            },
+            "specific": {
+              "$ref": "#/$defs/SpecificPenaltySelectionOptions"
+            }
+          },
+          "required": [
+            "tag",
+            "specific"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Range"
+            },
+            "range": {
+              "$ref": "#/$defs/PenaltySelectionOptionsRange"
+            }
+          },
+          "required": [
+            "tag",
+            "range"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "SpecificPenaltySelectionOptions": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "description": "The list of specific penalty options.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SpecificPenaltySelectionOption"
+          },
+          "minItems": 2,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "list"
+      ],
+      "additionalProperties": false
+    },
+    "SpecificPenaltySelectionOption": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The penalty value.",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "PenaltySelectionOptionsRange": {
+      "type": "object",
+      "properties": {
+        "minimum": {
+          "description": "The minimum penalty value.",
+          "type": "integer"
+        },
+        "maximum": {
+          "description": "The maximum penalty value.",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "minimum",
+        "maximum"
+      ],
+      "additionalProperties": false
+    },
+    "PenaltyByLevel": {
+      "type": "object",
+      "properties": {
+        "levels": {
+          "description": "A continuous range of penalties for each level. The first element is the\npenalty for the first level, the second element is the penalty for the\nsecond level, and so on.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PenaltyByLevelLevel"
+          },
+          "minItems": 2
+        },
+        "external": {
+          "description": "The combat-related special ability of which the level defines the penalty\ninstead.",
+          "$ref": "#/$defs/PenaltyByExternalLevel"
+        }
+      },
+      "required": [
+        "levels"
+      ],
+      "additionalProperties": false
+    },
+    "PenaltyByLevelLevel": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The penalty value for this level.",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "PenaltyByExternalLevel": {
+      "description": "The combat-related special ability of which the level defines the penalty\ninstead.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The identifier of the combat-related special ability of which the level\ndefines the penalty instead.",
+          "$ref": "./_Identifier.schema.json#/$defs/CombatRelatedSpecialAbilityIdentifier"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "PenaltyByAttack": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "description": "A list of penalties for subsequent attacks. The first element is the\npenalty for the first attack, the second element is the penalty for the\nsecond attack, and so on. The order of the first element may be changed\nusing `initial_order`, so that e.g. if set to `2`, the first element is\nthe penalty for the second attack, the second element is the penalty for\nthe third attack, and so on.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PenaltyByAttackOrderItem"
+          },
+          "minItems": 1
+        },
+        "initial_order": {
+          "description": "The order of the first element in the `list` of penalties.",
+          "type": "number"
+        },
+        "attack_replacement": {
+          "description": "Set if a predefined different word should be used instead of the word\n`attack` for display purposes.",
+          "$ref": "#/$defs/PenaltyByAttackReplacement"
+        }
+      },
+      "required": [
+        "list"
+      ],
+      "additionalProperties": false
+    },
+    "PenaltyByAttackOrderItem": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The penalty value for this order.",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "PenaltyByAttackReplacement": {
+      "description": "Set if a predefined different word should be used instead of the word\n`attack` for display purposes.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Throw"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
     "EnchantmentCost": {
       "oneOf": [
         {
@@ -1714,13 +962,13 @@
             "tag": {
               "const": "ArcaneEnergyCost"
             },
-            "ae_cost": {
+            "arcane_energy_cost": {
               "$ref": "#/$defs/ArcaneEnergyCost"
             }
           },
           "required": [
             "tag",
-            "ae_cost"
+            "arcane_energy_cost"
           ],
           "additionalProperties": false
         },
@@ -1751,88 +999,13 @@
             "tag": {
               "const": "Fixed"
             },
-            "value": {
-              "description": "The AE cost value.",
-              "type": "integer",
-              "minimum": 1
-            },
-            "is_permanent": {
-              "description": "Set to `true` if the AE costs are permanent.",
-              "const": true
-            },
-            "interval": {
-              "description": "Specified if the AE cost `value` has to be paid for each time interval.",
-              "$ref": "./_ActivatableSkillDuration.schema.json#/$defs/DurationUnitValue"
-            },
-            "per_level": {
-              "description": "The AE cost are per level of the enchantment. It may either be displayed\nin a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1\nAE for level I; 2 AE for level II`).",
-              "oneOf": [
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Compressed"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "tag": {
-                      "const": "Verbose"
-                    }
-                  },
-                  "required": [
-                    "tag"
-                  ],
-                  "additionalProperties": false
-                }
-              ]
-            },
-            "translations": {
-              "description": "All translations for the entry, identified by IETF language tag\n(BCP47).",
-              "type": "object",
-              "patternProperties": {
-                "^[a-z]{2}-[A-Z]{2}$": {
-                  "type": "object",
-                  "properties": {
-                    "note": {
-                      "description": "A note, appended to the generated string in parenthesis.",
-                      "type": "object",
-                      "properties": {
-                        "default": {
-                          "description": "The full note.",
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "compressed": {
-                          "description": "A compressed note, if applicable. If not specified it should not\nbe displayed in small location.",
-                          "type": "string",
-                          "minLength": 1
-                        }
-                      },
-                      "required": [
-                        "default"
-                      ],
-                      "additionalProperties": false
-                    }
-                  },
-                  "required": [],
-                  "minProperties": 1,
-                  "additionalProperties": false
-                }
-              },
-              "minProperties": 1,
-              "additionalProperties": false
+            "fixed": {
+              "$ref": "#/$defs/FixedArcaneEnergyCost"
             }
           },
           "required": [
             "tag",
-            "value"
+            "fixed"
           ],
           "additionalProperties": false
         },
@@ -1842,78 +1015,13 @@
             "tag": {
               "const": "PerCountable"
             },
-            "value": {
-              "description": "The AE cost value that has to be per a specific countable entity.",
-              "type": "integer",
-              "minimum": 1
-            },
-            "base_value": {
-              "description": "If defined, in addition to the cost per entity you have to pay a flat\namount, regardless of the entity count.",
-              "type": "integer",
-              "minimum": 1
-            },
-            "translations": {
-              "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-              "type": "object",
-              "patternProperties": {
-                "^[a-z]{2}-[A-Z]{2}$": {
-                  "type": "object",
-                  "properties": {
-                    "per": {
-                      "description": "The cost have to be per a specific countable entity, e.g. `8 AE per\nperson`.",
-                      "type": "object",
-                      "properties": {
-                        "default": {
-                          "description": "The full countable entity name.",
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "compressed": {
-                          "description": "The compressed countable entity name.",
-                          "type": "string",
-                          "minLength": 1
-                        }
-                      },
-                      "required": [
-                        "default",
-                        "compressed"
-                      ],
-                      "additionalProperties": false
-                    },
-                    "note": {
-                      "description": "A note, appended to the generated string in parenthesis.",
-                      "type": "object",
-                      "properties": {
-                        "default": {
-                          "description": "The full note.",
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "compressed": {
-                          "description": "A compressed note, if applicable. If not specified it should not\nbe displayed in small location.",
-                          "type": "string",
-                          "minLength": 1
-                        }
-                      },
-                      "required": [
-                        "default"
-                      ],
-                      "additionalProperties": false
-                    }
-                  },
-                  "required": [
-                    "per"
-                  ],
-                  "additionalProperties": false
-                }
-              },
-              "minProperties": 1,
-              "additionalProperties": false
+            "per_countable": {
+              "$ref": "#/$defs/ArcaneEnergyCostPerCountable"
             }
           },
           "required": [
             "tag",
-            "value"
+            "per_countable"
           ],
           "additionalProperties": false
         },
@@ -1923,21 +1031,13 @@
             "tag": {
               "const": "ActivationAndHalfInterval"
             },
-            "value": {
-              "description": "The AE cost value that has to be payed for activation. Half of this value\nhas to be payed each interval.",
-              "type": "integer",
-              "minimum": 2,
-              "multipleOf": 2
-            },
-            "interval": {
-              "description": "The time interval for which the AE cost `value` has to be paid.",
-              "$ref": "./_ActivatableSkillDuration.schema.json#/$defs/DurationUnitValue"
+            "activation_and_half_interval": {
+              "$ref": "#/$defs/ActivationAndHalfIntervalArcaneEnergyCost"
             }
           },
           "required": [
             "tag",
-            "value",
-            "interval"
+            "activation_and_half_interval"
           ],
           "additionalProperties": false
         },
@@ -1947,94 +1047,13 @@
             "tag": {
               "const": "Indefinite"
             },
-            "modifier": {
-              "description": "The indefinite AE cost may be modified by a certain value.",
-              "type": "object",
-              "properties": {
-                "arithmetic": {
-                  "description": "The arithmetic how to apply the `value` to the indefinite base value.",
-                  "oneOf": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "tag": {
-                          "const": "Add"
-                        }
-                      },
-                      "required": [
-                        "tag"
-                      ],
-                      "additionalProperties": false
-                    },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "tag": {
-                          "const": "Multiply"
-                        }
-                      },
-                      "required": [
-                        "tag"
-                      ],
-                      "additionalProperties": false
-                    }
-                  ]
-                },
-                "value": {
-                  "description": "The value that is applied to the indefinite base value using the\ndefined `arithmetic`.",
-                  "type": "integer",
-                  "minimum": 1
-                }
-              },
-              "required": [
-                "arithmetic",
-                "value"
-              ],
-              "additionalProperties": false
-            },
-            "translations": {
-              "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-              "type": "object",
-              "patternProperties": {
-                "^[a-z]{2}-[A-Z]{2}$": {
-                  "type": "object",
-                  "properties": {
-                    "description": {
-                      "description": "A description of where the cost come from.",
-                      "type": "object",
-                      "properties": {
-                        "default": {
-                          "description": "The full description of where the cost come from.",
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "compressed": {
-                          "description": "A compressed description of where the cost come from for use in\nsmall areas (e.g. on character sheet).",
-                          "type": "string",
-                          "minLength": 1
-                        }
-                      },
-                      "required": [
-                        "default",
-                        "compressed"
-                      ],
-                      "additionalProperties": false
-                    }
-                  },
-                  "required": [
-                    "description"
-                  ],
-                  "additionalProperties": false
-                }
-              },
-              "minProperties": 1,
-              "additionalProperties": false
+            "indefinite": {
+              "$ref": "#/$defs/IndefiniteArcaneEnergyCost"
             }
           },
           "required": [
             "tag",
-            "modifier",
-            "translations"
+            "indefinite"
           ],
           "additionalProperties": false
         },
@@ -2044,89 +1063,13 @@
             "tag": {
               "const": "Disjunction"
             },
-            "interval": {
-              "description": "Specified if the selected AE cost option has to be paid for each time\ninterval.",
-              "type": "object",
-              "properties": {
-                "value": {
-                  "description": "The interval itself.",
-                  "$ref": "./_ActivatableSkillDuration.schema.json#/$defs/DurationUnitValue"
-                },
-                "activation_value": {
-                  "description": "The AE cost value for activation.",
-                  "type": "integer",
-                  "minimum": 1
-                },
-                "after_activation": {
-                  "description": "Set to `true` if the action where the enchantment is casted does\n**not** as a part of the first interval that has to be payed, so that\nthe first interval payment needs to be done after the activation.\n\nThis works different than other sustained spells, since for them the\nend of the cast usually already counts as part of the first interval.",
-                  "type": "boolean"
-                }
-              },
-              "required": [
-                "value",
-                "activation_value",
-                "after_activation"
-              ],
-              "additionalProperties": false
-            },
-            "options": {
-              "description": "The possible AE cost values.",
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "value": {
-                    "description": "A possible AE cost value.",
-                    "type": "integer",
-                    "minimum": 1
-                  },
-                  "translations": {
-                    "description": "All translations for the entry, identified by IETF language tag\n(BCP47).",
-                    "type": "object",
-                    "patternProperties": {
-                      "^[a-z]{2}-[A-Z]{2}$": {
-                        "type": "object",
-                        "properties": {
-                          "note": {
-                            "description": "A note, appended to the generated option string in parenthesis.",
-                            "type": "object",
-                            "properties": {
-                              "default": {
-                                "description": "The full note.",
-                                "type": "string",
-                                "minLength": 1
-                              },
-                              "compressed": {
-                                "description": "A compressed note, if applicable. If not specified it should not\nbe displayed in small location.",
-                                "type": "string",
-                                "minLength": 1
-                              }
-                            },
-                            "required": [
-                              "default"
-                            ],
-                            "additionalProperties": false
-                          }
-                        },
-                        "required": [],
-                        "minProperties": 1,
-                        "additionalProperties": false
-                      }
-                    },
-                    "minProperties": 1,
-                    "additionalProperties": false
-                  }
-                },
-                "required": [
-                  "value"
-                ],
-                "additionalProperties": false
-              }
+            "disjunction": {
+              "$ref": "#/$defs/ArcaneEnergyCostDisjunction"
             }
           },
           "required": [
             "tag",
-            "options"
+            "disjunction"
           ],
           "additionalProperties": false
         },
@@ -2136,45 +1079,13 @@
             "tag": {
               "const": "None"
             },
-            "translations": {
-              "description": "All translations for the entry, identified by IETF language tag\n(BCP47).",
-              "type": "object",
-              "patternProperties": {
-                "^[a-z]{2}-[A-Z]{2}$": {
-                  "type": "object",
-                  "properties": {
-                    "note": {
-                      "description": "A note, appended to the generated string in parenthesis.",
-                      "type": "object",
-                      "properties": {
-                        "default": {
-                          "description": "The full note.",
-                          "type": "string",
-                          "minLength": 1
-                        },
-                        "compressed": {
-                          "description": "A compressed note, if applicable. If not specified it should not\nbe displayed in small location.",
-                          "type": "string",
-                          "minLength": 1
-                        }
-                      },
-                      "required": [
-                        "default"
-                      ],
-                      "additionalProperties": false
-                    }
-                  },
-                  "required": [],
-                  "minProperties": 1,
-                  "additionalProperties": false
-                }
-              },
-              "minProperties": 1,
-              "additionalProperties": false
+            "none": {
+              "$ref": "#/$defs/NoArcaneEnergyCost"
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "none"
           ],
           "additionalProperties": false
         },
@@ -2192,6 +1103,301 @@
         }
       ]
     },
+    "FixedArcaneEnergyCost": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The AE cost value.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "is_permanent": {
+          "description": "Set to `true` if the AE costs are permanent.",
+          "const": true
+        },
+        "interval": {
+          "description": "Specified if the AE cost `value` has to be paid for each time interval.",
+          "$ref": "./_ActivatableSkillDuration.schema.json#/$defs/DurationUnitValue"
+        },
+        "per_level": {
+          "description": "The AE cost are per level of the enchantment. It may either be displayed\nin a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1\nAE for level I; 2 AE for level II`).",
+          "$ref": "#/$defs/FixedArcaneEnergyCostPerLevel"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/FixedArcaneEnergyCostTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "FixedArcaneEnergyCostPerLevel": {
+      "description": "The AE cost are per level of the enchantment. It may either be displayed\nin a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1\nAE for level I; 2 AE for level II`).",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Compressed"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Verbose"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "FixedArcaneEnergyCostTranslation": {
+      "type": "object",
+      "properties": {
+        "note": {
+          "description": "A note, appended to the generated option string in parenthesis.",
+          "$ref": "./_ResponsiveText.schema.json#/$defs/ResponsiveTextOptional"
+        }
+      },
+      "required": [],
+      "minProperties": 1,
+      "additionalProperties": false
+    },
+    "ArcaneEnergyCostPerCountable": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The AE cost value that has to be per a specific countable entity.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "base_value": {
+          "description": "If defined, in addition to the cost per entity you have to pay a flat\namount, regardless of the entity count.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/ArcaneEnergyCostPerCountableTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "ArcaneEnergyCostPerCountableTranslation": {
+      "type": "object",
+      "properties": {
+        "per": {
+          "description": "The cost have to be per a specific countable entity, e.g. `8 AE per\nperson`.",
+          "$ref": "./_ResponsiveText.schema.json#/$defs/ResponsiveText"
+        },
+        "note": {
+          "description": "A note, appended to the generated string in parenthesis.",
+          "$ref": "./_ResponsiveText.schema.json#/$defs/ResponsiveTextOptional"
+        }
+      },
+      "required": [
+        "per"
+      ],
+      "additionalProperties": false
+    },
+    "ActivationAndHalfIntervalArcaneEnergyCost": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The AE cost value that has to be payed for activation. Half of this value\nhas to be payed each interval.",
+          "type": "integer",
+          "minimum": 2,
+          "multipleOf": 2
+        },
+        "interval": {
+          "description": "The time interval for which the AE cost `value` has to be paid.",
+          "$ref": "./_ActivatableSkillDuration.schema.json#/$defs/DurationUnitValue"
+        }
+      },
+      "required": [
+        "value",
+        "interval"
+      ],
+      "additionalProperties": false
+    },
+    "IndefiniteArcaneEnergyCost": {
+      "type": "object",
+      "properties": {
+        "modifier": {
+          "description": "The indefinite AE cost may be modified by a certain value.",
+          "$ref": "./_ActivatableSkillCheckResultBased.schema.json#/$defs/CheckResultBasedModifier"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/IndefiniteArcaneEnergyCostTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "modifier",
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "IndefiniteArcaneEnergyCostTranslation": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "description": "A description of where the cost come from.",
+          "$ref": "./_ResponsiveText.schema.json#/$defs/ResponsiveText"
+        }
+      },
+      "required": [
+        "description"
+      ],
+      "additionalProperties": false
+    },
+    "ArcaneEnergyCostDisjunction": {
+      "type": "object",
+      "properties": {
+        "interval": {
+          "description": "Specified if the selected AE cost option has to be paid for each time\ninterval.",
+          "$ref": "#/$defs/ArcaneEnergyCostDisjunctionInterval"
+        },
+        "options": {
+          "description": "The possible AE cost values.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ArcaneEnergyCostDisjunctionOption"
+          }
+        }
+      },
+      "required": [
+        "options"
+      ],
+      "additionalProperties": false
+    },
+    "ArcaneEnergyCostDisjunctionInterval": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The interval itself.",
+          "$ref": "./_ActivatableSkillDuration.schema.json#/$defs/DurationUnitValue"
+        },
+        "activation_value": {
+          "description": "The AE cost value for activation.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "after_activation": {
+          "description": "Set to `true` if the action where the enchantment is casted does\n**not** as a part of the first interval that has to be payed, so that\nthe first interval payment needs to be done after the activation.\n\nThis works different than other sustained spells, since for them the\nend of the cast usually already counts as part of the first interval.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "value",
+        "activation_value",
+        "after_activation"
+      ],
+      "additionalProperties": false
+    },
+    "ArcaneEnergyCostDisjunctionOption": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "A possible AE cost value.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/ArcaneEnergyCostDisjunctionOptionTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "ArcaneEnergyCostDisjunctionOptionTranslation": {
+      "type": "object",
+      "properties": {
+        "note": {
+          "description": "A note, appended to the generated option string in parenthesis.",
+          "$ref": "./_ResponsiveText.schema.json#/$defs/ResponsiveTextOptional"
+        }
+      },
+      "required": [],
+      "minProperties": 1,
+      "additionalProperties": false
+    },
+    "NoArcaneEnergyCost": {
+      "type": "object",
+      "properties": {
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/NoArcaneEnergyCostTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [],
+      "minProperties": 1,
+      "additionalProperties": false
+    },
+    "NoArcaneEnergyCostTranslation": {
+      "type": "object",
+      "properties": {
+        "note": {
+          "description": "A note, appended to the generated string in parenthesis.",
+          "$ref": "./_ResponsiveText.schema.json#/$defs/ResponsiveTextOptional"
+        }
+      },
+      "required": [],
+      "minProperties": 1,
+      "additionalProperties": false
+    },
     "Volume": {
       "description": "The volume points the enchantment needs.",
       "oneOf": [
@@ -2201,15 +1407,13 @@
             "tag": {
               "const": "Fixed"
             },
-            "points": {
-              "description": "The volume points.",
-              "type": "integer",
-              "minimum": 0
+            "fixed": {
+              "$ref": "#/$defs/FixedVolume"
             }
           },
           "required": [
             "tag",
-            "points"
+            "fixed"
           ],
           "additionalProperties": false
         },
@@ -2219,15 +1423,13 @@
             "tag": {
               "const": "PerLevel"
             },
-            "points": {
-              "description": "The volume points per level.",
-              "type": "integer",
-              "minimum": 1
+            "per_level": {
+              "$ref": "#/$defs/VolumePerLevel"
             }
           },
           "required": [
             "tag",
-            "points"
+            "per_level"
           ],
           "additionalProperties": false
         },
@@ -2237,29 +1439,13 @@
             "tag": {
               "const": "ByLevel"
             },
-            "list": {
-              "description": "The volume points for each level. The first element is the volume points\nfor the first level, the second element is the volume points for the\nsecond level, and so on.",
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "points": {
-                    "description": "The volume points for this level.",
-                    "type": "integer",
-                    "minimum": 0
-                  }
-                },
-                "required": [
-                  "points"
-                ],
-                "additionalProperties": false
-              },
-              "minItems": 2
+            "by_level": {
+              "$ref": "#/$defs/VolumeByLevel"
             }
           },
           "required": [
             "tag",
-            "list"
+            "by_level"
           ],
           "additionalProperties": false
         },
@@ -2281,6 +1467,65 @@
         }
       ]
     },
+    "FixedVolume": {
+      "type": "object",
+      "properties": {
+        "points": {
+          "description": "The volume points.",
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "points"
+      ],
+      "additionalProperties": false
+    },
+    "VolumePerLevel": {
+      "type": "object",
+      "properties": {
+        "points": {
+          "description": "The volume points per level.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "points"
+      ],
+      "additionalProperties": false
+    },
+    "VolumeByLevel": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "description": "The volume points for each level. The first element is the volume points\nfor the first level, the second element is the volume points for the\nsecond level, and so on.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/VolumeByLevelItem"
+          },
+          "minItems": 2
+        }
+      },
+      "required": [
+        "list"
+      ],
+      "additionalProperties": false
+    },
+    "VolumeByLevelItem": {
+      "type": "object",
+      "properties": {
+        "points": {
+          "description": "The volume points for this level.",
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "points"
+      ],
+      "additionalProperties": false
+    },
     "VolumeMap": {
       "description": "A content that is `3/4/5 Points for Chimera, Daimonid, Golems, Undead /\nFairies, Ghosts / Demons, Elementals` may be respresented as the following\nmap:\n\n```yaml\noptions:\n  - points: 3\n    associated_options:\n      - id:\n          tag: General\n          value: # ...\n      # ...\n    translations:\n      en-US:\n        label: \"Chimera, Daimonid, Golems, Undead\"\n        label_standalone: \"Chimera/Daimonid/Golems/Undead\"\n  - points: 4\n    associated_options:\n      - id:\n          tag: General\n          value: # ...\n      # ...\n    translations:\n      en-US:\n        label: \"Fairies, Ghosts\"\n        label_standalone: \"Fairies/Ghosts\"\n  - points: 5\n    associated_options:\n      - id:\n          tag: General\n          value: # ...\n      # ...\n    translations:\n      en-US:\n        label: \"Demons, Elementals\"\n        label_standalone: \"Demons/Elementals\"\n```\n\nThis will generate the exact same string as seen above. The associated\noptions are not present in the example, but they link to the options the\nvolume specification is meant for.",
       "type": "object",
@@ -2298,23 +1543,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "list_prepend": {
-                  "description": "Place a string between the `for` and the grouped map option labels.",
-                  "type": "string"
-                },
-                "list_append": {
-                  "description": "Place a string after the grouped map option labels.",
-                  "type": "string"
-                },
-                "replacement": {
-                  "description": "If the string from the book cannot be generated using the default\ngeneration technique, use this string. All options still need to be\ninserted propertly, since it may be used by in-game tools to provide a\nselection to players.",
-                  "type": "string"
-                }
-              },
-              "required": [],
-              "additionalProperties": false
+              "$ref": "#/$defs/VolumeMapTranslation"
             }
           },
           "minProperties": 1,
@@ -2324,6 +1553,26 @@
       "required": [
         "options"
       ],
+      "additionalProperties": false
+    },
+    "VolumeMapTranslation": {
+      "type": "object",
+      "properties": {
+        "list_prepend": {
+          "description": "Place a string between the `for` and the grouped map option labels.",
+          "type": "string"
+        },
+        "list_append": {
+          "description": "Place a string after the grouped map option labels.",
+          "type": "string"
+        },
+        "replacement": {
+          "description": "If the string from the book cannot be generated using the default\ngeneration technique, use this string. All options still need to be\ninserted propertly, since it may be used by in-game tools to provide a\nselection to players.",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "minProperties": 1,
       "additionalProperties": false
     },
     "VolumeMapOption": {
@@ -2338,17 +1587,7 @@
           "description": "Links to the options this volume specification is meant for.",
           "type": "array",
           "items": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "The option's identifier.",
-                "$ref": "./_Identifier.schema.json#/$defs/VolumePointsOptionReferenceIdentifier"
-              }
-            },
-            "required": [
-              "id"
-            ],
-            "additionalProperties": false
+            "$ref": "#/$defs/VolumeMapOptionAssociatedOption"
           }
         },
         "translations": {
@@ -2356,23 +1595,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "label": {
-                  "description": "The description of the option for cost string generation.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "label_standalone": {
-                  "description": "The description of the option if used standalone. Only used if\ndifferent from `label`.",
-                  "type": "string",
-                  "minLength": 1
-                }
-              },
-              "required": [
-                "label"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/VolumeMapOptionTranslation"
             }
           },
           "minProperties": 1,
@@ -2385,6 +1608,36 @@
       ],
       "additionalProperties": false
     },
+    "VolumeMapOptionAssociatedOption": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The option's identifier.",
+          "$ref": "./_Identifier.schema.json#/$defs/VolumePointsOptionReferenceIdentifier"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "VolumeMapOptionTranslation": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "description": "The description of the option for cost string generation.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "label_standalone": {
+          "description": "The description of the option if used standalone. Only used if\ndifferent from `label`.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "label"
+      ],
+      "additionalProperties": false
+    },
     "BindingCost": {
       "description": "The binding cost for an enchantment.",
       "oneOf": [
@@ -2394,15 +1647,13 @@
             "tag": {
               "const": "Fixed"
             },
-            "permanent_value": {
-              "description": "The permanent AE cost.",
-              "type": "integer",
-              "minimum": 1
+            "fixed": {
+              "$ref": "#/$defs/FixedBindingCost"
             }
           },
           "required": [
             "tag",
-            "permanent_value"
+            "fixed"
           ],
           "additionalProperties": false
         },
@@ -2412,15 +1663,13 @@
             "tag": {
               "const": "PerLevel"
             },
-            "permanent_value": {
-              "description": "The permanent AE cost per level.",
-              "type": "integer",
-              "minimum": 1
+            "per_level": {
+              "$ref": "#/$defs/BindingCostPerLevel"
             }
           },
           "required": [
             "tag",
-            "permanent_value"
+            "per_level"
           ],
           "additionalProperties": false
         },
@@ -2442,6 +1691,34 @@
         }
       ]
     },
+    "FixedBindingCost": {
+      "type": "object",
+      "properties": {
+        "permanent_value": {
+          "description": "The permanent AE cost.\n\nIf the enchantment has multiple levels, it is only applied for the first\nlevel.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "permanent_value"
+      ],
+      "additionalProperties": false
+    },
+    "BindingCostPerLevel": {
+      "type": "object",
+      "properties": {
+        "permanent_value": {
+          "description": "The permanent AE cost per level.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "permanent_value"
+      ],
+      "additionalProperties": false
+    },
     "BindingCostMap": {
       "description": "A content that is `2/4/8 permanent AE for spell-swords with the combat\ntechnique Daggers, Swords, or Two-Handed Swords` may be respresented as the\nfollowing map:\n\n```yaml\noptions:\n  - permanent_value: 2\n    translations:\n      en-US:\n        label: \"Daggers\"\n        label_standalone: \"Dagger\"\n  - permanent_value: 4\n    translations:\n      en-US:\n        label: \"Swords\"\n        label_standalone: \"Sword\"\n  - permanent_value: 8\n    translations:\n      en-US:\n        label: \"Two-Handed Swords\"\n        label_standalone: \"Two-Handed Sword\"\nlist_prepend: \"spell-swords with the combat technique\"\n```\n\nThis will generate the exact same string as seen above.",
       "type": "object",
@@ -2459,24 +1736,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "list_prepend": {
-                  "description": "Place a string between the `for` and the grouped map option labels.",
-                  "type": "string"
-                },
-                "list_append": {
-                  "description": "Place a string after the grouped map option labels.",
-                  "type": "string"
-                },
-                "replacement": {
-                  "description": "If the string from the book cannot be generated using the default\ngeneration technique, use this string. All options still need to be\ninserted propertly, since it may be used by in-game tools to provide a\nselection to players.",
-                  "type": "string"
-                }
-              },
-              "required": [],
-              "minProperties": 1,
-              "additionalProperties": false
+              "$ref": "#/$defs/BindingCostMapTranslation"
             }
           },
           "minProperties": 1,
@@ -2486,6 +1746,26 @@
       "required": [
         "options"
       ],
+      "additionalProperties": false
+    },
+    "BindingCostMapTranslation": {
+      "type": "object",
+      "properties": {
+        "list_prepend": {
+          "description": "Place a string between the `for` and the grouped map option labels.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "list_append": {
+          "description": "Place a string after the grouped map option labels.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "replacement": {
+          "description": "If the string from the book cannot be generated using the default\ngeneration technique, use this string. All options still need to be\ninserted propertly, since it may be used by in-game tools to provide a\nselection to players.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [],
+      "minProperties": 1,
       "additionalProperties": false
     },
     "BindingCostMapOption": {
@@ -2501,23 +1781,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "label": {
-                  "description": "The description of the option for cost string generation.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "label_standalone": {
-                  "description": "The description of the option if used standalone. Only used if\ndifferent from `label`.",
-                  "type": "string",
-                  "minLength": 1
-                }
-              },
-              "required": [
-                "label"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/BindingCostMapOptionTranslation"
             }
           },
           "minProperties": 1,
@@ -2529,6 +1793,23 @@
       ],
       "additionalProperties": false
     },
+    "BindingCostMapOptionTranslation": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "description": "The description of the option for cost string generation.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "label_standalone": {
+          "description": "The description of the option if used standalone. Only used if\ndifferent from `label`.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "label"
+      ],
+      "additionalProperties": false
+    },
     "Property": {
       "description": "The magic property's identifier. `DependingOnProperty` can only be used if\nthe special ability has an option to select a property.",
       "oneOf": [
@@ -2536,7 +1817,7 @@
           "type": "object",
           "properties": {
             "tag": {
-              "const": "DependingOnProperty"
+              "const": "DependingOnSelection"
             }
           },
           "required": [
@@ -2550,24 +1831,21 @@
             "tag": {
               "const": "Fixed"
             },
-            "id": {
-              "description": "The property's identifier.",
-              "type": "integer",
-              "minimum": 1
+            "fixed": {
+              "$ref": "./_SimpleReferences.schema.json#/$defs/PropertyReference"
             }
           },
           "required": [
             "tag",
-            "id"
+            "fixed"
           ],
           "additionalProperties": false
         }
       ]
     },
     "Aspect": {
-      "description": "The blessed aspect's identifier.",
-      "type": "integer",
-      "minimum": 1
+      "description": "The blessed aspect.",
+      "$ref": "./_SimpleReferences.schema.json#/$defs/AspectReference"
     },
     "AdvancedSpecialAbility": {
       "description": "A reference to an advanced special ability.",
@@ -2578,15 +1856,13 @@
             "tag": {
               "const": "General"
             },
-            "id": {
-              "description": "The advanced special ability's numeric identifier.",
-              "type": "integer",
-              "minimum": 1
+            "general": {
+              "$ref": "./_SimpleReferences.schema.json#/$defs/AdvancedSpecialAbilityReference"
             }
           },
           "required": [
             "tag",
-            "id"
+            "general"
           ],
           "additionalProperties": false
         },
@@ -2596,24 +1872,13 @@
             "tag": {
               "const": "RestrictOptions"
             },
-            "id": {
-              "description": "The advanced special ability's numeric identifier.",
-              "type": "integer",
-              "minimum": 1
-            },
-            "option": {
-              "description": "Specify the select option(s) that only are allowed for the referenced\nadvanced special ability; others are disallowed.",
-              "type": "array",
-              "items": {
-                "$ref": "./_Identifier.schema.json#/$defs/AdvancedSpecialAbilityRestrictedOptionIdentifier"
-              },
-              "minItems": 1
+            "restrict_options": {
+              "$ref": "#/$defs/RestrictAdvancedSpecialAbilityOptions"
             }
           },
           "required": [
             "tag",
-            "id",
-            "option"
+            "restrict_options"
           ],
           "additionalProperties": false
         },
@@ -2623,42 +1888,13 @@
             "tag": {
               "const": "OneOf"
             },
-            "options": {
-              "description": "The possible advanced special abilities.",
-              "type": "object",
-              "properties": {
-                "id": {
-                  "description": "The advanced special ability's numeric identifier.",
-                  "type": "integer",
-                  "minimum": 1
-                }
-              },
-              "required": [
-                "id"
-              ],
-              "additionalProperties": false
-            },
-            "is_selection_required_on_purchase": {
-              "description": "Do have to choose on when buying the special ability? Otherwise the\ndecision can be made later.",
-              "type": "boolean"
-            },
-            "option": {
-              "description": "Specify the select option(s) that only are allowed for the referenced\nadvanced special ability; others are disallowed.",
-              "type": "array",
-              "items": {
-                "$ref": "./_Identifier.schema.json#/$defs/AdvancedSpecialAbilityRestrictedOptionIdentifier"
-              },
-              "minItems": 1
-            },
-            "display_option": {
-              "$ref": "./prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
+            "one_of": {
+              "$ref": "#/$defs/OneOfAdvancedSpecialAbilityOptions"
             }
           },
           "required": [
             "tag",
-            "options",
-            "is_selection_required_on_purchase",
-            "option"
+            "one_of"
           ],
           "additionalProperties": false
         },
@@ -2668,69 +1904,105 @@
             "tag": {
               "const": "DeriveFromExternalOption"
             },
-            "external_entry": {
-              "description": "The possible advanced special abilities.",
-              "$ref": "#/$defs/AdvancedSpecialAbilityDerivedExternalEntryId"
-            },
-            "mappings": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "from_option": {
-                    "description": "The select option's identifier.",
-                    "$ref": "#/$defs/AdvancedSpecialAbilityDerivedExternalEntryOptionId"
-                  },
-                  "to_advanced": {
-                    "description": "The advanced special ability's identifier.",
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "description": "The advanced special ability's numeric identifier.",
-                        "type": "integer",
-                        "minimum": 1
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ],
-                    "additionalProperties": false
-                  }
-                },
-                "required": [
-                  "from_option",
-                  "to_advanced"
-                ],
-                "additionalProperties": false
-              },
-              "minItems": 0
-            },
-            "display_option": {
-              "$ref": "./prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
-            },
-            "is_selection_required_on_purchase": {
-              "description": "Do have to choose on when buying the special ability? Otherwise the\ndecision can be made later.",
-              "type": "boolean"
-            },
-            "option": {
-              "description": "Specify the select option(s) that only are allowed for the referenced\nadvanced special ability; others are disallowed.",
-              "type": "array",
-              "items": {
-                "$ref": "./_Identifier.schema.json#/$defs/AdvancedSpecialAbilityRestrictedOptionIdentifier"
-              },
-              "minItems": 1
+            "derive_from_external_option": {
+              "$ref": "#/$defs/AdvancedSpecialAbilityDerivedFromExternalOption"
             }
           },
           "required": [
             "tag",
-            "external_entry",
-            "mappings",
-            "is_selection_required_on_purchase",
-            "option"
+            "derive_from_external_option"
           ],
           "additionalProperties": false
         }
       ]
+    },
+    "RestrictAdvancedSpecialAbilityOptions": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The advanced special ability's numeric identifier.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "option": {
+          "description": "Specify the select option(s) that only are allowed for the referenced\nadvanced special ability; others are disallowed.",
+          "type": "array",
+          "items": {
+            "$ref": "./_Identifier.schema.json#/$defs/AdvancedSpecialAbilityRestrictedOptionIdentifier"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "id",
+        "option"
+      ],
+      "additionalProperties": false
+    },
+    "OneOfAdvancedSpecialAbilityOptions": {
+      "type": "object",
+      "properties": {
+        "options": {
+          "description": "The possible advanced special abilities.",
+          "$ref": "./_SimpleReferences.schema.json#/$defs/AdvancedSpecialAbilityReference"
+        },
+        "is_selection_required_on_purchase": {
+          "description": "Do have to choose the advanced special ability when buying the style\nspecial ability? Otherwise the decision can be made later.",
+          "type": "boolean"
+        },
+        "display_option": {
+          "$ref": "./prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
+        }
+      },
+      "required": [
+        "options",
+        "is_selection_required_on_purchase"
+      ],
+      "additionalProperties": false
+    },
+    "AdvancedSpecialAbilityDerivedFromExternalOption": {
+      "type": "object",
+      "properties": {
+        "external_entry": {
+          "description": "The possible advanced special abilities.",
+          "$ref": "./_Identifier.schema.json#/$defs/MagicalTraditionIdentifier"
+        },
+        "map": {
+          "description": "Map options from the external entry to allowed advanced special abilities.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/AdvancedSpecialAbilityDerivedFromExternalOptionMapping"
+          },
+          "minItems": 1
+        },
+        "display_option": {
+          "$ref": "./prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
+        }
+      },
+      "required": [
+        "external_entry",
+        "map"
+      ],
+      "additionalProperties": false
+    },
+    "AdvancedSpecialAbilityDerivedFromExternalOptionMapping": {
+      "description": "Mapping from an option of the external entry to an allowed advanced special\nability.",
+      "type": "object",
+      "properties": {
+        "from_option": {
+          "description": "The select option's identifier.",
+          "$ref": "./_Identifier.schema.json#/$defs/PatronIdentifier"
+        },
+        "to_advanced": {
+          "description": "The advanced special ability's identifier.",
+          "$ref": "./_SimpleReferences.schema.json#/$defs/AdvancedSpecialAbilityReference"
+        }
+      },
+      "required": [
+        "from_option",
+        "to_advanced"
+      ],
+      "additionalProperties": false
     },
     "AdvancedSpecialAbilityDerivedExternalEntryId": {
       "$ref": "./_Identifier.schema.json#/$defs/MagicalTraditionIdentifier"
@@ -2788,16 +2060,13 @@
             "tag": {
               "const": "All"
             },
-            "restrictions": {
-              "type": "array",
-              "items": {
-                "$ref": "#/$defs/ApplicableAllCombatTechniquesRestriction"
-              },
-              "minItems": 1
+            "all": {
+              "$ref": "#/$defs/AllApplicableCombatTechniques"
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "all"
           ],
           "additionalProperties": false
         },
@@ -2807,16 +2076,13 @@
             "tag": {
               "const": "AllClose"
             },
-            "restrictions": {
-              "type": "array",
-              "items": {
-                "$ref": "#/$defs/ApplicableCloseCombatTechniquesRestriction"
-              },
-              "minItems": 1
+            "all_close": {
+              "$ref": "#/$defs/AllApplicableCloseCombatTechniques"
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "all_close"
           ],
           "additionalProperties": false
         },
@@ -2826,16 +2092,13 @@
             "tag": {
               "const": "AllRanged"
             },
-            "restrictions": {
-              "type": "array",
-              "items": {
-                "$ref": "#/$defs/ApplicableRangedCombatTechniquesRestriction"
-              },
-              "minItems": 1
+            "all_ranged": {
+              "$ref": "#/$defs/AllApplicableRangedCombatTechniques"
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "all_ranged"
           ],
           "additionalProperties": false
         },
@@ -2845,37 +2108,94 @@
             "tag": {
               "const": "Specific"
             },
-            "list": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "$ref": "./_Identifier.schema.json#/$defs/CombatTechniqueIdentifier"
-                  },
-                  "restrictions": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/$defs/ApplicableSpecificCombatTechniquesRestriction"
-                    },
-                    "minItems": 1
-                  }
-                },
-                "required": [
-                  "id"
-                ],
-                "additionalProperties": false
-              },
-              "minItems": 1
+            "specific": {
+              "$ref": "#/$defs/SpecificApplicableCombatTechniques"
             }
           },
           "required": [
             "tag",
-            "list"
+            "specific"
           ],
           "additionalProperties": false
         }
       ]
+    },
+    "AllApplicableCombatTechniques": {
+      "type": "object",
+      "properties": {
+        "restrictions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ApplicableAllCombatTechniquesRestriction"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "AllApplicableCloseCombatTechniques": {
+      "type": "object",
+      "properties": {
+        "restrictions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ApplicableCloseCombatTechniquesRestriction"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "AllApplicableRangedCombatTechniques": {
+      "type": "object",
+      "properties": {
+        "restrictions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ApplicableRangedCombatTechniquesRestriction"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "SpecificApplicableCombatTechniques": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SpecificApplicableCombatTechnique"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "list"
+      ],
+      "additionalProperties": false
+    },
+    "SpecificApplicableCombatTechnique": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "./_Identifier.schema.json#/$defs/CombatTechniqueIdentifier"
+        },
+        "restrictions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ApplicableSpecificCombatTechniquesRestriction"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
     },
     "ApplicableAllCombatTechniquesRestriction": {
       "oneOf": [
@@ -2921,15 +2241,13 @@
             "tag": {
               "const": "Race"
             },
-            "id": {
-              "description": "The race's numeric identifier.",
-              "type": "integer",
-              "minimum": 1
+            "race": {
+              "$ref": "#/$defs/ApplicableCombatTechniquesRaceRestriction"
             }
           },
           "required": [
             "tag",
-            "id"
+            "race"
           ],
           "additionalProperties": false
         },
@@ -2939,19 +2257,28 @@
             "tag": {
               "const": "ExcludeCombatTechniques"
             },
-            "list": {
-              "description": "The combat techniques this combat special ability is **not** applicable\nto.",
-              "type": "array",
-              "items": {
-                "$ref": "./_Identifier.schema.json#/$defs/CombatTechniqueIdentifier"
+            "exclude_combat_techniques": {
+              "type": "object",
+              "properties": {
+                "list": {
+                  "description": "The combat techniques this combat special ability is **not** applicable to.",
+                  "type": "array",
+                  "items": {
+                    "$ref": "./_SimpleReferences.schema.json#/$defs/CombatTechniqueReference"
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                }
               },
-              "minItems": 1,
-              "uniqueItems": true
+              "required": [
+                "list"
+              ],
+              "additionalProperties": false
             }
           },
           "required": [
             "tag",
-            "list"
+            "exclude_combat_techniques"
           ],
           "additionalProperties": false
         }
@@ -3037,15 +2364,13 @@
             "tag": {
               "const": "Race"
             },
-            "id": {
-              "description": "The race's numeric identifier.",
-              "type": "integer",
-              "minimum": 1
+            "race": {
+              "$ref": "#/$defs/ApplicableCombatTechniquesRaceRestriction"
             }
           },
           "required": [
             "tag",
-            "id"
+            "race"
           ],
           "additionalProperties": false
         },
@@ -3055,30 +2380,28 @@
             "tag": {
               "const": "ExcludeCombatTechniques"
             },
-            "list": {
-              "description": "The combat techniques this combat special ability is **not** applicable\nto.",
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "description": "The close combat technique's numeric identifier.",
-                    "type": "integer",
-                    "minimum": 1
-                  }
-                },
-                "required": [
-                  "id"
-                ],
-                "additionalProperties": false
+            "exclude_combat_techniques": {
+              "type": "object",
+              "properties": {
+                "list": {
+                  "description": "The combat techniques this combat special ability is **not** applicable to.",
+                  "type": "array",
+                  "items": {
+                    "$ref": "./_SimpleReferences.schema.json#/$defs/CloseCombatTechniqueReference"
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                }
               },
-              "minItems": 1,
-              "uniqueItems": true
+              "required": [
+                "list"
+              ],
+              "additionalProperties": false
             }
           },
           "required": [
             "tag",
-            "list"
+            "exclude_combat_techniques"
           ],
           "additionalProperties": false
         }
@@ -3128,15 +2451,13 @@
             "tag": {
               "const": "Race"
             },
-            "id": {
-              "description": "The race's numeric identifier.",
-              "type": "integer",
-              "minimum": 1
+            "race": {
+              "$ref": "#/$defs/ApplicableCombatTechniquesRaceRestriction"
             }
           },
           "required": [
             "tag",
-            "id"
+            "race"
           ],
           "additionalProperties": false
         },
@@ -3146,30 +2467,28 @@
             "tag": {
               "const": "ExcludeCombatTechniques"
             },
-            "list": {
-              "description": "The combat techniques this combat special ability is **not** applicable\nto.",
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "description": "The ranged combat technique's numeric identifier.",
-                    "type": "integer",
-                    "minimum": 1
-                  }
-                },
-                "required": [
-                  "id"
-                ],
-                "additionalProperties": false
+            "exclude_combat_techniques": {
+              "type": "object",
+              "properties": {
+                "list": {
+                  "description": "The combat techniques this combat special ability is **not** applicable to.",
+                  "type": "array",
+                  "items": {
+                    "$ref": "./_SimpleReferences.schema.json#/$defs/RangedCombatTechniqueReference"
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                }
               },
-              "minItems": 1,
-              "uniqueItems": true
+              "required": [
+                "list"
+              ],
+              "additionalProperties": false
             }
           },
           "required": [
             "tag",
-            "list"
+            "exclude_combat_techniques"
           ],
           "additionalProperties": false
         }
@@ -3219,15 +2538,13 @@
             "tag": {
               "const": "Race"
             },
-            "id": {
-              "description": "The race's numeric identifier.",
-              "type": "integer",
-              "minimum": 1
+            "race": {
+              "$ref": "#/$defs/ApplicableCombatTechniquesRaceRestriction"
             }
           },
           "required": [
             "tag",
-            "id"
+            "race"
           ],
           "additionalProperties": false
         },
@@ -3238,9 +2555,7 @@
               "const": "Level"
             },
             "level": {
-              "description": "The combat special ability is only applicable on a certain level.",
-              "type": "integer",
-              "minimum": 1
+              "$ref": "#/$defs/ApplicableCombatTechniquesLevelRestriction"
             }
           },
           "required": [
@@ -3255,34 +2570,52 @@
             "tag": {
               "const": "Weapons"
             },
-            "list": {
-              "description": "The specific weapons this combat special ability is only applicable to.",
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "description": "The weapon's numeric identifier.",
-                    "type": "integer",
-                    "minimum": 1
-                  }
-                },
-                "required": [
-                  "id"
-                ],
-                "additionalProperties": false
-              },
-              "minItems": 1,
-              "uniqueItems": true
+            "weapons": {
+              "$ref": "#/$defs/ApplicableCombatTechniquesWeaponRestriction"
             }
           },
           "required": [
             "tag",
-            "list"
+            "weapons"
           ],
           "additionalProperties": false
         }
       ]
+    },
+    "ApplicableCombatTechniquesRaceRestriction": {
+      "$ref": "./_SimpleReferences.schema.json#/$defs/RaceReference"
+    },
+    "ApplicableCombatTechniquesLevelRestriction": {
+      "type": "object",
+      "properties": {
+        "level": {
+          "description": "The combat special ability is only applicable on a certain level.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "level"
+      ],
+      "additionalProperties": false
+    },
+    "ApplicableCombatTechniquesWeaponRestriction": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "description": "The specific weapons this combat special ability is only applicable to.",
+          "type": "array",
+          "items": {
+            "$ref": "./_SimpleReferences.schema.json#/$defs/WeaponReference"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "list"
+      ],
+      "additionalProperties": false
     },
     "AdventurePointsValue": {
       "oneOf": [
@@ -3292,14 +2625,13 @@
             "tag": {
               "const": "Fixed"
             },
-            "value": {
-              "description": "A fixed adventure points value. If the entry has levels, this is the cost\nfor each level as well.",
-              "$ref": "#/$defs/AdventurePointsSingleValue"
+            "fixed": {
+              "$ref": "#/$defs/FixedAdventurePointsValue"
             }
           },
           "required": [
             "tag",
-            "value"
+            "fixed"
           ],
           "additionalProperties": false
         },
@@ -3309,18 +2641,13 @@
             "tag": {
               "const": "ByLevel"
             },
-            "values": {
-              "description": "An entry with levels may have different costs for each level. The length\nof the list must match the amount of levels the special ability has.",
-              "type": "array",
-              "items": {
-                "$ref": "#/$defs/AdventurePointsSingleValue"
-              },
-              "minItems": 2
+            "by_level": {
+              "$ref": "#/$defs/AdventurePointsValueByLevel"
             }
           },
           "required": [
             "tag",
-            "values"
+            "by_level"
           ],
           "additionalProperties": false
         },
@@ -3328,7 +2655,6 @@
           "type": "object",
           "properties": {
             "tag": {
-              "description": "Used if AP value is defined by the selected option(s) or special rules.",
               "const": "Indefinite"
             }
           },
@@ -3338,6 +2664,14 @@
           "additionalProperties": false
         }
       ]
+    },
+    "FixedAdventurePointsValue": {
+      "description": "A fixed adventure points value. If the entry has levels, this is the cost per\nlevel as well.",
+      "$ref": "#/$defs/AdventurePointsValue"
+    },
+    "AdventurePointsValueByLevel": {
+      "description": "An entry with levels may have different costs for each level. The length of\nthe list must match the amount of levels the special ability has.",
+      "$ref": "#/$defs/AdventurePointsValue"
     },
     "AdventurePointsValueAdvantagesDisadvantages": {
       "oneOf": [

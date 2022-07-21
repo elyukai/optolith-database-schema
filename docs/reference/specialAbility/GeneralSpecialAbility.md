@@ -68,27 +68,33 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="GeneralSpecialAbility/translations[key]"></a> `GeneralSpecialAbility/translations[key]`
 
+- **Type:** <a href="#GeneralSpecialAbilityTranslation">GeneralSpecialAbilityTranslation</a>
+
+---
+
+### <a name="GeneralSpecialAbilityTranslation"></a> `GeneralSpecialAbilityTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#GeneralSpecialAbility/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#GeneralSpecialAbility/translations[key]/name_in_library">See details</a>
-`rules` |  | <a href="#GeneralSpecialAbility/translations[key]/rules">See details</a>
-`errata?` |  | <a href="#GeneralSpecialAbility/translations[key]/errata">See details</a>
+`name` |  | <a href="#GeneralSpecialAbilityTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#GeneralSpecialAbilityTranslation/name_in_library">See details</a>
+`rules` |  | <a href="#GeneralSpecialAbilityTranslation/rules">See details</a>
+`errata?` |  | <a href="#GeneralSpecialAbilityTranslation/errata">See details</a>
 
-#### <a name="GeneralSpecialAbility/translations[key]/name"></a> `name`
+#### <a name="GeneralSpecialAbilityTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="GeneralSpecialAbility/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="GeneralSpecialAbilityTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="GeneralSpecialAbility/translations[key]/rules"></a> `rules`
+#### <a name="GeneralSpecialAbilityTranslation/rules"></a> `rules`
 
 - **Type:** <a href="../_Activatable.md#Rules">Rules</a>
 
-#### <a name="GeneralSpecialAbility/translations[key]/errata"></a> `errata?`
+#### <a name="GeneralSpecialAbilityTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

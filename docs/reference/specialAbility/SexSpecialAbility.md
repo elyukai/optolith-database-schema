@@ -68,27 +68,33 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="SexSpecialAbility/translations[key]"></a> `SexSpecialAbility/translations[key]`
 
+- **Type:** <a href="#SexSpecialAbilityTranslation">SexSpecialAbilityTranslation</a>
+
+---
+
+### <a name="SexSpecialAbilityTranslation"></a> `SexSpecialAbilityTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#SexSpecialAbility/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#SexSpecialAbility/translations[key]/name_in_library">See details</a>
-`rules` |  | <a href="#SexSpecialAbility/translations[key]/rules">See details</a>
-`errata?` |  | <a href="#SexSpecialAbility/translations[key]/errata">See details</a>
+`name` |  | <a href="#SexSpecialAbilityTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#SexSpecialAbilityTranslation/name_in_library">See details</a>
+`rules` |  | <a href="#SexSpecialAbilityTranslation/rules">See details</a>
+`errata?` |  | <a href="#SexSpecialAbilityTranslation/errata">See details</a>
 
-#### <a name="SexSpecialAbility/translations[key]/name"></a> `name`
+#### <a name="SexSpecialAbilityTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="SexSpecialAbility/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="SexSpecialAbilityTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="SexSpecialAbility/translations[key]/rules"></a> `rules`
+#### <a name="SexSpecialAbilityTranslation/rules"></a> `rules`
 
 - **Type:** <a href="../_Activatable.md#Rules">Rules</a>
 
-#### <a name="SexSpecialAbility/translations[key]/errata"></a> `errata?`
+#### <a name="SexSpecialAbilityTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

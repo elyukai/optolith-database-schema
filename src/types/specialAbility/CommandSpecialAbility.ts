@@ -16,7 +16,7 @@ export type CommandSpecialAbility = {
 
   levels?: Activatable.Levels
 
-  usage_type: Activatable.CombatSpecialAbilityType
+  usage_type: Activatable.CombatSpecialAbilityUsageType
 
   select_options?: Activatable.SelectOptions
 

@@ -58,27 +58,33 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="KarmaSpecialAbility/translations[key]"></a> `KarmaSpecialAbility/translations[key]`
 
+- **Type:** <a href="#KarmaSpecialAbilityTranslation">KarmaSpecialAbilityTranslation</a>
+
+---
+
+### <a name="KarmaSpecialAbilityTranslation"></a> `KarmaSpecialAbilityTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#KarmaSpecialAbility/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#KarmaSpecialAbility/translations[key]/name_in_library">See details</a>
-`rules` |  | <a href="#KarmaSpecialAbility/translations[key]/rules">See details</a>
-`errata?` |  | <a href="#KarmaSpecialAbility/translations[key]/errata">See details</a>
+`name` |  | <a href="#KarmaSpecialAbilityTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#KarmaSpecialAbilityTranslation/name_in_library">See details</a>
+`rules` |  | <a href="#KarmaSpecialAbilityTranslation/rules">See details</a>
+`errata?` |  | <a href="#KarmaSpecialAbilityTranslation/errata">See details</a>
 
-#### <a name="KarmaSpecialAbility/translations[key]/name"></a> `name`
+#### <a name="KarmaSpecialAbilityTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="KarmaSpecialAbility/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="KarmaSpecialAbilityTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="KarmaSpecialAbility/translations[key]/rules"></a> `rules`
+#### <a name="KarmaSpecialAbilityTranslation/rules"></a> `rules`
 
 - **Type:** <a href="../_Activatable.md#Rules">Rules</a>
 
-#### <a name="KarmaSpecialAbility/translations[key]/errata"></a> `errata?`
+#### <a name="KarmaSpecialAbilityTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

@@ -58,27 +58,33 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Sermon/translations[key]"></a> `Sermon/translations[key]`
 
+- **Type:** <a href="#SermonTranslation">SermonTranslation</a>
+
+---
+
+### <a name="SermonTranslation"></a> `SermonTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#Sermon/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#Sermon/translations[key]/name_in_library">See details</a>
-`rules` |  | <a href="#Sermon/translations[key]/rules">See details</a>
-`errata?` |  | <a href="#Sermon/translations[key]/errata">See details</a>
+`name` |  | <a href="#SermonTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#SermonTranslation/name_in_library">See details</a>
+`rules` |  | <a href="#SermonTranslation/rules">See details</a>
+`errata?` |  | <a href="#SermonTranslation/errata">See details</a>
 
-#### <a name="Sermon/translations[key]/name"></a> `name`
+#### <a name="SermonTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="Sermon/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="SermonTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="Sermon/translations[key]/rules"></a> `rules`
+#### <a name="SermonTranslation/rules"></a> `rules`
 
 - **Type:** <a href="../_Activatable.md#Rules">Rules</a>
 
-#### <a name="Sermon/translations[key]/errata"></a> `errata?`
+#### <a name="SermonTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

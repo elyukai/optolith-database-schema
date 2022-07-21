@@ -21,51 +21,17 @@
         },
         "primary": {
           "description": "The tradition's primary attribute. Leave empty if the tradition does not\nhave one.",
-          "type": "object",
-          "properties": {
-            "id": {
-              "description": "The attribute's identifier.",
-              "type": "integer",
-              "maximum": 8,
-              "minimum": 1
-            }
-          },
-          "required": [
-            "id"
-          ],
-          "additionalProperties": false
+          "$ref": "../_SimpleReferences.schema.json#/$defs/AttributeReference"
         },
         "aspects": {
-          "description": "The tradition's aspects, if any",
+          "description": "The tradition's aspects, if any.",
           "type": "array",
           "prefixItems": [
             {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "description": "The first aspect's identifier.",
-                  "type": "integer",
-                  "minimum": 1
-                }
-              },
-              "required": [
-                "id"
-              ],
-              "additionalProperties": false
+              "$ref": "../_SimpleReferences.schema.json#/$defs/AspectReference"
             },
             {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "description": "The second aspect's identifier.",
-                  "type": "integer",
-                  "minimum": 1
-                }
-              },
-              "required": [
-                "id"
-              ],
-              "additionalProperties": false
+              "$ref": "../_SimpleReferences.schema.json#/$defs/AspectReference"
             }
           ],
           "minItems": 2,
@@ -73,149 +39,24 @@
           "items": false
         },
         "restricted_blessings": {
-          "description": "If a tradition restricts the possible blessings, the blessings that are not\nallowed.",
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "The blessing's identifier.",
-                "type": "integer",
-                "minimum": 1
-              }
-            },
-            "required": [
-              "id"
-            ],
-            "additionalProperties": false
-          },
-          "minItems": 3,
-          "maxItems": 6
+          "description": "If a tradition restricts the possible blessings, the blessings that are\n**not** allowed.",
+          "$ref": "#/$defs/RestrictedBlessings"
         },
         "favored_combat_techniques": {
           "description": "A list of favored combat techniques.",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "All"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "AllClose"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "AllUsedInHunting"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Specific"
-                },
-                "list": {
-                  "description": "A list of specific favored combat techniques.",
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "description": "The combat technique's identifier.",
-                        "$ref": "../_Identifier.schema.json#/$defs/CombatTechniqueIdentifier"
-                      }
-                    },
-                    "required": [
-                      "id"
-                    ],
-                    "additionalProperties": false
-                  },
-                  "minItems": 1
-                }
-              },
-              "required": [
-                "tag",
-                "list"
-              ],
-              "additionalProperties": false
-            }
-          ]
+          "$ref": "#/$defs/FavoredCombatTechniques"
         },
         "favored_skills": {
           "description": "A list of favored skills.",
           "type": "array",
           "items": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "The skill's identifier.",
-                "type": "integer",
-                "minimum": 1
-              }
-            },
-            "required": [
-              "id"
-            ],
-            "additionalProperties": false
+            "$ref": "../_SimpleReferences.schema.json#/$defs/SkillReference"
           },
           "minItems": 1
         },
         "favored_skills_selection": {
           "description": "On activation of the tradition, a specific number of skills from a list of\nskills must be selected as being favored.",
-          "type": "object",
-          "properties": {
-            "number": {
-              "description": "The number of skills that can be selected.",
-              "type": "integer",
-              "minimum": 1
-            },
-            "options": {
-              "description": "The possible set of skills.",
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "description": "The skill's identifier.",
-                    "type": "integer",
-                    "minimum": 1
-                  }
-                },
-                "required": [
-                  "id"
-                ],
-                "additionalProperties": false
-              }
-            }
-          },
-          "required": [
-            "number",
-            "options"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/FavoredSkillsSelection"
         },
         "is_shamanistic": {
           "description": "Is this a schamanistic tradition?",
@@ -239,52 +80,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "$ref": "../_Activatable.schema.json#/$defs/Name"
-                },
-                "name_compressed": {
-                  "description": "A shorter name of the tradition's name, used in liturgical chant\ndescriptions.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "name_in_library": {
-                  "$ref": "../_Activatable.schema.json#/$defs/NameInLibrary"
-                },
-                "special_rules": {
-                  "description": "The special rules of the tradition. They should be sorted like they are\nin the book.",
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "label": {
-                        "description": "An optional label that is displayed and placed before the actual\ntext.",
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "text": {
-                        "description": "The text of a special rule.",
-                        "type": "string",
-                        "minLength": 1
-                      }
-                    },
-                    "required": [
-                      "text"
-                    ],
-                    "additionalProperties": false
-                  },
-                  "minItems": 1
-                },
-                "errata": {
-                  "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "special_rules"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/BlessedTraditionTranslation"
             }
           },
           "minProperties": 1,
@@ -298,6 +94,216 @@
         "ap_value",
         "src",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "RestrictedBlessings": {
+      "description": "If a tradition restricts the possible blessings, the blessings that are\n**not** allowed.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Three"
+            },
+            "three": {
+              "$ref": "#/$defs/ThreeRestrictedBlessings"
+            }
+          },
+          "required": [
+            "tag",
+            "three"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Six"
+            },
+            "three": {
+              "$ref": "#/$defs/SixRestrictedBlessings"
+            }
+          },
+          "required": [
+            "tag",
+            "three"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "ThreeRestrictedBlessings": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "$ref": "../_SimpleReferences.schema.json#/$defs/BlessingReference"
+        },
+        {
+          "$ref": "../_SimpleReferences.schema.json#/$defs/BlessingReference"
+        },
+        {
+          "$ref": "../_SimpleReferences.schema.json#/$defs/BlessingReference"
+        }
+      ],
+      "minItems": 3,
+      "maxItems": 3,
+      "items": false
+    },
+    "SixRestrictedBlessings": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "$ref": "../_SimpleReferences.schema.json#/$defs/BlessingReference"
+        },
+        {
+          "$ref": "../_SimpleReferences.schema.json#/$defs/BlessingReference"
+        },
+        {
+          "$ref": "../_SimpleReferences.schema.json#/$defs/BlessingReference"
+        },
+        {
+          "$ref": "../_SimpleReferences.schema.json#/$defs/BlessingReference"
+        },
+        {
+          "$ref": "../_SimpleReferences.schema.json#/$defs/BlessingReference"
+        },
+        {
+          "$ref": "../_SimpleReferences.schema.json#/$defs/BlessingReference"
+        }
+      ],
+      "minItems": 6,
+      "maxItems": 6,
+      "items": false
+    },
+    "FavoredCombatTechniques": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "All"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "AllClose"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "AllUsedInHunting"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Specific"
+            },
+            "specific": {
+              "$ref": "#/$defs/SpecificFavoredCombatTechniques"
+            }
+          },
+          "required": [
+            "tag",
+            "specific"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "SpecificFavoredCombatTechniques": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "description": "A list of specific favored combat techniques.",
+          "type": "array",
+          "items": {
+            "$ref": "../_SimpleReferences.schema.json#/$defs/CombatTechniqueReference"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "list"
+      ],
+      "additionalProperties": false
+    },
+    "FavoredSkillsSelection": {
+      "type": "object",
+      "properties": {
+        "number": {
+          "description": "The number of skills that can be selected.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "options": {
+          "description": "The possible set of skills.",
+          "type": "array",
+          "items": {
+            "$ref": "../_SimpleReferences.schema.json#/$defs/SkillReference"
+          },
+          "minItems": 2,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "number",
+        "options"
+      ],
+      "additionalProperties": false
+    },
+    "BlessedTraditionTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref": "../_Activatable.schema.json#/$defs/Name"
+        },
+        "name_compressed": {
+          "description": "A shorter name of the tradition's name, used in liturgical chant\ndescriptions.",
+          "type": "string",
+          "minLength": 1
+        },
+        "name_in_library": {
+          "$ref": "../_Activatable.schema.json#/$defs/NameInLibrary"
+        },
+        "special_rules": {
+          "description": "The special rules of the tradition. They should be sorted like they are\nin the book.",
+          "type": "array",
+          "items": {
+            "$ref": "./_Tradition.schema.json#/$defs/SpecialRule"
+          },
+          "minItems": 1
+        },
+        "errata": {
+          "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "special_rules"
       ],
       "additionalProperties": false
     }

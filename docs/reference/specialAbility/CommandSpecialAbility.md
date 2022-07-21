@@ -29,7 +29,7 @@ Key | Description | Details
 
 #### <a name="CommandSpecialAbility/usage_type"></a> `usage_type`
 
-- **Type:** <a href="../_Activatable.md#CombatSpecialAbilityType">CombatSpecialAbilityType</a>
+- **Type:** <a href="../_Activatable.md#CombatSpecialAbilityUsageType">CombatSpecialAbilityUsageType</a>
 
 #### <a name="CommandSpecialAbility/select_options"></a> `select_options?`
 

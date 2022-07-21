@@ -58,27 +58,33 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="FatePointSexSpecialAbility/translations[key]"></a> `FatePointSexSpecialAbility/translations[key]`
 
+- **Type:** <a href="#FatePointSexSpecialAbilityTranslation">FatePointSexSpecialAbilityTranslation</a>
+
+---
+
+### <a name="FatePointSexSpecialAbilityTranslation"></a> `FatePointSexSpecialAbilityTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#FatePointSexSpecialAbility/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#FatePointSexSpecialAbility/translations[key]/name_in_library">See details</a>
-`rules` |  | <a href="#FatePointSexSpecialAbility/translations[key]/rules">See details</a>
-`errata?` |  | <a href="#FatePointSexSpecialAbility/translations[key]/errata">See details</a>
+`name` |  | <a href="#FatePointSexSpecialAbilityTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#FatePointSexSpecialAbilityTranslation/name_in_library">See details</a>
+`rules` |  | <a href="#FatePointSexSpecialAbilityTranslation/rules">See details</a>
+`errata?` |  | <a href="#FatePointSexSpecialAbilityTranslation/errata">See details</a>
 
-#### <a name="FatePointSexSpecialAbility/translations[key]/name"></a> `name`
+#### <a name="FatePointSexSpecialAbilityTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="FatePointSexSpecialAbility/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="FatePointSexSpecialAbilityTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="FatePointSexSpecialAbility/translations[key]/rules"></a> `rules`
+#### <a name="FatePointSexSpecialAbilityTranslation/rules"></a> `rules`
 
 - **Type:** <a href="../_Activatable.md#Rules">Rules</a>
 
-#### <a name="FatePointSexSpecialAbility/translations[key]/errata"></a> `errata?`
+#### <a name="FatePointSexSpecialAbilityTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

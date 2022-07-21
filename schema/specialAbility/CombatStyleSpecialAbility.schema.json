@@ -14,36 +14,11 @@
           "$ref": "../_Activatable.schema.json#/$defs/Levels"
         },
         "usage_type": {
-          "$ref": "../_Activatable.schema.json#/$defs/CombatSpecialAbilityType"
+          "$ref": "../_Activatable.schema.json#/$defs/CombatSpecialAbilityUsageType"
         },
         "type": {
           "description": "Is this an armed or unarmed combat style?",
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Armed"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Unarmed"
-                }
-              },
-              "required": [
-                "tag"
-              ],
-              "additionalProperties": false
-            }
-          ]
+          "$ref": "../_Activatable.schema.json#/$defs/CombatSpecialAbilityType"
         },
         "select_options": {
           "$ref": "../_Activatable.schema.json#/$defs/SelectOptions"
@@ -77,26 +52,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "$ref": "../_Activatable.schema.json#/$defs/Name"
-                },
-                "name_in_library": {
-                  "$ref": "../_Activatable.schema.json#/$defs/NameInLibrary"
-                },
-                "rules": {
-                  "$ref": "../_Activatable.schema.json#/$defs/Rules"
-                },
-                "errata": {
-                  "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "rules"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/CombatStyleSpecialAbilityTransition"
             }
           },
           "minProperties": 1,
@@ -112,6 +68,28 @@
         "ap_value",
         "src",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "CombatStyleSpecialAbilityTransition": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref": "../_Activatable.schema.json#/$defs/Name"
+        },
+        "name_in_library": {
+          "$ref": "../_Activatable.schema.json#/$defs/NameInLibrary"
+        },
+        "rules": {
+          "$ref": "../_Activatable.schema.json#/$defs/Rules"
+        },
+        "errata": {
+          "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "rules"
       ],
       "additionalProperties": false
     }

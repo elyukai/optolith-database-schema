@@ -68,27 +68,33 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="AdvancedMagicalSpecialAbility/translations[key]"></a> `AdvancedMagicalSpecialAbility/translations[key]`
 
+- **Type:** <a href="#AdvancedMagicalSpecialAbilityTranslation">AdvancedMagicalSpecialAbilityTranslation</a>
+
+---
+
+### <a name="AdvancedMagicalSpecialAbilityTranslation"></a> `AdvancedMagicalSpecialAbilityTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#AdvancedMagicalSpecialAbility/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#AdvancedMagicalSpecialAbility/translations[key]/name_in_library">See details</a>
-`rules` |  | <a href="#AdvancedMagicalSpecialAbility/translations[key]/rules">See details</a>
-`errata?` |  | <a href="#AdvancedMagicalSpecialAbility/translations[key]/errata">See details</a>
+`name` |  | <a href="#AdvancedMagicalSpecialAbilityTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#AdvancedMagicalSpecialAbilityTranslation/name_in_library">See details</a>
+`rules` |  | <a href="#AdvancedMagicalSpecialAbilityTranslation/rules">See details</a>
+`errata?` |  | <a href="#AdvancedMagicalSpecialAbilityTranslation/errata">See details</a>
 
-#### <a name="AdvancedMagicalSpecialAbility/translations[key]/name"></a> `name`
+#### <a name="AdvancedMagicalSpecialAbilityTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="AdvancedMagicalSpecialAbility/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="AdvancedMagicalSpecialAbilityTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="AdvancedMagicalSpecialAbility/translations[key]/rules"></a> `rules`
+#### <a name="AdvancedMagicalSpecialAbilityTranslation/rules"></a> `rules`
 
 - **Type:** <a href="../_Activatable.md#Rules">Rules</a>
 
-#### <a name="AdvancedMagicalSpecialAbility/translations[key]/errata"></a> `errata?`
+#### <a name="AdvancedMagicalSpecialAbilityTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

@@ -81,9 +81,54 @@ export type CombatTechniqueReference = {
   id: CombatTechniqueIdentifier
 }
 
+export type CloseCombatTechniqueReference = {
+  /**
+   * The close combat technique's identifier.
+   * @integer
+   * @minimum 1
+   */
+  id: number
+}
+
+export type RangedCombatTechniqueReference = {
+  /**
+   * The ranged combat technique's identifier.
+   * @integer
+   * @minimum 1
+   */
+  id: number
+}
+
 export type MagicalTraditionReference = {
   /**
    * The magical tradition's identifier.
+   * @integer
+   * @minimum 1
+   */
+  id: number
+}
+
+export type CantripReference = {
+  /**
+   * The cantrip's identifier.
+   * @integer
+   * @minimum 1
+   */
+  id: number
+}
+
+export type SpellReference = {
+  /**
+   * The spell's identifier.
+   * @integer
+   * @minimum 1
+   */
+  id: number
+}
+
+export type RitualReference = {
+  /**
+   * The ritual's identifier.
    * @integer
    * @minimum 1
    */
@@ -108,9 +153,27 @@ export type BlessedTraditionReference = {
   id: number
 }
 
-export type CantripReference = {
+export type BlessingReference = {
   /**
-   * The cantrip's identifier.
+   * The blessing's identifier.
+   * @integer
+   * @minimum 1
+   */
+  id: number
+}
+
+export type LiturgicalChantReference = {
+  /**
+   * The liturgical chant's identifier.
+   * @integer
+   * @minimum 1
+   */
+  id: number
+}
+
+export type CeremonyReference = {
+  /**
+   * The ceremony's identifier.
    * @integer
    * @minimum 1
    */
@@ -129,6 +192,15 @@ export type AspectReference = {
 export type AdvantageReference = {
   /**
    * The advantage's identifier.
+   * @integer
+   * @minimum 1
+   */
+  id: number
+}
+
+export type AdvancedSpecialAbilityReference = {
+  /**
+   * The advanced special ability's identifier.
    * @integer
    * @minimum 1
    */
@@ -255,12 +327,40 @@ export type PactDomainReference = {
   id: number
 }
 
+export type PatronReference = {
+  /**
+   * The patron's identifier.
+   * @integer
+   * @minimum 1
+   */
+  id: number
+}
+
 export type AnimistTribeReference = {
   /**
    * The tribe's identifier.
    * @integer
    * @minimum 1
    * @maximum 6
+   */
+  id: number
+}
+
+export type ElementReference = {
+  /**
+   * The element's identifier.
+   * @integer
+   * @minimum 1
+   * @maximum 6
+   */
+  id: number
+}
+
+export type WeaponReference = {
+  /**
+   * The weapon's identifier.
+   * @integer
+   * @minimum 1
    */
   id: number
 }

@@ -58,38 +58,42 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="ProtectiveWardingCircleSpecialAbility/translations[key]"></a> `ProtectiveWardingCircleSpecialAbility/translations[key]`
 
+- **Type:** <a href="#ProtectiveWardingCircleSpecialAbilityTranslation">ProtectiveWardingCircleSpecialAbilityTranslation</a>
+
+---
+
+### <a name="ProtectiveWardingCircleSpecialAbilityTranslation"></a> `ProtectiveWardingCircleSpecialAbilityTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#ProtectiveWardingCircleSpecialAbility/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#ProtectiveWardingCircleSpecialAbility/translations[key]/name_in_library">See details</a>
-`protective_circle` | The rules for the protective circle variant. | <a href="#ProtectiveWardingCircleSpecialAbility/translations[key]/protective_circle">See details</a>
-`warding_circle` | The rules for the warding circle variant. | <a href="#ProtectiveWardingCircleSpecialAbility/translations[key]/warding_circle">See details</a>
-`errata?` |  | <a href="#ProtectiveWardingCircleSpecialAbility/translations[key]/errata">See details</a>
+`name` |  | <a href="#ProtectiveWardingCircleSpecialAbilityTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#ProtectiveWardingCircleSpecialAbilityTranslation/name_in_library">See details</a>
+`protective_circle` | The rules for the protective circle variant. | <a href="#ProtectiveWardingCircleSpecialAbilityTranslation/protective_circle">See details</a>
+`warding_circle` | The rules for the warding circle variant. | <a href="#ProtectiveWardingCircleSpecialAbilityTranslation/warding_circle">See details</a>
+`errata?` |  | <a href="#ProtectiveWardingCircleSpecialAbilityTranslation/errata">See details</a>
 
-#### <a name="ProtectiveWardingCircleSpecialAbility/translations[key]/name"></a> `name`
+#### <a name="ProtectiveWardingCircleSpecialAbilityTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="ProtectiveWardingCircleSpecialAbility/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="ProtectiveWardingCircleSpecialAbilityTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="ProtectiveWardingCircleSpecialAbility/translations[key]/protective_circle"></a> `protective_circle`
+#### <a name="ProtectiveWardingCircleSpecialAbilityTranslation/protective_circle"></a> `protective_circle`
 
 The rules for the protective circle variant.
 
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
+- **Type:** <a href="../_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
-#### <a name="ProtectiveWardingCircleSpecialAbility/translations[key]/warding_circle"></a> `warding_circle`
+#### <a name="ProtectiveWardingCircleSpecialAbilityTranslation/warding_circle"></a> `warding_circle`
 
 The rules for the warding circle variant.
 
-- **Type:** Markdown-formatted text
-- **Minimum Length:** `1`
+- **Type:** <a href="../_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
-#### <a name="ProtectiveWardingCircleSpecialAbility/translations[key]/errata"></a> `errata?`
+#### <a name="ProtectiveWardingCircleSpecialAbilityTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

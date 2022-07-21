@@ -32,7 +32,7 @@ Key | Description | Details
 
 #### <a name="AdvancedCombatSpecialAbility/usage_type"></a> `usage_type`
 
-- **Type:** <a href="../_Activatable.md#CombatSpecialAbilityType">CombatSpecialAbilityType</a>
+- **Type:** <a href="../_Activatable.md#CombatSpecialAbilityUsageType">CombatSpecialAbilityUsageType</a>
 
 #### <a name="AdvancedCombatSpecialAbility/select_options"></a> `select_options?`
 
@@ -83,32 +83,38 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="AdvancedCombatSpecialAbility/translations[key]"></a> `AdvancedCombatSpecialAbility/translations[key]`
 
+- **Type:** <a href="#AdvancedCombatSpecialAbilityTranslation">AdvancedCombatSpecialAbilityTranslation</a>
+
+---
+
+### <a name="AdvancedCombatSpecialAbilityTranslation"></a> `AdvancedCombatSpecialAbilityTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#AdvancedCombatSpecialAbility/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#AdvancedCombatSpecialAbility/translations[key]/name_in_library">See details</a>
-`rules` |  | <a href="#AdvancedCombatSpecialAbility/translations[key]/rules">See details</a>
-`penalty?` |  | <a href="#AdvancedCombatSpecialAbility/translations[key]/penalty">See details</a>
-`errata?` |  | <a href="#AdvancedCombatSpecialAbility/translations[key]/errata">See details</a>
+`name` |  | <a href="#AdvancedCombatSpecialAbilityTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#AdvancedCombatSpecialAbilityTranslation/name_in_library">See details</a>
+`rules` |  | <a href="#AdvancedCombatSpecialAbilityTranslation/rules">See details</a>
+`penalty?` |  | <a href="#AdvancedCombatSpecialAbilityTranslation/penalty">See details</a>
+`errata?` |  | <a href="#AdvancedCombatSpecialAbilityTranslation/errata">See details</a>
 
-#### <a name="AdvancedCombatSpecialAbility/translations[key]/name"></a> `name`
+#### <a name="AdvancedCombatSpecialAbilityTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="AdvancedCombatSpecialAbility/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="AdvancedCombatSpecialAbilityTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="AdvancedCombatSpecialAbility/translations[key]/rules"></a> `rules`
+#### <a name="AdvancedCombatSpecialAbilityTranslation/rules"></a> `rules`
 
 - **Type:** <a href="../_Activatable.md#Rules">Rules</a>
 
-#### <a name="AdvancedCombatSpecialAbility/translations[key]/penalty"></a> `penalty?`
+#### <a name="AdvancedCombatSpecialAbilityTranslation/penalty"></a> `penalty?`
 
 - **Type:** String
 
-#### <a name="AdvancedCombatSpecialAbility/translations[key]/errata"></a> `errata?`
+#### <a name="AdvancedCombatSpecialAbilityTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

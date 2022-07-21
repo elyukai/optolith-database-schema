@@ -66,27 +66,33 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="AncestorGlyph/translations[key]"></a> `AncestorGlyph/translations[key]`
 
+- **Type:** <a href="#AncestorGlyphTranslation">AncestorGlyphTranslation</a>
+
+---
+
+### <a name="AncestorGlyphTranslation"></a> `AncestorGlyphTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#AncestorGlyph/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#AncestorGlyph/translations[key]/name_in_library">See details</a>
-`rules` |  | <a href="#AncestorGlyph/translations[key]/rules">See details</a>
-`errata?` |  | <a href="#AncestorGlyph/translations[key]/errata">See details</a>
+`name` |  | <a href="#AncestorGlyphTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#AncestorGlyphTranslation/name_in_library">See details</a>
+`rules` |  | <a href="#AncestorGlyphTranslation/rules">See details</a>
+`errata?` |  | <a href="#AncestorGlyphTranslation/errata">See details</a>
 
-#### <a name="AncestorGlyph/translations[key]/name"></a> `name`
+#### <a name="AncestorGlyphTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="AncestorGlyph/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="AncestorGlyphTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="AncestorGlyph/translations[key]/rules"></a> `rules`
+#### <a name="AncestorGlyphTranslation/rules"></a> `rules`
 
 - **Type:** <a href="../_Activatable.md#Rules">Rules</a>
 
-#### <a name="AncestorGlyph/translations[key]/errata"></a> `errata?`
+#### <a name="AncestorGlyphTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

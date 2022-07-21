@@ -13,8 +13,8 @@ Key | Description | Details
 `skill_applications?` |  | <a href="#BlessedTradition/skill_applications">See details</a>
 `skill_uses?` |  | <a href="#BlessedTradition/skill_uses">See details</a>
 `primary?` | The tradition's primary attribute. Leave empty if the tradition does not have one. | <a href="#BlessedTradition/primary">See details</a>
-`aspects?` | The tradition's aspects, if any | <a href="#BlessedTradition/aspects">See details</a>
-`restricted_blessings?` | If a tradition restricts the possible blessings, the blessings that are not allowed. | <a href="#BlessedTradition/restricted_blessings">See details</a>
+`aspects?` | The tradition's aspects, if any. | <a href="#BlessedTradition/aspects">See details</a>
+`restricted_blessings?` | If a tradition restricts the possible blessings, the blessings that are **not** allowed. | <a href="#BlessedTradition/restricted_blessings">See details</a>
 `favored_combat_techniques?` | A list of favored combat techniques. | <a href="#BlessedTradition/favored_combat_techniques">See details</a>
 `favored_skills` | A list of favored skills. | <a href="#BlessedTradition/favored_skills">See details</a>
 `favored_skills_selection?` | On activation of the tradition, a specific number of skills from a list of skills must be selected as being favored. | <a href="#BlessedTradition/favored_skills_selection">See details</a>
@@ -46,31 +46,27 @@ Key | Description | Details
 The tradition's primary attribute. Leave empty if the tradition does not
 have one.
 
-- **Type:** <a href="#BlessedTradition/primary">Object</a>
+- **Type:** <a href="../_SimpleReferences.md#AttributeReference">AttributeReference</a>
 
 #### <a name="BlessedTradition/aspects"></a> `aspects?`
 
-The tradition's aspects, if any
+The tradition's aspects, if any.
 
 - **Type:** Tuple
 - **Items:** [<a href="BlessedTradition/aspects[0]">BlessedTradition/aspects[0]</a>, <a href="BlessedTradition/aspects[1]">BlessedTradition/aspects[1]</a>]
 
 #### <a name="BlessedTradition/restricted_blessings"></a> `restricted_blessings?`
 
-If a tradition restricts the possible blessings, the blessings that are not
-allowed.
+If a tradition restricts the possible blessings, the blessings that are
+**not** allowed.
 
-- **Type:** List
-- **Items:** <a href="#BlessedTradition/restricted_blessings[]">BlessedTradition/restricted_blessings[]</a>
-- **Minimum Items:** `3`
-- **Maximum Items:** `6`
+- **Type:** <a href="#RestrictedBlessings">RestrictedBlessings</a>
 
 #### <a name="BlessedTradition/favored_combat_techniques"></a> `favored_combat_techniques?`
 
 A list of favored combat techniques.
 
-- **Type:** Union
-- **Cases:** <a href="#BlessedTradition/favored_combat_techniques'All">BlessedTradition/favored_combat_techniques'All</a> | <a href="#BlessedTradition/favored_combat_techniques'AllClose">BlessedTradition/favored_combat_techniques'AllClose</a> | <a href="#BlessedTradition/favored_combat_techniques'AllUsedInHunting">BlessedTradition/favored_combat_techniques'AllUsedInHunting</a> | <a href="#BlessedTradition/favored_combat_techniques'Specific">BlessedTradition/favored_combat_techniques'Specific</a>
+- **Type:** <a href="#FavoredCombatTechniques">FavoredCombatTechniques</a>
 
 #### <a name="BlessedTradition/favored_skills"></a> `favored_skills`
 
@@ -85,7 +81,7 @@ A list of favored skills.
 On activation of the tradition, a specific number of skills from a list of
 skills must be selected as being favored.
 
-- **Type:** <a href="#BlessedTradition/favored_skills_selection">Object</a>
+- **Type:** <a href="#FavoredSkillsSelection">FavoredSkillsSelection</a>
 
 #### <a name="BlessedTradition/is_shamanistic"></a> `is_shamanistic`
 
@@ -123,238 +119,289 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="BlessedTradition/primary"></a> `BlessedTradition/primary`
-
-The tradition's primary attribute. Leave empty if the tradition does not
-have one.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The attribute's identifier. | <a href="#BlessedTradition/primary/id">See details</a>
-
-#### <a name="BlessedTradition/primary/id"></a> `id`
-
-The attribute's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `8`
-
----
-
 ### <a name="BlessedTradition/aspects[0]"></a> `BlessedTradition/aspects[0]`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The first aspect's identifier. | <a href="#BlessedTradition/aspects[0]/id">See details</a>
-
-#### <a name="BlessedTradition/aspects[0]/id"></a> `id`
-
-The first aspect's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="../_SimpleReferences.md#AspectReference">AspectReference</a>
 
 ---
 
 ### <a name="BlessedTradition/aspects[1]"></a> `BlessedTradition/aspects[1]`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The second aspect's identifier. | <a href="#BlessedTradition/aspects[1]/id">See details</a>
-
-#### <a name="BlessedTradition/aspects[1]/id"></a> `id`
-
-The second aspect's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="BlessedTradition/restricted_blessings[]"></a> `BlessedTradition/restricted_blessings[]`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The blessing's identifier. | <a href="#BlessedTradition/restricted_blessings[]/id">See details</a>
-
-#### <a name="BlessedTradition/restricted_blessings[]/id"></a> `id`
-
-The blessing's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="BlessedTradition/favored_combat_techniques'All"></a> `BlessedTradition/favored_combat_techniques'All`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#BlessedTradition/favored_combat_techniques'All/tag">See details</a>
-
-#### <a name="BlessedTradition/favored_combat_techniques'All/tag"></a> `tag`
-
-- **Constant:** `"All"`
-
----
-
-### <a name="BlessedTradition/favored_combat_techniques'AllClose"></a> `BlessedTradition/favored_combat_techniques'AllClose`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#BlessedTradition/favored_combat_techniques'AllClose/tag">See details</a>
-
-#### <a name="BlessedTradition/favored_combat_techniques'AllClose/tag"></a> `tag`
-
-- **Constant:** `"AllClose"`
-
----
-
-### <a name="BlessedTradition/favored_combat_techniques'AllUsedInHunting"></a> `BlessedTradition/favored_combat_techniques'AllUsedInHunting`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#BlessedTradition/favored_combat_techniques'AllUsedInHunting/tag">See details</a>
-
-#### <a name="BlessedTradition/favored_combat_techniques'AllUsedInHunting/tag"></a> `tag`
-
-- **Constant:** `"AllUsedInHunting"`
-
----
-
-### <a name="BlessedTradition/favored_combat_techniques'Specific"></a> `BlessedTradition/favored_combat_techniques'Specific`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#BlessedTradition/favored_combat_techniques'Specific/tag">See details</a>
-`list` | A list of specific favored combat techniques. | <a href="#BlessedTradition/favored_combat_techniques'Specific/list">See details</a>
-
-#### <a name="BlessedTradition/favored_combat_techniques'Specific/tag"></a> `tag`
-
-- **Constant:** `"Specific"`
-
-#### <a name="BlessedTradition/favored_combat_techniques'Specific/list"></a> `list`
-
-A list of specific favored combat techniques.
-
-- **Type:** List
-- **Items:** <a href="#BlessedTradition/favored_combat_techniques'Specific/list[]">BlessedTradition/favored_combat_techniques'Specific/list[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="BlessedTradition/favored_combat_techniques'Specific/list[]"></a> `BlessedTradition/favored_combat_techniques'Specific/list[]`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The combat technique's identifier. | <a href="#BlessedTradition/favored_combat_techniques'Specific/list[]/id">See details</a>
-
-#### <a name="BlessedTradition/favored_combat_techniques'Specific/list[]/id"></a> `id`
-
-The combat technique's identifier.
-
-- **Type:** <a href="../_Identifier.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>
+- **Type:** <a href="../_SimpleReferences.md#AspectReference">AspectReference</a>
 
 ---
 
 ### <a name="BlessedTradition/favored_skills[]"></a> `BlessedTradition/favored_skills[]`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The skill's identifier. | <a href="#BlessedTradition/favored_skills[]/id">See details</a>
-
-#### <a name="BlessedTradition/favored_skills[]/id"></a> `id`
-
-The skill's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="../_SimpleReferences.md#SkillReference">SkillReference</a>
 
 ---
 
-### <a name="BlessedTradition/favored_skills_selection"></a> `BlessedTradition/favored_skills_selection`
+### <a name="BlessedTradition/translations[key]"></a> `BlessedTradition/translations[key]`
 
-On activation of the tradition, a specific number of skills from a list of
-skills must be selected as being favored.
+- **Type:** <a href="#BlessedTraditionTranslation">BlessedTraditionTranslation</a>
+
+---
+
+### <a name="RestrictedBlessings"></a> `RestrictedBlessings`
+
+If a tradition restricts the possible blessings, the blessings that are
+**not** allowed.
+
+- **Type:** Union
+- **Cases:** <a href="#RestrictedBlessings'Three">RestrictedBlessings'Three</a> | <a href="#RestrictedBlessings'Six">RestrictedBlessings'Six</a>
+
+---
+
+### <a name="RestrictedBlessings'Three"></a> `RestrictedBlessings'Three`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`number` | The number of skills that can be selected. | <a href="#BlessedTradition/favored_skills_selection/number">See details</a>
-`options` | The possible set of skills. | <a href="#BlessedTradition/favored_skills_selection/options">See details</a>
+`tag` |  | <a href="#RestrictedBlessings'Three/tag">See details</a>
+`three` |  | <a href="#RestrictedBlessings'Three/three">See details</a>
 
-#### <a name="BlessedTradition/favored_skills_selection/number"></a> `number`
+#### <a name="RestrictedBlessings'Three/tag"></a> `tag`
+
+- **Constant:** `"Three"`
+
+#### <a name="RestrictedBlessings'Three/three"></a> `three`
+
+- **Type:** <a href="#ThreeRestrictedBlessings">ThreeRestrictedBlessings</a>
+
+---
+
+### <a name="RestrictedBlessings'Six"></a> `RestrictedBlessings'Six`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#RestrictedBlessings'Six/tag">See details</a>
+`three` |  | <a href="#RestrictedBlessings'Six/three">See details</a>
+
+#### <a name="RestrictedBlessings'Six/tag"></a> `tag`
+
+- **Constant:** `"Six"`
+
+#### <a name="RestrictedBlessings'Six/three"></a> `three`
+
+- **Type:** <a href="#SixRestrictedBlessings">SixRestrictedBlessings</a>
+
+---
+
+### <a name="ThreeRestrictedBlessings"></a> `ThreeRestrictedBlessings`
+
+- **Type:** Tuple
+- **Items:** [<a href="ThreeRestrictedBlessings[0]">ThreeRestrictedBlessings[0]</a>, <a href="ThreeRestrictedBlessings[1]">ThreeRestrictedBlessings[1]</a>, <a href="ThreeRestrictedBlessings[2]">ThreeRestrictedBlessings[2]</a>]
+
+---
+
+### <a name="ThreeRestrictedBlessings[0]"></a> `ThreeRestrictedBlessings[0]`
+
+- **Type:** <a href="../_SimpleReferences.md#BlessingReference">BlessingReference</a>
+
+---
+
+### <a name="ThreeRestrictedBlessings[1]"></a> `ThreeRestrictedBlessings[1]`
+
+- **Type:** <a href="../_SimpleReferences.md#BlessingReference">BlessingReference</a>
+
+---
+
+### <a name="ThreeRestrictedBlessings[2]"></a> `ThreeRestrictedBlessings[2]`
+
+- **Type:** <a href="../_SimpleReferences.md#BlessingReference">BlessingReference</a>
+
+---
+
+### <a name="SixRestrictedBlessings"></a> `SixRestrictedBlessings`
+
+- **Type:** Tuple
+- **Items:** [<a href="SixRestrictedBlessings[0]">SixRestrictedBlessings[0]</a>, <a href="SixRestrictedBlessings[1]">SixRestrictedBlessings[1]</a>, <a href="SixRestrictedBlessings[2]">SixRestrictedBlessings[2]</a>, <a href="SixRestrictedBlessings[3]">SixRestrictedBlessings[3]</a>, <a href="SixRestrictedBlessings[4]">SixRestrictedBlessings[4]</a>, <a href="SixRestrictedBlessings[5]">SixRestrictedBlessings[5]</a>]
+
+---
+
+### <a name="SixRestrictedBlessings[0]"></a> `SixRestrictedBlessings[0]`
+
+- **Type:** <a href="../_SimpleReferences.md#BlessingReference">BlessingReference</a>
+
+---
+
+### <a name="SixRestrictedBlessings[1]"></a> `SixRestrictedBlessings[1]`
+
+- **Type:** <a href="../_SimpleReferences.md#BlessingReference">BlessingReference</a>
+
+---
+
+### <a name="SixRestrictedBlessings[2]"></a> `SixRestrictedBlessings[2]`
+
+- **Type:** <a href="../_SimpleReferences.md#BlessingReference">BlessingReference</a>
+
+---
+
+### <a name="SixRestrictedBlessings[3]"></a> `SixRestrictedBlessings[3]`
+
+- **Type:** <a href="../_SimpleReferences.md#BlessingReference">BlessingReference</a>
+
+---
+
+### <a name="SixRestrictedBlessings[4]"></a> `SixRestrictedBlessings[4]`
+
+- **Type:** <a href="../_SimpleReferences.md#BlessingReference">BlessingReference</a>
+
+---
+
+### <a name="SixRestrictedBlessings[5]"></a> `SixRestrictedBlessings[5]`
+
+- **Type:** <a href="../_SimpleReferences.md#BlessingReference">BlessingReference</a>
+
+---
+
+### <a name="FavoredCombatTechniques"></a> `FavoredCombatTechniques`
+
+- **Type:** Union
+- **Cases:** <a href="#FavoredCombatTechniques'All">FavoredCombatTechniques'All</a> | <a href="#FavoredCombatTechniques'AllClose">FavoredCombatTechniques'AllClose</a> | <a href="#FavoredCombatTechniques'AllUsedInHunting">FavoredCombatTechniques'AllUsedInHunting</a> | <a href="#FavoredCombatTechniques'Specific">FavoredCombatTechniques'Specific</a>
+
+---
+
+### <a name="FavoredCombatTechniques'All"></a> `FavoredCombatTechniques'All`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#FavoredCombatTechniques'All/tag">See details</a>
+
+#### <a name="FavoredCombatTechniques'All/tag"></a> `tag`
+
+- **Constant:** `"All"`
+
+---
+
+### <a name="FavoredCombatTechniques'AllClose"></a> `FavoredCombatTechniques'AllClose`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#FavoredCombatTechniques'AllClose/tag">See details</a>
+
+#### <a name="FavoredCombatTechniques'AllClose/tag"></a> `tag`
+
+- **Constant:** `"AllClose"`
+
+---
+
+### <a name="FavoredCombatTechniques'AllUsedInHunting"></a> `FavoredCombatTechniques'AllUsedInHunting`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#FavoredCombatTechniques'AllUsedInHunting/tag">See details</a>
+
+#### <a name="FavoredCombatTechniques'AllUsedInHunting/tag"></a> `tag`
+
+- **Constant:** `"AllUsedInHunting"`
+
+---
+
+### <a name="FavoredCombatTechniques'Specific"></a> `FavoredCombatTechniques'Specific`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#FavoredCombatTechniques'Specific/tag">See details</a>
+`specific` |  | <a href="#FavoredCombatTechniques'Specific/specific">See details</a>
+
+#### <a name="FavoredCombatTechniques'Specific/tag"></a> `tag`
+
+- **Constant:** `"Specific"`
+
+#### <a name="FavoredCombatTechniques'Specific/specific"></a> `specific`
+
+- **Type:** <a href="#SpecificFavoredCombatTechniques">SpecificFavoredCombatTechniques</a>
+
+---
+
+### <a name="SpecificFavoredCombatTechniques"></a> `SpecificFavoredCombatTechniques`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`list` | A list of specific favored combat techniques. | <a href="#SpecificFavoredCombatTechniques/list">See details</a>
+
+#### <a name="SpecificFavoredCombatTechniques/list"></a> `list`
+
+A list of specific favored combat techniques.
+
+- **Type:** List
+- **Items:** <a href="#SpecificFavoredCombatTechniques/list[]">SpecificFavoredCombatTechniques/list[]</a>
+- **Minimum Items:** `1`
+- **Unique Items:** Yes
+
+---
+
+### <a name="SpecificFavoredCombatTechniques/list[]"></a> `SpecificFavoredCombatTechniques/list[]`
+
+- **Type:** <a href="../_SimpleReferences.md#CombatTechniqueReference">CombatTechniqueReference</a>
+
+---
+
+### <a name="FavoredSkillsSelection"></a> `FavoredSkillsSelection`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`number` | The number of skills that can be selected. | <a href="#FavoredSkillsSelection/number">See details</a>
+`options` | The possible set of skills. | <a href="#FavoredSkillsSelection/options">See details</a>
+
+#### <a name="FavoredSkillsSelection/number"></a> `number`
 
 The number of skills that can be selected.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="BlessedTradition/favored_skills_selection/options"></a> `options`
+#### <a name="FavoredSkillsSelection/options"></a> `options`
 
 The possible set of skills.
 
 - **Type:** List
-- **Items:** <a href="#BlessedTradition/favored_skills_selection/options[]">BlessedTradition/favored_skills_selection/options[]</a>
+- **Items:** <a href="#FavoredSkillsSelection/options[]">FavoredSkillsSelection/options[]</a>
+- **Minimum Items:** `2`
+- **Unique Items:** Yes
 
 ---
 
-### <a name="BlessedTradition/favored_skills_selection/options[]"></a> `BlessedTradition/favored_skills_selection/options[]`
+### <a name="FavoredSkillsSelection/options[]"></a> `FavoredSkillsSelection/options[]`
+
+- **Type:** <a href="../_SimpleReferences.md#SkillReference">SkillReference</a>
+
+---
+
+### <a name="BlessedTraditionTranslation"></a> `BlessedTraditionTranslation`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The skill's identifier. | <a href="#BlessedTradition/favored_skills_selection/options[]/id">See details</a>
+`name` |  | <a href="#BlessedTraditionTranslation/name">See details</a>
+`name_compressed?` | A shorter name of the tradition's name, used in liturgical chant descriptions. | <a href="#BlessedTraditionTranslation/name_compressed">See details</a>
+`name_in_library?` |  | <a href="#BlessedTraditionTranslation/name_in_library">See details</a>
+`special_rules` | The special rules of the tradition. They should be sorted like they are in the book. | <a href="#BlessedTraditionTranslation/special_rules">See details</a>
+`errata?` |  | <a href="#BlessedTraditionTranslation/errata">See details</a>
 
-#### <a name="BlessedTradition/favored_skills_selection/options[]/id"></a> `id`
-
-The skill's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="BlessedTradition/translations[key]"></a> `BlessedTradition/translations[key]`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`name` |  | <a href="#BlessedTradition/translations[key]/name">See details</a>
-`name_compressed?` | A shorter name of the tradition's name, used in liturgical chant descriptions. | <a href="#BlessedTradition/translations[key]/name_compressed">See details</a>
-`name_in_library?` |  | <a href="#BlessedTradition/translations[key]/name_in_library">See details</a>
-`special_rules` | The special rules of the tradition. They should be sorted like they are in the book. | <a href="#BlessedTradition/translations[key]/special_rules">See details</a>
-`errata?` |  | <a href="#BlessedTradition/translations[key]/errata">See details</a>
-
-#### <a name="BlessedTradition/translations[key]/name"></a> `name`
+#### <a name="BlessedTraditionTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="BlessedTradition/translations[key]/name_compressed"></a> `name_compressed?`
+#### <a name="BlessedTraditionTranslation/name_compressed"></a> `name_compressed?`
 
 A shorter name of the tradition's name, used in liturgical chant
 descriptions.
@@ -362,45 +409,25 @@ descriptions.
 - **Type:** String
 - **Minimum Length:** `1`
 
-#### <a name="BlessedTradition/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="BlessedTraditionTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="BlessedTradition/translations[key]/special_rules"></a> `special_rules`
+#### <a name="BlessedTraditionTranslation/special_rules"></a> `special_rules`
 
 The special rules of the tradition. They should be sorted like they are
 in the book.
 
 - **Type:** List
-- **Items:** <a href="#BlessedTradition/translations[key]/special_rules[]">BlessedTradition/translations[key]/special_rules[]</a>
+- **Items:** <a href="#BlessedTraditionTranslation/special_rules[]">BlessedTraditionTranslation/special_rules[]</a>
 - **Minimum Items:** `1`
 
-#### <a name="BlessedTradition/translations[key]/errata"></a> `errata?`
+#### <a name="BlessedTraditionTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>
 
 ---
 
-### <a name="BlessedTradition/translations[key]/special_rules[]"></a> `BlessedTradition/translations[key]/special_rules[]`
+### <a name="BlessedTraditionTranslation/special_rules[]"></a> `BlessedTraditionTranslation/special_rules[]`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`label?` | An optional label that is displayed and placed before the actual text. | <a href="#BlessedTradition/translations[key]/special_rules[]/label">See details</a>
-`text` | The text of a special rule. | <a href="#BlessedTradition/translations[key]/special_rules[]/text">See details</a>
-
-#### <a name="BlessedTradition/translations[key]/special_rules[]/label"></a> `label?`
-
-An optional label that is displayed and placed before the actual
-text.
-
-- **Type:** String
-- **Minimum Length:** `1`
-
-#### <a name="BlessedTradition/translations[key]/special_rules[]/text"></a> `text`
-
-The text of a special rule.
-
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_Tradition.md#SpecialRule">SpecialRule</a>

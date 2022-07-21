@@ -128,11 +128,81 @@
       ],
       "additionalProperties": false
     },
+    "CloseCombatTechniqueReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The close combat technique's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "RangedCombatTechniqueReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The ranged combat technique's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
     "MagicalTraditionReference": {
       "type": "object",
       "properties": {
         "id": {
           "description": "The magical tradition's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "CantripReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The cantrip's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "SpellReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The spell's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "RitualReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The ritual's identifier.",
           "type": "integer",
           "minimum": 1
         }
@@ -170,11 +240,39 @@
       ],
       "additionalProperties": false
     },
-    "CantripReference": {
+    "BlessingReference": {
       "type": "object",
       "properties": {
         "id": {
-          "description": "The cantrip's identifier.",
+          "description": "The blessing's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "LiturgicalChantReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The liturgical chant's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "CeremonyReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The ceremony's identifier.",
           "type": "integer",
           "minimum": 1
         }
@@ -203,6 +301,20 @@
       "properties": {
         "id": {
           "description": "The advantage's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "AdvancedSpecialAbilityReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The advanced special ability's identifier.",
           "type": "integer",
           "minimum": 1
         }
@@ -397,6 +509,20 @@
       ],
       "additionalProperties": false
     },
+    "PatronReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The patron's identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
     "AnimistTribeReference": {
       "type": "object",
       "properties": {
@@ -404,6 +530,35 @@
           "description": "The tribe's identifier.",
           "type": "integer",
           "maximum": 6,
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ElementReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The element's identifier.",
+          "type": "integer",
+          "maximum": 6,
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "WeaponReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The weapon's identifier.",
+          "type": "integer",
           "minimum": 1
         }
       },

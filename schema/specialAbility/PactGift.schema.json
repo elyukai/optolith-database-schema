@@ -20,155 +20,13 @@
           "$ref": "../_Activatable.schema.json#/$defs/Maximum"
         },
         "permanent_demonic_consumption": {
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "Fixed"
-                },
-                "levels": {
-                  "description": "The levels of *Demonic Consumption* the pact gift causes.",
-                  "type": "integer",
-                  "maximum": 4,
-                  "minimum": 1
-                }
-              },
-              "required": [
-                "tag",
-                "levels"
-              ],
-              "additionalProperties": false
-            },
-            {
-              "type": "object",
-              "properties": {
-                "tag": {
-                  "const": "PerLevel"
-                },
-                "levels": {
-                  "description": "The levels of *Demonic Consumption* the pact gift causes per activated\nlevel of the pact gift.",
-                  "type": "integer",
-                  "maximum": 4,
-                  "minimum": 1
-                }
-              },
-              "required": [
-                "tag",
-                "levels"
-              ],
-              "additionalProperties": false
-            }
-          ]
+          "$ref": "#/$defs/PactGiftPermanentDemonicConsumption"
         },
         "automatic_entries": {
           "description": "This pact gift has direct influence on the existence of other entries. It\nmay add or remove entries.",
           "type": "array",
           "items": {
-            "type": "object",
-            "properties": {
-              "action": {
-                "description": "What type of action is applied to the target entry?",
-                "oneOf": [
-                  {
-                    "type": "object",
-                    "properties": {
-                      "tag": {
-                        "const": "Add"
-                      }
-                    },
-                    "required": [
-                      "tag"
-                    ],
-                    "additionalProperties": false
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "tag": {
-                        "const": "Remove"
-                      }
-                    },
-                    "required": [
-                      "tag"
-                    ],
-                    "additionalProperties": false
-                  }
-                ]
-              },
-              "apply_ap_value": {
-                "description": "If an entry is added or removed, does is cost or grant adventure points\nor is it free of charge?",
-                "type": "boolean"
-              },
-              "target": {
-                "description": "The entry that is to be added or removed. It can be a fixed entry or a\nselection where the player must choose one entry.",
-                "oneOf": [
-                  {
-                    "type": "object",
-                    "properties": {
-                      "tag": {
-                        "const": "Selection"
-                      },
-                      "list": {
-                        "oneOf": [
-                          {
-                            "type": "object",
-                            "properties": {
-                              "tag": {
-                                "const": "MagicalTraditions"
-                              }
-                            },
-                            "required": [
-                              "tag"
-                            ],
-                            "additionalProperties": false
-                          },
-                          {
-                            "type": "object",
-                            "properties": {
-                              "tag": {
-                                "const": "MagicalDilettanteTraditions"
-                              }
-                            },
-                            "required": [
-                              "tag"
-                            ],
-                            "additionalProperties": false
-                          }
-                        ]
-                      }
-                    },
-                    "required": [
-                      "tag",
-                      "list"
-                    ],
-                    "additionalProperties": false
-                  },
-                  {
-                    "type": "object",
-                    "properties": {
-                      "tag": {
-                        "const": "Fixed"
-                      },
-                      "id": {
-                        "$ref": "../_Identifier.schema.json#/$defs/ActivatableIdentifier"
-                      }
-                    },
-                    "required": [
-                      "tag",
-                      "id"
-                    ],
-                    "additionalProperties": false
-                  }
-                ]
-              }
-            },
-            "required": [
-              "action",
-              "apply_ap_value",
-              "target"
-            ],
-            "additionalProperties": false
+            "$ref": "#/$defs/AutomaticEntry"
           },
           "minItems": 1
         },
@@ -186,26 +44,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "$ref": "../_Activatable.schema.json#/$defs/Name"
-                },
-                "name_in_library": {
-                  "$ref": "../_Activatable.schema.json#/$defs/NameInLibrary"
-                },
-                "effect": {
-                  "$ref": "../_Activatable.schema.json#/$defs/Effect"
-                },
-                "errata": {
-                  "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "effect"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/PactGiftTranslation"
             }
           },
           "minProperties": 1,
@@ -217,6 +56,233 @@
         "ap_value",
         "src",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "PactGiftPermanentDemonicConsumption": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Fixed"
+            },
+            "fixed": {
+              "$ref": "#/$defs/FixedPactGiftPermanentDemonicConsumption"
+            }
+          },
+          "required": [
+            "tag",
+            "fixed"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PerLevel"
+            },
+            "per_level": {
+              "$ref": "#/$defs/PactGiftPermanentDemonicConsumptionPerLevel"
+            }
+          },
+          "required": [
+            "tag",
+            "per_level"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "FixedPactGiftPermanentDemonicConsumption": {
+      "type": "object",
+      "properties": {
+        "levels": {
+          "description": "The levels of *Demonic Consumption* the pact gift causes.",
+          "type": "integer",
+          "maximum": 4,
+          "minimum": 1
+        }
+      },
+      "required": [
+        "levels"
+      ],
+      "additionalProperties": false
+    },
+    "PactGiftPermanentDemonicConsumptionPerLevel": {
+      "type": "object",
+      "properties": {
+        "levels": {
+          "description": "The levels of *Demonic Consumption* the pact gift causes per activated\nlevel of the pact gift.",
+          "type": "integer",
+          "maximum": 4,
+          "minimum": 1
+        }
+      },
+      "required": [
+        "levels"
+      ],
+      "additionalProperties": false
+    },
+    "AutomaticEntry": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "description": "What type of action is applied to the target entry?",
+          "$ref": "#/$defs/AutomaticEntryAction"
+        },
+        "apply_ap_value": {
+          "description": "If an entry is added or removed, does is cost or grant adventure points\nor is it free of charge?",
+          "type": "boolean"
+        },
+        "target": {
+          "description": "The entry that is to be added or removed. It can be a fixed entry or a\nselection where the player must choose one entry.",
+          "$ref": "#/$defs/AutomaticEntryTarget"
+        }
+      },
+      "required": [
+        "action",
+        "apply_ap_value",
+        "target"
+      ],
+      "additionalProperties": false
+    },
+    "AutomaticEntryAction": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Add"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Remove"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "AutomaticEntryTarget": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Selection"
+            },
+            "selection": {
+              "$ref": "#/$defs/AutomaticEntryTargetSelection"
+            }
+          },
+          "required": [
+            "tag",
+            "selection"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Fixed"
+            },
+            "fixed": {
+              "$ref": "#/$defs/FixedAutomaticEntryTarget"
+            }
+          },
+          "required": [
+            "tag",
+            "fixed"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "AutomaticEntryTargetSelection": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "$ref": "#/$defs/AutomaticEntryTargetSelectionList"
+        }
+      },
+      "required": [
+        "list"
+      ],
+      "additionalProperties": false
+    },
+    "AutomaticEntryTargetSelectionList": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "MagicalTraditions"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "MagicalDilettanteTraditions"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "FixedAutomaticEntryTarget": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "../_Identifier.schema.json#/$defs/ActivatableIdentifier"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "PactGiftTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref": "../_Activatable.schema.json#/$defs/Name"
+        },
+        "name_in_library": {
+          "$ref": "../_Activatable.schema.json#/$defs/NameInLibrary"
+        },
+        "effect": {
+          "$ref": "../_Activatable.schema.json#/$defs/Effect"
+        },
+        "errata": {
+          "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "effect"
       ],
       "additionalProperties": false
     }

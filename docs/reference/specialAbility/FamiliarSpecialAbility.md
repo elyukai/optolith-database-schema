@@ -58,27 +58,33 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="FamiliarSpecialAbility/translations[key]"></a> `FamiliarSpecialAbility/translations[key]`
 
+- **Type:** <a href="#FamiliarSpecialAbilityTranslation">FamiliarSpecialAbilityTranslation</a>
+
+---
+
+### <a name="FamiliarSpecialAbilityTranslation"></a> `FamiliarSpecialAbilityTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#FamiliarSpecialAbility/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#FamiliarSpecialAbility/translations[key]/name_in_library">See details</a>
-`effect` |  | <a href="#FamiliarSpecialAbility/translations[key]/effect">See details</a>
-`errata?` |  | <a href="#FamiliarSpecialAbility/translations[key]/errata">See details</a>
+`name` |  | <a href="#FamiliarSpecialAbilityTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#FamiliarSpecialAbilityTranslation/name_in_library">See details</a>
+`effect` |  | <a href="#FamiliarSpecialAbilityTranslation/effect">See details</a>
+`errata?` |  | <a href="#FamiliarSpecialAbilityTranslation/errata">See details</a>
 
-#### <a name="FamiliarSpecialAbility/translations[key]/name"></a> `name`
+#### <a name="FamiliarSpecialAbilityTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="FamiliarSpecialAbility/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="FamiliarSpecialAbilityTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="FamiliarSpecialAbility/translations[key]/effect"></a> `effect`
+#### <a name="FamiliarSpecialAbilityTranslation/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
 
-#### <a name="FamiliarSpecialAbility/translations[key]/errata"></a> `errata?`
+#### <a name="FamiliarSpecialAbilityTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

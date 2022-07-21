@@ -68,27 +68,33 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="FatePointSpecialAbility/translations[key]"></a> `FatePointSpecialAbility/translations[key]`
 
+- **Type:** <a href="#FatePointSpecialAbilityTranslation">FatePointSpecialAbilityTranslation</a>
+
+---
+
+### <a name="FatePointSpecialAbilityTranslation"></a> `FatePointSpecialAbilityTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#FatePointSpecialAbility/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#FatePointSpecialAbility/translations[key]/name_in_library">See details</a>
-`rules` |  | <a href="#FatePointSpecialAbility/translations[key]/rules">See details</a>
-`errata?` |  | <a href="#FatePointSpecialAbility/translations[key]/errata">See details</a>
+`name` |  | <a href="#FatePointSpecialAbilityTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#FatePointSpecialAbilityTranslation/name_in_library">See details</a>
+`rules` |  | <a href="#FatePointSpecialAbilityTranslation/rules">See details</a>
+`errata?` |  | <a href="#FatePointSpecialAbilityTranslation/errata">See details</a>
 
-#### <a name="FatePointSpecialAbility/translations[key]/name"></a> `name`
+#### <a name="FatePointSpecialAbilityTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="FatePointSpecialAbility/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="FatePointSpecialAbilityTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="FatePointSpecialAbility/translations[key]/rules"></a> `rules`
+#### <a name="FatePointSpecialAbilityTranslation/rules"></a> `rules`
 
 - **Type:** <a href="../_Activatable.md#Rules">Rules</a>
 
-#### <a name="FatePointSpecialAbility/translations[key]/errata"></a> `errata?`
+#### <a name="FatePointSpecialAbilityTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

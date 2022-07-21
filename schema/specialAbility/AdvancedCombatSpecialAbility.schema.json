@@ -14,7 +14,7 @@
           "$ref": "../_Activatable.schema.json#/$defs/Levels"
         },
         "usage_type": {
-          "$ref": "../_Activatable.schema.json#/$defs/CombatSpecialAbilityType"
+          "$ref": "../_Activatable.schema.json#/$defs/CombatSpecialAbilityUsageType"
         },
         "select_options": {
           "$ref": "../_Activatable.schema.json#/$defs/SelectOptions"
@@ -48,29 +48,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "$ref": "../_Activatable.schema.json#/$defs/Name"
-                },
-                "name_in_library": {
-                  "$ref": "../_Activatable.schema.json#/$defs/NameInLibrary"
-                },
-                "rules": {
-                  "$ref": "../_Activatable.schema.json#/$defs/Rules"
-                },
-                "penalty": {
-                  "type": "string"
-                },
-                "errata": {
-                  "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "rules"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/AdvancedCombatSpecialAbilityTranslation"
             }
           },
           "minProperties": 1,
@@ -84,6 +62,31 @@
         "ap_value",
         "src",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "AdvancedCombatSpecialAbilityTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref": "../_Activatable.schema.json#/$defs/Name"
+        },
+        "name_in_library": {
+          "$ref": "../_Activatable.schema.json#/$defs/NameInLibrary"
+        },
+        "rules": {
+          "$ref": "../_Activatable.schema.json#/$defs/Rules"
+        },
+        "penalty": {
+          "type": "string"
+        },
+        "errata": {
+          "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "rules"
       ],
       "additionalProperties": false
     }

@@ -58,27 +58,33 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Vision/translations[key]"></a> `Vision/translations[key]`
 
+- **Type:** <a href="#VisionTranslation">VisionTranslation</a>
+
+---
+
+### <a name="VisionTranslation"></a> `VisionTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#Vision/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#Vision/translations[key]/name_in_library">See details</a>
-`rules` |  | <a href="#Vision/translations[key]/rules">See details</a>
-`errata?` |  | <a href="#Vision/translations[key]/errata">See details</a>
+`name` |  | <a href="#VisionTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#VisionTranslation/name_in_library">See details</a>
+`rules` |  | <a href="#VisionTranslation/rules">See details</a>
+`errata?` |  | <a href="#VisionTranslation/errata">See details</a>
 
-#### <a name="Vision/translations[key]/name"></a> `name`
+#### <a name="VisionTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="Vision/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="VisionTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="Vision/translations[key]/rules"></a> `rules`
+#### <a name="VisionTranslation/rules"></a> `rules`
 
 - **Type:** <a href="../_Activatable.md#Rules">Rules</a>
 
-#### <a name="Vision/translations[key]/errata"></a> `errata?`
+#### <a name="VisionTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

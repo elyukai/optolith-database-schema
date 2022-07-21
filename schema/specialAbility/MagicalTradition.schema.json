@@ -24,23 +24,7 @@
         },
         "primary": {
           "description": "The tradition's primary attribute. Leave empty if the tradition does not\nhave one.",
-          "type": "object",
-          "properties": {
-            "id": {
-              "description": "The attribute's identifier.",
-              "type": "integer",
-              "minimum": 1
-            },
-            "use_half_for_arcane_energy": {
-              "description": "Typically, the value of the primary attribute (if one exists) is added\nonto the base of 20 AE to get the actual AE. But sometimes, only half the\nvalue is added.",
-              "type": "boolean"
-            }
-          },
-          "required": [
-            "id",
-            "use_half_for_arcane_energy"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/PrimaryAttribute"
         },
         "can_learn_cantrips": {
           "description": "Can a member of the tradition learn cantrips?",
@@ -79,18 +63,7 @@
         },
         "use_arcane_spellworks_from_tradition": {
           "description": "If arcane spellworks from a different tradition count as arcane spellworks\nof this tradition, this is the different tradition's reference.",
-          "type": "object",
-          "properties": {
-            "id": {
-              "description": "The magical tradition's identifier.",
-              "type": "integer",
-              "minimum": 1
-            }
-          },
-          "required": [
-            "id"
-          ],
-          "additionalProperties": false
+          "$ref": "../_SimpleReferences.schema.json#/$defs/MagicalTraditionReference"
         },
         "influences": {
           "description": "The Influences for the traditions. Influences are enabled by Focus Rules.",
@@ -114,52 +87,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "$ref": "../_Activatable.schema.json#/$defs/Name"
-                },
-                "name_for_arcane_spellworks": {
-                  "description": "The name used for the traditions list of arcane spellworks if it is\ndifferent than the `name` of the special ability.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "name_in_library": {
-                  "$ref": "../_Activatable.schema.json#/$defs/NameInLibrary"
-                },
-                "special_rules": {
-                  "description": "The special rules of the tradition. They should be sorted like they are\nin the book.",
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "label": {
-                        "description": "An optional label that is displayed and placed before the actual\ntext.",
-                        "type": "string",
-                        "minLength": 1
-                      },
-                      "text": {
-                        "description": "The text of a special rule.",
-                        "type": "string",
-                        "minLength": 1
-                      }
-                    },
-                    "required": [
-                      "text"
-                    ],
-                    "additionalProperties": false
-                  },
-                  "minItems": 1
-                },
-                "errata": {
-                  "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "special_rules"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/MagicalTraditionTranslation"
             }
           },
           "minProperties": 1,
@@ -180,6 +108,57 @@
         "ap_value",
         "src",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "PrimaryAttribute": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The attribute's identifier.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "use_half_for_arcane_energy": {
+          "description": "Typically, the value of the primary attribute (if one exists) is added\nonto the base of 20 AE to get the actual AE. But sometimes, only half the\nvalue is added.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "use_half_for_arcane_energy"
+      ],
+      "additionalProperties": false
+    },
+    "MagicalTraditionTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref": "../_Activatable.schema.json#/$defs/Name"
+        },
+        "name_for_arcane_spellworks": {
+          "description": "The name used for the traditions list of arcane spellworks if it is\ndifferent than the `name` of the special ability.",
+          "type": "string",
+          "minLength": 1
+        },
+        "name_in_library": {
+          "$ref": "../_Activatable.schema.json#/$defs/NameInLibrary"
+        },
+        "special_rules": {
+          "description": "The special rules of the tradition. They should be sorted like they are\nin the book.",
+          "type": "array",
+          "items": {
+            "$ref": "./_Tradition.schema.json#/$defs/SpecialRule"
+          },
+          "minItems": 1
+        },
+        "errata": {
+          "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "special_rules"
       ],
       "additionalProperties": false
     }

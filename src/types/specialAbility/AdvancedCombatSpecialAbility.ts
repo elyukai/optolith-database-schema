@@ -6,6 +6,7 @@ import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import * as Activatable from "../_Activatable.js"
+import { LocaleMap } from "../_LocaleMap.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 
 /**
@@ -16,7 +17,7 @@ export type AdvancedCombatSpecialAbility = {
 
   levels?: Activatable.Levels
 
-  usage_type: Activatable.CombatSpecialAbilityType
+  usage_type: Activatable.CombatSpecialAbilityUsageType
 
   select_options?: Activatable.SelectOptions
 
@@ -38,39 +39,35 @@ export type AdvancedCombatSpecialAbility = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      name: Activatable.Name
+  translations: LocaleMap<AdvancedCombatSpecialAbilityTranslation>
+}
 
-      name_in_library?: Activatable.NameInLibrary
+export type AdvancedCombatSpecialAbilityTranslation = {
+  name: Activatable.Name
 
-      // input?: Activatable.Input
+  name_in_library?: Activatable.NameInLibrary
 
-      rules: Activatable.Rules
+  // input?: Activatable.Input
 
-      /**
-       * @deprecated
-       */
-      penalty?: string
+  rules: Activatable.Rules
 
-      // prerequisites?: Activatable.PrerequisitesReplacement
+  /**
+   * @deprecated
+   */
+  penalty?: string
 
-      // prerequisites_start?: Activatable.PrerequisitesStart
+  // prerequisites?: Activatable.PrerequisitesReplacement
 
-      // prerequisites_end?: Activatable.PrerequisitesEnd
+  // prerequisites_start?: Activatable.PrerequisitesStart
 
-      // ap_value?: Activatable.AdventurePointsValueReplacement
+  // prerequisites_end?: Activatable.PrerequisitesEnd
 
-      // ap_value_append?: Activatable.AdventurePointsValueAppend
+  // ap_value?: Activatable.AdventurePointsValueReplacement
 
-      errata?: Errata
-    }
-  }
+  // ap_value_append?: Activatable.AdventurePointsValueAppend
+
+  errata?: Errata
 }
 
 export const validateSchema = validateSchemaCreator<AdvancedCombatSpecialAbility>(import.meta.url)

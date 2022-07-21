@@ -73,27 +73,33 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="CeremonialItemSpecialAbility/translations[key]"></a> `CeremonialItemSpecialAbility/translations[key]`
 
+- **Type:** <a href="#CeremonialItemSpecialAbilityTranslation">CeremonialItemSpecialAbilityTranslation</a>
+
+---
+
+### <a name="CeremonialItemSpecialAbilityTranslation"></a> `CeremonialItemSpecialAbilityTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#CeremonialItemSpecialAbility/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#CeremonialItemSpecialAbility/translations[key]/name_in_library">See details</a>
-`effect` |  | <a href="#CeremonialItemSpecialAbility/translations[key]/effect">See details</a>
-`errata?` |  | <a href="#CeremonialItemSpecialAbility/translations[key]/errata">See details</a>
+`name` |  | <a href="#CeremonialItemSpecialAbilityTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#CeremonialItemSpecialAbilityTranslation/name_in_library">See details</a>
+`effect` |  | <a href="#CeremonialItemSpecialAbilityTranslation/effect">See details</a>
+`errata?` |  | <a href="#CeremonialItemSpecialAbilityTranslation/errata">See details</a>
 
-#### <a name="CeremonialItemSpecialAbility/translations[key]/name"></a> `name`
+#### <a name="CeremonialItemSpecialAbilityTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="CeremonialItemSpecialAbility/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="CeremonialItemSpecialAbilityTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="CeremonialItemSpecialAbility/translations[key]/effect"></a> `effect`
+#### <a name="CeremonialItemSpecialAbilityTranslation/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
 
-#### <a name="CeremonialItemSpecialAbility/translations[key]/errata"></a> `errata?`
+#### <a name="CeremonialItemSpecialAbilityTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

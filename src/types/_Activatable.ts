@@ -6,10 +6,15 @@
 import { DisplayOption } from "./prerequisites/DisplayOption.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
+import { SelectOptionCategory, SkillApplicationOrUse } from "./_ActivatableSelectOptionCategory.js"
+import { CheckResultBasedModifier } from "./_ActivatableSkillCheckResultBased.js"
 import { DurationUnitValue } from "./_ActivatableSkillDuration.js"
-import { ActivatableIdentifier, AdvancedSpecialAbilityRestrictedOptionIdentifier, CombatRelatedSpecialAbilityIdentifier, CombatTechniqueIdentifier, MagicalTraditionIdentifier, PatronIdentifier, SkillIdentifier, VolumePointsOptionReferenceIdentifier } from "./_Identifier.js"
+import { AdvancedSpecialAbilityRestrictedOptionIdentifier, CombatRelatedSpecialAbilityIdentifier, CombatTechniqueIdentifier, MagicalTraditionIdentifier, PatronIdentifier, VolumePointsOptionReferenceIdentifier } from "./_Identifier.js"
 import { LocaleMap } from "./_LocaleMap.js"
+import { NonEmptyMarkdown, NonEmptyString } from "./_NonEmptyString.js"
 import { GeneralPrerequisites } from "./_Prerequisite.js"
+import { ResponsiveText, ResponsiveTextOptional } from "./_ResponsiveText.js"
+import { AdvancedSpecialAbilityReference, AspectReference, CloseCombatTechniqueReference, CombatTechniqueReference, PropertyReference, RaceReference, RangedCombatTechniqueReference, SkillReference, WeaponReference } from "./_SimpleReferences.js"
 
 /**
  * The activatable entry's identifier. An unique, increasing integer.
@@ -76,7 +81,7 @@ export type SelectOptions = {
    * included. Groups not mentioned will be excluded then.
    * @minItems 1
    */
-  derived?: CategoryOption
+  derived?: SelectOptionCategory[]
 
   /**
    * A list of explicit select options. If the identifier has a specific type,
@@ -87,664 +92,167 @@ export type SelectOptions = {
    * page.
    * @minItems 1
    */
-  explicit?: ExplicitOption[]
+  explicit?: ExplicitSelectOption[]
 }
 
-type CategoryOption =
-  | { tag: "Blessings" }
-  | { tag: "Cantrips" }
-  | { tag: "TradeSecrets" }
-  | { tag: "Scripts" }
-  | { tag: "AnimalShapes" }
-  | { tag: "ArcaneBardTraditions" }
-  | { tag: "ArcaneDancerTraditions" }
-  | { tag: "SexPractices" }
-  | { tag: "Races" }
-  | { tag: "Cultures" }
-  | {
-    tag: "BlessedTraditions"
+export type ExplicitSelectOption =
+  | { tag: "General"; general: ExplicitGeneralSelectOption }
+  | { tag: "Skill"; skill: ExplicitSkillSelectOption }
+  | { tag: "CombatTechnique"; combat_technique: ExplicitCombatTechniqueSelectOption }
 
-    /**
-     * Should the principles (code) of the tradition be required to select the
-     * respective tradition?
-     */
-    require_principles?: true
-  }
-  | {
-    tag: "Elements"
-
-    /**
-     * Only include entries with the listed identifiers.
-     * @minItems 1
-     * @uniqueItems
-     */
-    specific?: {
-      /**
-       * The element's identifier.
-       * @integer
-       * @minimum 1
-       * @maximum 6
-       */
-      id: number
-    }[]
-  }
-  | {
-    tag: "Properties"
-
-    /**
-     * Does each property require it's corresponding property knowledge?
-     */
-    require_knowledge?: true
-
-    /**
-     * Require a minimum number of spellworks of the respective property to be
-     * on a minimum skill rating.
-     */
-    require_minimum_spellworks_on?: {
-      /**
-       * The minimum number of spellworks that need to be on the defined minimum
-       * skill rating.
-       * @integer
-       * @minimum 1
-       */
-      number: number
-
-      /**
-       * The minimum skill rating the defined minimum number of spellworks need
-       * to be on.
-       * @integer
-       * @minimum 1
-       */
-      value: number
-    }
-  }
-  | {
-    tag: "Aspects"
-
-    /**
-     * Does each aspect require it's corresponding aspect knowledge?
-     */
-    require_knowledge?: true
-
-    /**
-     * The generated name should be the *Master of (Aspect)* suffix for this
-     * aspect instead of the aspect's name. If an aspect does not provide a
-     * suffix (such as the General aspect), it is automatically excluded from
-     * the list.
-     */
-    use_master_of_suffix_as_name?: true
-
-    /**
-     * Require a minimum number of liturgies of the respective aspect to be on a
-     * minimum skill rating.
-     */
-    require_minimum_liturgies_on?: {
-      /**
-       * The minimum number of liturgies that need to be on the defined minimum
-       * skill rating.
-       * @integer
-       * @minimum 1
-       */
-      number: number
-
-      /**
-       * The minimum skill rating the defined minimum number of liturgies need
-       * to be on.
-       * @integer
-       * @minimum 1
-       */
-      value: number
-    }
-  }
-  | {
-    tag: "Diseases"
-
-    /**
-     * Only convert half the disease level into the AP value.
-     */
-    use_half_level_as_ap_value?: true
-  }
-  | {
-    tag: "Poisons"
-
-    /**
-     * Only convert half the poison level into the AP value.
-     */
-    use_half_level_as_ap_value?: true
-  }
-  | {
-    tag: "Languages"
-
-    /**
-     * Generate prerequisites for each entry of the category.
-     * @minItems 1
-     */
-    prerequisites?: OptionOptionPrerequisite[]
-  }
-  | {
-    tag: "Skills"
-
-    /**
-     * A list of skill categories.
-     * @minItems 1
-     */
-    categories: (
-      | {
-        tag: "Skills"
-
-        /**
-         * Only include entries of the specified groups.
-         * @minItems 1
-         */
-        groups?: {
-          /**
-           * The skill group's identifier.
-           * @integer
-           * @minimum 1
-           * @maximum 5
-           */
-          id: number
-        }[]
-
-        /**
-         * Only include (`Intersection`) or exclude (`Difference`) specific
-         * skills.
-         */
-        specific?: {
-          operation:
-            | { tag: "Intersection" }
-            | { tag: "Difference" }
-
-          /**
-           * The list of specific skills.
-           * @minItems 1
-           * @uniqueItems
-           */
-          list: {
-            /**
-             * The skill's identifier.
-             * @integer
-             * @minimum 1
-             * @maximum 59
-             */
-            id: number
-          }[]
-        }
-
-        /**
-         * Registers new applications, which get enabled once this entry is
-         * activated with its respective select option. It specifies an
-         * entry-unique identifier, the skill it belongs to is derived from the
-         * select option automatically. A translation can be left out if its
-         * name equals the name of the origin entry.
-         * @minItems 1
-         */
-        skill_applications?: {
-          /**
-           * The application's identifier. An entry-unique, increasing integer.
-           * @integer
-           * @minimum 1
-           */
-          id: number
-
-          /**
-           * All translations for the entry, identified by IETF language tag
-           * (BCP47).
-           * @minProperties 1
-           */
-          translations?: LocaleMap<{
-            /**
-             * The name of the application if different from the activatable
-             * entry's
-             * name.
-             * @minLength 1
-             */
-            name: string
-          }>
-        }[]
-
-        /**
-         * Registers uses, which get enabled once this entry is activated with
-         * its respective select option. It specifies an entry-unique
-         * identifier, the skill it belongs to is derived from the select option
-         * automatically. A translation can be left out if its name equals the
-         * name of the origin entry.
-         * @minItems 1
-         */
-        skill_uses?: {
-          /**
-           * The use's identifier. An entry-unique, increasing integer.
-           * @integer
-           * @minimum 1
-           */
-          id: number
-
-          /**
-           * All translations for the entry, identified by IETF language tag
-           * (BCP47).
-           * @minProperties 1
-           */
-          translations?: LocaleMap<{
-            /**
-             * The name of the use if different from the activatable entry's
-             * name.
-             * @minLength 1
-             */
-            name: string
-          }>
-        }[]
-
-        /**
-         * Generate prerequisites for each entry of the category.
-         * @minItems 1
-         */
-        prerequisites?: (
-          | OptionSkillSelfPrerequisite
-          | OptionOptionPrerequisite
-        )[]
-      }
-      | {
-        tag: SkillWithEnhancementsCategory
-
-        /**
-         * Only include (`Intersection`) or exclude (`Difference`) specific
-         * entries.
-         */
-        specific?: {
-          operation:
-            | { tag: "Intersection" }
-            | { tag: "Difference" }
-
-          /**
-           * The list of specific entries.
-           * @minItems 1
-           * @uniqueItems
-           */
-          list: {
-            /**
-             * The entry's identifier.
-             * @integer
-             * @minimum 1
-             * @maximum 59
-             */
-            id: number
-          }[]
-        }
-
-        /**
-         * Generate prerequisites for each entry of the category.
-         * @minItems 1
-         */
-        prerequisites?: (
-          | OptionSkillSelfPrerequisite
-          | OptionOptionPrerequisite
-        )[]
-      }
-    )[]
-
-    /**
-     * Generate AP values for each entry.
-     */
-    ap_value?: OptionSkillDeriveAdventurePointsValue<SkillIdentifier>
-  }
-  | {
-    tag: "CombatTechniques"
-
-    /**
-     * A list of combat technique categories.
-     * @minItems 1
-     */
-    categories: {
-      tag: CombatTechniqueCategory
-
-      /**
-       * Only include (`Intersection`) or exclude (`Difference`) specific
-       * entries.
-       */
-      specific?: {
-        operation:
-          | { tag: "Intersection" }
-          | { tag: "Difference" }
-
-        /**
-         * The list of specific entries.
-         * @minItems 1
-         * @uniqueItems
-         */
-        list: {
-          /**
-           * The entry's identifier.
-           * @integer
-           * @minimum 1
-           * @maximum 59
-           */
-          id: number
-        }[]
-      }
-
-      /**
-       * Generate prerequisites for each entry of the category.
-       * @minItems 1
-       */
-      prerequisites?: (
-        | OptionSkillSelfPrerequisite
-        | OptionOptionPrerequisite
-      )[]
-    }[]
-
-    /**
-     * Generate AP values for each entry.
-     */
-    ap_value?: OptionSkillDeriveAdventurePointsValue<CombatTechniqueIdentifier>
-  }
-
-enum SkillWithEnhancementsCategory {
-  Spells = "Spells",
-  Rituals = "Rituals",
-  LiturgicalChants = "LiturgicalChants",
-  Ceremonies = "Ceremonies",
-}
-
-enum CombatTechniqueCategory {
-  CloseCombatTechniques = "CloseCombatTechniques",
-  RangedCombatTechniques = "RangedCombatTechniques",
-}
-
-type OptionSkillSelfPrerequisite = {
-  tag: "Self"
-
+export type ExplicitGeneralSelectOption = {
   /**
-   * The entry requires itself on a certain Skill Rating.
+   * The option's identifier. An unique, increasing integer.
    * @integer
    * @minimum 1
    */
-  value: number
-}
-
-/**
- * The entry requires or prohibits itself as a select option of another entry.
- */
-type OptionOptionPrerequisite = {
-  tag: "SelectOption"
+  id: number
 
   /**
-   * The target entry's identifier.
+   * Sometimes, professions use specific text selections that are not
+   * contained in described lists. This ensures you can use them for
+   * professions only. They are not going to be displayed as options to the
+   * user.
    */
-  id: ActivatableIdentifier
+  profession_only?: true
 
   /**
-   * Is the select option required (`true`) or prohibited (`false`)?
+   * Registers new applications, which get enabled once this entry is
+   * activated with its respective select option. It specifies an entry-unique
+   * identifier and the skill it belongs to. A translation can be left out if
+   * its name equals the name of the origin select option.
    */
-  active: boolean
+  skill_applications?: SkillApplications
 
   /**
-   * The required level, if any.
+   * Registers uses, which get enabled once this entry is activated with its
+   * respective select option. It specifies an entry-unique identifier and the
+   * skill it belongs to. A translation can be left out if its name equals the
+   * name of the origin select option.
+   */
+  skill_uses?: SkillUses
+
+  prerequisites?: GeneralPrerequisites
+
+  /**
+   * Specific AP cost for the select option.
    * @integer
-   * @minimum 2
+   * @minimum 1
    */
-  level?: number
+  ap_value?: number
+
+  src?: PublicationRefs
+
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translations: LocaleMap<ExplicitGeneralSelectOptionTranslation>
+}
+
+export type ExplicitGeneralSelectOptionTranslation = {
+  /**
+   * The name of the select option.
+   * @minLength 1
+   */
+  name: string
+
+  /**
+   * The name of the select option when displayed in a generated
+   * profession text.
+   * @minLength 1
+   */
+  name_in_profession?: string
+
+  /**
+   * The description of the select option. Useful for Bad Habits, Trade
+   * Secrets and other entries where a description is available.
+   * @markdown
+   * @minLength 1
+   */
+  description?: string
+
+  errata?: Errata
+}
+
+export type ExplicitSkillSelectOption = {
+  /**
+   * The skill's identifier. An unique, increasing integer.
+   * @integer
+   * @minimum 1
+   */
+  id: number
+
+  /**
+   * Registers new applications, which get enabled once this entry is
+   * activated with its respective select option. It specifies an entry-unique
+   * identifier and the skill it belongs to. A translation can be left out if
+   * its name equals the name of the origin select option.
+   * @minItems 1
+   */
+  skill_applications?: SkillApplicationOrUse[]
+
+  /**
+   * Registers uses, which get enabled once this entry is activated with its
+   * respective select option. It specifies an entry-unique identifier and the
+   * skill it belongs to. A translation can be left out if its name equals the
+   * name of the origin select option.
+   * @minItems 1
+   */
+  skill_uses?: SkillApplicationOrUse[]
+
+  prerequisites?: GeneralPrerequisites
+
+  /**
+   * Specific AP cost for the select option.
+   * @integer
+   * @minimum 1
+   */
+  ap_value?: number
+
+  src?: PublicationRefs
+
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translations?: LocaleMap<ExplicitSkillSelectOptionTranslation>
 }
 
 /**
- * Generate AP values for each entry.
+ * @minProperties 1
  */
-type OptionSkillDeriveAdventurePointsValue<Identifier> =
-  | {
-    /**
-     * Derive the cost from the improvement cost of each entry.
-     *
-     * AP Value = Improvement Cost × `multiplier` + `offset`
-     */
-    tag: "DerivedFromImprovementCost"
+export type ExplicitSkillSelectOptionTranslation = {
+  errata?: Errata
+}
 
-    /**
-     * This number is multiplied with the improvement cost of the entry
-     * (A = 1 to D = 4).
-     * @integer
-     * @minimum 2
-     * @default 1
-     */
-    multiplier?: number
+export type ExplicitCombatTechniqueSelectOption = {
+  /**
+   * The combat technique's identifier.
+   */
+  id: CombatTechniqueIdentifier
 
-    /**
-     * This number is added to the maybe multiplied improvement cost of the
-     * entry.
-     * @integer
-     * @default 0
-     */
-    offset?: number
-  }
-  | {
-    tag: "Fixed"
+  prerequisites?: GeneralPrerequisites
 
-    /**
-     * A mapping of skill identifiers to their specific AP values.
-     */
-    map: {
-      /**
-       * The skill's identifier.
-       * @integer
-       * @minimum 1
-       */
-      id: Identifier
+  /**
+   * Specific AP cost for the select option.
+   * @integer
+   * @minimum 1
+   */
+  ap_value?: number
 
-      /**
-       * The AP value for the specified entry.
-       * @integer
-       * @minimum 1
-       */
-      ap_value: number
-    }[]
+  src?: PublicationRefs
 
-    /**
-     * The default value of an entry. Used as a fallback if no value is
-     * found in `list`.
-     * @integer
-     * @minimum 1
-     */
-    default: number
-  }
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translations?: LocaleMap<ExplicitCombatTechniqueSelectOptionTranslation>
+}
 
-type ExplicitOption =
-  | {
-    tag: "General"
-
-    /**
-     * The option's identifier. An unique, increasing integer.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-
-    /**
-     * Sometimes, professions use specific text selections that are not
-     * contained in described lists. This ensures you can use them for
-     * professions only. They are not going to be displayed as options to the
-     * user.
-     */
-    profession_only?: true
-
-    /**
-     * Registers new applications, which get enabled once this entry is
-     * activated with its respective select option. It specifies an entry-unique
-     * identifier and the skill it belongs to. A translation can be left out if
-     * its name equals the name of the origin select option.
-     */
-    skill_applications?: SkillApplications
-
-    /**
-     * Registers uses, which get enabled once this entry is activated with its
-     * respective select option. It specifies an entry-unique identifier and the
-     * skill it belongs to. A translation can be left out if its name equals the
-     * name of the origin select option.
-     */
-    skill_uses?: SkillUses
-
-    prerequisites?: GeneralPrerequisites
-
-    /**
-     * Specific AP cost for the select option.
-     * @integer
-     * @minimum 1
-     */
-    ap_value?: number
-
-    src?: PublicationRefs
-
-    /**
-     * All translations for the entry, identified by IETF language tag (BCP47).
-     * @minProperties 1
-     */
-    translations: LocaleMap<{
-      /**
-       * The name of the select option.
-       * @minLength 1
-       */
-      name: string
-
-      /**
-       * The name of the select option when displayed in a generated
-       * profession text.
-       * @minLength 1
-       */
-      name_in_profession?: string
-
-      /**
-       * The description of the select option. Useful for Bad Habits, Trade
-       * Secrets and other entries where a description is available.
-       * @markdown
-       * @minLength 1
-       */
-      description?: string
-
-      errata?: Errata
-    }>
-  }
-  | {
-    tag: "Skill"
-
-    /**
-     * The skill's identifier. An unique, increasing integer.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-
-    /**
-     * Registers new applications, which get enabled once this entry is
-     * activated with its respective select option. It specifies an entry-unique
-     * identifier and the skill it belongs to. A translation can be left out if
-     * its name equals the name of the origin select option.
-     * @minItems 1
-     */
-    skill_applications?: {
-      /**
-       * The application's identifier. An entry-unique, increasing integer.
-       * @integer
-       * @minimum 1
-       */
-      id: number
-
-      /**
-       * All translations for the entry, identified by IETF language tag (BCP47).
-       * @minProperties 1
-       */
-      translations?: LocaleMap<{
-        /**
-         * The name of the application if different from the activatable entry's
-         * name.
-         * @minLength 1
-         */
-        name: string
-      }>
-    }[]
-
-    /**
-     * Registers uses, which get enabled once this entry is activated with its
-     * respective select option. It specifies an entry-unique identifier and the
-     * skill it belongs to. A translation can be left out if its name equals the
-     * name of the origin select option.
-     * @minItems 1
-     */
-    skill_uses?: {
-      /**
-       * The use's identifier. An entry-unique, increasing integer.
-       * @integer
-       * @minimum 1
-       */
-      id: number
-
-      /**
-       * All translations for the entry, identified by IETF language tag (BCP47).
-       * @minProperties 1
-       */
-      translations?: LocaleMap<{
-        /**
-         * The name of the use if different from the activatable entry's name.
-         * @minLength 1
-         */
-        name: string
-      }>
-    }[]
-
-    prerequisites?: GeneralPrerequisites
-
-    /**
-     * Specific AP cost for the select option.
-     * @integer
-     * @minimum 1
-     */
-    ap_value?: number
-
-    src?: PublicationRefs
-
-    /**
-     * All translations for the entry, identified by IETF language tag (BCP47).
-     * @minProperties 1
-     */
-    translations?: {
-      /**
-       * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-       * @minProperties 1
-       */
-      [localeId: string]: {
-        errata?: Errata
-      }
-    }
-  }
-  | {
-    tag: "CombatTechnique"
-
-    /**
-     * The combat technique's identifier.
-     */
-    id: CombatTechniqueIdentifier
-
-    prerequisites?: GeneralPrerequisites
-
-    /**
-     * Specific AP cost for the select option.
-     * @integer
-     * @minimum 1
-     */
-    ap_value?: number
-
-    src?: PublicationRefs
-
-    /**
-     * All translations for the entry, identified by IETF language tag (BCP47).
-     * @minProperties 1
-     */
-    translations?: {
-      /**
-       * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-       * @minProperties 1
-       */
-      [localeId: string]: {
-        errata?: Errata
-      }
-    }
-  }
+/**
+ * @minProperties 1
+ */
+export type ExplicitCombatTechniqueSelectOptionTranslation = {
+  errata?: Errata
+}
 
 // "Options": {
 //   "$comment": "Unfinished generalized options handling.",
@@ -866,25 +374,29 @@ type ExplicitOption =
 
 /**
  * The rule text.
- * @markdown
- * @minLength 1
  */
-export type Rules = string
+export type Rules = NonEmptyMarkdown
 
 /**
  * The effect description.
- * @markdown
- * @minLength 1
  */
-export type Effect = string
+export type Effect = NonEmptyMarkdown
 
 /**
  * The definition of how the combat special ability can be used in combat.
  */
-export type CombatSpecialAbilityType =
+export type CombatSpecialAbilityUsageType =
   | { tag: "Passive" }
   | { tag: "BasicManeuver" }
   | { tag: "SpecialManeuver" }
+
+/**
+ * The definition of if the combat special ability can be used when armed or
+ * when unarmed.
+ */
+export type CombatSpecialAbilityType =
+  | { tag: "Armed" }
+  | { tag: "Unarmed" }
 
 /**
  * Registers new skill applications, which get enabled once this entry is
@@ -893,7 +405,9 @@ export type CombatSpecialAbilityType =
  * activatable entry.
  * @minItems 1
  */
-export type SkillApplications = {
+export type SkillApplications = SkillApplication[]
+
+export type SkillApplication = {
   /**
    * The application's identifier. An entry-unique, increasing integer.
    * @integer
@@ -904,61 +418,41 @@ export type SkillApplications = {
   /**
    * The skill(s) this application belongs to.
    */
-  skill:
-    | {
-      tag: "Single"
-
-      /**
-       * The referenced skill's identifier.
-       * @integer
-       * @minimum 1
-       */
-      id: number
-    }
-    | {
-      tag: "Multiple"
-
-      /**
-       * The skills this application belongs to.
-       * @minItems 2
-       */
-      list: {
-        /**
-         * The referenced skill's identifier.
-         * @integer
-         * @minimum 1
-         */
-        id: number
-      }[]
-
-      /**
-       * If an application applies to multiple skills, it may need to ensure the
-       * respective skill is on a certain skill rating if the activatable entry
-       * cannot ensure this prerequisite.
-       * @integer
-       * @minimum 1
-       */
-      required_skill_rating?: number
-    }
+  skill: SkillApplicationAssociatedSkill
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations?: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The name of the application if different from the activatable entry's
-       * name.
-       * @minLength 1
-       */
-      name: string
-    }
-  }
-}[]
+  translations?: LocaleMap<SkillApplicationTranslation>
+}
+
+export type SkillApplicationAssociatedSkill =
+  | { tag: "Single"; single: SkillReference }
+  | { tag: "Multiple"; multiple: SkillApplicationAssociatedSkills }
+
+export type SkillApplicationAssociatedSkills = {
+  /**
+   * The skills this application belongs to.
+   * @minItems 2
+   */
+  list: SkillReference[]
+
+  /**
+   * If an application applies to multiple skills, it may need to ensure the
+   * respective skill is on a certain skill rating if the activatable entry
+   * cannot ensure this prerequisite.
+   * @integer
+   * @minimum 1
+   */
+  required_skill_rating?: number
+}
+
+export type SkillApplicationTranslation = {
+  /**
+   * The name of the application if different from the activatable entry's name.
+   */
+  name: NonEmptyString
+}
 
 /**
  * Registers uses, which get enabled once this entry is activated. It specifies
@@ -966,7 +460,9 @@ export type SkillApplications = {
  * left out if its name equals the name of the origin activatable entry.
  * @minItems 1
  */
-export type SkillUses = {
+export type SkillUses = SkillUse[]
+
+export type SkillUse = {
   /**
    * The use's identifier. An entry-unique, increasing integer.
    * @integer
@@ -977,558 +473,475 @@ export type SkillUses = {
   /**
    * The skill(s) this use belongs to.
    */
-  skill:
-    | {
-      tag: "Single"
-
-      /**
-       * The referenced skill's identifier.
-       * @integer
-       * @minimum 1
-       */
-      id: number
-    }
-    | {
-      tag: "Multiple"
-
-      /**
-       * The skills this use belongs to.
-       * @minItems 2
-       */
-      list: {
-        /**
-         * The referenced skill's identifier.
-         * @integer
-         * @minimum 1
-         */
-        id: number
-      }[]
-    }
+  skill: SkillUseAssociatedSkill
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations?: LocaleMap<{
-    /**
-     * The name of the use if different from the activatable entry's name.
-     * @minLength 1
-     */
-    name: string
-  }>
-}[]
+  translations?: LocaleMap<SkillUseTranslation>
+}
+
+export type SkillUseAssociatedSkill =
+  | { tag: "Single"; single: SkillReference }
+  | { tag: "Multiple"; multiple: SkillUseAssociatedSkills }
+
+export type SkillUseAssociatedSkills = {
+  /**
+   * The skills this use belongs to.
+   * @minItems 2
+   */
+  list: SkillReference[]
+}
+
+export type SkillUseTranslation = {
+  /**
+   * The name of the use if different from the activatable entry's name.
+   */
+  name: NonEmptyString
+}
 
 /**
  * The penalty the special ability gives when used.
  */
 export type Penalty =
-  | {
-    tag: "Single"
-
-    /**
-     * The penalty value.
-     * @integer
-     */
-    value: number
-
-    /**
-     * Set to `true` if the penalty applies to the parry instead of the attack.
-     */
-    applies_to_parry?: true
-  }
-  | {
-    tag: "ByHandedness"
-
-    /**
-     * The penalty value for one-handed weapons.
-     * @integer
-     */
-    one_handed: number
-
-    /**
-     * The penalty value for two-handed weapons.
-     * @integer
-     */
-    two_handed: number
-
-    /**
-     * Set to `true` if the penalty applies to the parry instead of the attack.
-     */
-    applies_to_parry?: true
-  }
-  | {
-    tag: "ByActivation"
-
-    /**
-     * The penalty value if the entry has been bought by the character.
-     * @integer
-     */
-    active: number
-
-    /**
-     * The penalty value if the entry has not been bought by the character.
-     * @integer
-     */
-    inactive: number
-
-    /**
-     * Set to `true` if the penalty applies to the parry instead of the attack.
-     */
-    applies_to_parry?: true
-  }
-  | {
-    tag: "Selection"
-
-    options:
-      | {
-        tag: "Specific"
-
-        /**
-         * The list of specific penalty options.
-         * @minItems 2
-         * @uniqueItems
-         */
-        list: {
-          /**
-           * The penalty value.
-           * @integer
-           */
-          value: number
-        }[]
-      }
-      | {
-        tag: "Range"
-
-        /**
-         * The minimum penalty value.
-         * @integer
-         */
-        minimum: number
-
-        /**
-         * The maximum penalty value.
-         * @integer
-         */
-        maximum: number
-      }
-  }
-  | {
-    tag: "ByLevel"
-
-    /**
-     * A continuous range of penalties for each level. The first element is the
-     * penalty for the first level, the second element is the penalty for the
-     * second level, and so on.
-     * @minItems 2
-     */
-    levels: {
-      /**
-       * The penalty value for this level.
-       * @integer
-       */
-      value: number
-    }[]
-
-    /**
-     * The identifier of the combat-related special ability of which the level
-     * defines the penalty instead.
-     */
-    external_id?: CombatRelatedSpecialAbilityIdentifier
-  }
-  | {
-    tag: "ByAttack"
-
-    /**
-     * A list of penalties for subsequent attacks. The first element is the
-     * penalty for the first attack, the second element is the penalty for the
-     * second attack, and so on. The order of the first element may be changed
-     * using `initial_order`, so that e.g. if set to `2`, the first element is
-     * the penalty for the second attack, the second element is the penalty for
-     * the third attack, and so on.
-     * @minItems 1
-     */
-    list: {
-      /**
-       * The penalty value for this order.
-       * @integer
-       */
-      value: number
-    }[]
-
-    /**
-     * The order of the first element in the `list` of penalties.
-     */
-    initial_order?: number
-
-    /**
-     * Set if a predefined different word should be used instead of the word
-     * `attack` for display purposes.
-     */
-    attack_replacement?:
-      | { tag: "Throw" }
-  }
+  | { tag: "Single"; single: SinglePenalty }
+  | { tag: "ByHandedness"; by_handedness: PenaltyByHandedness }
+  | { tag: "ByActivation"; by_activation: PenaltyByActivation }
+  | { tag: "Selection"; selection: PenaltySelection }
+  | { tag: "ByLevel"; by_level: PenaltyByLevel }
+  | { tag: "ByAttack"; by_attack: PenaltyByAttack }
   | { tag: "DependsOnHitZone" }
 
+export type SinglePenalty = {
+  /**
+   * The penalty value.
+   * @integer
+   */
+  value: number
+
+  /**
+   * Set to `true` if the penalty applies to the parry instead of the attack.
+   */
+  applies_to_parry?: true
+}
+
+export type PenaltyByHandedness = {
+  /**
+   * The penalty value for one-handed weapons.
+   * @integer
+   */
+  one_handed: number
+
+  /**
+   * The penalty value for two-handed weapons.
+   * @integer
+   */
+  two_handed: number
+
+  /**
+   * Set to `true` if the penalty applies to the parry instead of the attack.
+   */
+  applies_to_parry?: true
+}
+
+export type PenaltyByActivation = {
+  /**
+   * The penalty value if the entry has been bought by the character.
+   * @integer
+   */
+  active: number
+
+  /**
+   * The penalty value if the entry has not been bought by the character.
+   * @integer
+   */
+  inactive: number
+
+  /**
+   * Set to `true` if the penalty applies to the parry instead of the attack.
+   */
+  applies_to_parry?: true
+}
+
+export type PenaltySelection = {
+  options: PenaltySelectionOptions
+}
+
+export type PenaltySelectionOptions =
+  | { tag: "Specific"; specific: SpecificPenaltySelectionOptions }
+  | { tag: "Range"; range: PenaltySelectionOptionsRange }
+
+export type SpecificPenaltySelectionOptions = {
+  /**
+   * The list of specific penalty options.
+   * @minItems 2
+   * @uniqueItems
+   */
+  list: SpecificPenaltySelectionOption[]
+}
+
+export type SpecificPenaltySelectionOption = {
+  /**
+   * The penalty value.
+   * @integer
+   */
+  value: number
+}
+
+export type PenaltySelectionOptionsRange = {
+  /**
+   * The minimum penalty value.
+   * @integer
+   */
+  minimum: number
+
+  /**
+   * The maximum penalty value.
+   * @integer
+   */
+  maximum: number
+}
+
+export type PenaltyByLevel = {
+  /**
+   * A continuous range of penalties for each level. The first element is the
+   * penalty for the first level, the second element is the penalty for the
+   * second level, and so on.
+   * @minItems 2
+   */
+  levels: PenaltyByLevelLevel[]
+
+  /**
+   * The combat-related special ability of which the level defines the penalty
+   * instead.
+   */
+  external?: PenaltyByExternalLevel
+}
+
+export type PenaltyByLevelLevel = {
+  /**
+   * The penalty value for this level.
+   * @integer
+   */
+  value: number
+}
+
+/**
+ * The combat-related special ability of which the level defines the penalty
+ * instead.
+ */
+export type PenaltyByExternalLevel = {
+  /**
+   * The identifier of the combat-related special ability of which the level
+   * defines the penalty instead.
+   */
+  id: CombatRelatedSpecialAbilityIdentifier
+}
+
+export type PenaltyByAttack = {
+  /**
+   * A list of penalties for subsequent attacks. The first element is the
+   * penalty for the first attack, the second element is the penalty for the
+   * second attack, and so on. The order of the first element may be changed
+   * using `initial_order`, so that e.g. if set to `2`, the first element is
+   * the penalty for the second attack, the second element is the penalty for
+   * the third attack, and so on.
+   * @minItems 1
+   */
+  list: PenaltyByAttackOrderItem[]
+
+  /**
+   * The order of the first element in the `list` of penalties.
+   */
+  initial_order?: number
+
+  /**
+   * Set if a predefined different word should be used instead of the word
+   * `attack` for display purposes.
+   */
+  attack_replacement?: PenaltyByAttackReplacement
+}
+
+export type PenaltyByAttackOrderItem = {
+  /**
+   * The penalty value for this order.
+   * @integer
+   */
+  value: number
+}
+
+/**
+ * Set if a predefined different word should be used instead of the word
+ * `attack` for display purposes.
+ */
+export type PenaltyByAttackReplacement =
+  | { tag: "Throw" }
+
 export type EnchantmentCost =
-  | {
-    tag: "ArcaneEnergyCost"
-
-    ae_cost: ArcaneEnergyCost
-  }
-  | {
-    tag: "BindingCost"
-
-    binding_cost: BindingCost
-  }
+  | { tag: "ArcaneEnergyCost"; arcane_energy_cost: ArcaneEnergyCost }
+  | { tag: "BindingCost"; binding_cost: BindingCost }
 
 /**
  * The AE Cost.
  */
 export type ArcaneEnergyCost =
-  | {
-    tag: "Fixed"
-
-    /**
-     * The AE cost value.
-     * @integer
-     * @minimum 1
-     */
-    value: number
-
-    /**
-     * Set to `true` if the AE costs are permanent.
-     * @integer
-     * @minimum 1
-     */
-    is_permanent?: true
-
-    /**
-     * Specified if the AE cost `value` has to be paid for each time interval.
-     */
-    interval?: DurationUnitValue
-
-    /**
-     * The AE cost are per level of the enchantment. It may either be displayed
-     * in a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1
-     * AE for level I; 2 AE for level II`).
-     */
-    per_level?:
-      | { tag: "Compressed" }
-      | { tag: "Verbose" }
-
-    /**
-     * All translations for the entry, identified by IETF language tag
-     * (BCP47).
-     * @minProperties 1
-     */
-    translations?: {
-      /**
-       * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-       * @minProperties 1
-       */
-      [localeId: string]: {
-        /**
-         * A note, appended to the generated string in parenthesis.
-         */
-        note?: {
-          /**
-           * The full note.
-           * @minLength 1
-           */
-          default: string
-
-          /**
-           * A compressed note, if applicable. If not specified it should not
-           * be displayed in small location.
-           * @minLength 1
-           */
-          compressed?: string
-        }
-      }
-    }
-  }
-  | {
-    tag: "PerCountable"
-
-    /**
-     * The AE cost value that has to be per a specific countable entity.
-     * @integer
-     * @minimum 1
-     */
-    value: number
-
-    /**
-     * If defined, in addition to the cost per entity you have to pay a flat
-     * amount, regardless of the entity count.
-     * @integer
-     * @minimum 1
-     */
-    base_value?: number
-
-    /**
-     * All translations for the entry, identified by IETF language tag
-     * (BCP47).
-     * @minProperties 1
-     */
-    translations?: LocaleMap<{
-      /**
-       * The cost have to be per a specific countable entity, e.g. `8 AE per
-       * person`.
-       */
-      per: {
-        /**
-         * The full countable entity name.
-         * @minLength 1
-         */
-        default: string
-
-        /**
-         * The compressed countable entity name.
-         * @minLength 1
-         */
-        compressed: string
-      }
-
-      /**
-       * A note, appended to the generated string in parenthesis.
-       */
-      note?: {
-        /**
-         * The full note.
-         * @minLength 1
-         */
-        default: string
-
-        /**
-         * A compressed note, if applicable. If not specified it should not
-         * be displayed in small location.
-         * @minLength 1
-         */
-        compressed?: string
-      }
-    }>
-  }
-  | {
-    tag: "ActivationAndHalfInterval"
-
-    /**
-     * The AE cost value that has to be payed for activation. Half of this value
-     * has to be payed each interval.
-     * @integer
-     * @minimum 2
-     * @multipleOf 2
-     */
-    value: number
-
-    /**
-     * The time interval for which the AE cost `value` has to be paid.
-     */
-    interval: DurationUnitValue
-  }
-  | {
-    tag: "Indefinite"
-
-    /**
-     * The indefinite AE cost may be modified by a certain value.
-     */
-    modifier: {
-      /**
-       * The arithmetic how to apply the `value` to the indefinite base value.
-       */
-      arithmetic:
-        | { tag: "Add" }
-        | { tag: "Multiply" }
-
-      /**
-       * The value that is applied to the indefinite base value using the
-       * defined `arithmetic`.
-       * @integer
-       * @minimum 1
-       */
-      value: number
-    }
-
-    /**
-     * All translations for the entry, identified by IETF language tag (BCP47).
-     * @minProperties 1
-     */
-    translations: LocaleMap<{
-      /**
-       * A description of where the cost come from.
-       */
-      description: {
-        /**
-         * The full description of where the cost come from.
-         * @minLength 1
-         */
-        default: string
-
-        /**
-         * A compressed description of where the cost come from for use in
-         * small areas (e.g. on character sheet).
-         * @minLength 1
-         */
-        compressed: string
-      }
-    }>
-  }
-  | {
-    tag: "Disjunction"
-
-    /**
-     * Specified if the selected AE cost option has to be paid for each time
-     * interval.
-     */
-    interval?: {
-      /**
-       * The interval itself.
-       */
-      value: DurationUnitValue
-
-      /**
-       * The AE cost value for activation.
-       * @integer
-       * @minimum 1
-       */
-      activation_value: number
-
-      /**
-       * Set to `true` if the action where the enchantment is casted does
-       * **not** as a part of the first interval that has to be payed, so that
-       * the first interval payment needs to be done after the activation.
-       *
-       * This works different than other sustained spells, since for them the
-       * end of the cast usually already counts as part of the first interval.
-       */
-      after_activation: boolean
-    }
-
-    /**
-     * The possible AE cost values.
-     */
-    options: {
-      /**
-       * A possible AE cost value.
-       * @integer
-       * @minimum 1
-       */
-      value: number
-
-      /**
-       * All translations for the entry, identified by IETF language tag
-       * (BCP47).
-       * @minProperties 1
-       */
-      translations?: {
-        /**
-         * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-         * @minProperties 1
-         */
-        [localeId: string]: {
-          /**
-           * A note, appended to the generated option string in parenthesis.
-           */
-          note?: {
-            /**
-             * The full note.
-             * @minLength 1
-             */
-            default: string
-
-            /**
-             * A compressed note, if applicable. If not specified it should not
-             * be displayed in small location.
-             * @minLength 1
-             */
-            compressed?: string
-          }
-        }
-      }
-    }[]
-  }
-  | {
-    tag: "None"
-
-    /**
-     * All translations for the entry, identified by IETF language tag
-     * (BCP47).
-     * @minProperties 1
-     */
-    translations?: {
-      /**
-       * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-       * @minProperties 1
-       */
-      [localeId: string]: {
-        /**
-         * A note, appended to the generated string in parenthesis.
-         */
-        note?: {
-          /**
-           * The full note.
-           * @minLength 1
-           */
-          default: string
-
-          /**
-           * A compressed note, if applicable. If not specified it should not
-           * be displayed in small location.
-           * @minLength 1
-           */
-          compressed?: string
-        }
-      }
-    }
-  }
+  | { tag: "Fixed"; fixed: FixedArcaneEnergyCost }
+  | { tag: "PerCountable"; per_countable: ArcaneEnergyCostPerCountable }
+  | { tag: "ActivationAndHalfInterval"; activation_and_half_interval: ActivationAndHalfIntervalArcaneEnergyCost }
+  | { tag: "Indefinite"; indefinite: IndefiniteArcaneEnergyCost }
+  | { tag: "Disjunction"; disjunction: ArcaneEnergyCostDisjunction }
+  | { tag: "None"; none: NoArcaneEnergyCost }
   | { tag: "Variable" }
+
+export type FixedArcaneEnergyCost = {
+  /**
+   * The AE cost value.
+   * @integer
+   * @minimum 1
+   */
+  value: number
+
+  /**
+   * Set to `true` if the AE costs are permanent.
+   * @integer
+   * @minimum 1
+   */
+  is_permanent?: true
+
+  /**
+   * Specified if the AE cost `value` has to be paid for each time interval.
+   */
+  interval?: DurationUnitValue
+
+  /**
+   * The AE cost are per level of the enchantment. It may either be displayed
+   * in a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1
+   * AE for level I; 2 AE for level II`).
+   */
+  per_level?: FixedArcaneEnergyCostPerLevel
+
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translations?: LocaleMap<FixedArcaneEnergyCostTranslation>
+}
+
+/**
+ * The AE cost are per level of the enchantment. It may either be displayed
+ * in a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1
+ * AE for level I; 2 AE for level II`).
+ */
+export type FixedArcaneEnergyCostPerLevel =
+  | { tag: "Compressed" }
+  | { tag: "Verbose" }
+
+/**
+ * @minProperties 1
+ */
+export type FixedArcaneEnergyCostTranslation = {
+  /**
+   * A note, appended to the generated option string in parenthesis.
+   */
+  note?: ResponsiveTextOptional
+}
+
+export type ArcaneEnergyCostPerCountable = {
+  /**
+   * The AE cost value that has to be per a specific countable entity.
+   * @integer
+   * @minimum 1
+   */
+  value: number
+
+  /**
+   * If defined, in addition to the cost per entity you have to pay a flat
+   * amount, regardless of the entity count.
+   * @integer
+   * @minimum 1
+   */
+  base_value?: number
+
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translations?: LocaleMap<ArcaneEnergyCostPerCountableTranslation>
+}
+
+export type ArcaneEnergyCostPerCountableTranslation = {
+  /**
+   * The cost have to be per a specific countable entity, e.g. `8 AE per
+   * person`.
+   */
+  per: ResponsiveText
+
+  /**
+   * A note, appended to the generated string in parenthesis.
+   */
+  note?: ResponsiveTextOptional
+}
+
+export type ActivationAndHalfIntervalArcaneEnergyCost = {
+  /**
+   * The AE cost value that has to be payed for activation. Half of this value
+   * has to be payed each interval.
+   * @integer
+   * @minimum 2
+   * @multipleOf 2
+   */
+  value: number
+
+  /**
+   * The time interval for which the AE cost `value` has to be paid.
+   */
+  interval: DurationUnitValue
+}
+
+export type IndefiniteArcaneEnergyCost = {
+  /**
+   * The indefinite AE cost may be modified by a certain value.
+   */
+  modifier: CheckResultBasedModifier
+
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translations: LocaleMap<IndefiniteArcaneEnergyCostTranslation>
+}
+
+export type IndefiniteArcaneEnergyCostTranslation = {
+  /**
+   * A description of where the cost come from.
+   */
+  description: ResponsiveText
+}
+
+export type ArcaneEnergyCostDisjunction = {
+  /**
+   * Specified if the selected AE cost option has to be paid for each time
+   * interval.
+   */
+  interval?: ArcaneEnergyCostDisjunctionInterval
+
+  /**
+   * The possible AE cost values.
+   */
+  options: ArcaneEnergyCostDisjunctionOption[]
+}
+
+export type ArcaneEnergyCostDisjunctionInterval = {
+  /**
+   * The interval itself.
+   */
+  value: DurationUnitValue
+
+  /**
+   * The AE cost value for activation.
+   * @integer
+   * @minimum 1
+   */
+  activation_value: number
+
+  /**
+   * Set to `true` if the action where the enchantment is casted does
+   * **not** as a part of the first interval that has to be payed, so that
+   * the first interval payment needs to be done after the activation.
+   *
+   * This works different than other sustained spells, since for them the
+   * end of the cast usually already counts as part of the first interval.
+   */
+  after_activation: boolean
+}
+
+export type ArcaneEnergyCostDisjunctionOption = {
+  /**
+   * A possible AE cost value.
+   * @integer
+   * @minimum 1
+   */
+  value: number
+
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translations?: LocaleMap<ArcaneEnergyCostDisjunctionOptionTranslation>
+}
+
+/**
+ * @minProperties 1
+ */
+export type ArcaneEnergyCostDisjunctionOptionTranslation = {
+  /**
+   * A note, appended to the generated option string in parenthesis.
+   */
+  note?: ResponsiveTextOptional
+}
+
+/**
+ * @minProperties 1
+ */
+export type NoArcaneEnergyCost = {
+  /**
+   * All translations for the entry, identified by IETF language tag
+   * (BCP47).
+   */
+  translations?: LocaleMap<NoArcaneEnergyCostTranslation>
+}
+
+/**
+ * @minProperties 1
+ */
+export type NoArcaneEnergyCostTranslation = {
+  /**
+   * A note, appended to the generated string in parenthesis.
+   */
+  note?: ResponsiveTextOptional
+}
 
 /**
  * The volume points the enchantment needs.
  */
 export type Volume =
-  | {
-    tag: "Fixed"
+  | { tag: "Fixed"; fixed: FixedVolume }
+  | { tag: "PerLevel"; per_level: VolumePerLevel }
+  | { tag: "ByLevel"; by_level: VolumeByLevel }
+  | { tag: "Map"; map: VolumeMap }
 
-    /**
-     * The volume points.
-     * @integer
-     * @minimum 0
-     */
-    points: number
-  }
-  | {
-    tag: "PerLevel"
+export type FixedVolume = {
+  /**
+   * The volume points.
+   * @integer
+   * @minimum 0
+   */
+  points: number
+}
 
-    /**
-     * The volume points per level.
-     * @integer
-     * @minimum 1
-     */
-    points: number
-  }
-  | {
-    tag: "ByLevel"
+export type VolumePerLevel = {
+  /**
+   * The volume points per level.
+   * @integer
+   * @minimum 1
+   */
+  points: number
+}
 
-    /**
-     * The volume points for each level. The first element is the volume points
-     * for the first level, the second element is the volume points for the
-     * second level, and so on.
-     * @minItems 2
-     */
-    list: {
-      /**
-       * The volume points for this level.
-       * @integer
-       * @minimum 0
-       */
-      points: number
-    }[]
-  }
-  | {
-    tag: "Map"
+export type VolumeByLevel = {
+  /**
+   * The volume points for each level. The first element is the volume points
+   * for the first level, the second element is the volume points for the
+   * second level, and so on.
+   * @minItems 2
+   */
+  list: VolumeByLevelItem[]
+}
 
-    map: VolumeMap
-  }
+export type VolumeByLevelItem = {
+  /**
+   * The volume points for this level.
+   * @integer
+   * @minimum 0
+   */
+  points: number
+}
 
 /**
  * A content that is `3/4/5 Points for Chimera, Daimonid, Golems, Undead /
@@ -1582,27 +995,31 @@ export type VolumeMap = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations?: LocaleMap<{
-    /**
-     * Place a string between the `for` and the grouped map option labels.
-     */
-    list_prepend?: string
+  translations?: LocaleMap<VolumeMapTranslation>
+}
 
-    /**
-     * Place a string after the grouped map option labels.
-     */
-    list_append?: string
+/**
+ * @minProperties 1
+ */
+export type VolumeMapTranslation = {
+  /**
+   * Place a string between the `for` and the grouped map option labels.
+   */
+  list_prepend?: string
 
-    /**
-     * If the string from the book cannot be generated using the default
-     * generation technique, use this string. All options still need to be
-     * inserted propertly, since it may be used by in-game tools to provide a
-     * selection to players.
-     */
-    replacement?: string
-  }>
+  /**
+   * Place a string after the grouped map option labels.
+   */
+  list_append?: string
+
+  /**
+   * If the string from the book cannot be generated using the default
+   * generation technique, use this string. All options still need to be
+   * inserted propertly, since it may be used by in-game tools to provide a
+   * selection to players.
+   */
+  replacement?: string
 }
 
 export type VolumeMapOption = {
@@ -1616,62 +1033,62 @@ export type VolumeMapOption = {
   /**
    * Links to the options this volume specification is meant for.
    */
-  associated_options: {
-    /**
-     * The option's identifier.
-     */
-    id: VolumePointsOptionReferenceIdentifier
-  }[]
+  associated_options: VolumeMapOptionAssociatedOption[]
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations?: LocaleMap<{
-    /**
-     * The description of the option for cost string generation.
-     * @minLength 1
-     */
-    label: string
+  translations?: LocaleMap<VolumeMapOptionTranslation>
+}
 
-    /**
-     * The description of the option if used standalone. Only used if
-     * different from `label`.
-     * @minLength 1
-     */
-    label_standalone?: string
-  }>
+export type VolumeMapOptionAssociatedOption = {
+  /**
+   * The option's identifier.
+   */
+  id: VolumePointsOptionReferenceIdentifier
+}
+
+export type VolumeMapOptionTranslation = {
+  /**
+   * The description of the option for cost string generation.
+   */
+  label: NonEmptyString
+
+  /**
+   * The description of the option if used standalone. Only used if
+   * different from `label`.
+   */
+  label_standalone?: NonEmptyString
 }
 
 /**
  * The binding cost for an enchantment.
  */
 export type BindingCost =
-  | {
-    tag: "Fixed"
+  | { tag: "Fixed"; fixed: FixedBindingCost }
+  | { tag: "PerLevel"; per_level: BindingCostPerLevel }
+  | { tag: "Map"; map: BindingCostMap }
 
-    /**
-     * The permanent AE cost.
-     * @integer
-     * @minimum 1
-     */
-    permanent_value: number
-  }
-  | {
-    tag: "PerLevel"
+export type FixedBindingCost = {
+  /**
+   * The permanent AE cost.
+   *
+   * If the enchantment has multiple levels, it is only applied for the first
+   * level.
+   * @integer
+   * @minimum 1
+   */
+  permanent_value: number
+}
 
-    /**
-     * The permanent AE cost per level.
-     * @integer
-     * @minimum 1
-     */
-    permanent_value: number
-  }
-  | {
-    tag: "Map"
-
-    map: BindingCostMap
-  }
+export type BindingCostPerLevel = {
+  /**
+   * The permanent AE cost per level.
+   * @integer
+   * @minimum 1
+   */
+  permanent_value: number
+}
 
 /**
  * A content that is `2/4/8 permanent AE for spell-swords with the combat
@@ -1709,33 +1126,31 @@ export type BindingCostMap = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations?: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     * @minProperties 1
-     */
-    [localeId: string]: {
-      /**
-       * Place a string between the `for` and the grouped map option labels.
-       */
-      list_prepend?: string
+  translations?: LocaleMap<BindingCostMapTranslation>
+}
 
-      /**
-       * Place a string after the grouped map option labels.
-       */
-      list_append?: string
+/**
+ * @minProperties 1
+ */
+export type BindingCostMapTranslation = {
+  /**
+   * Place a string between the `for` and the grouped map option labels.
+   */
+  list_prepend?: NonEmptyString
 
-      /**
-       * If the string from the book cannot be generated using the default
-       * generation technique, use this string. All options still need to be
-       * inserted propertly, since it may be used by in-game tools to provide a
-       * selection to players.
-       */
-      replacement?: string
-    }
-  }
+  /**
+   * Place a string after the grouped map option labels.
+   */
+  list_append?: NonEmptyString
+
+  /**
+   * If the string from the book cannot be generated using the default
+   * generation technique, use this string. All options still need to be
+   * inserted propertly, since it may be used by in-game tools to provide a
+   * selection to players.
+   */
+  replacement?: NonEmptyString
 }
 
 export type BindingCostMapOption = {
@@ -1748,27 +1163,21 @@ export type BindingCostMapOption = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations?: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      /**
-       * The description of the option for cost string generation.
-       * @minLength 1
-       */
-      label: string
+  translations?: LocaleMap<BindingCostMapOptionTranslation>
+}
 
-      /**
-       * The description of the option if used standalone. Only used if
-       * different from `label`.
-       * @minLength 1
-       */
-      label_standalone?: string
-    }
-  }
+export type BindingCostMapOptionTranslation = {
+  /**
+   * The description of the option for cost string generation.
+   */
+  label: NonEmptyString
+
+  /**
+   * The description of the option if used standalone. Only used if
+   * different from `label`.
+   */
+  label_standalone?: NonEmptyString
 }
 
 /**
@@ -1776,131 +1185,85 @@ export type BindingCostMapOption = {
  * the special ability has an option to select a property.
  */
 export type Property =
-  | { tag: "DependingOnProperty" }
-  | {
-    tag: "Fixed"
-
-    /**
-     * The property's identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-  }
+  | { tag: "DependingOnSelection" }
+  | { tag: "Fixed"; fixed: PropertyReference }
 
 /**
- * The blessed aspect's identifier.
- * @integer
- * @minimum 1
+ * The blessed aspect.
  */
-export type Aspect = number
+export type Aspect = AspectReference
 
 /**
  * A reference to an advanced special ability.
  */
 export type AdvancedSpecialAbility =
-  | {
-    tag: "General"
+  | { tag: "General"; general: AdvancedSpecialAbilityReference }
+  | { tag: "RestrictOptions"; restrict_options: RestrictAdvancedSpecialAbilityOptions }
+  | { tag: "OneOf"; one_of: OneOfAdvancedSpecialAbilityOptions }
+  | { tag: "DeriveFromExternalOption"; derive_from_external_option: AdvancedSpecialAbilityDerivedFromExternalOption }
 
-    /**
-     * The advanced special ability's numeric identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-  }
-  | {
-    tag: "RestrictOptions"
+export type RestrictAdvancedSpecialAbilityOptions = {
+  /**
+   * The advanced special ability's numeric identifier.
+   * @integer
+   * @minimum 1
+   */
+  id: number
 
-    /**
-     * The advanced special ability's numeric identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
+  /**
+   * Specify the select option(s) that only are allowed for the referenced
+   * advanced special ability; others are disallowed.
+   * @minItems 1
+   */
+  option: AdvancedSpecialAbilityRestrictedOptionIdentifier[]
+}
 
-    /**
-     * Specify the select option(s) that only are allowed for the referenced
-     * advanced special ability; others are disallowed.
-     * @minItems 1
-     */
-    option: AdvancedSpecialAbilityRestrictedOptionIdentifier[]
-  }
-  | {
-    tag: "OneOf"
+export type OneOfAdvancedSpecialAbilityOptions = {
+  /**
+   * The possible advanced special abilities.
+   */
+  options: AdvancedSpecialAbilityReference
 
-    /**
-     * The possible advanced special abilities.
-     */
-    options: {
-      /**
-       * The advanced special ability's numeric identifier.
-       * @integer
-       * @minimum 1
-       */
-      id: number
-    }
+  /**
+   * Do have to choose the advanced special ability when buying the style
+   * special ability? Otherwise the decision can be made later.
+   */
+  is_selection_required_on_purchase: boolean
 
-    /**
-     * Do have to choose on when buying the special ability? Otherwise the
-     * decision can be made later.
-     */
-    is_selection_required_on_purchase: boolean
+  display_option?: DisplayOption
+}
 
-    /**
-     * Specify the select option(s) that only are allowed for the referenced
-     * advanced special ability; others are disallowed.
-     * @minItems 1
-     */
-    option: AdvancedSpecialAbilityRestrictedOptionIdentifier[]
+export type AdvancedSpecialAbilityDerivedFromExternalOption = {
+  /**
+   * The possible advanced special abilities.
+   */
+  external_entry: MagicalTraditionIdentifier
 
-    display_option?: DisplayOption
-  }
-  | {
-    tag: "DeriveFromExternalOption"
+  /**
+   * Map options from the external entry to allowed advanced special abilities.
+   * @minItems 1
+   */
+  map: AdvancedSpecialAbilityDerivedFromExternalOptionMapping[]
 
-    /**
-     * The possible advanced special abilities.
-     */
-    external_entry: AdvancedSpecialAbilityDerivedExternalEntryId
+  display_option?: DisplayOption
+}
 
-    /**
-     * @minItems
-     */
-    mappings: {
-      /**
-       * The select option's identifier.
-       */
-      from_option: AdvancedSpecialAbilityDerivedExternalEntryOptionId
+/**
+ * Mapping from an option of the external entry to an allowed advanced special
+ * ability.
+ * @minItems 1
+ */
+export type AdvancedSpecialAbilityDerivedFromExternalOptionMapping = {
+  /**
+   * The select option's identifier.
+   */
+  from_option: PatronIdentifier
 
-      /**
-       * The advanced special ability's identifier.
-       */
-      to_advanced: {
-        /**
-         * The advanced special ability's numeric identifier.
-         * @integer
-         * @minimum 1
-         */
-        id: number
-      }
-    }[]
-
-    display_option?: DisplayOption
-
-    /**
-     * Do have to choose on when buying the special ability? Otherwise the
-     * decision can be made later.
-     */
-    is_selection_required_on_purchase: boolean
-
-    /**
-     * Specify the select option(s) that only are allowed for the referenced
-     * advanced special ability; others are disallowed.
-     * @minItems 1
-     */
-    option: AdvancedSpecialAbilityRestrictedOptionIdentifier[]
-  }
+  /**
+   * The advanced special ability's identifier.
+   */
+  to_advanced: AdvancedSpecialAbilityReference
+}
 
 export type AdvancedSpecialAbilityDerivedExternalEntryId = MagicalTraditionIdentifier
 
@@ -1922,71 +1285,54 @@ export type AdvancedSpecialAbilities = [
 export type ApplicableCombatTechniques =
   | { tag: "None" }
   | { tag: "DependingOnCombatStyle" }
-  | {
-    tag: "All"
+  | { tag: "All"; all: AllApplicableCombatTechniques }
+  | { tag: "AllClose"; all_close: AllApplicableCloseCombatTechniques }
+  | { tag: "AllRanged"; all_ranged: AllApplicableRangedCombatTechniques }
+  | { tag: "Specific"; specific: SpecificApplicableCombatTechniques }
 
-    /**
-     * @minItems 1
-     */
-    restrictions?: ApplicableAllCombatTechniquesRestriction[]
-  }
-  | {
-    tag: "AllClose"
+export type AllApplicableCombatTechniques = {
+  /**
+   * @minItems 1
+   */
+  restrictions?: ApplicableAllCombatTechniquesRestriction[]
+}
 
-    /**
-     * @minItems 1
-     */
-    restrictions?: ApplicableCloseCombatTechniquesRestriction[]
-  }
-  | {
-    tag: "AllRanged"
+export type AllApplicableCloseCombatTechniques = {
+  /**
+   * @minItems 1
+   */
+  restrictions?: ApplicableCloseCombatTechniquesRestriction[]
+}
 
-    /**
-     * @minItems 1
-     */
-    restrictions?: ApplicableRangedCombatTechniquesRestriction[]
-  }
-  | {
-    tag: "Specific"
+export type AllApplicableRangedCombatTechniques = {
+  /**
+   * @minItems 1
+   */
+  restrictions?: ApplicableRangedCombatTechniquesRestriction[]
+}
 
-    /**
-     * @minItems 1
-     */
-    list: {
-      id: CombatTechniqueIdentifier
+export type SpecificApplicableCombatTechniques = {
+  /**
+   * @minItems 1
+   */
+  list: SpecificApplicableCombatTechnique[]
+}
 
-      /**
-       * @minItems 1
-       */
-      restrictions?: ApplicableSpecificCombatTechniquesRestriction[]
-    }[]
-  }
+export type SpecificApplicableCombatTechnique = {
+  id: CombatTechniqueIdentifier
+
+  /**
+   * @minItems 1
+   */
+  restrictions?: ApplicableSpecificCombatTechniquesRestriction[]
+}
 
 export type ApplicableAllCombatTechniquesRestriction =
   | { tag: "Improvised" }
   | { tag: "PointedBlade" }
   | { tag: "Mount" }
-  | {
-    tag: "Race"
-
-    /**
-     * The race's numeric identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-  }
-  | {
-    tag: "ExcludeCombatTechniques"
-
-    /**
-     * The combat techniques this combat special ability is **not** applicable
-     * to.
-     * @minItems 1
-     * @uniqueItems
-     */
-    list: CombatTechniqueIdentifier[]
-  }
+  | { tag: "Race"; race: ApplicableCombatTechniquesRaceRestriction }
+  | { tag: "ExcludeCombatTechniques"; exclude_combat_techniques: ApplicableCombatTechniquesNegativeCombatTechniquesRestriction<CombatTechniqueReference> }
 
 export type ApplicableCloseCombatTechniquesRestriction =
   | { tag: "Improvised" }
@@ -1995,136 +1341,70 @@ export type ApplicableCloseCombatTechniquesRestriction =
   | { tag: "HasParry" }
   | { tag: "OneHanded" }
   | { tag: "ParryingWeapon" }
-  | {
-    tag: "Race"
-
-    /**
-     * The race's numeric identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-  }
-  | {
-    tag: "ExcludeCombatTechniques"
-
-    /**
-     * The combat techniques this combat special ability is **not** applicable
-     * to.
-     * @minItems 1
-     * @uniqueItems
-     */
-    list: {
-      /**
-       * The close combat technique's numeric identifier.
-       * @integer
-       * @minimum 1
-       */
-      id: number
-    }[]
-  }
+  | { tag: "Race"; race: ApplicableCombatTechniquesRaceRestriction }
+  | { tag: "ExcludeCombatTechniques"; exclude_combat_techniques: ApplicableCombatTechniquesNegativeCombatTechniquesRestriction<CloseCombatTechniqueReference> }
 
 export type ApplicableRangedCombatTechniquesRestriction =
   | { tag: "Improvised" }
   | { tag: "PointedBlade" }
   | { tag: "Mount" }
-  | {
-    tag: "Race"
-
-    /**
-     * The race's numeric identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-  }
-  | {
-    tag: "ExcludeCombatTechniques"
-
-    /**
-     * The combat techniques this combat special ability is **not** applicable
-     * to.
-     * @minItems 1
-     * @uniqueItems
-     */
-    list: {
-      /**
-       * The ranged combat technique's numeric identifier.
-       * @integer
-       * @minimum 1
-       */
-      id: number
-    }[]
-  }
+  | { tag: "Race"; race: ApplicableCombatTechniquesRaceRestriction }
+  | { tag: "ExcludeCombatTechniques"; exclude_combat_techniques: ApplicableCombatTechniquesNegativeCombatTechniquesRestriction<RangedCombatTechniqueReference> }
 
 export type ApplicableSpecificCombatTechniquesRestriction =
   | { tag: "Improvised" }
   | { tag: "PointedBlade" }
   | { tag: "Mount" }
-  | {
-    tag: "Race"
+  | { tag: "Race"; race: ApplicableCombatTechniquesRaceRestriction }
+  | { tag: "Level"; level: ApplicableCombatTechniquesLevelRestriction }
+  | { tag: "Weapons"; weapons: ApplicableCombatTechniquesWeaponRestriction }
 
-    /**
-     * The race's numeric identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-  }
-  | {
-    tag: "Level"
+export type ApplicableCombatTechniquesNegativeCombatTechniquesRestriction<Ref> = {
+  /**
+   * The combat techniques this combat special ability is **not** applicable to.
+   * @minItems 1
+   * @uniqueItems
+   */
+  list: Ref[]
+}
 
-    /**
-     * The combat special ability is only applicable on a certain level.
-     * @integer
-     * @minimum 1
-     */
-    level: number
-  }
-  | {
-    tag: "Weapons"
+export type ApplicableCombatTechniquesRaceRestriction = RaceReference
 
-    /**
-     * The specific weapons this combat special ability is only applicable to.
-     * @minItems 1
-     * @uniqueItems
-     */
-    list: {
-      /**
-       * The weapon's numeric identifier.
-       * @integer
-       * @minimum 1
-       */
-      id: number
-    }[]
-  }
+export type ApplicableCombatTechniquesLevelRestriction = {
+  /**
+   * The combat special ability is only applicable on a certain level.
+   * @integer
+   * @minimum 1
+   */
+  level: number
+}
+
+export type ApplicableCombatTechniquesWeaponRestriction = {
+  /**
+   * The specific weapons this combat special ability is only applicable to.
+   * @minItems 1
+   * @uniqueItems
+   */
+  list: WeaponReference[]
+}
 
 export type AdventurePointsValue =
-  | {
-    tag: "Fixed"
+  | { tag: "Fixed"; fixed: FixedAdventurePointsValue }
+  | { tag: "ByLevel"; by_level: AdventurePointsValueByLevel }
+  | { tag: "Indefinite" }
 
-    /**
-     * A fixed adventure points value. If the entry has levels, this is the cost
-     * for each level as well.
-     */
-    value: AdventurePointsSingleValue
-  }
-  | {
-    tag: "ByLevel"
+/**
+ * A fixed adventure points value. If the entry has levels, this is the cost per
+ * level as well.
+ */
+export type FixedAdventurePointsValue = AdventurePointsValue
 
-    /**
-     * An entry with levels may have different costs for each level. The length
-     * of the list must match the amount of levels the special ability has.
-     * @minItems 2
-     */
-    values: AdventurePointsSingleValue[]
-  }
-  | {
-    /**
-     * Used if AP value is defined by the selected option(s) or special rules.
-     */
-    tag: "Indefinite"
-  }
+/**
+ * An entry with levels may have different costs for each level. The length of
+ * the list must match the amount of levels the special ability has.
+ * @minItems 2
+ */
+export type AdventurePointsValueByLevel = AdventurePointsValue
 
 export type AdventurePointsValueAdvantagesDisadvantages =
   | {

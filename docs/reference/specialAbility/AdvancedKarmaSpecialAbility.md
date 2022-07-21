@@ -68,27 +68,33 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="AdvancedKarmaSpecialAbility/translations[key]"></a> `AdvancedKarmaSpecialAbility/translations[key]`
 
+- **Type:** <a href="#AdvancedKarmaSpecialAbilityTranslation">AdvancedKarmaSpecialAbilityTranslation</a>
+
+---
+
+### <a name="AdvancedKarmaSpecialAbilityTranslation"></a> `AdvancedKarmaSpecialAbilityTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#AdvancedKarmaSpecialAbility/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#AdvancedKarmaSpecialAbility/translations[key]/name_in_library">See details</a>
-`rules` |  | <a href="#AdvancedKarmaSpecialAbility/translations[key]/rules">See details</a>
-`errata?` |  | <a href="#AdvancedKarmaSpecialAbility/translations[key]/errata">See details</a>
+`name` |  | <a href="#AdvancedKarmaSpecialAbilityTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#AdvancedKarmaSpecialAbilityTranslation/name_in_library">See details</a>
+`rules` |  | <a href="#AdvancedKarmaSpecialAbilityTranslation/rules">See details</a>
+`errata?` |  | <a href="#AdvancedKarmaSpecialAbilityTranslation/errata">See details</a>
 
-#### <a name="AdvancedKarmaSpecialAbility/translations[key]/name"></a> `name`
+#### <a name="AdvancedKarmaSpecialAbilityTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="AdvancedKarmaSpecialAbility/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="AdvancedKarmaSpecialAbilityTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="AdvancedKarmaSpecialAbility/translations[key]/rules"></a> `rules`
+#### <a name="AdvancedKarmaSpecialAbilityTranslation/rules"></a> `rules`
 
 - **Type:** <a href="../_Activatable.md#Rules">Rules</a>
 
-#### <a name="AdvancedKarmaSpecialAbility/translations[key]/errata"></a> `errata?`
+#### <a name="AdvancedKarmaSpecialAbilityTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

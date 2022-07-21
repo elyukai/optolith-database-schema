@@ -37,8 +37,7 @@ Key | Description | Details
 
 #### <a name="PactGift/permanent_demonic_consumption"></a> `permanent_demonic_consumption?`
 
-- **Type:** Union
-- **Cases:** <a href="#PactGift/permanent_demonic_consumption'Fixed">PactGift/permanent_demonic_consumption'Fixed</a> | <a href="#PactGift/permanent_demonic_consumption'PerLevel">PactGift/permanent_demonic_consumption'PerLevel</a>
+- **Type:** <a href="#PactGiftPermanentDemonicConsumption">PactGiftPermanentDemonicConsumption</a>
 
 #### <a name="PactGift/automatic_entries"></a> `automatic_entries?`
 
@@ -72,20 +71,72 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="PactGift/permanent_demonic_consumption'Fixed"></a> `PactGift/permanent_demonic_consumption'Fixed`
+### <a name="PactGift/automatic_entries[]"></a> `PactGift/automatic_entries[]`
+
+- **Type:** <a href="#AutomaticEntry">AutomaticEntry</a>
+
+---
+
+### <a name="PactGift/translations[key]"></a> `PactGift/translations[key]`
+
+- **Type:** <a href="#PactGiftTranslation">PactGiftTranslation</a>
+
+---
+
+### <a name="PactGiftPermanentDemonicConsumption"></a> `PactGiftPermanentDemonicConsumption`
+
+- **Type:** Union
+- **Cases:** <a href="#PactGiftPermanentDemonicConsumption'Fixed">PactGiftPermanentDemonicConsumption'Fixed</a> | <a href="#PactGiftPermanentDemonicConsumption'PerLevel">PactGiftPermanentDemonicConsumption'PerLevel</a>
+
+---
+
+### <a name="PactGiftPermanentDemonicConsumption'Fixed"></a> `PactGiftPermanentDemonicConsumption'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PactGift/permanent_demonic_consumption'Fixed/tag">See details</a>
-`levels` | The levels of *Demonic Consumption* the pact gift causes. | <a href="#PactGift/permanent_demonic_consumption'Fixed/levels">See details</a>
+`tag` |  | <a href="#PactGiftPermanentDemonicConsumption'Fixed/tag">See details</a>
+`fixed` |  | <a href="#PactGiftPermanentDemonicConsumption'Fixed/fixed">See details</a>
 
-#### <a name="PactGift/permanent_demonic_consumption'Fixed/tag"></a> `tag`
+#### <a name="PactGiftPermanentDemonicConsumption'Fixed/tag"></a> `tag`
 
 - **Constant:** `"Fixed"`
 
-#### <a name="PactGift/permanent_demonic_consumption'Fixed/levels"></a> `levels`
+#### <a name="PactGiftPermanentDemonicConsumption'Fixed/fixed"></a> `fixed`
+
+- **Type:** <a href="#FixedPactGiftPermanentDemonicConsumption">FixedPactGiftPermanentDemonicConsumption</a>
+
+---
+
+### <a name="PactGiftPermanentDemonicConsumption'PerLevel"></a> `PactGiftPermanentDemonicConsumption'PerLevel`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#PactGiftPermanentDemonicConsumption'PerLevel/tag">See details</a>
+`per_level` |  | <a href="#PactGiftPermanentDemonicConsumption'PerLevel/per_level">See details</a>
+
+#### <a name="PactGiftPermanentDemonicConsumption'PerLevel/tag"></a> `tag`
+
+- **Constant:** `"PerLevel"`
+
+#### <a name="PactGiftPermanentDemonicConsumption'PerLevel/per_level"></a> `per_level`
+
+- **Type:** <a href="#PactGiftPermanentDemonicConsumptionPerLevel">PactGiftPermanentDemonicConsumptionPerLevel</a>
+
+---
+
+### <a name="FixedPactGiftPermanentDemonicConsumption"></a> `FixedPactGiftPermanentDemonicConsumption`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`levels` | The levels of *Demonic Consumption* the pact gift causes. | <a href="#FixedPactGiftPermanentDemonicConsumption/levels">See details</a>
+
+#### <a name="FixedPactGiftPermanentDemonicConsumption/levels"></a> `levels`
 
 The levels of *Demonic Consumption* the pact gift causes.
 
@@ -95,20 +146,15 @@ The levels of *Demonic Consumption* the pact gift causes.
 
 ---
 
-### <a name="PactGift/permanent_demonic_consumption'PerLevel"></a> `PactGift/permanent_demonic_consumption'PerLevel`
+### <a name="PactGiftPermanentDemonicConsumptionPerLevel"></a> `PactGiftPermanentDemonicConsumptionPerLevel`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PactGift/permanent_demonic_consumption'PerLevel/tag">See details</a>
-`levels` | The levels of *Demonic Consumption* the pact gift causes per activated level of the pact gift. | <a href="#PactGift/permanent_demonic_consumption'PerLevel/levels">See details</a>
+`levels` | The levels of *Demonic Consumption* the pact gift causes per activated level of the pact gift. | <a href="#PactGiftPermanentDemonicConsumptionPerLevel/levels">See details</a>
 
-#### <a name="PactGift/permanent_demonic_consumption'PerLevel/tag"></a> `tag`
-
-- **Constant:** `"PerLevel"`
-
-#### <a name="PactGift/permanent_demonic_consumption'PerLevel/levels"></a> `levels`
+#### <a name="PactGiftPermanentDemonicConsumptionPerLevel/levels"></a> `levels`
 
 The levels of *Demonic Consumption* the pact gift causes per activated
 level of the pact gift.
@@ -119,158 +165,204 @@ level of the pact gift.
 
 ---
 
-### <a name="PactGift/automatic_entries[]"></a> `PactGift/automatic_entries[]`
+### <a name="AutomaticEntry"></a> `AutomaticEntry`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`action` | What type of action is applied to the target entry? | <a href="#PactGift/automatic_entries[]/action">See details</a>
-`apply_ap_value` | If an entry is added or removed, does is cost or grant adventure points or is it free of charge? | <a href="#PactGift/automatic_entries[]/apply_ap_value">See details</a>
-`target` | The entry that is to be added or removed. It can be a fixed entry or a selection where the player must choose one entry. | <a href="#PactGift/automatic_entries[]/target">See details</a>
+`action` | What type of action is applied to the target entry? | <a href="#AutomaticEntry/action">See details</a>
+`apply_ap_value` | If an entry is added or removed, does is cost or grant adventure points or is it free of charge? | <a href="#AutomaticEntry/apply_ap_value">See details</a>
+`target` | The entry that is to be added or removed. It can be a fixed entry or a selection where the player must choose one entry. | <a href="#AutomaticEntry/target">See details</a>
 
-#### <a name="PactGift/automatic_entries[]/action"></a> `action`
+#### <a name="AutomaticEntry/action"></a> `action`
 
 What type of action is applied to the target entry?
 
-- **Type:** Union
-- **Cases:** <a href="#PactGift/automatic_entries[]/action'Add">PactGift/automatic_entries[]/action'Add</a> | <a href="#PactGift/automatic_entries[]/action'Remove">PactGift/automatic_entries[]/action'Remove</a>
+- **Type:** <a href="#AutomaticEntryAction">AutomaticEntryAction</a>
 
-#### <a name="PactGift/automatic_entries[]/apply_ap_value"></a> `apply_ap_value`
+#### <a name="AutomaticEntry/apply_ap_value"></a> `apply_ap_value`
 
 If an entry is added or removed, does is cost or grant adventure points
 or is it free of charge?
 
 - **Type:** Boolean
 
-#### <a name="PactGift/automatic_entries[]/target"></a> `target`
+#### <a name="AutomaticEntry/target"></a> `target`
 
 The entry that is to be added or removed. It can be a fixed entry or a
 selection where the player must choose one entry.
 
-- **Type:** Union
-- **Cases:** <a href="#PactGift/automatic_entries[]/target'Selection">PactGift/automatic_entries[]/target'Selection</a> | <a href="#PactGift/automatic_entries[]/target'Fixed">PactGift/automatic_entries[]/target'Fixed</a>
+- **Type:** <a href="#AutomaticEntryTarget">AutomaticEntryTarget</a>
 
 ---
 
-### <a name="PactGift/automatic_entries[]/action'Add"></a> `PactGift/automatic_entries[]/action'Add`
+### <a name="AutomaticEntryAction"></a> `AutomaticEntryAction`
+
+- **Type:** Union
+- **Cases:** <a href="#AutomaticEntryAction'Add">AutomaticEntryAction'Add</a> | <a href="#AutomaticEntryAction'Remove">AutomaticEntryAction'Remove</a>
+
+---
+
+### <a name="AutomaticEntryAction'Add"></a> `AutomaticEntryAction'Add`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PactGift/automatic_entries[]/action'Add/tag">See details</a>
+`tag` |  | <a href="#AutomaticEntryAction'Add/tag">See details</a>
 
-#### <a name="PactGift/automatic_entries[]/action'Add/tag"></a> `tag`
+#### <a name="AutomaticEntryAction'Add/tag"></a> `tag`
 
 - **Constant:** `"Add"`
 
 ---
 
-### <a name="PactGift/automatic_entries[]/action'Remove"></a> `PactGift/automatic_entries[]/action'Remove`
+### <a name="AutomaticEntryAction'Remove"></a> `AutomaticEntryAction'Remove`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PactGift/automatic_entries[]/action'Remove/tag">See details</a>
+`tag` |  | <a href="#AutomaticEntryAction'Remove/tag">See details</a>
 
-#### <a name="PactGift/automatic_entries[]/action'Remove/tag"></a> `tag`
+#### <a name="AutomaticEntryAction'Remove/tag"></a> `tag`
 
 - **Constant:** `"Remove"`
 
 ---
 
-### <a name="PactGift/automatic_entries[]/target'Selection"></a> `PactGift/automatic_entries[]/target'Selection`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PactGift/automatic_entries[]/target'Selection/tag">See details</a>
-`list` |  | <a href="#PactGift/automatic_entries[]/target'Selection/list">See details</a>
-
-#### <a name="PactGift/automatic_entries[]/target'Selection/tag"></a> `tag`
-
-- **Constant:** `"Selection"`
-
-#### <a name="PactGift/automatic_entries[]/target'Selection/list"></a> `list`
+### <a name="AutomaticEntryTarget"></a> `AutomaticEntryTarget`
 
 - **Type:** Union
-- **Cases:** <a href="#PactGift/automatic_entries[]/target'Selection/list'MagicalTraditions">PactGift/automatic_entries[]/target'Selection/list'MagicalTraditions</a> | <a href="#PactGift/automatic_entries[]/target'Selection/list'MagicalDilettanteTraditions">PactGift/automatic_entries[]/target'Selection/list'MagicalDilettanteTraditions</a>
+- **Cases:** <a href="#AutomaticEntryTarget'Selection">AutomaticEntryTarget'Selection</a> | <a href="#AutomaticEntryTarget'Fixed">AutomaticEntryTarget'Fixed</a>
 
 ---
 
-### <a name="PactGift/automatic_entries[]/target'Selection/list'MagicalTraditions"></a> `PactGift/automatic_entries[]/target'Selection/list'MagicalTraditions`
+### <a name="AutomaticEntryTarget'Selection"></a> `AutomaticEntryTarget'Selection`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PactGift/automatic_entries[]/target'Selection/list'MagicalTraditions/tag">See details</a>
+`tag` |  | <a href="#AutomaticEntryTarget'Selection/tag">See details</a>
+`selection` |  | <a href="#AutomaticEntryTarget'Selection/selection">See details</a>
 
-#### <a name="PactGift/automatic_entries[]/target'Selection/list'MagicalTraditions/tag"></a> `tag`
+#### <a name="AutomaticEntryTarget'Selection/tag"></a> `tag`
+
+- **Constant:** `"Selection"`
+
+#### <a name="AutomaticEntryTarget'Selection/selection"></a> `selection`
+
+- **Type:** <a href="#AutomaticEntryTargetSelection">AutomaticEntryTargetSelection</a>
+
+---
+
+### <a name="AutomaticEntryTarget'Fixed"></a> `AutomaticEntryTarget'Fixed`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AutomaticEntryTarget'Fixed/tag">See details</a>
+`fixed` |  | <a href="#AutomaticEntryTarget'Fixed/fixed">See details</a>
+
+#### <a name="AutomaticEntryTarget'Fixed/tag"></a> `tag`
+
+- **Constant:** `"Fixed"`
+
+#### <a name="AutomaticEntryTarget'Fixed/fixed"></a> `fixed`
+
+- **Type:** <a href="#FixedAutomaticEntryTarget">FixedAutomaticEntryTarget</a>
+
+---
+
+### <a name="AutomaticEntryTargetSelection"></a> `AutomaticEntryTargetSelection`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`list` |  | <a href="#AutomaticEntryTargetSelection/list">See details</a>
+
+#### <a name="AutomaticEntryTargetSelection/list"></a> `list`
+
+- **Type:** <a href="#AutomaticEntryTargetSelectionList">AutomaticEntryTargetSelectionList</a>
+
+---
+
+### <a name="AutomaticEntryTargetSelectionList"></a> `AutomaticEntryTargetSelectionList`
+
+- **Type:** Union
+- **Cases:** <a href="#AutomaticEntryTargetSelectionList'MagicalTraditions">AutomaticEntryTargetSelectionList'MagicalTraditions</a> | <a href="#AutomaticEntryTargetSelectionList'MagicalDilettanteTraditions">AutomaticEntryTargetSelectionList'MagicalDilettanteTraditions</a>
+
+---
+
+### <a name="AutomaticEntryTargetSelectionList'MagicalTraditions"></a> `AutomaticEntryTargetSelectionList'MagicalTraditions`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AutomaticEntryTargetSelectionList'MagicalTraditions/tag">See details</a>
+
+#### <a name="AutomaticEntryTargetSelectionList'MagicalTraditions/tag"></a> `tag`
 
 - **Constant:** `"MagicalTraditions"`
 
 ---
 
-### <a name="PactGift/automatic_entries[]/target'Selection/list'MagicalDilettanteTraditions"></a> `PactGift/automatic_entries[]/target'Selection/list'MagicalDilettanteTraditions`
+### <a name="AutomaticEntryTargetSelectionList'MagicalDilettanteTraditions"></a> `AutomaticEntryTargetSelectionList'MagicalDilettanteTraditions`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PactGift/automatic_entries[]/target'Selection/list'MagicalDilettanteTraditions/tag">See details</a>
+`tag` |  | <a href="#AutomaticEntryTargetSelectionList'MagicalDilettanteTraditions/tag">See details</a>
 
-#### <a name="PactGift/automatic_entries[]/target'Selection/list'MagicalDilettanteTraditions/tag"></a> `tag`
+#### <a name="AutomaticEntryTargetSelectionList'MagicalDilettanteTraditions/tag"></a> `tag`
 
 - **Constant:** `"MagicalDilettanteTraditions"`
 
 ---
 
-### <a name="PactGift/automatic_entries[]/target'Fixed"></a> `PactGift/automatic_entries[]/target'Fixed`
+### <a name="FixedAutomaticEntryTarget"></a> `FixedAutomaticEntryTarget`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PactGift/automatic_entries[]/target'Fixed/tag">See details</a>
-`id` |  | <a href="#PactGift/automatic_entries[]/target'Fixed/id">See details</a>
+`id` |  | <a href="#FixedAutomaticEntryTarget/id">See details</a>
 
-#### <a name="PactGift/automatic_entries[]/target'Fixed/tag"></a> `tag`
-
-- **Constant:** `"Fixed"`
-
-#### <a name="PactGift/automatic_entries[]/target'Fixed/id"></a> `id`
+#### <a name="FixedAutomaticEntryTarget/id"></a> `id`
 
 - **Type:** <a href="../_Identifier.md#ActivatableIdentifier">ActivatableIdentifier</a>
 
 ---
 
-### <a name="PactGift/translations[key]"></a> `PactGift/translations[key]`
+### <a name="PactGiftTranslation"></a> `PactGiftTranslation`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#PactGift/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#PactGift/translations[key]/name_in_library">See details</a>
-`effect` |  | <a href="#PactGift/translations[key]/effect">See details</a>
-`errata?` |  | <a href="#PactGift/translations[key]/errata">See details</a>
+`name` |  | <a href="#PactGiftTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#PactGiftTranslation/name_in_library">See details</a>
+`effect` |  | <a href="#PactGiftTranslation/effect">See details</a>
+`errata?` |  | <a href="#PactGiftTranslation/errata">See details</a>
 
-#### <a name="PactGift/translations[key]/name"></a> `name`
+#### <a name="PactGiftTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="PactGift/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="PactGiftTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="PactGift/translations[key]/effect"></a> `effect`
+#### <a name="PactGiftTranslation/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
 
-#### <a name="PactGift/translations[key]/errata"></a> `errata?`
+#### <a name="PactGiftTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

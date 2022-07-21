@@ -58,27 +58,33 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="SikaryanDrainSpecialAbility/translations[key]"></a> `SikaryanDrainSpecialAbility/translations[key]`
 
+- **Type:** <a href="#SikaryanDrainSpecialAbilityTranslation">SikaryanDrainSpecialAbilityTranslation</a>
+
+---
+
+### <a name="SikaryanDrainSpecialAbilityTranslation"></a> `SikaryanDrainSpecialAbilityTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#SikaryanDrainSpecialAbility/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#SikaryanDrainSpecialAbility/translations[key]/name_in_library">See details</a>
-`rules` |  | <a href="#SikaryanDrainSpecialAbility/translations[key]/rules">See details</a>
-`errata?` |  | <a href="#SikaryanDrainSpecialAbility/translations[key]/errata">See details</a>
+`name` |  | <a href="#SikaryanDrainSpecialAbilityTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#SikaryanDrainSpecialAbilityTranslation/name_in_library">See details</a>
+`rules` |  | <a href="#SikaryanDrainSpecialAbilityTranslation/rules">See details</a>
+`errata?` |  | <a href="#SikaryanDrainSpecialAbilityTranslation/errata">See details</a>
 
-#### <a name="SikaryanDrainSpecialAbility/translations[key]/name"></a> `name`
+#### <a name="SikaryanDrainSpecialAbilityTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="SikaryanDrainSpecialAbility/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="SikaryanDrainSpecialAbilityTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="SikaryanDrainSpecialAbility/translations[key]/rules"></a> `rules`
+#### <a name="SikaryanDrainSpecialAbilityTranslation/rules"></a> `rules`
 
 - **Type:** <a href="../_Activatable.md#Rules">Rules</a>
 
-#### <a name="SikaryanDrainSpecialAbility/translations[key]/errata"></a> `errata?`
+#### <a name="SikaryanDrainSpecialAbilityTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

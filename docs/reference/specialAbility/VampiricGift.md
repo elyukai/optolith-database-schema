@@ -58,27 +58,33 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="VampiricGift/translations[key]"></a> `VampiricGift/translations[key]`
 
+- **Type:** <a href="#VampiricGiftTranslation">VampiricGiftTranslation</a>
+
+---
+
+### <a name="VampiricGiftTranslation"></a> `VampiricGiftTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#VampiricGift/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#VampiricGift/translations[key]/name_in_library">See details</a>
-`rules` |  | <a href="#VampiricGift/translations[key]/rules">See details</a>
-`errata?` |  | <a href="#VampiricGift/translations[key]/errata">See details</a>
+`name` |  | <a href="#VampiricGiftTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#VampiricGiftTranslation/name_in_library">See details</a>
+`rules` |  | <a href="#VampiricGiftTranslation/rules">See details</a>
+`errata?` |  | <a href="#VampiricGiftTranslation/errata">See details</a>
 
-#### <a name="VampiricGift/translations[key]/name"></a> `name`
+#### <a name="VampiricGiftTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="VampiricGift/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="VampiricGiftTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="VampiricGift/translations[key]/rules"></a> `rules`
+#### <a name="VampiricGiftTranslation/rules"></a> `rules`
 
 - **Type:** <a href="../_Activatable.md#Rules">Rules</a>
 
-#### <a name="VampiricGift/translations[key]/errata"></a> `errata?`
+#### <a name="VampiricGiftTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

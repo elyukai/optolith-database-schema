@@ -33,34 +33,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "$ref": "../_Activatable.schema.json#/$defs/Name"
-                },
-                "name_in_library": {
-                  "$ref": "../_Activatable.schema.json#/$defs/NameInLibrary"
-                },
-                "protective_circle": {
-                  "description": "The rules for the protective circle variant.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "warding_circle": {
-                  "description": "The rules for the warding circle variant.",
-                  "type": "string",
-                  "minLength": 1
-                },
-                "errata": {
-                  "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
-                }
-              },
-              "required": [
-                "name",
-                "protective_circle",
-                "warding_circle"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/ProtectiveWardingCircleSpecialAbilityTranslation"
             }
           },
           "minProperties": 1,
@@ -72,6 +45,34 @@
         "ap_value",
         "src",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "ProtectiveWardingCircleSpecialAbilityTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref": "../_Activatable.schema.json#/$defs/Name"
+        },
+        "name_in_library": {
+          "$ref": "../_Activatable.schema.json#/$defs/NameInLibrary"
+        },
+        "protective_circle": {
+          "description": "The rules for the protective circle variant.",
+          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        },
+        "warding_circle": {
+          "description": "The rules for the warding circle variant.",
+          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        },
+        "errata": {
+          "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "protective_circle",
+        "warding_circle"
       ],
       "additionalProperties": false
     }

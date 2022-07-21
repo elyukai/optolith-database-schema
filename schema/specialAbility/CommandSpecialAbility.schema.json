@@ -14,7 +14,7 @@
           "$ref": "../_Activatable.schema.json#/$defs/Levels"
         },
         "usage_type": {
-          "$ref": "../_Activatable.schema.json#/$defs/CombatSpecialAbilityType"
+          "$ref": "../_Activatable.schema.json#/$defs/CombatSpecialAbilityUsageType"
         },
         "select_options": {
           "$ref": "../_Activatable.schema.json#/$defs/SelectOptions"

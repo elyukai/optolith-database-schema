@@ -6,6 +6,8 @@ import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import * as Activatable from "../_Activatable.js"
+import { LocaleMap } from "../_LocaleMap.js"
+import { NonEmptyMarkdown } from "../_NonEmptyString.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 
 /**
@@ -28,46 +30,38 @@ export type ProtectiveWardingCircleSpecialAbility = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      name: Activatable.Name
+  translations: LocaleMap<ProtectiveWardingCircleSpecialAbilityTranslation>
+}
 
-      name_in_library?: Activatable.NameInLibrary
+export type ProtectiveWardingCircleSpecialAbilityTranslation = {
+  name: Activatable.Name
 
-      // ae_cost?: Activatable.ArcaneEnergyCost
+  name_in_library?: Activatable.NameInLibrary
 
-      /**
-       * The rules for the protective circle variant.
-       * @markdown
-       * @minLength 1
-       */
-      protective_circle: string
+  // ae_cost?: Activatable.ArcaneEnergyCost
 
-      /**
-       * The rules for the warding circle variant.
-       * @markdown
-       * @minLength 1
-       */
-      warding_circle: string
+  /**
+   * The rules for the protective circle variant.
+   */
+  protective_circle: NonEmptyMarkdown
 
-      // prerequisites?: Activatable.PrerequisitesReplacement
+  /**
+   * The rules for the warding circle variant.
+   */
+  warding_circle: NonEmptyMarkdown
 
-      // prerequisites_start?: Activatable.PrerequisitesStart
+  // prerequisites?: Activatable.PrerequisitesReplacement
 
-      // prerequisites_end?: Activatable.PrerequisitesEnd
+  // prerequisites_start?: Activatable.PrerequisitesStart
 
-      // ap_value?: Activatable.AdventurePointsValueReplacement
+  // prerequisites_end?: Activatable.PrerequisitesEnd
 
-      // ap_value_append?: Activatable.AdventurePointsValueAppend
+  // ap_value?: Activatable.AdventurePointsValueReplacement
 
-      errata?: Errata
-    }
-  }
+  // ap_value_append?: Activatable.AdventurePointsValueAppend
+
+  errata?: Errata
 }
 
 export const validateSchema = validateSchemaCreator<ProtectiveWardingCircleSpecialAbility>(import.meta.url)

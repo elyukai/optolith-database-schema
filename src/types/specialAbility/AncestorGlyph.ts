@@ -6,6 +6,7 @@ import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import * as Activatable from "../_Activatable.js"
+import { LocaleMap } from "../_LocaleMap.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 
 /**
@@ -35,36 +36,32 @@ export type AncestorGlyph = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      name: Activatable.Name
+  translations: LocaleMap<AncestorGlyphTranslation>
+}
 
-      name_in_library?: Activatable.NameInLibrary
+export type AncestorGlyphTranslation = {
+  name: Activatable.Name
 
-      // input?: Activatable.Input
+  name_in_library?: Activatable.NameInLibrary
 
-      rules: Activatable.Rules
+  // input?: Activatable.Input
 
-      // ae_cost: Activatable.ArcaneEnergyCost
+  rules: Activatable.Rules
 
-      // prerequisites?: Activatable.PrerequisitesReplacement
+  // ae_cost: Activatable.ArcaneEnergyCost
 
-      // prerequisites_start?: Activatable.PrerequisitesStart
+  // prerequisites?: Activatable.PrerequisitesReplacement
 
-      // prerequisites_end?: Activatable.PrerequisitesEnd
+  // prerequisites_start?: Activatable.PrerequisitesStart
 
-      // ap_value?: Activatable.AdventurePointsValueReplacement
+  // prerequisites_end?: Activatable.PrerequisitesEnd
 
-      // ap_value_append?: Activatable.AdventurePointsValueAppend
+  // ap_value?: Activatable.AdventurePointsValueReplacement
 
-      errata?: Errata
-    }
-  }
+  // ap_value_append?: Activatable.AdventurePointsValueAppend
+
+  errata?: Errata
 }
 
 export const validateSchema = validateSchemaCreator<AncestorGlyph>(import.meta.url)

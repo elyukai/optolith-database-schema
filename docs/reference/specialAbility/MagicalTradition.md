@@ -54,7 +54,7 @@ Key | Description | Details
 The tradition's primary attribute. Leave empty if the tradition does not
 have one.
 
-- **Type:** <a href="#MagicalTradition/primary">Object</a>
+- **Type:** <a href="#PrimaryAttribute">PrimaryAttribute</a>
 
 #### <a name="MagicalTradition/can_learn_cantrips"></a> `can_learn_cantrips`
 
@@ -115,7 +115,7 @@ Is this a magical dilettante tradition?
 If arcane spellworks from a different tradition count as arcane spellworks
 of this tradition, this is the different tradition's reference.
 
-- **Type:** <a href="#MagicalTradition/use_arcane_spellworks_from_tradition">Object</a>
+- **Type:** <a href="../_SimpleReferences.md#MagicalTraditionReference">MagicalTraditionReference</a>
 
 #### <a name="MagicalTradition/influences"></a> `influences?`
 
@@ -148,26 +148,35 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="MagicalTradition/primary"></a> `MagicalTradition/primary`
+### <a name="MagicalTradition/influences[]"></a> `MagicalTradition/influences[]`
 
-The tradition's primary attribute. Leave empty if the tradition does not
-have one.
+- **Type:** <a href="../_Influence.md#Influence">Influence</a>
+
+---
+
+### <a name="MagicalTradition/translations[key]"></a> `MagicalTradition/translations[key]`
+
+- **Type:** <a href="#MagicalTraditionTranslation">MagicalTraditionTranslation</a>
+
+---
+
+### <a name="PrimaryAttribute"></a> `PrimaryAttribute`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The attribute's identifier. | <a href="#MagicalTradition/primary/id">See details</a>
-`use_half_for_arcane_energy` | Typically, the value of the primary attribute (if one exists) is added onto the base of 20 AE to get the actual AE. But sometimes, only half the value is added. | <a href="#MagicalTradition/primary/use_half_for_arcane_energy">See details</a>
+`id` | The attribute's identifier. | <a href="#PrimaryAttribute/id">See details</a>
+`use_half_for_arcane_energy` | Typically, the value of the primary attribute (if one exists) is added onto the base of 20 AE to get the actual AE. But sometimes, only half the value is added. | <a href="#PrimaryAttribute/use_half_for_arcane_energy">See details</a>
 
-#### <a name="MagicalTradition/primary/id"></a> `id`
+#### <a name="PrimaryAttribute/id"></a> `id`
 
 The attribute's identifier.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="MagicalTradition/primary/use_half_for_arcane_energy"></a> `use_half_for_arcane_energy`
+#### <a name="PrimaryAttribute/use_half_for_arcane_energy"></a> `use_half_for_arcane_energy`
 
 Typically, the value of the primary attribute (if one exists) is added
 onto the base of 20 AE to get the actual AE. But sometimes, only half the
@@ -177,49 +186,23 @@ value is added.
 
 ---
 
-### <a name="MagicalTradition/use_arcane_spellworks_from_tradition"></a> `MagicalTradition/use_arcane_spellworks_from_tradition`
-
-If arcane spellworks from a different tradition count as arcane spellworks
-of this tradition, this is the different tradition's reference.
+### <a name="MagicalTraditionTranslation"></a> `MagicalTraditionTranslation`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The magical tradition's identifier. | <a href="#MagicalTradition/use_arcane_spellworks_from_tradition/id">See details</a>
+`name` |  | <a href="#MagicalTraditionTranslation/name">See details</a>
+`name_for_arcane_spellworks?` | The name used for the traditions list of arcane spellworks if it is different than the `name` of the special ability. | <a href="#MagicalTraditionTranslation/name_for_arcane_spellworks">See details</a>
+`name_in_library?` |  | <a href="#MagicalTraditionTranslation/name_in_library">See details</a>
+`special_rules` | The special rules of the tradition. They should be sorted like they are in the book. | <a href="#MagicalTraditionTranslation/special_rules">See details</a>
+`errata?` |  | <a href="#MagicalTraditionTranslation/errata">See details</a>
 
-#### <a name="MagicalTradition/use_arcane_spellworks_from_tradition/id"></a> `id`
-
-The magical tradition's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="MagicalTradition/influences[]"></a> `MagicalTradition/influences[]`
-
-- **Type:** <a href="../_Influence.md#Influence">Influence</a>
-
----
-
-### <a name="MagicalTradition/translations[key]"></a> `MagicalTradition/translations[key]`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`name` |  | <a href="#MagicalTradition/translations[key]/name">See details</a>
-`name_for_arcane_spellworks?` | The name used for the traditions list of arcane spellworks if it is different than the `name` of the special ability. | <a href="#MagicalTradition/translations[key]/name_for_arcane_spellworks">See details</a>
-`name_in_library?` |  | <a href="#MagicalTradition/translations[key]/name_in_library">See details</a>
-`special_rules` | The special rules of the tradition. They should be sorted like they are in the book. | <a href="#MagicalTradition/translations[key]/special_rules">See details</a>
-`errata?` |  | <a href="#MagicalTradition/translations[key]/errata">See details</a>
-
-#### <a name="MagicalTradition/translations[key]/name"></a> `name`
+#### <a name="MagicalTraditionTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="MagicalTradition/translations[key]/name_for_arcane_spellworks"></a> `name_for_arcane_spellworks?`
+#### <a name="MagicalTraditionTranslation/name_for_arcane_spellworks"></a> `name_for_arcane_spellworks?`
 
 The name used for the traditions list of arcane spellworks if it is
 different than the `name` of the special ability.
@@ -227,45 +210,25 @@ different than the `name` of the special ability.
 - **Type:** String
 - **Minimum Length:** `1`
 
-#### <a name="MagicalTradition/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="MagicalTraditionTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="MagicalTradition/translations[key]/special_rules"></a> `special_rules`
+#### <a name="MagicalTraditionTranslation/special_rules"></a> `special_rules`
 
 The special rules of the tradition. They should be sorted like they are
 in the book.
 
 - **Type:** List
-- **Items:** <a href="#MagicalTradition/translations[key]/special_rules[]">MagicalTradition/translations[key]/special_rules[]</a>
+- **Items:** <a href="#MagicalTraditionTranslation/special_rules[]">MagicalTraditionTranslation/special_rules[]</a>
 - **Minimum Items:** `1`
 
-#### <a name="MagicalTradition/translations[key]/errata"></a> `errata?`
+#### <a name="MagicalTraditionTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>
 
 ---
 
-### <a name="MagicalTradition/translations[key]/special_rules[]"></a> `MagicalTradition/translations[key]/special_rules[]`
+### <a name="MagicalTraditionTranslation/special_rules[]"></a> `MagicalTraditionTranslation/special_rules[]`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`label?` | An optional label that is displayed and placed before the actual text. | <a href="#MagicalTradition/translations[key]/special_rules[]/label">See details</a>
-`text` | The text of a special rule. | <a href="#MagicalTradition/translations[key]/special_rules[]/text">See details</a>
-
-#### <a name="MagicalTradition/translations[key]/special_rules[]/label"></a> `label?`
-
-An optional label that is displayed and placed before the actual
-text.
-
-- **Type:** String
-- **Minimum Length:** `1`
-
-#### <a name="MagicalTradition/translations[key]/special_rules[]/text"></a> `text`
-
-The text of a special rule.
-
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_Tradition.md#SpecialRule">SpecialRule</a>

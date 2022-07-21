@@ -63,27 +63,33 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="SkillStyleSpecialAbility/translations[key]"></a> `SkillStyleSpecialAbility/translations[key]`
 
+- **Type:** <a href="#SkillStyleSpecialAbilityTranslation">SkillStyleSpecialAbilityTranslation</a>
+
+---
+
+### <a name="SkillStyleSpecialAbilityTranslation"></a> `SkillStyleSpecialAbilityTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#SkillStyleSpecialAbility/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#SkillStyleSpecialAbility/translations[key]/name_in_library">See details</a>
-`rules` |  | <a href="#SkillStyleSpecialAbility/translations[key]/rules">See details</a>
-`errata?` |  | <a href="#SkillStyleSpecialAbility/translations[key]/errata">See details</a>
+`name` |  | <a href="#SkillStyleSpecialAbilityTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#SkillStyleSpecialAbilityTranslation/name_in_library">See details</a>
+`rules` |  | <a href="#SkillStyleSpecialAbilityTranslation/rules">See details</a>
+`errata?` |  | <a href="#SkillStyleSpecialAbilityTranslation/errata">See details</a>
 
-#### <a name="SkillStyleSpecialAbility/translations[key]/name"></a> `name`
+#### <a name="SkillStyleSpecialAbilityTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="SkillStyleSpecialAbility/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="SkillStyleSpecialAbilityTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="SkillStyleSpecialAbility/translations[key]/rules"></a> `rules`
+#### <a name="SkillStyleSpecialAbilityTranslation/rules"></a> `rules`
 
 - **Type:** <a href="../_Activatable.md#Rules">Rules</a>
 
-#### <a name="SkillStyleSpecialAbility/translations[key]/errata"></a> `errata?`
+#### <a name="SkillStyleSpecialAbilityTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

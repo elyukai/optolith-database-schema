@@ -155,6 +155,40 @@ The combat technique's identifier.
 
 ---
 
+### <a name="CloseCombatTechniqueReference"></a> `CloseCombatTechniqueReference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The close combat technique's identifier. | <a href="#CloseCombatTechniqueReference/id">See details</a>
+
+#### <a name="CloseCombatTechniqueReference/id"></a> `id`
+
+The close combat technique's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="RangedCombatTechniqueReference"></a> `RangedCombatTechniqueReference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The ranged combat technique's identifier. | <a href="#RangedCombatTechniqueReference/id">See details</a>
+
+#### <a name="RangedCombatTechniqueReference/id"></a> `id`
+
+The ranged combat technique's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
 ### <a name="MagicalTraditionReference"></a> `MagicalTraditionReference`
 
 - **Type:** Object
@@ -166,6 +200,57 @@ Key | Description | Details
 #### <a name="MagicalTraditionReference/id"></a> `id`
 
 The magical tradition's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="CantripReference"></a> `CantripReference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The cantrip's identifier. | <a href="#CantripReference/id">See details</a>
+
+#### <a name="CantripReference/id"></a> `id`
+
+The cantrip's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="SpellReference"></a> `SpellReference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The spell's identifier. | <a href="#SpellReference/id">See details</a>
+
+#### <a name="SpellReference/id"></a> `id`
+
+The spell's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="RitualReference"></a> `RitualReference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The ritual's identifier. | <a href="#RitualReference/id">See details</a>
+
+#### <a name="RitualReference/id"></a> `id`
+
+The ritual's identifier.
 
 - **Type:** Integer
 - **Minimum:** `1`
@@ -206,17 +291,51 @@ The blessed tradition's identifier.
 
 ---
 
-### <a name="CantripReference"></a> `CantripReference`
+### <a name="BlessingReference"></a> `BlessingReference`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The cantrip's identifier. | <a href="#CantripReference/id">See details</a>
+`id` | The blessing's identifier. | <a href="#BlessingReference/id">See details</a>
 
-#### <a name="CantripReference/id"></a> `id`
+#### <a name="BlessingReference/id"></a> `id`
 
-The cantrip's identifier.
+The blessing's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="LiturgicalChantReference"></a> `LiturgicalChantReference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The liturgical chant's identifier. | <a href="#LiturgicalChantReference/id">See details</a>
+
+#### <a name="LiturgicalChantReference/id"></a> `id`
+
+The liturgical chant's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="CeremonyReference"></a> `CeremonyReference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The ceremony's identifier. | <a href="#CeremonyReference/id">See details</a>
+
+#### <a name="CeremonyReference/id"></a> `id`
+
+The ceremony's identifier.
 
 - **Type:** Integer
 - **Minimum:** `1`
@@ -251,6 +370,23 @@ Key | Description | Details
 #### <a name="AdvantageReference/id"></a> `id`
 
 The advantage's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="AdvancedSpecialAbilityReference"></a> `AdvancedSpecialAbilityReference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The advanced special ability's identifier. | <a href="#AdvancedSpecialAbilityReference/id">See details</a>
+
+#### <a name="AdvancedSpecialAbilityReference/id"></a> `id`
+
+The advanced special ability's identifier.
 
 - **Type:** Integer
 - **Minimum:** `1`
@@ -481,6 +617,23 @@ The domain's identifier.
 
 ---
 
+### <a name="PatronReference"></a> `PatronReference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The patron's identifier. | <a href="#PatronReference/id">See details</a>
+
+#### <a name="PatronReference/id"></a> `id`
+
+The patron's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
 ### <a name="AnimistTribeReference"></a> `AnimistTribeReference`
 
 - **Type:** Object
@@ -496,3 +649,38 @@ The tribe's identifier.
 - **Type:** Integer
 - **Minimum:** `1`
 - **Maximum:** `6`
+
+---
+
+### <a name="ElementReference"></a> `ElementReference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The element's identifier. | <a href="#ElementReference/id">See details</a>
+
+#### <a name="ElementReference/id"></a> `id`
+
+The element's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+- **Maximum:** `6`
+
+---
+
+### <a name="WeaponReference"></a> `WeaponReference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The weapon's identifier. | <a href="#WeaponReference/id">See details</a>
+
+#### <a name="WeaponReference/id"></a> `id`
+
+The weapon's identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`

@@ -33,14 +33,13 @@ Key | Description | Details
 
 #### <a name="CombatStyleSpecialAbility/usage_type"></a> `usage_type`
 
-- **Type:** <a href="../_Activatable.md#CombatSpecialAbilityType">CombatSpecialAbilityType</a>
+- **Type:** <a href="../_Activatable.md#CombatSpecialAbilityUsageType">CombatSpecialAbilityUsageType</a>
 
 #### <a name="CombatStyleSpecialAbility/type"></a> `type`
 
 Is this an armed or unarmed combat style?
 
-- **Type:** Union
-- **Cases:** <a href="#CombatStyleSpecialAbility/type'Armed">CombatStyleSpecialAbility/type'Armed</a> | <a href="#CombatStyleSpecialAbility/type'Unarmed">CombatStyleSpecialAbility/type'Unarmed</a>
+- **Type:** <a href="../_Activatable.md#CombatSpecialAbilityType">CombatSpecialAbilityType</a>
 
 #### <a name="CombatStyleSpecialAbility/select_options"></a> `select_options?`
 
@@ -89,57 +88,35 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="CombatStyleSpecialAbility/type'Armed"></a> `CombatStyleSpecialAbility/type'Armed`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#CombatStyleSpecialAbility/type'Armed/tag">See details</a>
-
-#### <a name="CombatStyleSpecialAbility/type'Armed/tag"></a> `tag`
-
-- **Constant:** `"Armed"`
-
----
-
-### <a name="CombatStyleSpecialAbility/type'Unarmed"></a> `CombatStyleSpecialAbility/type'Unarmed`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#CombatStyleSpecialAbility/type'Unarmed/tag">See details</a>
-
-#### <a name="CombatStyleSpecialAbility/type'Unarmed/tag"></a> `tag`
-
-- **Constant:** `"Unarmed"`
-
----
-
 ### <a name="CombatStyleSpecialAbility/translations[key]"></a> `CombatStyleSpecialAbility/translations[key]`
 
+- **Type:** <a href="#CombatStyleSpecialAbilityTransition">CombatStyleSpecialAbilityTransition</a>
+
+---
+
+### <a name="CombatStyleSpecialAbilityTransition"></a> `CombatStyleSpecialAbilityTransition`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#CombatStyleSpecialAbility/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#CombatStyleSpecialAbility/translations[key]/name_in_library">See details</a>
-`rules` |  | <a href="#CombatStyleSpecialAbility/translations[key]/rules">See details</a>
-`errata?` |  | <a href="#CombatStyleSpecialAbility/translations[key]/errata">See details</a>
+`name` |  | <a href="#CombatStyleSpecialAbilityTransition/name">See details</a>
+`name_in_library?` |  | <a href="#CombatStyleSpecialAbilityTransition/name_in_library">See details</a>
+`rules` |  | <a href="#CombatStyleSpecialAbilityTransition/rules">See details</a>
+`errata?` |  | <a href="#CombatStyleSpecialAbilityTransition/errata">See details</a>
 
-#### <a name="CombatStyleSpecialAbility/translations[key]/name"></a> `name`
+#### <a name="CombatStyleSpecialAbilityTransition/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="CombatStyleSpecialAbility/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="CombatStyleSpecialAbilityTransition/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="CombatStyleSpecialAbility/translations[key]/rules"></a> `rules`
+#### <a name="CombatStyleSpecialAbilityTransition/rules"></a> `rules`
 
 - **Type:** <a href="../_Activatable.md#Rules">Rules</a>
 
-#### <a name="CombatStyleSpecialAbility/translations[key]/errata"></a> `errata?`
+#### <a name="CombatStyleSpecialAbilityTransition/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

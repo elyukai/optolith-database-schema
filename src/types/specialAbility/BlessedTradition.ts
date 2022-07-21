@@ -6,8 +6,10 @@ import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import * as Activatable from "../_Activatable.js"
-import { CombatTechniqueIdentifier } from "../_Identifier.js"
+import { LocaleMap } from "../_LocaleMap.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
+import { AspectReference, AttributeReference, BlessingReference, CombatTechniqueReference, SkillReference } from "../_SimpleReferences.js"
+import { SpecialRule } from "./_Tradition.js"
 
 /**
  * @title Blessed Tradition
@@ -25,113 +27,35 @@ export type BlessedTradition = {
    * The tradition's primary attribute. Leave empty if the tradition does not
    * have one.
    */
-  primary?: {
-    /**
-     * The attribute's identifier.
-     * @integer
-     * @minimum 1
-     * @maximum 8
-     */
-    id: number
-  }
+  primary?: AttributeReference
 
   /**
-   * The tradition's aspects, if any
+   * The tradition's aspects, if any.
    */
-  aspects?: [
-    {
-      /**
-       * The first aspect's identifier.
-       * @integer
-       * @minimum 1
-       */
-      id: number
-    },
-    {
-      /**
-       * The second aspect's identifier.
-       * @integer
-       * @minimum 1
-       */
-      id: number
-    }
-  ]
+  aspects?: [AspectReference, AspectReference]
 
   /**
-   * If a tradition restricts the possible blessings, the blessings that are not
-   * allowed.
-   * @minItems 3
-   * @maxItems 6
+   * If a tradition restricts the possible blessings, the blessings that are
+   * **not** allowed.
    */
-  restricted_blessings?: {
-    /**
-     * The blessing's identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-  }[]
+  restricted_blessings?: RestrictedBlessings
 
   /**
    * A list of favored combat techniques.
    */
-  favored_combat_techniques?:
-    | { tag: "All" }
-    | { tag: "AllClose" }
-    | { tag: "AllUsedInHunting" }
-    | {
-      tag: "Specific"
-
-      /**
-       * A list of specific favored combat techniques.
-       * @minItems 1
-       */
-      list: {
-        /**
-         * The combat technique's identifier.
-         */
-        id: CombatTechniqueIdentifier
-      }[]
-    }
+  favored_combat_techniques?: FavoredCombatTechniques
 
   /**
    * A list of favored skills.
    * @minItems 1
    */
-  favored_skills: {
-    /**
-     * The skill's identifier.
-     * @integer
-     * @minimum 1
-     */
-    id: number
-  }[]
+  favored_skills: SkillReference[]
 
   /**
    * On activation of the tradition, a specific number of skills from a list of
    * skills must be selected as being favored.
-   * @minItems 1
    */
-  favored_skills_selection?: {
-    /**
-     * The number of skills that can be selected.
-     * @integer
-     * @minimum 1
-     */
-    number: number
-
-    /**
-     * The possible set of skills.
-     */
-    options: {
-      /**
-       * The skill's identifier.
-       * @integer
-       * @minimum 1
-       */
-      id: number
-    }[]
-  }
+  favored_skills_selection?: FavoredSkillsSelection
 
   /**
    * Is this a schamanistic tradition?
@@ -152,59 +76,102 @@ export type BlessedTradition = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      name: Activatable.Name
+  translations: LocaleMap<BlessedTraditionTranslation>
+}
 
-      /**
-       * A shorter name of the tradition's name, used in liturgical chant
-       * descriptions.
-       * @minLength 1
-       */
-      name_compressed?: string
+/**
+ * If a tradition restricts the possible blessings, the blessings that are
+ * **not** allowed.
+ */
+export type RestrictedBlessings =
+  | { tag: "Three"; three: ThreeRestrictedBlessings }
+  | { tag: "Six"; three: SixRestrictedBlessings }
 
-      name_in_library?: Activatable.NameInLibrary
+/**
+ * @uniqueItems
+ */
+export type ThreeRestrictedBlessings = [
+  BlessingReference,
+  BlessingReference,
+  BlessingReference,
+]
 
-      // input?: Activatable.Input
+/**
+ * @uniqueItems
+ */
+export type SixRestrictedBlessings = [
+  BlessingReference,
+  BlessingReference,
+  BlessingReference,
+  BlessingReference,
+  BlessingReference,
+  BlessingReference,
+]
 
-      /**
-       * The special rules of the tradition. They should be sorted like they are
-       * in the book.
-       * @minItems 1
-       */
-      special_rules: {
-        /**
-         * An optional label that is displayed and placed before the actual
-         * text.
-         * @minLength 1
-         */
-        label?: string
+export type FavoredCombatTechniques =
+  | { tag: "All" }
+  | { tag: "AllClose" }
+  | { tag: "AllUsedInHunting" }
+  | { tag: "Specific"; specific: SpecificFavoredCombatTechniques }
 
-        /**
-         * The text of a special rule.
-         * @minLength 1
-         */
-        text: string
-      }[]
+export type SpecificFavoredCombatTechniques = {
+  /**
+   * A list of specific favored combat techniques.
+   * @minItems 1
+   * @uniqueItems
+   */
+  list: CombatTechniqueReference[]
+}
 
-      // prerequisites?: Activatable.PrerequisitesReplacement
+export type FavoredSkillsSelection = {
+  /**
+   * The number of skills that can be selected.
+   * @integer
+   * @minimum 1
+   */
+  number: number
 
-      // prerequisites_start?: Activatable.PrerequisitesStart
+  /**
+   * The possible set of skills.
+   * @minItems 2
+   * @uniqueItems
+   */
+  options: SkillReference[]
+}
 
-      // prerequisites_end?: Activatable.PrerequisitesEnd
+export type BlessedTraditionTranslation = {
+  name: Activatable.Name
 
-      // ap_value?: Activatable.AdventurePointsValueReplacement
+  /**
+   * A shorter name of the tradition's name, used in liturgical chant
+   * descriptions.
+   * @minLength 1
+   */
+  name_compressed?: string
 
-      // ap_value_append?: Activatable.AdventurePointsValueAppend
+  name_in_library?: Activatable.NameInLibrary
 
-      errata?: Errata
-    }
-  }
+  // input?: Activatable.Input
+
+  /**
+   * The special rules of the tradition. They should be sorted like they are
+   * in the book.
+   * @minItems 1
+   */
+  special_rules: SpecialRule[]
+
+  // prerequisites?: Activatable.PrerequisitesReplacement
+
+  // prerequisites_start?: Activatable.PrerequisitesStart
+
+  // prerequisites_end?: Activatable.PrerequisitesEnd
+
+  // ap_value?: Activatable.AdventurePointsValueReplacement
+
+  // ap_value_append?: Activatable.AdventurePointsValueAppend
+
+  errata?: Errata
 }
 
 export const validateSchema = validateSchemaCreator<BlessedTradition>(import.meta.url)

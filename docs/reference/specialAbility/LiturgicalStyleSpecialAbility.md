@@ -73,27 +73,33 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="LiturgicalStyleSpecialAbility/translations[key]"></a> `LiturgicalStyleSpecialAbility/translations[key]`
 
+- **Type:** <a href="#LiturgicalStyleSpecialAbilityTranslation">LiturgicalStyleSpecialAbilityTranslation</a>
+
+---
+
+### <a name="LiturgicalStyleSpecialAbilityTranslation"></a> `LiturgicalStyleSpecialAbilityTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#LiturgicalStyleSpecialAbility/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#LiturgicalStyleSpecialAbility/translations[key]/name_in_library">See details</a>
-`rules` |  | <a href="#LiturgicalStyleSpecialAbility/translations[key]/rules">See details</a>
-`errata?` |  | <a href="#LiturgicalStyleSpecialAbility/translations[key]/errata">See details</a>
+`name` |  | <a href="#LiturgicalStyleSpecialAbilityTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#LiturgicalStyleSpecialAbilityTranslation/name_in_library">See details</a>
+`rules` |  | <a href="#LiturgicalStyleSpecialAbilityTranslation/rules">See details</a>
+`errata?` |  | <a href="#LiturgicalStyleSpecialAbilityTranslation/errata">See details</a>
 
-#### <a name="LiturgicalStyleSpecialAbility/translations[key]/name"></a> `name`
+#### <a name="LiturgicalStyleSpecialAbilityTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="LiturgicalStyleSpecialAbility/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="LiturgicalStyleSpecialAbilityTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="LiturgicalStyleSpecialAbility/translations[key]/rules"></a> `rules`
+#### <a name="LiturgicalStyleSpecialAbilityTranslation/rules"></a> `rules`
 
 - **Type:** <a href="../_Activatable.md#Rules">Rules</a>
 
-#### <a name="LiturgicalStyleSpecialAbility/translations[key]/errata"></a> `errata?`
+#### <a name="LiturgicalStyleSpecialAbilityTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

@@ -7,6 +7,7 @@ import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import * as Activatable from "../_Activatable.js"
 import { ActivatableIdentifier } from "../_Identifier.js"
+import { LocaleMap } from "../_LocaleMap.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 
 /**
@@ -21,68 +22,14 @@ export type PactGift = {
 
   maximum?: Activatable.Maximum
 
-  permanent_demonic_consumption?:
-    | {
-      tag: "Fixed"
-
-      /**
-       * The levels of *Demonic Consumption* the pact gift causes.
-       * @integer
-       * @minimum 1
-       * @maximum 4
-       */
-      levels: number
-    }
-    | {
-      tag: "PerLevel"
-
-      /**
-       * The levels of *Demonic Consumption* the pact gift causes per activated
-       * level of the pact gift.
-       * @integer
-       * @minimum 1
-       * @maximum 4
-       */
-      levels: number
-    }
+  permanent_demonic_consumption?: PactGiftPermanentDemonicConsumption
 
   /**
    * This pact gift has direct influence on the existence of other entries. It
    * may add or remove entries.
    * @minItems 1
    */
-  automatic_entries?: {
-    /**
-     * What type of action is applied to the target entry?
-     */
-    action:
-      | { tag: "Add" }
-      | { tag: "Remove" }
-
-    /**
-     * If an entry is added or removed, does is cost or grant adventure points
-     * or is it free of charge?
-     */
-    apply_ap_value: boolean
-
-    /**
-     * The entry that is to be added or removed. It can be a fixed entry or a
-     * selection where the player must choose one entry.
-     */
-    target:
-      | {
-        tag: "Selection"
-
-        list:
-          | { tag: "MagicalTraditions" }
-          | { tag: "MagicalDilettanteTraditions" }
-      }
-      | {
-        tag: "Fixed"
-
-        id: ActivatableIdentifier
-      }
-  }[]
+  automatic_entries?: AutomaticEntry[]
 
   prerequisites?: GeneralPrerequisites
 
@@ -92,34 +39,94 @@ export type PactGift = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      name: Activatable.Name
+  translations: LocaleMap<PactGiftTranslation>
+}
 
-      name_in_library?: Activatable.NameInLibrary
+export type PactGiftPermanentDemonicConsumption =
+  | { tag: "Fixed"; fixed: FixedPactGiftPermanentDemonicConsumption }
+  | { tag: "PerLevel"; per_level: PactGiftPermanentDemonicConsumptionPerLevel }
 
-      // input?: Activatable.Input
+export type FixedPactGiftPermanentDemonicConsumption = {
+  /**
+   * The levels of *Demonic Consumption* the pact gift causes.
+   * @integer
+   * @minimum 1
+   * @maximum 4
+   */
+  levels: number
+}
 
-      effect: Activatable.Effect
+export type PactGiftPermanentDemonicConsumptionPerLevel = {
+  /**
+   * The levels of *Demonic Consumption* the pact gift causes per activated
+   * level of the pact gift.
+   * @integer
+   * @minimum 1
+   * @maximum 4
+   */
+  levels: number
+}
 
-      // prerequisites?: Activatable.PrerequisitesReplacement
+export type AutomaticEntry = {
+  /**
+   * What type of action is applied to the target entry?
+   */
+  action: AutomaticEntryAction
 
-      // prerequisites_start?: Activatable.PrerequisitesStart
+  /**
+   * If an entry is added or removed, does is cost or grant adventure points
+   * or is it free of charge?
+   */
+  apply_ap_value: boolean
 
-      // prerequisites_end?: Activatable.PrerequisitesEnd
+  /**
+   * The entry that is to be added or removed. It can be a fixed entry or a
+   * selection where the player must choose one entry.
+   */
+  target: AutomaticEntryTarget
+}
 
-      // ap_value?: Activatable.AdventurePointsValueReplacement
+export type AutomaticEntryAction =
+  | { tag: "Add" }
+  | { tag: "Remove" }
 
-      // ap_value_append?: Activatable.AdventurePointsValueAppend
+export type AutomaticEntryTarget =
+  | { tag: "Selection"; selection: AutomaticEntryTargetSelection }
+  | { tag: "Fixed"; fixed: FixedAutomaticEntryTarget }
 
-      errata?: Errata
-    }
-  }
+export type AutomaticEntryTargetSelection = {
+  list: AutomaticEntryTargetSelectionList
+}
+
+export type AutomaticEntryTargetSelectionList =
+  | { tag: "MagicalTraditions" }
+  | { tag: "MagicalDilettanteTraditions" }
+
+export type FixedAutomaticEntryTarget = {
+  id: ActivatableIdentifier
+}
+
+export type PactGiftTranslation = {
+  name: Activatable.Name
+
+  name_in_library?: Activatable.NameInLibrary
+
+  // input?: Activatable.Input
+
+  effect: Activatable.Effect
+
+  // prerequisites?: Activatable.PrerequisitesReplacement
+
+  // prerequisites_start?: Activatable.PrerequisitesStart
+
+  // prerequisites_end?: Activatable.PrerequisitesEnd
+
+  // ap_value?: Activatable.AdventurePointsValueReplacement
+
+  // ap_value_append?: Activatable.AdventurePointsValueAppend
+
+  errata?: Errata
 }
 
 export const validateSchema = validateSchemaCreator<PactGift>(import.meta.url)

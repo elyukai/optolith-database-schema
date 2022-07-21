@@ -29,7 +29,7 @@ Key | Description | Details
 
 #### <a name="BrawlingSpecialAbility/usage_type"></a> `usage_type`
 
-- **Type:** <a href="../_Activatable.md#CombatSpecialAbilityType">CombatSpecialAbilityType</a>
+- **Type:** <a href="../_Activatable.md#CombatSpecialAbilityUsageType">CombatSpecialAbilityUsageType</a>
 
 #### <a name="BrawlingSpecialAbility/select_options"></a> `select_options?`
 
@@ -68,27 +68,33 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="BrawlingSpecialAbility/translations[key]"></a> `BrawlingSpecialAbility/translations[key]`
 
+- **Type:** <a href="#BrawlingSpecialAbilityTranslation">BrawlingSpecialAbilityTranslation</a>
+
+---
+
+### <a name="BrawlingSpecialAbilityTranslation"></a> `BrawlingSpecialAbilityTranslation`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#BrawlingSpecialAbility/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#BrawlingSpecialAbility/translations[key]/name_in_library">See details</a>
-`rules` |  | <a href="#BrawlingSpecialAbility/translations[key]/rules">See details</a>
-`errata?` |  | <a href="#BrawlingSpecialAbility/translations[key]/errata">See details</a>
+`name` |  | <a href="#BrawlingSpecialAbilityTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#BrawlingSpecialAbilityTranslation/name_in_library">See details</a>
+`rules` |  | <a href="#BrawlingSpecialAbilityTranslation/rules">See details</a>
+`errata?` |  | <a href="#BrawlingSpecialAbilityTranslation/errata">See details</a>
 
-#### <a name="BrawlingSpecialAbility/translations[key]/name"></a> `name`
+#### <a name="BrawlingSpecialAbilityTranslation/name"></a> `name`
 
 - **Type:** <a href="../_Activatable.md#Name">Name</a>
 
-#### <a name="BrawlingSpecialAbility/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="BrawlingSpecialAbilityTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
-#### <a name="BrawlingSpecialAbility/translations[key]/rules"></a> `rules`
+#### <a name="BrawlingSpecialAbilityTranslation/rules"></a> `rules`
 
 - **Type:** <a href="../_Activatable.md#Rules">Rules</a>
 
-#### <a name="BrawlingSpecialAbility/translations[key]/errata"></a> `errata?`
+#### <a name="BrawlingSpecialAbilityTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>
