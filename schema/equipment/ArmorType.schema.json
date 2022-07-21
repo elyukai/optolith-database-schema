@@ -12,23 +12,17 @@
           "type": "integer",
           "minimum": 1
         },
+        "sturdiness_rating": {
+          "description": "Each armor type has a *sturdiness rating*. The higher the rating, the more\ndurable the armor. Rolling higher than this rating during a sturdiness\ncheck means the armor receives one level of the new condition *Wear*.",
+          "type": "integer",
+          "minimum": 1
+        },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "description": "The name of the armor type.",
-                  "type": "string",
-                  "minLength": 1
-                }
-              },
-              "required": [
-                "name"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/ArmorTypeTranslation"
             }
           },
           "minProperties": 1,
@@ -37,7 +31,21 @@
       },
       "required": [
         "id",
+        "sturdiness_rating",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "ArmorTypeTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the armor type.",
+          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "name"
       ],
       "additionalProperties": false
     }
