@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/equipment/item/WeaponAccessory.schema.json",
+  "$ref": "#/$defs/WeaponAccessory",
+  "$defs": {
+    "WeaponAccessory": {
+      "$ref": "./_Item.schema.json#/$defs/DefaultItem"
+    }
+  }
+}

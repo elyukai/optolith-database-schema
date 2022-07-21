@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/equipment/item/_MeleeWeapon.schema.json",
+  "$defs": {
+    "AttackModifier": {
+      "description": "The AT modifier.",
+      "type": "integer"
+    },
+    "ParryModifier": {
+      "description": "The PA modifier.",
+      "type": "integer"
+    },
+    "Reach": {
+      "description": "The reach of the weapon.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The identifier of the weapon's reach.",
+          "type": "integer",
+          "maximum": 4,
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "MeleeDamage": {
+      "description": "The damage of a weapon consists of a random part using dice and an optional\nflat part.",
+      "type": "object",
+      "properties": {
+        "dice": {
+          "description": "How many dice of which type are rolled to get the damage.",
+          "$ref": "../../_Dice.schema.json#/$defs/Dice"
+        },
+        "flat": {
+          "description": "Flat damage, if any. It gets added to the result of the dice rolls.",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "dice"
+      ],
+      "additionalProperties": false
+    },
+    "ShieldSize": {
+      "description": "The shield size and potential size-depending values.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Small"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Medium"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Large"
+            },
+            "large": {
+              "$ref": "#/$defs/LargeShieldSize"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "LargeShieldSize": {
+      "type": "object",
+      "properties": {
+        "attack_penalty": {
+          "description": "The attack penalty from the shield.",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "attack_penalty"
+      ],
+      "additionalProperties": false
+    },
+    "MeleeWeapon": {
+      "title": "Melee Weapon",
+      "type": "object",
+      "properties": {
+        "combat_technique": {
+          "description": "The combat techniques and dependent values.",
+          "$ref": "../../_SimpleReferences.schema.json#/$defs/CloseCombatTechniqueReference"
+        },
+        "damage": {
+          "description": "The damage of a weapon consists of a random part using dice and an optional\nflat part.",
+          "$ref": "#/$defs/MeleeDamage"
+        },
+        "damage_threshold": {
+          "description": "The primary attribute damage and threshold value.",
+          "$ref": "./_Weapon.schema.json#/$defs/PrimaryAttributeDamageThreshold"
+        },
+        "at": {
+          "description": "The AT modifier.",
+          "$ref": "#/$defs/AttackModifier"
+        },
+        "pa": {
+          "description": "The PA modifier.",
+          "$ref": "#/$defs/ParryModifier"
+        },
+        "reach": {
+          "description": "The reach of the weapon.",
+          "$ref": "#/$defs/Reach"
+        },
+        "length": {
+          "description": "The length of the weapon in cm/halffingers.",
+          "$ref": "./_Weapon.schema.json#/$defs/Length"
+        },
+        "size": {
+          "description": "The shield size and potential size-depending values.",
+          "$ref": "#/$defs/ShieldSize"
+        },
+        "is_parrying_weapon": {
+          "description": "Is the weapon a parrying weapon?",
+          "type": "boolean"
+        },
+        "is_two_handed_weapon": {
+          "description": "Is the weapon a two-handed weapon?",
+          "type": "boolean"
+        },
+        "is_improvised_weapon": {
+          "description": "Is the weapon an improvised weapon?",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "combat_technique",
+        "damage",
+        "at",
+        "is_parrying_weapon",
+        "is_two_handed_weapon",
+        "is_improvised_weapon"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

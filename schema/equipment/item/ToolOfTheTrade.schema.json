@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/equipment/item/ToolOfTheTrade.schema.json",
+  "$ref": "#/$defs/ToolOfTheTrade",
+  "$defs": {
+    "ToolOfTheTrade": {
+      "type": "object",
+      "properties": {
+        "cost": {
+          "description": "The cost in silverthalers.",
+          "$ref": "./_Item.schema.json#/$defs/Cost"
+        },
+        "weight": {
+          "description": "The weight in kg.",
+          "$ref": "./_Item.schema.json#/$defs/Weight"
+        },
+        "complexity": {
+          "description": "The complexity of crafting the item.",
+          "$ref": "./_Item.schema.json#/$defs/Complexity"
+        },
+        "structure_points": {
+          "description": "The structure points of the item. Use an array if the item consists of\nmultiple components that have individual structure points.",
+          "$ref": "./_Item.schema.json#/$defs/StructurePoints"
+        },
+        "is_laboratory": {
+          "description": "If the item is a laboratory.",
+          "type": "boolean"
+        },
+        "src": {
+          "$ref": "../../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/ToolOfTheTradeTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "cost",
+        "weight",
+        "structure_points",
+        "is_laboratory",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "ToolOfTheTradeTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the item.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "secondary_name": {
+          "description": "An auxiliary name or label of the item, if available.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "note": {
+          "description": "Note text.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        },
+        "rules": {
+          "description": "Special rules text.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        },
+        "errata": {
+          "$ref": "../../source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/equipment/item/MusicalInstrument.schema.json",
+  "$ref": "#/$defs/MusicalInstrument",
+  "$defs": {
+    "MusicalInstrument": {
+      "$ref": "./_Item.schema.json#/$defs/DefaultItem"
+    }
+  }
+}

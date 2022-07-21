@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/equipment/item/Animal.schema.json",
+  "$ref": "#/$defs/Animal",
+  "$defs": {
+    "Animal": {
+      "$ref": "./_Item.schema.json#/$defs/DefaultItem"
+    }
+  }
+}

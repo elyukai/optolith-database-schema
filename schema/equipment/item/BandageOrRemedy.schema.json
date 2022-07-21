@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/equipment/item/BandageOrRemedy.schema.json",
+  "$ref": "#/$defs/BandageOrRemedy",
+  "$defs": {
+    "BandageOrRemedy": {
+      "$ref": "./_Item.schema.json#/$defs/DefaultItem"
+    }
+  }
+}

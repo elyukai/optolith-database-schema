@@ -1,0 +1,288 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/equipment/item/Armor.schema.json",
+  "$ref": "#/$defs/Armor",
+  "$defs": {
+    "Armor": {
+      "type": "object",
+      "properties": {
+        "cost": {
+          "description": "The cost in silverthalers.",
+          "$ref": "./_Item.schema.json#/$defs/Cost"
+        },
+        "weight": {
+          "description": "The weight in kg.",
+          "$ref": "./_Item.schema.json#/$defs/Weight"
+        },
+        "complexity": {
+          "description": "The complexity of crafting the item.",
+          "$ref": "./_Item.schema.json#/$defs/Complexity"
+        },
+        "protection": {
+          "description": "The PRO value.",
+          "$ref": "#/$defs/Protection"
+        },
+        "encumbrance": {
+          "description": "The ENC value.",
+          "$ref": "#/$defs/Encumbrance"
+        },
+        "has_additional_penalties": {
+          "description": "Does the armor have additional penalties (MOV -1, INI -1)?",
+          "$ref": "#/$defs/HasAdditionalPenalties"
+        },
+        "armor_type": {
+          "description": "The armor type.",
+          "$ref": "#/$defs/ArmorType"
+        },
+        "hit_zone": {
+          "description": "Specify if armor is only available for a specific hit zone.",
+          "$ref": "#/$defs/HitZone"
+        },
+        "src": {
+          "$ref": "../../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/ArmorTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "cost",
+        "weight",
+        "complexity",
+        "protection",
+        "encumbrance",
+        "has_additional_penalties",
+        "armor_type",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "ArmorTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the item.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "secondary_name": {
+          "description": "An auxiliary name or label of the item, if available.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "note": {
+          "description": "Note text.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        },
+        "rules": {
+          "description": "Special rules text.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        },
+        "advantage": {
+          "description": "The armor advantage text.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        },
+        "disadvantage": {
+          "description": "The armor disadvantage text.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        },
+        "errata": {
+          "$ref": "../../source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "minProperties": 1,
+      "additionalProperties": false
+    },
+    "SecondaryArmor": {
+      "type": "object",
+      "properties": {
+        "protection": {
+          "description": "The PRO value.",
+          "$ref": "#/$defs/Protection"
+        },
+        "encumbrance": {
+          "description": "The ENC value.",
+          "$ref": "#/$defs/Encumbrance"
+        },
+        "has_additional_penalties": {
+          "description": "Does the armor have additional penalties (MOV -1, INI -1)?",
+          "$ref": "#/$defs/HasAdditionalPenalties"
+        },
+        "armor_type": {
+          "description": "The armor type.",
+          "$ref": "#/$defs/ArmorType"
+        },
+        "hit_zone": {
+          "description": "Specify if armor is only available for a specific hit zone.",
+          "$ref": "#/$defs/HitZone"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/SecondaryArmorTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "protection",
+        "encumbrance",
+        "has_additional_penalties",
+        "armor_type"
+      ],
+      "additionalProperties": false
+    },
+    "SecondaryArmorTranslation": {
+      "type": "object",
+      "properties": {
+        "advantage": {
+          "description": "The armor advantage text.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        },
+        "disadvantage": {
+          "description": "The armor disadvantage text.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        }
+      },
+      "required": [],
+      "minProperties": 1,
+      "additionalProperties": false
+    },
+    "Protection": {
+      "description": "The PRO value.",
+      "type": "integer",
+      "minimum": 0
+    },
+    "Encumbrance": {
+      "description": "The ENC value.",
+      "type": "integer",
+      "minimum": 0
+    },
+    "HasAdditionalPenalties": {
+      "description": "Does the armor have additional penalties (MOV -1, INI -1)?",
+      "type": "boolean"
+    },
+    "ArmorType": {
+      "title": "Armor Type",
+      "description": "The armor type.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The armor type's identifier.",
+          "type": "integer",
+          "maximum": 10,
+          "minimum": 1
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "HitZone": {
+      "title": "Hit Zone",
+      "description": "Specify if armor is only available for a specific hit zone.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Head"
+            },
+            "head": {
+              "$ref": "#/$defs/HeadHitZone"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Torso"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Arms"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Legs"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "HeadHitZone": {
+      "type": "object",
+      "properties": {
+        "combination_possibilities": {
+          "description": "In some cases, multiple armors for the same hit zone can be combined.\nThey're listed at the item that can be combined with others.",
+          "$ref": "#/$defs/HeadHitZoneCombinationPossibilities"
+        }
+      },
+      "required": [],
+      "minProperties": 1,
+      "additionalProperties": false
+    },
+    "HeadHitZoneCombinationPossibilities": {
+      "type": "object",
+      "properties": {
+        "armors": {
+          "description": "A list of armors that can be combined with this armor.",
+          "type": "array",
+          "items": {
+            "$ref": "../../_SimpleReferences.schema.json#/$defs/ArmorReference"
+          },
+          "minItems": 1
+        },
+        "protection": {
+          "description": "The PRO value that is added to the PRO value of the other armor instead\nof adding the normale PRO value.",
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "armors"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

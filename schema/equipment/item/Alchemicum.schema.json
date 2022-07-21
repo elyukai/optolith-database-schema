@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/equipment/item/Alchemicum.schema.json",
+  "$ref": "#/$defs/Alchemicum",
+  "$defs": {
+    "Alchemicum": {
+      "$ref": "./_Item.schema.json#/$defs/DefaultItem"
+    }
+  }
+}

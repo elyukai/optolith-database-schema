@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/equipment/item/RopeOrChain.schema.json",
+  "$ref": "#/$defs/RopeOrChain",
+  "$defs": {
+    "RopeOrChain": {
+      "$ref": "./_Item.schema.json#/$defs/DefaultItem"
+    }
+  }
+}

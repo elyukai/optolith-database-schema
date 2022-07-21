@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/equipment/item/GemOrPreciousStone.schema.json",
+  "$ref": "#/$defs/GemOrPreciousStone",
+  "$defs": {
+    "GemOrPreciousStone": {
+      "type": "object",
+      "properties": {
+        "cost": {
+          "description": "The cost in silverthalers per 10 karat.",
+          "$ref": "./_Item.schema.json#/$defs/Cost"
+        },
+        "src": {
+          "$ref": "../../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/GemOrPreciousStoneTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "cost",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "GemOrPreciousStoneTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the item.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "secondary_name": {
+          "description": "An auxiliary name or label of the item, if available.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "color": {
+          "description": "The color of the gem or stone.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "note": {
+          "description": "Note text.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        },
+        "rules": {
+          "description": "Special rules text.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        },
+        "errata": {
+          "$ref": "../../source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "color"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

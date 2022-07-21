@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/equipment/item/AnimalCare.schema.json",
+  "$ref": "#/$defs/AnimalCare",
+  "$defs": {
+    "AnimalCare": {
+      "$ref": "./_Item.schema.json#/$defs/DefaultItem"
+    }
+  }
+}

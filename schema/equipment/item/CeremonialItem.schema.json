@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/equipment/item/CeremonialItem.schema.json",
+  "$ref": "#/$defs/CeremonialItem",
+  "$defs": {
+    "CeremonialItem": {
+      "$ref": "./_Item.schema.json#/$defs/DefaultItem"
+    }
+  }
+}

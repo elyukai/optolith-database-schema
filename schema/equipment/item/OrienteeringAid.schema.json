@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/equipment/item/OrienteeringAid.schema.json",
+  "$ref": "#/$defs/OrienteeringAid",
+  "$defs": {
+    "OrienteeringAid": {
+      "$ref": "./_Item.schema.json#/$defs/DefaultItem"
+    }
+  }
+}
