@@ -5,13 +5,13 @@
 import { validateSchemaCreator } from "../../../validation/schema.js"
 import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { LocaleMap } from "../../_LocaleMap.js"
-import { Cost, DefaultItemTranslation, FixedCost } from "./_Item.js"
+import { Cost, DefaultItemTranslation, FixedCost, Weight } from "./_Item.js"
 
 export type AnimalCare = {
   /**
-   * The cost in silverthalers.
+   * Values depending on whether the animal care is feed.
    */
-  cost: AnimalCareCost
+  type: AnimalCareType
 
   src: PublicationRefs
 
@@ -21,8 +21,33 @@ export type AnimalCare = {
   translations: LocaleMap<DefaultItemTranslation>
 }
 
-export type AnimalCareCost =
-  | Cost
+/**
+ * Values depending on whether the animal care is feed.
+ */
+export type AnimalCareType =
+  | { tag: "General"; general: GeneralAnimalCare }
+  | { tag: "Feed"; feed: AnimalFeed }
+
+export type GeneralAnimalCare = {
+  /**
+   * The cost in silverthalers.
+   */
+  cost: Cost
+
+  /**
+   * The weight in kg.
+   */
+  weight: Weight
+}
+
+export type AnimalFeed = {
+  /**
+   * The cost in silverthalers.
+   */
+  cost: AnimalFeedCost
+}
+
+export type AnimalFeedCost =
   | { tag: "PerWeek"; per_week: FixedCost }
 
 export const validateSchema = validateSchemaCreator<AnimalCare>(import.meta.url)

@@ -8,15 +8,15 @@
 
 Key | Description | Details
 :-- | :-- | :--
-`cost` | The cost in silverthalers. | <a href="#AnimalCare/cost">See details</a>
+`type` | Values depending on whether the animal care is feed. | <a href="#AnimalCare/type">See details</a>
 `src` |  | <a href="#AnimalCare/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#AnimalCare/translations">See details</a>
 
-#### <a name="AnimalCare/cost"></a> `cost`
+#### <a name="AnimalCare/type"></a> `type`
 
-The cost in silverthalers.
+Values depending on whether the animal care is feed.
 
-- **Type:** <a href="#AnimalCareCost">AnimalCareCost</a>
+- **Type:** <a href="#AnimalCareType">AnimalCareType</a>
 
 #### <a name="AnimalCare/src"></a> `src`
 
@@ -39,32 +39,112 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="AnimalCareCost"></a> `AnimalCareCost`
+### <a name="AnimalCareType"></a> `AnimalCareType`
+
+Values depending on whether the animal care is feed.
 
 - **Type:** Union
-- **Cases:** <a href="#AnimalCareCost'Cost">AnimalCareCost'Cost</a> | <a href="#AnimalCareCost'PerWeek">AnimalCareCost'PerWeek</a>
+- **Cases:** <a href="#AnimalCareType'General">AnimalCareType'General</a> | <a href="#AnimalCareType'Feed">AnimalCareType'Feed</a>
 
 ---
 
-### <a name="AnimalCareCost'Cost"></a> `AnimalCareCost'Cost`
-
-- **Type:** <a href="./_Item.md#Cost">Cost</a>
-
----
-
-### <a name="AnimalCareCost'PerWeek"></a> `AnimalCareCost'PerWeek`
+### <a name="AnimalCareType'General"></a> `AnimalCareType'General`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#AnimalCareCost'PerWeek/tag">See details</a>
-`per_week` |  | <a href="#AnimalCareCost'PerWeek/per_week">See details</a>
+`tag` |  | <a href="#AnimalCareType'General/tag">See details</a>
+`general` |  | <a href="#AnimalCareType'General/general">See details</a>
 
-#### <a name="AnimalCareCost'PerWeek/tag"></a> `tag`
+#### <a name="AnimalCareType'General/tag"></a> `tag`
+
+- **Constant:** `"General"`
+
+#### <a name="AnimalCareType'General/general"></a> `general`
+
+- **Type:** <a href="#GeneralAnimalCare">GeneralAnimalCare</a>
+
+---
+
+### <a name="AnimalCareType'Feed"></a> `AnimalCareType'Feed`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AnimalCareType'Feed/tag">See details</a>
+`feed` |  | <a href="#AnimalCareType'Feed/feed">See details</a>
+
+#### <a name="AnimalCareType'Feed/tag"></a> `tag`
+
+- **Constant:** `"Feed"`
+
+#### <a name="AnimalCareType'Feed/feed"></a> `feed`
+
+- **Type:** <a href="#AnimalFeed">AnimalFeed</a>
+
+---
+
+### <a name="GeneralAnimalCare"></a> `GeneralAnimalCare`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`cost` | The cost in silverthalers. | <a href="#GeneralAnimalCare/cost">See details</a>
+`weight` | The weight in kg. | <a href="#GeneralAnimalCare/weight">See details</a>
+
+#### <a name="GeneralAnimalCare/cost"></a> `cost`
+
+The cost in silverthalers.
+
+- **Type:** <a href="./_Item.md#Cost">Cost</a>
+
+#### <a name="GeneralAnimalCare/weight"></a> `weight`
+
+The weight in kg.
+
+- **Type:** <a href="./_Item.md#Weight">Weight</a>
+
+---
+
+### <a name="AnimalFeed"></a> `AnimalFeed`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`cost` | The cost in silverthalers. | <a href="#AnimalFeed/cost">See details</a>
+
+#### <a name="AnimalFeed/cost"></a> `cost`
+
+The cost in silverthalers.
+
+- **Type:** <a href="#AnimalFeedCost">AnimalFeedCost</a>
+
+---
+
+### <a name="AnimalFeedCost"></a> `AnimalFeedCost`
+
+- **Type:** Union
+- **Cases:** <a href="#AnimalFeedCost'PerWeek">AnimalFeedCost'PerWeek</a>
+
+---
+
+### <a name="AnimalFeedCost'PerWeek"></a> `AnimalFeedCost'PerWeek`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AnimalFeedCost'PerWeek/tag">See details</a>
+`per_week` |  | <a href="#AnimalFeedCost'PerWeek/per_week">See details</a>
+
+#### <a name="AnimalFeedCost'PerWeek/tag"></a> `tag`
 
 - **Constant:** `"PerWeek"`
 
-#### <a name="AnimalCareCost'PerWeek/per_week"></a> `per_week`
+#### <a name="AnimalFeedCost'PerWeek/per_week"></a> `per_week`
 
 - **Type:** <a href="./_Item.md#FixedCost">FixedCost</a>

@@ -6,9 +6,9 @@
     "AnimalCare": {
       "type": "object",
       "properties": {
-        "cost": {
-          "description": "The cost in silverthalers.",
-          "$ref": "#/$defs/AnimalCareCost"
+        "type": {
+          "description": "Values depending on whether the animal care is feed.",
+          "$ref": "#/$defs/AnimalCareType"
         },
         "src": {
           "$ref": "../../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
@@ -26,17 +26,82 @@
         }
       },
       "required": [
-        "cost",
+        "type",
         "src",
         "translations"
       ],
       "additionalProperties": false
     },
-    "AnimalCareCost": {
+    "AnimalCareType": {
+      "description": "Values depending on whether the animal care is feed.",
       "oneOf": [
         {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "General"
+            },
+            "general": {
+              "$ref": "#/$defs/GeneralAnimalCare"
+            }
+          },
+          "required": [
+            "tag",
+            "general"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Feed"
+            },
+            "feed": {
+              "$ref": "#/$defs/AnimalFeed"
+            }
+          },
+          "required": [
+            "tag",
+            "feed"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "GeneralAnimalCare": {
+      "type": "object",
+      "properties": {
+        "cost": {
+          "description": "The cost in silverthalers.",
           "$ref": "./_Item.schema.json#/$defs/Cost"
         },
+        "weight": {
+          "description": "The weight in kg.",
+          "$ref": "./_Item.schema.json#/$defs/Weight"
+        }
+      },
+      "required": [
+        "cost",
+        "weight"
+      ],
+      "additionalProperties": false
+    },
+    "AnimalFeed": {
+      "type": "object",
+      "properties": {
+        "cost": {
+          "description": "The cost in silverthalers.",
+          "$ref": "#/$defs/AnimalFeedCost"
+        }
+      },
+      "required": [
+        "cost"
+      ],
+      "additionalProperties": false
+    },
+    "AnimalFeedCost": {
+      "oneOf": [
         {
           "type": "object",
           "properties": {
