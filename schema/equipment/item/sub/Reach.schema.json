@@ -1,19 +1,14 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "/equipment/ArmorType.schema.json",
-  "$ref": "#/$defs/ArmorType",
+  "$id": "/equipment/item/sub/Reach.schema.json",
+  "$ref": "#/$defs/Reach",
   "$defs": {
-    "ArmorType": {
-      "title": "Armor Type",
+    "Reach": {
+      "title": "Reach",
       "type": "object",
       "properties": {
         "id": {
-          "description": "The armor type's identifier. An unique, increasing integer.",
-          "type": "integer",
-          "minimum": 1
-        },
-        "sturdiness_rating": {
-          "description": "Each armor type has a *sturdiness rating*. The higher the rating, the more\ndurable the armor. Rolling higher than this rating during a sturdiness\ncheck means the armor receives one level of the new condition *Wear*.",
+          "description": "The reach's identifier. An unique, increasing integer.",
           "type": "integer",
           "minimum": 1
         },
@@ -22,7 +17,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "$ref": "#/$defs/ArmorTypeTranslation"
+              "$ref": "#/$defs/ReachTranslation"
             }
           },
           "minProperties": 1,
@@ -31,17 +26,16 @@
       },
       "required": [
         "id",
-        "sturdiness_rating",
         "translations"
       ],
       "additionalProperties": false
     },
-    "ArmorTypeTranslation": {
+    "ReachTranslation": {
       "type": "object",
       "properties": {
         "name": {
-          "description": "The name of the armor type.",
-          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+          "description": "The name of the reach.",
+          "$ref": "../../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
         }
       },
       "required": [

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "/equipment/Poison.schema.json",
+  "$id": "/equipment/item/Poison.schema.json",
   "$ref": "#/$defs/Poison",
   "$defs": {
     "Poison": {
@@ -31,7 +31,7 @@
         },
         "resistance": {
           "description": "Use Spirit or Toughness as a modifier for the poison.",
-          "$ref": "../_DiseasePoison.schema.json#/$defs/Resistance"
+          "$ref": "../../_DiseasePoison.schema.json#/$defs/Resistance"
         },
         "value": {
           "description": "The raw (ingredients) value, in silverthalers.",
@@ -44,7 +44,7 @@
           "minimum": 1
         },
         "src": {
-          "$ref": "../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
+          "$ref": "../../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -311,21 +311,21 @@
       "properties": {
         "ingestion": {
           "description": "How to ingest the intoxicant.",
-          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "side_effect": {
           "description": "The intoxicants side effects, if any.",
-          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
         },
         "overdose": {
           "description": "What happens if the intoxicant has been overdosed.",
-          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
         },
         "special": {
-          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
         },
         "addiction": {
-          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
         }
       },
       "required": [
@@ -339,19 +339,19 @@
       "properties": {
         "name": {
           "description": "The name of the poison.",
-          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "alternative_names": {
           "description": "A list of alternative names.",
           "type": "array",
           "items": {
-            "$ref": "../_AlternativeNames.schema.json#/$defs/AlternativeName"
+            "$ref": "../../_AlternativeNames.schema.json#/$defs/AlternativeName"
           },
           "minItems": 1
         },
         "effect": {
           "description": "The normal and degraded poison's effects.",
-          "$ref": "../_DiseasePoison.schema.json#/$defs/Reduceable"
+          "$ref": "../../_DiseasePoison.schema.json#/$defs/Reduceable"
         },
         "start": {
           "description": "When the poison takes effect.",
@@ -360,10 +360,10 @@
         },
         "duration": {
           "description": "The normal and degraded poison's duration.",
-          "$ref": "../_DiseasePoison.schema.json#/$defs/Reduceable"
+          "$ref": "../../_DiseasePoison.schema.json#/$defs/Reduceable"
         },
         "errata": {
-          "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
+          "$ref": "../../source/_Erratum.schema.json#/$defs/Errata"
         }
       },
       "required": [

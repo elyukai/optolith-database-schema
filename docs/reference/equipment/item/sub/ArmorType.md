@@ -57,4 +57,4 @@ Key | Description | Details
 
 The name of the armor type.
 
-- **Type:** <a href="../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="../../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

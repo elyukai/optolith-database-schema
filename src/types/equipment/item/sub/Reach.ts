@@ -2,9 +2,9 @@
  * @main Reach
  */
 
-import { validateSchemaCreator } from "../../validation/schema.js"
-import { LocaleMap } from "../_LocaleMap.js"
-import { NonEmptyString } from "../_NonEmptyString.js"
+import { validateSchemaCreator } from "../../../../validation/schema.js"
+import { LocaleMap } from "../../../_LocaleMap.js"
+import { NonEmptyString } from "../../../_NonEmptyString.js"
 
 /**
  * @title Reach
