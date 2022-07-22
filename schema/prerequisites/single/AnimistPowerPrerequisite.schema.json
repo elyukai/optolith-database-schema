@@ -15,6 +15,7 @@
         "level": {
           "description": "The level to which the minimum value applies.",
           "type": "integer",
+          "default": 1,
           "minimum": 2
         },
         "value": {

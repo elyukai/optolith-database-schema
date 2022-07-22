@@ -1594,6 +1594,7 @@ This number is multiplied with the improvement cost of the entry
 (A = 1 to D = 4).
 
 - **Type:** Integer
+- **Default:** `1`
 - **Minimum:** `2`
 
 #### <a name="DeriveAdventurePointsValueFromImprovementCost/offset"></a> `offset?`
@@ -1601,3 +1602,4 @@ This number is multiplied with the improvement cost of the entry
 This number is added to the multiplied improvement cost of the entry.
 
 - **Type:** Integer
+- **Default:** `0`

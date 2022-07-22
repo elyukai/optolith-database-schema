@@ -57,7 +57,8 @@
         },
         "flat": {
           "description": "Flat damage, if any. It gets added to the result of the dice rolls.",
-          "type": "integer"
+          "type": "integer",
+          "default": 0
         }
       },
       "required": [

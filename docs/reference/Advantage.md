@@ -59,6 +59,7 @@ Does this advantage count towards the maximum of AP to be spent on
 advantages?
 
 - **Type:** Boolean
+- **Default:** `true`
 
 #### <a name="Advantage/is_exclusive_to_arcane_spellworks"></a> `is_exclusive_to_arcane_spellworks`
 
@@ -66,6 +67,7 @@ Does this advantage exclusively applies to arcane spellworks and not
 to magical actions and magical applications?
 
 - **Type:** Boolean
+- **Default:** `false`
 
 #### <a name="Advantage/src"></a> `src`
 

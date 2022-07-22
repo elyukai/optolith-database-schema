@@ -30,6 +30,7 @@
         "max_level": {
           "description": "The maximum possible level of the language. Only specified if lower than\ndefault of 3.",
           "type": "number",
+          "default": 3,
           "maximum": 2,
           "minimum": 1
         },

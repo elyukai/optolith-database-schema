@@ -27,6 +27,7 @@ The animist power's identifier.
 The level to which the minimum value applies.
 
 - **Type:** Integer
+- **Default:** `1`
 - **Minimum:** `2`
 
 #### <a name="AnimistPowerPrerequisite/value"></a> `value`

@@ -48,6 +48,7 @@ The maximum possible level of the language. Only specified if lower than
 default of 3.
 
 - **Type:** Number
+- **Default:** `3`
 - **Minimum:** `1`
 - **Maximum:** `2`
 

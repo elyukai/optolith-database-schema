@@ -298,6 +298,7 @@ The experience level this profession targets. The experience level
 must be unique for this representation.
 
 - **Type:** Integer
+- **Default:** `3`
 - **Minimum:** `1`
 - **Maximum:** `7`
 

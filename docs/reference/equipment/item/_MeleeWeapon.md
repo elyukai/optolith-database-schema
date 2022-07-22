@@ -63,6 +63,7 @@ How many dice of which type are rolled to get the damage.
 Flat damage, if any. It gets added to the result of the dice rolls.
 
 - **Type:** Integer
+- **Default:** `0`
 
 ---
 
@@ -135,6 +136,7 @@ Key | Description | Details
 The attack penalty from the shield.
 
 - **Type:** Integer
+- **Default:** `1`
 
 ---
 

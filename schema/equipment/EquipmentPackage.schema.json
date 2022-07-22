@@ -49,6 +49,7 @@
         "number": {
           "description": "The number of how often the item is included in the package.",
           "type": "integer",
+          "default": 1,
           "minimum": 2
         }
       },

@@ -32,12 +32,14 @@ export type Advantage = {
   /**
    * Does this advantage count towards the maximum of AP to be spent on
    * advantages?
+   * @default true
    */
   has_maximum_spent_influence: boolean
 
   /**
    * Does this advantage exclusively applies to arcane spellworks and not
    * to magical actions and magical applications?
+   * @default false
    */
   is_exclusive_to_arcane_spellworks: boolean
 

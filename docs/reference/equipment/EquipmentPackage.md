@@ -72,6 +72,7 @@ The item's identifier.
 The number of how often the item is included in the package.
 
 - **Type:** Integer
+- **Default:** `1`
 - **Minimum:** `2`
 
 ---

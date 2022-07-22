@@ -33,11 +33,13 @@
         },
         "has_maximum_spent_influence": {
           "description": "Does this advantage count towards the maximum of AP to be spent on\nadvantages?",
-          "type": "boolean"
+          "type": "boolean",
+          "default": true
         },
         "is_exclusive_to_arcane_spellworks": {
           "description": "Does this advantage exclusively applies to arcane spellworks and not\nto magical actions and magical applications?",
-          "type": "boolean"
+          "type": "boolean",
+          "default": false
         },
         "src": {
           "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"

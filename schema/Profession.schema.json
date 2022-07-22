@@ -220,6 +220,7 @@
         "experience_level_id": {
           "description": "The experience level this profession targets. The experience level\nmust be unique for this representation.",
           "type": "integer",
+          "default": 3,
           "maximum": 7,
           "minimum": 1
         },
