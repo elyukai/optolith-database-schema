@@ -128,12 +128,15 @@ export type SkillsSelectOptionCategory = {
 }
 
 export type SkillsSelectOptionCategoryCategory =
-  | { tag: "Skills"; close_combat_techniques: SkillSelectOptionCategoryCategory }
-  | { tag: "Spells"; spells: GenericSkillsSelectOptionCategoryCategory<SpellReference> }
-  | { tag: "Rituals"; rituals: GenericSkillsSelectOptionCategoryCategory<RitualReference> }
-  | { tag: "LiturgicalChants"; liturgical_chants: GenericSkillsSelectOptionCategoryCategory<LiturgicalChantReference> }
-  | { tag: "Ceremonies"; ceremonies: GenericSkillsSelectOptionCategoryCategory<CeremonyReference> }
+  | { tag: "Skills"; skills?: SkillSelectOptionCategoryCategory }
+  | { tag: "Spells"; spells?: GenericSkillsSelectOptionCategoryCategory<SpellReference> }
+  | { tag: "Rituals"; rituals?: GenericSkillsSelectOptionCategoryCategory<RitualReference> }
+  | { tag: "LiturgicalChants"; liturgical_chants?: GenericSkillsSelectOptionCategoryCategory<LiturgicalChantReference> }
+  | { tag: "Ceremonies"; ceremonies?: GenericSkillsSelectOptionCategoryCategory<CeremonyReference> }
 
+/**
+ * @minProperties 1
+ */
 export type SkillSelectOptionCategoryCategory = {
   /**
    * Only include entries of the specified groups.
@@ -171,7 +174,7 @@ export type SkillSelectOptionCategoryCategory = {
    * Generate prerequisites for each entry of the category.
    * @minItems 1
    */
-  prerequisites?: SkillSelectOptionCategoryPrerequisite
+  prerequisites?: SkillSelectOptionCategoryPrerequisite[]
 }
 
 export type CombatTechniquesSelectOptionCategory = {
@@ -188,8 +191,8 @@ export type CombatTechniquesSelectOptionCategory = {
 }
 
 export type CombatTechniquesSelectOptionCategoryCategory =
-  | { tag: "CloseCombatTechniques"; close_combat_techniques: GenericSkillsSelectOptionCategoryCategory<CloseCombatTechniqueReference> }
-  | { tag: "RangedCombatTechniques"; ranged_combat_techniques: GenericSkillsSelectOptionCategoryCategory<RangedCombatTechniqueReference> }
+  | { tag: "CloseCombatTechniques"; close_combat_techniques?: GenericSkillsSelectOptionCategoryCategory<CloseCombatTechniqueReference> }
+  | { tag: "RangedCombatTechniques"; ranged_combat_techniques?: GenericSkillsSelectOptionCategoryCategory<RangedCombatTechniqueReference> }
 
 export type SkillApplicationOrUse = {
   /**
@@ -253,8 +256,6 @@ export type SkillSelectOptionCategoryPrerequisite =
   | { tag: "SelectOption"; select_option: OptionPrerequisite }
 
 export type SelfPrerequisite = {
-  tag: "Self"
-
   /**
    * The entry requires itself on a certain Skill Rating.
    * @integer
@@ -267,8 +268,6 @@ export type SelfPrerequisite = {
  * The entry requires or prohibits itself as a select option of another entry.
  */
 export type OptionPrerequisite = {
-  tag: "SelectOption"
-
   /**
    * The target entry's identifier.
    */

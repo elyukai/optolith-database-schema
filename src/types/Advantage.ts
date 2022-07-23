@@ -27,7 +27,7 @@ export type Advantage = {
 
   prerequisites?: AdvantageDisadvantagePrerequisites
 
-  ap_value: Activatable.AdventurePointsValueAdvantagesDisadvantages
+  ap_value: Activatable.AdventurePointsValue
 
   /**
    * Does this advantage count towards the maximum of AP to be spent on

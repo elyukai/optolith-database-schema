@@ -84,13 +84,13 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ProfessionGroup'Magical/tag">See details</a>
-`magical` |  | <a href="#ProfessionGroup'Magical/magical">See details</a>
+`magical?` |  | <a href="#ProfessionGroup'Magical/magical">See details</a>
 
 #### <a name="ProfessionGroup'Magical/tag"></a> `tag`
 
 - **Constant:** `"Magical"`
 
-#### <a name="ProfessionGroup'Magical/magical"></a> `magical`
+#### <a name="ProfessionGroup'Magical/magical"></a> `magical?`
 
 - **Type:** <a href="#MagicalProfessionGroup">MagicalProfessionGroup</a>
 
@@ -162,6 +162,7 @@ Key | Description | Details
 ### <a name="MagicalProfessionGroup"></a> `MagicalProfessionGroup`
 
 - **Type:** Object
+- **Minimum Properties:** `1`
 
 Key | Description | Details
 :-- | :-- | :--
@@ -227,8 +228,9 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `id` | The profession representation variant's identifier. An unique, increasing integer. | <a href="#ExperiencedProfessionPackage/id">See details</a>
-`values` |  | <a href="#ExperiencedProfessionPackage/values">See details</a>
+`package` |  | <a href="#ExperiencedProfessionPackage/package">See details</a>
 `src` |  | <a href="#ExperiencedProfessionPackage/src">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ExperiencedProfessionPackage/translations">See details</a>
 
 #### <a name="ExperiencedProfessionPackage/id"></a> `id`
 
@@ -238,13 +240,28 @@ integer.
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="ExperiencedProfessionPackage/values"></a> `values`
+#### <a name="ExperiencedProfessionPackage/package"></a> `package`
 
 - **Type:** <a href="#ProfessionPackage">ProfessionPackage</a>
 
 #### <a name="ExperiencedProfessionPackage/src"></a> `src`
 
 - **Type:** <a href="./source/_PublicationRef.md#PublicationRefs">PublicationRefs</a>
+
+#### <a name="ExperiencedProfessionPackage/translations"></a> `translations`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#ExperiencedProfessionPackage/translations[key]">ExperiencedProfessionPackage/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="ExperiencedProfessionPackage/translations[key]"></a> `ExperiencedProfessionPackage/translations[key]`
+
+- **Type:** <a href="#ProfessionTranslation">ProfessionTranslation</a>
 
 ---
 
@@ -255,8 +272,9 @@ integer.
 Key | Description | Details
 :-- | :-- | :--
 `id` | The profession representation variant's identifier. An unique, increasing integer. | <a href="#ProfessionPackagesForDifferentExperienceLevels/id">See details</a>
-`values_map` |  | <a href="#ProfessionPackagesForDifferentExperienceLevels/values_map">See details</a>
+`packages_map` |  | <a href="#ProfessionPackagesForDifferentExperienceLevels/packages_map">See details</a>
 `src` |  | <a href="#ProfessionPackagesForDifferentExperienceLevels/src">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ProfessionPackagesForDifferentExperienceLevels/translations">See details</a>
 
 #### <a name="ProfessionPackagesForDifferentExperienceLevels/id"></a> `id`
 
@@ -266,20 +284,35 @@ integer.
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="ProfessionPackagesForDifferentExperienceLevels/values_map"></a> `values_map`
+#### <a name="ProfessionPackagesForDifferentExperienceLevels/packages_map"></a> `packages_map`
 
 - **Type:** List
-- **Items:** <a href="#ProfessionPackagesForDifferentExperienceLevels/values_map[]">ProfessionPackagesForDifferentExperienceLevels/values_map[]</a>
+- **Items:** <a href="#ProfessionPackagesForDifferentExperienceLevels/packages_map[]">ProfessionPackagesForDifferentExperienceLevels/packages_map[]</a>
 
 #### <a name="ProfessionPackagesForDifferentExperienceLevels/src"></a> `src`
 
 - **Type:** <a href="./source/_PublicationRef.md#PublicationRefs">PublicationRefs</a>
 
+#### <a name="ProfessionPackagesForDifferentExperienceLevels/translations"></a> `translations`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#ProfessionPackagesForDifferentExperienceLevels/translations[key]">ProfessionPackagesForDifferentExperienceLevels/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
 ---
 
-### <a name="ProfessionPackagesForDifferentExperienceLevels/values_map[]"></a> `ProfessionPackagesForDifferentExperienceLevels/values_map[]`
+### <a name="ProfessionPackagesForDifferentExperienceLevels/packages_map[]"></a> `ProfessionPackagesForDifferentExperienceLevels/packages_map[]`
 
 - **Type:** <a href="#ExperienceLevelDynamicProfessionPackage">ExperienceLevelDynamicProfessionPackage</a>
+
+---
+
+### <a name="ProfessionPackagesForDifferentExperienceLevels/translations[key]"></a> `ProfessionPackagesForDifferentExperienceLevels/translations[key]`
+
+- **Type:** <a href="#ProfessionTranslation">ProfessionTranslation</a>
 
 ---
 
@@ -290,7 +323,7 @@ integer.
 Key | Description | Details
 :-- | :-- | :--
 `experience_level_id` | The experience level this profession targets. The experience level must be unique for this representation. | <a href="#ExperienceLevelDynamicProfessionPackage/experience_level_id">See details</a>
-`values` |  | <a href="#ExperienceLevelDynamicProfessionPackage/values">See details</a>
+`package` |  | <a href="#ExperienceLevelDynamicProfessionPackage/package">See details</a>
 
 #### <a name="ExperienceLevelDynamicProfessionPackage/experience_level_id"></a> `experience_level_id`
 
@@ -302,7 +335,7 @@ must be unique for this representation.
 - **Minimum:** `1`
 - **Maximum:** `7`
 
-#### <a name="ExperienceLevelDynamicProfessionPackage/values"></a> `values`
+#### <a name="ExperienceLevelDynamicProfessionPackage/package"></a> `package`
 
 - **Type:** <a href="#ProfessionPackage">ProfessionPackage</a>
 
@@ -327,7 +360,6 @@ Key | Description | Details
 `unsuitable_advantages?` | These advantages do not fit well with this profession; to be checked with the GM before taking any of them. | <a href="#ProfessionPackage/unsuitable_advantages">See details</a>
 `unsuitable_disadvantages?` | These disadvantages do not fit well with this profession; to be checked with the GM before taking any of them. | <a href="#ProfessionPackage/unsuitable_disadvantages">See details</a>
 `variants?` | Provides examples of variants for the profession, which may include changes to AP values and additional or modified skill ratings, special abilities, or combat techniques, as compared to the basic profession. Usually picking a variant is optional, but there are some rare exceptions where picking a variant is required. | <a href="#ProfessionPackage/variants">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ProfessionPackage/translations">See details</a>
 
 #### <a name="ProfessionPackage/ap_value"></a> `ap_value`
 
@@ -434,15 +466,6 @@ variant is required.
 
 - **Type:** <a href="#ProfessionVariants">ProfessionVariants</a>
 
-#### <a name="ProfessionPackage/translations"></a> `translations`
-
-All translations for the entry, identified by IETF language tag (BCP47).
-
-- **Type:** Dictionary
-- **Property Values:** <a href="#ProfessionPackage/translations[key]">ProfessionPackage/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
 ---
 
 ### <a name="ProfessionPackage/special_abilities[]"></a> `ProfessionPackage/special_abilities[]`
@@ -496,12 +519,6 @@ All translations for the entry, identified by IETF language tag (BCP47).
 ### <a name="ProfessionPackage/unsuitable_disadvantages[]"></a> `ProfessionPackage/unsuitable_disadvantages[]`
 
 - **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
-
----
-
-### <a name="ProfessionPackage/translations[key]"></a> `ProfessionPackage/translations[key]`
-
-- **Type:** <a href="#ProfessionTranslation">ProfessionTranslation</a>
 
 ---
 
@@ -989,7 +1006,7 @@ is removed.
 Key | Description | Details
 :-- | :-- | :--
 `id` | The identifier of the combat technique to provide the rating for. | <a href="#CombatTechniqueRating/id">See details</a>
-`rating` | The rating provided for the combat technique. If used in a profession variant, it overrides the basic package's rating. | <a href="#CombatTechniqueRating/rating">See details</a>
+`rating` | The rating bonus provided for the combat technique. If used in a profession variant, it can also be used to lower the bonus of the base profession. | <a href="#CombatTechniqueRating/rating">See details</a>
 
 #### <a name="CombatTechniqueRating/id"></a> `id`
 
@@ -999,11 +1016,15 @@ The identifier of the combat technique to provide the rating for.
 
 #### <a name="CombatTechniqueRating/rating"></a> `rating`
 
-The rating provided for the combat technique. If used in a profession
-variant, it overrides the basic package's rating.
+The rating bonus provided for the combat technique. If used in a profession
+variant, it can also be used to lower the bonus of the base profession.
+
+**Note:** This is a rating *bonus*, so it will be *added* to the default
+value of 6.
 
 - **Type:** Integer
-- **Minimum:** `6`
+- **Minimum:** `-6`
+- **Maximum:** `6`
 
 ---
 
@@ -1014,7 +1035,7 @@ variant, it overrides the basic package's rating.
 Key | Description | Details
 :-- | :-- | :--
 `id` | The identifier of the skill to provide the rating for. | <a href="#SkillRating/id">See details</a>
-`rating` | The rating provided for the skill. If used in a profession variant, it overrides the basic package's rating. | <a href="#SkillRating/rating">See details</a>
+`rating` | The rating bonus provided for the skill. If used in a profession variant, it can also be used to lower the bonus of the base profession | <a href="#SkillRating/rating">See details</a>
 
 #### <a name="SkillRating/id"></a> `id`
 
@@ -1026,11 +1047,12 @@ The identifier of the skill to provide the rating for.
 
 #### <a name="SkillRating/rating"></a> `rating`
 
-The rating provided for the skill. If used in a profession variant, it
-overrides the basic package's rating.
+The rating bonus provided for the skill. If used in a profession variant,
+it can also be used to lower the bonus of the base profession
 
 - **Type:** Integer
-- **Minimum:** `0`
+- **Minimum:** `-8`
+- **Maximum:** `8`
 
 ---
 
@@ -1041,7 +1063,7 @@ overrides the basic package's rating.
 Key | Description | Details
 :-- | :-- | :--
 `id` | The identifier(s) of the spell(s) to choose from to provide the rating for. If multiple spells are provided, they must all have the same improvement cost. | <a href="#SpellRating/id">See details</a>
-`rating` | The rating provided for the (selected) spell. If used in a profession variant, it overrides the basic package's rating. | <a href="#SpellRating/rating">See details</a>
+`rating` | The rating bonus provided for the (selected) spell. If used in a profession variant, it can also be used to lower the bonus of the base profession. | <a href="#SpellRating/rating">See details</a>
 
 #### <a name="SpellRating/id"></a> `id`
 
@@ -1055,11 +1077,12 @@ cost.
 
 #### <a name="SpellRating/rating"></a> `rating`
 
-The rating provided for the (selected) spell. If used in a profession
-variant, it overrides the basic package's rating.
+The rating bonus provided for the (selected) spell. If used in a profession
+variant, it can also be used to lower the bonus of the base profession.
 
 - **Type:** Integer
-- **Minimum:** `0`
+- **Minimum:** `-10`
+- **Maximum:** `10`
 
 ---
 
@@ -1083,51 +1106,15 @@ variant, it overrides the basic package's rating.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#SpellIdentifier'Spellwork/tag">See details</a>
-`id` | The identifier of the spell to provide the rating for. | <a href="#SpellIdentifier'Spellwork/id">See details</a>
-`tradition?` | If the spell is not part of the magical tradition required by the package, this references the magical tradition it is part of. It can also be used to define the target magical tradition of a spell if multiple magical traditions are required and the spell is available to multiple of them. | <a href="#SpellIdentifier'Spellwork/tradition">See details</a>
+`spellwork` |  | <a href="#SpellIdentifier'Spellwork/spellwork">See details</a>
 
 #### <a name="SpellIdentifier'Spellwork/tag"></a> `tag`
 
 - **Constant:** `"Spellwork"`
 
-#### <a name="SpellIdentifier'Spellwork/id"></a> `id`
+#### <a name="SpellIdentifier'Spellwork/spellwork"></a> `spellwork`
 
-The identifier of the spell to provide the rating for.
-
-- **Type:** <a href="./_Identifier.md#SpellworkIdentifier">SpellworkIdentifier</a>
-
-#### <a name="SpellIdentifier'Spellwork/tradition"></a> `tradition?`
-
-If the spell is not part of the magical tradition required by the
-package, this references the magical tradition it is part of. It can also
-be used to define the target magical tradition of a spell if multiple
-magical traditions are required and the spell is available to multiple
-of them.
-
-- **Type:** <a href="#SpellIdentifier'Spellwork/tradition">Object</a>
-
----
-
-### <a name="SpellIdentifier'Spellwork/tradition"></a> `SpellIdentifier'Spellwork/tradition`
-
-If the spell is not part of the magical tradition required by the
-package, this references the magical tradition it is part of. It can also
-be used to define the target magical tradition of a spell if multiple
-magical traditions are required and the spell is available to multiple
-of them.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The unfamiliar or ambiguous magical tradition's identifier. | <a href="#SpellIdentifier'Spellwork/tradition/id">See details</a>
-
-#### <a name="SpellIdentifier'Spellwork/tradition/id"></a> `id`
-
-The unfamiliar or ambiguous magical tradition's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="#ProfessionSpellworkIdentifier">ProfessionSpellworkIdentifier</a>
 
 ---
 
@@ -1138,13 +1125,54 @@ The unfamiliar or ambiguous magical tradition's identifier.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#SpellIdentifier'MagicalAction/tag">See details</a>
-`id` | The identifier of the magical action to provide the rating for. | <a href="#SpellIdentifier'MagicalAction/id">See details</a>
+`magical_action` |  | <a href="#SpellIdentifier'MagicalAction/magical_action">See details</a>
 
 #### <a name="SpellIdentifier'MagicalAction/tag"></a> `tag`
 
 - **Constant:** `"MagicalAction"`
 
-#### <a name="SpellIdentifier'MagicalAction/id"></a> `id`
+#### <a name="SpellIdentifier'MagicalAction/magical_action"></a> `magical_action`
+
+- **Type:** <a href="#ProfessionMagicalActionIdentifier">ProfessionMagicalActionIdentifier</a>
+
+---
+
+### <a name="ProfessionSpellworkIdentifier"></a> `ProfessionSpellworkIdentifier`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The identifier of the spell to provide the rating for. | <a href="#ProfessionSpellworkIdentifier/id">See details</a>
+`tradition?` | If the spell is not part of the magical tradition required by the package, this references the magical tradition it is part of. It can also be used to define the target magical tradition of a spell if multiple magical traditions are required and the spell is available to multiple of them. | <a href="#ProfessionSpellworkIdentifier/tradition">See details</a>
+
+#### <a name="ProfessionSpellworkIdentifier/id"></a> `id`
+
+The identifier of the spell to provide the rating for.
+
+- **Type:** <a href="./_Identifier.md#SpellworkIdentifier">SpellworkIdentifier</a>
+
+#### <a name="ProfessionSpellworkIdentifier/tradition"></a> `tradition?`
+
+If the spell is not part of the magical tradition required by the
+package, this references the magical tradition it is part of. It can also
+be used to define the target magical tradition of a spell if multiple
+magical traditions are required and the spell is available to multiple
+of them.
+
+- **Type:** <a href="./_SimpleReferences.md#MagicalTraditionReference">MagicalTraditionReference</a>
+
+---
+
+### <a name="ProfessionMagicalActionIdentifier"></a> `ProfessionMagicalActionIdentifier`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The identifier of the magical action to provide the rating for. | <a href="#ProfessionMagicalActionIdentifier/id">See details</a>
+
+#### <a name="ProfessionMagicalActionIdentifier/id"></a> `id`
 
 The identifier of the magical action to provide the rating for.
 
@@ -1159,7 +1187,7 @@ The identifier of the magical action to provide the rating for.
 Key | Description | Details
 :-- | :-- | :--
 `id` | The identifier(s) of the liturgical chant(s) to choose from to provide the rating for. If multiple liturgical chants are provided, they must all have the same improvement cost. | <a href="#LiturgicalChantRating/id">See details</a>
-`rating` | The rating provided for the selected liturgical chant. If used in a profession variant, it overrides the basic package's rating. | <a href="#LiturgicalChantRating/rating">See details</a>
+`rating` | The rating bonus provided for the selected liturgical chant. If used in a profession variant, it can also be used to lower the bonus of the base profession. | <a href="#LiturgicalChantRating/rating">See details</a>
 
 #### <a name="LiturgicalChantRating/id"></a> `id`
 
@@ -1173,11 +1201,13 @@ have the same improvement cost.
 
 #### <a name="LiturgicalChantRating/rating"></a> `rating`
 
-The rating provided for the selected liturgical chant. If used in a
-profession variant, it overrides the basic package's rating.
+The rating bonus provided for the selected liturgical chant. If used in a
+profession variant, it can also be used to lower the bonus of the base
+profession.
 
 - **Type:** Integer
-- **Minimum:** `0`
+- **Minimum:** `-10`
+- **Maximum:** `10`
 
 ---
 
@@ -1631,7 +1661,7 @@ Select one or more combat techniques you get a CtR bonus for.
 Key | Description | Details
 :-- | :-- | :--
 `fixed` | Specify the number of combat techniques that can be selected so that they get increased to a specific CtR. There can be multiple selections with different CtRs. | <a href="#CombatTechniquesOptions/fixed">See details</a>
-`rest_rating?` | Define if after the fixed selections the remaining unselected combat techniques will receive a certain rating as well. | <a href="#CombatTechniquesOptions/rest_rating">See details</a>
+`rest_rating?` | Define if after the fixed selections the remaining unselected combat techniques will receive a certain rating bonus as well. | <a href="#CombatTechniquesOptions/rest_rating">See details</a>
 `options` | The list of combat techniques to choose from. | <a href="#CombatTechniquesOptions/options">See details</a>
 
 #### <a name="CombatTechniquesOptions/fixed"></a> `fixed`
@@ -1647,10 +1677,11 @@ different CtRs.
 #### <a name="CombatTechniquesOptions/rest_rating"></a> `rest_rating?`
 
 Define if after the fixed selections the remaining unselected combat
-techniques will receive a certain rating as well.
+techniques will receive a certain rating bonus as well.
 
 - **Type:** Integer
-- **Minimum:** `7`
+- **Minimum:** `1`
+- **Maximum:** `6`
 
 #### <a name="CombatTechniquesOptions/options"></a> `options`
 
@@ -1681,7 +1712,7 @@ The list of combat techniques to choose from.
 Key | Description | Details
 :-- | :-- | :--
 `number` | The number of selectable combat techniques. | <a href="#RatingForCombatTechniquesNumber/number">See details</a>
-`rating` | The rating provided for the selected combat technique(s). | <a href="#RatingForCombatTechniquesNumber/rating">See details</a>
+`rating` | The rating bonus provided for the selected combat technique(s). | <a href="#RatingForCombatTechniquesNumber/rating">See details</a>
 
 #### <a name="RatingForCombatTechniquesNumber/number"></a> `number`
 
@@ -1692,10 +1723,14 @@ The number of selectable combat techniques.
 
 #### <a name="RatingForCombatTechniquesNumber/rating"></a> `rating`
 
-The rating provided for the selected combat technique(s).
+The rating bonus provided for the selected combat technique(s).
+
+**Note:** This is a rating *bonus*, so it will be *added* to the default
+value of 6.
 
 - **Type:** Integer
-- **Minimum:** `7`
+- **Minimum:** `1`
+- **Maximum:** `6`
 
 ---
 

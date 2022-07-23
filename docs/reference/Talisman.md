@@ -155,8 +155,8 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `name` | The name of the talisman. | <a href="#TalismanTranslation/name">See details</a>
-`description` | The effect description. | <a href="#TalismanTranslation/description">See details</a>
-`activation` | The activation parameters. | <a href="#TalismanTranslation/activation">See details</a>
+`effect` | The effect description. | <a href="#TalismanTranslation/effect">See details</a>
+`activation?` | The activation parameters. | <a href="#TalismanTranslation/activation">See details</a>
 `errata?` |  | <a href="#TalismanTranslation/errata">See details</a>
 
 #### <a name="TalismanTranslation/name"></a> `name`
@@ -165,13 +165,13 @@ The name of the talisman.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="TalismanTranslation/description"></a> `description`
+#### <a name="TalismanTranslation/effect"></a> `effect`
 
 The effect description.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
-#### <a name="TalismanTranslation/activation"></a> `activation`
+#### <a name="TalismanTranslation/activation"></a> `activation?`
 
 The activation parameters.
 
@@ -196,7 +196,8 @@ Key | Description | Details
 
 The KP cost.
 
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+- **Type:** Integer
+- **Minimum:** `0`
 
 #### <a name="TalismanActivationTranslation/duration"></a> `duration`
 

@@ -1,5 +1,5 @@
-import { LocaleMap } from "../../_LocaleMap"
-import { NonEmptyMarkdown } from "../../_NonEmptyString"
+import { LocaleMap } from "../../_LocaleMap.js"
+import { NonEmptyMarkdown } from "../../_NonEmptyString.js"
 
 /**
  * A prerequisite that is either not verifyable in general – e.g. roleplay or
@@ -19,7 +19,7 @@ export type TextPrerequisite = {
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
    */
-  translations: LocaleMap<TextVerificationRule>
+  translations: LocaleMap<TextPrerequisiteTranslation>
 }
 
 export type TextVerificationRule =

@@ -6,11 +6,11 @@ import { NonEmptyString } from "../_NonEmptyString.js"
  */
 export type DisplayOption =
   | { tag: "Hide" }
-  | {
-    tag: "ReplaceWith"
+  | { tag: "ReplaceWith"; replace_with: ReplacementDisplayOption }
 
-    /**
-     * All translations for the entry, identified by IETF language tag (BCP47).
-     */
-    translations: LocaleMap<NonEmptyString>
-  }
+export type ReplacementDisplayOption = {
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translations: LocaleMap<NonEmptyString>
+}

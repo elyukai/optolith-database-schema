@@ -29,7 +29,7 @@
           "$ref": "./_Prerequisite.schema.json#/$defs/AdvantageDisadvantagePrerequisites"
         },
         "ap_value": {
-          "$ref": "./_Activatable.schema.json#/$defs/AdventurePointsValueAdvantagesDisadvantages"
+          "$ref": "./_Activatable.schema.json#/$defs/AdventurePointsValue"
         },
         "has_maximum_spent_influence": {
           "description": "Does this advantage count towards the maximum of AP to be spent on\nadvantages?",

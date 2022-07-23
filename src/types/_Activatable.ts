@@ -7,7 +7,6 @@ import { DisplayOption } from "./prerequisites/DisplayOption.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 import { SelectOptionCategory, SkillApplicationOrUse } from "./_ActivatableSelectOptionCategory.js"
-import { CheckResultBasedModifier } from "./_ActivatableSkillCheckResultBased.js"
 import { DurationUnitValue } from "./_ActivatableSkillDuration.js"
 import { AdvancedSpecialAbilityRestrictedOptionIdentifier, CombatRelatedSpecialAbilityIdentifier, CombatTechniqueIdentifier, MagicalTraditionIdentifier, PatronIdentifier, VolumePointsOptionReferenceIdentifier } from "./_Identifier.js"
 import { LocaleMap } from "./_LocaleMap.js"
@@ -79,9 +78,8 @@ export type SelectOptions = {
    * entries from the specified categories will be included as separate select
    * options. You can also specify a set of groups that should only be
    * included. Groups not mentioned will be excluded then.
-   * @minItems 1
    */
-  derived?: SelectOptionCategory[]
+  derived?: SelectOptionCategory
 
   /**
    * A list of explicit select options. If the identifier has a specific type,
@@ -690,7 +688,7 @@ export type ArcaneEnergyCost =
   | { tag: "ActivationAndHalfInterval"; activation_and_half_interval: ActivationAndHalfIntervalArcaneEnergyCost }
   | { tag: "Indefinite"; indefinite: IndefiniteArcaneEnergyCost }
   | { tag: "Disjunction"; disjunction: ArcaneEnergyCostDisjunction }
-  | { tag: "None"; none: NoArcaneEnergyCost }
+  | { tag: "None"; none?: NoArcaneEnergyCost }
   | { tag: "Variable" }
 
 export type FixedArcaneEnergyCost = {
@@ -800,12 +798,33 @@ export type IndefiniteArcaneEnergyCost = {
   /**
    * The indefinite AE cost may be modified by a certain value.
    */
-  modifier: CheckResultBasedModifier
+  modifier: IndefiniteArcaneEnergyCostModifier
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
    */
   translations: LocaleMap<IndefiniteArcaneEnergyCostTranslation>
+}
+
+/**
+ * Defines how the the `value` is set off against the check result.
+ */
+export type IndefiniteArcaneEnergyCostArithmetic =
+  | { tag: "Add" }
+  | { tag: "Subtract" }
+
+export type IndefiniteArcaneEnergyCostModifier = {
+  /**
+   * The arithmetic how to apply the `value` to the `base`.
+   */
+  arithmetic: IndefiniteArcaneEnergyCostArithmetic
+
+  /**
+   * The value that is applied to the `base` using the defined `arithmetic`.
+   * @integer
+   * @minimum 1
+   */
+  value: number
 }
 
 export type IndefiniteArcaneEnergyCostTranslation = {
@@ -1397,62 +1416,14 @@ export type AdventurePointsValue =
  * A fixed adventure points value. If the entry has levels, this is the cost per
  * level as well.
  */
-export type FixedAdventurePointsValue = AdventurePointsValue
+export type FixedAdventurePointsValue = AdventurePointsSingleValue
 
 /**
  * An entry with levels may have different costs for each level. The length of
  * the list must match the amount of levels the special ability has.
  * @minItems 2
  */
-export type AdventurePointsValueByLevel = AdventurePointsValue
-
-export type AdventurePointsValueAdvantagesDisadvantages =
-  | {
-    tag: "Fixed"
-
-    /**
-     * A fixed adventure points value. If the entry has levels, this is the cost
-     * for each level as well.
-     */
-    value: AdventurePointsSingleValue
-
-    /**
-     * The AP Value of the entry does not contribute to the AP maximum for
-     * advantages or disadvantages, so it may also be bought if the maximum has
-     * already been reached.
-     */
-     does_not_contribute_to_maximum?: true
-  }
-  | {
-    tag: "ByLevel"
-
-    /**
-     * An entry with levels may have different costs for each level. The length
-     * of the list must match the amount of levels the special ability has.
-     * @minItems 2
-     */
-    values: AdventurePointsSingleValue[]
-
-    /**
-     * The AP Value of the entry does not contribute to the AP maximum for
-     * advantages or disadvantages, so it may also be bought if the maximum has
-     * already been reached.
-     */
-     does_not_contribute_to_maximum?: true
-  }
-  | {
-    /**
-     * Used if AP value is defined by the selected option(s) or special rules.
-     */
-    tag: "Indefinite"
-
-    /**
-     * The AP Value of the entry does not contribute to the AP maximum for
-     * advantages or disadvantages, so it may also be bought if the maximum has
-     * already been reached.
-     */
-    does_not_contribute_to_maximum?: true
-  }
+export type AdventurePointsValueByLevel = AdventurePointsSingleValue[]
 
 /**
  * A single adventure points value.

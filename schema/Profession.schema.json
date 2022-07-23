@@ -61,8 +61,7 @@
             }
           },
           "required": [
-            "tag",
-            "magical"
+            "tag"
           ],
           "additionalProperties": false
         },
@@ -129,6 +128,7 @@
         }
       },
       "required": [],
+      "minProperties": 1,
       "additionalProperties": false
     },
     "ProfessionVersion": {
@@ -175,17 +175,29 @@
           "type": "integer",
           "minimum": 1
         },
-        "values": {
+        "package": {
           "$ref": "#/$defs/ProfessionPackage"
         },
         "src": {
           "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/ProfessionTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
         }
       },
       "required": [
         "id",
-        "values",
-        "src"
+        "package",
+        "src",
+        "translations"
       ],
       "additionalProperties": false
     },
@@ -197,7 +209,7 @@
           "type": "integer",
           "minimum": 1
         },
-        "values_map": {
+        "packages_map": {
           "type": "array",
           "items": {
             "$ref": "#/$defs/ExperienceLevelDynamicProfessionPackage"
@@ -205,12 +217,24 @@
         },
         "src": {
           "$ref": "./source/_PublicationRef.schema.json#/$defs/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/ProfessionTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
         }
       },
       "required": [
         "id",
-        "values_map",
-        "src"
+        "packages_map",
+        "src",
+        "translations"
       ],
       "additionalProperties": false
     },
@@ -224,13 +248,13 @@
           "maximum": 7,
           "minimum": 1
         },
-        "values": {
+        "package": {
           "$ref": "#/$defs/ProfessionPackage"
         }
       },
       "required": [
         "experience_level_id",
-        "values"
+        "package"
       ],
       "additionalProperties": false
     },
@@ -321,22 +345,10 @@
         "variants": {
           "description": "Provides examples of variants for the profession, which may include changes\nto AP values and additional or modified skill ratings, special abilities,\nor combat techniques, as compared to the basic profession. Usually picking\na variant is optional, but there are some rare exceptions where picking a\nvariant is required.",
           "$ref": "#/$defs/ProfessionVariants"
-        },
-        "translations": {
-          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-          "type": "object",
-          "patternProperties": {
-            "^[a-z]{2}-[A-Z]{2}$": {
-              "$ref": "#/$defs/ProfessionTranslation"
-            }
-          },
-          "minProperties": 1,
-          "additionalProperties": false
         }
       },
       "required": [
-        "ap_value",
-        "translations"
+        "ap_value"
       ],
       "additionalProperties": false
     },
@@ -661,9 +673,10 @@
           "$ref": "./_Identifier.schema.json#/$defs/CombatTechniqueIdentifier"
         },
         "rating": {
-          "description": "The rating provided for the combat technique. If used in a profession\nvariant, it overrides the basic package's rating.",
+          "description": "The rating bonus provided for the combat technique. If used in a profession\nvariant, it can also be used to lower the bonus of the base profession.\n\n**Note:** This is a rating *bonus*, so it will be *added* to the default\nvalue of 6.",
           "type": "integer",
-          "minimum": 6
+          "maximum": 6,
+          "minimum": -6
         }
       },
       "required": [
@@ -682,9 +695,10 @@
           "minimum": 1
         },
         "rating": {
-          "description": "The rating provided for the skill. If used in a profession variant, it\noverrides the basic package's rating.",
+          "description": "The rating bonus provided for the skill. If used in a profession variant,\nit can also be used to lower the bonus of the base profession",
           "type": "integer",
-          "minimum": 0
+          "maximum": 8,
+          "minimum": -8
         }
       },
       "required": [
@@ -705,9 +719,10 @@
           "minItems": 1
         },
         "rating": {
-          "description": "The rating provided for the (selected) spell. If used in a profession\nvariant, it overrides the basic package's rating.",
+          "description": "The rating bonus provided for the (selected) spell. If used in a profession\nvariant, it can also be used to lower the bonus of the base profession.",
           "type": "integer",
-          "minimum": 0
+          "maximum": 10,
+          "minimum": -10
         }
       },
       "required": [
@@ -724,29 +739,13 @@
             "tag": {
               "const": "Spellwork"
             },
-            "id": {
-              "description": "The identifier of the spell to provide the rating for.",
-              "$ref": "./_Identifier.schema.json#/$defs/SpellworkIdentifier"
-            },
-            "tradition": {
-              "description": "If the spell is not part of the magical tradition required by the\npackage, this references the magical tradition it is part of. It can also\nbe used to define the target magical tradition of a spell if multiple\nmagical traditions are required and the spell is available to multiple\nof them.",
-              "type": "object",
-              "properties": {
-                "id": {
-                  "description": "The unfamiliar or ambiguous magical tradition's identifier.",
-                  "type": "integer",
-                  "minimum": 1
-                }
-              },
-              "required": [
-                "id"
-              ],
-              "additionalProperties": false
+            "spellwork": {
+              "$ref": "#/$defs/ProfessionSpellworkIdentifier"
             }
           },
           "required": [
             "tag",
-            "id"
+            "spellwork"
           ],
           "additionalProperties": false
         },
@@ -756,18 +755,47 @@
             "tag": {
               "const": "MagicalAction"
             },
-            "id": {
-              "description": "The identifier of the magical action to provide the rating for.",
-              "$ref": "./_Identifier.schema.json#/$defs/MagicalActionIdentifier"
+            "magical_action": {
+              "$ref": "#/$defs/ProfessionMagicalActionIdentifier"
             }
           },
           "required": [
             "tag",
-            "id"
+            "magical_action"
           ],
           "additionalProperties": false
         }
       ]
+    },
+    "ProfessionSpellworkIdentifier": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The identifier of the spell to provide the rating for.",
+          "$ref": "./_Identifier.schema.json#/$defs/SpellworkIdentifier"
+        },
+        "tradition": {
+          "description": "If the spell is not part of the magical tradition required by the\npackage, this references the magical tradition it is part of. It can also\nbe used to define the target magical tradition of a spell if multiple\nmagical traditions are required and the spell is available to multiple\nof them.",
+          "$ref": "./_SimpleReferences.schema.json#/$defs/MagicalTraditionReference"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "ProfessionMagicalActionIdentifier": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The identifier of the magical action to provide the rating for.",
+          "$ref": "./_Identifier.schema.json#/$defs/MagicalActionIdentifier"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
     },
     "LiturgicalChantRating": {
       "type": "object",
@@ -781,9 +809,10 @@
           "minItems": 1
         },
         "rating": {
-          "description": "The rating provided for the selected liturgical chant. If used in a\nprofession variant, it overrides the basic package's rating.",
+          "description": "The rating bonus provided for the selected liturgical chant. If used in a\nprofession variant, it can also be used to lower the bonus of the base\nprofession.",
           "type": "integer",
-          "minimum": 0
+          "maximum": 10,
+          "minimum": -10
         }
       },
       "required": [
@@ -1142,9 +1171,10 @@
           "minItems": 1
         },
         "rest_rating": {
-          "description": "Define if after the fixed selections the remaining unselected combat\ntechniques will receive a certain rating as well.",
+          "description": "Define if after the fixed selections the remaining unselected combat\ntechniques will receive a certain rating bonus as well.",
           "type": "integer",
-          "minimum": 7
+          "maximum": 6,
+          "minimum": 1
         },
         "options": {
           "description": "The list of combat techniques to choose from.",
@@ -1170,9 +1200,10 @@
           "minimum": 1
         },
         "rating": {
-          "description": "The rating provided for the selected combat technique(s).",
+          "description": "The rating bonus provided for the selected combat technique(s).\n\n**Note:** This is a rating *bonus*, so it will be *added* to the default\nvalue of 6.",
           "type": "integer",
-          "minimum": 7
+          "maximum": 6,
+          "minimum": 1
         }
       },
       "required": [

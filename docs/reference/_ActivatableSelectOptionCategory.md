@@ -650,13 +650,13 @@ The AP value for the specified entry.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#SkillsSelectOptionCategoryCategory'Skills/tag">See details</a>
-`close_combat_techniques` |  | <a href="#SkillsSelectOptionCategoryCategory'Skills/close_combat_techniques">See details</a>
+`skills?` |  | <a href="#SkillsSelectOptionCategoryCategory'Skills/skills">See details</a>
 
 #### <a name="SkillsSelectOptionCategoryCategory'Skills/tag"></a> `tag`
 
 - **Constant:** `"Skills"`
 
-#### <a name="SkillsSelectOptionCategoryCategory'Skills/close_combat_techniques"></a> `close_combat_techniques`
+#### <a name="SkillsSelectOptionCategoryCategory'Skills/skills"></a> `skills?`
 
 - **Type:** <a href="#SkillSelectOptionCategoryCategory">SkillSelectOptionCategoryCategory</a>
 
@@ -669,13 +669,13 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#SkillsSelectOptionCategoryCategory'Spells/tag">See details</a>
-`spells` |  | <a href="#SkillsSelectOptionCategoryCategory'Spells/spells">See details</a>
+`spells?` |  | <a href="#SkillsSelectOptionCategoryCategory'Spells/spells">See details</a>
 
 #### <a name="SkillsSelectOptionCategoryCategory'Spells/tag"></a> `tag`
 
 - **Constant:** `"Spells"`
 
-#### <a name="SkillsSelectOptionCategoryCategory'Spells/spells"></a> `spells`
+#### <a name="SkillsSelectOptionCategoryCategory'Spells/spells"></a> `spells?`
 
 - **Type:** <a href="#SkillsSelectOptionCategoryCategory'Spells/spells">Object</a>
 
@@ -750,13 +750,13 @@ The list of specific entries.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#SkillsSelectOptionCategoryCategory'Rituals/tag">See details</a>
-`rituals` |  | <a href="#SkillsSelectOptionCategoryCategory'Rituals/rituals">See details</a>
+`rituals?` |  | <a href="#SkillsSelectOptionCategoryCategory'Rituals/rituals">See details</a>
 
 #### <a name="SkillsSelectOptionCategoryCategory'Rituals/tag"></a> `tag`
 
 - **Constant:** `"Rituals"`
 
-#### <a name="SkillsSelectOptionCategoryCategory'Rituals/rituals"></a> `rituals`
+#### <a name="SkillsSelectOptionCategoryCategory'Rituals/rituals"></a> `rituals?`
 
 - **Type:** <a href="#SkillsSelectOptionCategoryCategory'Rituals/rituals">Object</a>
 
@@ -831,13 +831,13 @@ The list of specific entries.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#SkillsSelectOptionCategoryCategory'LiturgicalChants/tag">See details</a>
-`liturgical_chants` |  | <a href="#SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants">See details</a>
+`liturgical_chants?` |  | <a href="#SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants">See details</a>
 
 #### <a name="SkillsSelectOptionCategoryCategory'LiturgicalChants/tag"></a> `tag`
 
 - **Constant:** `"LiturgicalChants"`
 
-#### <a name="SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants"></a> `liturgical_chants`
+#### <a name="SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants"></a> `liturgical_chants?`
 
 - **Type:** <a href="#SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants">Object</a>
 
@@ -912,13 +912,13 @@ The list of specific entries.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#SkillsSelectOptionCategoryCategory'Ceremonies/tag">See details</a>
-`ceremonies` |  | <a href="#SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies">See details</a>
+`ceremonies?` |  | <a href="#SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies">See details</a>
 
 #### <a name="SkillsSelectOptionCategoryCategory'Ceremonies/tag"></a> `tag`
 
 - **Constant:** `"Ceremonies"`
 
-#### <a name="SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies"></a> `ceremonies`
+#### <a name="SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies"></a> `ceremonies?`
 
 - **Type:** <a href="#SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies">Object</a>
 
@@ -989,6 +989,7 @@ The list of specific entries.
 ### <a name="SkillSelectOptionCategoryCategory"></a> `SkillSelectOptionCategoryCategory`
 
 - **Type:** Object
+- **Minimum Properties:** `1`
 
 Key | Description | Details
 :-- | :-- | :--
@@ -1041,7 +1042,9 @@ name of the origin entry.
 
 Generate prerequisites for each entry of the category.
 
-- **Type:** <a href="#SkillSelectOptionCategoryPrerequisite">SkillSelectOptionCategoryPrerequisite</a>
+- **Type:** List
+- **Items:** <a href="#SkillSelectOptionCategoryCategory/prerequisites[]">SkillSelectOptionCategoryCategory/prerequisites[]</a>
+- **Minimum Items:** `1`
 
 ---
 
@@ -1090,6 +1093,12 @@ The list of specific entries.
 ### <a name="SkillSelectOptionCategoryCategory/skill_uses[]"></a> `SkillSelectOptionCategoryCategory/skill_uses[]`
 
 - **Type:** <a href="#SkillApplicationOrUse">SkillApplicationOrUse</a>
+
+---
+
+### <a name="SkillSelectOptionCategoryCategory/prerequisites[]"></a> `SkillSelectOptionCategoryCategory/prerequisites[]`
+
+- **Type:** <a href="#SkillSelectOptionCategoryPrerequisite">SkillSelectOptionCategoryPrerequisite</a>
 
 ---
 
@@ -1227,13 +1236,13 @@ The AP value for the specified entry.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/tag">See details</a>
-`close_combat_techniques` |  | <a href="#CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques">See details</a>
+`close_combat_techniques?` |  | <a href="#CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques">See details</a>
 
 #### <a name="CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/tag"></a> `tag`
 
 - **Constant:** `"CloseCombatTechniques"`
 
-#### <a name="CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques"></a> `close_combat_techniques`
+#### <a name="CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques"></a> `close_combat_techniques?`
 
 - **Type:** <a href="#CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques">Object</a>
 
@@ -1308,13 +1317,13 @@ The list of specific entries.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/tag">See details</a>
-`ranged_combat_techniques` |  | <a href="#CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques">See details</a>
+`ranged_combat_techniques?` |  | <a href="#CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques">See details</a>
 
 #### <a name="CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/tag"></a> `tag`
 
 - **Constant:** `"RangedCombatTechniques"`
 
-#### <a name="CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques"></a> `ranged_combat_techniques`
+#### <a name="CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques"></a> `ranged_combat_techniques?`
 
 - **Type:** <a href="#CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques">Object</a>
 
@@ -1521,12 +1530,7 @@ Key | Description | Details
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#SelfPrerequisite/tag">See details</a>
 `value` | The entry requires itself on a certain Skill Rating. | <a href="#SelfPrerequisite/value">See details</a>
-
-#### <a name="SelfPrerequisite/tag"></a> `tag`
-
-- **Constant:** `"Self"`
 
 #### <a name="SelfPrerequisite/value"></a> `value`
 
@@ -1545,14 +1549,9 @@ The entry requires or prohibits itself as a select option of another entry.
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#OptionPrerequisite/tag">See details</a>
 `id` | The target entry's identifier. | <a href="#OptionPrerequisite/id">See details</a>
 `active` | Is the select option required (`true`) or prohibited (`false`)? | <a href="#OptionPrerequisite/active">See details</a>
 `level?` | The required level, if any. | <a href="#OptionPrerequisite/level">See details</a>
-
-#### <a name="OptionPrerequisite/tag"></a> `tag`
-
-- **Constant:** `"SelectOption"`
 
 #### <a name="OptionPrerequisite/id"></a> `id`
 

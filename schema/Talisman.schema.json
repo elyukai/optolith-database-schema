@@ -126,7 +126,7 @@
           "description": "The name of the talisman.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "description": {
+        "effect": {
           "description": "The effect description.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
         },
@@ -140,8 +140,7 @@
       },
       "required": [
         "name",
-        "description",
-        "activation"
+        "effect"
       ],
       "additionalProperties": false
     },
@@ -150,7 +149,8 @@
       "properties": {
         "cost": {
           "description": "The KP cost.",
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+          "type": "integer",
+          "minimum": 0
         },
         "duration": {
           "description": "The duration.",

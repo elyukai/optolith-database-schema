@@ -10,7 +10,7 @@ import { CombatTechniqueIdentifier, LiturgyIdentifier, MagicalActionIdentifier, 
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
 import { ProfessionPrerequisites } from "./_Prerequisite.js"
-import { CantripReference, CombatTechniqueReference, CurriculumReference, SkillGroupReference, SkillReference } from "./_SimpleReferences.js"
+import { CantripReference, CombatTechniqueReference, CurriculumReference, MagicalTraditionReference, SkillGroupReference, SkillReference } from "./_SimpleReferences.js"
 
 /**
  * @title Profession
@@ -47,7 +47,7 @@ export type Profession = {
 
 export type ProfessionGroup =
   | { tag: "Mundane"; mundane: MundaneProfessionGroup }
-  | { tag: "Magical"; magical: MagicalProfessionGroup }
+  | { tag: "Magical"; magical?: MagicalProfessionGroup }
   | { tag: "Blessed" }
 
 export type MundaneProfessionGroup =
@@ -55,6 +55,9 @@ export type MundaneProfessionGroup =
   | { tag: "Fighter" }
   | { tag: "Religious" }
 
+/**
+ * @minProperties 1
+ */
 export type MagicalProfessionGroup = {
   /**
    * The curriculum/academy associated with this magical profession, if any.
@@ -75,9 +78,14 @@ export type ExperiencedProfessionPackage = {
    */
   id: number
 
-  values: ProfessionPackage
+  package: ProfessionPackage
 
   src: PublicationRefs
+
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translations: LocaleMap<ProfessionTranslation>
 }
 
 export type ProfessionPackagesForDifferentExperienceLevels = {
@@ -89,9 +97,14 @@ export type ProfessionPackagesForDifferentExperienceLevels = {
    */
   id: number
 
-  values_map: ExperienceLevelDynamicProfessionPackage[]
+  packages_map: ExperienceLevelDynamicProfessionPackage[]
 
   src: PublicationRefs
+
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translations: LocaleMap<ProfessionTranslation>
 }
 
 export type ExperienceLevelDynamicProfessionPackage = {
@@ -105,7 +118,7 @@ export type ExperienceLevelDynamicProfessionPackage = {
    */
   experience_level_id: number
 
-  values: ProfessionPackage
+  package: ProfessionPackage
 }
 
 /**
@@ -195,11 +208,6 @@ export type ProfessionPackage = {
    * variant is required.
    */
   variants?: ProfessionVariants
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<ProfessionTranslation>
 }
 
 export type ProfessionTranslation = {
@@ -397,10 +405,14 @@ export type CombatTechniqueRating = {
   id: CombatTechniqueIdentifier
 
   /**
-   * The rating provided for the combat technique. If used in a profession
-   * variant, it overrides the basic package's rating.
+   * The rating bonus provided for the combat technique. If used in a profession
+   * variant, it can also be used to lower the bonus of the base profession.
+   *
+   * **Note:** This is a rating *bonus*, so it will be *added* to the default
+   * value of 6.
    * @integer
-   * @minimum 6
+   * @minimum -6
+   * @maximum 6
    */
   rating: number
 }
@@ -415,10 +427,11 @@ export type SkillRating = {
   id: number
 
   /**
-   * The rating provided for the skill. If used in a profession variant, it
-   * overrides the basic package's rating.
+   * The rating bonus provided for the skill. If used in a profession variant,
+   * it can also be used to lower the bonus of the base profession
    * @integer
-   * @minimum 0
+   * @minimum -8
+   * @maximum 8
    */
   rating: number
 }
@@ -433,47 +446,41 @@ export type SpellRating = {
   id: SpellIdentifier[]
 
   /**
-   * The rating provided for the (selected) spell. If used in a profession
-   * variant, it overrides the basic package's rating.
+   * The rating bonus provided for the (selected) spell. If used in a profession
+   * variant, it can also be used to lower the bonus of the base profession.
    * @integer
-   * @minimum 0
+   * @minimum -10
+   * @maximum 10
    */
   rating: number
 }
 
 export type SpellIdentifier =
-  | {
-    tag: "Spellwork"
+  | { tag: "Spellwork"; spellwork: ProfessionSpellworkIdentifier }
+  | { tag: "MagicalAction"; magical_action: ProfessionMagicalActionIdentifier }
 
-    /**
-     * The identifier of the spell to provide the rating for.
-     */
-    id: SpellworkIdentifier
+export type ProfessionSpellworkIdentifier = {
+  /**
+   * The identifier of the spell to provide the rating for.
+   */
+  id: SpellworkIdentifier
 
-    /**
-     * If the spell is not part of the magical tradition required by the
-     * package, this references the magical tradition it is part of. It can also
-     * be used to define the target magical tradition of a spell if multiple
-     * magical traditions are required and the spell is available to multiple
-     * of them.
-     */
-    tradition?: {
-      /**
-       * The unfamiliar or ambiguous magical tradition's identifier.
-       * @integer
-       * @minimum 1
-       */
-      id: number
-    }
-  }
-  | {
-    tag: "MagicalAction"
+  /**
+   * If the spell is not part of the magical tradition required by the
+   * package, this references the magical tradition it is part of. It can also
+   * be used to define the target magical tradition of a spell if multiple
+   * magical traditions are required and the spell is available to multiple
+   * of them.
+   */
+  tradition?: MagicalTraditionReference
+}
 
-    /**
-     * The identifier of the magical action to provide the rating for.
-     */
-    id: MagicalActionIdentifier
-  }
+export type ProfessionMagicalActionIdentifier = {
+  /**
+   * The identifier of the magical action to provide the rating for.
+   */
+  id: MagicalActionIdentifier
+}
 
 export type LiturgicalChantRating = {
   /**
@@ -485,10 +492,12 @@ export type LiturgicalChantRating = {
   id: LiturgyIdentifier[]
 
   /**
-   * The rating provided for the selected liturgical chant. If used in a
-   * profession variant, it overrides the basic package's rating.
+   * The rating bonus provided for the selected liturgical chant. If used in a
+   * profession variant, it can also be used to lower the bonus of the base
+   * profession.
    * @integer
-   * @minimum 0
+   * @minimum -10
+   * @maximum 10
    */
   rating: number
 }
@@ -575,9 +584,10 @@ export type CombatTechniquesOptions = {
 
   /**
    * Define if after the fixed selections the remaining unselected combat
-   * techniques will receive a certain rating as well.
+   * techniques will receive a certain rating bonus as well.
    * @integer
-   * @minimum 7
+   * @minimum 1
+   * @maximum 6
    */
   rest_rating?: number
 
@@ -597,9 +607,13 @@ export type RatingForCombatTechniquesNumber = {
   number: number
 
   /**
-   * The rating provided for the selected combat technique(s).
+   * The rating bonus provided for the selected combat technique(s).
+   *
+   * **Note:** This is a rating *bonus*, so it will be *added* to the default
+   * value of 6.
    * @integer
-   * @minimum 7
+   * @minimum 1
+   * @maximum 6
    */
   rating: number
 }

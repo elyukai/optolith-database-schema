@@ -3,118 +3,144 @@
   "$id": "/_Prerequisite.schema.json",
   "$defs": {
     "DerivedCharacteristicPrerequisites": {
-      "type": "object",
-      "properties": {
-        "tag": {
-          "const": "Plain"
-        },
-        "plain": {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/DerivedCharacteristicPrerequisiteGroup"
-              },
-              {
-                "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Group"
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Plain"
+            },
+            "plain": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/DerivedCharacteristicPrerequisiteGroup"
                   },
-                  "list": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/DerivedCharacteristicPrerequisiteGroup"
-                    },
-                    "minItems": 2
-                  },
-                  "translations": {
-                    "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                  {
                     "type": "object",
-                    "patternProperties": {
-                      "^[a-z]{2}-[A-Z]{2}$": {
-                        "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                    "properties": {
+                      "tag": {
+                        "const": "Group"
+                      },
+                      "group": {
+                        "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                        "type": "object",
+                        "properties": {
+                          "list": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/DerivedCharacteristicPrerequisiteGroup"
+                            },
+                            "minItems": 2
+                          },
+                          "translations": {
+                            "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                            "type": "object",
+                            "patternProperties": {
+                              "^[a-z]{2}-[A-Z]{2}$": {
+                                "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                              }
+                            },
+                            "minProperties": 1,
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "list",
+                          "translations"
+                        ],
+                        "additionalProperties": false
                       }
                     },
-                    "minProperties": 1,
+                    "required": [
+                      "tag",
+                      "group"
+                    ],
                     "additionalProperties": false
                   }
-                },
-                "required": [
-                  "tag",
-                  "list",
-                  "translations"
-                ],
-                "additionalProperties": false
-              }
-            ]
+                ]
+              },
+              "minItems": 1
+            }
           },
-          "minItems": 1
+          "required": [
+            "tag",
+            "plain"
+          ],
+          "additionalProperties": false
         }
-      },
-      "required": [
-        "tag",
-        "plain"
-      ],
-      "additionalProperties": false
+      ]
     },
     "PublicationPrerequisites": {
-      "type": "object",
-      "properties": {
-        "tag": {
-          "const": "Plain"
-        },
-        "plain": {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/PublicationPrerequisiteGroup"
-              },
-              {
-                "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Group"
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Plain"
+            },
+            "plain": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/PublicationPrerequisiteGroup"
                   },
-                  "list": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/PublicationPrerequisiteGroup"
-                    },
-                    "minItems": 2
-                  },
-                  "translations": {
-                    "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                  {
                     "type": "object",
-                    "patternProperties": {
-                      "^[a-z]{2}-[A-Z]{2}$": {
-                        "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                    "properties": {
+                      "tag": {
+                        "const": "Group"
+                      },
+                      "group": {
+                        "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                        "type": "object",
+                        "properties": {
+                          "list": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/PublicationPrerequisiteGroup"
+                            },
+                            "minItems": 2
+                          },
+                          "translations": {
+                            "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                            "type": "object",
+                            "patternProperties": {
+                              "^[a-z]{2}-[A-Z]{2}$": {
+                                "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                              }
+                            },
+                            "minProperties": 1,
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "list",
+                          "translations"
+                        ],
+                        "additionalProperties": false
                       }
                     },
-                    "minProperties": 1,
+                    "required": [
+                      "tag",
+                      "group"
+                    ],
                     "additionalProperties": false
                   }
-                },
-                "required": [
-                  "tag",
-                  "list",
-                  "translations"
-                ],
-                "additionalProperties": false
-              }
-            ]
+                ]
+              },
+              "minItems": 1
+            }
           },
-          "minItems": 1
+          "required": [
+            "tag",
+            "plain"
+          ],
+          "additionalProperties": false
         }
-      },
-      "required": [
-        "tag",
-        "plain"
-      ],
-      "additionalProperties": false
+      ]
     },
     "GeneralPrerequisites": {
       "oneOf": [
@@ -132,35 +158,44 @@
                     "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/GeneralPrerequisiteGroup"
                   },
                   {
-                    "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
                     "type": "object",
                     "properties": {
                       "tag": {
                         "const": "Group"
                       },
-                      "list": {
-                        "type": "array",
-                        "items": {
-                          "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/GeneralPrerequisiteGroup"
-                        },
-                        "minItems": 2
-                      },
-                      "translations": {
-                        "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                      "group": {
+                        "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
                         "type": "object",
-                        "patternProperties": {
-                          "^[a-z]{2}-[A-Z]{2}$": {
-                            "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                        "properties": {
+                          "list": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/GeneralPrerequisiteGroup"
+                            },
+                            "minItems": 2
+                          },
+                          "translations": {
+                            "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                            "type": "object",
+                            "patternProperties": {
+                              "^[a-z]{2}-[A-Z]{2}$": {
+                                "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                              }
+                            },
+                            "minProperties": 1,
+                            "additionalProperties": false
                           }
                         },
-                        "minProperties": 1,
+                        "required": [
+                          "list",
+                          "translations"
+                        ],
                         "additionalProperties": false
                       }
                     },
                     "required": [
                       "tag",
-                      "list",
-                      "translations"
+                      "group"
                     ],
                     "additionalProperties": false
                   }
@@ -184,64 +219,76 @@
             "by_level": {
               "type": "array",
               "items": {
-                "type": "object",
-                "properties": {
-                  "level": {
-                    "type": "integer",
-                    "minimum": 1
-                  },
-                  "prerequisites": {
-                    "type": "array",
-                    "items": {
-                      "oneOf": [
-                        {
-                          "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/GeneralPrerequisiteGroup"
-                        },
-                        {
-                          "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
-                          "type": "object",
-                          "properties": {
-                            "tag": {
-                              "const": "Group"
-                            },
-                            "list": {
-                              "type": "array",
-                              "items": {
-                                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/GeneralPrerequisiteGroup"
-                              },
-                              "minItems": 2
-                            },
-                            "translations": {
-                              "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-                              "type": "object",
-                              "patternProperties": {
-                                "^[a-z]{2}-[A-Z]{2}$": {
-                                  "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-                                }
-                              },
-                              "minProperties": 1,
-                              "additionalProperties": false
-                            }
-                          },
-                          "required": [
-                            "tag",
-                            "list",
-                            "translations"
-                          ],
-                          "additionalProperties": false
-                        }
-                      ]
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "level": {
+                      "type": "integer",
+                      "minimum": 1
                     },
-                    "minItems": 1
-                  }
+                    "prerequisites": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/GeneralPrerequisiteGroup"
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "tag": {
+                                "const": "Group"
+                              },
+                              "group": {
+                                "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                                "type": "object",
+                                "properties": {
+                                  "list": {
+                                    "type": "array",
+                                    "items": {
+                                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/GeneralPrerequisiteGroup"
+                                    },
+                                    "minItems": 2
+                                  },
+                                  "translations": {
+                                    "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                                    "type": "object",
+                                    "patternProperties": {
+                                      "^[a-z]{2}-[A-Z]{2}$": {
+                                        "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                                      }
+                                    },
+                                    "minProperties": 1,
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "required": [
+                                  "list",
+                                  "translations"
+                                ],
+                                "additionalProperties": false
+                              }
+                            },
+                            "required": [
+                              "tag",
+                              "group"
+                            ],
+                            "additionalProperties": false
+                          }
+                        ]
+                      },
+                      "minItems": 1
+                    }
+                  },
+                  "required": [
+                    "level",
+                    "prerequisites"
+                  ],
+                  "additionalProperties": false
                 },
-                "required": [
-                  "level",
-                  "prerequisites"
-                ],
-                "additionalProperties": false
-              },
-              "minItems": 1
+                "minItems": 1
+              }
             }
           },
           "required": [
@@ -253,61 +300,74 @@
       ]
     },
     "ProfessionPrerequisites": {
-      "type": "object",
-      "properties": {
-        "tag": {
-          "const": "Plain"
-        },
-        "plain": {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/ProfessionPrerequisiteGroup"
-              },
-              {
-                "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Group"
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Plain"
+            },
+            "plain": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/ProfessionPrerequisiteGroup"
                   },
-                  "list": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/ProfessionPrerequisiteGroup"
-                    },
-                    "minItems": 2
-                  },
-                  "translations": {
-                    "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                  {
                     "type": "object",
-                    "patternProperties": {
-                      "^[a-z]{2}-[A-Z]{2}$": {
-                        "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                    "properties": {
+                      "tag": {
+                        "const": "Group"
+                      },
+                      "group": {
+                        "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                        "type": "object",
+                        "properties": {
+                          "list": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/ProfessionPrerequisiteGroup"
+                            },
+                            "minItems": 2
+                          },
+                          "translations": {
+                            "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                            "type": "object",
+                            "patternProperties": {
+                              "^[a-z]{2}-[A-Z]{2}$": {
+                                "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                              }
+                            },
+                            "minProperties": 1,
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "list",
+                          "translations"
+                        ],
+                        "additionalProperties": false
                       }
                     },
-                    "minProperties": 1,
+                    "required": [
+                      "tag",
+                      "group"
+                    ],
                     "additionalProperties": false
                   }
-                },
-                "required": [
-                  "tag",
-                  "list",
-                  "translations"
-                ],
-                "additionalProperties": false
-              }
-            ]
+                ]
+              },
+              "minItems": 1
+            }
           },
-          "minItems": 1
+          "required": [
+            "tag",
+            "plain"
+          ],
+          "additionalProperties": false
         }
-      },
-      "required": [
-        "tag",
-        "plain"
-      ],
-      "additionalProperties": false
+      ]
     },
     "AdvantageDisadvantagePrerequisites": {
       "oneOf": [
@@ -325,35 +385,44 @@
                     "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/AdvantageDisadvantagePrerequisiteGroup"
                   },
                   {
-                    "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
                     "type": "object",
                     "properties": {
                       "tag": {
                         "const": "Group"
                       },
-                      "list": {
-                        "type": "array",
-                        "items": {
-                          "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/AdvantageDisadvantagePrerequisiteGroup"
-                        },
-                        "minItems": 2
-                      },
-                      "translations": {
-                        "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                      "group": {
+                        "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
                         "type": "object",
-                        "patternProperties": {
-                          "^[a-z]{2}-[A-Z]{2}$": {
-                            "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                        "properties": {
+                          "list": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/AdvantageDisadvantagePrerequisiteGroup"
+                            },
+                            "minItems": 2
+                          },
+                          "translations": {
+                            "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                            "type": "object",
+                            "patternProperties": {
+                              "^[a-z]{2}-[A-Z]{2}$": {
+                                "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                              }
+                            },
+                            "minProperties": 1,
+                            "additionalProperties": false
                           }
                         },
-                        "minProperties": 1,
+                        "required": [
+                          "list",
+                          "translations"
+                        ],
                         "additionalProperties": false
                       }
                     },
                     "required": [
                       "tag",
-                      "list",
-                      "translations"
+                      "group"
                     ],
                     "additionalProperties": false
                   }
@@ -377,64 +446,76 @@
             "by_level": {
               "type": "array",
               "items": {
-                "type": "object",
-                "properties": {
-                  "level": {
-                    "type": "integer",
-                    "minimum": 1
-                  },
-                  "prerequisites": {
-                    "type": "array",
-                    "items": {
-                      "oneOf": [
-                        {
-                          "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/AdvantageDisadvantagePrerequisiteGroup"
-                        },
-                        {
-                          "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
-                          "type": "object",
-                          "properties": {
-                            "tag": {
-                              "const": "Group"
-                            },
-                            "list": {
-                              "type": "array",
-                              "items": {
-                                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/AdvantageDisadvantagePrerequisiteGroup"
-                              },
-                              "minItems": 2
-                            },
-                            "translations": {
-                              "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-                              "type": "object",
-                              "patternProperties": {
-                                "^[a-z]{2}-[A-Z]{2}$": {
-                                  "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-                                }
-                              },
-                              "minProperties": 1,
-                              "additionalProperties": false
-                            }
-                          },
-                          "required": [
-                            "tag",
-                            "list",
-                            "translations"
-                          ],
-                          "additionalProperties": false
-                        }
-                      ]
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "level": {
+                      "type": "integer",
+                      "minimum": 1
                     },
-                    "minItems": 1
-                  }
+                    "prerequisites": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/AdvantageDisadvantagePrerequisiteGroup"
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "tag": {
+                                "const": "Group"
+                              },
+                              "group": {
+                                "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                                "type": "object",
+                                "properties": {
+                                  "list": {
+                                    "type": "array",
+                                    "items": {
+                                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/AdvantageDisadvantagePrerequisiteGroup"
+                                    },
+                                    "minItems": 2
+                                  },
+                                  "translations": {
+                                    "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                                    "type": "object",
+                                    "patternProperties": {
+                                      "^[a-z]{2}-[A-Z]{2}$": {
+                                        "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                                      }
+                                    },
+                                    "minProperties": 1,
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "required": [
+                                  "list",
+                                  "translations"
+                                ],
+                                "additionalProperties": false
+                              }
+                            },
+                            "required": [
+                              "tag",
+                              "group"
+                            ],
+                            "additionalProperties": false
+                          }
+                        ]
+                      },
+                      "minItems": 1
+                    }
+                  },
+                  "required": [
+                    "level",
+                    "prerequisites"
+                  ],
+                  "additionalProperties": false
                 },
-                "required": [
-                  "level",
-                  "prerequisites"
-                ],
-                "additionalProperties": false
-              },
-              "minItems": 1
+                "minItems": 1
+              }
             }
           },
           "required": [
@@ -446,289 +527,354 @@
       ]
     },
     "ArcaneTraditionPrerequisites": {
-      "type": "object",
-      "properties": {
-        "tag": {
-          "const": "Plain"
-        },
-        "plain": {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/ArcaneTraditionPrerequisiteGroup"
-              },
-              {
-                "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Group"
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Plain"
+            },
+            "plain": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/ArcaneTraditionPrerequisiteGroup"
                   },
-                  "list": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/ArcaneTraditionPrerequisiteGroup"
-                    },
-                    "minItems": 2
-                  },
-                  "translations": {
-                    "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                  {
                     "type": "object",
-                    "patternProperties": {
-                      "^[a-z]{2}-[A-Z]{2}$": {
-                        "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                    "properties": {
+                      "tag": {
+                        "const": "Group"
+                      },
+                      "group": {
+                        "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                        "type": "object",
+                        "properties": {
+                          "list": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/ArcaneTraditionPrerequisiteGroup"
+                            },
+                            "minItems": 2
+                          },
+                          "translations": {
+                            "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                            "type": "object",
+                            "patternProperties": {
+                              "^[a-z]{2}-[A-Z]{2}$": {
+                                "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                              }
+                            },
+                            "minProperties": 1,
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "list",
+                          "translations"
+                        ],
+                        "additionalProperties": false
                       }
                     },
-                    "minProperties": 1,
+                    "required": [
+                      "tag",
+                      "group"
+                    ],
                     "additionalProperties": false
                   }
-                },
-                "required": [
-                  "tag",
-                  "list",
-                  "translations"
-                ],
-                "additionalProperties": false
-              }
-            ]
+                ]
+              },
+              "minItems": 1
+            }
           },
-          "minItems": 1
+          "required": [
+            "tag",
+            "plain"
+          ],
+          "additionalProperties": false
         }
-      },
-      "required": [
-        "tag",
-        "plain"
-      ],
-      "additionalProperties": false
+      ]
     },
     "PersonalityTraitPrerequisites": {
-      "type": "object",
-      "properties": {
-        "tag": {
-          "const": "Plain"
-        },
-        "plain": {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/PersonalityTraitPrerequisiteGroup"
-              },
-              {
-                "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Group"
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Plain"
+            },
+            "plain": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/PersonalityTraitPrerequisiteGroup"
                   },
-                  "list": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/PersonalityTraitPrerequisiteGroup"
-                    },
-                    "minItems": 2
-                  },
-                  "translations": {
-                    "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                  {
                     "type": "object",
-                    "patternProperties": {
-                      "^[a-z]{2}-[A-Z]{2}$": {
-                        "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                    "properties": {
+                      "tag": {
+                        "const": "Group"
+                      },
+                      "group": {
+                        "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                        "type": "object",
+                        "properties": {
+                          "list": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/PersonalityTraitPrerequisiteGroup"
+                            },
+                            "minItems": 2
+                          },
+                          "translations": {
+                            "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                            "type": "object",
+                            "patternProperties": {
+                              "^[a-z]{2}-[A-Z]{2}$": {
+                                "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                              }
+                            },
+                            "minProperties": 1,
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "list",
+                          "translations"
+                        ],
+                        "additionalProperties": false
                       }
                     },
-                    "minProperties": 1,
+                    "required": [
+                      "tag",
+                      "group"
+                    ],
                     "additionalProperties": false
                   }
-                },
-                "required": [
-                  "tag",
-                  "list",
-                  "translations"
-                ],
-                "additionalProperties": false
-              }
-            ]
+                ]
+              },
+              "minItems": 1
+            }
           },
-          "minItems": 1
+          "required": [
+            "tag",
+            "plain"
+          ],
+          "additionalProperties": false
         }
-      },
-      "required": [
-        "tag",
-        "plain"
-      ],
-      "additionalProperties": false
+      ]
     },
     "SpellworkPrerequisites": {
-      "type": "object",
-      "properties": {
-        "tag": {
-          "const": "Plain"
-        },
-        "plain": {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/SpellworkPrerequisiteGroup"
-              },
-              {
-                "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Group"
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Plain"
+            },
+            "plain": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/SpellworkPrerequisiteGroup"
                   },
-                  "list": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/SpellworkPrerequisiteGroup"
-                    },
-                    "minItems": 2
-                  },
-                  "translations": {
-                    "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                  {
                     "type": "object",
-                    "patternProperties": {
-                      "^[a-z]{2}-[A-Z]{2}$": {
-                        "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                    "properties": {
+                      "tag": {
+                        "const": "Group"
+                      },
+                      "group": {
+                        "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                        "type": "object",
+                        "properties": {
+                          "list": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/SpellworkPrerequisiteGroup"
+                            },
+                            "minItems": 2
+                          },
+                          "translations": {
+                            "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                            "type": "object",
+                            "patternProperties": {
+                              "^[a-z]{2}-[A-Z]{2}$": {
+                                "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                              }
+                            },
+                            "minProperties": 1,
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "list",
+                          "translations"
+                        ],
+                        "additionalProperties": false
                       }
                     },
-                    "minProperties": 1,
+                    "required": [
+                      "tag",
+                      "group"
+                    ],
                     "additionalProperties": false
                   }
-                },
-                "required": [
-                  "tag",
-                  "list",
-                  "translations"
-                ],
-                "additionalProperties": false
-              }
-            ]
+                ]
+              },
+              "minItems": 1
+            }
           },
-          "minItems": 1
+          "required": [
+            "tag",
+            "plain"
+          ],
+          "additionalProperties": false
         }
-      },
-      "required": [
-        "tag",
-        "plain"
-      ],
-      "additionalProperties": false
+      ]
     },
     "LiturgyPrerequisites": {
-      "type": "object",
-      "properties": {
-        "tag": {
-          "const": "Plain"
-        },
-        "plain": {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/LiturgyPrerequisiteGroup"
-              },
-              {
-                "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Group"
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Plain"
+            },
+            "plain": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/LiturgyPrerequisiteGroup"
                   },
-                  "list": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/LiturgyPrerequisiteGroup"
-                    },
-                    "minItems": 2
-                  },
-                  "translations": {
-                    "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                  {
                     "type": "object",
-                    "patternProperties": {
-                      "^[a-z]{2}-[A-Z]{2}$": {
-                        "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                    "properties": {
+                      "tag": {
+                        "const": "Group"
+                      },
+                      "group": {
+                        "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                        "type": "object",
+                        "properties": {
+                          "list": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/LiturgyPrerequisiteGroup"
+                            },
+                            "minItems": 2
+                          },
+                          "translations": {
+                            "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                            "type": "object",
+                            "patternProperties": {
+                              "^[a-z]{2}-[A-Z]{2}$": {
+                                "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                              }
+                            },
+                            "minProperties": 1,
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "list",
+                          "translations"
+                        ],
+                        "additionalProperties": false
                       }
                     },
-                    "minProperties": 1,
+                    "required": [
+                      "tag",
+                      "group"
+                    ],
                     "additionalProperties": false
                   }
-                },
-                "required": [
-                  "tag",
-                  "list",
-                  "translations"
-                ],
-                "additionalProperties": false
-              }
-            ]
+                ]
+              },
+              "minItems": 1
+            }
           },
-          "minItems": 1
+          "required": [
+            "tag",
+            "plain"
+          ],
+          "additionalProperties": false
         }
-      },
-      "required": [
-        "tag",
-        "plain"
-      ],
-      "additionalProperties": false
+      ]
     },
     "InfluencePrerequisites": {
-      "type": "object",
-      "properties": {
-        "tag": {
-          "const": "Plain"
-        },
-        "plain": {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/InfluencePrerequisiteGroup"
-              },
-              {
-                "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Group"
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Plain"
+            },
+            "plain": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/InfluencePrerequisiteGroup"
                   },
-                  "list": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/InfluencePrerequisiteGroup"
-                    },
-                    "minItems": 2
-                  },
-                  "translations": {
-                    "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                  {
                     "type": "object",
-                    "patternProperties": {
-                      "^[a-z]{2}-[A-Z]{2}$": {
-                        "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                    "properties": {
+                      "tag": {
+                        "const": "Group"
+                      },
+                      "group": {
+                        "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                        "type": "object",
+                        "properties": {
+                          "list": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/InfluencePrerequisiteGroup"
+                            },
+                            "minItems": 2
+                          },
+                          "translations": {
+                            "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                            "type": "object",
+                            "patternProperties": {
+                              "^[a-z]{2}-[A-Z]{2}$": {
+                                "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                              }
+                            },
+                            "minProperties": 1,
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "list",
+                          "translations"
+                        ],
+                        "additionalProperties": false
                       }
                     },
-                    "minProperties": 1,
+                    "required": [
+                      "tag",
+                      "group"
+                    ],
                     "additionalProperties": false
                   }
-                },
-                "required": [
-                  "tag",
-                  "list",
-                  "translations"
-                ],
-                "additionalProperties": false
-              }
-            ]
+                ]
+              },
+              "minItems": 1
+            }
           },
-          "minItems": 1
+          "required": [
+            "tag",
+            "plain"
+          ],
+          "additionalProperties": false
         }
-      },
-      "required": [
-        "tag",
-        "plain"
-      ],
-      "additionalProperties": false
+      ]
     },
     "LanguagePrerequisites": {
       "oneOf": [
@@ -746,35 +892,44 @@
                     "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/LanguagePrerequisiteGroup"
                   },
                   {
-                    "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
                     "type": "object",
                     "properties": {
                       "tag": {
                         "const": "Group"
                       },
-                      "list": {
-                        "type": "array",
-                        "items": {
-                          "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/LanguagePrerequisiteGroup"
-                        },
-                        "minItems": 2
-                      },
-                      "translations": {
-                        "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                      "group": {
+                        "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
                         "type": "object",
-                        "patternProperties": {
-                          "^[a-z]{2}-[A-Z]{2}$": {
-                            "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                        "properties": {
+                          "list": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/LanguagePrerequisiteGroup"
+                            },
+                            "minItems": 2
+                          },
+                          "translations": {
+                            "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                            "type": "object",
+                            "patternProperties": {
+                              "^[a-z]{2}-[A-Z]{2}$": {
+                                "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                              }
+                            },
+                            "minProperties": 1,
+                            "additionalProperties": false
                           }
                         },
-                        "minProperties": 1,
+                        "required": [
+                          "list",
+                          "translations"
+                        ],
                         "additionalProperties": false
                       }
                     },
                     "required": [
                       "tag",
-                      "list",
-                      "translations"
+                      "group"
                     ],
                     "additionalProperties": false
                   }
@@ -798,64 +953,76 @@
             "by_level": {
               "type": "array",
               "items": {
-                "type": "object",
-                "properties": {
-                  "level": {
-                    "type": "integer",
-                    "minimum": 1
-                  },
-                  "prerequisites": {
-                    "type": "array",
-                    "items": {
-                      "oneOf": [
-                        {
-                          "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/LanguagePrerequisiteGroup"
-                        },
-                        {
-                          "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
-                          "type": "object",
-                          "properties": {
-                            "tag": {
-                              "const": "Group"
-                            },
-                            "list": {
-                              "type": "array",
-                              "items": {
-                                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/LanguagePrerequisiteGroup"
-                              },
-                              "minItems": 2
-                            },
-                            "translations": {
-                              "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-                              "type": "object",
-                              "patternProperties": {
-                                "^[a-z]{2}-[A-Z]{2}$": {
-                                  "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-                                }
-                              },
-                              "minProperties": 1,
-                              "additionalProperties": false
-                            }
-                          },
-                          "required": [
-                            "tag",
-                            "list",
-                            "translations"
-                          ],
-                          "additionalProperties": false
-                        }
-                      ]
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "level": {
+                      "type": "integer",
+                      "minimum": 1
                     },
-                    "minItems": 1
-                  }
+                    "prerequisites": {
+                      "type": "array",
+                      "items": {
+                        "oneOf": [
+                          {
+                            "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/LanguagePrerequisiteGroup"
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "tag": {
+                                "const": "Group"
+                              },
+                              "group": {
+                                "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                                "type": "object",
+                                "properties": {
+                                  "list": {
+                                    "type": "array",
+                                    "items": {
+                                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/LanguagePrerequisiteGroup"
+                                    },
+                                    "minItems": 2
+                                  },
+                                  "translations": {
+                                    "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                                    "type": "object",
+                                    "patternProperties": {
+                                      "^[a-z]{2}-[A-Z]{2}$": {
+                                        "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                                      }
+                                    },
+                                    "minProperties": 1,
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "required": [
+                                  "list",
+                                  "translations"
+                                ],
+                                "additionalProperties": false
+                              }
+                            },
+                            "required": [
+                              "tag",
+                              "group"
+                            ],
+                            "additionalProperties": false
+                          }
+                        ]
+                      },
+                      "minItems": 1
+                    }
+                  },
+                  "required": [
+                    "level",
+                    "prerequisites"
+                  ],
+                  "additionalProperties": false
                 },
-                "required": [
-                  "level",
-                  "prerequisites"
-                ],
-                "additionalProperties": false
-              },
-              "minItems": 1
+                "minItems": 1
+              }
             }
           },
           "required": [
@@ -867,175 +1034,214 @@
       ]
     },
     "AnimistPowerPrerequisites": {
-      "type": "object",
-      "properties": {
-        "tag": {
-          "const": "Plain"
-        },
-        "plain": {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/AnimistPowerPrerequisiteGroup"
-              },
-              {
-                "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Group"
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Plain"
+            },
+            "plain": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/AnimistPowerPrerequisiteGroup"
                   },
-                  "list": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/AnimistPowerPrerequisiteGroup"
-                    },
-                    "minItems": 2
-                  },
-                  "translations": {
-                    "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                  {
                     "type": "object",
-                    "patternProperties": {
-                      "^[a-z]{2}-[A-Z]{2}$": {
-                        "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                    "properties": {
+                      "tag": {
+                        "const": "Group"
+                      },
+                      "group": {
+                        "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                        "type": "object",
+                        "properties": {
+                          "list": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/AnimistPowerPrerequisiteGroup"
+                            },
+                            "minItems": 2
+                          },
+                          "translations": {
+                            "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                            "type": "object",
+                            "patternProperties": {
+                              "^[a-z]{2}-[A-Z]{2}$": {
+                                "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                              }
+                            },
+                            "minProperties": 1,
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "list",
+                          "translations"
+                        ],
+                        "additionalProperties": false
                       }
                     },
-                    "minProperties": 1,
+                    "required": [
+                      "tag",
+                      "group"
+                    ],
                     "additionalProperties": false
                   }
-                },
-                "required": [
-                  "tag",
-                  "list",
-                  "translations"
-                ],
-                "additionalProperties": false
-              }
-            ]
+                ]
+              },
+              "minItems": 1
+            }
           },
-          "minItems": 1
+          "required": [
+            "tag",
+            "plain"
+          ],
+          "additionalProperties": false
         }
-      },
-      "required": [
-        "tag",
-        "plain"
-      ],
-      "additionalProperties": false
+      ]
     },
     "GeodeRitualPrerequisites": {
-      "type": "object",
-      "properties": {
-        "tag": {
-          "const": "Plain"
-        },
-        "plain": {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/GeodeRitualPrerequisiteGroup"
-              },
-              {
-                "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Group"
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Plain"
+            },
+            "plain": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/GeodeRitualPrerequisiteGroup"
                   },
-                  "list": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/GeodeRitualPrerequisiteGroup"
-                    },
-                    "minItems": 2
-                  },
-                  "translations": {
-                    "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                  {
                     "type": "object",
-                    "patternProperties": {
-                      "^[a-z]{2}-[A-Z]{2}$": {
-                        "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                    "properties": {
+                      "tag": {
+                        "const": "Group"
+                      },
+                      "group": {
+                        "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                        "type": "object",
+                        "properties": {
+                          "list": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/GeodeRitualPrerequisiteGroup"
+                            },
+                            "minItems": 2
+                          },
+                          "translations": {
+                            "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                            "type": "object",
+                            "patternProperties": {
+                              "^[a-z]{2}-[A-Z]{2}$": {
+                                "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                              }
+                            },
+                            "minProperties": 1,
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "list",
+                          "translations"
+                        ],
+                        "additionalProperties": false
                       }
                     },
-                    "minProperties": 1,
+                    "required": [
+                      "tag",
+                      "group"
+                    ],
                     "additionalProperties": false
                   }
-                },
-                "required": [
-                  "tag",
-                  "list",
-                  "translations"
-                ],
-                "additionalProperties": false
-              }
-            ]
+                ]
+              },
+              "minItems": 1
+            }
           },
-          "minItems": 1
+          "required": [
+            "tag",
+            "plain"
+          ],
+          "additionalProperties": false
         }
-      },
-      "required": [
-        "tag",
-        "plain"
-      ],
-      "additionalProperties": false
+      ]
     },
     "EnhancementPrerequisites": {
-      "type": "object",
-      "properties": {
-        "tag": {
-          "const": "Plain"
-        },
-        "plain": {
-          "type": "array",
-          "items": {
-            "oneOf": [
-              {
-                "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/EnhancementPrerequisiteGroup"
-              },
-              {
-                "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
-                "type": "object",
-                "properties": {
-                  "tag": {
-                    "const": "Group"
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Plain"
+            },
+            "plain": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/EnhancementPrerequisiteGroup"
                   },
-                  "list": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/EnhancementPrerequisiteGroup"
-                    },
-                    "minItems": 2
-                  },
-                  "translations": {
-                    "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                  {
                     "type": "object",
-                    "patternProperties": {
-                      "^[a-z]{2}-[A-Z]{2}$": {
-                        "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                    "properties": {
+                      "tag": {
+                        "const": "Group"
+                      },
+                      "group": {
+                        "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                        "type": "object",
+                        "properties": {
+                          "list": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/EnhancementPrerequisiteGroup"
+                            },
+                            "minItems": 2
+                          },
+                          "translations": {
+                            "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+                            "type": "object",
+                            "patternProperties": {
+                              "^[a-z]{2}-[A-Z]{2}$": {
+                                "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                              }
+                            },
+                            "minProperties": 1,
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "list",
+                          "translations"
+                        ],
+                        "additionalProperties": false
                       }
                     },
-                    "minProperties": 1,
+                    "required": [
+                      "tag",
+                      "group"
+                    ],
                     "additionalProperties": false
                   }
-                },
-                "required": [
-                  "tag",
-                  "list",
-                  "translations"
-                ],
-                "additionalProperties": false
-              }
-            ]
+                ]
+              },
+              "minItems": 1
+            }
           },
-          "minItems": 1
+          "required": [
+            "tag",
+            "plain"
+          ],
+          "additionalProperties": false
         }
-      },
-      "required": [
-        "tag",
-        "plain"
-      ],
-      "additionalProperties": false
+      ]
     }
   }
 }

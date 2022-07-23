@@ -494,13 +494,12 @@
             "tag": {
               "const": "Skills"
             },
-            "close_combat_techniques": {
+            "skills": {
               "$ref": "#/$defs/SkillSelectOptionCategoryCategory"
             }
           },
           "required": [
-            "tag",
-            "close_combat_techniques"
+            "tag"
           ],
           "additionalProperties": false
         },
@@ -550,8 +549,7 @@
             }
           },
           "required": [
-            "tag",
-            "spells"
+            "tag"
           ],
           "additionalProperties": false
         },
@@ -601,8 +599,7 @@
             }
           },
           "required": [
-            "tag",
-            "rituals"
+            "tag"
           ],
           "additionalProperties": false
         },
@@ -652,8 +649,7 @@
             }
           },
           "required": [
-            "tag",
-            "liturgical_chants"
+            "tag"
           ],
           "additionalProperties": false
         },
@@ -703,8 +699,7 @@
             }
           },
           "required": [
-            "tag",
-            "ceremonies"
+            "tag"
           ],
           "additionalProperties": false
         }
@@ -761,10 +756,15 @@
         },
         "prerequisites": {
           "description": "Generate prerequisites for each entry of the category.",
-          "$ref": "#/$defs/SkillSelectOptionCategoryPrerequisite"
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SkillSelectOptionCategoryPrerequisite"
+          },
+          "minItems": 1
         }
       },
       "required": [],
+      "minProperties": 1,
       "additionalProperties": false
     },
     "CombatTechniquesSelectOptionCategory": {
@@ -903,8 +903,7 @@
             }
           },
           "required": [
-            "tag",
-            "close_combat_techniques"
+            "tag"
           ],
           "additionalProperties": false
         },
@@ -954,8 +953,7 @@
             }
           },
           "required": [
-            "tag",
-            "ranged_combat_techniques"
+            "tag"
           ],
           "additionalProperties": false
         }
@@ -1068,9 +1066,6 @@
     "SelfPrerequisite": {
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "Self"
-        },
         "value": {
           "description": "The entry requires itself on a certain Skill Rating.",
           "type": "integer",
@@ -1078,7 +1073,6 @@
         }
       },
       "required": [
-        "tag",
         "value"
       ],
       "additionalProperties": false
@@ -1087,9 +1081,6 @@
       "description": "The entry requires or prohibits itself as a select option of another entry.",
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "SelectOption"
-        },
         "id": {
           "description": "The target entry's identifier.",
           "$ref": "./_Identifier.schema.json#/$defs/ActivatableIdentifier"
@@ -1105,7 +1096,6 @@
         }
       },
       "required": [
-        "tag",
         "id",
         "active"
       ],

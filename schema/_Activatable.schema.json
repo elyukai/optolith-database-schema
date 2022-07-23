@@ -33,11 +33,7 @@
       "properties": {
         "derived": {
           "description": "An entry category with optional further configuration. All available\nentries from the specified categories will be included as separate select\noptions. You can also specify a set of groups that should only be\nincluded. Groups not mentioned will be excluded then.",
-          "type": "array",
-          "items": {
-            "$ref": "./_ActivatableSelectOptionCategory.schema.json#/$defs/SelectOptionCategory"
-          },
-          "minItems": 1
+          "$ref": "./_ActivatableSelectOptionCategory.schema.json#/$defs/SelectOptionCategory"
         },
         "explicit": {
           "description": "A list of explicit select options. If the identifier has a specific type,\nits entry is the base of this select option, where values defined here\noverride values from the base. Define the `src` property if the options\nare not derived from the rules text of the advantage/disadvantage/special\nability but instead are listed in a separate block and/or on a separate\npage.",
@@ -1084,8 +1080,7 @@
             }
           },
           "required": [
-            "tag",
-            "none"
+            "tag"
           ],
           "additionalProperties": false
         },
@@ -1253,7 +1248,7 @@
       "properties": {
         "modifier": {
           "description": "The indefinite AE cost may be modified by a certain value.",
-          "$ref": "./_ActivatableSkillCheckResultBased.schema.json#/$defs/CheckResultBasedModifier"
+          "$ref": "#/$defs/IndefiniteArcaneEnergyCostModifier"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -1270,6 +1265,54 @@
       "required": [
         "modifier",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "IndefiniteArcaneEnergyCostArithmetic": {
+      "description": "Defines how the the `value` is set off against the check result.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Add"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Subtract"
+            }
+          },
+          "required": [
+            "tag"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "IndefiniteArcaneEnergyCostModifier": {
+      "type": "object",
+      "properties": {
+        "arithmetic": {
+          "description": "The arithmetic how to apply the `value` to the `base`.",
+          "$ref": "#/$defs/IndefiniteArcaneEnergyCostArithmetic"
+        },
+        "value": {
+          "description": "The value that is applied to the `base` using the defined `arithmetic`.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "arithmetic",
+        "value"
       ],
       "additionalProperties": false
     },
@@ -2667,78 +2710,15 @@
     },
     "FixedAdventurePointsValue": {
       "description": "A fixed adventure points value. If the entry has levels, this is the cost per\nlevel as well.",
-      "$ref": "#/$defs/AdventurePointsValue"
+      "$ref": "#/$defs/AdventurePointsSingleValue"
     },
     "AdventurePointsValueByLevel": {
       "description": "An entry with levels may have different costs for each level. The length of\nthe list must match the amount of levels the special ability has.",
-      "$ref": "#/$defs/AdventurePointsValue"
-    },
-    "AdventurePointsValueAdvantagesDisadvantages": {
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Fixed"
-            },
-            "value": {
-              "description": "A fixed adventure points value. If the entry has levels, this is the cost\nfor each level as well.",
-              "$ref": "#/$defs/AdventurePointsSingleValue"
-            },
-            "does_not_contribute_to_maximum": {
-              "description": "The AP Value of the entry does not contribute to the AP maximum for\nadvantages or disadvantages, so it may also be bought if the maximum has\nalready been reached.",
-              "const": true
-            }
-          },
-          "required": [
-            "tag",
-            "value"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "ByLevel"
-            },
-            "values": {
-              "description": "An entry with levels may have different costs for each level. The length\nof the list must match the amount of levels the special ability has.",
-              "type": "array",
-              "items": {
-                "$ref": "#/$defs/AdventurePointsSingleValue"
-              },
-              "minItems": 2
-            },
-            "does_not_contribute_to_maximum": {
-              "description": "The AP Value of the entry does not contribute to the AP maximum for\nadvantages or disadvantages, so it may also be bought if the maximum has\nalready been reached.",
-              "const": true
-            }
-          },
-          "required": [
-            "tag",
-            "values"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "description": "Used if AP value is defined by the selected option(s) or special rules.",
-              "const": "Indefinite"
-            },
-            "does_not_contribute_to_maximum": {
-              "description": "The AP Value of the entry does not contribute to the AP maximum for\nadvantages or disadvantages, so it may also be bought if the maximum has\nalready been reached.",
-              "const": true
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        }
-      ]
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/AdventurePointsSingleValue"
+      },
+      "minItems": 2
     },
     "AdventurePointsSingleValue": {
       "description": "A single adventure points value.",

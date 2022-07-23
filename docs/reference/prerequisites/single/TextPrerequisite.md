@@ -37,7 +37,7 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="TextPrerequisite/translations[key]"></a> `TextPrerequisite/translations[key]`
 
-- **Type:** <a href="#TextVerificationRule">TextVerificationRule</a>
+- **Type:** <a href="#TextPrerequisiteTranslation">TextPrerequisiteTranslation</a>
 
 ---
 
@@ -78,4 +78,4 @@ Key | Description | Details
 
 ### <a name="TextPrerequisiteTranslation"></a> `TextPrerequisiteTranslation`
 
-- **Type:** <a href="#NonEmptyMarkdown">NonEmptyMarkdown</a>
+- **Type:** <a href="../../_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>

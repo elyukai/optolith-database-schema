@@ -88,9 +88,7 @@ entries from the specified categories will be included as separate select
 options. You can also specify a set of groups that should only be
 included. Groups not mentioned will be excluded then.
 
-- **Type:** List
-- **Items:** <a href="#SelectOptions/derived[]">SelectOptions/derived[]</a>
-- **Minimum Items:** `1`
+- **Type:** <a href="./_ActivatableSelectOptionCategory.md#SelectOptionCategory">SelectOptionCategory</a>
 
 #### <a name="SelectOptions/explicit"></a> `explicit?`
 
@@ -104,12 +102,6 @@ page.
 - **Type:** List
 - **Items:** <a href="#SelectOptions/explicit[]">SelectOptions/explicit[]</a>
 - **Minimum Items:** `1`
-
----
-
-### <a name="SelectOptions/derived[]"></a> `SelectOptions/derived[]`
-
-- **Type:** <a href="./_ActivatableSelectOptionCategory.md#SelectOptionCategory">SelectOptionCategory</a>
 
 ---
 
@@ -1526,13 +1518,13 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ArcaneEnergyCost'None/tag">See details</a>
-`none` |  | <a href="#ArcaneEnergyCost'None/none">See details</a>
+`none?` |  | <a href="#ArcaneEnergyCost'None/none">See details</a>
 
 #### <a name="ArcaneEnergyCost'None/tag"></a> `tag`
 
 - **Constant:** `"None"`
 
-#### <a name="ArcaneEnergyCost'None/none"></a> `none`
+#### <a name="ArcaneEnergyCost'None/none"></a> `none?`
 
 - **Type:** <a href="#NoArcaneEnergyCost">NoArcaneEnergyCost</a>
 
@@ -1769,7 +1761,7 @@ Key | Description | Details
 
 The indefinite AE cost may be modified by a certain value.
 
-- **Type:** <a href="./_ActivatableSkillCheckResultBased.md#CheckResultBasedModifier">CheckResultBasedModifier</a>
+- **Type:** <a href="#IndefiniteArcaneEnergyCostModifier">IndefiniteArcaneEnergyCostModifier</a>
 
 #### <a name="IndefiniteArcaneEnergyCost/translations"></a> `translations`
 
@@ -1785,6 +1777,67 @@ All translations for the entry, identified by IETF language tag (BCP47).
 ### <a name="IndefiniteArcaneEnergyCost/translations[key]"></a> `IndefiniteArcaneEnergyCost/translations[key]`
 
 - **Type:** <a href="#IndefiniteArcaneEnergyCostTranslation">IndefiniteArcaneEnergyCostTranslation</a>
+
+---
+
+### <a name="IndefiniteArcaneEnergyCostArithmetic"></a> `IndefiniteArcaneEnergyCostArithmetic`
+
+Defines how the the `value` is set off against the check result.
+
+- **Type:** Union
+- **Cases:** <a href="#IndefiniteArcaneEnergyCostArithmetic'Add">IndefiniteArcaneEnergyCostArithmetic'Add</a> | <a href="#IndefiniteArcaneEnergyCostArithmetic'Subtract">IndefiniteArcaneEnergyCostArithmetic'Subtract</a>
+
+---
+
+### <a name="IndefiniteArcaneEnergyCostArithmetic'Add"></a> `IndefiniteArcaneEnergyCostArithmetic'Add`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#IndefiniteArcaneEnergyCostArithmetic'Add/tag">See details</a>
+
+#### <a name="IndefiniteArcaneEnergyCostArithmetic'Add/tag"></a> `tag`
+
+- **Constant:** `"Add"`
+
+---
+
+### <a name="IndefiniteArcaneEnergyCostArithmetic'Subtract"></a> `IndefiniteArcaneEnergyCostArithmetic'Subtract`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#IndefiniteArcaneEnergyCostArithmetic'Subtract/tag">See details</a>
+
+#### <a name="IndefiniteArcaneEnergyCostArithmetic'Subtract/tag"></a> `tag`
+
+- **Constant:** `"Subtract"`
+
+---
+
+### <a name="IndefiniteArcaneEnergyCostModifier"></a> `IndefiniteArcaneEnergyCostModifier`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`arithmetic` | The arithmetic how to apply the `value` to the `base`. | <a href="#IndefiniteArcaneEnergyCostModifier/arithmetic">See details</a>
+`value` | The value that is applied to the `base` using the defined `arithmetic`. | <a href="#IndefiniteArcaneEnergyCostModifier/value">See details</a>
+
+#### <a name="IndefiniteArcaneEnergyCostModifier/arithmetic"></a> `arithmetic`
+
+The arithmetic how to apply the `value` to the `base`.
+
+- **Type:** <a href="#IndefiniteArcaneEnergyCostArithmetic">IndefiniteArcaneEnergyCostArithmetic</a>
+
+#### <a name="IndefiniteArcaneEnergyCostModifier/value"></a> `value`
+
+The value that is applied to the `base` using the defined `arithmetic`.
+
+- **Type:** Integer
+- **Minimum:** `1`
 
 ---
 
@@ -3715,7 +3768,7 @@ Key | Description | Details
 A fixed adventure points value. If the entry has levels, this is the cost per
 level as well.
 
-- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>
+- **Type:** <a href="#AdventurePointsSingleValue">AdventurePointsSingleValue</a>
 
 ---
 
@@ -3724,109 +3777,15 @@ level as well.
 An entry with levels may have different costs for each level. The length of
 the list must match the amount of levels the special ability has.
 
-- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>
-
----
-
-### <a name="AdventurePointsValueAdvantagesDisadvantages"></a> `AdventurePointsValueAdvantagesDisadvantages`
-
-- **Type:** Union
-- **Cases:** <a href="#AdventurePointsValueAdvantagesDisadvantages'Fixed">AdventurePointsValueAdvantagesDisadvantages'Fixed</a> | <a href="#AdventurePointsValueAdvantagesDisadvantages'ByLevel">AdventurePointsValueAdvantagesDisadvantages'ByLevel</a> | <a href="#AdventurePointsValueAdvantagesDisadvantages'Indefinite">AdventurePointsValueAdvantagesDisadvantages'Indefinite</a>
-
----
-
-### <a name="AdventurePointsValueAdvantagesDisadvantages'Fixed"></a> `AdventurePointsValueAdvantagesDisadvantages'Fixed`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#AdventurePointsValueAdvantagesDisadvantages'Fixed/tag">See details</a>
-`value` | A fixed adventure points value. If the entry has levels, this is the cost for each level as well. | <a href="#AdventurePointsValueAdvantagesDisadvantages'Fixed/value">See details</a>
-`does_not_contribute_to_maximum?` | The AP Value of the entry does not contribute to the AP maximum for advantages or disadvantages, so it may also be bought if the maximum has already been reached. | <a href="#AdventurePointsValueAdvantagesDisadvantages'Fixed/does_not_contribute_to_maximum">See details</a>
-
-#### <a name="AdventurePointsValueAdvantagesDisadvantages'Fixed/tag"></a> `tag`
-
-- **Constant:** `"Fixed"`
-
-#### <a name="AdventurePointsValueAdvantagesDisadvantages'Fixed/value"></a> `value`
-
-A fixed adventure points value. If the entry has levels, this is the cost
-for each level as well.
-
-- **Type:** <a href="#AdventurePointsSingleValue">AdventurePointsSingleValue</a>
-
-#### <a name="AdventurePointsValueAdvantagesDisadvantages'Fixed/does_not_contribute_to_maximum"></a> `does_not_contribute_to_maximum?`
-
-The AP Value of the entry does not contribute to the AP maximum for
-advantages or disadvantages, so it may also be bought if the maximum has
-already been reached.
-
-- **Constant:** `true`
-
----
-
-### <a name="AdventurePointsValueAdvantagesDisadvantages'ByLevel"></a> `AdventurePointsValueAdvantagesDisadvantages'ByLevel`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#AdventurePointsValueAdvantagesDisadvantages'ByLevel/tag">See details</a>
-`values` | An entry with levels may have different costs for each level. The length of the list must match the amount of levels the special ability has. | <a href="#AdventurePointsValueAdvantagesDisadvantages'ByLevel/values">See details</a>
-`does_not_contribute_to_maximum?` | The AP Value of the entry does not contribute to the AP maximum for advantages or disadvantages, so it may also be bought if the maximum has already been reached. | <a href="#AdventurePointsValueAdvantagesDisadvantages'ByLevel/does_not_contribute_to_maximum">See details</a>
-
-#### <a name="AdventurePointsValueAdvantagesDisadvantages'ByLevel/tag"></a> `tag`
-
-- **Constant:** `"ByLevel"`
-
-#### <a name="AdventurePointsValueAdvantagesDisadvantages'ByLevel/values"></a> `values`
-
-An entry with levels may have different costs for each level. The length
-of the list must match the amount of levels the special ability has.
-
 - **Type:** List
-- **Items:** <a href="#AdventurePointsValueAdvantagesDisadvantages'ByLevel/values[]">AdventurePointsValueAdvantagesDisadvantages'ByLevel/values[]</a>
+- **Items:** <a href="#AdventurePointsValueByLevel[]">AdventurePointsValueByLevel[]</a>
 - **Minimum Items:** `2`
 
-#### <a name="AdventurePointsValueAdvantagesDisadvantages'ByLevel/does_not_contribute_to_maximum"></a> `does_not_contribute_to_maximum?`
-
-The AP Value of the entry does not contribute to the AP maximum for
-advantages or disadvantages, so it may also be bought if the maximum has
-already been reached.
-
-- **Constant:** `true`
-
 ---
 
-### <a name="AdventurePointsValueAdvantagesDisadvantages'ByLevel/values[]"></a> `AdventurePointsValueAdvantagesDisadvantages'ByLevel/values[]`
+### <a name="AdventurePointsValueByLevel[]"></a> `AdventurePointsValueByLevel[]`
 
 - **Type:** <a href="#AdventurePointsSingleValue">AdventurePointsSingleValue</a>
-
----
-
-### <a name="AdventurePointsValueAdvantagesDisadvantages'Indefinite"></a> `AdventurePointsValueAdvantagesDisadvantages'Indefinite`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` | Used if AP value is defined by the selected option(s) or special rules. | <a href="#AdventurePointsValueAdvantagesDisadvantages'Indefinite/tag">See details</a>
-`does_not_contribute_to_maximum?` | The AP Value of the entry does not contribute to the AP maximum for advantages or disadvantages, so it may also be bought if the maximum has already been reached. | <a href="#AdventurePointsValueAdvantagesDisadvantages'Indefinite/does_not_contribute_to_maximum">See details</a>
-
-#### <a name="AdventurePointsValueAdvantagesDisadvantages'Indefinite/tag"></a> `tag`
-
-Used if AP value is defined by the selected option(s) or special rules.
-
-- **Constant:** `"Indefinite"`
-
-#### <a name="AdventurePointsValueAdvantagesDisadvantages'Indefinite/does_not_contribute_to_maximum"></a> `does_not_contribute_to_maximum?`
-
-The AP Value of the entry does not contribute to the AP maximum for
-advantages or disadvantages, so it may also be bought if the maximum has
-already been reached.
-
-- **Constant:** `true`
 
 ---
 

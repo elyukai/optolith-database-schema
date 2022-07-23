@@ -16,7 +16,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "$ref": "#/$defs/TextVerificationRule"
+              "$ref": "#/$defs/TextPrerequisiteTranslation"
             }
           },
           "minProperties": 1,
@@ -58,7 +58,7 @@
       ]
     },
     "TextPrerequisiteTranslation": {
-      "$ref": "#/$defs/NonEmptyMarkdown"
+      "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
     }
   }
 }

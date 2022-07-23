@@ -63,12 +63,12 @@ export type TalismanTranslation = {
   /**
    * The effect description.
    */
-  description: NonEmptyMarkdown
+  effect: NonEmptyMarkdown
 
   /**
    * The activation parameters.
    */
-  activation: TalismanActivationTranslation
+  activation?: TalismanActivationTranslation
 
   errata?: Errata
 }
@@ -76,8 +76,10 @@ export type TalismanTranslation = {
 export type TalismanActivationTranslation = {
   /**
    * The KP cost.
+   * @integer
+   * @minimum 0
    */
-  cost: NonEmptyString
+  cost: number
 
   /**
    * The duration.

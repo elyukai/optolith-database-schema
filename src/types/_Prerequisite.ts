@@ -12,8 +12,6 @@ import { NonEmptyString } from "./_NonEmptyString.js"
  * item that cannot be represented as a single prerequisite.
  */
 export type PrerequisiteGroup<T> = {
-  tag: "Group"
-
   /**
    * @minItems 2
    */
@@ -25,27 +23,17 @@ export type PrerequisiteGroup<T> = {
   translations: LocaleMap<NonEmptyString>
 }
 
-export type PrerequisiteSingleOrGroup<T> = T | PrerequisiteGroup<T>
+export type PrerequisiteSingleOrGroup<T> = T | { tag: "Group"; group: PrerequisiteGroup<T> }
 
-export type PlainPrerequisites<T> = {
-  tag: "Plain"
+/**
+ * @minItems 1
+ */
+export type PlainPrerequisites<T> = PrerequisiteSingleOrGroup<T>[]
 
-  /**
-   * @minItems 1
-   */
-  plain: PrerequisiteSingleOrGroup<T>[]
-}
-
-export type PrerequisitesByLevel<T> =
-  | PlainPrerequisites<T>
-  | {
-    tag: "ByLevel"
-
-    /**
-     * @minItems 1
-     */
-    by_level: PrerequisitesForLevel<T>[]
-  }
+/**
+ * @minItems 1
+ */
+export type PrerequisitesForLevels<T> = PrerequisitesForLevel<T>[]
 
 export type PrerequisitesForLevel<T> = {
   /**
@@ -60,9 +48,16 @@ export type PrerequisitesForLevel<T> = {
   prerequisites: PrerequisiteSingleOrGroup<T>[]
 }
 
-export type DerivedCharacteristicPrerequisites = PlainPrerequisites<DerivedCharacteristicPrerequisiteGroup>
+export type SimplePrerequisites<T> =
+  | { tag: "Plain"; plain: PlainPrerequisites<T> }
 
-export type PublicationPrerequisites = PlainPrerequisites<PublicationPrerequisiteGroup>
+export type PrerequisitesByLevel<T> =
+  | { tag: "Plain"; plain: PlainPrerequisites<T> }
+  | { tag: "ByLevel"; by_level: PrerequisitesForLevels<T>[] }
+
+export type DerivedCharacteristicPrerequisites = SimplePrerequisites<DerivedCharacteristicPrerequisiteGroup>
+
+export type PublicationPrerequisites = SimplePrerequisites<PublicationPrerequisiteGroup>
 
 /**
  * @title General Prerequisites
@@ -72,7 +67,7 @@ export type GeneralPrerequisites = PrerequisitesByLevel<GeneralPrerequisiteGroup
 /**
  * @title Profession Prerequisites
  */
-export type ProfessionPrerequisites = PlainPrerequisites<ProfessionPrerequisiteGroup>
+export type ProfessionPrerequisites = SimplePrerequisites<ProfessionPrerequisiteGroup>
 
 /**
  * @title Advantage/Disadvantage Prerequisites
@@ -82,27 +77,27 @@ export type AdvantageDisadvantagePrerequisites = PrerequisitesByLevel<AdvantageD
 /**
  * @title Arcane Tradition Prerequisites
  */
-export type ArcaneTraditionPrerequisites = PlainPrerequisites<ArcaneTraditionPrerequisiteGroup>
+export type ArcaneTraditionPrerequisites = SimplePrerequisites<ArcaneTraditionPrerequisiteGroup>
 
 /**
  * @title Personality Trait Prerequisites
  */
-export type PersonalityTraitPrerequisites = PlainPrerequisites<PersonalityTraitPrerequisiteGroup>
+export type PersonalityTraitPrerequisites = SimplePrerequisites<PersonalityTraitPrerequisiteGroup>
 
 /**
  * @title Spellwork Prerequisites
  */
-export type SpellworkPrerequisites = PlainPrerequisites<SpellworkPrerequisiteGroup>
+export type SpellworkPrerequisites = SimplePrerequisites<SpellworkPrerequisiteGroup>
 
 /**
  * @title Liturgy Prerequisites
  */
-export type LiturgyPrerequisites = PlainPrerequisites<LiturgyPrerequisiteGroup>
+export type LiturgyPrerequisites = SimplePrerequisites<LiturgyPrerequisiteGroup>
 
 /**
  * @title Influence Prerequisites
  */
-export type InfluencePrerequisites = PlainPrerequisites<InfluencePrerequisiteGroup>
+export type InfluencePrerequisites = SimplePrerequisites<InfluencePrerequisiteGroup>
 
 /**
  * @title Language Prerequisites
@@ -112,14 +107,14 @@ export type LanguagePrerequisites = PrerequisitesByLevel<LanguagePrerequisiteGro
 /**
  * @title Animist Power Prerequisites
  */
-export type AnimistPowerPrerequisites = PlainPrerequisites<AnimistPowerPrerequisiteGroup>
+export type AnimistPowerPrerequisites = SimplePrerequisites<AnimistPowerPrerequisiteGroup>
 
 /**
  * @title Geode Ritual Prerequisites
  */
-export type GeodeRitualPrerequisites = PlainPrerequisites<GeodeRitualPrerequisiteGroup>
+export type GeodeRitualPrerequisites = SimplePrerequisites<GeodeRitualPrerequisiteGroup>
 
 /**
  * @title Enhancement Prerequisites
  */
-export type EnhancementPrerequisites = PlainPrerequisites<EnhancementPrerequisiteGroup>
+export type EnhancementPrerequisites = SimplePrerequisites<EnhancementPrerequisiteGroup>
