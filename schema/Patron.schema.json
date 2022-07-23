@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$id": "/Patron.schema.json",
   "$ref": "#/$defs/Patron",
   "$defs": {
@@ -19,7 +19,7 @@
         "skills": {
           "description": "The patron-specific skills.",
           "type": "array",
-          "prefixItems": [
+          "items": [
             {
               "$ref": "./_SimpleReferences.schema.json#/$defs/SkillReference"
             },
@@ -32,7 +32,7 @@
           ],
           "minItems": 3,
           "maxItems": 3,
-          "items": false
+          "additionalItems": false
         },
         "culture": {
           "description": "The patron is only available to a certain set of cultures. It may be\navailable to all, it may be available to only specific ones (intersection)\nand it may be available to all except specific ones to the listed cultures\n(difference).",
@@ -49,7 +49,7 @@
         "powers": {
           "description": "The patron-specific powers. Used by animist power Animal Powers I–III and\nshould only be present on animal patrons.",
           "type": "array",
-          "prefixItems": [
+          "items": [
             {
               "$ref": "#/$defs/AnimalPowersLevel1"
             },
@@ -62,7 +62,7 @@
           ],
           "minItems": 3,
           "maxItems": 3,
-          "items": false
+          "additionalItems": false
         },
         "ae_cost": {
           "description": "The patron-specific AE cost. Used by several animist forces for animal\npatrons.",

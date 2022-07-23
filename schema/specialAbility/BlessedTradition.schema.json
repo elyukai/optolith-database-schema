@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$id": "/specialAbility/BlessedTradition.schema.json",
   "$ref": "#/$defs/BlessedTradition",
   "$defs": {
@@ -26,7 +26,7 @@
         "aspects": {
           "description": "The tradition's aspects, if any.",
           "type": "array",
-          "prefixItems": [
+          "items": [
             {
               "$ref": "../_SimpleReferences.schema.json#/$defs/AspectReference"
             },
@@ -36,7 +36,7 @@
           ],
           "minItems": 2,
           "maxItems": 2,
-          "items": false
+          "additionalItems": false
         },
         "restricted_blessings": {
           "description": "If a tradition restricts the possible blessings, the blessings that are\n**not** allowed.",
@@ -136,7 +136,7 @@
     },
     "ThreeRestrictedBlessings": {
       "type": "array",
-      "prefixItems": [
+      "items": [
         {
           "$ref": "../_SimpleReferences.schema.json#/$defs/BlessingReference"
         },
@@ -149,11 +149,11 @@
       ],
       "minItems": 3,
       "maxItems": 3,
-      "items": false
+      "additionalItems": false
     },
     "SixRestrictedBlessings": {
       "type": "array",
-      "prefixItems": [
+      "items": [
         {
           "$ref": "../_SimpleReferences.schema.json#/$defs/BlessingReference"
         },
@@ -175,7 +175,7 @@
       ],
       "minItems": 6,
       "maxItems": 6,
-      "items": false
+      "additionalItems": false
     },
     "FavoredCombatTechniques": {
       "oneOf": [

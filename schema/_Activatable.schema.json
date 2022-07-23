@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$id": "/_Activatable.schema.json",
   "$defs": {
     "Id": {
@@ -2056,7 +2056,7 @@
     "AdvancedSpecialAbilities": {
       "description": "The Advanced Special Abilities for the respective Style Special Ability.\nSometimes, only a specific select option or a set of select options of an\nentry is allowed, which can be modelled by the option property. It can also\nbe that you can choose from a set of special abilities, but then you can't\nspecify an option.",
       "type": "array",
-      "prefixItems": [
+      "items": [
         {
           "$ref": "#/$defs/AdvancedSpecialAbility"
         },
@@ -2069,7 +2069,7 @@
       ],
       "minItems": 3,
       "maxItems": 3,
-      "items": false
+      "additionalItems": false
     },
     "ApplicableCombatTechniques": {
       "oneOf": [

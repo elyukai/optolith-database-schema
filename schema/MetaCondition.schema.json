@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$id": "/MetaCondition.schema.json",
   "$ref": "#/$defs/MetaCondition",
   "$defs": {
@@ -49,7 +49,7 @@
         "effects": {
           "description": "The effects for level 1 to 4.",
           "type": "array",
-          "prefixItems": [
+          "items": [
             {
               "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
             },
@@ -65,7 +65,7 @@
           ],
           "minItems": 4,
           "maxItems": 4,
-          "items": false
+          "additionalItems": false
         },
         "errata": {
           "$ref": "./source/_Erratum.schema.json#/$defs/Errata"

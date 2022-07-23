@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$id": "/_ActivatableSkillEffect.schema.json",
   "$defs": {
     "Effect": {
@@ -78,7 +78,7 @@
         "quality_levels": {
           "description": "The list of effects for each quality level. The first element\nrepresents QL 1, the second element QL 2, and so on.",
           "type": "array",
-          "prefixItems": [
+          "items": [
             {
               "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
             },
@@ -100,7 +100,7 @@
           ],
           "minItems": 6,
           "maxItems": 6,
-          "items": false
+          "additionalItems": false
         },
         "text_after": {
           "description": "The effect description after the list of effects for each quality\nlevel.",
@@ -123,7 +123,7 @@
         "quality_levels": {
           "description": "The list of effects for each two quality levels. The first element\nrepresents QL 1–2, the second element QL 3–4 and the third element QL\n5–6.",
           "type": "array",
-          "prefixItems": [
+          "items": [
             {
               "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
             },
@@ -136,7 +136,7 @@
           ],
           "minItems": 3,
           "maxItems": 3,
-          "items": false
+          "additionalItems": false
         },
         "text_after": {
           "description": "The effect description after the list of effects for each quality\nlevel.",

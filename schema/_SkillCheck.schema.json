@@ -1,12 +1,12 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$id": "/_SkillCheck.schema.json",
   "$defs": {
     "SkillCheck": {
       "title": "Skill Check",
       "description": "The attributes' identifiers of the skill check.",
       "type": "array",
-      "prefixItems": [
+      "items": [
         {
           "$ref": "./_SimpleReferences.schema.json#/$defs/AttributeReference"
         },
@@ -19,7 +19,7 @@
       ],
       "minItems": 3,
       "maxItems": 3,
-      "items": false
+      "additionalItems": false
     },
     "SkillCheckPenalty": {
       "title": "Skill Check Penalty",

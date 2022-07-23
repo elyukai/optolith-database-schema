@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$id": "/Lessons_Curriculum.schema.json",
   "$ref": "#/$defs/Curriculum",
   "$defs": {
@@ -264,7 +264,7 @@
     "LessonPackages": {
       "description": "A list of available lesson packages.",
       "type": "array",
-      "prefixItems": [
+      "items": [
         {
           "$ref": "#/$defs/LessonPackage"
         },
@@ -274,7 +274,7 @@
       ],
       "minItems": 2,
       "maxItems": 2,
-      "items": false
+      "additionalItems": false
     },
     "LessonPackage": {
       "title": "Lesson Package",
