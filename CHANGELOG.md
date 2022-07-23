@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/elyukai/optolith-database-schema/compare/v0.2.4...v0.3.0) (2022-07-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* rework equipment item data types
+* rework tradition artifact enchantment data types
+* rework special ability data types
+* rename profession versions key and associated types
+* rework magical actions data types
+* rework prerequisite data types
+* rework rule and source data types
+* rework "top-level" data types
+
+### Features
+
+* add check for data file base name pattern ([45337c7](https://github.com/elyukai/optolith-database-schema/commit/45337c7d30cfc49b579b74aec1a4d99885ce5d29))
+* add equipment item types to config ([9d68865](https://github.com/elyukai/optolith-database-schema/commit/9d688658224dcd225b617b7c83628180bf024af5))
+* add printing file name errors ([7d97c65](https://github.com/elyukai/optolith-database-schema/commit/7d97c658ec0867e6bf06fc4011c58e176cd8d804))
+* armor sturdiness rating ([a9be0ad](https://github.com/elyukai/optolith-database-schema/commit/a9be0ad34b1dd6b379d7929e2d453b535be46c24))
+* differenciate between general animal care and animal feed ([fc813a0](https://github.com/elyukai/optolith-database-schema/commit/fc813a0325b5e90346958e3b0c1e8d44900d9e1f))
+* include more rules for value presence in items into combat techniques ([5d7b4f7](https://github.com/elyukai/optolith-database-schema/commit/5d7b4f74518dfa7b4d3862d1388f586934d11c71))
+* upgrade to json schema 2020-12 ([4131750](https://github.com/elyukai/optolith-database-schema/commit/413175042b009301e754f7cbe2c66029e74daddc))
+* use json schema draft 2020-12 ([6d3781b](https://github.com/elyukai/optolith-database-schema/commit/6d3781b3ca24dc9ce9fb1f5db0b71781bf52d0ad))
+
+
+### Bug Fixes
+
+* attribute reference identifier maximum ([edc5447](https://github.com/elyukai/optolith-database-schema/commit/edc5447554ce2b897fa4ff89a19099f9112100cb))
+* minor errors that surfaced during database conversion for dis/advantages, professions and talismans ([0b43558](https://github.com/elyukai/optolith-database-schema/commit/0b435585522b0d0f2760f75698660a25b488ab93))
+* use json schema draft 2019-09 due to issues with yaml language server in vscode ([c406f15](https://github.com/elyukai/optolith-database-schema/commit/c406f15d284e86168eb2a5efccf43d66982171c8))
+
+
+* rename profession versions key and associated types ([1c7a2bf](https://github.com/elyukai/optolith-database-schema/commit/1c7a2bf85a59a9a459502e0f119315c218e23688))
+* rework "top-level" data types ([0f3d815](https://github.com/elyukai/optolith-database-schema/commit/0f3d815ea11fc1a9ff51fd376abfe463a110b322))
+* rework equipment item data types ([0bb3a24](https://github.com/elyukai/optolith-database-schema/commit/0bb3a24af01e8869249ecd5a3c950e0f0855ca02))
+* rework magical actions data types ([1e953f3](https://github.com/elyukai/optolith-database-schema/commit/1e953f304d16cd1228010a2523c1fbc4f45d1a31))
+* rework prerequisite data types ([bdebfc3](https://github.com/elyukai/optolith-database-schema/commit/bdebfc3e1f538e33a70453c3125306b8433c88e5))
+* rework rule and source data types ([cc2482f](https://github.com/elyukai/optolith-database-schema/commit/cc2482f9b67968f3ea16d4faf9944caebe14e15c))
+* rework special ability data types ([b630525](https://github.com/elyukai/optolith-database-schema/commit/b630525b09f473b73b1550a5f3cf459ab61f682d))
+* rework tradition artifact enchantment data types ([5346e17](https://github.com/elyukai/optolith-database-schema/commit/5346e1772e425c88269fee7e93b95af61668753d))
+
 ### [0.2.4](https://github.com/elyukai/optolith-database-schema/compare/v0.2.3...v0.2.4) (2022-03-30)
 
 
