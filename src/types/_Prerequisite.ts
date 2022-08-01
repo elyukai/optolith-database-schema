@@ -53,7 +53,7 @@ export type SimplePrerequisites<T> =
 
 export type PrerequisitesByLevel<T> =
   | { tag: "Plain"; plain: PlainPrerequisites<T> }
-  | { tag: "ByLevel"; by_level: PrerequisitesForLevels<T>[] }
+  | { tag: "ByLevel"; by_level: PrerequisitesForLevels<T> }
 
 export type DerivedCharacteristicPrerequisites = SimplePrerequisites<DerivedCharacteristicPrerequisiteGroup>
 

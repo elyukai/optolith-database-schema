@@ -1442,13 +1442,13 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ArcaneEnergyCost'None/tag">See details</a>
-`none?` |  | <a href="#ArcaneEnergyCost'None/none">See details</a>
+`none` |  | <a href="#ArcaneEnergyCost'None/none">See details</a>
 
 #### <a name="ArcaneEnergyCost'None/tag"></a> `tag`
 
 - **Constant:** `"None"`
 
-#### <a name="ArcaneEnergyCost'None/none"></a> `none?`
+#### <a name="ArcaneEnergyCost'None/none"></a> `none`
 
 - **Type:** <a href="#NoArcaneEnergyCost">NoArcaneEnergyCost</a>
 
@@ -1854,7 +1854,6 @@ A note, appended to the generated option string in parenthesis.
 ### <a name="NoArcaneEnergyCost"></a> `NoArcaneEnergyCost`
 
 - **Type:** Object
-- **Minimum Properties:** `1`
 
 Key | Description | Details
 :-- | :-- | :--

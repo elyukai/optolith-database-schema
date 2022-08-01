@@ -1021,7 +1021,8 @@
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "none"
           ],
           "additionalProperties": false
         },
@@ -1330,7 +1331,6 @@
         }
       },
       "required": [],
-      "minProperties": 1,
       "additionalProperties": false
     },
     "NoArcaneEnergyCostTranslation": {
