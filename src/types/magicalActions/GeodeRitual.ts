@@ -151,7 +151,7 @@ export type FixedGeodeRitualCost = {
 }
 
 export type GeodeRitualRange =
-  | { tag: "Self" }
+  | { tag: "Self"; self: {} }
   | { tag: "Fixed"; fixed: FixedGeodeRitualRange }
 
 export type FixedGeodeRitualRange = {
@@ -164,7 +164,7 @@ export type FixedGeodeRitualRange = {
 }
 
 export type GeodeRitualDuration =
-  | { tag: "Immediate" }
+  | { tag: "Immediate"; immediate: {} }
   | { tag: "Fixed"; fixed: FixedGeodeRitualDuration }
   | { tag: "CheckResultBased"; check_result_based: CheckResultBasedDuration }
 

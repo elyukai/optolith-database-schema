@@ -195,7 +195,7 @@ export type OneTimeAnimistPowerCostByPrimaryPatron = {
 }
 
 export type OneTimeAnimistPowerDuration =
-  | { tag: "Immediate" }
+  | { tag: "Immediate"; immediate: {} }
   | { tag: "Fixed"; fixed: FixedOneTimeDuration }
   | { tag: "CheckResultBased"; check_result_based: CheckResultBasedDuration }
 
@@ -246,6 +246,6 @@ export type AnimistPowerCostByPrimaryPatronTranslation = {
 
 export type AnimistPowerImprovementCost =
   | { tag: "Fixed"; fixed: ImprovementCost }
-  | { tag: "ByPrimaryPatron" }
+  | { tag: "ByPrimaryPatron"; by_primary_patron: {} }
 
 export const validateSchema = validateSchemaCreator<AnimistPower>(import.meta.url)

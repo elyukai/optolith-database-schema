@@ -31,10 +31,12 @@ export type MusicDuration = {
   reusability: MusicReusability
 }
 
-export type MusicLength =
-  | { tag: "Long" }
-  | { tag: "Short" }
+export enum MusicLength {
+  Long = "Long",
+  Short = "Short",
+}
 
-export type MusicReusability =
-  | { tag: "OneTime" }
-  | { tag: "Sustainable" }
+export enum MusicReusability {
+  OneTime = "OneTime",
+  Sustainable = "Sustainable",
+}

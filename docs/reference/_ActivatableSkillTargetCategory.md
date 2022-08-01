@@ -80,10 +80,21 @@ A note, appended to the generated string in parenthesis.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#TargetCategoryIdentifier'Self/tag">See details</a>
+`self` |  | <a href="#TargetCategoryIdentifier'Self/self">See details</a>
 
 #### <a name="TargetCategoryIdentifier'Self/tag"></a> `tag`
 
 - **Constant:** `"Self"`
+
+#### <a name="TargetCategoryIdentifier'Self/self"></a> `self`
+
+- **Type:** <a href="#TargetCategoryIdentifier'Self/self">Object</a>
+
+---
+
+### <a name="TargetCategoryIdentifier'Self/self"></a> `TargetCategoryIdentifier'Self/self`
+
+- **Type:** Empty Object
 
 ---
 
@@ -94,10 +105,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#TargetCategoryIdentifier'Zone/tag">See details</a>
+`zone` |  | <a href="#TargetCategoryIdentifier'Zone/zone">See details</a>
 
 #### <a name="TargetCategoryIdentifier'Zone/tag"></a> `tag`
 
 - **Constant:** `"Zone"`
+
+#### <a name="TargetCategoryIdentifier'Zone/zone"></a> `zone`
+
+- **Type:** <a href="#TargetCategoryIdentifier'Zone/zone">Object</a>
+
+---
+
+### <a name="TargetCategoryIdentifier'Zone/zone"></a> `TargetCategoryIdentifier'Zone/zone`
+
+- **Type:** Empty Object
 
 ---
 
@@ -108,10 +130,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#TargetCategoryIdentifier'LiturgicalChantsAndCeremonies/tag">See details</a>
+`liturgical_chants_and_ceremonies` |  | <a href="#TargetCategoryIdentifier'LiturgicalChantsAndCeremonies/liturgical_chants_and_ceremonies">See details</a>
 
 #### <a name="TargetCategoryIdentifier'LiturgicalChantsAndCeremonies/tag"></a> `tag`
 
 - **Constant:** `"LiturgicalChantsAndCeremonies"`
+
+#### <a name="TargetCategoryIdentifier'LiturgicalChantsAndCeremonies/liturgical_chants_and_ceremonies"></a> `liturgical_chants_and_ceremonies`
+
+- **Type:** <a href="#TargetCategoryIdentifier'LiturgicalChantsAndCeremonies/liturgical_chants_and_ceremonies">Object</a>
+
+---
+
+### <a name="TargetCategoryIdentifier'LiturgicalChantsAndCeremonies/liturgical_chants_and_ceremonies"></a> `TargetCategoryIdentifier'LiturgicalChantsAndCeremonies/liturgical_chants_and_ceremonies`
+
+- **Type:** Empty Object
 
 ---
 
@@ -122,10 +155,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#TargetCategoryIdentifier'Cantrips/tag">See details</a>
+`cantrips` |  | <a href="#TargetCategoryIdentifier'Cantrips/cantrips">See details</a>
 
 #### <a name="TargetCategoryIdentifier'Cantrips/tag"></a> `tag`
 
 - **Constant:** `"Cantrips"`
+
+#### <a name="TargetCategoryIdentifier'Cantrips/cantrips"></a> `cantrips`
+
+- **Type:** <a href="#TargetCategoryIdentifier'Cantrips/cantrips">Object</a>
+
+---
+
+### <a name="TargetCategoryIdentifier'Cantrips/cantrips"></a> `TargetCategoryIdentifier'Cantrips/cantrips`
+
+- **Type:** Empty Object
 
 ---
 

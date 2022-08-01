@@ -42,10 +42,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#RangedDamage'NotApplicable/tag">See details</a>
+`not_applicable` |  | <a href="#RangedDamage'NotApplicable/not_applicable">See details</a>
 
 #### <a name="RangedDamage'NotApplicable/tag"></a> `tag`
 
 - **Constant:** `"NotApplicable"`
+
+#### <a name="RangedDamage'NotApplicable/not_applicable"></a> `not_applicable`
+
+- **Type:** <a href="#RangedDamage'NotApplicable/not_applicable">Object</a>
+
+---
+
+### <a name="RangedDamage'NotApplicable/not_applicable"></a> `RangedDamage'NotApplicable/not_applicable`
+
+- **Type:** Empty Object
 
 ---
 
@@ -56,10 +67,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#RangedDamage'Special/tag">See details</a>
+`special` |  | <a href="#RangedDamage'Special/special">See details</a>
 
 #### <a name="RangedDamage'Special/tag"></a> `tag`
 
 - **Constant:** `"Special"`
+
+#### <a name="RangedDamage'Special/special"></a> `special`
+
+- **Type:** <a href="#RangedDamage'Special/special">Object</a>
+
+---
+
+### <a name="RangedDamage'Special/special"></a> `RangedDamage'Special/special`
+
+- **Type:** Empty Object
 
 ---
 

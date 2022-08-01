@@ -5,6 +5,7 @@
 /**
  * @title Binary Sex
  */
-export type BinarySex =
-  | { tag: "Male" }
-  | { tag: "Female" }
+export enum BinarySex {
+  Male = "Male",
+  Female = "Female",
+}

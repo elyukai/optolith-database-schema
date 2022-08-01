@@ -157,50 +157,7 @@ Lists examples of results for botches.
 A category. All available entries from the specified category will be
 included as separate applications.
 
-- **Type:** Union
-- **Cases:** <a href="#ApplicationCategory'BlessedTraditions">ApplicationCategory'BlessedTraditions</a> | <a href="#ApplicationCategory'Diseases">ApplicationCategory'Diseases</a> | <a href="#ApplicationCategory'Regions">ApplicationCategory'Regions</a>
-
----
-
-### <a name="ApplicationCategory'BlessedTraditions"></a> `ApplicationCategory'BlessedTraditions`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ApplicationCategory'BlessedTraditions/tag">See details</a>
-
-#### <a name="ApplicationCategory'BlessedTraditions/tag"></a> `tag`
-
-- **Constant:** `"BlessedTraditions"`
-
----
-
-### <a name="ApplicationCategory'Diseases"></a> `ApplicationCategory'Diseases`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ApplicationCategory'Diseases/tag">See details</a>
-
-#### <a name="ApplicationCategory'Diseases/tag"></a> `tag`
-
-- **Constant:** `"Diseases"`
-
----
-
-### <a name="ApplicationCategory'Regions"></a> `ApplicationCategory'Regions`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ApplicationCategory'Regions/tag">See details</a>
-
-#### <a name="ApplicationCategory'Regions/tag"></a> `tag`
-
-- **Constant:** `"Regions"`
+- **Possible values:** `"BlessedTraditions"`, `"Diseases"`, `"Regions"`
 
 ---
 
@@ -321,47 +278,4 @@ The skill application's name.
 
 Indicates whether encumbrance gives a penalty for checks with the skill.
 
-- **Type:** Union
-- **Cases:** <a href="#Encumbrance'True">Encumbrance'True</a> | <a href="#Encumbrance'False">Encumbrance'False</a> | <a href="#Encumbrance'Maybe">Encumbrance'Maybe</a>
-
----
-
-### <a name="Encumbrance'True"></a> `Encumbrance'True`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Encumbrance'True/tag">See details</a>
-
-#### <a name="Encumbrance'True/tag"></a> `tag`
-
-- **Constant:** `"True"`
-
----
-
-### <a name="Encumbrance'False"></a> `Encumbrance'False`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Encumbrance'False/tag">See details</a>
-
-#### <a name="Encumbrance'False/tag"></a> `tag`
-
-- **Constant:** `"False"`
-
----
-
-### <a name="Encumbrance'Maybe"></a> `Encumbrance'Maybe`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Encumbrance'Maybe/tag">See details</a>
-
-#### <a name="Encumbrance'Maybe/tag"></a> `tag`
-
-- **Constant:** `"Maybe"`
+- **Possible values:** `"True"`, `"False"`, `"Maybe"`

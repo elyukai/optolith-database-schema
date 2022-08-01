@@ -483,50 +483,7 @@ The effect description.
 
 The definition of how the combat special ability can be used in combat.
 
-- **Type:** Union
-- **Cases:** <a href="#CombatSpecialAbilityUsageType'Passive">CombatSpecialAbilityUsageType'Passive</a> | <a href="#CombatSpecialAbilityUsageType'BasicManeuver">CombatSpecialAbilityUsageType'BasicManeuver</a> | <a href="#CombatSpecialAbilityUsageType'SpecialManeuver">CombatSpecialAbilityUsageType'SpecialManeuver</a>
-
----
-
-### <a name="CombatSpecialAbilityUsageType'Passive"></a> `CombatSpecialAbilityUsageType'Passive`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#CombatSpecialAbilityUsageType'Passive/tag">See details</a>
-
-#### <a name="CombatSpecialAbilityUsageType'Passive/tag"></a> `tag`
-
-- **Constant:** `"Passive"`
-
----
-
-### <a name="CombatSpecialAbilityUsageType'BasicManeuver"></a> `CombatSpecialAbilityUsageType'BasicManeuver`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#CombatSpecialAbilityUsageType'BasicManeuver/tag">See details</a>
-
-#### <a name="CombatSpecialAbilityUsageType'BasicManeuver/tag"></a> `tag`
-
-- **Constant:** `"BasicManeuver"`
-
----
-
-### <a name="CombatSpecialAbilityUsageType'SpecialManeuver"></a> `CombatSpecialAbilityUsageType'SpecialManeuver`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#CombatSpecialAbilityUsageType'SpecialManeuver/tag">See details</a>
-
-#### <a name="CombatSpecialAbilityUsageType'SpecialManeuver/tag"></a> `tag`
-
-- **Constant:** `"SpecialManeuver"`
+- **Possible values:** `"Passive"`, `"BasicManeuver"`, `"SpecialManeuver"`
 
 ---
 
@@ -535,36 +492,7 @@ Key | Description | Details
 The definition of if the combat special ability can be used when armed or
 when unarmed.
 
-- **Type:** Union
-- **Cases:** <a href="#CombatSpecialAbilityType'Armed">CombatSpecialAbilityType'Armed</a> | <a href="#CombatSpecialAbilityType'Unarmed">CombatSpecialAbilityType'Unarmed</a>
-
----
-
-### <a name="CombatSpecialAbilityType'Armed"></a> `CombatSpecialAbilityType'Armed`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#CombatSpecialAbilityType'Armed/tag">See details</a>
-
-#### <a name="CombatSpecialAbilityType'Armed/tag"></a> `tag`
-
-- **Constant:** `"Armed"`
-
----
-
-### <a name="CombatSpecialAbilityType'Unarmed"></a> `CombatSpecialAbilityType'Unarmed`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#CombatSpecialAbilityType'Unarmed/tag">See details</a>
-
-#### <a name="CombatSpecialAbilityType'Unarmed/tag"></a> `tag`
-
-- **Constant:** `"Unarmed"`
+- **Possible values:** `"Armed"`, `"Unarmed"`
 
 ---
 
@@ -995,10 +923,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#Penalty'DependsOnHitZone/tag">See details</a>
+`depends_on_hit_zone` |  | <a href="#Penalty'DependsOnHitZone/depends_on_hit_zone">See details</a>
 
 #### <a name="Penalty'DependsOnHitZone/tag"></a> `tag`
 
 - **Constant:** `"DependsOnHitZone"`
+
+#### <a name="Penalty'DependsOnHitZone/depends_on_hit_zone"></a> `depends_on_hit_zone`
+
+- **Type:** <a href="#Penalty'DependsOnHitZone/depends_on_hit_zone">Object</a>
+
+---
+
+### <a name="Penalty'DependsOnHitZone/depends_on_hit_zone"></a> `Penalty'DependsOnHitZone/depends_on_hit_zone`
+
+- **Type:** Empty Object
 
 ---
 
@@ -1343,22 +1282,7 @@ The penalty value for this order.
 Set if a predefined different word should be used instead of the word
 `attack` for display purposes.
 
-- **Type:** Union
-- **Cases:** <a href="#PenaltyByAttackReplacement'Throw">PenaltyByAttackReplacement'Throw</a>
-
----
-
-### <a name="PenaltyByAttackReplacement'Throw"></a> `PenaltyByAttackReplacement'Throw`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PenaltyByAttackReplacement'Throw/tag">See details</a>
-
-#### <a name="PenaltyByAttackReplacement'Throw/tag"></a> `tag`
-
-- **Constant:** `"Throw"`
+- **Possible values:** `"Throw"`
 
 ---
 
@@ -1537,10 +1461,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ArcaneEnergyCost'Variable/tag">See details</a>
+`variable` |  | <a href="#ArcaneEnergyCost'Variable/variable">See details</a>
 
 #### <a name="ArcaneEnergyCost'Variable/tag"></a> `tag`
 
 - **Constant:** `"Variable"`
+
+#### <a name="ArcaneEnergyCost'Variable/variable"></a> `variable`
+
+- **Type:** <a href="#ArcaneEnergyCost'Variable/variable">Object</a>
+
+---
+
+### <a name="ArcaneEnergyCost'Variable/variable"></a> `ArcaneEnergyCost'Variable/variable`
+
+- **Type:** Empty Object
 
 ---
 
@@ -1606,36 +1541,7 @@ The AE cost are per level of the enchantment. It may either be displayed
 in a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1
 AE for level I; 2 AE for level II`).
 
-- **Type:** Union
-- **Cases:** <a href="#FixedArcaneEnergyCostPerLevel'Compressed">FixedArcaneEnergyCostPerLevel'Compressed</a> | <a href="#FixedArcaneEnergyCostPerLevel'Verbose">FixedArcaneEnergyCostPerLevel'Verbose</a>
-
----
-
-### <a name="FixedArcaneEnergyCostPerLevel'Compressed"></a> `FixedArcaneEnergyCostPerLevel'Compressed`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#FixedArcaneEnergyCostPerLevel'Compressed/tag">See details</a>
-
-#### <a name="FixedArcaneEnergyCostPerLevel'Compressed/tag"></a> `tag`
-
-- **Constant:** `"Compressed"`
-
----
-
-### <a name="FixedArcaneEnergyCostPerLevel'Verbose"></a> `FixedArcaneEnergyCostPerLevel'Verbose`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#FixedArcaneEnergyCostPerLevel'Verbose/tag">See details</a>
-
-#### <a name="FixedArcaneEnergyCostPerLevel'Verbose/tag"></a> `tag`
-
-- **Constant:** `"Verbose"`
+- **Possible values:** `"Compressed"`, `"Verbose"`
 
 ---
 
@@ -1784,36 +1690,7 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 Defines how the the `value` is set off against the check result.
 
-- **Type:** Union
-- **Cases:** <a href="#IndefiniteArcaneEnergyCostArithmetic'Add">IndefiniteArcaneEnergyCostArithmetic'Add</a> | <a href="#IndefiniteArcaneEnergyCostArithmetic'Subtract">IndefiniteArcaneEnergyCostArithmetic'Subtract</a>
-
----
-
-### <a name="IndefiniteArcaneEnergyCostArithmetic'Add"></a> `IndefiniteArcaneEnergyCostArithmetic'Add`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#IndefiniteArcaneEnergyCostArithmetic'Add/tag">See details</a>
-
-#### <a name="IndefiniteArcaneEnergyCostArithmetic'Add/tag"></a> `tag`
-
-- **Constant:** `"Add"`
-
----
-
-### <a name="IndefiniteArcaneEnergyCostArithmetic'Subtract"></a> `IndefiniteArcaneEnergyCostArithmetic'Subtract`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#IndefiniteArcaneEnergyCostArithmetic'Subtract/tag">See details</a>
-
-#### <a name="IndefiniteArcaneEnergyCostArithmetic'Subtract/tag"></a> `tag`
-
-- **Constant:** `"Subtract"`
+- **Possible values:** `"Add"`, `"Subtract"`
 
 ---
 
@@ -2660,10 +2537,21 @@ the special ability has an option to select a property.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#Property'DependingOnSelection/tag">See details</a>
+`depending_on_selection` |  | <a href="#Property'DependingOnSelection/depending_on_selection">See details</a>
 
 #### <a name="Property'DependingOnSelection/tag"></a> `tag`
 
 - **Constant:** `"DependingOnSelection"`
+
+#### <a name="Property'DependingOnSelection/depending_on_selection"></a> `depending_on_selection`
+
+- **Type:** <a href="#Property'DependingOnSelection/depending_on_selection">Object</a>
+
+---
+
+### <a name="Property'DependingOnSelection/depending_on_selection"></a> `Property'DependingOnSelection/depending_on_selection`
+
+- **Type:** Empty Object
 
 ---
 
@@ -2960,10 +2848,21 @@ specify an option.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ApplicableCombatTechniques'None/tag">See details</a>
+`none` |  | <a href="#ApplicableCombatTechniques'None/none">See details</a>
 
 #### <a name="ApplicableCombatTechniques'None/tag"></a> `tag`
 
 - **Constant:** `"None"`
+
+#### <a name="ApplicableCombatTechniques'None/none"></a> `none`
+
+- **Type:** <a href="#ApplicableCombatTechniques'None/none">Object</a>
+
+---
+
+### <a name="ApplicableCombatTechniques'None/none"></a> `ApplicableCombatTechniques'None/none`
+
+- **Type:** Empty Object
 
 ---
 
@@ -2974,10 +2873,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ApplicableCombatTechniques'DependingOnCombatStyle/tag">See details</a>
+`depending_on_combat_style` |  | <a href="#ApplicableCombatTechniques'DependingOnCombatStyle/depending_on_combat_style">See details</a>
 
 #### <a name="ApplicableCombatTechniques'DependingOnCombatStyle/tag"></a> `tag`
 
 - **Constant:** `"DependingOnCombatStyle"`
+
+#### <a name="ApplicableCombatTechniques'DependingOnCombatStyle/depending_on_combat_style"></a> `depending_on_combat_style`
+
+- **Type:** <a href="#ApplicableCombatTechniques'DependingOnCombatStyle/depending_on_combat_style">Object</a>
+
+---
+
+### <a name="ApplicableCombatTechniques'DependingOnCombatStyle/depending_on_combat_style"></a> `ApplicableCombatTechniques'DependingOnCombatStyle/depending_on_combat_style`
+
+- **Type:** Empty Object
 
 ---
 
@@ -3186,10 +3096,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ApplicableAllCombatTechniquesRestriction'Improvised/tag">See details</a>
+`improvised` |  | <a href="#ApplicableAllCombatTechniquesRestriction'Improvised/improvised">See details</a>
 
 #### <a name="ApplicableAllCombatTechniquesRestriction'Improvised/tag"></a> `tag`
 
 - **Constant:** `"Improvised"`
+
+#### <a name="ApplicableAllCombatTechniquesRestriction'Improvised/improvised"></a> `improvised`
+
+- **Type:** <a href="#ApplicableAllCombatTechniquesRestriction'Improvised/improvised">Object</a>
+
+---
+
+### <a name="ApplicableAllCombatTechniquesRestriction'Improvised/improvised"></a> `ApplicableAllCombatTechniquesRestriction'Improvised/improvised`
+
+- **Type:** Empty Object
 
 ---
 
@@ -3200,10 +3121,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ApplicableAllCombatTechniquesRestriction'PointedBlade/tag">See details</a>
+`pointed_blade` |  | <a href="#ApplicableAllCombatTechniquesRestriction'PointedBlade/pointed_blade">See details</a>
 
 #### <a name="ApplicableAllCombatTechniquesRestriction'PointedBlade/tag"></a> `tag`
 
 - **Constant:** `"PointedBlade"`
+
+#### <a name="ApplicableAllCombatTechniquesRestriction'PointedBlade/pointed_blade"></a> `pointed_blade`
+
+- **Type:** <a href="#ApplicableAllCombatTechniquesRestriction'PointedBlade/pointed_blade">Object</a>
+
+---
+
+### <a name="ApplicableAllCombatTechniquesRestriction'PointedBlade/pointed_blade"></a> `ApplicableAllCombatTechniquesRestriction'PointedBlade/pointed_blade`
+
+- **Type:** Empty Object
 
 ---
 
@@ -3214,10 +3146,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ApplicableAllCombatTechniquesRestriction'Mount/tag">See details</a>
+`mount` |  | <a href="#ApplicableAllCombatTechniquesRestriction'Mount/mount">See details</a>
 
 #### <a name="ApplicableAllCombatTechniquesRestriction'Mount/tag"></a> `tag`
 
 - **Constant:** `"Mount"`
+
+#### <a name="ApplicableAllCombatTechniquesRestriction'Mount/mount"></a> `mount`
+
+- **Type:** <a href="#ApplicableAllCombatTechniquesRestriction'Mount/mount">Object</a>
+
+---
+
+### <a name="ApplicableAllCombatTechniquesRestriction'Mount/mount"></a> `ApplicableAllCombatTechniquesRestriction'Mount/mount`
+
+- **Type:** Empty Object
 
 ---
 
@@ -3298,10 +3241,21 @@ The combat techniques this combat special ability is **not** applicable to.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ApplicableCloseCombatTechniquesRestriction'Improvised/tag">See details</a>
+`improvised` |  | <a href="#ApplicableCloseCombatTechniquesRestriction'Improvised/improvised">See details</a>
 
 #### <a name="ApplicableCloseCombatTechniquesRestriction'Improvised/tag"></a> `tag`
 
 - **Constant:** `"Improvised"`
+
+#### <a name="ApplicableCloseCombatTechniquesRestriction'Improvised/improvised"></a> `improvised`
+
+- **Type:** <a href="#ApplicableCloseCombatTechniquesRestriction'Improvised/improvised">Object</a>
+
+---
+
+### <a name="ApplicableCloseCombatTechniquesRestriction'Improvised/improvised"></a> `ApplicableCloseCombatTechniquesRestriction'Improvised/improvised`
+
+- **Type:** Empty Object
 
 ---
 
@@ -3312,10 +3266,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ApplicableCloseCombatTechniquesRestriction'PointedBlade/tag">See details</a>
+`pointed_blade` |  | <a href="#ApplicableCloseCombatTechniquesRestriction'PointedBlade/pointed_blade">See details</a>
 
 #### <a name="ApplicableCloseCombatTechniquesRestriction'PointedBlade/tag"></a> `tag`
 
 - **Constant:** `"PointedBlade"`
+
+#### <a name="ApplicableCloseCombatTechniquesRestriction'PointedBlade/pointed_blade"></a> `pointed_blade`
+
+- **Type:** <a href="#ApplicableCloseCombatTechniquesRestriction'PointedBlade/pointed_blade">Object</a>
+
+---
+
+### <a name="ApplicableCloseCombatTechniquesRestriction'PointedBlade/pointed_blade"></a> `ApplicableCloseCombatTechniquesRestriction'PointedBlade/pointed_blade`
+
+- **Type:** Empty Object
 
 ---
 
@@ -3326,10 +3291,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ApplicableCloseCombatTechniquesRestriction'Mount/tag">See details</a>
+`mount` |  | <a href="#ApplicableCloseCombatTechniquesRestriction'Mount/mount">See details</a>
 
 #### <a name="ApplicableCloseCombatTechniquesRestriction'Mount/tag"></a> `tag`
 
 - **Constant:** `"Mount"`
+
+#### <a name="ApplicableCloseCombatTechniquesRestriction'Mount/mount"></a> `mount`
+
+- **Type:** <a href="#ApplicableCloseCombatTechniquesRestriction'Mount/mount">Object</a>
+
+---
+
+### <a name="ApplicableCloseCombatTechniquesRestriction'Mount/mount"></a> `ApplicableCloseCombatTechniquesRestriction'Mount/mount`
+
+- **Type:** Empty Object
 
 ---
 
@@ -3340,10 +3316,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ApplicableCloseCombatTechniquesRestriction'HasParry/tag">See details</a>
+`has_parry` |  | <a href="#ApplicableCloseCombatTechniquesRestriction'HasParry/has_parry">See details</a>
 
 #### <a name="ApplicableCloseCombatTechniquesRestriction'HasParry/tag"></a> `tag`
 
 - **Constant:** `"HasParry"`
+
+#### <a name="ApplicableCloseCombatTechniquesRestriction'HasParry/has_parry"></a> `has_parry`
+
+- **Type:** <a href="#ApplicableCloseCombatTechniquesRestriction'HasParry/has_parry">Object</a>
+
+---
+
+### <a name="ApplicableCloseCombatTechniquesRestriction'HasParry/has_parry"></a> `ApplicableCloseCombatTechniquesRestriction'HasParry/has_parry`
+
+- **Type:** Empty Object
 
 ---
 
@@ -3354,10 +3341,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ApplicableCloseCombatTechniquesRestriction'OneHanded/tag">See details</a>
+`one_handed` |  | <a href="#ApplicableCloseCombatTechniquesRestriction'OneHanded/one_handed">See details</a>
 
 #### <a name="ApplicableCloseCombatTechniquesRestriction'OneHanded/tag"></a> `tag`
 
 - **Constant:** `"OneHanded"`
+
+#### <a name="ApplicableCloseCombatTechniquesRestriction'OneHanded/one_handed"></a> `one_handed`
+
+- **Type:** <a href="#ApplicableCloseCombatTechniquesRestriction'OneHanded/one_handed">Object</a>
+
+---
+
+### <a name="ApplicableCloseCombatTechniquesRestriction'OneHanded/one_handed"></a> `ApplicableCloseCombatTechniquesRestriction'OneHanded/one_handed`
+
+- **Type:** Empty Object
 
 ---
 
@@ -3368,10 +3366,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ApplicableCloseCombatTechniquesRestriction'ParryingWeapon/tag">See details</a>
+`parrying_weapon` |  | <a href="#ApplicableCloseCombatTechniquesRestriction'ParryingWeapon/parrying_weapon">See details</a>
 
 #### <a name="ApplicableCloseCombatTechniquesRestriction'ParryingWeapon/tag"></a> `tag`
 
 - **Constant:** `"ParryingWeapon"`
+
+#### <a name="ApplicableCloseCombatTechniquesRestriction'ParryingWeapon/parrying_weapon"></a> `parrying_weapon`
+
+- **Type:** <a href="#ApplicableCloseCombatTechniquesRestriction'ParryingWeapon/parrying_weapon">Object</a>
+
+---
+
+### <a name="ApplicableCloseCombatTechniquesRestriction'ParryingWeapon/parrying_weapon"></a> `ApplicableCloseCombatTechniquesRestriction'ParryingWeapon/parrying_weapon`
+
+- **Type:** Empty Object
 
 ---
 
@@ -3452,10 +3461,21 @@ The combat techniques this combat special ability is **not** applicable to.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ApplicableRangedCombatTechniquesRestriction'Improvised/tag">See details</a>
+`improvised` |  | <a href="#ApplicableRangedCombatTechniquesRestriction'Improvised/improvised">See details</a>
 
 #### <a name="ApplicableRangedCombatTechniquesRestriction'Improvised/tag"></a> `tag`
 
 - **Constant:** `"Improvised"`
+
+#### <a name="ApplicableRangedCombatTechniquesRestriction'Improvised/improvised"></a> `improvised`
+
+- **Type:** <a href="#ApplicableRangedCombatTechniquesRestriction'Improvised/improvised">Object</a>
+
+---
+
+### <a name="ApplicableRangedCombatTechniquesRestriction'Improvised/improvised"></a> `ApplicableRangedCombatTechniquesRestriction'Improvised/improvised`
+
+- **Type:** Empty Object
 
 ---
 
@@ -3466,10 +3486,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ApplicableRangedCombatTechniquesRestriction'PointedBlade/tag">See details</a>
+`pointed_blade` |  | <a href="#ApplicableRangedCombatTechniquesRestriction'PointedBlade/pointed_blade">See details</a>
 
 #### <a name="ApplicableRangedCombatTechniquesRestriction'PointedBlade/tag"></a> `tag`
 
 - **Constant:** `"PointedBlade"`
+
+#### <a name="ApplicableRangedCombatTechniquesRestriction'PointedBlade/pointed_blade"></a> `pointed_blade`
+
+- **Type:** <a href="#ApplicableRangedCombatTechniquesRestriction'PointedBlade/pointed_blade">Object</a>
+
+---
+
+### <a name="ApplicableRangedCombatTechniquesRestriction'PointedBlade/pointed_blade"></a> `ApplicableRangedCombatTechniquesRestriction'PointedBlade/pointed_blade`
+
+- **Type:** Empty Object
 
 ---
 
@@ -3480,10 +3511,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ApplicableRangedCombatTechniquesRestriction'Mount/tag">See details</a>
+`mount` |  | <a href="#ApplicableRangedCombatTechniquesRestriction'Mount/mount">See details</a>
 
 #### <a name="ApplicableRangedCombatTechniquesRestriction'Mount/tag"></a> `tag`
 
 - **Constant:** `"Mount"`
+
+#### <a name="ApplicableRangedCombatTechniquesRestriction'Mount/mount"></a> `mount`
+
+- **Type:** <a href="#ApplicableRangedCombatTechniquesRestriction'Mount/mount">Object</a>
+
+---
+
+### <a name="ApplicableRangedCombatTechniquesRestriction'Mount/mount"></a> `ApplicableRangedCombatTechniquesRestriction'Mount/mount`
+
+- **Type:** Empty Object
 
 ---
 
@@ -3564,10 +3606,21 @@ The combat techniques this combat special ability is **not** applicable to.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ApplicableSpecificCombatTechniquesRestriction'Improvised/tag">See details</a>
+`improvised` |  | <a href="#ApplicableSpecificCombatTechniquesRestriction'Improvised/improvised">See details</a>
 
 #### <a name="ApplicableSpecificCombatTechniquesRestriction'Improvised/tag"></a> `tag`
 
 - **Constant:** `"Improvised"`
+
+#### <a name="ApplicableSpecificCombatTechniquesRestriction'Improvised/improvised"></a> `improvised`
+
+- **Type:** <a href="#ApplicableSpecificCombatTechniquesRestriction'Improvised/improvised">Object</a>
+
+---
+
+### <a name="ApplicableSpecificCombatTechniquesRestriction'Improvised/improvised"></a> `ApplicableSpecificCombatTechniquesRestriction'Improvised/improvised`
+
+- **Type:** Empty Object
 
 ---
 
@@ -3578,10 +3631,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ApplicableSpecificCombatTechniquesRestriction'PointedBlade/tag">See details</a>
+`pointed_blade` |  | <a href="#ApplicableSpecificCombatTechniquesRestriction'PointedBlade/pointed_blade">See details</a>
 
 #### <a name="ApplicableSpecificCombatTechniquesRestriction'PointedBlade/tag"></a> `tag`
 
 - **Constant:** `"PointedBlade"`
+
+#### <a name="ApplicableSpecificCombatTechniquesRestriction'PointedBlade/pointed_blade"></a> `pointed_blade`
+
+- **Type:** <a href="#ApplicableSpecificCombatTechniquesRestriction'PointedBlade/pointed_blade">Object</a>
+
+---
+
+### <a name="ApplicableSpecificCombatTechniquesRestriction'PointedBlade/pointed_blade"></a> `ApplicableSpecificCombatTechniquesRestriction'PointedBlade/pointed_blade`
+
+- **Type:** Empty Object
 
 ---
 
@@ -3592,10 +3656,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ApplicableSpecificCombatTechniquesRestriction'Mount/tag">See details</a>
+`mount` |  | <a href="#ApplicableSpecificCombatTechniquesRestriction'Mount/mount">See details</a>
 
 #### <a name="ApplicableSpecificCombatTechniquesRestriction'Mount/tag"></a> `tag`
 
 - **Constant:** `"Mount"`
+
+#### <a name="ApplicableSpecificCombatTechniquesRestriction'Mount/mount"></a> `mount`
+
+- **Type:** <a href="#ApplicableSpecificCombatTechniquesRestriction'Mount/mount">Object</a>
+
+---
+
+### <a name="ApplicableSpecificCombatTechniquesRestriction'Mount/mount"></a> `ApplicableSpecificCombatTechniquesRestriction'Mount/mount`
+
+- **Type:** Empty Object
 
 ---
 
@@ -3756,10 +3831,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#AdventurePointsValue'Indefinite/tag">See details</a>
+`indefinite` |  | <a href="#AdventurePointsValue'Indefinite/indefinite">See details</a>
 
 #### <a name="AdventurePointsValue'Indefinite/tag"></a> `tag`
 
 - **Constant:** `"Indefinite"`
+
+#### <a name="AdventurePointsValue'Indefinite/indefinite"></a> `indefinite`
+
+- **Type:** <a href="#AdventurePointsValue'Indefinite/indefinite">Object</a>
+
+---
+
+### <a name="AdventurePointsValue'Indefinite/indefinite"></a> `AdventurePointsValue'Indefinite/indefinite`
+
+- **Type:** Empty Object
 
 ---
 

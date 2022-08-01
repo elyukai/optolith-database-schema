@@ -13,10 +13,11 @@ import { NonEmptyMarkdown, NonEmptyString } from "./_NonEmptyString.js"
  * disease roll. It may also happen that the lower of both is applied as a
  * penalty.
  */
-export type Resistance =
-  | { tag: "Spirit" }
-  | { tag: "Toughness" }
-  | { tag: "LowerOfSpiritAndToughness" }
+export enum Resistance {
+  Spirit = "Spirit",
+  Toughness = "Toughness",
+  LowerOfSpiritAndToughness = "LowerOfSpiritAndToughness",
+}
 
 /**
  * What causes the disease? The GM rolls 1D20 to see if a character gets

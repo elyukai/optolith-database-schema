@@ -53,8 +53,8 @@ export type MeleeDamage = {
  * The shield size and potential size-depending values.
  */
 export type ShieldSize =
-  | { tag: "Small" }
-  | { tag: "Medium" }
+  | { tag: "Small"; small: {} }
+  | { tag: "Medium"; medium: {} }
   | { tag: "Large"; large?: LargeShieldSize }
 
 export type LargeShieldSize = {

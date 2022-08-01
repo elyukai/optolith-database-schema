@@ -110,9 +110,9 @@ export type SixRestrictedBlessings = [
 ]
 
 export type FavoredCombatTechniques =
-  | { tag: "All" }
-  | { tag: "AllClose" }
-  | { tag: "AllUsedInHunting" }
+  | { tag: "All"; all: {} }
+  | { tag: "AllClose"; all_close: {} }
+  | { tag: "AllUsedInHunting"; all_used_in_hunting: {} }
   | { tag: "Specific"; specific: SpecificFavoredCombatTechniques }
 
 export type SpecificFavoredCombatTechniques = {

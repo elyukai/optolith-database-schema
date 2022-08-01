@@ -16,10 +16,21 @@
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#SelectOptionCategory'Blessings/tag">See details</a>
+`blessings` |  | <a href="#SelectOptionCategory'Blessings/blessings">See details</a>
 
 #### <a name="SelectOptionCategory'Blessings/tag"></a> `tag`
 
 - **Constant:** `"Blessings"`
+
+#### <a name="SelectOptionCategory'Blessings/blessings"></a> `blessings`
+
+- **Type:** <a href="#SelectOptionCategory'Blessings/blessings">Object</a>
+
+---
+
+### <a name="SelectOptionCategory'Blessings/blessings"></a> `SelectOptionCategory'Blessings/blessings`
+
+- **Type:** Empty Object
 
 ---
 
@@ -30,10 +41,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#SelectOptionCategory'Cantrips/tag">See details</a>
+`cantrips` |  | <a href="#SelectOptionCategory'Cantrips/cantrips">See details</a>
 
 #### <a name="SelectOptionCategory'Cantrips/tag"></a> `tag`
 
 - **Constant:** `"Cantrips"`
+
+#### <a name="SelectOptionCategory'Cantrips/cantrips"></a> `cantrips`
+
+- **Type:** <a href="#SelectOptionCategory'Cantrips/cantrips">Object</a>
+
+---
+
+### <a name="SelectOptionCategory'Cantrips/cantrips"></a> `SelectOptionCategory'Cantrips/cantrips`
+
+- **Type:** Empty Object
 
 ---
 
@@ -44,10 +66,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#SelectOptionCategory'TradeSecrets/tag">See details</a>
+`trade_secrets` |  | <a href="#SelectOptionCategory'TradeSecrets/trade_secrets">See details</a>
 
 #### <a name="SelectOptionCategory'TradeSecrets/tag"></a> `tag`
 
 - **Constant:** `"TradeSecrets"`
+
+#### <a name="SelectOptionCategory'TradeSecrets/trade_secrets"></a> `trade_secrets`
+
+- **Type:** <a href="#SelectOptionCategory'TradeSecrets/trade_secrets">Object</a>
+
+---
+
+### <a name="SelectOptionCategory'TradeSecrets/trade_secrets"></a> `SelectOptionCategory'TradeSecrets/trade_secrets`
+
+- **Type:** Empty Object
 
 ---
 
@@ -58,10 +91,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#SelectOptionCategory'Scripts/tag">See details</a>
+`scripts` |  | <a href="#SelectOptionCategory'Scripts/scripts">See details</a>
 
 #### <a name="SelectOptionCategory'Scripts/tag"></a> `tag`
 
 - **Constant:** `"Scripts"`
+
+#### <a name="SelectOptionCategory'Scripts/scripts"></a> `scripts`
+
+- **Type:** <a href="#SelectOptionCategory'Scripts/scripts">Object</a>
+
+---
+
+### <a name="SelectOptionCategory'Scripts/scripts"></a> `SelectOptionCategory'Scripts/scripts`
+
+- **Type:** Empty Object
 
 ---
 
@@ -72,10 +116,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#SelectOptionCategory'AnimalShapes/tag">See details</a>
+`animal_shapes` |  | <a href="#SelectOptionCategory'AnimalShapes/animal_shapes">See details</a>
 
 #### <a name="SelectOptionCategory'AnimalShapes/tag"></a> `tag`
 
 - **Constant:** `"AnimalShapes"`
+
+#### <a name="SelectOptionCategory'AnimalShapes/animal_shapes"></a> `animal_shapes`
+
+- **Type:** <a href="#SelectOptionCategory'AnimalShapes/animal_shapes">Object</a>
+
+---
+
+### <a name="SelectOptionCategory'AnimalShapes/animal_shapes"></a> `SelectOptionCategory'AnimalShapes/animal_shapes`
+
+- **Type:** Empty Object
 
 ---
 
@@ -86,10 +141,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#SelectOptionCategory'ArcaneBardTraditions/tag">See details</a>
+`arcane_bard_traditions` |  | <a href="#SelectOptionCategory'ArcaneBardTraditions/arcane_bard_traditions">See details</a>
 
 #### <a name="SelectOptionCategory'ArcaneBardTraditions/tag"></a> `tag`
 
 - **Constant:** `"ArcaneBardTraditions"`
+
+#### <a name="SelectOptionCategory'ArcaneBardTraditions/arcane_bard_traditions"></a> `arcane_bard_traditions`
+
+- **Type:** <a href="#SelectOptionCategory'ArcaneBardTraditions/arcane_bard_traditions">Object</a>
+
+---
+
+### <a name="SelectOptionCategory'ArcaneBardTraditions/arcane_bard_traditions"></a> `SelectOptionCategory'ArcaneBardTraditions/arcane_bard_traditions`
+
+- **Type:** Empty Object
 
 ---
 
@@ -100,10 +166,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#SelectOptionCategory'ArcaneDancerTraditions/tag">See details</a>
+`arcane_dancer_traditions` |  | <a href="#SelectOptionCategory'ArcaneDancerTraditions/arcane_dancer_traditions">See details</a>
 
 #### <a name="SelectOptionCategory'ArcaneDancerTraditions/tag"></a> `tag`
 
 - **Constant:** `"ArcaneDancerTraditions"`
+
+#### <a name="SelectOptionCategory'ArcaneDancerTraditions/arcane_dancer_traditions"></a> `arcane_dancer_traditions`
+
+- **Type:** <a href="#SelectOptionCategory'ArcaneDancerTraditions/arcane_dancer_traditions">Object</a>
+
+---
+
+### <a name="SelectOptionCategory'ArcaneDancerTraditions/arcane_dancer_traditions"></a> `SelectOptionCategory'ArcaneDancerTraditions/arcane_dancer_traditions`
+
+- **Type:** Empty Object
 
 ---
 
@@ -114,10 +191,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#SelectOptionCategory'SexPractices/tag">See details</a>
+`sex_practices` |  | <a href="#SelectOptionCategory'SexPractices/sex_practices">See details</a>
 
 #### <a name="SelectOptionCategory'SexPractices/tag"></a> `tag`
 
 - **Constant:** `"SexPractices"`
+
+#### <a name="SelectOptionCategory'SexPractices/sex_practices"></a> `sex_practices`
+
+- **Type:** <a href="#SelectOptionCategory'SexPractices/sex_practices">Object</a>
+
+---
+
+### <a name="SelectOptionCategory'SexPractices/sex_practices"></a> `SelectOptionCategory'SexPractices/sex_practices`
+
+- **Type:** Empty Object
 
 ---
 
@@ -128,10 +216,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#SelectOptionCategory'Races/tag">See details</a>
+`races` |  | <a href="#SelectOptionCategory'Races/races">See details</a>
 
 #### <a name="SelectOptionCategory'Races/tag"></a> `tag`
 
 - **Constant:** `"Races"`
+
+#### <a name="SelectOptionCategory'Races/races"></a> `races`
+
+- **Type:** <a href="#SelectOptionCategory'Races/races">Object</a>
+
+---
+
+### <a name="SelectOptionCategory'Races/races"></a> `SelectOptionCategory'Races/races`
+
+- **Type:** Empty Object
 
 ---
 
@@ -142,10 +241,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#SelectOptionCategory'Cultures/tag">See details</a>
+`cultures` |  | <a href="#SelectOptionCategory'Cultures/cultures">See details</a>
 
 #### <a name="SelectOptionCategory'Cultures/tag"></a> `tag`
 
 - **Constant:** `"Cultures"`
+
+#### <a name="SelectOptionCategory'Cultures/cultures"></a> `cultures`
+
+- **Type:** <a href="#SelectOptionCategory'Cultures/cultures">Object</a>
+
+---
+
+### <a name="SelectOptionCategory'Cultures/cultures"></a> `SelectOptionCategory'Cultures/cultures`
+
+- **Type:** Empty Object
 
 ---
 
@@ -650,13 +760,13 @@ The AP value for the specified entry.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#SkillsSelectOptionCategoryCategory'Skills/tag">See details</a>
-`skills?` |  | <a href="#SkillsSelectOptionCategoryCategory'Skills/skills">See details</a>
+`skills` |  | <a href="#SkillsSelectOptionCategoryCategory'Skills/skills">See details</a>
 
 #### <a name="SkillsSelectOptionCategoryCategory'Skills/tag"></a> `tag`
 
 - **Constant:** `"Skills"`
 
-#### <a name="SkillsSelectOptionCategoryCategory'Skills/skills"></a> `skills?`
+#### <a name="SkillsSelectOptionCategoryCategory'Skills/skills"></a> `skills`
 
 - **Type:** <a href="#SkillSelectOptionCategoryCategory">SkillSelectOptionCategoryCategory</a>
 
@@ -669,13 +779,13 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#SkillsSelectOptionCategoryCategory'Spells/tag">See details</a>
-`spells?` |  | <a href="#SkillsSelectOptionCategoryCategory'Spells/spells">See details</a>
+`spells` |  | <a href="#SkillsSelectOptionCategoryCategory'Spells/spells">See details</a>
 
 #### <a name="SkillsSelectOptionCategoryCategory'Spells/tag"></a> `tag`
 
 - **Constant:** `"Spells"`
 
-#### <a name="SkillsSelectOptionCategoryCategory'Spells/spells"></a> `spells?`
+#### <a name="SkillsSelectOptionCategoryCategory'Spells/spells"></a> `spells`
 
 - **Type:** <a href="#SkillsSelectOptionCategoryCategory'Spells/spells">Object</a>
 
@@ -684,7 +794,6 @@ Key | Description | Details
 ### <a name="SkillsSelectOptionCategoryCategory'Spells/spells"></a> `SkillsSelectOptionCategoryCategory'Spells/spells`
 
 - **Type:** Object
-- **Minimum Properties:** `1`
 
 Key | Description | Details
 :-- | :-- | :--
@@ -750,13 +859,13 @@ The list of specific entries.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#SkillsSelectOptionCategoryCategory'Rituals/tag">See details</a>
-`rituals?` |  | <a href="#SkillsSelectOptionCategoryCategory'Rituals/rituals">See details</a>
+`rituals` |  | <a href="#SkillsSelectOptionCategoryCategory'Rituals/rituals">See details</a>
 
 #### <a name="SkillsSelectOptionCategoryCategory'Rituals/tag"></a> `tag`
 
 - **Constant:** `"Rituals"`
 
-#### <a name="SkillsSelectOptionCategoryCategory'Rituals/rituals"></a> `rituals?`
+#### <a name="SkillsSelectOptionCategoryCategory'Rituals/rituals"></a> `rituals`
 
 - **Type:** <a href="#SkillsSelectOptionCategoryCategory'Rituals/rituals">Object</a>
 
@@ -765,7 +874,6 @@ Key | Description | Details
 ### <a name="SkillsSelectOptionCategoryCategory'Rituals/rituals"></a> `SkillsSelectOptionCategoryCategory'Rituals/rituals`
 
 - **Type:** Object
-- **Minimum Properties:** `1`
 
 Key | Description | Details
 :-- | :-- | :--
@@ -831,13 +939,13 @@ The list of specific entries.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#SkillsSelectOptionCategoryCategory'LiturgicalChants/tag">See details</a>
-`liturgical_chants?` |  | <a href="#SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants">See details</a>
+`liturgical_chants` |  | <a href="#SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants">See details</a>
 
 #### <a name="SkillsSelectOptionCategoryCategory'LiturgicalChants/tag"></a> `tag`
 
 - **Constant:** `"LiturgicalChants"`
 
-#### <a name="SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants"></a> `liturgical_chants?`
+#### <a name="SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants"></a> `liturgical_chants`
 
 - **Type:** <a href="#SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants">Object</a>
 
@@ -846,7 +954,6 @@ Key | Description | Details
 ### <a name="SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants"></a> `SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants`
 
 - **Type:** Object
-- **Minimum Properties:** `1`
 
 Key | Description | Details
 :-- | :-- | :--
@@ -912,13 +1019,13 @@ The list of specific entries.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#SkillsSelectOptionCategoryCategory'Ceremonies/tag">See details</a>
-`ceremonies?` |  | <a href="#SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies">See details</a>
+`ceremonies` |  | <a href="#SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies">See details</a>
 
 #### <a name="SkillsSelectOptionCategoryCategory'Ceremonies/tag"></a> `tag`
 
 - **Constant:** `"Ceremonies"`
 
-#### <a name="SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies"></a> `ceremonies?`
+#### <a name="SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies"></a> `ceremonies`
 
 - **Type:** <a href="#SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies">Object</a>
 
@@ -927,7 +1034,6 @@ Key | Description | Details
 ### <a name="SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies"></a> `SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies`
 
 - **Type:** Object
-- **Minimum Properties:** `1`
 
 Key | Description | Details
 :-- | :-- | :--
@@ -989,7 +1095,6 @@ The list of specific entries.
 ### <a name="SkillSelectOptionCategoryCategory"></a> `SkillSelectOptionCategoryCategory`
 
 - **Type:** Object
-- **Minimum Properties:** `1`
 
 Key | Description | Details
 :-- | :-- | :--
@@ -1236,13 +1341,13 @@ The AP value for the specified entry.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/tag">See details</a>
-`close_combat_techniques?` |  | <a href="#CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques">See details</a>
+`close_combat_techniques` |  | <a href="#CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques">See details</a>
 
 #### <a name="CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/tag"></a> `tag`
 
 - **Constant:** `"CloseCombatTechniques"`
 
-#### <a name="CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques"></a> `close_combat_techniques?`
+#### <a name="CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques"></a> `close_combat_techniques`
 
 - **Type:** <a href="#CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques">Object</a>
 
@@ -1251,7 +1356,6 @@ Key | Description | Details
 ### <a name="CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques"></a> `CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques`
 
 - **Type:** Object
-- **Minimum Properties:** `1`
 
 Key | Description | Details
 :-- | :-- | :--
@@ -1317,13 +1421,13 @@ The list of specific entries.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/tag">See details</a>
-`ranged_combat_techniques?` |  | <a href="#CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques">See details</a>
+`ranged_combat_techniques` |  | <a href="#CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques">See details</a>
 
 #### <a name="CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/tag"></a> `tag`
 
 - **Constant:** `"RangedCombatTechniques"`
 
-#### <a name="CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques"></a> `ranged_combat_techniques?`
+#### <a name="CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques"></a> `ranged_combat_techniques`
 
 - **Type:** <a href="#CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques">Object</a>
 
@@ -1332,7 +1436,6 @@ Key | Description | Details
 ### <a name="CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques"></a> `CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques`
 
 - **Type:** Object
-- **Minimum Properties:** `1`
 
 Key | Description | Details
 :-- | :-- | :--
@@ -1446,36 +1549,7 @@ entry's name.
 
 Only include (`Intersection`) or exclude (`Difference`) specific entries.
 
-- **Type:** Union
-- **Cases:** <a href="#SpecificFromSkillSelectOptionCategoryCategoryOperation'Intersection">SpecificFromSkillSelectOptionCategoryCategoryOperation'Intersection</a> | <a href="#SpecificFromSkillSelectOptionCategoryCategoryOperation'Difference">SpecificFromSkillSelectOptionCategoryCategoryOperation'Difference</a>
-
----
-
-### <a name="SpecificFromSkillSelectOptionCategoryCategoryOperation'Intersection"></a> `SpecificFromSkillSelectOptionCategoryCategoryOperation'Intersection`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#SpecificFromSkillSelectOptionCategoryCategoryOperation'Intersection/tag">See details</a>
-
-#### <a name="SpecificFromSkillSelectOptionCategoryCategoryOperation'Intersection/tag"></a> `tag`
-
-- **Constant:** `"Intersection"`
-
----
-
-### <a name="SpecificFromSkillSelectOptionCategoryCategoryOperation'Difference"></a> `SpecificFromSkillSelectOptionCategoryCategoryOperation'Difference`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#SpecificFromSkillSelectOptionCategoryCategoryOperation'Difference/tag">See details</a>
-
-#### <a name="SpecificFromSkillSelectOptionCategoryCategoryOperation'Difference/tag"></a> `tag`
-
-- **Constant:** `"Difference"`
+- **Possible values:** `"Intersection"`, `"Difference"`
 
 ---
 

@@ -291,13 +291,13 @@ Specify if armor is only available for a specific hit zone.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#HitZone'Head/tag">See details</a>
-`head?` |  | <a href="#HitZone'Head/head">See details</a>
+`head` |  | <a href="#HitZone'Head/head">See details</a>
 
 #### <a name="HitZone'Head/tag"></a> `tag`
 
 - **Constant:** `"Head"`
 
-#### <a name="HitZone'Head/head"></a> `head?`
+#### <a name="HitZone'Head/head"></a> `head`
 
 - **Type:** <a href="#HeadHitZone">HeadHitZone</a>
 
@@ -310,10 +310,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#HitZone'Torso/tag">See details</a>
+`torso` |  | <a href="#HitZone'Torso/torso">See details</a>
 
 #### <a name="HitZone'Torso/tag"></a> `tag`
 
 - **Constant:** `"Torso"`
+
+#### <a name="HitZone'Torso/torso"></a> `torso`
+
+- **Type:** <a href="#HitZone'Torso/torso">Object</a>
+
+---
+
+### <a name="HitZone'Torso/torso"></a> `HitZone'Torso/torso`
+
+- **Type:** Empty Object
 
 ---
 
@@ -324,10 +335,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#HitZone'Arms/tag">See details</a>
+`arms` |  | <a href="#HitZone'Arms/arms">See details</a>
 
 #### <a name="HitZone'Arms/tag"></a> `tag`
 
 - **Constant:** `"Arms"`
+
+#### <a name="HitZone'Arms/arms"></a> `arms`
+
+- **Type:** <a href="#HitZone'Arms/arms">Object</a>
+
+---
+
+### <a name="HitZone'Arms/arms"></a> `HitZone'Arms/arms`
+
+- **Type:** Empty Object
 
 ---
 
@@ -338,17 +360,27 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#HitZone'Legs/tag">See details</a>
+`legs` |  | <a href="#HitZone'Legs/legs">See details</a>
 
 #### <a name="HitZone'Legs/tag"></a> `tag`
 
 - **Constant:** `"Legs"`
+
+#### <a name="HitZone'Legs/legs"></a> `legs`
+
+- **Type:** <a href="#HitZone'Legs/legs">Object</a>
+
+---
+
+### <a name="HitZone'Legs/legs"></a> `HitZone'Legs/legs`
+
+- **Type:** Empty Object
 
 ---
 
 ### <a name="HeadHitZone"></a> `HeadHitZone`
 
 - **Type:** Object
-- **Minimum Properties:** `1`
 
 Key | Description | Details
 :-- | :-- | :--

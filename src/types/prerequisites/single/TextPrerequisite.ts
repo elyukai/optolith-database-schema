@@ -22,8 +22,9 @@ export type TextPrerequisite = {
   translations: LocaleMap<TextPrerequisiteTranslation>
 }
 
-export type TextVerificationRule =
-  | { tag: "Pass" }
-  | { tag: "Deny" }
+export enum TextVerificationRule {
+  Pass = "Pass",
+  Deny = "Deny",
+}
 
 export type TextPrerequisiteTranslation = NonEmptyMarkdown

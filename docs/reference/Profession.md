@@ -84,13 +84,13 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ProfessionGroup'Magical/tag">See details</a>
-`magical?` |  | <a href="#ProfessionGroup'Magical/magical">See details</a>
+`magical` |  | <a href="#ProfessionGroup'Magical/magical">See details</a>
 
 #### <a name="ProfessionGroup'Magical/tag"></a> `tag`
 
 - **Constant:** `"Magical"`
 
-#### <a name="ProfessionGroup'Magical/magical"></a> `magical?`
+#### <a name="ProfessionGroup'Magical/magical"></a> `magical`
 
 - **Type:** <a href="#MagicalProfessionGroup">MagicalProfessionGroup</a>
 
@@ -103,66 +103,33 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ProfessionGroup'Blessed/tag">See details</a>
+`blessed` |  | <a href="#ProfessionGroup'Blessed/blessed">See details</a>
 
 #### <a name="ProfessionGroup'Blessed/tag"></a> `tag`
 
 - **Constant:** `"Blessed"`
 
+#### <a name="ProfessionGroup'Blessed/blessed"></a> `blessed`
+
+- **Type:** <a href="#ProfessionGroup'Blessed/blessed">Object</a>
+
+---
+
+### <a name="ProfessionGroup'Blessed/blessed"></a> `ProfessionGroup'Blessed/blessed`
+
+- **Type:** Empty Object
+
 ---
 
 ### <a name="MundaneProfessionGroup"></a> `MundaneProfessionGroup`
 
-- **Type:** Union
-- **Cases:** <a href="#MundaneProfessionGroup'Profane">MundaneProfessionGroup'Profane</a> | <a href="#MundaneProfessionGroup'Fighter">MundaneProfessionGroup'Fighter</a> | <a href="#MundaneProfessionGroup'Religious">MundaneProfessionGroup'Religious</a>
-
----
-
-### <a name="MundaneProfessionGroup'Profane"></a> `MundaneProfessionGroup'Profane`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#MundaneProfessionGroup'Profane/tag">See details</a>
-
-#### <a name="MundaneProfessionGroup'Profane/tag"></a> `tag`
-
-- **Constant:** `"Profane"`
-
----
-
-### <a name="MundaneProfessionGroup'Fighter"></a> `MundaneProfessionGroup'Fighter`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#MundaneProfessionGroup'Fighter/tag">See details</a>
-
-#### <a name="MundaneProfessionGroup'Fighter/tag"></a> `tag`
-
-- **Constant:** `"Fighter"`
-
----
-
-### <a name="MundaneProfessionGroup'Religious"></a> `MundaneProfessionGroup'Religious`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#MundaneProfessionGroup'Religious/tag">See details</a>
-
-#### <a name="MundaneProfessionGroup'Religious/tag"></a> `tag`
-
-- **Constant:** `"Religious"`
+- **Possible values:** `"Profane"`, `"Fighter"`, `"Religious"`
 
 ---
 
 ### <a name="MagicalProfessionGroup"></a> `MagicalProfessionGroup`
 
 - **Type:** Object
-- **Minimum Properties:** `1`
 
 Key | Description | Details
 :-- | :-- | :--
@@ -1328,10 +1295,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ProfessionVariantPackageOptions/skill_specialization'Remove/tag">See details</a>
+`remove` |  | <a href="#ProfessionVariantPackageOptions/skill_specialization'Remove/remove">See details</a>
 
 #### <a name="ProfessionVariantPackageOptions/skill_specialization'Remove/tag"></a> `tag`
 
 - **Constant:** `"Remove"`
+
+#### <a name="ProfessionVariantPackageOptions/skill_specialization'Remove/remove"></a> `remove`
+
+- **Type:** <a href="#ProfessionVariantPackageOptions/skill_specialization'Remove/remove">Object</a>
+
+---
+
+### <a name="ProfessionVariantPackageOptions/skill_specialization'Remove/remove"></a> `ProfessionVariantPackageOptions/skill_specialization'Remove/remove`
+
+- **Type:** Empty Object
 
 ---
 
@@ -1361,10 +1339,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ProfessionVariantPackageOptions/languages_scripts'Remove/tag">See details</a>
+`remove` |  | <a href="#ProfessionVariantPackageOptions/languages_scripts'Remove/remove">See details</a>
 
 #### <a name="ProfessionVariantPackageOptions/languages_scripts'Remove/tag"></a> `tag`
 
 - **Constant:** `"Remove"`
+
+#### <a name="ProfessionVariantPackageOptions/languages_scripts'Remove/remove"></a> `remove`
+
+- **Type:** <a href="#ProfessionVariantPackageOptions/languages_scripts'Remove/remove">Object</a>
+
+---
+
+### <a name="ProfessionVariantPackageOptions/languages_scripts'Remove/remove"></a> `ProfessionVariantPackageOptions/languages_scripts'Remove/remove`
+
+- **Type:** Empty Object
 
 ---
 
@@ -1394,10 +1383,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ProfessionVariantPackageOptions/combat_techniques'Remove/tag">See details</a>
+`remove` |  | <a href="#ProfessionVariantPackageOptions/combat_techniques'Remove/remove">See details</a>
 
 #### <a name="ProfessionVariantPackageOptions/combat_techniques'Remove/tag"></a> `tag`
 
 - **Constant:** `"Remove"`
+
+#### <a name="ProfessionVariantPackageOptions/combat_techniques'Remove/remove"></a> `remove`
+
+- **Type:** <a href="#ProfessionVariantPackageOptions/combat_techniques'Remove/remove">Object</a>
+
+---
+
+### <a name="ProfessionVariantPackageOptions/combat_techniques'Remove/remove"></a> `ProfessionVariantPackageOptions/combat_techniques'Remove/remove`
+
+- **Type:** Empty Object
 
 ---
 
@@ -1427,10 +1427,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ProfessionVariantPackageOptions/cantrips'Remove/tag">See details</a>
+`remove` |  | <a href="#ProfessionVariantPackageOptions/cantrips'Remove/remove">See details</a>
 
 #### <a name="ProfessionVariantPackageOptions/cantrips'Remove/tag"></a> `tag`
 
 - **Constant:** `"Remove"`
+
+#### <a name="ProfessionVariantPackageOptions/cantrips'Remove/remove"></a> `remove`
+
+- **Type:** <a href="#ProfessionVariantPackageOptions/cantrips'Remove/remove">Object</a>
+
+---
+
+### <a name="ProfessionVariantPackageOptions/cantrips'Remove/remove"></a> `ProfessionVariantPackageOptions/cantrips'Remove/remove`
+
+- **Type:** Empty Object
 
 ---
 
@@ -1460,10 +1471,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ProfessionVariantPackageOptions/curses'Remove/tag">See details</a>
+`remove` |  | <a href="#ProfessionVariantPackageOptions/curses'Remove/remove">See details</a>
 
 #### <a name="ProfessionVariantPackageOptions/curses'Remove/tag"></a> `tag`
 
 - **Constant:** `"Remove"`
+
+#### <a name="ProfessionVariantPackageOptions/curses'Remove/remove"></a> `remove`
+
+- **Type:** <a href="#ProfessionVariantPackageOptions/curses'Remove/remove">Object</a>
+
+---
+
+### <a name="ProfessionVariantPackageOptions/curses'Remove/remove"></a> `ProfessionVariantPackageOptions/curses'Remove/remove`
+
+- **Type:** Empty Object
 
 ---
 
@@ -1493,10 +1515,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ProfessionVariantPackageOptions/terrain_knowledge'Remove/tag">See details</a>
+`remove` |  | <a href="#ProfessionVariantPackageOptions/terrain_knowledge'Remove/remove">See details</a>
 
 #### <a name="ProfessionVariantPackageOptions/terrain_knowledge'Remove/tag"></a> `tag`
 
 - **Constant:** `"Remove"`
+
+#### <a name="ProfessionVariantPackageOptions/terrain_knowledge'Remove/remove"></a> `remove`
+
+- **Type:** <a href="#ProfessionVariantPackageOptions/terrain_knowledge'Remove/remove">Object</a>
+
+---
+
+### <a name="ProfessionVariantPackageOptions/terrain_knowledge'Remove/remove"></a> `ProfessionVariantPackageOptions/terrain_knowledge'Remove/remove`
+
+- **Type:** Empty Object
 
 ---
 
@@ -1526,10 +1559,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ProfessionVariantPackageOptions/skills'Remove/tag">See details</a>
+`remove` |  | <a href="#ProfessionVariantPackageOptions/skills'Remove/remove">See details</a>
 
 #### <a name="ProfessionVariantPackageOptions/skills'Remove/tag"></a> `tag`
 
 - **Constant:** `"Remove"`
+
+#### <a name="ProfessionVariantPackageOptions/skills'Remove/remove"></a> `remove`
+
+- **Type:** <a href="#ProfessionVariantPackageOptions/skills'Remove/remove">Object</a>
+
+---
+
+### <a name="ProfessionVariantPackageOptions/skills'Remove/remove"></a> `ProfessionVariantPackageOptions/skills'Remove/remove`
+
+- **Type:** Empty Object
 
 ---
 

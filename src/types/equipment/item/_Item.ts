@@ -94,10 +94,10 @@ export type StructurePointsComponent = {
  * The cost in silverthalers.
  */
 export type Cost =
-  | { tag: "Free" }
-  | { tag: "Various" }
-  | { tag: "" } // Unbezahlbar
-  | { tag: "" } // 10 % der Rüstungskosten
+  | { tag: "Free"; free: {} }
+  | { tag: "Various"; various: {} }
+  | { tag: "", "": {} } // TODO: Unbezahlbar
+  | { tag: "", "": {} } // TODO: 10 % der Rüstungskosten
   | { tag: "Fixed"; fixed: FixedCost }
   | { tag: "Range"; range: CostRange }
 
@@ -152,8 +152,8 @@ export type Weight = number
  * The complexity of crafting the item.
  */
 export type Complexity =
-  | { tag: "Primitive" }
-  | { tag: "Simple" }
+  | { tag: "Primitive"; primitive: {} }
+  | { tag: "Simple"; simple: {} }
   | { tag: "Complex"; complex: ComplexComplexity }
 
 export type ComplexComplexity = {

@@ -5,31 +5,9 @@
   "$defs": {
     "BinarySex": {
       "title": "Binary Sex",
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Male"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Female"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        }
+      "enum": [
+        "Male",
+        "Female"
       ]
     }
   }

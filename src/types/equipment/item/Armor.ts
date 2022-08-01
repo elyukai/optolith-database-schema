@@ -181,14 +181,11 @@ export type ArmorType = {
  * @title Hit Zone
  */
 export type HitZone =
-  | { tag: "Head"; head?: HeadHitZone }
-  | { tag: "Torso" }
-  | { tag: "Arms" }
-  | { tag: "Legs" }
+  | { tag: "Head"; head: HeadHitZone }
+  | { tag: "Torso"; torso: {} }
+  | { tag: "Arms"; arms: {} }
+  | { tag: "Legs"; legs: {} }
 
-/**
- * @minProperties 1
- */
 export type HeadHitZone = {
   /**
    * In some cases, multiple armors for the same hit zone can be combined.

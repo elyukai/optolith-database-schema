@@ -103,10 +103,17 @@
           "properties": {
             "tag": {
               "const": "Self"
+            },
+            "self": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "self"
           ],
           "additionalProperties": false
         },
@@ -115,10 +122,17 @@
           "properties": {
             "tag": {
               "const": "Touch"
+            },
+            "touch": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "touch"
           ],
           "additionalProperties": false
         },
@@ -147,10 +161,17 @@
           "properties": {
             "tag": {
               "const": "Immediate"
+            },
+            "immediate": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "immediate"
           ],
           "additionalProperties": false
         },

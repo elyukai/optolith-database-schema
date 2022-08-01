@@ -5,7 +5,7 @@ import { NonEmptyString } from "../_NonEmptyString.js"
  * @title Display Option
  */
 export type DisplayOption =
-  | { tag: "Hide" }
+  | { tag: "Hide"; hide: {} }
   | { tag: "ReplaceWith"; replace_with: ReplacementDisplayOption }
 
 export type ReplacementDisplayOption = {

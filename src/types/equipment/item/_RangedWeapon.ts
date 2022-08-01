@@ -14,8 +14,8 @@ import { Length } from "./_Weapon.js"
  */
 export type RangedDamage =
   | { tag: "Default"; default: DefaultRangedDamage }
-  | { tag: "NotApplicable" }
-  | { tag: "Special" }
+  | { tag: "NotApplicable"; not_applicable: {} }
+  | { tag: "Special"; special: {} }
 
 /**
  * The damage of a weapon consists of a random part using dice and an optional

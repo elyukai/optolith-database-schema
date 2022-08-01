@@ -83,10 +83,21 @@ The shield size and potential size-depending values.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ShieldSize'Small/tag">See details</a>
+`small` |  | <a href="#ShieldSize'Small/small">See details</a>
 
 #### <a name="ShieldSize'Small/tag"></a> `tag`
 
 - **Constant:** `"Small"`
+
+#### <a name="ShieldSize'Small/small"></a> `small`
+
+- **Type:** <a href="#ShieldSize'Small/small">Object</a>
+
+---
+
+### <a name="ShieldSize'Small/small"></a> `ShieldSize'Small/small`
+
+- **Type:** Empty Object
 
 ---
 
@@ -97,10 +108,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ShieldSize'Medium/tag">See details</a>
+`medium` |  | <a href="#ShieldSize'Medium/medium">See details</a>
 
 #### <a name="ShieldSize'Medium/tag"></a> `tag`
 
 - **Constant:** `"Medium"`
+
+#### <a name="ShieldSize'Medium/medium"></a> `medium`
+
+- **Type:** <a href="#ShieldSize'Medium/medium">Object</a>
+
+---
+
+### <a name="ShieldSize'Medium/medium"></a> `ShieldSize'Medium/medium`
+
+- **Type:** Empty Object
 
 ---
 

@@ -273,10 +273,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#FavoredCombatTechniques'All/tag">See details</a>
+`all` |  | <a href="#FavoredCombatTechniques'All/all">See details</a>
 
 #### <a name="FavoredCombatTechniques'All/tag"></a> `tag`
 
 - **Constant:** `"All"`
+
+#### <a name="FavoredCombatTechniques'All/all"></a> `all`
+
+- **Type:** <a href="#FavoredCombatTechniques'All/all">Object</a>
+
+---
+
+### <a name="FavoredCombatTechniques'All/all"></a> `FavoredCombatTechniques'All/all`
+
+- **Type:** Empty Object
 
 ---
 
@@ -287,10 +298,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#FavoredCombatTechniques'AllClose/tag">See details</a>
+`all_close` |  | <a href="#FavoredCombatTechniques'AllClose/all_close">See details</a>
 
 #### <a name="FavoredCombatTechniques'AllClose/tag"></a> `tag`
 
 - **Constant:** `"AllClose"`
+
+#### <a name="FavoredCombatTechniques'AllClose/all_close"></a> `all_close`
+
+- **Type:** <a href="#FavoredCombatTechniques'AllClose/all_close">Object</a>
+
+---
+
+### <a name="FavoredCombatTechniques'AllClose/all_close"></a> `FavoredCombatTechniques'AllClose/all_close`
+
+- **Type:** Empty Object
 
 ---
 
@@ -301,10 +323,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#FavoredCombatTechniques'AllUsedInHunting/tag">See details</a>
+`all_used_in_hunting` |  | <a href="#FavoredCombatTechniques'AllUsedInHunting/all_used_in_hunting">See details</a>
 
 #### <a name="FavoredCombatTechniques'AllUsedInHunting/tag"></a> `tag`
 
 - **Constant:** `"AllUsedInHunting"`
+
+#### <a name="FavoredCombatTechniques'AllUsedInHunting/all_used_in_hunting"></a> `all_used_in_hunting`
+
+- **Type:** <a href="#FavoredCombatTechniques'AllUsedInHunting/all_used_in_hunting">Object</a>
+
+---
+
+### <a name="FavoredCombatTechniques'AllUsedInHunting/all_used_in_hunting"></a> `FavoredCombatTechniques'AllUsedInHunting/all_used_in_hunting`
+
+- **Type:** Empty Object
 
 ---
 

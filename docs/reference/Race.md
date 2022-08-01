@@ -384,50 +384,7 @@ The strategy how to offset the randomly generated values against the
 base value. Either they are all added or subtracted or even results are
 added and odd results are subtracted.
 
-- **Type:** Union
-- **Cases:** <a href="#WeightDiceOffsetStrategy'Add">WeightDiceOffsetStrategy'Add</a> | <a href="#WeightDiceOffsetStrategy'Subtract">WeightDiceOffsetStrategy'Subtract</a> | <a href="#WeightDiceOffsetStrategy'AddEvenSubtractOdd">WeightDiceOffsetStrategy'AddEvenSubtractOdd</a>
-
----
-
-### <a name="WeightDiceOffsetStrategy'Add"></a> `WeightDiceOffsetStrategy'Add`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#WeightDiceOffsetStrategy'Add/tag">See details</a>
-
-#### <a name="WeightDiceOffsetStrategy'Add/tag"></a> `tag`
-
-- **Constant:** `"Add"`
-
----
-
-### <a name="WeightDiceOffsetStrategy'Subtract"></a> `WeightDiceOffsetStrategy'Subtract`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#WeightDiceOffsetStrategy'Subtract/tag">See details</a>
-
-#### <a name="WeightDiceOffsetStrategy'Subtract/tag"></a> `tag`
-
-- **Constant:** `"Subtract"`
-
----
-
-### <a name="WeightDiceOffsetStrategy'AddEvenSubtractOdd"></a> `WeightDiceOffsetStrategy'AddEvenSubtractOdd`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#WeightDiceOffsetStrategy'AddEvenSubtractOdd/tag">See details</a>
-
-#### <a name="WeightDiceOffsetStrategy'AddEvenSubtractOdd/tag"></a> `tag`
-
-- **Constant:** `"AddEvenSubtractOdd"`
+- **Possible values:** `"Add"`, `"Subtract"`, `"AddEvenSubtractOdd"`
 
 ---
 

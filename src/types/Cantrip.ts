@@ -147,12 +147,12 @@ export type CantripPerformanceParameters = {
 }
 
 export type CantripRange =
-  | { tag: "Self" }
-  | { tag: "Touch" }
+  | { tag: "Self"; self: {} }
+  | { tag: "Touch"; touch: {} }
   | { tag: "Fixed"; fixed: FixedRange }
 
 export type CantripDuration =
-  | { tag: "Immediate" }
+  | { tag: "Immediate"; immediate: {} }
   | { tag: "Fixed"; fixed: FixedCantripDuration }
   | { tag: "DuringLovemaking"; during_lovemaking: CastingTimeDuringLovemaking }
   | { tag: "Indefinite"; indefinite: IndefiniteCantripDuration }

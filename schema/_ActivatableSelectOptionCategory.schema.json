@@ -9,10 +9,17 @@
           "properties": {
             "tag": {
               "const": "Blessings"
+            },
+            "blessings": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "blessings"
           ],
           "additionalProperties": false
         },
@@ -21,10 +28,17 @@
           "properties": {
             "tag": {
               "const": "Cantrips"
+            },
+            "cantrips": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "cantrips"
           ],
           "additionalProperties": false
         },
@@ -33,10 +47,17 @@
           "properties": {
             "tag": {
               "const": "TradeSecrets"
+            },
+            "trade_secrets": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "trade_secrets"
           ],
           "additionalProperties": false
         },
@@ -45,10 +66,17 @@
           "properties": {
             "tag": {
               "const": "Scripts"
+            },
+            "scripts": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "scripts"
           ],
           "additionalProperties": false
         },
@@ -57,10 +85,17 @@
           "properties": {
             "tag": {
               "const": "AnimalShapes"
+            },
+            "animal_shapes": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "animal_shapes"
           ],
           "additionalProperties": false
         },
@@ -69,10 +104,17 @@
           "properties": {
             "tag": {
               "const": "ArcaneBardTraditions"
+            },
+            "arcane_bard_traditions": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "arcane_bard_traditions"
           ],
           "additionalProperties": false
         },
@@ -81,10 +123,17 @@
           "properties": {
             "tag": {
               "const": "ArcaneDancerTraditions"
+            },
+            "arcane_dancer_traditions": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "arcane_dancer_traditions"
           ],
           "additionalProperties": false
         },
@@ -93,10 +142,17 @@
           "properties": {
             "tag": {
               "const": "SexPractices"
+            },
+            "sex_practices": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "sex_practices"
           ],
           "additionalProperties": false
         },
@@ -105,10 +161,17 @@
           "properties": {
             "tag": {
               "const": "Races"
+            },
+            "races": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "races"
           ],
           "additionalProperties": false
         },
@@ -117,10 +180,17 @@
           "properties": {
             "tag": {
               "const": "Cultures"
+            },
+            "cultures": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "cultures"
           ],
           "additionalProperties": false
         },
@@ -499,7 +569,8 @@
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "skills"
           ],
           "additionalProperties": false
         },
@@ -544,12 +615,12 @@
                 }
               },
               "required": [],
-              "minProperties": 1,
               "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "spells"
           ],
           "additionalProperties": false
         },
@@ -594,12 +665,12 @@
                 }
               },
               "required": [],
-              "minProperties": 1,
               "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "rituals"
           ],
           "additionalProperties": false
         },
@@ -644,12 +715,12 @@
                 }
               },
               "required": [],
-              "minProperties": 1,
               "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "liturgical_chants"
           ],
           "additionalProperties": false
         },
@@ -694,12 +765,12 @@
                 }
               },
               "required": [],
-              "minProperties": 1,
               "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "ceremonies"
           ],
           "additionalProperties": false
         }
@@ -764,7 +835,6 @@
         }
       },
       "required": [],
-      "minProperties": 1,
       "additionalProperties": false
     },
     "CombatTechniquesSelectOptionCategory": {
@@ -898,12 +968,12 @@
                 }
               },
               "required": [],
-              "minProperties": 1,
               "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "close_combat_techniques"
           ],
           "additionalProperties": false
         },
@@ -948,12 +1018,12 @@
                 }
               },
               "required": [],
-              "minProperties": 1,
               "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "ranged_combat_techniques"
           ],
           "additionalProperties": false
         }
@@ -1000,31 +1070,9 @@
     },
     "SpecificFromSkillSelectOptionCategoryCategoryOperation": {
       "description": "Only include (`Intersection`) or exclude (`Difference`) specific entries.",
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Intersection"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Difference"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        }
+      "enum": [
+        "Intersection",
+        "Difference"
       ]
     },
     "SkillSelectOptionCategoryPrerequisite": {

@@ -110,10 +110,11 @@ export type SkillTranslation = {
  * A category. All available entries from the specified category will be
  * included as separate applications.
  */
-export type ApplicationCategory =
-  | { tag: "BlessedTraditions" }
-  | { tag: "Diseases" }
-  | { tag: "Regions" }
+export enum ApplicationCategory {
+  BlessedTraditions = "BlessedTraditions",
+  Diseases = "Diseases",
+  Regions = "Regions",
+}
 
 /**
  * The skill's applications.
@@ -154,9 +155,10 @@ export type ApplicationTranslation = {
 /**
  * Indicates whether encumbrance gives a penalty for checks with the skill.
  */
-export type Encumbrance =
-  | { tag: "True" }
-  | { tag: "False" }
-  | { tag: "Maybe" }
+export enum Encumbrance {
+  True = "True",
+  False = "False",
+  Maybe = "Maybe",
+}
 
 export const validateSchema = validateSchemaCreator<Skill>(import.meta.url)

@@ -48,10 +48,17 @@
           "properties": {
             "tag": {
               "const": "Sight"
+            },
+            "sight": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "sight"
           ],
           "additionalProperties": false
         },
@@ -60,10 +67,17 @@
           "properties": {
             "tag": {
               "const": "Self"
+            },
+            "self": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "self"
           ],
           "additionalProperties": false
         },
@@ -71,12 +85,18 @@
           "type": "object",
           "properties": {
             "tag": {
-              "description": "German: *dereumfassend*",
               "const": "Global"
+            },
+            "global": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "global"
           ],
           "additionalProperties": false
         },

@@ -209,10 +209,21 @@ The cost in silverthalers.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#Cost'Free/tag">See details</a>
+`free` |  | <a href="#Cost'Free/free">See details</a>
 
 #### <a name="Cost'Free/tag"></a> `tag`
 
 - **Constant:** `"Free"`
+
+#### <a name="Cost'Free/free"></a> `free`
+
+- **Type:** <a href="#Cost'Free/free">Object</a>
+
+---
+
+### <a name="Cost'Free/free"></a> `Cost'Free/free`
+
+- **Type:** Empty Object
 
 ---
 
@@ -223,11 +234,22 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#Cost'Various/tag">See details</a>
+`various` |  | <a href="#Cost'Various/various">See details</a>
 
 #### <a name="Cost'Various/tag"></a> `tag`
 
 - **Constant:** `"Various"`
 
+#### <a name="Cost'Various/various"></a> `various`
+
+- **Type:** <a href="#Cost'Various/various">Object</a>
+
+---
+
+### <a name="Cost'Various/various"></a> `Cost'Various/various`
+
+- **Type:** Empty Object
+
 ---
 
 ### <a name="Cost'"></a> `Cost'`
@@ -237,10 +259,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#Cost'/tag">See details</a>
+`` |  | <a href="#Cost'/">See details</a>
 
 #### <a name="Cost'/tag"></a> `tag`
 
 - **Constant:** `""`
+
+#### <a name="Cost'/"></a> ``
+
+- **Type:** <a href="#Cost'/">Object</a>
+
+---
+
+### <a name="Cost'/"></a> `Cost'/`
+
+- **Type:** Empty Object
 
 ---
 
@@ -251,10 +284,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#Cost'/tag">See details</a>
+`` |  | <a href="#Cost'/">See details</a>
 
 #### <a name="Cost'/tag"></a> `tag`
 
 - **Constant:** `""`
+
+#### <a name="Cost'/"></a> ``
+
+- **Type:** <a href="#Cost'/">Object</a>
+
+---
+
+### <a name="Cost'/"></a> `Cost'/`
+
+- **Type:** Empty Object
 
 ---
 
@@ -413,10 +457,21 @@ The complexity of crafting the item.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#Complexity'Primitive/tag">See details</a>
+`primitive` |  | <a href="#Complexity'Primitive/primitive">See details</a>
 
 #### <a name="Complexity'Primitive/tag"></a> `tag`
 
 - **Constant:** `"Primitive"`
+
+#### <a name="Complexity'Primitive/primitive"></a> `primitive`
+
+- **Type:** <a href="#Complexity'Primitive/primitive">Object</a>
+
+---
+
+### <a name="Complexity'Primitive/primitive"></a> `Complexity'Primitive/primitive`
+
+- **Type:** Empty Object
 
 ---
 
@@ -427,10 +482,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#Complexity'Simple/tag">See details</a>
+`simple` |  | <a href="#Complexity'Simple/simple">See details</a>
 
 #### <a name="Complexity'Simple/tag"></a> `tag`
 
 - **Constant:** `"Simple"`
+
+#### <a name="Complexity'Simple/simple"></a> `simple`
+
+- **Type:** <a href="#Complexity'Simple/simple">Object</a>
+
+---
+
+### <a name="Complexity'Simple/simple"></a> `Complexity'Simple/simple`
+
+- **Type:** Empty Object
 
 ---
 

@@ -212,10 +212,17 @@
           "properties": {
             "tag": {
               "const": "Attributes"
+            },
+            "attributes": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "attributes"
           ],
           "additionalProperties": false
         },
@@ -224,10 +231,17 @@
           "properties": {
             "tag": {
               "const": "QualityLevels"
+            },
+            "quality_levels": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "quality_levels"
           ],
           "additionalProperties": false
         },
@@ -236,10 +250,17 @@
           "properties": {
             "tag": {
               "const": "Conditions"
+            },
+            "conditions": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "conditions"
           ],
           "additionalProperties": false
         },
@@ -248,10 +269,17 @@
           "properties": {
             "tag": {
               "const": "States"
+            },
+            "states": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "states"
           ],
           "additionalProperties": false
         },
@@ -260,10 +288,17 @@
           "properties": {
             "tag": {
               "const": "ExperienceLevels"
+            },
+            "experience_levels": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "experience_levels"
           ],
           "additionalProperties": false
         },
@@ -272,10 +307,17 @@
           "properties": {
             "tag": {
               "const": "Races"
+            },
+            "races": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "races"
           ],
           "additionalProperties": false
         },
@@ -284,10 +326,17 @@
           "properties": {
             "tag": {
               "const": "Cultures"
+            },
+            "cultures": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "cultures"
           ],
           "additionalProperties": false
         },
@@ -296,10 +345,17 @@
           "properties": {
             "tag": {
               "const": "Professions"
+            },
+            "professions": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "professions"
           ],
           "additionalProperties": false
         },
@@ -308,10 +364,17 @@
           "properties": {
             "tag": {
               "const": "Advantages"
+            },
+            "advantages": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "advantages"
           ],
           "additionalProperties": false
         },
@@ -320,10 +383,17 @@
           "properties": {
             "tag": {
               "const": "Disadvantages"
+            },
+            "disadvantages": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "disadvantages"
           ],
           "additionalProperties": false
         },
@@ -332,10 +402,17 @@
           "properties": {
             "tag": {
               "const": "CombatTechniques"
+            },
+            "combat_techniques": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "combat_techniques"
           ],
           "additionalProperties": false
         },
@@ -344,10 +421,17 @@
           "properties": {
             "tag": {
               "const": "SpecialAbilities"
+            },
+            "special_abilities": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "special_abilities"
           ],
           "additionalProperties": false
         },
@@ -356,10 +440,17 @@
           "properties": {
             "tag": {
               "const": "PrimaryAttributes"
+            },
+            "primary_attributes": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "primary_attributes"
           ],
           "additionalProperties": false
         },
@@ -368,10 +459,17 @@
           "properties": {
             "tag": {
               "const": "DerivedCharacteristics"
+            },
+            "derived_characteristics": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "derived_characteristics"
           ],
           "additionalProperties": false
         },
@@ -380,10 +478,17 @@
           "properties": {
             "tag": {
               "const": "StartingAge"
+            },
+            "starting_age": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "starting_age"
           ],
           "additionalProperties": false
         },
@@ -392,10 +497,17 @@
           "properties": {
             "tag": {
               "const": "Archetypes"
+            },
+            "archetypes": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "archetypes"
           ],
           "additionalProperties": false
         },
@@ -404,10 +516,17 @@
           "properties": {
             "tag": {
               "const": "RequirementsForRoutineChecks"
+            },
+            "requirements_for_routine_checks": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "requirements_for_routine_checks"
           ],
           "additionalProperties": false
         },
@@ -416,10 +535,17 @@
           "properties": {
             "tag": {
               "const": "GeneralSpecialAbilities"
+            },
+            "general_special_abilities": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "general_special_abilities"
           ],
           "additionalProperties": false
         },
@@ -428,10 +554,17 @@
           "properties": {
             "tag": {
               "const": "FatePointSpecialAbilities"
+            },
+            "fate_point_special_abilities": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "fate_point_special_abilities"
           ],
           "additionalProperties": false
         },
@@ -440,10 +573,17 @@
           "properties": {
             "tag": {
               "const": "LanguagesAndScripts"
+            },
+            "languages_and_scripts": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "languages_and_scripts"
           ],
           "additionalProperties": false
         },
@@ -452,10 +592,17 @@
           "properties": {
             "tag": {
               "const": "CloseCombatBotch"
+            },
+            "close_combat_botch": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "close_combat_botch"
           ],
           "additionalProperties": false
         },
@@ -464,10 +611,17 @@
           "properties": {
             "tag": {
               "const": "DefenseBotch"
+            },
+            "defense_botch": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "defense_botch"
           ],
           "additionalProperties": false
         },
@@ -476,10 +630,17 @@
           "properties": {
             "tag": {
               "const": "MeleeCombatTechniques"
+            },
+            "melee_combat_techniques": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "melee_combat_techniques"
           ],
           "additionalProperties": false
         },
@@ -488,10 +649,17 @@
           "properties": {
             "tag": {
               "const": "RangedCombatBotch"
+            },
+            "ranged_combat_botch": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "ranged_combat_botch"
           ],
           "additionalProperties": false
         },
@@ -500,10 +668,17 @@
           "properties": {
             "tag": {
               "const": "RangedCombatDefenseBotch"
+            },
+            "ranged_combat_defense_botch": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "ranged_combat_defense_botch"
           ],
           "additionalProperties": false
         },
@@ -512,10 +687,17 @@
           "properties": {
             "tag": {
               "const": "RangedCombatTechniques"
+            },
+            "ranged_combat_techniques": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "ranged_combat_techniques"
           ],
           "additionalProperties": false
         },
@@ -524,10 +706,17 @@
           "properties": {
             "tag": {
               "const": "CombatSpecialAbilities"
+            },
+            "combat_special_abilities": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "combat_special_abilities"
           ],
           "additionalProperties": false
         },
@@ -536,10 +725,17 @@
           "properties": {
             "tag": {
               "const": "Properties"
+            },
+            "properties": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "properties"
           ],
           "additionalProperties": false
         },
@@ -548,10 +744,17 @@
           "properties": {
             "tag": {
               "const": "SpellBotch"
+            },
+            "spell_botch": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "spell_botch"
           ],
           "additionalProperties": false
         },
@@ -560,10 +763,17 @@
           "properties": {
             "tag": {
               "const": "Services"
+            },
+            "services": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "services"
           ],
           "additionalProperties": false
         },
@@ -572,10 +782,17 @@
           "properties": {
             "tag": {
               "const": "ProtectiveAndWardingCircles"
+            },
+            "protective_and_warding_circles": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "protective_and_warding_circles"
           ],
           "additionalProperties": false
         },
@@ -584,10 +801,17 @@
           "properties": {
             "tag": {
               "const": "Elixirs"
+            },
+            "elixirs": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "elixirs"
           ],
           "additionalProperties": false
         },
@@ -596,10 +820,17 @@
           "properties": {
             "tag": {
               "const": "StaffEnchantments"
+            },
+            "staff_enchantments": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "staff_enchantments"
           ],
           "additionalProperties": false
         },
@@ -608,10 +839,17 @@
           "properties": {
             "tag": {
               "const": "FamiliarsTricks"
+            },
+            "familiars_tricks": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "familiars_tricks"
           ],
           "additionalProperties": false
         },
@@ -620,10 +858,17 @@
           "properties": {
             "tag": {
               "const": "Curses"
+            },
+            "curses": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "curses"
           ],
           "additionalProperties": false
         },
@@ -632,10 +877,17 @@
           "properties": {
             "tag": {
               "const": "ElvenMagicalSongs"
+            },
+            "elven_magical_songs": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "elven_magical_songs"
           ],
           "additionalProperties": false
         },
@@ -644,10 +896,17 @@
           "properties": {
             "tag": {
               "const": "MagicalSpecialAbilities"
+            },
+            "magical_special_abilities": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "magical_special_abilities"
           ],
           "additionalProperties": false
         },
@@ -656,10 +915,17 @@
           "properties": {
             "tag": {
               "const": "Cantrips"
+            },
+            "cantrips": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "cantrips"
           ],
           "additionalProperties": false
         },
@@ -668,10 +934,17 @@
           "properties": {
             "tag": {
               "const": "Spells"
+            },
+            "spells": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "spells"
           ],
           "additionalProperties": false
         },
@@ -680,10 +953,17 @@
           "properties": {
             "tag": {
               "const": "Rituals"
+            },
+            "rituals": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "rituals"
           ],
           "additionalProperties": false
         },
@@ -692,10 +972,17 @@
           "properties": {
             "tag": {
               "const": "Aspects"
+            },
+            "aspects": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "aspects"
           ],
           "additionalProperties": false
         },
@@ -704,10 +991,17 @@
           "properties": {
             "tag": {
               "const": "LiturgyBotch"
+            },
+            "liturgy_botch": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "liturgy_botch"
           ],
           "additionalProperties": false
         },
@@ -716,10 +1010,17 @@
           "properties": {
             "tag": {
               "const": "KarmaSpecialAbilities"
+            },
+            "karma_special_abilities": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "karma_special_abilities"
           ],
           "additionalProperties": false
         },
@@ -728,10 +1029,17 @@
           "properties": {
             "tag": {
               "const": "Blessings"
+            },
+            "blessings": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "blessings"
           ],
           "additionalProperties": false
         },
@@ -740,10 +1048,17 @@
           "properties": {
             "tag": {
               "const": "LiturgicalChants"
+            },
+            "liturgical_chants": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "liturgical_chants"
           ],
           "additionalProperties": false
         },
@@ -752,10 +1067,17 @@
           "properties": {
             "tag": {
               "const": "Ceremonies"
+            },
+            "ceremonies": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "ceremonies"
           ],
           "additionalProperties": false
         },
@@ -764,10 +1086,17 @@
           "properties": {
             "tag": {
               "const": "SocialStatuses"
+            },
+            "social_statuses": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "social_statuses"
           ],
           "additionalProperties": false
         },
@@ -776,10 +1105,17 @@
           "properties": {
             "tag": {
               "const": "Poisons"
+            },
+            "poisons": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "poisons"
           ],
           "additionalProperties": false
         },
@@ -788,10 +1124,17 @@
           "properties": {
             "tag": {
               "const": "Diseases"
+            },
+            "diseases": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "diseases"
           ],
           "additionalProperties": false
         },
@@ -800,10 +1143,17 @@
           "properties": {
             "tag": {
               "const": "HealingHerbs"
+            },
+            "healing_herbs": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "healing_herbs"
           ],
           "additionalProperties": false
         },
@@ -812,10 +1162,17 @@
           "properties": {
             "tag": {
               "const": "VisibilityModifier"
+            },
+            "visibility_modifier": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "visibility_modifier"
           ],
           "additionalProperties": false
         },
@@ -824,10 +1181,17 @@
           "properties": {
             "tag": {
               "const": "Demons"
+            },
+            "demons": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "demons"
           ],
           "additionalProperties": false
         },
@@ -836,10 +1200,17 @@
           "properties": {
             "tag": {
               "const": "Elementals"
+            },
+            "elementals": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "elementals"
           ],
           "additionalProperties": false
         },
@@ -848,10 +1219,17 @@
           "properties": {
             "tag": {
               "const": "Animals"
+            },
+            "animals": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "animals"
           ],
           "additionalProperties": false
         },
@@ -860,10 +1238,17 @@
           "properties": {
             "tag": {
               "const": "Familiars"
+            },
+            "familiars": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "familiars"
           ],
           "additionalProperties": false
         },
@@ -872,10 +1257,17 @@
           "properties": {
             "tag": {
               "const": "AnimalSpecialAbilities"
+            },
+            "animal_special_abilities": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "animal_special_abilities"
           ],
           "additionalProperties": false
         },
@@ -884,10 +1276,17 @@
           "properties": {
             "tag": {
               "const": "EquipmentPackages"
+            },
+            "equipment_packages": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "equipment_packages"
           ],
           "additionalProperties": false
         },
@@ -896,10 +1295,17 @@
           "properties": {
             "tag": {
               "const": "Items"
+            },
+            "items": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "items"
           ],
           "additionalProperties": false
         },
@@ -908,10 +1314,17 @@
           "properties": {
             "tag": {
               "const": "OptionalRules"
+            },
+            "optional_rules": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "optional_rules"
           ],
           "additionalProperties": false
         },
@@ -953,31 +1366,9 @@
       "additionalProperties": false
     },
     "ReferenceListNodeImprovementCostSourceTarget": {
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Attributes"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Skills"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        }
+      "enum": [
+        "Attributes",
+        "Skills"
       ]
     },
     "ReferenceListNodeTranslation": {

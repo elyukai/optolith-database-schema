@@ -383,18 +383,20 @@ export type Effect = NonEmptyMarkdown
 /**
  * The definition of how the combat special ability can be used in combat.
  */
-export type CombatSpecialAbilityUsageType =
-  | { tag: "Passive" }
-  | { tag: "BasicManeuver" }
-  | { tag: "SpecialManeuver" }
+export enum CombatSpecialAbilityUsageType {
+  Passive = "Passive",
+  BasicManeuver = "BasicManeuver",
+  SpecialManeuver = "SpecialManeuver",
+}
 
 /**
  * The definition of if the combat special ability can be used when armed or
  * when unarmed.
  */
-export type CombatSpecialAbilityType =
-  | { tag: "Armed" }
-  | { tag: "Unarmed" }
+export enum CombatSpecialAbilityType {
+  Armed = "Armed",
+  Unarmed = "Unarmed",
+}
 
 /**
  * Registers new skill applications, which get enabled once this entry is
@@ -508,7 +510,7 @@ export type Penalty =
   | { tag: "Selection"; selection: PenaltySelection }
   | { tag: "ByLevel"; by_level: PenaltyByLevel }
   | { tag: "ByAttack"; by_attack: PenaltyByAttack }
-  | { tag: "DependsOnHitZone" }
+  | { tag: "DependsOnHitZone"; depends_on_hit_zone: {} }
 
 export type SinglePenalty = {
   /**
@@ -672,8 +674,9 @@ export type PenaltyByAttackOrderItem = {
  * Set if a predefined different word should be used instead of the word
  * `attack` for display purposes.
  */
-export type PenaltyByAttackReplacement =
-  | { tag: "Throw" }
+export enum PenaltyByAttackReplacement {
+  Throw = "Throw",
+}
 
 export type EnchantmentCost =
   | { tag: "ArcaneEnergyCost"; arcane_energy_cost: ArcaneEnergyCost }
@@ -689,7 +692,7 @@ export type ArcaneEnergyCost =
   | { tag: "Indefinite"; indefinite: IndefiniteArcaneEnergyCost }
   | { tag: "Disjunction"; disjunction: ArcaneEnergyCostDisjunction }
   | { tag: "None"; none?: NoArcaneEnergyCost }
-  | { tag: "Variable" }
+  | { tag: "Variable"; variable: {} }
 
 export type FixedArcaneEnergyCost = {
   /**
@@ -729,9 +732,10 @@ export type FixedArcaneEnergyCost = {
  * in a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1
  * AE for level I; 2 AE for level II`).
  */
-export type FixedArcaneEnergyCostPerLevel =
-  | { tag: "Compressed" }
-  | { tag: "Verbose" }
+export enum FixedArcaneEnergyCostPerLevel {
+  Compressed = "Compressed",
+  Verbose = "Verbose",
+}
 
 /**
  * @minProperties 1
@@ -809,9 +813,10 @@ export type IndefiniteArcaneEnergyCost = {
 /**
  * Defines how the the `value` is set off against the check result.
  */
-export type IndefiniteArcaneEnergyCostArithmetic =
-  | { tag: "Add" }
-  | { tag: "Subtract" }
+export enum IndefiniteArcaneEnergyCostArithmetic {
+  Add = "Add",
+  Subtract = "Subtract",
+}
 
 export type IndefiniteArcaneEnergyCostModifier = {
   /**
@@ -1204,7 +1209,7 @@ export type BindingCostMapOptionTranslation = {
  * the special ability has an option to select a property.
  */
 export type Property =
-  | { tag: "DependingOnSelection" }
+  | { tag: "DependingOnSelection"; depending_on_selection: {} }
   | { tag: "Fixed"; fixed: PropertyReference }
 
 /**
@@ -1302,8 +1307,8 @@ export type AdvancedSpecialAbilities = [
 ]
 
 export type ApplicableCombatTechniques =
-  | { tag: "None" }
-  | { tag: "DependingOnCombatStyle" }
+  | { tag: "None"; none: {} }
+  | { tag: "DependingOnCombatStyle"; depending_on_combat_style: {} }
   | { tag: "All"; all: AllApplicableCombatTechniques }
   | { tag: "AllClose"; all_close: AllApplicableCloseCombatTechniques }
   | { tag: "AllRanged"; all_ranged: AllApplicableRangedCombatTechniques }
@@ -1347,33 +1352,33 @@ export type SpecificApplicableCombatTechnique = {
 }
 
 export type ApplicableAllCombatTechniquesRestriction =
-  | { tag: "Improvised" }
-  | { tag: "PointedBlade" }
-  | { tag: "Mount" }
+  | { tag: "Improvised"; improvised: {} }
+  | { tag: "PointedBlade"; pointed_blade: {} }
+  | { tag: "Mount"; mount: {} }
   | { tag: "Race"; race: ApplicableCombatTechniquesRaceRestriction }
   | { tag: "ExcludeCombatTechniques"; exclude_combat_techniques: ApplicableCombatTechniquesNegativeCombatTechniquesRestriction<CombatTechniqueReference> }
 
 export type ApplicableCloseCombatTechniquesRestriction =
-  | { tag: "Improvised" }
-  | { tag: "PointedBlade" }
-  | { tag: "Mount" }
-  | { tag: "HasParry" }
-  | { tag: "OneHanded" }
-  | { tag: "ParryingWeapon" }
+  | { tag: "Improvised"; improvised: {} }
+  | { tag: "PointedBlade"; pointed_blade: {} }
+  | { tag: "Mount"; mount: {} }
+  | { tag: "HasParry"; has_parry: {} }
+  | { tag: "OneHanded"; one_handed: {} }
+  | { tag: "ParryingWeapon"; parrying_weapon: {} }
   | { tag: "Race"; race: ApplicableCombatTechniquesRaceRestriction }
   | { tag: "ExcludeCombatTechniques"; exclude_combat_techniques: ApplicableCombatTechniquesNegativeCombatTechniquesRestriction<CloseCombatTechniqueReference> }
 
 export type ApplicableRangedCombatTechniquesRestriction =
-  | { tag: "Improvised" }
-  | { tag: "PointedBlade" }
-  | { tag: "Mount" }
+  | { tag: "Improvised"; improvised: {} }
+  | { tag: "PointedBlade"; pointed_blade: {} }
+  | { tag: "Mount"; mount: {} }
   | { tag: "Race"; race: ApplicableCombatTechniquesRaceRestriction }
   | { tag: "ExcludeCombatTechniques"; exclude_combat_techniques: ApplicableCombatTechniquesNegativeCombatTechniquesRestriction<RangedCombatTechniqueReference> }
 
 export type ApplicableSpecificCombatTechniquesRestriction =
-  | { tag: "Improvised" }
-  | { tag: "PointedBlade" }
-  | { tag: "Mount" }
+  | { tag: "Improvised"; improvised: {} }
+  | { tag: "PointedBlade"; pointed_blade: {} }
+  | { tag: "Mount"; mount: {} }
   | { tag: "Race"; race: ApplicableCombatTechniquesRaceRestriction }
   | { tag: "Level"; level: ApplicableCombatTechniquesLevelRestriction }
   | { tag: "Weapons"; weapons: ApplicableCombatTechniquesWeaponRestriction }
@@ -1410,7 +1415,7 @@ export type ApplicableCombatTechniquesWeaponRestriction = {
 export type AdventurePointsValue =
   | { tag: "Fixed"; fixed: FixedAdventurePointsValue }
   | { tag: "ByLevel"; by_level: AdventurePointsValueByLevel }
-  | { tag: "Indefinite" }
+  | { tag: "Indefinite"; indefinite: {} }
 
 /**
  * A fixed adventure points value. If the entry has levels, this is the cost per

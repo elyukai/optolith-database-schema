@@ -6,7 +6,7 @@ import { MagicalTraditionIdentifier } from "./_Identifier.js"
  * traditions.
  */
 export type Traditions =
-  | { tag: "General" }
+  | { tag: "General"; general: {} }
   | { tag: "Specific"; specific: SpecificTraditions }
 
 /**

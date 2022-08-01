@@ -6,36 +6,7 @@
 
 Defines the derived (unitless) value.
 
-- **Type:** Union
-- **Cases:** <a href="#CheckResultValue'QualityLevels">CheckResultValue'QualityLevels</a> | <a href="#CheckResultValue'SkillPoints">CheckResultValue'SkillPoints</a>
-
----
-
-### <a name="CheckResultValue'QualityLevels"></a> `CheckResultValue'QualityLevels`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#CheckResultValue'QualityLevels/tag">See details</a>
-
-#### <a name="CheckResultValue'QualityLevels/tag"></a> `tag`
-
-- **Constant:** `"QualityLevels"`
-
----
-
-### <a name="CheckResultValue'SkillPoints"></a> `CheckResultValue'SkillPoints`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#CheckResultValue'SkillPoints/tag">See details</a>
-
-#### <a name="CheckResultValue'SkillPoints/tag"></a> `tag`
-
-- **Constant:** `"SkillPoints"`
+- **Possible values:** `"QualityLevels"`, `"SkillPoints"`
 
 ---
 
@@ -43,36 +14,7 @@ Key | Description | Details
 
 Defines how the the `value` is set off against the check result.
 
-- **Type:** Union
-- **Cases:** <a href="#CheckResultArithmetic'Multiply">CheckResultArithmetic'Multiply</a> | <a href="#CheckResultArithmetic'Divide">CheckResultArithmetic'Divide</a>
-
----
-
-### <a name="CheckResultArithmetic'Multiply"></a> `CheckResultArithmetic'Multiply`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#CheckResultArithmetic'Multiply/tag">See details</a>
-
-#### <a name="CheckResultArithmetic'Multiply/tag"></a> `tag`
-
-- **Constant:** `"Multiply"`
-
----
-
-### <a name="CheckResultArithmetic'Divide"></a> `CheckResultArithmetic'Divide`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#CheckResultArithmetic'Divide/tag">See details</a>
-
-#### <a name="CheckResultArithmetic'Divide/tag"></a> `tag`
-
-- **Constant:** `"Divide"`
+- **Possible values:** `"Multiply"`, `"Divide"`
 
 ---
 

@@ -120,9 +120,10 @@ export type AreaKnowledge = {
  * Some professions or profession variants are simply more common (Mostly), but
  * sometimes only specific elements are used (Only).
  */
-export type Weight =
-  | { tag: "Mostly" }
-  | { tag: "Only" }
+export enum Weight {
+  Mostly = "Mostly",
+  Only = "Only",
+}
 
 /**
  * Some professions or profession variants are more common than others. There
@@ -150,9 +151,10 @@ export type Weighted<ProfessionOrVariant> = {
  * that intersect with the constraints (include) or only the professions
  * are kept that are different from the constraints (exclude).
  */
-export type CommonProfessionConstraintsOperation =
-  | { tag: "Intersection" }
-  | { tag: "Difference" }
+export enum CommonProfessionConstraintsOperation {
+  Intersection = "Intersection",
+  Difference = "Difference",
+}
 
 /**
  * A list of professions. The filter specifies how the list is applied to
@@ -177,9 +179,10 @@ export type CommonProfessionConstraints<Constraint> = {
 /**
  * Some professions may be found in a culture, but are not that common.
  */
-export type Rarity =
-  | { tag: "Rare" }
-  | { tag: "VeryRare" }
+export enum Rarity {
+  Rare = "Rare",
+  VeryRare = "VeryRare",
+}
 
 export type ProfessionConstraint = {
   /**
@@ -205,10 +208,11 @@ export type ProfessionConstraint = {
 /**
  * Some professions may be found in a culture, but are not that common.
  */
-export type MundaneProfessionSubgroupConstraint =
-  | { tag: "Profane" }
-  | { tag: "Fighter" }
-  | { tag: "Religious" }
+export enum MundaneProfessionSubgroupConstraint {
+  Profane = "Profane",
+  Fighter = "Fighter",
+  Religious = "Religious",
+}
 
 export type TraditionConstraint = {
   /**
@@ -236,7 +240,7 @@ export type MundaneCommonProfessionConstraint =
 
 export type MagicCommonProfessionConstraint =
   | { tag: "Tradition"; tradition: TraditionConstraint }
-  | { tag: "MagicDilettante" }
+  | { tag: "MagicDilettante"; magic_dilettante: {} }
   | { tag: "Profession"; profession: ProfessionConstraint }
 
 export type BlessedCommonProfessionConstraint =

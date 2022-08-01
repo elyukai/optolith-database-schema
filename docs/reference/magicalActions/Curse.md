@@ -288,10 +288,21 @@ A note, appended to the generated string in parenthesis.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#CurseDuration'Immediate/tag">See details</a>
+`immediate` |  | <a href="#CurseDuration'Immediate/immediate">See details</a>
 
 #### <a name="CurseDuration'Immediate/tag"></a> `tag`
 
 - **Constant:** `"Immediate"`
+
+#### <a name="CurseDuration'Immediate/immediate"></a> `immediate`
+
+- **Type:** <a href="#CurseDuration'Immediate/immediate">Object</a>
+
+---
+
+### <a name="CurseDuration'Immediate/immediate"></a> `CurseDuration'Immediate/immediate`
+
+- **Type:** Empty Object
 
 ---
 

@@ -425,10 +425,17 @@
           "properties": {
             "tag": {
               "const": "CommonSuggestedByRCP"
+            },
+            "common_suggested_by_rcp": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "common_suggested_by_rcp"
           ],
           "additionalProperties": false
         },

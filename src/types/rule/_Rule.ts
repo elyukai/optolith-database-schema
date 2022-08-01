@@ -5,7 +5,7 @@
  * been implemented in Optolith yet.
  */
 export type Relevance =
-  | { tag: "Extraneous" }
+  | { tag: "Extraneous"; extraneous: {} }
   | { tag: "Linked"; linked: LinkedRelevance }
 
 export type LinkedRelevance = {

@@ -24,55 +24,11 @@
     "SkillCheckPenalty": {
       "title": "Skill Check Penalty",
       "description": "A specific value that represents a penalty for the associated skill check.",
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "SPI"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "SPI/2"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "TOU"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "SPI/TOU"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        }
+      "enum": [
+        "Spirit",
+        "HalfOfSpirit",
+        "Toughness",
+        "HigherOfSpiritAndToughness"
       ]
     }
   }

@@ -47,12 +47,13 @@ export type Talisman = {
   translations: LocaleMap<TalismanTranslation>
 }
 
-export type TalismanType =
-  | { tag: "MainTalisman" }
-  | { tag: "Talisman" }
-  | { tag: "MinorTalisman" }
-  | { tag: "Regalia" }
-  | { tag: "PowerfulTalisman" }
+export enum TalismanType {
+  MainTalisman = "MainTalisman",
+  Talisman = "Talisman",
+  MinorTalisman = "MinorTalisman",
+  Regalia = "Regalia",
+  PowerfulTalisman = "PowerfulTalisman",
+}
 
 export type TalismanTranslation = {
   /**

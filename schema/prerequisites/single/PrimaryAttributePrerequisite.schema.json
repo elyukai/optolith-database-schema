@@ -26,31 +26,9 @@
       "additionalProperties": false
     },
     "PrimaryAttributeCategory": {
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Blessed"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Magical"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        }
+      "enum": [
+        "Blessed",
+        "Magical"
       ]
     }
   }

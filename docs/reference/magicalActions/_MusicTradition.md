@@ -75,68 +75,10 @@ Key | Description | Details
 
 ### <a name="MusicLength"></a> `MusicLength`
 
-- **Type:** Union
-- **Cases:** <a href="#MusicLength'Long">MusicLength'Long</a> | <a href="#MusicLength'Short">MusicLength'Short</a>
-
----
-
-### <a name="MusicLength'Long"></a> `MusicLength'Long`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#MusicLength'Long/tag">See details</a>
-
-#### <a name="MusicLength'Long/tag"></a> `tag`
-
-- **Constant:** `"Long"`
-
----
-
-### <a name="MusicLength'Short"></a> `MusicLength'Short`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#MusicLength'Short/tag">See details</a>
-
-#### <a name="MusicLength'Short/tag"></a> `tag`
-
-- **Constant:** `"Short"`
+- **Possible values:** `"Long"`, `"Short"`
 
 ---
 
 ### <a name="MusicReusability"></a> `MusicReusability`
 
-- **Type:** Union
-- **Cases:** <a href="#MusicReusability'OneTime">MusicReusability'OneTime</a> | <a href="#MusicReusability'Sustainable">MusicReusability'Sustainable</a>
-
----
-
-### <a name="MusicReusability'OneTime"></a> `MusicReusability'OneTime`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#MusicReusability'OneTime/tag">See details</a>
-
-#### <a name="MusicReusability'OneTime/tag"></a> `tag`
-
-- **Constant:** `"OneTime"`
-
----
-
-### <a name="MusicReusability'Sustainable"></a> `MusicReusability'Sustainable`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#MusicReusability'Sustainable/tag">See details</a>
-
-#### <a name="MusicReusability'Sustainable/tag"></a> `tag`
-
-- **Constant:** `"Sustainable"`
+- **Possible values:** `"OneTime"`, `"Sustainable"`

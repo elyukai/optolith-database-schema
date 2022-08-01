@@ -49,7 +49,7 @@ export type ProfessionPrerequisiteGroup =
   | { tag: "Rated"; rated: RatedPrerequisite }
 
 export type AdvantageDisadvantagePrerequisiteGroup =
-  | { tag: "CommonSuggestedByRCP" }
+  | { tag: "CommonSuggestedByRCP"; common_suggested_by_rcp: {} }
   | { tag: "Sex"; sex: SexPrerequisite }
   | { tag: "Race"; race: RacePrerequisite }
   | { tag: "Culture"; culture: CulturePrerequisite }

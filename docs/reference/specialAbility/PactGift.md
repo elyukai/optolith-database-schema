@@ -199,36 +199,7 @@ selection where the player must choose one entry.
 
 ### <a name="AutomaticEntryAction"></a> `AutomaticEntryAction`
 
-- **Type:** Union
-- **Cases:** <a href="#AutomaticEntryAction'Add">AutomaticEntryAction'Add</a> | <a href="#AutomaticEntryAction'Remove">AutomaticEntryAction'Remove</a>
-
----
-
-### <a name="AutomaticEntryAction'Add"></a> `AutomaticEntryAction'Add`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#AutomaticEntryAction'Add/tag">See details</a>
-
-#### <a name="AutomaticEntryAction'Add/tag"></a> `tag`
-
-- **Constant:** `"Add"`
-
----
-
-### <a name="AutomaticEntryAction'Remove"></a> `AutomaticEntryAction'Remove`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#AutomaticEntryAction'Remove/tag">See details</a>
-
-#### <a name="AutomaticEntryAction'Remove/tag"></a> `tag`
-
-- **Constant:** `"Remove"`
+- **Possible values:** `"Add"`, `"Remove"`
 
 ---
 
@@ -293,36 +264,7 @@ Key | Description | Details
 
 ### <a name="AutomaticEntryTargetSelectionList"></a> `AutomaticEntryTargetSelectionList`
 
-- **Type:** Union
-- **Cases:** <a href="#AutomaticEntryTargetSelectionList'MagicalTraditions">AutomaticEntryTargetSelectionList'MagicalTraditions</a> | <a href="#AutomaticEntryTargetSelectionList'MagicalDilettanteTraditions">AutomaticEntryTargetSelectionList'MagicalDilettanteTraditions</a>
-
----
-
-### <a name="AutomaticEntryTargetSelectionList'MagicalTraditions"></a> `AutomaticEntryTargetSelectionList'MagicalTraditions`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#AutomaticEntryTargetSelectionList'MagicalTraditions/tag">See details</a>
-
-#### <a name="AutomaticEntryTargetSelectionList'MagicalTraditions/tag"></a> `tag`
-
-- **Constant:** `"MagicalTraditions"`
-
----
-
-### <a name="AutomaticEntryTargetSelectionList'MagicalDilettanteTraditions"></a> `AutomaticEntryTargetSelectionList'MagicalDilettanteTraditions`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#AutomaticEntryTargetSelectionList'MagicalDilettanteTraditions/tag">See details</a>
-
-#### <a name="AutomaticEntryTargetSelectionList'MagicalDilettanteTraditions/tag"></a> `tag`
-
-- **Constant:** `"MagicalDilettanteTraditions"`
+- **Possible values:** `"MagicalTraditions"`, `"MagicalDilettanteTraditions"`
 
 ---
 

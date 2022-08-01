@@ -10,10 +10,17 @@
           "properties": {
             "tag": {
               "const": "General"
+            },
+            "general": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "general"
           ],
           "additionalProperties": false
         },

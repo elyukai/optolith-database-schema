@@ -102,65 +102,65 @@ export type ReferenceListNode = {
 }
 
 export type ReferenceListNodeSource =
-  | { tag: "Attributes" }
-  | { tag: "QualityLevels" }
-  | { tag: "Conditions" }
-  | { tag: "States" }
-  | { tag: "ExperienceLevels" }
-  | { tag: "Races" }
-  | { tag: "Cultures" }
-  | { tag: "Professions" }
-  | { tag: "Advantages" }
-  | { tag: "Disadvantages" }
-  | { tag: "CombatTechniques" }
-  | { tag: "SpecialAbilities" }
-  | { tag: "PrimaryAttributes" }
-  | { tag: "DerivedCharacteristics" }
-  | { tag: "StartingAge" }
-  | { tag: "Archetypes" }
-  | { tag: "RequirementsForRoutineChecks" }
-  | { tag: "GeneralSpecialAbilities" }
-  | { tag: "FatePointSpecialAbilities" }
-  | { tag: "LanguagesAndScripts" }
-  | { tag: "CloseCombatBotch" }
-  | { tag: "DefenseBotch" }
-  | { tag: "MeleeCombatTechniques" }
-  | { tag: "RangedCombatBotch" }
-  | { tag: "RangedCombatDefenseBotch" }
-  | { tag: "RangedCombatTechniques" }
-  | { tag: "CombatSpecialAbilities" }
-  | { tag: "Properties" }
-  | { tag: "SpellBotch" }
-  | { tag: "Services" }
-  | { tag: "ProtectiveAndWardingCircles" }
-  | { tag: "Elixirs" }
-  | { tag: "StaffEnchantments" }
-  | { tag: "FamiliarsTricks" }
-  | { tag: "Curses" }
-  | { tag: "ElvenMagicalSongs" }
-  | { tag: "MagicalSpecialAbilities" }
-  | { tag: "Cantrips" }
-  | { tag: "Spells" }
-  | { tag: "Rituals" }
-  | { tag: "Aspects" }
-  | { tag: "LiturgyBotch" }
-  | { tag: "KarmaSpecialAbilities" }
-  | { tag: "Blessings" }
-  | { tag: "LiturgicalChants" }
-  | { tag: "Ceremonies" }
-  | { tag: "SocialStatuses" }
-  | { tag: "Poisons" }
-  | { tag: "Diseases" }
-  | { tag: "HealingHerbs" }
-  | { tag: "VisibilityModifier" }
-  | { tag: "Demons" }
-  | { tag: "Elementals" }
-  | { tag: "Animals" }
-  | { tag: "Familiars" }
-  | { tag: "AnimalSpecialAbilities" }
-  | { tag: "EquipmentPackages" }
-  | { tag: "Items" }
-  | { tag: "OptionalRules" }
+  | { tag: "Attributes"; attributes: {} }
+  | { tag: "QualityLevels"; quality_levels: {} }
+  | { tag: "Conditions"; conditions: {} }
+  | { tag: "States"; states: {} }
+  | { tag: "ExperienceLevels"; experience_levels: {} }
+  | { tag: "Races"; races: {} }
+  | { tag: "Cultures"; cultures: {} }
+  | { tag: "Professions"; professions: {} }
+  | { tag: "Advantages"; advantages: {} }
+  | { tag: "Disadvantages"; disadvantages: {} }
+  | { tag: "CombatTechniques"; combat_techniques: {} }
+  | { tag: "SpecialAbilities"; special_abilities: {} }
+  | { tag: "PrimaryAttributes"; primary_attributes: {} }
+  | { tag: "DerivedCharacteristics"; derived_characteristics: {} }
+  | { tag: "StartingAge"; starting_age: {} }
+  | { tag: "Archetypes"; archetypes: {} }
+  | { tag: "RequirementsForRoutineChecks"; requirements_for_routine_checks: {} }
+  | { tag: "GeneralSpecialAbilities"; general_special_abilities: {} }
+  | { tag: "FatePointSpecialAbilities"; fate_point_special_abilities: {} }
+  | { tag: "LanguagesAndScripts"; languages_and_scripts: {} }
+  | { tag: "CloseCombatBotch"; close_combat_botch: {} }
+  | { tag: "DefenseBotch"; defense_botch: {} }
+  | { tag: "MeleeCombatTechniques"; melee_combat_techniques: {} }
+  | { tag: "RangedCombatBotch"; ranged_combat_botch: {} }
+  | { tag: "RangedCombatDefenseBotch"; ranged_combat_defense_botch: {} }
+  | { tag: "RangedCombatTechniques"; ranged_combat_techniques: {} }
+  | { tag: "CombatSpecialAbilities"; combat_special_abilities: {} }
+  | { tag: "Properties"; properties: {} }
+  | { tag: "SpellBotch"; spell_botch: {} }
+  | { tag: "Services"; services: {} }
+  | { tag: "ProtectiveAndWardingCircles"; protective_and_warding_circles: {} }
+  | { tag: "Elixirs"; elixirs: {} }
+  | { tag: "StaffEnchantments"; staff_enchantments: {} }
+  | { tag: "FamiliarsTricks"; familiars_tricks: {} }
+  | { tag: "Curses"; curses: {} }
+  | { tag: "ElvenMagicalSongs"; elven_magical_songs: {} }
+  | { tag: "MagicalSpecialAbilities"; magical_special_abilities: {} }
+  | { tag: "Cantrips"; cantrips: {} }
+  | { tag: "Spells"; spells: {} }
+  | { tag: "Rituals"; rituals: {} }
+  | { tag: "Aspects"; aspects: {} }
+  | { tag: "LiturgyBotch"; liturgy_botch: {} }
+  | { tag: "KarmaSpecialAbilities"; karma_special_abilities: {} }
+  | { tag: "Blessings"; blessings: {} }
+  | { tag: "LiturgicalChants"; liturgical_chants: {} }
+  | { tag: "Ceremonies"; ceremonies: {} }
+  | { tag: "SocialStatuses"; social_statuses: {} }
+  | { tag: "Poisons"; poisons: {} }
+  | { tag: "Diseases"; diseases: {} }
+  | { tag: "HealingHerbs"; healing_herbs: {} }
+  | { tag: "VisibilityModifier"; visibility_modifier: {} }
+  | { tag: "Demons"; demons: {} }
+  | { tag: "Elementals"; elementals: {} }
+  | { tag: "Animals"; animals: {} }
+  | { tag: "Familiars"; familiars: {} }
+  | { tag: "AnimalSpecialAbilities"; animal_special_abilities: {} }
+  | { tag: "EquipmentPackages"; equipment_packages: {} }
+  | { tag: "Items"; items: {} }
+  | { tag: "OptionalRules"; optional_rules: {} }
   | { tag: "ImprovementCost"; improvement_cost: ReferenceListNodeImprovementCostSource }
 
 export type ReferenceListNodeImprovementCostSource = {
@@ -186,9 +186,10 @@ export type ReferenceListNodeImprovementCostSource = {
   maximum_rating: number
 }
 
-export type ReferenceListNodeImprovementCostSourceTarget =
-  | { tag: "Attributes" }
-  | { tag: "Skills" }
+export enum ReferenceListNodeImprovementCostSourceTarget {
+  Attributes = "Attributes",
+  Skills = "Skills",
+}
 
 export type ReferenceListNodeTranslation = {
   /**

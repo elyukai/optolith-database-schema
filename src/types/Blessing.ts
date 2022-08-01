@@ -80,12 +80,12 @@ export type BlessingPerformanceParameters = {
 }
 
 export type BlessingRange =
-  | { tag: "Self" }
-  | { tag: "Touch" }
+  | { tag: "Self"; self: {} }
+  | { tag: "Touch"; touch: {} }
   | { tag: "Fixed"; fixed: FixedRange }
 
 export type BlessingDuration =
-  | { tag: "Immediate" }
+  | { tag: "Immediate"; immediate: {} }
   | { tag: "Fixed"; fixed: FixedBlessingDuration }
   | { tag: "Indefinite"; indefinite: IndefiniteBlessingDuration }
 

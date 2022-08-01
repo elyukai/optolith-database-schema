@@ -45,31 +45,9 @@
       "additionalProperties": false
     },
     "ServiceAvailability": {
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "SummonedCreatures"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Monstrosities"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        }
+      "enum": [
+        "SummonedCreatures",
+        "Monstrosities"
       ]
     },
     "ServiceTranslation": {

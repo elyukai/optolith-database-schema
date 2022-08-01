@@ -78,10 +78,17 @@
           "properties": {
             "tag": {
               "const": "QualityLevel"
+            },
+            "quality_level": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "quality_level"
           ],
           "additionalProperties": false
         },
@@ -117,55 +124,11 @@
       "additionalProperties": false
     },
     "PoisonApplicationType": {
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Weapon"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Ingestion"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Inhalation"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Contact"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        }
+      "enum": [
+        "Weapon",
+        "Ingestion",
+        "Inhalation",
+        "Contact"
       ]
     },
     "PoisonSourceType": {
@@ -175,10 +138,17 @@
           "properties": {
             "tag": {
               "const": "AnimalVenom"
+            },
+            "animal_venom": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "animal_venom"
           ],
           "additionalProperties": false
         },
@@ -187,10 +157,17 @@
           "properties": {
             "tag": {
               "const": "AlchemicalPoison"
+            },
+            "alchemical_poison": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "alchemical_poison"
           ],
           "additionalProperties": false
         },
@@ -199,10 +176,17 @@
           "properties": {
             "tag": {
               "const": "MineralPoison"
+            },
+            "mineral_poison": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "mineral_poison"
           ],
           "additionalProperties": false
         },
@@ -244,10 +228,17 @@
           "properties": {
             "tag": {
               "const": "Default"
+            },
+            "default": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "default"
           ],
           "additionalProperties": false
         },

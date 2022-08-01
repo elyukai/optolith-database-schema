@@ -94,9 +94,10 @@ export type PatronCulture = {
  * only part of the given cultures. If they should differ, the patron is only
  * part of the cultures that are not given.
  */
-export type PatronCultureOperation =
-  | { tag: "Intersection" }
-  | { tag: "Difference" }
+export enum PatronCultureOperation {
+  Intersection = "Intersection",
+  Difference = "Difference",
+}
 
 export type AdvantageAnimalPower = {
   /**
@@ -160,13 +161,14 @@ export type CombatAnimalPower = {
   value: number
 }
 
-export type CombatAnimalPowerType =
-  | { tag: "Attack" }
-  | { tag: "Parry" }
-  | { tag: "RangedCombat" }
-  | { tag: "Dodge" }
-  | { tag: "DamagePoints" }
-  | { tag: "Protection" }
+export enum CombatAnimalPowerType {
+  Attack = "Attack",
+  Parry = "Parry",
+  RangedCombat = "RangedCombat",
+  Dodge = "Dodge",
+  DamagePoints = "DamagePoints",
+  Protection = "Protection",
+}
 
 export type AnimalPowerLevel2 =
   | { tag: "Combat"; combat: CombatAnimalPower }

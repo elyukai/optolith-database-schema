@@ -33,33 +33,4 @@ Required value of the attribute
 
 ### <a name="PrimaryAttributeCategory"></a> `PrimaryAttributeCategory`
 
-- **Type:** Union
-- **Cases:** <a href="#PrimaryAttributeCategory'Blessed">PrimaryAttributeCategory'Blessed</a> | <a href="#PrimaryAttributeCategory'Magical">PrimaryAttributeCategory'Magical</a>
-
----
-
-### <a name="PrimaryAttributeCategory'Blessed"></a> `PrimaryAttributeCategory'Blessed`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PrimaryAttributeCategory'Blessed/tag">See details</a>
-
-#### <a name="PrimaryAttributeCategory'Blessed/tag"></a> `tag`
-
-- **Constant:** `"Blessed"`
-
----
-
-### <a name="PrimaryAttributeCategory'Magical"></a> `PrimaryAttributeCategory'Magical`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PrimaryAttributeCategory'Magical/tag">See details</a>
-
-#### <a name="PrimaryAttributeCategory'Magical/tag"></a> `tag`
-
-- **Constant:** `"Magical"`
+- **Possible values:** `"Blessed"`, `"Magical"`

@@ -21,10 +21,21 @@ been implemented in Optolith yet.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#Relevance'Extraneous/tag">See details</a>
+`extraneous` |  | <a href="#Relevance'Extraneous/extraneous">See details</a>
 
 #### <a name="Relevance'Extraneous/tag"></a> `tag`
 
 - **Constant:** `"Extraneous"`
+
+#### <a name="Relevance'Extraneous/extraneous"></a> `extraneous`
+
+- **Type:** <a href="#Relevance'Extraneous/extraneous">Object</a>
+
+---
+
+### <a name="Relevance'Extraneous/extraneous"></a> `Relevance'Extraneous/extraneous`
+
+- **Type:** Empty Object
 
 ---
 

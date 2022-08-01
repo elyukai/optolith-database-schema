@@ -30,31 +30,9 @@
       "additionalProperties": false
     },
     "TextVerificationRule": {
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Pass"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Deny"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        }
+      "enum": [
+        "Pass",
+        "Deny"
       ]
     },
     "TextPrerequisiteTranslation": {

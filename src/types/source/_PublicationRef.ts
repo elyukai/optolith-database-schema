@@ -151,8 +151,8 @@ export type PageRange = {
  * @title Page
  */
 export type Page =
-  | { tag: "InsideCoverFront" }
-  | { tag: "InsideCoverBack" }
+  | { tag: "InsideCoverFront"; inside_cover_front: {} }
+  | { tag: "InsideCoverBack"; inside_cover_back: {} }
   | { tag: "Numbered"; numbered: NumberedPage }
 
 /**

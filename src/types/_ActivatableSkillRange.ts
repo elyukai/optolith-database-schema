@@ -12,26 +12,15 @@ export type Range = {
 }
 
 export type RangeValue =
-  | {
-    tag: "Modifiable"
-    modifiable: ModifiableRange
-  }
-  | { tag: "Sight" }
-  | { tag: "Self" }
-  | {
-    /**
-     * German: *dereumfassend*
-     */
-    tag: "Global"
-  }
-  | {
-    tag: "Fixed"
-    fixed: FixedRange
-  }
-  | {
-    tag: "CheckResultBased"
-    check_result_based: CheckResultBasedRange
-  }
+  | { tag: "Modifiable"; modifiable: ModifiableRange }
+  | { tag: "Sight"; sight: {} }
+  | { tag: "Self"; self: {} }
+  /**
+   * German: *dereumfassend*
+   */
+  | { tag: "Global"; global: {} }
+  | { tag: "Fixed"; fixed: FixedRange }
+  | { tag: "CheckResultBased"; check_result_based: CheckResultBasedRange }
 
 export type ModifiableRange = {
   /**

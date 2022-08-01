@@ -52,10 +52,17 @@
           "properties": {
             "tag": {
               "const": "Self"
+            },
+            "self": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "self"
           ],
           "additionalProperties": false
         },
@@ -64,10 +71,17 @@
           "properties": {
             "tag": {
               "const": "Zone"
+            },
+            "zone": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "zone"
           ],
           "additionalProperties": false
         },
@@ -76,10 +90,17 @@
           "properties": {
             "tag": {
               "const": "LiturgicalChantsAndCeremonies"
+            },
+            "liturgical_chants_and_ceremonies": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "liturgical_chants_and_ceremonies"
           ],
           "additionalProperties": false
         },
@@ -88,10 +109,17 @@
           "properties": {
             "tag": {
               "const": "Cantrips"
+            },
+            "cantrips": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "cantrips"
           ],
           "additionalProperties": false
         },

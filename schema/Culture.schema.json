@@ -144,89 +144,23 @@
     },
     "Weight": {
       "description": "The \"weight\" difference compared to other professions or profession variants.\nSome professions or profession variants are simply more common (Mostly), but\nsometimes only specific elements are used (Only).",
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Mostly"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Only"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        }
+      "enum": [
+        "Mostly",
+        "Only"
       ]
     },
     "CommonProfessionConstraintsOperation": {
       "description": "This defines how the list of constraints should be offset against the\nlist of all mundane professions: Either only the professions are kept\nthat intersect with the constraints (include) or only the professions\nare kept that are different from the constraints (exclude).",
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Intersection"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Difference"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        }
+      "enum": [
+        "Intersection",
+        "Difference"
       ]
     },
     "Rarity": {
       "description": "Some professions may be found in a culture, but are not that common.",
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Rare"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "VeryRare"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        }
+      "enum": [
+        "Rare",
+        "VeryRare"
       ]
     },
     "ProfessionConstraint": {
@@ -272,43 +206,10 @@
     },
     "MundaneProfessionSubgroupConstraint": {
       "description": "Some professions may be found in a culture, but are not that common.",
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Profane"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Fighter"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Religious"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        }
+      "enum": [
+        "Profane",
+        "Fighter",
+        "Religious"
       ]
     },
     "TraditionConstraint": {
@@ -411,10 +312,17 @@
           "properties": {
             "tag": {
               "const": "MagicDilettante"
+            },
+            "magic_dilettante": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "magic_dilettante"
           ],
           "additionalProperties": false
         },

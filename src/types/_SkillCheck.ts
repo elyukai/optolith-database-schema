@@ -14,8 +14,9 @@ export type SkillCheck = [
  * A specific value that represents a penalty for the associated skill check.
  * @title Skill Check Penalty
  */
-export type SkillCheckPenalty =
-  | { tag: "SPI" }
-  | { tag: "SPI/2" }
-  | { tag: "TOU" }
-  | { tag: "SPI/TOU" }
+export enum SkillCheckPenalty {
+  Spirit = "Spirit",
+  HalfOfSpirit = "HalfOfSpirit",
+  Toughness = "Toughness",
+  HigherOfSpiritAndToughness = "HigherOfSpiritAndToughness",
+}

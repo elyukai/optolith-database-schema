@@ -16,10 +16,21 @@
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#DisplayOption'Hide/tag">See details</a>
+`hide` |  | <a href="#DisplayOption'Hide/hide">See details</a>
 
 #### <a name="DisplayOption'Hide/tag"></a> `tag`
 
 - **Constant:** `"Hide"`
+
+#### <a name="DisplayOption'Hide/hide"></a> `hide`
+
+- **Type:** <a href="#DisplayOption'Hide/hide">Object</a>
+
+---
+
+### <a name="DisplayOption'Hide/hide"></a> `DisplayOption'Hide/hide`
+
+- **Type:** Empty Object
 
 ---
 

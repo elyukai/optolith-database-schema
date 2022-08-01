@@ -300,10 +300,21 @@ The AE cost value.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#JesterTrickRange'Touch/tag">See details</a>
+`touch` |  | <a href="#JesterTrickRange'Touch/touch">See details</a>
 
 #### <a name="JesterTrickRange'Touch/tag"></a> `tag`
 
 - **Constant:** `"Touch"`
+
+#### <a name="JesterTrickRange'Touch/touch"></a> `touch`
+
+- **Type:** <a href="#JesterTrickRange'Touch/touch">Object</a>
+
+---
+
+### <a name="JesterTrickRange'Touch/touch"></a> `JesterTrickRange'Touch/touch`
+
+- **Type:** Empty Object
 
 ---
 
@@ -314,10 +325,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#JesterTrickRange'Self/tag">See details</a>
+`self` |  | <a href="#JesterTrickRange'Self/self">See details</a>
 
 #### <a name="JesterTrickRange'Self/tag"></a> `tag`
 
 - **Constant:** `"Self"`
+
+#### <a name="JesterTrickRange'Self/self"></a> `self`
+
+- **Type:** <a href="#JesterTrickRange'Self/self">Object</a>
+
+---
+
+### <a name="JesterTrickRange'Self/self"></a> `JesterTrickRange'Self/self`
+
+- **Type:** Empty Object
 
 ---
 
@@ -371,10 +393,21 @@ The range in steps/m.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#JesterTrickDuration'Immediate/tag">See details</a>
+`immediate` |  | <a href="#JesterTrickDuration'Immediate/immediate">See details</a>
 
 #### <a name="JesterTrickDuration'Immediate/tag"></a> `tag`
 
 - **Constant:** `"Immediate"`
+
+#### <a name="JesterTrickDuration'Immediate/immediate"></a> `immediate`
+
+- **Type:** <a href="#JesterTrickDuration'Immediate/immediate">Object</a>
+
+---
+
+### <a name="JesterTrickDuration'Immediate/immediate"></a> `JesterTrickDuration'Immediate/immediate`
+
+- **Type:** Empty Object
 
 ---
 

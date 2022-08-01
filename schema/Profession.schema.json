@@ -61,7 +61,8 @@
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "magical"
           ],
           "additionalProperties": false
         },
@@ -70,53 +71,27 @@
           "properties": {
             "tag": {
               "const": "Blessed"
+            },
+            "blessed": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "blessed"
           ],
           "additionalProperties": false
         }
       ]
     },
     "MundaneProfessionGroup": {
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Profane"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Fighter"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Religious"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        }
+      "enum": [
+        "Profane",
+        "Fighter",
+        "Religious"
       ]
     },
     "MagicalProfessionGroup": {
@@ -128,7 +103,6 @@
         }
       },
       "required": [],
-      "minProperties": 1,
       "additionalProperties": false
     },
     "ProfessionVersion": {
@@ -862,10 +836,17 @@
               "properties": {
                 "tag": {
                   "const": "Remove"
+                },
+                "remove": {
+                  "type": "object",
+                  "properties": {},
+                  "required": [],
+                  "additionalProperties": false
                 }
               },
               "required": [
-                "tag"
+                "tag",
+                "remove"
               ],
               "additionalProperties": false
             },
@@ -894,10 +875,17 @@
               "properties": {
                 "tag": {
                   "const": "Remove"
+                },
+                "remove": {
+                  "type": "object",
+                  "properties": {},
+                  "required": [],
+                  "additionalProperties": false
                 }
               },
               "required": [
-                "tag"
+                "tag",
+                "remove"
               ],
               "additionalProperties": false
             },
@@ -926,10 +914,17 @@
               "properties": {
                 "tag": {
                   "const": "Remove"
+                },
+                "remove": {
+                  "type": "object",
+                  "properties": {},
+                  "required": [],
+                  "additionalProperties": false
                 }
               },
               "required": [
-                "tag"
+                "tag",
+                "remove"
               ],
               "additionalProperties": false
             },
@@ -958,10 +953,17 @@
               "properties": {
                 "tag": {
                   "const": "Remove"
+                },
+                "remove": {
+                  "type": "object",
+                  "properties": {},
+                  "required": [],
+                  "additionalProperties": false
                 }
               },
               "required": [
-                "tag"
+                "tag",
+                "remove"
               ],
               "additionalProperties": false
             },
@@ -990,10 +992,17 @@
               "properties": {
                 "tag": {
                   "const": "Remove"
+                },
+                "remove": {
+                  "type": "object",
+                  "properties": {},
+                  "required": [],
+                  "additionalProperties": false
                 }
               },
               "required": [
-                "tag"
+                "tag",
+                "remove"
               ],
               "additionalProperties": false
             },
@@ -1022,10 +1031,17 @@
               "properties": {
                 "tag": {
                   "const": "Remove"
+                },
+                "remove": {
+                  "type": "object",
+                  "properties": {},
+                  "required": [],
+                  "additionalProperties": false
                 }
               },
               "required": [
-                "tag"
+                "tag",
+                "remove"
               ],
               "additionalProperties": false
             },
@@ -1054,10 +1070,17 @@
               "properties": {
                 "tag": {
                   "const": "Remove"
+                },
+                "remove": {
+                  "type": "object",
+                  "properties": {},
+                  "required": [],
+                  "additionalProperties": false
                 }
               },
               "required": [
-                "tag"
+                "tag",
+                "remove"
               ],
               "additionalProperties": false
             },

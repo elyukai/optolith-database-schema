@@ -77,10 +77,17 @@
           "properties": {
             "tag": {
               "const": "DefinedByGameMaster"
+            },
+            "defined_by_game_master": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "defined_by_game_master"
           ],
           "additionalProperties": false
         },
@@ -202,10 +209,17 @@
           "properties": {
             "tag": {
               "const": "DemonSummoning"
+            },
+            "demon_summoning": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "demon_summoning"
           ],
           "additionalProperties": false
         },
@@ -214,10 +228,17 @@
           "properties": {
             "tag": {
               "const": "Borbaradian"
+            },
+            "borbaradian": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "borbaradian"
           ],
           "additionalProperties": false
         },
@@ -226,10 +247,17 @@
           "properties": {
             "tag": {
               "const": "DamageIntelligent"
+            },
+            "damage_intelligent": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "damage_intelligent"
           ],
           "additionalProperties": false
         }

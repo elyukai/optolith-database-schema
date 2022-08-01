@@ -233,36 +233,7 @@ The "weight" difference compared to other professions or profession variants.
 Some professions or profession variants are simply more common (Mostly), but
 sometimes only specific elements are used (Only).
 
-- **Type:** Union
-- **Cases:** <a href="#Weight'Mostly">Weight'Mostly</a> | <a href="#Weight'Only">Weight'Only</a>
-
----
-
-### <a name="Weight'Mostly"></a> `Weight'Mostly`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Weight'Mostly/tag">See details</a>
-
-#### <a name="Weight'Mostly/tag"></a> `tag`
-
-- **Constant:** `"Mostly"`
-
----
-
-### <a name="Weight'Only"></a> `Weight'Only`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Weight'Only/tag">See details</a>
-
-#### <a name="Weight'Only/tag"></a> `tag`
-
-- **Constant:** `"Only"`
+- **Possible values:** `"Mostly"`, `"Only"`
 
 ---
 
@@ -273,36 +244,7 @@ list of all mundane professions: Either only the professions are kept
 that intersect with the constraints (include) or only the professions
 are kept that are different from the constraints (exclude).
 
-- **Type:** Union
-- **Cases:** <a href="#CommonProfessionConstraintsOperation'Intersection">CommonProfessionConstraintsOperation'Intersection</a> | <a href="#CommonProfessionConstraintsOperation'Difference">CommonProfessionConstraintsOperation'Difference</a>
-
----
-
-### <a name="CommonProfessionConstraintsOperation'Intersection"></a> `CommonProfessionConstraintsOperation'Intersection`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#CommonProfessionConstraintsOperation'Intersection/tag">See details</a>
-
-#### <a name="CommonProfessionConstraintsOperation'Intersection/tag"></a> `tag`
-
-- **Constant:** `"Intersection"`
-
----
-
-### <a name="CommonProfessionConstraintsOperation'Difference"></a> `CommonProfessionConstraintsOperation'Difference`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#CommonProfessionConstraintsOperation'Difference/tag">See details</a>
-
-#### <a name="CommonProfessionConstraintsOperation'Difference/tag"></a> `tag`
-
-- **Constant:** `"Difference"`
+- **Possible values:** `"Intersection"`, `"Difference"`
 
 ---
 
@@ -310,36 +252,7 @@ Key | Description | Details
 
 Some professions may be found in a culture, but are not that common.
 
-- **Type:** Union
-- **Cases:** <a href="#Rarity'Rare">Rarity'Rare</a> | <a href="#Rarity'VeryRare">Rarity'VeryRare</a>
-
----
-
-### <a name="Rarity'Rare"></a> `Rarity'Rare`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Rarity'Rare/tag">See details</a>
-
-#### <a name="Rarity'Rare/tag"></a> `tag`
-
-- **Constant:** `"Rare"`
-
----
-
-### <a name="Rarity'VeryRare"></a> `Rarity'VeryRare`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Rarity'VeryRare/tag">See details</a>
-
-#### <a name="Rarity'VeryRare/tag"></a> `tag`
-
-- **Constant:** `"VeryRare"`
+- **Possible values:** `"Rare"`, `"VeryRare"`
 
 ---
 
@@ -417,50 +330,7 @@ variants. Some professions or profession variants are simply more common
 
 Some professions may be found in a culture, but are not that common.
 
-- **Type:** Union
-- **Cases:** <a href="#MundaneProfessionSubgroupConstraint'Profane">MundaneProfessionSubgroupConstraint'Profane</a> | <a href="#MundaneProfessionSubgroupConstraint'Fighter">MundaneProfessionSubgroupConstraint'Fighter</a> | <a href="#MundaneProfessionSubgroupConstraint'Religious">MundaneProfessionSubgroupConstraint'Religious</a>
-
----
-
-### <a name="MundaneProfessionSubgroupConstraint'Profane"></a> `MundaneProfessionSubgroupConstraint'Profane`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#MundaneProfessionSubgroupConstraint'Profane/tag">See details</a>
-
-#### <a name="MundaneProfessionSubgroupConstraint'Profane/tag"></a> `tag`
-
-- **Constant:** `"Profane"`
-
----
-
-### <a name="MundaneProfessionSubgroupConstraint'Fighter"></a> `MundaneProfessionSubgroupConstraint'Fighter`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#MundaneProfessionSubgroupConstraint'Fighter/tag">See details</a>
-
-#### <a name="MundaneProfessionSubgroupConstraint'Fighter/tag"></a> `tag`
-
-- **Constant:** `"Fighter"`
-
----
-
-### <a name="MundaneProfessionSubgroupConstraint'Religious"></a> `MundaneProfessionSubgroupConstraint'Religious`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#MundaneProfessionSubgroupConstraint'Religious/tag">See details</a>
-
-#### <a name="MundaneProfessionSubgroupConstraint'Religious/tag"></a> `tag`
-
-- **Constant:** `"Religious"`
+- **Possible values:** `"Profane"`, `"Fighter"`, `"Religious"`
 
 ---
 
@@ -611,10 +481,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#MagicCommonProfessionConstraint'MagicDilettante/tag">See details</a>
+`magic_dilettante` |  | <a href="#MagicCommonProfessionConstraint'MagicDilettante/magic_dilettante">See details</a>
 
 #### <a name="MagicCommonProfessionConstraint'MagicDilettante/tag"></a> `tag`
 
 - **Constant:** `"MagicDilettante"`
+
+#### <a name="MagicCommonProfessionConstraint'MagicDilettante/magic_dilettante"></a> `magic_dilettante`
+
+- **Type:** <a href="#MagicCommonProfessionConstraint'MagicDilettante/magic_dilettante">Object</a>
+
+---
+
+### <a name="MagicCommonProfessionConstraint'MagicDilettante/magic_dilettante"></a> `MagicCommonProfessionConstraint'MagicDilettante/magic_dilettante`
+
+- **Type:** Empty Object
 
 ---
 

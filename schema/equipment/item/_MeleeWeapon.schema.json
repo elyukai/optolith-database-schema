@@ -53,10 +53,17 @@
           "properties": {
             "tag": {
               "const": "Small"
+            },
+            "small": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "small"
           ],
           "additionalProperties": false
         },
@@ -65,10 +72,17 @@
           "properties": {
             "tag": {
               "const": "Medium"
+            },
+            "medium": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "medium"
           ],
           "additionalProperties": false
         },

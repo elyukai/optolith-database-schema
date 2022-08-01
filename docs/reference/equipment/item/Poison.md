@@ -107,10 +107,21 @@ All translations for the entry, identified by IETF language tag (BCP47).
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#PoisonLevel'QualityLevel/tag">See details</a>
+`quality_level` |  | <a href="#PoisonLevel'QualityLevel/quality_level">See details</a>
 
 #### <a name="PoisonLevel'QualityLevel/tag"></a> `tag`
 
 - **Constant:** `"QualityLevel"`
+
+#### <a name="PoisonLevel'QualityLevel/quality_level"></a> `quality_level`
+
+- **Type:** <a href="#PoisonLevel'QualityLevel/quality_level">Object</a>
+
+---
+
+### <a name="PoisonLevel'QualityLevel/quality_level"></a> `PoisonLevel'QualityLevel/quality_level`
+
+- **Type:** Empty Object
 
 ---
 
@@ -150,64 +161,7 @@ Key | Description | Details
 
 ### <a name="PoisonApplicationType"></a> `PoisonApplicationType`
 
-- **Type:** Union
-- **Cases:** <a href="#PoisonApplicationType'Weapon">PoisonApplicationType'Weapon</a> | <a href="#PoisonApplicationType'Ingestion">PoisonApplicationType'Ingestion</a> | <a href="#PoisonApplicationType'Inhalation">PoisonApplicationType'Inhalation</a> | <a href="#PoisonApplicationType'Contact">PoisonApplicationType'Contact</a>
-
----
-
-### <a name="PoisonApplicationType'Weapon"></a> `PoisonApplicationType'Weapon`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PoisonApplicationType'Weapon/tag">See details</a>
-
-#### <a name="PoisonApplicationType'Weapon/tag"></a> `tag`
-
-- **Constant:** `"Weapon"`
-
----
-
-### <a name="PoisonApplicationType'Ingestion"></a> `PoisonApplicationType'Ingestion`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PoisonApplicationType'Ingestion/tag">See details</a>
-
-#### <a name="PoisonApplicationType'Ingestion/tag"></a> `tag`
-
-- **Constant:** `"Ingestion"`
-
----
-
-### <a name="PoisonApplicationType'Inhalation"></a> `PoisonApplicationType'Inhalation`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PoisonApplicationType'Inhalation/tag">See details</a>
-
-#### <a name="PoisonApplicationType'Inhalation/tag"></a> `tag`
-
-- **Constant:** `"Inhalation"`
-
----
-
-### <a name="PoisonApplicationType'Contact"></a> `PoisonApplicationType'Contact`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PoisonApplicationType'Contact/tag">See details</a>
-
-#### <a name="PoisonApplicationType'Contact/tag"></a> `tag`
-
-- **Constant:** `"Contact"`
+- **Possible values:** `"Weapon"`, `"Ingestion"`, `"Inhalation"`, `"Contact"`
 
 ---
 
@@ -225,10 +179,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#PoisonSourceType'AnimalVenom/tag">See details</a>
+`animal_venom` |  | <a href="#PoisonSourceType'AnimalVenom/animal_venom">See details</a>
 
 #### <a name="PoisonSourceType'AnimalVenom/tag"></a> `tag`
 
 - **Constant:** `"AnimalVenom"`
+
+#### <a name="PoisonSourceType'AnimalVenom/animal_venom"></a> `animal_venom`
+
+- **Type:** <a href="#PoisonSourceType'AnimalVenom/animal_venom">Object</a>
+
+---
+
+### <a name="PoisonSourceType'AnimalVenom/animal_venom"></a> `PoisonSourceType'AnimalVenom/animal_venom`
+
+- **Type:** Empty Object
 
 ---
 
@@ -239,10 +204,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#PoisonSourceType'AlchemicalPoison/tag">See details</a>
+`alchemical_poison` |  | <a href="#PoisonSourceType'AlchemicalPoison/alchemical_poison">See details</a>
 
 #### <a name="PoisonSourceType'AlchemicalPoison/tag"></a> `tag`
 
 - **Constant:** `"AlchemicalPoison"`
+
+#### <a name="PoisonSourceType'AlchemicalPoison/alchemical_poison"></a> `alchemical_poison`
+
+- **Type:** <a href="#PoisonSourceType'AlchemicalPoison/alchemical_poison">Object</a>
+
+---
+
+### <a name="PoisonSourceType'AlchemicalPoison/alchemical_poison"></a> `PoisonSourceType'AlchemicalPoison/alchemical_poison`
+
+- **Type:** Empty Object
 
 ---
 
@@ -253,10 +229,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#PoisonSourceType'MineralPoison/tag">See details</a>
+`mineral_poison` |  | <a href="#PoisonSourceType'MineralPoison/mineral_poison">See details</a>
 
 #### <a name="PoisonSourceType'MineralPoison/tag"></a> `tag`
 
 - **Constant:** `"MineralPoison"`
+
+#### <a name="PoisonSourceType'MineralPoison/mineral_poison"></a> `mineral_poison`
+
+- **Type:** <a href="#PoisonSourceType'MineralPoison/mineral_poison">Object</a>
+
+---
+
+### <a name="PoisonSourceType'MineralPoison/mineral_poison"></a> `PoisonSourceType'MineralPoison/mineral_poison`
+
+- **Type:** Empty Object
 
 ---
 
@@ -309,10 +296,21 @@ The plant poison category and dependent additional values.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#PlantPoisonCategory'Default/tag">See details</a>
+`default` |  | <a href="#PlantPoisonCategory'Default/default">See details</a>
 
 #### <a name="PlantPoisonCategory'Default/tag"></a> `tag`
 
 - **Constant:** `"Default"`
+
+#### <a name="PlantPoisonCategory'Default/default"></a> `default`
+
+- **Type:** <a href="#PlantPoisonCategory'Default/default">Object</a>
+
+---
+
+### <a name="PlantPoisonCategory'Default/default"></a> `PlantPoisonCategory'Default/default`
+
+- **Type:** Empty Object
 
 ---
 

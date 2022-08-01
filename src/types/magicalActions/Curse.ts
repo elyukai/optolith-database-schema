@@ -129,7 +129,7 @@ export type FixedCurseCostTranslation = {
 }
 
 export type CurseDuration =
-  | { tag: "Immediate" }
+  | { tag: "Immediate"; immediate: {} }
   | { tag: "Fixed"; fixed: FixedCurseDuration }
   | { tag: "CheckResultBased"; check_result_based: CheckResultBasedDuration }
   | { tag: "Indefinite"; indefinite: IndefiniteCurseDuration }

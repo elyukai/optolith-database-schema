@@ -343,10 +343,21 @@ The AE cost value.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#GeodeRitualRange'Self/tag">See details</a>
+`self` |  | <a href="#GeodeRitualRange'Self/self">See details</a>
 
 #### <a name="GeodeRitualRange'Self/tag"></a> `tag`
 
 - **Constant:** `"Self"`
+
+#### <a name="GeodeRitualRange'Self/self"></a> `self`
+
+- **Type:** <a href="#GeodeRitualRange'Self/self">Object</a>
+
+---
+
+### <a name="GeodeRitualRange'Self/self"></a> `GeodeRitualRange'Self/self`
+
+- **Type:** Empty Object
 
 ---
 
@@ -400,10 +411,21 @@ The range in steps/m.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#GeodeRitualDuration'Immediate/tag">See details</a>
+`immediate` |  | <a href="#GeodeRitualDuration'Immediate/immediate">See details</a>
 
 #### <a name="GeodeRitualDuration'Immediate/tag"></a> `tag`
 
 - **Constant:** `"Immediate"`
+
+#### <a name="GeodeRitualDuration'Immediate/immediate"></a> `immediate`
+
+- **Type:** <a href="#GeodeRitualDuration'Immediate/immediate">Object</a>
+
+---
+
+### <a name="GeodeRitualDuration'Immediate/immediate"></a> `GeodeRitualDuration'Immediate/immediate`
+
+- **Type:** Empty Object
 
 ---
 

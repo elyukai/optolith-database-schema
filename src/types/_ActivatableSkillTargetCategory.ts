@@ -27,11 +27,8 @@ export type SpecificTargetCategoryTranslation = {
 }
 
 export type TargetCategoryIdentifier =
-  | { tag: "Self" }
-  | { tag: "Zone" }
-  | { tag: "LiturgicalChantsAndCeremonies" }
-  | { tag: "Cantrips" }
-  | {
-    tag: "Predefined"
-    predefined: TargetCategoryReference
-  }
+  | { tag: "Self"; self: {} }
+  | { tag: "Zone"; zone: {} }
+  | { tag: "LiturgicalChantsAndCeremonies"; liturgical_chants_and_ceremonies: {} }
+  | { tag: "Cantrips"; cantrips: {} }
+  | { tag: "Predefined"; predefined: TargetCategoryReference }

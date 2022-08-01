@@ -19,6 +19,7 @@ export type PrimaryAttributePrerequisite = {
   display_option?: DisplayOption
 }
 
-export type PrimaryAttributeCategory =
-  | { tag: "Blessed" }
-  | { tag: "Magical" }
+export enum PrimaryAttributeCategory {
+  Blessed = "Blessed",
+  Magical = "Magical",
+}

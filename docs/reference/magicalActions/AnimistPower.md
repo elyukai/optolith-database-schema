@@ -449,10 +449,21 @@ All translations for the entry, identified by IETF language tag (BCP47).
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#OneTimeAnimistPowerDuration'Immediate/tag">See details</a>
+`immediate` |  | <a href="#OneTimeAnimistPowerDuration'Immediate/immediate">See details</a>
 
 #### <a name="OneTimeAnimistPowerDuration'Immediate/tag"></a> `tag`
 
 - **Constant:** `"Immediate"`
+
+#### <a name="OneTimeAnimistPowerDuration'Immediate/immediate"></a> `immediate`
+
+- **Type:** <a href="#OneTimeAnimistPowerDuration'Immediate/immediate">Object</a>
+
+---
+
+### <a name="OneTimeAnimistPowerDuration'Immediate/immediate"></a> `OneTimeAnimistPowerDuration'Immediate/immediate`
+
+- **Type:** Empty Object
 
 ---
 
@@ -661,7 +672,18 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#AnimistPowerImprovementCost'ByPrimaryPatron/tag">See details</a>
+`by_primary_patron` |  | <a href="#AnimistPowerImprovementCost'ByPrimaryPatron/by_primary_patron">See details</a>
 
 #### <a name="AnimistPowerImprovementCost'ByPrimaryPatron/tag"></a> `tag`
 
 - **Constant:** `"ByPrimaryPatron"`
+
+#### <a name="AnimistPowerImprovementCost'ByPrimaryPatron/by_primary_patron"></a> `by_primary_patron`
+
+- **Type:** <a href="#AnimistPowerImprovementCost'ByPrimaryPatron/by_primary_patron">Object</a>
+
+---
+
+### <a name="AnimistPowerImprovementCost'ByPrimaryPatron/by_primary_patron"></a> `AnimistPowerImprovementCost'ByPrimaryPatron/by_primary_patron`
+
+- **Type:** Empty Object

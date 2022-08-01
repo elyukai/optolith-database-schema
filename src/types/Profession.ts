@@ -47,17 +47,15 @@ export type Profession = {
 
 export type ProfessionGroup =
   | { tag: "Mundane"; mundane: MundaneProfessionGroup }
-  | { tag: "Magical"; magical?: MagicalProfessionGroup }
-  | { tag: "Blessed" }
+  | { tag: "Magical"; magical: MagicalProfessionGroup }
+  | { tag: "Blessed"; blessed: {} }
 
-export type MundaneProfessionGroup =
-  | { tag: "Profane" }
-  | { tag: "Fighter" }
-  | { tag: "Religious" }
+export enum MundaneProfessionGroup {
+  Profane = "Profane",
+  Fighter = "Fighter",
+  Religious = "Religious",
+}
 
-/**
- * @minProperties 1
- */
 export type MagicalProfessionGroup = {
   /**
    * The curriculum/academy associated with this magical profession, if any.
@@ -534,7 +532,7 @@ export type ProfessionVariantPackageOptions = {
 }
 
 export type VariantOptionAction<T> =
-  | { tag: "Remove" }
+  | { tag: "Remove"; remove: {} }
   | { tag: "Override"; override: T }
 
 /**

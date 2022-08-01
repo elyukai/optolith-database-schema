@@ -346,10 +346,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#CantripRange'Self/tag">See details</a>
+`self` |  | <a href="#CantripRange'Self/self">See details</a>
 
 #### <a name="CantripRange'Self/tag"></a> `tag`
 
 - **Constant:** `"Self"`
+
+#### <a name="CantripRange'Self/self"></a> `self`
+
+- **Type:** <a href="#CantripRange'Self/self">Object</a>
+
+---
+
+### <a name="CantripRange'Self/self"></a> `CantripRange'Self/self`
+
+- **Type:** Empty Object
 
 ---
 
@@ -360,10 +371,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#CantripRange'Touch/tag">See details</a>
+`touch` |  | <a href="#CantripRange'Touch/touch">See details</a>
 
 #### <a name="CantripRange'Touch/tag"></a> `tag`
 
 - **Constant:** `"Touch"`
+
+#### <a name="CantripRange'Touch/touch"></a> `touch`
+
+- **Type:** <a href="#CantripRange'Touch/touch">Object</a>
+
+---
+
+### <a name="CantripRange'Touch/touch"></a> `CantripRange'Touch/touch`
+
+- **Type:** Empty Object
 
 ---
 
@@ -400,10 +422,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#CantripDuration'Immediate/tag">See details</a>
+`immediate` |  | <a href="#CantripDuration'Immediate/immediate">See details</a>
 
 #### <a name="CantripDuration'Immediate/tag"></a> `tag`
 
 - **Constant:** `"Immediate"`
+
+#### <a name="CantripDuration'Immediate/immediate"></a> `immediate`
+
+- **Type:** <a href="#CantripDuration'Immediate/immediate">Object</a>
+
+---
+
+### <a name="CantripDuration'Immediate/immediate"></a> `CantripDuration'Immediate/immediate`
+
+- **Type:** Empty Object
 
 ---
 

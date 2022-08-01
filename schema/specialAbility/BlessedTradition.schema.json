@@ -184,10 +184,17 @@
           "properties": {
             "tag": {
               "const": "All"
+            },
+            "all": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "all"
           ],
           "additionalProperties": false
         },
@@ -196,10 +203,17 @@
           "properties": {
             "tag": {
               "const": "AllClose"
+            },
+            "all_close": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "all_close"
           ],
           "additionalProperties": false
         },
@@ -208,10 +222,17 @@
           "properties": {
             "tag": {
               "const": "AllUsedInHunting"
+            },
+            "all_used_in_hunting": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "all_used_in_hunting"
           ],
           "additionalProperties": false
         },

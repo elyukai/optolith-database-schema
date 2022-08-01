@@ -65,11 +65,8 @@ export type CurriculumTranslation = {
  * The academy's elective spellworks package.
  */
 type ElectiveSpellworks =
-  | { tag: "DefinedByGameMaster" }
-  | {
-    tag: "Specific"
-    specific: SpecificElectiveSpellworks
-  }
+  | { tag: "DefinedByGameMaster"; defined_by_game_master: {} }
+  | { tag: "Specific"; specific: SpecificElectiveSpellworks }
 
 export type SpecificElectiveSpellworks = {
   /**
@@ -120,9 +117,9 @@ export type RestrictedSpellworks = RestrictedSpellwork[]
 export type RestrictedSpellwork =
   | { tag: "Property"; property: RestrictedProperty }
   | { tag: "Spellwork"; spellwork: SpellworkIdentifier }
-  | { tag: "DemonSummoning" }
-  | { tag: "Borbaradian" }
-  | { tag: "DamageIntelligent" }
+  | { tag: "DemonSummoning"; demon_summoning: {} }
+  | { tag: "Borbaradian"; borbaradian: {} }
+  | { tag: "DamageIntelligent"; damage_intelligent: {} }
 
 export type RestrictedProperty = {
   /**

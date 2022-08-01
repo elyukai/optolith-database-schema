@@ -192,36 +192,7 @@ specified set of patron cultures: If they should intersect, the patron is
 only part of the given cultures. If they should differ, the patron is only
 part of the cultures that are not given.
 
-- **Type:** Union
-- **Cases:** <a href="#PatronCultureOperation'Intersection">PatronCultureOperation'Intersection</a> | <a href="#PatronCultureOperation'Difference">PatronCultureOperation'Difference</a>
-
----
-
-### <a name="PatronCultureOperation'Intersection"></a> `PatronCultureOperation'Intersection`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PatronCultureOperation'Intersection/tag">See details</a>
-
-#### <a name="PatronCultureOperation'Intersection/tag"></a> `tag`
-
-- **Constant:** `"Intersection"`
-
----
-
-### <a name="PatronCultureOperation'Difference"></a> `PatronCultureOperation'Difference`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PatronCultureOperation'Difference/tag">See details</a>
-
-#### <a name="PatronCultureOperation'Difference/tag"></a> `tag`
-
-- **Constant:** `"Difference"`
+- **Possible values:** `"Intersection"`, `"Difference"`
 
 ---
 
@@ -368,92 +339,7 @@ The value that gets added to the combat value.
 
 ### <a name="CombatAnimalPowerType"></a> `CombatAnimalPowerType`
 
-- **Type:** Union
-- **Cases:** <a href="#CombatAnimalPowerType'Attack">CombatAnimalPowerType'Attack</a> | <a href="#CombatAnimalPowerType'Parry">CombatAnimalPowerType'Parry</a> | <a href="#CombatAnimalPowerType'RangedCombat">CombatAnimalPowerType'RangedCombat</a> | <a href="#CombatAnimalPowerType'Dodge">CombatAnimalPowerType'Dodge</a> | <a href="#CombatAnimalPowerType'DamagePoints">CombatAnimalPowerType'DamagePoints</a> | <a href="#CombatAnimalPowerType'Protection">CombatAnimalPowerType'Protection</a>
-
----
-
-### <a name="CombatAnimalPowerType'Attack"></a> `CombatAnimalPowerType'Attack`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#CombatAnimalPowerType'Attack/tag">See details</a>
-
-#### <a name="CombatAnimalPowerType'Attack/tag"></a> `tag`
-
-- **Constant:** `"Attack"`
-
----
-
-### <a name="CombatAnimalPowerType'Parry"></a> `CombatAnimalPowerType'Parry`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#CombatAnimalPowerType'Parry/tag">See details</a>
-
-#### <a name="CombatAnimalPowerType'Parry/tag"></a> `tag`
-
-- **Constant:** `"Parry"`
-
----
-
-### <a name="CombatAnimalPowerType'RangedCombat"></a> `CombatAnimalPowerType'RangedCombat`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#CombatAnimalPowerType'RangedCombat/tag">See details</a>
-
-#### <a name="CombatAnimalPowerType'RangedCombat/tag"></a> `tag`
-
-- **Constant:** `"RangedCombat"`
-
----
-
-### <a name="CombatAnimalPowerType'Dodge"></a> `CombatAnimalPowerType'Dodge`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#CombatAnimalPowerType'Dodge/tag">See details</a>
-
-#### <a name="CombatAnimalPowerType'Dodge/tag"></a> `tag`
-
-- **Constant:** `"Dodge"`
-
----
-
-### <a name="CombatAnimalPowerType'DamagePoints"></a> `CombatAnimalPowerType'DamagePoints`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#CombatAnimalPowerType'DamagePoints/tag">See details</a>
-
-#### <a name="CombatAnimalPowerType'DamagePoints/tag"></a> `tag`
-
-- **Constant:** `"DamagePoints"`
-
----
-
-### <a name="CombatAnimalPowerType'Protection"></a> `CombatAnimalPowerType'Protection`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#CombatAnimalPowerType'Protection/tag">See details</a>
-
-#### <a name="CombatAnimalPowerType'Protection/tag"></a> `tag`
-
-- **Constant:** `"Protection"`
+- **Possible values:** `"Attack"`, `"Parry"`, `"RangedCombat"`, `"Dodge"`, `"DamagePoints"`, `"Protection"`
 
 ---
 

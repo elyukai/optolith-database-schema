@@ -65,10 +65,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#RangeValue'Sight/tag">See details</a>
+`sight` |  | <a href="#RangeValue'Sight/sight">See details</a>
 
 #### <a name="RangeValue'Sight/tag"></a> `tag`
 
 - **Constant:** `"Sight"`
+
+#### <a name="RangeValue'Sight/sight"></a> `sight`
+
+- **Type:** <a href="#RangeValue'Sight/sight">Object</a>
+
+---
+
+### <a name="RangeValue'Sight/sight"></a> `RangeValue'Sight/sight`
+
+- **Type:** Empty Object
 
 ---
 
@@ -79,10 +90,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#RangeValue'Self/tag">See details</a>
+`self` |  | <a href="#RangeValue'Self/self">See details</a>
 
 #### <a name="RangeValue'Self/tag"></a> `tag`
 
 - **Constant:** `"Self"`
+
+#### <a name="RangeValue'Self/self"></a> `self`
+
+- **Type:** <a href="#RangeValue'Self/self">Object</a>
+
+---
+
+### <a name="RangeValue'Self/self"></a> `RangeValue'Self/self`
+
+- **Type:** Empty Object
 
 ---
 
@@ -92,13 +114,22 @@ Key | Description | Details
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` | German: *dereumfassend* | <a href="#RangeValue'Global/tag">See details</a>
+`tag` |  | <a href="#RangeValue'Global/tag">See details</a>
+`global` |  | <a href="#RangeValue'Global/global">See details</a>
 
 #### <a name="RangeValue'Global/tag"></a> `tag`
 
-German: *dereumfassend*
-
 - **Constant:** `"Global"`
+
+#### <a name="RangeValue'Global/global"></a> `global`
+
+- **Type:** <a href="#RangeValue'Global/global">Object</a>
+
+---
+
+### <a name="RangeValue'Global/global"></a> `RangeValue'Global/global`
+
+- **Type:** Empty Object
 
 ---
 

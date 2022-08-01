@@ -149,31 +149,9 @@
       "additionalProperties": false
     },
     "AutomaticEntryAction": {
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Add"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Remove"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        }
+      "enum": [
+        "Add",
+        "Remove"
       ]
     },
     "AutomaticEntryTarget": {
@@ -225,31 +203,9 @@
       "additionalProperties": false
     },
     "AutomaticEntryTargetSelectionList": {
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "MagicalTraditions"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "MagicalDilettanteTraditions"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        }
+      "enum": [
+        "MagicalTraditions",
+        "MagicalDilettanteTraditions"
       ]
     },
     "FixedAutomaticEntryTarget": {

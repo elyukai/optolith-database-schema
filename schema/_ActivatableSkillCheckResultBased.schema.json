@@ -4,60 +4,16 @@
   "$defs": {
     "CheckResultValue": {
       "description": "Defines the derived (unitless) value.",
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "QualityLevels"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "SkillPoints"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        }
+      "enum": [
+        "QualityLevels",
+        "SkillPoints"
       ]
     },
     "CheckResultArithmetic": {
       "description": "Defines how the the `value` is set off against the check result.",
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Multiply"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Divide"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        }
+      "enum": [
+        "Multiply",
+        "Divide"
       ]
     },
     "CheckResultBasedModifier": {

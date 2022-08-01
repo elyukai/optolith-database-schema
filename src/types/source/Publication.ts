@@ -79,10 +79,11 @@ export type PublicationTranslation = {
 /**
  * The publication category.
  */
-export type Category =
-  | { tag: "CoreRules" }
-  | { tag: "ExpansionRules" }
-  | { tag: "Sourcebook" }
-  | { tag: "RegionalSourcebook" }
+export enum Category {
+  CoreRules = "CoreRules",
+  ExpansionRules = "ExpansionRules",
+  Sourcebook = "Sourcebook",
+  RegionalSourcebook = "RegionalSourcebook",
+}
 
 export const validateSchema = validateSchemaCreator<Publication>(import.meta.url)

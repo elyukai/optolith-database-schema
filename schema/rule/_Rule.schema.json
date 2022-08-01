@@ -10,10 +10,17 @@
           "properties": {
             "tag": {
               "const": "Extraneous"
+            },
+            "extraneous": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "extraneous"
           ],
           "additionalProperties": false
         },

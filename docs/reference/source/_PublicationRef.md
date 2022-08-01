@@ -325,10 +325,21 @@ same as `first_page` oder remove it.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#Page'InsideCoverFront/tag">See details</a>
+`inside_cover_front` |  | <a href="#Page'InsideCoverFront/inside_cover_front">See details</a>
 
 #### <a name="Page'InsideCoverFront/tag"></a> `tag`
 
 - **Constant:** `"InsideCoverFront"`
+
+#### <a name="Page'InsideCoverFront/inside_cover_front"></a> `inside_cover_front`
+
+- **Type:** <a href="#Page'InsideCoverFront/inside_cover_front">Object</a>
+
+---
+
+### <a name="Page'InsideCoverFront/inside_cover_front"></a> `Page'InsideCoverFront/inside_cover_front`
+
+- **Type:** Empty Object
 
 ---
 
@@ -339,10 +350,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#Page'InsideCoverBack/tag">See details</a>
+`inside_cover_back` |  | <a href="#Page'InsideCoverBack/inside_cover_back">See details</a>
 
 #### <a name="Page'InsideCoverBack/tag"></a> `tag`
 
 - **Constant:** `"InsideCoverBack"`
+
+#### <a name="Page'InsideCoverBack/inside_cover_back"></a> `inside_cover_back`
+
+- **Type:** <a href="#Page'InsideCoverBack/inside_cover_back">Object</a>
+
+---
+
+### <a name="Page'InsideCoverBack/inside_cover_back"></a> `Page'InsideCoverBack/inside_cover_back`
+
+- **Type:** Empty Object
 
 ---
 

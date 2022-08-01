@@ -319,10 +319,17 @@
           "properties": {
             "tag": {
               "const": "Immediate"
+            },
+            "immediate": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "immediate"
           ],
           "additionalProperties": false
         },
@@ -488,10 +495,17 @@
           "properties": {
             "tag": {
               "const": "ByPrimaryPatron"
+            },
+            "by_primary_patron": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "by_primary_patron"
           ],
           "additionalProperties": false
         }

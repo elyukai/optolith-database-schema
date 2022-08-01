@@ -145,10 +145,17 @@
           "properties": {
             "tag": {
               "const": "Free"
+            },
+            "free": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "free"
           ],
           "additionalProperties": false
         },
@@ -157,10 +164,17 @@
           "properties": {
             "tag": {
               "const": "Various"
+            },
+            "various": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "various"
           ],
           "additionalProperties": false
         },
@@ -169,10 +183,17 @@
           "properties": {
             "tag": {
               "const": ""
+            },
+            "": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            ""
           ],
           "additionalProperties": false
         },
@@ -181,10 +202,17 @@
           "properties": {
             "tag": {
               "const": ""
+            },
+            "": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            ""
           ],
           "additionalProperties": false
         },
@@ -306,10 +334,17 @@
           "properties": {
             "tag": {
               "const": "Primitive"
+            },
+            "primitive": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "primitive"
           ],
           "additionalProperties": false
         },
@@ -318,10 +353,17 @@
           "properties": {
             "tag": {
               "const": "Simple"
+            },
+            "simple": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "simple"
           ],
           "additionalProperties": false
         },

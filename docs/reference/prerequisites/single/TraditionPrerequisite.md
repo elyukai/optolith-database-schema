@@ -29,36 +29,7 @@ tradition is either church or shamanistic.
 The blessed tradition prerequisite may only be satified if the blessed
 tradition is either church or shamanistic.
 
-- **Type:** Union
-- **Cases:** <a href="#BlessedTraditionPrerequisiteRestriction'Church">BlessedTraditionPrerequisiteRestriction'Church</a> | <a href="#BlessedTraditionPrerequisiteRestriction'Shamanistic">BlessedTraditionPrerequisiteRestriction'Shamanistic</a>
-
----
-
-### <a name="BlessedTraditionPrerequisiteRestriction'Church"></a> `BlessedTraditionPrerequisiteRestriction'Church`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#BlessedTraditionPrerequisiteRestriction'Church/tag">See details</a>
-
-#### <a name="BlessedTraditionPrerequisiteRestriction'Church/tag"></a> `tag`
-
-- **Constant:** `"Church"`
-
----
-
-### <a name="BlessedTraditionPrerequisiteRestriction'Shamanistic"></a> `BlessedTraditionPrerequisiteRestriction'Shamanistic`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#BlessedTraditionPrerequisiteRestriction'Shamanistic/tag">See details</a>
-
-#### <a name="BlessedTraditionPrerequisiteRestriction'Shamanistic/tag"></a> `tag`
-
-- **Constant:** `"Shamanistic"`
+- **Possible values:** `"Church"`, `"Shamanistic"`
 
 ---
 
@@ -89,33 +60,4 @@ tradition can learn rituals or can bind familiars.
 The magical tradition prerequisite may only be satified if the magical
 tradition can learn rituals or can bind familiars.
 
-- **Type:** Union
-- **Cases:** <a href="#MagicalTraditionPrerequisiteRestriction'CanLearnRituals">MagicalTraditionPrerequisiteRestriction'CanLearnRituals</a> | <a href="#MagicalTraditionPrerequisiteRestriction'CanBindFamiliars">MagicalTraditionPrerequisiteRestriction'CanBindFamiliars</a>
-
----
-
-### <a name="MagicalTraditionPrerequisiteRestriction'CanLearnRituals"></a> `MagicalTraditionPrerequisiteRestriction'CanLearnRituals`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#MagicalTraditionPrerequisiteRestriction'CanLearnRituals/tag">See details</a>
-
-#### <a name="MagicalTraditionPrerequisiteRestriction'CanLearnRituals/tag"></a> `tag`
-
-- **Constant:** `"CanLearnRituals"`
-
----
-
-### <a name="MagicalTraditionPrerequisiteRestriction'CanBindFamiliars"></a> `MagicalTraditionPrerequisiteRestriction'CanBindFamiliars`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#MagicalTraditionPrerequisiteRestriction'CanBindFamiliars/tag">See details</a>
-
-#### <a name="MagicalTraditionPrerequisiteRestriction'CanBindFamiliars/tag"></a> `tag`
-
-- **Constant:** `"CanBindFamiliars"`
+- **Possible values:** `"CanLearnRituals"`, `"CanBindFamiliars"`

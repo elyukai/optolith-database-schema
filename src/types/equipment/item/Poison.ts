@@ -68,7 +68,7 @@ export type Poison = {
 }
 
 export type PoisonLevel =
-  | { tag: "QualityLevel" }
+  | { tag: "QualityLevel"; quality_level: {} }
   | { tag: "Fixed"; fixed: FixedPoisonLevel }
 
 export type FixedPoisonLevel = {
@@ -79,16 +79,17 @@ export type FixedPoisonLevel = {
   value: number
 }
 
-export type PoisonApplicationType =
-  | { tag: "Weapon" }
-  | { tag: "Ingestion" }
-  | { tag: "Inhalation" }
-  | { tag: "Contact" }
+export enum PoisonApplicationType {
+  Weapon = "Weapon",
+  Ingestion = "Ingestion",
+  Inhalation = "Inhalation",
+  Contact = "Contact",
+}
 
 export type PoisonSourceType =
-  | { tag: "AnimalVenom" }
-  | { tag: "AlchemicalPoison" }
-  | { tag: "MineralPoison" }
+  | { tag: "AnimalVenom"; animal_venom: {} }
+  | { tag: "AlchemicalPoison"; alchemical_poison: {} }
+  | { tag: "MineralPoison"; mineral_poison: {} }
   | { tag: "PlantPoison"; plant_poison: PlantPoison }
 
 export type PlantPoison = {
@@ -99,7 +100,7 @@ export type PlantPoison = {
 }
 
 export type PlantPoisonCategory =
-  | { tag: "Default" }
+  | { tag: "Default"; default: {} }
   | { tag: "Intoxicant"; intoxicant: Intoxicant }
 
 export type Intoxicant = {

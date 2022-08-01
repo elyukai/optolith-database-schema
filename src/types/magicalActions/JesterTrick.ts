@@ -148,8 +148,8 @@ export type JesterTrickCost = {
 }
 
 export type JesterTrickRange =
-  | { tag: "Touch" }
-  | { tag: "Self" }
+  | { tag: "Touch"; touch: {} }
+  | { tag: "Self"; self: {} }
   | { tag: "Fixed"; fixed: FixedJesterTrickRange }
 
 export type FixedJesterTrickRange = {
@@ -162,7 +162,7 @@ export type FixedJesterTrickRange = {
 }
 
 export type JesterTrickDuration =
-  | { tag: "Immediate" }
+  | { tag: "Immediate"; immediate: {} }
   | { tag: "Fixed"; fixed: FixedJesterTrickDuration }
   | { tag: "CheckResultBased"; check_result_based: CheckResultBasedDuration }
 

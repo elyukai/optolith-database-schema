@@ -20,10 +20,21 @@ traditions.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#Traditions'General/tag">See details</a>
+`general` |  | <a href="#Traditions'General/general">See details</a>
 
 #### <a name="Traditions'General/tag"></a> `tag`
 
 - **Constant:** `"General"`
+
+#### <a name="Traditions'General/general"></a> `general`
+
+- **Type:** <a href="#Traditions'General/general">Object</a>
+
+---
+
+### <a name="Traditions'General/general"></a> `Traditions'General/general`
+
+- **Type:** Empty Object
 
 ---
 

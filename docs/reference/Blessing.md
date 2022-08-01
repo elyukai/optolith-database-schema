@@ -134,10 +134,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#BlessingRange'Self/tag">See details</a>
+`self` |  | <a href="#BlessingRange'Self/self">See details</a>
 
 #### <a name="BlessingRange'Self/tag"></a> `tag`
 
 - **Constant:** `"Self"`
+
+#### <a name="BlessingRange'Self/self"></a> `self`
+
+- **Type:** <a href="#BlessingRange'Self/self">Object</a>
+
+---
+
+### <a name="BlessingRange'Self/self"></a> `BlessingRange'Self/self`
+
+- **Type:** Empty Object
 
 ---
 
@@ -148,10 +159,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#BlessingRange'Touch/tag">See details</a>
+`touch` |  | <a href="#BlessingRange'Touch/touch">See details</a>
 
 #### <a name="BlessingRange'Touch/tag"></a> `tag`
 
 - **Constant:** `"Touch"`
+
+#### <a name="BlessingRange'Touch/touch"></a> `touch`
+
+- **Type:** <a href="#BlessingRange'Touch/touch">Object</a>
+
+---
+
+### <a name="BlessingRange'Touch/touch"></a> `BlessingRange'Touch/touch`
+
+- **Type:** Empty Object
 
 ---
 
@@ -188,10 +210,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#BlessingDuration'Immediate/tag">See details</a>
+`immediate` |  | <a href="#BlessingDuration'Immediate/immediate">See details</a>
 
 #### <a name="BlessingDuration'Immediate/tag"></a> `tag`
 
 - **Constant:** `"Immediate"`
+
+#### <a name="BlessingDuration'Immediate/immediate"></a> `immediate`
+
+- **Type:** <a href="#BlessingDuration'Immediate/immediate">Object</a>
+
+---
+
+### <a name="BlessingDuration'Immediate/immediate"></a> `BlessingDuration'Immediate/immediate`
+
+- **Type:** Empty Object
 
 ---
 

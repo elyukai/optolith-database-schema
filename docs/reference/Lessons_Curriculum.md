@@ -113,10 +113,21 @@ The academy's elective spellworks package.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#ElectiveSpellworks'DefinedByGameMaster/tag">See details</a>
+`defined_by_game_master` |  | <a href="#ElectiveSpellworks'DefinedByGameMaster/defined_by_game_master">See details</a>
 
 #### <a name="ElectiveSpellworks'DefinedByGameMaster/tag"></a> `tag`
 
 - **Constant:** `"DefinedByGameMaster"`
+
+#### <a name="ElectiveSpellworks'DefinedByGameMaster/defined_by_game_master"></a> `defined_by_game_master`
+
+- **Type:** <a href="#ElectiveSpellworks'DefinedByGameMaster/defined_by_game_master">Object</a>
+
+---
+
+### <a name="ElectiveSpellworks'DefinedByGameMaster/defined_by_game_master"></a> `ElectiveSpellworks'DefinedByGameMaster/defined_by_game_master`
+
+- **Type:** Empty Object
 
 ---
 
@@ -283,10 +294,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#RestrictedSpellwork'DemonSummoning/tag">See details</a>
+`demon_summoning` |  | <a href="#RestrictedSpellwork'DemonSummoning/demon_summoning">See details</a>
 
 #### <a name="RestrictedSpellwork'DemonSummoning/tag"></a> `tag`
 
 - **Constant:** `"DemonSummoning"`
+
+#### <a name="RestrictedSpellwork'DemonSummoning/demon_summoning"></a> `demon_summoning`
+
+- **Type:** <a href="#RestrictedSpellwork'DemonSummoning/demon_summoning">Object</a>
+
+---
+
+### <a name="RestrictedSpellwork'DemonSummoning/demon_summoning"></a> `RestrictedSpellwork'DemonSummoning/demon_summoning`
+
+- **Type:** Empty Object
 
 ---
 
@@ -297,10 +319,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#RestrictedSpellwork'Borbaradian/tag">See details</a>
+`borbaradian` |  | <a href="#RestrictedSpellwork'Borbaradian/borbaradian">See details</a>
 
 #### <a name="RestrictedSpellwork'Borbaradian/tag"></a> `tag`
 
 - **Constant:** `"Borbaradian"`
+
+#### <a name="RestrictedSpellwork'Borbaradian/borbaradian"></a> `borbaradian`
+
+- **Type:** <a href="#RestrictedSpellwork'Borbaradian/borbaradian">Object</a>
+
+---
+
+### <a name="RestrictedSpellwork'Borbaradian/borbaradian"></a> `RestrictedSpellwork'Borbaradian/borbaradian`
+
+- **Type:** Empty Object
 
 ---
 
@@ -311,10 +344,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#RestrictedSpellwork'DamageIntelligent/tag">See details</a>
+`damage_intelligent` |  | <a href="#RestrictedSpellwork'DamageIntelligent/damage_intelligent">See details</a>
 
 #### <a name="RestrictedSpellwork'DamageIntelligent/tag"></a> `tag`
 
 - **Constant:** `"DamageIntelligent"`
+
+#### <a name="RestrictedSpellwork'DamageIntelligent/damage_intelligent"></a> `damage_intelligent`
+
+- **Type:** <a href="#RestrictedSpellwork'DamageIntelligent/damage_intelligent">Object</a>
+
+---
+
+### <a name="RestrictedSpellwork'DamageIntelligent/damage_intelligent"></a> `RestrictedSpellwork'DamageIntelligent/damage_intelligent`
+
+- **Type:** Empty Object
 
 ---
 

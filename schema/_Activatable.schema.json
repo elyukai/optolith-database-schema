@@ -295,72 +295,17 @@
     },
     "CombatSpecialAbilityUsageType": {
       "description": "The definition of how the combat special ability can be used in combat.",
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Passive"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "BasicManeuver"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "SpecialManeuver"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        }
+      "enum": [
+        "Passive",
+        "BasicManeuver",
+        "SpecialManeuver"
       ]
     },
     "CombatSpecialAbilityType": {
       "description": "The definition of if the combat special ability can be used when armed or\nwhen unarmed.",
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Armed"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Unarmed"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        }
+      "enum": [
+        "Armed",
+        "Unarmed"
       ]
     },
     "SkillApplications": {
@@ -680,10 +625,17 @@
           "properties": {
             "tag": {
               "const": "DependsOnHitZone"
+            },
+            "depends_on_hit_zone": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "depends_on_hit_zone"
           ],
           "additionalProperties": false
         }
@@ -935,19 +887,8 @@
     },
     "PenaltyByAttackReplacement": {
       "description": "Set if a predefined different word should be used instead of the word\n`attack` for display purposes.",
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Throw"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        }
+      "enum": [
+        "Throw"
       ]
     },
     "EnchantmentCost": {
@@ -1089,10 +1030,17 @@
           "properties": {
             "tag": {
               "const": "Variable"
+            },
+            "variable": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "variable"
           ],
           "additionalProperties": false
         }
@@ -1137,31 +1085,9 @@
     },
     "FixedArcaneEnergyCostPerLevel": {
       "description": "The AE cost are per level of the enchantment. It may either be displayed\nin a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1\nAE for level I; 2 AE for level II`).",
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Compressed"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Verbose"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        }
+      "enum": [
+        "Compressed",
+        "Verbose"
       ]
     },
     "FixedArcaneEnergyCostTranslation": {
@@ -1270,31 +1196,9 @@
     },
     "IndefiniteArcaneEnergyCostArithmetic": {
       "description": "Defines how the the `value` is set off against the check result.",
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Add"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Subtract"
-            }
-          },
-          "required": [
-            "tag"
-          ],
-          "additionalProperties": false
-        }
+      "enum": [
+        "Add",
+        "Subtract"
       ]
     },
     "IndefiniteArcaneEnergyCostModifier": {
@@ -1861,10 +1765,17 @@
           "properties": {
             "tag": {
               "const": "DependingOnSelection"
+            },
+            "depending_on_selection": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "depending_on_selection"
           ],
           "additionalProperties": false
         },
@@ -2078,10 +1989,17 @@
           "properties": {
             "tag": {
               "const": "None"
+            },
+            "none": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "none"
           ],
           "additionalProperties": false
         },
@@ -2090,10 +2008,17 @@
           "properties": {
             "tag": {
               "const": "DependingOnCombatStyle"
+            },
+            "depending_on_combat_style": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "depending_on_combat_style"
           ],
           "additionalProperties": false
         },
@@ -2247,10 +2172,17 @@
           "properties": {
             "tag": {
               "const": "Improvised"
+            },
+            "improvised": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "improvised"
           ],
           "additionalProperties": false
         },
@@ -2259,10 +2191,17 @@
           "properties": {
             "tag": {
               "const": "PointedBlade"
+            },
+            "pointed_blade": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "pointed_blade"
           ],
           "additionalProperties": false
         },
@@ -2271,10 +2210,17 @@
           "properties": {
             "tag": {
               "const": "Mount"
+            },
+            "mount": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "mount"
           ],
           "additionalProperties": false
         },
@@ -2334,10 +2280,17 @@
           "properties": {
             "tag": {
               "const": "Improvised"
+            },
+            "improvised": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "improvised"
           ],
           "additionalProperties": false
         },
@@ -2346,10 +2299,17 @@
           "properties": {
             "tag": {
               "const": "PointedBlade"
+            },
+            "pointed_blade": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "pointed_blade"
           ],
           "additionalProperties": false
         },
@@ -2358,10 +2318,17 @@
           "properties": {
             "tag": {
               "const": "Mount"
+            },
+            "mount": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "mount"
           ],
           "additionalProperties": false
         },
@@ -2370,10 +2337,17 @@
           "properties": {
             "tag": {
               "const": "HasParry"
+            },
+            "has_parry": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "has_parry"
           ],
           "additionalProperties": false
         },
@@ -2382,10 +2356,17 @@
           "properties": {
             "tag": {
               "const": "OneHanded"
+            },
+            "one_handed": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "one_handed"
           ],
           "additionalProperties": false
         },
@@ -2394,10 +2375,17 @@
           "properties": {
             "tag": {
               "const": "ParryingWeapon"
+            },
+            "parrying_weapon": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "parrying_weapon"
           ],
           "additionalProperties": false
         },
@@ -2457,10 +2445,17 @@
           "properties": {
             "tag": {
               "const": "Improvised"
+            },
+            "improvised": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "improvised"
           ],
           "additionalProperties": false
         },
@@ -2469,10 +2464,17 @@
           "properties": {
             "tag": {
               "const": "PointedBlade"
+            },
+            "pointed_blade": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "pointed_blade"
           ],
           "additionalProperties": false
         },
@@ -2481,10 +2483,17 @@
           "properties": {
             "tag": {
               "const": "Mount"
+            },
+            "mount": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "mount"
           ],
           "additionalProperties": false
         },
@@ -2544,10 +2553,17 @@
           "properties": {
             "tag": {
               "const": "Improvised"
+            },
+            "improvised": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "improvised"
           ],
           "additionalProperties": false
         },
@@ -2556,10 +2572,17 @@
           "properties": {
             "tag": {
               "const": "PointedBlade"
+            },
+            "pointed_blade": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "pointed_blade"
           ],
           "additionalProperties": false
         },
@@ -2568,10 +2591,17 @@
           "properties": {
             "tag": {
               "const": "Mount"
+            },
+            "mount": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "mount"
           ],
           "additionalProperties": false
         },
@@ -2699,10 +2729,17 @@
           "properties": {
             "tag": {
               "const": "Indefinite"
+            },
+            "indefinite": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "indefinite"
           ],
           "additionalProperties": false
         }

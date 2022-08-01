@@ -26,10 +26,17 @@
           "properties": {
             "tag": {
               "const": "NotApplicable"
+            },
+            "not_applicable": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "not_applicable"
           ],
           "additionalProperties": false
         },
@@ -38,10 +45,17 @@
           "properties": {
             "tag": {
               "const": "Special"
+            },
+            "special": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "special"
           ],
           "additionalProperties": false
         }

@@ -519,10 +519,21 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#AdvantageDisadvantagePrerequisiteGroup'CommonSuggestedByRCP/tag">See details</a>
+`common_suggested_by_rcp` |  | <a href="#AdvantageDisadvantagePrerequisiteGroup'CommonSuggestedByRCP/common_suggested_by_rcp">See details</a>
 
 #### <a name="AdvantageDisadvantagePrerequisiteGroup'CommonSuggestedByRCP/tag"></a> `tag`
 
 - **Constant:** `"CommonSuggestedByRCP"`
+
+#### <a name="AdvantageDisadvantagePrerequisiteGroup'CommonSuggestedByRCP/common_suggested_by_rcp"></a> `common_suggested_by_rcp`
+
+- **Type:** <a href="#AdvantageDisadvantagePrerequisiteGroup'CommonSuggestedByRCP/common_suggested_by_rcp">Object</a>
+
+---
+
+### <a name="AdvantageDisadvantagePrerequisiteGroup'CommonSuggestedByRCP/common_suggested_by_rcp"></a> `AdvantageDisadvantagePrerequisiteGroup'CommonSuggestedByRCP/common_suggested_by_rcp`
+
+- **Type:** Empty Object
 
 ---
 

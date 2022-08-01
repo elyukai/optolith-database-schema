@@ -3,16 +3,16 @@ import { LocaleMap } from "./_LocaleMap.js"
 import { CeremonyReference, CloseCombatTechniqueReference, ElementReference, LiturgicalChantReference, RangedCombatTechniqueReference, RitualReference, SkillGroupReference, SpellReference } from "./_SimpleReferences.js"
 
 export type SelectOptionCategory =
-  | { tag: "Blessings" }
-  | { tag: "Cantrips" }
-  | { tag: "TradeSecrets" }
-  | { tag: "Scripts" }
-  | { tag: "AnimalShapes" }
-  | { tag: "ArcaneBardTraditions" }
-  | { tag: "ArcaneDancerTraditions" }
-  | { tag: "SexPractices" }
-  | { tag: "Races" }
-  | { tag: "Cultures" }
+  | { tag: "Blessings"; blessings: {} }
+  | { tag: "Cantrips"; cantrips: {} }
+  | { tag: "TradeSecrets"; trade_secrets: {} }
+  | { tag: "Scripts"; scripts: {} }
+  | { tag: "AnimalShapes"; animal_shapes: {} }
+  | { tag: "ArcaneBardTraditions"; arcane_bard_traditions: {} }
+  | { tag: "ArcaneDancerTraditions"; arcane_dancer_traditions: {} }
+  | { tag: "SexPractices"; sex_practices: {} }
+  | { tag: "Races"; races: {} }
+  | { tag: "Cultures"; cultures: {} }
   | { tag: "BlessedTraditions"; blessed_traditions: BlessedTraditionsSelectOptionCategory }
   | { tag: "Elements"; elements: ElementsSelectOptionCategory }
   | { tag: "Properties"; properties: PropertiesSelectOptionCategory }
@@ -128,15 +128,12 @@ export type SkillsSelectOptionCategory = {
 }
 
 export type SkillsSelectOptionCategoryCategory =
-  | { tag: "Skills"; skills?: SkillSelectOptionCategoryCategory }
-  | { tag: "Spells"; spells?: GenericSkillsSelectOptionCategoryCategory<SpellReference> }
-  | { tag: "Rituals"; rituals?: GenericSkillsSelectOptionCategoryCategory<RitualReference> }
-  | { tag: "LiturgicalChants"; liturgical_chants?: GenericSkillsSelectOptionCategoryCategory<LiturgicalChantReference> }
-  | { tag: "Ceremonies"; ceremonies?: GenericSkillsSelectOptionCategoryCategory<CeremonyReference> }
+  | { tag: "Skills"; skills: SkillSelectOptionCategoryCategory }
+  | { tag: "Spells"; spells: GenericSkillsSelectOptionCategoryCategory<SpellReference> }
+  | { tag: "Rituals"; rituals: GenericSkillsSelectOptionCategoryCategory<RitualReference> }
+  | { tag: "LiturgicalChants"; liturgical_chants: GenericSkillsSelectOptionCategoryCategory<LiturgicalChantReference> }
+  | { tag: "Ceremonies"; ceremonies: GenericSkillsSelectOptionCategoryCategory<CeremonyReference> }
 
-/**
- * @minProperties 1
- */
 export type SkillSelectOptionCategoryCategory = {
   /**
    * Only include entries of the specified groups.
@@ -191,8 +188,8 @@ export type CombatTechniquesSelectOptionCategory = {
 }
 
 export type CombatTechniquesSelectOptionCategoryCategory =
-  | { tag: "CloseCombatTechniques"; close_combat_techniques?: GenericSkillsSelectOptionCategoryCategory<CloseCombatTechniqueReference> }
-  | { tag: "RangedCombatTechniques"; ranged_combat_techniques?: GenericSkillsSelectOptionCategoryCategory<RangedCombatTechniqueReference> }
+  | { tag: "CloseCombatTechniques"; close_combat_techniques: GenericSkillsSelectOptionCategoryCategory<CloseCombatTechniqueReference> }
+  | { tag: "RangedCombatTechniques"; ranged_combat_techniques: GenericSkillsSelectOptionCategoryCategory<RangedCombatTechniqueReference> }
 
 export type SkillApplicationOrUse = {
   /**
@@ -217,9 +214,6 @@ export type SkillApplicationOrUseTranslation = {
   name: string
 }
 
-/**
- * @minProperties 1
- */
 export type GenericSkillsSelectOptionCategoryCategory<Ref> = {
   /**
    * Only include (`Intersection`) or exclude (`Difference`) specific entries.
@@ -247,9 +241,10 @@ export type SpecificFromSkillSelectOptionCategoryCategory<Ref> = {
 /**
  * Only include (`Intersection`) or exclude (`Difference`) specific entries.
  */
-export type SpecificFromSkillSelectOptionCategoryCategoryOperation =
-  | { tag: "Intersection" }
-  | { tag: "Difference" }
+export enum SpecificFromSkillSelectOptionCategoryCategoryOperation {
+  Intersection = "Intersection",
+  Difference = "Difference",
+}
 
 export type SkillSelectOptionCategoryPrerequisite =
   | { tag: "Self"; self: SelfPrerequisite }

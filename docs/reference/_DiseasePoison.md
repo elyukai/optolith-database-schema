@@ -10,50 +10,7 @@ Depending on the disease, apply Spirit or Toughness as a penalty to the
 disease roll. It may also happen that the lower of both is applied as a
 penalty.
 
-- **Type:** Union
-- **Cases:** <a href="#Resistance'Spirit">Resistance'Spirit</a> | <a href="#Resistance'Toughness">Resistance'Toughness</a> | <a href="#Resistance'LowerOfSpiritAndToughness">Resistance'LowerOfSpiritAndToughness</a>
-
----
-
-### <a name="Resistance'Spirit"></a> `Resistance'Spirit`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Resistance'Spirit/tag">See details</a>
-
-#### <a name="Resistance'Spirit/tag"></a> `tag`
-
-- **Constant:** `"Spirit"`
-
----
-
-### <a name="Resistance'Toughness"></a> `Resistance'Toughness`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Resistance'Toughness/tag">See details</a>
-
-#### <a name="Resistance'Toughness/tag"></a> `tag`
-
-- **Constant:** `"Toughness"`
-
----
-
-### <a name="Resistance'LowerOfSpiritAndToughness"></a> `Resistance'LowerOfSpiritAndToughness`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Resistance'LowerOfSpiritAndToughness/tag">See details</a>
-
-#### <a name="Resistance'LowerOfSpiritAndToughness/tag"></a> `tag`
-
-- **Constant:** `"LowerOfSpiritAndToughness"`
+- **Possible values:** `"Spirit"`, `"Toughness"`, `"LowerOfSpiritAndToughness"`
 
 ---
 

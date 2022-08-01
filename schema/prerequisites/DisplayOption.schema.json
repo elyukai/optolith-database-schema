@@ -10,10 +10,17 @@
           "properties": {
             "tag": {
               "const": "Hide"
+            },
+            "hide": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "hide"
           ],
           "additionalProperties": false
         },

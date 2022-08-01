@@ -227,10 +227,17 @@
           "properties": {
             "tag": {
               "const": "InsideCoverFront"
+            },
+            "inside_cover_front": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "inside_cover_front"
           ],
           "additionalProperties": false
         },
@@ -239,10 +246,17 @@
           "properties": {
             "tag": {
               "const": "InsideCoverBack"
+            },
+            "inside_cover_back": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
             }
           },
           "required": [
-            "tag"
+            "tag",
+            "inside_cover_back"
           ],
           "additionalProperties": false
         },

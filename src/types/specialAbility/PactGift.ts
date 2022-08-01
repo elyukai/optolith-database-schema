@@ -87,9 +87,10 @@ export type AutomaticEntry = {
   target: AutomaticEntryTarget
 }
 
-export type AutomaticEntryAction =
-  | { tag: "Add" }
-  | { tag: "Remove" }
+export enum AutomaticEntryAction {
+  Add = "Add",
+  Remove = "Remove",
+}
 
 export type AutomaticEntryTarget =
   | { tag: "Selection"; selection: AutomaticEntryTargetSelection }
@@ -99,9 +100,10 @@ export type AutomaticEntryTargetSelection = {
   list: AutomaticEntryTargetSelectionList
 }
 
-export type AutomaticEntryTargetSelectionList =
-  | { tag: "MagicalTraditions" }
-  | { tag: "MagicalDilettanteTraditions" }
+export enum AutomaticEntryTargetSelectionList {
+  MagicalTraditions = "MagicalTraditions",
+  MagicalDilettanteTraditions = "MagicalDilettanteTraditions",
+}
 
 export type FixedAutomaticEntryTarget = {
   id: ActivatableIdentifier

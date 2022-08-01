@@ -43,36 +43,7 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="TextVerificationRule"></a> `TextVerificationRule`
 
-- **Type:** Union
-- **Cases:** <a href="#TextVerificationRule'Pass">TextVerificationRule'Pass</a> | <a href="#TextVerificationRule'Deny">TextVerificationRule'Deny</a>
-
----
-
-### <a name="TextVerificationRule'Pass"></a> `TextVerificationRule'Pass`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#TextVerificationRule'Pass/tag">See details</a>
-
-#### <a name="TextVerificationRule'Pass/tag"></a> `tag`
-
-- **Constant:** `"Pass"`
-
----
-
-### <a name="TextVerificationRule'Deny"></a> `TextVerificationRule'Deny`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#TextVerificationRule'Deny/tag">See details</a>
-
-#### <a name="TextVerificationRule'Deny/tag"></a> `tag`
-
-- **Constant:** `"Deny"`
+- **Possible values:** `"Pass"`, `"Deny"`
 
 ---
 
