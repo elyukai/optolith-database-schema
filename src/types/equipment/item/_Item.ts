@@ -3,7 +3,7 @@ import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { LocaleMap } from "../../_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "../../_NonEmptyString.js"
 import { SecondaryArmor } from "./Armor.js"
-import { ImprovisedWeapon } from "./Weapon.js"
+import { SecondaryWeapon } from "./Weapon.js"
 
 export type DefaultItem = {
   /**
@@ -46,7 +46,7 @@ export type DefaultItem = {
  * although this is not the primary use case of the item.
  */
 export type CombatUse =
-  | { tag: "ImprovisedWeapon"; improvised_weapon: ImprovisedWeapon }
+  | { tag: "Weapon"; weapon: SecondaryWeapon }
   | { tag: "Armor"; armor: SecondaryArmor }
 
 export type DefaultItemTranslation = {

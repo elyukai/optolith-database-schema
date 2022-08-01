@@ -56,15 +56,15 @@
           "type": "object",
           "properties": {
             "tag": {
-              "const": "ImprovisedWeapon"
+              "const": "Weapon"
             },
-            "improvised_weapon": {
-              "$ref": "./Weapon.schema.json#/$defs/ImprovisedWeapon"
+            "weapon": {
+              "$ref": "./Weapon.schema.json#/$defs/SecondaryWeapon"
             }
           },
           "required": [
             "tag",
-            "improvised_weapon"
+            "weapon"
           ],
           "additionalProperties": false
         },

@@ -95,7 +95,7 @@ export type WeaponTranslation = {
   errata?: Errata
 }
 
-export type ImprovisedWeapon = {
+export type SecondaryWeapon = {
   /**
    * A list of stat blocks for each combat technique this weapon can be used
    * with.

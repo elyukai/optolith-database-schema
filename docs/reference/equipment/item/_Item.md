@@ -75,26 +75,26 @@ The item can also be used either as an improvised weapon or as an armor,
 although this is not the primary use case of the item.
 
 - **Type:** Union
-- **Cases:** <a href="#CombatUse'ImprovisedWeapon">CombatUse'ImprovisedWeapon</a> | <a href="#CombatUse'Armor">CombatUse'Armor</a>
+- **Cases:** <a href="#CombatUse'Weapon">CombatUse'Weapon</a> | <a href="#CombatUse'Armor">CombatUse'Armor</a>
 
 ---
 
-### <a name="CombatUse'ImprovisedWeapon"></a> `CombatUse'ImprovisedWeapon`
+### <a name="CombatUse'Weapon"></a> `CombatUse'Weapon`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#CombatUse'ImprovisedWeapon/tag">See details</a>
-`improvised_weapon` |  | <a href="#CombatUse'ImprovisedWeapon/improvised_weapon">See details</a>
+`tag` |  | <a href="#CombatUse'Weapon/tag">See details</a>
+`weapon` |  | <a href="#CombatUse'Weapon/weapon">See details</a>
 
-#### <a name="CombatUse'ImprovisedWeapon/tag"></a> `tag`
+#### <a name="CombatUse'Weapon/tag"></a> `tag`
 
-- **Constant:** `"ImprovisedWeapon"`
+- **Constant:** `"Weapon"`
 
-#### <a name="CombatUse'ImprovisedWeapon/improvised_weapon"></a> `improvised_weapon`
+#### <a name="CombatUse'Weapon/weapon"></a> `weapon`
 
-- **Type:** <a href="./Weapon.md#ImprovisedWeapon">ImprovisedWeapon</a>
+- **Type:** <a href="./Weapon.md#SecondaryWeapon">SecondaryWeapon</a>
 
 ---
 

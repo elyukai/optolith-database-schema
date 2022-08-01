@@ -149,58 +149,58 @@ The weapon disadvantage text.
 
 ---
 
-### <a name="ImprovisedWeapon"></a> `ImprovisedWeapon`
+### <a name="SecondaryWeapon"></a> `SecondaryWeapon`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`uses` | A list of stat blocks for each combat technique this weapon can be used with. | <a href="#ImprovisedWeapon/uses">See details</a>
-`sanctified_by?` | If the weapon is sanctified by a god and thus restricted to it's Blessed Ones. | <a href="#ImprovisedWeapon/sanctified_by">See details</a>
-`restricted_to_cultures?` | Define if during character creation this weapon can only be bought by characters of a specific race or culture. | <a href="#ImprovisedWeapon/restricted_to_cultures">See details</a>
-`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ImprovisedWeapon/translations">See details</a>
+`uses` | A list of stat blocks for each combat technique this weapon can be used with. | <a href="#SecondaryWeapon/uses">See details</a>
+`sanctified_by?` | If the weapon is sanctified by a god and thus restricted to it's Blessed Ones. | <a href="#SecondaryWeapon/sanctified_by">See details</a>
+`restricted_to_cultures?` | Define if during character creation this weapon can only be bought by characters of a specific race or culture. | <a href="#SecondaryWeapon/restricted_to_cultures">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#SecondaryWeapon/translations">See details</a>
 
-#### <a name="ImprovisedWeapon/uses"></a> `uses`
+#### <a name="SecondaryWeapon/uses"></a> `uses`
 
 A list of stat blocks for each combat technique this weapon can be used
 with.
 
 - **Type:** List
-- **Items:** <a href="#ImprovisedWeapon/uses[]">ImprovisedWeapon/uses[]</a>
+- **Items:** <a href="#SecondaryWeapon/uses[]">SecondaryWeapon/uses[]</a>
 - **Minimum Items:** `1`
 
-#### <a name="ImprovisedWeapon/sanctified_by"></a> `sanctified_by?`
+#### <a name="SecondaryWeapon/sanctified_by"></a> `sanctified_by?`
 
 If the weapon is sanctified by a god and thus restricted to it's Blessed
 Ones.
 
 - **Type:** <a href="#SanctifiedBy">SanctifiedBy</a>
 
-#### <a name="ImprovisedWeapon/restricted_to_cultures"></a> `restricted_to_cultures?`
+#### <a name="SecondaryWeapon/restricted_to_cultures"></a> `restricted_to_cultures?`
 
 Define if during character creation this weapon can only be bought by
 characters of a specific race or culture.
 
 - **Type:** <a href="#RestrictedToCultures">RestrictedToCultures</a>
 
-#### <a name="ImprovisedWeapon/translations"></a> `translations?`
+#### <a name="SecondaryWeapon/translations"></a> `translations?`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#ImprovisedWeapon/translations[key]">ImprovisedWeapon/translations[key]</a>
+- **Property Values:** <a href="#SecondaryWeapon/translations[key]">SecondaryWeapon/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="ImprovisedWeapon/uses[]"></a> `ImprovisedWeapon/uses[]`
+### <a name="SecondaryWeapon/uses[]"></a> `SecondaryWeapon/uses[]`
 
 - **Type:** <a href="#WeaponUse">WeaponUse</a>
 
 ---
 
-### <a name="ImprovisedWeapon/translations[key]"></a> `ImprovisedWeapon/translations[key]`
+### <a name="SecondaryWeapon/translations[key]"></a> `SecondaryWeapon/translations[key]`
 
 - **Type:** <a href="#ImprovisedWeaponTranslation">ImprovisedWeaponTranslation</a>
 

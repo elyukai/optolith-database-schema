@@ -99,7 +99,7 @@
       ],
       "additionalProperties": false
     },
-    "ImprovisedWeapon": {
+    "SecondaryWeapon": {
       "type": "object",
       "properties": {
         "uses": {
