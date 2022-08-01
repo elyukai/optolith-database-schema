@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/elyukai/optolith-database-schema/compare/v0.3.0...v0.4.0) (2022-08-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* streamline enums with and without associated values
+
+### Features
+
+* adjust equipment item schemes based on example files ([a7344f2](https://github.com/elyukai/optolith-database-schema/commit/a7344f2faa8a414ca62586b884e7eb5892645fef))
+
+
+* streamline enums with and without associated values ([a4685e3](https://github.com/elyukai/optolith-database-schema/commit/a4685e34999ada051117834fc17d19b41f5f3304))
+
 ## [0.3.0](https://github.com/elyukai/optolith-database-schema/compare/v0.2.4...v0.3.0) (2022-07-23)
 
 
