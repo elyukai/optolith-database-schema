@@ -25,7 +25,7 @@ export type CeremonialItemSpecialAbility = {
 
   maximum?: Activatable.Maximum
 
-  aspect: Activatable.Aspect
+  aspect?: Activatable.Aspect
 
   prerequisites?: GeneralPrerequisites
 

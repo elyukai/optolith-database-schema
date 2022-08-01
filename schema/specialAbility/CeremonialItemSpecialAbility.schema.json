@@ -51,7 +51,6 @@
       },
       "required": [
         "id",
-        "aspect",
         "ap_value",
         "src",
         "translations"
