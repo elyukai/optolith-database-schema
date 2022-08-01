@@ -10,13 +10,9 @@
           "description": "The cost in silverthalers.",
           "$ref": "./_Item.schema.json#/$defs/Cost"
         },
-        "complexity": {
-          "description": "The complexity of crafting the item.",
-          "$ref": "./_Item.schema.json#/$defs/Complexity"
-        },
-        "structure_points": {
-          "description": "The structure points of the item. Use an array if the item consists of\nmultiple components that have individual structure points.",
-          "$ref": "./_Item.schema.json#/$defs/StructurePoints"
+        "weight": {
+          "description": "The weight in kg.",
+          "$ref": "./_Item.schema.json#/$defs/Weight"
         },
         "src": {
           "$ref": "../../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
@@ -35,8 +31,7 @@
       },
       "required": [
         "cost",
-        "complexity",
-        "structure_points",
+        "weight",
         "src",
         "translations"
       ],

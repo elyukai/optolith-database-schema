@@ -1,14 +1,13 @@
 /**
- * @main CeremonialItem
+ * @main IlluminationLightSource
  */
 
 import { validateSchemaCreator } from "../../../validation/schema.js"
 import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { LocaleMap } from "../../_LocaleMap.js"
-import { BlessedTraditionReference } from "../../_SimpleReferences.js"
 import { CombatUse, Complexity, Cost, DefaultItemTranslation, StructurePoints, Weight } from "./_Item.js"
 
-export type CeremonialItem = {
+export type IlluminationLightSource = {
   /**
    * The cost in silverthalers.
    */
@@ -31,9 +30,10 @@ export type CeremonialItem = {
   structure_points: StructurePoints
 
   /**
-   * The deity associated with the equipment item.
+   * The burning time is the time how long the light source can be lit. After
+   * that time you have to use a new light source.
    */
-  associated_tradition: BlessedTraditionReference
+  burning_time: BurningTime
 
   /**
    * The item can also be used either as an improvised weapon or as an armor,
@@ -49,4 +49,25 @@ export type CeremonialItem = {
   translations: LocaleMap<DefaultItemTranslation>
 }
 
-export const validateSchema = validateSchemaCreator<CeremonialItem>(import.meta.url)
+export type BurningTime =
+  | { tag: "Unlimited"; unlimited: {} }
+  | { tag: "Limited"; limited: LimitedBurningTime }
+
+export type LimitedBurningTime = {
+  /**
+   * The (unitless) time value.
+   * @exclusiveMinimum 0
+   */
+  value: number
+
+  /**
+   * The time unit.
+   */
+  unit: LimitedBurningTimeUnit
+}
+
+export enum LimitedBurningTimeUnit {
+  Hours = "Hours",
+}
+
+export const validateSchema = validateSchemaCreator<IlluminationLightSource>(import.meta.url)

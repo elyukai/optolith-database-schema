@@ -9,8 +9,7 @@
 Key | Description | Details
 :-- | :-- | :--
 `cost` | The cost in silverthalers. | <a href="#MusicalInstrument/cost">See details</a>
-`complexity` | The complexity of crafting the item. | <a href="#MusicalInstrument/complexity">See details</a>
-`structure_points` | The structure points of the item. Use an array if the item consists of multiple components that have individual structure points. | <a href="#MusicalInstrument/structure_points">See details</a>
+`weight` | The weight in kg. | <a href="#MusicalInstrument/weight">See details</a>
 `src` |  | <a href="#MusicalInstrument/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#MusicalInstrument/translations">See details</a>
 
@@ -20,18 +19,11 @@ The cost in silverthalers.
 
 - **Type:** <a href="./_Item.md#Cost">Cost</a>
 
-#### <a name="MusicalInstrument/complexity"></a> `complexity`
+#### <a name="MusicalInstrument/weight"></a> `weight`
 
-The complexity of crafting the item.
+The weight in kg.
 
-- **Type:** <a href="./_Item.md#Complexity">Complexity</a>
-
-#### <a name="MusicalInstrument/structure_points"></a> `structure_points`
-
-The structure points of the item. Use an array if the item consists of
-multiple components that have individual structure points.
-
-- **Type:** <a href="./_Item.md#StructurePoints">StructurePoints</a>
+- **Type:** <a href="./_Item.md#Weight">Weight</a>
 
 #### <a name="MusicalInstrument/src"></a> `src`
 

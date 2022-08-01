@@ -11,7 +11,7 @@ Key | Description | Details
 `cost` | The cost in silverthalers. | <a href="#ToolOfTheTrade/cost">See details</a>
 `weight` | The weight in kg. | <a href="#ToolOfTheTrade/weight">See details</a>
 `complexity?` | The complexity of crafting the item. | <a href="#ToolOfTheTrade/complexity">See details</a>
-`structure_points` | The structure points of the item. Use an array if the item consists of multiple components that have individual structure points. | <a href="#ToolOfTheTrade/structure_points">See details</a>
+`structure_points?` | The structure points of the item. Use an array if the item consists of multiple components that have individual structure points. | <a href="#ToolOfTheTrade/structure_points">See details</a>
 `is_laboratory` | If the item is a laboratory. | <a href="#ToolOfTheTrade/is_laboratory">See details</a>
 `src` |  | <a href="#ToolOfTheTrade/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ToolOfTheTrade/translations">See details</a>
@@ -34,7 +34,7 @@ The complexity of crafting the item.
 
 - **Type:** <a href="./_Item.md#Complexity">Complexity</a>
 
-#### <a name="ToolOfTheTrade/structure_points"></a> `structure_points`
+#### <a name="ToolOfTheTrade/structure_points"></a> `structure_points?`
 
 The structure points of the item. Use an array if the item consists of
 multiple components that have individual structure points.

@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "/equipment/item/IlluminationLightSource.schema.json",
+  "$ref": "#/$defs/IlluminationLightSource",
+  "$defs": {
+    "IlluminationLightSource": {
+      "type": "object",
+      "properties": {
+        "cost": {
+          "description": "The cost in silverthalers.",
+          "$ref": "./_Item.schema.json#/$defs/Cost"
+        },
+        "weight": {
+          "description": "The weight in kg.",
+          "$ref": "./_Item.schema.json#/$defs/Weight"
+        },
+        "complexity": {
+          "description": "The complexity of crafting the item.",
+          "$ref": "./_Item.schema.json#/$defs/Complexity"
+        },
+        "structure_points": {
+          "description": "The structure points of the item. Use an array if the item consists of\nmultiple components that have individual structure points.",
+          "$ref": "./_Item.schema.json#/$defs/StructurePoints"
+        },
+        "burning_time": {
+          "description": "The burning time is the time how long the light source can be lit. After\nthat time you have to use a new light source.",
+          "$ref": "#/$defs/BurningTime"
+        },
+        "combat_use": {
+          "description": "The item can also be used either as an improvised weapon or as an armor,\nalthough this is not the primary use case of the item.",
+          "$ref": "./_Item.schema.json#/$defs/CombatUse"
+        },
+        "src": {
+          "$ref": "../../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "./_Item.schema.json#/$defs/DefaultItemTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "cost",
+        "weight",
+        "structure_points",
+        "burning_time",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "BurningTime": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Unlimited"
+            },
+            "unlimited": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "tag",
+            "unlimited"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Limited"
+            },
+            "limited": {
+              "$ref": "#/$defs/LimitedBurningTime"
+            }
+          },
+          "required": [
+            "tag",
+            "limited"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "LimitedBurningTime": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The (unitless) time value.",
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "unit": {
+          "description": "The time unit.",
+          "$ref": "#/$defs/LimitedBurningTimeUnit"
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "additionalProperties": false
+    },
+    "LimitedBurningTimeUnit": {
+      "enum": [
+        "Hours"
+      ]
+    }
+  }
+}

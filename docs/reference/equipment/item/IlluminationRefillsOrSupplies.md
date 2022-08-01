@@ -2,6 +2,6 @@
 
 ## Definitions
 
-### <a name="Illumination"></a> `Illumination`
+### <a name="IlluminationRefillsOrSupplies"></a> `IlluminationRefillsOrSupplies`
 
 - **Type:** <a href="./_Item.md#DefaultItem">DefaultItem</a>

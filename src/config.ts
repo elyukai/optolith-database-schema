@@ -30,8 +30,8 @@ import * as Clothes from "./types/equipment/item/Clothes.js"
 import * as Container from "./types/equipment/item/Container.js"
 import * as EquipmentOfBlessedOnes from "./types/equipment/item/EquipmentOfBlessedOnes.js"
 import * as GemOrPreciousStone from "./types/equipment/item/GemOrPreciousStone.js"
-import * as HealingHerb from "./types/equipment/item/HealingHerb.js"
-import * as Illumination from "./types/equipment/item/Illumination.js"
+import * as IlluminationLightSource from "./types/equipment/item/IlluminationLightSource.js"
+import * as IlluminationRefillsOrSupplies from "./types/equipment/item/IlluminationRefillsOrSupplies.js"
 import * as Jewelry from "./types/equipment/item/Jewelry.js"
 import * as Liebesspielzeug from "./types/equipment/item/Liebesspielzeug.js"
 import * as LuxuryGood from "./types/equipment/item/LuxuryGood.js"
@@ -223,8 +223,8 @@ export type TypeMap = {
   generalSpecialAbilities: GeneralSpecialAbility.GeneralSpecialAbility
   geodeRituals: GeodeRitual.GeodeRitual
   hairColors: HairColor.HairColor
-  healingHerbs: HealingHerb.HealingHerb
-  illumination: Illumination.Illumination
+  illuminationLightSources: IlluminationLightSource.IlluminationLightSource
+  illuminationRefillsAndSupplies: IlluminationRefillsOrSupplies.IlluminationRefillsOrSupplies
   instrumentEnchantments: InstrumentEnchantment.InstrumentEnchantment
   jesterTricks: JesterTrick.JesterTrick
   jewelry: Jewelry.Jewelry
@@ -377,8 +377,8 @@ export const typeValidatorMap: { [K in keyof TypeMap]: TypeValidator<TypeMap[K]>
   generalSpecialAbilities: GeneralSpecialAbility.validateSchema,
   geodeRituals: GeodeRitual.validateSchema,
   hairColors: HairColor.validateSchema,
-  healingHerbs: HealingHerb.validateSchema,
-  illumination: Illumination.validateSchema,
+  illuminationLightSources: IlluminationLightSource.validateSchema,
+  illuminationRefillsAndSupplies: IlluminationRefillsOrSupplies.validateSchema,
   instrumentEnchantments: InstrumentEnchantment.validateSchema,
   jesterTricks: JesterTrick.validateSchema,
   jewelry: Jewelry.validateSchema,

@@ -44,7 +44,6 @@
       "required": [
         "cost",
         "weight",
-        "structure_points",
         "is_laboratory",
         "src",
         "translations"
