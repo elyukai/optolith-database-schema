@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.1](https://github.com/elyukai/optolith-database-schema/compare/v0.4.0...v0.4.1) (2022-08-01)
+
+
+### Bug Fixes
+
+* not all ceremonial item special abilities have an aspect ([d99fc59](https://github.com/elyukai/optolith-database-schema/commit/d99fc59d786bef8951edd45db0a0c2d43c4a5ac3))
+* require nested properties of enums with associated values ([ed8046e](https://github.com/elyukai/optolith-database-schema/commit/ed8046ea07acd5ae2b98bc901f688b4612d45ba6))
+
 ## [0.4.0](https://github.com/elyukai/optolith-database-schema/compare/v0.3.0...v0.4.0) (2022-08-01)
 
 
