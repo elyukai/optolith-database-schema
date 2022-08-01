@@ -18,12 +18,10 @@ Optolith follows [semantic versioning](https://semver.org/). This includes chara
 
 ### Changes that **are** considered breaking changes
 
-- Additional cases in both discriminated unions and simple unions
-- Additional enumeration cases
+- Additional cases in enumerations with and without associated values
 
 ### Changes that are **not** considered breaking changes
 
 - Additional properties on records (disallowed to prevent typos)
 - Changing numeric and string constraints (`minimum`, `minLength`, …; disallowed to prevent typos and missing values)
-- File name changes (file names are only for orientation purposes; only the mirrored numeric identifier can be relied on, although it's still safer to rely on file contents only)
-- Changing magical tradition placeholder identifiers and replacing them with fully integrated tradition special abilities (a proper special ability may be added at any time once it is available; placeholders are for display purposes only)
+- File name changes that do not affect the identifier prefix (file names are only for orientation purposes; only the mirrored numeric identifier can be relied on, although it's still safer to rely on file contents only)
