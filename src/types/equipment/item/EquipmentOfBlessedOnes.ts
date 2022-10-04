@@ -23,7 +23,7 @@ export type EquipmentOfBlessedOnes = {
   /**
    * The deity associated with the equipment item.
    */
-  associated_tradition: BlessedTraditionReference
+  associated_tradition: BlessedTraditionReference[]
 
   src: PublicationRefs
 

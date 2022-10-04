@@ -31,7 +31,8 @@ multiple components that have individual structure points.
 
 The deity associated with the equipment item.
 
-- **Type:** <a href="../../_SimpleReferences.md#BlessedTraditionReference">BlessedTraditionReference</a>
+- **Type:** List
+- **Items:** <a href="#EquipmentOfBlessedOnes/associated_tradition[]">EquipmentOfBlessedOnes/associated_tradition[]</a>
 
 #### <a name="EquipmentOfBlessedOnes/src"></a> `src`
 
@@ -45,6 +46,12 @@ All translations for the entry, identified by IETF language tag (BCP47).
 - **Property Values:** <a href="#EquipmentOfBlessedOnes/translations[key]">EquipmentOfBlessedOnes/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
+
+---
+
+### <a name="EquipmentOfBlessedOnes/associated_tradition[]"></a> `EquipmentOfBlessedOnes/associated_tradition[]`
+
+- **Type:** <a href="../../_SimpleReferences.md#BlessedTraditionReference">BlessedTraditionReference</a>
 
 ---
 

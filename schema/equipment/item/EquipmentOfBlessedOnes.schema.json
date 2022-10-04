@@ -16,7 +16,10 @@
         },
         "associated_tradition": {
           "description": "The deity associated with the equipment item.",
-          "$ref": "../../_SimpleReferences.schema.json#/$defs/BlessedTraditionReference"
+          "type": "array",
+          "items": {
+            "$ref": "../../_SimpleReferences.schema.json#/$defs/BlessedTraditionReference"
+          }
         },
         "src": {
           "$ref": "../../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
