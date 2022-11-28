@@ -12,6 +12,9 @@
           "type": "integer",
           "minimum": 1
         },
+        "option": {
+          "$ref": "#/$defs/MagicalRuneOption"
+        },
         "check": {
           "description": "Lists the linked three attributes used to make a skill check.",
           "$ref": "../_SkillCheck.schema.json#/$defs/SkillCheck"
@@ -62,7 +65,7 @@
       "type": "object",
       "properties": {
         "name": {
-          "description": "The name of the magical rune.",
+          "description": "The name of the magical rune.\n\nIf the rune has an option, the option’s name will/should not be included in\nthe name as well as its surrounding parenthesis. It will/should be combined\non demand.",
           "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "native_name": {
@@ -233,8 +236,7 @@
       "properties": {
         "combat_technique_id": {
           "description": "The close combat technique's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "../_Identifier.schema.json#/$defs/CloseCombatTechniqueIdentifier"
         },
         "modifier": {
           "description": "The check modifier for the specified close combat technique.",
@@ -437,6 +439,39 @@
       "required": [
         "slow",
         "fast"
+      ],
+      "additionalProperties": false
+    },
+    "MagicalRuneOption": {
+      "type": "object",
+      "properties": {
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/MagicalRuneOptionTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "MagicalRuneOptionTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the option.\n\nThe surrounding parenthesis will/should not be included, they will/should\nbe generated.",
+          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "name"
       ],
       "additionalProperties": false
     }

@@ -7,7 +7,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "../../_Identifier.schema.json#/$defs/ExtensionRuleIdentifier"
+          "$ref": "../../_IdentifierGroup.schema.json#/$defs/ExtensionRuleIdentifier"
         },
         "display_option": {
           "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"

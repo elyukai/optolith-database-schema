@@ -56,8 +56,7 @@ Key | Description | Details
 
 The identifier of the superordinate target category.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#TargetCategoryIdentifier">TargetCategoryIdentifier</a>
 
 ---
 

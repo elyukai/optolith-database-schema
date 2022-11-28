@@ -15,7 +15,7 @@ Key | Description | Details
 
 #### <a name="StatePrerequisite/id"></a> `id`
 
-- **Type:** <a href="../../_Identifier.md#OneOrManyNumericIdentifiers">OneOrManyNumericIdentifiers</a>
+- **Type:** <a href="../../_Identifier.md#StateIdentifier">StateIdentifier</a>
 
 #### <a name="StatePrerequisite/display_option"></a> `display_option?`
 

@@ -3,6 +3,7 @@
  */
 
 import { validateSchemaCreator } from "../validation/schema.js"
+import { TargetCategoryIdentifier } from "./_Identifier.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
 
@@ -34,10 +35,8 @@ export type TargetCategory = {
 export type TargetCategoryParent = {
   /**
    * The identifier of the superordinate target category.
-   * @integer
-   * @minimum 1
    */
-  id: number
+  id: TargetCategoryIdentifier
 }
 
 export type TargetCategoryTranslation = {

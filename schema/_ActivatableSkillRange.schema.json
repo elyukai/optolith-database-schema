@@ -104,6 +104,25 @@
           "type": "object",
           "properties": {
             "tag": {
+              "const": "Touch"
+            },
+            "touch": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "tag",
+            "touch"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
               "const": "Fixed"
             },
             "fixed": {

@@ -6,7 +6,8 @@ import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
-import { CombatTechniqueIdentifier, LiturgyIdentifier, MagicalActionIdentifier, RequirableSelectOptionIdentifier, SpecialAbilityIdentifier, SpellworkIdentifier } from "./_Identifier.js"
+import { AdvantageIdentifier, DisadvantageIdentifier, SkillIdentifier } from "./_Identifier.js"
+import { CombatTechniqueIdentifier, LiturgyIdentifier, MagicalActionIdentifier, RequirableSelectOptionIdentifier, SpecialAbilityIdentifier, SpellworkIdentifier } from "./_IdentifierGroup.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
 import { ProfessionPrerequisites } from "./_Prerequisite.js"
@@ -176,27 +177,27 @@ export type ProfessionPackage = {
    * Typical advantages for the profession.
    * @minItems 1
    */
-  suggested_advantages?: CommonnessRatedAdvantageDisadvantage[]
+  suggested_advantages?: CommonnessRatedAdvantageDisadvantage<AdvantageIdentifier>[]
 
   /**
    * Typical disadvantages for the profession.
    * @minItems 1
    */
-  suggested_disadvantages?: CommonnessRatedAdvantageDisadvantage[]
+  suggested_disadvantages?: CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>[]
 
   /**
    * These advantages do not fit well with this profession; to be checked with
    * the GM before taking any of them.
    * @minItems 1
    */
-  unsuitable_advantages?: CommonnessRatedAdvantageDisadvantage[]
+  unsuitable_advantages?: CommonnessRatedAdvantageDisadvantage<AdvantageIdentifier>[]
 
   /**
    * These disadvantages do not fit well with this profession; to be checked
    * with the GM before taking any of them.
    * @minItems 1
    */
-  unsuitable_disadvantages?: CommonnessRatedAdvantageDisadvantage[]
+  unsuitable_disadvantages?: CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>[]
 
   /**
    * Provides examples of variants for the profession, which may include changes
@@ -422,7 +423,7 @@ export type SkillRating = {
    * @minimum 1
    * @maximum 59
    */
-  id: number
+  id: SkillIdentifier
 
   /**
    * The rating bonus provided for the skill. If used in a profession variant,

@@ -24,19 +24,7 @@ The PA modifier.
 
 The reach of the weapon.
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The identifier of the weapon's reach. | <a href="#Reach/id">See details</a>
-
-#### <a name="Reach/id"></a> `id`
-
-The identifier of the weapon's reach.
-
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `4`
+- **Type:** <a href="../../_Identifier.md#ReachIdentifier">ReachIdentifier</a>
 
 ---
 

@@ -1,4 +1,4 @@
-import { RatedIdentifier } from "../../_Identifier.js"
+import { RatedIdentifier } from "../../_IdentifierGroup.js"
 import { AspectReference, PropertyReference, SkillReference } from "../../_SimpleReferences.js"
 import { DisplayOption } from "../DisplayOption.js"
 
@@ -10,26 +10,6 @@ export type RatedPrerequisite = {
    * The rated entry's identifier.
    */
   id: RatedIdentifier
-
-  /**
-   * The required minimum value.
-   * @integer
-   * @minimum 0
-   */
-  value: number
-
-  display_option?: DisplayOption
-}
-
-/**
- * @title Rated Set Prerequisite
- */
-export type RatedSetPrerequisite = {
-  /**
-   * The possible rated entries' identifiers.
-   * @minItems 2
-   */
-  id: RatedIdentifier[]
 
   /**
    * The required minimum value.

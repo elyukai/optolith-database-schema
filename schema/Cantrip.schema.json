@@ -169,8 +169,7 @@
       "properties": {
         "id": {
           "description": "The magical tradition's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/MagicalTraditionIdentifier"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",

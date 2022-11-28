@@ -1,4 +1,4 @@
-import { ActivatableIdentifier, CombatTechniqueIdentifier, SkillIdentifier } from "./_Identifier.js"
+import { ActivatableIdentifier, CombatTechniqueIdentifier, SkillIdentifier } from "./_IdentifierGroup.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { CeremonyReference, CloseCombatTechniqueReference, ElementReference, LiturgicalChantReference, RangedCombatTechniqueReference, RitualReference, SkillGroupReference, SpellReference } from "./_SimpleReferences.js"
 

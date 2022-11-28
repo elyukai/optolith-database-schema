@@ -5,7 +5,8 @@
 import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
-import { CoreRuleDerivableContentIdentifier } from "../_Identifier.js"
+import { CoreRuleIdentifier } from "../_Identifier.js"
+import { CoreRuleDerivableContentIdentifier } from "../_IdentifierGroup.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "../_NonEmptyString.js"
 
@@ -15,10 +16,8 @@ import { NonEmptyMarkdown, NonEmptyString } from "../_NonEmptyString.js"
 export type CoreRule = {
   /**
    * The core rule's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
    */
-  id: number
+  id: CoreRuleIdentifier
 
   /**
    * @minItems 1
@@ -58,10 +57,8 @@ export type ContentNode =
 export type ChildNode = {
   /**
    * The nested core rule's identifier.
-   * @integer
-   * @minimum 1
    */
-  id: number
+  id: CoreRuleIdentifier
 
   /**
    * If the nested core rule's content should be integrated into this core rule

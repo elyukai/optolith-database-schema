@@ -158,9 +158,9 @@ A replacement string.
 
 Key | Description | Details
 :-- | :-- | :--
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PermanentDuration/translations">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PermanentDuration/translations">See details</a>
 
-#### <a name="PermanentDuration/translations"></a> `translations`
+#### <a name="PermanentDuration/translations"></a> `translations?`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 

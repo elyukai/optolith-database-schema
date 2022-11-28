@@ -2,393 +2,723 @@
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$id": "/_Identifier.schema.json",
   "$defs": {
-    "ActivatableTag": {
-      "enum": [
-        "Advantage",
-        "Disadvantage",
-        "GeneralSpecialAbility",
-        "FatePointSpecialAbility",
-        "CombatSpecialAbility",
-        "MagicalSpecialAbility",
-        "StaffEnchantment",
-        "FamiliarSpecialAbility",
-        "KarmaSpecialAbility",
-        "ProtectiveWardingCircleSpecialAbility",
-        "CombatStyleSpecialAbility",
-        "AdvancedCombatSpecialAbility",
-        "CommandSpecialAbility",
-        "MagicStyleSpecialAbility",
-        "AdvancedMagicalSpecialAbility",
-        "SpellSwordEnchantment",
-        "DaggerRitual",
-        "InstrumentEnchantment",
-        "AttireEnchantment",
-        "OrbEnchantment",
-        "WandEnchantment",
-        "BrawlingSpecialAbility",
-        "AncestorGlyph",
-        "CeremonialItemSpecialAbility",
-        "Sermon",
-        "LiturgicalStyleSpecialAbility",
-        "AdvancedKarmaSpecialAbility",
-        "Vision",
-        "MagicalTradition",
-        "BlessedTradition",
-        "PactGift",
-        "SikaryanDrainSpecialAbility",
-        "LycantropicGift",
-        "SkillStyleSpecialAbility",
-        "AdvancedSkillSpecialAbility",
-        "ArcaneOrbEnchantment",
-        "CauldronEnchantment",
-        "FoolsHatEnchantment",
-        "ToyEnchantment",
-        "BowlEnchantment",
-        "FatePointSexSpecialAbility",
-        "SexSpecialAbility",
-        "WeaponEnchantment",
-        "SickleRitual",
-        "RingEnchantment",
-        "ChronicleEnchantment"
-      ]
-    },
-    "SpecialAbilityTag": {
-      "enum": [
-        "GeneralSpecialAbility",
-        "FatePointSpecialAbility",
-        "CombatSpecialAbility",
-        "MagicalSpecialAbility",
-        "StaffEnchantment",
-        "FamiliarSpecialAbility",
-        "KarmaSpecialAbility",
-        "ProtectiveWardingCircleSpecialAbility",
-        "CombatStyleSpecialAbility",
-        "AdvancedCombatSpecialAbility",
-        "CommandSpecialAbility",
-        "MagicStyleSpecialAbility",
-        "AdvancedMagicalSpecialAbility",
-        "SpellSwordEnchantment",
-        "DaggerRitual",
-        "InstrumentEnchantment",
-        "AttireEnchantment",
-        "OrbEnchantment",
-        "WandEnchantment",
-        "BrawlingSpecialAbility",
-        "AncestorGlyph",
-        "CeremonialItemSpecialAbility",
-        "Sermon",
-        "LiturgicalStyleSpecialAbility",
-        "AdvancedKarmaSpecialAbility",
-        "Vision",
-        "MagicalTradition",
-        "BlessedTradition",
-        "PactGift",
-        "SikaryanDrainSpecialAbility",
-        "LycantropicGift",
-        "SkillStyleSpecialAbility",
-        "AdvancedSkillSpecialAbility",
-        "ArcaneOrbEnchantment",
-        "CauldronEnchantment",
-        "FoolsHatEnchantment",
-        "ToyEnchantment",
-        "BowlEnchantment",
-        "FatePointSexSpecialAbility",
-        "SexSpecialAbility",
-        "WeaponEnchantment",
-        "SickleRitual",
-        "RingEnchantment",
-        "ChronicleEnchantment"
-      ]
-    },
-    "CombatRelatedSpecialAbilityTag": {
-      "enum": [
-        "CombatSpecialAbility",
-        "CombatStyleSpecialAbility",
-        "AdvancedCombatSpecialAbility",
-        "CommandSpecialAbility"
-      ]
-    },
-    "RatedTag": {
-      "enum": [
-        "Attribute",
-        "Skill",
-        "CloseCombatTechnique",
-        "RangedCombatTechnique",
-        "Spell",
-        "Ritual",
-        "LiturgicalChant",
-        "Ceremony"
-      ]
-    },
-    "SkillTag": {
-      "enum": [
-        "Skill",
-        "Spell",
-        "Ritual",
-        "LiturgicalChant",
-        "Ceremony"
-      ]
-    },
-    "AdvancedSpecialAbilityRestrictedOptionTag": {
-      "enum": [
-        "General",
-        "Skill",
-        "Element"
-      ]
-    },
-    "VolumePointsOptionReferenceTag": {
-      "enum": [
-        "General",
-        "AnimalShapeSize"
-      ]
-    },
-    "CombatTechniqueTag": {
-      "enum": [
-        "CloseCombatTechnique",
-        "RangedCombatTechnique"
-      ]
-    },
-    "MagicalTraditionTag": {
-      "enum": [
-        "MagicalTradition"
-      ]
-    },
-    "PatronTag": {
-      "enum": [
-        "Patron"
-      ]
-    },
-    "ExtensionRuleTag": {
-      "enum": [
-        "FocusRule",
-        "OptionalRule"
-      ]
-    },
-    "SkillWithEnhancementsTag": {
-      "enum": [
-        "Spell",
-        "Ritual",
-        "LiturgicalChant",
-        "Ceremony"
-      ]
-    },
-    "SpellworkTag": {
-      "enum": [
-        "Spell",
-        "Ritual"
-      ]
-    },
-    "LiturgyTag": {
-      "enum": [
-        "LiturgicalChant",
-        "Ceremony"
-      ]
-    },
-    "MagicalActionTag": {
-      "enum": [
-        "Spell",
-        "Ritual",
-        "Curse",
-        "ElvenMagicalSong",
-        "DominationRitual",
-        "MagicalMelody",
-        "MagicalDance",
-        "JesterTrick",
-        "AnimistPower",
-        "GeodeRitual",
-        "ZibiljaRitual"
-      ]
-    },
-    "RequirableSelectOptionTag": {
-      "enum": [
-        "General",
-        "Skill",
-        "CloseCombatTechnique",
-        "RangedCombatTechnique"
-      ]
-    },
-    "CoreRuleDerivableContentTag": {
-      "enum": [
-        "MagicalTradition",
-        "FamiliarSpecialAbility",
-        "MagicalSpecialAbility",
-        "BlessedTradition"
-      ]
-    },
-    "EquipmentTag": {
-      "enum": [
-        "Alchemicum",
-        "Ammunition",
-        "Animal",
-        "AnimalCare",
-        "Armor",
-        "BandageOrRemedy",
-        "Book",
-        "CeremonialItem",
-        "Clothes",
-        "Container",
-        "EquipmentOfBlessedOnes",
-        "GemOrPreciousStone",
-        "HealingHerb",
-        "Illumination",
-        "Jewelry",
-        "Liebesspielzeug",
-        "LuxuryGood",
-        "MagicalArtifact",
-        "MusicalInstrument",
-        "OrienteeringAid",
-        "Poison",
-        "RopeOrChain",
-        "Stationary",
-        "ThievesTool",
-        "ToolOfTheTrade",
-        "TravelGearOrTool",
-        "Vehicle",
-        "Weapon",
-        "WeaponAccessory"
-      ]
-    },
-    "ActivatableIdentifier": {
+    "PublicationIdentifier": {
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/$defs/ActivatableTag"
+          "const": "Publication"
         },
-        "value": {
-          "description": "The referenced entry's numeric identifier.",
+        "publication": {
+          "description": "The publication’s identifier.",
           "type": "integer",
           "minimum": 1
         }
       },
       "required": [
         "tag",
-        "value"
+        "publication"
       ],
       "additionalProperties": false
     },
-    "SpecialAbilityIdentifier": {
+    "ExperienceLevelIdentifier": {
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/$defs/SpecialAbilityTag"
+          "const": "ExperienceLevel"
         },
-        "value": {
-          "description": "The referenced entry's numeric identifier.",
+        "experience_level": {
+          "description": "The experience level’s identifier.",
           "type": "integer",
           "minimum": 1
         }
       },
       "required": [
         "tag",
-        "value"
+        "experience_level"
       ],
       "additionalProperties": false
     },
-    "CombatRelatedSpecialAbilityIdentifier": {
+    "CoreRuleIdentifier": {
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/$defs/CombatRelatedSpecialAbilityTag"
+          "const": "CoreRule"
         },
-        "value": {
-          "description": "The referenced entry's numeric identifier.",
+        "core_rule": {
+          "description": "The core rule’s identifier.",
           "type": "integer",
           "minimum": 1
         }
       },
       "required": [
         "tag",
-        "value"
+        "core_rule"
       ],
       "additionalProperties": false
     },
-    "RatedIdentifier": {
+    "FocusRuleIdentifier": {
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/$defs/RatedTag"
+          "const": "FocusRule"
         },
-        "value": {
-          "description": "The referenced entry's numeric identifier.",
+        "focus_rule": {
+          "description": "The focus rule’s identifier.",
           "type": "integer",
           "minimum": 1
         }
       },
       "required": [
         "tag",
-        "value"
+        "focus_rule"
       ],
       "additionalProperties": false
     },
-    "SkillIdentifier": {
+    "SubjectIdentifier": {
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/$defs/SkillTag"
+          "const": "Subject"
         },
-        "value": {
-          "description": "The referenced entry's numeric identifier.",
+        "focus_rule": {
+          "description": "The focus rule subject’s identifier.",
           "type": "integer",
           "minimum": 1
         }
       },
       "required": [
         "tag",
-        "value"
+        "focus_rule"
       ],
       "additionalProperties": false
     },
-    "AdvancedSpecialAbilityRestrictedOptionIdentifier": {
+    "OptionalRuleIdentifier": {
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/$defs/AdvancedSpecialAbilityRestrictedOptionTag"
+          "const": "OptionalRule"
         },
-        "value": {
-          "description": "The referenced entry's numeric identifier.",
+        "optional_rule": {
+          "description": "The optional rule’s identifier.",
           "type": "integer",
           "minimum": 1
         }
       },
       "required": [
         "tag",
-        "value"
+        "optional_rule"
       ],
       "additionalProperties": false
     },
-    "VolumePointsOptionReferenceIdentifier": {
+    "RaceIdentifier": {
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/$defs/VolumePointsOptionReferenceTag"
+          "const": "Race"
         },
-        "value": {
-          "description": "The referenced entry's numeric identifier.",
+        "race": {
+          "description": "The race’s identifier.",
           "type": "integer",
           "minimum": 1
         }
       },
       "required": [
         "tag",
-        "value"
+        "race"
       ],
       "additionalProperties": false
     },
-    "CombatTechniqueIdentifier": {
+    "CultureIdentifier": {
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/$defs/CombatTechniqueTag"
+          "const": "Culture"
         },
-        "value": {
-          "description": "The referenced entry's numeric identifier.",
+        "culture": {
+          "description": "The culture’s identifier.",
           "type": "integer",
           "minimum": 1
         }
       },
       "required": [
         "tag",
-        "value"
+        "culture"
+      ],
+      "additionalProperties": false
+    },
+    "ProfessionIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Profession"
+        },
+        "profession": {
+          "description": "The profession’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "profession"
+      ],
+      "additionalProperties": false
+    },
+    "ProfessionVariantIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "ProfessionVariant"
+        },
+        "profession_variant": {
+          "description": "The profession variant’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "profession_variant"
+      ],
+      "additionalProperties": false
+    },
+    "CurriculumIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Curriculum"
+        },
+        "curriculum": {
+          "description": "The curriculum’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "curriculum"
+      ],
+      "additionalProperties": false
+    },
+    "GuidelineIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Guideline"
+        },
+        "guideline": {
+          "description": "The guideline’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "guideline"
+      ],
+      "additionalProperties": false
+    },
+    "AdvantageIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Advantage"
+        },
+        "advantage": {
+          "description": "The advantage’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "advantage"
+      ],
+      "additionalProperties": false
+    },
+    "DisadvantageIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Disadvantage"
+        },
+        "disadvantage": {
+          "description": "The disadvantage’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "disadvantage"
+      ],
+      "additionalProperties": false
+    },
+    "GeneralSpecialAbilityIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "GeneralSpecialAbility"
+        },
+        "general_special_ability": {
+          "description": "The general special ability’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "general_special_ability"
+      ],
+      "additionalProperties": false
+    },
+    "FatePointSpecialAbilityIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "FatePointSpecialAbility"
+        },
+        "fate_point_special_ability": {
+          "description": "The fate point special ability’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "fate_point_special_ability"
+      ],
+      "additionalProperties": false
+    },
+    "CombatSpecialAbilityIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "CombatSpecialAbility"
+        },
+        "combat_special_ability": {
+          "description": "The combat special ability’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "combat_special_ability"
+      ],
+      "additionalProperties": false
+    },
+    "MagicalSpecialAbilityIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "MagicalSpecialAbility"
+        },
+        "magical_special_ability": {
+          "description": "The magical special ability’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "magical_special_ability"
+      ],
+      "additionalProperties": false
+    },
+    "StaffEnchantmentIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "StaffEnchantment"
+        },
+        "staff_enchantment": {
+          "description": "The staff enchantment’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "staff_enchantment"
+      ],
+      "additionalProperties": false
+    },
+    "FamiliarSpecialAbilityIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "FamiliarSpecialAbility"
+        },
+        "familiar_special_ability": {
+          "description": "The familiar special ability’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "familiar_special_ability"
+      ],
+      "additionalProperties": false
+    },
+    "KarmaSpecialAbilityIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "KarmaSpecialAbility"
+        },
+        "karma_special_ability": {
+          "description": "The karma special ability’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "karma_special_ability"
+      ],
+      "additionalProperties": false
+    },
+    "ProtectiveWardingCircleSpecialAbilityIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "ProtectiveWardingCircleSpecialAbility"
+        },
+        "protective_warding_circle_special_ability": {
+          "description": "The protective warding circle special ability’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "protective_warding_circle_special_ability"
+      ],
+      "additionalProperties": false
+    },
+    "CombatStyleSpecialAbilityIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "CombatStyleSpecialAbility"
+        },
+        "combat_style_special_ability": {
+          "description": "The combat style special ability’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "combat_style_special_ability"
+      ],
+      "additionalProperties": false
+    },
+    "AdvancedCombatSpecialAbilityIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "AdvancedCombatSpecialAbility"
+        },
+        "advanced_combat_special_ability": {
+          "description": "The advanced combat special ability’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "advanced_combat_special_ability"
+      ],
+      "additionalProperties": false
+    },
+    "CommandSpecialAbilityIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "CommandSpecialAbility"
+        },
+        "command_special_ability": {
+          "description": "The command special ability’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "command_special_ability"
+      ],
+      "additionalProperties": false
+    },
+    "MagicStyleSpecialAbilityIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "MagicStyleSpecialAbility"
+        },
+        "magic_style_special_ability": {
+          "description": "The magic style special ability’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "magic_style_special_ability"
+      ],
+      "additionalProperties": false
+    },
+    "AdvancedMagicalSpecialAbilityIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "AdvancedMagicalSpecialAbility"
+        },
+        "advanced_magical_special_ability": {
+          "description": "The advanced magical special ability’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "advanced_magical_special_ability"
+      ],
+      "additionalProperties": false
+    },
+    "SpellSwordEnchantmentIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "SpellSwordEnchantment"
+        },
+        "spell_sword_enchantment": {
+          "description": "The spell sword enchantment’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "spell_sword_enchantment"
+      ],
+      "additionalProperties": false
+    },
+    "DaggerRitualIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "DaggerRitual"
+        },
+        "dagger_ritual": {
+          "description": "The dagger ritual’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "dagger_ritual"
+      ],
+      "additionalProperties": false
+    },
+    "InstrumentEnchantmentIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "InstrumentEnchantment"
+        },
+        "instrument_enchantment": {
+          "description": "The instrument enchantment’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "instrument_enchantment"
+      ],
+      "additionalProperties": false
+    },
+    "AttireEnchantmentIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "AttireEnchantment"
+        },
+        "attire_enchantment": {
+          "description": "The attire enchantment’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "attire_enchantment"
+      ],
+      "additionalProperties": false
+    },
+    "OrbEnchantmentIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "OrbEnchantment"
+        },
+        "orb_enchantment": {
+          "description": "The orb enchantment’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "orb_enchantment"
+      ],
+      "additionalProperties": false
+    },
+    "WandEnchantmentIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "WandEnchantment"
+        },
+        "wand_enchantment": {
+          "description": "The wand enchantment’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "wand_enchantment"
+      ],
+      "additionalProperties": false
+    },
+    "BrawlingSpecialAbilityIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "BrawlingSpecialAbility"
+        },
+        "brawling_special_ability": {
+          "description": "The brawling special ability’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "brawling_special_ability"
+      ],
+      "additionalProperties": false
+    },
+    "AncestorGlyphIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "AncestorGlyph"
+        },
+        "ancestor_glyph": {
+          "description": "The ancestor glyph’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "ancestor_glyph"
+      ],
+      "additionalProperties": false
+    },
+    "CeremonialItemSpecialAbilityIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "CeremonialItemSpecialAbility"
+        },
+        "ceremonial_item_special_ability": {
+          "description": "The ceremonial item special ability’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "ceremonial_item_special_ability"
+      ],
+      "additionalProperties": false
+    },
+    "SermonIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Sermon"
+        },
+        "sermon": {
+          "description": "The sermon’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "sermon"
+      ],
+      "additionalProperties": false
+    },
+    "LiturgicalStyleSpecialAbilityIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "LiturgicalStyleSpecialAbility"
+        },
+        "liturgical_style_special_ability": {
+          "description": "The liturgical style special ability’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "liturgical_style_special_ability"
+      ],
+      "additionalProperties": false
+    },
+    "AdvancedKarmaSpecialAbilityIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "AdvancedKarmaSpecialAbility"
+        },
+        "advanced_karma_special_ability": {
+          "description": "The advanced karma special ability’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "advanced_karma_special_ability"
+      ],
+      "additionalProperties": false
+    },
+    "VisionIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Vision"
+        },
+        "vision": {
+          "description": "The vision’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "vision"
       ],
       "additionalProperties": false
     },
@@ -396,17 +726,867 @@
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/$defs/MagicalTraditionTag"
+          "const": "MagicalTradition"
         },
-        "value": {
-          "description": "The referenced entry's numeric identifier.",
+        "magical_tradition": {
+          "description": "The magical tradition’s identifier.",
           "type": "integer",
           "minimum": 1
         }
       },
       "required": [
         "tag",
-        "value"
+        "magical_tradition"
+      ],
+      "additionalProperties": false
+    },
+    "BlessedTraditionIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "BlessedTradition"
+        },
+        "blessed_tradition": {
+          "description": "The blessed tradition’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "blessed_tradition"
+      ],
+      "additionalProperties": false
+    },
+    "PactGiftIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "PactGift"
+        },
+        "pact_gift": {
+          "description": "The pact gift’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "pact_gift"
+      ],
+      "additionalProperties": false
+    },
+    "SikaryanDrainSpecialAbilityIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "SikaryanDrainSpecialAbility"
+        },
+        "sikaryan_drain_special_ability": {
+          "description": "The sikaryan drain special ability’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "sikaryan_drain_special_ability"
+      ],
+      "additionalProperties": false
+    },
+    "LycantropicGiftIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "LycantropicGift"
+        },
+        "lycantropic_gift": {
+          "description": "The lycantropic gift’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "lycantropic_gift"
+      ],
+      "additionalProperties": false
+    },
+    "SkillStyleSpecialAbilityIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "SkillStyleSpecialAbility"
+        },
+        "skill_style_special_ability": {
+          "description": "The skill style special ability’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "skill_style_special_ability"
+      ],
+      "additionalProperties": false
+    },
+    "AdvancedSkillSpecialAbilityIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "AdvancedSkillSpecialAbility"
+        },
+        "advanced_skill_special_ability": {
+          "description": "The advanced skill special ability’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "advanced_skill_special_ability"
+      ],
+      "additionalProperties": false
+    },
+    "ArcaneOrbEnchantmentIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "ArcaneOrbEnchantment"
+        },
+        "arcane_orb_enchantment": {
+          "description": "The arcane orb enchantment’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "arcane_orb_enchantment"
+      ],
+      "additionalProperties": false
+    },
+    "CauldronEnchantmentIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "CauldronEnchantment"
+        },
+        "cauldron_enchantment": {
+          "description": "The cauldron enchantment’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "cauldron_enchantment"
+      ],
+      "additionalProperties": false
+    },
+    "FoolsHatEnchantmentIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "FoolsHatEnchantment"
+        },
+        "fools_hat_enchantment": {
+          "description": "The fools hat enchantment’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "fools_hat_enchantment"
+      ],
+      "additionalProperties": false
+    },
+    "ToyEnchantmentIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "ToyEnchantment"
+        },
+        "toy_enchantment": {
+          "description": "The toy enchantment’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "toy_enchantment"
+      ],
+      "additionalProperties": false
+    },
+    "BowlEnchantmentIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "BowlEnchantment"
+        },
+        "bowl_enchantment": {
+          "description": "The bowl enchantment’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "bowl_enchantment"
+      ],
+      "additionalProperties": false
+    },
+    "FatePointSexSpecialAbilityIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "FatePointSexSpecialAbility"
+        },
+        "fate_point_sex_special_ability": {
+          "description": "The fate point sex special ability’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "fate_point_sex_special_ability"
+      ],
+      "additionalProperties": false
+    },
+    "SexSpecialAbilityIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "SexSpecialAbility"
+        },
+        "sex_special_ability": {
+          "description": "The sex special ability’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "sex_special_ability"
+      ],
+      "additionalProperties": false
+    },
+    "WeaponEnchantmentIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "WeaponEnchantment"
+        },
+        "weapon_enchantment": {
+          "description": "The weapon enchantment’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "weapon_enchantment"
+      ],
+      "additionalProperties": false
+    },
+    "SickleRitualIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "SickleRitual"
+        },
+        "sickle_ritual": {
+          "description": "The sickle ritual’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "sickle_ritual"
+      ],
+      "additionalProperties": false
+    },
+    "RingEnchantmentIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "RingEnchantment"
+        },
+        "ring_enchantment": {
+          "description": "The ring enchantment’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "ring_enchantment"
+      ],
+      "additionalProperties": false
+    },
+    "ChronicleEnchantmentIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "ChronicleEnchantment"
+        },
+        "chronicle_enchantment": {
+          "description": "The chronicle enchantment’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "chronicle_enchantment"
+      ],
+      "additionalProperties": false
+    },
+    "LanguageIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Language"
+        },
+        "language": {
+          "description": "The language’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "language"
+      ],
+      "additionalProperties": false
+    },
+    "ScriptIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Script"
+        },
+        "script": {
+          "description": "The script’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "script"
+      ],
+      "additionalProperties": false
+    },
+    "ContinentIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Continent"
+        },
+        "continent": {
+          "description": "The continent’s identifier.",
+          "type": "integer",
+          "maximum": 3,
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "continent"
+      ],
+      "additionalProperties": false
+    },
+    "SocialStatusIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "SocialStatus"
+        },
+        "social_status": {
+          "description": "The social status’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "social_status"
+      ],
+      "additionalProperties": false
+    },
+    "AttributeIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Attribute"
+        },
+        "attribute": {
+          "description": "The attribute’s identifier.",
+          "type": "integer",
+          "maximum": 8,
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "attribute"
+      ],
+      "additionalProperties": false
+    },
+    "SkillGroupIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "SkillGroup"
+        },
+        "skill_group": {
+          "description": "The skill group’s identifier.",
+          "type": "integer",
+          "maximum": 5,
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "skill_group"
+      ],
+      "additionalProperties": false
+    },
+    "CloseCombatTechniqueIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "CloseCombatTechnique"
+        },
+        "close_combat_technique": {
+          "description": "The close combat technique’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "close_combat_technique"
+      ],
+      "additionalProperties": false
+    },
+    "RangedCombatTechniqueIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "RangedCombatTechnique"
+        },
+        "ranged_combat_technique": {
+          "description": "The ranged combat technique’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "ranged_combat_technique"
+      ],
+      "additionalProperties": false
+    },
+    "SpellIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Spell"
+        },
+        "spell": {
+          "description": "The spell’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "spell"
+      ],
+      "additionalProperties": false
+    },
+    "RitualIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Ritual"
+        },
+        "ritual": {
+          "description": "The ritual’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "ritual"
+      ],
+      "additionalProperties": false
+    },
+    "CantripIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Cantrip"
+        },
+        "cantrip": {
+          "description": "The cantrip’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "cantrip"
+      ],
+      "additionalProperties": false
+    },
+    "PropertyIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Property"
+        },
+        "property": {
+          "description": "The property’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "property"
+      ],
+      "additionalProperties": false
+    },
+    "LiturgicalChantIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "LiturgicalChant"
+        },
+        "liturgical_chant": {
+          "description": "The liturgical chant’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "liturgical_chant"
+      ],
+      "additionalProperties": false
+    },
+    "CeremonyIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Ceremony"
+        },
+        "ceremony": {
+          "description": "The ceremony’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "ceremony"
+      ],
+      "additionalProperties": false
+    },
+    "BlessingIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Blessing"
+        },
+        "blessing": {
+          "description": "The blessing’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "blessing"
+      ],
+      "additionalProperties": false
+    },
+    "AspectIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Aspect"
+        },
+        "aspect": {
+          "description": "The aspect’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "aspect"
+      ],
+      "additionalProperties": false
+    },
+    "CurseIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Curse"
+        },
+        "curse": {
+          "description": "The curse’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "curse"
+      ],
+      "additionalProperties": false
+    },
+    "ElvenMagicalSongIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "ElvenMagicalSong"
+        },
+        "elven_magical_song": {
+          "description": "The elven magical song’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "elven_magical_song"
+      ],
+      "additionalProperties": false
+    },
+    "DominationRitualIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "DominationRitual"
+        },
+        "domination_ritual": {
+          "description": "The domination ritual’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "domination_ritual"
+      ],
+      "additionalProperties": false
+    },
+    "MagicalMelodyIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "MagicalMelody"
+        },
+        "magical_melody": {
+          "description": "The magical melody’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "magical_melody"
+      ],
+      "additionalProperties": false
+    },
+    "MagicalDanceIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "MagicalDance"
+        },
+        "magical_dance": {
+          "description": "The magical dance’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "magical_dance"
+      ],
+      "additionalProperties": false
+    },
+    "JesterTrickIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "JesterTrick"
+        },
+        "jester_trick": {
+          "description": "The jester trick’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "jester_trick"
+      ],
+      "additionalProperties": false
+    },
+    "AnimistPowerIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "AnimistPower"
+        },
+        "animist_power": {
+          "description": "The animist power’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "animist_power"
+      ],
+      "additionalProperties": false
+    },
+    "GeodeRitualIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "GeodeRitual"
+        },
+        "geode_ritual": {
+          "description": "The geode ritual’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "geode_ritual"
+      ],
+      "additionalProperties": false
+    },
+    "ZibiljaRitualIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "ZibiljaRitual"
+        },
+        "zibilja_ritual": {
+          "description": "The zibilja ritual’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "zibilja_ritual"
+      ],
+      "additionalProperties": false
+    },
+    "AnimalTypeIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "AnimalType"
+        },
+        "animal_type": {
+          "description": "The animal type’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "animal_type"
+      ],
+      "additionalProperties": false
+    },
+    "TargetCategoryIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "TargetCategory"
+        },
+        "target_category": {
+          "description": "The target category’s identifier.",
+          "type": "integer",
+          "maximum": 24,
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "target_category"
+      ],
+      "additionalProperties": false
+    },
+    "GeneralIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "General"
+        },
+        "general": {
+          "description": "The identifier of a general (unspecific) select option.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "general"
+      ],
+      "additionalProperties": false
+    },
+    "ElementIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Element"
+        },
+        "element": {
+          "description": "The element’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "element"
+      ],
+      "additionalProperties": false
+    },
+    "AnimalShapeSizeIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "AnimalShapeSize"
+        },
+        "animal_shape_size": {
+          "description": "The animal shape size’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "animal_shape_size"
       ],
       "additionalProperties": false
     },
@@ -414,184 +1594,740 @@
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/$defs/PatronTag"
+          "const": "Patron"
         },
-        "value": {
-          "description": "The referenced entry's numeric identifier.",
+        "patron": {
+          "description": "The patron’s identifier.",
           "type": "integer",
           "minimum": 1
         }
       },
       "required": [
         "tag",
-        "value"
+        "patron"
       ],
       "additionalProperties": false
     },
-    "ExtensionRuleIdentifier": {
+    "AlchemicumIdentifier": {
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/$defs/ExtensionRuleTag"
+          "const": "Alchemicum"
         },
-        "value": {
-          "description": "The referenced entry's numeric identifier.",
+        "alchemicum": {
+          "description": "The alchemicum’s identifier.",
           "type": "integer",
           "minimum": 1
         }
       },
       "required": [
         "tag",
-        "value"
+        "alchemicum"
       ],
       "additionalProperties": false
     },
-    "SkillWithEnhancementsIdentifier": {
+    "AmmunitionIdentifier": {
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/$defs/SkillWithEnhancementsTag"
+          "const": "Ammunition"
         },
-        "value": {
-          "description": "The referenced entry's numeric identifier.",
+        "ammunition": {
+          "description": "The ammunition’s identifier.",
           "type": "integer",
           "minimum": 1
         }
       },
       "required": [
         "tag",
-        "value"
+        "ammunition"
       ],
       "additionalProperties": false
     },
-    "LiturgyIdentifier": {
+    "AnimalIdentifier": {
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/$defs/LiturgyTag"
+          "const": "Animal"
         },
-        "value": {
-          "description": "The referenced entry's numeric identifier.",
+        "animal": {
+          "description": "The animal’s identifier.",
           "type": "integer",
           "minimum": 1
         }
       },
       "required": [
         "tag",
-        "value"
+        "animal"
       ],
       "additionalProperties": false
     },
-    "SpellworkIdentifier": {
+    "AnimalCareIdentifier": {
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/$defs/SpellworkTag"
+          "const": "AnimalCare"
         },
-        "value": {
-          "description": "The referenced entry's numeric identifier.",
+        "animal_care": {
+          "description": "The animal care’s identifier.",
           "type": "integer",
           "minimum": 1
         }
       },
       "required": [
         "tag",
-        "value"
+        "animal_care"
       ],
       "additionalProperties": false
     },
-    "MagicalActionIdentifier": {
+    "ArmorIdentifier": {
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/$defs/MagicalActionTag"
+          "const": "Armor"
         },
-        "value": {
-          "description": "The referenced entry's numeric identifier.",
+        "armor": {
+          "description": "The armor’s identifier.",
           "type": "integer",
           "minimum": 1
         }
       },
       "required": [
         "tag",
-        "value"
+        "armor"
       ],
       "additionalProperties": false
     },
-    "RequirableSelectOptionIdentifier": {
+    "BandageOrRemedyIdentifier": {
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/$defs/RequirableSelectOptionTag"
+          "const": "BandageOrRemedy"
         },
-        "value": {
-          "description": "The referenced entry's numeric identifier.",
+        "bandage_or_remedy": {
+          "description": "The bandage or remedy’s identifier.",
           "type": "integer",
           "minimum": 1
         }
       },
       "required": [
         "tag",
-        "value"
+        "bandage_or_remedy"
       ],
       "additionalProperties": false
     },
-    "CoreRuleDerivableContentIdentifier": {
+    "BookIdentifier": {
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/$defs/CoreRuleDerivableContentTag"
+          "const": "Book"
         },
-        "value": {
-          "description": "The referenced entry's numeric identifier.",
+        "book": {
+          "description": "The book’s identifier.",
           "type": "integer",
           "minimum": 1
         }
       },
       "required": [
         "tag",
-        "value"
+        "book"
       ],
       "additionalProperties": false
     },
-    "EquipmentIdentifier": {
+    "CeremonialItemIdentifier": {
       "type": "object",
       "properties": {
         "tag": {
-          "$ref": "#/$defs/EquipmentTag"
+          "const": "CeremonialItem"
         },
-        "value": {
-          "description": "The referenced entry's numeric identifier.",
+        "ceremonial_item": {
+          "description": "The ceremonial item’s identifier.",
           "type": "integer",
           "minimum": 1
         }
       },
       "required": [
         "tag",
-        "value"
+        "ceremonial_item"
       ],
       "additionalProperties": false
     },
-    "OneOrManyNumericIdentifiers": {
-      "oneOf": [
-        {
-          "$ref": "#/$defs/OneNumericIdentifier"
+    "ClothesIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Clothes"
         },
-        {
-          "$ref": "#/$defs/ManyNumericIdentifiers"
+        "clothes": {
+          "description": "The clothes’ identifier.",
+          "type": "integer",
+          "minimum": 1
         }
-      ]
-    },
-    "OneNumericIdentifier": {
-      "type": "number",
-      "minimum": 1
-    },
-    "ManyNumericIdentifiers": {
-      "type": "array",
-      "items": {
-        "$ref": "#/$defs/OneNumericIdentifier"
       },
-      "minItems": 2
+      "required": [
+        "tag",
+        "clothes"
+      ],
+      "additionalProperties": false
+    },
+    "ContainerIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Container"
+        },
+        "container": {
+          "description": "The container’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "container"
+      ],
+      "additionalProperties": false
+    },
+    "EquipmentOfBlessedOnesIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "EquipmentOfBlessedOnes"
+        },
+        "equipment_of_blessed_ones": {
+          "description": "The equipment of blessed ones’ identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "equipment_of_blessed_ones"
+      ],
+      "additionalProperties": false
+    },
+    "GemOrPreciousStoneIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "GemOrPreciousStone"
+        },
+        "gem_or_precious_stone": {
+          "description": "The gem or precious stone’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "gem_or_precious_stone"
+      ],
+      "additionalProperties": false
+    },
+    "IlluminationLightSourceIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "IlluminationLightSource"
+        },
+        "illumination_light_source": {
+          "description": "The illumination light source’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "illumination_light_source"
+      ],
+      "additionalProperties": false
+    },
+    "IlluminationRefillsOrSuppliesIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "IlluminationRefillsOrSupplies"
+        },
+        "illumination_refills_or_supplies": {
+          "description": "The illumination refills or supplies’ identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "illumination_refills_or_supplies"
+      ],
+      "additionalProperties": false
+    },
+    "JewelryIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Jewelry"
+        },
+        "jewelry": {
+          "description": "The jewelry’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "jewelry"
+      ],
+      "additionalProperties": false
+    },
+    "LiebesspielzeugIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Liebesspielzeug"
+        },
+        "liebesspielzeug": {
+          "description": "The Liebesspielzeug’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "liebesspielzeug"
+      ],
+      "additionalProperties": false
+    },
+    "LuxuryGoodIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "LuxuryGood"
+        },
+        "luxury_good": {
+          "description": "The luxury good’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "luxury_good"
+      ],
+      "additionalProperties": false
+    },
+    "MagicalArtifactIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "MagicalArtifact"
+        },
+        "magical_artifact": {
+          "description": "The magical artifact’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "magical_artifact"
+      ],
+      "additionalProperties": false
+    },
+    "MusicalInstrumentIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "MusicalInstrument"
+        },
+        "musical_instrument": {
+          "description": "The musical instrument’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "musical_instrument"
+      ],
+      "additionalProperties": false
+    },
+    "OrienteeringAidIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "OrienteeringAid"
+        },
+        "orienteering_aid": {
+          "description": "The orienteering aid’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "orienteering_aid"
+      ],
+      "additionalProperties": false
+    },
+    "PoisonIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Poison"
+        },
+        "poison": {
+          "description": "The poison’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "poison"
+      ],
+      "additionalProperties": false
+    },
+    "RopeOrChainIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "RopeOrChain"
+        },
+        "rope_or_chain": {
+          "description": "The rope or chain’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "rope_or_chain"
+      ],
+      "additionalProperties": false
+    },
+    "StationaryIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Stationary"
+        },
+        "stationary": {
+          "description": "The stationary’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "stationary"
+      ],
+      "additionalProperties": false
+    },
+    "ThievesToolIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "ThievesTool"
+        },
+        "thieves_tool": {
+          "description": "The thieves tool’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "thieves_tool"
+      ],
+      "additionalProperties": false
+    },
+    "ToolOfTheTradeIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "ToolOfTheTrade"
+        },
+        "tool_of_the_trade": {
+          "description": "The tool of the trade’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "tool_of_the_trade"
+      ],
+      "additionalProperties": false
+    },
+    "TravelGearOrToolIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "TravelGearOrTool"
+        },
+        "travel_gear_or_tool": {
+          "description": "The travel gear or tool’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "travel_gear_or_tool"
+      ],
+      "additionalProperties": false
+    },
+    "VehicleIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Vehicle"
+        },
+        "vehicle": {
+          "description": "The vehicle’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "vehicle"
+      ],
+      "additionalProperties": false
+    },
+    "WeaponIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Weapon"
+        },
+        "weapon": {
+          "description": "The weapon’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "weapon"
+      ],
+      "additionalProperties": false
+    },
+    "WeaponAccessoryIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "WeaponAccessory"
+        },
+        "weapon_accessory": {
+          "description": "The weapon accessory’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "weapon_accessory"
+      ],
+      "additionalProperties": false
+    },
+    "ReachIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Reach"
+        },
+        "reach": {
+          "description": "The reach’s identifier.",
+          "type": "integer",
+          "maximum": 4,
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "reach"
+      ],
+      "additionalProperties": false
+    },
+    "PatronCategoryIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "PatronCategory"
+        },
+        "patron_category": {
+          "description": "The patron category’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "patron_category"
+      ],
+      "additionalProperties": false
+    },
+    "PersonalityTraitIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "PersonalityTrait"
+        },
+        "personality_trait": {
+          "description": "The personality trait’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "personality_trait"
+      ],
+      "additionalProperties": false
+    },
+    "HairColorIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "HairColor"
+        },
+        "hair_color": {
+          "description": "The hair color’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "hair_color"
+      ],
+      "additionalProperties": false
+    },
+    "EyeColorIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "EyeColor"
+        },
+        "eye_color": {
+          "description": "The eye color’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "eye_color"
+      ],
+      "additionalProperties": false
+    },
+    "PactCategoryIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "PactCategory"
+        },
+        "pact_category": {
+          "description": "The pact category’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "pact_category"
+      ],
+      "additionalProperties": false
+    },
+    "PactDomainIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "PactDomain"
+        },
+        "pact_domain": {
+          "description": "The pact domain’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "pact_domain"
+      ],
+      "additionalProperties": false
+    },
+    "AnimistTribeIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "AnimistTribe"
+        },
+        "animist_tribe": {
+          "description": "The animist tribe’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "animist_tribe"
+      ],
+      "additionalProperties": false
+    },
+    "InfluenceIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Influence"
+        },
+        "influence": {
+          "description": "The influence’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "influence"
+      ],
+      "additionalProperties": false
+    },
+    "ConditionIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Condition"
+        },
+        "condition": {
+          "description": "The condition’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "condition"
+      ],
+      "additionalProperties": false
+    },
+    "StateIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "State"
+        },
+        "state": {
+          "description": "The state’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "state"
+      ],
+      "additionalProperties": false
     }
   }
 }

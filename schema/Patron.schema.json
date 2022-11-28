@@ -74,6 +74,27 @@
           "description": "The patron-specific improvement cost. Used by several animist forces for\nanimal patrons.",
           "$ref": "./_ImprovementCost.schema.json#/$defs/ImprovementCost"
         },
+        "common_advantages": {
+          "description": "The patron may grant common advantages that are taken into account during\ncharacter creation.\n\n*Source:* Geisterwald & Knochenklippen, p. 6-7",
+          "type": "array",
+          "items": {
+            "$ref": "./_SimpleReferences.schema.json#/$defs/AdvantageReference"
+          }
+        },
+        "common_disadvantages": {
+          "description": "The patron may grant common disadvantages that are taken into account\nduring character creation.\n\n*Source:* Geisterwald & Knochenklippen, p. 6-7",
+          "type": "array",
+          "items": {
+            "$ref": "./_SimpleReferences.schema.json#/$defs/DisadvantageReference"
+          }
+        },
+        "common_spellworks": {
+          "description": "The animist may learn spellworks common for this patron.\n\n*Source:* Geisterwald & Knochenklippen, p. 6-7",
+          "type": "array",
+          "items": {
+            "$ref": "./_SimpleReferences.schema.json#/$defs/SpellworkReference"
+          }
+        },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
           "type": "object",
@@ -140,8 +161,7 @@
       "properties": {
         "id": {
           "description": "The advantage's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/AdvantageIdentifier"
         },
         "level": {
           "description": "It grants a higher level of the advantage.",
@@ -164,8 +184,7 @@
       "properties": {
         "id": {
           "description": "The skill's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/SkillIdentifier"
         },
         "points": {
           "description": "The points that gets added to the skill's rating.",
@@ -283,8 +302,7 @@
       "properties": {
         "id": {
           "description": "The attribute's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/AttributeIdentifier"
         },
         "value": {
           "description": "The value that gets added to the attribute.",

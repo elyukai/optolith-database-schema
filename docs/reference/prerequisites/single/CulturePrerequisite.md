@@ -10,12 +10,14 @@ Requires a specific culture or one of a specific set of cultures.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` |  | <a href="#CulturePrerequisite/id">See details</a>
+`id` | The culture's identifier. | <a href="#CulturePrerequisite/id">See details</a>
 `display_option?` |  | <a href="#CulturePrerequisite/display_option">See details</a>
 
 #### <a name="CulturePrerequisite/id"></a> `id`
 
-- **Type:** <a href="../../_Identifier.md#OneOrManyNumericIdentifiers">OneOrManyNumericIdentifiers</a>
+The culture's identifier.
+
+- **Type:** <a href="../../_Identifier.md#CultureIdentifier">CultureIdentifier</a>
 
 #### <a name="CulturePrerequisite/display_option"></a> `display_option?`
 

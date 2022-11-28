@@ -5,7 +5,8 @@
 import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
-import { CombatTechniqueIdentifier, MagicalTraditionIdentifier, SpellworkIdentifier } from "./_Identifier.js"
+import { ElementIdentifier, MagicalTraditionIdentifier, PropertyIdentifier, SkillIdentifier } from "./_Identifier.js"
+import { CombatTechniqueIdentifier, SpellworkIdentifier } from "./_IdentifierGroup.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
 import { GuidelineReference } from "./_SimpleReferences.js"
@@ -102,7 +103,7 @@ export type ElectiveSpellworkRestriction = {
    * @minimum 1
    * @maximum 6
    */
-  id: number
+  id: ElementIdentifier
 }
 
 /**
@@ -127,7 +128,7 @@ export type RestrictedProperty = {
    * @integer
    * @minimum 1
    */
-  id: number
+  id: PropertyIdentifier
 
   /**
    * Exclude specific spellworks from the restriction.
@@ -221,7 +222,7 @@ export type SkillAdjustment = {
    * @integer
    * @minimum 1
    */
-  id: number
+  id: SkillIdentifier
 
   /**
    * The skill points that will be added to the current skill rating.

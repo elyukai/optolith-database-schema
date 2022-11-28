@@ -40,8 +40,7 @@
       "properties": {
         "id": {
           "description": "The identifier of the superordinate target category.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/TargetCategoryIdentifier"
         }
       },
       "required": [

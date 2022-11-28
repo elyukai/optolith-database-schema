@@ -8,7 +8,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The region's identifier. An unique, increasing integer.",
+          "description": "The guideline's identifier. An unique, increasing integer.",
           "type": "integer",
           "minimum": 1
         },

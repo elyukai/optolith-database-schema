@@ -15,7 +15,7 @@ const fileNameError = (fileName: string): FileNameError => ({
   message: `the file name "${fileName}" does not match the pattern ^[1-9][0-9]*_[A-Z][a-z]*(?:-[a-zA-Z][a-z]*)\\.yml$`
 })
 
-const baseNamePattern = /^[1-9][0-9]*_[A-Z][a-z]*(?:-[a-zA-Z][a-z]*)\.yml$/
+const baseNamePattern = /^[1-9][0-9]*_[A-Z][a-z]*(?:-[a-zA-Z][a-z]*)*\.yml$/
 
 export type TypeValidationError = DefinedError | FileNameError
 

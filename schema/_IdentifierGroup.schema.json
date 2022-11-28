@@ -1,0 +1,601 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "/_IdentifierGroup.schema.json",
+  "$defs": {
+    "ActivatableIdentifier": {
+      "oneOf": [
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/AdvantageIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/DisadvantageIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/GeneralSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/FatePointSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/CombatSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/MagicalSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/StaffEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/FamiliarSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/KarmaSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/ProtectiveWardingCircleSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/CombatStyleSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/AdvancedCombatSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/CommandSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/MagicStyleSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/AdvancedMagicalSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/SpellSwordEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/DaggerRitualIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/InstrumentEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/AttireEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/OrbEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/WandEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/BrawlingSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/AncestorGlyphIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/CeremonialItemSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/SermonIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/LiturgicalStyleSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/AdvancedKarmaSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/VisionIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/MagicalTraditionIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/BlessedTraditionIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/PactGiftIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/SikaryanDrainSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/LycantropicGiftIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/SkillStyleSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/AdvancedSkillSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/ArcaneOrbEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/CauldronEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/FoolsHatEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/ToyEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/BowlEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/FatePointSexSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/SexSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/WeaponEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/SickleRitualIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/RingEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/ChronicleEnchantmentIdentifier"
+        }
+      ]
+    },
+    "SpecialAbilityIdentifier": {
+      "oneOf": [
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/GeneralSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/FatePointSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/CombatSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/MagicalSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/StaffEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/FamiliarSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/KarmaSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/ProtectiveWardingCircleSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/CombatStyleSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/AdvancedCombatSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/CommandSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/MagicStyleSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/AdvancedMagicalSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/SpellSwordEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/DaggerRitualIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/InstrumentEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/AttireEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/OrbEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/WandEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/BrawlingSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/AncestorGlyphIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/CeremonialItemSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/SermonIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/LiturgicalStyleSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/AdvancedKarmaSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/VisionIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/MagicalTraditionIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/BlessedTraditionIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/PactGiftIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/SikaryanDrainSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/LycantropicGiftIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/SkillStyleSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/AdvancedSkillSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/ArcaneOrbEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/CauldronEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/FoolsHatEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/ToyEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/BowlEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/FatePointSexSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/SexSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/WeaponEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/SickleRitualIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/RingEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/ChronicleEnchantmentIdentifier"
+        }
+      ]
+    },
+    "CombatRelatedSpecialAbilityIdentifier": {
+      "oneOf": [
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/CombatSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/CombatStyleSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/AdvancedCombatSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/CommandSpecialAbilityIdentifier"
+        }
+      ]
+    },
+    "RatedIdentifier": {
+      "oneOf": [
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/AttributeIdentifier"
+        },
+        {
+          "$ref": "#/$defs/SkillIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/CloseCombatTechniqueIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/RangedCombatTechniqueIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/SpellIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/RitualIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/LiturgicalChantIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/CeremonyIdentifier"
+        }
+      ]
+    },
+    "SkillIdentifier": {
+      "oneOf": [
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/SkillIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/SpellIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/RitualIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/LiturgicalChantIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/CeremonyIdentifier"
+        }
+      ]
+    },
+    "AdvancedSpecialAbilityRestrictedOptionIdentifier": {
+      "oneOf": [
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/GeneralIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/SkillIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/ElementIdentifier"
+        }
+      ]
+    },
+    "VolumePointsOptionReferenceIdentifier": {
+      "oneOf": [
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/GeneralIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/AnimalShapeSizeIdentifier"
+        }
+      ]
+    },
+    "CombatTechniqueIdentifier": {
+      "oneOf": [
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/CloseCombatTechniqueIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/RangedCombatTechniqueIdentifier"
+        }
+      ]
+    },
+    "ExtensionRuleIdentifier": {
+      "oneOf": [
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/FocusRuleIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/OptionalRuleIdentifier"
+        }
+      ]
+    },
+    "SkillWithEnhancementsIdentifier": {
+      "oneOf": [
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/SpellIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/RitualIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/LiturgicalChantIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/CeremonyIdentifier"
+        }
+      ]
+    },
+    "SpellworkIdentifier": {
+      "oneOf": [
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/SpellIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/RitualIdentifier"
+        }
+      ]
+    },
+    "LiturgyIdentifier": {
+      "oneOf": [
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/LiturgicalChantIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/CeremonyIdentifier"
+        }
+      ]
+    },
+    "MagicalActionIdentifier": {
+      "oneOf": [
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/CurseIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/ElvenMagicalSongIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/DominationRitualIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/MagicalMelodyIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/MagicalDanceIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/JesterTrickIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/AnimistPowerIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/GeodeRitualIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/ZibiljaRitualIdentifier"
+        }
+      ]
+    },
+    "RequirableSelectOptionIdentifier": {
+      "oneOf": [
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/GeneralIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/SkillIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/CloseCombatTechniqueIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/RangedCombatTechniqueIdentifier"
+        }
+      ]
+    },
+    "CoreRuleDerivableContentIdentifier": {
+      "oneOf": [
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/MagicalTraditionIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/FamiliarSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/MagicalSpecialAbilityIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/BlessedTraditionIdentifier"
+        }
+      ]
+    },
+    "EquipmentIdentifier": {
+      "oneOf": [
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/AlchemicumIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/AmmunitionIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/AnimalIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/AnimalCareIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/ArmorIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/BandageOrRemedyIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/BookIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/CeremonialItemIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/ClothesIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/ContainerIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/EquipmentOfBlessedOnesIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/GemOrPreciousStoneIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/IlluminationLightSourceIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/IlluminationRefillsOrSuppliesIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/JewelryIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/LiebesspielzeugIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/LuxuryGoodIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/MagicalArtifactIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/MusicalInstrumentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/OrienteeringAidIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/PoisonIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/RopeOrChainIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/StationaryIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/ThievesToolIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/ToolOfTheTradeIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/TravelGearOrToolIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/VehicleIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/WeaponIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/WeaponAccessoryIdentifier"
+        }
+      ]
+    },
+    "OneOrManyNumericIdentifiers": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/OneNumericIdentifier"
+        },
+        {
+          "$ref": "#/$defs/ManyNumericIdentifiers"
+        }
+      ]
+    },
+    "OneNumericIdentifier": {
+      "type": "number",
+      "minimum": 1
+    },
+    "ManyNumericIdentifiers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/OneNumericIdentifier"
+      },
+      "minItems": 2
+    }
+  }
+}

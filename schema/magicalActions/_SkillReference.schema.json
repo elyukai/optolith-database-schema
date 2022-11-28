@@ -7,8 +7,20 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The skill's identifier.",
-          "$ref": "#/$defs/SkillIdentifier"
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Skill"
+            },
+            "skill": {
+              "$ref": "#/$defs/SkillIdentifierValue"
+            }
+          },
+          "required": [
+            "tag",
+            "skill"
+          ],
+          "additionalProperties": false
         }
       },
       "required": [
@@ -16,7 +28,7 @@
       ],
       "additionalProperties": false
     },
-    "SkillIdentifier": {
+    "SkillIdentifierValue": {
       "enum": [
         9,
         56

@@ -9,6 +9,7 @@
 Key | Description | Details
 :-- | :-- | :--
 `id` | The magical rune's identifier. An unique, increasing integer. | <a href="#MagicalRune/id">See details</a>
+`option?` |  | <a href="#MagicalRune/option">See details</a>
 `check` | Lists the linked three attributes used to make a skill check. | <a href="#MagicalRune/check">See details</a>
 `check_penalty?` | In some cases, the target's Spirit or Toughness is applied as a penalty. | <a href="#MagicalRune/check_penalty">See details</a>
 `parameters` | Measurable parameters of a magical rune. | <a href="#MagicalRune/parameters">See details</a>
@@ -23,6 +24,10 @@ The magical rune's identifier. An unique, increasing integer.
 
 - **Type:** Integer
 - **Minimum:** `1`
+
+#### <a name="MagicalRune/option"></a> `option?`
+
+- **Type:** <a href="#MagicalRuneOption">MagicalRuneOption</a>
 
 #### <a name="MagicalRune/check"></a> `check`
 
@@ -92,6 +97,10 @@ Key | Description | Details
 #### <a name="MagicalRuneTranslation/name"></a> `name`
 
 The name of the magical rune.
+
+If the rune has an option, the option’s name will/should not be included in
+the name as well as its surrounding parenthesis. It will/should be combined
+on demand.
 
 - **Type:** <a href="../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -328,8 +337,7 @@ Key | Description | Details
 
 The close combat technique's identifier.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="../_Identifier.md#CloseCombatTechniqueIdentifier">CloseCombatTechniqueIdentifier</a>
 
 #### <a name="MagicalRuneCloseCombatTechniqueCheckPenaltyMapping/modifier"></a> `modifier`
 
@@ -593,3 +601,47 @@ The duration on slow rune application.
 The duration on fast rune application.
 
 - **Type:** <a href="../_ActivatableSkillDuration.md#CheckResultBasedDuration">CheckResultBasedDuration</a>
+
+---
+
+### <a name="MagicalRuneOption"></a> `MagicalRuneOption`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#MagicalRuneOption/translations">See details</a>
+
+#### <a name="MagicalRuneOption/translations"></a> `translations`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#MagicalRuneOption/translations[key]">MagicalRuneOption/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="MagicalRuneOption/translations[key]"></a> `MagicalRuneOption/translations[key]`
+
+- **Type:** <a href="#MagicalRuneOptionTranslation">MagicalRuneOptionTranslation</a>
+
+---
+
+### <a name="MagicalRuneOptionTranslation"></a> `MagicalRuneOptionTranslation`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`name` | The name of the option. | <a href="#MagicalRuneOptionTranslation/name">See details</a>
+
+#### <a name="MagicalRuneOptionTranslation/name"></a> `name`
+
+The name of the option.
+
+The surrounding parenthesis will/should not be included, they will/should
+be generated.
+
+- **Type:** <a href="../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

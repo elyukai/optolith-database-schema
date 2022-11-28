@@ -38,10 +38,10 @@ the generated text is still provided and should be used.
 
 Key | Description | Details
 :-- | :-- | :--
-`default` | The full replacement string. It must contain `$1`, which is going to be replaced with the generated string, so additional information can be provided without duplicating concrete numeric values. | <a href="#ResponsiveTextReplace/default">See details</a>
+`full` | The full replacement string. It must contain `$1`, which is going to be replaced with the generated string, so additional information can be provided without duplicating concrete numeric values. | <a href="#ResponsiveTextReplace/full">See details</a>
 `compressed` | A compressed replacement string for use in small areas (e.g. on character sheet). It must contain `$1`, which is going to be replaced with the generated string, so additional information can be provided without duplicating concrete numeric values. | <a href="#ResponsiveTextReplace/compressed">See details</a>
 
-#### <a name="ResponsiveTextReplace/default"></a> `default`
+#### <a name="ResponsiveTextReplace/full"></a> `full`
 
 The full replacement string. It must contain `$1`, which is going to be
 replaced with the generated string, so additional information can be

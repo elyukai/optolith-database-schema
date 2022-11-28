@@ -8,14 +8,11 @@
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The focus rule subject's identifier. | <a href="#FocusRuleSubjectReference/id">See details</a>
+`id` |  | <a href="#FocusRuleSubjectReference/id">See details</a>
 
 #### <a name="FocusRuleSubjectReference/id"></a> `id`
 
-The focus rule subject's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#SubjectIdentifier">SubjectIdentifier</a>
 
 ---
 
@@ -25,14 +22,11 @@ The focus rule subject's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The race's identifier. | <a href="#RaceReference/id">See details</a>
+`id` |  | <a href="#RaceReference/id">See details</a>
 
 #### <a name="RaceReference/id"></a> `id`
 
-The race's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#RaceIdentifier">RaceIdentifier</a>
 
 ---
 
@@ -42,14 +36,11 @@ The race's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The culture's identifier. | <a href="#CultureReference/id">See details</a>
+`id` |  | <a href="#CultureReference/id">See details</a>
 
 #### <a name="CultureReference/id"></a> `id`
 
-The culture's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#CultureIdentifier">CultureIdentifier</a>
 
 ---
 
@@ -59,14 +50,11 @@ The culture's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The profession's identifier. | <a href="#ProfessionReference/id">See details</a>
+`id` |  | <a href="#ProfessionReference/id">See details</a>
 
 #### <a name="ProfessionReference/id"></a> `id`
 
-The profession's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#ProfessionIdentifier">ProfessionIdentifier</a>
 
 ---
 
@@ -76,14 +64,11 @@ The profession's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The profession variant's identifier. | <a href="#ProfessionVariantReference/id">See details</a>
+`id` |  | <a href="#ProfessionVariantReference/id">See details</a>
 
 #### <a name="ProfessionVariantReference/id"></a> `id`
 
-The profession variant's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#ProfessionVariantIdentifier">ProfessionVariantIdentifier</a>
 
 ---
 
@@ -93,15 +78,11 @@ The profession variant's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The attribute's identifier. | <a href="#AttributeReference/id">See details</a>
+`id` |  | <a href="#AttributeReference/id">See details</a>
 
 #### <a name="AttributeReference/id"></a> `id`
 
-The attribute's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `8`
+- **Type:** <a href="./_Identifier.md#AttributeIdentifier">AttributeIdentifier</a>
 
 ---
 
@@ -111,14 +92,11 @@ The attribute's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The skill's identifier. | <a href="#SkillReference/id">See details</a>
+`id` |  | <a href="#SkillReference/id">See details</a>
 
 #### <a name="SkillReference/id"></a> `id`
 
-The skill's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#SkillIdentifier">SkillIdentifier</a>
 
 ---
 
@@ -128,15 +106,11 @@ The skill's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The skill group's identifier. | <a href="#SkillGroupReference/id">See details</a>
+`id` |  | <a href="#SkillGroupReference/id">See details</a>
 
 #### <a name="SkillGroupReference/id"></a> `id`
 
-The skill group's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `5`
+- **Type:** <a href="./_Identifier.md#SkillGroupIdentifier">SkillGroupIdentifier</a>
 
 ---
 
@@ -146,13 +120,11 @@ The skill group's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The combat technique's identifier. | <a href="#CombatTechniqueReference/id">See details</a>
+`id` |  | <a href="#CombatTechniqueReference/id">See details</a>
 
 #### <a name="CombatTechniqueReference/id"></a> `id`
 
-The combat technique's identifier.
-
-- **Type:** <a href="./_Identifier.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>
+- **Type:** <a href="./_IdentifierGroup.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>
 
 ---
 
@@ -162,14 +134,11 @@ The combat technique's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The close combat technique's identifier. | <a href="#CloseCombatTechniqueReference/id">See details</a>
+`id` |  | <a href="#CloseCombatTechniqueReference/id">See details</a>
 
 #### <a name="CloseCombatTechniqueReference/id"></a> `id`
 
-The close combat technique's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#CloseCombatTechniqueIdentifier">CloseCombatTechniqueIdentifier</a>
 
 ---
 
@@ -179,14 +148,11 @@ The close combat technique's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The ranged combat technique's identifier. | <a href="#RangedCombatTechniqueReference/id">See details</a>
+`id` |  | <a href="#RangedCombatTechniqueReference/id">See details</a>
 
 #### <a name="RangedCombatTechniqueReference/id"></a> `id`
 
-The ranged combat technique's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#RangedCombatTechniqueIdentifier">RangedCombatTechniqueIdentifier</a>
 
 ---
 
@@ -196,14 +162,11 @@ The ranged combat technique's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The magical tradition's identifier. | <a href="#MagicalTraditionReference/id">See details</a>
+`id` |  | <a href="#MagicalTraditionReference/id">See details</a>
 
 #### <a name="MagicalTraditionReference/id"></a> `id`
 
-The magical tradition's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#MagicalTraditionIdentifier">MagicalTraditionIdentifier</a>
 
 ---
 
@@ -213,14 +176,11 @@ The magical tradition's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The cantrip's identifier. | <a href="#CantripReference/id">See details</a>
+`id` |  | <a href="#CantripReference/id">See details</a>
 
 #### <a name="CantripReference/id"></a> `id`
 
-The cantrip's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#CantripIdentifier">CantripIdentifier</a>
 
 ---
 
@@ -230,14 +190,11 @@ The cantrip's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The spell's identifier. | <a href="#SpellReference/id">See details</a>
+`id` |  | <a href="#SpellReference/id">See details</a>
 
 #### <a name="SpellReference/id"></a> `id`
 
-The spell's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#SpellIdentifier">SpellIdentifier</a>
 
 ---
 
@@ -247,14 +204,25 @@ The spell's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The ritual's identifier. | <a href="#RitualReference/id">See details</a>
+`id` |  | <a href="#RitualReference/id">See details</a>
 
 #### <a name="RitualReference/id"></a> `id`
 
-The ritual's identifier.
+- **Type:** <a href="./_Identifier.md#RitualIdentifier">RitualIdentifier</a>
 
-- **Type:** Integer
-- **Minimum:** `1`
+---
+
+### <a name="SpellworkReference"></a> `SpellworkReference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` |  | <a href="#SpellworkReference/id">See details</a>
+
+#### <a name="SpellworkReference/id"></a> `id`
+
+- **Type:** <a href="./_IdentifierGroup.md#SpellworkIdentifier">SpellworkIdentifier</a>
 
 ---
 
@@ -264,14 +232,11 @@ The ritual's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The property's identifier. | <a href="#PropertyReference/id">See details</a>
+`id` |  | <a href="#PropertyReference/id">See details</a>
 
 #### <a name="PropertyReference/id"></a> `id`
 
-The property's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#PropertyIdentifier">PropertyIdentifier</a>
 
 ---
 
@@ -281,14 +246,11 @@ The property's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The blessed tradition's identifier. | <a href="#BlessedTraditionReference/id">See details</a>
+`id` |  | <a href="#BlessedTraditionReference/id">See details</a>
 
 #### <a name="BlessedTraditionReference/id"></a> `id`
 
-The blessed tradition's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#BlessedTraditionIdentifier">BlessedTraditionIdentifier</a>
 
 ---
 
@@ -298,14 +260,11 @@ The blessed tradition's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The blessing's identifier. | <a href="#BlessingReference/id">See details</a>
+`id` |  | <a href="#BlessingReference/id">See details</a>
 
 #### <a name="BlessingReference/id"></a> `id`
 
-The blessing's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#BlessingIdentifier">BlessingIdentifier</a>
 
 ---
 
@@ -315,14 +274,11 @@ The blessing's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The liturgical chant's identifier. | <a href="#LiturgicalChantReference/id">See details</a>
+`id` |  | <a href="#LiturgicalChantReference/id">See details</a>
 
 #### <a name="LiturgicalChantReference/id"></a> `id`
 
-The liturgical chant's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#LiturgicalChantIdentifier">LiturgicalChantIdentifier</a>
 
 ---
 
@@ -332,14 +288,11 @@ The liturgical chant's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The ceremony's identifier. | <a href="#CeremonyReference/id">See details</a>
+`id` |  | <a href="#CeremonyReference/id">See details</a>
 
 #### <a name="CeremonyReference/id"></a> `id`
 
-The ceremony's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#CeremonyIdentifier">CeremonyIdentifier</a>
 
 ---
 
@@ -349,14 +302,11 @@ The ceremony's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The aspect's identifier. | <a href="#AspectReference/id">See details</a>
+`id` |  | <a href="#AspectReference/id">See details</a>
 
 #### <a name="AspectReference/id"></a> `id`
 
-The aspect's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#AspectIdentifier">AspectIdentifier</a>
 
 ---
 
@@ -366,31 +316,25 @@ The aspect's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The advantage's identifier. | <a href="#AdvantageReference/id">See details</a>
+`id` |  | <a href="#AdvantageReference/id">See details</a>
 
 #### <a name="AdvantageReference/id"></a> `id`
 
-The advantage's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>
 
 ---
 
-### <a name="AdvancedSpecialAbilityReference"></a> `AdvancedSpecialAbilityReference`
+### <a name="DisadvantageReference"></a> `DisadvantageReference`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The advanced special ability's identifier. | <a href="#AdvancedSpecialAbilityReference/id">See details</a>
+`id` |  | <a href="#DisadvantageReference/id">See details</a>
 
-#### <a name="AdvancedSpecialAbilityReference/id"></a> `id`
+#### <a name="DisadvantageReference/id"></a> `id`
 
-The advanced special ability's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#DisadvantageIdentifier">DisadvantageIdentifier</a>
 
 ---
 
@@ -400,14 +344,11 @@ The advanced special ability's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The language's identifier. | <a href="#LanguageReference/id">See details</a>
+`id` |  | <a href="#LanguageReference/id">See details</a>
 
 #### <a name="LanguageReference/id"></a> `id`
 
-The language's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#LanguageIdentifier">LanguageIdentifier</a>
 
 ---
 
@@ -417,14 +358,11 @@ The language's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The script's identifier. | <a href="#ScriptReference/id">See details</a>
+`id` |  | <a href="#ScriptReference/id">See details</a>
 
 #### <a name="ScriptReference/id"></a> `id`
 
-The script's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#ScriptIdentifier">ScriptIdentifier</a>
 
 ---
 
@@ -434,15 +372,11 @@ The script's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The social status's identifier. | <a href="#SocialStatusReference/id">See details</a>
+`id` |  | <a href="#SocialStatusReference/id">See details</a>
 
 #### <a name="SocialStatusReference/id"></a> `id`
 
-The social status's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `5`
+- **Type:** <a href="./_Identifier.md#SocialStatusIdentifier">SocialStatusIdentifier</a>
 
 ---
 
@@ -452,14 +386,11 @@ The social status's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The institution's curriculum's identifier. | <a href="#CurriculumReference/id">See details</a>
+`id` |  | <a href="#CurriculumReference/id">See details</a>
 
 #### <a name="CurriculumReference/id"></a> `id`
 
-The institution's curriculum's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#CurriculumIdentifier">CurriculumIdentifier</a>
 
 ---
 
@@ -469,15 +400,11 @@ The institution's curriculum's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The institution's guideline's identifier. | <a href="#GuidelineReference/id">See details</a>
+`id` |  | <a href="#GuidelineReference/id">See details</a>
 
 #### <a name="GuidelineReference/id"></a> `id`
 
-The institution's guideline's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `6`
+- **Type:** <a href="./_Identifier.md#GuidelineIdentifier">GuidelineIdentifier</a>
 
 ---
 
@@ -487,14 +414,11 @@ The institution's guideline's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The animal type's identifier. | <a href="#AnimalTypeReference/id">See details</a>
+`id` |  | <a href="#AnimalTypeReference/id">See details</a>
 
 #### <a name="AnimalTypeReference/id"></a> `id`
 
-The animal type's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#AnimalTypeIdentifier">AnimalTypeIdentifier</a>
 
 ---
 
@@ -504,15 +428,11 @@ The animal type's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The target category's identifier. | <a href="#TargetCategoryReference/id">See details</a>
+`id` |  | <a href="#TargetCategoryReference/id">See details</a>
 
 #### <a name="TargetCategoryReference/id"></a> `id`
 
-The target category's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `24`
+- **Type:** <a href="./_Identifier.md#TargetCategoryIdentifier">TargetCategoryIdentifier</a>
 
 ---
 
@@ -522,14 +442,11 @@ The target category's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The patron category's identifier. | <a href="#PatronCategoryReference/id">See details</a>
+`id` |  | <a href="#PatronCategoryReference/id">See details</a>
 
 #### <a name="PatronCategoryReference/id"></a> `id`
 
-The patron category's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#PatronCategoryIdentifier">PatronCategoryIdentifier</a>
 
 ---
 
@@ -539,14 +456,11 @@ The patron category's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The personality trait's identifier. | <a href="#PersonalityTraitReference/id">See details</a>
+`id` |  | <a href="#PersonalityTraitReference/id">See details</a>
 
 #### <a name="PersonalityTraitReference/id"></a> `id`
 
-The personality trait's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#PersonalityTraitIdentifier">PersonalityTraitIdentifier</a>
 
 ---
 
@@ -556,14 +470,11 @@ The personality trait's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The hair color's identifier. | <a href="#HairColorReference/id">See details</a>
+`id` |  | <a href="#HairColorReference/id">See details</a>
 
 #### <a name="HairColorReference/id"></a> `id`
 
-The hair color's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#HairColorIdentifier">HairColorIdentifier</a>
 
 ---
 
@@ -573,14 +484,11 @@ The hair color's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The hair color's identifier. | <a href="#EyeColorReference/id">See details</a>
+`id` |  | <a href="#EyeColorReference/id">See details</a>
 
 #### <a name="EyeColorReference/id"></a> `id`
 
-The hair color's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#EyeColorIdentifier">EyeColorIdentifier</a>
 
 ---
 
@@ -590,14 +498,11 @@ The hair color's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The pact category's identifier. | <a href="#PactCategoryReference/id">See details</a>
+`id` |  | <a href="#PactCategoryReference/id">See details</a>
 
 #### <a name="PactCategoryReference/id"></a> `id`
 
-The pact category's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#PactCategoryIdentifier">PactCategoryIdentifier</a>
 
 ---
 
@@ -607,14 +512,11 @@ The pact category's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The domain's identifier. | <a href="#PactDomainReference/id">See details</a>
+`id` |  | <a href="#PactDomainReference/id">See details</a>
 
 #### <a name="PactDomainReference/id"></a> `id`
 
-The domain's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#PactDomainIdentifier">PactDomainIdentifier</a>
 
 ---
 
@@ -624,14 +526,11 @@ The domain's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The patron's identifier. | <a href="#PatronReference/id">See details</a>
+`id` |  | <a href="#PatronReference/id">See details</a>
 
 #### <a name="PatronReference/id"></a> `id`
 
-The patron's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#PatronIdentifier">PatronIdentifier</a>
 
 ---
 
@@ -641,15 +540,11 @@ The patron's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The tribe's identifier. | <a href="#AnimistTribeReference/id">See details</a>
+`id` |  | <a href="#AnimistTribeReference/id">See details</a>
 
 #### <a name="AnimistTribeReference/id"></a> `id`
 
-The tribe's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `6`
+- **Type:** <a href="./_Identifier.md#AnimistTribeIdentifier">AnimistTribeIdentifier</a>
 
 ---
 
@@ -659,15 +554,11 @@ The tribe's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The element's identifier. | <a href="#ElementReference/id">See details</a>
+`id` |  | <a href="#ElementReference/id">See details</a>
 
 #### <a name="ElementReference/id"></a> `id`
 
-The element's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `6`
+- **Type:** <a href="./_Identifier.md#ElementIdentifier">ElementIdentifier</a>
 
 ---
 
@@ -677,14 +568,11 @@ The element's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The weapon's identifier. | <a href="#WeaponReference/id">See details</a>
+`id` |  | <a href="#WeaponReference/id">See details</a>
 
 #### <a name="WeaponReference/id"></a> `id`
 
-The weapon's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#WeaponIdentifier">WeaponIdentifier</a>
 
 ---
 
@@ -694,11 +582,8 @@ The weapon's identifier.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The armor's identifier. | <a href="#ArmorReference/id">See details</a>
+`id` |  | <a href="#ArmorReference/id">See details</a>
 
 #### <a name="ArmorReference/id"></a> `id`
 
-The armor's identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#ArmorIdentifier">ArmorIdentifier</a>

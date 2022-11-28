@@ -1,5 +1,7 @@
+import Ajv, { AnySchemaObject, DefinedError, Options } from "ajv"
 import addFormats from "ajv-formats"
-import Ajv, { DefinedError } from "ajv/dist/2020.js"
+import Ajv2019 from "ajv/dist/2019.js"
+import Ajv2020 from "ajv/dist/2020.js"
 import { lstat, readdir, readFile } from "fs/promises"
 import { join } from "path"
 import YAML from "yaml"
@@ -37,20 +39,31 @@ const readdirRecursive = async (dirPath: string): Promise<string[]> => {
   return flattenedRecursivePaths.flat()
 }
 
-const registerAllJsonSchemaDocuments = async (validator: Ajv) => {
+const registerAllJsonSchemaDocuments = async (validatorOptions: Options) => {
   const readFileAsUtf8 = (path: string) => readFile(path, "utf-8")
   const readFilesAsUtf8 = (paths: string[]) => Promise.all(paths.map(readFileAsUtf8))
-  const parseJson = (json: string) => JSON.parse(json)
-  const registerSchemaInValidator = (jsonSchema: any) => { validator.addSchema(jsonSchema) }
+  const parseJson = (json: string): AnySchemaObject => JSON.parse(json)
+  const schemes = (await readFilesAsUtf8(await readdirRecursive(jsonSchemaDir))).map(parseJson)
 
-  (await readFilesAsUtf8(await readdirRecursive(jsonSchemaDir)))
-    .map(parseJson)
-    .forEach(registerSchemaInValidator)
+  const META_SCHEMA_ID_2020_12 = "https://json-schema.org/draft/2020-12/schema";
+  const validator = schemes[0]?.$schema === META_SCHEMA_ID_2020_12
+    ? new Ajv2020(validatorOptions)
+    : new Ajv2019(validatorOptions)
+
+  const registerSchemaInValidator = (jsonSchema: any) => { validator.addSchema(jsonSchema) }
+  schemes.forEach(registerSchemaInValidator)
+
+  return validator
 }
 
-const readDataFileAssocsFromDirectory = async (dirPath: string) =>
-  await Promise.all(
-    (await readdir(dirPath)).map(
+const collator = Intl.Collator(undefined, { numeric: true })
+
+const readDataFileAssocsFromDirectory = async (dirPath: string) => {
+  const filenames = await readdir(dirPath)
+  filenames.sort(collator.compare)
+
+  return await Promise.all(
+    filenames.map(
       async (fileName): Promise<[string, unknown]> => {
         const filePath = join(dirPath, fileName)
 
@@ -68,7 +81,7 @@ const readDataFileAssocsFromDirectory = async (dirPath: string) =>
         }
       }
     )
-  )
+  )}
 
 const validateAllFromType = async <K extends keyof TypeMap>(validator: Ajv, typeName: K, path: string): Promise<Record<string, TypeValidationResult<TypeMap[K]>>> => {
   const isFile = (await lstat(path)).isFile()
@@ -134,10 +147,8 @@ const rawResultMapToResult = (rawResultMap: RawResultMap): Result =>
   )
 
 export const validate = async (entityDirPaths: EntityDirectoryPaths, checkIntegrity: boolean): Promise<Result> => {
-  const validator = new Ajv({ allErrors: true })
-
+  const validator = await registerAllJsonSchemaDocuments({  })
   addFormats(validator)
-  await registerAllJsonSchemaDocuments(validator)
 
   const rawResultMap: RawResultMap = Object.fromEntries<RawResultMap[keyof RawResultMap]>(
     (await Promise.all(

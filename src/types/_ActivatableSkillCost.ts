@@ -1,7 +1,7 @@
 import { DurationUnitValue } from "./_ActivatableSkillDuration.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
-import { ResponsiveText, ResponsiveTextOptional } from "./_ResponsiveText.js"
+import { ResponsiveText, ResponsiveTextOptional, ResponsiveTextReplace } from "./_ResponsiveText.js"
 
 export type OneTimeCost =
   | {
@@ -55,6 +55,18 @@ export type ModifiableOneTimeCost = {
    * @minimum 1
    */
   permanent_value?: number
+
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translations?: LocaleMap<ModifiableOneTimeCostTranslation>
+}
+
+export type ModifiableOneTimeCostTranslation = {
+  /**
+   * A replacement string.
+   */
+  replacement: ResponsiveTextReplace
 }
 
 export type NonModifiableOneTimeCost = {
@@ -258,7 +270,27 @@ export type NonModifiableSustainedCost = {
   value: number
 
   /**
+   * The cost have to be per a specific countable entity, e.g. `8 KP per
+   * person per 5 minutes`.
+   */
+  per?: NonModifiableSustainedCostPerCountable
+
+  /**
    * The sustain interval.
    */
   interval: DurationUnitValue
+}
+
+export type NonModifiableSustainedCostPerCountable = {
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translations: LocaleMap<NonModifiableSustainedCostPerCountableTranslation>
+}
+
+export type NonModifiableSustainedCostPerCountableTranslation = {
+  /**
+   * The countable entity name.
+   */
+  countable: ResponsiveText
 }

@@ -37,8 +37,7 @@ Key | Description | Details
 
 The publication's identifier.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="../_Identifier.md#PublicationIdentifier">PublicationIdentifier</a>
 
 #### <a name="PublicationRef/occurrences"></a> `occurrences`
 

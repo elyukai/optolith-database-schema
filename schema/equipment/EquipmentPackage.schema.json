@@ -44,7 +44,7 @@
       "properties": {
         "id": {
           "description": "The item's identifier.",
-          "$ref": "../_Identifier.schema.json#/$defs/EquipmentIdentifier"
+          "$ref": "../_IdentifierGroup.schema.json#/$defs/EquipmentIdentifier"
         },
         "number": {
           "description": "The number of how often the item is included in the package.",

@@ -48,7 +48,18 @@
           "description": "A list of common advantages.",
           "type": "array",
           "items": {
-            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/$defs/CommonnessRatedAdvantageDisadvantage"
+            "title": "Commonness-rated Advantage/Disadvantage",
+            "description": "Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.",
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "./_Identifier.schema.json#/$defs/AdvantageIdentifier"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
           },
           "minItems": 1
         },
@@ -56,7 +67,18 @@
           "description": "A list of common disadvantages.",
           "type": "array",
           "items": {
-            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/$defs/CommonnessRatedAdvantageDisadvantage"
+            "title": "Commonness-rated Advantage/Disadvantage",
+            "description": "Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.",
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "./_Identifier.schema.json#/$defs/DisadvantageIdentifier"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
           },
           "minItems": 1
         },
@@ -64,7 +86,18 @@
           "description": "A list of uncommon advantages.",
           "type": "array",
           "items": {
-            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/$defs/CommonnessRatedAdvantageDisadvantage"
+            "title": "Commonness-rated Advantage/Disadvantage",
+            "description": "Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.",
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "./_Identifier.schema.json#/$defs/AdvantageIdentifier"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
           },
           "minItems": 1
         },
@@ -72,7 +105,18 @@
           "description": "A list of uncommon disadvantages.",
           "type": "array",
           "items": {
-            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/$defs/CommonnessRatedAdvantageDisadvantage"
+            "title": "Commonness-rated Advantage/Disadvantage",
+            "description": "Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.",
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "./_Identifier.schema.json#/$defs/DisadvantageIdentifier"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
           },
           "minItems": 1
         },
@@ -168,8 +212,7 @@
       "properties": {
         "id": {
           "description": "The profession's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/ProfessionIdentifier"
         },
         "weighted_variants": {
           "description": "Some professions or profession variants are more common than others. There\nmay be cultures where some professions or profession variants are not\nrepresented at all.",
@@ -217,8 +260,7 @@
       "properties": {
         "id": {
           "description": "The magical tradition's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/MagicalTraditionIdentifier"
         },
         "weighted_professions": {
           "description": "Some professions or profession variants are more common than others. There\nmay be cultures where some professions or profession variants are not\nrepresented at all.",
@@ -510,8 +552,7 @@
       "properties": {
         "id": {
           "description": "The skill's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/SkillIdentifier"
         },
         "points": {
           "description": "The skill points for the respective skill you get for buying the cultural\npackage.",

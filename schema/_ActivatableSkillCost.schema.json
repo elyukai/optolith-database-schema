@@ -142,10 +142,34 @@
           "description": "The part of the cost value that has to be spent permanently.",
           "type": "integer",
           "minimum": 1
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/ModifiableOneTimeCostTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
         }
       },
       "required": [
         "initial_modification_level"
+      ],
+      "additionalProperties": false
+    },
+    "ModifiableOneTimeCostTranslation": {
+      "type": "object",
+      "properties": {
+        "replacement": {
+          "description": "A replacement string.",
+          "$ref": "./_ResponsiveText.schema.json#/$defs/ResponsiveTextReplace"
+        }
+      },
+      "required": [
+        "replacement"
       ],
       "additionalProperties": false
     },
@@ -433,6 +457,10 @@
           "type": "integer",
           "minimum": 1
         },
+        "per": {
+          "description": "The cost have to be per a specific countable entity, e.g. `8 KP per\nperson per 5 minutes`.",
+          "$ref": "#/$defs/NonModifiableSustainedCostPerCountable"
+        },
         "interval": {
           "description": "The sustain interval.",
           "$ref": "./_ActivatableSkillDuration.schema.json#/$defs/DurationUnitValue"
@@ -441,6 +469,39 @@
       "required": [
         "value",
         "interval"
+      ],
+      "additionalProperties": false
+    },
+    "NonModifiableSustainedCostPerCountable": {
+      "type": "object",
+      "properties": {
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/NonModifiableSustainedCostPerCountableTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "NonModifiableSustainedCostPerCountableTranslation": {
+      "type": "object",
+      "properties": {
+        "countable": {
+          "description": "The countable entity name.",
+          "$ref": "./_ResponsiveText.schema.json#/$defs/ResponsiveText"
+        }
+      },
+      "required": [
+        "countable"
       ],
       "additionalProperties": false
     }

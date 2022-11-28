@@ -183,7 +183,7 @@ Key | Description | Details
 
 #### <a name="ElectiveSpellwork/id"></a> `id`
 
-- **Type:** <a href="./_Identifier.md#SpellworkIdentifier">SpellworkIdentifier</a>
+- **Type:** <a href="./_IdentifierGroup.md#SpellworkIdentifier">SpellworkIdentifier</a>
 
 #### <a name="ElectiveSpellwork/restriction"></a> `restriction?`
 
@@ -218,9 +218,7 @@ Key | Description | Details
 
 The element's identifier.
 
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `6`
+- **Type:** <a href="./_Identifier.md#ElementIdentifier">ElementIdentifier</a>
 
 ---
 
@@ -283,7 +281,7 @@ Key | Description | Details
 
 #### <a name="RestrictedSpellwork'Spellwork/spellwork"></a> `spellwork`
 
-- **Type:** <a href="./_Identifier.md#SpellworkIdentifier">SpellworkIdentifier</a>
+- **Type:** <a href="./_IdentifierGroup.md#SpellworkIdentifier">SpellworkIdentifier</a>
 
 ---
 
@@ -376,8 +374,7 @@ Key | Description | Details
 
 The identifier of the property that spellworks are disallowed from.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#PropertyIdentifier">PropertyIdentifier</a>
 
 #### <a name="RestrictedProperty/exclude"></a> `exclude?`
 
@@ -399,7 +396,7 @@ not contribute to the maximum.
 
 ### <a name="RestrictedProperty/exclude[]"></a> `RestrictedProperty/exclude[]`
 
-- **Type:** <a href="./_Identifier.md#SpellworkIdentifier">SpellworkIdentifier</a>
+- **Type:** <a href="./_IdentifierGroup.md#SpellworkIdentifier">SpellworkIdentifier</a>
 
 ---
 
@@ -608,7 +605,7 @@ Key | Description | Details
 
 #### <a name="CombatTechniqueAdjustment/id"></a> `id`
 
-- **Type:** <a href="./_Identifier.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>
+- **Type:** <a href="./_IdentifierGroup.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>
 
 #### <a name="CombatTechniqueAdjustment/points"></a> `points`
 
@@ -634,8 +631,7 @@ Key | Description | Details
 
 The skill's identifier.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#SkillIdentifier">SkillIdentifier</a>
 
 #### <a name="SkillAdjustment/points"></a> `points`
 
@@ -659,7 +655,7 @@ Key | Description | Details
 
 #### <a name="SpellworkAdjustment/id"></a> `id`
 
-- **Type:** <a href="./_Identifier.md#SpellworkIdentifier">SpellworkIdentifier</a>
+- **Type:** <a href="./_IdentifierGroup.md#SpellworkIdentifier">SpellworkIdentifier</a>
 
 #### <a name="SpellworkAdjustment/points"></a> `points`
 

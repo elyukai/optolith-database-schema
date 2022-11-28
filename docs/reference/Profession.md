@@ -465,27 +465,75 @@ variant is required.
 
 ---
 
-### <a name="ProfessionPackage/suggested_advantages[]"></a> `ProfessionPackage/suggested_advantages[]`
+### <a name="ProfessionPackage/suggested_advantages[]"></a> Commonness-rated Advantage/Disadvantage (`ProfessionPackage/suggested_advantages[]`)
 
-- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
+Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The advantage's or disadvantage's identifier. | <a href="#ProfessionPackage/suggested_advantages[]/id">See details</a>
+
+#### <a name="ProfessionPackage/suggested_advantages[]/id"></a> `id`
+
+The advantage's or disadvantage's identifier.
+
+- **Type:** <a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>
 
 ---
 
-### <a name="ProfessionPackage/suggested_disadvantages[]"></a> `ProfessionPackage/suggested_disadvantages[]`
+### <a name="ProfessionPackage/suggested_disadvantages[]"></a> Commonness-rated Advantage/Disadvantage (`ProfessionPackage/suggested_disadvantages[]`)
 
-- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
+Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The advantage's or disadvantage's identifier. | <a href="#ProfessionPackage/suggested_disadvantages[]/id">See details</a>
+
+#### <a name="ProfessionPackage/suggested_disadvantages[]/id"></a> `id`
+
+The advantage's or disadvantage's identifier.
+
+- **Type:** <a href="./_Identifier.md#DisadvantageIdentifier">DisadvantageIdentifier</a>
 
 ---
 
-### <a name="ProfessionPackage/unsuitable_advantages[]"></a> `ProfessionPackage/unsuitable_advantages[]`
+### <a name="ProfessionPackage/unsuitable_advantages[]"></a> Commonness-rated Advantage/Disadvantage (`ProfessionPackage/unsuitable_advantages[]`)
 
-- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
+Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The advantage's or disadvantage's identifier. | <a href="#ProfessionPackage/unsuitable_advantages[]/id">See details</a>
+
+#### <a name="ProfessionPackage/unsuitable_advantages[]/id"></a> `id`
+
+The advantage's or disadvantage's identifier.
+
+- **Type:** <a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>
 
 ---
 
-### <a name="ProfessionPackage/unsuitable_disadvantages[]"></a> `ProfessionPackage/unsuitable_disadvantages[]`
+### <a name="ProfessionPackage/unsuitable_disadvantages[]"></a> Commonness-rated Advantage/Disadvantage (`ProfessionPackage/unsuitable_disadvantages[]`)
 
-- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
+Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The advantage's or disadvantage's identifier. | <a href="#ProfessionPackage/unsuitable_disadvantages[]/id">See details</a>
+
+#### <a name="ProfessionPackage/unsuitable_disadvantages[]/id"></a> `id`
+
+The advantage's or disadvantage's identifier.
+
+- **Type:** <a href="./_Identifier.md#DisadvantageIdentifier">DisadvantageIdentifier</a>
 
 ---
 
@@ -817,7 +865,7 @@ Key | Description | Details
 
 The identifier of the combat technique to provide the rating for.
 
-- **Type:** <a href="./_Identifier.md#SpecialAbilityIdentifier">SpecialAbilityIdentifier</a>
+- **Type:** <a href="./_IdentifierGroup.md#SpecialAbilityIdentifier">SpecialAbilityIdentifier</a>
 
 #### <a name="SpecialAbilityDefinition/level"></a> `level?`
 
@@ -839,7 +887,7 @@ first array index, though.
 
 ### <a name="SpecialAbilityDefinition/options[]"></a> `SpecialAbilityDefinition/options[]`
 
-- **Type:** <a href="./_Identifier.md#RequirableSelectOptionIdentifier">RequirableSelectOptionIdentifier</a>
+- **Type:** <a href="./_IdentifierGroup.md#RequirableSelectOptionIdentifier">RequirableSelectOptionIdentifier</a>
 
 ---
 
@@ -903,7 +951,7 @@ Key | Description | Details
 
 The identifier of the combat technique to provide the rating for.
 
-- **Type:** <a href="./_Identifier.md#SpecialAbilityIdentifier">SpecialAbilityIdentifier</a>
+- **Type:** <a href="./_IdentifierGroup.md#SpecialAbilityIdentifier">SpecialAbilityIdentifier</a>
 
 #### <a name="FixedVariantSpecialAbility/level"></a> `level?`
 
@@ -932,7 +980,7 @@ is removed.
 
 ### <a name="FixedVariantSpecialAbility/options[]"></a> `FixedVariantSpecialAbility/options[]`
 
-- **Type:** <a href="./_Identifier.md#RequirableSelectOptionIdentifier">RequirableSelectOptionIdentifier</a>
+- **Type:** <a href="./_IdentifierGroup.md#RequirableSelectOptionIdentifier">RequirableSelectOptionIdentifier</a>
 
 ---
 
@@ -979,7 +1027,7 @@ Key | Description | Details
 
 The identifier of the combat technique to provide the rating for.
 
-- **Type:** <a href="./_Identifier.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>
+- **Type:** <a href="./_IdentifierGroup.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>
 
 #### <a name="CombatTechniqueRating/rating"></a> `rating`
 
@@ -1008,9 +1056,7 @@ Key | Description | Details
 
 The identifier of the skill to provide the rating for.
 
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `59`
+- **Type:** <a href="./_Identifier.md#SkillIdentifier">SkillIdentifier</a>
 
 #### <a name="SkillRating/rating"></a> `rating`
 
@@ -1117,7 +1163,7 @@ Key | Description | Details
 
 The identifier of the spell to provide the rating for.
 
-- **Type:** <a href="./_Identifier.md#SpellworkIdentifier">SpellworkIdentifier</a>
+- **Type:** <a href="./_IdentifierGroup.md#SpellworkIdentifier">SpellworkIdentifier</a>
 
 #### <a name="ProfessionSpellworkIdentifier/tradition"></a> `tradition?`
 
@@ -1143,7 +1189,7 @@ Key | Description | Details
 
 The identifier of the magical action to provide the rating for.
 
-- **Type:** <a href="./_Identifier.md#MagicalActionIdentifier">MagicalActionIdentifier</a>
+- **Type:** <a href="./_IdentifierGroup.md#MagicalActionIdentifier">MagicalActionIdentifier</a>
 
 ---
 
@@ -1180,7 +1226,7 @@ profession.
 
 ### <a name="LiturgicalChantRating/id[]"></a> `LiturgicalChantRating/id[]`
 
-- **Type:** <a href="./_Identifier.md#LiturgyIdentifier">LiturgyIdentifier</a>
+- **Type:** <a href="./_IdentifierGroup.md#LiturgyIdentifier">LiturgyIdentifier</a>
 
 ---
 

@@ -6,6 +6,7 @@ import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import * as Activatable from "../_Activatable.js"
+import { AdvancedCombatSpecialAbilityIdentifier } from "../_Identifier.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 
@@ -32,7 +33,7 @@ export type CombatStyleSpecialAbility = {
 
   maximum?: Activatable.Maximum
 
-  advanced: Activatable.AdvancedSpecialAbilities
+  advanced: Activatable.AdvancedSpecialAbilities<AdvancedCombatSpecialAbilityIdentifier>
 
   prerequisites?: GeneralPrerequisites
 

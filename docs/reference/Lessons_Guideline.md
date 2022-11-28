@@ -8,13 +8,13 @@
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The region's identifier. An unique, increasing integer. | <a href="#Guideline/id">See details</a>
+`id` | The guideline's identifier. An unique, increasing integer. | <a href="#Guideline/id">See details</a>
 `spellwork_changes_allowed` | Maximum number of spells that can be exchanged. | <a href="#Guideline/spellwork_changes_allowed">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Guideline/translations">See details</a>
 
 #### <a name="Guideline/id"></a> `id`
 
-The region's identifier. An unique, increasing integer.
+The guideline's identifier. An unique, increasing integer.
 
 - **Type:** Integer
 - **Minimum:** `1`

@@ -9,9 +9,7 @@
       "properties": {
         "id": {
           "description": "The minimum social status' identifier.",
-          "type": "integer",
-          "maximum": 5,
-          "minimum": 2
+          "$ref": "../../_Identifier.schema.json#/$defs/SocialStatusIdentifier"
         },
         "display_option": {
           "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"

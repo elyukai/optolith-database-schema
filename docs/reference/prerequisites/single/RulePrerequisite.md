@@ -13,7 +13,7 @@ Key | Description | Details
 
 #### <a name="RulePrerequisite/id"></a> `id`
 
-- **Type:** <a href="../../_Identifier.md#ExtensionRuleIdentifier">ExtensionRuleIdentifier</a>
+- **Type:** <a href="../../_IdentifierGroup.md#ExtensionRuleIdentifier">ExtensionRuleIdentifier</a>
 
 #### <a name="RulePrerequisite/display_option"></a> `display_option?`
 

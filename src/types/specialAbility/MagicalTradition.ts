@@ -6,6 +6,7 @@ import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import * as Activatable from "../_Activatable.js"
+import { AttributeIdentifier } from "../_Identifier.js"
 import { Influence } from "../_Influence.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
@@ -106,10 +107,8 @@ export type MagicalTradition = {
 export type PrimaryAttribute = {
   /**
    * The attribute's identifier.
-   * @integer
-   * @minimum 1
    */
-  id: number
+  id: AttributeIdentifier
 
   /**
    * Typically, the value of the primary attribute (if one exists) is added

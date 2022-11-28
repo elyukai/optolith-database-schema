@@ -10,6 +10,7 @@ import { DurationUnit } from "./_ActivatableSkillDuration.js"
 import { FixedRange } from "./_ActivatableSkillRange.js"
 import { TargetCategory } from "./_ActivatableSkillTargetCategory.js"
 import { Enhancements } from "./_Enhancements.js"
+import { MagicalTraditionIdentifier } from "./_Identifier.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { ResponsiveText } from "./_ResponsiveText.js"
 import { CurriculumReference, MagicalTraditionReference, PropertyReference } from "./_SimpleReferences.js"
@@ -87,10 +88,8 @@ export type CommonCantripNote =
 export type CommonCantripTraditionNote = {
   /**
    * The magical tradition's identifier.
-   * @integer
-   * @minimum 1
    */
-  id: number
+  id: MagicalTraditionIdentifier
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).

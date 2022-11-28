@@ -1,4 +1,4 @@
-import { ActivatableOptionSetPrerequisite, ActivatablePrerequisite, ActivatableSetPrerequisite } from "./single/ActivatablePrerequisite.js"
+import { ActivatablePrerequisite } from "./single/ActivatablePrerequisite.js"
 import { AnimistPowerPrerequisite } from "./single/AnimistPowerPrerequisite.js"
 import { CulturePrerequisite } from "./single/CulturePrerequisite.js"
 import { ExternalEnhancementPrerequisite, InternalEnhancementPrerequisite } from "./single/EnhancementPrerequisite.js"
@@ -7,7 +7,7 @@ import { PactPrerequisite } from "./single/PactPrerequisite.js"
 import { PrimaryAttributePrerequisite } from "./single/PrimaryAttributePrerequisite.js"
 import { PublicationPrerequisite } from "./single/PublicationPrerequisite.js"
 import { RacePrerequisite } from "./single/RacePrerequisite.js"
-import { RatedMinimumNumberPrerequisite, RatedPrerequisite, RatedSetPrerequisite } from "./single/RatedPrerequisite.js"
+import { RatedMinimumNumberPrerequisite, RatedPrerequisite } from "./single/RatedPrerequisite.js"
 import { RulePrerequisite } from "./single/RulePrerequisite.js"
 import { SexPrerequisite } from "./single/SexPrerequisite.js"
 import { SocialStatusPrerequisite } from "./single/SocialStatusPrerequisite.js"
@@ -31,12 +31,9 @@ export type GeneralPrerequisiteGroup =
   | { tag: "Rule"; rule: RulePrerequisite }
   | { tag: "PrimaryAttribute"; primary_attribute: PrimaryAttributePrerequisite }
   | { tag: "Activatable"; activatable: ActivatablePrerequisite }
-  | { tag: "ActivatableSet"; activatable_set: ActivatableSetPrerequisite }
-  | { tag: "ActivatableOptionSet"; activatable_option_set: ActivatableOptionSetPrerequisite }
   | { tag: "BlessedTradition"; blessed_tradition: BlessedTraditionPrerequisite }
   | { tag: "MagicalTradition"; magical_tradition: MagicalTraditionPrerequisite }
   | { tag: "Rated"; rated: RatedPrerequisite }
-  | { tag: "RatedSet"; rated_set: RatedSetPrerequisite }
   | { tag: "RatedMinimumNumber"; rated_minimum_number: RatedMinimumNumberPrerequisite }
   | { tag: "ExternalEnhancement"; external_enhancement: ExternalEnhancementPrerequisite }
   | { tag: "Text"; text: TextPrerequisite }
@@ -59,12 +56,9 @@ export type AdvantageDisadvantagePrerequisiteGroup =
   | { tag: "Rule"; rule: RulePrerequisite }
   | { tag: "PrimaryAttribute"; primary_attribute: PrimaryAttributePrerequisite }
   | { tag: "Activatable"; activatable: ActivatablePrerequisite }
-  | { tag: "ActivatableSet"; activatable_set: ActivatableSetPrerequisite }
-  | { tag: "ActivatableOptionSet"; activatable_option_set: ActivatableOptionSetPrerequisite }
   | { tag: "BlessedTradition"; blessed_tradition: BlessedTraditionPrerequisite }
   | { tag: "MagicalTradition"; magical_tradition: MagicalTraditionPrerequisite }
   | { tag: "Rated"; rated: RatedPrerequisite }
-  | { tag: "RatedSet"; rated_set: RatedSetPrerequisite }
   | { tag: "RatedMinimumNumber"; rated_minimum_number: RatedMinimumNumberPrerequisite }
   | { tag: "ExternalEnhancement"; external_enhancement: ExternalEnhancementPrerequisite }
   | { tag: "Text"; text: TextPrerequisite }

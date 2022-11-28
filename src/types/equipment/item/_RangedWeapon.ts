@@ -3,6 +3,7 @@
  */
 
 import { Dice } from "../../_Dice.js"
+import { AmmunitionIdentifier } from "../../_Identifier.js"
 import { RangedCombatTechniqueReference } from "../../_SimpleReferences.js"
 import { Length } from "./_Weapon.js"
 
@@ -81,10 +82,8 @@ export type RangedWeapon = {
 export type AmmunitionReference = {
   /**
    * The item's identifier.
-   * @integer
-   * @minimum 1
    */
-  id: number
+  id: AmmunitionIdentifier
 }
 
 export type Range = {

@@ -169,39 +169,111 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="Race/strongly_recommended_advantages[]"></a> `Race/strongly_recommended_advantages[]`
+### <a name="Race/strongly_recommended_advantages[]"></a> Commonness-rated Advantage/Disadvantage (`Race/strongly_recommended_advantages[]`)
 
-- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
+Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
 
----
+- **Type:** Object
 
-### <a name="Race/strongly_recommended_disadvantages[]"></a> `Race/strongly_recommended_disadvantages[]`
+Key | Description | Details
+:-- | :-- | :--
+`id` | The advantage's or disadvantage's identifier. | <a href="#Race/strongly_recommended_advantages[]/id">See details</a>
 
-- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
+#### <a name="Race/strongly_recommended_advantages[]/id"></a> `id`
 
----
+The advantage's or disadvantage's identifier.
 
-### <a name="Race/common_advantages[]"></a> `Race/common_advantages[]`
-
-- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
-
----
-
-### <a name="Race/common_disadvantages[]"></a> `Race/common_disadvantages[]`
-
-- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
+- **Type:** <a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>
 
 ---
 
-### <a name="Race/uncommon_advantages[]"></a> `Race/uncommon_advantages[]`
+### <a name="Race/strongly_recommended_disadvantages[]"></a> Commonness-rated Advantage/Disadvantage (`Race/strongly_recommended_disadvantages[]`)
 
-- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
+Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The advantage's or disadvantage's identifier. | <a href="#Race/strongly_recommended_disadvantages[]/id">See details</a>
+
+#### <a name="Race/strongly_recommended_disadvantages[]/id"></a> `id`
+
+The advantage's or disadvantage's identifier.
+
+- **Type:** <a href="./_Identifier.md#DisadvantageIdentifier">DisadvantageIdentifier</a>
 
 ---
 
-### <a name="Race/uncommon_disadvantages[]"></a> `Race/uncommon_disadvantages[]`
+### <a name="Race/common_advantages[]"></a> Commonness-rated Advantage/Disadvantage (`Race/common_advantages[]`)
 
-- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
+Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The advantage's or disadvantage's identifier. | <a href="#Race/common_advantages[]/id">See details</a>
+
+#### <a name="Race/common_advantages[]/id"></a> `id`
+
+The advantage's or disadvantage's identifier.
+
+- **Type:** <a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>
+
+---
+
+### <a name="Race/common_disadvantages[]"></a> Commonness-rated Advantage/Disadvantage (`Race/common_disadvantages[]`)
+
+Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The advantage's or disadvantage's identifier. | <a href="#Race/common_disadvantages[]/id">See details</a>
+
+#### <a name="Race/common_disadvantages[]/id"></a> `id`
+
+The advantage's or disadvantage's identifier.
+
+- **Type:** <a href="./_Identifier.md#DisadvantageIdentifier">DisadvantageIdentifier</a>
+
+---
+
+### <a name="Race/uncommon_advantages[]"></a> Commonness-rated Advantage/Disadvantage (`Race/uncommon_advantages[]`)
+
+Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The advantage's or disadvantage's identifier. | <a href="#Race/uncommon_advantages[]/id">See details</a>
+
+#### <a name="Race/uncommon_advantages[]/id"></a> `id`
+
+The advantage's or disadvantage's identifier.
+
+- **Type:** <a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>
+
+---
+
+### <a name="Race/uncommon_disadvantages[]"></a> Commonness-rated Advantage/Disadvantage (`Race/uncommon_disadvantages[]`)
+
+Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The advantage's or disadvantage's identifier. | <a href="#Race/uncommon_disadvantages[]/id">See details</a>
+
+#### <a name="Race/uncommon_disadvantages[]/id"></a> `id`
+
+The advantage's or disadvantage's identifier.
+
+- **Type:** <a href="./_Identifier.md#DisadvantageIdentifier">DisadvantageIdentifier</a>
 
 ---
 
@@ -402,9 +474,7 @@ Key | Description | Details
 
 The selected experience level's identifier.
 
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `7`
+- **Type:** <a href="./_Identifier.md#ExperienceLevelIdentifier">ExperienceLevelIdentifier</a>
 
 #### <a name="StartingAgeConfigForExperienceLevel/base"></a> `base`
 
@@ -657,27 +727,75 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="RaceVariant/common_advantages[]"></a> `RaceVariant/common_advantages[]`
+### <a name="RaceVariant/common_advantages[]"></a> Commonness-rated Advantage/Disadvantage (`RaceVariant/common_advantages[]`)
 
-- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
+Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The advantage's or disadvantage's identifier. | <a href="#RaceVariant/common_advantages[]/id">See details</a>
+
+#### <a name="RaceVariant/common_advantages[]/id"></a> `id`
+
+The advantage's or disadvantage's identifier.
+
+- **Type:** <a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>
 
 ---
 
-### <a name="RaceVariant/common_disadvantages[]"></a> `RaceVariant/common_disadvantages[]`
+### <a name="RaceVariant/common_disadvantages[]"></a> Commonness-rated Advantage/Disadvantage (`RaceVariant/common_disadvantages[]`)
 
-- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
+Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The advantage's or disadvantage's identifier. | <a href="#RaceVariant/common_disadvantages[]/id">See details</a>
+
+#### <a name="RaceVariant/common_disadvantages[]/id"></a> `id`
+
+The advantage's or disadvantage's identifier.
+
+- **Type:** <a href="./_Identifier.md#DisadvantageIdentifier">DisadvantageIdentifier</a>
 
 ---
 
-### <a name="RaceVariant/uncommon_advantages[]"></a> `RaceVariant/uncommon_advantages[]`
+### <a name="RaceVariant/uncommon_advantages[]"></a> Commonness-rated Advantage/Disadvantage (`RaceVariant/uncommon_advantages[]`)
 
-- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
+Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The advantage's or disadvantage's identifier. | <a href="#RaceVariant/uncommon_advantages[]/id">See details</a>
+
+#### <a name="RaceVariant/uncommon_advantages[]/id"></a> `id`
+
+The advantage's or disadvantage's identifier.
+
+- **Type:** <a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>
 
 ---
 
-### <a name="RaceVariant/uncommon_disadvantages[]"></a> `RaceVariant/uncommon_disadvantages[]`
+### <a name="RaceVariant/uncommon_disadvantages[]"></a> Commonness-rated Advantage/Disadvantage (`RaceVariant/uncommon_disadvantages[]`)
 
-- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
+Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The advantage's or disadvantage's identifier. | <a href="#RaceVariant/uncommon_disadvantages[]/id">See details</a>
+
+#### <a name="RaceVariant/uncommon_disadvantages[]/id"></a> `id`
+
+The advantage's or disadvantage's identifier.
+
+- **Type:** <a href="./_Identifier.md#DisadvantageIdentifier">DisadvantageIdentifier</a>
 
 ---
 

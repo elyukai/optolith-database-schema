@@ -1,3 +1,4 @@
+import { AnimistPowerIdentifier } from "../../_Identifier.js"
 import { DisplayOption } from "../DisplayOption.js"
 
 /**
@@ -7,10 +8,8 @@ import { DisplayOption } from "../DisplayOption.js"
 export type AnimistPowerPrerequisite = {
   /**
    * The animist power's identifier.
-   * @integer
-   * @minimum 1
    */
-  id: number
+  id: AnimistPowerIdentifier
 
   /**
    * The level to which the minimum value applies.

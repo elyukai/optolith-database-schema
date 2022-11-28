@@ -514,7 +514,7 @@
                         "type": "object",
                         "properties": {
                           "id": {
-                            "$ref": "./_Identifier.schema.json#/$defs/SkillIdentifier"
+                            "$ref": "./_IdentifierGroup.schema.json#/$defs/SkillIdentifier"
                           },
                           "ap_value": {
                             "description": "The AP value for the specified entry.",
@@ -797,7 +797,7 @@
               "description": "The list of specific entries.",
               "type": "array",
               "items": {
-                "$ref": "./_Identifier.schema.json#/$defs/SkillIdentifier"
+                "$ref": "./_IdentifierGroup.schema.json#/$defs/SkillIdentifier"
               },
               "minItems": 1,
               "uniqueItems": true
@@ -883,7 +883,7 @@
                         "type": "object",
                         "properties": {
                           "id": {
-                            "$ref": "./_Identifier.schema.json#/$defs/CombatTechniqueIdentifier"
+                            "$ref": "./_IdentifierGroup.schema.json#/$defs/CombatTechniqueIdentifier"
                           },
                           "ap_value": {
                             "description": "The AP value for the specified entry.",
@@ -1131,7 +1131,7 @@
       "properties": {
         "id": {
           "description": "The target entry's identifier.",
-          "$ref": "./_Identifier.schema.json#/$defs/ActivatableIdentifier"
+          "$ref": "./_IdentifierGroup.schema.json#/$defs/ActivatableIdentifier"
         },
         "active": {
           "description": "Is the select option required (`true`) or prohibited (`false`)?",

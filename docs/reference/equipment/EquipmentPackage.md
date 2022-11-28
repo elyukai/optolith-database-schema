@@ -65,7 +65,7 @@ Key | Description | Details
 
 The item's identifier.
 
-- **Type:** <a href="../_Identifier.md#EquipmentIdentifier">EquipmentIdentifier</a>
+- **Type:** <a href="../_IdentifierGroup.md#EquipmentIdentifier">EquipmentIdentifier</a>
 
 #### <a name="EquipmentPackageItem/number"></a> `number?`
 

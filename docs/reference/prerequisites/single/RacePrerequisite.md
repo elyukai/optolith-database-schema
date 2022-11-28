@@ -12,13 +12,15 @@ if the entry does not allow one of the races.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` |  | <a href="#RacePrerequisite/id">See details</a>
+`id` | The race's identifier. | <a href="#RacePrerequisite/id">See details</a>
 `active` |  | <a href="#RacePrerequisite/active">See details</a>
 `display_option?` |  | <a href="#RacePrerequisite/display_option">See details</a>
 
 #### <a name="RacePrerequisite/id"></a> `id`
 
-- **Type:** <a href="../../_Identifier.md#OneOrManyNumericIdentifiers">OneOrManyNumericIdentifiers</a>
+The race's identifier.
+
+- **Type:** <a href="../../_Identifier.md#RaceIdentifier">RaceIdentifier</a>
 
 #### <a name="RacePrerequisite/active"></a> `active`
 

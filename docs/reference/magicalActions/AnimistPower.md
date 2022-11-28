@@ -54,7 +54,6 @@ all tribe traditions.
 
 - **Type:** List
 - **Items:** <a href="#AnimistPower/tribe_tradition[]">AnimistPower/tribe_tradition[]</a>
-- **Minimum Items:** `1`
 - **Unique Items:** Yes
 
 #### <a name="AnimistPower/improvement_cost"></a> `improvement_cost`

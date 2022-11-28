@@ -192,8 +192,7 @@ Key | Description | Details
 
 The item's identifier.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="../../_Identifier.md#AmmunitionIdentifier">AmmunitionIdentifier</a>
 
 ---
 

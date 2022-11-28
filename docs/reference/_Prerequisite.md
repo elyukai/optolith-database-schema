@@ -4,65 +4,99 @@
 
 ### <a name="DerivedCharacteristicPrerequisites"></a> `DerivedCharacteristicPrerequisites`
 
-- **Type:** Union
-- **Cases:** <a href="#DerivedCharacteristicPrerequisites'Plain">DerivedCharacteristicPrerequisites'Plain</a>
+- **Type:** List
+- **Items:** <a href="#DerivedCharacteristicPrerequisites[]">DerivedCharacteristicPrerequisites[]</a>
+- **Minimum Items:** `1`
 
 ---
 
-### <a name="DerivedCharacteristicPrerequisites'Plain"></a> `DerivedCharacteristicPrerequisites'Plain`
+### <a name="DerivedCharacteristicPrerequisites[]"></a> `DerivedCharacteristicPrerequisites[]`
+
+- **Type:** Union
+- **Cases:** <a href="#DerivedCharacteristicPrerequisites[]'Single">DerivedCharacteristicPrerequisites[]'Single</a> | <a href="#DerivedCharacteristicPrerequisites[]'Disjunction">DerivedCharacteristicPrerequisites[]'Disjunction</a> | <a href="#DerivedCharacteristicPrerequisites[]'Group">DerivedCharacteristicPrerequisites[]'Group</a>
+
+---
+
+### <a name="DerivedCharacteristicPrerequisites[]'Single"></a> `DerivedCharacteristicPrerequisites[]'Single`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#DerivedCharacteristicPrerequisites'Plain/tag">See details</a>
-`plain` |  | <a href="#DerivedCharacteristicPrerequisites'Plain/plain">See details</a>
+`tag` |  | <a href="#DerivedCharacteristicPrerequisites[]'Single/tag">See details</a>
+`single` |  | <a href="#DerivedCharacteristicPrerequisites[]'Single/single">See details</a>
 
-#### <a name="DerivedCharacteristicPrerequisites'Plain/tag"></a> `tag`
+#### <a name="DerivedCharacteristicPrerequisites[]'Single/tag"></a> `tag`
 
-- **Constant:** `"Plain"`
+- **Constant:** `"Single"`
 
-#### <a name="DerivedCharacteristicPrerequisites'Plain/plain"></a> `plain`
-
-- **Type:** List
-- **Items:** <a href="#DerivedCharacteristicPrerequisites'Plain/plain[]">DerivedCharacteristicPrerequisites'Plain/plain[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="DerivedCharacteristicPrerequisites'Plain/plain[]"></a> `DerivedCharacteristicPrerequisites'Plain/plain[]`
-
-- **Type:** Union
-- **Cases:** <a href="#DerivedCharacteristicPrerequisites'Plain/plain[]'DerivedCharacteristicPrerequisiteGroup">DerivedCharacteristicPrerequisites'Plain/plain[]'DerivedCharacteristicPrerequisiteGroup</a> | <a href="#DerivedCharacteristicPrerequisites'Plain/plain[]'Group">DerivedCharacteristicPrerequisites'Plain/plain[]'Group</a>
-
----
-
-### <a name="DerivedCharacteristicPrerequisites'Plain/plain[]'DerivedCharacteristicPrerequisiteGroup"></a> `DerivedCharacteristicPrerequisites'Plain/plain[]'DerivedCharacteristicPrerequisiteGroup`
+#### <a name="DerivedCharacteristicPrerequisites[]'Single/single"></a> `single`
 
 - **Type:** <a href="./prerequisites/PrerequisiteGroups.md#DerivedCharacteristicPrerequisiteGroup">DerivedCharacteristicPrerequisiteGroup</a>
 
 ---
 
-### <a name="DerivedCharacteristicPrerequisites'Plain/plain[]'Group"></a> `DerivedCharacteristicPrerequisites'Plain/plain[]'Group`
+### <a name="DerivedCharacteristicPrerequisites[]'Disjunction"></a> `DerivedCharacteristicPrerequisites[]'Disjunction`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#DerivedCharacteristicPrerequisites'Plain/plain[]'Group/tag">See details</a>
-`group` |  | <a href="#DerivedCharacteristicPrerequisites'Plain/plain[]'Group/group">See details</a>
+`tag` |  | <a href="#DerivedCharacteristicPrerequisites[]'Disjunction/tag">See details</a>
+`disjunction` |  | <a href="#DerivedCharacteristicPrerequisites[]'Disjunction/disjunction">See details</a>
 
-#### <a name="DerivedCharacteristicPrerequisites'Plain/plain[]'Group/tag"></a> `tag`
+#### <a name="DerivedCharacteristicPrerequisites[]'Disjunction/tag"></a> `tag`
 
-- **Constant:** `"Group"`
+- **Constant:** `"Disjunction"`
 
-#### <a name="DerivedCharacteristicPrerequisites'Plain/plain[]'Group/group"></a> `group`
+#### <a name="DerivedCharacteristicPrerequisites[]'Disjunction/disjunction"></a> `disjunction`
 
-- **Type:** <a href="#DerivedCharacteristicPrerequisites'Plain/plain[]'Group/group">Object</a>
+- **Type:** <a href="#DerivedCharacteristicPrerequisites[]'Disjunction/disjunction">Object</a>
 
 ---
 
-### <a name="DerivedCharacteristicPrerequisites'Plain/plain[]'Group/group"></a> `DerivedCharacteristicPrerequisites'Plain/plain[]'Group/group`
+### <a name="DerivedCharacteristicPrerequisites[]'Disjunction/disjunction"></a> `DerivedCharacteristicPrerequisites[]'Disjunction/disjunction`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`list` |  | <a href="#DerivedCharacteristicPrerequisites[]'Disjunction/disjunction/list">See details</a>
+
+#### <a name="DerivedCharacteristicPrerequisites[]'Disjunction/disjunction/list"></a> `list`
+
+- **Type:** List
+- **Items:** <a href="#DerivedCharacteristicPrerequisites[]'Disjunction/disjunction/list[]">DerivedCharacteristicPrerequisites[]'Disjunction/disjunction/list[]</a>
+- **Minimum Items:** `2`
+
+---
+
+### <a name="DerivedCharacteristicPrerequisites[]'Disjunction/disjunction/list[]"></a> `DerivedCharacteristicPrerequisites[]'Disjunction/disjunction/list[]`
+
+- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#DerivedCharacteristicPrerequisiteGroup">DerivedCharacteristicPrerequisiteGroup</a>
+
+---
+
+### <a name="DerivedCharacteristicPrerequisites[]'Group"></a> `DerivedCharacteristicPrerequisites[]'Group`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#DerivedCharacteristicPrerequisites[]'Group/tag">See details</a>
+`group` |  | <a href="#DerivedCharacteristicPrerequisites[]'Group/group">See details</a>
+
+#### <a name="DerivedCharacteristicPrerequisites[]'Group/tag"></a> `tag`
+
+- **Constant:** `"Group"`
+
+#### <a name="DerivedCharacteristicPrerequisites[]'Group/group"></a> `group`
+
+- **Type:** <a href="#DerivedCharacteristicPrerequisites[]'Group/group">Object</a>
+
+---
+
+### <a name="DerivedCharacteristicPrerequisites[]'Group/group"></a> `DerivedCharacteristicPrerequisites[]'Group/group`
 
 A prerequisite group has no influence on validation logic. It serves as a
 single unit for displaying purposes, where the source uses a prerequisites
@@ -72,33 +106,33 @@ item that cannot be represented as a single prerequisite.
 
 Key | Description | Details
 :-- | :-- | :--
-`list` |  | <a href="#DerivedCharacteristicPrerequisites'Plain/plain[]'Group/group/list">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#DerivedCharacteristicPrerequisites'Plain/plain[]'Group/group/translations">See details</a>
+`list` |  | <a href="#DerivedCharacteristicPrerequisites[]'Group/group/list">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#DerivedCharacteristicPrerequisites[]'Group/group/translations">See details</a>
 
-#### <a name="DerivedCharacteristicPrerequisites'Plain/plain[]'Group/group/list"></a> `list`
+#### <a name="DerivedCharacteristicPrerequisites[]'Group/group/list"></a> `list`
 
 - **Type:** List
-- **Items:** <a href="#DerivedCharacteristicPrerequisites'Plain/plain[]'Group/group/list[]">DerivedCharacteristicPrerequisites'Plain/plain[]'Group/group/list[]</a>
+- **Items:** <a href="#DerivedCharacteristicPrerequisites[]'Group/group/list[]">DerivedCharacteristicPrerequisites[]'Group/group/list[]</a>
 - **Minimum Items:** `2`
 
-#### <a name="DerivedCharacteristicPrerequisites'Plain/plain[]'Group/group/translations"></a> `translations`
+#### <a name="DerivedCharacteristicPrerequisites[]'Group/group/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#DerivedCharacteristicPrerequisites'Plain/plain[]'Group/group/translations[key]">DerivedCharacteristicPrerequisites'Plain/plain[]'Group/group/translations[key]</a>
+- **Property Values:** <a href="#DerivedCharacteristicPrerequisites[]'Group/group/translations[key]">DerivedCharacteristicPrerequisites[]'Group/group/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="DerivedCharacteristicPrerequisites'Plain/plain[]'Group/group/list[]"></a> `DerivedCharacteristicPrerequisites'Plain/plain[]'Group/group/list[]`
+### <a name="DerivedCharacteristicPrerequisites[]'Group/group/list[]"></a> `DerivedCharacteristicPrerequisites[]'Group/group/list[]`
 
 - **Type:** <a href="./prerequisites/PrerequisiteGroups.md#DerivedCharacteristicPrerequisiteGroup">DerivedCharacteristicPrerequisiteGroup</a>
 
 ---
 
-### <a name="DerivedCharacteristicPrerequisites'Plain/plain[]'Group/group/translations[key]"></a> `DerivedCharacteristicPrerequisites'Plain/plain[]'Group/group/translations[key]`
+### <a name="DerivedCharacteristicPrerequisites[]'Group/group/translations[key]"></a> `DerivedCharacteristicPrerequisites[]'Group/group/translations[key]`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -106,65 +140,99 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="PublicationPrerequisites"></a> `PublicationPrerequisites`
 
-- **Type:** Union
-- **Cases:** <a href="#PublicationPrerequisites'Plain">PublicationPrerequisites'Plain</a>
+- **Type:** List
+- **Items:** <a href="#PublicationPrerequisites[]">PublicationPrerequisites[]</a>
+- **Minimum Items:** `1`
 
 ---
 
-### <a name="PublicationPrerequisites'Plain"></a> `PublicationPrerequisites'Plain`
+### <a name="PublicationPrerequisites[]"></a> `PublicationPrerequisites[]`
+
+- **Type:** Union
+- **Cases:** <a href="#PublicationPrerequisites[]'Single">PublicationPrerequisites[]'Single</a> | <a href="#PublicationPrerequisites[]'Disjunction">PublicationPrerequisites[]'Disjunction</a> | <a href="#PublicationPrerequisites[]'Group">PublicationPrerequisites[]'Group</a>
+
+---
+
+### <a name="PublicationPrerequisites[]'Single"></a> `PublicationPrerequisites[]'Single`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PublicationPrerequisites'Plain/tag">See details</a>
-`plain` |  | <a href="#PublicationPrerequisites'Plain/plain">See details</a>
+`tag` |  | <a href="#PublicationPrerequisites[]'Single/tag">See details</a>
+`single` |  | <a href="#PublicationPrerequisites[]'Single/single">See details</a>
 
-#### <a name="PublicationPrerequisites'Plain/tag"></a> `tag`
+#### <a name="PublicationPrerequisites[]'Single/tag"></a> `tag`
 
-- **Constant:** `"Plain"`
+- **Constant:** `"Single"`
 
-#### <a name="PublicationPrerequisites'Plain/plain"></a> `plain`
-
-- **Type:** List
-- **Items:** <a href="#PublicationPrerequisites'Plain/plain[]">PublicationPrerequisites'Plain/plain[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="PublicationPrerequisites'Plain/plain[]"></a> `PublicationPrerequisites'Plain/plain[]`
-
-- **Type:** Union
-- **Cases:** <a href="#PublicationPrerequisites'Plain/plain[]'PublicationPrerequisiteGroup">PublicationPrerequisites'Plain/plain[]'PublicationPrerequisiteGroup</a> | <a href="#PublicationPrerequisites'Plain/plain[]'Group">PublicationPrerequisites'Plain/plain[]'Group</a>
-
----
-
-### <a name="PublicationPrerequisites'Plain/plain[]'PublicationPrerequisiteGroup"></a> `PublicationPrerequisites'Plain/plain[]'PublicationPrerequisiteGroup`
+#### <a name="PublicationPrerequisites[]'Single/single"></a> `single`
 
 - **Type:** <a href="./prerequisites/PrerequisiteGroups.md#PublicationPrerequisiteGroup">PublicationPrerequisiteGroup</a>
 
 ---
 
-### <a name="PublicationPrerequisites'Plain/plain[]'Group"></a> `PublicationPrerequisites'Plain/plain[]'Group`
+### <a name="PublicationPrerequisites[]'Disjunction"></a> `PublicationPrerequisites[]'Disjunction`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PublicationPrerequisites'Plain/plain[]'Group/tag">See details</a>
-`group` |  | <a href="#PublicationPrerequisites'Plain/plain[]'Group/group">See details</a>
+`tag` |  | <a href="#PublicationPrerequisites[]'Disjunction/tag">See details</a>
+`disjunction` |  | <a href="#PublicationPrerequisites[]'Disjunction/disjunction">See details</a>
 
-#### <a name="PublicationPrerequisites'Plain/plain[]'Group/tag"></a> `tag`
+#### <a name="PublicationPrerequisites[]'Disjunction/tag"></a> `tag`
 
-- **Constant:** `"Group"`
+- **Constant:** `"Disjunction"`
 
-#### <a name="PublicationPrerequisites'Plain/plain[]'Group/group"></a> `group`
+#### <a name="PublicationPrerequisites[]'Disjunction/disjunction"></a> `disjunction`
 
-- **Type:** <a href="#PublicationPrerequisites'Plain/plain[]'Group/group">Object</a>
+- **Type:** <a href="#PublicationPrerequisites[]'Disjunction/disjunction">Object</a>
 
 ---
 
-### <a name="PublicationPrerequisites'Plain/plain[]'Group/group"></a> `PublicationPrerequisites'Plain/plain[]'Group/group`
+### <a name="PublicationPrerequisites[]'Disjunction/disjunction"></a> `PublicationPrerequisites[]'Disjunction/disjunction`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`list` |  | <a href="#PublicationPrerequisites[]'Disjunction/disjunction/list">See details</a>
+
+#### <a name="PublicationPrerequisites[]'Disjunction/disjunction/list"></a> `list`
+
+- **Type:** List
+- **Items:** <a href="#PublicationPrerequisites[]'Disjunction/disjunction/list[]">PublicationPrerequisites[]'Disjunction/disjunction/list[]</a>
+- **Minimum Items:** `2`
+
+---
+
+### <a name="PublicationPrerequisites[]'Disjunction/disjunction/list[]"></a> `PublicationPrerequisites[]'Disjunction/disjunction/list[]`
+
+- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#PublicationPrerequisiteGroup">PublicationPrerequisiteGroup</a>
+
+---
+
+### <a name="PublicationPrerequisites[]'Group"></a> `PublicationPrerequisites[]'Group`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#PublicationPrerequisites[]'Group/tag">See details</a>
+`group` |  | <a href="#PublicationPrerequisites[]'Group/group">See details</a>
+
+#### <a name="PublicationPrerequisites[]'Group/tag"></a> `tag`
+
+- **Constant:** `"Group"`
+
+#### <a name="PublicationPrerequisites[]'Group/group"></a> `group`
+
+- **Type:** <a href="#PublicationPrerequisites[]'Group/group">Object</a>
+
+---
+
+### <a name="PublicationPrerequisites[]'Group/group"></a> `PublicationPrerequisites[]'Group/group`
 
 A prerequisite group has no influence on validation logic. It serves as a
 single unit for displaying purposes, where the source uses a prerequisites
@@ -174,33 +242,33 @@ item that cannot be represented as a single prerequisite.
 
 Key | Description | Details
 :-- | :-- | :--
-`list` |  | <a href="#PublicationPrerequisites'Plain/plain[]'Group/group/list">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PublicationPrerequisites'Plain/plain[]'Group/group/translations">See details</a>
+`list` |  | <a href="#PublicationPrerequisites[]'Group/group/list">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PublicationPrerequisites[]'Group/group/translations">See details</a>
 
-#### <a name="PublicationPrerequisites'Plain/plain[]'Group/group/list"></a> `list`
+#### <a name="PublicationPrerequisites[]'Group/group/list"></a> `list`
 
 - **Type:** List
-- **Items:** <a href="#PublicationPrerequisites'Plain/plain[]'Group/group/list[]">PublicationPrerequisites'Plain/plain[]'Group/group/list[]</a>
+- **Items:** <a href="#PublicationPrerequisites[]'Group/group/list[]">PublicationPrerequisites[]'Group/group/list[]</a>
 - **Minimum Items:** `2`
 
-#### <a name="PublicationPrerequisites'Plain/plain[]'Group/group/translations"></a> `translations`
+#### <a name="PublicationPrerequisites[]'Group/group/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#PublicationPrerequisites'Plain/plain[]'Group/group/translations[key]">PublicationPrerequisites'Plain/plain[]'Group/group/translations[key]</a>
+- **Property Values:** <a href="#PublicationPrerequisites[]'Group/group/translations[key]">PublicationPrerequisites[]'Group/group/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="PublicationPrerequisites'Plain/plain[]'Group/group/list[]"></a> `PublicationPrerequisites'Plain/plain[]'Group/group/list[]`
+### <a name="PublicationPrerequisites[]'Group/group/list[]"></a> `PublicationPrerequisites[]'Group/group/list[]`
 
 - **Type:** <a href="./prerequisites/PrerequisiteGroups.md#PublicationPrerequisiteGroup">PublicationPrerequisiteGroup</a>
 
 ---
 
-### <a name="PublicationPrerequisites'Plain/plain[]'Group/group/translations[key]"></a> `PublicationPrerequisites'Plain/plain[]'Group/group/translations[key]`
+### <a name="PublicationPrerequisites[]'Group/group/translations[key]"></a> `PublicationPrerequisites[]'Group/group/translations[key]`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -208,182 +276,113 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="GeneralPrerequisites"></a> `GeneralPrerequisites`
 
-- **Type:** Union
-- **Cases:** <a href="#GeneralPrerequisites'Plain">GeneralPrerequisites'Plain</a> | <a href="#GeneralPrerequisites'ByLevel">GeneralPrerequisites'ByLevel</a>
-
----
-
-### <a name="GeneralPrerequisites'Plain"></a> `GeneralPrerequisites'Plain`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#GeneralPrerequisites'Plain/tag">See details</a>
-`plain` |  | <a href="#GeneralPrerequisites'Plain/plain">See details</a>
-
-#### <a name="GeneralPrerequisites'Plain/tag"></a> `tag`
-
-- **Constant:** `"Plain"`
-
-#### <a name="GeneralPrerequisites'Plain/plain"></a> `plain`
-
 - **Type:** List
-- **Items:** <a href="#GeneralPrerequisites'Plain/plain[]">GeneralPrerequisites'Plain/plain[]</a>
+- **Items:** <a href="#GeneralPrerequisites[]">GeneralPrerequisites[]</a>
 - **Minimum Items:** `1`
 
 ---
 
-### <a name="GeneralPrerequisites'Plain/plain[]"></a> `GeneralPrerequisites'Plain/plain[]`
-
-- **Type:** Union
-- **Cases:** <a href="#GeneralPrerequisites'Plain/plain[]'GeneralPrerequisiteGroup">GeneralPrerequisites'Plain/plain[]'GeneralPrerequisiteGroup</a> | <a href="#GeneralPrerequisites'Plain/plain[]'Group">GeneralPrerequisites'Plain/plain[]'Group</a>
-
----
-
-### <a name="GeneralPrerequisites'Plain/plain[]'GeneralPrerequisiteGroup"></a> `GeneralPrerequisites'Plain/plain[]'GeneralPrerequisiteGroup`
-
-- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#GeneralPrerequisiteGroup">GeneralPrerequisiteGroup</a>
-
----
-
-### <a name="GeneralPrerequisites'Plain/plain[]'Group"></a> `GeneralPrerequisites'Plain/plain[]'Group`
+### <a name="GeneralPrerequisites[]"></a> `GeneralPrerequisites[]`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#GeneralPrerequisites'Plain/plain[]'Group/tag">See details</a>
-`group` |  | <a href="#GeneralPrerequisites'Plain/plain[]'Group/group">See details</a>
+`level` |  | <a href="#GeneralPrerequisites[]/level">See details</a>
+`prerequisite` |  | <a href="#GeneralPrerequisites[]/prerequisite">See details</a>
 
-#### <a name="GeneralPrerequisites'Plain/plain[]'Group/tag"></a> `tag`
-
-- **Constant:** `"Group"`
-
-#### <a name="GeneralPrerequisites'Plain/plain[]'Group/group"></a> `group`
-
-- **Type:** <a href="#GeneralPrerequisites'Plain/plain[]'Group/group">Object</a>
-
----
-
-### <a name="GeneralPrerequisites'Plain/plain[]'Group/group"></a> `GeneralPrerequisites'Plain/plain[]'Group/group`
-
-A prerequisite group has no influence on validation logic. It serves as a
-single unit for displaying purposes, where the source uses a prerequisites
-item that cannot be represented as a single prerequisite.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`list` |  | <a href="#GeneralPrerequisites'Plain/plain[]'Group/group/list">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#GeneralPrerequisites'Plain/plain[]'Group/group/translations">See details</a>
-
-#### <a name="GeneralPrerequisites'Plain/plain[]'Group/group/list"></a> `list`
-
-- **Type:** List
-- **Items:** <a href="#GeneralPrerequisites'Plain/plain[]'Group/group/list[]">GeneralPrerequisites'Plain/plain[]'Group/group/list[]</a>
-- **Minimum Items:** `2`
-
-#### <a name="GeneralPrerequisites'Plain/plain[]'Group/group/translations"></a> `translations`
-
-All translations for the entry, identified by IETF language tag (BCP47).
-
-- **Type:** Dictionary
-- **Property Values:** <a href="#GeneralPrerequisites'Plain/plain[]'Group/group/translations[key]">GeneralPrerequisites'Plain/plain[]'Group/group/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="GeneralPrerequisites'Plain/plain[]'Group/group/list[]"></a> `GeneralPrerequisites'Plain/plain[]'Group/group/list[]`
-
-- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#GeneralPrerequisiteGroup">GeneralPrerequisiteGroup</a>
-
----
-
-### <a name="GeneralPrerequisites'Plain/plain[]'Group/group/translations[key]"></a> `GeneralPrerequisites'Plain/plain[]'Group/group/translations[key]`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
----
-
-### <a name="GeneralPrerequisites'ByLevel"></a> `GeneralPrerequisites'ByLevel`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#GeneralPrerequisites'ByLevel/tag">See details</a>
-`by_level` |  | <a href="#GeneralPrerequisites'ByLevel/by_level">See details</a>
-
-#### <a name="GeneralPrerequisites'ByLevel/tag"></a> `tag`
-
-- **Constant:** `"ByLevel"`
-
-#### <a name="GeneralPrerequisites'ByLevel/by_level"></a> `by_level`
-
-- **Type:** List
-- **Items:** <a href="#GeneralPrerequisites'ByLevel/by_level[]">GeneralPrerequisites'ByLevel/by_level[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="GeneralPrerequisites'ByLevel/by_level[]"></a> `GeneralPrerequisites'ByLevel/by_level[]`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`level` |  | <a href="#GeneralPrerequisites'ByLevel/by_level[]/level">See details</a>
-`prerequisites` |  | <a href="#GeneralPrerequisites'ByLevel/by_level[]/prerequisites">See details</a>
-
-#### <a name="GeneralPrerequisites'ByLevel/by_level[]/level"></a> `level`
+#### <a name="GeneralPrerequisites[]/level"></a> `level`
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="GeneralPrerequisites'ByLevel/by_level[]/prerequisites"></a> `prerequisites`
-
-- **Type:** List
-- **Items:** <a href="#GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]">GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]"></a> `GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]`
+#### <a name="GeneralPrerequisites[]/prerequisite"></a> `prerequisite`
 
 - **Type:** Union
-- **Cases:** <a href="#GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]'GeneralPrerequisiteGroup">GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]'GeneralPrerequisiteGroup</a> | <a href="#GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]'Group">GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]'Group</a>
+- **Cases:** <a href="#GeneralPrerequisites[]/prerequisite'Single">GeneralPrerequisites[]/prerequisite'Single</a> | <a href="#GeneralPrerequisites[]/prerequisite'Disjunction">GeneralPrerequisites[]/prerequisite'Disjunction</a> | <a href="#GeneralPrerequisites[]/prerequisite'Group">GeneralPrerequisites[]/prerequisite'Group</a>
 
 ---
 
-### <a name="GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]'GeneralPrerequisiteGroup"></a> `GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]'GeneralPrerequisiteGroup`
-
-- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#GeneralPrerequisiteGroup">GeneralPrerequisiteGroup</a>
-
----
-
-### <a name="GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]'Group"></a> `GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]'Group`
+### <a name="GeneralPrerequisites[]/prerequisite'Single"></a> `GeneralPrerequisites[]/prerequisite'Single`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]'Group/tag">See details</a>
-`group` |  | <a href="#GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group">See details</a>
+`tag` |  | <a href="#GeneralPrerequisites[]/prerequisite'Single/tag">See details</a>
+`single` |  | <a href="#GeneralPrerequisites[]/prerequisite'Single/single">See details</a>
 
-#### <a name="GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]'Group/tag"></a> `tag`
+#### <a name="GeneralPrerequisites[]/prerequisite'Single/tag"></a> `tag`
 
-- **Constant:** `"Group"`
+- **Constant:** `"Single"`
 
-#### <a name="GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group"></a> `group`
+#### <a name="GeneralPrerequisites[]/prerequisite'Single/single"></a> `single`
 
-- **Type:** <a href="#GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group">Object</a>
+- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#GeneralPrerequisiteGroup">GeneralPrerequisiteGroup</a>
 
 ---
 
-### <a name="GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group"></a> `GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group`
+### <a name="GeneralPrerequisites[]/prerequisite'Disjunction"></a> `GeneralPrerequisites[]/prerequisite'Disjunction`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#GeneralPrerequisites[]/prerequisite'Disjunction/tag">See details</a>
+`disjunction` |  | <a href="#GeneralPrerequisites[]/prerequisite'Disjunction/disjunction">See details</a>
+
+#### <a name="GeneralPrerequisites[]/prerequisite'Disjunction/tag"></a> `tag`
+
+- **Constant:** `"Disjunction"`
+
+#### <a name="GeneralPrerequisites[]/prerequisite'Disjunction/disjunction"></a> `disjunction`
+
+- **Type:** <a href="#GeneralPrerequisites[]/prerequisite'Disjunction/disjunction">Object</a>
+
+---
+
+### <a name="GeneralPrerequisites[]/prerequisite'Disjunction/disjunction"></a> `GeneralPrerequisites[]/prerequisite'Disjunction/disjunction`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`list` |  | <a href="#GeneralPrerequisites[]/prerequisite'Disjunction/disjunction/list">See details</a>
+
+#### <a name="GeneralPrerequisites[]/prerequisite'Disjunction/disjunction/list"></a> `list`
+
+- **Type:** List
+- **Items:** <a href="#GeneralPrerequisites[]/prerequisite'Disjunction/disjunction/list[]">GeneralPrerequisites[]/prerequisite'Disjunction/disjunction/list[]</a>
+- **Minimum Items:** `2`
+
+---
+
+### <a name="GeneralPrerequisites[]/prerequisite'Disjunction/disjunction/list[]"></a> `GeneralPrerequisites[]/prerequisite'Disjunction/disjunction/list[]`
+
+- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#GeneralPrerequisiteGroup">GeneralPrerequisiteGroup</a>
+
+---
+
+### <a name="GeneralPrerequisites[]/prerequisite'Group"></a> `GeneralPrerequisites[]/prerequisite'Group`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#GeneralPrerequisites[]/prerequisite'Group/tag">See details</a>
+`group` |  | <a href="#GeneralPrerequisites[]/prerequisite'Group/group">See details</a>
+
+#### <a name="GeneralPrerequisites[]/prerequisite'Group/tag"></a> `tag`
+
+- **Constant:** `"Group"`
+
+#### <a name="GeneralPrerequisites[]/prerequisite'Group/group"></a> `group`
+
+- **Type:** <a href="#GeneralPrerequisites[]/prerequisite'Group/group">Object</a>
+
+---
+
+### <a name="GeneralPrerequisites[]/prerequisite'Group/group"></a> `GeneralPrerequisites[]/prerequisite'Group/group`
 
 A prerequisite group has no influence on validation logic. It serves as a
 single unit for displaying purposes, where the source uses a prerequisites
@@ -393,33 +392,33 @@ item that cannot be represented as a single prerequisite.
 
 Key | Description | Details
 :-- | :-- | :--
-`list` |  | <a href="#GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/list">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/translations">See details</a>
+`list` |  | <a href="#GeneralPrerequisites[]/prerequisite'Group/group/list">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#GeneralPrerequisites[]/prerequisite'Group/group/translations">See details</a>
 
-#### <a name="GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/list"></a> `list`
+#### <a name="GeneralPrerequisites[]/prerequisite'Group/group/list"></a> `list`
 
 - **Type:** List
-- **Items:** <a href="#GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/list[]">GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/list[]</a>
+- **Items:** <a href="#GeneralPrerequisites[]/prerequisite'Group/group/list[]">GeneralPrerequisites[]/prerequisite'Group/group/list[]</a>
 - **Minimum Items:** `2`
 
-#### <a name="GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/translations"></a> `translations`
+#### <a name="GeneralPrerequisites[]/prerequisite'Group/group/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/translations[key]">GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/translations[key]</a>
+- **Property Values:** <a href="#GeneralPrerequisites[]/prerequisite'Group/group/translations[key]">GeneralPrerequisites[]/prerequisite'Group/group/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/list[]"></a> `GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/list[]`
+### <a name="GeneralPrerequisites[]/prerequisite'Group/group/list[]"></a> `GeneralPrerequisites[]/prerequisite'Group/group/list[]`
 
 - **Type:** <a href="./prerequisites/PrerequisiteGroups.md#GeneralPrerequisiteGroup">GeneralPrerequisiteGroup</a>
 
 ---
 
-### <a name="GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/translations[key]"></a> `GeneralPrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/translations[key]`
+### <a name="GeneralPrerequisites[]/prerequisite'Group/group/translations[key]"></a> `GeneralPrerequisites[]/prerequisite'Group/group/translations[key]`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -427,65 +426,99 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="ProfessionPrerequisites"></a> `ProfessionPrerequisites`
 
-- **Type:** Union
-- **Cases:** <a href="#ProfessionPrerequisites'Plain">ProfessionPrerequisites'Plain</a>
+- **Type:** List
+- **Items:** <a href="#ProfessionPrerequisites[]">ProfessionPrerequisites[]</a>
+- **Minimum Items:** `1`
 
 ---
 
-### <a name="ProfessionPrerequisites'Plain"></a> `ProfessionPrerequisites'Plain`
+### <a name="ProfessionPrerequisites[]"></a> `ProfessionPrerequisites[]`
+
+- **Type:** Union
+- **Cases:** <a href="#ProfessionPrerequisites[]'Single">ProfessionPrerequisites[]'Single</a> | <a href="#ProfessionPrerequisites[]'Disjunction">ProfessionPrerequisites[]'Disjunction</a> | <a href="#ProfessionPrerequisites[]'Group">ProfessionPrerequisites[]'Group</a>
+
+---
+
+### <a name="ProfessionPrerequisites[]'Single"></a> `ProfessionPrerequisites[]'Single`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#ProfessionPrerequisites'Plain/tag">See details</a>
-`plain` |  | <a href="#ProfessionPrerequisites'Plain/plain">See details</a>
+`tag` |  | <a href="#ProfessionPrerequisites[]'Single/tag">See details</a>
+`single` |  | <a href="#ProfessionPrerequisites[]'Single/single">See details</a>
 
-#### <a name="ProfessionPrerequisites'Plain/tag"></a> `tag`
+#### <a name="ProfessionPrerequisites[]'Single/tag"></a> `tag`
 
-- **Constant:** `"Plain"`
+- **Constant:** `"Single"`
 
-#### <a name="ProfessionPrerequisites'Plain/plain"></a> `plain`
-
-- **Type:** List
-- **Items:** <a href="#ProfessionPrerequisites'Plain/plain[]">ProfessionPrerequisites'Plain/plain[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="ProfessionPrerequisites'Plain/plain[]"></a> `ProfessionPrerequisites'Plain/plain[]`
-
-- **Type:** Union
-- **Cases:** <a href="#ProfessionPrerequisites'Plain/plain[]'ProfessionPrerequisiteGroup">ProfessionPrerequisites'Plain/plain[]'ProfessionPrerequisiteGroup</a> | <a href="#ProfessionPrerequisites'Plain/plain[]'Group">ProfessionPrerequisites'Plain/plain[]'Group</a>
-
----
-
-### <a name="ProfessionPrerequisites'Plain/plain[]'ProfessionPrerequisiteGroup"></a> `ProfessionPrerequisites'Plain/plain[]'ProfessionPrerequisiteGroup`
+#### <a name="ProfessionPrerequisites[]'Single/single"></a> `single`
 
 - **Type:** <a href="./prerequisites/PrerequisiteGroups.md#ProfessionPrerequisiteGroup">ProfessionPrerequisiteGroup</a>
 
 ---
 
-### <a name="ProfessionPrerequisites'Plain/plain[]'Group"></a> `ProfessionPrerequisites'Plain/plain[]'Group`
+### <a name="ProfessionPrerequisites[]'Disjunction"></a> `ProfessionPrerequisites[]'Disjunction`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#ProfessionPrerequisites'Plain/plain[]'Group/tag">See details</a>
-`group` |  | <a href="#ProfessionPrerequisites'Plain/plain[]'Group/group">See details</a>
+`tag` |  | <a href="#ProfessionPrerequisites[]'Disjunction/tag">See details</a>
+`disjunction` |  | <a href="#ProfessionPrerequisites[]'Disjunction/disjunction">See details</a>
 
-#### <a name="ProfessionPrerequisites'Plain/plain[]'Group/tag"></a> `tag`
+#### <a name="ProfessionPrerequisites[]'Disjunction/tag"></a> `tag`
 
-- **Constant:** `"Group"`
+- **Constant:** `"Disjunction"`
 
-#### <a name="ProfessionPrerequisites'Plain/plain[]'Group/group"></a> `group`
+#### <a name="ProfessionPrerequisites[]'Disjunction/disjunction"></a> `disjunction`
 
-- **Type:** <a href="#ProfessionPrerequisites'Plain/plain[]'Group/group">Object</a>
+- **Type:** <a href="#ProfessionPrerequisites[]'Disjunction/disjunction">Object</a>
 
 ---
 
-### <a name="ProfessionPrerequisites'Plain/plain[]'Group/group"></a> `ProfessionPrerequisites'Plain/plain[]'Group/group`
+### <a name="ProfessionPrerequisites[]'Disjunction/disjunction"></a> `ProfessionPrerequisites[]'Disjunction/disjunction`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`list` |  | <a href="#ProfessionPrerequisites[]'Disjunction/disjunction/list">See details</a>
+
+#### <a name="ProfessionPrerequisites[]'Disjunction/disjunction/list"></a> `list`
+
+- **Type:** List
+- **Items:** <a href="#ProfessionPrerequisites[]'Disjunction/disjunction/list[]">ProfessionPrerequisites[]'Disjunction/disjunction/list[]</a>
+- **Minimum Items:** `2`
+
+---
+
+### <a name="ProfessionPrerequisites[]'Disjunction/disjunction/list[]"></a> `ProfessionPrerequisites[]'Disjunction/disjunction/list[]`
+
+- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#ProfessionPrerequisiteGroup">ProfessionPrerequisiteGroup</a>
+
+---
+
+### <a name="ProfessionPrerequisites[]'Group"></a> `ProfessionPrerequisites[]'Group`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ProfessionPrerequisites[]'Group/tag">See details</a>
+`group` |  | <a href="#ProfessionPrerequisites[]'Group/group">See details</a>
+
+#### <a name="ProfessionPrerequisites[]'Group/tag"></a> `tag`
+
+- **Constant:** `"Group"`
+
+#### <a name="ProfessionPrerequisites[]'Group/group"></a> `group`
+
+- **Type:** <a href="#ProfessionPrerequisites[]'Group/group">Object</a>
+
+---
+
+### <a name="ProfessionPrerequisites[]'Group/group"></a> `ProfessionPrerequisites[]'Group/group`
 
 A prerequisite group has no influence on validation logic. It serves as a
 single unit for displaying purposes, where the source uses a prerequisites
@@ -495,33 +528,33 @@ item that cannot be represented as a single prerequisite.
 
 Key | Description | Details
 :-- | :-- | :--
-`list` |  | <a href="#ProfessionPrerequisites'Plain/plain[]'Group/group/list">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ProfessionPrerequisites'Plain/plain[]'Group/group/translations">See details</a>
+`list` |  | <a href="#ProfessionPrerequisites[]'Group/group/list">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ProfessionPrerequisites[]'Group/group/translations">See details</a>
 
-#### <a name="ProfessionPrerequisites'Plain/plain[]'Group/group/list"></a> `list`
+#### <a name="ProfessionPrerequisites[]'Group/group/list"></a> `list`
 
 - **Type:** List
-- **Items:** <a href="#ProfessionPrerequisites'Plain/plain[]'Group/group/list[]">ProfessionPrerequisites'Plain/plain[]'Group/group/list[]</a>
+- **Items:** <a href="#ProfessionPrerequisites[]'Group/group/list[]">ProfessionPrerequisites[]'Group/group/list[]</a>
 - **Minimum Items:** `2`
 
-#### <a name="ProfessionPrerequisites'Plain/plain[]'Group/group/translations"></a> `translations`
+#### <a name="ProfessionPrerequisites[]'Group/group/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#ProfessionPrerequisites'Plain/plain[]'Group/group/translations[key]">ProfessionPrerequisites'Plain/plain[]'Group/group/translations[key]</a>
+- **Property Values:** <a href="#ProfessionPrerequisites[]'Group/group/translations[key]">ProfessionPrerequisites[]'Group/group/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="ProfessionPrerequisites'Plain/plain[]'Group/group/list[]"></a> `ProfessionPrerequisites'Plain/plain[]'Group/group/list[]`
+### <a name="ProfessionPrerequisites[]'Group/group/list[]"></a> `ProfessionPrerequisites[]'Group/group/list[]`
 
 - **Type:** <a href="./prerequisites/PrerequisiteGroups.md#ProfessionPrerequisiteGroup">ProfessionPrerequisiteGroup</a>
 
 ---
 
-### <a name="ProfessionPrerequisites'Plain/plain[]'Group/group/translations[key]"></a> `ProfessionPrerequisites'Plain/plain[]'Group/group/translations[key]`
+### <a name="ProfessionPrerequisites[]'Group/group/translations[key]"></a> `ProfessionPrerequisites[]'Group/group/translations[key]`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -529,182 +562,113 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="AdvantageDisadvantagePrerequisites"></a> `AdvantageDisadvantagePrerequisites`
 
-- **Type:** Union
-- **Cases:** <a href="#AdvantageDisadvantagePrerequisites'Plain">AdvantageDisadvantagePrerequisites'Plain</a> | <a href="#AdvantageDisadvantagePrerequisites'ByLevel">AdvantageDisadvantagePrerequisites'ByLevel</a>
-
----
-
-### <a name="AdvantageDisadvantagePrerequisites'Plain"></a> `AdvantageDisadvantagePrerequisites'Plain`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#AdvantageDisadvantagePrerequisites'Plain/tag">See details</a>
-`plain` |  | <a href="#AdvantageDisadvantagePrerequisites'Plain/plain">See details</a>
-
-#### <a name="AdvantageDisadvantagePrerequisites'Plain/tag"></a> `tag`
-
-- **Constant:** `"Plain"`
-
-#### <a name="AdvantageDisadvantagePrerequisites'Plain/plain"></a> `plain`
-
 - **Type:** List
-- **Items:** <a href="#AdvantageDisadvantagePrerequisites'Plain/plain[]">AdvantageDisadvantagePrerequisites'Plain/plain[]</a>
+- **Items:** <a href="#AdvantageDisadvantagePrerequisites[]">AdvantageDisadvantagePrerequisites[]</a>
 - **Minimum Items:** `1`
 
 ---
 
-### <a name="AdvantageDisadvantagePrerequisites'Plain/plain[]"></a> `AdvantageDisadvantagePrerequisites'Plain/plain[]`
-
-- **Type:** Union
-- **Cases:** <a href="#AdvantageDisadvantagePrerequisites'Plain/plain[]'AdvantageDisadvantagePrerequisiteGroup">AdvantageDisadvantagePrerequisites'Plain/plain[]'AdvantageDisadvantagePrerequisiteGroup</a> | <a href="#AdvantageDisadvantagePrerequisites'Plain/plain[]'Group">AdvantageDisadvantagePrerequisites'Plain/plain[]'Group</a>
-
----
-
-### <a name="AdvantageDisadvantagePrerequisites'Plain/plain[]'AdvantageDisadvantagePrerequisiteGroup"></a> `AdvantageDisadvantagePrerequisites'Plain/plain[]'AdvantageDisadvantagePrerequisiteGroup`
-
-- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#AdvantageDisadvantagePrerequisiteGroup">AdvantageDisadvantagePrerequisiteGroup</a>
-
----
-
-### <a name="AdvantageDisadvantagePrerequisites'Plain/plain[]'Group"></a> `AdvantageDisadvantagePrerequisites'Plain/plain[]'Group`
+### <a name="AdvantageDisadvantagePrerequisites[]"></a> `AdvantageDisadvantagePrerequisites[]`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#AdvantageDisadvantagePrerequisites'Plain/plain[]'Group/tag">See details</a>
-`group` |  | <a href="#AdvantageDisadvantagePrerequisites'Plain/plain[]'Group/group">See details</a>
+`level` |  | <a href="#AdvantageDisadvantagePrerequisites[]/level">See details</a>
+`prerequisite` |  | <a href="#AdvantageDisadvantagePrerequisites[]/prerequisite">See details</a>
 
-#### <a name="AdvantageDisadvantagePrerequisites'Plain/plain[]'Group/tag"></a> `tag`
-
-- **Constant:** `"Group"`
-
-#### <a name="AdvantageDisadvantagePrerequisites'Plain/plain[]'Group/group"></a> `group`
-
-- **Type:** <a href="#AdvantageDisadvantagePrerequisites'Plain/plain[]'Group/group">Object</a>
-
----
-
-### <a name="AdvantageDisadvantagePrerequisites'Plain/plain[]'Group/group"></a> `AdvantageDisadvantagePrerequisites'Plain/plain[]'Group/group`
-
-A prerequisite group has no influence on validation logic. It serves as a
-single unit for displaying purposes, where the source uses a prerequisites
-item that cannot be represented as a single prerequisite.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`list` |  | <a href="#AdvantageDisadvantagePrerequisites'Plain/plain[]'Group/group/list">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#AdvantageDisadvantagePrerequisites'Plain/plain[]'Group/group/translations">See details</a>
-
-#### <a name="AdvantageDisadvantagePrerequisites'Plain/plain[]'Group/group/list"></a> `list`
-
-- **Type:** List
-- **Items:** <a href="#AdvantageDisadvantagePrerequisites'Plain/plain[]'Group/group/list[]">AdvantageDisadvantagePrerequisites'Plain/plain[]'Group/group/list[]</a>
-- **Minimum Items:** `2`
-
-#### <a name="AdvantageDisadvantagePrerequisites'Plain/plain[]'Group/group/translations"></a> `translations`
-
-All translations for the entry, identified by IETF language tag (BCP47).
-
-- **Type:** Dictionary
-- **Property Values:** <a href="#AdvantageDisadvantagePrerequisites'Plain/plain[]'Group/group/translations[key]">AdvantageDisadvantagePrerequisites'Plain/plain[]'Group/group/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="AdvantageDisadvantagePrerequisites'Plain/plain[]'Group/group/list[]"></a> `AdvantageDisadvantagePrerequisites'Plain/plain[]'Group/group/list[]`
-
-- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#AdvantageDisadvantagePrerequisiteGroup">AdvantageDisadvantagePrerequisiteGroup</a>
-
----
-
-### <a name="AdvantageDisadvantagePrerequisites'Plain/plain[]'Group/group/translations[key]"></a> `AdvantageDisadvantagePrerequisites'Plain/plain[]'Group/group/translations[key]`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
----
-
-### <a name="AdvantageDisadvantagePrerequisites'ByLevel"></a> `AdvantageDisadvantagePrerequisites'ByLevel`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#AdvantageDisadvantagePrerequisites'ByLevel/tag">See details</a>
-`by_level` |  | <a href="#AdvantageDisadvantagePrerequisites'ByLevel/by_level">See details</a>
-
-#### <a name="AdvantageDisadvantagePrerequisites'ByLevel/tag"></a> `tag`
-
-- **Constant:** `"ByLevel"`
-
-#### <a name="AdvantageDisadvantagePrerequisites'ByLevel/by_level"></a> `by_level`
-
-- **Type:** List
-- **Items:** <a href="#AdvantageDisadvantagePrerequisites'ByLevel/by_level[]">AdvantageDisadvantagePrerequisites'ByLevel/by_level[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="AdvantageDisadvantagePrerequisites'ByLevel/by_level[]"></a> `AdvantageDisadvantagePrerequisites'ByLevel/by_level[]`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`level` |  | <a href="#AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/level">See details</a>
-`prerequisites` |  | <a href="#AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites">See details</a>
-
-#### <a name="AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/level"></a> `level`
+#### <a name="AdvantageDisadvantagePrerequisites[]/level"></a> `level`
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites"></a> `prerequisites`
-
-- **Type:** List
-- **Items:** <a href="#AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]">AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]"></a> `AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]`
+#### <a name="AdvantageDisadvantagePrerequisites[]/prerequisite"></a> `prerequisite`
 
 - **Type:** Union
-- **Cases:** <a href="#AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]'AdvantageDisadvantagePrerequisiteGroup">AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]'AdvantageDisadvantagePrerequisiteGroup</a> | <a href="#AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group">AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group</a>
+- **Cases:** <a href="#AdvantageDisadvantagePrerequisites[]/prerequisite'Single">AdvantageDisadvantagePrerequisites[]/prerequisite'Single</a> | <a href="#AdvantageDisadvantagePrerequisites[]/prerequisite'Disjunction">AdvantageDisadvantagePrerequisites[]/prerequisite'Disjunction</a> | <a href="#AdvantageDisadvantagePrerequisites[]/prerequisite'Group">AdvantageDisadvantagePrerequisites[]/prerequisite'Group</a>
 
 ---
 
-### <a name="AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]'AdvantageDisadvantagePrerequisiteGroup"></a> `AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]'AdvantageDisadvantagePrerequisiteGroup`
-
-- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#AdvantageDisadvantagePrerequisiteGroup">AdvantageDisadvantagePrerequisiteGroup</a>
-
----
-
-### <a name="AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group"></a> `AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group`
+### <a name="AdvantageDisadvantagePrerequisites[]/prerequisite'Single"></a> `AdvantageDisadvantagePrerequisites[]/prerequisite'Single`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/tag">See details</a>
-`group` |  | <a href="#AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group">See details</a>
+`tag` |  | <a href="#AdvantageDisadvantagePrerequisites[]/prerequisite'Single/tag">See details</a>
+`single` |  | <a href="#AdvantageDisadvantagePrerequisites[]/prerequisite'Single/single">See details</a>
 
-#### <a name="AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/tag"></a> `tag`
+#### <a name="AdvantageDisadvantagePrerequisites[]/prerequisite'Single/tag"></a> `tag`
 
-- **Constant:** `"Group"`
+- **Constant:** `"Single"`
 
-#### <a name="AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group"></a> `group`
+#### <a name="AdvantageDisadvantagePrerequisites[]/prerequisite'Single/single"></a> `single`
 
-- **Type:** <a href="#AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group">Object</a>
+- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#AdvantageDisadvantagePrerequisiteGroup">AdvantageDisadvantagePrerequisiteGroup</a>
 
 ---
 
-### <a name="AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group"></a> `AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group`
+### <a name="AdvantageDisadvantagePrerequisites[]/prerequisite'Disjunction"></a> `AdvantageDisadvantagePrerequisites[]/prerequisite'Disjunction`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AdvantageDisadvantagePrerequisites[]/prerequisite'Disjunction/tag">See details</a>
+`disjunction` |  | <a href="#AdvantageDisadvantagePrerequisites[]/prerequisite'Disjunction/disjunction">See details</a>
+
+#### <a name="AdvantageDisadvantagePrerequisites[]/prerequisite'Disjunction/tag"></a> `tag`
+
+- **Constant:** `"Disjunction"`
+
+#### <a name="AdvantageDisadvantagePrerequisites[]/prerequisite'Disjunction/disjunction"></a> `disjunction`
+
+- **Type:** <a href="#AdvantageDisadvantagePrerequisites[]/prerequisite'Disjunction/disjunction">Object</a>
+
+---
+
+### <a name="AdvantageDisadvantagePrerequisites[]/prerequisite'Disjunction/disjunction"></a> `AdvantageDisadvantagePrerequisites[]/prerequisite'Disjunction/disjunction`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`list` |  | <a href="#AdvantageDisadvantagePrerequisites[]/prerequisite'Disjunction/disjunction/list">See details</a>
+
+#### <a name="AdvantageDisadvantagePrerequisites[]/prerequisite'Disjunction/disjunction/list"></a> `list`
+
+- **Type:** List
+- **Items:** <a href="#AdvantageDisadvantagePrerequisites[]/prerequisite'Disjunction/disjunction/list[]">AdvantageDisadvantagePrerequisites[]/prerequisite'Disjunction/disjunction/list[]</a>
+- **Minimum Items:** `2`
+
+---
+
+### <a name="AdvantageDisadvantagePrerequisites[]/prerequisite'Disjunction/disjunction/list[]"></a> `AdvantageDisadvantagePrerequisites[]/prerequisite'Disjunction/disjunction/list[]`
+
+- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#AdvantageDisadvantagePrerequisiteGroup">AdvantageDisadvantagePrerequisiteGroup</a>
+
+---
+
+### <a name="AdvantageDisadvantagePrerequisites[]/prerequisite'Group"></a> `AdvantageDisadvantagePrerequisites[]/prerequisite'Group`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AdvantageDisadvantagePrerequisites[]/prerequisite'Group/tag">See details</a>
+`group` |  | <a href="#AdvantageDisadvantagePrerequisites[]/prerequisite'Group/group">See details</a>
+
+#### <a name="AdvantageDisadvantagePrerequisites[]/prerequisite'Group/tag"></a> `tag`
+
+- **Constant:** `"Group"`
+
+#### <a name="AdvantageDisadvantagePrerequisites[]/prerequisite'Group/group"></a> `group`
+
+- **Type:** <a href="#AdvantageDisadvantagePrerequisites[]/prerequisite'Group/group">Object</a>
+
+---
+
+### <a name="AdvantageDisadvantagePrerequisites[]/prerequisite'Group/group"></a> `AdvantageDisadvantagePrerequisites[]/prerequisite'Group/group`
 
 A prerequisite group has no influence on validation logic. It serves as a
 single unit for displaying purposes, where the source uses a prerequisites
@@ -714,33 +678,33 @@ item that cannot be represented as a single prerequisite.
 
 Key | Description | Details
 :-- | :-- | :--
-`list` |  | <a href="#AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/list">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/translations">See details</a>
+`list` |  | <a href="#AdvantageDisadvantagePrerequisites[]/prerequisite'Group/group/list">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#AdvantageDisadvantagePrerequisites[]/prerequisite'Group/group/translations">See details</a>
 
-#### <a name="AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/list"></a> `list`
+#### <a name="AdvantageDisadvantagePrerequisites[]/prerequisite'Group/group/list"></a> `list`
 
 - **Type:** List
-- **Items:** <a href="#AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/list[]">AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/list[]</a>
+- **Items:** <a href="#AdvantageDisadvantagePrerequisites[]/prerequisite'Group/group/list[]">AdvantageDisadvantagePrerequisites[]/prerequisite'Group/group/list[]</a>
 - **Minimum Items:** `2`
 
-#### <a name="AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/translations"></a> `translations`
+#### <a name="AdvantageDisadvantagePrerequisites[]/prerequisite'Group/group/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/translations[key]">AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/translations[key]</a>
+- **Property Values:** <a href="#AdvantageDisadvantagePrerequisites[]/prerequisite'Group/group/translations[key]">AdvantageDisadvantagePrerequisites[]/prerequisite'Group/group/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/list[]"></a> `AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/list[]`
+### <a name="AdvantageDisadvantagePrerequisites[]/prerequisite'Group/group/list[]"></a> `AdvantageDisadvantagePrerequisites[]/prerequisite'Group/group/list[]`
 
 - **Type:** <a href="./prerequisites/PrerequisiteGroups.md#AdvantageDisadvantagePrerequisiteGroup">AdvantageDisadvantagePrerequisiteGroup</a>
 
 ---
 
-### <a name="AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/translations[key]"></a> `AdvantageDisadvantagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/translations[key]`
+### <a name="AdvantageDisadvantagePrerequisites[]/prerequisite'Group/group/translations[key]"></a> `AdvantageDisadvantagePrerequisites[]/prerequisite'Group/group/translations[key]`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -748,65 +712,99 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="ArcaneTraditionPrerequisites"></a> `ArcaneTraditionPrerequisites`
 
-- **Type:** Union
-- **Cases:** <a href="#ArcaneTraditionPrerequisites'Plain">ArcaneTraditionPrerequisites'Plain</a>
+- **Type:** List
+- **Items:** <a href="#ArcaneTraditionPrerequisites[]">ArcaneTraditionPrerequisites[]</a>
+- **Minimum Items:** `1`
 
 ---
 
-### <a name="ArcaneTraditionPrerequisites'Plain"></a> `ArcaneTraditionPrerequisites'Plain`
+### <a name="ArcaneTraditionPrerequisites[]"></a> `ArcaneTraditionPrerequisites[]`
+
+- **Type:** Union
+- **Cases:** <a href="#ArcaneTraditionPrerequisites[]'Single">ArcaneTraditionPrerequisites[]'Single</a> | <a href="#ArcaneTraditionPrerequisites[]'Disjunction">ArcaneTraditionPrerequisites[]'Disjunction</a> | <a href="#ArcaneTraditionPrerequisites[]'Group">ArcaneTraditionPrerequisites[]'Group</a>
+
+---
+
+### <a name="ArcaneTraditionPrerequisites[]'Single"></a> `ArcaneTraditionPrerequisites[]'Single`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#ArcaneTraditionPrerequisites'Plain/tag">See details</a>
-`plain` |  | <a href="#ArcaneTraditionPrerequisites'Plain/plain">See details</a>
+`tag` |  | <a href="#ArcaneTraditionPrerequisites[]'Single/tag">See details</a>
+`single` |  | <a href="#ArcaneTraditionPrerequisites[]'Single/single">See details</a>
 
-#### <a name="ArcaneTraditionPrerequisites'Plain/tag"></a> `tag`
+#### <a name="ArcaneTraditionPrerequisites[]'Single/tag"></a> `tag`
 
-- **Constant:** `"Plain"`
+- **Constant:** `"Single"`
 
-#### <a name="ArcaneTraditionPrerequisites'Plain/plain"></a> `plain`
-
-- **Type:** List
-- **Items:** <a href="#ArcaneTraditionPrerequisites'Plain/plain[]">ArcaneTraditionPrerequisites'Plain/plain[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="ArcaneTraditionPrerequisites'Plain/plain[]"></a> `ArcaneTraditionPrerequisites'Plain/plain[]`
-
-- **Type:** Union
-- **Cases:** <a href="#ArcaneTraditionPrerequisites'Plain/plain[]'ArcaneTraditionPrerequisiteGroup">ArcaneTraditionPrerequisites'Plain/plain[]'ArcaneTraditionPrerequisiteGroup</a> | <a href="#ArcaneTraditionPrerequisites'Plain/plain[]'Group">ArcaneTraditionPrerequisites'Plain/plain[]'Group</a>
-
----
-
-### <a name="ArcaneTraditionPrerequisites'Plain/plain[]'ArcaneTraditionPrerequisiteGroup"></a> `ArcaneTraditionPrerequisites'Plain/plain[]'ArcaneTraditionPrerequisiteGroup`
+#### <a name="ArcaneTraditionPrerequisites[]'Single/single"></a> `single`
 
 - **Type:** <a href="./prerequisites/PrerequisiteGroups.md#ArcaneTraditionPrerequisiteGroup">ArcaneTraditionPrerequisiteGroup</a>
 
 ---
 
-### <a name="ArcaneTraditionPrerequisites'Plain/plain[]'Group"></a> `ArcaneTraditionPrerequisites'Plain/plain[]'Group`
+### <a name="ArcaneTraditionPrerequisites[]'Disjunction"></a> `ArcaneTraditionPrerequisites[]'Disjunction`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#ArcaneTraditionPrerequisites'Plain/plain[]'Group/tag">See details</a>
-`group` |  | <a href="#ArcaneTraditionPrerequisites'Plain/plain[]'Group/group">See details</a>
+`tag` |  | <a href="#ArcaneTraditionPrerequisites[]'Disjunction/tag">See details</a>
+`disjunction` |  | <a href="#ArcaneTraditionPrerequisites[]'Disjunction/disjunction">See details</a>
 
-#### <a name="ArcaneTraditionPrerequisites'Plain/plain[]'Group/tag"></a> `tag`
+#### <a name="ArcaneTraditionPrerequisites[]'Disjunction/tag"></a> `tag`
 
-- **Constant:** `"Group"`
+- **Constant:** `"Disjunction"`
 
-#### <a name="ArcaneTraditionPrerequisites'Plain/plain[]'Group/group"></a> `group`
+#### <a name="ArcaneTraditionPrerequisites[]'Disjunction/disjunction"></a> `disjunction`
 
-- **Type:** <a href="#ArcaneTraditionPrerequisites'Plain/plain[]'Group/group">Object</a>
+- **Type:** <a href="#ArcaneTraditionPrerequisites[]'Disjunction/disjunction">Object</a>
 
 ---
 
-### <a name="ArcaneTraditionPrerequisites'Plain/plain[]'Group/group"></a> `ArcaneTraditionPrerequisites'Plain/plain[]'Group/group`
+### <a name="ArcaneTraditionPrerequisites[]'Disjunction/disjunction"></a> `ArcaneTraditionPrerequisites[]'Disjunction/disjunction`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`list` |  | <a href="#ArcaneTraditionPrerequisites[]'Disjunction/disjunction/list">See details</a>
+
+#### <a name="ArcaneTraditionPrerequisites[]'Disjunction/disjunction/list"></a> `list`
+
+- **Type:** List
+- **Items:** <a href="#ArcaneTraditionPrerequisites[]'Disjunction/disjunction/list[]">ArcaneTraditionPrerequisites[]'Disjunction/disjunction/list[]</a>
+- **Minimum Items:** `2`
+
+---
+
+### <a name="ArcaneTraditionPrerequisites[]'Disjunction/disjunction/list[]"></a> `ArcaneTraditionPrerequisites[]'Disjunction/disjunction/list[]`
+
+- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#ArcaneTraditionPrerequisiteGroup">ArcaneTraditionPrerequisiteGroup</a>
+
+---
+
+### <a name="ArcaneTraditionPrerequisites[]'Group"></a> `ArcaneTraditionPrerequisites[]'Group`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ArcaneTraditionPrerequisites[]'Group/tag">See details</a>
+`group` |  | <a href="#ArcaneTraditionPrerequisites[]'Group/group">See details</a>
+
+#### <a name="ArcaneTraditionPrerequisites[]'Group/tag"></a> `tag`
+
+- **Constant:** `"Group"`
+
+#### <a name="ArcaneTraditionPrerequisites[]'Group/group"></a> `group`
+
+- **Type:** <a href="#ArcaneTraditionPrerequisites[]'Group/group">Object</a>
+
+---
+
+### <a name="ArcaneTraditionPrerequisites[]'Group/group"></a> `ArcaneTraditionPrerequisites[]'Group/group`
 
 A prerequisite group has no influence on validation logic. It serves as a
 single unit for displaying purposes, where the source uses a prerequisites
@@ -816,33 +814,33 @@ item that cannot be represented as a single prerequisite.
 
 Key | Description | Details
 :-- | :-- | :--
-`list` |  | <a href="#ArcaneTraditionPrerequisites'Plain/plain[]'Group/group/list">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ArcaneTraditionPrerequisites'Plain/plain[]'Group/group/translations">See details</a>
+`list` |  | <a href="#ArcaneTraditionPrerequisites[]'Group/group/list">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ArcaneTraditionPrerequisites[]'Group/group/translations">See details</a>
 
-#### <a name="ArcaneTraditionPrerequisites'Plain/plain[]'Group/group/list"></a> `list`
+#### <a name="ArcaneTraditionPrerequisites[]'Group/group/list"></a> `list`
 
 - **Type:** List
-- **Items:** <a href="#ArcaneTraditionPrerequisites'Plain/plain[]'Group/group/list[]">ArcaneTraditionPrerequisites'Plain/plain[]'Group/group/list[]</a>
+- **Items:** <a href="#ArcaneTraditionPrerequisites[]'Group/group/list[]">ArcaneTraditionPrerequisites[]'Group/group/list[]</a>
 - **Minimum Items:** `2`
 
-#### <a name="ArcaneTraditionPrerequisites'Plain/plain[]'Group/group/translations"></a> `translations`
+#### <a name="ArcaneTraditionPrerequisites[]'Group/group/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#ArcaneTraditionPrerequisites'Plain/plain[]'Group/group/translations[key]">ArcaneTraditionPrerequisites'Plain/plain[]'Group/group/translations[key]</a>
+- **Property Values:** <a href="#ArcaneTraditionPrerequisites[]'Group/group/translations[key]">ArcaneTraditionPrerequisites[]'Group/group/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="ArcaneTraditionPrerequisites'Plain/plain[]'Group/group/list[]"></a> `ArcaneTraditionPrerequisites'Plain/plain[]'Group/group/list[]`
+### <a name="ArcaneTraditionPrerequisites[]'Group/group/list[]"></a> `ArcaneTraditionPrerequisites[]'Group/group/list[]`
 
 - **Type:** <a href="./prerequisites/PrerequisiteGroups.md#ArcaneTraditionPrerequisiteGroup">ArcaneTraditionPrerequisiteGroup</a>
 
 ---
 
-### <a name="ArcaneTraditionPrerequisites'Plain/plain[]'Group/group/translations[key]"></a> `ArcaneTraditionPrerequisites'Plain/plain[]'Group/group/translations[key]`
+### <a name="ArcaneTraditionPrerequisites[]'Group/group/translations[key]"></a> `ArcaneTraditionPrerequisites[]'Group/group/translations[key]`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -850,65 +848,99 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="PersonalityTraitPrerequisites"></a> `PersonalityTraitPrerequisites`
 
-- **Type:** Union
-- **Cases:** <a href="#PersonalityTraitPrerequisites'Plain">PersonalityTraitPrerequisites'Plain</a>
+- **Type:** List
+- **Items:** <a href="#PersonalityTraitPrerequisites[]">PersonalityTraitPrerequisites[]</a>
+- **Minimum Items:** `1`
 
 ---
 
-### <a name="PersonalityTraitPrerequisites'Plain"></a> `PersonalityTraitPrerequisites'Plain`
+### <a name="PersonalityTraitPrerequisites[]"></a> `PersonalityTraitPrerequisites[]`
+
+- **Type:** Union
+- **Cases:** <a href="#PersonalityTraitPrerequisites[]'Single">PersonalityTraitPrerequisites[]'Single</a> | <a href="#PersonalityTraitPrerequisites[]'Disjunction">PersonalityTraitPrerequisites[]'Disjunction</a> | <a href="#PersonalityTraitPrerequisites[]'Group">PersonalityTraitPrerequisites[]'Group</a>
+
+---
+
+### <a name="PersonalityTraitPrerequisites[]'Single"></a> `PersonalityTraitPrerequisites[]'Single`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PersonalityTraitPrerequisites'Plain/tag">See details</a>
-`plain` |  | <a href="#PersonalityTraitPrerequisites'Plain/plain">See details</a>
+`tag` |  | <a href="#PersonalityTraitPrerequisites[]'Single/tag">See details</a>
+`single` |  | <a href="#PersonalityTraitPrerequisites[]'Single/single">See details</a>
 
-#### <a name="PersonalityTraitPrerequisites'Plain/tag"></a> `tag`
+#### <a name="PersonalityTraitPrerequisites[]'Single/tag"></a> `tag`
 
-- **Constant:** `"Plain"`
+- **Constant:** `"Single"`
 
-#### <a name="PersonalityTraitPrerequisites'Plain/plain"></a> `plain`
-
-- **Type:** List
-- **Items:** <a href="#PersonalityTraitPrerequisites'Plain/plain[]">PersonalityTraitPrerequisites'Plain/plain[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="PersonalityTraitPrerequisites'Plain/plain[]"></a> `PersonalityTraitPrerequisites'Plain/plain[]`
-
-- **Type:** Union
-- **Cases:** <a href="#PersonalityTraitPrerequisites'Plain/plain[]'PersonalityTraitPrerequisiteGroup">PersonalityTraitPrerequisites'Plain/plain[]'PersonalityTraitPrerequisiteGroup</a> | <a href="#PersonalityTraitPrerequisites'Plain/plain[]'Group">PersonalityTraitPrerequisites'Plain/plain[]'Group</a>
-
----
-
-### <a name="PersonalityTraitPrerequisites'Plain/plain[]'PersonalityTraitPrerequisiteGroup"></a> `PersonalityTraitPrerequisites'Plain/plain[]'PersonalityTraitPrerequisiteGroup`
+#### <a name="PersonalityTraitPrerequisites[]'Single/single"></a> `single`
 
 - **Type:** <a href="./prerequisites/PrerequisiteGroups.md#PersonalityTraitPrerequisiteGroup">PersonalityTraitPrerequisiteGroup</a>
 
 ---
 
-### <a name="PersonalityTraitPrerequisites'Plain/plain[]'Group"></a> `PersonalityTraitPrerequisites'Plain/plain[]'Group`
+### <a name="PersonalityTraitPrerequisites[]'Disjunction"></a> `PersonalityTraitPrerequisites[]'Disjunction`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PersonalityTraitPrerequisites'Plain/plain[]'Group/tag">See details</a>
-`group` |  | <a href="#PersonalityTraitPrerequisites'Plain/plain[]'Group/group">See details</a>
+`tag` |  | <a href="#PersonalityTraitPrerequisites[]'Disjunction/tag">See details</a>
+`disjunction` |  | <a href="#PersonalityTraitPrerequisites[]'Disjunction/disjunction">See details</a>
 
-#### <a name="PersonalityTraitPrerequisites'Plain/plain[]'Group/tag"></a> `tag`
+#### <a name="PersonalityTraitPrerequisites[]'Disjunction/tag"></a> `tag`
 
-- **Constant:** `"Group"`
+- **Constant:** `"Disjunction"`
 
-#### <a name="PersonalityTraitPrerequisites'Plain/plain[]'Group/group"></a> `group`
+#### <a name="PersonalityTraitPrerequisites[]'Disjunction/disjunction"></a> `disjunction`
 
-- **Type:** <a href="#PersonalityTraitPrerequisites'Plain/plain[]'Group/group">Object</a>
+- **Type:** <a href="#PersonalityTraitPrerequisites[]'Disjunction/disjunction">Object</a>
 
 ---
 
-### <a name="PersonalityTraitPrerequisites'Plain/plain[]'Group/group"></a> `PersonalityTraitPrerequisites'Plain/plain[]'Group/group`
+### <a name="PersonalityTraitPrerequisites[]'Disjunction/disjunction"></a> `PersonalityTraitPrerequisites[]'Disjunction/disjunction`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`list` |  | <a href="#PersonalityTraitPrerequisites[]'Disjunction/disjunction/list">See details</a>
+
+#### <a name="PersonalityTraitPrerequisites[]'Disjunction/disjunction/list"></a> `list`
+
+- **Type:** List
+- **Items:** <a href="#PersonalityTraitPrerequisites[]'Disjunction/disjunction/list[]">PersonalityTraitPrerequisites[]'Disjunction/disjunction/list[]</a>
+- **Minimum Items:** `2`
+
+---
+
+### <a name="PersonalityTraitPrerequisites[]'Disjunction/disjunction/list[]"></a> `PersonalityTraitPrerequisites[]'Disjunction/disjunction/list[]`
+
+- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#PersonalityTraitPrerequisiteGroup">PersonalityTraitPrerequisiteGroup</a>
+
+---
+
+### <a name="PersonalityTraitPrerequisites[]'Group"></a> `PersonalityTraitPrerequisites[]'Group`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#PersonalityTraitPrerequisites[]'Group/tag">See details</a>
+`group` |  | <a href="#PersonalityTraitPrerequisites[]'Group/group">See details</a>
+
+#### <a name="PersonalityTraitPrerequisites[]'Group/tag"></a> `tag`
+
+- **Constant:** `"Group"`
+
+#### <a name="PersonalityTraitPrerequisites[]'Group/group"></a> `group`
+
+- **Type:** <a href="#PersonalityTraitPrerequisites[]'Group/group">Object</a>
+
+---
+
+### <a name="PersonalityTraitPrerequisites[]'Group/group"></a> `PersonalityTraitPrerequisites[]'Group/group`
 
 A prerequisite group has no influence on validation logic. It serves as a
 single unit for displaying purposes, where the source uses a prerequisites
@@ -918,33 +950,33 @@ item that cannot be represented as a single prerequisite.
 
 Key | Description | Details
 :-- | :-- | :--
-`list` |  | <a href="#PersonalityTraitPrerequisites'Plain/plain[]'Group/group/list">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PersonalityTraitPrerequisites'Plain/plain[]'Group/group/translations">See details</a>
+`list` |  | <a href="#PersonalityTraitPrerequisites[]'Group/group/list">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PersonalityTraitPrerequisites[]'Group/group/translations">See details</a>
 
-#### <a name="PersonalityTraitPrerequisites'Plain/plain[]'Group/group/list"></a> `list`
+#### <a name="PersonalityTraitPrerequisites[]'Group/group/list"></a> `list`
 
 - **Type:** List
-- **Items:** <a href="#PersonalityTraitPrerequisites'Plain/plain[]'Group/group/list[]">PersonalityTraitPrerequisites'Plain/plain[]'Group/group/list[]</a>
+- **Items:** <a href="#PersonalityTraitPrerequisites[]'Group/group/list[]">PersonalityTraitPrerequisites[]'Group/group/list[]</a>
 - **Minimum Items:** `2`
 
-#### <a name="PersonalityTraitPrerequisites'Plain/plain[]'Group/group/translations"></a> `translations`
+#### <a name="PersonalityTraitPrerequisites[]'Group/group/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#PersonalityTraitPrerequisites'Plain/plain[]'Group/group/translations[key]">PersonalityTraitPrerequisites'Plain/plain[]'Group/group/translations[key]</a>
+- **Property Values:** <a href="#PersonalityTraitPrerequisites[]'Group/group/translations[key]">PersonalityTraitPrerequisites[]'Group/group/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="PersonalityTraitPrerequisites'Plain/plain[]'Group/group/list[]"></a> `PersonalityTraitPrerequisites'Plain/plain[]'Group/group/list[]`
+### <a name="PersonalityTraitPrerequisites[]'Group/group/list[]"></a> `PersonalityTraitPrerequisites[]'Group/group/list[]`
 
 - **Type:** <a href="./prerequisites/PrerequisiteGroups.md#PersonalityTraitPrerequisiteGroup">PersonalityTraitPrerequisiteGroup</a>
 
 ---
 
-### <a name="PersonalityTraitPrerequisites'Plain/plain[]'Group/group/translations[key]"></a> `PersonalityTraitPrerequisites'Plain/plain[]'Group/group/translations[key]`
+### <a name="PersonalityTraitPrerequisites[]'Group/group/translations[key]"></a> `PersonalityTraitPrerequisites[]'Group/group/translations[key]`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -952,65 +984,99 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="SpellworkPrerequisites"></a> `SpellworkPrerequisites`
 
-- **Type:** Union
-- **Cases:** <a href="#SpellworkPrerequisites'Plain">SpellworkPrerequisites'Plain</a>
+- **Type:** List
+- **Items:** <a href="#SpellworkPrerequisites[]">SpellworkPrerequisites[]</a>
+- **Minimum Items:** `1`
 
 ---
 
-### <a name="SpellworkPrerequisites'Plain"></a> `SpellworkPrerequisites'Plain`
+### <a name="SpellworkPrerequisites[]"></a> `SpellworkPrerequisites[]`
+
+- **Type:** Union
+- **Cases:** <a href="#SpellworkPrerequisites[]'Single">SpellworkPrerequisites[]'Single</a> | <a href="#SpellworkPrerequisites[]'Disjunction">SpellworkPrerequisites[]'Disjunction</a> | <a href="#SpellworkPrerequisites[]'Group">SpellworkPrerequisites[]'Group</a>
+
+---
+
+### <a name="SpellworkPrerequisites[]'Single"></a> `SpellworkPrerequisites[]'Single`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#SpellworkPrerequisites'Plain/tag">See details</a>
-`plain` |  | <a href="#SpellworkPrerequisites'Plain/plain">See details</a>
+`tag` |  | <a href="#SpellworkPrerequisites[]'Single/tag">See details</a>
+`single` |  | <a href="#SpellworkPrerequisites[]'Single/single">See details</a>
 
-#### <a name="SpellworkPrerequisites'Plain/tag"></a> `tag`
+#### <a name="SpellworkPrerequisites[]'Single/tag"></a> `tag`
 
-- **Constant:** `"Plain"`
+- **Constant:** `"Single"`
 
-#### <a name="SpellworkPrerequisites'Plain/plain"></a> `plain`
-
-- **Type:** List
-- **Items:** <a href="#SpellworkPrerequisites'Plain/plain[]">SpellworkPrerequisites'Plain/plain[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="SpellworkPrerequisites'Plain/plain[]"></a> `SpellworkPrerequisites'Plain/plain[]`
-
-- **Type:** Union
-- **Cases:** <a href="#SpellworkPrerequisites'Plain/plain[]'SpellworkPrerequisiteGroup">SpellworkPrerequisites'Plain/plain[]'SpellworkPrerequisiteGroup</a> | <a href="#SpellworkPrerequisites'Plain/plain[]'Group">SpellworkPrerequisites'Plain/plain[]'Group</a>
-
----
-
-### <a name="SpellworkPrerequisites'Plain/plain[]'SpellworkPrerequisiteGroup"></a> `SpellworkPrerequisites'Plain/plain[]'SpellworkPrerequisiteGroup`
+#### <a name="SpellworkPrerequisites[]'Single/single"></a> `single`
 
 - **Type:** <a href="./prerequisites/PrerequisiteGroups.md#SpellworkPrerequisiteGroup">SpellworkPrerequisiteGroup</a>
 
 ---
 
-### <a name="SpellworkPrerequisites'Plain/plain[]'Group"></a> `SpellworkPrerequisites'Plain/plain[]'Group`
+### <a name="SpellworkPrerequisites[]'Disjunction"></a> `SpellworkPrerequisites[]'Disjunction`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#SpellworkPrerequisites'Plain/plain[]'Group/tag">See details</a>
-`group` |  | <a href="#SpellworkPrerequisites'Plain/plain[]'Group/group">See details</a>
+`tag` |  | <a href="#SpellworkPrerequisites[]'Disjunction/tag">See details</a>
+`disjunction` |  | <a href="#SpellworkPrerequisites[]'Disjunction/disjunction">See details</a>
 
-#### <a name="SpellworkPrerequisites'Plain/plain[]'Group/tag"></a> `tag`
+#### <a name="SpellworkPrerequisites[]'Disjunction/tag"></a> `tag`
 
-- **Constant:** `"Group"`
+- **Constant:** `"Disjunction"`
 
-#### <a name="SpellworkPrerequisites'Plain/plain[]'Group/group"></a> `group`
+#### <a name="SpellworkPrerequisites[]'Disjunction/disjunction"></a> `disjunction`
 
-- **Type:** <a href="#SpellworkPrerequisites'Plain/plain[]'Group/group">Object</a>
+- **Type:** <a href="#SpellworkPrerequisites[]'Disjunction/disjunction">Object</a>
 
 ---
 
-### <a name="SpellworkPrerequisites'Plain/plain[]'Group/group"></a> `SpellworkPrerequisites'Plain/plain[]'Group/group`
+### <a name="SpellworkPrerequisites[]'Disjunction/disjunction"></a> `SpellworkPrerequisites[]'Disjunction/disjunction`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`list` |  | <a href="#SpellworkPrerequisites[]'Disjunction/disjunction/list">See details</a>
+
+#### <a name="SpellworkPrerequisites[]'Disjunction/disjunction/list"></a> `list`
+
+- **Type:** List
+- **Items:** <a href="#SpellworkPrerequisites[]'Disjunction/disjunction/list[]">SpellworkPrerequisites[]'Disjunction/disjunction/list[]</a>
+- **Minimum Items:** `2`
+
+---
+
+### <a name="SpellworkPrerequisites[]'Disjunction/disjunction/list[]"></a> `SpellworkPrerequisites[]'Disjunction/disjunction/list[]`
+
+- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#SpellworkPrerequisiteGroup">SpellworkPrerequisiteGroup</a>
+
+---
+
+### <a name="SpellworkPrerequisites[]'Group"></a> `SpellworkPrerequisites[]'Group`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#SpellworkPrerequisites[]'Group/tag">See details</a>
+`group` |  | <a href="#SpellworkPrerequisites[]'Group/group">See details</a>
+
+#### <a name="SpellworkPrerequisites[]'Group/tag"></a> `tag`
+
+- **Constant:** `"Group"`
+
+#### <a name="SpellworkPrerequisites[]'Group/group"></a> `group`
+
+- **Type:** <a href="#SpellworkPrerequisites[]'Group/group">Object</a>
+
+---
+
+### <a name="SpellworkPrerequisites[]'Group/group"></a> `SpellworkPrerequisites[]'Group/group`
 
 A prerequisite group has no influence on validation logic. It serves as a
 single unit for displaying purposes, where the source uses a prerequisites
@@ -1020,33 +1086,33 @@ item that cannot be represented as a single prerequisite.
 
 Key | Description | Details
 :-- | :-- | :--
-`list` |  | <a href="#SpellworkPrerequisites'Plain/plain[]'Group/group/list">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#SpellworkPrerequisites'Plain/plain[]'Group/group/translations">See details</a>
+`list` |  | <a href="#SpellworkPrerequisites[]'Group/group/list">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#SpellworkPrerequisites[]'Group/group/translations">See details</a>
 
-#### <a name="SpellworkPrerequisites'Plain/plain[]'Group/group/list"></a> `list`
+#### <a name="SpellworkPrerequisites[]'Group/group/list"></a> `list`
 
 - **Type:** List
-- **Items:** <a href="#SpellworkPrerequisites'Plain/plain[]'Group/group/list[]">SpellworkPrerequisites'Plain/plain[]'Group/group/list[]</a>
+- **Items:** <a href="#SpellworkPrerequisites[]'Group/group/list[]">SpellworkPrerequisites[]'Group/group/list[]</a>
 - **Minimum Items:** `2`
 
-#### <a name="SpellworkPrerequisites'Plain/plain[]'Group/group/translations"></a> `translations`
+#### <a name="SpellworkPrerequisites[]'Group/group/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#SpellworkPrerequisites'Plain/plain[]'Group/group/translations[key]">SpellworkPrerequisites'Plain/plain[]'Group/group/translations[key]</a>
+- **Property Values:** <a href="#SpellworkPrerequisites[]'Group/group/translations[key]">SpellworkPrerequisites[]'Group/group/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="SpellworkPrerequisites'Plain/plain[]'Group/group/list[]"></a> `SpellworkPrerequisites'Plain/plain[]'Group/group/list[]`
+### <a name="SpellworkPrerequisites[]'Group/group/list[]"></a> `SpellworkPrerequisites[]'Group/group/list[]`
 
 - **Type:** <a href="./prerequisites/PrerequisiteGroups.md#SpellworkPrerequisiteGroup">SpellworkPrerequisiteGroup</a>
 
 ---
 
-### <a name="SpellworkPrerequisites'Plain/plain[]'Group/group/translations[key]"></a> `SpellworkPrerequisites'Plain/plain[]'Group/group/translations[key]`
+### <a name="SpellworkPrerequisites[]'Group/group/translations[key]"></a> `SpellworkPrerequisites[]'Group/group/translations[key]`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -1054,65 +1120,99 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="LiturgyPrerequisites"></a> `LiturgyPrerequisites`
 
-- **Type:** Union
-- **Cases:** <a href="#LiturgyPrerequisites'Plain">LiturgyPrerequisites'Plain</a>
+- **Type:** List
+- **Items:** <a href="#LiturgyPrerequisites[]">LiturgyPrerequisites[]</a>
+- **Minimum Items:** `1`
 
 ---
 
-### <a name="LiturgyPrerequisites'Plain"></a> `LiturgyPrerequisites'Plain`
+### <a name="LiturgyPrerequisites[]"></a> `LiturgyPrerequisites[]`
+
+- **Type:** Union
+- **Cases:** <a href="#LiturgyPrerequisites[]'Single">LiturgyPrerequisites[]'Single</a> | <a href="#LiturgyPrerequisites[]'Disjunction">LiturgyPrerequisites[]'Disjunction</a> | <a href="#LiturgyPrerequisites[]'Group">LiturgyPrerequisites[]'Group</a>
+
+---
+
+### <a name="LiturgyPrerequisites[]'Single"></a> `LiturgyPrerequisites[]'Single`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#LiturgyPrerequisites'Plain/tag">See details</a>
-`plain` |  | <a href="#LiturgyPrerequisites'Plain/plain">See details</a>
+`tag` |  | <a href="#LiturgyPrerequisites[]'Single/tag">See details</a>
+`single` |  | <a href="#LiturgyPrerequisites[]'Single/single">See details</a>
 
-#### <a name="LiturgyPrerequisites'Plain/tag"></a> `tag`
+#### <a name="LiturgyPrerequisites[]'Single/tag"></a> `tag`
 
-- **Constant:** `"Plain"`
+- **Constant:** `"Single"`
 
-#### <a name="LiturgyPrerequisites'Plain/plain"></a> `plain`
-
-- **Type:** List
-- **Items:** <a href="#LiturgyPrerequisites'Plain/plain[]">LiturgyPrerequisites'Plain/plain[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="LiturgyPrerequisites'Plain/plain[]"></a> `LiturgyPrerequisites'Plain/plain[]`
-
-- **Type:** Union
-- **Cases:** <a href="#LiturgyPrerequisites'Plain/plain[]'LiturgyPrerequisiteGroup">LiturgyPrerequisites'Plain/plain[]'LiturgyPrerequisiteGroup</a> | <a href="#LiturgyPrerequisites'Plain/plain[]'Group">LiturgyPrerequisites'Plain/plain[]'Group</a>
-
----
-
-### <a name="LiturgyPrerequisites'Plain/plain[]'LiturgyPrerequisiteGroup"></a> `LiturgyPrerequisites'Plain/plain[]'LiturgyPrerequisiteGroup`
+#### <a name="LiturgyPrerequisites[]'Single/single"></a> `single`
 
 - **Type:** <a href="./prerequisites/PrerequisiteGroups.md#LiturgyPrerequisiteGroup">LiturgyPrerequisiteGroup</a>
 
 ---
 
-### <a name="LiturgyPrerequisites'Plain/plain[]'Group"></a> `LiturgyPrerequisites'Plain/plain[]'Group`
+### <a name="LiturgyPrerequisites[]'Disjunction"></a> `LiturgyPrerequisites[]'Disjunction`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#LiturgyPrerequisites'Plain/plain[]'Group/tag">See details</a>
-`group` |  | <a href="#LiturgyPrerequisites'Plain/plain[]'Group/group">See details</a>
+`tag` |  | <a href="#LiturgyPrerequisites[]'Disjunction/tag">See details</a>
+`disjunction` |  | <a href="#LiturgyPrerequisites[]'Disjunction/disjunction">See details</a>
 
-#### <a name="LiturgyPrerequisites'Plain/plain[]'Group/tag"></a> `tag`
+#### <a name="LiturgyPrerequisites[]'Disjunction/tag"></a> `tag`
 
-- **Constant:** `"Group"`
+- **Constant:** `"Disjunction"`
 
-#### <a name="LiturgyPrerequisites'Plain/plain[]'Group/group"></a> `group`
+#### <a name="LiturgyPrerequisites[]'Disjunction/disjunction"></a> `disjunction`
 
-- **Type:** <a href="#LiturgyPrerequisites'Plain/plain[]'Group/group">Object</a>
+- **Type:** <a href="#LiturgyPrerequisites[]'Disjunction/disjunction">Object</a>
 
 ---
 
-### <a name="LiturgyPrerequisites'Plain/plain[]'Group/group"></a> `LiturgyPrerequisites'Plain/plain[]'Group/group`
+### <a name="LiturgyPrerequisites[]'Disjunction/disjunction"></a> `LiturgyPrerequisites[]'Disjunction/disjunction`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`list` |  | <a href="#LiturgyPrerequisites[]'Disjunction/disjunction/list">See details</a>
+
+#### <a name="LiturgyPrerequisites[]'Disjunction/disjunction/list"></a> `list`
+
+- **Type:** List
+- **Items:** <a href="#LiturgyPrerequisites[]'Disjunction/disjunction/list[]">LiturgyPrerequisites[]'Disjunction/disjunction/list[]</a>
+- **Minimum Items:** `2`
+
+---
+
+### <a name="LiturgyPrerequisites[]'Disjunction/disjunction/list[]"></a> `LiturgyPrerequisites[]'Disjunction/disjunction/list[]`
+
+- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#LiturgyPrerequisiteGroup">LiturgyPrerequisiteGroup</a>
+
+---
+
+### <a name="LiturgyPrerequisites[]'Group"></a> `LiturgyPrerequisites[]'Group`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#LiturgyPrerequisites[]'Group/tag">See details</a>
+`group` |  | <a href="#LiturgyPrerequisites[]'Group/group">See details</a>
+
+#### <a name="LiturgyPrerequisites[]'Group/tag"></a> `tag`
+
+- **Constant:** `"Group"`
+
+#### <a name="LiturgyPrerequisites[]'Group/group"></a> `group`
+
+- **Type:** <a href="#LiturgyPrerequisites[]'Group/group">Object</a>
+
+---
+
+### <a name="LiturgyPrerequisites[]'Group/group"></a> `LiturgyPrerequisites[]'Group/group`
 
 A prerequisite group has no influence on validation logic. It serves as a
 single unit for displaying purposes, where the source uses a prerequisites
@@ -1122,33 +1222,33 @@ item that cannot be represented as a single prerequisite.
 
 Key | Description | Details
 :-- | :-- | :--
-`list` |  | <a href="#LiturgyPrerequisites'Plain/plain[]'Group/group/list">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#LiturgyPrerequisites'Plain/plain[]'Group/group/translations">See details</a>
+`list` |  | <a href="#LiturgyPrerequisites[]'Group/group/list">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#LiturgyPrerequisites[]'Group/group/translations">See details</a>
 
-#### <a name="LiturgyPrerequisites'Plain/plain[]'Group/group/list"></a> `list`
+#### <a name="LiturgyPrerequisites[]'Group/group/list"></a> `list`
 
 - **Type:** List
-- **Items:** <a href="#LiturgyPrerequisites'Plain/plain[]'Group/group/list[]">LiturgyPrerequisites'Plain/plain[]'Group/group/list[]</a>
+- **Items:** <a href="#LiturgyPrerequisites[]'Group/group/list[]">LiturgyPrerequisites[]'Group/group/list[]</a>
 - **Minimum Items:** `2`
 
-#### <a name="LiturgyPrerequisites'Plain/plain[]'Group/group/translations"></a> `translations`
+#### <a name="LiturgyPrerequisites[]'Group/group/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#LiturgyPrerequisites'Plain/plain[]'Group/group/translations[key]">LiturgyPrerequisites'Plain/plain[]'Group/group/translations[key]</a>
+- **Property Values:** <a href="#LiturgyPrerequisites[]'Group/group/translations[key]">LiturgyPrerequisites[]'Group/group/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="LiturgyPrerequisites'Plain/plain[]'Group/group/list[]"></a> `LiturgyPrerequisites'Plain/plain[]'Group/group/list[]`
+### <a name="LiturgyPrerequisites[]'Group/group/list[]"></a> `LiturgyPrerequisites[]'Group/group/list[]`
 
 - **Type:** <a href="./prerequisites/PrerequisiteGroups.md#LiturgyPrerequisiteGroup">LiturgyPrerequisiteGroup</a>
 
 ---
 
-### <a name="LiturgyPrerequisites'Plain/plain[]'Group/group/translations[key]"></a> `LiturgyPrerequisites'Plain/plain[]'Group/group/translations[key]`
+### <a name="LiturgyPrerequisites[]'Group/group/translations[key]"></a> `LiturgyPrerequisites[]'Group/group/translations[key]`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -1156,65 +1256,99 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="InfluencePrerequisites"></a> `InfluencePrerequisites`
 
-- **Type:** Union
-- **Cases:** <a href="#InfluencePrerequisites'Plain">InfluencePrerequisites'Plain</a>
+- **Type:** List
+- **Items:** <a href="#InfluencePrerequisites[]">InfluencePrerequisites[]</a>
+- **Minimum Items:** `1`
 
 ---
 
-### <a name="InfluencePrerequisites'Plain"></a> `InfluencePrerequisites'Plain`
+### <a name="InfluencePrerequisites[]"></a> `InfluencePrerequisites[]`
+
+- **Type:** Union
+- **Cases:** <a href="#InfluencePrerequisites[]'Single">InfluencePrerequisites[]'Single</a> | <a href="#InfluencePrerequisites[]'Disjunction">InfluencePrerequisites[]'Disjunction</a> | <a href="#InfluencePrerequisites[]'Group">InfluencePrerequisites[]'Group</a>
+
+---
+
+### <a name="InfluencePrerequisites[]'Single"></a> `InfluencePrerequisites[]'Single`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#InfluencePrerequisites'Plain/tag">See details</a>
-`plain` |  | <a href="#InfluencePrerequisites'Plain/plain">See details</a>
+`tag` |  | <a href="#InfluencePrerequisites[]'Single/tag">See details</a>
+`single` |  | <a href="#InfluencePrerequisites[]'Single/single">See details</a>
 
-#### <a name="InfluencePrerequisites'Plain/tag"></a> `tag`
+#### <a name="InfluencePrerequisites[]'Single/tag"></a> `tag`
 
-- **Constant:** `"Plain"`
+- **Constant:** `"Single"`
 
-#### <a name="InfluencePrerequisites'Plain/plain"></a> `plain`
-
-- **Type:** List
-- **Items:** <a href="#InfluencePrerequisites'Plain/plain[]">InfluencePrerequisites'Plain/plain[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="InfluencePrerequisites'Plain/plain[]"></a> `InfluencePrerequisites'Plain/plain[]`
-
-- **Type:** Union
-- **Cases:** <a href="#InfluencePrerequisites'Plain/plain[]'InfluencePrerequisiteGroup">InfluencePrerequisites'Plain/plain[]'InfluencePrerequisiteGroup</a> | <a href="#InfluencePrerequisites'Plain/plain[]'Group">InfluencePrerequisites'Plain/plain[]'Group</a>
-
----
-
-### <a name="InfluencePrerequisites'Plain/plain[]'InfluencePrerequisiteGroup"></a> `InfluencePrerequisites'Plain/plain[]'InfluencePrerequisiteGroup`
+#### <a name="InfluencePrerequisites[]'Single/single"></a> `single`
 
 - **Type:** <a href="./prerequisites/PrerequisiteGroups.md#InfluencePrerequisiteGroup">InfluencePrerequisiteGroup</a>
 
 ---
 
-### <a name="InfluencePrerequisites'Plain/plain[]'Group"></a> `InfluencePrerequisites'Plain/plain[]'Group`
+### <a name="InfluencePrerequisites[]'Disjunction"></a> `InfluencePrerequisites[]'Disjunction`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#InfluencePrerequisites'Plain/plain[]'Group/tag">See details</a>
-`group` |  | <a href="#InfluencePrerequisites'Plain/plain[]'Group/group">See details</a>
+`tag` |  | <a href="#InfluencePrerequisites[]'Disjunction/tag">See details</a>
+`disjunction` |  | <a href="#InfluencePrerequisites[]'Disjunction/disjunction">See details</a>
 
-#### <a name="InfluencePrerequisites'Plain/plain[]'Group/tag"></a> `tag`
+#### <a name="InfluencePrerequisites[]'Disjunction/tag"></a> `tag`
 
-- **Constant:** `"Group"`
+- **Constant:** `"Disjunction"`
 
-#### <a name="InfluencePrerequisites'Plain/plain[]'Group/group"></a> `group`
+#### <a name="InfluencePrerequisites[]'Disjunction/disjunction"></a> `disjunction`
 
-- **Type:** <a href="#InfluencePrerequisites'Plain/plain[]'Group/group">Object</a>
+- **Type:** <a href="#InfluencePrerequisites[]'Disjunction/disjunction">Object</a>
 
 ---
 
-### <a name="InfluencePrerequisites'Plain/plain[]'Group/group"></a> `InfluencePrerequisites'Plain/plain[]'Group/group`
+### <a name="InfluencePrerequisites[]'Disjunction/disjunction"></a> `InfluencePrerequisites[]'Disjunction/disjunction`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`list` |  | <a href="#InfluencePrerequisites[]'Disjunction/disjunction/list">See details</a>
+
+#### <a name="InfluencePrerequisites[]'Disjunction/disjunction/list"></a> `list`
+
+- **Type:** List
+- **Items:** <a href="#InfluencePrerequisites[]'Disjunction/disjunction/list[]">InfluencePrerequisites[]'Disjunction/disjunction/list[]</a>
+- **Minimum Items:** `2`
+
+---
+
+### <a name="InfluencePrerequisites[]'Disjunction/disjunction/list[]"></a> `InfluencePrerequisites[]'Disjunction/disjunction/list[]`
+
+- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#InfluencePrerequisiteGroup">InfluencePrerequisiteGroup</a>
+
+---
+
+### <a name="InfluencePrerequisites[]'Group"></a> `InfluencePrerequisites[]'Group`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#InfluencePrerequisites[]'Group/tag">See details</a>
+`group` |  | <a href="#InfluencePrerequisites[]'Group/group">See details</a>
+
+#### <a name="InfluencePrerequisites[]'Group/tag"></a> `tag`
+
+- **Constant:** `"Group"`
+
+#### <a name="InfluencePrerequisites[]'Group/group"></a> `group`
+
+- **Type:** <a href="#InfluencePrerequisites[]'Group/group">Object</a>
+
+---
+
+### <a name="InfluencePrerequisites[]'Group/group"></a> `InfluencePrerequisites[]'Group/group`
 
 A prerequisite group has no influence on validation logic. It serves as a
 single unit for displaying purposes, where the source uses a prerequisites
@@ -1224,33 +1358,33 @@ item that cannot be represented as a single prerequisite.
 
 Key | Description | Details
 :-- | :-- | :--
-`list` |  | <a href="#InfluencePrerequisites'Plain/plain[]'Group/group/list">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#InfluencePrerequisites'Plain/plain[]'Group/group/translations">See details</a>
+`list` |  | <a href="#InfluencePrerequisites[]'Group/group/list">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#InfluencePrerequisites[]'Group/group/translations">See details</a>
 
-#### <a name="InfluencePrerequisites'Plain/plain[]'Group/group/list"></a> `list`
+#### <a name="InfluencePrerequisites[]'Group/group/list"></a> `list`
 
 - **Type:** List
-- **Items:** <a href="#InfluencePrerequisites'Plain/plain[]'Group/group/list[]">InfluencePrerequisites'Plain/plain[]'Group/group/list[]</a>
+- **Items:** <a href="#InfluencePrerequisites[]'Group/group/list[]">InfluencePrerequisites[]'Group/group/list[]</a>
 - **Minimum Items:** `2`
 
-#### <a name="InfluencePrerequisites'Plain/plain[]'Group/group/translations"></a> `translations`
+#### <a name="InfluencePrerequisites[]'Group/group/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#InfluencePrerequisites'Plain/plain[]'Group/group/translations[key]">InfluencePrerequisites'Plain/plain[]'Group/group/translations[key]</a>
+- **Property Values:** <a href="#InfluencePrerequisites[]'Group/group/translations[key]">InfluencePrerequisites[]'Group/group/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="InfluencePrerequisites'Plain/plain[]'Group/group/list[]"></a> `InfluencePrerequisites'Plain/plain[]'Group/group/list[]`
+### <a name="InfluencePrerequisites[]'Group/group/list[]"></a> `InfluencePrerequisites[]'Group/group/list[]`
 
 - **Type:** <a href="./prerequisites/PrerequisiteGroups.md#InfluencePrerequisiteGroup">InfluencePrerequisiteGroup</a>
 
 ---
 
-### <a name="InfluencePrerequisites'Plain/plain[]'Group/group/translations[key]"></a> `InfluencePrerequisites'Plain/plain[]'Group/group/translations[key]`
+### <a name="InfluencePrerequisites[]'Group/group/translations[key]"></a> `InfluencePrerequisites[]'Group/group/translations[key]`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -1258,182 +1392,113 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="LanguagePrerequisites"></a> `LanguagePrerequisites`
 
-- **Type:** Union
-- **Cases:** <a href="#LanguagePrerequisites'Plain">LanguagePrerequisites'Plain</a> | <a href="#LanguagePrerequisites'ByLevel">LanguagePrerequisites'ByLevel</a>
-
----
-
-### <a name="LanguagePrerequisites'Plain"></a> `LanguagePrerequisites'Plain`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#LanguagePrerequisites'Plain/tag">See details</a>
-`plain` |  | <a href="#LanguagePrerequisites'Plain/plain">See details</a>
-
-#### <a name="LanguagePrerequisites'Plain/tag"></a> `tag`
-
-- **Constant:** `"Plain"`
-
-#### <a name="LanguagePrerequisites'Plain/plain"></a> `plain`
-
 - **Type:** List
-- **Items:** <a href="#LanguagePrerequisites'Plain/plain[]">LanguagePrerequisites'Plain/plain[]</a>
+- **Items:** <a href="#LanguagePrerequisites[]">LanguagePrerequisites[]</a>
 - **Minimum Items:** `1`
 
 ---
 
-### <a name="LanguagePrerequisites'Plain/plain[]"></a> `LanguagePrerequisites'Plain/plain[]`
-
-- **Type:** Union
-- **Cases:** <a href="#LanguagePrerequisites'Plain/plain[]'LanguagePrerequisiteGroup">LanguagePrerequisites'Plain/plain[]'LanguagePrerequisiteGroup</a> | <a href="#LanguagePrerequisites'Plain/plain[]'Group">LanguagePrerequisites'Plain/plain[]'Group</a>
-
----
-
-### <a name="LanguagePrerequisites'Plain/plain[]'LanguagePrerequisiteGroup"></a> `LanguagePrerequisites'Plain/plain[]'LanguagePrerequisiteGroup`
-
-- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#LanguagePrerequisiteGroup">LanguagePrerequisiteGroup</a>
-
----
-
-### <a name="LanguagePrerequisites'Plain/plain[]'Group"></a> `LanguagePrerequisites'Plain/plain[]'Group`
+### <a name="LanguagePrerequisites[]"></a> `LanguagePrerequisites[]`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#LanguagePrerequisites'Plain/plain[]'Group/tag">See details</a>
-`group` |  | <a href="#LanguagePrerequisites'Plain/plain[]'Group/group">See details</a>
+`level` |  | <a href="#LanguagePrerequisites[]/level">See details</a>
+`prerequisite` |  | <a href="#LanguagePrerequisites[]/prerequisite">See details</a>
 
-#### <a name="LanguagePrerequisites'Plain/plain[]'Group/tag"></a> `tag`
-
-- **Constant:** `"Group"`
-
-#### <a name="LanguagePrerequisites'Plain/plain[]'Group/group"></a> `group`
-
-- **Type:** <a href="#LanguagePrerequisites'Plain/plain[]'Group/group">Object</a>
-
----
-
-### <a name="LanguagePrerequisites'Plain/plain[]'Group/group"></a> `LanguagePrerequisites'Plain/plain[]'Group/group`
-
-A prerequisite group has no influence on validation logic. It serves as a
-single unit for displaying purposes, where the source uses a prerequisites
-item that cannot be represented as a single prerequisite.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`list` |  | <a href="#LanguagePrerequisites'Plain/plain[]'Group/group/list">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#LanguagePrerequisites'Plain/plain[]'Group/group/translations">See details</a>
-
-#### <a name="LanguagePrerequisites'Plain/plain[]'Group/group/list"></a> `list`
-
-- **Type:** List
-- **Items:** <a href="#LanguagePrerequisites'Plain/plain[]'Group/group/list[]">LanguagePrerequisites'Plain/plain[]'Group/group/list[]</a>
-- **Minimum Items:** `2`
-
-#### <a name="LanguagePrerequisites'Plain/plain[]'Group/group/translations"></a> `translations`
-
-All translations for the entry, identified by IETF language tag (BCP47).
-
-- **Type:** Dictionary
-- **Property Values:** <a href="#LanguagePrerequisites'Plain/plain[]'Group/group/translations[key]">LanguagePrerequisites'Plain/plain[]'Group/group/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="LanguagePrerequisites'Plain/plain[]'Group/group/list[]"></a> `LanguagePrerequisites'Plain/plain[]'Group/group/list[]`
-
-- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#LanguagePrerequisiteGroup">LanguagePrerequisiteGroup</a>
-
----
-
-### <a name="LanguagePrerequisites'Plain/plain[]'Group/group/translations[key]"></a> `LanguagePrerequisites'Plain/plain[]'Group/group/translations[key]`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
----
-
-### <a name="LanguagePrerequisites'ByLevel"></a> `LanguagePrerequisites'ByLevel`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#LanguagePrerequisites'ByLevel/tag">See details</a>
-`by_level` |  | <a href="#LanguagePrerequisites'ByLevel/by_level">See details</a>
-
-#### <a name="LanguagePrerequisites'ByLevel/tag"></a> `tag`
-
-- **Constant:** `"ByLevel"`
-
-#### <a name="LanguagePrerequisites'ByLevel/by_level"></a> `by_level`
-
-- **Type:** List
-- **Items:** <a href="#LanguagePrerequisites'ByLevel/by_level[]">LanguagePrerequisites'ByLevel/by_level[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="LanguagePrerequisites'ByLevel/by_level[]"></a> `LanguagePrerequisites'ByLevel/by_level[]`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`level` |  | <a href="#LanguagePrerequisites'ByLevel/by_level[]/level">See details</a>
-`prerequisites` |  | <a href="#LanguagePrerequisites'ByLevel/by_level[]/prerequisites">See details</a>
-
-#### <a name="LanguagePrerequisites'ByLevel/by_level[]/level"></a> `level`
+#### <a name="LanguagePrerequisites[]/level"></a> `level`
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="LanguagePrerequisites'ByLevel/by_level[]/prerequisites"></a> `prerequisites`
-
-- **Type:** List
-- **Items:** <a href="#LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]">LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]"></a> `LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]`
+#### <a name="LanguagePrerequisites[]/prerequisite"></a> `prerequisite`
 
 - **Type:** Union
-- **Cases:** <a href="#LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]'LanguagePrerequisiteGroup">LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]'LanguagePrerequisiteGroup</a> | <a href="#LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group">LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group</a>
+- **Cases:** <a href="#LanguagePrerequisites[]/prerequisite'Single">LanguagePrerequisites[]/prerequisite'Single</a> | <a href="#LanguagePrerequisites[]/prerequisite'Disjunction">LanguagePrerequisites[]/prerequisite'Disjunction</a> | <a href="#LanguagePrerequisites[]/prerequisite'Group">LanguagePrerequisites[]/prerequisite'Group</a>
 
 ---
 
-### <a name="LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]'LanguagePrerequisiteGroup"></a> `LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]'LanguagePrerequisiteGroup`
-
-- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#LanguagePrerequisiteGroup">LanguagePrerequisiteGroup</a>
-
----
-
-### <a name="LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group"></a> `LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group`
+### <a name="LanguagePrerequisites[]/prerequisite'Single"></a> `LanguagePrerequisites[]/prerequisite'Single`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/tag">See details</a>
-`group` |  | <a href="#LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group">See details</a>
+`tag` |  | <a href="#LanguagePrerequisites[]/prerequisite'Single/tag">See details</a>
+`single` |  | <a href="#LanguagePrerequisites[]/prerequisite'Single/single">See details</a>
 
-#### <a name="LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/tag"></a> `tag`
+#### <a name="LanguagePrerequisites[]/prerequisite'Single/tag"></a> `tag`
 
-- **Constant:** `"Group"`
+- **Constant:** `"Single"`
 
-#### <a name="LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group"></a> `group`
+#### <a name="LanguagePrerequisites[]/prerequisite'Single/single"></a> `single`
 
-- **Type:** <a href="#LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group">Object</a>
+- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#LanguagePrerequisiteGroup">LanguagePrerequisiteGroup</a>
 
 ---
 
-### <a name="LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group"></a> `LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group`
+### <a name="LanguagePrerequisites[]/prerequisite'Disjunction"></a> `LanguagePrerequisites[]/prerequisite'Disjunction`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#LanguagePrerequisites[]/prerequisite'Disjunction/tag">See details</a>
+`disjunction` |  | <a href="#LanguagePrerequisites[]/prerequisite'Disjunction/disjunction">See details</a>
+
+#### <a name="LanguagePrerequisites[]/prerequisite'Disjunction/tag"></a> `tag`
+
+- **Constant:** `"Disjunction"`
+
+#### <a name="LanguagePrerequisites[]/prerequisite'Disjunction/disjunction"></a> `disjunction`
+
+- **Type:** <a href="#LanguagePrerequisites[]/prerequisite'Disjunction/disjunction">Object</a>
+
+---
+
+### <a name="LanguagePrerequisites[]/prerequisite'Disjunction/disjunction"></a> `LanguagePrerequisites[]/prerequisite'Disjunction/disjunction`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`list` |  | <a href="#LanguagePrerequisites[]/prerequisite'Disjunction/disjunction/list">See details</a>
+
+#### <a name="LanguagePrerequisites[]/prerequisite'Disjunction/disjunction/list"></a> `list`
+
+- **Type:** List
+- **Items:** <a href="#LanguagePrerequisites[]/prerequisite'Disjunction/disjunction/list[]">LanguagePrerequisites[]/prerequisite'Disjunction/disjunction/list[]</a>
+- **Minimum Items:** `2`
+
+---
+
+### <a name="LanguagePrerequisites[]/prerequisite'Disjunction/disjunction/list[]"></a> `LanguagePrerequisites[]/prerequisite'Disjunction/disjunction/list[]`
+
+- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#LanguagePrerequisiteGroup">LanguagePrerequisiteGroup</a>
+
+---
+
+### <a name="LanguagePrerequisites[]/prerequisite'Group"></a> `LanguagePrerequisites[]/prerequisite'Group`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#LanguagePrerequisites[]/prerequisite'Group/tag">See details</a>
+`group` |  | <a href="#LanguagePrerequisites[]/prerequisite'Group/group">See details</a>
+
+#### <a name="LanguagePrerequisites[]/prerequisite'Group/tag"></a> `tag`
+
+- **Constant:** `"Group"`
+
+#### <a name="LanguagePrerequisites[]/prerequisite'Group/group"></a> `group`
+
+- **Type:** <a href="#LanguagePrerequisites[]/prerequisite'Group/group">Object</a>
+
+---
+
+### <a name="LanguagePrerequisites[]/prerequisite'Group/group"></a> `LanguagePrerequisites[]/prerequisite'Group/group`
 
 A prerequisite group has no influence on validation logic. It serves as a
 single unit for displaying purposes, where the source uses a prerequisites
@@ -1443,33 +1508,33 @@ item that cannot be represented as a single prerequisite.
 
 Key | Description | Details
 :-- | :-- | :--
-`list` |  | <a href="#LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/list">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/translations">See details</a>
+`list` |  | <a href="#LanguagePrerequisites[]/prerequisite'Group/group/list">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#LanguagePrerequisites[]/prerequisite'Group/group/translations">See details</a>
 
-#### <a name="LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/list"></a> `list`
+#### <a name="LanguagePrerequisites[]/prerequisite'Group/group/list"></a> `list`
 
 - **Type:** List
-- **Items:** <a href="#LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/list[]">LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/list[]</a>
+- **Items:** <a href="#LanguagePrerequisites[]/prerequisite'Group/group/list[]">LanguagePrerequisites[]/prerequisite'Group/group/list[]</a>
 - **Minimum Items:** `2`
 
-#### <a name="LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/translations"></a> `translations`
+#### <a name="LanguagePrerequisites[]/prerequisite'Group/group/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/translations[key]">LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/translations[key]</a>
+- **Property Values:** <a href="#LanguagePrerequisites[]/prerequisite'Group/group/translations[key]">LanguagePrerequisites[]/prerequisite'Group/group/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/list[]"></a> `LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/list[]`
+### <a name="LanguagePrerequisites[]/prerequisite'Group/group/list[]"></a> `LanguagePrerequisites[]/prerequisite'Group/group/list[]`
 
 - **Type:** <a href="./prerequisites/PrerequisiteGroups.md#LanguagePrerequisiteGroup">LanguagePrerequisiteGroup</a>
 
 ---
 
-### <a name="LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/translations[key]"></a> `LanguagePrerequisites'ByLevel/by_level[]/prerequisites[]'Group/group/translations[key]`
+### <a name="LanguagePrerequisites[]/prerequisite'Group/group/translations[key]"></a> `LanguagePrerequisites[]/prerequisite'Group/group/translations[key]`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -1477,65 +1542,99 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="AnimistPowerPrerequisites"></a> `AnimistPowerPrerequisites`
 
-- **Type:** Union
-- **Cases:** <a href="#AnimistPowerPrerequisites'Plain">AnimistPowerPrerequisites'Plain</a>
+- **Type:** List
+- **Items:** <a href="#AnimistPowerPrerequisites[]">AnimistPowerPrerequisites[]</a>
+- **Minimum Items:** `1`
 
 ---
 
-### <a name="AnimistPowerPrerequisites'Plain"></a> `AnimistPowerPrerequisites'Plain`
+### <a name="AnimistPowerPrerequisites[]"></a> `AnimistPowerPrerequisites[]`
+
+- **Type:** Union
+- **Cases:** <a href="#AnimistPowerPrerequisites[]'Single">AnimistPowerPrerequisites[]'Single</a> | <a href="#AnimistPowerPrerequisites[]'Disjunction">AnimistPowerPrerequisites[]'Disjunction</a> | <a href="#AnimistPowerPrerequisites[]'Group">AnimistPowerPrerequisites[]'Group</a>
+
+---
+
+### <a name="AnimistPowerPrerequisites[]'Single"></a> `AnimistPowerPrerequisites[]'Single`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#AnimistPowerPrerequisites'Plain/tag">See details</a>
-`plain` |  | <a href="#AnimistPowerPrerequisites'Plain/plain">See details</a>
+`tag` |  | <a href="#AnimistPowerPrerequisites[]'Single/tag">See details</a>
+`single` |  | <a href="#AnimistPowerPrerequisites[]'Single/single">See details</a>
 
-#### <a name="AnimistPowerPrerequisites'Plain/tag"></a> `tag`
+#### <a name="AnimistPowerPrerequisites[]'Single/tag"></a> `tag`
 
-- **Constant:** `"Plain"`
+- **Constant:** `"Single"`
 
-#### <a name="AnimistPowerPrerequisites'Plain/plain"></a> `plain`
-
-- **Type:** List
-- **Items:** <a href="#AnimistPowerPrerequisites'Plain/plain[]">AnimistPowerPrerequisites'Plain/plain[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="AnimistPowerPrerequisites'Plain/plain[]"></a> `AnimistPowerPrerequisites'Plain/plain[]`
-
-- **Type:** Union
-- **Cases:** <a href="#AnimistPowerPrerequisites'Plain/plain[]'AnimistPowerPrerequisiteGroup">AnimistPowerPrerequisites'Plain/plain[]'AnimistPowerPrerequisiteGroup</a> | <a href="#AnimistPowerPrerequisites'Plain/plain[]'Group">AnimistPowerPrerequisites'Plain/plain[]'Group</a>
-
----
-
-### <a name="AnimistPowerPrerequisites'Plain/plain[]'AnimistPowerPrerequisiteGroup"></a> `AnimistPowerPrerequisites'Plain/plain[]'AnimistPowerPrerequisiteGroup`
+#### <a name="AnimistPowerPrerequisites[]'Single/single"></a> `single`
 
 - **Type:** <a href="./prerequisites/PrerequisiteGroups.md#AnimistPowerPrerequisiteGroup">AnimistPowerPrerequisiteGroup</a>
 
 ---
 
-### <a name="AnimistPowerPrerequisites'Plain/plain[]'Group"></a> `AnimistPowerPrerequisites'Plain/plain[]'Group`
+### <a name="AnimistPowerPrerequisites[]'Disjunction"></a> `AnimistPowerPrerequisites[]'Disjunction`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#AnimistPowerPrerequisites'Plain/plain[]'Group/tag">See details</a>
-`group` |  | <a href="#AnimistPowerPrerequisites'Plain/plain[]'Group/group">See details</a>
+`tag` |  | <a href="#AnimistPowerPrerequisites[]'Disjunction/tag">See details</a>
+`disjunction` |  | <a href="#AnimistPowerPrerequisites[]'Disjunction/disjunction">See details</a>
 
-#### <a name="AnimistPowerPrerequisites'Plain/plain[]'Group/tag"></a> `tag`
+#### <a name="AnimistPowerPrerequisites[]'Disjunction/tag"></a> `tag`
 
-- **Constant:** `"Group"`
+- **Constant:** `"Disjunction"`
 
-#### <a name="AnimistPowerPrerequisites'Plain/plain[]'Group/group"></a> `group`
+#### <a name="AnimistPowerPrerequisites[]'Disjunction/disjunction"></a> `disjunction`
 
-- **Type:** <a href="#AnimistPowerPrerequisites'Plain/plain[]'Group/group">Object</a>
+- **Type:** <a href="#AnimistPowerPrerequisites[]'Disjunction/disjunction">Object</a>
 
 ---
 
-### <a name="AnimistPowerPrerequisites'Plain/plain[]'Group/group"></a> `AnimistPowerPrerequisites'Plain/plain[]'Group/group`
+### <a name="AnimistPowerPrerequisites[]'Disjunction/disjunction"></a> `AnimistPowerPrerequisites[]'Disjunction/disjunction`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`list` |  | <a href="#AnimistPowerPrerequisites[]'Disjunction/disjunction/list">See details</a>
+
+#### <a name="AnimistPowerPrerequisites[]'Disjunction/disjunction/list"></a> `list`
+
+- **Type:** List
+- **Items:** <a href="#AnimistPowerPrerequisites[]'Disjunction/disjunction/list[]">AnimistPowerPrerequisites[]'Disjunction/disjunction/list[]</a>
+- **Minimum Items:** `2`
+
+---
+
+### <a name="AnimistPowerPrerequisites[]'Disjunction/disjunction/list[]"></a> `AnimistPowerPrerequisites[]'Disjunction/disjunction/list[]`
+
+- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#AnimistPowerPrerequisiteGroup">AnimistPowerPrerequisiteGroup</a>
+
+---
+
+### <a name="AnimistPowerPrerequisites[]'Group"></a> `AnimistPowerPrerequisites[]'Group`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AnimistPowerPrerequisites[]'Group/tag">See details</a>
+`group` |  | <a href="#AnimistPowerPrerequisites[]'Group/group">See details</a>
+
+#### <a name="AnimistPowerPrerequisites[]'Group/tag"></a> `tag`
+
+- **Constant:** `"Group"`
+
+#### <a name="AnimistPowerPrerequisites[]'Group/group"></a> `group`
+
+- **Type:** <a href="#AnimistPowerPrerequisites[]'Group/group">Object</a>
+
+---
+
+### <a name="AnimistPowerPrerequisites[]'Group/group"></a> `AnimistPowerPrerequisites[]'Group/group`
 
 A prerequisite group has no influence on validation logic. It serves as a
 single unit for displaying purposes, where the source uses a prerequisites
@@ -1545,33 +1644,33 @@ item that cannot be represented as a single prerequisite.
 
 Key | Description | Details
 :-- | :-- | :--
-`list` |  | <a href="#AnimistPowerPrerequisites'Plain/plain[]'Group/group/list">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#AnimistPowerPrerequisites'Plain/plain[]'Group/group/translations">See details</a>
+`list` |  | <a href="#AnimistPowerPrerequisites[]'Group/group/list">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#AnimistPowerPrerequisites[]'Group/group/translations">See details</a>
 
-#### <a name="AnimistPowerPrerequisites'Plain/plain[]'Group/group/list"></a> `list`
+#### <a name="AnimistPowerPrerequisites[]'Group/group/list"></a> `list`
 
 - **Type:** List
-- **Items:** <a href="#AnimistPowerPrerequisites'Plain/plain[]'Group/group/list[]">AnimistPowerPrerequisites'Plain/plain[]'Group/group/list[]</a>
+- **Items:** <a href="#AnimistPowerPrerequisites[]'Group/group/list[]">AnimistPowerPrerequisites[]'Group/group/list[]</a>
 - **Minimum Items:** `2`
 
-#### <a name="AnimistPowerPrerequisites'Plain/plain[]'Group/group/translations"></a> `translations`
+#### <a name="AnimistPowerPrerequisites[]'Group/group/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#AnimistPowerPrerequisites'Plain/plain[]'Group/group/translations[key]">AnimistPowerPrerequisites'Plain/plain[]'Group/group/translations[key]</a>
+- **Property Values:** <a href="#AnimistPowerPrerequisites[]'Group/group/translations[key]">AnimistPowerPrerequisites[]'Group/group/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="AnimistPowerPrerequisites'Plain/plain[]'Group/group/list[]"></a> `AnimistPowerPrerequisites'Plain/plain[]'Group/group/list[]`
+### <a name="AnimistPowerPrerequisites[]'Group/group/list[]"></a> `AnimistPowerPrerequisites[]'Group/group/list[]`
 
 - **Type:** <a href="./prerequisites/PrerequisiteGroups.md#AnimistPowerPrerequisiteGroup">AnimistPowerPrerequisiteGroup</a>
 
 ---
 
-### <a name="AnimistPowerPrerequisites'Plain/plain[]'Group/group/translations[key]"></a> `AnimistPowerPrerequisites'Plain/plain[]'Group/group/translations[key]`
+### <a name="AnimistPowerPrerequisites[]'Group/group/translations[key]"></a> `AnimistPowerPrerequisites[]'Group/group/translations[key]`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -1579,65 +1678,99 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="GeodeRitualPrerequisites"></a> `GeodeRitualPrerequisites`
 
-- **Type:** Union
-- **Cases:** <a href="#GeodeRitualPrerequisites'Plain">GeodeRitualPrerequisites'Plain</a>
+- **Type:** List
+- **Items:** <a href="#GeodeRitualPrerequisites[]">GeodeRitualPrerequisites[]</a>
+- **Minimum Items:** `1`
 
 ---
 
-### <a name="GeodeRitualPrerequisites'Plain"></a> `GeodeRitualPrerequisites'Plain`
+### <a name="GeodeRitualPrerequisites[]"></a> `GeodeRitualPrerequisites[]`
+
+- **Type:** Union
+- **Cases:** <a href="#GeodeRitualPrerequisites[]'Single">GeodeRitualPrerequisites[]'Single</a> | <a href="#GeodeRitualPrerequisites[]'Disjunction">GeodeRitualPrerequisites[]'Disjunction</a> | <a href="#GeodeRitualPrerequisites[]'Group">GeodeRitualPrerequisites[]'Group</a>
+
+---
+
+### <a name="GeodeRitualPrerequisites[]'Single"></a> `GeodeRitualPrerequisites[]'Single`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#GeodeRitualPrerequisites'Plain/tag">See details</a>
-`plain` |  | <a href="#GeodeRitualPrerequisites'Plain/plain">See details</a>
+`tag` |  | <a href="#GeodeRitualPrerequisites[]'Single/tag">See details</a>
+`single` |  | <a href="#GeodeRitualPrerequisites[]'Single/single">See details</a>
 
-#### <a name="GeodeRitualPrerequisites'Plain/tag"></a> `tag`
+#### <a name="GeodeRitualPrerequisites[]'Single/tag"></a> `tag`
 
-- **Constant:** `"Plain"`
+- **Constant:** `"Single"`
 
-#### <a name="GeodeRitualPrerequisites'Plain/plain"></a> `plain`
-
-- **Type:** List
-- **Items:** <a href="#GeodeRitualPrerequisites'Plain/plain[]">GeodeRitualPrerequisites'Plain/plain[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="GeodeRitualPrerequisites'Plain/plain[]"></a> `GeodeRitualPrerequisites'Plain/plain[]`
-
-- **Type:** Union
-- **Cases:** <a href="#GeodeRitualPrerequisites'Plain/plain[]'GeodeRitualPrerequisiteGroup">GeodeRitualPrerequisites'Plain/plain[]'GeodeRitualPrerequisiteGroup</a> | <a href="#GeodeRitualPrerequisites'Plain/plain[]'Group">GeodeRitualPrerequisites'Plain/plain[]'Group</a>
-
----
-
-### <a name="GeodeRitualPrerequisites'Plain/plain[]'GeodeRitualPrerequisiteGroup"></a> `GeodeRitualPrerequisites'Plain/plain[]'GeodeRitualPrerequisiteGroup`
+#### <a name="GeodeRitualPrerequisites[]'Single/single"></a> `single`
 
 - **Type:** <a href="./prerequisites/PrerequisiteGroups.md#GeodeRitualPrerequisiteGroup">GeodeRitualPrerequisiteGroup</a>
 
 ---
 
-### <a name="GeodeRitualPrerequisites'Plain/plain[]'Group"></a> `GeodeRitualPrerequisites'Plain/plain[]'Group`
+### <a name="GeodeRitualPrerequisites[]'Disjunction"></a> `GeodeRitualPrerequisites[]'Disjunction`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#GeodeRitualPrerequisites'Plain/plain[]'Group/tag">See details</a>
-`group` |  | <a href="#GeodeRitualPrerequisites'Plain/plain[]'Group/group">See details</a>
+`tag` |  | <a href="#GeodeRitualPrerequisites[]'Disjunction/tag">See details</a>
+`disjunction` |  | <a href="#GeodeRitualPrerequisites[]'Disjunction/disjunction">See details</a>
 
-#### <a name="GeodeRitualPrerequisites'Plain/plain[]'Group/tag"></a> `tag`
+#### <a name="GeodeRitualPrerequisites[]'Disjunction/tag"></a> `tag`
 
-- **Constant:** `"Group"`
+- **Constant:** `"Disjunction"`
 
-#### <a name="GeodeRitualPrerequisites'Plain/plain[]'Group/group"></a> `group`
+#### <a name="GeodeRitualPrerequisites[]'Disjunction/disjunction"></a> `disjunction`
 
-- **Type:** <a href="#GeodeRitualPrerequisites'Plain/plain[]'Group/group">Object</a>
+- **Type:** <a href="#GeodeRitualPrerequisites[]'Disjunction/disjunction">Object</a>
 
 ---
 
-### <a name="GeodeRitualPrerequisites'Plain/plain[]'Group/group"></a> `GeodeRitualPrerequisites'Plain/plain[]'Group/group`
+### <a name="GeodeRitualPrerequisites[]'Disjunction/disjunction"></a> `GeodeRitualPrerequisites[]'Disjunction/disjunction`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`list` |  | <a href="#GeodeRitualPrerequisites[]'Disjunction/disjunction/list">See details</a>
+
+#### <a name="GeodeRitualPrerequisites[]'Disjunction/disjunction/list"></a> `list`
+
+- **Type:** List
+- **Items:** <a href="#GeodeRitualPrerequisites[]'Disjunction/disjunction/list[]">GeodeRitualPrerequisites[]'Disjunction/disjunction/list[]</a>
+- **Minimum Items:** `2`
+
+---
+
+### <a name="GeodeRitualPrerequisites[]'Disjunction/disjunction/list[]"></a> `GeodeRitualPrerequisites[]'Disjunction/disjunction/list[]`
+
+- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#GeodeRitualPrerequisiteGroup">GeodeRitualPrerequisiteGroup</a>
+
+---
+
+### <a name="GeodeRitualPrerequisites[]'Group"></a> `GeodeRitualPrerequisites[]'Group`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#GeodeRitualPrerequisites[]'Group/tag">See details</a>
+`group` |  | <a href="#GeodeRitualPrerequisites[]'Group/group">See details</a>
+
+#### <a name="GeodeRitualPrerequisites[]'Group/tag"></a> `tag`
+
+- **Constant:** `"Group"`
+
+#### <a name="GeodeRitualPrerequisites[]'Group/group"></a> `group`
+
+- **Type:** <a href="#GeodeRitualPrerequisites[]'Group/group">Object</a>
+
+---
+
+### <a name="GeodeRitualPrerequisites[]'Group/group"></a> `GeodeRitualPrerequisites[]'Group/group`
 
 A prerequisite group has no influence on validation logic. It serves as a
 single unit for displaying purposes, where the source uses a prerequisites
@@ -1647,33 +1780,33 @@ item that cannot be represented as a single prerequisite.
 
 Key | Description | Details
 :-- | :-- | :--
-`list` |  | <a href="#GeodeRitualPrerequisites'Plain/plain[]'Group/group/list">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#GeodeRitualPrerequisites'Plain/plain[]'Group/group/translations">See details</a>
+`list` |  | <a href="#GeodeRitualPrerequisites[]'Group/group/list">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#GeodeRitualPrerequisites[]'Group/group/translations">See details</a>
 
-#### <a name="GeodeRitualPrerequisites'Plain/plain[]'Group/group/list"></a> `list`
+#### <a name="GeodeRitualPrerequisites[]'Group/group/list"></a> `list`
 
 - **Type:** List
-- **Items:** <a href="#GeodeRitualPrerequisites'Plain/plain[]'Group/group/list[]">GeodeRitualPrerequisites'Plain/plain[]'Group/group/list[]</a>
+- **Items:** <a href="#GeodeRitualPrerequisites[]'Group/group/list[]">GeodeRitualPrerequisites[]'Group/group/list[]</a>
 - **Minimum Items:** `2`
 
-#### <a name="GeodeRitualPrerequisites'Plain/plain[]'Group/group/translations"></a> `translations`
+#### <a name="GeodeRitualPrerequisites[]'Group/group/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#GeodeRitualPrerequisites'Plain/plain[]'Group/group/translations[key]">GeodeRitualPrerequisites'Plain/plain[]'Group/group/translations[key]</a>
+- **Property Values:** <a href="#GeodeRitualPrerequisites[]'Group/group/translations[key]">GeodeRitualPrerequisites[]'Group/group/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="GeodeRitualPrerequisites'Plain/plain[]'Group/group/list[]"></a> `GeodeRitualPrerequisites'Plain/plain[]'Group/group/list[]`
+### <a name="GeodeRitualPrerequisites[]'Group/group/list[]"></a> `GeodeRitualPrerequisites[]'Group/group/list[]`
 
 - **Type:** <a href="./prerequisites/PrerequisiteGroups.md#GeodeRitualPrerequisiteGroup">GeodeRitualPrerequisiteGroup</a>
 
 ---
 
-### <a name="GeodeRitualPrerequisites'Plain/plain[]'Group/group/translations[key]"></a> `GeodeRitualPrerequisites'Plain/plain[]'Group/group/translations[key]`
+### <a name="GeodeRitualPrerequisites[]'Group/group/translations[key]"></a> `GeodeRitualPrerequisites[]'Group/group/translations[key]`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -1681,65 +1814,99 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="EnhancementPrerequisites"></a> `EnhancementPrerequisites`
 
-- **Type:** Union
-- **Cases:** <a href="#EnhancementPrerequisites'Plain">EnhancementPrerequisites'Plain</a>
+- **Type:** List
+- **Items:** <a href="#EnhancementPrerequisites[]">EnhancementPrerequisites[]</a>
+- **Minimum Items:** `1`
 
 ---
 
-### <a name="EnhancementPrerequisites'Plain"></a> `EnhancementPrerequisites'Plain`
+### <a name="EnhancementPrerequisites[]"></a> `EnhancementPrerequisites[]`
+
+- **Type:** Union
+- **Cases:** <a href="#EnhancementPrerequisites[]'Single">EnhancementPrerequisites[]'Single</a> | <a href="#EnhancementPrerequisites[]'Disjunction">EnhancementPrerequisites[]'Disjunction</a> | <a href="#EnhancementPrerequisites[]'Group">EnhancementPrerequisites[]'Group</a>
+
+---
+
+### <a name="EnhancementPrerequisites[]'Single"></a> `EnhancementPrerequisites[]'Single`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#EnhancementPrerequisites'Plain/tag">See details</a>
-`plain` |  | <a href="#EnhancementPrerequisites'Plain/plain">See details</a>
+`tag` |  | <a href="#EnhancementPrerequisites[]'Single/tag">See details</a>
+`single` |  | <a href="#EnhancementPrerequisites[]'Single/single">See details</a>
 
-#### <a name="EnhancementPrerequisites'Plain/tag"></a> `tag`
+#### <a name="EnhancementPrerequisites[]'Single/tag"></a> `tag`
 
-- **Constant:** `"Plain"`
+- **Constant:** `"Single"`
 
-#### <a name="EnhancementPrerequisites'Plain/plain"></a> `plain`
-
-- **Type:** List
-- **Items:** <a href="#EnhancementPrerequisites'Plain/plain[]">EnhancementPrerequisites'Plain/plain[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="EnhancementPrerequisites'Plain/plain[]"></a> `EnhancementPrerequisites'Plain/plain[]`
-
-- **Type:** Union
-- **Cases:** <a href="#EnhancementPrerequisites'Plain/plain[]'EnhancementPrerequisiteGroup">EnhancementPrerequisites'Plain/plain[]'EnhancementPrerequisiteGroup</a> | <a href="#EnhancementPrerequisites'Plain/plain[]'Group">EnhancementPrerequisites'Plain/plain[]'Group</a>
-
----
-
-### <a name="EnhancementPrerequisites'Plain/plain[]'EnhancementPrerequisiteGroup"></a> `EnhancementPrerequisites'Plain/plain[]'EnhancementPrerequisiteGroup`
+#### <a name="EnhancementPrerequisites[]'Single/single"></a> `single`
 
 - **Type:** <a href="./prerequisites/PrerequisiteGroups.md#EnhancementPrerequisiteGroup">EnhancementPrerequisiteGroup</a>
 
 ---
 
-### <a name="EnhancementPrerequisites'Plain/plain[]'Group"></a> `EnhancementPrerequisites'Plain/plain[]'Group`
+### <a name="EnhancementPrerequisites[]'Disjunction"></a> `EnhancementPrerequisites[]'Disjunction`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#EnhancementPrerequisites'Plain/plain[]'Group/tag">See details</a>
-`group` |  | <a href="#EnhancementPrerequisites'Plain/plain[]'Group/group">See details</a>
+`tag` |  | <a href="#EnhancementPrerequisites[]'Disjunction/tag">See details</a>
+`disjunction` |  | <a href="#EnhancementPrerequisites[]'Disjunction/disjunction">See details</a>
 
-#### <a name="EnhancementPrerequisites'Plain/plain[]'Group/tag"></a> `tag`
+#### <a name="EnhancementPrerequisites[]'Disjunction/tag"></a> `tag`
 
-- **Constant:** `"Group"`
+- **Constant:** `"Disjunction"`
 
-#### <a name="EnhancementPrerequisites'Plain/plain[]'Group/group"></a> `group`
+#### <a name="EnhancementPrerequisites[]'Disjunction/disjunction"></a> `disjunction`
 
-- **Type:** <a href="#EnhancementPrerequisites'Plain/plain[]'Group/group">Object</a>
+- **Type:** <a href="#EnhancementPrerequisites[]'Disjunction/disjunction">Object</a>
 
 ---
 
-### <a name="EnhancementPrerequisites'Plain/plain[]'Group/group"></a> `EnhancementPrerequisites'Plain/plain[]'Group/group`
+### <a name="EnhancementPrerequisites[]'Disjunction/disjunction"></a> `EnhancementPrerequisites[]'Disjunction/disjunction`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`list` |  | <a href="#EnhancementPrerequisites[]'Disjunction/disjunction/list">See details</a>
+
+#### <a name="EnhancementPrerequisites[]'Disjunction/disjunction/list"></a> `list`
+
+- **Type:** List
+- **Items:** <a href="#EnhancementPrerequisites[]'Disjunction/disjunction/list[]">EnhancementPrerequisites[]'Disjunction/disjunction/list[]</a>
+- **Minimum Items:** `2`
+
+---
+
+### <a name="EnhancementPrerequisites[]'Disjunction/disjunction/list[]"></a> `EnhancementPrerequisites[]'Disjunction/disjunction/list[]`
+
+- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#EnhancementPrerequisiteGroup">EnhancementPrerequisiteGroup</a>
+
+---
+
+### <a name="EnhancementPrerequisites[]'Group"></a> `EnhancementPrerequisites[]'Group`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#EnhancementPrerequisites[]'Group/tag">See details</a>
+`group` |  | <a href="#EnhancementPrerequisites[]'Group/group">See details</a>
+
+#### <a name="EnhancementPrerequisites[]'Group/tag"></a> `tag`
+
+- **Constant:** `"Group"`
+
+#### <a name="EnhancementPrerequisites[]'Group/group"></a> `group`
+
+- **Type:** <a href="#EnhancementPrerequisites[]'Group/group">Object</a>
+
+---
+
+### <a name="EnhancementPrerequisites[]'Group/group"></a> `EnhancementPrerequisites[]'Group/group`
 
 A prerequisite group has no influence on validation logic. It serves as a
 single unit for displaying purposes, where the source uses a prerequisites
@@ -1749,32 +1916,32 @@ item that cannot be represented as a single prerequisite.
 
 Key | Description | Details
 :-- | :-- | :--
-`list` |  | <a href="#EnhancementPrerequisites'Plain/plain[]'Group/group/list">See details</a>
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#EnhancementPrerequisites'Plain/plain[]'Group/group/translations">See details</a>
+`list` |  | <a href="#EnhancementPrerequisites[]'Group/group/list">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#EnhancementPrerequisites[]'Group/group/translations">See details</a>
 
-#### <a name="EnhancementPrerequisites'Plain/plain[]'Group/group/list"></a> `list`
+#### <a name="EnhancementPrerequisites[]'Group/group/list"></a> `list`
 
 - **Type:** List
-- **Items:** <a href="#EnhancementPrerequisites'Plain/plain[]'Group/group/list[]">EnhancementPrerequisites'Plain/plain[]'Group/group/list[]</a>
+- **Items:** <a href="#EnhancementPrerequisites[]'Group/group/list[]">EnhancementPrerequisites[]'Group/group/list[]</a>
 - **Minimum Items:** `2`
 
-#### <a name="EnhancementPrerequisites'Plain/plain[]'Group/group/translations"></a> `translations`
+#### <a name="EnhancementPrerequisites[]'Group/group/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** Dictionary
-- **Property Values:** <a href="#EnhancementPrerequisites'Plain/plain[]'Group/group/translations[key]">EnhancementPrerequisites'Plain/plain[]'Group/group/translations[key]</a>
+- **Property Values:** <a href="#EnhancementPrerequisites[]'Group/group/translations[key]">EnhancementPrerequisites[]'Group/group/translations[key]</a>
 - **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
 - **Minimum Properties:** `1`
 
 ---
 
-### <a name="EnhancementPrerequisites'Plain/plain[]'Group/group/list[]"></a> `EnhancementPrerequisites'Plain/plain[]'Group/group/list[]`
+### <a name="EnhancementPrerequisites[]'Group/group/list[]"></a> `EnhancementPrerequisites[]'Group/group/list[]`
 
 - **Type:** <a href="./prerequisites/PrerequisiteGroups.md#EnhancementPrerequisiteGroup">EnhancementPrerequisiteGroup</a>
 
 ---
 
-### <a name="EnhancementPrerequisites'Plain/plain[]'Group/group/translations[key]"></a> `EnhancementPrerequisites'Plain/plain[]'Group/group/translations[key]`
+### <a name="EnhancementPrerequisites[]'Group/group/translations[key]"></a> `EnhancementPrerequisites[]'Group/group/translations[key]`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

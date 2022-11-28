@@ -47,7 +47,7 @@ export type PermanentDuration = {
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
    */
-  translations: LocaleMap<PermanentDurationTranslation>
+  translations?: LocaleMap<PermanentDurationTranslation>
 }
 
 export type PermanentDurationTranslation = {

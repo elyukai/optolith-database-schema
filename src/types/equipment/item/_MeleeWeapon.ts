@@ -3,6 +3,7 @@
  */
 
 import { Dice } from "../../_Dice.js"
+import { ReachIdentifier } from "../../_Identifier.js"
 import { CloseCombatTechniqueReference } from "../../_SimpleReferences.js"
 import { Length, PrimaryAttributeDamageThreshold } from "./_Weapon.js"
 
@@ -21,15 +22,7 @@ export type ParryModifier = number
 /**
  * The reach of the weapon.
  */
-export type Reach = {
-  /**
-   * The identifier of the weapon's reach.
-   * @integer
-   * @minimum 1
-   * @maximum 4
-   */
-  id: number
-}
+export type Reach = ReachIdentifier
 
 /**
  * The damage of a weapon consists of a random part using dice and an optional

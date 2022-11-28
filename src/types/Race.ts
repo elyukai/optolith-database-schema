@@ -7,6 +7,7 @@ import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
 import { Dice } from "./_Dice.js"
+import { AdvantageIdentifier, DisadvantageIdentifier, ExperienceLevelIdentifier } from "./_Identifier.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
 import { AdvantageReference, AttributeReference, CultureReference, EyeColorReference, HairColorReference } from "./_SimpleReferences.js"
@@ -53,13 +54,13 @@ export type Race = {
    * A list of strongly recommended advantages.
    * @minItems 1
    */
-  strongly_recommended_advantages?: CommonnessRatedAdvantageDisadvantage[]
+  strongly_recommended_advantages?: CommonnessRatedAdvantageDisadvantage<AdvantageIdentifier>[]
 
   /**
    * A list of strongly recommended disadvantages.
    * @minItems 1
    */
-  strongly_recommended_disadvantages?: CommonnessRatedAdvantageDisadvantage[]
+  strongly_recommended_disadvantages?: CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>[]
 
   /**
    * A list of common advantages. If common advantages are defined by race
@@ -67,7 +68,7 @@ export type Race = {
    * race variants.
    * @minItems 1
    */
-  common_advantages?: CommonnessRatedAdvantageDisadvantage[]
+  common_advantages?: CommonnessRatedAdvantageDisadvantage<AdvantageIdentifier>[]
 
   /**
    * A list of common disadvantages. If common disadvantages are defined by race
@@ -75,7 +76,7 @@ export type Race = {
    * race variants.
    * @minItems 1
    */
-  common_disadvantages?: CommonnessRatedAdvantageDisadvantage[]
+  common_disadvantages?: CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>[]
 
   /**
    * A list of uncommon advantages. If uncommon advantages are defined by race
@@ -83,7 +84,7 @@ export type Race = {
    * race variants.
    * @minItems 1
    */
-  uncommon_advantages?: CommonnessRatedAdvantageDisadvantage[]
+  uncommon_advantages?: CommonnessRatedAdvantageDisadvantage<AdvantageIdentifier>[]
 
   /**
    * A list of uncommon disadvantages. If uncommon disadvantages are defined by
@@ -91,7 +92,7 @@ export type Race = {
    * in race variants.
    * @minItems 1
    */
-  uncommon_disadvantages?: CommonnessRatedAdvantageDisadvantage[]
+  uncommon_disadvantages?: CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>[]
 
   /**
    * Configuration for random weight generation.
@@ -223,11 +224,8 @@ export enum WeightDiceOffsetStrategy {
 export type StartingAgeConfigForExperienceLevel = {
   /**
    * The selected experience level's identifier.
-   * @integer
-   * @minimum 1
-   * @maximum 7
    */
-  experience_level_id: number
+  experience_level_id: ExperienceLevelIdentifier
 
   /**
    * The base value for the selected experience level.
@@ -308,25 +306,25 @@ export type RaceVariant = {
    * A list of common advantages. If common advantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.
    * @minItems 1
    */
-  common_advantages?: CommonnessRatedAdvantageDisadvantage[]
+  common_advantages?: CommonnessRatedAdvantageDisadvantage<AdvantageIdentifier>[]
 
   /**
    * A list of common disadvantages. If common disadvantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.
    * @minItems 1
    */
-  common_disadvantages?: CommonnessRatedAdvantageDisadvantage[]
+  common_disadvantages?: CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>[]
 
   /**
    * A list of uncommon advantages. If uncommon advantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.
    * @minItems 1
    */
-  uncommon_advantages?: CommonnessRatedAdvantageDisadvantage[]
+  uncommon_advantages?: CommonnessRatedAdvantageDisadvantage<AdvantageIdentifier>[]
 
   /**
    * A list of uncommon disadvantages. If uncommon disadvantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.
    * @minItems 1
    */
-  uncommon_disadvantages?: CommonnessRatedAdvantageDisadvantage[]
+  uncommon_disadvantages?: CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>[]
 
   /**
    * An array containing 20 (numeric) hair color identifiers. The array also represents the 20-sided die for a random hair color.

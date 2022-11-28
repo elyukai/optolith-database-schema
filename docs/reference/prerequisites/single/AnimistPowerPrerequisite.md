@@ -19,8 +19,7 @@ Key | Description | Details
 
 The animist power's identifier.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="../../_Identifier.md#AnimistPowerIdentifier">AnimistPowerIdentifier</a>
 
 #### <a name="AnimistPowerPrerequisite/level"></a> `level?`
 

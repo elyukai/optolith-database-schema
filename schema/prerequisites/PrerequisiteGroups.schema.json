@@ -192,38 +192,6 @@
           "type": "object",
           "properties": {
             "tag": {
-              "const": "ActivatableSet"
-            },
-            "activatable_set": {
-              "$ref": "./single/ActivatablePrerequisite.schema.json#/$defs/ActivatableSetPrerequisite"
-            }
-          },
-          "required": [
-            "tag",
-            "activatable_set"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "ActivatableOptionSet"
-            },
-            "activatable_option_set": {
-              "$ref": "./single/ActivatablePrerequisite.schema.json#/$defs/ActivatableOptionSetPrerequisite"
-            }
-          },
-          "required": [
-            "tag",
-            "activatable_option_set"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
               "const": "BlessedTradition"
             },
             "blessed_tradition": {
@@ -265,22 +233,6 @@
           "required": [
             "tag",
             "rated"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "RatedSet"
-            },
-            "rated_set": {
-              "$ref": "./single/RatedPrerequisite.schema.json#/$defs/RatedSetPrerequisite"
-            }
-          },
-          "required": [
-            "tag",
-            "rated_set"
           ],
           "additionalProperties": false
         },
@@ -587,38 +539,6 @@
           "type": "object",
           "properties": {
             "tag": {
-              "const": "ActivatableSet"
-            },
-            "activatable_set": {
-              "$ref": "./single/ActivatablePrerequisite.schema.json#/$defs/ActivatableSetPrerequisite"
-            }
-          },
-          "required": [
-            "tag",
-            "activatable_set"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "ActivatableOptionSet"
-            },
-            "activatable_option_set": {
-              "$ref": "./single/ActivatablePrerequisite.schema.json#/$defs/ActivatableOptionSetPrerequisite"
-            }
-          },
-          "required": [
-            "tag",
-            "activatable_option_set"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
               "const": "BlessedTradition"
             },
             "blessed_tradition": {
@@ -660,22 +580,6 @@
           "required": [
             "tag",
             "rated"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "RatedSet"
-            },
-            "rated_set": {
-              "$ref": "./single/RatedPrerequisite.schema.json#/$defs/RatedSetPrerequisite"
-            }
-          },
-          "required": [
-            "tag",
-            "rated_set"
           ],
           "additionalProperties": false
         },

@@ -17,9 +17,7 @@ Key | Description | Details
 
 The minimum social status' identifier.
 
-- **Type:** Integer
-- **Minimum:** `2`
-- **Maximum:** `5`
+- **Type:** <a href="../../_Identifier.md#SocialStatusIdentifier">SocialStatusIdentifier</a>
 
 #### <a name="SocialStatusPrerequisite/display_option"></a> `display_option?`
 

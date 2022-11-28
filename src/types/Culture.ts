@@ -6,6 +6,7 @@ import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
+import { AdvantageIdentifier, DisadvantageIdentifier, MagicalTraditionIdentifier, ProfessionIdentifier, SkillIdentifier } from "./_Identifier.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
 import { BinarySex } from "./_Sex.js"
@@ -58,25 +59,25 @@ export type Culture = {
    * A list of common advantages.
    * @minItems 1
    */
-  common_advantages?: CommonnessRatedAdvantageDisadvantage[]
+  common_advantages?: CommonnessRatedAdvantageDisadvantage<AdvantageIdentifier>[]
 
   /**
    * A list of common disadvantages.
    * @minItems 1
    */
-  common_disadvantages?: CommonnessRatedAdvantageDisadvantage[]
+  common_disadvantages?: CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>[]
 
   /**
    * A list of uncommon advantages.
    * @minItems 1
    */
-  uncommon_advantages?: CommonnessRatedAdvantageDisadvantage[]
+  uncommon_advantages?: CommonnessRatedAdvantageDisadvantage<AdvantageIdentifier>[]
 
   /**
    * A list of uncommon disadvantages.
    * @minItems 1
    */
-  uncommon_disadvantages?: CommonnessRatedAdvantageDisadvantage[]
+  uncommon_disadvantages?: CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>[]
 
   /**
    * A list of common skills.
@@ -187,10 +188,8 @@ export enum Rarity {
 export type ProfessionConstraint = {
   /**
    * The profession's identifier.
-   * @integer
-   * @minimum 1
    */
-  id: number
+  id: ProfessionIdentifier
 
   /**
    * Some profession variants are more common than others. There may be
@@ -217,10 +216,8 @@ export enum MundaneProfessionSubgroupConstraint {
 export type TraditionConstraint = {
   /**
    * The magical tradition's identifier.
-   * @integer
-   * @minimum 1
    */
-  id: number
+  id: MagicalTraditionIdentifier
 
   /**
    * Some professions are more common than others. There may be cultures
@@ -276,7 +273,7 @@ export type CulturalPackageItem = {
    * @integer
    * @minimum 1
    */
-  id: number
+  id: SkillIdentifier
 
   /**
    * The skill points for the respective skill you get for buying the cultural

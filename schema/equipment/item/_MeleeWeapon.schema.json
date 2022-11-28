@@ -12,19 +12,7 @@
     },
     "Reach": {
       "description": "The reach of the weapon.",
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "The identifier of the weapon's reach.",
-          "type": "integer",
-          "maximum": 4,
-          "minimum": 1
-        }
-      },
-      "required": [
-        "id"
-      ],
-      "additionalProperties": false
+      "$ref": "../../_Identifier.schema.json#/$defs/ReachIdentifier"
     },
     "MeleeDamage": {
       "description": "The damage of a weapon consists of a random part using dice and an optional\nflat part.",

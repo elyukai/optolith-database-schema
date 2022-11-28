@@ -173,8 +173,7 @@ Key | Description | Details
 
 The attribute's identifier.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="../_Identifier.md#AttributeIdentifier">AttributeIdentifier</a>
 
 #### <a name="PrimaryAttribute/use_half_for_arcane_energy"></a> `use_half_for_arcane_energy`
 

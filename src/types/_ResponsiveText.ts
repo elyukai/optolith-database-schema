@@ -29,7 +29,7 @@ export type ResponsiveTextReplace = {
    * @minLength 1
    * @pattern \$1
    */
-  default: string
+  full: string
 
   /**
    * A compressed replacement string for use in small areas (e.g. on character

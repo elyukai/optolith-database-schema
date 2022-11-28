@@ -212,7 +212,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "../_Identifier.schema.json#/$defs/ActivatableIdentifier"
+          "$ref": "../_IdentifierGroup.schema.json#/$defs/ActivatableIdentifier"
         }
       },
       "required": [

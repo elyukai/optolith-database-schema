@@ -229,8 +229,7 @@ Key | Description | Details
 
 The magical tradition's identifier.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#MagicalTraditionIdentifier">MagicalTraditionIdentifier</a>
 
 #### <a name="CommonCantripTraditionNote/translations"></a> `translations?`
 

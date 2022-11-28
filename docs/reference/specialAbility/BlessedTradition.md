@@ -179,13 +179,13 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#RestrictedBlessings'Six/tag">See details</a>
-`three` |  | <a href="#RestrictedBlessings'Six/three">See details</a>
+`six` |  | <a href="#RestrictedBlessings'Six/six">See details</a>
 
 #### <a name="RestrictedBlessings'Six/tag"></a> `tag`
 
 - **Constant:** `"Six"`
 
-#### <a name="RestrictedBlessings'Six/three"></a> `three`
+#### <a name="RestrictedBlessings'Six/six"></a> `six`
 
 - **Type:** <a href="#SixRestrictedBlessings">SixRestrictedBlessings</a>
 

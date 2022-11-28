@@ -38,7 +38,18 @@
           "description": "A list of strongly recommended advantages.",
           "type": "array",
           "items": {
-            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/$defs/CommonnessRatedAdvantageDisadvantage"
+            "title": "Commonness-rated Advantage/Disadvantage",
+            "description": "Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.",
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "./_Identifier.schema.json#/$defs/AdvantageIdentifier"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
           },
           "minItems": 1
         },
@@ -46,7 +57,18 @@
           "description": "A list of strongly recommended disadvantages.",
           "type": "array",
           "items": {
-            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/$defs/CommonnessRatedAdvantageDisadvantage"
+            "title": "Commonness-rated Advantage/Disadvantage",
+            "description": "Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.",
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "./_Identifier.schema.json#/$defs/DisadvantageIdentifier"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
           },
           "minItems": 1
         },
@@ -54,7 +76,18 @@
           "description": "A list of common advantages. If common advantages are defined by race\nvariants, leave this field empty. It is overridden by the same field in\nrace variants.",
           "type": "array",
           "items": {
-            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/$defs/CommonnessRatedAdvantageDisadvantage"
+            "title": "Commonness-rated Advantage/Disadvantage",
+            "description": "Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.",
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "./_Identifier.schema.json#/$defs/AdvantageIdentifier"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
           },
           "minItems": 1
         },
@@ -62,7 +95,18 @@
           "description": "A list of common disadvantages. If common disadvantages are defined by race\nvariants, leave this field empty. It is overridden by the same field in\nrace variants.",
           "type": "array",
           "items": {
-            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/$defs/CommonnessRatedAdvantageDisadvantage"
+            "title": "Commonness-rated Advantage/Disadvantage",
+            "description": "Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.",
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "./_Identifier.schema.json#/$defs/DisadvantageIdentifier"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
           },
           "minItems": 1
         },
@@ -70,7 +114,18 @@
           "description": "A list of uncommon advantages. If uncommon advantages are defined by race\nvariants, leave this field empty. It is overridden by the same field in\nrace variants.",
           "type": "array",
           "items": {
-            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/$defs/CommonnessRatedAdvantageDisadvantage"
+            "title": "Commonness-rated Advantage/Disadvantage",
+            "description": "Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.",
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "./_Identifier.schema.json#/$defs/AdvantageIdentifier"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
           },
           "minItems": 1
         },
@@ -78,7 +133,18 @@
           "description": "A list of uncommon disadvantages. If uncommon disadvantages are defined by\nrace variants, leave this field empty. It is overridden by the same field\nin race variants.",
           "type": "array",
           "items": {
-            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/$defs/CommonnessRatedAdvantageDisadvantage"
+            "title": "Commonness-rated Advantage/Disadvantage",
+            "description": "Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.",
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "./_Identifier.schema.json#/$defs/DisadvantageIdentifier"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
           },
           "minItems": 1
         },
@@ -248,9 +314,7 @@
       "properties": {
         "experience_level_id": {
           "description": "The selected experience level's identifier.",
-          "type": "integer",
-          "maximum": 7,
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/ExperienceLevelIdentifier"
         },
         "base": {
           "description": "The base value for the selected experience level.",
@@ -377,7 +441,18 @@
           "description": "A list of common advantages. If common advantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.",
           "type": "array",
           "items": {
-            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/$defs/CommonnessRatedAdvantageDisadvantage"
+            "title": "Commonness-rated Advantage/Disadvantage",
+            "description": "Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.",
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "./_Identifier.schema.json#/$defs/AdvantageIdentifier"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
           },
           "minItems": 1
         },
@@ -385,7 +460,18 @@
           "description": "A list of common disadvantages. If common disadvantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.",
           "type": "array",
           "items": {
-            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/$defs/CommonnessRatedAdvantageDisadvantage"
+            "title": "Commonness-rated Advantage/Disadvantage",
+            "description": "Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.",
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "./_Identifier.schema.json#/$defs/DisadvantageIdentifier"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
           },
           "minItems": 1
         },
@@ -393,7 +479,18 @@
           "description": "A list of uncommon advantages. If uncommon advantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.",
           "type": "array",
           "items": {
-            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/$defs/CommonnessRatedAdvantageDisadvantage"
+            "title": "Commonness-rated Advantage/Disadvantage",
+            "description": "Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.",
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "./_Identifier.schema.json#/$defs/AdvantageIdentifier"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
           },
           "minItems": 1
         },
@@ -401,7 +498,18 @@
           "description": "A list of uncommon disadvantages. If uncommon disadvantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.",
           "type": "array",
           "items": {
-            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/$defs/CommonnessRatedAdvantageDisadvantage"
+            "title": "Commonness-rated Advantage/Disadvantage",
+            "description": "Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.",
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "./_Identifier.schema.json#/$defs/DisadvantageIdentifier"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
           },
           "minItems": 1
         },

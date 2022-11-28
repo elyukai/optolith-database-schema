@@ -16,7 +16,7 @@ Key | Description | Details
 
 The rated entry's identifier.
 
-- **Type:** <a href="../../_Identifier.md#RatedIdentifier">RatedIdentifier</a>
+- **Type:** <a href="../../_IdentifierGroup.md#RatedIdentifier">RatedIdentifier</a>
 
 #### <a name="RatedPrerequisite/value"></a> `value`
 
@@ -28,43 +28,6 @@ The required minimum value.
 #### <a name="RatedPrerequisite/display_option"></a> `display_option?`
 
 - **Type:** <a href="../DisplayOption.md#DisplayOption">DisplayOption</a>
-
----
-
-### <a name="RatedSetPrerequisite"></a> Rated Set Prerequisite (`RatedSetPrerequisite`)
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The possible rated entries' identifiers. | <a href="#RatedSetPrerequisite/id">See details</a>
-`value` | The required minimum value. | <a href="#RatedSetPrerequisite/value">See details</a>
-`display_option?` |  | <a href="#RatedSetPrerequisite/display_option">See details</a>
-
-#### <a name="RatedSetPrerequisite/id"></a> `id`
-
-The possible rated entries' identifiers.
-
-- **Type:** List
-- **Items:** <a href="#RatedSetPrerequisite/id[]">RatedSetPrerequisite/id[]</a>
-- **Minimum Items:** `2`
-
-#### <a name="RatedSetPrerequisite/value"></a> `value`
-
-The required minimum value.
-
-- **Type:** Integer
-- **Minimum:** `0`
-
-#### <a name="RatedSetPrerequisite/display_option"></a> `display_option?`
-
-- **Type:** <a href="../DisplayOption.md#DisplayOption">DisplayOption</a>
-
----
-
-### <a name="RatedSetPrerequisite/id[]"></a> `RatedSetPrerequisite/id[]`
-
-- **Type:** <a href="../../_Identifier.md#RatedIdentifier">RatedIdentifier</a>
 
 ---
 

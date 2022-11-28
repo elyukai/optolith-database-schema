@@ -136,9 +136,7 @@
           "additionalProperties": false
         }
       },
-      "required": [
-        "translations"
-      ],
+      "required": [],
       "additionalProperties": false
     },
     "PermanentDurationTranslation": {

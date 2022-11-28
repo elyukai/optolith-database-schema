@@ -8,7 +8,8 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "../../_Identifier.schema.json#/$defs/OneOrManyNumericIdentifiers"
+          "description": "The culture's identifier.",
+          "$ref": "../../_Identifier.schema.json#/$defs/CultureIdentifier"
         },
         "display_option": {
           "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"

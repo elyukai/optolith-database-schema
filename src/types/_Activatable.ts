@@ -8,7 +8,8 @@ import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 import { SelectOptionCategory, SkillApplicationOrUse } from "./_ActivatableSelectOptionCategory.js"
 import { DurationUnitValue } from "./_ActivatableSkillDuration.js"
-import { AdvancedSpecialAbilityRestrictedOptionIdentifier, CombatRelatedSpecialAbilityIdentifier, CombatTechniqueIdentifier, MagicalTraditionIdentifier, PatronIdentifier, VolumePointsOptionReferenceIdentifier } from "./_Identifier.js"
+import { MagicalTraditionIdentifier, PatronIdentifier, SkillIdentifier } from "./_Identifier.js"
+import { AdvancedSpecialAbilityRestrictedOptionIdentifier, CombatRelatedSpecialAbilityIdentifier, CombatTechniqueIdentifier, VolumePointsOptionReferenceIdentifier } from "./_IdentifierGroup.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "./_NonEmptyString.js"
 import { GeneralPrerequisites } from "./_Prerequisite.js"
@@ -178,7 +179,7 @@ export type ExplicitSkillSelectOption = {
    * @integer
    * @minimum 1
    */
-  id: number
+  id: SkillIdentifier
 
   /**
    * Registers new applications, which get enabled once this entry is
@@ -1217,19 +1218,17 @@ export type Aspect = AspectReference
 /**
  * A reference to an advanced special ability.
  */
-export type AdvancedSpecialAbility =
-  | { tag: "General"; general: AdvancedSpecialAbilityReference }
-  | { tag: "RestrictOptions"; restrict_options: RestrictAdvancedSpecialAbilityOptions }
-  | { tag: "OneOf"; one_of: OneOfAdvancedSpecialAbilityOptions }
-  | { tag: "DeriveFromExternalOption"; derive_from_external_option: AdvancedSpecialAbilityDerivedFromExternalOption }
+export type AdvancedSpecialAbility<Identifier> =
+  | { tag: "General"; general: AdvancedSpecialAbilityReference<Identifier> }
+  | { tag: "RestrictOptions"; restrict_options: RestrictAdvancedSpecialAbilityOptions<Identifier> }
+  | { tag: "OneOf"; one_of: OneOfAdvancedSpecialAbilityOptions<Identifier> }
+  | { tag: "DeriveFromExternalOption"; derive_from_external_option: AdvancedSpecialAbilityDerivedFromExternalOption<Identifier> }
 
-export type RestrictAdvancedSpecialAbilityOptions = {
+export type RestrictAdvancedSpecialAbilityOptions<Identifier> = {
   /**
-   * The advanced special ability's numeric identifier.
-   * @integer
-   * @minimum 1
+   * The advanced special ability’s identifier.
    */
-  id: number
+  id: Identifier
 
   /**
    * Specify the select option(s) that only are allowed for the referenced
@@ -1239,11 +1238,11 @@ export type RestrictAdvancedSpecialAbilityOptions = {
   option: AdvancedSpecialAbilityRestrictedOptionIdentifier[]
 }
 
-export type OneOfAdvancedSpecialAbilityOptions = {
+export type OneOfAdvancedSpecialAbilityOptions<Identifier> = {
   /**
    * The possible advanced special abilities.
    */
-  options: AdvancedSpecialAbilityReference
+  options: AdvancedSpecialAbilityReference<Identifier>
 
   /**
    * Do have to choose the advanced special ability when buying the style
@@ -1254,7 +1253,7 @@ export type OneOfAdvancedSpecialAbilityOptions = {
   display_option?: DisplayOption
 }
 
-export type AdvancedSpecialAbilityDerivedFromExternalOption = {
+export type AdvancedSpecialAbilityDerivedFromExternalOption<Identifier> = {
   /**
    * The possible advanced special abilities.
    */
@@ -1264,7 +1263,7 @@ export type AdvancedSpecialAbilityDerivedFromExternalOption = {
    * Map options from the external entry to allowed advanced special abilities.
    * @minItems 1
    */
-  map: AdvancedSpecialAbilityDerivedFromExternalOptionMapping[]
+  map: AdvancedSpecialAbilityDerivedFromExternalOptionMapping<Identifier>[]
 
   display_option?: DisplayOption
 }
@@ -1274,7 +1273,7 @@ export type AdvancedSpecialAbilityDerivedFromExternalOption = {
  * ability.
  * @minItems 1
  */
-export type AdvancedSpecialAbilityDerivedFromExternalOptionMapping = {
+export type AdvancedSpecialAbilityDerivedFromExternalOptionMapping<Identifier> = {
   /**
    * The select option's identifier.
    */
@@ -1283,7 +1282,7 @@ export type AdvancedSpecialAbilityDerivedFromExternalOptionMapping = {
   /**
    * The advanced special ability's identifier.
    */
-  to_advanced: AdvancedSpecialAbilityReference
+  to_advanced: AdvancedSpecialAbilityReference<Identifier>
 }
 
 export type AdvancedSpecialAbilityDerivedExternalEntryId = MagicalTraditionIdentifier
@@ -1297,10 +1296,10 @@ export type AdvancedSpecialAbilityDerivedExternalEntryOptionId = PatronIdentifie
  * be that you can choose from a set of special abilities, but then you can't
  * specify an option.
  */
-export type AdvancedSpecialAbilities = [
-  AdvancedSpecialAbility,
-  AdvancedSpecialAbility,
-  AdvancedSpecialAbility,
+export type AdvancedSpecialAbilities<Identifier> = [
+  AdvancedSpecialAbility<Identifier>,
+  AdvancedSpecialAbility<Identifier>,
+  AdvancedSpecialAbility<Identifier>,
 ]
 
 export type ApplicableCombatTechniques =

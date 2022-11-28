@@ -15,9 +15,7 @@ Key | Description | Details
 
 The continent's identifier.
 
-- **Type:** Integer
-- **Minimum:** `1`
-- **Maximum:** `3`
+- **Type:** <a href="#ContinentIdentifier">ContinentIdentifier</a>
 
 #### <a name="AssociatedContinent/is_extinct"></a> `is_extinct`
 

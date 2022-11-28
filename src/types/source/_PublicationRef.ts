@@ -2,6 +2,7 @@
  * @main PublicationRefs
  */
 
+import { PublicationIdentifier } from "../_Identifier.js"
 import { LocaleMap } from "../_LocaleMap.js"
 
 /**
@@ -20,10 +21,8 @@ export type PublicationRefs = PublicationRef[]
 export type PublicationRef = {
   /**
    * The publication's identifier.
-   * @integer
-   * @minimum 1
    */
-  id: number
+  id: PublicationIdentifier
 
   /**
    * All occurrences of the entry, identified by IETF language tag (BCP47).

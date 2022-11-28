@@ -1,4 +1,4 @@
-import { OneOrManyNumericIdentifiers } from "../../_Identifier.js"
+import { StateIdentifier } from "../../_Identifier.js"
 import { DisplayOption } from "../DisplayOption.js"
 
 /**
@@ -6,7 +6,7 @@ import { DisplayOption } from "../DisplayOption.js"
  * @title State Prerequisite
  */
 export type StatePrerequisite = {
-  id: OneOrManyNumericIdentifiers
+  id: StateIdentifier
 
   display_option?: DisplayOption
 }

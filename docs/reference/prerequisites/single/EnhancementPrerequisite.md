@@ -46,7 +46,7 @@ Key | Description | Details
 
 The skill's identifier.
 
-- **Type:** <a href="../../_Identifier.md#SkillWithEnhancementsIdentifier">SkillWithEnhancementsIdentifier</a>
+- **Type:** <a href="../../_IdentifierGroup.md#SkillWithEnhancementsIdentifier">SkillWithEnhancementsIdentifier</a>
 
 ---
 

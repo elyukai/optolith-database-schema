@@ -16,6 +16,9 @@ Key | Description | Details
 `powers?` | The patron-specific powers. Used by animist power Animal Powers I–III and should only be present on animal patrons. | <a href="#Patron/powers">See details</a>
 `ae_cost?` | The patron-specific AE cost. Used by several animist forces for animal patrons. | <a href="#Patron/ae_cost">See details</a>
 `improvement_cost?` | The patron-specific improvement cost. Used by several animist forces for animal patrons. | <a href="#Patron/improvement_cost">See details</a>
+`common_advantages?` | The patron may grant common advantages that are taken into account during character creation. | <a href="#Patron/common_advantages">See details</a>
+`common_disadvantages?` | The patron may grant common disadvantages that are taken into account during character creation. | <a href="#Patron/common_disadvantages">See details</a>
+`common_spellworks?` | The animist may learn spellworks common for this patron. | <a href="#Patron/common_spellworks">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Patron/translations">See details</a>
 
 #### <a name="Patron/id"></a> `id`
@@ -80,6 +83,35 @@ animal patrons.
 
 - **Type:** <a href="./_ImprovementCost.md#ImprovementCost">ImprovementCost</a>
 
+#### <a name="Patron/common_advantages"></a> `common_advantages?`
+
+The patron may grant common advantages that are taken into account during
+character creation.
+
+*Source:* Geisterwald & Knochenklippen, p. 6-7
+
+- **Type:** List
+- **Items:** <a href="#Patron/common_advantages[]">Patron/common_advantages[]</a>
+
+#### <a name="Patron/common_disadvantages"></a> `common_disadvantages?`
+
+The patron may grant common disadvantages that are taken into account
+during character creation.
+
+*Source:* Geisterwald & Knochenklippen, p. 6-7
+
+- **Type:** List
+- **Items:** <a href="#Patron/common_disadvantages[]">Patron/common_disadvantages[]</a>
+
+#### <a name="Patron/common_spellworks"></a> `common_spellworks?`
+
+The animist may learn spellworks common for this patron.
+
+*Source:* Geisterwald & Knochenklippen, p. 6-7
+
+- **Type:** List
+- **Items:** <a href="#Patron/common_spellworks[]">Patron/common_spellworks[]</a>
+
 #### <a name="Patron/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
@@ -130,6 +162,24 @@ All translations for the entry, identified by IETF language tag (BCP47).
 ### <a name="Patron/powers[2]"></a> `Patron/powers[2]`
 
 - **Type:** <a href="#AnimalPowersLevel3">AnimalPowersLevel3</a>
+
+---
+
+### <a name="Patron/common_advantages[]"></a> `Patron/common_advantages[]`
+
+- **Type:** <a href="./_SimpleReferences.md#AdvantageReference">AdvantageReference</a>
+
+---
+
+### <a name="Patron/common_disadvantages[]"></a> `Patron/common_disadvantages[]`
+
+- **Type:** <a href="./_SimpleReferences.md#DisadvantageReference">DisadvantageReference</a>
+
+---
+
+### <a name="Patron/common_spellworks[]"></a> `Patron/common_spellworks[]`
+
+- **Type:** <a href="./_SimpleReferences.md#SpellworkReference">SpellworkReference</a>
 
 ---
 
@@ -210,8 +260,7 @@ Key | Description | Details
 
 The advantage's identifier.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>
 
 #### <a name="AdvantageAnimalPower/level"></a> `level?`
 
@@ -242,8 +291,7 @@ Key | Description | Details
 
 The skill's identifier.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#SkillIdentifier">SkillIdentifier</a>
 
 #### <a name="SkillAnimalPower/points"></a> `points`
 
@@ -396,8 +444,7 @@ Key | Description | Details
 
 The attribute's identifier.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#AttributeIdentifier">AttributeIdentifier</a>
 
 #### <a name="AttributeAnimalPower/value"></a> `value`
 

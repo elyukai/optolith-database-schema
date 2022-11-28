@@ -57,7 +57,7 @@ Key | Description | Details
 ### <a name="GeneralPrerequisiteGroup"></a> `GeneralPrerequisiteGroup`
 
 - **Type:** Union
-- **Cases:** <a href="#GeneralPrerequisiteGroup'Sex">GeneralPrerequisiteGroup'Sex</a> | <a href="#GeneralPrerequisiteGroup'Race">GeneralPrerequisiteGroup'Race</a> | <a href="#GeneralPrerequisiteGroup'Culture">GeneralPrerequisiteGroup'Culture</a> | <a href="#GeneralPrerequisiteGroup'Pact">GeneralPrerequisiteGroup'Pact</a> | <a href="#GeneralPrerequisiteGroup'SocialStatus">GeneralPrerequisiteGroup'SocialStatus</a> | <a href="#GeneralPrerequisiteGroup'State">GeneralPrerequisiteGroup'State</a> | <a href="#GeneralPrerequisiteGroup'Rule">GeneralPrerequisiteGroup'Rule</a> | <a href="#GeneralPrerequisiteGroup'PrimaryAttribute">GeneralPrerequisiteGroup'PrimaryAttribute</a> | <a href="#GeneralPrerequisiteGroup'Activatable">GeneralPrerequisiteGroup'Activatable</a> | <a href="#GeneralPrerequisiteGroup'ActivatableSet">GeneralPrerequisiteGroup'ActivatableSet</a> | <a href="#GeneralPrerequisiteGroup'ActivatableOptionSet">GeneralPrerequisiteGroup'ActivatableOptionSet</a> | <a href="#GeneralPrerequisiteGroup'BlessedTradition">GeneralPrerequisiteGroup'BlessedTradition</a> | <a href="#GeneralPrerequisiteGroup'MagicalTradition">GeneralPrerequisiteGroup'MagicalTradition</a> | <a href="#GeneralPrerequisiteGroup'Rated">GeneralPrerequisiteGroup'Rated</a> | <a href="#GeneralPrerequisiteGroup'RatedSet">GeneralPrerequisiteGroup'RatedSet</a> | <a href="#GeneralPrerequisiteGroup'RatedMinimumNumber">GeneralPrerequisiteGroup'RatedMinimumNumber</a> | <a href="#GeneralPrerequisiteGroup'ExternalEnhancement">GeneralPrerequisiteGroup'ExternalEnhancement</a> | <a href="#GeneralPrerequisiteGroup'Text">GeneralPrerequisiteGroup'Text</a>
+- **Cases:** <a href="#GeneralPrerequisiteGroup'Sex">GeneralPrerequisiteGroup'Sex</a> | <a href="#GeneralPrerequisiteGroup'Race">GeneralPrerequisiteGroup'Race</a> | <a href="#GeneralPrerequisiteGroup'Culture">GeneralPrerequisiteGroup'Culture</a> | <a href="#GeneralPrerequisiteGroup'Pact">GeneralPrerequisiteGroup'Pact</a> | <a href="#GeneralPrerequisiteGroup'SocialStatus">GeneralPrerequisiteGroup'SocialStatus</a> | <a href="#GeneralPrerequisiteGroup'State">GeneralPrerequisiteGroup'State</a> | <a href="#GeneralPrerequisiteGroup'Rule">GeneralPrerequisiteGroup'Rule</a> | <a href="#GeneralPrerequisiteGroup'PrimaryAttribute">GeneralPrerequisiteGroup'PrimaryAttribute</a> | <a href="#GeneralPrerequisiteGroup'Activatable">GeneralPrerequisiteGroup'Activatable</a> | <a href="#GeneralPrerequisiteGroup'BlessedTradition">GeneralPrerequisiteGroup'BlessedTradition</a> | <a href="#GeneralPrerequisiteGroup'MagicalTradition">GeneralPrerequisiteGroup'MagicalTradition</a> | <a href="#GeneralPrerequisiteGroup'Rated">GeneralPrerequisiteGroup'Rated</a> | <a href="#GeneralPrerequisiteGroup'RatedMinimumNumber">GeneralPrerequisiteGroup'RatedMinimumNumber</a> | <a href="#GeneralPrerequisiteGroup'ExternalEnhancement">GeneralPrerequisiteGroup'ExternalEnhancement</a> | <a href="#GeneralPrerequisiteGroup'Text">GeneralPrerequisiteGroup'Text</a>
 
 ---
 
@@ -232,44 +232,6 @@ Key | Description | Details
 
 ---
 
-### <a name="GeneralPrerequisiteGroup'ActivatableSet"></a> `GeneralPrerequisiteGroup'ActivatableSet`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#GeneralPrerequisiteGroup'ActivatableSet/tag">See details</a>
-`activatable_set` |  | <a href="#GeneralPrerequisiteGroup'ActivatableSet/activatable_set">See details</a>
-
-#### <a name="GeneralPrerequisiteGroup'ActivatableSet/tag"></a> `tag`
-
-- **Constant:** `"ActivatableSet"`
-
-#### <a name="GeneralPrerequisiteGroup'ActivatableSet/activatable_set"></a> `activatable_set`
-
-- **Type:** <a href="./single/ActivatablePrerequisite.md#ActivatableSetPrerequisite">ActivatableSetPrerequisite</a>
-
----
-
-### <a name="GeneralPrerequisiteGroup'ActivatableOptionSet"></a> `GeneralPrerequisiteGroup'ActivatableOptionSet`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#GeneralPrerequisiteGroup'ActivatableOptionSet/tag">See details</a>
-`activatable_option_set` |  | <a href="#GeneralPrerequisiteGroup'ActivatableOptionSet/activatable_option_set">See details</a>
-
-#### <a name="GeneralPrerequisiteGroup'ActivatableOptionSet/tag"></a> `tag`
-
-- **Constant:** `"ActivatableOptionSet"`
-
-#### <a name="GeneralPrerequisiteGroup'ActivatableOptionSet/activatable_option_set"></a> `activatable_option_set`
-
-- **Type:** <a href="./single/ActivatablePrerequisite.md#ActivatableOptionSetPrerequisite">ActivatableOptionSetPrerequisite</a>
-
----
-
 ### <a name="GeneralPrerequisiteGroup'BlessedTradition"></a> `GeneralPrerequisiteGroup'BlessedTradition`
 
 - **Type:** Object
@@ -324,25 +286,6 @@ Key | Description | Details
 #### <a name="GeneralPrerequisiteGroup'Rated/rated"></a> `rated`
 
 - **Type:** <a href="./single/RatedPrerequisite.md#RatedPrerequisite">RatedPrerequisite</a>
-
----
-
-### <a name="GeneralPrerequisiteGroup'RatedSet"></a> `GeneralPrerequisiteGroup'RatedSet`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#GeneralPrerequisiteGroup'RatedSet/tag">See details</a>
-`rated_set` |  | <a href="#GeneralPrerequisiteGroup'RatedSet/rated_set">See details</a>
-
-#### <a name="GeneralPrerequisiteGroup'RatedSet/tag"></a> `tag`
-
-- **Constant:** `"RatedSet"`
-
-#### <a name="GeneralPrerequisiteGroup'RatedSet/rated_set"></a> `rated_set`
-
-- **Type:** <a href="./single/RatedPrerequisite.md#RatedSetPrerequisite">RatedSetPrerequisite</a>
 
 ---
 
@@ -508,7 +451,7 @@ Key | Description | Details
 ### <a name="AdvantageDisadvantagePrerequisiteGroup"></a> `AdvantageDisadvantagePrerequisiteGroup`
 
 - **Type:** Union
-- **Cases:** <a href="#AdvantageDisadvantagePrerequisiteGroup'CommonSuggestedByRCP">AdvantageDisadvantagePrerequisiteGroup'CommonSuggestedByRCP</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Sex">AdvantageDisadvantagePrerequisiteGroup'Sex</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Race">AdvantageDisadvantagePrerequisiteGroup'Race</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Culture">AdvantageDisadvantagePrerequisiteGroup'Culture</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Pact">AdvantageDisadvantagePrerequisiteGroup'Pact</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'SocialStatus">AdvantageDisadvantagePrerequisiteGroup'SocialStatus</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'State">AdvantageDisadvantagePrerequisiteGroup'State</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Rule">AdvantageDisadvantagePrerequisiteGroup'Rule</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'PrimaryAttribute">AdvantageDisadvantagePrerequisiteGroup'PrimaryAttribute</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Activatable">AdvantageDisadvantagePrerequisiteGroup'Activatable</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'ActivatableSet">AdvantageDisadvantagePrerequisiteGroup'ActivatableSet</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'ActivatableOptionSet">AdvantageDisadvantagePrerequisiteGroup'ActivatableOptionSet</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'BlessedTradition">AdvantageDisadvantagePrerequisiteGroup'BlessedTradition</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'MagicalTradition">AdvantageDisadvantagePrerequisiteGroup'MagicalTradition</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Rated">AdvantageDisadvantagePrerequisiteGroup'Rated</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'RatedSet">AdvantageDisadvantagePrerequisiteGroup'RatedSet</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'RatedMinimumNumber">AdvantageDisadvantagePrerequisiteGroup'RatedMinimumNumber</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'ExternalEnhancement">AdvantageDisadvantagePrerequisiteGroup'ExternalEnhancement</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Text">AdvantageDisadvantagePrerequisiteGroup'Text</a>
+- **Cases:** <a href="#AdvantageDisadvantagePrerequisiteGroup'CommonSuggestedByRCP">AdvantageDisadvantagePrerequisiteGroup'CommonSuggestedByRCP</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Sex">AdvantageDisadvantagePrerequisiteGroup'Sex</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Race">AdvantageDisadvantagePrerequisiteGroup'Race</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Culture">AdvantageDisadvantagePrerequisiteGroup'Culture</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Pact">AdvantageDisadvantagePrerequisiteGroup'Pact</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'SocialStatus">AdvantageDisadvantagePrerequisiteGroup'SocialStatus</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'State">AdvantageDisadvantagePrerequisiteGroup'State</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Rule">AdvantageDisadvantagePrerequisiteGroup'Rule</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'PrimaryAttribute">AdvantageDisadvantagePrerequisiteGroup'PrimaryAttribute</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Activatable">AdvantageDisadvantagePrerequisiteGroup'Activatable</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'BlessedTradition">AdvantageDisadvantagePrerequisiteGroup'BlessedTradition</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'MagicalTradition">AdvantageDisadvantagePrerequisiteGroup'MagicalTradition</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Rated">AdvantageDisadvantagePrerequisiteGroup'Rated</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'RatedMinimumNumber">AdvantageDisadvantagePrerequisiteGroup'RatedMinimumNumber</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'ExternalEnhancement">AdvantageDisadvantagePrerequisiteGroup'ExternalEnhancement</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Text">AdvantageDisadvantagePrerequisiteGroup'Text</a>
 
 ---
 
@@ -708,44 +651,6 @@ Key | Description | Details
 
 ---
 
-### <a name="AdvantageDisadvantagePrerequisiteGroup'ActivatableSet"></a> `AdvantageDisadvantagePrerequisiteGroup'ActivatableSet`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#AdvantageDisadvantagePrerequisiteGroup'ActivatableSet/tag">See details</a>
-`activatable_set` |  | <a href="#AdvantageDisadvantagePrerequisiteGroup'ActivatableSet/activatable_set">See details</a>
-
-#### <a name="AdvantageDisadvantagePrerequisiteGroup'ActivatableSet/tag"></a> `tag`
-
-- **Constant:** `"ActivatableSet"`
-
-#### <a name="AdvantageDisadvantagePrerequisiteGroup'ActivatableSet/activatable_set"></a> `activatable_set`
-
-- **Type:** <a href="./single/ActivatablePrerequisite.md#ActivatableSetPrerequisite">ActivatableSetPrerequisite</a>
-
----
-
-### <a name="AdvantageDisadvantagePrerequisiteGroup'ActivatableOptionSet"></a> `AdvantageDisadvantagePrerequisiteGroup'ActivatableOptionSet`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#AdvantageDisadvantagePrerequisiteGroup'ActivatableOptionSet/tag">See details</a>
-`activatable_option_set` |  | <a href="#AdvantageDisadvantagePrerequisiteGroup'ActivatableOptionSet/activatable_option_set">See details</a>
-
-#### <a name="AdvantageDisadvantagePrerequisiteGroup'ActivatableOptionSet/tag"></a> `tag`
-
-- **Constant:** `"ActivatableOptionSet"`
-
-#### <a name="AdvantageDisadvantagePrerequisiteGroup'ActivatableOptionSet/activatable_option_set"></a> `activatable_option_set`
-
-- **Type:** <a href="./single/ActivatablePrerequisite.md#ActivatableOptionSetPrerequisite">ActivatableOptionSetPrerequisite</a>
-
----
-
 ### <a name="AdvantageDisadvantagePrerequisiteGroup'BlessedTradition"></a> `AdvantageDisadvantagePrerequisiteGroup'BlessedTradition`
 
 - **Type:** Object
@@ -800,25 +705,6 @@ Key | Description | Details
 #### <a name="AdvantageDisadvantagePrerequisiteGroup'Rated/rated"></a> `rated`
 
 - **Type:** <a href="./single/RatedPrerequisite.md#RatedPrerequisite">RatedPrerequisite</a>
-
----
-
-### <a name="AdvantageDisadvantagePrerequisiteGroup'RatedSet"></a> `AdvantageDisadvantagePrerequisiteGroup'RatedSet`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#AdvantageDisadvantagePrerequisiteGroup'RatedSet/tag">See details</a>
-`rated_set` |  | <a href="#AdvantageDisadvantagePrerequisiteGroup'RatedSet/rated_set">See details</a>
-
-#### <a name="AdvantageDisadvantagePrerequisiteGroup'RatedSet/tag"></a> `tag`
-
-- **Constant:** `"RatedSet"`
-
-#### <a name="AdvantageDisadvantagePrerequisiteGroup'RatedSet/rated_set"></a> `rated_set`
-
-- **Type:** <a href="./single/RatedPrerequisite.md#RatedSetPrerequisite">RatedSetPrerequisite</a>
 
 ---
 

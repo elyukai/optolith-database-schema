@@ -1,4 +1,4 @@
-import { OneOrManyNumericIdentifiers } from "../../_Identifier.js"
+import { CultureIdentifier } from "../../_Identifier.js"
 import { DisplayOption } from "../DisplayOption.js"
 
 /**
@@ -6,7 +6,10 @@ import { DisplayOption } from "../DisplayOption.js"
  * @title Culture Prerequisite
  */
 export type CulturePrerequisite = {
-  id: OneOrManyNumericIdentifiers
+  /**
+   * The culture's identifier.
+   */
+  id: CultureIdentifier
 
   display_option?: DisplayOption
 }

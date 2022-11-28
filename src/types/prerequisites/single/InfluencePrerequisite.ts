@@ -1,3 +1,4 @@
+import { InfluenceIdentifier } from "../../_Identifier.js"
 import { DisplayOption } from "../DisplayOption.js"
 
 /**
@@ -6,10 +7,8 @@ import { DisplayOption } from "../DisplayOption.js"
 export type InfluencePrerequisite = {
   /**
    * The influence's identifier.
-   * @integer
-   * @minimum 1
    */
-  id: number
+  id: InfluenceIdentifier
 
   /**
    * If the referenced influence must or must not be chosen.

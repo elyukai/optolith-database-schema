@@ -6,9 +6,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The focus rule subject's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/SubjectIdentifier"
         }
       },
       "required": [
@@ -20,9 +18,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The race's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/RaceIdentifier"
         }
       },
       "required": [
@@ -34,9 +30,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The culture's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/CultureIdentifier"
         }
       },
       "required": [
@@ -48,9 +42,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The profession's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/ProfessionIdentifier"
         }
       },
       "required": [
@@ -62,9 +54,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The profession variant's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/ProfessionVariantIdentifier"
         }
       },
       "required": [
@@ -76,10 +66,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The attribute's identifier.",
-          "type": "integer",
-          "maximum": 8,
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/AttributeIdentifier"
         }
       },
       "required": [
@@ -91,9 +78,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The skill's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/SkillIdentifier"
         }
       },
       "required": [
@@ -105,10 +90,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The skill group's identifier.",
-          "type": "integer",
-          "maximum": 5,
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/SkillGroupIdentifier"
         }
       },
       "required": [
@@ -120,8 +102,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The combat technique's identifier.",
-          "$ref": "./_Identifier.schema.json#/$defs/CombatTechniqueIdentifier"
+          "$ref": "./_IdentifierGroup.schema.json#/$defs/CombatTechniqueIdentifier"
         }
       },
       "required": [
@@ -133,9 +114,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The close combat technique's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/CloseCombatTechniqueIdentifier"
         }
       },
       "required": [
@@ -147,9 +126,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The ranged combat technique's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/RangedCombatTechniqueIdentifier"
         }
       },
       "required": [
@@ -161,9 +138,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The magical tradition's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/MagicalTraditionIdentifier"
         }
       },
       "required": [
@@ -175,9 +150,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The cantrip's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/CantripIdentifier"
         }
       },
       "required": [
@@ -189,9 +162,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The spell's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/SpellIdentifier"
         }
       },
       "required": [
@@ -203,9 +174,19 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The ritual's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/RitualIdentifier"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "SpellworkReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "./_IdentifierGroup.schema.json#/$defs/SpellworkIdentifier"
         }
       },
       "required": [
@@ -217,9 +198,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The property's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/PropertyIdentifier"
         }
       },
       "required": [
@@ -231,9 +210,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The blessed tradition's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/BlessedTraditionIdentifier"
         }
       },
       "required": [
@@ -245,9 +222,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The blessing's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/BlessingIdentifier"
         }
       },
       "required": [
@@ -259,9 +234,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The liturgical chant's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/LiturgicalChantIdentifier"
         }
       },
       "required": [
@@ -273,9 +246,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The ceremony's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/CeremonyIdentifier"
         }
       },
       "required": [
@@ -287,9 +258,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The aspect's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/AspectIdentifier"
         }
       },
       "required": [
@@ -301,9 +270,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The advantage's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/AdvantageIdentifier"
         }
       },
       "required": [
@@ -311,13 +278,11 @@
       ],
       "additionalProperties": false
     },
-    "AdvancedSpecialAbilityReference": {
+    "DisadvantageReference": {
       "type": "object",
       "properties": {
         "id": {
-          "description": "The advanced special ability's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/DisadvantageIdentifier"
         }
       },
       "required": [
@@ -329,9 +294,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The language's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/LanguageIdentifier"
         }
       },
       "required": [
@@ -343,9 +306,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The script's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/ScriptIdentifier"
         }
       },
       "required": [
@@ -357,10 +318,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The social status's identifier.",
-          "type": "integer",
-          "maximum": 5,
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/SocialStatusIdentifier"
         }
       },
       "required": [
@@ -372,9 +330,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The institution's curriculum's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/CurriculumIdentifier"
         }
       },
       "required": [
@@ -386,10 +342,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The institution's guideline's identifier.",
-          "type": "integer",
-          "maximum": 6,
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/GuidelineIdentifier"
         }
       },
       "required": [
@@ -401,9 +354,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The animal type's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/AnimalTypeIdentifier"
         }
       },
       "required": [
@@ -415,10 +366,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The target category's identifier.",
-          "type": "integer",
-          "maximum": 24,
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/TargetCategoryIdentifier"
         }
       },
       "required": [
@@ -430,9 +378,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The patron category's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/PatronCategoryIdentifier"
         }
       },
       "required": [
@@ -444,9 +390,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The personality trait's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/PersonalityTraitIdentifier"
         }
       },
       "required": [
@@ -458,9 +402,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The hair color's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/HairColorIdentifier"
         }
       },
       "required": [
@@ -472,9 +414,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The hair color's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/EyeColorIdentifier"
         }
       },
       "required": [
@@ -486,9 +426,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The pact category's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/PactCategoryIdentifier"
         }
       },
       "required": [
@@ -500,9 +438,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The domain's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/PactDomainIdentifier"
         }
       },
       "required": [
@@ -514,9 +450,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The patron's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/PatronIdentifier"
         }
       },
       "required": [
@@ -528,10 +462,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The tribe's identifier.",
-          "type": "integer",
-          "maximum": 6,
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/AnimistTribeIdentifier"
         }
       },
       "required": [
@@ -543,10 +474,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The element's identifier.",
-          "type": "integer",
-          "maximum": 6,
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/ElementIdentifier"
         }
       },
       "required": [
@@ -558,9 +486,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The weapon's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/WeaponIdentifier"
         }
       },
       "required": [
@@ -572,9 +498,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The armor's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/ArmorIdentifier"
         }
       },
       "required": [

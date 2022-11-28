@@ -3,7 +3,7 @@
  */
 
 import { validateSchemaCreator } from "../../validation/schema.js"
-import { EquipmentIdentifier } from "../_Identifier.js"
+import { EquipmentIdentifier } from "../_IdentifierGroup.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { NonEmptyString } from "../_NonEmptyString.js"
 

@@ -735,7 +735,7 @@ Key | Description | Details
 
 The entry's identifier.
 
-- **Type:** <a href="./_Identifier.md#SkillIdentifier">SkillIdentifier</a>
+- **Type:** <a href="./_IdentifierGroup.md#SkillIdentifier">SkillIdentifier</a>
 
 #### <a name="SkillsSelectOptionCategory/ap_value'Fixed/fixed/map[]/ap_value"></a> `ap_value`
 
@@ -1185,7 +1185,7 @@ The list of specific entries.
 
 ### <a name="SkillSelectOptionCategoryCategory/specific/list[]"></a> `SkillSelectOptionCategoryCategory/specific/list[]`
 
-- **Type:** <a href="./_Identifier.md#SkillIdentifier">SkillIdentifier</a>
+- **Type:** <a href="./_IdentifierGroup.md#SkillIdentifier">SkillIdentifier</a>
 
 ---
 
@@ -1316,7 +1316,7 @@ Key | Description | Details
 
 The entry's identifier.
 
-- **Type:** <a href="./_Identifier.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>
+- **Type:** <a href="./_IdentifierGroup.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>
 
 #### <a name="CombatTechniquesSelectOptionCategory/ap_value'Fixed/fixed/map[]/ap_value"></a> `ap_value`
 
@@ -1631,7 +1631,7 @@ Key | Description | Details
 
 The target entry's identifier.
 
-- **Type:** <a href="./_Identifier.md#ActivatableIdentifier">ActivatableIdentifier</a>
+- **Type:** <a href="./_IdentifierGroup.md#ActivatableIdentifier">ActivatableIdentifier</a>
 
 #### <a name="OptionPrerequisite/active"></a> `active`
 

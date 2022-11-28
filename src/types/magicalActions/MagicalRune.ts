@@ -7,6 +7,7 @@ import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import { CheckResultBasedDuration } from "../_ActivatableSkillDuration.js"
 import { Effect } from "../_ActivatableSkillEffect.js"
+import { CloseCombatTechniqueIdentifier } from "../_Identifier.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { NonEmptyString } from "../_NonEmptyString.js"
@@ -24,6 +25,8 @@ export type MagicalRune = {
    * @minimum 1
    */
   id: number
+
+  option?: MagicalRuneOption
 
   /**
    * Lists the linked three attributes used to make a skill check.
@@ -61,6 +64,10 @@ export type MagicalRune = {
 export type MagicalRuneTranslation = {
   /**
    * The name of the magical rune.
+   *
+   * If the rune has an option, the option’s name will/should not be included in
+   * the name as well as its surrounding parenthesis. It will/should be combined
+   * on demand.
    */
   name: NonEmptyString
 
@@ -116,10 +123,8 @@ export type MagicalRuneCloseCombatTechniqueCheckPenalty = {
 export type MagicalRuneCloseCombatTechniqueCheckPenaltyMapping = {
   /**
    * The close combat technique's identifier.
-   * @integer
-   * @minimum 1
    */
-  combat_technique_id: number
+  combat_technique_id: CloseCombatTechniqueIdentifier
 
   /**
    * The check modifier for the specified close combat technique.
@@ -219,6 +224,23 @@ export type MagicalRuneDuration = {
    * The duration on fast rune application.
    */
   fast: CheckResultBasedDuration
+}
+
+export type MagicalRuneOption = {
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translations: LocaleMap<MagicalRuneOptionTranslation>
+}
+
+export type MagicalRuneOptionTranslation = {
+  /**
+   * The name of the option.
+   *
+   * The surrounding parenthesis will/should not be included, they will/should
+   * be generated.
+   */
+  name: NonEmptyString
 }
 
 export const validateSchema = validateSchemaCreator<MagicalRune>(import.meta.url)

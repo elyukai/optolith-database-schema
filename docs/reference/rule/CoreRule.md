@@ -17,8 +17,7 @@ Key | Description | Details
 
 The core rule's identifier. An unique, increasing integer.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="../_Identifier.md#CoreRuleIdentifier">CoreRuleIdentifier</a>
 
 #### <a name="CoreRule/content"></a> `content`
 
@@ -176,8 +175,7 @@ Key | Description | Details
 
 The nested core rule's identifier.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="../_Identifier.md#CoreRuleIdentifier">CoreRuleIdentifier</a>
 
 #### <a name="ChildNode/include"></a> `include`
 
@@ -1833,4 +1831,4 @@ Key | Description | Details
 
 #### <a name="ReferenceNode/id"></a> `id`
 
-- **Type:** <a href="../_Identifier.md#CoreRuleDerivableContentIdentifier">CoreRuleDerivableContentIdentifier</a>
+- **Type:** <a href="../_IdentifierGroup.md#CoreRuleDerivableContentIdentifier">CoreRuleDerivableContentIdentifier</a>

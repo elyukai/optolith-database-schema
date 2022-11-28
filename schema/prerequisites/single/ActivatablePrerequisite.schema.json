@@ -9,7 +9,7 @@
       "properties": {
         "id": {
           "description": "The activatable entry's identifier.",
-          "$ref": "../../_Identifier.schema.json#/$defs/ActivatableIdentifier"
+          "$ref": "../../_IdentifierGroup.schema.json#/$defs/ActivatableIdentifier"
         },
         "active": {
           "description": "If the required entry should be required to be active or inactive.",
@@ -24,7 +24,7 @@
           "description": "Required select options. Order is important. Typically, you only need the\nfirst array index, though.",
           "type": "array",
           "items": {
-            "$ref": "../../_Identifier.schema.json#/$defs/RequirableSelectOptionIdentifier"
+            "$ref": "../../_IdentifierGroup.schema.json#/$defs/RequirableSelectOptionIdentifier"
           },
           "minItems": 1
         },
@@ -38,91 +38,6 @@
       "required": [
         "id",
         "active"
-      ],
-      "additionalProperties": false
-    },
-    "ActivatableSetPrerequisite": {
-      "title": "Activatable Set Prerequisite",
-      "description": "Requires a specific advantage, disadvantage or special ability from a given\nset of entries.",
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "The possible activatable entries' identifiers.",
-          "type": "array",
-          "items": {
-            "$ref": "../../_Identifier.schema.json#/$defs/ActivatableIdentifier"
-          },
-          "minItems": 2
-        },
-        "active": {
-          "description": "If the required entry should be required to be active or inactive.",
-          "type": "boolean"
-        },
-        "level": {
-          "description": "The required minimum level of the entry.",
-          "type": "integer",
-          "minimum": 1
-        },
-        "options": {
-          "description": "Required select options. Order is important. Typically, you only need the\nfirst array index, though.",
-          "type": "array",
-          "items": {
-            "$ref": "../../_Identifier.schema.json#/$defs/RequirableSelectOptionIdentifier"
-          },
-          "minItems": 1
-        },
-        "display_option": {
-          "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"
-        }
-      },
-      "required": [
-        "id",
-        "active"
-      ],
-      "additionalProperties": false
-    },
-    "ActivatableOptionSetPrerequisite": {
-      "title": "Activatable Option Set Prerequisite",
-      "description": "Requires one option from a set of options from a specific advantage,\ndisadvantage or special ability.",
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "The activatable entry's identifier.",
-          "$ref": "../../_Identifier.schema.json#/$defs/ActivatableIdentifier"
-        },
-        "active": {
-          "description": "If the required entry should be required to be active or inactive.",
-          "type": "boolean"
-        },
-        "level": {
-          "description": "The required minimum level of the entry.",
-          "type": "integer",
-          "minimum": 1
-        },
-        "first_option": {
-          "description": "The possible set of first options.",
-          "type": "array",
-          "items": {
-            "$ref": "../../_Identifier.schema.json#/$defs/RequirableSelectOptionIdentifier"
-          },
-          "minItems": 2
-        },
-        "other_options": {
-          "description": "Required other select options. Order is important.",
-          "type": "array",
-          "items": {
-            "$ref": "../../_Identifier.schema.json#/$defs/RequirableSelectOptionIdentifier"
-          },
-          "minItems": 1
-        },
-        "display_option": {
-          "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"
-        }
-      },
-      "required": [
-        "id",
-        "active",
-        "first_option"
       ],
       "additionalProperties": false
     }

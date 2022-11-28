@@ -1,4 +1,4 @@
-import { ExtensionRuleIdentifier } from "../../_Identifier.js"
+import { ExtensionRuleIdentifier } from "../../_IdentifierGroup.js"
 import { DisplayOption } from "../DisplayOption.js"
 
 /**

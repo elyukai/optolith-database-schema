@@ -314,8 +314,7 @@ Key | Description | Details
 
 The skill's identifier. An unique, increasing integer.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#SkillIdentifier">SkillIdentifier</a>
 
 #### <a name="ExplicitSkillSelectOption/skill_applications"></a> `skill_applications?`
 
@@ -414,7 +413,7 @@ Key | Description | Details
 
 The combat technique's identifier.
 
-- **Type:** <a href="./_Identifier.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>
+- **Type:** <a href="./_IdentifierGroup.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>
 
 #### <a name="ExplicitCombatTechniqueSelectOption/prerequisites"></a> `prerequisites?`
 
@@ -1213,7 +1212,7 @@ Key | Description | Details
 The identifier of the combat-related special ability of which the level
 defines the penalty instead.
 
-- **Type:** <a href="./_Identifier.md#CombatRelatedSpecialAbilityIdentifier">CombatRelatedSpecialAbilityIdentifier</a>
+- **Type:** <a href="./_IdentifierGroup.md#CombatRelatedSpecialAbilityIdentifier">CombatRelatedSpecialAbilityIdentifier</a>
 
 ---
 
@@ -2231,7 +2230,7 @@ Key | Description | Details
 
 The option's identifier.
 
-- **Type:** <a href="./_Identifier.md#VolumePointsOptionReferenceIdentifier">VolumePointsOptionReferenceIdentifier</a>
+- **Type:** <a href="./_IdentifierGroup.md#VolumePointsOptionReferenceIdentifier">VolumePointsOptionReferenceIdentifier</a>
 
 ---
 
@@ -2581,215 +2580,6 @@ The blessed aspect.
 
 ---
 
-### <a name="AdvancedSpecialAbility"></a> `AdvancedSpecialAbility`
-
-A reference to an advanced special ability.
-
-- **Type:** Union
-- **Cases:** <a href="#AdvancedSpecialAbility'General">AdvancedSpecialAbility'General</a> | <a href="#AdvancedSpecialAbility'RestrictOptions">AdvancedSpecialAbility'RestrictOptions</a> | <a href="#AdvancedSpecialAbility'OneOf">AdvancedSpecialAbility'OneOf</a> | <a href="#AdvancedSpecialAbility'DeriveFromExternalOption">AdvancedSpecialAbility'DeriveFromExternalOption</a>
-
----
-
-### <a name="AdvancedSpecialAbility'General"></a> `AdvancedSpecialAbility'General`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#AdvancedSpecialAbility'General/tag">See details</a>
-`general` |  | <a href="#AdvancedSpecialAbility'General/general">See details</a>
-
-#### <a name="AdvancedSpecialAbility'General/tag"></a> `tag`
-
-- **Constant:** `"General"`
-
-#### <a name="AdvancedSpecialAbility'General/general"></a> `general`
-
-- **Type:** <a href="./_SimpleReferences.md#AdvancedSpecialAbilityReference">AdvancedSpecialAbilityReference</a>
-
----
-
-### <a name="AdvancedSpecialAbility'RestrictOptions"></a> `AdvancedSpecialAbility'RestrictOptions`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#AdvancedSpecialAbility'RestrictOptions/tag">See details</a>
-`restrict_options` |  | <a href="#AdvancedSpecialAbility'RestrictOptions/restrict_options">See details</a>
-
-#### <a name="AdvancedSpecialAbility'RestrictOptions/tag"></a> `tag`
-
-- **Constant:** `"RestrictOptions"`
-
-#### <a name="AdvancedSpecialAbility'RestrictOptions/restrict_options"></a> `restrict_options`
-
-- **Type:** <a href="#RestrictAdvancedSpecialAbilityOptions">RestrictAdvancedSpecialAbilityOptions</a>
-
----
-
-### <a name="AdvancedSpecialAbility'OneOf"></a> `AdvancedSpecialAbility'OneOf`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#AdvancedSpecialAbility'OneOf/tag">See details</a>
-`one_of` |  | <a href="#AdvancedSpecialAbility'OneOf/one_of">See details</a>
-
-#### <a name="AdvancedSpecialAbility'OneOf/tag"></a> `tag`
-
-- **Constant:** `"OneOf"`
-
-#### <a name="AdvancedSpecialAbility'OneOf/one_of"></a> `one_of`
-
-- **Type:** <a href="#OneOfAdvancedSpecialAbilityOptions">OneOfAdvancedSpecialAbilityOptions</a>
-
----
-
-### <a name="AdvancedSpecialAbility'DeriveFromExternalOption"></a> `AdvancedSpecialAbility'DeriveFromExternalOption`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#AdvancedSpecialAbility'DeriveFromExternalOption/tag">See details</a>
-`derive_from_external_option` |  | <a href="#AdvancedSpecialAbility'DeriveFromExternalOption/derive_from_external_option">See details</a>
-
-#### <a name="AdvancedSpecialAbility'DeriveFromExternalOption/tag"></a> `tag`
-
-- **Constant:** `"DeriveFromExternalOption"`
-
-#### <a name="AdvancedSpecialAbility'DeriveFromExternalOption/derive_from_external_option"></a> `derive_from_external_option`
-
-- **Type:** <a href="#AdvancedSpecialAbilityDerivedFromExternalOption">AdvancedSpecialAbilityDerivedFromExternalOption</a>
-
----
-
-### <a name="RestrictAdvancedSpecialAbilityOptions"></a> `RestrictAdvancedSpecialAbilityOptions`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The advanced special ability's numeric identifier. | <a href="#RestrictAdvancedSpecialAbilityOptions/id">See details</a>
-`option` | Specify the select option(s) that only are allowed for the referenced advanced special ability; others are disallowed. | <a href="#RestrictAdvancedSpecialAbilityOptions/option">See details</a>
-
-#### <a name="RestrictAdvancedSpecialAbilityOptions/id"></a> `id`
-
-The advanced special ability's numeric identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
-#### <a name="RestrictAdvancedSpecialAbilityOptions/option"></a> `option`
-
-Specify the select option(s) that only are allowed for the referenced
-advanced special ability; others are disallowed.
-
-- **Type:** List
-- **Items:** <a href="#RestrictAdvancedSpecialAbilityOptions/option[]">RestrictAdvancedSpecialAbilityOptions/option[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="RestrictAdvancedSpecialAbilityOptions/option[]"></a> `RestrictAdvancedSpecialAbilityOptions/option[]`
-
-- **Type:** <a href="./_Identifier.md#AdvancedSpecialAbilityRestrictedOptionIdentifier">AdvancedSpecialAbilityRestrictedOptionIdentifier</a>
-
----
-
-### <a name="OneOfAdvancedSpecialAbilityOptions"></a> `OneOfAdvancedSpecialAbilityOptions`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`options` | The possible advanced special abilities. | <a href="#OneOfAdvancedSpecialAbilityOptions/options">See details</a>
-`is_selection_required_on_purchase` | Do have to choose the advanced special ability when buying the style special ability? Otherwise the decision can be made later. | <a href="#OneOfAdvancedSpecialAbilityOptions/is_selection_required_on_purchase">See details</a>
-`display_option?` |  | <a href="#OneOfAdvancedSpecialAbilityOptions/display_option">See details</a>
-
-#### <a name="OneOfAdvancedSpecialAbilityOptions/options"></a> `options`
-
-The possible advanced special abilities.
-
-- **Type:** <a href="./_SimpleReferences.md#AdvancedSpecialAbilityReference">AdvancedSpecialAbilityReference</a>
-
-#### <a name="OneOfAdvancedSpecialAbilityOptions/is_selection_required_on_purchase"></a> `is_selection_required_on_purchase`
-
-Do have to choose the advanced special ability when buying the style
-special ability? Otherwise the decision can be made later.
-
-- **Type:** Boolean
-
-#### <a name="OneOfAdvancedSpecialAbilityOptions/display_option"></a> `display_option?`
-
-- **Type:** <a href="./prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
-
----
-
-### <a name="AdvancedSpecialAbilityDerivedFromExternalOption"></a> `AdvancedSpecialAbilityDerivedFromExternalOption`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`external_entry` | The possible advanced special abilities. | <a href="#AdvancedSpecialAbilityDerivedFromExternalOption/external_entry">See details</a>
-`map` | Map options from the external entry to allowed advanced special abilities. | <a href="#AdvancedSpecialAbilityDerivedFromExternalOption/map">See details</a>
-`display_option?` |  | <a href="#AdvancedSpecialAbilityDerivedFromExternalOption/display_option">See details</a>
-
-#### <a name="AdvancedSpecialAbilityDerivedFromExternalOption/external_entry"></a> `external_entry`
-
-The possible advanced special abilities.
-
-- **Type:** <a href="./_Identifier.md#MagicalTraditionIdentifier">MagicalTraditionIdentifier</a>
-
-#### <a name="AdvancedSpecialAbilityDerivedFromExternalOption/map"></a> `map`
-
-Map options from the external entry to allowed advanced special abilities.
-
-- **Type:** List
-- **Items:** <a href="#AdvancedSpecialAbilityDerivedFromExternalOption/map[]">AdvancedSpecialAbilityDerivedFromExternalOption/map[]</a>
-- **Minimum Items:** `1`
-
-#### <a name="AdvancedSpecialAbilityDerivedFromExternalOption/display_option"></a> `display_option?`
-
-- **Type:** <a href="./prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
-
----
-
-### <a name="AdvancedSpecialAbilityDerivedFromExternalOption/map[]"></a> `AdvancedSpecialAbilityDerivedFromExternalOption/map[]`
-
-- **Type:** <a href="#AdvancedSpecialAbilityDerivedFromExternalOptionMapping">AdvancedSpecialAbilityDerivedFromExternalOptionMapping</a>
-
----
-
-### <a name="AdvancedSpecialAbilityDerivedFromExternalOptionMapping"></a> `AdvancedSpecialAbilityDerivedFromExternalOptionMapping`
-
-Mapping from an option of the external entry to an allowed advanced special
-ability.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`from_option` | The select option's identifier. | <a href="#AdvancedSpecialAbilityDerivedFromExternalOptionMapping/from_option">See details</a>
-`to_advanced` | The advanced special ability's identifier. | <a href="#AdvancedSpecialAbilityDerivedFromExternalOptionMapping/to_advanced">See details</a>
-
-#### <a name="AdvancedSpecialAbilityDerivedFromExternalOptionMapping/from_option"></a> `from_option`
-
-The select option's identifier.
-
-- **Type:** <a href="./_Identifier.md#PatronIdentifier">PatronIdentifier</a>
-
-#### <a name="AdvancedSpecialAbilityDerivedFromExternalOptionMapping/to_advanced"></a> `to_advanced`
-
-The advanced special ability's identifier.
-
-- **Type:** <a href="./_SimpleReferences.md#AdvancedSpecialAbilityReference">AdvancedSpecialAbilityReference</a>
-
----
-
 ### <a name="AdvancedSpecialAbilityDerivedExternalEntryId"></a> `AdvancedSpecialAbilityDerivedExternalEntryId`
 
 - **Type:** <a href="./_Identifier.md#MagicalTraditionIdentifier">MagicalTraditionIdentifier</a>
@@ -2799,37 +2589,6 @@ The advanced special ability's identifier.
 ### <a name="AdvancedSpecialAbilityDerivedExternalEntryOptionId"></a> `AdvancedSpecialAbilityDerivedExternalEntryOptionId`
 
 - **Type:** <a href="./_Identifier.md#PatronIdentifier">PatronIdentifier</a>
-
----
-
-### <a name="AdvancedSpecialAbilities"></a> `AdvancedSpecialAbilities`
-
-The Advanced Special Abilities for the respective Style Special Ability.
-Sometimes, only a specific select option or a set of select options of an
-entry is allowed, which can be modelled by the option property. It can also
-be that you can choose from a set of special abilities, but then you can't
-specify an option.
-
-- **Type:** Tuple
-- **Items:** [<a href="AdvancedSpecialAbilities[0]">AdvancedSpecialAbilities[0]</a>, <a href="AdvancedSpecialAbilities[1]">AdvancedSpecialAbilities[1]</a>, <a href="AdvancedSpecialAbilities[2]">AdvancedSpecialAbilities[2]</a>]
-
----
-
-### <a name="AdvancedSpecialAbilities[0]"></a> `AdvancedSpecialAbilities[0]`
-
-- **Type:** <a href="#AdvancedSpecialAbility">AdvancedSpecialAbility</a>
-
----
-
-### <a name="AdvancedSpecialAbilities[1]"></a> `AdvancedSpecialAbilities[1]`
-
-- **Type:** <a href="#AdvancedSpecialAbility">AdvancedSpecialAbility</a>
-
----
-
-### <a name="AdvancedSpecialAbilities[2]"></a> `AdvancedSpecialAbilities[2]`
-
-- **Type:** <a href="#AdvancedSpecialAbility">AdvancedSpecialAbility</a>
 
 ---
 
@@ -3065,7 +2824,7 @@ Key | Description | Details
 
 #### <a name="SpecificApplicableCombatTechnique/id"></a> `id`
 
-- **Type:** <a href="./_Identifier.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>
+- **Type:** <a href="./_IdentifierGroup.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>
 
 #### <a name="SpecificApplicableCombatTechnique/restrictions"></a> `restrictions?`
 

@@ -48,7 +48,6 @@ export type AnimistPower = {
    *
    * If no tribe tradition is given, the animist power is generally available to
    * all tribe traditions.
-   * @minItems 1
    * @uniqueItems
    */
   tribe_tradition: AnimistTribeReference[]

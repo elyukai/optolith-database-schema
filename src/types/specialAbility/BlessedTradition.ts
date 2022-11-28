@@ -86,7 +86,7 @@ export type BlessedTradition = {
  */
 export type RestrictedBlessings =
   | { tag: "Three"; three: ThreeRestrictedBlessings }
-  | { tag: "Six"; three: SixRestrictedBlessings }
+  | { tag: "Six"; six: SixRestrictedBlessings }
 
 /**
  * @uniqueItems

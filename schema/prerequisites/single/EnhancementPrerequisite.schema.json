@@ -30,7 +30,7 @@
       "properties": {
         "id": {
           "description": "The skill's identifier.",
-          "$ref": "../../_Identifier.schema.json#/$defs/SkillWithEnhancementsIdentifier"
+          "$ref": "../../_IdentifierGroup.schema.json#/$defs/SkillWithEnhancementsIdentifier"
         }
       },
       "required": [

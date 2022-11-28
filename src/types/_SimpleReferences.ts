@@ -1,375 +1,174 @@
-import { CombatTechniqueIdentifier } from "./_Identifier.js"
+import { AdvantageIdentifier, AnimalTypeIdentifier, AnimistTribeIdentifier, ArmorIdentifier, AspectIdentifier, AttributeIdentifier, BlessedTraditionIdentifier, BlessingIdentifier, CantripIdentifier, CeremonyIdentifier, CloseCombatTechniqueIdentifier, CultureIdentifier, CurriculumIdentifier, DisadvantageIdentifier, ElementIdentifier, EyeColorIdentifier, GuidelineIdentifier, HairColorIdentifier, LanguageIdentifier, LiturgicalChantIdentifier, MagicalTraditionIdentifier, PactCategoryIdentifier, PactDomainIdentifier, PatronCategoryIdentifier, PatronIdentifier, PersonalityTraitIdentifier, ProfessionIdentifier, ProfessionVariantIdentifier, PropertyIdentifier, RaceIdentifier, RangedCombatTechniqueIdentifier, RitualIdentifier, ScriptIdentifier, SkillGroupIdentifier, SkillIdentifier, SocialStatusIdentifier, SpellIdentifier, SubjectIdentifier, TargetCategoryIdentifier, WeaponIdentifier } from "./_Identifier.js"
+import { CombatTechniqueIdentifier, SpellworkIdentifier } from "./_IdentifierGroup.js"
 
 export type FocusRuleSubjectReference = {
-  /**
-   * The focus rule subject's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: SubjectIdentifier
 }
 
 export type RaceReference = {
-  /**
-   * The race's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: RaceIdentifier
 }
 
 export type CultureReference = {
-  /**
-   * The culture's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: CultureIdentifier
 }
 
 export type ProfessionReference = {
-  /**
-   * The profession's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: ProfessionIdentifier
 }
 
 export type ProfessionVariantReference = {
-  /**
-   * The profession variant's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: ProfessionVariantIdentifier
 }
 
 export type AttributeReference = {
-  /**
-   * The attribute's identifier.
-   * @integer
-   * @minimum 1
-   * @maximum 8
-   */
-  id: number
+  id: AttributeIdentifier
 }
 
 export type SkillReference = {
-  /**
-   * The skill's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: SkillIdentifier
 }
 
 export type SkillGroupReference = {
-  /**
-   * The skill group's identifier.
-   * @integer
-   * @minimum 1
-   * @maximum 5
-   */
-  id: number
+  id: SkillGroupIdentifier
 }
 
 export type CombatTechniqueReference = {
-  /**
-   * The combat technique's identifier.
-   */
   id: CombatTechniqueIdentifier
 }
 
 export type CloseCombatTechniqueReference = {
-  /**
-   * The close combat technique's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: CloseCombatTechniqueIdentifier
 }
 
 export type RangedCombatTechniqueReference = {
-  /**
-   * The ranged combat technique's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: RangedCombatTechniqueIdentifier
 }
 
 export type MagicalTraditionReference = {
-  /**
-   * The magical tradition's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: MagicalTraditionIdentifier
 }
 
 export type CantripReference = {
-  /**
-   * The cantrip's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: CantripIdentifier
 }
 
 export type SpellReference = {
-  /**
-   * The spell's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: SpellIdentifier
 }
 
 export type RitualReference = {
-  /**
-   * The ritual's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: RitualIdentifier
+}
+
+export type SpellworkReference = {
+  id: SpellworkIdentifier
 }
 
 export type PropertyReference = {
-  /**
-   * The property's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: PropertyIdentifier
 }
 
 export type BlessedTraditionReference = {
-  /**
-   * The blessed tradition's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: BlessedTraditionIdentifier
 }
 
 export type BlessingReference = {
-  /**
-   * The blessing's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: BlessingIdentifier
 }
 
 export type LiturgicalChantReference = {
-  /**
-   * The liturgical chant's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: LiturgicalChantIdentifier
 }
 
 export type CeremonyReference = {
-  /**
-   * The ceremony's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: CeremonyIdentifier
 }
 
 export type AspectReference = {
-  /**
-   * The aspect's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: AspectIdentifier
 }
 
 export type AdvantageReference = {
-  /**
-   * The advantage's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: AdvantageIdentifier
 }
 
-export type AdvancedSpecialAbilityReference = {
-  /**
-   * The advanced special ability's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+export type DisadvantageReference = {
+  id: DisadvantageIdentifier
+}
+
+export type AdvancedSpecialAbilityReference<Identifier> = {
+  id: Identifier
 }
 
 export type LanguageReference = {
-  /**
-   * The language's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: LanguageIdentifier
 }
 
 export type ScriptReference = {
-  /**
-   * The script's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: ScriptIdentifier
 }
 
 export type SocialStatusReference = {
-  /**
-   * The social status's identifier.
-   * @integer
-   * @minimum 1
-   * @maximum 5
-   */
-  id: number
+  id: SocialStatusIdentifier
 }
 
 export type CurriculumReference = {
-  /**
-   * The institution's curriculum's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: CurriculumIdentifier
 }
 
 export type GuidelineReference = {
-  /**
-   * The institution's guideline's identifier.
-   * @integer
-   * @minimum 1
-   * @maximum 6
-   */
-  id: number
+  id: GuidelineIdentifier
 }
 
 export type AnimalTypeReference = {
-  /**
-   * The animal type's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: AnimalTypeIdentifier
 }
 
 export type TargetCategoryReference = {
-  /**
-   * The target category's identifier.
-   * @integer
-   * @minimum 1
-   * @maximum 24
-   */
-  id: number
+  id: TargetCategoryIdentifier
 }
 
 export type PatronCategoryReference = {
-  /**
-   * The patron category's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: PatronCategoryIdentifier
 }
 
 export type PersonalityTraitReference = {
-  /**
-   * The personality trait's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: PersonalityTraitIdentifier
 }
 
 export type HairColorReference = {
-  /**
-   * The hair color's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: HairColorIdentifier
 }
 
 export type EyeColorReference = {
-  /**
-   * The hair color's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: EyeColorIdentifier
 }
 
 export type PactCategoryReference = {
-  /**
-   * The pact category's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: PactCategoryIdentifier
 }
 
 export type PactDomainReference = {
-  /**
-   * The domain's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: PactDomainIdentifier
 }
 
 export type PatronReference = {
-  /**
-   * The patron's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: PatronIdentifier
 }
 
 export type AnimistTribeReference = {
-  /**
-   * The tribe's identifier.
-   * @integer
-   * @minimum 1
-   * @maximum 6
-   */
-  id: number
+  id: AnimistTribeIdentifier
 }
 
 export type ElementReference = {
-  /**
-   * The element's identifier.
-   * @integer
-   * @minimum 1
-   * @maximum 6
-   */
-  id: number
+  id: ElementIdentifier
 }
 
 export type WeaponReference = {
-  /**
-   * The weapon's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: WeaponIdentifier
 }
 
 export type ArmorReference = {
-  /**
-   * The armor's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: ArmorIdentifier
 }

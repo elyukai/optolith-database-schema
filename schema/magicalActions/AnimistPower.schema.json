@@ -30,7 +30,6 @@
           "items": {
             "$ref": "../_SimpleReferences.schema.json#/$defs/AnimistTribeReference"
           },
-          "minItems": 1,
           "uniqueItems": true
         },
         "improvement_cost": {

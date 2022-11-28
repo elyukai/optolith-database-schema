@@ -35,7 +35,7 @@ All translations for the entry, identified by IETF language tag (BCP47).
 ### <a name="RangeValue"></a> `RangeValue`
 
 - **Type:** Union
-- **Cases:** <a href="#RangeValue'Modifiable">RangeValue'Modifiable</a> | <a href="#RangeValue'Sight">RangeValue'Sight</a> | <a href="#RangeValue'Self">RangeValue'Self</a> | <a href="#RangeValue'Global">RangeValue'Global</a> | <a href="#RangeValue'Fixed">RangeValue'Fixed</a> | <a href="#RangeValue'CheckResultBased">RangeValue'CheckResultBased</a>
+- **Cases:** <a href="#RangeValue'Modifiable">RangeValue'Modifiable</a> | <a href="#RangeValue'Sight">RangeValue'Sight</a> | <a href="#RangeValue'Self">RangeValue'Self</a> | <a href="#RangeValue'Global">RangeValue'Global</a> | <a href="#RangeValue'Touch">RangeValue'Touch</a> | <a href="#RangeValue'Fixed">RangeValue'Fixed</a> | <a href="#RangeValue'CheckResultBased">RangeValue'CheckResultBased</a>
 
 ---
 
@@ -128,6 +128,31 @@ Key | Description | Details
 ---
 
 ### <a name="RangeValue'Global/global"></a> `RangeValue'Global/global`
+
+- **Type:** Empty Object
+
+---
+
+### <a name="RangeValue'Touch"></a> `RangeValue'Touch`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#RangeValue'Touch/tag">See details</a>
+`touch` |  | <a href="#RangeValue'Touch/touch">See details</a>
+
+#### <a name="RangeValue'Touch/tag"></a> `tag`
+
+- **Constant:** `"Touch"`
+
+#### <a name="RangeValue'Touch/touch"></a> `touch`
+
+- **Type:** <a href="#RangeValue'Touch/touch">Object</a>
+
+---
+
+### <a name="RangeValue'Touch/touch"></a> `RangeValue'Touch/touch`
 
 - **Type:** Empty Object
 

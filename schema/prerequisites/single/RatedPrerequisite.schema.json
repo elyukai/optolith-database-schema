@@ -8,34 +8,7 @@
       "properties": {
         "id": {
           "description": "The rated entry's identifier.",
-          "$ref": "../../_Identifier.schema.json#/$defs/RatedIdentifier"
-        },
-        "value": {
-          "description": "The required minimum value.",
-          "type": "integer",
-          "minimum": 0
-        },
-        "display_option": {
-          "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"
-        }
-      },
-      "required": [
-        "id",
-        "value"
-      ],
-      "additionalProperties": false
-    },
-    "RatedSetPrerequisite": {
-      "title": "Rated Set Prerequisite",
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "The possible rated entries' identifiers.",
-          "type": "array",
-          "items": {
-            "$ref": "../../_Identifier.schema.json#/$defs/RatedIdentifier"
-          },
-          "minItems": 2
+          "$ref": "../../_IdentifierGroup.schema.json#/$defs/RatedIdentifier"
         },
         "value": {
           "description": "The required minimum value.",

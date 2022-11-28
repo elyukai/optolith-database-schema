@@ -9,8 +9,7 @@
       "properties": {
         "id": {
           "description": "The core rule's identifier. An unique, increasing integer.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "../_Identifier.schema.json#/$defs/CoreRuleIdentifier"
         },
         "content": {
           "type": "array",
@@ -132,8 +131,7 @@
       "properties": {
         "id": {
           "description": "The nested core rule's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "../_Identifier.schema.json#/$defs/CoreRuleIdentifier"
         },
         "include": {
           "description": "If the nested core rule's content should be integrated into this core rule\nand a proper heading should be added. Otherwise create a link to a separate\nview of that core rule.",
@@ -1389,7 +1387,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "../_Identifier.schema.json#/$defs/CoreRuleDerivableContentIdentifier"
+          "$ref": "../_IdentifierGroup.schema.json#/$defs/CoreRuleDerivableContentIdentifier"
         }
       },
       "required": [

@@ -25,7 +25,7 @@
       "description": "A text from the source that can be also displayed in small areas using a\ncompressed version. It is used as a replacement for a generated text while\nthe generated text is still provided and should be used.",
       "type": "object",
       "properties": {
-        "default": {
+        "full": {
           "description": "The full replacement string. It must contain `$1`, which is going to be\nreplaced with the generated string, so additional information can be\nprovided without duplicating concrete numeric values.",
           "type": "string",
           "minLength": 1,
@@ -39,7 +39,7 @@
         }
       },
       "required": [
-        "default",
+        "full",
         "compressed"
       ],
       "additionalProperties": false

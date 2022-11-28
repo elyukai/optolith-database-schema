@@ -19,6 +19,7 @@ export type RangeValue =
    * German: *dereumfassend*
    */
   | { tag: "Global"; global: {} }
+  | { tag: "Touch"; touch: {} }
   | { tag: "Fixed"; fixed: FixedRange }
   | { tag: "CheckResultBased"; check_result_based: CheckResultBasedRange }
 

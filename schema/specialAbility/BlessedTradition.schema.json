@@ -122,13 +122,13 @@
             "tag": {
               "const": "Six"
             },
-            "three": {
+            "six": {
               "$ref": "#/$defs/SixRestrictedBlessings"
             }
           },
           "required": [
             "tag",
-            "three"
+            "six"
           ],
           "additionalProperties": false
         }

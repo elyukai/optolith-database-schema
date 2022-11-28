@@ -1,11 +1,10 @@
+import { ContinentIdentifier } from "../../_Identifier"
+
 export type AssociatedContinent = {
   /**
    * The continent's identifier.
-   * @integer
-   * @minimum 1
-   * @maximum 3
    */
-  id: number
+  id: ContinentIdentifier
 
   /**
    * Is the language considered virtually extinct in this continent?

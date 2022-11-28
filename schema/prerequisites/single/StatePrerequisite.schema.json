@@ -8,7 +8,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "../../_Identifier.schema.json#/$defs/OneOrManyNumericIdentifiers"
+          "$ref": "../../_Identifier.schema.json#/$defs/StateIdentifier"
         },
         "display_option": {
           "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"

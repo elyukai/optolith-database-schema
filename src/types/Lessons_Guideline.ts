@@ -11,7 +11,7 @@ import { NonEmptyString } from "./_NonEmptyString.js"
  */
 export type Guideline = {
   /**
-   * The region's identifier. An unique, increasing integer.
+   * The guideline's identifier. An unique, increasing integer.
    * @integer
    * @minimum 1
    */

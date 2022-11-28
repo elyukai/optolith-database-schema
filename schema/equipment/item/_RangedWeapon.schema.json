@@ -133,8 +133,7 @@
       "properties": {
         "id": {
           "description": "The item's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "../../_Identifier.schema.json#/$defs/AmmunitionIdentifier"
         }
       },
       "required": [

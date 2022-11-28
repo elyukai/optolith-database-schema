@@ -1,3 +1,4 @@
+import { SocialStatusIdentifier } from "../../_Identifier.js"
 import { DisplayOption } from "../DisplayOption.js"
 
 /**
@@ -7,11 +8,8 @@ import { DisplayOption } from "../DisplayOption.js"
 export type SocialStatusPrerequisite = {
   /**
    * The minimum social status' identifier.
-   * @integer
-   * @minimum 2
-   * @maximum 5
    */
-  id: number
+  id: SocialStatusIdentifier
 
   display_option?: DisplayOption
 }

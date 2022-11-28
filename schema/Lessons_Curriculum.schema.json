@@ -129,7 +129,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "./_Identifier.schema.json#/$defs/SpellworkIdentifier"
+          "$ref": "./_IdentifierGroup.schema.json#/$defs/SpellworkIdentifier"
         },
         "restriction": {
           "description": "The elective spellwork may only take effect if a certain condition is met.\nThe condition may be related to professions or profession variants, but it\nis designed so that it can work without a specific profession, as multiple\nmay belong to an institute, but with referencing other entities instead.",
@@ -150,9 +150,7 @@
         },
         "id": {
           "description": "The element's identifier.",
-          "type": "integer",
-          "maximum": 6,
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/ElementIdentifier"
         }
       },
       "required": [
@@ -195,7 +193,7 @@
               "const": "Spellwork"
             },
             "spellwork": {
-              "$ref": "./_Identifier.schema.json#/$defs/SpellworkIdentifier"
+              "$ref": "./_IdentifierGroup.schema.json#/$defs/SpellworkIdentifier"
             }
           },
           "required": [
@@ -268,14 +266,13 @@
       "properties": {
         "id": {
           "description": "The identifier of the property that spellworks are disallowed from.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/PropertyIdentifier"
         },
         "exclude": {
           "description": "Exclude specific spellworks from the restriction.",
           "type": "array",
           "items": {
-            "$ref": "./_Identifier.schema.json#/$defs/SpellworkIdentifier"
+            "$ref": "./_IdentifierGroup.schema.json#/$defs/SpellworkIdentifier"
           },
           "minItems": 1
         },
@@ -435,7 +432,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "./_Identifier.schema.json#/$defs/CombatTechniqueIdentifier"
+          "$ref": "./_IdentifierGroup.schema.json#/$defs/CombatTechniqueIdentifier"
         },
         "points": {
           "description": "The combat technique points that will be added to the current combat\ntechnique rating.",
@@ -455,8 +452,7 @@
       "properties": {
         "id": {
           "description": "The skill's identifier.",
-          "type": "integer",
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/SkillIdentifier"
         },
         "points": {
           "description": "The skill points that will be added to the current skill rating.",
@@ -475,7 +471,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "./_Identifier.schema.json#/$defs/SpellworkIdentifier"
+          "$ref": "./_IdentifierGroup.schema.json#/$defs/SpellworkIdentifier"
         },
         "points": {
           "description": "The skill points that will be added to the current skill rating. If a\nspell gets to a skill rating of 0 because of this, it will be removed\ncompletely.",

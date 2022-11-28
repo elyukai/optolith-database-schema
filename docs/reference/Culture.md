@@ -160,27 +160,75 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="Culture/common_advantages[]"></a> `Culture/common_advantages[]`
+### <a name="Culture/common_advantages[]"></a> Commonness-rated Advantage/Disadvantage (`Culture/common_advantages[]`)
 
-- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
+Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The advantage's or disadvantage's identifier. | <a href="#Culture/common_advantages[]/id">See details</a>
+
+#### <a name="Culture/common_advantages[]/id"></a> `id`
+
+The advantage's or disadvantage's identifier.
+
+- **Type:** <a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>
 
 ---
 
-### <a name="Culture/common_disadvantages[]"></a> `Culture/common_disadvantages[]`
+### <a name="Culture/common_disadvantages[]"></a> Commonness-rated Advantage/Disadvantage (`Culture/common_disadvantages[]`)
 
-- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
+Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The advantage's or disadvantage's identifier. | <a href="#Culture/common_disadvantages[]/id">See details</a>
+
+#### <a name="Culture/common_disadvantages[]/id"></a> `id`
+
+The advantage's or disadvantage's identifier.
+
+- **Type:** <a href="./_Identifier.md#DisadvantageIdentifier">DisadvantageIdentifier</a>
 
 ---
 
-### <a name="Culture/uncommon_advantages[]"></a> `Culture/uncommon_advantages[]`
+### <a name="Culture/uncommon_advantages[]"></a> Commonness-rated Advantage/Disadvantage (`Culture/uncommon_advantages[]`)
 
-- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
+Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The advantage's or disadvantage's identifier. | <a href="#Culture/uncommon_advantages[]/id">See details</a>
+
+#### <a name="Culture/uncommon_advantages[]/id"></a> `id`
+
+The advantage's or disadvantage's identifier.
+
+- **Type:** <a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>
 
 ---
 
-### <a name="Culture/uncommon_disadvantages[]"></a> `Culture/uncommon_disadvantages[]`
+### <a name="Culture/uncommon_disadvantages[]"></a> Commonness-rated Advantage/Disadvantage (`Culture/uncommon_disadvantages[]`)
 
-- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>
+Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The advantage's or disadvantage's identifier. | <a href="#Culture/uncommon_disadvantages[]/id">See details</a>
+
+#### <a name="Culture/uncommon_disadvantages[]/id"></a> `id`
+
+The advantage's or disadvantage's identifier.
+
+- **Type:** <a href="./_Identifier.md#DisadvantageIdentifier">DisadvantageIdentifier</a>
 
 ---
 
@@ -270,8 +318,7 @@ Key | Description | Details
 
 The profession's identifier.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#ProfessionIdentifier">ProfessionIdentifier</a>
 
 #### <a name="ProfessionConstraint/weighted_variants"></a> `weighted_variants?`
 
@@ -348,8 +395,7 @@ Key | Description | Details
 
 The magical tradition's identifier.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#MagicalTraditionIdentifier">MagicalTraditionIdentifier</a>
 
 #### <a name="TraditionConstraint/weighted_professions"></a> `weighted_professions?`
 
@@ -788,8 +834,7 @@ Key | Description | Details
 
 The skill's identifier.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="./_Identifier.md#SkillIdentifier">SkillIdentifier</a>
 
 #### <a name="CulturalPackageItem/points"></a> `points`
 

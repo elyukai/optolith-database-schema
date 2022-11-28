@@ -278,7 +278,7 @@ Key | Description | Details
 
 #### <a name="FixedAutomaticEntryTarget/id"></a> `id`
 
-- **Type:** <a href="../_Identifier.md#ActivatableIdentifier">ActivatableIdentifier</a>
+- **Type:** <a href="../_IdentifierGroup.md#ActivatableIdentifier">ActivatableIdentifier</a>
 
 ---
 

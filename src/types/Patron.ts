@@ -3,10 +3,11 @@
  */
 
 import { validateSchemaCreator } from "../validation/schema.js"
+import { AdvantageIdentifier, AttributeIdentifier, SkillIdentifier } from "./_Identifier.js"
 import { ImprovementCost } from "./_ImprovementCost.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
-import { CultureReference, PatronCategoryReference, SkillReference } from "./_SimpleReferences.js"
+import { AdvantageReference, CultureReference, DisadvantageReference, PatronCategoryReference, SkillReference, SpellworkReference } from "./_SimpleReferences.js"
 
 /**
  * @title Patron
@@ -66,6 +67,32 @@ export type Patron = {
   improvement_cost?: ImprovementCost
 
   /**
+   * The patron may grant common advantages that are taken into account during
+   * character creation.
+   *
+   * *Source:* Geisterwald & Knochenklippen, p. 6-7
+   * @minLength 1
+   */
+  common_advantages?: AdvantageReference[]
+
+  /**
+   * The patron may grant common disadvantages that are taken into account
+   * during character creation.
+   *
+   * *Source:* Geisterwald & Knochenklippen, p. 6-7
+   * @minLength 1
+   */
+  common_disadvantages?: DisadvantageReference[]
+
+  /**
+   * The animist may learn spellworks common for this patron.
+   *
+   * *Source:* Geisterwald & Knochenklippen, p. 6-7
+   * @minLength 1
+   */
+  common_spellworks?: SpellworkReference[]
+
+  /**
    * All translations for the entry, identified by IETF language tag (BCP47).
    */
   translations: LocaleMap<PatronTranslation>
@@ -105,7 +132,7 @@ export type AdvantageAnimalPower = {
    * @integer
    * @minimum 1
    */
-  id: number
+  id: AdvantageIdentifier
 
   /**
    * It grants a higher level of the advantage.
@@ -128,7 +155,7 @@ export type SkillAnimalPower = {
    * @integer
    * @minimum 1
    */
-  id: number
+  id: SkillIdentifier
 
   /**
    * The points that gets added to the skill's rating.
@@ -184,7 +211,7 @@ export type AttributeAnimalPower = {
    * @integer
    * @minimum 1
    */
-  id: number
+  id: AttributeIdentifier
 
   /**
    * The value that gets added to the attribute.

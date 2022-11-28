@@ -288,7 +288,18 @@
           "description": "Typical advantages for the profession.",
           "type": "array",
           "items": {
-            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/$defs/CommonnessRatedAdvantageDisadvantage"
+            "title": "Commonness-rated Advantage/Disadvantage",
+            "description": "Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.",
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "./_Identifier.schema.json#/$defs/AdvantageIdentifier"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
           },
           "minItems": 1
         },
@@ -296,7 +307,18 @@
           "description": "Typical disadvantages for the profession.",
           "type": "array",
           "items": {
-            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/$defs/CommonnessRatedAdvantageDisadvantage"
+            "title": "Commonness-rated Advantage/Disadvantage",
+            "description": "Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.",
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "./_Identifier.schema.json#/$defs/DisadvantageIdentifier"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
           },
           "minItems": 1
         },
@@ -304,7 +326,18 @@
           "description": "These advantages do not fit well with this profession; to be checked with\nthe GM before taking any of them.",
           "type": "array",
           "items": {
-            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/$defs/CommonnessRatedAdvantageDisadvantage"
+            "title": "Commonness-rated Advantage/Disadvantage",
+            "description": "Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.",
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "./_Identifier.schema.json#/$defs/AdvantageIdentifier"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
           },
           "minItems": 1
         },
@@ -312,7 +345,18 @@
           "description": "These disadvantages do not fit well with this profession; to be checked\nwith the GM before taking any of them.",
           "type": "array",
           "items": {
-            "$ref": "./_CommonnessRatedAdvantageDisadvantage.schema.json#/$defs/CommonnessRatedAdvantageDisadvantage"
+            "title": "Commonness-rated Advantage/Disadvantage",
+            "description": "Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.",
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "./_Identifier.schema.json#/$defs/DisadvantageIdentifier"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
           },
           "minItems": 1
         },
@@ -532,7 +576,7 @@
       "properties": {
         "id": {
           "description": "The identifier of the combat technique to provide the rating for.",
-          "$ref": "./_Identifier.schema.json#/$defs/SpecialAbilityIdentifier"
+          "$ref": "./_IdentifierGroup.schema.json#/$defs/SpecialAbilityIdentifier"
         },
         "level": {
           "description": "The level of the received special ability.",
@@ -543,7 +587,7 @@
           "description": "Received select options. Order is important. Typically, you only need the\nfirst array index, though.",
           "type": "array",
           "items": {
-            "$ref": "./_Identifier.schema.json#/$defs/RequirableSelectOptionIdentifier"
+            "$ref": "./_IdentifierGroup.schema.json#/$defs/RequirableSelectOptionIdentifier"
           },
           "minItems": 1
         }
@@ -594,7 +638,7 @@
       "properties": {
         "id": {
           "description": "The identifier of the combat technique to provide the rating for.",
-          "$ref": "./_Identifier.schema.json#/$defs/SpecialAbilityIdentifier"
+          "$ref": "./_IdentifierGroup.schema.json#/$defs/SpecialAbilityIdentifier"
         },
         "level": {
           "description": "The level of the received special ability.",
@@ -605,7 +649,7 @@
           "description": "Received select options. Order is important. Typically, you only need the\nfirst array index, though.",
           "type": "array",
           "items": {
-            "$ref": "./_Identifier.schema.json#/$defs/RequirableSelectOptionIdentifier"
+            "$ref": "./_IdentifierGroup.schema.json#/$defs/RequirableSelectOptionIdentifier"
           },
           "minItems": 1
         },
@@ -644,7 +688,7 @@
       "properties": {
         "id": {
           "description": "The identifier of the combat technique to provide the rating for.",
-          "$ref": "./_Identifier.schema.json#/$defs/CombatTechniqueIdentifier"
+          "$ref": "./_IdentifierGroup.schema.json#/$defs/CombatTechniqueIdentifier"
         },
         "rating": {
           "description": "The rating bonus provided for the combat technique. If used in a profession\nvariant, it can also be used to lower the bonus of the base profession.\n\n**Note:** This is a rating *bonus*, so it will be *added* to the default\nvalue of 6.",
@@ -664,9 +708,7 @@
       "properties": {
         "id": {
           "description": "The identifier of the skill to provide the rating for.",
-          "type": "integer",
-          "maximum": 59,
-          "minimum": 1
+          "$ref": "./_Identifier.schema.json#/$defs/SkillIdentifier"
         },
         "rating": {
           "description": "The rating bonus provided for the skill. If used in a profession variant,\nit can also be used to lower the bonus of the base profession",
@@ -746,7 +788,7 @@
       "properties": {
         "id": {
           "description": "The identifier of the spell to provide the rating for.",
-          "$ref": "./_Identifier.schema.json#/$defs/SpellworkIdentifier"
+          "$ref": "./_IdentifierGroup.schema.json#/$defs/SpellworkIdentifier"
         },
         "tradition": {
           "description": "If the spell is not part of the magical tradition required by the\npackage, this references the magical tradition it is part of. It can also\nbe used to define the target magical tradition of a spell if multiple\nmagical traditions are required and the spell is available to multiple\nof them.",
@@ -763,7 +805,7 @@
       "properties": {
         "id": {
           "description": "The identifier of the magical action to provide the rating for.",
-          "$ref": "./_Identifier.schema.json#/$defs/MagicalActionIdentifier"
+          "$ref": "./_IdentifierGroup.schema.json#/$defs/MagicalActionIdentifier"
         }
       },
       "required": [
@@ -778,7 +820,7 @@
           "description": "The identifier(s) of the liturgical chant(s) to choose from to provide\nthe rating for. If multiple liturgical chants are provided, they must all\nhave the same improvement cost.",
           "type": "array",
           "items": {
-            "$ref": "./_Identifier.schema.json#/$defs/LiturgyIdentifier"
+            "$ref": "./_IdentifierGroup.schema.json#/$defs/LiturgyIdentifier"
           },
           "minItems": 1
         },

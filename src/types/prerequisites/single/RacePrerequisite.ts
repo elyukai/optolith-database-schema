@@ -1,4 +1,4 @@
-import { OneOrManyNumericIdentifiers } from "../../_Identifier.js"
+import { RaceIdentifier } from "../../_Identifier.js"
 import { DisplayOption } from "../DisplayOption.js"
 
 /**
@@ -8,7 +8,10 @@ import { DisplayOption } from "../DisplayOption.js"
  * @title Race Prerequisite
  */
 export type RacePrerequisite = {
-  id: OneOrManyNumericIdentifiers
+  /**
+   * The race's identifier.
+   */
+  id: RaceIdentifier
 
   active: boolean
 

@@ -16,8 +16,7 @@ Key | Description | Details
 
 The influence's identifier.
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="../../_Identifier.md#InfluenceIdentifier">InfluenceIdentifier</a>
 
 #### <a name="InfluencePrerequisite/active"></a> `active`
 

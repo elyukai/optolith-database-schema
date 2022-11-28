@@ -171,6 +171,7 @@ Key | Description | Details
 :-- | :-- | :--
 `initial_modification_level` | The initial skill modification identifier/level. | <a href="#ModifiableOneTimeCost/initial_modification_level">See details</a>
 `permanent_value?` | The part of the cost value that has to be spent permanently. | <a href="#ModifiableOneTimeCost/permanent_value">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ModifiableOneTimeCost/translations">See details</a>
 
 #### <a name="ModifiableOneTimeCost/initial_modification_level"></a> `initial_modification_level`
 
@@ -186,6 +187,37 @@ The part of the cost value that has to be spent permanently.
 
 - **Type:** Integer
 - **Minimum:** `1`
+
+#### <a name="ModifiableOneTimeCost/translations"></a> `translations?`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#ModifiableOneTimeCost/translations[key]">ModifiableOneTimeCost/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="ModifiableOneTimeCost/translations[key]"></a> `ModifiableOneTimeCost/translations[key]`
+
+- **Type:** <a href="#ModifiableOneTimeCostTranslation">ModifiableOneTimeCostTranslation</a>
+
+---
+
+### <a name="ModifiableOneTimeCostTranslation"></a> `ModifiableOneTimeCostTranslation`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`replacement` | A replacement string. | <a href="#ModifiableOneTimeCostTranslation/replacement">See details</a>
+
+#### <a name="ModifiableOneTimeCostTranslation/replacement"></a> `replacement`
+
+A replacement string.
+
+- **Type:** <a href="./_ResponsiveText.md#ResponsiveTextReplace">ResponsiveTextReplace</a>
 
 ---
 
@@ -588,6 +620,7 @@ Key | Description | Details
 :-- | :-- | :--
 `is_minimum?` | If `true`, the non-modifiable value is a minimum value. | <a href="#NonModifiableSustainedCost/is_minimum">See details</a>
 `value` | The AE cost value. | <a href="#NonModifiableSustainedCost/value">See details</a>
+`per?` | The cost have to be per a specific countable entity, e.g. `8 KP per person per 5 minutes`. | <a href="#NonModifiableSustainedCost/per">See details</a>
 `interval` | The sustain interval. | <a href="#NonModifiableSustainedCost/interval">See details</a>
 
 #### <a name="NonModifiableSustainedCost/is_minimum"></a> `is_minimum?`
@@ -603,8 +636,56 @@ The AE cost value.
 - **Type:** Integer
 - **Minimum:** `1`
 
+#### <a name="NonModifiableSustainedCost/per"></a> `per?`
+
+The cost have to be per a specific countable entity, e.g. `8 KP per
+person per 5 minutes`.
+
+- **Type:** <a href="#NonModifiableSustainedCostPerCountable">NonModifiableSustainedCostPerCountable</a>
+
 #### <a name="NonModifiableSustainedCost/interval"></a> `interval`
 
 The sustain interval.
 
 - **Type:** <a href="./_ActivatableSkillDuration.md#DurationUnitValue">DurationUnitValue</a>
+
+---
+
+### <a name="NonModifiableSustainedCostPerCountable"></a> `NonModifiableSustainedCostPerCountable`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#NonModifiableSustainedCostPerCountable/translations">See details</a>
+
+#### <a name="NonModifiableSustainedCostPerCountable/translations"></a> `translations`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#NonModifiableSustainedCostPerCountable/translations[key]">NonModifiableSustainedCostPerCountable/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="NonModifiableSustainedCostPerCountable/translations[key]"></a> `NonModifiableSustainedCostPerCountable/translations[key]`
+
+- **Type:** <a href="#NonModifiableSustainedCostPerCountableTranslation">NonModifiableSustainedCostPerCountableTranslation</a>
+
+---
+
+### <a name="NonModifiableSustainedCostPerCountableTranslation"></a> `NonModifiableSustainedCostPerCountableTranslation`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`countable` | The countable entity name. | <a href="#NonModifiableSustainedCostPerCountableTranslation/countable">See details</a>
+
+#### <a name="NonModifiableSustainedCostPerCountableTranslation/countable"></a> `countable`
+
+The countable entity name.
+
+- **Type:** <a href="./_ResponsiveText.md#ResponsiveText">ResponsiveText</a>
