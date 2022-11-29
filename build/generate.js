@@ -18,7 +18,8 @@ const options = {
       renderer: markdown,
     }
   ],
-  clean: true
+  clean: true,
+  verbose: false
 }
 
 if (process.argv.includes("-w")) {
@@ -29,6 +30,8 @@ if (process.argv.includes("-w")) {
     console.error(err)
   }
   finally {
+    console.log("Watching for changes ...")
+
     for await (const _ of watch(sourceDir, { recursive: true })) {
       try {
         generate(options)
