@@ -7,7 +7,7 @@
       "properties": {
         "id": {
           "description": "The continent's identifier.",
-          "$ref": "#/$defs/ContinentIdentifier"
+          "$ref": "../../_Identifier.schema.json#/$defs/ContinentIdentifier"
         },
         "is_extinct": {
           "description": "Is the language considered virtually extinct in this continent?",

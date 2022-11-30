@@ -15,7 +15,7 @@ Key | Description | Details
 
 The continent's identifier.
 
-- **Type:** <a href="#ContinentIdentifier">ContinentIdentifier</a>
+- **Type:** <a href="../../_Identifier.md#ContinentIdentifier">ContinentIdentifier</a>
 
 #### <a name="AssociatedContinent/is_extinct"></a> `is_extinct`
 

@@ -1,4 +1,4 @@
-import { ContinentIdentifier } from "../../_Identifier"
+import { ContinentIdentifier } from "../../_Identifier.js"
 
 export type AssociatedContinent = {
   /**
