@@ -1138,6 +1138,22 @@
       ],
       "additionalProperties": false
     },
+    "SkillIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Skill"
+        },
+        "skill": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "tag",
+        "skill"
+      ],
+      "additionalProperties": false
+    },
     "SkillGroupIdentifier": {
       "type": "object",
       "properties": {

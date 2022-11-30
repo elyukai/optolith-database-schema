@@ -1390,6 +1390,27 @@ The attribute’s identifier.
 
 ---
 
+### <a name="SkillIdentifier"></a> `SkillIdentifier`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#SkillIdentifier/tag">See details</a>
+`skill` | The skill’s identifier. | <a href="#SkillIdentifier/skill">See details</a>
+
+#### <a name="SkillIdentifier/tag"></a> `tag`
+
+- **Constant:** `"Skill"`
+
+#### <a name="SkillIdentifier/skill"></a> `skill`
+
+The skill’s identifier.
+
+- **Type:** Number
+
+---
+
 ### <a name="SkillGroupIdentifier"></a> `SkillGroupIdentifier`
 
 - **Type:** Object
