@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/elyukai/optolith-database-schema/compare/v0.4.1...v0.5.0) (2022-12-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* explicit identifier tags, simpler prerequisites, multiple small changes
+
+### Features
+
+* equipment of blessed ones may be for multiple traditions ([3ffbfa2](https://github.com/elyukai/optolith-database-schema/commit/3ffbfa20cd40279091c71e7ef22496f6eab0f501))
+* explicit identifier tags, simpler prerequisites, multiple small changes ([89ab7dd](https://github.com/elyukai/optolith-database-schema/commit/89ab7dd343db1027672b24c63216aba44f2db855))
+* poisons and elixirs ([2552156](https://github.com/elyukai/optolith-database-schema/commit/2552156860ec527b568621dffa9ad6ebef1ae3e3))
+
+
+### Bug Fixes
+
+* import specifiers ([fddea8b](https://github.com/elyukai/optolith-database-schema/commit/fddea8bc62a6ab4ddfef0fcea082a73749152ad4))
+
 ### [0.4.1](https://github.com/elyukai/optolith-database-schema/compare/v0.4.0...v0.4.1) (2022-08-01)
 
 
