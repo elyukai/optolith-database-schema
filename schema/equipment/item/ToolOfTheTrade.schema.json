@@ -22,9 +22,9 @@
           "description": "The structure points of the item. Use an array if the item consists of\nmultiple components that have individual structure points.",
           "$ref": "./_Item.schema.json#/$defs/StructurePoints"
         },
-        "is_laboratory": {
-          "description": "If the item is a laboratory.",
-          "type": "boolean"
+        "laboratory": {
+          "description": "Additional information if the item is a laboratory.",
+          "$ref": "#/$defs/Laboratory"
         },
         "src": {
           "$ref": "../../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
@@ -44,9 +44,20 @@
       "required": [
         "cost",
         "weight",
-        "is_laboratory",
         "src",
         "translations"
+      ],
+      "additionalProperties": false
+    },
+    "Laboratory": {
+      "type": "object",
+      "properties": {
+        "level": {
+          "$ref": "./_Herbary.schema.json#/$defs/LaboratoryLevel"
+        }
+      },
+      "required": [
+        "level"
       ],
       "additionalProperties": false
     },

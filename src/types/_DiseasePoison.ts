@@ -119,15 +119,15 @@ export type DiseaseTranslation = {
  * This streamlines the wording for diseases and poison by using a unified
  * wording for *lessened* (disease) and *degraded* (poison).
  */
-export type Reduceable = {
+export type Reduceable<Content = NonEmptyMarkdown> = {
   /**
    * The default value. In the source, it's the text before the slash.
    */
-  default: NonEmptyMarkdown
+  default: Content
 
   /**
    * The reduced value. In the source, it's the text after the slash. Some
    * entries may not have a reduced value.
    */
-  reduced?: NonEmptyMarkdown
+  reduced?: Content
 }

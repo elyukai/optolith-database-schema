@@ -28,6 +28,7 @@ import * as Book from "./types/equipment/item/Book.js"
 import * as CeremonialItem from "./types/equipment/item/CeremonialItem.js"
 import * as Clothes from "./types/equipment/item/Clothes.js"
 import * as Container from "./types/equipment/item/Container.js"
+import * as Elixir from "./types/equipment/item/Elixir.js"
 import * as EquipmentOfBlessedOnes from "./types/equipment/item/EquipmentOfBlessedOnes.js"
 import * as GemOrPreciousStone from "./types/equipment/item/GemOrPreciousStone.js"
 import * as IlluminationLightSource from "./types/equipment/item/IlluminationLightSource.js"
@@ -207,6 +208,7 @@ export type TypeMap = {
   diseases: Disease.Disease
   dominationRituals: DominationRitual.DominationRitual
   elements: Element.Element
+  elixirs: Elixir.Elixir
   elvenMagicalSongs: ElvenMagicalSong.ElvenMagicalSong
   equipmentOfBlessedOnes: EquipmentOfBlessedOnes.EquipmentOfBlessedOnes
   equipmentPackages: EquipmentPackage.EquipmentPackage
@@ -361,6 +363,7 @@ export const typeValidatorMap: { [K in keyof TypeMap]: TypeValidator<TypeMap[K]>
   diseases: Disease.validateSchema,
   dominationRituals: DominationRitual.validateSchema,
   elements: Element.validateSchema,
+  elixirs: Elixir.validateSchema,
   elvenMagicalSongs: ElvenMagicalSong.validateSchema,
   equipmentOfBlessedOnes: EquipmentOfBlessedOnes.validateSchema,
   equipmentPackages: EquipmentPackage.validateSchema,

@@ -12,10 +12,6 @@
           "type": "integer",
           "minimum": 1
         },
-        "level": {
-          "description": "The poison's level.",
-          "$ref": "#/$defs/PoisonLevel"
-        },
         "application_type": {
           "description": "The poison's application type(s).",
           "type": "array",
@@ -32,6 +28,26 @@
         "resistance": {
           "description": "Use Spirit or Toughness as a modifier for the poison.",
           "$ref": "../../_DiseasePoison.schema.json#/$defs/Resistance"
+        },
+        "start": {
+          "description": "When the poison takes effect.",
+          "$ref": "#/$defs/PoisonStart"
+        },
+        "duration": {
+          "description": "An effect or other parameter that may be reduced by a failed disease check\nfor lessening or a degraded poison.\n\nThis streamlines the wording for diseases and poison by using a unified\nwording for *lessened* (disease) and *degraded* (poison).",
+          "type": "object",
+          "properties": {
+            "default": {
+              "$ref": "#/$defs/PoisonDuration"
+            },
+            "reduced": {
+              "$ref": "#/$defs/PoisonDuration"
+            }
+          },
+          "required": [
+            "default"
+          ],
+          "additionalProperties": false
         },
         "value": {
           "description": "The raw (ingredients) value, in silverthalers.",
@@ -60,66 +76,15 @@
       },
       "required": [
         "id",
-        "level",
         "application_type",
         "source_type",
         "resistance",
+        "start",
+        "duration",
         "value",
         "cost",
         "src",
         "translations"
-      ],
-      "additionalProperties": false
-    },
-    "PoisonLevel": {
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "QualityLevel"
-            },
-            "quality_level": {
-              "type": "object",
-              "properties": {},
-              "required": [],
-              "additionalProperties": false
-            }
-          },
-          "required": [
-            "tag",
-            "quality_level"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Fixed"
-            },
-            "fixed": {
-              "$ref": "#/$defs/FixedPoisonLevel"
-            }
-          },
-          "required": [
-            "tag",
-            "fixed"
-          ],
-          "additionalProperties": false
-        }
-      ]
-    },
-    "FixedPoisonLevel": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "type": "integer",
-          "minimum": 1
-        }
-      },
-      "required": [
-        "value"
       ],
       "additionalProperties": false
     },
@@ -131,6 +96,136 @@
         "Contact"
       ]
     },
+    "PoisonStart": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Immediate"
+            },
+            "immediate": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "tag",
+            "immediate"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Constant"
+            },
+            "constant": {
+              "$ref": "#/$defs/ConstantPoisonTime"
+            }
+          },
+          "required": [
+            "tag",
+            "constant"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "DiceBased"
+            },
+            "dice_based": {
+              "$ref": "#/$defs/DiceBasedPoisonTime"
+            }
+          },
+          "required": [
+            "tag",
+            "dice_based"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "PoisonDuration": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Constant"
+            },
+            "constant": {
+              "$ref": "#/$defs/ConstantPoisonTime"
+            }
+          },
+          "required": [
+            "tag",
+            "constant"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "DiceBased"
+            },
+            "dice_based": {
+              "$ref": "#/$defs/DiceBasedPoisonTime"
+            }
+          },
+          "required": [
+            "tag",
+            "dice_based"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "ConstantPoisonTime": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "$ref": "#/$defs/PoisonTimeUnit"
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "additionalProperties": false
+    },
+    "DiceBasedPoisonTime": {
+      "type": "object",
+      "properties": {
+        "dice": {
+          "$ref": "../../_Dice.schema.json#/$defs/Dice"
+        },
+        "unit": {
+          "$ref": "#/$defs/PoisonTimeUnit"
+        }
+      },
+      "required": [
+        "dice",
+        "unit"
+      ],
+      "additionalProperties": false
+    },
+    "PoisonTimeUnit": {
+      "enum": [
+        "CombatRounds",
+        "Minutes",
+        "Hours"
+      ]
+    },
     "PoisonSourceType": {
       "oneOf": [
         {
@@ -140,10 +235,7 @@
               "const": "AnimalVenom"
             },
             "animal_venom": {
-              "type": "object",
-              "properties": {},
-              "required": [],
-              "additionalProperties": false
+              "$ref": "#/$defs/AnimalVenom"
             }
           },
           "required": [
@@ -159,10 +251,7 @@
               "const": "AlchemicalPoison"
             },
             "alchemical_poison": {
-              "type": "object",
-              "properties": {},
-              "required": [],
-              "additionalProperties": false
+              "$ref": "#/$defs/AlchemicalPoison"
             }
           },
           "required": [
@@ -178,10 +267,7 @@
               "const": "MineralPoison"
             },
             "mineral_poison": {
-              "type": "object",
-              "properties": {},
-              "required": [],
-              "additionalProperties": false
+              "$ref": "#/$defs/MineralPoison"
             }
           },
           "required": [
@@ -205,40 +291,199 @@
             "plant_poison"
           ],
           "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "DemonicPoison"
+            },
+            "demonic_poison": {
+              "$ref": "#/$defs/DemonicPoison"
+            }
+          },
+          "required": [
+            "tag",
+            "demonic_poison"
+          ],
+          "additionalProperties": false
         }
       ]
+    },
+    "AnimalVenom": {
+      "type": "object",
+      "properties": {
+        "level": {
+          "description": "The poison’s level.",
+          "type": "integer",
+          "maximum": 6,
+          "minimum": 1
+        }
+      },
+      "required": [
+        "level"
+      ],
+      "additionalProperties": false
+    },
+    "AlchemicalPoison": {
+      "type": "object",
+      "properties": {
+        "effect_types": {
+          "description": "Effect type(s) of an alchemical poison.",
+          "type": "array",
+          "items": {
+            "$ref": "./_Herbary.schema.json#/$defs/EffectType"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "cost_per_ingredient_level": {
+          "description": "The cost per ingredient level in silverthalers.",
+          "type": "number"
+        },
+        "laboratory": {
+          "description": "The laboratory level needed to brew the elixir.",
+          "$ref": "./_Herbary.schema.json#/$defs/LaboratoryLevel"
+        },
+        "brewing_difficulty": {
+          "description": "The brewing difficulty, which represents the challenge of creating an\nelixir.",
+          "type": "integer"
+        },
+        "trade_secret": {
+          "description": "AP value and prerequisites of the elixir recipe’s trade secret.",
+          "$ref": "./_Herbary.schema.json#/$defs/RecipeTradeSecret"
+        },
+        "intoxicant": {
+          "description": "Additional information if the poison is an intoxicant.",
+          "$ref": "#/$defs/Intoxicant"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/AlchemicalPoisonTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "effect_types",
+        "cost_per_ingredient_level",
+        "laboratory",
+        "brewing_difficulty",
+        "trade_secret",
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "AlchemicalPoisonTranslation": {
+      "type": "object",
+      "properties": {
+        "common_ingredients": {
+          "description": "A list of common ingredients.",
+          "type": "array",
+          "items": {
+            "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "brewing_process_prerequisites": {
+          "description": "Prerequsites for the brewing process, if any.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        }
+      },
+      "required": [
+        "common_ingredients"
+      ],
+      "additionalProperties": false
+    },
+    "MineralPoison": {
+      "type": "object",
+      "properties": {
+        "level": {
+          "description": "The poison’s level.",
+          "type": "integer",
+          "maximum": 6,
+          "minimum": 1
+        }
+      },
+      "required": [
+        "level"
+      ],
+      "additionalProperties": false
     },
     "PlantPoison": {
       "type": "object",
       "properties": {
-        "category": {
-          "description": "The plant poison category and dependent additional values.",
-          "$ref": "#/$defs/PlantPoisonCategory"
+        "effect_types": {
+          "description": "Effect type(s) of a plant poison.",
+          "type": "array",
+          "items": {
+            "$ref": "./_Herbary.schema.json#/$defs/EffectType"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "level": {
+          "description": "The poison’s level.",
+          "type": "integer",
+          "maximum": 6,
+          "minimum": 1
+        },
+        "intoxicant": {
+          "description": "Additional information if the poison is an intoxicant.",
+          "$ref": "#/$defs/Intoxicant"
         }
       },
       "required": [
-        "category"
+        "effect_types",
+        "level"
       ],
       "additionalProperties": false
     },
-    "PlantPoisonCategory": {
+    "DemonicPoison": {
+      "type": "object",
+      "properties": {
+        "level": {
+          "description": "The poison’s level.",
+          "$ref": "#/$defs/DemonicPoisonLevel"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/DemonicPoisonTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "level"
+      ],
+      "additionalProperties": false
+    },
+    "DemonicPoisonLevel": {
       "oneOf": [
         {
           "type": "object",
           "properties": {
             "tag": {
-              "const": "Default"
+              "const": "QualityLevel"
             },
-            "default": {
-              "type": "object",
-              "properties": {},
-              "required": [],
-              "additionalProperties": false
+            "quality_level": {
+              "$ref": "#/$defs/QualityLevelDemonicPoisonLevel"
             }
           },
           "required": [
             "tag",
-            "default"
+            "quality_level"
           ],
           "additionalProperties": false
         },
@@ -246,26 +491,74 @@
           "type": "object",
           "properties": {
             "tag": {
-              "const": "Intoxicant"
+              "const": "Constant"
             },
-            "intoxicant": {
-              "$ref": "#/$defs/Intoxicant"
+            "constant": {
+              "$ref": "#/$defs/ConstantDemonicPoisonLevel"
             }
           },
           "required": [
             "tag",
-            "intoxicant"
+            "constant"
           ],
           "additionalProperties": false
         }
       ]
     },
+    "QualityLevelDemonicPoisonLevel": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "$ref": "#/$defs/QualityLevelDemonicPoisonLevelSource"
+        }
+      },
+      "required": [
+        "source"
+      ],
+      "additionalProperties": false
+    },
+    "QualityLevelDemonicPoisonLevelSource": {
+      "enum": [
+        "Spellwork"
+      ]
+    },
+    "ConstantDemonicPoisonLevel": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The poison’s level.",
+          "type": "integer",
+          "maximum": 6,
+          "minimum": 1
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "DemonicPoisonTranslation": {
+      "type": "object",
+      "properties": {
+        "note": {
+          "description": "A note, if any.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        }
+      },
+      "required": [],
+      "minProperties": 1,
+      "additionalProperties": false
+    },
     "Intoxicant": {
       "type": "object",
       "properties": {
         "legality": {
-          "description": "Whether the use of the intoxicant is legal or not.",
+          "description": "Whether the use of the intoxicant is legal or not, usually from the\nperspective of most middle-Aventurian an northern-Aventurian nations.",
           "$ref": "#/$defs/IntoxicantLegality"
+        },
+        "addiction": {
+          "description": "The chance of getting addicted after an ingestion in addition to the\nmaximum interval at which it, while addicted, must be ingested to not\nsuffer from withdrawal symptoms.",
+          "$ref": "#/$defs/IntoxicantAddiction"
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -286,6 +579,7 @@
       "additionalProperties": false
     },
     "IntoxicantLegality": {
+      "description": "Whether the use of the intoxicant is legal or not, usually from the\nperspective of most middle-Aventurian an northern-Aventurian nations.",
       "type": "object",
       "properties": {
         "is_legal": {
@@ -297,6 +591,88 @@
       ],
       "additionalProperties": false
     },
+    "IntoxicantAddiction": {
+      "description": "The chance of getting addicted after an ingestion in addition to the maximum\ninterval at which it, while addicted, must be ingested to not suffer from\nwithdrawal symptoms.",
+      "type": "object",
+      "properties": {
+        "chance": {
+          "description": "The chance of getting addicted after an ingestion.",
+          "type": "number"
+        },
+        "interval": {
+          "description": "The maximum interval at which it, while addicted, must be ingested to not\nsuffer from withdrawal symptoms.",
+          "$ref": "#/$defs/IntoxicantAddictionInterval"
+        }
+      },
+      "required": [
+        "chance",
+        "interval"
+      ],
+      "additionalProperties": false
+    },
+    "IntoxicantAddictionInterval": {
+      "description": "The maximum interval at which it, while addicted, must be ingested to not\nsuffer from withdrawal symptoms.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Constant"
+            },
+            "constant": {
+              "$ref": "#/$defs/ConstantIntoxicantAddictionInterval"
+            }
+          },
+          "required": [
+            "tag",
+            "constant"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "DiceBased"
+            },
+            "dice_based": {
+              "$ref": "#/$defs/DiceBasedIntoxicantAddictionInterval"
+            }
+          },
+          "required": [
+            "tag",
+            "dice_based"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "ConstantIntoxicantAddictionInterval": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The interval value in days.",
+          "type": "number"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "DiceBasedIntoxicantAddictionInterval": {
+      "type": "object",
+      "properties": {
+        "dice": {
+          "description": "The dice that define the interval value in days.",
+          "$ref": "../../_Dice.schema.json#/$defs/Dice"
+        }
+      },
+      "required": [
+        "dice"
+      ],
+      "additionalProperties": false
+    },
     "IntoxicantTranslation": {
       "type": "object",
       "properties": {
@@ -305,17 +681,15 @@
           "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "side_effect": {
-          "description": "The intoxicants side effects, if any.",
+          "description": "The intoxicants side effects that always happen, no matter whether the\nintoxicant has the default or the reduced effect.",
           "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
         },
         "overdose": {
-          "description": "What happens if the intoxicant has been overdosed.",
+          "description": "What happens if the intoxicant has been overdosed, that is, it has been\ningested another time within the duration.",
           "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
         },
         "special": {
-          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
-        },
-        "addiction": {
+          "description": "Special information about the intoxicant.",
           "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
         }
       },
@@ -344,24 +718,13 @@
           "description": "The normal and degraded poison's effects.",
           "$ref": "../../_DiseasePoison.schema.json#/$defs/Reduceable"
         },
-        "start": {
-          "description": "When the poison takes effect.",
-          "type": "string",
-          "minLength": 1
-        },
-        "duration": {
-          "description": "The normal and degraded poison's duration.",
-          "$ref": "../../_DiseasePoison.schema.json#/$defs/Reduceable"
-        },
         "errata": {
           "$ref": "../../source/_Erratum.schema.json#/$defs/Errata"
         }
       },
       "required": [
         "name",
-        "effect",
-        "start",
-        "duration"
+        "effect"
       ],
       "additionalProperties": false
     }

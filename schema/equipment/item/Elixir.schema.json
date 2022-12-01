@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "/equipment/item/Elixir.schema.json",
+  "$ref": "#/$defs/Elixir",
+  "$defs": {
+    "Elixir": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The elixir's identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "cost_per_ingredient_level": {
+          "description": "The cost per ingredient level in silverthalers.",
+          "type": "number"
+        },
+        "laboratory": {
+          "description": "The laboratory level needed to brew the elixir.",
+          "$ref": "./_Herbary.schema.json#/$defs/LaboratoryLevel"
+        },
+        "brewing_difficulty": {
+          "description": "The brewing difficulty, which represents the challenge of creating an\nelixir.",
+          "type": "integer"
+        },
+        "trade_secret": {
+          "description": "AP value and prerequisites of the elixir recipe’s trade secret.",
+          "$ref": "./_Herbary.schema.json#/$defs/RecipeTradeSecret"
+        },
+        "src": {
+          "$ref": "../../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/ElixirTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "cost_per_ingredient_level",
+        "laboratory",
+        "brewing_difficulty",
+        "trade_secret",
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "ElixirTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the elixir.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "alternative_names": {
+          "description": "A list of alternative names.",
+          "type": "array",
+          "items": {
+            "$ref": "../../_AlternativeNames.schema.json#/$defs/AlternativeName"
+          },
+          "minItems": 1
+        },
+        "common_ingredients": {
+          "description": "A list of common ingredients.",
+          "type": "array",
+          "items": {
+            "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "brewing_process_prerequisites": {
+          "description": "Prerequsites for the brewing process, if any.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        },
+        "quality_levels": {
+          "description": "The list of effects for each quality level. The first element\nrepresents QL 1, the second element QL 2, and so on.",
+          "type": "array",
+          "items": [
+            {
+              "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+            },
+            {
+              "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+            },
+            {
+              "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+            },
+            {
+              "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+            },
+            {
+              "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+            },
+            {
+              "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+            }
+          ],
+          "minItems": 6,
+          "maxItems": 6,
+          "additionalItems": false
+        },
+        "errata": {
+          "$ref": "../../source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "common_ingredients",
+        "quality_levels"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

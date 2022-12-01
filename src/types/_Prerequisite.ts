@@ -60,6 +60,11 @@ export type DerivedCharacteristicPrerequisites = PlainPrerequisites<DerivedChara
 export type PublicationPrerequisites = PlainPrerequisites<PublicationPrerequisiteGroup>
 
 /**
+ * @title Plain General Prerequisites
+ */
+export type PlainGeneralPrerequisites = PlainPrerequisites<GeneralPrerequisiteGroup>
+
+/**
  * @title General Prerequisites
  */
 export type GeneralPrerequisites = PrerequisitesForLevels<GeneralPrerequisiteGroup>

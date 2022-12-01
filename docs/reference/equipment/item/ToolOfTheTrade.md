@@ -12,7 +12,7 @@ Key | Description | Details
 `weight` | The weight in kg. | <a href="#ToolOfTheTrade/weight">See details</a>
 `complexity?` | The complexity of crafting the item. | <a href="#ToolOfTheTrade/complexity">See details</a>
 `structure_points?` | The structure points of the item. Use an array if the item consists of multiple components that have individual structure points. | <a href="#ToolOfTheTrade/structure_points">See details</a>
-`is_laboratory` | If the item is a laboratory. | <a href="#ToolOfTheTrade/is_laboratory">See details</a>
+`laboratory?` | Additional information if the item is a laboratory. | <a href="#ToolOfTheTrade/laboratory">See details</a>
 `src` |  | <a href="#ToolOfTheTrade/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ToolOfTheTrade/translations">See details</a>
 
@@ -41,11 +41,11 @@ multiple components that have individual structure points.
 
 - **Type:** <a href="./_Item.md#StructurePoints">StructurePoints</a>
 
-#### <a name="ToolOfTheTrade/is_laboratory"></a> `is_laboratory`
+#### <a name="ToolOfTheTrade/laboratory"></a> `laboratory?`
 
-If the item is a laboratory.
+Additional information if the item is a laboratory.
 
-- **Type:** Boolean
+- **Type:** <a href="#Laboratory">Laboratory</a>
 
 #### <a name="ToolOfTheTrade/src"></a> `src`
 
@@ -65,6 +65,20 @@ All translations for the entry, identified by IETF language tag (BCP47).
 ### <a name="ToolOfTheTrade/translations[key]"></a> `ToolOfTheTrade/translations[key]`
 
 - **Type:** <a href="#ToolOfTheTradeTranslation">ToolOfTheTradeTranslation</a>
+
+---
+
+### <a name="Laboratory"></a> `Laboratory`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`level` |  | <a href="#Laboratory/level">See details</a>
+
+#### <a name="Laboratory/level"></a> `level`
+
+- **Type:** <a href="./_Herbary.md#LaboratoryLevel">LaboratoryLevel</a>
 
 ---
 

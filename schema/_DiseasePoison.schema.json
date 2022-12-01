@@ -123,11 +123,9 @@
       "type": "object",
       "properties": {
         "default": {
-          "description": "The default value. In the source, it's the text before the slash.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
         },
         "reduced": {
-          "description": "The reduced value. In the source, it's the text after the slash. Some\nentries may not have a reduced value.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
         }
       },

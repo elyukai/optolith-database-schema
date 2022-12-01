@@ -7,6 +7,7 @@ import { Errata } from "../../source/_Erratum.js"
 import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { LocaleMap } from "../../_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "../../_NonEmptyString.js"
+import { LaboratoryLevel } from "./_Herbary.js"
 import { Complexity, Cost, StructurePoints, Weight } from "./_Item.js"
 
 export type ToolOfTheTrade = {
@@ -32,9 +33,9 @@ export type ToolOfTheTrade = {
   structure_points?: StructurePoints
 
   /**
-   * If the item is a laboratory.
+   * Additional information if the item is a laboratory.
    */
-  is_laboratory: boolean
+  laboratory?: Laboratory
 
   src: PublicationRefs
 
@@ -42,6 +43,10 @@ export type ToolOfTheTrade = {
    * All translations for the entry, identified by IETF language tag (BCP47).
    */
   translations: LocaleMap<ToolOfTheTradeTranslation>
+}
+
+export type Laboratory = {
+  level: LaboratoryLevel
 }
 
 export type ToolOfTheTradeTranslation = {

@@ -274,6 +274,142 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
+### <a name="PlainGeneralPrerequisites"></a> `PlainGeneralPrerequisites`
+
+- **Type:** List
+- **Items:** <a href="#PlainGeneralPrerequisites[]">PlainGeneralPrerequisites[]</a>
+- **Minimum Items:** `1`
+
+---
+
+### <a name="PlainGeneralPrerequisites[]"></a> `PlainGeneralPrerequisites[]`
+
+- **Type:** Union
+- **Cases:** <a href="#PlainGeneralPrerequisites[]'Single">PlainGeneralPrerequisites[]'Single</a> | <a href="#PlainGeneralPrerequisites[]'Disjunction">PlainGeneralPrerequisites[]'Disjunction</a> | <a href="#PlainGeneralPrerequisites[]'Group">PlainGeneralPrerequisites[]'Group</a>
+
+---
+
+### <a name="PlainGeneralPrerequisites[]'Single"></a> `PlainGeneralPrerequisites[]'Single`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#PlainGeneralPrerequisites[]'Single/tag">See details</a>
+`single` |  | <a href="#PlainGeneralPrerequisites[]'Single/single">See details</a>
+
+#### <a name="PlainGeneralPrerequisites[]'Single/tag"></a> `tag`
+
+- **Constant:** `"Single"`
+
+#### <a name="PlainGeneralPrerequisites[]'Single/single"></a> `single`
+
+- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#GeneralPrerequisiteGroup">GeneralPrerequisiteGroup</a>
+
+---
+
+### <a name="PlainGeneralPrerequisites[]'Disjunction"></a> `PlainGeneralPrerequisites[]'Disjunction`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#PlainGeneralPrerequisites[]'Disjunction/tag">See details</a>
+`disjunction` |  | <a href="#PlainGeneralPrerequisites[]'Disjunction/disjunction">See details</a>
+
+#### <a name="PlainGeneralPrerequisites[]'Disjunction/tag"></a> `tag`
+
+- **Constant:** `"Disjunction"`
+
+#### <a name="PlainGeneralPrerequisites[]'Disjunction/disjunction"></a> `disjunction`
+
+- **Type:** <a href="#PlainGeneralPrerequisites[]'Disjunction/disjunction">Object</a>
+
+---
+
+### <a name="PlainGeneralPrerequisites[]'Disjunction/disjunction"></a> `PlainGeneralPrerequisites[]'Disjunction/disjunction`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`list` |  | <a href="#PlainGeneralPrerequisites[]'Disjunction/disjunction/list">See details</a>
+
+#### <a name="PlainGeneralPrerequisites[]'Disjunction/disjunction/list"></a> `list`
+
+- **Type:** List
+- **Items:** <a href="#PlainGeneralPrerequisites[]'Disjunction/disjunction/list[]">PlainGeneralPrerequisites[]'Disjunction/disjunction/list[]</a>
+- **Minimum Items:** `2`
+
+---
+
+### <a name="PlainGeneralPrerequisites[]'Disjunction/disjunction/list[]"></a> `PlainGeneralPrerequisites[]'Disjunction/disjunction/list[]`
+
+- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#GeneralPrerequisiteGroup">GeneralPrerequisiteGroup</a>
+
+---
+
+### <a name="PlainGeneralPrerequisites[]'Group"></a> `PlainGeneralPrerequisites[]'Group`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#PlainGeneralPrerequisites[]'Group/tag">See details</a>
+`group` |  | <a href="#PlainGeneralPrerequisites[]'Group/group">See details</a>
+
+#### <a name="PlainGeneralPrerequisites[]'Group/tag"></a> `tag`
+
+- **Constant:** `"Group"`
+
+#### <a name="PlainGeneralPrerequisites[]'Group/group"></a> `group`
+
+- **Type:** <a href="#PlainGeneralPrerequisites[]'Group/group">Object</a>
+
+---
+
+### <a name="PlainGeneralPrerequisites[]'Group/group"></a> `PlainGeneralPrerequisites[]'Group/group`
+
+A prerequisite group has no influence on validation logic. It serves as a
+single unit for displaying purposes, where the source uses a prerequisites
+item that cannot be represented as a single prerequisite.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`list` |  | <a href="#PlainGeneralPrerequisites[]'Group/group/list">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PlainGeneralPrerequisites[]'Group/group/translations">See details</a>
+
+#### <a name="PlainGeneralPrerequisites[]'Group/group/list"></a> `list`
+
+- **Type:** List
+- **Items:** <a href="#PlainGeneralPrerequisites[]'Group/group/list[]">PlainGeneralPrerequisites[]'Group/group/list[]</a>
+- **Minimum Items:** `2`
+
+#### <a name="PlainGeneralPrerequisites[]'Group/group/translations"></a> `translations`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#PlainGeneralPrerequisites[]'Group/group/translations[key]">PlainGeneralPrerequisites[]'Group/group/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="PlainGeneralPrerequisites[]'Group/group/list[]"></a> `PlainGeneralPrerequisites[]'Group/group/list[]`
+
+- **Type:** <a href="./prerequisites/PrerequisiteGroups.md#GeneralPrerequisiteGroup">GeneralPrerequisiteGroup</a>
+
+---
+
+### <a name="PlainGeneralPrerequisites[]'Group/group/translations[key]"></a> `PlainGeneralPrerequisites[]'Group/group/translations[key]`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+---
+
 ### <a name="GeneralPrerequisites"></a> `GeneralPrerequisites`
 
 - **Type:** List

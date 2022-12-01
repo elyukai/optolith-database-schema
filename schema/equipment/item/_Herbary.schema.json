@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "/equipment/item/_Herbary.schema.json",
+  "$defs": {
+    "EffectType": {
+      "description": "Effect type categories of a plant or recipe.",
+      "enum": [
+        "Healing",
+        "Poison",
+        "PhysicalEffect",
+        "PsychicEffect",
+        "Beneficial",
+        "Defensive",
+        "Supernatural"
+      ]
+    },
+    "LaboratoryLevel": {
+      "enum": [
+        "ArchaicLaboratory",
+        "WitchKitchen",
+        "AlchemistsLaboratory"
+      ]
+    },
+    "RecipeTradeSecret": {
+      "type": "object",
+      "properties": {
+        "ap_value": {
+          "description": "The AP value of the trade secret.",
+          "type": "number"
+        },
+        "prerequisites": {
+          "description": "The prerequisites of the trade secret, if any.",
+          "$ref": "../../_Prerequisite.schema.json#/$defs/PlainGeneralPrerequisites"
+        }
+      },
+      "required": [
+        "ap_value"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
