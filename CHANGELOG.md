@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.2](https://github.com/elyukai/optolith-database-schema/compare/v0.5.1...v0.5.2) (2022-12-02)
+
+
+### Bug Fixes
+
+* validation error output type did not match type for error printing ([709f2f4](https://github.com/elyukai/optolith-database-schema/commit/709f2f46a68ff438cd158defddf93f508871eef9))
+
 ### [0.5.1](https://github.com/elyukai/optolith-database-schema/compare/v0.5.0...v0.5.1) (2022-12-02)
 
 
