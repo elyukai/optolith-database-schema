@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.1](https://github.com/elyukai/optolith-database-schema/compare/v0.5.0...v0.5.1) (2022-12-02)
+
+
+### Features
+
+* explicit verbose error-printing option ([ebf055c](https://github.com/elyukai/optolith-database-schema/commit/ebf055c92302c5cfd80493dff1fd38276d05aa30))
+
 ## [0.5.0](https://github.com/elyukai/optolith-database-schema/compare/v0.4.1...v0.5.0) (2022-12-01)
 
 
