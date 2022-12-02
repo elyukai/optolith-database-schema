@@ -17,11 +17,14 @@ const fileNameError = (fileName: string): FileNameError => ({
 
 const baseNamePattern = /^[1-9][0-9]*_[A-Z][a-z]*(?:-[a-zA-Z][a-z]*)*\.yml$/
 
-export type TypeValidationError = DefinedError | FileNameError
-
 export type TypeValidationResult<T> =
   | { tag: "Ok", value: T }
-  | { tag: "Error", errors: TypeValidationError[] }
+  | { tag: "Error", errors: TypeValidationResultErrors }
+
+export type TypeValidationResultErrors = {
+  fileNameError?: FileNameError
+  schemaErrors: DefinedError[]
+}
 
 const changeFileExtension = (path: string, ext: string) =>
   join(dirname(path), basename(path, extname(path)) + ext)
@@ -53,12 +56,13 @@ export const validateSchemaCreator = <T>(
         return { tag: "Ok", value: data as T}
       }
       else {
-        const errors: TypeValidationError[] = [
-          ...(validator.errors as DefinedError[] ?? []),
-          ...(!correctFileName ? [fileNameError(fileName)] : [])
-        ]
-
-        return { tag: "Error", errors }
+        return {
+          tag: "Error",
+          errors: {
+            fileNameError: correctFileName ? undefined : fileNameError(fileName),
+            schemaErrors: validator.errors as DefinedError[] ?? [],
+          }
+        }
       }
     }
   }

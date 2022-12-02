@@ -7,7 +7,7 @@ import { join } from "path"
 import YAML from "yaml"
 import { jsonSchemaDir } from "../config/directories.js"
 import { TypeMap, typeValidatorMap } from "./config.js"
-import { TypeValidationError, TypeValidationResult } from "./validation/schema.js"
+import { TypeValidationResult, TypeValidationResultErrors } from "./validation/schema.js"
 
 type RawResultMap = { [K in keyof TypeMap]: Record<string, TypeValidationResult<TypeMap[K]>> }
 
@@ -164,17 +164,39 @@ export const validate = async (entityDirPaths: EntityDirectoryPaths, checkIntegr
   return rawResultMapToResult(rawResultMap)
 }
 
-export const printErrors = (errorsByFile: Record<string, TypeValidationError[]>) =>
-  Object.entries(errorsByFile)
-    .flatMap(
-      ([filePath, errors]) =>
-        errors.map(error => {
-          const pathSegments = [filePath, ...error.instancePath.split("/").slice(1)]
+export const printErrors = (errorsByFile: Record<string, TypeValidationResultErrors>, printOptions: PrintOptions = {}) => {
+  const { verbose = false } = printOptions
 
-          return [
-            ...pathSegments.map((segment, i) => `${" ".repeat(i * 2)}in "${segment}":`),
-            `${" ".repeat(pathSegments.length * 2)}${error.message ?? ""}`
-          ].join("\n")
-        })
+  return Object.entries(errorsByFile)
+    .flatMap(
+      ([filePath, errors]) => {
+        if (verbose) {
+          return filterNullable([
+            errors.fileNameError ? errorMessageBlock([filePath], errors.fileNameError.message) : undefined,
+            ...errors.schemaErrors.map(error => {
+              const pathSegments = [filePath, ...error.instancePath.split("/").slice(1)]
+              return errorMessageBlock(pathSegments, error.message ?? "")
+            })
+          ])
+        } else {
+          return filterNullable([
+            errors.fileNameError ? errorMessageBlock([filePath], errors.fileNameError.message) : undefined,
+            errors.schemaErrors.length > 0 ? errorMessageBlock([filePath], "does not match schema") : undefined
+          ])
+        }
+      }
     )
     .join("\n\n")
+}
+
+export type PrintOptions = {
+  verbose?: boolean
+}
+
+const errorMessageBlock = (path: string[], message: string): string =>
+  [
+    ...path.map((segment, i) => `${" ".repeat(i * 2)}in "${segment}":`),
+    `${" ".repeat(path.length * 2)}${message}`
+  ].join("\n")
+
+const filterNullable = <T>(arr: T[]): NonNullable<T>[] => arr.filter((x): x is NonNullable<typeof x> => x != null)
