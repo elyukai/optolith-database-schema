@@ -1,4 +1,4 @@
-import Ajv, { AnySchemaObject, DefinedError, Options } from "ajv"
+import Ajv, { AnySchemaObject, Options } from "ajv"
 import addFormats from "ajv-formats"
 import Ajv2019 from "ajv/dist/2019.js"
 import Ajv2020 from "ajv/dist/2020.js"
@@ -13,7 +13,7 @@ type RawResultMap = { [K in keyof TypeMap]: Record<string, TypeValidationResult<
 
 type Result =
   | { tag: "Ok"; value: { [K in keyof TypeMap]: TypeMap[K][] } }
-  | { tag: "Error"; errors: Record<string, DefinedError[]> }
+  | { tag: "Error"; errors: Record<string, TypeValidationResultErrors> }
 
 export type EntityDirectoryPaths = { [K in keyof TypeMap]: string }
 
@@ -107,7 +107,7 @@ const rawResultMapToResult = (rawResultMap: RawResultMap): Result =>
   Object.entries(rawResultMap).reduce<Result>(
     (result: Result, [typeName, typeResults]) =>
       Object.entries(typeResults).reduce<Result>(
-        (outerResult, [filePath, fileResult]): Result => {
+        (outerResult, [filePath, fileResult]: [string, TypeValidationResult<unknown>]): Result => {
           if (outerResult.tag === "Ok" && fileResult.tag === "Ok") {
             return {
               tag: "Ok",
@@ -130,7 +130,7 @@ const rawResultMapToResult = (rawResultMap: RawResultMap): Result =>
               tag: "Error",
               errors: {
                 ...outerResult.errors,
-                [filePath]: [...(outerResult.errors[filePath] ?? []), ...fileResult.errors]
+                [filePath]: fileResult.errors
               }
             }
           }
