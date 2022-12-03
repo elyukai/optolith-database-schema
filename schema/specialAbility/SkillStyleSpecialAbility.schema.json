@@ -67,7 +67,7 @@
                           "description": "Specify the select option(s) that only are allowed for the referenced\nadvanced special ability; others are disallowed.",
                           "type": "array",
                           "items": {
-                            "$ref": "./_IdentifierGroup.schema.json#/$defs/AdvancedSpecialAbilityRestrictedOptionIdentifier"
+                            "$ref": "../_IdentifierGroup.schema.json#/$defs/AdvancedSpecialAbilityRestrictedOptionIdentifier"
                           },
                           "minItems": 1
                         }
@@ -111,7 +111,7 @@
                           "type": "boolean"
                         },
                         "display_option": {
-                          "$ref": "./prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
+                          "$ref": "../prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
                         }
                       },
                       "required": [
@@ -138,7 +138,7 @@
                       "properties": {
                         "external_entry": {
                           "description": "The possible advanced special abilities.",
-                          "$ref": "./_Identifier.schema.json#/$defs/MagicalTraditionIdentifier"
+                          "$ref": "../_Identifier.schema.json#/$defs/MagicalTraditionIdentifier"
                         },
                         "map": {
                           "description": "Map options from the external entry to allowed advanced special abilities.",
@@ -149,7 +149,7 @@
                             "properties": {
                               "from_option": {
                                 "description": "The select option's identifier.",
-                                "$ref": "./_Identifier.schema.json#/$defs/PatronIdentifier"
+                                "$ref": "../_Identifier.schema.json#/$defs/PatronIdentifier"
                               },
                               "to_advanced": {
                                 "type": "object",
@@ -173,7 +173,7 @@
                           "minItems": 1
                         },
                         "display_option": {
-                          "$ref": "./prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
+                          "$ref": "../prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
                         }
                       },
                       "required": [
@@ -235,7 +235,7 @@
                           "description": "Specify the select option(s) that only are allowed for the referenced\nadvanced special ability; others are disallowed.",
                           "type": "array",
                           "items": {
-                            "$ref": "./_IdentifierGroup.schema.json#/$defs/AdvancedSpecialAbilityRestrictedOptionIdentifier"
+                            "$ref": "../_IdentifierGroup.schema.json#/$defs/AdvancedSpecialAbilityRestrictedOptionIdentifier"
                           },
                           "minItems": 1
                         }
@@ -279,7 +279,7 @@
                           "type": "boolean"
                         },
                         "display_option": {
-                          "$ref": "./prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
+                          "$ref": "../prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
                         }
                       },
                       "required": [
@@ -306,7 +306,7 @@
                       "properties": {
                         "external_entry": {
                           "description": "The possible advanced special abilities.",
-                          "$ref": "./_Identifier.schema.json#/$defs/MagicalTraditionIdentifier"
+                          "$ref": "../_Identifier.schema.json#/$defs/MagicalTraditionIdentifier"
                         },
                         "map": {
                           "description": "Map options from the external entry to allowed advanced special abilities.",
@@ -317,7 +317,7 @@
                             "properties": {
                               "from_option": {
                                 "description": "The select option's identifier.",
-                                "$ref": "./_Identifier.schema.json#/$defs/PatronIdentifier"
+                                "$ref": "../_Identifier.schema.json#/$defs/PatronIdentifier"
                               },
                               "to_advanced": {
                                 "type": "object",
@@ -341,7 +341,7 @@
                           "minItems": 1
                         },
                         "display_option": {
-                          "$ref": "./prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
+                          "$ref": "../prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
                         }
                       },
                       "required": [
@@ -403,7 +403,7 @@
                           "description": "Specify the select option(s) that only are allowed for the referenced\nadvanced special ability; others are disallowed.",
                           "type": "array",
                           "items": {
-                            "$ref": "./_IdentifierGroup.schema.json#/$defs/AdvancedSpecialAbilityRestrictedOptionIdentifier"
+                            "$ref": "../_IdentifierGroup.schema.json#/$defs/AdvancedSpecialAbilityRestrictedOptionIdentifier"
                           },
                           "minItems": 1
                         }
@@ -447,7 +447,7 @@
                           "type": "boolean"
                         },
                         "display_option": {
-                          "$ref": "./prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
+                          "$ref": "../prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
                         }
                       },
                       "required": [
@@ -474,7 +474,7 @@
                       "properties": {
                         "external_entry": {
                           "description": "The possible advanced special abilities.",
-                          "$ref": "./_Identifier.schema.json#/$defs/MagicalTraditionIdentifier"
+                          "$ref": "../_Identifier.schema.json#/$defs/MagicalTraditionIdentifier"
                         },
                         "map": {
                           "description": "Map options from the external entry to allowed advanced special abilities.",
@@ -485,7 +485,7 @@
                             "properties": {
                               "from_option": {
                                 "description": "The select option's identifier.",
-                                "$ref": "./_Identifier.schema.json#/$defs/PatronIdentifier"
+                                "$ref": "../_Identifier.schema.json#/$defs/PatronIdentifier"
                               },
                               "to_advanced": {
                                 "type": "object",
@@ -509,7 +509,7 @@
                           "minItems": 1
                         },
                         "display_option": {
-                          "$ref": "./prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
+                          "$ref": "../prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
                         }
                       },
                       "required": [

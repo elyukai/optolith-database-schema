@@ -196,13 +196,13 @@
           ]
         },
         "cost": {
-          "$ref": "./_ActivatableSkillCost.schema.json#/$defs/OneTimeCost"
+          "$ref": "../_ActivatableSkillCost.schema.json#/$defs/OneTimeCost"
         },
         "range": {
-          "$ref": "./_ActivatableSkillRange.schema.json#/$defs/Range"
+          "$ref": "../_ActivatableSkillRange.schema.json#/$defs/Range"
         },
         "duration": {
-          "$ref": "./_ActivatableSkillDuration.schema.json#/$defs/DurationForOneTime"
+          "$ref": "../_ActivatableSkillDuration.schema.json#/$defs/DurationForOneTime"
         }
       },
       "required": [

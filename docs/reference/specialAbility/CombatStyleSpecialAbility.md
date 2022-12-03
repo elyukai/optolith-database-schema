@@ -178,7 +178,7 @@ advanced special ability; others are disallowed.
 
 ### <a name="CombatStyleSpecialAbility/advanced[0]'RestrictOptions/restrict_options/option[]"></a> `CombatStyleSpecialAbility/advanced[0]'RestrictOptions/restrict_options/option[]`
 
-- **Type:** <a href="./_IdentifierGroup.md#AdvancedSpecialAbilityRestrictedOptionIdentifier">AdvancedSpecialAbilityRestrictedOptionIdentifier</a>
+- **Type:** <a href="../_IdentifierGroup.md#AdvancedSpecialAbilityRestrictedOptionIdentifier">AdvancedSpecialAbilityRestrictedOptionIdentifier</a>
 
 ---
 
@@ -226,7 +226,7 @@ special ability? Otherwise the decision can be made later.
 
 #### <a name="CombatStyleSpecialAbility/advanced[0]'OneOf/one_of/display_option"></a> `display_option?`
 
-- **Type:** <a href="./prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
+- **Type:** <a href="../prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
 
 ---
 
@@ -277,7 +277,7 @@ Key | Description | Details
 
 The possible advanced special abilities.
 
-- **Type:** <a href="./_Identifier.md#MagicalTraditionIdentifier">MagicalTraditionIdentifier</a>
+- **Type:** <a href="../_Identifier.md#MagicalTraditionIdentifier">MagicalTraditionIdentifier</a>
 
 #### <a name="CombatStyleSpecialAbility/advanced[0]'DeriveFromExternalOption/derive_from_external_option/map"></a> `map`
 
@@ -289,7 +289,7 @@ Map options from the external entry to allowed advanced special abilities.
 
 #### <a name="CombatStyleSpecialAbility/advanced[0]'DeriveFromExternalOption/derive_from_external_option/display_option"></a> `display_option?`
 
-- **Type:** <a href="./prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
+- **Type:** <a href="../prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
 
 ---
 
@@ -309,7 +309,7 @@ Key | Description | Details
 
 The select option's identifier.
 
-- **Type:** <a href="./_Identifier.md#PatronIdentifier">PatronIdentifier</a>
+- **Type:** <a href="../_Identifier.md#PatronIdentifier">PatronIdentifier</a>
 
 #### <a name="CombatStyleSpecialAbility/advanced[0]'DeriveFromExternalOption/derive_from_external_option/map[]/to_advanced"></a> `to_advanced`
 
@@ -422,7 +422,7 @@ advanced special ability; others are disallowed.
 
 ### <a name="CombatStyleSpecialAbility/advanced[1]'RestrictOptions/restrict_options/option[]"></a> `CombatStyleSpecialAbility/advanced[1]'RestrictOptions/restrict_options/option[]`
 
-- **Type:** <a href="./_IdentifierGroup.md#AdvancedSpecialAbilityRestrictedOptionIdentifier">AdvancedSpecialAbilityRestrictedOptionIdentifier</a>
+- **Type:** <a href="../_IdentifierGroup.md#AdvancedSpecialAbilityRestrictedOptionIdentifier">AdvancedSpecialAbilityRestrictedOptionIdentifier</a>
 
 ---
 
@@ -470,7 +470,7 @@ special ability? Otherwise the decision can be made later.
 
 #### <a name="CombatStyleSpecialAbility/advanced[1]'OneOf/one_of/display_option"></a> `display_option?`
 
-- **Type:** <a href="./prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
+- **Type:** <a href="../prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
 
 ---
 
@@ -521,7 +521,7 @@ Key | Description | Details
 
 The possible advanced special abilities.
 
-- **Type:** <a href="./_Identifier.md#MagicalTraditionIdentifier">MagicalTraditionIdentifier</a>
+- **Type:** <a href="../_Identifier.md#MagicalTraditionIdentifier">MagicalTraditionIdentifier</a>
 
 #### <a name="CombatStyleSpecialAbility/advanced[1]'DeriveFromExternalOption/derive_from_external_option/map"></a> `map`
 
@@ -533,7 +533,7 @@ Map options from the external entry to allowed advanced special abilities.
 
 #### <a name="CombatStyleSpecialAbility/advanced[1]'DeriveFromExternalOption/derive_from_external_option/display_option"></a> `display_option?`
 
-- **Type:** <a href="./prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
+- **Type:** <a href="../prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
 
 ---
 
@@ -553,7 +553,7 @@ Key | Description | Details
 
 The select option's identifier.
 
-- **Type:** <a href="./_Identifier.md#PatronIdentifier">PatronIdentifier</a>
+- **Type:** <a href="../_Identifier.md#PatronIdentifier">PatronIdentifier</a>
 
 #### <a name="CombatStyleSpecialAbility/advanced[1]'DeriveFromExternalOption/derive_from_external_option/map[]/to_advanced"></a> `to_advanced`
 
@@ -666,7 +666,7 @@ advanced special ability; others are disallowed.
 
 ### <a name="CombatStyleSpecialAbility/advanced[2]'RestrictOptions/restrict_options/option[]"></a> `CombatStyleSpecialAbility/advanced[2]'RestrictOptions/restrict_options/option[]`
 
-- **Type:** <a href="./_IdentifierGroup.md#AdvancedSpecialAbilityRestrictedOptionIdentifier">AdvancedSpecialAbilityRestrictedOptionIdentifier</a>
+- **Type:** <a href="../_IdentifierGroup.md#AdvancedSpecialAbilityRestrictedOptionIdentifier">AdvancedSpecialAbilityRestrictedOptionIdentifier</a>
 
 ---
 
@@ -714,7 +714,7 @@ special ability? Otherwise the decision can be made later.
 
 #### <a name="CombatStyleSpecialAbility/advanced[2]'OneOf/one_of/display_option"></a> `display_option?`
 
-- **Type:** <a href="./prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
+- **Type:** <a href="../prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
 
 ---
 
@@ -765,7 +765,7 @@ Key | Description | Details
 
 The possible advanced special abilities.
 
-- **Type:** <a href="./_Identifier.md#MagicalTraditionIdentifier">MagicalTraditionIdentifier</a>
+- **Type:** <a href="../_Identifier.md#MagicalTraditionIdentifier">MagicalTraditionIdentifier</a>
 
 #### <a name="CombatStyleSpecialAbility/advanced[2]'DeriveFromExternalOption/derive_from_external_option/map"></a> `map`
 
@@ -777,7 +777,7 @@ Map options from the external entry to allowed advanced special abilities.
 
 #### <a name="CombatStyleSpecialAbility/advanced[2]'DeriveFromExternalOption/derive_from_external_option/display_option"></a> `display_option?`
 
-- **Type:** <a href="./prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
+- **Type:** <a href="../prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
 
 ---
 
@@ -797,7 +797,7 @@ Key | Description | Details
 
 The select option's identifier.
 
-- **Type:** <a href="./_Identifier.md#PatronIdentifier">PatronIdentifier</a>
+- **Type:** <a href="../_Identifier.md#PatronIdentifier">PatronIdentifier</a>
 
 #### <a name="CombatStyleSpecialAbility/advanced[2]'DeriveFromExternalOption/derive_from_external_option/map[]/to_advanced"></a> `to_advanced`
 

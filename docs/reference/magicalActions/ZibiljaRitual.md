@@ -231,15 +231,15 @@ Key | Description | Details
 
 #### <a name="ZibiljaRitualPerformanceParameters/cost"></a> `cost`
 
-- **Type:** <a href="./_ActivatableSkillCost.md#OneTimeCost">OneTimeCost</a>
+- **Type:** <a href="../_ActivatableSkillCost.md#OneTimeCost">OneTimeCost</a>
 
 #### <a name="ZibiljaRitualPerformanceParameters/range"></a> `range`
 
-- **Type:** <a href="./_ActivatableSkillRange.md#Range">Range</a>
+- **Type:** <a href="../_ActivatableSkillRange.md#Range">Range</a>
 
 #### <a name="ZibiljaRitualPerformanceParameters/duration"></a> `duration`
 
-- **Type:** <a href="./_ActivatableSkillDuration.md#DurationForOneTime">DurationForOneTime</a>
+- **Type:** <a href="../_ActivatableSkillDuration.md#DurationForOneTime">DurationForOneTime</a>
 
 ---
 
