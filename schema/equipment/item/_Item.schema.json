@@ -313,7 +313,7 @@
           "description": "The cost get wrapped by this text using a placeholder in the text.",
           "type": "string",
           "minLength": 1,
-          "pattern": "\\\\{0\\\\}"
+          "pattern": "\\{0\\}"
         }
       },
       "required": [

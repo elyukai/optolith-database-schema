@@ -428,7 +428,7 @@ The cost get wrapped by this text using a placeholder in the text.
 
 - **Type:** String
 - **Minimum Length:** `1`
-- **Pattern:** `\\{0\\}`
+- **Pattern:** `\{0\}`
 
 ---
 

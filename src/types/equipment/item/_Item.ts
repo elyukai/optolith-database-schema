@@ -137,7 +137,7 @@ export type CostTranslation = {
   /**
    * The cost get wrapped by this text using a placeholder in the text.
    * @minLength 1
-   * @pattern \\{0\\}
+   * @pattern \{0\}
    */
   wrap_in_text: string
 }
