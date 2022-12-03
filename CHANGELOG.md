@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.3](https://github.com/elyukai/optolith-database-schema/compare/v0.5.2...v0.5.3) (2022-12-03)
+
+
+### Bug Fixes
+
+* escaping curly braces in regular expression ([4f59611](https://github.com/elyukai/optolith-database-schema/commit/4f59611827d0948df7de32e73623cef858ad89c7))
+* import resolving of types used in generic types ([592ade9](https://github.com/elyukai/optolith-database-schema/commit/592ade94fddc14bdda5bfcf8b3dc51c33f36f509))
+
 ### [0.5.2](https://github.com/elyukai/optolith-database-schema/compare/v0.5.1...v0.5.2) (2022-12-02)
 
 
