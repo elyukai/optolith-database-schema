@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.4](https://github.com/elyukai/optolith-database-schema/compare/v0.5.3...v0.5.4) (2022-12-03)
+
+
+### Bug Fixes
+
+* elective spellwork restriction structure ([3ceb624](https://github.com/elyukai/optolith-database-schema/commit/3ceb6244ec433bb60fe292dde32d99ac93edccb2))
+* grouped common profession for cultures ([df66943](https://github.com/elyukai/optolith-database-schema/commit/df66943aadfd297d773dda7d4a0a65c8b79095ce))
+
 ### [0.5.3](https://github.com/elyukai/optolith-database-schema/compare/v0.5.2...v0.5.3) (2022-12-03)
 
 
