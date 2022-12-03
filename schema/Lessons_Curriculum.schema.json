@@ -143,18 +143,33 @@
     },
     "ElectiveSpellworkRestriction": {
       "description": "The elective spellwork may only take effect if a certain condition is met.\nThe condition may be related to professions or profession variants, but it is\ndesigned so that it can work without a specific profession, as multiple may\nbelong to an institute, but with referencing other entities instead.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Element"
+            },
+            "element": {
+              "$ref": "#/$defs/ElectiveSpellworkElementRestriction"
+            }
+          },
+          "required": [
+            "tag",
+            "element"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "ElectiveSpellworkElementRestriction": {
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "Element"
-        },
         "id": {
-          "description": "The element's identifier.",
           "$ref": "./_Identifier.schema.json#/$defs/ElementIdentifier"
         }
       },
       "required": [
-        "tag",
         "id"
       ],
       "additionalProperties": false

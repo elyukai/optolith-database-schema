@@ -94,15 +94,10 @@ export type ElectiveSpellwork = {
  * designed so that it can work without a specific profession, as multiple may
  * belong to an institute, but with referencing other entities instead.
  */
-export type ElectiveSpellworkRestriction = {
-  tag: "Element"
+export type ElectiveSpellworkRestriction =
+  | { tag: "Element"; element: ElectiveSpellworkElementRestriction }
 
-  /**
-   * The element's identifier.
-   * @integer
-   * @minimum 1
-   * @maximum 6
-   */
+export type ElectiveSpellworkElementRestriction = {
   id: ElementIdentifier
 }
 

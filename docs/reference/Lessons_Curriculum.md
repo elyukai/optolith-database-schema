@@ -203,20 +203,39 @@ The condition may be related to professions or profession variants, but it is
 designed so that it can work without a specific profession, as multiple may
 belong to an institute, but with referencing other entities instead.
 
+- **Type:** Union
+- **Cases:** <a href="#ElectiveSpellworkRestriction'Element">ElectiveSpellworkRestriction'Element</a>
+
+---
+
+### <a name="ElectiveSpellworkRestriction'Element"></a> `ElectiveSpellworkRestriction'Element`
+
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#ElectiveSpellworkRestriction/tag">See details</a>
-`id` | The element's identifier. | <a href="#ElectiveSpellworkRestriction/id">See details</a>
+`tag` |  | <a href="#ElectiveSpellworkRestriction'Element/tag">See details</a>
+`element` |  | <a href="#ElectiveSpellworkRestriction'Element/element">See details</a>
 
-#### <a name="ElectiveSpellworkRestriction/tag"></a> `tag`
+#### <a name="ElectiveSpellworkRestriction'Element/tag"></a> `tag`
 
 - **Constant:** `"Element"`
 
-#### <a name="ElectiveSpellworkRestriction/id"></a> `id`
+#### <a name="ElectiveSpellworkRestriction'Element/element"></a> `element`
 
-The element's identifier.
+- **Type:** <a href="#ElectiveSpellworkElementRestriction">ElectiveSpellworkElementRestriction</a>
+
+---
+
+### <a name="ElectiveSpellworkElementRestriction"></a> `ElectiveSpellworkElementRestriction`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` |  | <a href="#ElectiveSpellworkElementRestriction/id">See details</a>
+
+#### <a name="ElectiveSpellworkElementRestriction/id"></a> `id`
 
 - **Type:** <a href="./_Identifier.md#ElementIdentifier">ElementIdentifier</a>
 
