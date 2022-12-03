@@ -6,7 +6,7 @@ import { validateSchemaCreator } from "../validation/schema.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
-import { AdvantageIdentifier, DisadvantageIdentifier, MagicalTraditionIdentifier, ProfessionIdentifier, SkillIdentifier } from "./_Identifier.js"
+import { AdvantageIdentifier, BlessedTraditionIdentifier, DisadvantageIdentifier, MagicalTraditionIdentifier, ProfessionIdentifier, SkillIdentifier } from "./_Identifier.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
 import { BinarySex } from "./_Sex.js"
@@ -213,7 +213,7 @@ export enum MundaneProfessionSubgroupConstraint {
   Religious = "Religious",
 }
 
-export type TraditionConstraint = {
+export type MagicalTraditionConstraint = {
   /**
    * The magical tradition's identifier.
    */
@@ -231,23 +231,41 @@ export type TraditionConstraint = {
   rarity?: Rarity
 }
 
+export type BlessedTraditionConstraint = {
+  /**
+   * The magical tradition's identifier.
+   */
+  id: BlessedTraditionIdentifier
+
+  /**
+   * Some professions are more common than others. There may be cultures
+   * where some professions are not represented at all.
+   */
+  weighted_professions?: Weighted<ProfessionReference>
+
+  /**
+   * Some traditions may be found in a culture, but are not that common.
+   */
+  rarity?: Rarity
+}
+
 export type MundaneCommonProfessionConstraint =
   | { tag: "Profession"; profession: ProfessionConstraint }
-  | { tag: "ProfessionSubgroup"; profession_subgroup: ProfessionConstraint }
+  | { tag: "ProfessionSubgroup"; profession_subgroup: MundaneProfessionSubgroupConstraint }
 
 export type MagicCommonProfessionConstraint =
-  | { tag: "Tradition"; tradition: TraditionConstraint }
+  | { tag: "Tradition"; tradition: MagicalTraditionConstraint }
   | { tag: "MagicDilettante"; magic_dilettante: {} }
   | { tag: "Profession"; profession: ProfessionConstraint }
 
 export type BlessedCommonProfessionConstraint =
-  | { tag: "Tradition"; tradition: TraditionConstraint }
+  | { tag: "Tradition"; tradition: BlessedTraditionConstraint }
 
 export type PlainCommonProfessions = CommonProfessionConstraints<ProfessionReference>
 
 /**
  * Lists of professions by group.
- * @minProperties 2
+ * @minProperties 1
  */
 export type GroupedCommonProfessions = {
   mundane?: CommonProfessionConstraints<MundaneCommonProfessionConstraint>

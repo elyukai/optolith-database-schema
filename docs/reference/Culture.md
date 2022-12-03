@@ -381,30 +381,30 @@ Some professions may be found in a culture, but are not that common.
 
 ---
 
-### <a name="TraditionConstraint"></a> `TraditionConstraint`
+### <a name="MagicalTraditionConstraint"></a> `MagicalTraditionConstraint`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The magical tradition's identifier. | <a href="#TraditionConstraint/id">See details</a>
-`weighted_professions?` | Some professions are more common than others. There may be cultures where some professions are not represented at all. | <a href="#TraditionConstraint/weighted_professions">See details</a>
-`rarity?` | Some traditions may be found in a culture, but are not that common. | <a href="#TraditionConstraint/rarity">See details</a>
+`id` | The magical tradition's identifier. | <a href="#MagicalTraditionConstraint/id">See details</a>
+`weighted_professions?` | Some professions are more common than others. There may be cultures where some professions are not represented at all. | <a href="#MagicalTraditionConstraint/weighted_professions">See details</a>
+`rarity?` | Some traditions may be found in a culture, but are not that common. | <a href="#MagicalTraditionConstraint/rarity">See details</a>
 
-#### <a name="TraditionConstraint/id"></a> `id`
+#### <a name="MagicalTraditionConstraint/id"></a> `id`
 
 The magical tradition's identifier.
 
 - **Type:** <a href="./_Identifier.md#MagicalTraditionIdentifier">MagicalTraditionIdentifier</a>
 
-#### <a name="TraditionConstraint/weighted_professions"></a> `weighted_professions?`
+#### <a name="MagicalTraditionConstraint/weighted_professions"></a> `weighted_professions?`
 
 Some professions are more common than others. There may be cultures
 where some professions are not represented at all.
 
-- **Type:** <a href="#TraditionConstraint/weighted_professions">Object</a>
+- **Type:** <a href="#MagicalTraditionConstraint/weighted_professions">Object</a>
 
-#### <a name="TraditionConstraint/rarity"></a> `rarity?`
+#### <a name="MagicalTraditionConstraint/rarity"></a> `rarity?`
 
 Some traditions may be found in a culture, but are not that common.
 
@@ -412,7 +412,7 @@ Some traditions may be found in a culture, but are not that common.
 
 ---
 
-### <a name="TraditionConstraint/weighted_professions"></a> `TraditionConstraint/weighted_professions`
+### <a name="MagicalTraditionConstraint/weighted_professions"></a> `MagicalTraditionConstraint/weighted_professions`
 
 Some professions or profession variants are more common than others. There
 may be cultures where some professions or profession variants are not
@@ -422,18 +422,18 @@ represented at all.
 
 Key | Description | Details
 :-- | :-- | :--
-`elements` | The list of more common professions or profession variants. | <a href="#TraditionConstraint/weighted_professions/elements">See details</a>
-`weight` | The "weight" difference compared to other professions or profession variants. Some professions or profession variants are simply more common (Mostly), but sometimes only specific elements are used (Only). | <a href="#TraditionConstraint/weighted_professions/weight">See details</a>
+`elements` | The list of more common professions or profession variants. | <a href="#MagicalTraditionConstraint/weighted_professions/elements">See details</a>
+`weight` | The "weight" difference compared to other professions or profession variants. Some professions or profession variants are simply more common (Mostly), but sometimes only specific elements are used (Only). | <a href="#MagicalTraditionConstraint/weighted_professions/weight">See details</a>
 
-#### <a name="TraditionConstraint/weighted_professions/elements"></a> `elements`
+#### <a name="MagicalTraditionConstraint/weighted_professions/elements"></a> `elements`
 
 The list of more common professions or profession variants.
 
 - **Type:** List
-- **Items:** <a href="#TraditionConstraint/weighted_professions/elements[]">TraditionConstraint/weighted_professions/elements[]</a>
+- **Items:** <a href="#MagicalTraditionConstraint/weighted_professions/elements[]">MagicalTraditionConstraint/weighted_professions/elements[]</a>
 - **Minimum Items:** `1`
 
-#### <a name="TraditionConstraint/weighted_professions/weight"></a> `weight`
+#### <a name="MagicalTraditionConstraint/weighted_professions/weight"></a> `weight`
 
 The "weight" difference compared to other professions or profession
 variants. Some professions or profession variants are simply more common
@@ -443,7 +443,75 @@ variants. Some professions or profession variants are simply more common
 
 ---
 
-### <a name="TraditionConstraint/weighted_professions/elements[]"></a> `TraditionConstraint/weighted_professions/elements[]`
+### <a name="MagicalTraditionConstraint/weighted_professions/elements[]"></a> `MagicalTraditionConstraint/weighted_professions/elements[]`
+
+- **Type:** <a href="./_SimpleReferences.md#ProfessionReference">ProfessionReference</a>
+
+---
+
+### <a name="BlessedTraditionConstraint"></a> `BlessedTraditionConstraint`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The magical tradition's identifier. | <a href="#BlessedTraditionConstraint/id">See details</a>
+`weighted_professions?` | Some professions are more common than others. There may be cultures where some professions are not represented at all. | <a href="#BlessedTraditionConstraint/weighted_professions">See details</a>
+`rarity?` | Some traditions may be found in a culture, but are not that common. | <a href="#BlessedTraditionConstraint/rarity">See details</a>
+
+#### <a name="BlessedTraditionConstraint/id"></a> `id`
+
+The magical tradition's identifier.
+
+- **Type:** <a href="./_Identifier.md#BlessedTraditionIdentifier">BlessedTraditionIdentifier</a>
+
+#### <a name="BlessedTraditionConstraint/weighted_professions"></a> `weighted_professions?`
+
+Some professions are more common than others. There may be cultures
+where some professions are not represented at all.
+
+- **Type:** <a href="#BlessedTraditionConstraint/weighted_professions">Object</a>
+
+#### <a name="BlessedTraditionConstraint/rarity"></a> `rarity?`
+
+Some traditions may be found in a culture, but are not that common.
+
+- **Type:** <a href="#Rarity">Rarity</a>
+
+---
+
+### <a name="BlessedTraditionConstraint/weighted_professions"></a> `BlessedTraditionConstraint/weighted_professions`
+
+Some professions or profession variants are more common than others. There
+may be cultures where some professions or profession variants are not
+represented at all.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`elements` | The list of more common professions or profession variants. | <a href="#BlessedTraditionConstraint/weighted_professions/elements">See details</a>
+`weight` | The "weight" difference compared to other professions or profession variants. Some professions or profession variants are simply more common (Mostly), but sometimes only specific elements are used (Only). | <a href="#BlessedTraditionConstraint/weighted_professions/weight">See details</a>
+
+#### <a name="BlessedTraditionConstraint/weighted_professions/elements"></a> `elements`
+
+The list of more common professions or profession variants.
+
+- **Type:** List
+- **Items:** <a href="#BlessedTraditionConstraint/weighted_professions/elements[]">BlessedTraditionConstraint/weighted_professions/elements[]</a>
+- **Minimum Items:** `1`
+
+#### <a name="BlessedTraditionConstraint/weighted_professions/weight"></a> `weight`
+
+The "weight" difference compared to other professions or profession
+variants. Some professions or profession variants are simply more common
+(Mostly), but sometimes only specific elements are used (Only).
+
+- **Type:** <a href="#Weight">Weight</a>
+
+---
+
+### <a name="BlessedTraditionConstraint/weighted_professions/elements[]"></a> `BlessedTraditionConstraint/weighted_professions/elements[]`
 
 - **Type:** <a href="./_SimpleReferences.md#ProfessionReference">ProfessionReference</a>
 
@@ -490,7 +558,7 @@ Key | Description | Details
 
 #### <a name="MundaneCommonProfessionConstraint'ProfessionSubgroup/profession_subgroup"></a> `profession_subgroup`
 
-- **Type:** <a href="#ProfessionConstraint">ProfessionConstraint</a>
+- **Type:** <a href="#MundaneProfessionSubgroupConstraint">MundaneProfessionSubgroupConstraint</a>
 
 ---
 
@@ -516,7 +584,7 @@ Key | Description | Details
 
 #### <a name="MagicCommonProfessionConstraint'Tradition/tradition"></a> `tradition`
 
-- **Type:** <a href="#TraditionConstraint">TraditionConstraint</a>
+- **Type:** <a href="#MagicalTraditionConstraint">MagicalTraditionConstraint</a>
 
 ---
 
@@ -586,7 +654,7 @@ Key | Description | Details
 
 #### <a name="BlessedCommonProfessionConstraint'Tradition/tradition"></a> `tradition`
 
-- **Type:** <a href="#TraditionConstraint">TraditionConstraint</a>
+- **Type:** <a href="#BlessedTraditionConstraint">BlessedTraditionConstraint</a>
 
 ---
 
@@ -632,7 +700,7 @@ are kept that are different from the constraints (exclude).
 Lists of professions by group.
 
 - **Type:** Object
-- **Minimum Properties:** `2`
+- **Minimum Properties:** `1`
 
 Key | Description | Details
 :-- | :-- | :--

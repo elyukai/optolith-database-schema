@@ -255,12 +255,52 @@
         "Religious"
       ]
     },
-    "TraditionConstraint": {
+    "MagicalTraditionConstraint": {
       "type": "object",
       "properties": {
         "id": {
           "description": "The magical tradition's identifier.",
           "$ref": "./_Identifier.schema.json#/$defs/MagicalTraditionIdentifier"
+        },
+        "weighted_professions": {
+          "description": "Some professions or profession variants are more common than others. There\nmay be cultures where some professions or profession variants are not\nrepresented at all.",
+          "type": "object",
+          "properties": {
+            "elements": {
+              "description": "The list of more common professions or profession variants.",
+              "type": "array",
+              "items": {
+                "$ref": "./_SimpleReferences.schema.json#/$defs/ProfessionReference"
+              },
+              "minItems": 1
+            },
+            "weight": {
+              "description": "The \"weight\" difference compared to other professions or profession\nvariants. Some professions or profession variants are simply more common\n(Mostly), but sometimes only specific elements are used (Only).",
+              "$ref": "#/$defs/Weight"
+            }
+          },
+          "required": [
+            "elements",
+            "weight"
+          ],
+          "additionalProperties": false
+        },
+        "rarity": {
+          "description": "Some traditions may be found in a culture, but are not that common.",
+          "$ref": "#/$defs/Rarity"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "BlessedTraditionConstraint": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The magical tradition's identifier.",
+          "$ref": "./_Identifier.schema.json#/$defs/BlessedTraditionIdentifier"
         },
         "weighted_professions": {
           "description": "Some professions or profession variants are more common than others. There\nmay be cultures where some professions or profession variants are not\nrepresented at all.",
@@ -320,7 +360,7 @@
               "const": "ProfessionSubgroup"
             },
             "profession_subgroup": {
-              "$ref": "#/$defs/ProfessionConstraint"
+              "$ref": "#/$defs/MundaneProfessionSubgroupConstraint"
             }
           },
           "required": [
@@ -340,7 +380,7 @@
               "const": "Tradition"
             },
             "tradition": {
-              "$ref": "#/$defs/TraditionConstraint"
+              "$ref": "#/$defs/MagicalTraditionConstraint"
             }
           },
           "required": [
@@ -395,7 +435,7 @@
               "const": "Tradition"
             },
             "tradition": {
-              "$ref": "#/$defs/TraditionConstraint"
+              "$ref": "#/$defs/BlessedTraditionConstraint"
             }
           },
           "required": [
@@ -504,7 +544,7 @@
         }
       },
       "required": [],
-      "minProperties": 2,
+      "minProperties": 1,
       "additionalProperties": false
     },
     "CommonProfessions": {
