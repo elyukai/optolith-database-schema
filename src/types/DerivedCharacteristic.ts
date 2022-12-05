@@ -44,13 +44,13 @@ export type DerivedCharacteristicTranslation = {
   /**
    * Possible calculation strings for the final value.
    */
-  calculation?: Calculation
+  calculation?: CalculationTranslation
 }
 
 /**
  * Possible calculation strings for the final value.
  */
-export type Calculation = {
+export type CalculationTranslation = {
   /**
    * The default calculation string.
    * @minLength 1

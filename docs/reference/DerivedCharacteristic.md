@@ -73,11 +73,11 @@ The characteristic's abbreviation.
 
 Possible calculation strings for the final value.
 
-- **Type:** <a href="#Calculation">Calculation</a>
+- **Type:** <a href="#CalculationTranslation">CalculationTranslation</a>
 
 ---
 
-### <a name="Calculation"></a> `Calculation`
+### <a name="CalculationTranslation"></a> `CalculationTranslation`
 
 Possible calculation strings for the final value.
 
@@ -85,25 +85,25 @@ Possible calculation strings for the final value.
 
 Key | Description | Details
 :-- | :-- | :--
-`default` | The default calculation string. | <a href="#Calculation/default">See details</a>
-`half_primary?` | The calculation string if only half of the primary attribute is used. | <a href="#Calculation/half_primary">See details</a>
-`no_primary?` | The calculation string if no primary attribute is used. | <a href="#Calculation/no_primary">See details</a>
+`default` | The default calculation string. | <a href="#CalculationTranslation/default">See details</a>
+`half_primary?` | The calculation string if only half of the primary attribute is used. | <a href="#CalculationTranslation/half_primary">See details</a>
+`no_primary?` | The calculation string if no primary attribute is used. | <a href="#CalculationTranslation/no_primary">See details</a>
 
-#### <a name="Calculation/default"></a> `default`
+#### <a name="CalculationTranslation/default"></a> `default`
 
 The default calculation string.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
-#### <a name="Calculation/half_primary"></a> `half_primary?`
+#### <a name="CalculationTranslation/half_primary"></a> `half_primary?`
 
 The calculation string if only half of the primary attribute is used.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
-#### <a name="Calculation/no_primary"></a> `no_primary?`
+#### <a name="CalculationTranslation/no_primary"></a> `no_primary?`
 
 The calculation string if no primary attribute is used.
 

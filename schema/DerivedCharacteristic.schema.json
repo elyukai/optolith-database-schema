@@ -52,7 +52,7 @@
         },
         "calculation": {
           "description": "Possible calculation strings for the final value.",
-          "$ref": "#/$defs/Calculation"
+          "$ref": "#/$defs/CalculationTranslation"
         }
       },
       "required": [
@@ -61,7 +61,7 @@
       ],
       "additionalProperties": false
     },
-    "Calculation": {
+    "CalculationTranslation": {
       "description": "Possible calculation strings for the final value.",
       "type": "object",
       "properties": {
