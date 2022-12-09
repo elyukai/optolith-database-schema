@@ -68,8 +68,8 @@
           },
           "minItems": 1
         },
-        "common_ingredients": {
-          "description": "A list of common ingredients.",
+        "typical_ingredients": {
+          "description": "A list of typical ingredients.",
           "type": "array",
           "items": {
             "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
@@ -114,7 +114,7 @@
       },
       "required": [
         "name",
-        "common_ingredients",
+        "typical_ingredients",
         "quality_levels"
       ],
       "additionalProperties": false

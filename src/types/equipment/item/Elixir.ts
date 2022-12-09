@@ -61,11 +61,11 @@ export type ElixirTranslation = {
   alternative_names?: AlternativeName[]
 
   /**
-   * A list of common ingredients.
+   * A list of typical ingredients.
    * @minItems 1
    * @uniqueItems
    */
-  common_ingredients: NonEmptyString[]
+  typical_ingredients: NonEmptyString[]
 
   /**
    * Prerequsites for the brewing process, if any.

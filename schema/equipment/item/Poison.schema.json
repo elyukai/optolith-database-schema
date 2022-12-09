@@ -382,8 +382,8 @@
     "AlchemicalPoisonTranslation": {
       "type": "object",
       "properties": {
-        "common_ingredients": {
-          "description": "A list of common ingredients.",
+        "typical_ingredients": {
+          "description": "A list of typical ingredients.",
           "type": "array",
           "items": {
             "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
@@ -397,7 +397,7 @@
         }
       },
       "required": [
-        "common_ingredients"
+        "typical_ingredients"
       ],
       "additionalProperties": false
     },

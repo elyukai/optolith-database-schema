@@ -164,11 +164,11 @@ export type AlchemicalPoison = {
 
 export type AlchemicalPoisonTranslation = {
   /**
-   * A list of common ingredients.
+   * A list of typical ingredients.
    * @minItems 1
    * @uniqueItems
    */
-  common_ingredients: NonEmptyString[]
+  typical_ingredients: NonEmptyString[]
 
   /**
    * Prerequsites for the brewing process, if any.

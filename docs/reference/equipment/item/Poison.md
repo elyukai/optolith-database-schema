@@ -498,15 +498,15 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 Key | Description | Details
 :-- | :-- | :--
-`common_ingredients` | A list of common ingredients. | <a href="#AlchemicalPoisonTranslation/common_ingredients">See details</a>
+`typical_ingredients` | A list of typical ingredients. | <a href="#AlchemicalPoisonTranslation/typical_ingredients">See details</a>
 `brewing_process_prerequisites?` | Prerequsites for the brewing process, if any. | <a href="#AlchemicalPoisonTranslation/brewing_process_prerequisites">See details</a>
 
-#### <a name="AlchemicalPoisonTranslation/common_ingredients"></a> `common_ingredients`
+#### <a name="AlchemicalPoisonTranslation/typical_ingredients"></a> `typical_ingredients`
 
-A list of common ingredients.
+A list of typical ingredients.
 
 - **Type:** List
-- **Items:** <a href="#AlchemicalPoisonTranslation/common_ingredients[]">AlchemicalPoisonTranslation/common_ingredients[]</a>
+- **Items:** <a href="#AlchemicalPoisonTranslation/typical_ingredients[]">AlchemicalPoisonTranslation/typical_ingredients[]</a>
 - **Minimum Items:** `1`
 - **Unique Items:** Yes
 
@@ -518,7 +518,7 @@ Prerequsites for the brewing process, if any.
 
 ---
 
-### <a name="AlchemicalPoisonTranslation/common_ingredients[]"></a> `AlchemicalPoisonTranslation/common_ingredients[]`
+### <a name="AlchemicalPoisonTranslation/typical_ingredients[]"></a> `AlchemicalPoisonTranslation/typical_ingredients[]`
 
 - **Type:** <a href="../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 

@@ -77,7 +77,7 @@ Key | Description | Details
 :-- | :-- | :--
 `name` | The name of the elixir. | <a href="#ElixirTranslation/name">See details</a>
 `alternative_names?` | A list of alternative names. | <a href="#ElixirTranslation/alternative_names">See details</a>
-`common_ingredients` | A list of common ingredients. | <a href="#ElixirTranslation/common_ingredients">See details</a>
+`typical_ingredients` | A list of typical ingredients. | <a href="#ElixirTranslation/typical_ingredients">See details</a>
 `brewing_process_prerequisites?` | Prerequsites for the brewing process, if any. | <a href="#ElixirTranslation/brewing_process_prerequisites">See details</a>
 `quality_levels` | The list of effects for each quality level. The first element represents QL 1, the second element QL 2, and so on. | <a href="#ElixirTranslation/quality_levels">See details</a>
 `errata?` |  | <a href="#ElixirTranslation/errata">See details</a>
@@ -96,12 +96,12 @@ A list of alternative names.
 - **Items:** <a href="#ElixirTranslation/alternative_names[]">ElixirTranslation/alternative_names[]</a>
 - **Minimum Items:** `1`
 
-#### <a name="ElixirTranslation/common_ingredients"></a> `common_ingredients`
+#### <a name="ElixirTranslation/typical_ingredients"></a> `typical_ingredients`
 
-A list of common ingredients.
+A list of typical ingredients.
 
 - **Type:** List
-- **Items:** <a href="#ElixirTranslation/common_ingredients[]">ElixirTranslation/common_ingredients[]</a>
+- **Items:** <a href="#ElixirTranslation/typical_ingredients[]">ElixirTranslation/typical_ingredients[]</a>
 - **Minimum Items:** `1`
 - **Unique Items:** Yes
 
@@ -131,7 +131,7 @@ represents QL 1, the second element QL 2, and so on.
 
 ---
 
-### <a name="ElixirTranslation/common_ingredients[]"></a> `ElixirTranslation/common_ingredients[]`
+### <a name="ElixirTranslation/typical_ingredients[]"></a> `ElixirTranslation/typical_ingredients[]`
 
 - **Type:** <a href="../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
