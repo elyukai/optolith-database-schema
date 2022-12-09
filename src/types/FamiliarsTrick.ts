@@ -57,14 +57,8 @@ export type FamiliarsTrick = {
 }
 
 export type Property =
-  | {
-    tag: "Fixed"
-    fixed: PropertyReference
-  }
-  | {
-    tag: "Indefinite"
-    indefinite: IndefiniteProperty
-  }
+  | { tag: "Fixed"; fixed: PropertyReference }
+  | { tag: "Indefinite"; indefinite: IndefiniteProperty }
 
 export type IndefiniteProperty = {
   /**
@@ -111,18 +105,9 @@ export type FamiliarsTrickTranslation = {
  * Measurable parameters of a familiar's trick.
  */
 export type PerformanceParameters =
-  | {
-    tag: "OneTime"
-    one_time: OneTimePerformanceParameters
-  }
-  | {
-    tag: "OneTimeInterval"
-    one_time_interval: OneTimeIntervalPerformanceParameters
-  }
-  | {
-    tag: "Sustained"
-    sustained: SustainedPerformanceParameters
-  }
+  | { tag: "OneTime"; one_time: OneTimePerformanceParameters }
+  | { tag: "OneTimeInterval"; one_time_interval: OneTimeIntervalPerformanceParameters }
+  | { tag: "Sustained"; sustained: SustainedPerformanceParameters }
 
 export type OneTimePerformanceParameters = {
   cost: OneTimeCost
@@ -130,18 +115,9 @@ export type OneTimePerformanceParameters = {
 }
 
 export type OneTimeCost =
-  | {
-    tag: "Fixed"
-    fixed: FixedOneTimeCost
-  }
-  | {
-    tag: "All"
-    all: AllOneTimeCost
-  }
-  | {
-    tag: "Indefinite"
-    indefinite: IndefiniteOneTimeCost
-  }
+  | { tag: "Fixed"; fixed: FixedOneTimeCost }
+  | { tag: "All"; all: AllOneTimeCost }
+  | { tag: "Indefinite"; indefinite: IndefiniteOneTimeCost }
 
 export type FixedOneTimeCost = {
   /**
@@ -196,17 +172,9 @@ export type IndefiniteOneTimeCostTranslation = {
 }
 
 export type OneTimeDuration =
-  | {
-    tag: "Immediate"
-  }
-  | {
-    tag: "Fixed"
-    fixed: FixedOneTimeDuration
-  }
-  | {
-    tag: "Indefinite"
-    indefinite: IndefiniteOneTimeDuration
-  }
+  | { tag: "Immediate"; immediate: {} }
+  | { tag: "Fixed"; fixed: FixedOneTimeDuration }
+  | { tag: "Indefinite"; indefinite: IndefiniteOneTimeDuration }
 
 export type FixedOneTimeDuration = {
   /**

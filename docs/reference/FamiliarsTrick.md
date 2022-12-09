@@ -525,10 +525,21 @@ A description of the AE cost.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#OneTimeDuration'Immediate/tag">See details</a>
+`immediate` |  | <a href="#OneTimeDuration'Immediate/immediate">See details</a>
 
 #### <a name="OneTimeDuration'Immediate/tag"></a> `tag`
 
 - **Constant:** `"Immediate"`
+
+#### <a name="OneTimeDuration'Immediate/immediate"></a> `immediate`
+
+- **Type:** <a href="#OneTimeDuration'Immediate/immediate">Object</a>
+
+---
+
+### <a name="OneTimeDuration'Immediate/immediate"></a> `OneTimeDuration'Immediate/immediate`
+
+- **Type:** Empty Object
 
 ---
 
