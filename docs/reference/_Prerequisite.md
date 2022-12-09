@@ -62,12 +62,17 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `list` |  | <a href="#DerivedCharacteristicPrerequisites[]'Disjunction/disjunction/list">See details</a>
+`display_option?` |  | <a href="#DerivedCharacteristicPrerequisites[]'Disjunction/disjunction/display_option">See details</a>
 
 #### <a name="DerivedCharacteristicPrerequisites[]'Disjunction/disjunction/list"></a> `list`
 
 - **Type:** List
 - **Items:** <a href="#DerivedCharacteristicPrerequisites[]'Disjunction/disjunction/list[]">DerivedCharacteristicPrerequisites[]'Disjunction/disjunction/list[]</a>
 - **Minimum Items:** `2`
+
+#### <a name="DerivedCharacteristicPrerequisites[]'Disjunction/disjunction/display_option"></a> `display_option?`
+
+- **Type:** <a href="./prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
 
 ---
 
@@ -198,12 +203,17 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `list` |  | <a href="#PublicationPrerequisites[]'Disjunction/disjunction/list">See details</a>
+`display_option?` |  | <a href="#PublicationPrerequisites[]'Disjunction/disjunction/display_option">See details</a>
 
 #### <a name="PublicationPrerequisites[]'Disjunction/disjunction/list"></a> `list`
 
 - **Type:** List
 - **Items:** <a href="#PublicationPrerequisites[]'Disjunction/disjunction/list[]">PublicationPrerequisites[]'Disjunction/disjunction/list[]</a>
 - **Minimum Items:** `2`
+
+#### <a name="PublicationPrerequisites[]'Disjunction/disjunction/display_option"></a> `display_option?`
+
+- **Type:** <a href="./prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
 
 ---
 
@@ -334,12 +344,17 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `list` |  | <a href="#PlainGeneralPrerequisites[]'Disjunction/disjunction/list">See details</a>
+`display_option?` |  | <a href="#PlainGeneralPrerequisites[]'Disjunction/disjunction/display_option">See details</a>
 
 #### <a name="PlainGeneralPrerequisites[]'Disjunction/disjunction/list"></a> `list`
 
 - **Type:** List
 - **Items:** <a href="#PlainGeneralPrerequisites[]'Disjunction/disjunction/list[]">PlainGeneralPrerequisites[]'Disjunction/disjunction/list[]</a>
 - **Minimum Items:** `2`
+
+#### <a name="PlainGeneralPrerequisites[]'Disjunction/disjunction/display_option"></a> `display_option?`
+
+- **Type:** <a href="./prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
 
 ---
 
@@ -484,12 +499,17 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `list` |  | <a href="#GeneralPrerequisites[]/prerequisite'Disjunction/disjunction/list">See details</a>
+`display_option?` |  | <a href="#GeneralPrerequisites[]/prerequisite'Disjunction/disjunction/display_option">See details</a>
 
 #### <a name="GeneralPrerequisites[]/prerequisite'Disjunction/disjunction/list"></a> `list`
 
 - **Type:** List
 - **Items:** <a href="#GeneralPrerequisites[]/prerequisite'Disjunction/disjunction/list[]">GeneralPrerequisites[]/prerequisite'Disjunction/disjunction/list[]</a>
 - **Minimum Items:** `2`
+
+#### <a name="GeneralPrerequisites[]/prerequisite'Disjunction/disjunction/display_option"></a> `display_option?`
+
+- **Type:** <a href="./prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
 
 ---
 
@@ -620,12 +640,17 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `list` |  | <a href="#ProfessionPrerequisites[]'Disjunction/disjunction/list">See details</a>
+`display_option?` |  | <a href="#ProfessionPrerequisites[]'Disjunction/disjunction/display_option">See details</a>
 
 #### <a name="ProfessionPrerequisites[]'Disjunction/disjunction/list"></a> `list`
 
 - **Type:** List
 - **Items:** <a href="#ProfessionPrerequisites[]'Disjunction/disjunction/list[]">ProfessionPrerequisites[]'Disjunction/disjunction/list[]</a>
 - **Minimum Items:** `2`
+
+#### <a name="ProfessionPrerequisites[]'Disjunction/disjunction/display_option"></a> `display_option?`
+
+- **Type:** <a href="./prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
 
 ---
 
@@ -770,12 +795,17 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `list` |  | <a href="#AdvantageDisadvantagePrerequisites[]/prerequisite'Disjunction/disjunction/list">See details</a>
+`display_option?` |  | <a href="#AdvantageDisadvantagePrerequisites[]/prerequisite'Disjunction/disjunction/display_option">See details</a>
 
 #### <a name="AdvantageDisadvantagePrerequisites[]/prerequisite'Disjunction/disjunction/list"></a> `list`
 
 - **Type:** List
 - **Items:** <a href="#AdvantageDisadvantagePrerequisites[]/prerequisite'Disjunction/disjunction/list[]">AdvantageDisadvantagePrerequisites[]/prerequisite'Disjunction/disjunction/list[]</a>
 - **Minimum Items:** `2`
+
+#### <a name="AdvantageDisadvantagePrerequisites[]/prerequisite'Disjunction/disjunction/display_option"></a> `display_option?`
+
+- **Type:** <a href="./prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
 
 ---
 
@@ -906,12 +936,17 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `list` |  | <a href="#ArcaneTraditionPrerequisites[]'Disjunction/disjunction/list">See details</a>
+`display_option?` |  | <a href="#ArcaneTraditionPrerequisites[]'Disjunction/disjunction/display_option">See details</a>
 
 #### <a name="ArcaneTraditionPrerequisites[]'Disjunction/disjunction/list"></a> `list`
 
 - **Type:** List
 - **Items:** <a href="#ArcaneTraditionPrerequisites[]'Disjunction/disjunction/list[]">ArcaneTraditionPrerequisites[]'Disjunction/disjunction/list[]</a>
 - **Minimum Items:** `2`
+
+#### <a name="ArcaneTraditionPrerequisites[]'Disjunction/disjunction/display_option"></a> `display_option?`
+
+- **Type:** <a href="./prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
 
 ---
 
@@ -1042,12 +1077,17 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `list` |  | <a href="#PersonalityTraitPrerequisites[]'Disjunction/disjunction/list">See details</a>
+`display_option?` |  | <a href="#PersonalityTraitPrerequisites[]'Disjunction/disjunction/display_option">See details</a>
 
 #### <a name="PersonalityTraitPrerequisites[]'Disjunction/disjunction/list"></a> `list`
 
 - **Type:** List
 - **Items:** <a href="#PersonalityTraitPrerequisites[]'Disjunction/disjunction/list[]">PersonalityTraitPrerequisites[]'Disjunction/disjunction/list[]</a>
 - **Minimum Items:** `2`
+
+#### <a name="PersonalityTraitPrerequisites[]'Disjunction/disjunction/display_option"></a> `display_option?`
+
+- **Type:** <a href="./prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
 
 ---
 
@@ -1178,12 +1218,17 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `list` |  | <a href="#SpellworkPrerequisites[]'Disjunction/disjunction/list">See details</a>
+`display_option?` |  | <a href="#SpellworkPrerequisites[]'Disjunction/disjunction/display_option">See details</a>
 
 #### <a name="SpellworkPrerequisites[]'Disjunction/disjunction/list"></a> `list`
 
 - **Type:** List
 - **Items:** <a href="#SpellworkPrerequisites[]'Disjunction/disjunction/list[]">SpellworkPrerequisites[]'Disjunction/disjunction/list[]</a>
 - **Minimum Items:** `2`
+
+#### <a name="SpellworkPrerequisites[]'Disjunction/disjunction/display_option"></a> `display_option?`
+
+- **Type:** <a href="./prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
 
 ---
 
@@ -1314,12 +1359,17 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `list` |  | <a href="#LiturgyPrerequisites[]'Disjunction/disjunction/list">See details</a>
+`display_option?` |  | <a href="#LiturgyPrerequisites[]'Disjunction/disjunction/display_option">See details</a>
 
 #### <a name="LiturgyPrerequisites[]'Disjunction/disjunction/list"></a> `list`
 
 - **Type:** List
 - **Items:** <a href="#LiturgyPrerequisites[]'Disjunction/disjunction/list[]">LiturgyPrerequisites[]'Disjunction/disjunction/list[]</a>
 - **Minimum Items:** `2`
+
+#### <a name="LiturgyPrerequisites[]'Disjunction/disjunction/display_option"></a> `display_option?`
+
+- **Type:** <a href="./prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
 
 ---
 
@@ -1450,12 +1500,17 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `list` |  | <a href="#InfluencePrerequisites[]'Disjunction/disjunction/list">See details</a>
+`display_option?` |  | <a href="#InfluencePrerequisites[]'Disjunction/disjunction/display_option">See details</a>
 
 #### <a name="InfluencePrerequisites[]'Disjunction/disjunction/list"></a> `list`
 
 - **Type:** List
 - **Items:** <a href="#InfluencePrerequisites[]'Disjunction/disjunction/list[]">InfluencePrerequisites[]'Disjunction/disjunction/list[]</a>
 - **Minimum Items:** `2`
+
+#### <a name="InfluencePrerequisites[]'Disjunction/disjunction/display_option"></a> `display_option?`
+
+- **Type:** <a href="./prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
 
 ---
 
@@ -1600,12 +1655,17 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `list` |  | <a href="#LanguagePrerequisites[]/prerequisite'Disjunction/disjunction/list">See details</a>
+`display_option?` |  | <a href="#LanguagePrerequisites[]/prerequisite'Disjunction/disjunction/display_option">See details</a>
 
 #### <a name="LanguagePrerequisites[]/prerequisite'Disjunction/disjunction/list"></a> `list`
 
 - **Type:** List
 - **Items:** <a href="#LanguagePrerequisites[]/prerequisite'Disjunction/disjunction/list[]">LanguagePrerequisites[]/prerequisite'Disjunction/disjunction/list[]</a>
 - **Minimum Items:** `2`
+
+#### <a name="LanguagePrerequisites[]/prerequisite'Disjunction/disjunction/display_option"></a> `display_option?`
+
+- **Type:** <a href="./prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
 
 ---
 
@@ -1736,12 +1796,17 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `list` |  | <a href="#AnimistPowerPrerequisites[]'Disjunction/disjunction/list">See details</a>
+`display_option?` |  | <a href="#AnimistPowerPrerequisites[]'Disjunction/disjunction/display_option">See details</a>
 
 #### <a name="AnimistPowerPrerequisites[]'Disjunction/disjunction/list"></a> `list`
 
 - **Type:** List
 - **Items:** <a href="#AnimistPowerPrerequisites[]'Disjunction/disjunction/list[]">AnimistPowerPrerequisites[]'Disjunction/disjunction/list[]</a>
 - **Minimum Items:** `2`
+
+#### <a name="AnimistPowerPrerequisites[]'Disjunction/disjunction/display_option"></a> `display_option?`
+
+- **Type:** <a href="./prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
 
 ---
 
@@ -1872,12 +1937,17 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `list` |  | <a href="#GeodeRitualPrerequisites[]'Disjunction/disjunction/list">See details</a>
+`display_option?` |  | <a href="#GeodeRitualPrerequisites[]'Disjunction/disjunction/display_option">See details</a>
 
 #### <a name="GeodeRitualPrerequisites[]'Disjunction/disjunction/list"></a> `list`
 
 - **Type:** List
 - **Items:** <a href="#GeodeRitualPrerequisites[]'Disjunction/disjunction/list[]">GeodeRitualPrerequisites[]'Disjunction/disjunction/list[]</a>
 - **Minimum Items:** `2`
+
+#### <a name="GeodeRitualPrerequisites[]'Disjunction/disjunction/display_option"></a> `display_option?`
+
+- **Type:** <a href="./prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
 
 ---
 
@@ -2008,12 +2078,17 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `list` |  | <a href="#EnhancementPrerequisites[]'Disjunction/disjunction/list">See details</a>
+`display_option?` |  | <a href="#EnhancementPrerequisites[]'Disjunction/disjunction/display_option">See details</a>
 
 #### <a name="EnhancementPrerequisites[]'Disjunction/disjunction/list"></a> `list`
 
 - **Type:** List
 - **Items:** <a href="#EnhancementPrerequisites[]'Disjunction/disjunction/list[]">EnhancementPrerequisites[]'Disjunction/disjunction/list[]</a>
 - **Minimum Items:** `2`
+
+#### <a name="EnhancementPrerequisites[]'Disjunction/disjunction/display_option"></a> `display_option?`
+
+- **Type:** <a href="./prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
 
 ---
 

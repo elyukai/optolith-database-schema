@@ -37,6 +37,9 @@
                       "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/DerivedCharacteristicPrerequisiteGroup"
                     },
                     "minItems": 2
+                  },
+                  "display_option": {
+                    "$ref": "./prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
                   }
                 },
                 "required": [
@@ -132,6 +135,9 @@
                       "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/PublicationPrerequisiteGroup"
                     },
                     "minItems": 2
+                  },
+                  "display_option": {
+                    "$ref": "./prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
                   }
                 },
                 "required": [
@@ -227,6 +233,9 @@
                       "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/GeneralPrerequisiteGroup"
                     },
                     "minItems": 2
+                  },
+                  "display_option": {
+                    "$ref": "./prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
                   }
                 },
                 "required": [
@@ -329,6 +338,9 @@
                           "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/GeneralPrerequisiteGroup"
                         },
                         "minItems": 2
+                      },
+                      "display_option": {
+                        "$ref": "./prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
                       }
                     },
                     "required": [
@@ -431,6 +443,9 @@
                       "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/ProfessionPrerequisiteGroup"
                     },
                     "minItems": 2
+                  },
+                  "display_option": {
+                    "$ref": "./prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
                   }
                 },
                 "required": [
@@ -533,6 +548,9 @@
                           "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/AdvantageDisadvantagePrerequisiteGroup"
                         },
                         "minItems": 2
+                      },
+                      "display_option": {
+                        "$ref": "./prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
                       }
                     },
                     "required": [
@@ -635,6 +653,9 @@
                       "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/ArcaneTraditionPrerequisiteGroup"
                     },
                     "minItems": 2
+                  },
+                  "display_option": {
+                    "$ref": "./prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
                   }
                 },
                 "required": [
@@ -730,6 +751,9 @@
                       "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/PersonalityTraitPrerequisiteGroup"
                     },
                     "minItems": 2
+                  },
+                  "display_option": {
+                    "$ref": "./prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
                   }
                 },
                 "required": [
@@ -825,6 +849,9 @@
                       "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/SpellworkPrerequisiteGroup"
                     },
                     "minItems": 2
+                  },
+                  "display_option": {
+                    "$ref": "./prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
                   }
                 },
                 "required": [
@@ -920,6 +947,9 @@
                       "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/LiturgyPrerequisiteGroup"
                     },
                     "minItems": 2
+                  },
+                  "display_option": {
+                    "$ref": "./prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
                   }
                 },
                 "required": [
@@ -1015,6 +1045,9 @@
                       "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/InfluencePrerequisiteGroup"
                     },
                     "minItems": 2
+                  },
+                  "display_option": {
+                    "$ref": "./prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
                   }
                 },
                 "required": [
@@ -1117,6 +1150,9 @@
                           "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/LanguagePrerequisiteGroup"
                         },
                         "minItems": 2
+                      },
+                      "display_option": {
+                        "$ref": "./prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
                       }
                     },
                     "required": [
@@ -1219,6 +1255,9 @@
                       "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/AnimistPowerPrerequisiteGroup"
                     },
                     "minItems": 2
+                  },
+                  "display_option": {
+                    "$ref": "./prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
                   }
                 },
                 "required": [
@@ -1314,6 +1353,9 @@
                       "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/GeodeRitualPrerequisiteGroup"
                     },
                     "minItems": 2
+                  },
+                  "display_option": {
+                    "$ref": "./prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
                   }
                 },
                 "required": [
@@ -1409,6 +1451,9 @@
                       "$ref": "./prerequisites/PrerequisiteGroups.schema.json#/$defs/EnhancementPrerequisiteGroup"
                     },
                     "minItems": 2
+                  },
+                  "display_option": {
+                    "$ref": "./prerequisites/DisplayOption.schema.json#/$defs/DisplayOption"
                   }
                 },
                 "required": [

@@ -2,6 +2,7 @@
  * @title Prerequisites
  */
 
+import { DisplayOption } from "./prerequisites/DisplayOption.js"
 import { AdvantageDisadvantagePrerequisiteGroup, AnimistPowerPrerequisiteGroup, ArcaneTraditionPrerequisiteGroup, DerivedCharacteristicPrerequisiteGroup, EnhancementPrerequisiteGroup, GeneralPrerequisiteGroup, GeodeRitualPrerequisiteGroup, InfluencePrerequisiteGroup, LanguagePrerequisiteGroup, LiturgyPrerequisiteGroup, PersonalityTraitPrerequisiteGroup, ProfessionPrerequisiteGroup, PublicationPrerequisiteGroup, SpellworkPrerequisiteGroup } from "./prerequisites/PrerequisiteGroups.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
@@ -28,6 +29,8 @@ export type PrerequisitesDisjunction<T> = {
    * @minItems 2
    */
   list: T[]
+
+  display_option?: DisplayOption
 }
 
 export type PrerequisitesElement<T> =
