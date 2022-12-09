@@ -448,7 +448,7 @@ Key | Description | Details
 The cost have to be per a specific countable entity, e.g. `8 KP
 per person`.
 
-- **Type:** <a href="./_ResponsiveText.md#ResponsiveText">ResponsiveText</a>
+- **Type:** <a href="./_ResponsiveText.md#ResponsiveTextOptional">ResponsiveTextOptional</a>
 
 ---
 

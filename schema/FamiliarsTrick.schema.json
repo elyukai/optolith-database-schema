@@ -338,7 +338,7 @@
       "properties": {
         "per": {
           "description": "The cost have to be per a specific countable entity, e.g. `8 KP\nper person`.",
-          "$ref": "./_ResponsiveText.schema.json#/$defs/ResponsiveText"
+          "$ref": "./_ResponsiveText.schema.json#/$defs/ResponsiveTextOptional"
         }
       },
       "required": [],

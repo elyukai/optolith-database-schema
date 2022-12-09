@@ -7,7 +7,7 @@ import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 import { DurationUnit, DurationUnitValue } from "./_ActivatableSkillDuration.js"
 import { LocaleMap } from "./_LocaleMap.js"
-import { ResponsiveText, ResponsiveTextReplace } from "./_ResponsiveText.js"
+import { ResponsiveText, ResponsiveTextOptional, ResponsiveTextReplace } from "./_ResponsiveText.js"
 import { AnimalTypeReference, PropertyReference } from "./_SimpleReferences.js"
 
 /**
@@ -144,7 +144,7 @@ export type FixedOneTimeCostTranslation = {
    * The cost have to be per a specific countable entity, e.g. `8 KP
    * per person`.
    */
-  per?: ResponsiveText
+  per?: ResponsiveTextOptional
 }
 
 export type AllOneTimeCost = {
