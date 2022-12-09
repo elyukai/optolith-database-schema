@@ -3,6 +3,7 @@
  */
 
 import { validateSchemaCreator } from "../../validation/schema.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
 import { EquipmentIdentifier } from "../_IdentifierGroup.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { NonEmptyString } from "../_NonEmptyString.js"
@@ -25,6 +26,8 @@ export type EquipmentPackage = {
    * @minItems 2
    */
   items: EquipmentPackageItem[]
+
+  src: PublicationRefs
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).

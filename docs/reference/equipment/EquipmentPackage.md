@@ -10,6 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` | The equipment package's identifier. An unique, increasing integer. | <a href="#EquipmentPackage/id">See details</a>
 `items` | All items in the package. You have to provide the item (template) identifier and you can optionally provide the number of how often an item is included in the package. | <a href="#EquipmentPackage/items">See details</a>
+`src` |  | <a href="#EquipmentPackage/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#EquipmentPackage/translations">See details</a>
 
 #### <a name="EquipmentPackage/id"></a> `id`
@@ -28,6 +29,10 @@ is included in the package.
 - **Type:** List
 - **Items:** <a href="#EquipmentPackage/items[]">EquipmentPackage/items[]</a>
 - **Minimum Items:** `2`
+
+#### <a name="EquipmentPackage/src"></a> `src`
+
+- **Type:** <a href="../source/_PublicationRef.md#PublicationRefs">PublicationRefs</a>
 
 #### <a name="EquipmentPackage/translations"></a> `translations`
 

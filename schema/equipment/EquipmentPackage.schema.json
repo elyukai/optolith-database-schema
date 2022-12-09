@@ -20,6 +20,9 @@
           },
           "minItems": 2
         },
+        "src": {
+          "$ref": "../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
+        },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
           "type": "object",
@@ -35,6 +38,7 @@
       "required": [
         "id",
         "items",
+        "src",
         "translations"
       ],
       "additionalProperties": false
