@@ -5,6 +5,7 @@
 import { validateSchemaCreator } from "../../../validation/schema.js"
 import { Errata } from "../../source/_Erratum.js"
 import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { BlessedTraditionIdentifier, MagicalTraditionIdentifier } from "../../_Identifier.js"
 import { LocaleMap } from "../../_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "../../_NonEmptyString.js"
 import { BlessedTraditionReference, CultureReference, RaceReference } from "../../_SimpleReferences.js"
@@ -52,6 +53,13 @@ export type Weapon = {
    * characters of a specific race or culture.
    */
   restricted_to_cultures?: RestrictedToCultures
+
+  /**
+   * Define if during character creation this weapon can only be bought by
+   * characters of specific magical or blessed traditions.
+   * @minItems 1
+   */
+  restricted_to_traditions?: RestrictedToTradition[]
 
   src: PublicationRefs
 
@@ -164,6 +172,14 @@ export type SanctifiedBy = BlessedTraditionReference
 export type RestrictedToCultures =
   | { tag: "CulturesOfRace"; cultures_of_race: RaceReference }
   | { tag: "Cultures"; cultures: RestrictedToSpecificCultures }
+
+/**
+ * A reference to a magical or blessed tradition the weapon is restricted to
+ * during character creation.
+ */
+export type RestrictedToTradition =
+  | MagicalTraditionIdentifier
+  | BlessedTraditionIdentifier
 
 export type RestrictedToSpecificCultures = {
   /**

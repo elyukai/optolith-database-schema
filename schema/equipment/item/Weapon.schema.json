@@ -38,6 +38,14 @@
           "description": "Define if during character creation this weapon can only be bought by\ncharacters of a specific race or culture.",
           "$ref": "#/$defs/RestrictedToCultures"
         },
+        "restricted_to_traditions": {
+          "description": "Define if during character creation this weapon can only be bought by\ncharacters of specific magical or blessed traditions.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/RestrictedToTradition"
+          },
+          "minItems": 1
+        },
         "src": {
           "$ref": "../../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
         },
@@ -243,6 +251,17 @@
             "cultures"
           ],
           "additionalProperties": false
+        }
+      ]
+    },
+    "RestrictedToTradition": {
+      "description": "A reference to a magical or blessed tradition the weapon is restricted to\nduring character creation.",
+      "oneOf": [
+        {
+          "$ref": "../../_Identifier.schema.json#/$defs/MagicalTraditionIdentifier"
+        },
+        {
+          "$ref": "../../_Identifier.schema.json#/$defs/BlessedTraditionIdentifier"
         }
       ]
     },
