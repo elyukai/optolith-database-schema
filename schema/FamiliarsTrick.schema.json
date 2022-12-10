@@ -307,8 +307,13 @@
     "FixedOneTimeCost": {
       "type": "object",
       "properties": {
-        "value": {
+        "ae_value": {
           "description": "The AE cost value.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "lp_value": {
+          "description": "The LP cost value.",
           "type": "integer",
           "minimum": 1
         },
@@ -329,7 +334,7 @@
         }
       },
       "required": [
-        "value"
+        "ae_value"
       ],
       "additionalProperties": false
     },
@@ -537,8 +542,13 @@
     "OneTimeIntervalCost": {
       "type": "object",
       "properties": {
-        "value": {
+        "ae_value": {
           "description": "The AE cost value.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "lp_value": {
+          "description": "The LP cost value.",
           "type": "integer",
           "minimum": 1
         },
@@ -548,7 +558,7 @@
         }
       },
       "required": [
-        "value",
+        "ae_value",
         "interval"
       ],
       "additionalProperties": false
@@ -568,8 +578,13 @@
     "SustainedCost": {
       "type": "object",
       "properties": {
-        "value": {
+        "ae_value": {
           "description": "The AE cost value.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "lp_value": {
+          "description": "The LP cost value.",
           "type": "integer",
           "minimum": 1
         },
@@ -579,7 +594,7 @@
         }
       },
       "required": [
-        "value",
+        "ae_value",
         "interval"
       ],
       "additionalProperties": false

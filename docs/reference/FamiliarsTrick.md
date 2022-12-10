@@ -400,13 +400,21 @@ Key | Description | Details
 
 Key | Description | Details
 :-- | :-- | :--
-`value` | The AE cost value. | <a href="#FixedOneTimeCost/value">See details</a>
+`ae_value` | The AE cost value. | <a href="#FixedOneTimeCost/ae_value">See details</a>
+`lp_value?` | The LP cost value. | <a href="#FixedOneTimeCost/lp_value">See details</a>
 `interval?` | The interval in which you have to pay the AE cost again. | <a href="#FixedOneTimeCost/interval">See details</a>
 `translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#FixedOneTimeCost/translations">See details</a>
 
-#### <a name="FixedOneTimeCost/value"></a> `value`
+#### <a name="FixedOneTimeCost/ae_value"></a> `ae_value`
 
 The AE cost value.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="FixedOneTimeCost/lp_value"></a> `lp_value?`
+
+The LP cost value.
 
 - **Type:** Integer
 - **Minimum:** `1`
@@ -706,12 +714,20 @@ Key | Description | Details
 
 Key | Description | Details
 :-- | :-- | :--
-`value` | The AE cost value. | <a href="#OneTimeIntervalCost/value">See details</a>
+`ae_value` | The AE cost value. | <a href="#OneTimeIntervalCost/ae_value">See details</a>
+`lp_value?` | The LP cost value. | <a href="#OneTimeIntervalCost/lp_value">See details</a>
 `interval` | The duration granted/added by paying the given AE cost. | <a href="#OneTimeIntervalCost/interval">See details</a>
 
-#### <a name="OneTimeIntervalCost/value"></a> `value`
+#### <a name="OneTimeIntervalCost/ae_value"></a> `ae_value`
 
 The AE cost value.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="OneTimeIntervalCost/lp_value"></a> `lp_value?`
+
+The LP cost value.
 
 - **Type:** Integer
 - **Minimum:** `1`
@@ -744,12 +760,20 @@ Key | Description | Details
 
 Key | Description | Details
 :-- | :-- | :--
-`value` | The AE cost value. | <a href="#SustainedCost/value">See details</a>
+`ae_value` | The AE cost value. | <a href="#SustainedCost/ae_value">See details</a>
+`lp_value?` | The LP cost value. | <a href="#SustainedCost/lp_value">See details</a>
 `interval` | The interval in which you have to pay the AE cost again. | <a href="#SustainedCost/interval">See details</a>
 
-#### <a name="SustainedCost/value"></a> `value`
+#### <a name="SustainedCost/ae_value"></a> `ae_value`
 
 The AE cost value.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="SustainedCost/lp_value"></a> `lp_value?`
+
+The LP cost value.
 
 - **Type:** Integer
 - **Minimum:** `1`

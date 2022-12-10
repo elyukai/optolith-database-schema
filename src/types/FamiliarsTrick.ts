@@ -125,7 +125,14 @@ export type FixedOneTimeCost = {
    * @integer
    * @minimum 1
    */
-  value: number
+  ae_value: number
+
+  /**
+   * The LP cost value.
+   * @integer
+   * @minimum 1
+   */
+  lp_value?: number
 
   /**
    * The interval in which you have to pay the AE cost again.
@@ -232,7 +239,14 @@ export type OneTimeIntervalCost = {
    * @integer
    * @minimum 1
    */
-  value: number
+  ae_value: number
+
+  /**
+   * The LP cost value.
+   * @integer
+   * @minimum 1
+   */
+  lp_value?: number
 
   /**
    * The duration granted/added by paying the given AE cost.
@@ -250,7 +264,14 @@ export type SustainedCost = {
    * @integer
    * @minimum 1
    */
-  value: number
+  ae_value: number
+
+  /**
+   * The LP cost value.
+   * @integer
+   * @minimum 1
+   */
+  lp_value?: number
 
   /**
    * The interval in which you have to pay the AE cost again.
