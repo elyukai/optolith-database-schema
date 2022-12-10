@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0](https://github.com/elyukai/optolith-database-schema/compare/v0.5.4...v0.6.0) (2022-12-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* rename common ingredients to typical ingredients
+
+### Features
+
+* prerequisite disjunctions may have a display option ([36e9ceb](https://github.com/elyukai/optolith-database-schema/commit/36e9ceb26b52f673e13ea2323cb9a3283dc21586))
+* weapons can be restricted to traditions during character creation ([5e085d2](https://github.com/elyukai/optolith-database-schema/commit/5e085d2258e6232e829f9e21cc7823d14ef42322))
+
+
+### Bug Fixes
+
+* duration variant key convention ([dc1a05e](https://github.com/elyukai/optolith-database-schema/commit/dc1a05ed27e3f97b2cfc2ccfdbe4c20160b0b711))
+* fixed cost countable translation might not be compressable ([561b4ad](https://github.com/elyukai/optolith-database-schema/commit/561b4ad0f9b938539826f734f8c84d45cc1c4543))
+* missing equipment packages source references ([ff3ae6c](https://github.com/elyukai/optolith-database-schema/commit/ff3ae6cbb52902e00ea13179a88bb9abd19d6663))
+
+
+* rename common ingredients to typical ingredients ([aa7fb6e](https://github.com/elyukai/optolith-database-schema/commit/aa7fb6ed41a756d65637520095b58b6226f410c9))
+
 ### [0.5.4](https://github.com/elyukai/optolith-database-schema/compare/v0.5.3...v0.5.4) (2022-12-03)
 
 
