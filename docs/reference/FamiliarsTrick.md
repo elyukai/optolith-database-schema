@@ -762,7 +762,7 @@ Key | Description | Details
 :-- | :-- | :--
 `ae_value` | The AE cost value. | <a href="#SustainedCost/ae_value">See details</a>
 `lp_value?` | The LP cost value. | <a href="#SustainedCost/lp_value">See details</a>
-`interval` | The interval in which you have to pay the AE cost again. | <a href="#SustainedCost/interval">See details</a>
+`interval?` | The interval in which you have to pay the AE cost again, if any. | <a href="#SustainedCost/interval">See details</a>
 
 #### <a name="SustainedCost/ae_value"></a> `ae_value`
 
@@ -778,8 +778,8 @@ The LP cost value.
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="SustainedCost/interval"></a> `interval`
+#### <a name="SustainedCost/interval"></a> `interval?`
 
-The interval in which you have to pay the AE cost again.
+The interval in which you have to pay the AE cost again, if any.
 
 - **Type:** <a href="./_ActivatableSkillDuration.md#DurationUnitValue">DurationUnitValue</a>

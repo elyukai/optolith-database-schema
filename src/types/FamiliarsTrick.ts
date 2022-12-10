@@ -274,9 +274,9 @@ export type SustainedCost = {
   lp_value?: number
 
   /**
-   * The interval in which you have to pay the AE cost again.
+   * The interval in which you have to pay the AE cost again, if any.
    */
-  interval: DurationUnitValue
+  interval?: DurationUnitValue
 }
 
 export const validateSchema = validateSchemaCreator<FamiliarsTrick>(import.meta.url)

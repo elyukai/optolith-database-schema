@@ -589,13 +589,12 @@
           "minimum": 1
         },
         "interval": {
-          "description": "The interval in which you have to pay the AE cost again.",
+          "description": "The interval in which you have to pay the AE cost again, if any.",
           "$ref": "./_ActivatableSkillDuration.schema.json#/$defs/DurationUnitValue"
         }
       },
       "required": [
-        "ae_value",
-        "interval"
+        "ae_value"
       ],
       "additionalProperties": false
     }
