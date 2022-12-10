@@ -587,6 +587,25 @@
 
 ---
 
+### <a name="TraditionIdentifier"></a> `TraditionIdentifier`
+
+- **Type:** Union
+- **Cases:** <a href="#TraditionIdentifier'MagicalTraditionIdentifier">TraditionIdentifier'MagicalTraditionIdentifier</a> | <a href="#TraditionIdentifier'BlessedTraditionIdentifier">TraditionIdentifier'BlessedTraditionIdentifier</a>
+
+---
+
+### <a name="TraditionIdentifier'MagicalTraditionIdentifier"></a> `TraditionIdentifier'MagicalTraditionIdentifier`
+
+- **Type:** <a href="./_Identifier.md#MagicalTraditionIdentifier">MagicalTraditionIdentifier</a>
+
+---
+
+### <a name="TraditionIdentifier'BlessedTraditionIdentifier"></a> `TraditionIdentifier'BlessedTraditionIdentifier`
+
+- **Type:** <a href="./_Identifier.md#BlessedTraditionIdentifier">BlessedTraditionIdentifier</a>
+
+---
+
 ### <a name="RatedIdentifier"></a> `RatedIdentifier`
 
 - **Type:** Union

@@ -505,6 +505,18 @@
         "id"
       ],
       "additionalProperties": false
+    },
+    "TraditionReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "./_IdentifierGroup.schema.json#/$defs/TraditionIdentifier"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
     }
   }
 }

@@ -587,3 +587,17 @@ Key | Description | Details
 #### <a name="ArmorReference/id"></a> `id`
 
 - **Type:** <a href="./_Identifier.md#ArmorIdentifier">ArmorIdentifier</a>
+
+---
+
+### <a name="TraditionReference"></a> `TraditionReference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` |  | <a href="#TraditionReference/id">See details</a>
+
+#### <a name="TraditionReference/id"></a> `id`
+
+- **Type:** <a href="./_IdentifierGroup.md#TraditionIdentifier">TraditionIdentifier</a>

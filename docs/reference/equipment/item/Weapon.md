@@ -99,7 +99,7 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Weapon/restricted_to_traditions[]"></a> `Weapon/restricted_to_traditions[]`
 
-- **Type:** <a href="#RestrictedToTradition">RestrictedToTradition</a>
+- **Type:** <a href="../../_SimpleReferences.md#TraditionReference">TraditionReference</a>
 
 ---
 
@@ -174,6 +174,7 @@ Key | Description | Details
 `uses` | A list of stat blocks for each combat technique this weapon can be used with. | <a href="#SecondaryWeapon/uses">See details</a>
 `sanctified_by?` | If the weapon is sanctified by a god and thus restricted to it's Blessed Ones. | <a href="#SecondaryWeapon/sanctified_by">See details</a>
 `restricted_to_cultures?` | Define if during character creation this weapon can only be bought by characters of a specific race or culture. | <a href="#SecondaryWeapon/restricted_to_cultures">See details</a>
+`restricted_to_traditions?` | Define if during character creation this weapon can only be bought by characters of specific magical or blessed traditions. | <a href="#SecondaryWeapon/restricted_to_traditions">See details</a>
 `translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#SecondaryWeapon/translations">See details</a>
 
 #### <a name="SecondaryWeapon/uses"></a> `uses`
@@ -199,6 +200,15 @@ characters of a specific race or culture.
 
 - **Type:** <a href="#RestrictedToCultures">RestrictedToCultures</a>
 
+#### <a name="SecondaryWeapon/restricted_to_traditions"></a> `restricted_to_traditions?`
+
+Define if during character creation this weapon can only be bought by
+characters of specific magical or blessed traditions.
+
+- **Type:** List
+- **Items:** <a href="#SecondaryWeapon/restricted_to_traditions[]">SecondaryWeapon/restricted_to_traditions[]</a>
+- **Minimum Items:** `1`
+
 #### <a name="SecondaryWeapon/translations"></a> `translations?`
 
 All translations for the entry, identified by IETF language tag (BCP47).
@@ -213,6 +223,12 @@ All translations for the entry, identified by IETF language tag (BCP47).
 ### <a name="SecondaryWeapon/uses[]"></a> `SecondaryWeapon/uses[]`
 
 - **Type:** <a href="#WeaponUse">WeaponUse</a>
+
+---
+
+### <a name="SecondaryWeapon/restricted_to_traditions[]"></a> `SecondaryWeapon/restricted_to_traditions[]`
+
+- **Type:** <a href="../../_SimpleReferences.md#TraditionReference">TraditionReference</a>
 
 ---
 
@@ -367,28 +383,6 @@ Key | Description | Details
 #### <a name="RestrictedToCultures'Cultures/cultures"></a> `cultures`
 
 - **Type:** <a href="#RestrictedToSpecificCultures">RestrictedToSpecificCultures</a>
-
----
-
-### <a name="RestrictedToTradition"></a> `RestrictedToTradition`
-
-A reference to a magical or blessed tradition the weapon is restricted to
-during character creation.
-
-- **Type:** Union
-- **Cases:** <a href="#RestrictedToTradition'MagicalTraditionIdentifier">RestrictedToTradition'MagicalTraditionIdentifier</a> | <a href="#RestrictedToTradition'BlessedTraditionIdentifier">RestrictedToTradition'BlessedTraditionIdentifier</a>
-
----
-
-### <a name="RestrictedToTradition'MagicalTraditionIdentifier"></a> `RestrictedToTradition'MagicalTraditionIdentifier`
-
-- **Type:** <a href="../../_Identifier.md#MagicalTraditionIdentifier">MagicalTraditionIdentifier</a>
-
----
-
-### <a name="RestrictedToTradition'BlessedTraditionIdentifier"></a> `RestrictedToTradition'BlessedTraditionIdentifier`
-
-- **Type:** <a href="../../_Identifier.md#BlessedTraditionIdentifier">BlessedTraditionIdentifier</a>
 
 ---
 

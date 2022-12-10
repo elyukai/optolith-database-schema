@@ -296,6 +296,16 @@
         }
       ]
     },
+    "TraditionIdentifier": {
+      "oneOf": [
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/MagicalTraditionIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/BlessedTraditionIdentifier"
+        }
+      ]
+    },
     "RatedIdentifier": {
       "oneOf": [
         {

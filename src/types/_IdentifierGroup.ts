@@ -100,6 +100,10 @@ export type CombatRelatedSpecialAbilityIdentifier =
   | Identifier.AdvancedCombatSpecialAbilityIdentifier
   | Identifier.CommandSpecialAbilityIdentifier
 
+export type TraditionIdentifier =
+  | Identifier.MagicalTraditionIdentifier
+  | Identifier.BlessedTraditionIdentifier
+
 export type RatedIdentifier =
   | Identifier.AttributeIdentifier
   | SkillIdentifier

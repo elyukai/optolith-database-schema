@@ -42,7 +42,7 @@
           "description": "Define if during character creation this weapon can only be bought by\ncharacters of specific magical or blessed traditions.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/RestrictedToTradition"
+            "$ref": "../../_SimpleReferences.schema.json#/$defs/TraditionReference"
           },
           "minItems": 1
         },
@@ -125,6 +125,14 @@
         "restricted_to_cultures": {
           "description": "Define if during character creation this weapon can only be bought by\ncharacters of a specific race or culture.",
           "$ref": "#/$defs/RestrictedToCultures"
+        },
+        "restricted_to_traditions": {
+          "description": "Define if during character creation this weapon can only be bought by\ncharacters of specific magical or blessed traditions.",
+          "type": "array",
+          "items": {
+            "$ref": "../../_SimpleReferences.schema.json#/$defs/TraditionReference"
+          },
+          "minItems": 1
         },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
@@ -251,17 +259,6 @@
             "cultures"
           ],
           "additionalProperties": false
-        }
-      ]
-    },
-    "RestrictedToTradition": {
-      "description": "A reference to a magical or blessed tradition the weapon is restricted to\nduring character creation.",
-      "oneOf": [
-        {
-          "$ref": "../../_Identifier.schema.json#/$defs/MagicalTraditionIdentifier"
-        },
-        {
-          "$ref": "../../_Identifier.schema.json#/$defs/BlessedTraditionIdentifier"
         }
       ]
     },
