@@ -7,7 +7,7 @@ import { Errata } from "../../source/_Erratum.js"
 import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { LocaleMap } from "../../_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "../../_NonEmptyString.js"
-import { BlessedTraditionReference, CultureReference, RaceReference, TraditionReference } from "../../_SimpleReferences.js"
+import { BlessedTraditionReference, CultureReference, MagicalTraditionReference, RaceReference } from "../../_SimpleReferences.js"
 import { Complexity, Cost, StructurePoints, Weight } from "./_Item.js"
 import { MeleeWeapon } from "./_MeleeWeapon.js"
 import { RangedWeapon } from "./_RangedWeapon.js"
@@ -58,7 +58,7 @@ export type Weapon = {
    * characters of specific magical or blessed traditions.
    * @minItems 1
    */
-  restricted_to_traditions?: TraditionReference[]
+  restricted_to_traditions?: MagicalTraditionReference[]
 
   src: PublicationRefs
 
@@ -127,7 +127,7 @@ export type SecondaryWeapon = {
    * characters of specific magical or blessed traditions.
    * @minItems 1
    */
-  restricted_to_traditions?: TraditionReference[]
+  restricted_to_traditions?: MagicalTraditionReference[]
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).

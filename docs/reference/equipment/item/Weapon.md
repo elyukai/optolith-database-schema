@@ -99,7 +99,7 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Weapon/restricted_to_traditions[]"></a> `Weapon/restricted_to_traditions[]`
 
-- **Type:** <a href="../../_SimpleReferences.md#TraditionReference">TraditionReference</a>
+- **Type:** <a href="../../_SimpleReferences.md#MagicalTraditionReference">MagicalTraditionReference</a>
 
 ---
 
@@ -228,7 +228,7 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="SecondaryWeapon/restricted_to_traditions[]"></a> `SecondaryWeapon/restricted_to_traditions[]`
 
-- **Type:** <a href="../../_SimpleReferences.md#TraditionReference">TraditionReference</a>
+- **Type:** <a href="../../_SimpleReferences.md#MagicalTraditionReference">MagicalTraditionReference</a>
 
 ---
 

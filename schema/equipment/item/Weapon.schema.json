@@ -42,7 +42,7 @@
           "description": "Define if during character creation this weapon can only be bought by\ncharacters of specific magical or blessed traditions.",
           "type": "array",
           "items": {
-            "$ref": "../../_SimpleReferences.schema.json#/$defs/TraditionReference"
+            "$ref": "../../_SimpleReferences.schema.json#/$defs/MagicalTraditionReference"
           },
           "minItems": 1
         },
@@ -130,7 +130,7 @@
           "description": "Define if during character creation this weapon can only be bought by\ncharacters of specific magical or blessed traditions.",
           "type": "array",
           "items": {
-            "$ref": "../../_SimpleReferences.schema.json#/$defs/TraditionReference"
+            "$ref": "../../_SimpleReferences.schema.json#/$defs/MagicalTraditionReference"
           },
           "minItems": 1
         },
