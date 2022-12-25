@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.0](https://github.com/elyukai/optolith-database-schema/compare/v0.6.0...v0.7.0) (2022-12-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* `restricted_to_traditions` should only apply to magical traditions
+* familiar's tricks may have life point cost
+
+### Features
+
+* familiar's tricks may have life point cost ([d428bd3](https://github.com/elyukai/optolith-database-schema/commit/d428bd3384a3d707f95f842198d86d6d6e5a7a6c))
+* sustained familiar's tricks may not have a sustaining interval ([178374d](https://github.com/elyukai/optolith-database-schema/commit/178374df2742aae7f7efd6bfdd13d61402e16b88))
+
+
+### Bug Fixes
+
+* missing item cost variants ([608fd16](https://github.com/elyukai/optolith-database-schema/commit/608fd16379484de96d2b6d49ea01f570ead946dd))
+* wrong tag-complementing property for subject identifier ([036a219](https://github.com/elyukai/optolith-database-schema/commit/036a2192f2aff4698d4df25315a9c46babf6881f))
+
+
+* `restricted_to_traditions` should only apply to magical traditions ([a182e6c](https://github.com/elyukai/optolith-database-schema/commit/a182e6ccf9bdf5da327b48ff43e88375517da90f))
+
 ## [0.6.0](https://github.com/elyukai/optolith-database-schema/compare/v0.5.4...v0.6.0) (2022-12-10)
 
 
