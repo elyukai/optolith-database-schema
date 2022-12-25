@@ -198,7 +198,7 @@ The structure points.
 The cost in silverthalers.
 
 - **Type:** Union
-- **Cases:** <a href="#Cost'Free">Cost'Free</a> | <a href="#Cost'Various">Cost'Various</a> | <a href="#Cost'">Cost'</a> | <a href="#Cost'">Cost'</a> | <a href="#Cost'Fixed">Cost'Fixed</a> | <a href="#Cost'Range">Cost'Range</a>
+- **Cases:** <a href="#Cost'Free">Cost'Free</a> | <a href="#Cost'Various">Cost'Various</a> | <a href="#Cost'Invaluable">Cost'Invaluable</a> | <a href="#Cost'Fixed">Cost'Fixed</a> | <a href="#Cost'Range">Cost'Range</a>
 
 ---
 
@@ -252,51 +252,26 @@ Key | Description | Details
 
 ---
 
-### <a name="Cost'"></a> `Cost'`
+### <a name="Cost'Invaluable"></a> `Cost'Invaluable`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Cost'/tag">See details</a>
-`` |  | <a href="#Cost'/">See details</a>
+`tag` |  | <a href="#Cost'Invaluable/tag">See details</a>
+`invaluable` |  | <a href="#Cost'Invaluable/invaluable">See details</a>
 
-#### <a name="Cost'/tag"></a> `tag`
+#### <a name="Cost'Invaluable/tag"></a> `tag`
 
-- **Constant:** `""`
+- **Constant:** `"Invaluable"`
 
-#### <a name="Cost'/"></a> ``
+#### <a name="Cost'Invaluable/invaluable"></a> `invaluable`
 
-- **Type:** <a href="#Cost'/">Object</a>
-
----
-
-### <a name="Cost'/"></a> `Cost'/`
-
-- **Type:** Empty Object
+- **Type:** <a href="#Cost'Invaluable/invaluable">Object</a>
 
 ---
 
-### <a name="Cost'"></a> `Cost'`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#Cost'/tag">See details</a>
-`` |  | <a href="#Cost'/">See details</a>
-
-#### <a name="Cost'/tag"></a> `tag`
-
-- **Constant:** `""`
-
-#### <a name="Cost'/"></a> ``
-
-- **Type:** <a href="#Cost'/">Object</a>
-
----
-
-### <a name="Cost'/"></a> `Cost'/`
+### <a name="Cost'Invaluable/invaluable"></a> `Cost'Invaluable/invaluable`
 
 - **Type:** Empty Object
 

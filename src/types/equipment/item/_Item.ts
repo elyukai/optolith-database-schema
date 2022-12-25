@@ -96,8 +96,7 @@ export type StructurePointsComponent = {
 export type Cost =
   | { tag: "Free"; free: {} }
   | { tag: "Various"; various: {} }
-  | { tag: "", "": {} } // TODO: Unbezahlbar
-  | { tag: "", "": {} } // TODO: 10 % der Rüstungskosten
+  | { tag: "Invaluable", invaluable: {} }
   | { tag: "Fixed"; fixed: FixedCost }
   | { tag: "Range"; range: CostRange }
 

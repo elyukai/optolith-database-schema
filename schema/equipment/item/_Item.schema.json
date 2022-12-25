@@ -182,9 +182,9 @@
           "type": "object",
           "properties": {
             "tag": {
-              "const": ""
+              "const": "Invaluable"
             },
-            "": {
+            "invaluable": {
               "type": "object",
               "properties": {},
               "required": [],
@@ -193,26 +193,7 @@
           },
           "required": [
             "tag",
-            ""
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": ""
-            },
-            "": {
-              "type": "object",
-              "properties": {},
-              "required": [],
-              "additionalProperties": false
-            }
-          },
-          "required": [
-            "tag",
-            ""
+            "invaluable"
           ],
           "additionalProperties": false
         },
