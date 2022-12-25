@@ -22,8 +22,9 @@
           "maximum": 4,
           "minimum": 1
         },
-        "relevance": {
-          "$ref": "./_Rule.schema.json#/$defs/Relevance"
+        "is_missing_implementation": {
+          "description": "Has the focus rule not been implemented in Optolith yet? This is also true\nif the focus rule does not (currently) apply to any Optolith feature.",
+          "type": "boolean"
         },
         "src": {
           "$ref": "../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
@@ -44,7 +45,7 @@
         "id",
         "subject",
         "level",
-        "relevance",
+        "is_missing_implementation",
         "src",
         "translations"
       ],

@@ -11,7 +11,7 @@ Key | Description | Details
 `id` | The focus rule's identifier. An unique, increasing integer. | <a href="#FocusRule/id">See details</a>
 `subject` | The associated subject. | <a href="#FocusRule/subject">See details</a>
 `level` | The focus rule's level. | <a href="#FocusRule/level">See details</a>
-`relevance` |  | <a href="#FocusRule/relevance">See details</a>
+`is_missing_implementation` | Has the focus rule not been implemented in Optolith yet? This is also true if the focus rule does not (currently) apply to any Optolith feature. | <a href="#FocusRule/is_missing_implementation">See details</a>
 `src` |  | <a href="#FocusRule/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#FocusRule/translations">See details</a>
 
@@ -36,9 +36,12 @@ The focus rule's level.
 - **Minimum:** `1`
 - **Maximum:** `4`
 
-#### <a name="FocusRule/relevance"></a> `relevance`
+#### <a name="FocusRule/is_missing_implementation"></a> `is_missing_implementation`
 
-- **Type:** <a href="./_Rule.md#Relevance">Relevance</a>
+Has the focus rule not been implemented in Optolith yet? This is also true
+if the focus rule does not (currently) apply to any Optolith feature.
+
+- **Type:** Boolean
 
 #### <a name="FocusRule/src"></a> `src`
 

@@ -9,7 +9,7 @@
 Key | Description | Details
 :-- | :-- | :--
 `id` | The optional rule's identifier. An unique, increasing integer. | <a href="#OptionalRule/id">See details</a>
-`relevance` | The relevance of the optional rule for Optolith. It may be that it influences character creating but it may also just influnce the character sheet. If it is linked to systems in Optolith, it may be specified if this rule has not been implemented in Optolith yet. | <a href="#OptionalRule/relevance">See details</a>
+`is_missing_implementation` | Has the focus rule not been implemented in Optolith yet? This is also true if the focus rule does not (currently) apply to any Optolith feature. | <a href="#OptionalRule/is_missing_implementation">See details</a>
 `src` |  | <a href="#OptionalRule/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#OptionalRule/translations">See details</a>
 
@@ -20,14 +20,12 @@ The optional rule's identifier. An unique, increasing integer.
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="OptionalRule/relevance"></a> `relevance`
+#### <a name="OptionalRule/is_missing_implementation"></a> `is_missing_implementation`
 
-The relevance of the optional rule for Optolith. It may be that it
-influences character creating but it may also just influnce the character
-sheet. If it is linked to systems in Optolith, it may be specified if this
-rule has not been implemented in Optolith yet.
+Has the focus rule not been implemented in Optolith yet? This is also true
+if the focus rule does not (currently) apply to any Optolith feature.
 
-- **Type:** <a href="./_Rule.md#Relevance">Relevance</a>
+- **Type:** Boolean
 
 #### <a name="OptionalRule/src"></a> `src`
 

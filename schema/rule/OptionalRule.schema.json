@@ -12,9 +12,9 @@
           "type": "integer",
           "minimum": 1
         },
-        "relevance": {
-          "description": "The relevance of the optional rule for Optolith. It may be that it\ninfluences character creating but it may also just influnce the character\nsheet. If it is linked to systems in Optolith, it may be specified if this\nrule has not been implemented in Optolith yet.",
-          "$ref": "./_Rule.schema.json#/$defs/Relevance"
+        "is_missing_implementation": {
+          "description": "Has the focus rule not been implemented in Optolith yet? This is also true\nif the focus rule does not (currently) apply to any Optolith feature.",
+          "type": "boolean"
         },
         "src": {
           "$ref": "../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
@@ -33,7 +33,7 @@
       },
       "required": [
         "id",
-        "relevance",
+        "is_missing_implementation",
         "src",
         "translations"
       ],

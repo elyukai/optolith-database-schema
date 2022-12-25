@@ -8,7 +8,6 @@ import { PublicationRefs } from "../source/_PublicationRef.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "../_NonEmptyString.js"
 import { FocusRuleSubjectReference } from "../_SimpleReferences.js"
-import { Relevance } from "./_Rule.js"
 
 /**
  * @title Focus Rule
@@ -34,7 +33,11 @@ export type FocusRule = {
    */
   level: number
 
-  relevance: Relevance
+  /**
+   * Has the focus rule not been implemented in Optolith yet? This is also true
+   * if the focus rule does not (currently) apply to any Optolith feature.
+   */
+  is_missing_implementation: boolean
 
   src: PublicationRefs
 

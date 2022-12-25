@@ -7,7 +7,6 @@ import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "../_NonEmptyString.js"
-import { Relevance } from "./_Rule.js"
 
 /**
  * @title Optional Rule
@@ -21,12 +20,10 @@ export type OptionalRule = {
   id: number
 
   /**
-   * The relevance of the optional rule for Optolith. It may be that it
-   * influences character creating but it may also just influnce the character
-   * sheet. If it is linked to systems in Optolith, it may be specified if this
-   * rule has not been implemented in Optolith yet.
+   * Has the focus rule not been implemented in Optolith yet? This is also true
+   * if the focus rule does not (currently) apply to any Optolith feature.
    */
-  relevance: Relevance
+  is_missing_implementation: boolean
 
   src: PublicationRefs
 
