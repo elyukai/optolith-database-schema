@@ -50,7 +50,7 @@ export type SubjectIdentifier = {
    * @integer
    * @minimum 1
    */
-  focus_rule: number
+  subject: number
 }
 
 export type OptionalRuleIdentifier = {

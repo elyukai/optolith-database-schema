@@ -97,13 +97,13 @@ The focus rule’s identifier.
 Key | Description | Details
 :-- | :-- | :--
 `tag` |  | <a href="#SubjectIdentifier/tag">See details</a>
-`focus_rule` | The focus rule subject’s identifier. | <a href="#SubjectIdentifier/focus_rule">See details</a>
+`subject` | The focus rule subject’s identifier. | <a href="#SubjectIdentifier/subject">See details</a>
 
 #### <a name="SubjectIdentifier/tag"></a> `tag`
 
 - **Constant:** `"Subject"`
 
-#### <a name="SubjectIdentifier/focus_rule"></a> `focus_rule`
+#### <a name="SubjectIdentifier/subject"></a> `subject`
 
 The focus rule subject’s identifier.
 
