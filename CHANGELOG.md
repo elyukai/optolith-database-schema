@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.8.0](https://github.com/elyukai/optolith-database-schema/compare/v0.7.0...v0.8.0) (2023-01-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove none option from cost, do not use property instead
+* use simple boolean to indicate implementation availability
+
+### Features
+
+* add interval cost option ([6643594](https://github.com/elyukai/optolith-database-schema/commit/66435948fb567e161e6ab3ecc8e416e9cbef3441))
+
+
+### Bug Fixes
+
+* add missing KrallenkettenzauberIdentifier and add to associated groups ([2f18a75](https://github.com/elyukai/optolith-database-schema/commit/2f18a75e4bd61f31e8cf0f62de46685c18cc603b))
+* RatedIdentifier used wrong SkillIdentifier ([c528f34](https://github.com/elyukai/optolith-database-schema/commit/c528f34f10bda702d5adf5f2e6fd4948a98b9f62))
+
+
+* remove none option from cost, do not use property instead ([4a1cc06](https://github.com/elyukai/optolith-database-schema/commit/4a1cc062aaa47715d54922545cb1477567416cf0))
+* use simple boolean to indicate implementation availability ([4282ef3](https://github.com/elyukai/optolith-database-schema/commit/4282ef3d7567919012f65197b4bc9c94176e5720))
+
 ## [0.7.0](https://github.com/elyukai/optolith-database-schema/compare/v0.6.0...v0.7.0) (2022-12-25)
 
 
