@@ -28,7 +28,9 @@
         "Spirit",
         "HalfOfSpirit",
         "Toughness",
-        "HigherOfSpiritAndToughness"
+        "HigherOfSpiritAndToughness",
+        "SummoningDifficulty",
+        "CreationDifficulty"
       ]
     }
   }

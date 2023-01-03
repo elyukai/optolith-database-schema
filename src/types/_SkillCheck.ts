@@ -19,4 +19,6 @@ export enum SkillCheckPenalty {
   HalfOfSpirit = "HalfOfSpirit",
   Toughness = "Toughness",
   HigherOfSpiritAndToughness = "HigherOfSpiritAndToughness",
+  SummoningDifficulty = "SummoningDifficulty",
+  CreationDifficulty = "CreationDifficulty",
 }

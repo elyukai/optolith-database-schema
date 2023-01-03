@@ -33,4 +33,4 @@ The attributes' identifiers of the skill check.
 
 A specific value that represents a penalty for the associated skill check.
 
-- **Possible values:** `"Spirit"`, `"HalfOfSpirit"`, `"Toughness"`, `"HigherOfSpiritAndToughness"`
+- **Possible values:** `"Spirit"`, `"HalfOfSpirit"`, `"Toughness"`, `"HigherOfSpiritAndToughness"`, `"SummoningDifficulty"`, `"CreationDifficulty"`
