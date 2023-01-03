@@ -20,11 +20,19 @@ export type ModifiableCastingTime = {
   initial_modification_level: number
 }
 
+/**
+ * The casting time may have two different values: One for use in “normal” time,
+ * i. e. actions, combat rounds and others, and one for use during lovemaking,
+ * which is a rule set from Aventurian Intimacy.
+ *
+ * There must always be at least one casting time value.
+ * @minProperties 1
+ */
 export type CastingTimeIncludingLovemaking<NonModifiable extends Object> = {
   /**
    * The default casting time definition.
    */
-  default: CastingTime<NonModifiable>
+  default?: CastingTime<NonModifiable>
 
   /**
    * The casting time during lovemaking. In Aventurian Intimacy, you may only

@@ -76,6 +76,7 @@
       "additionalProperties": false
     },
     "FastCastingTime": {
+      "description": "The casting time may have two different values: One for use in “normal” time,\ni. e. actions, combat rounds and others, and one for use during lovemaking,\nwhich is a rule set from Aventurian Intimacy.\n\nThere must always be at least one casting time value.",
       "type": "object",
       "properties": {
         "default": {
@@ -119,12 +120,12 @@
           "$ref": "#/$defs/CastingTimeDuringLovemaking"
         }
       },
-      "required": [
-        "default"
-      ],
+      "required": [],
+      "minProperties": 1,
       "additionalProperties": false
     },
     "SlowCastingTime": {
+      "description": "The casting time may have two different values: One for use in “normal” time,\ni. e. actions, combat rounds and others, and one for use during lovemaking,\nwhich is a rule set from Aventurian Intimacy.\n\nThere must always be at least one casting time value.",
       "type": "object",
       "properties": {
         "default": {
@@ -168,9 +169,8 @@
           "$ref": "#/$defs/CastingTimeDuringLovemaking"
         }
       },
-      "required": [
-        "default"
-      ],
+      "required": [],
+      "minProperties": 1,
       "additionalProperties": false
     }
   }

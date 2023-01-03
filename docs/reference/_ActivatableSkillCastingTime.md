@@ -95,14 +95,21 @@ The (unitless) casting time value.
 
 ### <a name="FastCastingTime"></a> `FastCastingTime`
 
+The casting time may have two different values: One for use in “normal” time,
+i. e. actions, combat rounds and others, and one for use during lovemaking,
+which is a rule set from Aventurian Intimacy.
+
+There must always be at least one casting time value.
+
 - **Type:** Object
+- **Minimum Properties:** `1`
 
 Key | Description | Details
 :-- | :-- | :--
-`default` | The default casting time definition. | <a href="#FastCastingTime/default">See details</a>
+`default?` | The default casting time definition. | <a href="#FastCastingTime/default">See details</a>
 `during_lovemaking?` | The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking. | <a href="#FastCastingTime/during_lovemaking">See details</a>
 
-#### <a name="FastCastingTime/default"></a> `default`
+#### <a name="FastCastingTime/default"></a> `default?`
 
 The default casting time definition.
 
@@ -159,14 +166,21 @@ Key | Description | Details
 
 ### <a name="SlowCastingTime"></a> `SlowCastingTime`
 
+The casting time may have two different values: One for use in “normal” time,
+i. e. actions, combat rounds and others, and one for use during lovemaking,
+which is a rule set from Aventurian Intimacy.
+
+There must always be at least one casting time value.
+
 - **Type:** Object
+- **Minimum Properties:** `1`
 
 Key | Description | Details
 :-- | :-- | :--
-`default` | The default casting time definition. | <a href="#SlowCastingTime/default">See details</a>
+`default?` | The default casting time definition. | <a href="#SlowCastingTime/default">See details</a>
 `during_lovemaking?` | The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking. | <a href="#SlowCastingTime/during_lovemaking">See details</a>
 
-#### <a name="SlowCastingTime/default"></a> `default`
+#### <a name="SlowCastingTime/default"></a> `default?`
 
 The default casting time definition.
 
