@@ -1046,6 +1046,24 @@
       ],
       "additionalProperties": false
     },
+    "KrallenkettenzauberIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Krallenkettenzauber"
+        },
+        "krallenkettenzauber": {
+          "description": "The Krallenkettenzauber’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "krallenkettenzauber"
+      ],
+      "additionalProperties": false
+    },
     "LanguageIdentifier": {
       "type": "object",
       "properties": {

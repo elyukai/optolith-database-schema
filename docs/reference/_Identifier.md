@@ -1278,6 +1278,28 @@ The chronicle enchantment’s identifier.
 
 ---
 
+### <a name="KrallenkettenzauberIdentifier"></a> `KrallenkettenzauberIdentifier`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#KrallenkettenzauberIdentifier/tag">See details</a>
+`krallenkettenzauber` | The Krallenkettenzauber’s identifier. | <a href="#KrallenkettenzauberIdentifier/krallenkettenzauber">See details</a>
+
+#### <a name="KrallenkettenzauberIdentifier/tag"></a> `tag`
+
+- **Constant:** `"Krallenkettenzauber"`
+
+#### <a name="KrallenkettenzauberIdentifier/krallenkettenzauber"></a> `krallenkettenzauber`
+
+The Krallenkettenzauber’s identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
 ### <a name="LanguageIdentifier"></a> `LanguageIdentifier`
 
 - **Type:** Object

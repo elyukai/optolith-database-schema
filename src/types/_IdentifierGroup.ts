@@ -47,6 +47,7 @@ export type ActivatableIdentifier =
   | Identifier.SickleRitualIdentifier
   | Identifier.RingEnchantmentIdentifier
   | Identifier.ChronicleEnchantmentIdentifier
+  | Identifier.KrallenkettenzauberIdentifier
 
 export type SpecialAbilityIdentifier =
   | Identifier.GeneralSpecialAbilityIdentifier
@@ -93,6 +94,7 @@ export type SpecialAbilityIdentifier =
   | Identifier.SickleRitualIdentifier
   | Identifier.RingEnchantmentIdentifier
   | Identifier.ChronicleEnchantmentIdentifier
+  | Identifier.KrallenkettenzauberIdentifier
 
 export type CombatRelatedSpecialAbilityIdentifier =
   | Identifier.CombatSpecialAbilityIdentifier

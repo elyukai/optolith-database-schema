@@ -636,6 +636,17 @@ export type ChronicleEnchantmentIdentifier = {
   chronicle_enchantment: number
 }
 
+export type KrallenkettenzauberIdentifier = {
+  tag: "Krallenkettenzauber"
+
+  /**
+   * The Krallenkettenzauber’s identifier.
+   * @integer
+   * @minimum 1
+   */
+  krallenkettenzauber: number
+}
+
 export type LanguageIdentifier = {
   tag: "Language"
 

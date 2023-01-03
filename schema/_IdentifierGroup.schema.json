@@ -141,6 +141,9 @@
         },
         {
           "$ref": "./_Identifier.schema.json#/$defs/ChronicleEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/KrallenkettenzauberIdentifier"
         }
       ]
     },
@@ -277,6 +280,9 @@
         },
         {
           "$ref": "./_Identifier.schema.json#/$defs/ChronicleEnchantmentIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/KrallenkettenzauberIdentifier"
         }
       ]
     },
