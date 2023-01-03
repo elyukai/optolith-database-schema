@@ -689,6 +689,7 @@ export type EnchantmentCost =
 export type ArcaneEnergyCost =
   | { tag: "Fixed"; fixed: FixedArcaneEnergyCost }
   | { tag: "PerCountable"; per_countable: ArcaneEnergyCostPerCountable }
+  | { tag: "Interval"; interval: IntervalArcaneEnergyCost }
   | { tag: "ActivationAndHalfInterval"; activation_and_half_interval: ActivationAndHalfIntervalArcaneEnergyCost }
   | { tag: "Indefinite"; indefinite: IndefiniteArcaneEnergyCost }
   | { tag: "Disjunction"; disjunction: ArcaneEnergyCostDisjunction }
@@ -766,7 +767,7 @@ export type ArcaneEnergyCostPerCountable = {
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
    */
-  translations?: LocaleMap<ArcaneEnergyCostPerCountableTranslation>
+  translations: LocaleMap<ArcaneEnergyCostPerCountableTranslation>
 }
 
 export type ArcaneEnergyCostPerCountableTranslation = {
@@ -780,6 +781,20 @@ export type ArcaneEnergyCostPerCountableTranslation = {
    * A note, appended to the generated string in parenthesis.
    */
   note?: ResponsiveTextOptional
+}
+
+export type IntervalArcaneEnergyCost = {
+  /**
+   * The AE cost value that has to be payed each interval.
+   * @integer
+   * @minimum 1
+   */
+  value: number
+
+  /**
+   * The time interval for which the AE cost `value` has to be paid.
+   */
+  interval: DurationUnitValue
 }
 
 export type ActivationAndHalfIntervalArcaneEnergyCost = {
@@ -800,36 +815,9 @@ export type ActivationAndHalfIntervalArcaneEnergyCost = {
 
 export type IndefiniteArcaneEnergyCost = {
   /**
-   * The indefinite AE cost may be modified by a certain value.
-   */
-  modifier: IndefiniteArcaneEnergyCostModifier
-
-  /**
    * All translations for the entry, identified by IETF language tag (BCP47).
    */
   translations: LocaleMap<IndefiniteArcaneEnergyCostTranslation>
-}
-
-/**
- * Defines how the the `value` is set off against the check result.
- */
-export enum IndefiniteArcaneEnergyCostArithmetic {
-  Add = "Add",
-  Subtract = "Subtract",
-}
-
-export type IndefiniteArcaneEnergyCostModifier = {
-  /**
-   * The arithmetic how to apply the `value` to the `base`.
-   */
-  arithmetic: IndefiniteArcaneEnergyCostArithmetic
-
-  /**
-   * The value that is applied to the `base` using the defined `arithmetic`.
-   * @integer
-   * @minimum 1
-   */
-  value: number
 }
 
 export type IndefiniteArcaneEnergyCostTranslation = {

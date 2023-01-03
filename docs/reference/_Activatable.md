@@ -1335,7 +1335,7 @@ Key | Description | Details
 The AE Cost.
 
 - **Type:** Union
-- **Cases:** <a href="#ArcaneEnergyCost'Fixed">ArcaneEnergyCost'Fixed</a> | <a href="#ArcaneEnergyCost'PerCountable">ArcaneEnergyCost'PerCountable</a> | <a href="#ArcaneEnergyCost'ActivationAndHalfInterval">ArcaneEnergyCost'ActivationAndHalfInterval</a> | <a href="#ArcaneEnergyCost'Indefinite">ArcaneEnergyCost'Indefinite</a> | <a href="#ArcaneEnergyCost'Disjunction">ArcaneEnergyCost'Disjunction</a> | <a href="#ArcaneEnergyCost'Variable">ArcaneEnergyCost'Variable</a>
+- **Cases:** <a href="#ArcaneEnergyCost'Fixed">ArcaneEnergyCost'Fixed</a> | <a href="#ArcaneEnergyCost'PerCountable">ArcaneEnergyCost'PerCountable</a> | <a href="#ArcaneEnergyCost'Interval">ArcaneEnergyCost'Interval</a> | <a href="#ArcaneEnergyCost'ActivationAndHalfInterval">ArcaneEnergyCost'ActivationAndHalfInterval</a> | <a href="#ArcaneEnergyCost'Indefinite">ArcaneEnergyCost'Indefinite</a> | <a href="#ArcaneEnergyCost'Disjunction">ArcaneEnergyCost'Disjunction</a> | <a href="#ArcaneEnergyCost'Variable">ArcaneEnergyCost'Variable</a>
 
 ---
 
@@ -1374,6 +1374,25 @@ Key | Description | Details
 #### <a name="ArcaneEnergyCost'PerCountable/per_countable"></a> `per_countable`
 
 - **Type:** <a href="#ArcaneEnergyCostPerCountable">ArcaneEnergyCostPerCountable</a>
+
+---
+
+### <a name="ArcaneEnergyCost'Interval"></a> `ArcaneEnergyCost'Interval`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ArcaneEnergyCost'Interval/tag">See details</a>
+`interval` |  | <a href="#ArcaneEnergyCost'Interval/interval">See details</a>
+
+#### <a name="ArcaneEnergyCost'Interval/tag"></a> `tag`
+
+- **Constant:** `"Interval"`
+
+#### <a name="ArcaneEnergyCost'Interval/interval"></a> `interval`
+
+- **Type:** <a href="#IntervalArcaneEnergyCost">IntervalArcaneEnergyCost</a>
 
 ---
 
@@ -1550,7 +1569,7 @@ Key | Description | Details
 :-- | :-- | :--
 `value` | The AE cost value that has to be per a specific countable entity. | <a href="#ArcaneEnergyCostPerCountable/value">See details</a>
 `base_value?` | If defined, in addition to the cost per entity you have to pay a flat amount, regardless of the entity count. | <a href="#ArcaneEnergyCostPerCountable/base_value">See details</a>
-`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ArcaneEnergyCostPerCountable/translations">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ArcaneEnergyCostPerCountable/translations">See details</a>
 
 #### <a name="ArcaneEnergyCostPerCountable/value"></a> `value`
 
@@ -1567,7 +1586,7 @@ amount, regardless of the entity count.
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="ArcaneEnergyCostPerCountable/translations"></a> `translations?`
+#### <a name="ArcaneEnergyCostPerCountable/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
@@ -1608,6 +1627,30 @@ A note, appended to the generated string in parenthesis.
 
 ---
 
+### <a name="IntervalArcaneEnergyCost"></a> `IntervalArcaneEnergyCost`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`value` | The AE cost value that has to be payed each interval. | <a href="#IntervalArcaneEnergyCost/value">See details</a>
+`interval` | The time interval for which the AE cost `value` has to be paid. | <a href="#IntervalArcaneEnergyCost/interval">See details</a>
+
+#### <a name="IntervalArcaneEnergyCost/value"></a> `value`
+
+The AE cost value that has to be payed each interval.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="IntervalArcaneEnergyCost/interval"></a> `interval`
+
+The time interval for which the AE cost `value` has to be paid.
+
+- **Type:** <a href="./_ActivatableSkillDuration.md#DurationUnitValue">DurationUnitValue</a>
+
+---
+
 ### <a name="ActivationAndHalfIntervalArcaneEnergyCost"></a> `ActivationAndHalfIntervalArcaneEnergyCost`
 
 - **Type:** Object
@@ -1640,14 +1683,7 @@ The time interval for which the AE cost `value` has to be paid.
 
 Key | Description | Details
 :-- | :-- | :--
-`modifier` | The indefinite AE cost may be modified by a certain value. | <a href="#IndefiniteArcaneEnergyCost/modifier">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#IndefiniteArcaneEnergyCost/translations">See details</a>
-
-#### <a name="IndefiniteArcaneEnergyCost/modifier"></a> `modifier`
-
-The indefinite AE cost may be modified by a certain value.
-
-- **Type:** <a href="#IndefiniteArcaneEnergyCostModifier">IndefiniteArcaneEnergyCostModifier</a>
 
 #### <a name="IndefiniteArcaneEnergyCost/translations"></a> `translations`
 
@@ -1663,38 +1699,6 @@ All translations for the entry, identified by IETF language tag (BCP47).
 ### <a name="IndefiniteArcaneEnergyCost/translations[key]"></a> `IndefiniteArcaneEnergyCost/translations[key]`
 
 - **Type:** <a href="#IndefiniteArcaneEnergyCostTranslation">IndefiniteArcaneEnergyCostTranslation</a>
-
----
-
-### <a name="IndefiniteArcaneEnergyCostArithmetic"></a> `IndefiniteArcaneEnergyCostArithmetic`
-
-Defines how the the `value` is set off against the check result.
-
-- **Possible values:** `"Add"`, `"Subtract"`
-
----
-
-### <a name="IndefiniteArcaneEnergyCostModifier"></a> `IndefiniteArcaneEnergyCostModifier`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`arithmetic` | The arithmetic how to apply the `value` to the `base`. | <a href="#IndefiniteArcaneEnergyCostModifier/arithmetic">See details</a>
-`value` | The value that is applied to the `base` using the defined `arithmetic`. | <a href="#IndefiniteArcaneEnergyCostModifier/value">See details</a>
-
-#### <a name="IndefiniteArcaneEnergyCostModifier/arithmetic"></a> `arithmetic`
-
-The arithmetic how to apply the `value` to the `base`.
-
-- **Type:** <a href="#IndefiniteArcaneEnergyCostArithmetic">IndefiniteArcaneEnergyCostArithmetic</a>
-
-#### <a name="IndefiniteArcaneEnergyCostModifier/value"></a> `value`
-
-The value that is applied to the `base` using the defined `arithmetic`.
-
-- **Type:** Integer
-- **Minimum:** `1`
 
 ---
 
