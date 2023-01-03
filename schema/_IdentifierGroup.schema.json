@@ -312,7 +312,7 @@
           "$ref": "./_Identifier.schema.json#/$defs/AttributeIdentifier"
         },
         {
-          "$ref": "#/$defs/SkillIdentifier"
+          "$ref": "./_Identifier.schema.json#/$defs/SkillIdentifier"
         },
         {
           "$ref": "./_Identifier.schema.json#/$defs/CloseCombatTechniqueIdentifier"

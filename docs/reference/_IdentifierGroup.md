@@ -621,7 +621,7 @@
 
 ### <a name="RatedIdentifier'SkillIdentifier"></a> `RatedIdentifier'SkillIdentifier`
 
-- **Type:** <a href="#SkillIdentifier">SkillIdentifier</a>
+- **Type:** <a href="./_Identifier.md#SkillIdentifier">SkillIdentifier</a>
 
 ---
 

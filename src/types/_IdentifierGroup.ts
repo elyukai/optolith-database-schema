@@ -106,7 +106,7 @@ export type TraditionIdentifier =
 
 export type RatedIdentifier =
   | Identifier.AttributeIdentifier
-  | SkillIdentifier
+  | Identifier.SkillIdentifier
   | Identifier.CloseCombatTechniqueIdentifier
   | Identifier.RangedCombatTechniqueIdentifier
   | Identifier.SpellIdentifier
