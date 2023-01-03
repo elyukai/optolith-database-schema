@@ -692,7 +692,6 @@ export type ArcaneEnergyCost =
   | { tag: "ActivationAndHalfInterval"; activation_and_half_interval: ActivationAndHalfIntervalArcaneEnergyCost }
   | { tag: "Indefinite"; indefinite: IndefiniteArcaneEnergyCost }
   | { tag: "Disjunction"; disjunction: ArcaneEnergyCostDisjunction }
-  | { tag: "None"; none: NoArcaneEnergyCost }
   | { tag: "Variable"; variable: {} }
 
 export type FixedArcaneEnergyCost = {

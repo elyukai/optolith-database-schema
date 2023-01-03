@@ -14,7 +14,7 @@ Key | Description | Details
 `maximum?` |  | <a href="#AttireEnchantment/maximum">See details</a>
 `prerequisites?` |  | <a href="#AttireEnchantment/prerequisites">See details</a>
 `volume` |  | <a href="#AttireEnchantment/volume">See details</a>
-`cost` |  | <a href="#AttireEnchantment/cost">See details</a>
+`cost?` |  | <a href="#AttireEnchantment/cost">See details</a>
 `property` |  | <a href="#AttireEnchantment/property">See details</a>
 `ap_value` |  | <a href="#AttireEnchantment/ap_value">See details</a>
 `src` |  | <a href="#AttireEnchantment/src">See details</a>
@@ -44,7 +44,7 @@ Key | Description | Details
 
 - **Type:** <a href="../_Activatable.md#Volume">Volume</a>
 
-#### <a name="AttireEnchantment/cost"></a> `cost`
+#### <a name="AttireEnchantment/cost"></a> `cost?`
 
 - **Type:** <a href="../_Activatable.md#EnchantmentCost">EnchantmentCost</a>
 

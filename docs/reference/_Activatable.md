@@ -1335,7 +1335,7 @@ Key | Description | Details
 The AE Cost.
 
 - **Type:** Union
-- **Cases:** <a href="#ArcaneEnergyCost'Fixed">ArcaneEnergyCost'Fixed</a> | <a href="#ArcaneEnergyCost'PerCountable">ArcaneEnergyCost'PerCountable</a> | <a href="#ArcaneEnergyCost'ActivationAndHalfInterval">ArcaneEnergyCost'ActivationAndHalfInterval</a> | <a href="#ArcaneEnergyCost'Indefinite">ArcaneEnergyCost'Indefinite</a> | <a href="#ArcaneEnergyCost'Disjunction">ArcaneEnergyCost'Disjunction</a> | <a href="#ArcaneEnergyCost'None">ArcaneEnergyCost'None</a> | <a href="#ArcaneEnergyCost'Variable">ArcaneEnergyCost'Variable</a>
+- **Cases:** <a href="#ArcaneEnergyCost'Fixed">ArcaneEnergyCost'Fixed</a> | <a href="#ArcaneEnergyCost'PerCountable">ArcaneEnergyCost'PerCountable</a> | <a href="#ArcaneEnergyCost'ActivationAndHalfInterval">ArcaneEnergyCost'ActivationAndHalfInterval</a> | <a href="#ArcaneEnergyCost'Indefinite">ArcaneEnergyCost'Indefinite</a> | <a href="#ArcaneEnergyCost'Disjunction">ArcaneEnergyCost'Disjunction</a> | <a href="#ArcaneEnergyCost'Variable">ArcaneEnergyCost'Variable</a>
 
 ---
 
@@ -1431,25 +1431,6 @@ Key | Description | Details
 #### <a name="ArcaneEnergyCost'Disjunction/disjunction"></a> `disjunction`
 
 - **Type:** <a href="#ArcaneEnergyCostDisjunction">ArcaneEnergyCostDisjunction</a>
-
----
-
-### <a name="ArcaneEnergyCost'None"></a> `ArcaneEnergyCost'None`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ArcaneEnergyCost'None/tag">See details</a>
-`none` |  | <a href="#ArcaneEnergyCost'None/none">See details</a>
-
-#### <a name="ArcaneEnergyCost'None/tag"></a> `tag`
-
-- **Constant:** `"None"`
-
-#### <a name="ArcaneEnergyCost'None/none"></a> `none`
-
-- **Type:** <a href="#NoArcaneEnergyCost">NoArcaneEnergyCost</a>
 
 ---
 

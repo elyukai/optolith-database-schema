@@ -1013,22 +1013,6 @@
           "type": "object",
           "properties": {
             "tag": {
-              "const": "None"
-            },
-            "none": {
-              "$ref": "#/$defs/NoArcaneEnergyCost"
-            }
-          },
-          "required": [
-            "tag",
-            "none"
-          ],
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
               "const": "Variable"
             },
             "variable": {

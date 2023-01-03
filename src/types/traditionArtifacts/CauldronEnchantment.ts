@@ -31,7 +31,7 @@ export type CauldronEnchantment = {
    */
   brew: BrewReference
 
-  cost: Activatable.EnchantmentCost
+  cost?: Activatable.EnchantmentCost
 
   property: Activatable.Property
 
