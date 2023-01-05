@@ -475,6 +475,10 @@
     "NonModifiableSustainedCostPerCountable": {
       "type": "object",
       "properties": {
+        "minimum_total": {
+          "description": "If defined, the minimum total AE that have to be spent casting the\nskill.",
+          "type": "number"
+        },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
           "type": "object",

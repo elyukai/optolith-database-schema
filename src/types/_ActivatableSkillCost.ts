@@ -283,6 +283,12 @@ export type NonModifiableSustainedCost = {
 
 export type NonModifiableSustainedCostPerCountable = {
   /**
+   * If defined, the minimum total AE that have to be spent casting the
+   * skill.
+   */
+  minimum_total?: number
+
+  /**
    * All translations for the entry, identified by IETF language tag (BCP47).
    */
   translations: LocaleMap<NonModifiableSustainedCostPerCountableTranslation>

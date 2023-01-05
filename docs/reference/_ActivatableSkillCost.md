@@ -657,7 +657,15 @@ The sustain interval.
 
 Key | Description | Details
 :-- | :-- | :--
+`minimum_total?` | If defined, the minimum total AE that have to be spent casting the skill. | <a href="#NonModifiableSustainedCostPerCountable/minimum_total">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#NonModifiableSustainedCostPerCountable/translations">See details</a>
+
+#### <a name="NonModifiableSustainedCostPerCountable/minimum_total"></a> `minimum_total?`
+
+If defined, the minimum total AE that have to be spent casting the
+skill.
+
+- **Type:** Number
 
 #### <a name="NonModifiableSustainedCostPerCountable/translations"></a> `translations`
 
