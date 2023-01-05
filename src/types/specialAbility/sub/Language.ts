@@ -32,7 +32,7 @@ export type Language = {
    * Language-specific specializations. Either a list of possible options or a
    * indefinite description of what may be a specialization.
    */
-  specializations: Specializations
+  specializations?: Specializations
 
   prerequisites?: LanguagePrerequisites
 

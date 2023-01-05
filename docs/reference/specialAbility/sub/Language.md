@@ -10,7 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` | The language's identifier. An unique, increasing integer. | <a href="#Language/id">See details</a>
 `continent` | The continents this language is present on. | <a href="#Language/continent">See details</a>
-`specializations` | Language-specific specializations. Either a list of possible options or a indefinite description of what may be a specialization. | <a href="#Language/specializations">See details</a>
+`specializations?` | Language-specific specializations. Either a list of possible options or a indefinite description of what may be a specialization. | <a href="#Language/specializations">See details</a>
 `prerequisites?` |  | <a href="#Language/prerequisites">See details</a>
 `max_level?` | The maximum possible level of the language. Only specified if lower than default of 3. | <a href="#Language/max_level">See details</a>
 `src` |  | <a href="#Language/src">See details</a>
@@ -31,7 +31,7 @@ The continents this language is present on.
 - **Items:** <a href="#Language/continent[]">Language/continent[]</a>
 - **Minimum Items:** `1`
 
-#### <a name="Language/specializations"></a> `specializations`
+#### <a name="Language/specializations"></a> `specializations?`
 
 Language-specific specializations. Either a list of possible options or a
 indefinite description of what may be a specialization.
