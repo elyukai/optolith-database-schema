@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.8.1](https://github.com/elyukai/optolith-database-schema/compare/v0.8.0...v0.8.1) (2023-01-08)
+
+
+### Features
+
+* allow minimum total for countable cost for sustained skills ([448978f](https://github.com/elyukai/optolith-database-schema/commit/448978f3815e721bb69e5315b61f5d5b0e3854e2))
+* allow only casting time during lovemaking to be present ([9be75fe](https://github.com/elyukai/optolith-database-schema/commit/9be75fe9372c9ef40bca914d2659b3b026f543d9))
+* allow to restrict advanced special ability to aspect option ([21289fe](https://github.com/elyukai/optolith-database-schema/commit/21289fe81d3b81648eb65e8d459a3d6f71d984ab))
+* use summoning and creation difficulty as possible skill check penalties ([5756ecd](https://github.com/elyukai/optolith-database-schema/commit/5756ecd33fe1c32f28b31d0afa88e1f45658a0be))
+
+
+### Bug Fixes
+
+* optional language specializations ([2ead215](https://github.com/elyukai/optolith-database-schema/commit/2ead215fc1bcb870ecec8a7f88a48bc7d09136b3))
+
 ## [0.8.0](https://github.com/elyukai/optolith-database-schema/compare/v0.7.0...v0.8.0) (2023-01-03)
 
 
