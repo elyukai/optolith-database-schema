@@ -127,6 +127,7 @@ export type AdvancedSpecialAbilityRestrictedOptionIdentifier =
   | Identifier.GeneralIdentifier
   | Identifier.SkillIdentifier
   | Identifier.ElementIdentifier
+  | Identifier.AspectIdentifier
 
 export type VolumePointsOptionReferenceIdentifier =
   | Identifier.GeneralIdentifier

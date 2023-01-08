@@ -713,7 +713,7 @@
 ### <a name="AdvancedSpecialAbilityRestrictedOptionIdentifier"></a> `AdvancedSpecialAbilityRestrictedOptionIdentifier`
 
 - **Type:** Union
-- **Cases:** <a href="#AdvancedSpecialAbilityRestrictedOptionIdentifier'GeneralIdentifier">AdvancedSpecialAbilityRestrictedOptionIdentifier'GeneralIdentifier</a> | <a href="#AdvancedSpecialAbilityRestrictedOptionIdentifier'SkillIdentifier">AdvancedSpecialAbilityRestrictedOptionIdentifier'SkillIdentifier</a> | <a href="#AdvancedSpecialAbilityRestrictedOptionIdentifier'ElementIdentifier">AdvancedSpecialAbilityRestrictedOptionIdentifier'ElementIdentifier</a>
+- **Cases:** <a href="#AdvancedSpecialAbilityRestrictedOptionIdentifier'GeneralIdentifier">AdvancedSpecialAbilityRestrictedOptionIdentifier'GeneralIdentifier</a> | <a href="#AdvancedSpecialAbilityRestrictedOptionIdentifier'SkillIdentifier">AdvancedSpecialAbilityRestrictedOptionIdentifier'SkillIdentifier</a> | <a href="#AdvancedSpecialAbilityRestrictedOptionIdentifier'ElementIdentifier">AdvancedSpecialAbilityRestrictedOptionIdentifier'ElementIdentifier</a> | <a href="#AdvancedSpecialAbilityRestrictedOptionIdentifier'AspectIdentifier">AdvancedSpecialAbilityRestrictedOptionIdentifier'AspectIdentifier</a>
 
 ---
 
@@ -732,6 +732,12 @@
 ### <a name="AdvancedSpecialAbilityRestrictedOptionIdentifier'ElementIdentifier"></a> `AdvancedSpecialAbilityRestrictedOptionIdentifier'ElementIdentifier`
 
 - **Type:** <a href="./_Identifier.md#ElementIdentifier">ElementIdentifier</a>
+
+---
+
+### <a name="AdvancedSpecialAbilityRestrictedOptionIdentifier'AspectIdentifier"></a> `AdvancedSpecialAbilityRestrictedOptionIdentifier'AspectIdentifier`
+
+- **Type:** <a href="./_Identifier.md#AspectIdentifier">AspectIdentifier</a>
 
 ---
 

@@ -369,6 +369,9 @@
         },
         {
           "$ref": "./_Identifier.schema.json#/$defs/ElementIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/AspectIdentifier"
         }
       ]
     },
