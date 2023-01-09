@@ -7,7 +7,7 @@ import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import { CheckResultBasedDuration } from "../_ActivatableSkillDuration.js"
 import { Effect } from "../_ActivatableSkillEffect.js"
-import { CloseCombatTechniqueIdentifier } from "../_Identifier.js"
+import { CombatTechniqueIdentifier } from "../_IdentifierGroup.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { NonEmptyString } from "../_NonEmptyString.js"
@@ -26,7 +26,13 @@ export type MagicalRune = {
    */
   id: number
 
-  option?: MagicalRuneOption
+  /**
+   * The options the magical rune has, if any.
+   *
+   * If there are multiple options, the magical rune may be activated for each
+   * option, that is, multiple times.
+   */
+  options?: MagicalRuneOption[]
 
   /**
    * Lists the linked three attributes used to make a skill check.
@@ -51,7 +57,7 @@ export type MagicalRune = {
   /**
    * States which column is used to improve the skill.
    */
-  improvement_cost: ImprovementCost
+  improvement_cost: MagicalRuneImprovementCost
 
   src: PublicationRefs
 
@@ -72,9 +78,15 @@ export type MagicalRuneTranslation = {
   name: NonEmptyString
 
   /**
+   * The full name of the entry as stated in the sources. Only use when `name`
+   * needs to be different from full name for text generation purposes.
+   */
+  name_in_library?: NonEmptyString
+
+  /**
    * The native name of the magical rune.
    */
-  native_name: NonEmptyString
+  native_name?: NonEmptyString
 
   /**
    * The effect description may be either a plain text or a text that is
@@ -108,34 +120,34 @@ export type MagicalRuneTranslation = {
 }
 
 export type MagicalRuneCheckPenalty =
-  | { tag: "CloseCombatTechnique"; close_combat_technique: MagicalRuneCloseCombatTechniqueCheckPenalty }
+  | { tag: "CombatTechnique"; combat_technique: MagicalRuneCombatTechniqueCheckPenalty }
 
-export type MagicalRuneCloseCombatTechniqueCheckPenalty = {
+export type MagicalRuneCombatTechniqueCheckPenalty = {
   /**
-   * A map from close combat techniques to their modifiers.
+   * A map from combat techniques to their modifiers.
    * @minItems 1
    */
-  map: MagicalRuneCloseCombatTechniqueCheckPenaltyMapping[]
+  map: MagicalRuneCombatTechniqueCheckPenaltyMapping[]
 
-  rest: MagicalRuneCloseCombatTechniqueCheckPenaltyRest
+  rest: MagicalRuneCombatTechniqueCheckPenaltyRest
 }
 
-export type MagicalRuneCloseCombatTechniqueCheckPenaltyMapping = {
+export type MagicalRuneCombatTechniqueCheckPenaltyMapping = {
   /**
-   * The close combat technique's identifier.
+   * The combat technique's identifier.
    */
-  combat_technique_id: CloseCombatTechniqueIdentifier
+  id: CombatTechniqueIdentifier
 
   /**
-   * The check modifier for the specified close combat technique.
+   * The check modifier for the specified combat technique.
    * @integer
    */
   modifier: number
 }
 
-export type MagicalRuneCloseCombatTechniqueCheckPenaltyRest = {
+export type MagicalRuneCombatTechniqueCheckPenaltyRest = {
   /**
-   * The check modifier for close combat techniques not specified in `map`.
+   * The check modifier for combat techniques not specified in `map`.
    * @integer
    */
   modifier: number
@@ -162,6 +174,11 @@ export type MagicalRunePerformanceParameters = {
 }
 
 export type MagicalRuneCost =
+  | { tag: "Single"; single: SingleMagicalRuneCost }
+  | { tag: "Disjunction"; disjunction: MagicalRuneCostDisjunction }
+  | { tag: "DerivedFromOption"; derived_from_option: {} }
+
+export type MagicalRuneOptionCost =
   | { tag: "Single"; single: SingleMagicalRuneCost }
   | { tag: "Disjunction"; disjunction: MagicalRuneCostDisjunction }
 
@@ -226,11 +243,55 @@ export type MagicalRuneDuration = {
   fast: CheckResultBasedDuration
 }
 
+export type MagicalRuneImprovementCost =
+  | { tag: "Constant"; constant: ConstantMagicalRuneImprovementCost }
+  | { tag: "DerivedFromOption"; derived_from_option: {} }
+
+export type ConstantMagicalRuneImprovementCost = {
+  value: ImprovementCost
+}
+
 export type MagicalRuneOption = {
+  /**
+   * The magical rune option’s identifier. An unique, increasing integer.
+   * @integer
+   * @minimum 1
+   */
+  id: number
+
+  /**
+   * The option-specific AE cost.
+   */
+  cost: MagicalRuneOptionCost
+
+  /**
+   * The option-specific improvement cost.
+   */
+  improvement_cost: ImprovementCost
+
+  suboption: MagicalRuneSuboption
+
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
    */
   translations: LocaleMap<MagicalRuneOptionTranslation>
+}
+
+export type MagicalRuneSuboption =
+  | { tag: "Custom"; custom: CustomMagicalRuneSuboption }
+
+export type CustomMagicalRuneSuboption = {
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translations: LocaleMap<CustomMagicalRuneSuboptionTranslation>
+}
+
+export type CustomMagicalRuneSuboptionTranslation = {
+  /**
+   * One or more examples for the suboption.
+   */
+  examples?: NonEmptyString[]
 }
 
 export type MagicalRuneOptionTranslation = {
@@ -241,6 +302,11 @@ export type MagicalRuneOptionTranslation = {
    * be generated.
    */
   name: NonEmptyString
+
+  /**
+   * The native name of the magical rune option.
+   */
+  native_name: NonEmptyString
 }
 
 export const validateSchema = validateSchemaCreator<MagicalRune>(import.meta.url)

@@ -12,8 +12,12 @@
           "type": "integer",
           "minimum": 1
         },
-        "option": {
-          "$ref": "#/$defs/MagicalRuneOption"
+        "options": {
+          "description": "The options the magical rune has, if any.\n\nIf there are multiple options, the magical rune may be activated for each\noption, that is, multiple times.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/MagicalRuneOption"
+          }
         },
         "check": {
           "description": "Lists the linked three attributes used to make a skill check.",
@@ -33,7 +37,7 @@
         },
         "improvement_cost": {
           "description": "States which column is used to improve the skill.",
-          "$ref": "../_ImprovementCost.schema.json#/$defs/ImprovementCost"
+          "$ref": "#/$defs/MagicalRuneImprovementCost"
         },
         "src": {
           "$ref": "../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
@@ -66,6 +70,10 @@
       "properties": {
         "name": {
           "description": "The name of the magical rune.\n\nIf the rune has an option, the option’s name will/should not be included in\nthe name as well as its surrounding parenthesis. It will/should be combined\non demand.",
+          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "name_in_library": {
+          "description": "The full name of the entry as stated in the sources. Only use when `name`\nneeds to be different from full name for text generation purposes.",
           "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "native_name": {
@@ -182,7 +190,6 @@
       },
       "required": [
         "name",
-        "native_name",
         "effect",
         "cost",
         "crafting_time",
@@ -196,33 +203,33 @@
           "type": "object",
           "properties": {
             "tag": {
-              "const": "CloseCombatTechnique"
+              "const": "CombatTechnique"
             },
-            "close_combat_technique": {
-              "$ref": "#/$defs/MagicalRuneCloseCombatTechniqueCheckPenalty"
+            "combat_technique": {
+              "$ref": "#/$defs/MagicalRuneCombatTechniqueCheckPenalty"
             }
           },
           "required": [
             "tag",
-            "close_combat_technique"
+            "combat_technique"
           ],
           "additionalProperties": false
         }
       ]
     },
-    "MagicalRuneCloseCombatTechniqueCheckPenalty": {
+    "MagicalRuneCombatTechniqueCheckPenalty": {
       "type": "object",
       "properties": {
         "map": {
-          "description": "A map from close combat techniques to their modifiers.",
+          "description": "A map from combat techniques to their modifiers.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/MagicalRuneCloseCombatTechniqueCheckPenaltyMapping"
+            "$ref": "#/$defs/MagicalRuneCombatTechniqueCheckPenaltyMapping"
           },
           "minItems": 1
         },
         "rest": {
-          "$ref": "#/$defs/MagicalRuneCloseCombatTechniqueCheckPenaltyRest"
+          "$ref": "#/$defs/MagicalRuneCombatTechniqueCheckPenaltyRest"
         }
       },
       "required": [
@@ -231,29 +238,29 @@
       ],
       "additionalProperties": false
     },
-    "MagicalRuneCloseCombatTechniqueCheckPenaltyMapping": {
+    "MagicalRuneCombatTechniqueCheckPenaltyMapping": {
       "type": "object",
       "properties": {
-        "combat_technique_id": {
-          "description": "The close combat technique's identifier.",
-          "$ref": "../_Identifier.schema.json#/$defs/CloseCombatTechniqueIdentifier"
+        "id": {
+          "description": "The combat technique's identifier.",
+          "$ref": "../_IdentifierGroup.schema.json#/$defs/CombatTechniqueIdentifier"
         },
         "modifier": {
-          "description": "The check modifier for the specified close combat technique.",
+          "description": "The check modifier for the specified combat technique.",
           "type": "integer"
         }
       },
       "required": [
-        "combat_technique_id",
+        "id",
         "modifier"
       ],
       "additionalProperties": false
     },
-    "MagicalRuneCloseCombatTechniqueCheckPenaltyRest": {
+    "MagicalRuneCombatTechniqueCheckPenaltyRest": {
       "type": "object",
       "properties": {
         "modifier": {
-          "description": "The check modifier for close combat techniques not specified in `map`.",
+          "description": "The check modifier for combat techniques not specified in `map`.",
           "type": "integer"
         }
       },
@@ -287,6 +294,61 @@
       "additionalProperties": false
     },
     "MagicalRuneCost": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Single"
+            },
+            "single": {
+              "$ref": "#/$defs/SingleMagicalRuneCost"
+            }
+          },
+          "required": [
+            "tag",
+            "single"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Disjunction"
+            },
+            "disjunction": {
+              "$ref": "#/$defs/MagicalRuneCostDisjunction"
+            }
+          },
+          "required": [
+            "tag",
+            "disjunction"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "DerivedFromOption"
+            },
+            "derived_from_option": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "tag",
+            "derived_from_option"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "MagicalRuneOptionCost": {
       "oneOf": [
         {
           "type": "object",
@@ -442,9 +504,76 @@
       ],
       "additionalProperties": false
     },
+    "MagicalRuneImprovementCost": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Constant"
+            },
+            "constant": {
+              "$ref": "#/$defs/ConstantMagicalRuneImprovementCost"
+            }
+          },
+          "required": [
+            "tag",
+            "constant"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "DerivedFromOption"
+            },
+            "derived_from_option": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "tag",
+            "derived_from_option"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "ConstantMagicalRuneImprovementCost": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "$ref": "../_ImprovementCost.schema.json#/$defs/ImprovementCost"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
     "MagicalRuneOption": {
       "type": "object",
       "properties": {
+        "id": {
+          "description": "The magical rune option’s identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "cost": {
+          "description": "The option-specific AE cost.",
+          "$ref": "#/$defs/MagicalRuneOptionCost"
+        },
+        "improvement_cost": {
+          "description": "The option-specific improvement cost.",
+          "$ref": "../_ImprovementCost.schema.json#/$defs/ImprovementCost"
+        },
+        "suboption": {
+          "$ref": "#/$defs/MagicalRuneSuboption"
+        },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
           "type": "object",
@@ -458,8 +587,66 @@
         }
       },
       "required": [
+        "id",
+        "cost",
+        "improvement_cost",
+        "suboption",
         "translations"
       ],
+      "additionalProperties": false
+    },
+    "MagicalRuneSuboption": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Custom"
+            },
+            "custom": {
+              "$ref": "#/$defs/CustomMagicalRuneSuboption"
+            }
+          },
+          "required": [
+            "tag",
+            "custom"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "CustomMagicalRuneSuboption": {
+      "type": "object",
+      "properties": {
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/CustomMagicalRuneSuboptionTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "CustomMagicalRuneSuboptionTranslation": {
+      "type": "object",
+      "properties": {
+        "examples": {
+          "description": "One or more examples for the suboption.",
+          "type": "array",
+          "items": {
+            "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+          }
+        }
+      },
+      "required": [],
       "additionalProperties": false
     },
     "MagicalRuneOptionTranslation": {
@@ -468,10 +655,15 @@
         "name": {
           "description": "The name of the option.\n\nThe surrounding parenthesis will/should not be included, they will/should\nbe generated.",
           "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "native_name": {
+          "description": "The native name of the magical rune option.",
+          "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
         }
       },
       "required": [
-        "name"
+        "name",
+        "native_name"
       ],
       "additionalProperties": false
     }
