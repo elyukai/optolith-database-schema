@@ -109,6 +109,7 @@ import * as GeneralSpecialAbility from "./types/specialAbility/GeneralSpecialAbi
 import * as KarmaSpecialAbility from "./types/specialAbility/KarmaSpecialAbility.js"
 import * as LiturgicalStyleSpecialAbility from "./types/specialAbility/LiturgicalStyleSpecialAbility.js"
 import * as LycantropicGift from "./types/specialAbility/LycantropicGift.js"
+import * as MagicalSign from "./types/specialAbility/MagicalSign.js"
 import * as MagicalSpecialAbility from "./types/specialAbility/MagicalSpecialAbility.js"
 import * as MagicalTradition from "./types/specialAbility/MagicalTradition.js"
 import * as MagicStyleSpecialAbility from "./types/specialAbility/MagicStyleSpecialAbility.js"
@@ -246,6 +247,7 @@ export type TypeMap = {
   magicalDances: MagicalDance.MagicalDance
   magicalMelodies: MagicalMelody.MagicalMelody
   magicalRunes: MagicalRune.MagicalRune
+  magicalSigns: MagicalSign.MagicalSign
   magicalSpecialAbilities: MagicalSpecialAbility.MagicalSpecialAbility
   magicalTraditions: MagicalTradition.MagicalTradition
   magicStyleSpecialAbilities: MagicStyleSpecialAbility.MagicStyleSpecialAbility
@@ -401,6 +403,7 @@ export const typeValidatorMap: { [K in keyof TypeMap]: TypeValidator<TypeMap[K]>
   magicalDances: MagicalDance.validateSchema,
   magicalMelodies: MagicalMelody.validateSchema,
   magicalRunes: MagicalRune.validateSchema,
+  magicalSigns: MagicalSign.validateSchema,
   magicalSpecialAbilities: MagicalSpecialAbility.validateSchema,
   magicalTraditions: MagicalTradition.validateSchema,
   magicStyleSpecialAbilities: MagicStyleSpecialAbility.validateSchema,
