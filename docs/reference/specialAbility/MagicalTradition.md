@@ -19,10 +19,10 @@ Key | Description | Details
 `can_learn_rituals` | Can a member of the tradition learn rituals? | <a href="#MagicalTradition/can_learn_rituals">See details</a>
 `can_bind_familiars` | Can this magical tradition bind familiars? | <a href="#MagicalTradition/can_bind_familiars">See details</a>
 `allows_multiple_traditions` | Does the tradition allow learning more traditions or having learned a different tradition before learning this tradition? | <a href="#MagicalTradition/allows_multiple_traditions">See details</a>
-`alternative_magical_adventure_points_maximum` | Is the maximum AP you're able to spent on magical advantages and able to get by magical disadvantages different than the default of 50 AP? | <a href="#MagicalTradition/alternative_magical_adventure_points_maximum">See details</a>
+`alternative_magical_adventure_points_maximum?` | Is the maximum AP you're able to spent on magical advantages and able to get by magical disadvantages different than the default of 50 AP? | <a href="#MagicalTradition/alternative_magical_adventure_points_maximum">See details</a>
 `require_non_spellwork_exclusive_effects` | Are advantages/disadvantages required to not exclusively apply to arcane spellworks, but also to the tradition's magical actions or applications? | <a href="#MagicalTradition/require_non_spellwork_exclusive_effects">See details</a>
 `is_magical_dilettante` | Is this a magical dilettante tradition? | <a href="#MagicalTradition/is_magical_dilettante">See details</a>
-`use_arcane_spellworks_from_tradition` | If arcane spellworks from a different tradition count as arcane spellworks of this tradition, this is the different tradition's reference. | <a href="#MagicalTradition/use_arcane_spellworks_from_tradition">See details</a>
+`use_arcane_spellworks_from_tradition?` | If arcane spellworks from a different tradition count as arcane spellworks of this tradition, this is the different tradition's reference. | <a href="#MagicalTradition/use_arcane_spellworks_from_tradition">See details</a>
 `influences?` | The Influences for the traditions. Influences are enabled by Focus Rules. | <a href="#MagicalTradition/influences">See details</a>
 `prerequisites?` |  | <a href="#MagicalTradition/prerequisites">See details</a>
 `ap_value` |  | <a href="#MagicalTradition/ap_value">See details</a>
@@ -87,7 +87,7 @@ different tradition before learning this tradition?
 
 - **Type:** Boolean
 
-#### <a name="MagicalTradition/alternative_magical_adventure_points_maximum"></a> `alternative_magical_adventure_points_maximum`
+#### <a name="MagicalTradition/alternative_magical_adventure_points_maximum"></a> `alternative_magical_adventure_points_maximum?`
 
 Is the maximum AP you're able to spent on magical advantages and able to
 get by magical disadvantages different than the default of 50 AP?
@@ -110,7 +110,7 @@ Is this a magical dilettante tradition?
 
 - **Type:** Boolean
 
-#### <a name="MagicalTradition/use_arcane_spellworks_from_tradition"></a> `use_arcane_spellworks_from_tradition`
+#### <a name="MagicalTradition/use_arcane_spellworks_from_tradition"></a> `use_arcane_spellworks_from_tradition?`
 
 If arcane spellworks from a different tradition count as arcane spellworks
 of this tradition, this is the different tradition's reference.

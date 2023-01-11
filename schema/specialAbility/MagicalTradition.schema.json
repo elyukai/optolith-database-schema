@@ -101,10 +101,8 @@
         "can_learn_rituals",
         "can_bind_familiars",
         "allows_multiple_traditions",
-        "alternative_magical_adventure_points_maximum",
         "require_non_spellwork_exclusive_effects",
         "is_magical_dilettante",
-        "use_arcane_spellworks_from_tradition",
         "ap_value",
         "src",
         "translations"

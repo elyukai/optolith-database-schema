@@ -67,7 +67,7 @@ export type MagicalTradition = {
    * @maximum 30
    * @multipleOf 5
    */
-  alternative_magical_adventure_points_maximum: number
+  alternative_magical_adventure_points_maximum?: number
 
   /**
    * Are advantages/disadvantages required to not exclusively apply to arcane
@@ -84,7 +84,7 @@ export type MagicalTradition = {
    * If arcane spellworks from a different tradition count as arcane spellworks
    * of this tradition, this is the different tradition's reference.
    */
-  use_arcane_spellworks_from_tradition: MagicalTraditionReference
+  use_arcane_spellworks_from_tradition?: MagicalTraditionReference
 
   /**
    * The Influences for the traditions. Influences are enabled by Focus Rules.
