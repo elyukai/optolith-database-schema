@@ -188,7 +188,9 @@ Key | Description | Details
 
 The possible advanced special abilities.
 
-- **Type:** <a href="#SkillStyleSpecialAbility/advanced[0]'OneOf/one_of/options">Object</a>
+- **Type:** List
+- **Items:** <a href="#SkillStyleSpecialAbility/advanced[0]'OneOf/one_of/options[]">SkillStyleSpecialAbility/advanced[0]'OneOf/one_of/options[]</a>
+- **Minimum Items:** `2`
 
 #### <a name="SkillStyleSpecialAbility/advanced[0]'OneOf/one_of/is_selection_required_on_purchase"></a> `is_selection_required_on_purchase`
 
@@ -203,15 +205,15 @@ special ability? Otherwise the decision can be made later.
 
 ---
 
-### <a name="SkillStyleSpecialAbility/advanced[0]'OneOf/one_of/options"></a> `SkillStyleSpecialAbility/advanced[0]'OneOf/one_of/options`
+### <a name="SkillStyleSpecialAbility/advanced[0]'OneOf/one_of/options[]"></a> `SkillStyleSpecialAbility/advanced[0]'OneOf/one_of/options[]`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` |  | <a href="#SkillStyleSpecialAbility/advanced[0]'OneOf/one_of/options/id">See details</a>
+`id` |  | <a href="#SkillStyleSpecialAbility/advanced[0]'OneOf/one_of/options[]/id">See details</a>
 
-#### <a name="SkillStyleSpecialAbility/advanced[0]'OneOf/one_of/options/id"></a> `id`
+#### <a name="SkillStyleSpecialAbility/advanced[0]'OneOf/one_of/options[]/id"></a> `id`
 
 - **Type:** <a href="../_Identifier.md#AdvancedSkillSpecialAbilityIdentifier">AdvancedSkillSpecialAbilityIdentifier</a>
 
@@ -432,7 +434,9 @@ Key | Description | Details
 
 The possible advanced special abilities.
 
-- **Type:** <a href="#SkillStyleSpecialAbility/advanced[1]'OneOf/one_of/options">Object</a>
+- **Type:** List
+- **Items:** <a href="#SkillStyleSpecialAbility/advanced[1]'OneOf/one_of/options[]">SkillStyleSpecialAbility/advanced[1]'OneOf/one_of/options[]</a>
+- **Minimum Items:** `2`
 
 #### <a name="SkillStyleSpecialAbility/advanced[1]'OneOf/one_of/is_selection_required_on_purchase"></a> `is_selection_required_on_purchase`
 
@@ -447,15 +451,15 @@ special ability? Otherwise the decision can be made later.
 
 ---
 
-### <a name="SkillStyleSpecialAbility/advanced[1]'OneOf/one_of/options"></a> `SkillStyleSpecialAbility/advanced[1]'OneOf/one_of/options`
+### <a name="SkillStyleSpecialAbility/advanced[1]'OneOf/one_of/options[]"></a> `SkillStyleSpecialAbility/advanced[1]'OneOf/one_of/options[]`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` |  | <a href="#SkillStyleSpecialAbility/advanced[1]'OneOf/one_of/options/id">See details</a>
+`id` |  | <a href="#SkillStyleSpecialAbility/advanced[1]'OneOf/one_of/options[]/id">See details</a>
 
-#### <a name="SkillStyleSpecialAbility/advanced[1]'OneOf/one_of/options/id"></a> `id`
+#### <a name="SkillStyleSpecialAbility/advanced[1]'OneOf/one_of/options[]/id"></a> `id`
 
 - **Type:** <a href="../_Identifier.md#AdvancedSkillSpecialAbilityIdentifier">AdvancedSkillSpecialAbilityIdentifier</a>
 
@@ -676,7 +680,9 @@ Key | Description | Details
 
 The possible advanced special abilities.
 
-- **Type:** <a href="#SkillStyleSpecialAbility/advanced[2]'OneOf/one_of/options">Object</a>
+- **Type:** List
+- **Items:** <a href="#SkillStyleSpecialAbility/advanced[2]'OneOf/one_of/options[]">SkillStyleSpecialAbility/advanced[2]'OneOf/one_of/options[]</a>
+- **Minimum Items:** `2`
 
 #### <a name="SkillStyleSpecialAbility/advanced[2]'OneOf/one_of/is_selection_required_on_purchase"></a> `is_selection_required_on_purchase`
 
@@ -691,15 +697,15 @@ special ability? Otherwise the decision can be made later.
 
 ---
 
-### <a name="SkillStyleSpecialAbility/advanced[2]'OneOf/one_of/options"></a> `SkillStyleSpecialAbility/advanced[2]'OneOf/one_of/options`
+### <a name="SkillStyleSpecialAbility/advanced[2]'OneOf/one_of/options[]"></a> `SkillStyleSpecialAbility/advanced[2]'OneOf/one_of/options[]`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` |  | <a href="#SkillStyleSpecialAbility/advanced[2]'OneOf/one_of/options/id">See details</a>
+`id` |  | <a href="#SkillStyleSpecialAbility/advanced[2]'OneOf/one_of/options[]/id">See details</a>
 
-#### <a name="SkillStyleSpecialAbility/advanced[2]'OneOf/one_of/options/id"></a> `id`
+#### <a name="SkillStyleSpecialAbility/advanced[2]'OneOf/one_of/options[]/id"></a> `id`
 
 - **Type:** <a href="../_Identifier.md#AdvancedSkillSpecialAbilityIdentifier">AdvancedSkillSpecialAbilityIdentifier</a>
 

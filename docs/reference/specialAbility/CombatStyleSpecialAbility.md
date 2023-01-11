@@ -215,7 +215,9 @@ Key | Description | Details
 
 The possible advanced special abilities.
 
-- **Type:** <a href="#CombatStyleSpecialAbility/advanced[0]'OneOf/one_of/options">Object</a>
+- **Type:** List
+- **Items:** <a href="#CombatStyleSpecialAbility/advanced[0]'OneOf/one_of/options[]">CombatStyleSpecialAbility/advanced[0]'OneOf/one_of/options[]</a>
+- **Minimum Items:** `2`
 
 #### <a name="CombatStyleSpecialAbility/advanced[0]'OneOf/one_of/is_selection_required_on_purchase"></a> `is_selection_required_on_purchase`
 
@@ -230,15 +232,15 @@ special ability? Otherwise the decision can be made later.
 
 ---
 
-### <a name="CombatStyleSpecialAbility/advanced[0]'OneOf/one_of/options"></a> `CombatStyleSpecialAbility/advanced[0]'OneOf/one_of/options`
+### <a name="CombatStyleSpecialAbility/advanced[0]'OneOf/one_of/options[]"></a> `CombatStyleSpecialAbility/advanced[0]'OneOf/one_of/options[]`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` |  | <a href="#CombatStyleSpecialAbility/advanced[0]'OneOf/one_of/options/id">See details</a>
+`id` |  | <a href="#CombatStyleSpecialAbility/advanced[0]'OneOf/one_of/options[]/id">See details</a>
 
-#### <a name="CombatStyleSpecialAbility/advanced[0]'OneOf/one_of/options/id"></a> `id`
+#### <a name="CombatStyleSpecialAbility/advanced[0]'OneOf/one_of/options[]/id"></a> `id`
 
 - **Type:** <a href="../_Identifier.md#AdvancedCombatSpecialAbilityIdentifier">AdvancedCombatSpecialAbilityIdentifier</a>
 
@@ -459,7 +461,9 @@ Key | Description | Details
 
 The possible advanced special abilities.
 
-- **Type:** <a href="#CombatStyleSpecialAbility/advanced[1]'OneOf/one_of/options">Object</a>
+- **Type:** List
+- **Items:** <a href="#CombatStyleSpecialAbility/advanced[1]'OneOf/one_of/options[]">CombatStyleSpecialAbility/advanced[1]'OneOf/one_of/options[]</a>
+- **Minimum Items:** `2`
 
 #### <a name="CombatStyleSpecialAbility/advanced[1]'OneOf/one_of/is_selection_required_on_purchase"></a> `is_selection_required_on_purchase`
 
@@ -474,15 +478,15 @@ special ability? Otherwise the decision can be made later.
 
 ---
 
-### <a name="CombatStyleSpecialAbility/advanced[1]'OneOf/one_of/options"></a> `CombatStyleSpecialAbility/advanced[1]'OneOf/one_of/options`
+### <a name="CombatStyleSpecialAbility/advanced[1]'OneOf/one_of/options[]"></a> `CombatStyleSpecialAbility/advanced[1]'OneOf/one_of/options[]`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` |  | <a href="#CombatStyleSpecialAbility/advanced[1]'OneOf/one_of/options/id">See details</a>
+`id` |  | <a href="#CombatStyleSpecialAbility/advanced[1]'OneOf/one_of/options[]/id">See details</a>
 
-#### <a name="CombatStyleSpecialAbility/advanced[1]'OneOf/one_of/options/id"></a> `id`
+#### <a name="CombatStyleSpecialAbility/advanced[1]'OneOf/one_of/options[]/id"></a> `id`
 
 - **Type:** <a href="../_Identifier.md#AdvancedCombatSpecialAbilityIdentifier">AdvancedCombatSpecialAbilityIdentifier</a>
 
@@ -703,7 +707,9 @@ Key | Description | Details
 
 The possible advanced special abilities.
 
-- **Type:** <a href="#CombatStyleSpecialAbility/advanced[2]'OneOf/one_of/options">Object</a>
+- **Type:** List
+- **Items:** <a href="#CombatStyleSpecialAbility/advanced[2]'OneOf/one_of/options[]">CombatStyleSpecialAbility/advanced[2]'OneOf/one_of/options[]</a>
+- **Minimum Items:** `2`
 
 #### <a name="CombatStyleSpecialAbility/advanced[2]'OneOf/one_of/is_selection_required_on_purchase"></a> `is_selection_required_on_purchase`
 
@@ -718,15 +724,15 @@ special ability? Otherwise the decision can be made later.
 
 ---
 
-### <a name="CombatStyleSpecialAbility/advanced[2]'OneOf/one_of/options"></a> `CombatStyleSpecialAbility/advanced[2]'OneOf/one_of/options`
+### <a name="CombatStyleSpecialAbility/advanced[2]'OneOf/one_of/options[]"></a> `CombatStyleSpecialAbility/advanced[2]'OneOf/one_of/options[]`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` |  | <a href="#CombatStyleSpecialAbility/advanced[2]'OneOf/one_of/options/id">See details</a>
+`id` |  | <a href="#CombatStyleSpecialAbility/advanced[2]'OneOf/one_of/options[]/id">See details</a>
 
-#### <a name="CombatStyleSpecialAbility/advanced[2]'OneOf/one_of/options/id"></a> `id`
+#### <a name="CombatStyleSpecialAbility/advanced[2]'OneOf/one_of/options[]/id"></a> `id`
 
 - **Type:** <a href="../_Identifier.md#AdvancedCombatSpecialAbilityIdentifier">AdvancedCombatSpecialAbilityIdentifier</a>
 

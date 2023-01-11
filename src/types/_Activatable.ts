@@ -1228,8 +1228,9 @@ export type RestrictAdvancedSpecialAbilityOptions<Identifier> = {
 export type OneOfAdvancedSpecialAbilityOptions<Identifier> = {
   /**
    * The possible advanced special abilities.
+   * @minItems 2
    */
-  options: AdvancedSpecialAbilityReference<Identifier>
+  options: AdvancedSpecialAbilityReference<Identifier>[]
 
   /**
    * Do have to choose the advanced special ability when buying the style

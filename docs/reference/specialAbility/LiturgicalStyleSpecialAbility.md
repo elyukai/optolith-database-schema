@@ -198,7 +198,9 @@ Key | Description | Details
 
 The possible advanced special abilities.
 
-- **Type:** <a href="#LiturgicalStyleSpecialAbility/advanced[0]'OneOf/one_of/options">Object</a>
+- **Type:** List
+- **Items:** <a href="#LiturgicalStyleSpecialAbility/advanced[0]'OneOf/one_of/options[]">LiturgicalStyleSpecialAbility/advanced[0]'OneOf/one_of/options[]</a>
+- **Minimum Items:** `2`
 
 #### <a name="LiturgicalStyleSpecialAbility/advanced[0]'OneOf/one_of/is_selection_required_on_purchase"></a> `is_selection_required_on_purchase`
 
@@ -213,15 +215,15 @@ special ability? Otherwise the decision can be made later.
 
 ---
 
-### <a name="LiturgicalStyleSpecialAbility/advanced[0]'OneOf/one_of/options"></a> `LiturgicalStyleSpecialAbility/advanced[0]'OneOf/one_of/options`
+### <a name="LiturgicalStyleSpecialAbility/advanced[0]'OneOf/one_of/options[]"></a> `LiturgicalStyleSpecialAbility/advanced[0]'OneOf/one_of/options[]`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` |  | <a href="#LiturgicalStyleSpecialAbility/advanced[0]'OneOf/one_of/options/id">See details</a>
+`id` |  | <a href="#LiturgicalStyleSpecialAbility/advanced[0]'OneOf/one_of/options[]/id">See details</a>
 
-#### <a name="LiturgicalStyleSpecialAbility/advanced[0]'OneOf/one_of/options/id"></a> `id`
+#### <a name="LiturgicalStyleSpecialAbility/advanced[0]'OneOf/one_of/options[]/id"></a> `id`
 
 - **Type:** <a href="../_Identifier.md#AdvancedKarmaSpecialAbilityIdentifier">AdvancedKarmaSpecialAbilityIdentifier</a>
 
@@ -442,7 +444,9 @@ Key | Description | Details
 
 The possible advanced special abilities.
 
-- **Type:** <a href="#LiturgicalStyleSpecialAbility/advanced[1]'OneOf/one_of/options">Object</a>
+- **Type:** List
+- **Items:** <a href="#LiturgicalStyleSpecialAbility/advanced[1]'OneOf/one_of/options[]">LiturgicalStyleSpecialAbility/advanced[1]'OneOf/one_of/options[]</a>
+- **Minimum Items:** `2`
 
 #### <a name="LiturgicalStyleSpecialAbility/advanced[1]'OneOf/one_of/is_selection_required_on_purchase"></a> `is_selection_required_on_purchase`
 
@@ -457,15 +461,15 @@ special ability? Otherwise the decision can be made later.
 
 ---
 
-### <a name="LiturgicalStyleSpecialAbility/advanced[1]'OneOf/one_of/options"></a> `LiturgicalStyleSpecialAbility/advanced[1]'OneOf/one_of/options`
+### <a name="LiturgicalStyleSpecialAbility/advanced[1]'OneOf/one_of/options[]"></a> `LiturgicalStyleSpecialAbility/advanced[1]'OneOf/one_of/options[]`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` |  | <a href="#LiturgicalStyleSpecialAbility/advanced[1]'OneOf/one_of/options/id">See details</a>
+`id` |  | <a href="#LiturgicalStyleSpecialAbility/advanced[1]'OneOf/one_of/options[]/id">See details</a>
 
-#### <a name="LiturgicalStyleSpecialAbility/advanced[1]'OneOf/one_of/options/id"></a> `id`
+#### <a name="LiturgicalStyleSpecialAbility/advanced[1]'OneOf/one_of/options[]/id"></a> `id`
 
 - **Type:** <a href="../_Identifier.md#AdvancedKarmaSpecialAbilityIdentifier">AdvancedKarmaSpecialAbilityIdentifier</a>
 
@@ -686,7 +690,9 @@ Key | Description | Details
 
 The possible advanced special abilities.
 
-- **Type:** <a href="#LiturgicalStyleSpecialAbility/advanced[2]'OneOf/one_of/options">Object</a>
+- **Type:** List
+- **Items:** <a href="#LiturgicalStyleSpecialAbility/advanced[2]'OneOf/one_of/options[]">LiturgicalStyleSpecialAbility/advanced[2]'OneOf/one_of/options[]</a>
+- **Minimum Items:** `2`
 
 #### <a name="LiturgicalStyleSpecialAbility/advanced[2]'OneOf/one_of/is_selection_required_on_purchase"></a> `is_selection_required_on_purchase`
 
@@ -701,15 +707,15 @@ special ability? Otherwise the decision can be made later.
 
 ---
 
-### <a name="LiturgicalStyleSpecialAbility/advanced[2]'OneOf/one_of/options"></a> `LiturgicalStyleSpecialAbility/advanced[2]'OneOf/one_of/options`
+### <a name="LiturgicalStyleSpecialAbility/advanced[2]'OneOf/one_of/options[]"></a> `LiturgicalStyleSpecialAbility/advanced[2]'OneOf/one_of/options[]`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` |  | <a href="#LiturgicalStyleSpecialAbility/advanced[2]'OneOf/one_of/options/id">See details</a>
+`id` |  | <a href="#LiturgicalStyleSpecialAbility/advanced[2]'OneOf/one_of/options[]/id">See details</a>
 
-#### <a name="LiturgicalStyleSpecialAbility/advanced[2]'OneOf/one_of/options/id"></a> `id`
+#### <a name="LiturgicalStyleSpecialAbility/advanced[2]'OneOf/one_of/options[]/id"></a> `id`
 
 - **Type:** <a href="../_Identifier.md#AdvancedKarmaSpecialAbilityIdentifier">AdvancedKarmaSpecialAbilityIdentifier</a>
 

@@ -108,16 +108,21 @@
                       "type": "object",
                       "properties": {
                         "options": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "$ref": "../_Identifier.schema.json#/$defs/AdvancedCombatSpecialAbilityIdentifier"
-                            }
+                          "description": "The possible advanced special abilities.",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "$ref": "../_Identifier.schema.json#/$defs/AdvancedCombatSpecialAbilityIdentifier"
+                              }
+                            },
+                            "required": [
+                              "id"
+                            ],
+                            "additionalProperties": false
                           },
-                          "required": [
-                            "id"
-                          ],
-                          "additionalProperties": false
+                          "minItems": 2
                         },
                         "is_selection_required_on_purchase": {
                           "description": "Do have to choose the advanced special ability when buying the style\nspecial ability? Otherwise the decision can be made later.",
@@ -276,16 +281,21 @@
                       "type": "object",
                       "properties": {
                         "options": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "$ref": "../_Identifier.schema.json#/$defs/AdvancedCombatSpecialAbilityIdentifier"
-                            }
+                          "description": "The possible advanced special abilities.",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "$ref": "../_Identifier.schema.json#/$defs/AdvancedCombatSpecialAbilityIdentifier"
+                              }
+                            },
+                            "required": [
+                              "id"
+                            ],
+                            "additionalProperties": false
                           },
-                          "required": [
-                            "id"
-                          ],
-                          "additionalProperties": false
+                          "minItems": 2
                         },
                         "is_selection_required_on_purchase": {
                           "description": "Do have to choose the advanced special ability when buying the style\nspecial ability? Otherwise the decision can be made later.",
@@ -444,16 +454,21 @@
                       "type": "object",
                       "properties": {
                         "options": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "$ref": "../_Identifier.schema.json#/$defs/AdvancedCombatSpecialAbilityIdentifier"
-                            }
+                          "description": "The possible advanced special abilities.",
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "$ref": "../_Identifier.schema.json#/$defs/AdvancedCombatSpecialAbilityIdentifier"
+                              }
+                            },
+                            "required": [
+                              "id"
+                            ],
+                            "additionalProperties": false
                           },
-                          "required": [
-                            "id"
-                          ],
-                          "additionalProperties": false
+                          "minItems": 2
                         },
                         "is_selection_required_on_purchase": {
                           "description": "Do have to choose the advanced special ability when buying the style\nspecial ability? Otherwise the decision can be made later.",
