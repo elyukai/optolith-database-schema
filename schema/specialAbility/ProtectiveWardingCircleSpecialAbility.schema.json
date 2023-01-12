@@ -22,6 +22,11 @@
         "prerequisites": {
           "$ref": "../_Prerequisite.schema.json#/$defs/GeneralPrerequisites"
         },
+        "cost": {
+          "description": "The cost in AE.",
+          "type": "integer",
+          "minimum": 0
+        },
         "ap_value": {
           "$ref": "../_Activatable.schema.json#/$defs/AdventurePointsValue"
         },
@@ -42,6 +47,7 @@
       },
       "required": [
         "id",
+        "cost",
         "ap_value",
         "src",
         "translations"

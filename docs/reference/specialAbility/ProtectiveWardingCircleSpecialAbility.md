@@ -13,6 +13,7 @@ Key | Description | Details
 `select_options?` |  | <a href="#ProtectiveWardingCircleSpecialAbility/select_options">See details</a>
 `maximum?` |  | <a href="#ProtectiveWardingCircleSpecialAbility/maximum">See details</a>
 `prerequisites?` |  | <a href="#ProtectiveWardingCircleSpecialAbility/prerequisites">See details</a>
+`cost` | The cost in AE. | <a href="#ProtectiveWardingCircleSpecialAbility/cost">See details</a>
 `ap_value` |  | <a href="#ProtectiveWardingCircleSpecialAbility/ap_value">See details</a>
 `src` |  | <a href="#ProtectiveWardingCircleSpecialAbility/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ProtectiveWardingCircleSpecialAbility/translations">See details</a>
@@ -36,6 +37,13 @@ Key | Description | Details
 #### <a name="ProtectiveWardingCircleSpecialAbility/prerequisites"></a> `prerequisites?`
 
 - **Type:** <a href="../_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
+
+#### <a name="ProtectiveWardingCircleSpecialAbility/cost"></a> `cost`
+
+The cost in AE.
+
+- **Type:** Integer
+- **Minimum:** `0`
 
 #### <a name="ProtectiveWardingCircleSpecialAbility/ap_value"></a> `ap_value`
 

@@ -24,6 +24,13 @@ export type ProtectiveWardingCircleSpecialAbility = {
 
   prerequisites?: GeneralPrerequisites
 
+  /**
+   * The cost in AE.
+   * @integer
+   * @minimum 0
+   */
+  cost: number
+
   ap_value: Activatable.AdventurePointsValue
 
   src: PublicationRefs
@@ -38,8 +45,6 @@ export type ProtectiveWardingCircleSpecialAbilityTranslation = {
   name: Activatable.Name
 
   name_in_library?: Activatable.NameInLibrary
-
-  // ae_cost?: Activatable.ArcaneEnergyCost
 
   /**
    * The rules for the protective circle variant.
