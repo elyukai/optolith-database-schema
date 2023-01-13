@@ -48,6 +48,7 @@ export type ActivatableIdentifier =
   | Identifier.RingEnchantmentIdentifier
   | Identifier.ChronicleEnchantmentIdentifier
   | Identifier.KrallenkettenzauberIdentifier
+  | Identifier.TrinkhornzauberIdentifier
 
 export type SpecialAbilityIdentifier =
   | Identifier.GeneralSpecialAbilityIdentifier
@@ -95,6 +96,7 @@ export type SpecialAbilityIdentifier =
   | Identifier.RingEnchantmentIdentifier
   | Identifier.ChronicleEnchantmentIdentifier
   | Identifier.KrallenkettenzauberIdentifier
+  | Identifier.TrinkhornzauberIdentifier
 
 export type CombatRelatedSpecialAbilityIdentifier =
   | Identifier.CombatSpecialAbilityIdentifier

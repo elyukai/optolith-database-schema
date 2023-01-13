@@ -1300,6 +1300,28 @@ The Krallenkettenzauber’s identifier.
 
 ---
 
+### <a name="TrinkhornzauberIdentifier"></a> `TrinkhornzauberIdentifier`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#TrinkhornzauberIdentifier/tag">See details</a>
+`trinkhornzauber` | The Trinkhornzauber’s identifier. | <a href="#TrinkhornzauberIdentifier/trinkhornzauber">See details</a>
+
+#### <a name="TrinkhornzauberIdentifier/tag"></a> `tag`
+
+- **Constant:** `"Trinkhornzauber"`
+
+#### <a name="TrinkhornzauberIdentifier/trinkhornzauber"></a> `trinkhornzauber`
+
+The Trinkhornzauber’s identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
 ### <a name="LanguageIdentifier"></a> `LanguageIdentifier`
 
 - **Type:** Object

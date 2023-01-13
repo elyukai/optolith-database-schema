@@ -1064,6 +1064,24 @@
       ],
       "additionalProperties": false
     },
+    "TrinkhornzauberIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Trinkhornzauber"
+        },
+        "trinkhornzauber": {
+          "description": "The Trinkhornzauber’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "trinkhornzauber"
+      ],
+      "additionalProperties": false
+    },
     "LanguageIdentifier": {
       "type": "object",
       "properties": {

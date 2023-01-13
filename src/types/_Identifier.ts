@@ -647,6 +647,17 @@ export type KrallenkettenzauberIdentifier = {
   krallenkettenzauber: number
 }
 
+export type TrinkhornzauberIdentifier = {
+  tag: "Trinkhornzauber"
+
+  /**
+   * The Trinkhornzauber’s identifier.
+   * @integer
+   * @minimum 1
+   */
+  trinkhornzauber: number
+}
+
 export type LanguageIdentifier = {
   tag: "Language"
 
