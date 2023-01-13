@@ -14,7 +14,7 @@ Key | Description | Details
 `maximum?` |  | <a href="#ToyEnchantment/maximum">See details</a>
 `prerequisites?` |  | <a href="#ToyEnchantment/prerequisites">See details</a>
 `volume` |  | <a href="#ToyEnchantment/volume">See details</a>
-`cost` |  | <a href="#ToyEnchantment/cost">See details</a>
+`cost?` |  | <a href="#ToyEnchantment/cost">See details</a>
 `property` |  | <a href="#ToyEnchantment/property">See details</a>
 `ap_value` |  | <a href="#ToyEnchantment/ap_value">See details</a>
 `src` |  | <a href="#ToyEnchantment/src">See details</a>
@@ -44,7 +44,7 @@ Key | Description | Details
 
 - **Type:** <a href="../_Activatable.md#Volume">Volume</a>
 
-#### <a name="ToyEnchantment/cost"></a> `cost`
+#### <a name="ToyEnchantment/cost"></a> `cost?`
 
 - **Type:** <a href="../_Activatable.md#EnchantmentCost">EnchantmentCost</a>
 

@@ -25,7 +25,7 @@ export type ToyEnchantment = {
 
   volume: Activatable.Volume
 
-  cost: Activatable.EnchantmentCost
+  cost?: Activatable.EnchantmentCost
 
   property: Activatable.Property
 

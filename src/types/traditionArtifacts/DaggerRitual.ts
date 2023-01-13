@@ -26,7 +26,7 @@ export type DaggerRitual = {
 
   volume: Activatable.Volume
 
-  cost: DaggerRitualCost
+  cost?: DaggerRitualCost
 
   property: Activatable.Property
 

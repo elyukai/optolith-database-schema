@@ -14,7 +14,7 @@ Key | Description | Details
 `maximum?` |  | <a href="#DaggerRitual/maximum">See details</a>
 `prerequisites?` |  | <a href="#DaggerRitual/prerequisites">See details</a>
 `volume` |  | <a href="#DaggerRitual/volume">See details</a>
-`cost` |  | <a href="#DaggerRitual/cost">See details</a>
+`cost?` |  | <a href="#DaggerRitual/cost">See details</a>
 `property` |  | <a href="#DaggerRitual/property">See details</a>
 `ap_value` |  | <a href="#DaggerRitual/ap_value">See details</a>
 `src` |  | <a href="#DaggerRitual/src">See details</a>
@@ -44,7 +44,7 @@ Key | Description | Details
 
 - **Type:** <a href="../_Activatable.md#Volume">Volume</a>
 
-#### <a name="DaggerRitual/cost"></a> `cost`
+#### <a name="DaggerRitual/cost"></a> `cost?`
 
 - **Type:** <a href="#DaggerRitualCost">DaggerRitualCost</a>
 
