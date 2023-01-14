@@ -23,8 +23,6 @@ export type WandEnchantment = {
 
   prerequisites?: GeneralPrerequisites
 
-  volume: Activatable.Volume
-
   cost?: Activatable.EnchantmentCost
 
   property: Activatable.Property
@@ -53,11 +51,6 @@ export type WandEnchantmentTranslation = {
   // prerequisites_start?: Activatable.PrerequisitesStart
 
   // prerequisites_end?: Activatable.PrerequisitesEnd
-
-  /**
-   * @deprecated
-   */
-  volume: string
 
   /**
    * @deprecated

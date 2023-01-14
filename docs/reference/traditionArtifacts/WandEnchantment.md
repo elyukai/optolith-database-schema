@@ -13,7 +13,6 @@ Key | Description | Details
 `select_options?` |  | <a href="#WandEnchantment/select_options">See details</a>
 `maximum?` |  | <a href="#WandEnchantment/maximum">See details</a>
 `prerequisites?` |  | <a href="#WandEnchantment/prerequisites">See details</a>
-`volume` |  | <a href="#WandEnchantment/volume">See details</a>
 `cost?` |  | <a href="#WandEnchantment/cost">See details</a>
 `property` |  | <a href="#WandEnchantment/property">See details</a>
 `ap_value` |  | <a href="#WandEnchantment/ap_value">See details</a>
@@ -39,10 +38,6 @@ Key | Description | Details
 #### <a name="WandEnchantment/prerequisites"></a> `prerequisites?`
 
 - **Type:** <a href="../_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
-
-#### <a name="WandEnchantment/volume"></a> `volume`
-
-- **Type:** <a href="../_Activatable.md#Volume">Volume</a>
 
 #### <a name="WandEnchantment/cost"></a> `cost?`
 
@@ -86,7 +81,6 @@ Key | Description | Details
 `name` |  | <a href="#WandEnchantmentTranslation/name">See details</a>
 `name_in_library?` |  | <a href="#WandEnchantmentTranslation/name_in_library">See details</a>
 `effect` |  | <a href="#WandEnchantmentTranslation/effect">See details</a>
-`volume` |  | <a href="#WandEnchantmentTranslation/volume">See details</a>
 `aeCost?` |  | <a href="#WandEnchantmentTranslation/aeCost">See details</a>
 `bindingCost?` |  | <a href="#WandEnchantmentTranslation/bindingCost">See details</a>
 `errata?` |  | <a href="#WandEnchantmentTranslation/errata">See details</a>
@@ -102,10 +96,6 @@ Key | Description | Details
 #### <a name="WandEnchantmentTranslation/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
-
-#### <a name="WandEnchantmentTranslation/volume"></a> `volume`
-
-- **Type:** String
 
 #### <a name="WandEnchantmentTranslation/aeCost"></a> `aeCost?`
 

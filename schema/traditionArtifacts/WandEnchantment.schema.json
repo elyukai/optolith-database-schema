@@ -22,9 +22,6 @@
         "prerequisites": {
           "$ref": "../_Prerequisite.schema.json#/$defs/GeneralPrerequisites"
         },
-        "volume": {
-          "$ref": "../_Activatable.schema.json#/$defs/Volume"
-        },
         "cost": {
           "$ref": "../_Activatable.schema.json#/$defs/EnchantmentCost"
         },
@@ -51,7 +48,6 @@
       },
       "required": [
         "id",
-        "volume",
         "property",
         "ap_value",
         "src",
@@ -71,9 +67,6 @@
         "effect": {
           "$ref": "../_Activatable.schema.json#/$defs/Effect"
         },
-        "volume": {
-          "type": "string"
-        },
         "aeCost": {
           "type": "string"
         },
@@ -86,8 +79,7 @@
       },
       "required": [
         "name",
-        "effect",
-        "volume"
+        "effect"
       ],
       "additionalProperties": false
     }
