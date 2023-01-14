@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.9.0](https://github.com/elyukai/optolith-database-schema/compare/v0.8.1...v0.9.0) (2023-01-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* make protective/warding circle cost language-independent
+* change magical rune options to explicit options
+
+### Features
+
+* add trinkhornzauber identifier to applying identifier groups ([f6671e3](https://github.com/elyukai/optolith-database-schema/commit/f6671e31bd94a8a6600e17dc448e619be2e30d74))
+* change magical rune options to explicit options ([a8c45d1](https://github.com/elyukai/optolith-database-schema/commit/a8c45d148d8ad5060b3d60536b11c39673fb01ab))
+* magical signs ([4517d64](https://github.com/elyukai/optolith-database-schema/commit/4517d64bdafd1800074bac684053abbdc104518e))
+* make protective/warding circle cost language-independent ([27640a6](https://github.com/elyukai/optolith-database-schema/commit/27640a695050597ba910331ab1e35094a0f827f2))
+
+
+### Bug Fixes
+
+* advanced special ability OneOf option should allow and required multiple options ([0e5bbd4](https://github.com/elyukai/optolith-database-schema/commit/0e5bbd485da7843f810e092883c03c12dced1e57))
+* make cost optional for all tradition arfifact enchantments ([6025485](https://github.com/elyukai/optolith-database-schema/commit/60254855e2e236f328d1f1480b009f322b0881d9))
+* some tradition properties have to be optional ([687665d](https://github.com/elyukai/optolith-database-schema/commit/687665d0a0699e8ee25d2f378cb3b041384173bb))
+* translation was not embedded in locale map ([a395778](https://github.com/elyukai/optolith-database-schema/commit/a39577830351b36595a06c247234fac3a3d499b1))
+* wand enchantments dont use volume ([1a3f34a](https://github.com/elyukai/optolith-database-schema/commit/1a3f34a3880fb19ab6fbe7cc7a481e2deb7bab9a))
+
 ### [0.8.1](https://github.com/elyukai/optolith-database-schema/compare/v0.8.0...v0.8.1) (2023-01-08)
 
 
