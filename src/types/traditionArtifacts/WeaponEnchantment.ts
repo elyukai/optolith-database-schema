@@ -6,6 +6,7 @@ import { validateSchemaCreator } from "../../validation/schema.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import * as Activatable from "../_Activatable.js"
+import { LocaleMap } from "../_LocaleMap.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 
 /**
@@ -35,7 +36,7 @@ export type WeaponEnchantment = {
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
    */
-  translations: WeaponEnchantmentTranslation
+  translations: LocaleMap<WeaponEnchantmentTranslation>
 }
 
 export type WeaponEnchantmentTranslation = {
