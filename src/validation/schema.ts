@@ -12,10 +12,10 @@ export type FileNameError = {
 const fileNameError = (fileName: string): FileNameError => ({
   keyword: "filename",
   instancePath: "",
-  message: `the file name "${fileName}" does not match the pattern ^[1-9][0-9]*_[A-Z][a-z]*(?:-[a-zA-Z][a-z]*)\\.yml$`
+  message: `the file name "${fileName}" does not match the pattern ^[1-9][0-9]*_[A-Z][a-zA-Z]*(?:-[a-zA-Z]+)*\\.yml$`
 })
 
-const baseNamePattern = /^[1-9][0-9]*_[A-Z][a-z]*(?:-[a-zA-Z][a-z]*)*\.yml$/
+const baseNamePattern = /^[1-9][0-9]*_[A-Z][a-zA-Z]*(?:-[a-zA-Z]+)*\.yml$/
 
 export type TypeValidationResult<T> =
   | { tag: "Ok", value: T }
