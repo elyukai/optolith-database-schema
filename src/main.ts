@@ -168,6 +168,7 @@ export const printErrors = (errorsByFile: Record<string, TypeValidationResultErr
   const { verbose = false } = printOptions
 
   return Object.entries(errorsByFile)
+    .sort(([filePathA], [filePathB]) => collator.compare(filePathA, filePathB))
     .flatMap(
       ([filePath, errors]) => {
         if (verbose) {
