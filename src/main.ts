@@ -21,19 +21,21 @@ const readdirRecursive = async (dirPath: string): Promise<string[]> => {
   const directoryEntries = await readdir(dirPath, { withFileTypes: true })
 
   const flattenedRecursivePaths = await Promise.all(
-    directoryEntries.map(async dirEntry => {
-      const absoluteEntryPath = join(dirPath, dirEntry.name)
+    directoryEntries
+      .filter(dirEntry => !dirEntry.name.startsWith("."))
+      .map(async dirEntry => {
+        const absoluteEntryPath = join(dirPath, dirEntry.name)
 
-      if (dirEntry.isDirectory()) {
-        return await readdirRecursive(absoluteEntryPath)
-      }
-      else if (dirEntry.isFile()) {
-        return [absoluteEntryPath]
-      }
-      else {
-        return []
-      }
-    })
+        if (dirEntry.isDirectory()) {
+          return (await readdirRecursive(absoluteEntryPath))
+        }
+        else if (dirEntry.isFile()) {
+          return [absoluteEntryPath]
+        }
+        else {
+          return []
+        }
+      })
   )
 
   return flattenedRecursivePaths.flat()
@@ -63,8 +65,9 @@ const readDataFileAssocsFromDirectory = async (dirPath: string) => {
   filenames.sort(collator.compare)
 
   return await Promise.all(
-    filenames.map(
-      async (fileName): Promise<[string, unknown]> => {
+    filenames
+      .filter(fileName => !fileName.startsWith("."))
+      .map(async (fileName): Promise<[string, unknown]> => {
         const filePath = join(dirPath, fileName)
 
         try {
@@ -79,8 +82,7 @@ const readDataFileAssocsFromDirectory = async (dirPath: string) => {
 
           return [filePath, null]
         }
-      }
-    )
+      })
   )}
 
 const validateAllFromType = async <K extends keyof TypeMap>(validator: Ajv, typeName: K, path: string): Promise<Record<string, TypeValidationResult<TypeMap[K]>>> => {
