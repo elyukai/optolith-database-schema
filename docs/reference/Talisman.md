@@ -10,8 +10,8 @@ Key | Description | Details
 :-- | :-- | :--
 `id` | The talisman's identifier. An unique, increasing integer. | <a href="#Talisman/id">See details</a>
 `tradition` | The tradition(s) the talisman belongs to. | <a href="#Talisman/tradition">See details</a>
-`type` | The talisman type. | <a href="#Talisman/type">See details</a>
-`ap_value` | The AP value for the required trade secret. | <a href="#Talisman/ap_value">See details</a>
+`type?` | The talisman type, if any. | <a href="#Talisman/type">See details</a>
+`ap_value?` | The AP value for the required trade secret, if possible. | <a href="#Talisman/ap_value">See details</a>
 `src` |  | <a href="#Talisman/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Talisman/translations">See details</a>
 
@@ -30,15 +30,15 @@ The tradition(s) the talisman belongs to.
 - **Items:** <a href="#Talisman/tradition[]">Talisman/tradition[]</a>
 - **Minimum Items:** `1`
 
-#### <a name="Talisman/type"></a> `type`
+#### <a name="Talisman/type"></a> `type?`
 
-The talisman type.
+The talisman type, if any.
 
 - **Type:** <a href="#TalismanType">TalismanType</a>
 
-#### <a name="Talisman/ap_value"></a> `ap_value`
+#### <a name="Talisman/ap_value"></a> `ap_value?`
 
-The AP value for the required trade secret.
+The AP value for the required trade secret, if possible.
 
 - **Type:** Integer
 - **Minimum:** `5`

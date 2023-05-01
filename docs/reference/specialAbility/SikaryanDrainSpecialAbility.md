@@ -71,6 +71,7 @@ Key | Description | Details
 `name` |  | <a href="#SikaryanDrainSpecialAbilityTranslation/name">See details</a>
 `name_in_library?` |  | <a href="#SikaryanDrainSpecialAbilityTranslation/name_in_library">See details</a>
 `rules` |  | <a href="#SikaryanDrainSpecialAbilityTranslation/rules">See details</a>
+`ap_value?` | The AP value. It is only used if the text cannot be generated from the given information. | <a href="#SikaryanDrainSpecialAbilityTranslation/ap_value">See details</a>
 `errata?` |  | <a href="#SikaryanDrainSpecialAbilityTranslation/errata">See details</a>
 
 #### <a name="SikaryanDrainSpecialAbilityTranslation/name"></a> `name`
@@ -84,6 +85,13 @@ Key | Description | Details
 #### <a name="SikaryanDrainSpecialAbilityTranslation/rules"></a> `rules`
 
 - **Type:** <a href="../_Activatable.md#Rules">Rules</a>
+
+#### <a name="SikaryanDrainSpecialAbilityTranslation/ap_value"></a> `ap_value?`
+
+The AP value. It is only used if the text cannot be generated from the
+given information.
+
+- **Type:** <a href="../_Activatable.md#AdventurePointsValueReplacement">AdventurePointsValueReplacement</a>
 
 #### <a name="SikaryanDrainSpecialAbilityTranslation/errata"></a> `errata?`
 

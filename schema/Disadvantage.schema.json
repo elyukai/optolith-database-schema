@@ -67,6 +67,10 @@
         "name_in_library": {
           "$ref": "./_Activatable.schema.json#/$defs/NameInLibrary"
         },
+        "input": {
+          "description": "A string that is used as a label for an input field.",
+          "$ref": "./_Activatable.schema.json#/$defs/Input"
+        },
         "rules": {
           "$ref": "./_Activatable.schema.json#/$defs/Rules"
         },
@@ -74,6 +78,10 @@
           "description": "The range.",
           "type": "string",
           "minLength": 1
+        },
+        "ap_value_append": {
+          "description": "A string that gets appended to the default AP Value text with a preceding\nspace. This always happens if present, even if the generated AP Value text\nis replaced.",
+          "$ref": "./_Activatable.schema.json#/$defs/AdventurePointsValueAppend"
         },
         "errata": {
           "$ref": "./source/_Erratum.schema.json#/$defs/Errata"

@@ -80,6 +80,10 @@
         "bindingCost": {
           "type": "string"
         },
+        "ap_value": {
+          "description": "The AP value. It is only used if the text cannot be generated from the\ngiven information.",
+          "$ref": "../_Activatable.schema.json#/$defs/AdventurePointsValueReplacement"
+        },
         "errata": {
           "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
         }

@@ -74,6 +74,10 @@
         "name_in_library": {
           "$ref": "../_Activatable.schema.json#/$defs/NameInLibrary"
         },
+        "input": {
+          "description": "A string that is used as a label for an input field.",
+          "$ref": "../_Activatable.schema.json#/$defs/Input"
+        },
         "rules": {
           "$ref": "../_Activatable.schema.json#/$defs/Rules"
         },

@@ -21,11 +21,11 @@
           "minItems": 1
         },
         "type": {
-          "description": "The talisman type.",
+          "description": "The talisman type, if any.",
           "$ref": "#/$defs/TalismanType"
         },
         "ap_value": {
-          "description": "The AP value for the required trade secret.",
+          "description": "The AP value for the required trade secret, if possible.",
           "type": "integer",
           "minimum": 5,
           "multipleOf": 5
@@ -48,8 +48,6 @@
       "required": [
         "id",
         "tradition",
-        "type",
-        "ap_value",
         "src",
         "translations"
       ],

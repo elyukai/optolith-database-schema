@@ -186,6 +186,7 @@ Key | Description | Details
 `skill_applications?` | Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option. | <a href="#ExplicitGeneralSelectOption/skill_applications">See details</a>
 `skill_uses?` | Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option. | <a href="#ExplicitGeneralSelectOption/skill_uses">See details</a>
 `prerequisites?` |  | <a href="#ExplicitGeneralSelectOption/prerequisites">See details</a>
+`binding_cost?` | Specific binding cost for the select option. Only has an effect if the associated entry supports binding costs. | <a href="#ExplicitGeneralSelectOption/binding_cost">See details</a>
 `ap_value?` | Specific AP cost for the select option. | <a href="#ExplicitGeneralSelectOption/ap_value">See details</a>
 `src?` |  | <a href="#ExplicitGeneralSelectOption/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ExplicitGeneralSelectOption/translations">See details</a>
@@ -227,6 +228,14 @@ name of the origin select option.
 #### <a name="ExplicitGeneralSelectOption/prerequisites"></a> `prerequisites?`
 
 - **Type:** <a href="./_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
+
+#### <a name="ExplicitGeneralSelectOption/binding_cost"></a> `binding_cost?`
+
+Specific binding cost for the select option. Only has an effect if the
+associated entry supports binding costs.
+
+- **Type:** Integer
+- **Minimum:** `0`
 
 #### <a name="ExplicitGeneralSelectOption/ap_value"></a> `ap_value?`
 
@@ -306,6 +315,7 @@ Key | Description | Details
 `skill_applications?` | Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option. | <a href="#ExplicitSkillSelectOption/skill_applications">See details</a>
 `skill_uses?` | Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option. | <a href="#ExplicitSkillSelectOption/skill_uses">See details</a>
 `prerequisites?` |  | <a href="#ExplicitSkillSelectOption/prerequisites">See details</a>
+`binding_cost?` | Specific binding cost for the select option. Only has an effect if the associated entry supports binding costs. | <a href="#ExplicitSkillSelectOption/binding_cost">See details</a>
 `ap_value?` | Specific AP cost for the select option. | <a href="#ExplicitSkillSelectOption/ap_value">See details</a>
 `src?` |  | <a href="#ExplicitSkillSelectOption/src">See details</a>
 `translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ExplicitSkillSelectOption/translations">See details</a>
@@ -341,6 +351,14 @@ name of the origin select option.
 #### <a name="ExplicitSkillSelectOption/prerequisites"></a> `prerequisites?`
 
 - **Type:** <a href="./_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
+
+#### <a name="ExplicitSkillSelectOption/binding_cost"></a> `binding_cost?`
+
+Specific binding cost for the select option. Only has an effect if the
+associated entry supports binding costs.
+
+- **Type:** Integer
+- **Minimum:** `0`
 
 #### <a name="ExplicitSkillSelectOption/ap_value"></a> `ap_value?`
 
@@ -405,6 +423,7 @@ Key | Description | Details
 :-- | :-- | :--
 `id` | The combat technique's identifier. | <a href="#ExplicitCombatTechniqueSelectOption/id">See details</a>
 `prerequisites?` |  | <a href="#ExplicitCombatTechniqueSelectOption/prerequisites">See details</a>
+`binding_cost?` | Specific binding cost for the select option. Only has an effect if the associated entry supports binding costs. | <a href="#ExplicitCombatTechniqueSelectOption/binding_cost">See details</a>
 `ap_value?` | Specific AP cost for the select option. | <a href="#ExplicitCombatTechniqueSelectOption/ap_value">See details</a>
 `src?` |  | <a href="#ExplicitCombatTechniqueSelectOption/src">See details</a>
 `translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ExplicitCombatTechniqueSelectOption/translations">See details</a>
@@ -418,6 +437,14 @@ The combat technique's identifier.
 #### <a name="ExplicitCombatTechniqueSelectOption/prerequisites"></a> `prerequisites?`
 
 - **Type:** <a href="./_Prerequisite.md#GeneralPrerequisites">GeneralPrerequisites</a>
+
+#### <a name="ExplicitCombatTechniqueSelectOption/binding_cost"></a> `binding_cost?`
+
+Specific binding cost for the select option. Only has an effect if the
+associated entry supports binding costs.
+
+- **Type:** Integer
+- **Minimum:** `0`
 
 #### <a name="ExplicitCombatTechniqueSelectOption/ap_value"></a> `ap_value?`
 
@@ -1683,7 +1710,15 @@ The time interval for which the AE cost `value` has to be paid.
 
 Key | Description | Details
 :-- | :-- | :--
+`modifier?` | Specified if the indefinite AP cost description needs to be modified by a certain value. | <a href="#IndefiniteArcaneEnergyCost/modifier">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#IndefiniteArcaneEnergyCost/translations">See details</a>
+
+#### <a name="IndefiniteArcaneEnergyCost/modifier"></a> `modifier?`
+
+Specified if the indefinite AP cost description needs to be modified by a
+certain value.
+
+- **Type:** <a href="#IndefiniteArcaneEnergyCostModifier">IndefiniteArcaneEnergyCostModifier</a>
 
 #### <a name="IndefiniteArcaneEnergyCost/translations"></a> `translations`
 
@@ -1699,6 +1734,36 @@ All translations for the entry, identified by IETF language tag (BCP47).
 ### <a name="IndefiniteArcaneEnergyCost/translations[key]"></a> `IndefiniteArcaneEnergyCost/translations[key]`
 
 - **Type:** <a href="#IndefiniteArcaneEnergyCostTranslation">IndefiniteArcaneEnergyCostTranslation</a>
+
+---
+
+### <a name="IndefiniteArcaneEnergyCostModifier"></a> `IndefiniteArcaneEnergyCostModifier`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`arithmetic` | The arithmetic how to apply the `value` to the `base`. | <a href="#IndefiniteArcaneEnergyCostModifier/arithmetic">See details</a>
+`value` | The value that is applied to the `base` using the defined `arithmetic`. | <a href="#IndefiniteArcaneEnergyCostModifier/value">See details</a>
+
+#### <a name="IndefiniteArcaneEnergyCostModifier/arithmetic"></a> `arithmetic`
+
+The arithmetic how to apply the `value` to the `base`.
+
+- **Type:** <a href="#IndefiniteArcaneEnergyCostModifierArithmetic">IndefiniteArcaneEnergyCostModifierArithmetic</a>
+
+#### <a name="IndefiniteArcaneEnergyCostModifier/value"></a> `value`
+
+The value that is applied to the `base` using the defined `arithmetic`.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="IndefiniteArcaneEnergyCostModifierArithmetic"></a> `IndefiniteArcaneEnergyCostModifierArithmetic`
+
+- **Possible values:** `"Add"`
 
 ---
 
@@ -1883,7 +1948,7 @@ A note, appended to the generated string in parenthesis.
 The volume points the enchantment needs.
 
 - **Type:** Union
-- **Cases:** <a href="#Volume'Fixed">Volume'Fixed</a> | <a href="#Volume'PerLevel">Volume'PerLevel</a> | <a href="#Volume'ByLevel">Volume'ByLevel</a> | <a href="#Volume'Map">Volume'Map</a>
+- **Cases:** <a href="#Volume'Fixed">Volume'Fixed</a> | <a href="#Volume'PerLevel">Volume'PerLevel</a> | <a href="#Volume'ByLevel">Volume'ByLevel</a> | <a href="#Volume'Map">Volume'Map</a> | <a href="#Volume'DerivedFromSelection">Volume'DerivedFromSelection</a>
 
 ---
 
@@ -1960,6 +2025,25 @@ Key | Description | Details
 #### <a name="Volume'Map/map"></a> `map`
 
 - **Type:** <a href="#VolumeMap">VolumeMap</a>
+
+---
+
+### <a name="Volume'DerivedFromSelection"></a> `Volume'DerivedFromSelection`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#Volume'DerivedFromSelection/tag">See details</a>
+`derived_from_selection` |  | <a href="#Volume'DerivedFromSelection/derived_from_selection">See details</a>
+
+#### <a name="Volume'DerivedFromSelection/tag"></a> `tag`
+
+- **Constant:** `"DerivedFromSelection"`
+
+#### <a name="Volume'DerivedFromSelection/derived_from_selection"></a> `derived_from_selection`
+
+- **Type:** <a href="#VolumeDerivedFromSelection">VolumeDerivedFromSelection</a>
 
 ---
 
@@ -2243,12 +2327,29 @@ different from `label`.
 
 ---
 
+### <a name="VolumeDerivedFromSelection"></a> `VolumeDerivedFromSelection`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`fallback` | The volume for the selection if it does not define a specific one. | <a href="#VolumeDerivedFromSelection/fallback">See details</a>
+
+#### <a name="VolumeDerivedFromSelection/fallback"></a> `fallback`
+
+The volume for the selection if it does not define a specific one.
+
+- **Type:** Integer
+- **Minimum:** `0`
+
+---
+
 ### <a name="BindingCost"></a> `BindingCost`
 
 The binding cost for an enchantment.
 
 - **Type:** Union
-- **Cases:** <a href="#BindingCost'Fixed">BindingCost'Fixed</a> | <a href="#BindingCost'PerLevel">BindingCost'PerLevel</a> | <a href="#BindingCost'Map">BindingCost'Map</a>
+- **Cases:** <a href="#BindingCost'Fixed">BindingCost'Fixed</a> | <a href="#BindingCost'PerLevel">BindingCost'PerLevel</a> | <a href="#BindingCost'Map">BindingCost'Map</a> | <a href="#BindingCost'DerivedFromSelection">BindingCost'DerivedFromSelection</a>
 
 ---
 
@@ -2306,6 +2407,25 @@ Key | Description | Details
 #### <a name="BindingCost'Map/map"></a> `map`
 
 - **Type:** <a href="#BindingCostMap">BindingCostMap</a>
+
+---
+
+### <a name="BindingCost'DerivedFromSelection"></a> `BindingCost'DerivedFromSelection`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#BindingCost'DerivedFromSelection/tag">See details</a>
+`derived_from_selection` |  | <a href="#BindingCost'DerivedFromSelection/derived_from_selection">See details</a>
+
+#### <a name="BindingCost'DerivedFromSelection/tag"></a> `tag`
+
+- **Constant:** `"DerivedFromSelection"`
+
+#### <a name="BindingCost'DerivedFromSelection/derived_from_selection"></a> `derived_from_selection`
+
+- **Type:** <a href="#BindingCostDerivedFromSelection">BindingCostDerivedFromSelection</a>
 
 ---
 
@@ -2503,6 +2623,23 @@ different from `label`.
 
 ---
 
+### <a name="BindingCostDerivedFromSelection"></a> `BindingCostDerivedFromSelection`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`fallback` | The binding cost for the selection if it does not define a specific one. | <a href="#BindingCostDerivedFromSelection/fallback">See details</a>
+
+#### <a name="BindingCostDerivedFromSelection/fallback"></a> `fallback`
+
+The binding cost for the selection if it does not define a specific one.
+
+- **Type:** Integer
+- **Minimum:** `0`
+
+---
+
 ### <a name="Property"></a> `Property`
 
 The magic property's identifier. `DependingOnProperty` can only be used if
@@ -2574,6 +2711,15 @@ The blessed aspect.
 ### <a name="AdvancedSpecialAbilityDerivedExternalEntryOptionId"></a> `AdvancedSpecialAbilityDerivedExternalEntryOptionId`
 
 - **Type:** <a href="./_Identifier.md#PatronIdentifier">PatronIdentifier</a>
+
+---
+
+### <a name="PrerequisitesReplacement"></a> `PrerequisitesReplacement`
+
+The prerequisites text. It is only used if the text cannot be generated from
+the given information.
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
 ---
 
@@ -3525,7 +3671,7 @@ The specific weapons this combat special ability is only applicable to.
 ### <a name="AdventurePointsValue"></a> `AdventurePointsValue`
 
 - **Type:** Union
-- **Cases:** <a href="#AdventurePointsValue'Fixed">AdventurePointsValue'Fixed</a> | <a href="#AdventurePointsValue'ByLevel">AdventurePointsValue'ByLevel</a> | <a href="#AdventurePointsValue'Indefinite">AdventurePointsValue'Indefinite</a>
+- **Cases:** <a href="#AdventurePointsValue'Fixed">AdventurePointsValue'Fixed</a> | <a href="#AdventurePointsValue'ByLevel">AdventurePointsValue'ByLevel</a> | <a href="#AdventurePointsValue'DerivedFromSelection">AdventurePointsValue'DerivedFromSelection</a> | <a href="#AdventurePointsValue'Indefinite">AdventurePointsValue'Indefinite</a>
 
 ---
 
@@ -3564,6 +3710,25 @@ Key | Description | Details
 #### <a name="AdventurePointsValue'ByLevel/by_level"></a> `by_level`
 
 - **Type:** <a href="#AdventurePointsValueByLevel">AdventurePointsValueByLevel</a>
+
+---
+
+### <a name="AdventurePointsValue'DerivedFromSelection"></a> `AdventurePointsValue'DerivedFromSelection`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AdventurePointsValue'DerivedFromSelection/tag">See details</a>
+`derived_from_selection` |  | <a href="#AdventurePointsValue'DerivedFromSelection/derived_from_selection">See details</a>
+
+#### <a name="AdventurePointsValue'DerivedFromSelection/tag"></a> `tag`
+
+- **Constant:** `"DerivedFromSelection"`
+
+#### <a name="AdventurePointsValue'DerivedFromSelection/derived_from_selection"></a> `derived_from_selection`
+
+- **Type:** <a href="#AdventurePointsDerivedFromSelection">AdventurePointsDerivedFromSelection</a>
 
 ---
 
@@ -3618,9 +3783,84 @@ the list must match the amount of levels the special ability has.
 
 ---
 
+### <a name="AdventurePointsDerivedFromSelection"></a> `AdventurePointsDerivedFromSelection`
+
+The adventure points value is derived from the selection of the special
+ability. Its display value may be able to be derived from the given
+information for the select options. If that is not the case or the generated
+text would not match the original one, a replacement text can be provided.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#AdventurePointsDerivedFromSelection/translations">See details</a>
+
+#### <a name="AdventurePointsDerivedFromSelection/translations"></a> `translations?`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#AdventurePointsDerivedFromSelection/translations[key]">AdventurePointsDerivedFromSelection/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="AdventurePointsDerivedFromSelection/translations[key]"></a> `AdventurePointsDerivedFromSelection/translations[key]`
+
+- **Type:** <a href="#AdventurePointsDerivedFromSelectionTranslation">AdventurePointsDerivedFromSelectionTranslation</a>
+
+---
+
+### <a name="AdventurePointsDerivedFromSelectionTranslation"></a> `AdventurePointsDerivedFromSelectionTranslation`
+
+- **Type:** Object
+- **Minimum Properties:** `1`
+
+Key | Description | Details
+:-- | :-- | :--
+`replacement?` | A replacement for the generated text if it would not match the original one. | <a href="#AdventurePointsDerivedFromSelectionTranslation/replacement">See details</a>
+
+#### <a name="AdventurePointsDerivedFromSelectionTranslation/replacement"></a> `replacement?`
+
+A replacement for the generated text if it would not match the original
+one.
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
+
+---
+
 ### <a name="AdventurePointsSingleValue"></a> `AdventurePointsSingleValue`
 
 A single adventure points value.
 
 - **Type:** Integer
 - **Minimum:** `0`
+
+---
+
+### <a name="Input"></a> `Input`
+
+A string that is used as a label for an input field.
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+---
+
+### <a name="AdventurePointsValueReplacement"></a> `AdventurePointsValueReplacement`
+
+The AP value. It is only used if the text cannot be generated from the given
+information.
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
+
+---
+
+### <a name="AdventurePointsValueAppend"></a> `AdventurePointsValueAppend`
+
+A string that gets appended to the default AP Value text with a preceding
+space. This always happens if present, even if the generated AP Value text is
+replaced.
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>

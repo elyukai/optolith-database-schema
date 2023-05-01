@@ -81,6 +81,7 @@ Key | Description | Details
 `name` |  | <a href="#FatePointSpecialAbilityTranslation/name">See details</a>
 `name_in_library?` |  | <a href="#FatePointSpecialAbilityTranslation/name_in_library">See details</a>
 `rules` |  | <a href="#FatePointSpecialAbilityTranslation/rules">See details</a>
+`ap_value?` | The AP value. It is only used if the text cannot be generated from the given information. | <a href="#FatePointSpecialAbilityTranslation/ap_value">See details</a>
 `errata?` |  | <a href="#FatePointSpecialAbilityTranslation/errata">See details</a>
 
 #### <a name="FatePointSpecialAbilityTranslation/name"></a> `name`
@@ -94,6 +95,13 @@ Key | Description | Details
 #### <a name="FatePointSpecialAbilityTranslation/rules"></a> `rules`
 
 - **Type:** <a href="../_Activatable.md#Rules">Rules</a>
+
+#### <a name="FatePointSpecialAbilityTranslation/ap_value"></a> `ap_value?`
+
+The AP value. It is only used if the text cannot be generated from the
+given information.
+
+- **Type:** <a href="../_Activatable.md#AdventurePointsValueReplacement">AdventurePointsValueReplacement</a>
 
 #### <a name="FatePointSpecialAbilityTranslation/errata"></a> `errata?`
 

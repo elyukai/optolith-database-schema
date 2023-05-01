@@ -98,8 +98,11 @@ Key | Description | Details
 :-- | :-- | :--
 `name` |  | <a href="#AdvantageTranslation/name">See details</a>
 `name_in_library?` |  | <a href="#AdvantageTranslation/name_in_library">See details</a>
+`input?` | A string that is used as a label for an input field. | <a href="#AdvantageTranslation/input">See details</a>
 `rules` |  | <a href="#AdvantageTranslation/rules">See details</a>
 `range?` | The range. | <a href="#AdvantageTranslation/range">See details</a>
+`ap_value?` |  | <a href="#AdvantageTranslation/ap_value">See details</a>
+`ap_value_append?` | A string that gets appended to the default AP Value text with a preceding space. This always happens if present, even if the generated AP Value text is replaced. | <a href="#AdvantageTranslation/ap_value_append">See details</a>
 `errata?` |  | <a href="#AdvantageTranslation/errata">See details</a>
 
 #### <a name="AdvantageTranslation/name"></a> `name`
@@ -109,6 +112,12 @@ Key | Description | Details
 #### <a name="AdvantageTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="./_Activatable.md#NameInLibrary">NameInLibrary</a>
+
+#### <a name="AdvantageTranslation/input"></a> `input?`
+
+A string that is used as a label for an input field.
+
+- **Type:** <a href="./_Activatable.md#Input">Input</a>
 
 #### <a name="AdvantageTranslation/rules"></a> `rules`
 
@@ -120,6 +129,18 @@ The range.
 
 - **Type:** Markdown-formatted text
 - **Minimum Length:** `1`
+
+#### <a name="AdvantageTranslation/ap_value"></a> `ap_value?`
+
+- **Type:** <a href="./_Activatable.md#AdventurePointsValueReplacement">AdventurePointsValueReplacement</a>
+
+#### <a name="AdvantageTranslation/ap_value_append"></a> `ap_value_append?`
+
+A string that gets appended to the default AP Value text with a preceding
+space. This always happens if present, even if the generated AP Value text
+is replaced.
+
+- **Type:** <a href="./_Activatable.md#AdventurePointsValueAppend">AdventurePointsValueAppend</a>
 
 #### <a name="AdvantageTranslation/errata"></a> `errata?`
 

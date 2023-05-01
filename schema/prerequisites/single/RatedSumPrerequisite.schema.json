@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "/prerequisites/single/RatedSumPrerequisite.schema.json",
+  "$defs": {
+    "RatedSumPrerequisite": {
+      "title": "Rated Sum Prerequisite",
+      "type": "object",
+      "properties": {
+        "sum": {
+          "description": "The minimum required sum of the targets’ ratings.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "targets": {
+          "description": "The targets that are included in calculating the sum.",
+          "type": "array",
+          "items": {
+            "$ref": "../../_IdentifierGroup.schema.json#/$defs/SkillIdentifier"
+          },
+          "minItems": 2
+        },
+        "display_option": {
+          "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"
+        }
+      },
+      "required": [
+        "sum",
+        "targets"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

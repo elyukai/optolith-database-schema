@@ -3,8 +3,6 @@
  */
 
 import { validateSchemaCreator } from "../validation/schema.js"
-import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
 import { AdvantageIdentifier, DisadvantageIdentifier, SkillIdentifier } from "./_Identifier.js"
 import { CombatTechniqueIdentifier, LiturgyIdentifier, MagicalActionIdentifier, RequirableSelectOptionIdentifier, SpecialAbilityIdentifier, SpellworkIdentifier } from "./_IdentifierGroup.js"
@@ -12,6 +10,8 @@ import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
 import { ProfessionPrerequisites } from "./_Prerequisite.js"
 import { CantripReference, CombatTechniqueReference, CurriculumReference, MagicalTraditionReference, SkillGroupReference, SkillReference } from "./_SimpleReferences.js"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
  * @title Profession
@@ -336,6 +336,18 @@ export type ProfessionVariantTranslation = {
    * Name of the profession variant.
    */
   name: ProfessionName
+
+  /**
+   * A text that replaces the generated text for the profession variant.
+   */
+  full_text?: NonEmptyString
+
+  /**
+   * A text that is appended to the generated text for the profession variant.
+   *
+   * Has no effect when `full_text` is set.
+   */
+  concluding_text?: NonEmptyString
 }
 
 export type SpecialAbility =

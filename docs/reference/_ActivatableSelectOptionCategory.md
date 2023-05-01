@@ -5,7 +5,7 @@
 ### <a name="SelectOptionCategory"></a> `SelectOptionCategory`
 
 - **Type:** Union
-- **Cases:** <a href="#SelectOptionCategory'Blessings">SelectOptionCategory'Blessings</a> | <a href="#SelectOptionCategory'Cantrips">SelectOptionCategory'Cantrips</a> | <a href="#SelectOptionCategory'TradeSecrets">SelectOptionCategory'TradeSecrets</a> | <a href="#SelectOptionCategory'Scripts">SelectOptionCategory'Scripts</a> | <a href="#SelectOptionCategory'AnimalShapes">SelectOptionCategory'AnimalShapes</a> | <a href="#SelectOptionCategory'ArcaneBardTraditions">SelectOptionCategory'ArcaneBardTraditions</a> | <a href="#SelectOptionCategory'ArcaneDancerTraditions">SelectOptionCategory'ArcaneDancerTraditions</a> | <a href="#SelectOptionCategory'SexPractices">SelectOptionCategory'SexPractices</a> | <a href="#SelectOptionCategory'Races">SelectOptionCategory'Races</a> | <a href="#SelectOptionCategory'Cultures">SelectOptionCategory'Cultures</a> | <a href="#SelectOptionCategory'BlessedTraditions">SelectOptionCategory'BlessedTraditions</a> | <a href="#SelectOptionCategory'Elements">SelectOptionCategory'Elements</a> | <a href="#SelectOptionCategory'Properties">SelectOptionCategory'Properties</a> | <a href="#SelectOptionCategory'Aspects">SelectOptionCategory'Aspects</a> | <a href="#SelectOptionCategory'Diseases">SelectOptionCategory'Diseases</a> | <a href="#SelectOptionCategory'Poisons">SelectOptionCategory'Poisons</a> | <a href="#SelectOptionCategory'Languages">SelectOptionCategory'Languages</a> | <a href="#SelectOptionCategory'Skills">SelectOptionCategory'Skills</a> | <a href="#SelectOptionCategory'CombatTechniques">SelectOptionCategory'CombatTechniques</a>
+- **Cases:** <a href="#SelectOptionCategory'Blessings">SelectOptionCategory'Blessings</a> | <a href="#SelectOptionCategory'Cantrips">SelectOptionCategory'Cantrips</a> | <a href="#SelectOptionCategory'TradeSecrets">SelectOptionCategory'TradeSecrets</a> | <a href="#SelectOptionCategory'Scripts">SelectOptionCategory'Scripts</a> | <a href="#SelectOptionCategory'AnimalShapes">SelectOptionCategory'AnimalShapes</a> | <a href="#SelectOptionCategory'ArcaneBardTraditions">SelectOptionCategory'ArcaneBardTraditions</a> | <a href="#SelectOptionCategory'ArcaneDancerTraditions">SelectOptionCategory'ArcaneDancerTraditions</a> | <a href="#SelectOptionCategory'SexPractices">SelectOptionCategory'SexPractices</a> | <a href="#SelectOptionCategory'Races">SelectOptionCategory'Races</a> | <a href="#SelectOptionCategory'Cultures">SelectOptionCategory'Cultures</a> | <a href="#SelectOptionCategory'RacesAndCultures">SelectOptionCategory'RacesAndCultures</a> | <a href="#SelectOptionCategory'BlessedTraditions">SelectOptionCategory'BlessedTraditions</a> | <a href="#SelectOptionCategory'Elements">SelectOptionCategory'Elements</a> | <a href="#SelectOptionCategory'Properties">SelectOptionCategory'Properties</a> | <a href="#SelectOptionCategory'Aspects">SelectOptionCategory'Aspects</a> | <a href="#SelectOptionCategory'Diseases">SelectOptionCategory'Diseases</a> | <a href="#SelectOptionCategory'Poisons">SelectOptionCategory'Poisons</a> | <a href="#SelectOptionCategory'Languages">SelectOptionCategory'Languages</a> | <a href="#SelectOptionCategory'Skills">SelectOptionCategory'Skills</a> | <a href="#SelectOptionCategory'CombatTechniques">SelectOptionCategory'CombatTechniques</a> | <a href="#SelectOptionCategory'TargetCategories">SelectOptionCategory'TargetCategories</a>
 
 ---
 
@@ -259,6 +259,31 @@ Key | Description | Details
 
 ---
 
+### <a name="SelectOptionCategory'RacesAndCultures"></a> `SelectOptionCategory'RacesAndCultures`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#SelectOptionCategory'RacesAndCultures/tag">See details</a>
+`races_and_cultures` |  | <a href="#SelectOptionCategory'RacesAndCultures/races_and_cultures">See details</a>
+
+#### <a name="SelectOptionCategory'RacesAndCultures/tag"></a> `tag`
+
+- **Constant:** `"RacesAndCultures"`
+
+#### <a name="SelectOptionCategory'RacesAndCultures/races_and_cultures"></a> `races_and_cultures`
+
+- **Type:** <a href="#SelectOptionCategory'RacesAndCultures/races_and_cultures">Object</a>
+
+---
+
+### <a name="SelectOptionCategory'RacesAndCultures/races_and_cultures"></a> `SelectOptionCategory'RacesAndCultures/races_and_cultures`
+
+- **Type:** Empty Object
+
+---
+
 ### <a name="SelectOptionCategory'BlessedTraditions"></a> `SelectOptionCategory'BlessedTraditions`
 
 - **Type:** Object
@@ -427,6 +452,25 @@ Key | Description | Details
 #### <a name="SelectOptionCategory'CombatTechniques/combat_techniques"></a> `combat_techniques`
 
 - **Type:** <a href="#CombatTechniquesSelectOptionCategory">CombatTechniquesSelectOptionCategory</a>
+
+---
+
+### <a name="SelectOptionCategory'TargetCategories"></a> `SelectOptionCategory'TargetCategories`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#SelectOptionCategory'TargetCategories/tag">See details</a>
+`target_categories` |  | <a href="#SelectOptionCategory'TargetCategories/target_categories">See details</a>
+
+#### <a name="SelectOptionCategory'TargetCategories/tag"></a> `tag`
+
+- **Constant:** `"TargetCategories"`
+
+#### <a name="SelectOptionCategory'TargetCategories/target_categories"></a> `target_categories`
+
+- **Type:** <a href="#TargetCategoriesSelectOptionCategory">TargetCategoriesSelectOptionCategory</a>
 
 ---
 
@@ -1103,6 +1147,7 @@ Key | Description | Details
 `skill_applications?` | Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry. | <a href="#SkillSelectOptionCategoryCategory/skill_applications">See details</a>
 `skill_uses?` | Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry. | <a href="#SkillSelectOptionCategoryCategory/skill_uses">See details</a>
 `prerequisites?` | Generate prerequisites for each entry of the category. | <a href="#SkillSelectOptionCategoryCategory/prerequisites">See details</a>
+`ap_value?` | Generate AP values for each entry. | <a href="#SkillSelectOptionCategoryCategory/ap_value">See details</a>
 
 #### <a name="SkillSelectOptionCategoryCategory/groups"></a> `groups?`
 
@@ -1150,6 +1195,13 @@ Generate prerequisites for each entry of the category.
 - **Type:** List
 - **Items:** <a href="#SkillSelectOptionCategoryCategory/prerequisites[]">SkillSelectOptionCategoryCategory/prerequisites[]</a>
 - **Minimum Items:** `1`
+
+#### <a name="SkillSelectOptionCategoryCategory/ap_value"></a> `ap_value?`
+
+Generate AP values for each entry.
+
+- **Type:** Union
+- **Cases:** <a href="#SkillSelectOptionCategoryCategory/ap_value'DerivedFromImprovementCost">SkillSelectOptionCategoryCategory/ap_value'DerivedFromImprovementCost</a> | <a href="#SkillSelectOptionCategoryCategory/ap_value'Fixed">SkillSelectOptionCategoryCategory/ap_value'Fixed</a>
 
 ---
 
@@ -1204,6 +1256,94 @@ The list of specific entries.
 ### <a name="SkillSelectOptionCategoryCategory/prerequisites[]"></a> `SkillSelectOptionCategoryCategory/prerequisites[]`
 
 - **Type:** <a href="#SkillSelectOptionCategoryPrerequisite">SkillSelectOptionCategoryPrerequisite</a>
+
+---
+
+### <a name="SkillSelectOptionCategoryCategory/ap_value'DerivedFromImprovementCost"></a> `SkillSelectOptionCategoryCategory/ap_value'DerivedFromImprovementCost`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#SkillSelectOptionCategoryCategory/ap_value'DerivedFromImprovementCost/tag">See details</a>
+`derived_from_improvement_cost` |  | <a href="#SkillSelectOptionCategoryCategory/ap_value'DerivedFromImprovementCost/derived_from_improvement_cost">See details</a>
+
+#### <a name="SkillSelectOptionCategoryCategory/ap_value'DerivedFromImprovementCost/tag"></a> `tag`
+
+- **Constant:** `"DerivedFromImprovementCost"`
+
+#### <a name="SkillSelectOptionCategoryCategory/ap_value'DerivedFromImprovementCost/derived_from_improvement_cost"></a> `derived_from_improvement_cost`
+
+- **Type:** <a href="#DeriveAdventurePointsValueFromImprovementCost">DeriveAdventurePointsValueFromImprovementCost</a>
+
+---
+
+### <a name="SkillSelectOptionCategoryCategory/ap_value'Fixed"></a> `SkillSelectOptionCategoryCategory/ap_value'Fixed`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#SkillSelectOptionCategoryCategory/ap_value'Fixed/tag">See details</a>
+`fixed` |  | <a href="#SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed">See details</a>
+
+#### <a name="SkillSelectOptionCategoryCategory/ap_value'Fixed/tag"></a> `tag`
+
+- **Constant:** `"Fixed"`
+
+#### <a name="SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed"></a> `fixed`
+
+- **Type:** <a href="#SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed">Object</a>
+
+---
+
+### <a name="SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed"></a> `SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`map` | A mapping of skill identifiers to their specific AP values. | <a href="#SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed/map">See details</a>
+`default` | The default value of an entry. Used as a fallback if no value is found in `list`. | <a href="#SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed/default">See details</a>
+
+#### <a name="SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed/map"></a> `map`
+
+A mapping of skill identifiers to their specific AP values.
+
+- **Type:** List
+- **Items:** <a href="#SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed/map[]">SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed/map[]</a>
+
+#### <a name="SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed/default"></a> `default`
+
+The default value of an entry. Used as a fallback if no value is
+found in `list`.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed/map[]"></a> `SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed/map[]`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The entry's identifier. | <a href="#SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed/map[]/id">See details</a>
+`ap_value` | The AP value for the specified entry. | <a href="#SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed/map[]/ap_value">See details</a>
+
+#### <a name="SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed/map[]/id"></a> `id`
+
+The entry's identifier.
+
+- **Type:** <a href="./_IdentifierGroup.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>
+
+#### <a name="SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed/map[]/ap_value"></a> `ap_value`
+
+The AP value for the specified entry.
+
+- **Type:** Integer
+- **Minimum:** `1`
 
 ---
 
@@ -1676,3 +1816,51 @@ This number is added to the multiplied improvement cost of the entry.
 
 - **Type:** Integer
 - **Default:** `0`
+
+---
+
+### <a name="TargetCategoriesSelectOptionCategory"></a> `TargetCategoriesSelectOptionCategory`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`list` | A list of combat technique categories. | <a href="#TargetCategoriesSelectOptionCategory/list">See details</a>
+
+#### <a name="TargetCategoriesSelectOptionCategory/list"></a> `list`
+
+A list of combat technique categories.
+
+- **Type:** List
+- **Items:** <a href="#TargetCategoriesSelectOptionCategory/list[]">TargetCategoriesSelectOptionCategory/list[]</a>
+- **Minimum Items:** `1`
+
+---
+
+### <a name="TargetCategoriesSelectOptionCategory/list[]"></a> `TargetCategoriesSelectOptionCategory/list[]`
+
+- **Type:** <a href="#SpecificTargetCategory">SpecificTargetCategory</a>
+
+---
+
+### <a name="SpecificTargetCategory"></a> `SpecificTargetCategory`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The target category’s identifier. | <a href="#SpecificTargetCategory/id">See details</a>
+`volume?` | The volume for this specific selection. | <a href="#SpecificTargetCategory/volume">See details</a>
+
+#### <a name="SpecificTargetCategory/id"></a> `id`
+
+The target category’s identifier.
+
+- **Type:** <a href="./_Identifier.md#TargetCategoryIdentifier">TargetCategoryIdentifier</a>
+
+#### <a name="SpecificTargetCategory/volume"></a> `volume?`
+
+The volume for this specific selection.
+
+- **Type:** Integer
+- **Minimum:** `0`

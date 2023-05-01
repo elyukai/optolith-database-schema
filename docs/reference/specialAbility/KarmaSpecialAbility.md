@@ -71,6 +71,7 @@ Key | Description | Details
 `name` |  | <a href="#KarmaSpecialAbilityTranslation/name">See details</a>
 `name_in_library?` |  | <a href="#KarmaSpecialAbilityTranslation/name_in_library">See details</a>
 `rules` |  | <a href="#KarmaSpecialAbilityTranslation/rules">See details</a>
+`ap_value?` | The AP value. It is only used if the text cannot be generated from the given information. | <a href="#KarmaSpecialAbilityTranslation/ap_value">See details</a>
 `errata?` |  | <a href="#KarmaSpecialAbilityTranslation/errata">See details</a>
 
 #### <a name="KarmaSpecialAbilityTranslation/name"></a> `name`
@@ -84,6 +85,13 @@ Key | Description | Details
 #### <a name="KarmaSpecialAbilityTranslation/rules"></a> `rules`
 
 - **Type:** <a href="../_Activatable.md#Rules">Rules</a>
+
+#### <a name="KarmaSpecialAbilityTranslation/ap_value"></a> `ap_value?`
+
+The AP value. It is only used if the text cannot be generated from the
+given information.
+
+- **Type:** <a href="../_Activatable.md#AdventurePointsValueReplacement">AdventurePointsValueReplacement</a>
 
 #### <a name="KarmaSpecialAbilityTranslation/errata"></a> `errata?`
 

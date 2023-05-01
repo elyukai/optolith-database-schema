@@ -3,11 +3,11 @@
  */
 
 import { validateSchemaCreator } from "../../validation/schema.js"
-import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
 import * as Activatable from "../_Activatable.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
 
 /**
  * @title Ceremonial Item Special Ability
@@ -48,15 +48,11 @@ export type CeremonialItemSpecialAbilityTranslation = {
 
   effect: Activatable.Effect
 
-  // prerequisites?: Activatable.PrerequisitesReplacement
-
-  // prerequisites_start?: Activatable.PrerequisitesStart
-
-  // prerequisites_end?: Activatable.PrerequisitesEnd
-
-  // ap_value?: Activatable.AdventurePointsValueReplacement
-
-  // ap_value_append?: Activatable.AdventurePointsValueAppend
+  /**
+   * The prerequisites text. It is only used if the text cannot be generated
+   * from the given information.
+   */
+  prerequisites?: Activatable.PrerequisitesReplacement
 
   errata?: Errata
 }

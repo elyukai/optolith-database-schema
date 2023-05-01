@@ -3,9 +3,6 @@
  * @title Activatable
  */
 
-import { DisplayOption } from "./prerequisites/DisplayOption.js"
-import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
 import { SelectOptionCategory, SkillApplicationOrUse } from "./_ActivatableSelectOptionCategory.js"
 import { DurationUnitValue } from "./_ActivatableSkillDuration.js"
 import { MagicalTraditionIdentifier, PatronIdentifier, SkillIdentifier } from "./_Identifier.js"
@@ -15,6 +12,9 @@ import { NonEmptyMarkdown, NonEmptyString } from "./_NonEmptyString.js"
 import { GeneralPrerequisites } from "./_Prerequisite.js"
 import { ResponsiveText, ResponsiveTextOptional } from "./_ResponsiveText.js"
 import { AdvancedSpecialAbilityReference, AspectReference, CloseCombatTechniqueReference, CombatTechniqueReference, PropertyReference, RaceReference, RangedCombatTechniqueReference, SkillReference, WeaponReference } from "./_SimpleReferences.js"
+import { DisplayOption } from "./prerequisites/DisplayOption.js"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
  * The activatable entry's identifier. An unique, increasing integer.
@@ -134,6 +134,14 @@ export type ExplicitGeneralSelectOption = {
   prerequisites?: GeneralPrerequisites
 
   /**
+   * Specific binding cost for the select option. Only has an effect if the
+   * associated entry supports binding costs.
+   * @integer
+   * @minimum 0
+   */
+  binding_cost?: number
+
+  /**
    * Specific AP cost for the select option.
    * @integer
    * @minimum 1
@@ -202,6 +210,14 @@ export type ExplicitSkillSelectOption = {
   prerequisites?: GeneralPrerequisites
 
   /**
+   * Specific binding cost for the select option. Only has an effect if the
+   * associated entry supports binding costs.
+   * @integer
+   * @minimum 0
+   */
+  binding_cost?: number
+
+  /**
    * Specific AP cost for the select option.
    * @integer
    * @minimum 1
@@ -230,6 +246,14 @@ export type ExplicitCombatTechniqueSelectOption = {
   id: CombatTechniqueIdentifier
 
   prerequisites?: GeneralPrerequisites
+
+  /**
+   * Specific binding cost for the select option. Only has an effect if the
+   * associated entry supports binding costs.
+   * @integer
+   * @minimum 0
+   */
+  binding_cost?: number
 
   /**
    * Specific AP cost for the select option.
@@ -815,9 +839,33 @@ export type ActivationAndHalfIntervalArcaneEnergyCost = {
 
 export type IndefiniteArcaneEnergyCost = {
   /**
+   * Specified if the indefinite AP cost description needs to be modified by a
+   * certain value.
+   */
+  modifier?: IndefiniteArcaneEnergyCostModifier
+
+  /**
    * All translations for the entry, identified by IETF language tag (BCP47).
    */
   translations: LocaleMap<IndefiniteArcaneEnergyCostTranslation>
+}
+
+export type IndefiniteArcaneEnergyCostModifier = {
+  /**
+   * The arithmetic how to apply the `value` to the `base`.
+   */
+  arithmetic: IndefiniteArcaneEnergyCostModifierArithmetic
+
+  /**
+   * The value that is applied to the `base` using the defined `arithmetic`.
+   * @integer
+   * @minimum 1
+   */
+  value: number
+}
+
+export enum IndefiniteArcaneEnergyCostModifierArithmetic {
+  Add = "Add",
 }
 
 export type IndefiniteArcaneEnergyCostTranslation = {
@@ -914,6 +962,7 @@ export type Volume =
   | { tag: "PerLevel"; per_level: VolumePerLevel }
   | { tag: "ByLevel"; by_level: VolumeByLevel }
   | { tag: "Map"; map: VolumeMap }
+  | { tag: "DerivedFromSelection"; derived_from_selection: VolumeDerivedFromSelection }
 
 export type FixedVolume = {
   /**
@@ -1070,6 +1119,15 @@ export type VolumeMapOptionTranslation = {
   label_standalone?: NonEmptyString
 }
 
+export type VolumeDerivedFromSelection = {
+  /**
+   * The volume for the selection if it does not define a specific one.
+   * @integer
+   * @minimum 0
+   */
+  fallback: number
+}
+
 /**
  * The binding cost for an enchantment.
  */
@@ -1077,6 +1135,7 @@ export type BindingCost =
   | { tag: "Fixed"; fixed: FixedBindingCost }
   | { tag: "PerLevel"; per_level: BindingCostPerLevel }
   | { tag: "Map"; map: BindingCostMap }
+  | { tag: "DerivedFromSelection"; derived_from_selection: BindingCostDerivedFromSelection }
 
 export type FixedBindingCost = {
   /**
@@ -1189,6 +1248,15 @@ export type BindingCostMapOptionTranslation = {
   label_standalone?: NonEmptyString
 }
 
+export type BindingCostDerivedFromSelection = {
+  /**
+   * The binding cost for the selection if it does not define a specific one.
+   * @integer
+   * @minimum 0
+   */
+  fallback: number
+}
+
 /**
  * The magic property's identifier. `DependingOnProperty` can only be used if
  * the special ability has an option to select a property.
@@ -1289,6 +1357,12 @@ export type AdvancedSpecialAbilities<Identifier> = [
   AdvancedSpecialAbility<Identifier>,
   AdvancedSpecialAbility<Identifier>,
 ]
+
+/**
+ * The prerequisites text. It is only used if the text cannot be generated from
+ * the given information.
+ */
+export type PrerequisitesReplacement = NonEmptyMarkdown
 
 export type ApplicableCombatTechniques =
   | { tag: "None"; none: {} }
@@ -1399,6 +1473,7 @@ export type ApplicableCombatTechniquesWeaponRestriction = {
 export type AdventurePointsValue =
   | { tag: "Fixed"; fixed: FixedAdventurePointsValue }
   | { tag: "ByLevel"; by_level: AdventurePointsValueByLevel }
+  | { tag: "DerivedFromSelection"; derived_from_selection: AdventurePointsDerivedFromSelection }
   | { tag: "Indefinite"; indefinite: {} }
 
 /**
@@ -1415,17 +1490,40 @@ export type FixedAdventurePointsValue = AdventurePointsSingleValue
 export type AdventurePointsValueByLevel = AdventurePointsSingleValue[]
 
 /**
+ * The adventure points value is derived from the selection of the special
+ * ability. Its display value may be able to be derived from the given
+ * information for the select options. If that is not the case or the generated
+ * text would not match the original one, a replacement text can be provided.
+ */
+export type AdventurePointsDerivedFromSelection = {
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translations?: LocaleMap<AdventurePointsDerivedFromSelectionTranslation>
+}
+
+/**
+ * @minProperties 1
+ */
+export type AdventurePointsDerivedFromSelectionTranslation = {
+  /**
+   * A replacement for the generated text if it would not match the original
+   * one.
+   */
+  replacement?: NonEmptyMarkdown
+}
+
+/**
  * A single adventure points value.
  * @integer
  * @minimum 0
  */
 export type AdventurePointsSingleValue = number
 
-// "Input": {
-//   "description": "A string that is used as a placeholder text for an input field.",
-//   "type": "string",
-//   "minLength": 1
-// },
+/**
+ * A string that is used as a label for an input field.
+ */
+export type Input = NonEmptyString
 
 // "AdvancedSpecialAbilitiesAppend": {
 //   "description": "An addition to the default advanced special abilities text. Markdown is available.",
@@ -1433,32 +1531,15 @@ export type AdventurePointsSingleValue = number
 //   "minLength": 1
 // },
 
-// "ApValueReplacement": {
-//   "description": "The AP value. Only use this if the text provides different information than `X adventure points`, e.g. for Special Ability Property Knowledge it is \"10 adventure points for the first *Property Knowledge*, 20 adventure points for the second, 40 adventure points for the third\". Markdown is available.",
-//   "type": "string",
-//   "minLength": 1
-// },
+/**
+ * The AP value. It is only used if the text cannot be generated from the given
+ * information.
+ */
+export type AdventurePointsValueReplacement = NonEmptyMarkdown
 
-// "ApValueAppend": {
-//   "description": "An addition to the default AP value schema. Only use this if the text provides information appended to `X adventure points` and if `apValue` is not used. Markdown is available.",
-//   "type": "string",
-//   "minLength": 1
-// },
-
-// "PrerequisitesReplacement": {
-//   "description": "Use if text cannot be generated by the app. Markdown is available.",
-//   "type": "string",
-//   "minLength": 1
-// },
-
-// "PrerequisitesStart": {
-//   "description": "Prepends the provided string to the main prerequisites string. No effect if `prerequisites` field is used in l10n file. Markdown is available.",
-//   "type": "string",
-//   "minLength": 1
-// },
-
-// "PrerequisitesEnd": {
-//   "description": "Appends the provided string to the main prerequisites string. No effect if `prerequisites` field is used in l10n table. Markdown is available.",
-//   "type": "string",
-//   "minLength": 1
-// }
+/**
+ * A string that gets appended to the default AP Value text with a preceding
+ * space. This always happens if present, even if the generated AP Value text is
+ * replaced.
+ */
+export type AdventurePointsValueAppend = NonEmptyMarkdown

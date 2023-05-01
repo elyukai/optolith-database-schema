@@ -86,8 +86,10 @@ Key | Description | Details
 :-- | :-- | :--
 `name` |  | <a href="#DisadvantageTranslation/name">See details</a>
 `name_in_library?` |  | <a href="#DisadvantageTranslation/name_in_library">See details</a>
+`input?` | A string that is used as a label for an input field. | <a href="#DisadvantageTranslation/input">See details</a>
 `rules` |  | <a href="#DisadvantageTranslation/rules">See details</a>
 `range?` | The range. | <a href="#DisadvantageTranslation/range">See details</a>
+`ap_value_append?` | A string that gets appended to the default AP Value text with a preceding space. This always happens if present, even if the generated AP Value text is replaced. | <a href="#DisadvantageTranslation/ap_value_append">See details</a>
 `errata?` |  | <a href="#DisadvantageTranslation/errata">See details</a>
 
 #### <a name="DisadvantageTranslation/name"></a> `name`
@@ -97,6 +99,12 @@ Key | Description | Details
 #### <a name="DisadvantageTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="./_Activatable.md#NameInLibrary">NameInLibrary</a>
+
+#### <a name="DisadvantageTranslation/input"></a> `input?`
+
+A string that is used as a label for an input field.
+
+- **Type:** <a href="./_Activatable.md#Input">Input</a>
 
 #### <a name="DisadvantageTranslation/rules"></a> `rules`
 
@@ -108,6 +116,14 @@ The range.
 
 - **Type:** Markdown-formatted text
 - **Minimum Length:** `1`
+
+#### <a name="DisadvantageTranslation/ap_value_append"></a> `ap_value_append?`
+
+A string that gets appended to the default AP Value text with a preceding
+space. This always happens if present, even if the generated AP Value text
+is replaced.
+
+- **Type:** <a href="./_Activatable.md#AdventurePointsValueAppend">AdventurePointsValueAppend</a>
 
 #### <a name="DisadvantageTranslation/errata"></a> `errata?`
 

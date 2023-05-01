@@ -198,6 +198,25 @@
           "type": "object",
           "properties": {
             "tag": {
+              "const": "RacesAndCultures"
+            },
+            "races_and_cultures": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "tag",
+            "races_and_cultures"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
               "const": "BlessedTraditions"
             },
             "blessed_traditions": {
@@ -335,6 +354,22 @@
           "required": [
             "tag",
             "combat_techniques"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "TargetCategories"
+            },
+            "target_categories": {
+              "$ref": "#/$defs/TargetCategoriesSelectOptionCategory"
+            }
+          },
+          "required": [
+            "tag",
+            "target_categories"
           ],
           "additionalProperties": false
         }
@@ -832,6 +867,77 @@
             "$ref": "#/$defs/SkillSelectOptionCategoryPrerequisite"
           },
           "minItems": 1
+        },
+        "ap_value": {
+          "description": "Generate AP values for each entry.",
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "DerivedFromImprovementCost"
+                },
+                "derived_from_improvement_cost": {
+                  "$ref": "#/$defs/DeriveAdventurePointsValueFromImprovementCost"
+                }
+              },
+              "required": [
+                "tag",
+                "derived_from_improvement_cost"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "tag": {
+                  "const": "Fixed"
+                },
+                "fixed": {
+                  "type": "object",
+                  "properties": {
+                    "map": {
+                      "description": "A mapping of skill identifiers to their specific AP values.",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "$ref": "./_IdentifierGroup.schema.json#/$defs/CombatTechniqueIdentifier"
+                          },
+                          "ap_value": {
+                            "description": "The AP value for the specified entry.",
+                            "type": "integer",
+                            "minimum": 1
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "ap_value"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "default": {
+                      "description": "The default value of an entry. Used as a fallback if no value is\nfound in `list`.",
+                      "type": "integer",
+                      "minimum": 1
+                    }
+                  },
+                  "required": [
+                    "map",
+                    "default"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "tag",
+                "fixed"
+              ],
+              "additionalProperties": false
+            }
+          ]
         }
       },
       "required": [],
@@ -1166,6 +1272,41 @@
         }
       },
       "required": [],
+      "additionalProperties": false
+    },
+    "TargetCategoriesSelectOptionCategory": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "description": "A list of combat technique categories.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SpecificTargetCategory"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "list"
+      ],
+      "additionalProperties": false
+    },
+    "SpecificTargetCategory": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The target category’s identifier.",
+          "$ref": "./_Identifier.schema.json#/$defs/TargetCategoryIdentifier"
+        },
+        "volume": {
+          "description": "The volume for this specific selection.",
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "id"
+      ],
       "additionalProperties": false
     }
   }

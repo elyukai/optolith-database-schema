@@ -139,16 +139,6 @@ export type MagicalTraditionTranslation = {
    */
   special_rules: SpecialRule[]
 
-  // prerequisites?: Activatable.PrerequisitesReplacement
-
-  // prerequisites_start?: Activatable.PrerequisitesStart
-
-  // prerequisites_end?: Activatable.PrerequisitesEnd
-
-  // ap_value?: Activatable.AdventurePointsValueReplacement
-
-  // ap_value_append?: Activatable.AdventurePointsValueAppend
-
   errata?: Errata
 }
 export const validateSchema = validateSchemaCreator<MagicalTradition>(import.meta.url)

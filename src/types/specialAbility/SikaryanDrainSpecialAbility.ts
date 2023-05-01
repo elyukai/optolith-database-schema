@@ -42,15 +42,11 @@ export type SikaryanDrainSpecialAbilityTranslation = {
 
   rules: Activatable.Rules
 
-  // prerequisites?: Activatable.PrerequisitesReplacement
-
-  // prerequisites_start?: Activatable.PrerequisitesStart
-
-  // prerequisites_end?: Activatable.PrerequisitesEnd
-
-  // ap_value?: Activatable.AdventurePointsValueReplacement
-
-  // ap_value_append?: Activatable.AdventurePointsValueAppend
+  /**
+   * The AP value. It is only used if the text cannot be generated from the
+   * given information.
+   */
+  ap_value?: Activatable.AdventurePointsValueReplacement
 
   errata?: Errata
 }

@@ -223,7 +223,11 @@
     },
     "SanctifiedBy": {
       "description": "If the weapon is sanctified by a god and thus restricted to it's Blessed\nOnes.",
-      "$ref": "../../_SimpleReferences.schema.json#/$defs/BlessedTraditionReference"
+      "type": "array",
+      "items": {
+        "$ref": "../../_SimpleReferences.schema.json#/$defs/BlessedTraditionReference"
+      },
+      "minItems": 1
     },
     "RestrictedToCultures": {
       "description": "Define if during character creation this weapon can only be bought by\ncharacters of a specific race or culture.",

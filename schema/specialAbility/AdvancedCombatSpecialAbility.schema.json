@@ -80,6 +80,14 @@
         "penalty": {
           "type": "string"
         },
+        "ap_value": {
+          "description": "The AP value. It is only used if the text cannot be generated from the\ngiven information.",
+          "$ref": "../_Activatable.schema.json#/$defs/AdventurePointsValueReplacement"
+        },
+        "ap_value_append": {
+          "description": "A string that gets appended to the default AP Value text with a preceding\nspace. This always happens if present, even if the generated AP Value text\nis replaced.",
+          "$ref": "../_Activatable.schema.json#/$defs/AdventurePointsValueAppend"
+        },
         "errata": {
           "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
         }

@@ -71,6 +71,7 @@ Key | Description | Details
 `name` |  | <a href="#VampiricGiftTranslation/name">See details</a>
 `name_in_library?` |  | <a href="#VampiricGiftTranslation/name_in_library">See details</a>
 `rules` |  | <a href="#VampiricGiftTranslation/rules">See details</a>
+`ap_value?` | The AP value. It is only used if the text cannot be generated from the given information. | <a href="#VampiricGiftTranslation/ap_value">See details</a>
 `errata?` |  | <a href="#VampiricGiftTranslation/errata">See details</a>
 
 #### <a name="VampiricGiftTranslation/name"></a> `name`
@@ -84,6 +85,13 @@ Key | Description | Details
 #### <a name="VampiricGiftTranslation/rules"></a> `rules`
 
 - **Type:** <a href="../_Activatable.md#Rules">Rules</a>
+
+#### <a name="VampiricGiftTranslation/ap_value"></a> `ap_value?`
+
+The AP value. It is only used if the text cannot be generated from the
+given information.
+
+- **Type:** <a href="../_Activatable.md#AdventurePointsValueReplacement">AdventurePointsValueReplacement</a>
 
 #### <a name="VampiricGiftTranslation/errata"></a> `errata?`
 

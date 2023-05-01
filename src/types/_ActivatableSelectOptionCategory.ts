@@ -1,3 +1,4 @@
+import { TargetCategoryIdentifier } from "./_Identifier.js"
 import { ActivatableIdentifier, CombatTechniqueIdentifier, SkillIdentifier } from "./_IdentifierGroup.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { CeremonyReference, CloseCombatTechniqueReference, ElementReference, LiturgicalChantReference, RangedCombatTechniqueReference, RitualReference, SkillGroupReference, SpellReference } from "./_SimpleReferences.js"
@@ -13,6 +14,7 @@ export type SelectOptionCategory =
   | { tag: "SexPractices"; sex_practices: {} }
   | { tag: "Races"; races: {} }
   | { tag: "Cultures"; cultures: {} }
+  | { tag: "RacesAndCultures"; races_and_cultures: {} }
   | { tag: "BlessedTraditions"; blessed_traditions: BlessedTraditionsSelectOptionCategory }
   | { tag: "Elements"; elements: ElementsSelectOptionCategory }
   | { tag: "Properties"; properties: PropertiesSelectOptionCategory }
@@ -22,6 +24,7 @@ export type SelectOptionCategory =
   | { tag: "Languages"; languages: LanguagesSelectOptionCategory }
   | { tag: "Skills"; skills: SkillsSelectOptionCategory }
   | { tag: "CombatTechniques"; combat_techniques: CombatTechniquesSelectOptionCategory }
+  | { tag: "TargetCategories"; target_categories: TargetCategoriesSelectOptionCategory }
 
 export type BlessedTraditionsSelectOptionCategory = {
   /**
@@ -172,6 +175,11 @@ export type SkillSelectOptionCategoryCategory = {
    * @minItems 1
    */
   prerequisites?: SkillSelectOptionCategoryPrerequisite[]
+
+  /**
+   * Generate AP values for each entry.
+   */
+  ap_value?: AdventurePointsValue<CombatTechniqueIdentifier>
 }
 
 export type CombatTechniquesSelectOptionCategory = {
@@ -338,4 +346,26 @@ export type FixedAdventurePointsValueMapping<Identifier> = {
    * @minimum 1
    */
   ap_value: number
+}
+
+export type TargetCategoriesSelectOptionCategory = {
+  /**
+   * A list of combat technique categories.
+   * @minItems 1
+   */
+  list: SpecificTargetCategory[]
+}
+
+export type SpecificTargetCategory = {
+  /**
+   * The target category’s identifier.
+   */
+  id: TargetCategoryIdentifier
+
+  /**
+   * The volume for this specific selection.
+   * @integer
+   * @minimum 0
+   */
+  volume?: number
 }

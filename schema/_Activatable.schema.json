@@ -123,6 +123,11 @@
         "prerequisites": {
           "$ref": "./_Prerequisite.schema.json#/$defs/GeneralPrerequisites"
         },
+        "binding_cost": {
+          "description": "Specific binding cost for the select option. Only has an effect if the\nassociated entry supports binding costs.",
+          "type": "integer",
+          "minimum": 0
+        },
         "ap_value": {
           "description": "Specific AP cost for the select option.",
           "type": "integer",
@@ -202,6 +207,11 @@
         "prerequisites": {
           "$ref": "./_Prerequisite.schema.json#/$defs/GeneralPrerequisites"
         },
+        "binding_cost": {
+          "description": "Specific binding cost for the select option. Only has an effect if the\nassociated entry supports binding costs.",
+          "type": "integer",
+          "minimum": 0
+        },
         "ap_value": {
           "description": "Specific AP cost for the select option.",
           "type": "integer",
@@ -247,6 +257,11 @@
         },
         "prerequisites": {
           "$ref": "./_Prerequisite.schema.json#/$defs/GeneralPrerequisites"
+        },
+        "binding_cost": {
+          "description": "Specific binding cost for the select option. Only has an effect if the\nassociated entry supports binding costs.",
+          "type": "integer",
+          "minimum": 0
         },
         "ap_value": {
           "description": "Specific AP cost for the select option.",
@@ -1192,6 +1207,10 @@
     "IndefiniteArcaneEnergyCost": {
       "type": "object",
       "properties": {
+        "modifier": {
+          "description": "Specified if the indefinite AP cost description needs to be modified by a\ncertain value.",
+          "$ref": "#/$defs/IndefiniteArcaneEnergyCostModifier"
+        },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
           "type": "object",
@@ -1208,6 +1227,30 @@
         "translations"
       ],
       "additionalProperties": false
+    },
+    "IndefiniteArcaneEnergyCostModifier": {
+      "type": "object",
+      "properties": {
+        "arithmetic": {
+          "description": "The arithmetic how to apply the `value` to the `base`.",
+          "$ref": "#/$defs/IndefiniteArcaneEnergyCostModifierArithmetic"
+        },
+        "value": {
+          "description": "The value that is applied to the `base` using the defined `arithmetic`.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "arithmetic",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "IndefiniteArcaneEnergyCostModifierArithmetic": {
+      "enum": [
+        "Add"
+      ]
     },
     "IndefiniteArcaneEnergyCostTranslation": {
       "type": "object",
@@ -1399,6 +1442,22 @@
             "map"
           ],
           "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "DerivedFromSelection"
+            },
+            "derived_from_selection": {
+              "$ref": "#/$defs/VolumeDerivedFromSelection"
+            }
+          },
+          "required": [
+            "tag",
+            "derived_from_selection"
+          ],
+          "additionalProperties": false
         }
       ]
     },
@@ -1573,6 +1632,20 @@
       ],
       "additionalProperties": false
     },
+    "VolumeDerivedFromSelection": {
+      "type": "object",
+      "properties": {
+        "fallback": {
+          "description": "The volume for the selection if it does not define a specific one.",
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "fallback"
+      ],
+      "additionalProperties": false
+    },
     "BindingCost": {
       "description": "The binding cost for an enchantment.",
       "oneOf": [
@@ -1621,6 +1694,22 @@
           "required": [
             "tag",
             "map"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "DerivedFromSelection"
+            },
+            "derived_from_selection": {
+              "$ref": "#/$defs/BindingCostDerivedFromSelection"
+            }
+          },
+          "required": [
+            "tag",
+            "derived_from_selection"
           ],
           "additionalProperties": false
         }
@@ -1745,6 +1834,20 @@
       ],
       "additionalProperties": false
     },
+    "BindingCostDerivedFromSelection": {
+      "type": "object",
+      "properties": {
+        "fallback": {
+          "description": "The binding cost for the selection if it does not define a specific one.",
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "fallback"
+      ],
+      "additionalProperties": false
+    },
     "Property": {
       "description": "The magic property's identifier. `DependingOnProperty` can only be used if\nthe special ability has an option to select a property.",
       "oneOf": [
@@ -1794,6 +1897,10 @@
     },
     "AdvancedSpecialAbilityDerivedExternalEntryOptionId": {
       "$ref": "./_Identifier.schema.json#/$defs/PatronIdentifier"
+    },
+    "PrerequisitesReplacement": {
+      "description": "The prerequisites text. It is only used if the text cannot be generated from\nthe given information.",
+      "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
     },
     "ApplicableCombatTechniques": {
       "oneOf": [
@@ -2541,6 +2648,22 @@
           "type": "object",
           "properties": {
             "tag": {
+              "const": "DerivedFromSelection"
+            },
+            "derived_from_selection": {
+              "$ref": "#/$defs/AdventurePointsDerivedFromSelection"
+            }
+          },
+          "required": [
+            "tag",
+            "derived_from_selection"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
               "const": "Indefinite"
             },
             "indefinite": {
@@ -2570,10 +2693,53 @@
       },
       "minItems": 2
     },
+    "AdventurePointsDerivedFromSelection": {
+      "description": "The adventure points value is derived from the selection of the special\nability. Its display value may be able to be derived from the given\ninformation for the select options. If that is not the case or the generated\ntext would not match the original one, a replacement text can be provided.",
+      "type": "object",
+      "properties": {
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/AdventurePointsDerivedFromSelectionTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "AdventurePointsDerivedFromSelectionTranslation": {
+      "type": "object",
+      "properties": {
+        "replacement": {
+          "description": "A replacement for the generated text if it would not match the original\none.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        }
+      },
+      "required": [],
+      "minProperties": 1,
+      "additionalProperties": false
+    },
     "AdventurePointsSingleValue": {
       "description": "A single adventure points value.",
       "type": "integer",
       "minimum": 0
+    },
+    "Input": {
+      "description": "A string that is used as a label for an input field.",
+      "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+    },
+    "AdventurePointsValueReplacement": {
+      "description": "The AP value. It is only used if the text cannot be generated from the given\ninformation.",
+      "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+    },
+    "AdventurePointsValueAppend": {
+      "description": "A string that gets appended to the default AP Value text with a preceding\nspace. This always happens if present, even if the generated AP Value text is\nreplaced.",
+      "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
     }
   }
 }

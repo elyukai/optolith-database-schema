@@ -243,12 +243,28 @@
               "const": "RatedMinimumNumber"
             },
             "rated_minimum_number": {
-              "$ref": "./single/RatedPrerequisite.schema.json#/$defs/RatedMinimumNumberPrerequisite"
+              "$ref": "./single/RatedMinimumNumberPrerequisite.schema.json#/$defs/RatedMinimumNumberPrerequisite"
             }
           },
           "required": [
             "tag",
             "rated_minimum_number"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "RatedSum"
+            },
+            "rated_sum": {
+              "$ref": "./single/RatedSumPrerequisite.schema.json#/$defs/RatedSumPrerequisite"
+            }
+          },
+          "required": [
+            "tag",
+            "rated_sum"
           ],
           "additionalProperties": false
         },
@@ -281,6 +297,22 @@
           "required": [
             "tag",
             "text"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "SexualCharacteristic"
+            },
+            "sexual_characteristic": {
+              "$ref": "./single/SexualCharacteristicPrerequisite.schema.json#/$defs/SexualCharacteristicPrerequisite"
+            }
+          },
+          "required": [
+            "tag",
+            "sexual_characteristic"
           ],
           "additionalProperties": false
         }
@@ -590,12 +622,28 @@
               "const": "RatedMinimumNumber"
             },
             "rated_minimum_number": {
-              "$ref": "./single/RatedPrerequisite.schema.json#/$defs/RatedMinimumNumberPrerequisite"
+              "$ref": "./single/RatedMinimumNumberPrerequisite.schema.json#/$defs/RatedMinimumNumberPrerequisite"
             }
           },
           "required": [
             "tag",
             "rated_minimum_number"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "RatedSum"
+            },
+            "rated_sum": {
+              "$ref": "./single/RatedSumPrerequisite.schema.json#/$defs/RatedSumPrerequisite"
+            }
+          },
+          "required": [
+            "tag",
+            "rated_sum"
           ],
           "additionalProperties": false
         },
@@ -628,6 +676,38 @@
           "required": [
             "tag",
             "text"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "NoOtherAncestorBloodAdvantage"
+            },
+            "no_other_ancestor_blood_advantage": {
+              "$ref": "./single/AncestorBloodPrerequisite.schema.json#/$defs/AncestorBloodPrerequisite"
+            }
+          },
+          "required": [
+            "tag",
+            "no_other_ancestor_blood_advantage"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "SexualCharacteristic"
+            },
+            "sexual_characteristic": {
+              "$ref": "./single/SexualCharacteristicPrerequisite.schema.json#/$defs/SexualCharacteristicPrerequisite"
+            }
+          },
+          "required": [
+            "tag",
+            "sexual_characteristic"
           ],
           "additionalProperties": false
         }
@@ -924,6 +1004,22 @@
           "required": [
             "tag",
             "publication"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "SexualCharacteristic"
+            },
+            "sexual_characteristic": {
+              "$ref": "./single/SexualCharacteristicPrerequisite.schema.json#/$defs/SexualCharacteristicPrerequisite"
+            }
+          },
+          "required": [
+            "tag",
+            "sexual_characteristic"
           ],
           "additionalProperties": false
         }
