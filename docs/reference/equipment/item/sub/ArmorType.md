@@ -9,7 +9,7 @@
 Key | Description | Details
 :-- | :-- | :--
 `id` | The armor type's identifier. An unique, increasing integer. | <a href="#ArmorType/id">See details</a>
-`sturdiness_rating` | Each armor type has a *sturdiness rating*. The higher the rating, the more durable the armor. Rolling higher than this rating during a sturdiness check means the armor receives one level of the new condition *Wear*. | <a href="#ArmorType/sturdiness_rating">See details</a>
+`sturdiness_rating?` | An armor type can have a *sturdiness rating*. The higher the rating, the more durable the armor. Rolling higher than this rating during a sturdiness check means the armor receives one level of the new condition *Wear*. | <a href="#ArmorType/sturdiness_rating">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#ArmorType/translations">See details</a>
 
 #### <a name="ArmorType/id"></a> `id`
@@ -19,10 +19,10 @@ The armor type's identifier. An unique, increasing integer.
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="ArmorType/sturdiness_rating"></a> `sturdiness_rating`
+#### <a name="ArmorType/sturdiness_rating"></a> `sturdiness_rating?`
 
-Each armor type has a *sturdiness rating*. The higher the rating, the more
-durable the armor. Rolling higher than this rating during a sturdiness
+An armor type can have a *sturdiness rating*. The higher the rating, the
+more durable the armor. Rolling higher than this rating during a sturdiness
 check means the armor receives one level of the new condition *Wear*.
 
 - **Type:** Integer

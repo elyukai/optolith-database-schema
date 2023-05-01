@@ -86,6 +86,7 @@ Key | Description | Details
 `name` |  | <a href="#CeremonialItemSpecialAbilityTranslation/name">See details</a>
 `name_in_library?` |  | <a href="#CeremonialItemSpecialAbilityTranslation/name_in_library">See details</a>
 `effect` |  | <a href="#CeremonialItemSpecialAbilityTranslation/effect">See details</a>
+`prerequisites?` | The prerequisites text. It is only used if the text cannot be generated from the given information. | <a href="#CeremonialItemSpecialAbilityTranslation/prerequisites">See details</a>
 `errata?` |  | <a href="#CeremonialItemSpecialAbilityTranslation/errata">See details</a>
 
 #### <a name="CeremonialItemSpecialAbilityTranslation/name"></a> `name`
@@ -99,6 +100,13 @@ Key | Description | Details
 #### <a name="CeremonialItemSpecialAbilityTranslation/effect"></a> `effect`
 
 - **Type:** <a href="../_Activatable.md#Effect">Effect</a>
+
+#### <a name="CeremonialItemSpecialAbilityTranslation/prerequisites"></a> `prerequisites?`
+
+The prerequisites text. It is only used if the text cannot be generated
+from the given information.
+
+- **Type:** <a href="../_Activatable.md#PrerequisitesReplacement">PrerequisitesReplacement</a>
 
 #### <a name="CeremonialItemSpecialAbilityTranslation/errata"></a> `errata?`
 

@@ -87,6 +87,7 @@ export type PoisonStart =
 export type PoisonDuration =
   | { tag: "Constant", constant: ConstantPoisonTime }
   | { tag: "DiceBased", dice_based: DiceBasedPoisonTime }
+  | { tag: "Indefinite", indefinite: IndefinitePoisonTime }
 
 export type ConstantPoisonTime = {
   value: number
@@ -102,6 +103,21 @@ export enum PoisonTimeUnit {
   CombatRounds = "CombatRounds",
   Minutes = "Minutes",
   Hours = "Hours",
+  Days = "Days",
+}
+
+export type IndefinitePoisonTime = {
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translations: LocaleMap<IndefinitePoisonTimeTranslation>
+}
+
+export type IndefinitePoisonTimeTranslation = {
+  /**
+   * A description of the duration.
+   */
+  description: NonEmptyMarkdown
 }
 
 export type PoisonSourceType =
@@ -119,6 +135,11 @@ export type AnimalVenom = {
    * @maximum 6
    */
   level: number
+
+  /**
+   * If `false`, the poison cannot be extracted.
+   */
+  is_extractable?: false
 }
 
 export type AlchemicalPoison = {

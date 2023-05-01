@@ -57,15 +57,18 @@ export type AdvancedCombatSpecialAbilityTranslation = {
    */
   penalty?: string
 
-  // prerequisites?: Activatable.PrerequisitesReplacement
+  /**
+   * The AP value. It is only used if the text cannot be generated from the
+   * given information.
+   */
+  ap_value?: Activatable.AdventurePointsValueReplacement
 
-  // prerequisites_start?: Activatable.PrerequisitesStart
-
-  // prerequisites_end?: Activatable.PrerequisitesEnd
-
-  // ap_value?: Activatable.AdventurePointsValueReplacement
-
-  // ap_value_append?: Activatable.AdventurePointsValueAppend
+  /**
+   * A string that gets appended to the default AP Value text with a preceding
+   * space. This always happens if present, even if the generated AP Value text
+   * is replaced.
+   */
+  ap_value_append?: Activatable.AdventurePointsValueAppend
 
   errata?: Errata
 }

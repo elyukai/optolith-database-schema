@@ -334,6 +334,14 @@ Key | Description | Details
 If the weapon is sanctified by a god and thus restricted to it's Blessed
 Ones.
 
+- **Type:** List
+- **Items:** <a href="#SanctifiedBy[]">SanctifiedBy[]</a>
+- **Minimum Items:** `1`
+
+---
+
+### <a name="SanctifiedBy[]"></a> `SanctifiedBy[]`
+
 - **Type:** <a href="../../_SimpleReferences.md#BlessedTraditionReference">BlessedTraditionReference</a>
 
 ---

@@ -95,6 +95,7 @@ Key | Description | Details
 :-- | :-- | :--
 `name` |  | <a href="#CombatSpecialAbilityTranslation/name">See details</a>
 `name_in_library?` |  | <a href="#CombatSpecialAbilityTranslation/name_in_library">See details</a>
+`input?` | A string that is used as a label for an input field. | <a href="#CombatSpecialAbilityTranslation/input">See details</a>
 `rules` |  | <a href="#CombatSpecialAbilityTranslation/rules">See details</a>
 `penalty?` |  | <a href="#CombatSpecialAbilityTranslation/penalty">See details</a>
 `errata?` |  | <a href="#CombatSpecialAbilityTranslation/errata">See details</a>
@@ -106,6 +107,12 @@ Key | Description | Details
 #### <a name="CombatSpecialAbilityTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
+
+#### <a name="CombatSpecialAbilityTranslation/input"></a> `input?`
+
+A string that is used as a label for an input field.
+
+- **Type:** <a href="../_Activatable.md#Input">Input</a>
 
 #### <a name="CombatSpecialAbilityTranslation/rules"></a> `rules`
 

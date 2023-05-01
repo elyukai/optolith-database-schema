@@ -57,7 +57,7 @@ Key | Description | Details
 ### <a name="GeneralPrerequisiteGroup"></a> `GeneralPrerequisiteGroup`
 
 - **Type:** Union
-- **Cases:** <a href="#GeneralPrerequisiteGroup'Sex">GeneralPrerequisiteGroup'Sex</a> | <a href="#GeneralPrerequisiteGroup'Race">GeneralPrerequisiteGroup'Race</a> | <a href="#GeneralPrerequisiteGroup'Culture">GeneralPrerequisiteGroup'Culture</a> | <a href="#GeneralPrerequisiteGroup'Pact">GeneralPrerequisiteGroup'Pact</a> | <a href="#GeneralPrerequisiteGroup'SocialStatus">GeneralPrerequisiteGroup'SocialStatus</a> | <a href="#GeneralPrerequisiteGroup'State">GeneralPrerequisiteGroup'State</a> | <a href="#GeneralPrerequisiteGroup'Rule">GeneralPrerequisiteGroup'Rule</a> | <a href="#GeneralPrerequisiteGroup'PrimaryAttribute">GeneralPrerequisiteGroup'PrimaryAttribute</a> | <a href="#GeneralPrerequisiteGroup'Activatable">GeneralPrerequisiteGroup'Activatable</a> | <a href="#GeneralPrerequisiteGroup'BlessedTradition">GeneralPrerequisiteGroup'BlessedTradition</a> | <a href="#GeneralPrerequisiteGroup'MagicalTradition">GeneralPrerequisiteGroup'MagicalTradition</a> | <a href="#GeneralPrerequisiteGroup'Rated">GeneralPrerequisiteGroup'Rated</a> | <a href="#GeneralPrerequisiteGroup'RatedMinimumNumber">GeneralPrerequisiteGroup'RatedMinimumNumber</a> | <a href="#GeneralPrerequisiteGroup'ExternalEnhancement">GeneralPrerequisiteGroup'ExternalEnhancement</a> | <a href="#GeneralPrerequisiteGroup'Text">GeneralPrerequisiteGroup'Text</a>
+- **Cases:** <a href="#GeneralPrerequisiteGroup'Sex">GeneralPrerequisiteGroup'Sex</a> | <a href="#GeneralPrerequisiteGroup'Race">GeneralPrerequisiteGroup'Race</a> | <a href="#GeneralPrerequisiteGroup'Culture">GeneralPrerequisiteGroup'Culture</a> | <a href="#GeneralPrerequisiteGroup'Pact">GeneralPrerequisiteGroup'Pact</a> | <a href="#GeneralPrerequisiteGroup'SocialStatus">GeneralPrerequisiteGroup'SocialStatus</a> | <a href="#GeneralPrerequisiteGroup'State">GeneralPrerequisiteGroup'State</a> | <a href="#GeneralPrerequisiteGroup'Rule">GeneralPrerequisiteGroup'Rule</a> | <a href="#GeneralPrerequisiteGroup'PrimaryAttribute">GeneralPrerequisiteGroup'PrimaryAttribute</a> | <a href="#GeneralPrerequisiteGroup'Activatable">GeneralPrerequisiteGroup'Activatable</a> | <a href="#GeneralPrerequisiteGroup'BlessedTradition">GeneralPrerequisiteGroup'BlessedTradition</a> | <a href="#GeneralPrerequisiteGroup'MagicalTradition">GeneralPrerequisiteGroup'MagicalTradition</a> | <a href="#GeneralPrerequisiteGroup'Rated">GeneralPrerequisiteGroup'Rated</a> | <a href="#GeneralPrerequisiteGroup'RatedMinimumNumber">GeneralPrerequisiteGroup'RatedMinimumNumber</a> | <a href="#GeneralPrerequisiteGroup'RatedSum">GeneralPrerequisiteGroup'RatedSum</a> | <a href="#GeneralPrerequisiteGroup'ExternalEnhancement">GeneralPrerequisiteGroup'ExternalEnhancement</a> | <a href="#GeneralPrerequisiteGroup'Text">GeneralPrerequisiteGroup'Text</a> | <a href="#GeneralPrerequisiteGroup'SexualCharacteristic">GeneralPrerequisiteGroup'SexualCharacteristic</a>
 
 ---
 
@@ -304,7 +304,26 @@ Key | Description | Details
 
 #### <a name="GeneralPrerequisiteGroup'RatedMinimumNumber/rated_minimum_number"></a> `rated_minimum_number`
 
-- **Type:** <a href="./single/RatedPrerequisite.md#RatedMinimumNumberPrerequisite">RatedMinimumNumberPrerequisite</a>
+- **Type:** <a href="./single/RatedMinimumNumberPrerequisite.md#RatedMinimumNumberPrerequisite">RatedMinimumNumberPrerequisite</a>
+
+---
+
+### <a name="GeneralPrerequisiteGroup'RatedSum"></a> `GeneralPrerequisiteGroup'RatedSum`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#GeneralPrerequisiteGroup'RatedSum/tag">See details</a>
+`rated_sum` |  | <a href="#GeneralPrerequisiteGroup'RatedSum/rated_sum">See details</a>
+
+#### <a name="GeneralPrerequisiteGroup'RatedSum/tag"></a> `tag`
+
+- **Constant:** `"RatedSum"`
+
+#### <a name="GeneralPrerequisiteGroup'RatedSum/rated_sum"></a> `rated_sum`
+
+- **Type:** <a href="./single/RatedSumPrerequisite.md#RatedSumPrerequisite">RatedSumPrerequisite</a>
 
 ---
 
@@ -343,6 +362,25 @@ Key | Description | Details
 #### <a name="GeneralPrerequisiteGroup'Text/text"></a> `text`
 
 - **Type:** <a href="./single/TextPrerequisite.md#TextPrerequisite">TextPrerequisite</a>
+
+---
+
+### <a name="GeneralPrerequisiteGroup'SexualCharacteristic"></a> `GeneralPrerequisiteGroup'SexualCharacteristic`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#GeneralPrerequisiteGroup'SexualCharacteristic/tag">See details</a>
+`sexual_characteristic` |  | <a href="#GeneralPrerequisiteGroup'SexualCharacteristic/sexual_characteristic">See details</a>
+
+#### <a name="GeneralPrerequisiteGroup'SexualCharacteristic/tag"></a> `tag`
+
+- **Constant:** `"SexualCharacteristic"`
+
+#### <a name="GeneralPrerequisiteGroup'SexualCharacteristic/sexual_characteristic"></a> `sexual_characteristic`
+
+- **Type:** <a href="./single/SexualCharacteristicPrerequisite.md#SexualCharacteristicPrerequisite">SexualCharacteristicPrerequisite</a>
 
 ---
 
@@ -451,7 +489,7 @@ Key | Description | Details
 ### <a name="AdvantageDisadvantagePrerequisiteGroup"></a> `AdvantageDisadvantagePrerequisiteGroup`
 
 - **Type:** Union
-- **Cases:** <a href="#AdvantageDisadvantagePrerequisiteGroup'CommonSuggestedByRCP">AdvantageDisadvantagePrerequisiteGroup'CommonSuggestedByRCP</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Sex">AdvantageDisadvantagePrerequisiteGroup'Sex</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Race">AdvantageDisadvantagePrerequisiteGroup'Race</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Culture">AdvantageDisadvantagePrerequisiteGroup'Culture</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Pact">AdvantageDisadvantagePrerequisiteGroup'Pact</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'SocialStatus">AdvantageDisadvantagePrerequisiteGroup'SocialStatus</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'State">AdvantageDisadvantagePrerequisiteGroup'State</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Rule">AdvantageDisadvantagePrerequisiteGroup'Rule</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'PrimaryAttribute">AdvantageDisadvantagePrerequisiteGroup'PrimaryAttribute</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Activatable">AdvantageDisadvantagePrerequisiteGroup'Activatable</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'BlessedTradition">AdvantageDisadvantagePrerequisiteGroup'BlessedTradition</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'MagicalTradition">AdvantageDisadvantagePrerequisiteGroup'MagicalTradition</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Rated">AdvantageDisadvantagePrerequisiteGroup'Rated</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'RatedMinimumNumber">AdvantageDisadvantagePrerequisiteGroup'RatedMinimumNumber</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'ExternalEnhancement">AdvantageDisadvantagePrerequisiteGroup'ExternalEnhancement</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Text">AdvantageDisadvantagePrerequisiteGroup'Text</a>
+- **Cases:** <a href="#AdvantageDisadvantagePrerequisiteGroup'CommonSuggestedByRCP">AdvantageDisadvantagePrerequisiteGroup'CommonSuggestedByRCP</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Sex">AdvantageDisadvantagePrerequisiteGroup'Sex</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Race">AdvantageDisadvantagePrerequisiteGroup'Race</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Culture">AdvantageDisadvantagePrerequisiteGroup'Culture</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Pact">AdvantageDisadvantagePrerequisiteGroup'Pact</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'SocialStatus">AdvantageDisadvantagePrerequisiteGroup'SocialStatus</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'State">AdvantageDisadvantagePrerequisiteGroup'State</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Rule">AdvantageDisadvantagePrerequisiteGroup'Rule</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'PrimaryAttribute">AdvantageDisadvantagePrerequisiteGroup'PrimaryAttribute</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Activatable">AdvantageDisadvantagePrerequisiteGroup'Activatable</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'BlessedTradition">AdvantageDisadvantagePrerequisiteGroup'BlessedTradition</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'MagicalTradition">AdvantageDisadvantagePrerequisiteGroup'MagicalTradition</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Rated">AdvantageDisadvantagePrerequisiteGroup'Rated</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'RatedMinimumNumber">AdvantageDisadvantagePrerequisiteGroup'RatedMinimumNumber</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'RatedSum">AdvantageDisadvantagePrerequisiteGroup'RatedSum</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'ExternalEnhancement">AdvantageDisadvantagePrerequisiteGroup'ExternalEnhancement</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'Text">AdvantageDisadvantagePrerequisiteGroup'Text</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'NoOtherAncestorBloodAdvantage">AdvantageDisadvantagePrerequisiteGroup'NoOtherAncestorBloodAdvantage</a> | <a href="#AdvantageDisadvantagePrerequisiteGroup'SexualCharacteristic">AdvantageDisadvantagePrerequisiteGroup'SexualCharacteristic</a>
 
 ---
 
@@ -723,7 +761,26 @@ Key | Description | Details
 
 #### <a name="AdvantageDisadvantagePrerequisiteGroup'RatedMinimumNumber/rated_minimum_number"></a> `rated_minimum_number`
 
-- **Type:** <a href="./single/RatedPrerequisite.md#RatedMinimumNumberPrerequisite">RatedMinimumNumberPrerequisite</a>
+- **Type:** <a href="./single/RatedMinimumNumberPrerequisite.md#RatedMinimumNumberPrerequisite">RatedMinimumNumberPrerequisite</a>
+
+---
+
+### <a name="AdvantageDisadvantagePrerequisiteGroup'RatedSum"></a> `AdvantageDisadvantagePrerequisiteGroup'RatedSum`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AdvantageDisadvantagePrerequisiteGroup'RatedSum/tag">See details</a>
+`rated_sum` |  | <a href="#AdvantageDisadvantagePrerequisiteGroup'RatedSum/rated_sum">See details</a>
+
+#### <a name="AdvantageDisadvantagePrerequisiteGroup'RatedSum/tag"></a> `tag`
+
+- **Constant:** `"RatedSum"`
+
+#### <a name="AdvantageDisadvantagePrerequisiteGroup'RatedSum/rated_sum"></a> `rated_sum`
+
+- **Type:** <a href="./single/RatedSumPrerequisite.md#RatedSumPrerequisite">RatedSumPrerequisite</a>
 
 ---
 
@@ -762,6 +819,44 @@ Key | Description | Details
 #### <a name="AdvantageDisadvantagePrerequisiteGroup'Text/text"></a> `text`
 
 - **Type:** <a href="./single/TextPrerequisite.md#TextPrerequisite">TextPrerequisite</a>
+
+---
+
+### <a name="AdvantageDisadvantagePrerequisiteGroup'NoOtherAncestorBloodAdvantage"></a> `AdvantageDisadvantagePrerequisiteGroup'NoOtherAncestorBloodAdvantage`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AdvantageDisadvantagePrerequisiteGroup'NoOtherAncestorBloodAdvantage/tag">See details</a>
+`no_other_ancestor_blood_advantage` |  | <a href="#AdvantageDisadvantagePrerequisiteGroup'NoOtherAncestorBloodAdvantage/no_other_ancestor_blood_advantage">See details</a>
+
+#### <a name="AdvantageDisadvantagePrerequisiteGroup'NoOtherAncestorBloodAdvantage/tag"></a> `tag`
+
+- **Constant:** `"NoOtherAncestorBloodAdvantage"`
+
+#### <a name="AdvantageDisadvantagePrerequisiteGroup'NoOtherAncestorBloodAdvantage/no_other_ancestor_blood_advantage"></a> `no_other_ancestor_blood_advantage`
+
+- **Type:** <a href="./single/AncestorBloodPrerequisite.md#AncestorBloodPrerequisite">AncestorBloodPrerequisite</a>
+
+---
+
+### <a name="AdvantageDisadvantagePrerequisiteGroup'SexualCharacteristic"></a> `AdvantageDisadvantagePrerequisiteGroup'SexualCharacteristic`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AdvantageDisadvantagePrerequisiteGroup'SexualCharacteristic/tag">See details</a>
+`sexual_characteristic` |  | <a href="#AdvantageDisadvantagePrerequisiteGroup'SexualCharacteristic/sexual_characteristic">See details</a>
+
+#### <a name="AdvantageDisadvantagePrerequisiteGroup'SexualCharacteristic/tag"></a> `tag`
+
+- **Constant:** `"SexualCharacteristic"`
+
+#### <a name="AdvantageDisadvantagePrerequisiteGroup'SexualCharacteristic/sexual_characteristic"></a> `sexual_characteristic`
+
+- **Type:** <a href="./single/SexualCharacteristicPrerequisite.md#SexualCharacteristicPrerequisite">SexualCharacteristicPrerequisite</a>
 
 ---
 
@@ -1116,7 +1211,7 @@ Key | Description | Details
 ### <a name="PreconditionGroup"></a> `PreconditionGroup`
 
 - **Type:** Union
-- **Cases:** <a href="#PreconditionGroup'Publication">PreconditionGroup'Publication</a>
+- **Cases:** <a href="#PreconditionGroup'Publication">PreconditionGroup'Publication</a> | <a href="#PreconditionGroup'SexualCharacteristic">PreconditionGroup'SexualCharacteristic</a>
 
 ---
 
@@ -1136,3 +1231,22 @@ Key | Description | Details
 #### <a name="PreconditionGroup'Publication/publication"></a> `publication`
 
 - **Type:** <a href="./single/PublicationPrerequisite.md#PublicationPrerequisite">PublicationPrerequisite</a>
+
+---
+
+### <a name="PreconditionGroup'SexualCharacteristic"></a> `PreconditionGroup'SexualCharacteristic`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#PreconditionGroup'SexualCharacteristic/tag">See details</a>
+`sexual_characteristic` |  | <a href="#PreconditionGroup'SexualCharacteristic/sexual_characteristic">See details</a>
+
+#### <a name="PreconditionGroup'SexualCharacteristic/tag"></a> `tag`
+
+- **Constant:** `"SexualCharacteristic"`
+
+#### <a name="PreconditionGroup'SexualCharacteristic/sexual_characteristic"></a> `sexual_characteristic`
+
+- **Type:** <a href="./single/SexualCharacteristicPrerequisite.md#SexualCharacteristicPrerequisite">SexualCharacteristicPrerequisite</a>

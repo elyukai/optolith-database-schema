@@ -509,6 +509,14 @@
         "name": {
           "description": "Name of the profession variant.",
           "$ref": "#/$defs/ProfessionName"
+        },
+        "full_text": {
+          "description": "A text that replaces the generated text for the profession variant.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "concluding_text": {
+          "description": "A text that is appended to the generated text for the profession variant.\n\nHas no effect when `full_text` is set.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         }
       },
       "required": [

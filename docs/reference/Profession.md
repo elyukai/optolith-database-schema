@@ -769,12 +769,28 @@ All translations for the entry, identified by IETF language tag (BCP47).
 Key | Description | Details
 :-- | :-- | :--
 `name` | Name of the profession variant. | <a href="#ProfessionVariantTranslation/name">See details</a>
+`full_text?` | A text that replaces the generated text for the profession variant. | <a href="#ProfessionVariantTranslation/full_text">See details</a>
+`concluding_text?` | A text that is appended to the generated text for the profession variant. | <a href="#ProfessionVariantTranslation/concluding_text">See details</a>
 
 #### <a name="ProfessionVariantTranslation/name"></a> `name`
 
 Name of the profession variant.
 
 - **Type:** <a href="#ProfessionName">ProfessionName</a>
+
+#### <a name="ProfessionVariantTranslation/full_text"></a> `full_text?`
+
+A text that replaces the generated text for the profession variant.
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="ProfessionVariantTranslation/concluding_text"></a> `concluding_text?`
+
+A text that is appended to the generated text for the profession variant.
+
+Has no effect when `full_text` is set.
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 ---
 

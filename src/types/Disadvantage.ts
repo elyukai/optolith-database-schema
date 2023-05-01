@@ -3,11 +3,11 @@
  */
 
 import { validateSchemaCreator } from "../validation/schema.js"
-import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
 import * as Activatable from "./_Activatable.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { AdvantageDisadvantagePrerequisites } from "./_Prerequisite.js"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
  * @title Disadvantage
@@ -50,7 +50,10 @@ export type DisadvantageTranslation = {
 
   name_in_library?: Activatable.NameInLibrary
 
-  // input?: Activatable.Input
+  /**
+   * A string that is used as a label for an input field.
+   */
+  input?: Activatable.Input
 
   rules: Activatable.Rules
 
@@ -69,7 +72,12 @@ export type DisadvantageTranslation = {
 
   // ap_value?: Activatable.AdventurePointsValueReplacement
 
-  // ap_value_append?: Activatable.AdventurePointsValueAppend
+  /**
+   * A string that gets appended to the default AP Value text with a preceding
+   * space. This always happens if present, even if the generated AP Value text
+   * is replaced.
+   */
+  ap_value_append?: Activatable.AdventurePointsValueAppend
 
   errata?: Errata
 }

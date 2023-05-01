@@ -97,6 +97,8 @@ Key | Description | Details
 `name_in_library?` |  | <a href="#AdvancedCombatSpecialAbilityTranslation/name_in_library">See details</a>
 `rules` |  | <a href="#AdvancedCombatSpecialAbilityTranslation/rules">See details</a>
 `penalty?` |  | <a href="#AdvancedCombatSpecialAbilityTranslation/penalty">See details</a>
+`ap_value?` | The AP value. It is only used if the text cannot be generated from the given information. | <a href="#AdvancedCombatSpecialAbilityTranslation/ap_value">See details</a>
+`ap_value_append?` | A string that gets appended to the default AP Value text with a preceding space. This always happens if present, even if the generated AP Value text is replaced. | <a href="#AdvancedCombatSpecialAbilityTranslation/ap_value_append">See details</a>
 `errata?` |  | <a href="#AdvancedCombatSpecialAbilityTranslation/errata">See details</a>
 
 #### <a name="AdvancedCombatSpecialAbilityTranslation/name"></a> `name`
@@ -114,6 +116,21 @@ Key | Description | Details
 #### <a name="AdvancedCombatSpecialAbilityTranslation/penalty"></a> `penalty?`
 
 - **Type:** String
+
+#### <a name="AdvancedCombatSpecialAbilityTranslation/ap_value"></a> `ap_value?`
+
+The AP value. It is only used if the text cannot be generated from the
+given information.
+
+- **Type:** <a href="../_Activatable.md#AdventurePointsValueReplacement">AdventurePointsValueReplacement</a>
+
+#### <a name="AdvancedCombatSpecialAbilityTranslation/ap_value_append"></a> `ap_value_append?`
+
+A string that gets appended to the default AP Value text with a preceding
+space. This always happens if present, even if the generated AP Value text
+is replaced.
+
+- **Type:** <a href="../_Activatable.md#AdventurePointsValueAppend">AdventurePointsValueAppend</a>
 
 #### <a name="AdvancedCombatSpecialAbilityTranslation/errata"></a> `errata?`
 

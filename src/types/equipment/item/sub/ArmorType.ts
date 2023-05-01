@@ -18,14 +18,14 @@ export type ArmorType = {
   id: number
 
   /**
-   * Each armor type has a *sturdiness rating*. The higher the rating, the more
-   * durable the armor. Rolling higher than this rating during a sturdiness
+   * An armor type can have a *sturdiness rating*. The higher the rating, the
+   * more durable the armor. Rolling higher than this rating during a sturdiness
    * check means the armor receives one level of the new condition *Wear*.
    * @integer
    * @minimum 1
    * @msximum 20
    */
-  sturdiness_rating: number
+  sturdiness_rating?: number
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).

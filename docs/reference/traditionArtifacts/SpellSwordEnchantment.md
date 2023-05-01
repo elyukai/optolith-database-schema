@@ -89,6 +89,7 @@ Key | Description | Details
 `volume` |  | <a href="#SpellSwordEnchantmentTranslation/volume">See details</a>
 `aeCost?` |  | <a href="#SpellSwordEnchantmentTranslation/aeCost">See details</a>
 `bindingCost?` |  | <a href="#SpellSwordEnchantmentTranslation/bindingCost">See details</a>
+`ap_value?` | The AP value. It is only used if the text cannot be generated from the given information. | <a href="#SpellSwordEnchantmentTranslation/ap_value">See details</a>
 `errata?` |  | <a href="#SpellSwordEnchantmentTranslation/errata">See details</a>
 
 #### <a name="SpellSwordEnchantmentTranslation/name"></a> `name`
@@ -114,6 +115,13 @@ Key | Description | Details
 #### <a name="SpellSwordEnchantmentTranslation/bindingCost"></a> `bindingCost?`
 
 - **Type:** String
+
+#### <a name="SpellSwordEnchantmentTranslation/ap_value"></a> `ap_value?`
+
+The AP value. It is only used if the text cannot be generated from the
+given information.
+
+- **Type:** <a href="../_Activatable.md#AdventurePointsValueReplacement">AdventurePointsValueReplacement</a>
 
 #### <a name="SpellSwordEnchantmentTranslation/errata"></a> `errata?`
 

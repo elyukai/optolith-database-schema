@@ -80,7 +80,9 @@ Key | Description | Details
 :-- | :-- | :--
 `name` |  | <a href="#GeneralSpecialAbilityTranslation/name">See details</a>
 `name_in_library?` |  | <a href="#GeneralSpecialAbilityTranslation/name_in_library">See details</a>
+`input?` | A string that is used as a label for an input field. | <a href="#GeneralSpecialAbilityTranslation/input">See details</a>
 `rules` |  | <a href="#GeneralSpecialAbilityTranslation/rules">See details</a>
+`ap_value_append?` | A string that gets appended to the default AP Value text with a preceding space. This always happens if present, even if the generated AP Value text is replaced. | <a href="#GeneralSpecialAbilityTranslation/ap_value_append">See details</a>
 `errata?` |  | <a href="#GeneralSpecialAbilityTranslation/errata">See details</a>
 
 #### <a name="GeneralSpecialAbilityTranslation/name"></a> `name`
@@ -91,9 +93,23 @@ Key | Description | Details
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
+#### <a name="GeneralSpecialAbilityTranslation/input"></a> `input?`
+
+A string that is used as a label for an input field.
+
+- **Type:** <a href="../_Activatable.md#Input">Input</a>
+
 #### <a name="GeneralSpecialAbilityTranslation/rules"></a> `rules`
 
 - **Type:** <a href="../_Activatable.md#Rules">Rules</a>
+
+#### <a name="GeneralSpecialAbilityTranslation/ap_value_append"></a> `ap_value_append?`
+
+A string that gets appended to the default AP Value text with a preceding
+space. This always happens if present, even if the generated AP Value text
+is replaced.
+
+- **Type:** <a href="../_Activatable.md#AdventurePointsValueAppend">AdventurePointsValueAppend</a>
 
 #### <a name="GeneralSpecialAbilityTranslation/errata"></a> `errata?`
 

@@ -184,6 +184,22 @@
             "dice_based"
           ],
           "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Indefinite"
+            },
+            "indefinite": {
+              "$ref": "#/$defs/IndefinitePoisonTime"
+            }
+          },
+          "required": [
+            "tag",
+            "indefinite"
+          ],
+          "additionalProperties": false
         }
       ]
     },
@@ -223,8 +239,42 @@
       "enum": [
         "CombatRounds",
         "Minutes",
-        "Hours"
+        "Hours",
+        "Days"
       ]
+    },
+    "IndefinitePoisonTime": {
+      "type": "object",
+      "properties": {
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/IndefinitePoisonTimeTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "IndefinitePoisonTimeTranslation": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "description": "A description of the duration.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+        }
+      },
+      "required": [
+        "description"
+      ],
+      "additionalProperties": false
     },
     "PoisonSourceType": {
       "oneOf": [
@@ -318,6 +368,10 @@
           "type": "integer",
           "maximum": 6,
           "minimum": 1
+        },
+        "is_extractable": {
+          "description": "If `false`, the poison cannot be extracted.",
+          "const": false
         }
       },
       "required": [

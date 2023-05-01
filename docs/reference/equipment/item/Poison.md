@@ -209,7 +209,7 @@ Key | Description | Details
 ### <a name="PoisonDuration"></a> `PoisonDuration`
 
 - **Type:** Union
-- **Cases:** <a href="#PoisonDuration'Constant">PoisonDuration'Constant</a> | <a href="#PoisonDuration'DiceBased">PoisonDuration'DiceBased</a>
+- **Cases:** <a href="#PoisonDuration'Constant">PoisonDuration'Constant</a> | <a href="#PoisonDuration'DiceBased">PoisonDuration'DiceBased</a> | <a href="#PoisonDuration'Indefinite">PoisonDuration'Indefinite</a>
 
 ---
 
@@ -248,6 +248,25 @@ Key | Description | Details
 #### <a name="PoisonDuration'DiceBased/dice_based"></a> `dice_based`
 
 - **Type:** <a href="#DiceBasedPoisonTime">DiceBasedPoisonTime</a>
+
+---
+
+### <a name="PoisonDuration'Indefinite"></a> `PoisonDuration'Indefinite`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#PoisonDuration'Indefinite/tag">See details</a>
+`indefinite` |  | <a href="#PoisonDuration'Indefinite/indefinite">See details</a>
+
+#### <a name="PoisonDuration'Indefinite/tag"></a> `tag`
+
+- **Constant:** `"Indefinite"`
+
+#### <a name="PoisonDuration'Indefinite/indefinite"></a> `indefinite`
+
+- **Type:** <a href="#IndefinitePoisonTime">IndefinitePoisonTime</a>
 
 ---
 
@@ -291,7 +310,48 @@ Key | Description | Details
 
 ### <a name="PoisonTimeUnit"></a> `PoisonTimeUnit`
 
-- **Possible values:** `"CombatRounds"`, `"Minutes"`, `"Hours"`
+- **Possible values:** `"CombatRounds"`, `"Minutes"`, `"Hours"`, `"Days"`
+
+---
+
+### <a name="IndefinitePoisonTime"></a> `IndefinitePoisonTime`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#IndefinitePoisonTime/translations">See details</a>
+
+#### <a name="IndefinitePoisonTime/translations"></a> `translations`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** Dictionary
+- **Property Values:** <a href="#IndefinitePoisonTime/translations[key]">IndefinitePoisonTime/translations[key]</a>
+- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
+- **Minimum Properties:** `1`
+
+---
+
+### <a name="IndefinitePoisonTime/translations[key]"></a> `IndefinitePoisonTime/translations[key]`
+
+- **Type:** <a href="#IndefinitePoisonTimeTranslation">IndefinitePoisonTimeTranslation</a>
+
+---
+
+### <a name="IndefinitePoisonTimeTranslation"></a> `IndefinitePoisonTimeTranslation`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`description` | A description of the duration. | <a href="#IndefinitePoisonTimeTranslation/description">See details</a>
+
+#### <a name="IndefinitePoisonTimeTranslation/description"></a> `description`
+
+A description of the duration.
+
+- **Type:** <a href="../../_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
 ---
 
@@ -404,6 +464,7 @@ Key | Description | Details
 Key | Description | Details
 :-- | :-- | :--
 `level` | The poison’s level. | <a href="#AnimalVenom/level">See details</a>
+`is_extractable?` | If `false`, the poison cannot be extracted. | <a href="#AnimalVenom/is_extractable">See details</a>
 
 #### <a name="AnimalVenom/level"></a> `level`
 
@@ -412,6 +473,12 @@ The poison’s level.
 - **Type:** Integer
 - **Minimum:** `1`
 - **Maximum:** `6`
+
+#### <a name="AnimalVenom/is_extractable"></a> `is_extractable?`
+
+If `false`, the poison cannot be extracted.
+
+- **Constant:** `false`
 
 ---
 

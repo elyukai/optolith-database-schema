@@ -3,11 +3,12 @@
  */
 
 import { validateSchemaCreator } from "../../validation/schema.js"
-import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
 import * as Activatable from "../_Activatable.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
+import { ResponsiveTextOptional } from "../_ResponsiveText.js"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
 
 /**
  * @title Staff Enchantment
@@ -65,11 +66,20 @@ export type StaffEnchantmentTranslation = {
   aeCost?: string
 
   /**
+   * A note, appended to the generated cost string in parenthesis.
+   */
+  cost_note?: ResponsiveTextOptional
+
+  /**
    * @deprecated
    */
   bindingCost?: string
 
-  // ap_value?: Activatable.AdventurePointsValueReplacement
+  /**
+   * The AP value. It is only used if the text cannot be generated from the
+   * given information.
+   */
+  ap_value?: Activatable.AdventurePointsValueReplacement
 
   // ap_value_append?: Activatable.AdventurePointsValueAppend
 

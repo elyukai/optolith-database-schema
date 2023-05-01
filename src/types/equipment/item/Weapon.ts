@@ -3,11 +3,11 @@
  */
 
 import { validateSchemaCreator } from "../../../validation/schema.js"
-import { Errata } from "../../source/_Erratum.js"
-import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { LocaleMap } from "../../_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "../../_NonEmptyString.js"
 import { BlessedTraditionReference, CultureReference, MagicalTraditionReference, RaceReference } from "../../_SimpleReferences.js"
+import { Errata } from "../../source/_Erratum.js"
+import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { Complexity, Cost, StructurePoints, Weight } from "./_Item.js"
 import { MeleeWeapon } from "./_MeleeWeapon.js"
 import { RangedWeapon } from "./_RangedWeapon.js"
@@ -168,8 +168,9 @@ export type WeaponUseValues =
 /**
  * If the weapon is sanctified by a god and thus restricted to it's Blessed
  * Ones.
+ * @minItems 1
  */
-export type SanctifiedBy = BlessedTraditionReference
+export type SanctifiedBy = BlessedTraditionReference[]
 
 /**
  * Define if during character creation this weapon can only be bought by

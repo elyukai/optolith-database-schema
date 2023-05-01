@@ -3,11 +3,11 @@
  */
 
 import { validateSchemaCreator } from "../validation/schema.js"
-import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "./_NonEmptyString.js"
 import { BlessedTraditionReference } from "./_SimpleReferences.js"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
  * @title Talisman
@@ -27,17 +27,17 @@ export type Talisman = {
   tradition: BlessedTraditionReference[]
 
   /**
-   * The talisman type.
+   * The talisman type, if any.
    */
-  type: TalismanType
+  type?: TalismanType
 
   /**
-   * The AP value for the required trade secret.
+   * The AP value for the required trade secret, if possible.
    * @integer
    * @minimum 5
    * @multipleOf 5
    */
-  ap_value: number
+  ap_value?: number
 
   src: PublicationRefs
 

@@ -80,7 +80,9 @@ Key | Description | Details
 :-- | :-- | :--
 `name` |  | <a href="#MagicalSpecialAbilityTranslation/name">See details</a>
 `name_in_library?` |  | <a href="#MagicalSpecialAbilityTranslation/name_in_library">See details</a>
+`input?` | A string that is used as a label for an input field. | <a href="#MagicalSpecialAbilityTranslation/input">See details</a>
 `rules` |  | <a href="#MagicalSpecialAbilityTranslation/rules">See details</a>
+`ap_value?` | The AP value. It is only used if the text cannot be generated from the given information. | <a href="#MagicalSpecialAbilityTranslation/ap_value">See details</a>
 `errata?` |  | <a href="#MagicalSpecialAbilityTranslation/errata">See details</a>
 
 #### <a name="MagicalSpecialAbilityTranslation/name"></a> `name`
@@ -91,9 +93,22 @@ Key | Description | Details
 
 - **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
 
+#### <a name="MagicalSpecialAbilityTranslation/input"></a> `input?`
+
+A string that is used as a label for an input field.
+
+- **Type:** <a href="../_Activatable.md#Input">Input</a>
+
 #### <a name="MagicalSpecialAbilityTranslation/rules"></a> `rules`
 
 - **Type:** <a href="../_Activatable.md#Rules">Rules</a>
+
+#### <a name="MagicalSpecialAbilityTranslation/ap_value"></a> `ap_value?`
+
+The AP value. It is only used if the text cannot be generated from the
+given information.
+
+- **Type:** <a href="../_Activatable.md#AdventurePointsValueReplacement">AdventurePointsValueReplacement</a>
 
 #### <a name="MagicalSpecialAbilityTranslation/errata"></a> `errata?`
 

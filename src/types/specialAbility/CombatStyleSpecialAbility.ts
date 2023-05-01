@@ -60,16 +60,6 @@ export type CombatStyleSpecialAbilityTransition = {
 
   // advanced_append?: Activatable.AdvancedSpecialAbilitiesAppend
 
-  // prerequisites?: Activatable.PrerequisitesReplacement
-
-  // prerequisites_start?: Activatable.PrerequisitesStart
-
-  // prerequisites_end?: Activatable.PrerequisitesEnd
-
-  // ap_value?: Activatable.AdventurePointsValueReplacement
-
-  // ap_value_append?: Activatable.AdventurePointsValueAppend
-
   errata?: Errata
 }
 

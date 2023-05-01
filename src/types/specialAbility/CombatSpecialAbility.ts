@@ -3,11 +3,11 @@
  */
 
 import { validateSchemaCreator } from "../../validation/schema.js"
-import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
 import * as Activatable from "../_Activatable.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
 
 /**
  * @title Combat Special Ability
@@ -48,7 +48,10 @@ export type CombatSpecialAbilityTranslation = {
 
   name_in_library?: Activatable.NameInLibrary
 
-  // input?: Activatable.Input
+  /**
+   * A string that is used as a label for an input field.
+   */
+  input?: Activatable.Input
 
   rules: Activatable.Rules
 
@@ -56,16 +59,6 @@ export type CombatSpecialAbilityTranslation = {
    * @deprecated
    */
   penalty?: string
-
-  // prerequisites?: Activatable.PrerequisitesReplacement
-
-  // prerequisites_start?: Activatable.PrerequisitesStart
-
-  // prerequisites_end?: Activatable.PrerequisitesEnd
-
-  // ap_value?: Activatable.AdventurePointsValueReplacement
-
-  // ap_value_append?: Activatable.AdventurePointsValueAppend
 
   errata?: Errata
 }

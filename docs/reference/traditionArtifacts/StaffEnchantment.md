@@ -88,7 +88,9 @@ Key | Description | Details
 `effect` |  | <a href="#StaffEnchantmentTranslation/effect">See details</a>
 `volume` |  | <a href="#StaffEnchantmentTranslation/volume">See details</a>
 `aeCost?` |  | <a href="#StaffEnchantmentTranslation/aeCost">See details</a>
+`cost_note?` | A note, appended to the generated cost string in parenthesis. | <a href="#StaffEnchantmentTranslation/cost_note">See details</a>
 `bindingCost?` |  | <a href="#StaffEnchantmentTranslation/bindingCost">See details</a>
+`ap_value?` | The AP value. It is only used if the text cannot be generated from the given information. | <a href="#StaffEnchantmentTranslation/ap_value">See details</a>
 `errata?` |  | <a href="#StaffEnchantmentTranslation/errata">See details</a>
 
 #### <a name="StaffEnchantmentTranslation/name"></a> `name`
@@ -111,9 +113,22 @@ Key | Description | Details
 
 - **Type:** String
 
+#### <a name="StaffEnchantmentTranslation/cost_note"></a> `cost_note?`
+
+A note, appended to the generated cost string in parenthesis.
+
+- **Type:** <a href="../_ResponsiveText.md#ResponsiveTextOptional">ResponsiveTextOptional</a>
+
 #### <a name="StaffEnchantmentTranslation/bindingCost"></a> `bindingCost?`
 
 - **Type:** String
+
+#### <a name="StaffEnchantmentTranslation/ap_value"></a> `ap_value?`
+
+The AP value. It is only used if the text cannot be generated from the
+given information.
+
+- **Type:** <a href="../_Activatable.md#AdventurePointsValueReplacement">AdventurePointsValueReplacement</a>
 
 #### <a name="StaffEnchantmentTranslation/errata"></a> `errata?`
 

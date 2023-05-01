@@ -11,6 +11,14 @@
           "description": "The method how the prerequisite should be verified. Either is passes all\nverification text or it denies all verification tests. The latter results\nin the associated entry to never be available for purchase.",
           "$ref": "#/$defs/TextVerificationRule"
         },
+        "sentence_type": {
+          "description": "If the text is a sentence or sentence-like fragment, this property ensures\nit is integrated into the prerequisite string correctly.\n\nA standalone sentence is connected to the previous prerequisite string with\na period and a period is also added at the end of the sentence\nautomatically, if it is not present. A connected sentence is connected to\nthe previous prerequisite string with a semicolon and a period is not added\nto the end of the sentence. In this case, if there are prerequisites after\nthis one, they will be connected using a semicolon again, unless a\ndifferent punctuation mark is present at the end of the given text.",
+          "$ref": "#/$defs/SentenceType"
+        },
+        "is_meta": {
+          "description": "If the text does not represent an actual prerequisite but a prerequisite\nfor the use of certain aspects or the entry the prerequisite is associated\nwith, or something like that, this property is set to `true`.\n\nIf all prerequisites of an entry are marked as meta, the entry is\nconsidered to have no prerequisites and thus the string `none` must be\nrendered before the list of meta prerequisites.\n\nThis is the only use case for this property.",
+          "const": true
+        },
         "translations": {
           "description": "All translations for the entry, identified by IETF language tag (BCP47).",
           "type": "object",
@@ -33,6 +41,12 @@
       "enum": [
         "Pass",
         "Deny"
+      ]
+    },
+    "SentenceType": {
+      "enum": [
+        "Standalone",
+        "Connected"
       ]
     },
     "TextPrerequisiteTranslation": {

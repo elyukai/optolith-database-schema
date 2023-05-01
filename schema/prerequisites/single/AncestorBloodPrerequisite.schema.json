@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "/prerequisites/single/AncestorBloodPrerequisite.schema.json",
+  "$defs": {
+    "AncestorBloodPrerequisite": {
+      "title": "Ancestor Blood Prerequisite",
+      "description": "Requires that no other Ancestor Blood advantage is active.",
+      "type": "object",
+      "properties": {},
+      "required": [],
+      "additionalProperties": false
+    }
+  }
+}
