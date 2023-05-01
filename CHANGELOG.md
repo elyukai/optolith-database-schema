@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.10.0](https://github.com/elyukai/optolith-database-schema/compare/v0.9.0...v0.10.0) (2023-05-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* finish schema
+
+### Features
+
+* finish schema ([0ea6a83](https://github.com/elyukai/optolith-database-schema/commit/0ea6a838e22651b0e24708dcb10143db3c4300ca))
+* sort errors by file path, with numbers in ascending order ([abc0bb1](https://github.com/elyukai/optolith-database-schema/commit/abc0bb13fd1d8d72237725ea37031c5697adaab9))
+
+
+### Bug Fixes
+
+* allow numbers in names ([4f6b2ae](https://github.com/elyukai/optolith-database-schema/commit/4f6b2aea2dba9a92a77b2667ed98617c233bbef1))
+* ignore hidden files ([230326f](https://github.com/elyukai/optolith-database-schema/commit/230326ff25c3faee88f614c3380396070efb1516))
+* the file name id may be 0 for custom entries ([8b1144e](https://github.com/elyukai/optolith-database-schema/commit/8b1144e6f13b46a9ef5aa1824d987ab70cfb8a95))
+* uppercase letters should be allowed after the first letter ([50b2020](https://github.com/elyukai/optolith-database-schema/commit/50b2020bd6ed81c44d944cb8048b966c72b8fb38))
+
 ## [0.9.0](https://github.com/elyukai/optolith-database-schema/compare/v0.8.1...v0.9.0) (2023-01-14)
 
 
