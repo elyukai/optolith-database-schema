@@ -6,7 +6,7 @@ First, it's important to know that you won't need *any* programming knowledge fo
 
 You *do* need some tools to be able to contribute:
 
-- A GitHub account, since the database is stored on GitHub
+- A GitHub account, since the database is stored on GitHub and also project management is done there
 - Git, which is a version control management software
 - Node.js, which is a software for running JavaScript, but we only need to get the package manager from its ecosystem
 - a plain text editor, Visual Studio Code is recommended
@@ -18,5 +18,7 @@ Although you won't need any programming knowledge, you'll need to use a terminal
 What else do you need? Well, time. Entering data can be quite time-consuming, even for people familiar with it. It also helps if you have a good knowledge of *The Dark Eye* rules, since then the database will be more self-explaining, so it will be easier to understand what to do.
 
 The database is closed source due to licensing reason. If you want to contribute, please contact @elyukai, he will get you access to everything you need. To start learning how to contribute to the database, starting with the [Git Workflow](./Git-Workflow.md) and continuing with either [Insertion Workflow](./Insertion-Workflow.md) or [Translation Workflow](./Translation-Workflow.md) – depending on if you insert completely new data or only translations of existing data – is the recommended way.
+
+Checkout [Project Management](./Project-Management.md) to get an overview of the available resources for project management in Optolith. You’ll find details in the respective workflow guides.
 
 If you have any questions, feel free to reach out on GitHub Discussions or [Discord](https://discord.gg/wfdgB9g)!
