@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.11.0](https://github.com/elyukai/optolith-database-schema/compare/v0.10.1...v0.11.0) (2023-05-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* add integrity validation capabilities
+* use exports field in package.json
+
+### Features
+
+* add integrity validation capabilities ([d39110e](https://github.com/elyukai/optolith-database-schema/commit/d39110ea320348260d690bdf9f8d19734709c10c))
+
+
+### build
+
+* use exports field in package.json ([771682a](https://github.com/elyukai/optolith-database-schema/commit/771682abca14539ead8b714c2f931be570426f85))
+
 ### [0.10.1](https://github.com/elyukai/optolith-database-schema/compare/v0.10.0...v0.10.1) (2023-05-01)
 
 ## [0.10.0](https://github.com/elyukai/optolith-database-schema/compare/v0.9.0...v0.10.0) (2023-05-01)
