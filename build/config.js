@@ -2,7 +2,6 @@
 
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { JsonSchemaSpec } from "optolith-tsjsonschemamd/renderers";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..")
 
@@ -14,6 +13,6 @@ export const jsonSchemaDir = join(root, "schema")
 export const markdownDir = join(root, "docs", "reference")
 
 /**
- * @type {import("optolith-tsjsonschemamd/renderers").JsonSchemaSpec}
+ * @type {import("optolith-tsjsonschemamd/config").JsonSchemaSpec}
  */
-export const jsonSchemaSpec = JsonSchemaSpec.Draft_2019_09
+export const jsonSchemaSpec = "Draft_2019_09"
