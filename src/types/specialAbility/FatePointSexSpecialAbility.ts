@@ -2,12 +2,15 @@
  * @main FatePointSexSpecialAbility
  */
 
-import { validateSchemaCreator } from "../../validation/schema.js"
-import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { TypeConfig } from "../../typeConfig.js"
+import { todo } from "../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
 import * as Activatable from "../_Activatable.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
 
 /**
  * @title Fate Point Sex Special Ability
@@ -45,4 +48,9 @@ export type FatePointSexSpecialAbilityTranslation = {
   errata?: Errata
 }
 
-export const validateSchema = validateSchemaCreator<FatePointSexSpecialAbility>(import.meta.url)
+export const config: TypeConfig<FatePointSexSpecialAbility> = {
+  name: "FatePointSexSpecialAbility",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("FatePointSexSpecialAbility"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

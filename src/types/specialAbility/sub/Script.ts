@@ -2,13 +2,16 @@
  * @main Script
  */
 
-import { validateSchemaCreator } from "../../../validation/schema.js"
-import { Errata } from "../../source/_Erratum.js"
-import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { TypeConfig } from "../../../typeConfig.js"
+import { todo } from "../../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { AlternativeName } from "../../_AlternativeNames.js"
 import { LocaleMap } from "../../_LocaleMap.js"
 import { NonEmptyString } from "../../_NonEmptyString.js"
 import { LanguageReference } from "../../_SimpleReferences.js"
+import { Errata } from "../../source/_Erratum.js"
+import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { AssociatedContinent } from "./_LanguageScript.js"
 
 /**
@@ -69,4 +72,9 @@ export type ScriptTranslation = {
   errata?: Errata
 }
 
-export const validateSchema = validateSchemaCreator<Script>(import.meta.url)
+export const config: TypeConfig<Script> = {
+  name: "Script",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Script"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

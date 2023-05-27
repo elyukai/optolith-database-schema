@@ -2,8 +2,8 @@
 
 import { watch } from "fs/promises"
 import { generate } from "optolith-tsjsonschemamd"
-import { jsonSchema, JsonSchemaSpec, markdown } from "optolith-tsjsonschemamd/renderers"
-import { jsonSchemaDir, markdownDir, sourceDir } from "../config/directories.js"
+import { jsonSchema, markdown } from "optolith-tsjsonschemamd/renderers"
+import { jsonSchemaDir, jsonSchemaSpec, markdownDir, sourceDir } from "./config.js"
 
 /** @type {import("optolith-tsjsonschemamd").GeneratorOptions} */
 const options = {
@@ -11,7 +11,7 @@ const options = {
   outputs: [
     {
       targetDir: jsonSchemaDir,
-      renderer: jsonSchema({ spec: JsonSchemaSpec.Draft_2019_09 }),
+      renderer: jsonSchema({ spec: jsonSchemaSpec }),
     },
     {
       targetDir: markdownDir,

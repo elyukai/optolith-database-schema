@@ -2,9 +2,12 @@
  * @main MusicalInstrument
  */
 
-import { validateSchemaCreator } from "../../../validation/schema.js"
-import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { TypeConfig } from "../../../typeConfig.js"
+import { todo } from "../../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { LocaleMap } from "../../_LocaleMap.js"
+import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { Cost, DefaultItemTranslation, Weight } from "./_Item.js"
 
 export type MusicalInstrument = {
@@ -26,4 +29,9 @@ export type MusicalInstrument = {
   translations: LocaleMap<DefaultItemTranslation>
 }
 
-export const validateSchema = validateSchemaCreator<MusicalInstrument>(import.meta.url)
+export const config: TypeConfig<MusicalInstrument> = {
+  name: "MusicalInstrument",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("MusicalInstrument"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

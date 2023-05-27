@@ -2,15 +2,18 @@
  * @main MagicalMelody
  */
 
-import { validateSchemaCreator } from "../../validation/schema.js"
-import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { TypeConfig } from "../../typeConfig.js"
+import { todo } from "../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
 import { Effect } from "../_ActivatableSkillEffect.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { NonEmptyString } from "../_NonEmptyString.js"
 import { PropertyReference } from "../_SimpleReferences.js"
 import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
 import { MusicDuration, MusicTraditionReference } from "./_MusicTradition.js"
 import { MusicalSkillReference } from "./_SkillReference.js"
 
@@ -132,4 +135,9 @@ export type FirstPersonMagicalMelodyCost = {
   value: number
 }
 
-export const validateSchema = validateSchemaCreator<MagicalMelody>(import.meta.url)
+export const config: TypeConfig<MagicalMelody> = {
+  name: "MagicalMelody",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("MagicalMelody"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

@@ -2,7 +2,10 @@
  * @main Kirchenpraegung
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { Influence } from "./_Influence.js"
 
 /**
@@ -10,4 +13,9 @@ import { Influence } from "./_Influence.js"
  */
 export type Kirchenpraegung = Influence
 
-export const validateSchema = validateSchemaCreator<Kirchenpraegung>(import.meta.url)
+export const config: TypeConfig<Kirchenpraegung> = {
+  name: "Kirchenpraegung",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Kirchenpraegung"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

@@ -2,9 +2,10 @@
  * @main LiturgicalChant
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
-import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { FastPerformanceParameters } from "./_ActivatableSkill.js"
 import { Effect } from "./_ActivatableSkillEffect.js"
 import { TargetCategory } from "./_ActivatableSkillTargetCategory.js"
@@ -15,6 +16,8 @@ import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
 import { LiturgyPrerequisites } from "./_Prerequisite.js"
 import { SkillCheck, SkillCheckPenalty } from "./_SkillCheck.js"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
  * @title Liturgical Chant
@@ -120,4 +123,9 @@ export type LiturgicalChantTranslation = {
   errata?: Errata
 }
 
-export const validateSchema = validateSchemaCreator<LiturgicalChant>(import.meta.url)
+export const config: TypeConfig<LiturgicalChant> = {
+  name: "LiturgicalChant",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("LiturgicalChant"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

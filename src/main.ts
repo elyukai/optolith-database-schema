@@ -1,140 +1,68 @@
-import Ajv, { AnySchemaObject, Options } from "ajv"
-import addFormats from "ajv-formats"
-import Ajv2019 from "ajv/dist/2019.js"
-import Ajv2020 from "ajv/dist/2020.js"
-import { lstat, readdir, readFile } from "fs/promises"
-import { join } from "path"
-import YAML from "yaml"
-import { jsonSchemaDir } from "../config/directories.js"
-import { TypeMap, typeValidatorMap } from "./config.js"
-import { TypeValidationResult, TypeValidationResultErrors } from "./validation/schema.js"
+import { TypeMap } from "./config.js"
+import "./helpers/array.js"
+import { mapSecond } from "./helpers/pair.js"
+import { Ok, Result, error, isError, isOk, ok } from "./helpers/result.js"
+import { TypeId } from "./typeConfig.js"
+import { IntegrityError } from "./validation/builders/integrity.js"
+import { FileNameError } from "./validation/builders/naming.js"
+import { SchemaError } from "./validation/builders/schema.js"
+import { TypeIdPair, TypeValidationResultsByType, getRawValidationResults } from "./validation/raw.js"
 
-type RawResultMap = { [K in keyof TypeMap]: Record<string, TypeValidationResult<TypeMap[K]>> }
-
-type Result =
-  | { tag: "Ok"; value: { [K in keyof TypeMap]: TypeMap[K][] } }
-  | { tag: "Error"; errors: Record<string, TypeValidationResultErrors> }
-
-export type EntityDirectoryPaths = { [K in keyof TypeMap]: string }
-
-const readdirRecursive = async (dirPath: string): Promise<string[]> => {
-  const directoryEntries = await readdir(dirPath, { withFileTypes: true })
-
-  const flattenedRecursivePaths = await Promise.all(
-    directoryEntries
-      .filter(dirEntry => !dirEntry.name.startsWith("."))
-      .map(async dirEntry => {
-        const absoluteEntryPath = join(dirPath, dirEntry.name)
-
-        if (dirEntry.isDirectory()) {
-          return (await readdirRecursive(absoluteEntryPath))
-        }
-        else if (dirEntry.isFile()) {
-          return [absoluteEntryPath]
-        }
-        else {
-          return []
-        }
-      })
-  )
-
-  return flattenedRecursivePaths.flat()
+/**
+ * Options for validating data files.
+ */
+export type ValidationOptions = {
+  /**
+   * Whether to check the integrity of the data files. This includes checking
+   * for referencial integrity (i.e. whether all referenced entities exist).
+   * @default false
+   */
+  checkIntegrity?: boolean
 }
 
-const registerAllJsonSchemaDocuments = async (validatorOptions: Options) => {
-  const readFileAsUtf8 = (path: string) => readFile(path, "utf-8")
-  const readFilesAsUtf8 = (paths: string[]) => Promise.all(paths.map(readFileAsUtf8))
-  const parseJson = (json: string): AnySchemaObject => JSON.parse(json)
-  const schemes = (await readFilesAsUtf8(await readdirRecursive(jsonSchemaDir))).map(parseJson)
+/**
+ * A type validation may fail because of the data not matching the schema, the
+ * file name not matching a pattern, or integrity issues.
+ */
+export type TypeValidationError = IntegrityError | FileNameError | SchemaError
 
-  const META_SCHEMA_ID_2020_12 = "https://json-schema.org/draft/2020-12/schema";
-  const validator = schemes[0]?.$schema === META_SCHEMA_ID_2020_12
-    ? new Ajv2020(validatorOptions)
-    : new Ajv2019(validatorOptions)
-
-  const registerSchemaInValidator = (jsonSchema: any) => { validator.addSchema(jsonSchema) }
-  schemes.forEach(registerSchemaInValidator)
-
-  return validator
+/**
+ * A map of all valid entries, grouped by entity type.
+ */
+export type ValidResults = {
+  [K in keyof TypeMap]: [id: TypeId<keyof TypeMap>, data: TypeMap[keyof TypeMap]][]
 }
 
-const collator = Intl.Collator(undefined, { numeric: true })
-
-const readDataFileAssocsFromDirectory = async (dirPath: string) => {
-  const filenames = await readdir(dirPath)
-  filenames.sort(collator.compare)
-
-  return await Promise.all(
-    filenames
-      .filter(fileName => !fileName.startsWith("."))
-      .map(async (fileName): Promise<[string, unknown]> => {
-        const filePath = join(dirPath, fileName)
-
-        try {
-          const fileContent = YAML.parse(await readFile(join(dirPath, fileName), "utf-8"))
-
-          return [filePath, fileContent]
-        }
-        catch (error) {
-          if (error instanceof Error) {
-            error.message = `in "${filePath}":\n  ${error.message}`
-          }
-
-          return [filePath, null]
-        }
-      })
-  )}
-
-const validateAllFromType = async <K extends keyof TypeMap>(validator: Ajv, typeName: K, path: string): Promise<Record<string, TypeValidationResult<TypeMap[K]>>> => {
-  const isFile = (await lstat(path)).isFile()
-
-  const typeValidator = typeValidatorMap[typeName]
-
-  if (isFile) {
-    return { [path]: typeValidator(validator, await readFile(path, "utf-8"), path) }
-  }
-  else {
-    const dataFiles = await readDataFileAssocsFromDirectory(path)
-
-    return Object.fromEntries(
-      dataFiles.map(
-        ([filePath, fileContent]) =>
-          [filePath, typeValidator(validator, fileContent, filePath)]
-      )
-    )
-  }
+/**
+ * A dictionary of entity types and their data’s associated locations.
+ */
+export type EntityDirectoryPaths = {
+  [K in keyof TypeMap]: string
 }
 
-const rawResultMapToResult = (rawResultMap: RawResultMap): Result =>
-  Object.entries(rawResultMap).reduce<Result>(
-    (result: Result, [typeName, typeResults]) =>
-      Object.entries(typeResults).reduce<Result>(
-        (outerResult, [filePath, fileResult]: [string, TypeValidationResult<unknown>]): Result => {
-          if (outerResult.tag === "Ok" && fileResult.tag === "Ok") {
-            return {
-              tag: "Ok",
-              value: {
-                ...outerResult.value,
-                [typeName]: [...(outerResult.value[typeName as keyof RawResultMap] ?? []), fileResult.value]
-              }
-            }
+type StrictResults = Result<ValidResults, Record<string, TypeValidationError[]>>
+
+const rawResultMapToResult = (rawResultMap: TypeValidationResultsByType): StrictResults =>
+  rawResultMap.reduce<StrictResults>(
+    (result: StrictResults, [typeName, typeResults]) =>
+      typeResults.reduce<StrictResults>(
+        (outerResult, [filePath, fileResult]): StrictResults => {
+          if (isOk(outerResult) && isOk(fileResult)) {
+            return ok({
+              ...outerResult.value,
+              [typeName]: [...(outerResult.value[typeName] ?? []), fileResult.value]
+            })
           }
-          else if (outerResult.tag === "Ok" && fileResult.tag === "Error") {
-            return {
-              tag: "Error",
-              errors: {
-                [filePath]: fileResult.errors
-              }
-            }
+          else if (isOk(outerResult) && isError(fileResult)) {
+            return error({
+              [filePath]: fileResult.error
+            })
           }
-          else if (outerResult.tag === "Error" && fileResult.tag === "Error") {
-            return {
-              tag: "Error",
-              errors: {
-                ...outerResult.errors,
-                [filePath]: fileResult.errors
-              }
-            }
+          else if (isError(outerResult) && isError(fileResult)) {
+            return error({
+              ...outerResult.error,
+              [filePath]: fileResult.error
+            })
           }
           else {
             return outerResult
@@ -142,64 +70,46 @@ const rawResultMapToResult = (rawResultMap: RawResultMap): Result =>
         },
         result
       ),
-    ({
-      tag: "Ok",
-      value: {}
-    }) as Result
+    ok({}) as StrictResults
   )
 
-export const validate = async (entityDirPaths: EntityDirectoryPaths, checkIntegrity: boolean): Promise<Result> => {
-  const validator = await registerAllJsonSchemaDocuments({  })
-  addFormats(validator)
+const filterResultMapByValidData = (rawResultMap: TypeValidationResultsByType): ValidResults =>
+  rawResultMap
+    .map(mapSecond((typeResults): [id: TypeId<keyof TypeMap>, data: TypeMap[keyof TypeMap]][] =>
+      typeResults
+        .filter((typeResult): typeResult is [filePath: string, result: Ok<TypeIdPair<keyof TypeMap>>] => Result.isOk(typeResult[1]))
+        .map(fileResult => fileResult[1].value)
+    ))
+    .objectFromEntries() as ValidResults
 
-  const rawResultMap: RawResultMap = Object.fromEntries<RawResultMap[keyof RawResultMap]>(
-    (await Promise.all(
-      Object.entries(entityDirPaths)
-        .map(async ([typeName, path]): Promise<[keyof RawResultMap, RawResultMap[keyof RawResultMap]]> => [
-          typeName as keyof RawResultMap,
-          await validateAllFromType(validator, typeName as keyof RawResultMap, path) as
-            RawResultMap[keyof RawResultMap]
-        ]))
-    )
-  ) as Record<keyof RawResultMap, RawResultMap[keyof RawResultMap]> as RawResultMap
-
+/**
+ * If the database has no validation issues, returns the whole data set as a map
+ * of entity types to their data. If there are any errors, only the errors will
+ * be returned instead.
+ * @param entityDirPaths THe paths to the directories containing the data to be
+ * validated.
+ * @param options Configuration options for the validation.
+ * @returns Either the whole data set or the errors.
+ */
+export const getAllValidDataOrErrors = async (
+  entityDirPaths: EntityDirectoryPaths,
+  options: ValidationOptions = {}
+): Promise<StrictResults> => {
+  const rawResultMap = await getRawValidationResults(entityDirPaths, options)
   return rawResultMapToResult(rawResultMap)
 }
 
-export const printErrors = (errorsByFile: Record<string, TypeValidationResultErrors>, printOptions: PrintOptions = {}) => {
-  const { verbose = false } = printOptions
-
-  return Object.entries(errorsByFile)
-    .sort(([filePathA], [filePathB]) => collator.compare(filePathA, filePathB))
-    .flatMap(
-      ([filePath, errors]) => {
-        if (verbose) {
-          return filterNullable([
-            errors.fileNameError ? errorMessageBlock([filePath], errors.fileNameError.message) : undefined,
-            ...errors.schemaErrors.map(error => {
-              const pathSegments = [filePath, ...error.instancePath.split("/").slice(1)]
-              return errorMessageBlock(pathSegments, error.message ?? "")
-            })
-          ])
-        } else {
-          return filterNullable([
-            errors.fileNameError ? errorMessageBlock([filePath], errors.fileNameError.message) : undefined,
-            errors.schemaErrors.length > 0 ? errorMessageBlock([filePath], "does not match schema") : undefined
-          ])
-        }
-      }
-    )
-    .join("\n\n")
+/**
+ * Returns all valid data as a map of entity types to their data.
+ * @param entityDirPaths THe paths to the directories containing the data to be
+ * validated.
+ * @param options Configuration options for the validation.
+ * @returns The valid data.
+ */
+export const getAllValidData = async (
+  entityDirPaths: EntityDirectoryPaths,
+  options: ValidationOptions = {}
+): Promise<ValidResults> => {
+  const rawResultMap = await getRawValidationResults(entityDirPaths, options)
+  return filterResultMapByValidData(rawResultMap)
 }
-
-export type PrintOptions = {
-  verbose?: boolean
-}
-
-const errorMessageBlock = (path: string[], message: string): string =>
-  [
-    ...path.map((segment, i) => `${" ".repeat(i * 2)}in "${segment}":`),
-    `${" ".repeat(path.length * 2)}${message}`
-  ].join("\n")
-
-const filterNullable = <T>(arr: T[]): NonNullable<T>[] => arr.filter((x): x is NonNullable<typeof x> => x != null)

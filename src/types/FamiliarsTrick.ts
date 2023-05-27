@@ -2,13 +2,16 @@
  * @main FamiliarsTrick
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
-import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { DurationUnit, DurationUnitValue } from "./_ActivatableSkillDuration.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { ResponsiveText, ResponsiveTextOptional, ResponsiveTextReplace } from "./_ResponsiveText.js"
 import { AnimalTypeReference, PropertyReference } from "./_SimpleReferences.js"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
  * @title Familiar's Trick
@@ -279,4 +282,9 @@ export type SustainedCost = {
   interval?: DurationUnitValue
 }
 
-export const validateSchema = validateSchemaCreator<FamiliarsTrick>(import.meta.url)
+export const config: TypeConfig<FamiliarsTrick> = {
+  name: "FamiliarsTrick",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("FamiliarsTrick"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

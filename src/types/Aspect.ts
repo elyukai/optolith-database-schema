@@ -2,7 +2,10 @@
  * @main Aspect
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
 
@@ -36,4 +39,9 @@ export type AspectTranslation = {
   master_of_aspect_suffix?: NonEmptyString
 }
 
-export const validateSchema = validateSchemaCreator<Aspect>(import.meta.url)
+export const config: TypeConfig<Aspect> = {
+  name: "Aspect",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Aspect"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

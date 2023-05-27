@@ -2,12 +2,15 @@
  * @main Armor
  */
 
-import { validateSchemaCreator } from "../../../validation/schema.js"
-import { Errata } from "../../source/_Erratum.js"
-import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { TypeConfig } from "../../../typeConfig.js"
+import { todo } from "../../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { LocaleMap } from "../../_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "../../_NonEmptyString.js"
 import { ArmorReference } from "../../_SimpleReferences.js"
+import { Errata } from "../../source/_Erratum.js"
+import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { Complexity, Cost, Weight } from "./_Item.js"
 
 export type Armor = {
@@ -210,4 +213,9 @@ export type HeadHitZoneCombinationPossibilities = {
   protection?: number
 }
 
-export const validateSchema = validateSchemaCreator<Armor>(import.meta.url)
+export const config: TypeConfig<Armor> = {
+  name: "Armor",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Armor"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

@@ -2,14 +2,17 @@
  * @main Skill
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
-import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { ImprovementCost } from "./_ImprovementCost.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "./_NonEmptyString.js"
 import { SkillGroupReference } from "./_SimpleReferences.js"
 import { SkillCheck } from "./_SkillCheck.js"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
  * @title Skill
@@ -161,4 +164,9 @@ export enum Encumbrance {
   Maybe = "Maybe",
 }
 
-export const validateSchema = validateSchemaCreator<Skill>(import.meta.url)
+export const config: TypeConfig<Skill> = {
+  name: "Skill",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Skill"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

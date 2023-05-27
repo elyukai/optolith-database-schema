@@ -2,14 +2,17 @@
  * @main Curriculum
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
-import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { ElementIdentifier, MagicalTraditionIdentifier, PropertyIdentifier, SkillIdentifier } from "./_Identifier.js"
 import { CombatTechniqueIdentifier, SpellworkIdentifier } from "./_IdentifierGroup.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
 import { GuidelineReference } from "./_SimpleReferences.js"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
  * This is a curriculum of a specified academy, containing the guideline,
@@ -248,4 +251,9 @@ export type SpellworkAdjustment = {
   tradition?: MagicalTraditionIdentifier
 }
 
-export const validateSchema = validateSchemaCreator<Curriculum>(import.meta.url)
+export const config: TypeConfig<Curriculum> = {
+  name: "Curriculum",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Curriculum"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

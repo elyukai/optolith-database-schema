@@ -2,14 +2,17 @@
  * @main Poison
  */
 
-import { validateSchemaCreator } from "../../../validation/schema.js"
-import { Errata } from "../../source/_Erratum.js"
-import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { TypeConfig } from "../../../typeConfig.js"
+import { todo } from "../../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { AlternativeName } from "../../_AlternativeNames.js"
 import { Dice } from "../../_Dice.js"
 import { Reduceable, Resistance } from "../../_DiseasePoison.js"
 import { LocaleMap } from "../../_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "../../_NonEmptyString.js"
+import { Errata } from "../../source/_Erratum.js"
+import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { EffectType, LaboratoryLevel, RecipeTradeSecret } from "./_Herbary.js"
 
 /**
@@ -386,4 +389,9 @@ export type PoisonTranslation = {
   errata?: Errata
 }
 
-export const validateSchema = validateSchemaCreator<Poison>(import.meta.url)
+export const config: TypeConfig<Poison> = {
+  name: "Poison",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Poison"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

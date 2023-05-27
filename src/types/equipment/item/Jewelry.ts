@@ -2,11 +2,14 @@
  * @main Jewelry
  */
 
-import { validateSchemaCreator } from "../../../validation/schema.js"
-import { Errata } from "../../source/_Erratum.js"
-import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { TypeConfig } from "../../../typeConfig.js"
+import { todo } from "../../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { LocaleMap } from "../../_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "../../_NonEmptyString.js"
+import { Errata } from "../../source/_Erratum.js"
+import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { Complexity, Cost, StructurePoints, Weight } from "./_Item.js"
 
 export type Jewelry = {
@@ -72,4 +75,9 @@ export type JewelryTranslation = {
   errata?: Errata
 }
 
-export const validateSchema = validateSchemaCreator<Jewelry>(import.meta.url)
+export const config: TypeConfig<Jewelry> = {
+  name: "Jewelry",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Jewelry"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

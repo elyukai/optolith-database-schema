@@ -2,9 +2,12 @@
  * @main Vehicle
  */
 
-import { validateSchemaCreator } from "../../../validation/schema.js"
-import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { TypeConfig } from "../../../typeConfig.js"
+import { todo } from "../../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { LocaleMap } from "../../_LocaleMap.js"
+import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { Cost, DefaultItemTranslation } from "./_Item.js"
 
 export type Vehicle = {
@@ -21,4 +24,9 @@ export type Vehicle = {
   translations: LocaleMap<DefaultItemTranslation>
 }
 
-export const validateSchema = validateSchemaCreator<Vehicle>(import.meta.url)
+export const config: TypeConfig<Vehicle> = {
+  name: "Vehicle",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Vehicle"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

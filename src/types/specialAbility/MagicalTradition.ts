@@ -2,15 +2,18 @@
  * @main MagicalTradition
  */
 
-import { validateSchemaCreator } from "../../validation/schema.js"
-import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { TypeConfig } from "../../typeConfig.js"
+import { todo } from "../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
 import * as Activatable from "../_Activatable.js"
 import { AttributeIdentifier } from "../_Identifier.js"
 import { Influence } from "../_Influence.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 import { MagicalTraditionReference } from "../_SimpleReferences.js"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
 import { SpecialRule } from "./_Tradition.js"
 
 /**
@@ -141,4 +144,9 @@ export type MagicalTraditionTranslation = {
 
   errata?: Errata
 }
-export const validateSchema = validateSchemaCreator<MagicalTradition>(import.meta.url)
+export const config: TypeConfig<MagicalTradition> = {
+  name: "MagicalTradition",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("MagicalTradition"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

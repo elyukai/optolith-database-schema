@@ -2,7 +2,10 @@
  * @main AnimalShape
  */
 
-import { validateSchemaCreator } from "../../../validation/schema.js"
+import { TypeConfig } from "../../../typeConfig.js"
+import { todo } from "../../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { LocaleMap } from "../../_LocaleMap.js"
 import { NonEmptyString } from "../../_NonEmptyString.js"
 
@@ -58,4 +61,9 @@ export type AnimalShapeTranslation = {
   name: NonEmptyString
 }
 
-export const validateSchema = validateSchemaCreator<AnimalShape>(import.meta.url)
+export const config: TypeConfig<AnimalShape> = {
+  name: "AnimalShape",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("AnimalShape"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

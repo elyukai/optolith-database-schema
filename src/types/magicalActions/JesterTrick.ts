@@ -2,9 +2,10 @@
  * @main JesterTrick
  */
 
-import { validateSchemaCreator } from "../../validation/schema.js"
-import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { TypeConfig } from "../../typeConfig.js"
+import { todo } from "../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
 import { CheckResultBasedDuration, DurationUnit } from "../_ActivatableSkillDuration.js"
 import { Effect } from "../_ActivatableSkillEffect.js"
 import { TargetCategory } from "../_ActivatableSkillTargetCategory.js"
@@ -13,6 +14,8 @@ import { LocaleMap } from "../_LocaleMap.js"
 import { NonEmptyString } from "../_NonEmptyString.js"
 import { PropertyReference } from "../_SimpleReferences.js"
 import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
 
 /**
  * @title Jester Trick
@@ -180,4 +183,9 @@ export type FixedJesterTrickDuration = {
   unit: DurationUnit
 }
 
-export const validateSchema = validateSchemaCreator<JesterTrick>(import.meta.url)
+export const config: TypeConfig<JesterTrick> = {
+  name: "JesterTrick",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("JesterTrick"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

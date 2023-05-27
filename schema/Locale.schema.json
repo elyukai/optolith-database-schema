@@ -1,15 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$id": "/Locale.schema.json",
-  "$ref": "#/$defs/Locales",
+  "$ref": "#/$defs/Locale",
   "$defs": {
-    "Locales": {
-      "title": "Supported locales",
-      "type": "array",
-      "items": {
-        "$ref": "#/$defs/Locale"
-      }
-    },
     "Locale": {
       "title": "Supported locale",
       "type": "object",

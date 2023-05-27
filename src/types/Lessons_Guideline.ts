@@ -2,7 +2,10 @@
  * @main Guideline
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
 
@@ -37,4 +40,9 @@ export type GuidelineTranslation = {
   name: NonEmptyString
 }
 
-export const validateSchema = validateSchemaCreator<Guideline>(import.meta.url)
+export const config: TypeConfig<Guideline> = {
+  name: "Guideline",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Guideline"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

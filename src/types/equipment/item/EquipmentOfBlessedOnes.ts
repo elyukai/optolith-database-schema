@@ -2,10 +2,13 @@
  * @main EquipmentOfBlessedOnes
  */
 
-import { validateSchemaCreator } from "../../../validation/schema.js"
-import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { TypeConfig } from "../../../typeConfig.js"
+import { todo } from "../../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { LocaleMap } from "../../_LocaleMap.js"
 import { BlessedTraditionReference } from "../../_SimpleReferences.js"
+import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { Cost, DefaultItemTranslation, StructurePoints } from "./_Item.js"
 
 export type EquipmentOfBlessedOnes = {
@@ -33,4 +36,9 @@ export type EquipmentOfBlessedOnes = {
   translations: LocaleMap<DefaultItemTranslation>
 }
 
-export const validateSchema = validateSchemaCreator<EquipmentOfBlessedOnes>(import.meta.url)
+export const config: TypeConfig<EquipmentOfBlessedOnes> = {
+  name: "EquipmentOfBlessedOnes",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("EquipmentOfBlessedOnes"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

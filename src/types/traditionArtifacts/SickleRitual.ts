@@ -2,7 +2,10 @@
  * @main SickleRitual
  */
 
-import { validateSchemaCreator } from "../../validation/schema.js"
+import { TypeConfig } from "../../typeConfig.js"
+import { todo } from "../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
 import * as Activatable from "../_Activatable.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
@@ -64,4 +67,9 @@ export type SickleRitualTranslation = {
   errata?: Errata
 }
 
-export const validateSchema = validateSchemaCreator<SickleRitual>(import.meta.url)
+export const config: TypeConfig<SickleRitual> = {
+  name: "SickleRitual",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("SickleRitual"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

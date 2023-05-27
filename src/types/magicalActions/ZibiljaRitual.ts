@@ -2,9 +2,10 @@
  * @main ZibiljaRitual
  */
 
-import { validateSchemaCreator } from "../../validation/schema.js"
-import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { TypeConfig } from "../../typeConfig.js"
+import { todo } from "../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
 import { OneTimePerformanceParameters } from "../_ActivatableSkill.js"
 import { CastingTime, SlowSkillNonModifiableCastingTime } from "../_ActivatableSkillCastingTime.js"
 import { Effect } from "../_ActivatableSkillEffect.js"
@@ -14,6 +15,8 @@ import { LocaleMap } from "../_LocaleMap.js"
 import { NonEmptyString } from "../_NonEmptyString.js"
 import { PropertyReference } from "../_SimpleReferences.js"
 import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
 
 /**
  * @title Zibilja Ritual
@@ -107,4 +110,9 @@ export type ZibiljaRitualTranslation = {
 
 export type ZibiljaRitualPerformanceParameters = OneTimePerformanceParameters<CastingTime<SlowSkillNonModifiableCastingTime>>
 
-export const validateSchema = validateSchemaCreator<ZibiljaRitual>(import.meta.url)
+export const config: TypeConfig<ZibiljaRitual> = {
+  name: "ZibiljaRitual",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("ZibiljaRitual"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

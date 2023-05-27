@@ -2,7 +2,10 @@
  * @main ExperienceLevel
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { LocaleMap } from "./_LocaleMap.js"
 
 /**
@@ -73,4 +76,9 @@ export type ExperienceLevelTranslation = {
   name: string
 }
 
-export const validateSchema = validateSchemaCreator<ExperienceLevel>(import.meta.url)
+export const config: TypeConfig<ExperienceLevel> = {
+  name: "ExperienceLevel",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("ExperienceLevel"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

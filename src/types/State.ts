@@ -2,11 +2,14 @@
  * @main State
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
-import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "./_NonEmptyString.js"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
  * @title State
@@ -41,4 +44,9 @@ export type StateTranslation = {
   errata?: Errata
 }
 
-export const validateSchema = validateSchemaCreator<State>(import.meta.url)
+export const config: TypeConfig<State> = {
+  name: "State",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("State"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

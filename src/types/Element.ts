@@ -2,7 +2,10 @@
  * @main Element
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { LocaleMap } from "./_LocaleMap.js"
 
 /**
@@ -30,4 +33,9 @@ export type ElementTranslation ={
   name: string
 }
 
-export const validateSchema = validateSchemaCreator<Element>(import.meta.url)
+export const config: TypeConfig<Element> = {
+  name: "Element",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Element"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

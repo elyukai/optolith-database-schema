@@ -2,9 +2,12 @@
  * @main BandageOrRemedy
  */
 
-import { validateSchemaCreator } from "../../../validation/schema.js"
-import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { TypeConfig } from "../../../typeConfig.js"
+import { todo } from "../../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { LocaleMap } from "../../_LocaleMap.js"
+import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { CombatUse, Complexity, Cost, DefaultItemTranslation, StructurePoints, Weight } from "./_Item.js"
 
 export type BandageOrRemedy = {
@@ -43,4 +46,9 @@ export type BandageOrRemedy = {
   translations: LocaleMap<DefaultItemTranslation>
 }
 
-export const validateSchema = validateSchemaCreator<BandageOrRemedy>(import.meta.url)
+export const config: TypeConfig<BandageOrRemedy> = {
+  name: "BandageOrRemedy",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("BandageOrRemedy"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

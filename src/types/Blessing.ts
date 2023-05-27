@@ -2,13 +2,16 @@
  * @main Blessing
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
-import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { DurationUnit } from "./_ActivatableSkillDuration.js"
 import { FixedRange } from "./_ActivatableSkillRange.js"
 import { TargetCategory } from "./_ActivatableSkillTargetCategory.js"
 import { LocaleMap } from "./_LocaleMap.js"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
  * @title Blessing
@@ -118,4 +121,9 @@ export type IndefiniteDurationTranslation = {
   description: string
 }
 
-export const validateSchema = validateSchemaCreator<Blessing>(import.meta.url)
+export const config: TypeConfig<Blessing> = {
+  name: "Blessing",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Blessing"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

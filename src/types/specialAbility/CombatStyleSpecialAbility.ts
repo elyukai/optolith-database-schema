@@ -2,13 +2,16 @@
  * @main CombatStyleSpecialAbility
  */
 
-import { validateSchemaCreator } from "../../validation/schema.js"
-import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { TypeConfig } from "../../typeConfig.js"
+import { todo } from "../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
 import * as Activatable from "../_Activatable.js"
 import { AdvancedCombatSpecialAbilityIdentifier } from "../_Identifier.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
 
 /**
  * @title Combat Style Special Ability
@@ -63,4 +66,9 @@ export type CombatStyleSpecialAbilityTransition = {
   errata?: Errata
 }
 
-export const validateSchema = validateSchemaCreator<CombatStyleSpecialAbility>(import.meta.url)
+export const config: TypeConfig<CombatStyleSpecialAbility> = {
+  name: "CombatStyleSpecialAbility",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("CombatStyleSpecialAbility"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

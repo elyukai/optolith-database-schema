@@ -2,15 +2,18 @@
  * @main Culture
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
-import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
 import { AdvantageIdentifier, BlessedTraditionIdentifier, DisadvantageIdentifier, MagicalTraditionIdentifier, ProfessionIdentifier, SkillIdentifier } from "./_Identifier.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
 import { BinarySex } from "./_Sex.js"
 import { LanguageReference, ProfessionReference, ProfessionVariantReference, ScriptReference, SkillReference, SocialStatusReference } from "./_SimpleReferences.js"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
  * @title Culture
@@ -426,4 +429,9 @@ export type Name = {
   note?: NonEmptyString
 }
 
-export const validateSchema = validateSchemaCreator<Culture>(import.meta.url)
+export const config: TypeConfig<Culture> = {
+  name: "Culture",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Culture"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

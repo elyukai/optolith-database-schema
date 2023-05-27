@@ -2,11 +2,14 @@
  * @main EquipmentPackage
  */
 
-import { validateSchemaCreator } from "../../validation/schema.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { TypeConfig } from "../../typeConfig.js"
+import { todo } from "../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
 import { EquipmentIdentifier } from "../_IdentifierGroup.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { NonEmptyString } from "../_NonEmptyString.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
 
 /**
  * @title Equipment Package
@@ -57,4 +60,9 @@ export type EquipmentPackageTranslation = {
   name: NonEmptyString
 }
 
-export const validateSchema = validateSchemaCreator<EquipmentPackage>(import.meta.url)
+export const config: TypeConfig<EquipmentPackage> = {
+  name: "EquipmentPackage",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("EquipmentPackage"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

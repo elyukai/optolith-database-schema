@@ -2,7 +2,10 @@
  * @main Weapon
  */
 
-import { validateSchemaCreator } from "../../../validation/schema.js"
+import { TypeConfig } from "../../../typeConfig.js"
+import { todo } from "../../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { LocaleMap } from "../../_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "../../_NonEmptyString.js"
 import { BlessedTraditionReference, CultureReference, MagicalTraditionReference, RaceReference } from "../../_SimpleReferences.js"
@@ -187,4 +190,9 @@ export type RestrictedToSpecificCultures = {
   list: CultureReference[]
 }
 
-export const validateSchema = validateSchemaCreator<Weapon>(import.meta.url)
+export const config: TypeConfig<Weapon> = {
+  name: "Weapon",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Weapon"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

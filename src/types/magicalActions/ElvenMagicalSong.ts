@@ -2,9 +2,10 @@
  * @main ElvenMagicalSong
  */
 
-import { validateSchemaCreator } from "../../validation/schema.js"
-import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { TypeConfig } from "../../typeConfig.js"
+import { todo } from "../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
 import { DurationUnitValue } from "../_ActivatableSkillDuration.js"
 import { Effect } from "../_ActivatableSkillEffect.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
@@ -13,6 +14,8 @@ import { NonEmptyString } from "../_NonEmptyString.js"
 import { ResponsiveText, ResponsiveTextReplace } from "../_ResponsiveText.js"
 import { PropertyReference } from "../_SimpleReferences.js"
 import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
 import { MusicalSkillReference } from "./_SkillReference.js"
 
 /**
@@ -153,4 +156,9 @@ export type ElvenMagicalSongCostTranslation = {
   per: ResponsiveText
 }
 
-export const validateSchema = validateSchemaCreator<ElvenMagicalSong>(import.meta.url)
+export const config: TypeConfig<ElvenMagicalSong> = {
+  name: "ElvenMagicalSong",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("ElvenMagicalSong"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

@@ -2,7 +2,10 @@
  * @main ArmorType
  */
 
-import { validateSchemaCreator } from "../../../../validation/schema.js"
+import { TypeConfig } from "../../../../typeConfig.js"
+import { todo } from "../../../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../../../validation/filename.js"
 import { LocaleMap } from "../../../_LocaleMap.js"
 import { NonEmptyString } from "../../../_NonEmptyString.js"
 
@@ -40,4 +43,9 @@ export type ArmorTypeTranslation = {
   name: NonEmptyString
 }
 
-export const validateSchema = validateSchemaCreator<ArmorType>(import.meta.url)
+export const config: TypeConfig<ArmorType> = {
+  name: "ArmorType",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("ArmorType"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

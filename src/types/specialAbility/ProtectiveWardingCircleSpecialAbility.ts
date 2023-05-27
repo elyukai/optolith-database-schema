@@ -2,13 +2,16 @@
  * @main ProtectiveWardingCircleSpecialAbility
  */
 
-import { validateSchemaCreator } from "../../validation/schema.js"
-import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { TypeConfig } from "../../typeConfig.js"
+import { todo } from "../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
 import * as Activatable from "../_Activatable.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { NonEmptyMarkdown } from "../_NonEmptyString.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
 
 /**
  * @title Protective Warding Circle Special Ability
@@ -59,4 +62,9 @@ export type ProtectiveWardingCircleSpecialAbilityTranslation = {
   errata?: Errata
 }
 
-export const validateSchema = validateSchemaCreator<ProtectiveWardingCircleSpecialAbility>(import.meta.url)
+export const config: TypeConfig<ProtectiveWardingCircleSpecialAbility> = {
+  name: "ProtectiveWardingCircleSpecialAbility",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("ProtectiveWardingCircleSpecialAbility"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

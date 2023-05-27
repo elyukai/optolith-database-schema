@@ -2,7 +2,10 @@
  * @main Disadvantage
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import * as Activatable from "./_Activatable.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { AdvantageDisadvantagePrerequisites } from "./_Prerequisite.js"
@@ -82,4 +85,9 @@ export type DisadvantageTranslation = {
   errata?: Errata
 }
 
-export const validateSchema = validateSchemaCreator<Disadvantage>(import.meta.url)
+export const config: TypeConfig<Disadvantage> = {
+  name: "Disadvantage",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Disadvantage"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

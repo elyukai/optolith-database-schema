@@ -2,7 +2,10 @@
  * @main Patron
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { AdvantageIdentifier, AttributeIdentifier, SkillIdentifier } from "./_Identifier.js"
 import { ImprovementCost } from "./_ImprovementCost.js"
 import { LocaleMap } from "./_LocaleMap.js"
@@ -229,4 +232,9 @@ export type AnimalPowerLevel3 =
  */
 export type AnimalPowersLevel3 = AnimalPowerLevel3[]
 
-export const validateSchema = validateSchemaCreator<Patron>(import.meta.url)
+export const config: TypeConfig<Patron> = {
+  name: "Patron",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Patron"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

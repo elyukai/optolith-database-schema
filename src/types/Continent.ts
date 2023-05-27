@@ -2,7 +2,10 @@
  * @main Continent
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { LocaleMap } from "./_LocaleMap.js"
 
 /**
@@ -32,4 +35,9 @@ export type ContinentTranslation = {
   name: string
 }
 
-export const validateSchema = validateSchemaCreator<Continent>(import.meta.url)
+export const config: TypeConfig<Continent> = {
+  name: "Continent",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Continent"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

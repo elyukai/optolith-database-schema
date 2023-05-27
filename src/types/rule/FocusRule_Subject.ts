@@ -2,7 +2,10 @@
  * @main Subject
  */
 
-import { validateSchemaCreator } from "../../validation/schema.js"
+import { TypeConfig } from "../../typeConfig.js"
+import { todo } from "../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { NonEmptyString } from "../_NonEmptyString.js"
 
@@ -31,4 +34,9 @@ export type SubjectTranslation = {
   name: NonEmptyString
 }
 
-export const validateSchema = validateSchemaCreator<Subject>(import.meta.url)
+export const config: TypeConfig<Subject> = {
+  name: "Subject",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Subject"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

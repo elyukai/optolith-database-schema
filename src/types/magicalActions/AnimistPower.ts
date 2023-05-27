@@ -2,10 +2,11 @@
  * @main AnimistPower
  */
 
-import { validateSchemaCreator } from "../../validation/schema.js"
+import { TypeConfig } from "../../typeConfig.js"
+import { todo } from "../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
 import { FixedOneTimeDuration } from "../FamiliarsTrick.js"
-import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
 import { CheckResultBasedDuration, DurationUnitValue } from "../_ActivatableSkillDuration.js"
 import { Effect } from "../_ActivatableSkillEffect.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
@@ -15,6 +16,8 @@ import { AnimistPowerPrerequisites } from "../_Prerequisite.js"
 import { ResponsiveTextOptional } from "../_ResponsiveText.js"
 import { AnimistTribeReference, PropertyReference } from "../_SimpleReferences.js"
 import { SkillCheck } from "../_SkillCheck.js"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
 
 /**
  * @title Animist Power
@@ -247,4 +250,9 @@ export type AnimistPowerImprovementCost =
   | { tag: "Fixed"; fixed: ImprovementCost }
   | { tag: "ByPrimaryPatron"; by_primary_patron: {} }
 
-export const validateSchema = validateSchemaCreator<AnimistPower>(import.meta.url)
+export const config: TypeConfig<AnimistPower> = {
+  name: "AnimistPower",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("AnimistPower"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

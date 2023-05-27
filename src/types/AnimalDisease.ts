@@ -2,11 +2,14 @@
  * @main AnimalDisease
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { Cause, DiseaseTranslation, Resistance } from "./_DiseasePoison.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { AnimalTypeReference } from "./_SimpleReferences.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
  * @title Animal Disease
@@ -66,4 +69,9 @@ export type AnimalDisease = {
   translations: LocaleMap<DiseaseTranslation>
 }
 
-export const validateSchema = validateSchemaCreator<AnimalDisease>(import.meta.url)
+export const config: TypeConfig<AnimalDisease> = {
+  name: "AnimalDisease",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("AnimalDisease"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

@@ -1,13 +1,11 @@
 /**
- * @main Locales
+ * @main Locale
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
-
-/**
- * @title Supported locales
- */
-export type Locales = Locale[]
+import { Result } from "../helpers/result.js"
+import { TypeConfig } from "../typeConfig.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFilenameAsStringId } from "../validation/filename.js"
 
 /**
  * @title Supported locale
@@ -44,4 +42,9 @@ export type Locale = {
   is_missing_implementation?: true
 }
 
-export const validateSchema = validateSchemaCreator<Locales>(import.meta.url, { ignoreFileNamePattern: true })
+export const config: TypeConfig<Locale, string> = {
+  name: "Locale",
+  id: getFilenameAsStringId,
+  integrityValidator: () => Result.ok(undefined),
+  schemaValidator: createSchemaValidator(import.meta.url, { ignoreFileNamePattern: true })
+}

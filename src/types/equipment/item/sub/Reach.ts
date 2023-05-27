@@ -2,7 +2,10 @@
  * @main Reach
  */
 
-import { validateSchemaCreator } from "../../../../validation/schema.js"
+import { TypeConfig } from "../../../../typeConfig.js"
+import { todo } from "../../../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../../../validation/filename.js"
 import { LocaleMap } from "../../../_LocaleMap.js"
 import { NonEmptyString } from "../../../_NonEmptyString.js"
 
@@ -30,4 +33,9 @@ export type ReachTranslation = {
   name: NonEmptyString
 }
 
-export const validateSchema = validateSchemaCreator<Reach>(import.meta.url)
+export const config: TypeConfig<Reach> = {
+  name: "Reach",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Reach"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

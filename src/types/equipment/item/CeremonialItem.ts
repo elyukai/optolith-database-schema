@@ -2,10 +2,13 @@
  * @main CeremonialItem
  */
 
-import { validateSchemaCreator } from "../../../validation/schema.js"
-import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { TypeConfig } from "../../../typeConfig.js"
+import { todo } from "../../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { LocaleMap } from "../../_LocaleMap.js"
 import { BlessedTraditionReference } from "../../_SimpleReferences.js"
+import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { CombatUse, Complexity, Cost, DefaultItemTranslation, StructurePoints, Weight } from "./_Item.js"
 
 export type CeremonialItem = {
@@ -49,4 +52,9 @@ export type CeremonialItem = {
   translations: LocaleMap<DefaultItemTranslation>
 }
 
-export const validateSchema = validateSchemaCreator<CeremonialItem>(import.meta.url)
+export const config: TypeConfig<CeremonialItem> = {
+  name: "CeremonialItem",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("CeremonialItem"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

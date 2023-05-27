@@ -2,9 +2,10 @@
  * @main Cantrip
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
-import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { CastingTimeDuringLovemaking } from "./_ActivatableSkillCastingTime.js"
 import { DurationUnit } from "./_ActivatableSkillDuration.js"
 import { FixedRange } from "./_ActivatableSkillRange.js"
@@ -14,6 +15,8 @@ import { MagicalTraditionIdentifier } from "./_Identifier.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { ResponsiveText } from "./_ResponsiveText.js"
 import { CurriculumReference, MagicalTraditionReference, PropertyReference } from "./_SimpleReferences.js"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
  * @title Cantrip
@@ -189,4 +192,9 @@ export type IndefiniteDurationTranslation = {
   description: ResponsiveText
 }
 
-export const validateSchema = validateSchemaCreator<Cantrip>(import.meta.url)
+export const config: TypeConfig<Cantrip> = {
+  name: "Cantrip",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Cantrip"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

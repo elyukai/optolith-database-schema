@@ -2,11 +2,14 @@
  * @main OptionalRule
  */
 
-import { validateSchemaCreator } from "../../validation/schema.js"
-import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { TypeConfig } from "../../typeConfig.js"
+import { todo } from "../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "../_NonEmptyString.js"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
 
 /**
  * @title Optional Rule
@@ -47,4 +50,9 @@ export type OptionalRuleTranslation = {
   errata?: Errata
 }
 
-export const validateSchema = validateSchemaCreator<OptionalRule>(import.meta.url)
+export const config: TypeConfig<OptionalRule> = {
+  name: "OptionalRule",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("OptionalRule"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

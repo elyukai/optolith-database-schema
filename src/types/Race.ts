@@ -2,15 +2,18 @@
  * @main Race
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
-import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
 import { Dice } from "./_Dice.js"
 import { AdvantageIdentifier, DisadvantageIdentifier, ExperienceLevelIdentifier } from "./_Identifier.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
 import { AdvantageReference, AttributeReference, CultureReference, EyeColorReference, HairColorReference } from "./_SimpleReferences.js"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
  * A playable race with stats and skills.
@@ -463,4 +466,9 @@ export type RaceTranslation = {
   errata?: Errata
 }
 
-export const validateSchema = validateSchemaCreator<Race>(import.meta.url)
+export const config: TypeConfig<Race> = {
+  name: "Race",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Race"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

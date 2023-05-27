@@ -2,13 +2,16 @@
  * @main PactGift
  */
 
-import { validateSchemaCreator } from "../../validation/schema.js"
-import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { TypeConfig } from "../../typeConfig.js"
+import { todo } from "../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
 import * as Activatable from "../_Activatable.js"
 import { ActivatableIdentifier } from "../_IdentifierGroup.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
 
 /**
  * @title Pact Gift
@@ -121,4 +124,9 @@ export type PactGiftTranslation = {
   errata?: Errata
 }
 
-export const validateSchema = validateSchemaCreator<PactGift>(import.meta.url)
+export const config: TypeConfig<PactGift> = {
+  name: "PactGift",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("PactGift"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

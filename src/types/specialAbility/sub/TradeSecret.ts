@@ -2,12 +2,15 @@
  * @main TradeSecret
  */
 
-import { validateSchemaCreator } from "../../../validation/schema.js"
-import { Errata } from "../../source/_Erratum.js"
-import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { TypeConfig } from "../../../typeConfig.js"
+import { todo } from "../../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { LocaleMap } from "../../_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "../../_NonEmptyString.js"
 import { GeneralPrerequisites } from "../../_Prerequisite.js"
+import { Errata } from "../../source/_Erratum.js"
+import { PublicationRefs } from "../../source/_PublicationRef.js"
 
 /**
  * @title Trade Secret
@@ -56,4 +59,9 @@ export type TradeSecretTranslation = {
   errata?: Errata
 }
 
-export const validateSchema = validateSchemaCreator<TradeSecret>(import.meta.url)
+export const config: TypeConfig<TradeSecret> = {
+  name: "TradeSecret",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("TradeSecret"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

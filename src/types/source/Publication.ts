@@ -2,7 +2,10 @@
  * @main Publication
  */
 
-import { validateSchemaCreator } from "../../validation/schema.js"
+import { TypeConfig } from "../../typeConfig.js"
+import { todo } from "../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { NonEmptyString } from "../_NonEmptyString.js"
 import { PublicationPrerequisites } from "../_Prerequisite.js"
@@ -86,4 +89,9 @@ export enum Category {
   RegionalSourcebook = "RegionalSourcebook",
 }
 
-export const validateSchema = validateSchemaCreator<Publication>(import.meta.url)
+export const config: TypeConfig<Publication> = {
+  name: "Publication",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Publication"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

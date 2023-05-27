@@ -2,9 +2,17 @@
  * @main Liebesspielzeug
  */
 
-import { validateSchemaCreator } from "../../../validation/schema.js"
+import { TypeConfig } from "../../../typeConfig.js"
+import { todo } from "../../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { DefaultItem } from "./_Item.js"
 
 export type Liebesspielzeug = DefaultItem
 
-export const validateSchema = validateSchemaCreator<Liebesspielzeug>(import.meta.url)
+export const config: TypeConfig<Liebesspielzeug> = {
+  name: "Liebesspielzeug",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Liebesspielzeug"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

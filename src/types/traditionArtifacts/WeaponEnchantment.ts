@@ -2,7 +2,10 @@
  * @main WeaponEnchantment
  */
 
-import { validateSchemaCreator } from "../../validation/schema.js"
+import { TypeConfig } from "../../typeConfig.js"
+import { todo } from "../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
 import * as Activatable from "../_Activatable.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
@@ -64,4 +67,9 @@ export type WeaponEnchantmentTranslation = {
   errata?: Errata
 }
 
-export const validateSchema = validateSchemaCreator<WeaponEnchantment>(import.meta.url)
+export const config: TypeConfig<WeaponEnchantment> = {
+  name: "WeaponEnchantment",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("WeaponEnchantment"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

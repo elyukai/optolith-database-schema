@@ -2,7 +2,10 @@
  * @main CombatSpecialAbility
  */
 
-import { validateSchemaCreator } from "../../validation/schema.js"
+import { TypeConfig } from "../../typeConfig.js"
+import { todo } from "../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
 import * as Activatable from "../_Activatable.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
@@ -63,4 +66,9 @@ export type CombatSpecialAbilityTranslation = {
   errata?: Errata
 }
 
-export const validateSchema = validateSchemaCreator<CombatSpecialAbility>(import.meta.url)
+export const config: TypeConfig<CombatSpecialAbility> = {
+  name: "CombatSpecialAbility",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("CombatSpecialAbility"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

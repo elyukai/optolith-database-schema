@@ -2,9 +2,12 @@
  * @main AnimalCare
  */
 
-import { validateSchemaCreator } from "../../../validation/schema.js"
-import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { TypeConfig } from "../../../typeConfig.js"
+import { todo } from "../../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { LocaleMap } from "../../_LocaleMap.js"
+import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { Cost, DefaultItemTranslation, FixedCost, Weight } from "./_Item.js"
 
 export type AnimalCare = {
@@ -50,4 +53,9 @@ export type AnimalFeed = {
 export type AnimalFeedCost =
   | { tag: "PerWeek"; per_week: FixedCost }
 
-export const validateSchema = validateSchemaCreator<AnimalCare>(import.meta.url)
+export const config: TypeConfig<AnimalCare> = {
+  name: "AnimalCare",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("AnimalCare"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

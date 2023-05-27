@@ -2,7 +2,10 @@
  * @main Property
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
 import { SkillCheck } from "./_SkillCheck.js"
@@ -37,4 +40,9 @@ export type PropertyTranslation = {
   name: NonEmptyString
 }
 
-export const validateSchema = validateSchemaCreator<Property>(import.meta.url)
+export const config: TypeConfig<Property> = {
+  name: "Property",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Property"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

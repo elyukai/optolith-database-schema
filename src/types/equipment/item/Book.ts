@@ -2,11 +2,14 @@
  * @main Book
  */
 
-import { validateSchemaCreator } from "../../../validation/schema.js"
-import { Errata } from "../../source/_Erratum.js"
-import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { TypeConfig } from "../../../typeConfig.js"
+import { todo } from "../../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { LocaleMap } from "../../_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "../../_NonEmptyString.js"
+import { Errata } from "../../source/_Erratum.js"
+import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { Complexity, Cost, StructurePoints, Weight } from "./_Item.js"
 
 export type Book = {
@@ -73,4 +76,9 @@ export type BookTranslation = {
   errata?: Errata
 }
 
-export const validateSchema = validateSchemaCreator<Book>(import.meta.url)
+export const config: TypeConfig<Book> = {
+  name: "Book",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Book"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

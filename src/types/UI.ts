@@ -2,7 +2,10 @@
  * @main UI
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
+import { Result } from "../helpers/result.js"
+import { TypeConfig } from "../typeConfig.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFilenameAsStringId } from "../validation/filename.js"
 import { PluralizationCategories } from "./_I18n.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
 
@@ -1062,4 +1065,9 @@ export type UI = {
   "pets.dialogs.addedit.savebtn": NonEmptyString
 }
 
-export const validateSchema = validateSchemaCreator<UI>(import.meta.url)
+export const config: TypeConfig<UI, string> = {
+  name: "UI",
+  id: getFilenameAsStringId,
+  integrityValidator: () => Result.ok(undefined),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

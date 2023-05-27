@@ -2,7 +2,10 @@
  * @main HairColor
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
 
@@ -30,4 +33,9 @@ export type HairColorTranslation = {
   name: NonEmptyString
 }
 
-export const validateSchema = validateSchemaCreator<HairColor>(import.meta.url)
+export const config: TypeConfig<HairColor> = {
+  name: "HairColor",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("HairColor"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

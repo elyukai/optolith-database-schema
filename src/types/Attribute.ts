@@ -2,8 +2,10 @@
  * @main Attribute
  */
 
-import { getReferencialIntegrityErrorsForTranslatable, ReferencialIntegrityValidators } from "../validation/integrity.js"
-import { validateSchemaCreator } from "../validation/schema.js"
+import { TypeConfig } from "../typeConfig.js"
+import { getReferencialIntegrityErrorsForTranslatable, reduceIntegrityValidationResults, validateEntityIntegrity } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
 
@@ -41,9 +43,18 @@ export type AttributeTranslation = {
   description: NonEmptyString
 }
 
-export const validateIntegrity = (
-  attribute: Attribute,
-  { checkLocaleId }: ReferencialIntegrityValidators
-) => getReferencialIntegrityErrorsForTranslatable(attribute, checkLocaleId)
-
-export const validateSchema = validateSchemaCreator<Attribute>(import.meta.url)
+export const config: TypeConfig<Attribute> = {
+  name: "Attribute",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: (validators, data, filepath) =>
+    reduceIntegrityValidationResults(
+      validateEntityIntegrity(
+        validators.identity.attributes.exists,
+        getFIlenamePrefixAsNumericId(data, filepath),
+        data.id,
+        [{ k: "id" }]
+      ),
+      getReferencialIntegrityErrorsForTranslatable(validators, data),
+    ),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

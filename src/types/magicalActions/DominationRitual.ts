@@ -2,9 +2,10 @@
  * @main DominationRitual
  */
 
-import { validateSchemaCreator } from "../../validation/schema.js"
-import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { TypeConfig } from "../../typeConfig.js"
+import { todo } from "../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
 import { CheckResultBasedDuration, DurationUnit, IndefiniteDurationTranslation } from "../_ActivatableSkillDuration.js"
 import { Effect } from "../_ActivatableSkillEffect.js"
 import { LocaleMap } from "../_LocaleMap.js"
@@ -12,6 +13,8 @@ import { NonEmptyString } from "../_NonEmptyString.js"
 import { ResponsiveText } from "../_ResponsiveText.js"
 import { PropertyReference } from "../_SimpleReferences.js"
 import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
 
 /**
  * @title Domination Ritual
@@ -151,4 +154,9 @@ export type MaximumIndefiniteCurseDuration =
   | { tag: "Fixed"; fixed: FixedDominationRitualDuration }
   | { tag: "CheckResultBased"; check_result_based: CheckResultBasedDuration }
 
-export const validateSchema = validateSchemaCreator<DominationRitual>(import.meta.url)
+export const config: TypeConfig<DominationRitual> = {
+  name: "DominationRitual",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("DominationRitual"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

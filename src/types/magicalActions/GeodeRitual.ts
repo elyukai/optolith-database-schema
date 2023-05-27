@@ -2,10 +2,11 @@
  * @main GeodeRitual
  */
 
-import { validateSchemaCreator } from "../../validation/schema.js"
+import { TypeConfig } from "../../typeConfig.js"
+import { todo } from "../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
 import { SlowSkillCastingTimeUnit } from "../SkillModificationLevel.js"
-import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
 import { CostMap } from "../_ActivatableSkillCost.js"
 import { CheckResultBasedDuration, DurationUnit } from "../_ActivatableSkillDuration.js"
 import { Effect } from "../_ActivatableSkillEffect.js"
@@ -15,6 +16,8 @@ import { NonEmptyString } from "../_NonEmptyString.js"
 import { GeodeRitualPrerequisites } from "../_Prerequisite.js"
 import { PropertyReference } from "../_SimpleReferences.js"
 import { SkillCheck } from "../_SkillCheck.js"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
 
 /**
  * @title Geode Ritual
@@ -182,4 +185,9 @@ export type FixedGeodeRitualDuration = {
   unit: DurationUnit
 }
 
-export const validateSchema = validateSchemaCreator<GeodeRitual>(import.meta.url)
+export const config: TypeConfig<GeodeRitual> = {
+  name: "GeodeRitual",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("GeodeRitual"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

@@ -2,12 +2,15 @@
  * @main RangedCombatTechnique
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
-import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { ImprovementCost } from "./_ImprovementCost.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { AttributeReference } from "./_SimpleReferences.js"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
  * @title Ranged Combat Technique
@@ -76,4 +79,9 @@ export type RangedCombatTechniqueTranslation = {
   errata?: Errata
 }
 
-export const validateSchema = validateSchemaCreator<RangedCombatTechnique>(import.meta.url)
+export const config: TypeConfig<RangedCombatTechnique> = {
+  name: "RangedCombatTechnique",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("RangedCombatTechnique"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

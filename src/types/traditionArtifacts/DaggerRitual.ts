@@ -2,7 +2,10 @@
  * @main DaggerRitual
  */
 
-import { validateSchemaCreator } from "../../validation/schema.js"
+import { TypeConfig } from "../../typeConfig.js"
+import { todo } from "../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
 import * as Activatable from "../_Activatable.js"
 import { ArcaneEnergyCost, BindingCost } from "../_Activatable.js"
 import { LocaleMap } from "../_LocaleMap.js"
@@ -86,4 +89,9 @@ export type DaggerRitualTranslation = {
   errata?: Errata
 }
 
-export const validateSchema = validateSchemaCreator<DaggerRitual>(import.meta.url)
+export const config: TypeConfig<DaggerRitual> = {
+  name: "DaggerRitual",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("DaggerRitual"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

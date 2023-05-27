@@ -2,12 +2,15 @@
  * @main BrawlingSpecialAbility
  */
 
-import { validateSchemaCreator } from "../../validation/schema.js"
-import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { TypeConfig } from "../../typeConfig.js"
+import { todo } from "../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
 import * as Activatable from "../_Activatable.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
 
 /**
  * @title Brawling Special Ability
@@ -51,4 +54,9 @@ export type BrawlingSpecialAbilityTranslation = {
   errata?: Errata
 }
 
-export const validateSchema = validateSchemaCreator<BrawlingSpecialAbility>(import.meta.url)
+export const config: TypeConfig<BrawlingSpecialAbility> = {
+  name: "BrawlingSpecialAbility",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("BrawlingSpecialAbility"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

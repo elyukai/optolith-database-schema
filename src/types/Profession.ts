@@ -2,7 +2,10 @@
  * @main Profession
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
 import { AdvantageIdentifier, DisadvantageIdentifier, SkillIdentifier } from "./_Identifier.js"
 import { CombatTechniqueIdentifier, LiturgyIdentifier, MagicalActionIdentifier, RequirableSelectOptionIdentifier, SpecialAbilityIdentifier, SpellworkIdentifier } from "./_IdentifierGroup.js"
@@ -720,4 +723,9 @@ export type ProfessionName =
     female: NonEmptyString
   }
 
-export const validateSchema = validateSchemaCreator<Profession>(import.meta.url)
+export const config: TypeConfig<Profession> = {
+  name: "Profession",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Profession"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

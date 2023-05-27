@@ -2,9 +2,10 @@
  * @main Ritual
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
-import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { SlowPerformanceParameters } from "./_ActivatableSkill.js"
 import { Effect } from "./_ActivatableSkillEffect.js"
 import { TargetCategory } from "./_ActivatableSkillTargetCategory.js"
@@ -15,6 +16,8 @@ import { SpellworkPrerequisites } from "./_Prerequisite.js"
 import { PropertyReference } from "./_SimpleReferences.js"
 import { SkillCheck, SkillCheckPenalty } from "./_SkillCheck.js"
 import { Traditions } from "./_Spellwork.js"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
  * @title Ritual
@@ -118,4 +121,9 @@ export type RitualTranslation = {
   errata?: Errata
 }
 
-export const validateSchema = validateSchemaCreator<Ritual>(import.meta.url)
+export const config: TypeConfig<Ritual> = {
+  name: "Ritual",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Ritual"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

@@ -2,7 +2,10 @@
  * @main TargetCategory
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { TargetCategoryIdentifier } from "./_Identifier.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
@@ -46,4 +49,9 @@ export type TargetCategoryTranslation = {
   name: NonEmptyString
 }
 
-export const validateSchema = validateSchemaCreator<TargetCategory>(import.meta.url)
+export const config: TypeConfig<TargetCategory> = {
+  name: "TargetCategory",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("TargetCategory"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

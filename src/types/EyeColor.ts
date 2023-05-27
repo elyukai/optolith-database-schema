@@ -2,7 +2,10 @@
  * @main EyeColor
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
 
@@ -30,4 +33,9 @@ export type EyeColorTranslation = {
   name: NonEmptyString
 }
 
-export const validateSchema = validateSchemaCreator<EyeColor>(import.meta.url)
+export const config: TypeConfig<EyeColor> = {
+  name: "EyeColor",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("EyeColor"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

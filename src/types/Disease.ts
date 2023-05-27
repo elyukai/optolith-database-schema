@@ -2,10 +2,13 @@
  * @main Disease
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { Cause, DiseaseTranslation, Resistance } from "./_DiseasePoison.js"
 import { LocaleMap } from "./_LocaleMap.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
  * @title Disease
@@ -48,4 +51,9 @@ export type Disease = {
   translations: LocaleMap<DiseaseTranslation>
 }
 
-export const validateSchema = validateSchemaCreator<Disease>(import.meta.url)
+export const config: TypeConfig<Disease> = {
+  name: "Disease",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Disease"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

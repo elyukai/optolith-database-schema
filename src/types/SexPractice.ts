@@ -2,10 +2,13 @@
  * @main SexPractice
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
  * @title Sex Practice
@@ -54,4 +57,9 @@ export type SexPracticeTranslation = {
   failed: NonEmptyString
 }
 
-export const validateSchema = validateSchemaCreator<SexPractice>(import.meta.url)
+export const config: TypeConfig<SexPractice> = {
+  name: "SexPractice",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("SexPractice"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

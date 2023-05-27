@@ -2,12 +2,15 @@
  * @main CloseCombatTechnique
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
-import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { ImprovementCost } from "./_ImprovementCost.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { AttributeReference } from "./_SimpleReferences.js"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
  * @title Close Combat Technique
@@ -87,4 +90,9 @@ export type CloseCombatTechniqueTranslation = {
   errata?: Errata
 }
 
-export const validateSchema = validateSchemaCreator<CloseCombatTechnique>(import.meta.url)
+export const config: TypeConfig<CloseCombatTechnique> = {
+  name: "CloseCombatTechnique",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("CloseCombatTechnique"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

@@ -2,10 +2,11 @@
  * @main MagicalDance
  */
 
-import { validateSchemaCreator } from "../../validation/schema.js"
+import { TypeConfig } from "../../typeConfig.js"
+import { todo } from "../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
 import { FixedOneTimeCostTranslation } from "../FamiliarsTrick.js"
-import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
 import { CheckResultBasedModifier } from "../_ActivatableSkillCheckResultBased.js"
 import { IndefiniteOneTimeCostTranslation } from "../_ActivatableSkillCost.js"
 import { Effect } from "../_ActivatableSkillEffect.js"
@@ -14,6 +15,8 @@ import { LocaleMap } from "../_LocaleMap.js"
 import { NonEmptyString } from "../_NonEmptyString.js"
 import { PropertyReference } from "../_SimpleReferences.js"
 import { SkillCheck } from "../_SkillCheck.js"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
 import { MusicDuration, MusicTraditionReference } from "./_MusicTradition.js"
 
 /**
@@ -127,4 +130,9 @@ export type IndefiniteMagicalDanceCost = {
   translations: LocaleMap<IndefiniteOneTimeCostTranslation>
 }
 
-export const validateSchema = validateSchemaCreator<MagicalDance>(import.meta.url)
+export const config: TypeConfig<MagicalDance> = {
+  name: "MagicalDance",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("MagicalDance"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

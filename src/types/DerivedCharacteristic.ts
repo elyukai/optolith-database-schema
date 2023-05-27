@@ -2,10 +2,13 @@
  * @main DerivedCharacteristic
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { DerivedCharacteristicPrerequisites } from "./_Prerequisite.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
  * @title Derived Characteristic
@@ -70,4 +73,9 @@ export type CalculationTranslation = {
   no_primary?: string;
 }
 
-export const validateSchema = validateSchemaCreator<DerivedCharacteristic>(import.meta.url)
+export const config: TypeConfig<DerivedCharacteristic> = {
+  name: "DerivedCharacteristic",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("DerivedCharacteristic"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

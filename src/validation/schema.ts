@@ -1,68 +1,42 @@
-import Ajv, { DefinedError } from "ajv"
-import { basename, dirname, extname, join, relative, sep } from "path"
-import { fileURLToPath } from "url"
-import { libDir } from "../../config/directories.js"
+import AjvModule, { AnySchemaObject, Options } from "ajv"
+import addFormatsModule from "ajv-formats"
+import Ajv2019Module from "ajv/dist/2019.js"
+import Ajv2020Module from "ajv/dist/2020.js"
+import { JsonSchemaSpec } from "optolith-tsjsonschemamd/renderers"
+import "../helpers/array.js"
+import { isHiddenFileName, readDirectoryRec, readJsonFile } from "../helpers/io.js"
+import { assertExhaustive } from "../helpers/typeSafety.js"
 
-export type FileNameError = {
-  keyword: "filename"
-  instancePath: string
-  message: string
-}
+// import resolution fixes for TypeScript
+type Ajv = AjvModule.default
+const Ajv2019 = Ajv2019Module.default
+const Ajv2020 = Ajv2020Module.default
+const addFormats = addFormatsModule.default
 
-const baseNamePattern = /^(?:0|[1-9][0-9]*)_(?:[A-Z][a-zA-Z]*|[1-9][0-9]*)(?:-(?:[a-zA-Z]+|[1-9][0-9]*))*\.yml$/
+const createSchemaValidator = (jsonSchemaSpec: JsonSchemaSpec, validatorOptions: Options = {}) => {
+  switch (jsonSchemaSpec) {
+    case JsonSchemaSpec.Draft_07:
+    case JsonSchemaSpec.Draft_2019_09:
+      return new Ajv2019(validatorOptions)
 
-const fileNameError = (fileName: string): FileNameError => ({
-  keyword: "filename",
-  instancePath: "",
-  message: `the file name "${fileName}" does not match the pattern ${baseNamePattern.source}`
-})
+    case JsonSchemaSpec.Draft_2020_12:
+      return new Ajv2020(validatorOptions)
 
-export type TypeValidationResult<T> =
-  | { tag: "Ok", value: T }
-  | { tag: "Error", errors: TypeValidationResultErrors }
-
-export type TypeValidationResultErrors = {
-  fileNameError?: FileNameError
-  schemaErrors: DefinedError[]
-}
-
-const changeFileExtension = (path: string, ext: string) =>
-  join(dirname(path), basename(path, extname(path)) + ext)
-
-const schemaIdFromSourcePath = (sourcePath: string) => {
-  const relativePathOfType   = relative(libDir, fileURLToPath(sourcePath))
-  const relativePathOfSchema = changeFileExtension(relativePathOfType, ".schema.json")
-
-  return "/" + relativePathOfSchema.split(sep).join("/")
-}
-
-export type TypeValidator<T> = (validator: Ajv, data: unknown, filePath: string) => TypeValidationResult<T>
-
-export type TypeValidatorOptions = {
-  ignoreFileNamePattern?: boolean
-}
-
-export const validateSchemaCreator = <T>(
-  importMetaUrl: string,
-  { ignoreFileNamePattern = false }: TypeValidatorOptions = {}
-): TypeValidator<T> => {
-    const schemaId = schemaIdFromSourcePath(importMetaUrl)
-
-    return (validator: Ajv, data: unknown, filePath: string): TypeValidationResult<T> => {
-      const fileName = basename(filePath)
-      const correctFileName = ignoreFileNamePattern || baseNamePattern.test(fileName)
-
-      if (validator.validate(schemaId, data) && correctFileName) {
-        return { tag: "Ok", value: data as T}
-      }
-      else {
-        return {
-          tag: "Error",
-          errors: {
-            fileNameError: correctFileName ? undefined : fileNameError(fileName),
-            schemaErrors: validator.errors as DefinedError[] ?? [],
-          }
-        }
-      }
-    }
+    default:
+      assertExhaustive(jsonSchemaSpec)
   }
+}
+
+const registerAllJsonSchemaDocuments = async (jsonSchemaDir: string, validator: Ajv) => {
+  for await (const jsonSchemaPath of readDirectoryRec(jsonSchemaDir, isHiddenFileName)) {
+    const jsonSchema = await readJsonFile(jsonSchemaPath)
+    validator.addSchema(jsonSchema as AnySchemaObject)
+  }
+}
+
+export const getPreparedSchemaValidator = async (jsonSchemaSpec: JsonSchemaSpec, validatorOptions: Options = {}, jsonSchemaDir: string) => {
+  const validator = createSchemaValidator(jsonSchemaSpec, validatorOptions)
+  await registerAllJsonSchemaDocuments(jsonSchemaDir, validator)
+  addFormats(validator)
+  return validator
+}

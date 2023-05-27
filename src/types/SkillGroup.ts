@@ -2,7 +2,10 @@
  * @main SkillGroup
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
 import { SkillCheck } from "./_SkillCheck.js"
@@ -41,4 +44,9 @@ export type SkillGroupTranslation = {
   long_name: NonEmptyString
 }
 
-export const validateSchema = validateSchemaCreator<SkillGroup>(import.meta.url)
+export const config: TypeConfig<SkillGroup> = {
+  name: "SkillGroup",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("SkillGroup"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

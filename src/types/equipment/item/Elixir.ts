@@ -2,12 +2,15 @@
  * @main Elixir
  */
 
-import { validateSchemaCreator } from "../../../validation/schema.js"
-import { Errata } from "../../source/_Erratum.js"
-import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { TypeConfig } from "../../../typeConfig.js"
+import { todo } from "../../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { AlternativeName } from "../../_AlternativeNames.js"
 import { LocaleMap } from "../../_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "../../_NonEmptyString.js"
+import { Errata } from "../../source/_Erratum.js"
+import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { LaboratoryLevel, RecipeTradeSecret } from "./_Herbary.js"
 
 export type Elixir = {
@@ -88,4 +91,9 @@ export type ElixirTranslation = {
   errata?: Errata
 }
 
-export const validateSchema = validateSchemaCreator<Elixir>(import.meta.url)
+export const config: TypeConfig<Elixir> = {
+  name: "Elixir",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("Elixir"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

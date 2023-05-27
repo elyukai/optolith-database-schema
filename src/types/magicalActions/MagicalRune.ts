@@ -2,9 +2,10 @@
  * @main MagicalRune
  */
 
-import { validateSchemaCreator } from "../../validation/schema.js"
-import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { TypeConfig } from "../../typeConfig.js"
+import { todo } from "../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
 import { CheckResultBasedDuration } from "../_ActivatableSkillDuration.js"
 import { Effect } from "../_ActivatableSkillEffect.js"
 import { CombatTechniqueIdentifier } from "../_IdentifierGroup.js"
@@ -14,6 +15,8 @@ import { NonEmptyString } from "../_NonEmptyString.js"
 import { ResponsiveText, ResponsiveTextOptional } from "../_ResponsiveText.js"
 import { PropertyReference } from "../_SimpleReferences.js"
 import { SkillCheck } from "../_SkillCheck.js"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
 
 /**
  * @title Magical Rune
@@ -309,4 +312,9 @@ export type MagicalRuneOptionTranslation = {
   native_name: NonEmptyString
 }
 
-export const validateSchema = validateSchemaCreator<MagicalRune>(import.meta.url)
+export const config: TypeConfig<MagicalRune> = {
+  name: "MagicalRune",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("MagicalRune"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

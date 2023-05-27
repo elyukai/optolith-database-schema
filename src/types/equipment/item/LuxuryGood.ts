@@ -2,9 +2,12 @@
  * @main LuxuryGood
  */
 
-import { validateSchemaCreator } from "../../../validation/schema.js"
-import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { TypeConfig } from "../../../typeConfig.js"
+import { todo } from "../../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { LocaleMap } from "../../_LocaleMap.js"
+import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { CombatUse, Complexity, Cost, DefaultItemTranslation, StructurePoints, Weight } from "./_Item.js"
 
 export type LuxuryGood = {
@@ -43,4 +46,9 @@ export type LuxuryGood = {
   translations: LocaleMap<DefaultItemTranslation>
 }
 
-export const validateSchema = validateSchemaCreator<LuxuryGood>(import.meta.url)
+export const config: TypeConfig<LuxuryGood> = {
+  name: "LuxuryGood",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("LuxuryGood"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

@@ -2,7 +2,10 @@
  * @main SkillModificationLevel
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
 
@@ -122,4 +125,9 @@ export type LevelTypeConfigTranslation = {
   range: NonEmptyString
 }
 
-export const validateSchema = validateSchemaCreator<SkillModificationLevel>(import.meta.url)
+export const config: TypeConfig<SkillModificationLevel> = {
+  name: "SkillModificationLevel",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("SkillModificationLevel"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

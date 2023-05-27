@@ -2,7 +2,10 @@
  * @main ArcaneBardTradition
  */
 
-import { validateSchemaCreator } from "../validation/schema.js"
+import { TypeConfig } from "../typeConfig.js"
+import { todo } from "../validation/builders/integrity.js"
+import { createSchemaValidator } from "../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { ArcaneTradition } from "./_ArcaneTradition.js"
 
 /**
@@ -10,4 +13,9 @@ import { ArcaneTradition } from "./_ArcaneTradition.js"
  */
 export type ArcaneBardTradition = ArcaneTradition
 
-export const validateSchema = validateSchemaCreator<ArcaneBardTradition>(import.meta.url)
+export const config: TypeConfig<ArcaneBardTradition> = {
+  name: "ArcaneBardTradition",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("ArcaneBardTradition"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

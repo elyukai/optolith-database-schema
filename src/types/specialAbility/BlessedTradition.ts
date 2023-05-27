@@ -2,13 +2,16 @@
  * @main BlessedTradition
  */
 
-import { validateSchemaCreator } from "../../validation/schema.js"
-import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { TypeConfig } from "../../typeConfig.js"
+import { todo } from "../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
 import * as Activatable from "../_Activatable.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 import { AspectReference, AttributeReference, BlessingReference, CombatTechniqueReference, SkillReference } from "../_SimpleReferences.js"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
 import { SpecialRule } from "./_Tradition.js"
 
 /**
@@ -164,4 +167,9 @@ export type BlessedTraditionTranslation = {
   errata?: Errata
 }
 
-export const validateSchema = validateSchemaCreator<BlessedTradition>(import.meta.url)
+export const config: TypeConfig<BlessedTradition> = {
+  name: "BlessedTradition",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("BlessedTradition"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}

@@ -2,13 +2,16 @@
  * @main CoreRule
  */
 
-import { validateSchemaCreator } from "../../validation/schema.js"
-import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { TypeConfig } from "../../typeConfig.js"
+import { todo } from "../../validation/builders/integrity.js"
+import { createSchemaValidator } from "../../validation/builders/schema.js"
+import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
 import { CoreRuleIdentifier } from "../_Identifier.js"
 import { CoreRuleDerivableContentIdentifier } from "../_IdentifierGroup.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "../_NonEmptyString.js"
+import { Errata } from "../source/_Erratum.js"
+import { PublicationRefs } from "../source/_PublicationRef.js"
 
 /**
  * @title Core Rule
@@ -202,4 +205,9 @@ export type ReferenceNode = {
   id: CoreRuleDerivableContentIdentifier
 }
 
-export const validateSchema = validateSchemaCreator<CoreRule>(import.meta.url)
+export const config: TypeConfig<CoreRule> = {
+  name: "CoreRule",
+  id: getFIlenamePrefixAsNumericId,
+  integrityValidator: todo("CoreRule"),
+  schemaValidator: createSchemaValidator(import.meta.url),
+}
