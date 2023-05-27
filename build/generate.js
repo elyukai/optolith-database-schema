@@ -1,6 +1,6 @@
 // @ts-check
 
-import { watch } from "fs/promises"
+import { watch } from "node:fs/promises"
 import { generate } from "optolith-tsjsonschemamd"
 import { jsonSchema, markdown } from "optolith-tsjsonschemamd/renderers"
 import { jsonSchemaDir, jsonSchemaSpec, markdownDir, sourceDir } from "./config.js"

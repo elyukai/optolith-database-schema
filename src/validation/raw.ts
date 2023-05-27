@@ -1,6 +1,6 @@
 import type AjvModule from "ajv"
-import { readdir } from "fs/promises"
-import { join } from "path"
+import { readdir } from "node:fs/promises"
+import { join } from "node:path"
 import { jsonSchemaDir, jsonSchemaSpec } from "../../build/config.js"
 import { TypeMap, configMap } from "../config.js"
 import "../helpers/array.js"

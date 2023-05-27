@@ -1,6 +1,6 @@
 import type { default as AjvModule, DefinedError } from "ajv"
-import { basename, relative, sep } from "path"
-import { fileURLToPath } from "url"
+import { basename, relative, sep } from "node:path"
+import { fileURLToPath } from "node:url"
 import { libDir } from "../../../build/config.js"
 import { changeFileExtension } from "../../helpers/io.js"
 import { Result, error, ok } from "../../helpers/result.js"
