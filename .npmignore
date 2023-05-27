@@ -2,6 +2,7 @@
 .versionrc.json
 .vscode
 build
+!build/config.*
 docs
 ideas
 src

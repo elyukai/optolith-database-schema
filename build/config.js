@@ -4,7 +4,6 @@ import { JsonSchemaSpec } from "optolith-tsjsonschemamd/renderers";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
-// @ts-ignore
 const root = join(dirname(fileURLToPath(import.meta.url)), "..")
 
 const typesDir = main => join(root, main, "types")
