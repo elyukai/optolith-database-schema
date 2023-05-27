@@ -2,7 +2,7 @@
 .versionrc.json
 .vscode
 build
-!build/config.*
+CODEOWNERS
 docs
 ideas
 src
