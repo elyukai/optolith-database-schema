@@ -9,7 +9,12 @@
     "dasschwarzeauge"
   ],
   "main": "./lib/main.js",
-  "types": "./lib/main.d.ts",
+  "exports": {
+    ".": "./lib/main.js",
+    "./errors": "./lib/errors.js",
+    "./config": "./lib/config.js",
+    "./types/*": "./lib/types/*.js"
+  },
   "scripts": {
     "build:ts": "tsc",
     "watch:ts": "tsc -w",
@@ -27,7 +32,7 @@
     "yaml": "^2.2.2"
   },
   "devDependencies": {
-    "@types/node": "^18.16.3",
+    "@types/node": "^20.2.3",
     "optolith-tsjsonschemamd": "^0.5.20",
     "standard-version": "^9.5.0",
     "typescript": "^5.0.4"

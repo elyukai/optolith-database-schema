@@ -1,17 +1,16 @@
 {
-  "include": [
-    "src/**/*"
-  ],
   "compilerOptions": {
     "strict": true,
     "lib": ["ESNext"],
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "module": "nodenext",
     "target": "ESNext",
     "allowSyntheticDefaultImports": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
     "declaration": true,
     "outDir": "lib"
-  }
+  },
+  "include": [
+    "src/**/*"
+  ]
 }
