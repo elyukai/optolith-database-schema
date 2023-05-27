@@ -1,17 +1,15 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "declaration": true,
     "lib": ["ESNext"],
     "module": "NodeNext",
+    "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
-    "outDir": "lib",
     "strict": true,
     "target": "ESNext",
   },
   "include": [
-    "src/**/*"
+    "**/*"
   ]
 }

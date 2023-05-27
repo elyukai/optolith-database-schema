@@ -54,8 +54,12 @@ else {
  * @param {(...args: T) => void} f
  * @param {number} timeout
  * @returns {(...args: T) => void}
+ * @this {unknown}
  */
 function debounce(f, timeout) {
+  /**
+   * @type {ReturnType<typeof setTimeout>}
+   */
   let timer;
   return (...args) => {
     clearTimeout(timer);

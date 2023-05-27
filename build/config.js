@@ -5,6 +5,9 @@ import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..")
 
+/**
+ * @param {string} main
+ */
 const typesDir = main => join(root, main, "types")
 
 export const sourceDir = typesDir("src")
