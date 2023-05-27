@@ -8,6 +8,7 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
     "outDir": "lib",
+    "rootDir": "src",
     "strict": true,
     "target": "ESNext",
   },
