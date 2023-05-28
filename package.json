@@ -18,8 +18,8 @@
   "scripts": {
     "build:ts": "tsc -b",
     "watch:ts": "tsc -b -w",
-    "build:gen": "node ./build/generate.js",
-    "watch:gen": "node ./build/generate.js -w",
+    "build:gen": "otjsmd",
+    "watch:gen": "otjsmd -w",
     "build": "npm run build:ts && npm run build:gen",
     "release": "standard-version",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.2.3",
-    "optolith-tsjsonschemamd": "^0.8.0",
+    "optolith-tsjsonschemamd": "^0.9.2",
     "standard-version": "^9.5.0",
     "typescript": "^5.0.4"
   },
