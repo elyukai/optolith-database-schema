@@ -1,10 +1,9 @@
 .github
 .versionrc.json
 .vscode
-build/*
-!build/config.*
 CODEOWNERS
 docs
 ideas
+otjsmd.config.js
 src
 tsconfig.json
