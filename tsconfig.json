@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "allowSyntheticDefaultImports": true,
     "declaration": true,
     "lib": ["ESNext"],
     "module": "NodeNext",
