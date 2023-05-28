@@ -16,8 +16,8 @@
     "./types/*": "./lib/types/*.js"
   },
   "scripts": {
-    "build:ts": "tsc -b",
-    "watch:ts": "tsc -b -w",
+    "build:ts": "tsc",
+    "watch:ts": "tsc -w",
     "build:gen": "otjsmd",
     "watch:gen": "otjsmd -w",
     "build": "npm run build:ts && npm run build:gen",
