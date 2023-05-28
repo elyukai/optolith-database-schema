@@ -1,4 +1,4 @@
-import { TypeMap } from "../../config.js"
+import { TypeMap } from "../../config/types.js"
 import { PathDescriptor, printPathDescriptor } from "../../helpers/objectPath.js"
 import { Result } from "../../helpers/result.js"
 import { TypeId } from "../../typeConfig.js"

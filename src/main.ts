@@ -1,4 +1,4 @@
-import { TypeMap } from "./config.js"
+import { TypeMap } from "./config/types.js"
 import "./helpers/array.js"
 import { mapSecond } from "./helpers/pair.js"
 import { Ok, Result, error, isError, isOk, ok } from "./helpers/result.js"

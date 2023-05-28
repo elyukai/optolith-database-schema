@@ -1,4 +1,4 @@
-import { TypeMap, configMap } from "./config.js"
+import { TypeMap, configMap } from "./config/types.js"
 import { IntegrityValidator } from "./validation/builders/integrity.js"
 import { SchemaValidator } from "./validation/builders/schema.js"
 
