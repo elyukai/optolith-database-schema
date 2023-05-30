@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.11.7](https://github.com/elyukai/optolith-database-schema/compare/v0.11.6...v0.11.7) (2023-05-30)
+
+
+### Bug Fixes
+
+* restrict ValidResults types to each entity's type ([62b0eb0](https://github.com/elyukai/optolith-database-schema/commit/62b0eb0fda08b9885a1c8598cf653a168cfa93a8))
+
 ### [0.11.6](https://github.com/elyukai/optolith-database-schema/compare/v0.11.5...v0.11.6) (2023-05-28)
 
 ### [0.11.5](https://github.com/elyukai/optolith-database-schema/compare/v0.11.4...v0.11.5) (2023-05-27)
