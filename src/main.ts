@@ -30,7 +30,7 @@ export type TypeValidationError = IntegrityError | FileNameError | SchemaError
  * A map of all valid entries, grouped by entity type.
  */
 export type ValidResults = {
-  [K in keyof TypeMap]: [id: TypeId<keyof TypeMap>, data: TypeMap[keyof TypeMap]][]
+  [K in keyof TypeMap]: [id: TypeId<K>, data: TypeMap[K]][]
 }
 
 /**
