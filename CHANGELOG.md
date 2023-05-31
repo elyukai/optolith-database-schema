@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.11.8](https://github.com/elyukai/optolith-database-schema/compare/v0.11.7...v0.11.8) (2023-05-31)
+
+
+### Bug Fixes
+
+* **exports:** config exports did not match new folder structure ([dcb95e8](https://github.com/elyukai/optolith-database-schema/commit/dcb95e8ee0bd95006382bc6e62da245cc391986a))
+
 ### [0.11.7](https://github.com/elyukai/optolith-database-schema/compare/v0.11.6...v0.11.7) (2023-05-30)
 
 
