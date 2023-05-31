@@ -12,7 +12,7 @@
   "exports": {
     ".": "./lib/main.js",
     "./errors": "./lib/errors.js",
-    "./config": "./lib/config.js",
+    "./config/*": "./lib/config/*.js",
     "./types/*": "./lib/types/*.js"
   },
   "scripts": {
