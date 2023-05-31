@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.11.9](https://github.com/elyukai/optolith-database-schema/compare/v0.11.8...v0.11.9) (2023-05-31)
+
+
+### Bug Fixes
+
+* move TypeId declaration to exported file ([940f567](https://github.com/elyukai/optolith-database-schema/commit/940f5674f64547c277f479e43df4d3b193e5489c))
+
 ### [0.11.8](https://github.com/elyukai/optolith-database-schema/compare/v0.11.7...v0.11.8) (2023-05-31)
 
 
