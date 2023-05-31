@@ -1,7 +1,6 @@
-import { TypeMap } from "../../config/types.js"
+import { TypeId, TypeMap } from "../../config/types.js"
 import { PathDescriptor, printPathDescriptor } from "../../helpers/objectPath.js"
 import { Result } from "../../helpers/result.js"
-import { TypeId } from "../../typeConfig.js"
 import { config } from "../../types/Locale.js"
 
 /**

@@ -463,3 +463,5 @@ export const configMap = {
   weapons: Weapon.config,
   zibiljaRituals: ZibiljaRitual.config,
 }
+
+export type TypeId<K extends keyof TypeMap> = ReturnType<(typeof configMap)[K]["id"]>
