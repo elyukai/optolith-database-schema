@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.12.0](https://github.com/elyukai/optolith-database-schema/compare/v0.11.9...v0.12.0) (2023-06-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* rename header tab keys and add button names
+
+### Features
+
+* rename header tab keys and add button names ([79d8381](https://github.com/elyukai/optolith-database-schema/commit/79d8381c1b7dc4571edf8920a6e8db47dc560431))
+
 ### [0.11.9](https://github.com/elyukai/optolith-database-schema/compare/v0.11.8...v0.11.9) (2023-05-31)
 
 
