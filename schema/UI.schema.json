@@ -26,100 +26,100 @@
         "initialization.loadtableserror": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.heroes": {
+        "Characters": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.groups": {
+        "Groups": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.wiki": {
+        "Library": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.faq": {
+        "FAQ": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.about": {
+        "About": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.imprint": {
+        "Imprint": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.thirdpartylicenses": {
+        "Third-Party Licenses": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.lastchanges": {
+        "Last Changes": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.profile": {
+        "Profile": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.overview": {
+        "Overview": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.personaldata": {
+        "Personal Data": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.charactersheet": {
+        "Character Sheet": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.pact": {
+        "Pact": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.rules": {
+        "Rules": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.racecultureandprofession": {
+        "Race, Culture & Profession": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.race": {
+        "Race": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.culture": {
+        "Culture": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.profession": {
+        "Profession": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.attributes": {
+        "Attributes": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.advantagesanddisadvantages": {
+        "Advantages & Disadvantages": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.advantages": {
+        "Advantages": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.disadvantages": {
+        "Disadvantages": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.abilities": {
+        "Abilities": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.skills": {
+        "Skills": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.combattechniques": {
+        "Combat Techniques": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.specialabilities": {
+        "Special Abilities": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.spells": {
+        "Spells": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.liturgicalchants": {
+        "Liturgical Chants": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.belongings": {
+        "Belongings": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.equipment": {
+        "Equipment": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.hitzonearmor": {
+        "Hit Zone Armor": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.tabs.pets": {
+        "Pets": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.apleft": {
@@ -127,6 +127,12 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.savebtn": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Show Settings": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Toggle DevTools": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "header.aptooltip.title": {
@@ -2557,40 +2563,42 @@
         "macosmenubar.edit",
         "macosmenubar.view",
         "initialization.loadtableserror",
-        "header.tabs.heroes",
-        "header.tabs.groups",
-        "header.tabs.wiki",
-        "header.tabs.faq",
-        "header.tabs.about",
-        "header.tabs.imprint",
-        "header.tabs.thirdpartylicenses",
-        "header.tabs.lastchanges",
-        "header.tabs.profile",
-        "header.tabs.overview",
-        "header.tabs.personaldata",
-        "header.tabs.charactersheet",
-        "header.tabs.pact",
-        "header.tabs.rules",
-        "header.tabs.racecultureandprofession",
-        "header.tabs.race",
-        "header.tabs.culture",
-        "header.tabs.profession",
-        "header.tabs.attributes",
-        "header.tabs.advantagesanddisadvantages",
-        "header.tabs.advantages",
-        "header.tabs.disadvantages",
-        "header.tabs.abilities",
-        "header.tabs.skills",
-        "header.tabs.combattechniques",
-        "header.tabs.specialabilities",
-        "header.tabs.spells",
-        "header.tabs.liturgicalchants",
-        "header.tabs.belongings",
-        "header.tabs.equipment",
-        "header.tabs.hitzonearmor",
-        "header.tabs.pets",
+        "Characters",
+        "Groups",
+        "Library",
+        "FAQ",
+        "About",
+        "Imprint",
+        "Third-Party Licenses",
+        "Last Changes",
+        "Profile",
+        "Overview",
+        "Personal Data",
+        "Character Sheet",
+        "Pact",
+        "Rules",
+        "Race, Culture & Profession",
+        "Race",
+        "Culture",
+        "Profession",
+        "Attributes",
+        "Advantages & Disadvantages",
+        "Advantages",
+        "Disadvantages",
+        "Abilities",
+        "Skills",
+        "Combat Techniques",
+        "Special Abilities",
+        "Spells",
+        "Liturgical Chants",
+        "Belongings",
+        "Equipment",
+        "Hit Zone Armor",
+        "Pets",
         "header.apleft",
         "header.savebtn",
+        "Show Settings",
+        "Toggle DevTools",
         "header.aptooltip.title",
         "header.aptooltip.total",
         "header.aptooltip.spent",

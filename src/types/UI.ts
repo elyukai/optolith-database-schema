@@ -22,43 +22,45 @@ export type UI = {
   "macosmenubar.edit": NonEmptyString
   "macosmenubar.view": NonEmptyString
   "initialization.loadtableserror": NonEmptyString
-  "header.tabs.heroes": NonEmptyString
-  "header.tabs.groups": NonEmptyString
-  "header.tabs.wiki": NonEmptyString
-  "header.tabs.faq": NonEmptyString
-  "header.tabs.about": NonEmptyString
-  "header.tabs.imprint": NonEmptyString
-  "header.tabs.thirdpartylicenses": NonEmptyString
-  "header.tabs.lastchanges": NonEmptyString
-  "header.tabs.profile": NonEmptyString
-  "header.tabs.overview": NonEmptyString
-  "header.tabs.personaldata": NonEmptyString
-  "header.tabs.charactersheet": NonEmptyString
-  "header.tabs.pact": NonEmptyString
-  "header.tabs.rules": NonEmptyString
-  "header.tabs.racecultureandprofession": NonEmptyString
-  "header.tabs.race": NonEmptyString
-  "header.tabs.culture": NonEmptyString
-  "header.tabs.profession": NonEmptyString
-  "header.tabs.attributes": NonEmptyString
-  "header.tabs.advantagesanddisadvantages": NonEmptyString
-  "header.tabs.advantages": NonEmptyString
-  "header.tabs.disadvantages": NonEmptyString
-  "header.tabs.abilities": NonEmptyString
-  "header.tabs.skills": NonEmptyString
-  "header.tabs.combattechniques": NonEmptyString
-  "header.tabs.specialabilities": NonEmptyString
-  "header.tabs.spells": NonEmptyString
-  "header.tabs.liturgicalchants": NonEmptyString
-  "header.tabs.belongings": NonEmptyString
-  "header.tabs.equipment": NonEmptyString
-  "header.tabs.hitzonearmor": NonEmptyString
-  "header.tabs.pets": NonEmptyString
+  "Characters": NonEmptyString
+  "Groups": NonEmptyString
+  "Library": NonEmptyString
+  "FAQ": NonEmptyString
+  "About": NonEmptyString
+  "Imprint": NonEmptyString
+  "Third-Party Licenses": NonEmptyString
+  "Last Changes": NonEmptyString
+  "Profile": NonEmptyString
+  "Overview": NonEmptyString
+  "Personal Data": NonEmptyString
+  "Character Sheet": NonEmptyString
+  "Pact": NonEmptyString
+  "Rules": NonEmptyString
+  "Race, Culture & Profession": NonEmptyString
+  "Race": NonEmptyString
+  "Culture": NonEmptyString
+  "Profession": NonEmptyString
+  "Attributes": NonEmptyString
+  "Advantages & Disadvantages": NonEmptyString
+  "Advantages": NonEmptyString
+  "Disadvantages": NonEmptyString
+  "Abilities": NonEmptyString
+  "Skills": NonEmptyString
+  "Combat Techniques": NonEmptyString
+  "Special Abilities": NonEmptyString
+  "Spells": NonEmptyString
+  "Liturgical Chants": NonEmptyString
+  "Belongings": NonEmptyString
+  "Equipment": NonEmptyString
+  "Hit Zone Armor": NonEmptyString
+  "Pets": NonEmptyString
   /**
    * - `0`: AP left
    */
   "header.apleft": NonEmptyString
   "header.savebtn": NonEmptyString
+  "Show Settings": NonEmptyString
+  "Toggle DevTools": NonEmptyString
   "header.aptooltip.title": NonEmptyString
   /**
    * - `0`: AP Total

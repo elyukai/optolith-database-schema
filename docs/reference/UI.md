@@ -14,40 +14,42 @@ Key | Description | Details
 `macosmenubar.edit` |  | <a href="#UI/macosmenubar.edit">See details</a>
 `macosmenubar.view` |  | <a href="#UI/macosmenubar.view">See details</a>
 `initialization.loadtableserror` |  | <a href="#UI/initialization.loadtableserror">See details</a>
-`header.tabs.heroes` |  | <a href="#UI/header.tabs.heroes">See details</a>
-`header.tabs.groups` |  | <a href="#UI/header.tabs.groups">See details</a>
-`header.tabs.wiki` |  | <a href="#UI/header.tabs.wiki">See details</a>
-`header.tabs.faq` |  | <a href="#UI/header.tabs.faq">See details</a>
-`header.tabs.about` |  | <a href="#UI/header.tabs.about">See details</a>
-`header.tabs.imprint` |  | <a href="#UI/header.tabs.imprint">See details</a>
-`header.tabs.thirdpartylicenses` |  | <a href="#UI/header.tabs.thirdpartylicenses">See details</a>
-`header.tabs.lastchanges` |  | <a href="#UI/header.tabs.lastchanges">See details</a>
-`header.tabs.profile` |  | <a href="#UI/header.tabs.profile">See details</a>
-`header.tabs.overview` |  | <a href="#UI/header.tabs.overview">See details</a>
-`header.tabs.personaldata` |  | <a href="#UI/header.tabs.personaldata">See details</a>
-`header.tabs.charactersheet` |  | <a href="#UI/header.tabs.charactersheet">See details</a>
-`header.tabs.pact` |  | <a href="#UI/header.tabs.pact">See details</a>
-`header.tabs.rules` |  | <a href="#UI/header.tabs.rules">See details</a>
-`header.tabs.racecultureandprofession` |  | <a href="#UI/header.tabs.racecultureandprofession">See details</a>
-`header.tabs.race` |  | <a href="#UI/header.tabs.race">See details</a>
-`header.tabs.culture` |  | <a href="#UI/header.tabs.culture">See details</a>
-`header.tabs.profession` |  | <a href="#UI/header.tabs.profession">See details</a>
-`header.tabs.attributes` |  | <a href="#UI/header.tabs.attributes">See details</a>
-`header.tabs.advantagesanddisadvantages` |  | <a href="#UI/header.tabs.advantagesanddisadvantages">See details</a>
-`header.tabs.advantages` |  | <a href="#UI/header.tabs.advantages">See details</a>
-`header.tabs.disadvantages` |  | <a href="#UI/header.tabs.disadvantages">See details</a>
-`header.tabs.abilities` |  | <a href="#UI/header.tabs.abilities">See details</a>
-`header.tabs.skills` |  | <a href="#UI/header.tabs.skills">See details</a>
-`header.tabs.combattechniques` |  | <a href="#UI/header.tabs.combattechniques">See details</a>
-`header.tabs.specialabilities` |  | <a href="#UI/header.tabs.specialabilities">See details</a>
-`header.tabs.spells` |  | <a href="#UI/header.tabs.spells">See details</a>
-`header.tabs.liturgicalchants` |  | <a href="#UI/header.tabs.liturgicalchants">See details</a>
-`header.tabs.belongings` |  | <a href="#UI/header.tabs.belongings">See details</a>
-`header.tabs.equipment` |  | <a href="#UI/header.tabs.equipment">See details</a>
-`header.tabs.hitzonearmor` |  | <a href="#UI/header.tabs.hitzonearmor">See details</a>
-`header.tabs.pets` |  | <a href="#UI/header.tabs.pets">See details</a>
+`Characters` |  | <a href="#UI/Characters">See details</a>
+`Groups` |  | <a href="#UI/Groups">See details</a>
+`Library` |  | <a href="#UI/Library">See details</a>
+`FAQ` |  | <a href="#UI/FAQ">See details</a>
+`About` |  | <a href="#UI/About">See details</a>
+`Imprint` |  | <a href="#UI/Imprint">See details</a>
+`Third-Party Licenses` |  | <a href="#UI/Third-Party Licenses">See details</a>
+`Last Changes` |  | <a href="#UI/Last Changes">See details</a>
+`Profile` |  | <a href="#UI/Profile">See details</a>
+`Overview` |  | <a href="#UI/Overview">See details</a>
+`Personal Data` |  | <a href="#UI/Personal Data">See details</a>
+`Character Sheet` |  | <a href="#UI/Character Sheet">See details</a>
+`Pact` |  | <a href="#UI/Pact">See details</a>
+`Rules` |  | <a href="#UI/Rules">See details</a>
+`Race, Culture & Profession` |  | <a href="#UI/Race, Culture & Profession">See details</a>
+`Race` |  | <a href="#UI/Race">See details</a>
+`Culture` |  | <a href="#UI/Culture">See details</a>
+`Profession` |  | <a href="#UI/Profession">See details</a>
+`Attributes` |  | <a href="#UI/Attributes">See details</a>
+`Advantages & Disadvantages` |  | <a href="#UI/Advantages & Disadvantages">See details</a>
+`Advantages` |  | <a href="#UI/Advantages">See details</a>
+`Disadvantages` |  | <a href="#UI/Disadvantages">See details</a>
+`Abilities` |  | <a href="#UI/Abilities">See details</a>
+`Skills` |  | <a href="#UI/Skills">See details</a>
+`Combat Techniques` |  | <a href="#UI/Combat Techniques">See details</a>
+`Special Abilities` |  | <a href="#UI/Special Abilities">See details</a>
+`Spells` |  | <a href="#UI/Spells">See details</a>
+`Liturgical Chants` |  | <a href="#UI/Liturgical Chants">See details</a>
+`Belongings` |  | <a href="#UI/Belongings">See details</a>
+`Equipment` |  | <a href="#UI/Equipment">See details</a>
+`Hit Zone Armor` |  | <a href="#UI/Hit Zone Armor">See details</a>
+`Pets` |  | <a href="#UI/Pets">See details</a>
 `header.apleft` | - `0`: AP left | <a href="#UI/header.apleft">See details</a>
 `header.savebtn` |  | <a href="#UI/header.savebtn">See details</a>
+`Show Settings` |  | <a href="#UI/Show Settings">See details</a>
+`Toggle DevTools` |  | <a href="#UI/Toggle DevTools">See details</a>
 `header.aptooltip.title` |  | <a href="#UI/header.aptooltip.title">See details</a>
 `header.aptooltip.total` | - `0`: AP Total | <a href="#UI/header.aptooltip.total">See details</a>
 `header.aptooltip.spent` | - `0`: AP Spent | <a href="#UI/header.aptooltip.spent">See details</a>
@@ -862,131 +864,131 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.heroes"></a> `header.tabs.heroes`
+#### <a name="UI/Characters"></a> `Characters`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.groups"></a> `header.tabs.groups`
+#### <a name="UI/Groups"></a> `Groups`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.wiki"></a> `header.tabs.wiki`
+#### <a name="UI/Library"></a> `Library`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.faq"></a> `header.tabs.faq`
+#### <a name="UI/FAQ"></a> `FAQ`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.about"></a> `header.tabs.about`
+#### <a name="UI/About"></a> `About`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.imprint"></a> `header.tabs.imprint`
+#### <a name="UI/Imprint"></a> `Imprint`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.thirdpartylicenses"></a> `header.tabs.thirdpartylicenses`
+#### <a name="UI/Third-Party Licenses"></a> `Third-Party Licenses`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.lastchanges"></a> `header.tabs.lastchanges`
+#### <a name="UI/Last Changes"></a> `Last Changes`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.profile"></a> `header.tabs.profile`
+#### <a name="UI/Profile"></a> `Profile`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.overview"></a> `header.tabs.overview`
+#### <a name="UI/Overview"></a> `Overview`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.personaldata"></a> `header.tabs.personaldata`
+#### <a name="UI/Personal Data"></a> `Personal Data`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.charactersheet"></a> `header.tabs.charactersheet`
+#### <a name="UI/Character Sheet"></a> `Character Sheet`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.pact"></a> `header.tabs.pact`
+#### <a name="UI/Pact"></a> `Pact`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.rules"></a> `header.tabs.rules`
+#### <a name="UI/Rules"></a> `Rules`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.racecultureandprofession"></a> `header.tabs.racecultureandprofession`
+#### <a name="UI/Race, Culture & Profession"></a> `Race, Culture & Profession`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.race"></a> `header.tabs.race`
+#### <a name="UI/Race"></a> `Race`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.culture"></a> `header.tabs.culture`
+#### <a name="UI/Culture"></a> `Culture`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.profession"></a> `header.tabs.profession`
+#### <a name="UI/Profession"></a> `Profession`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.attributes"></a> `header.tabs.attributes`
+#### <a name="UI/Attributes"></a> `Attributes`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.advantagesanddisadvantages"></a> `header.tabs.advantagesanddisadvantages`
+#### <a name="UI/Advantages & Disadvantages"></a> `Advantages & Disadvantages`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.advantages"></a> `header.tabs.advantages`
+#### <a name="UI/Advantages"></a> `Advantages`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.disadvantages"></a> `header.tabs.disadvantages`
+#### <a name="UI/Disadvantages"></a> `Disadvantages`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.abilities"></a> `header.tabs.abilities`
+#### <a name="UI/Abilities"></a> `Abilities`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.skills"></a> `header.tabs.skills`
+#### <a name="UI/Skills"></a> `Skills`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.combattechniques"></a> `header.tabs.combattechniques`
+#### <a name="UI/Combat Techniques"></a> `Combat Techniques`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.specialabilities"></a> `header.tabs.specialabilities`
+#### <a name="UI/Special Abilities"></a> `Special Abilities`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.spells"></a> `header.tabs.spells`
+#### <a name="UI/Spells"></a> `Spells`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.liturgicalchants"></a> `header.tabs.liturgicalchants`
+#### <a name="UI/Liturgical Chants"></a> `Liturgical Chants`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.belongings"></a> `header.tabs.belongings`
+#### <a name="UI/Belongings"></a> `Belongings`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.equipment"></a> `header.tabs.equipment`
+#### <a name="UI/Equipment"></a> `Equipment`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.hitzonearmor"></a> `header.tabs.hitzonearmor`
+#### <a name="UI/Hit Zone Armor"></a> `Hit Zone Armor`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.tabs.pets"></a> `header.tabs.pets`
+#### <a name="UI/Pets"></a> `Pets`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -997,6 +999,14 @@ Key | Description | Details
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/header.savebtn"></a> `header.savebtn`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Show Settings"></a> `Show Settings`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Toggle DevTools"></a> `Toggle DevTools`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
