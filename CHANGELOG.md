@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.12.1](https://github.com/elyukai/optolith-database-schema/compare/v0.12.0...v0.12.1) (2023-06-11)
+
+
+### Features
+
+* provide function to get raw validation results ([c4bf451](https://github.com/elyukai/optolith-database-schema/commit/c4bf451195f7b754edf15ef43cd5363baafdd1d4))
+
+
+### Bug Fixes
+
+* use different file name validation patterns per type ([8e3915f](https://github.com/elyukai/optolith-database-schema/commit/8e3915f716823b971068018acba196b900fc390c))
+
 ## [0.12.0](https://github.com/elyukai/optolith-database-schema/compare/v0.11.9...v0.12.0) (2023-06-03)
 
 
