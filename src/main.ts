@@ -5,7 +5,7 @@ import { Ok, Result, error, isError, isOk, ok } from "./helpers/result.js"
 import { IntegrityError } from "./validation/builders/integrity.js"
 import { FileNameError } from "./validation/builders/naming.js"
 import { SchemaError } from "./validation/builders/schema.js"
-import { TypeIdPair, TypeValidationResultsByType, getRawValidationResults } from "./validation/raw.js"
+import { TypeIdPair, TypeValidationResult, TypeValidationResultsByType, getRawValidationResults } from "./validation/raw.js"
 
 /**
  * Options for validating data files.
@@ -30,6 +30,13 @@ export type TypeValidationError = IntegrityError | FileNameError | SchemaError
  */
 export type ValidResults = {
   [K in keyof TypeMap]: [id: TypeId<K>, data: TypeMap[K]][]
+}
+
+/**
+ * A map of all entries, grouped by entity type.
+ */
+export type RawResults = {
+  [K in keyof TypeMap]: TypeValidationResult<K>[]
 }
 
 /**
@@ -111,4 +118,19 @@ export const getAllValidData = async (
 ): Promise<ValidResults> => {
   const rawResultMap = await getRawValidationResults(entityDirPaths, options)
   return filterResultMapByValidData(rawResultMap)
+}
+
+/**
+ * Returns all data as a map of entity types to their validation results.
+ * @param entityDirPaths THe paths to the directories containing the data to be
+ * validated.
+ * @param options Configuration options for the validation.
+ * @returns The validation results.
+ */
+export const getRawResults = async (
+  entityDirPaths: EntityDirectoryPaths,
+  options: ValidationOptions = {}
+): Promise<RawResults> => {
+  const rawResultMap = await getRawValidationResults(entityDirPaths, options)
+  return Object.fromEntries(rawResultMap) as unknown as RawResults
 }
