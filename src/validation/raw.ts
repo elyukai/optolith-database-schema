@@ -80,14 +80,14 @@ const validateSemanticAndReferencialIntegrityOfFiles = <K extends keyof TypeMap>
   ))
 
 export const getRawValidationResults = async (
-  entityDirectoryPaths: EntityDirectoryPaths,
+  entityDirPaths: EntityDirectoryPaths,
   options: ValidationOptions = {}
 ): Promise<TypeValidationResultsByType> => {
   const { checkIntegrity = false } = options
 
   const validator = await getPreparedSchemaValidator(jsonSchemaSpec, {}, jsonSchemaDir)
   const entityDirectoryPathEntries =
-    Object.entries(entityDirectoryPaths) as [typeName: keyof TypeMap, path: string][]
+    Object.entries(entityDirPaths) as [typeName: keyof TypeMap, path: string][]
 
   const structuralIntegrityResults =
     await Promise.all(
