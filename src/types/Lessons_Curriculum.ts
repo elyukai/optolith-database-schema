@@ -4,6 +4,7 @@
 
 import { TypeConfig } from "../typeConfig.js"
 import { todo } from "../validation/builders/integrity.js"
+import { validateEntityFileName } from "../validation/builders/naming.js"
 import { createSchemaValidator } from "../validation/builders/schema.js"
 import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { ElementIdentifier, MagicalTraditionIdentifier, PropertyIdentifier, SkillIdentifier } from "./_Identifier.js"
@@ -256,4 +257,5 @@ export const config: TypeConfig<Curriculum> = {
   id: getFIlenamePrefixAsNumericId,
   integrityValidator: todo("Curriculum"),
   schemaValidator: createSchemaValidator(import.meta.url),
+  fileNameValidator: validateEntityFileName,
 }

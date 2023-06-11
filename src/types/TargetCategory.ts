@@ -9,6 +9,7 @@ import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { TargetCategoryIdentifier } from "./_Identifier.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
+import { validateEntityFileName } from "../validation/builders/naming.js"
 
 /**
  * @title Target Category
@@ -54,4 +55,5 @@ export const config: TypeConfig<TargetCategory> = {
   id: getFIlenamePrefixAsNumericId,
   integrityValidator: todo("TargetCategory"),
   schemaValidator: createSchemaValidator(import.meta.url),
+  fileNameValidator: validateEntityFileName,
 }

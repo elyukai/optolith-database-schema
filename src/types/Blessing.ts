@@ -4,6 +4,7 @@
 
 import { TypeConfig } from "../typeConfig.js"
 import { todo } from "../validation/builders/integrity.js"
+import { validateEntityFileName } from "../validation/builders/naming.js"
 import { createSchemaValidator } from "../validation/builders/schema.js"
 import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { DurationUnit } from "./_ActivatableSkillDuration.js"
@@ -126,4 +127,5 @@ export const config: TypeConfig<Blessing> = {
   id: getFIlenamePrefixAsNumericId,
   integrityValidator: todo("Blessing"),
   schemaValidator: createSchemaValidator(import.meta.url),
+  fileNameValidator: validateEntityFileName,
 }

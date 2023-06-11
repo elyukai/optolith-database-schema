@@ -4,6 +4,7 @@
 
 import { TypeConfig } from "../typeConfig.js"
 import { todo } from "../validation/builders/integrity.js"
+import { validateEntityFileName } from "../validation/builders/naming.js"
 import { createSchemaValidator } from "../validation/builders/schema.js"
 import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { Influence } from "./_Influence.js"
@@ -18,4 +19,5 @@ export const config: TypeConfig<Kirchenpraegung> = {
   id: getFIlenamePrefixAsNumericId,
   integrityValidator: todo("Kirchenpraegung"),
   schemaValidator: createSchemaValidator(import.meta.url),
+  fileNameValidator: validateEntityFileName,
 }

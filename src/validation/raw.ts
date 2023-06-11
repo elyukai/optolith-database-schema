@@ -11,7 +11,7 @@ import { Result, isOk } from "../helpers/result.js"
 import { EntityDirectoryPaths, TypeValidationError, ValidationOptions } from "../main.js"
 import { TypeConfig } from "../typeConfig.js"
 import { IdentityIntegrityValidators, IntegrityValidators } from "./builders/integrity.js"
-import { FileNameValidator, validateFileName } from "./builders/naming.js"
+import { FileNameValidator } from "./builders/naming.js"
 import { getPreparedSchemaValidator } from "./schema.js"
 
 // import resolution fixes for TypeScript
@@ -97,7 +97,7 @@ export const getRawValidationResults = async (
         return validateStructuralIntegrityOfFiles(
           validator,
           configMap[typeName] as TypeConfig<TypeMap[keyof TypeMap], TypeId<keyof TypeMap>>,
-          validateFileName,
+          configMap[typeName].fileNameValidator,
           files
         )
       }))

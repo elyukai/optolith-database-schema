@@ -11,6 +11,7 @@ import { NonEmptyMarkdown, NonEmptyString } from "./_NonEmptyString.js"
 import { BlessedTraditionReference } from "./_SimpleReferences.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
+import { validateEntityFileName } from "../validation/builders/naming.js"
 
 /**
  * @title Talisman
@@ -96,4 +97,5 @@ export const config: TypeConfig<Talisman> = {
   id: getFIlenamePrefixAsNumericId,
   integrityValidator: todo("Talisman"),
   schemaValidator: createSchemaValidator(import.meta.url),
+  fileNameValidator: validateEntityFileName,
 }

@@ -4,6 +4,7 @@
 
 import { Result } from "../helpers/result.js"
 import { TypeConfig } from "../typeConfig.js"
+import { validateLanguageFileName } from "../validation/builders/naming.js"
 import { createSchemaValidator } from "../validation/builders/schema.js"
 import { getFilenameAsStringId } from "../validation/filename.js"
 import { PluralizationCategories } from "./_I18n.js"
@@ -1072,4 +1073,5 @@ export const config: TypeConfig<UI, string> = {
   id: getFilenameAsStringId,
   integrityValidator: () => Result.ok(undefined),
   schemaValidator: createSchemaValidator(import.meta.url),
+  fileNameValidator: validateLanguageFileName,
 }

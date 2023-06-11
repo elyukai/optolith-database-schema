@@ -4,6 +4,7 @@
 
 import { TypeConfig } from "../../typeConfig.js"
 import { todo } from "../../validation/builders/integrity.js"
+import { validateEntityFileName } from "../../validation/builders/naming.js"
 import { createSchemaValidator } from "../../validation/builders/schema.js"
 import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
 import { LocaleMap } from "../_LocaleMap.js"
@@ -55,4 +56,5 @@ export const config: TypeConfig<OptionalRule> = {
   id: getFIlenamePrefixAsNumericId,
   integrityValidator: todo("OptionalRule"),
   schemaValidator: createSchemaValidator(import.meta.url),
+  fileNameValidator: validateEntityFileName,
 }

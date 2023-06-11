@@ -4,6 +4,7 @@
 
 import { TypeConfig } from "../typeConfig.js"
 import { getReferencialIntegrityErrorsForTranslatable, reduceIntegrityValidationResults, validateEntityIntegrity } from "../validation/builders/integrity.js"
+import { validateEntityFileName } from "../validation/builders/naming.js"
 import { createSchemaValidator } from "../validation/builders/schema.js"
 import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { LocaleMap } from "./_LocaleMap.js"
@@ -57,4 +58,5 @@ export const config: TypeConfig<Attribute> = {
       getReferencialIntegrityErrorsForTranslatable(validators, data),
     ),
   schemaValidator: createSchemaValidator(import.meta.url),
+  fileNameValidator: validateEntityFileName,
 }

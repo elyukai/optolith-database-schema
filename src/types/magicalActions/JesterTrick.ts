@@ -4,6 +4,7 @@
 
 import { TypeConfig } from "../../typeConfig.js"
 import { todo } from "../../validation/builders/integrity.js"
+import { validateEntityFileName } from "../../validation/builders/naming.js"
 import { createSchemaValidator } from "../../validation/builders/schema.js"
 import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
 import { CheckResultBasedDuration, DurationUnit } from "../_ActivatableSkillDuration.js"
@@ -188,4 +189,5 @@ export const config: TypeConfig<JesterTrick> = {
   id: getFIlenamePrefixAsNumericId,
   integrityValidator: todo("JesterTrick"),
   schemaValidator: createSchemaValidator(import.meta.url),
+  fileNameValidator: validateEntityFileName,
 }

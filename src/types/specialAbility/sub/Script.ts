@@ -4,6 +4,7 @@
 
 import { TypeConfig } from "../../../typeConfig.js"
 import { todo } from "../../../validation/builders/integrity.js"
+import { validateEntityFileName } from "../../../validation/builders/naming.js"
 import { createSchemaValidator } from "../../../validation/builders/schema.js"
 import { getFIlenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { AlternativeName } from "../../_AlternativeNames.js"
@@ -77,4 +78,5 @@ export const config: TypeConfig<Script> = {
   id: getFIlenamePrefixAsNumericId,
   integrityValidator: todo("Script"),
   schemaValidator: createSchemaValidator(import.meta.url),
+  fileNameValidator: validateEntityFileName,
 }

@@ -4,6 +4,7 @@
 
 import { TypeConfig } from "../typeConfig.js"
 import { todo } from "../validation/builders/integrity.js"
+import { validateEntityFileName } from "../validation/builders/naming.js"
 import { createSchemaValidator } from "../validation/builders/schema.js"
 import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { ImprovementCost } from "./_ImprovementCost.js"
@@ -95,4 +96,5 @@ export const config: TypeConfig<CloseCombatTechnique> = {
   id: getFIlenamePrefixAsNumericId,
   integrityValidator: todo("CloseCombatTechnique"),
   schemaValidator: createSchemaValidator(import.meta.url),
+  fileNameValidator: validateEntityFileName,
 }
