@@ -88,10 +88,16 @@
       ]
     },
     "MundaneProfessionGroup": {
-      "enum": [
-        "Profane",
-        "Fighter",
-        "Religious"
+      "oneOf": [
+        {
+          "const": "Profane"
+        },
+        {
+          "const": "Fighter"
+        },
+        {
+          "const": "Religious"
+        }
       ]
     },
     "MagicalProfessionGroup": {

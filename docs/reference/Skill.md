@@ -157,7 +157,26 @@ Lists examples of results for botches.
 A category. All available entries from the specified category will be
 included as separate applications.
 
-- **Possible values:** `"BlessedTraditions"`, `"Diseases"`, `"Regions"`
+- **Type:** Union
+- **Cases:** <a href="#ApplicationCategory'0">ApplicationCategory'0</a> | <a href="#ApplicationCategory'1">ApplicationCategory'1</a> | <a href="#ApplicationCategory'2">ApplicationCategory'2</a>
+
+---
+
+### <a name="ApplicationCategory'0"></a> `ApplicationCategory'0`
+
+- **Constant:** `"BlessedTraditions"`
+
+---
+
+### <a name="ApplicationCategory'1"></a> `ApplicationCategory'1`
+
+- **Constant:** `"Diseases"`
+
+---
+
+### <a name="ApplicationCategory'2"></a> `ApplicationCategory'2`
+
+- **Constant:** `"Regions"`
 
 ---
 
@@ -278,4 +297,23 @@ The skill application's name.
 
 Indicates whether encumbrance gives a penalty for checks with the skill.
 
-- **Possible values:** `"True"`, `"False"`, `"Maybe"`
+- **Type:** Union
+- **Cases:** <a href="#Encumbrance'0">Encumbrance'0</a> | <a href="#Encumbrance'1">Encumbrance'1</a> | <a href="#Encumbrance'2">Encumbrance'2</a>
+
+---
+
+### <a name="Encumbrance'0"></a> `Encumbrance'0`
+
+- **Constant:** `"True"`
+
+---
+
+### <a name="Encumbrance'1"></a> `Encumbrance'1`
+
+- **Constant:** `"False"`
+
+---
+
+### <a name="Encumbrance'2"></a> `Encumbrance'2`
+
+- **Constant:** `"Maybe"`

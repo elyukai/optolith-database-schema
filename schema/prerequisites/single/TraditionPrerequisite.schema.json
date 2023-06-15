@@ -19,9 +19,13 @@
     },
     "BlessedTraditionPrerequisiteRestriction": {
       "description": "The blessed tradition prerequisite may only be satified if the blessed\ntradition is either church or shamanistic.",
-      "enum": [
-        "Church",
-        "Shamanistic"
+      "oneOf": [
+        {
+          "const": "Church"
+        },
+        {
+          "const": "Shamanistic"
+        }
       ]
     },
     "MagicalTraditionPrerequisite": {
@@ -41,9 +45,13 @@
     },
     "MagicalTraditionPrerequisiteRestriction": {
       "description": "The magical tradition prerequisite may only be satified if the magical\ntradition can learn rituals or can bind familiars.",
-      "enum": [
-        "CanLearnRituals",
-        "CanBindFamiliars"
+      "oneOf": [
+        {
+          "const": "CanLearnRituals"
+        },
+        {
+          "const": "CanBindFamiliars"
+        }
       ]
     }
   }

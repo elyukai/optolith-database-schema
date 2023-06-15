@@ -83,12 +83,11 @@ export type PublicationTranslation = {
 /**
  * The publication category.
  */
-export enum Category {
-  CoreRules = "CoreRules",
-  ExpansionRules = "ExpansionRules",
-  Sourcebook = "Sourcebook",
-  RegionalSourcebook = "RegionalSourcebook",
-}
+export type Category =
+  | "CoreRules"
+  | "ExpansionRules"
+  | "Sourcebook"
+  | "RegionalSourcebook"
 
 export const config: TypeConfig<Publication> = {
   name: "Publication",

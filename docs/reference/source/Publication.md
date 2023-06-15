@@ -115,4 +115,29 @@ to be excluded from stable releases.
 
 The publication category.
 
-- **Possible values:** `"CoreRules"`, `"ExpansionRules"`, `"Sourcebook"`, `"RegionalSourcebook"`
+- **Type:** Union
+- **Cases:** <a href="#Category'0">Category'0</a> | <a href="#Category'1">Category'1</a> | <a href="#Category'2">Category'2</a> | <a href="#Category'3">Category'3</a>
+
+---
+
+### <a name="Category'0"></a> `Category'0`
+
+- **Constant:** `"CoreRules"`
+
+---
+
+### <a name="Category'1"></a> `Category'1`
+
+- **Constant:** `"ExpansionRules"`
+
+---
+
+### <a name="Category'2"></a> `Category'2`
+
+- **Constant:** `"Sourcebook"`
+
+---
+
+### <a name="Category'3"></a> `Category'3`
+
+- **Constant:** `"RegionalSourcebook"`

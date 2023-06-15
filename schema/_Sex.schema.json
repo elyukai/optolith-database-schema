@@ -5,9 +5,13 @@
   "$defs": {
     "BinarySex": {
       "title": "Binary Sex",
-      "enum": [
-        "Male",
-        "Female"
+      "oneOf": [
+        {
+          "const": "Male"
+        },
+        {
+          "const": "Female"
+        }
       ]
     }
   }

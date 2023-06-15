@@ -114,8 +114,10 @@
       "additionalProperties": false
     },
     "LimitedBurningTimeUnit": {
-      "enum": [
-        "Hours"
+      "oneOf": [
+        {
+          "const": "Hours"
+        }
       ]
     }
   }

@@ -141,7 +141,20 @@ The unit for the `value`.
 
 ### <a name="SlowSkillCastingTimeUnit"></a> `SlowSkillCastingTimeUnit`
 
-- **Possible values:** `"Minutes"`, `"Hours"`
+- **Type:** Union
+- **Cases:** <a href="#SlowSkillCastingTimeUnit'0">SlowSkillCastingTimeUnit'0</a> | <a href="#SlowSkillCastingTimeUnit'1">SlowSkillCastingTimeUnit'1</a>
+
+---
+
+### <a name="SlowSkillCastingTimeUnit'0"></a> `SlowSkillCastingTimeUnit'0`
+
+- **Constant:** `"Minutes"`
+
+---
+
+### <a name="SlowSkillCastingTimeUnit'1"></a> `SlowSkillCastingTimeUnit'1`
+
+- **Constant:** `"Hours"`
 
 ---
 

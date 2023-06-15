@@ -130,10 +130,16 @@
       "additionalProperties": false
     },
     "CombatTechniquesTargetGroup": {
-      "enum": [
-        "All",
-        "Close",
-        "Ranged"
+      "oneOf": [
+        {
+          "const": "All"
+        },
+        {
+          "const": "Close"
+        },
+        {
+          "const": "Ranged"
+        }
       ]
     },
     "RatedMinimumNumberPrerequisiteSpellworksTarget": {

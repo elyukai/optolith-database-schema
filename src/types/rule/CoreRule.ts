@@ -187,10 +187,9 @@ export type ReferenceListNodeImprovementCostSource = {
   maximum_rating: number
 }
 
-export enum ReferenceListNodeImprovementCostSourceTarget {
-  Attributes = "Attributes",
-  Skills = "Skills",
-}
+export type ReferenceListNodeImprovementCostSourceTarget =
+  | "Attributes"
+  | "Skills"
 
 export type ReferenceListNodeTranslation = {
   /**

@@ -386,7 +386,68 @@ The sustained skill can be active a maximum amount of time.
 
 ### <a name="DurationUnit"></a> `DurationUnit`
 
-- **Possible values:** `"Seconds"`, `"Minutes"`, `"Hours"`, `"Days"`, `"Weeks"`, `"Months"`, `"Years"`, `"Centuries"`, `"Actions"`, `"CombatRounds"`
+- **Type:** Union
+- **Cases:** <a href="#DurationUnit'0">DurationUnit'0</a> | <a href="#DurationUnit'1">DurationUnit'1</a> | <a href="#DurationUnit'2">DurationUnit'2</a> | <a href="#DurationUnit'3">DurationUnit'3</a> | <a href="#DurationUnit'4">DurationUnit'4</a> | <a href="#DurationUnit'5">DurationUnit'5</a> | <a href="#DurationUnit'6">DurationUnit'6</a> | <a href="#DurationUnit'7">DurationUnit'7</a> | <a href="#DurationUnit'8">DurationUnit'8</a> | <a href="#DurationUnit'9">DurationUnit'9</a>
+
+---
+
+### <a name="DurationUnit'0"></a> `DurationUnit'0`
+
+- **Constant:** `"Seconds"`
+
+---
+
+### <a name="DurationUnit'1"></a> `DurationUnit'1`
+
+- **Constant:** `"Minutes"`
+
+---
+
+### <a name="DurationUnit'2"></a> `DurationUnit'2`
+
+- **Constant:** `"Hours"`
+
+---
+
+### <a name="DurationUnit'3"></a> `DurationUnit'3`
+
+- **Constant:** `"Days"`
+
+---
+
+### <a name="DurationUnit'4"></a> `DurationUnit'4`
+
+- **Constant:** `"Weeks"`
+
+---
+
+### <a name="DurationUnit'5"></a> `DurationUnit'5`
+
+- **Constant:** `"Months"`
+
+---
+
+### <a name="DurationUnit'6"></a> `DurationUnit'6`
+
+- **Constant:** `"Years"`
+
+---
+
+### <a name="DurationUnit'7"></a> `DurationUnit'7`
+
+- **Constant:** `"Centuries"`
+
+---
+
+### <a name="DurationUnit'8"></a> `DurationUnit'8`
+
+- **Constant:** `"Actions"`
+
+---
+
+### <a name="DurationUnit'9"></a> `DurationUnit'9`
+
+- **Constant:** `"CombatRounds"`
 
 ---
 

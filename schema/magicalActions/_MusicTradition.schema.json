@@ -59,15 +59,23 @@
       "additionalProperties": false
     },
     "MusicLength": {
-      "enum": [
-        "Long",
-        "Short"
+      "oneOf": [
+        {
+          "const": "Long"
+        },
+        {
+          "const": "Short"
+        }
       ]
     },
     "MusicReusability": {
-      "enum": [
-        "OneTime",
-        "Sustainable"
+      "oneOf": [
+        {
+          "const": "OneTime"
+        },
+        {
+          "const": "Sustainable"
+        }
       ]
     }
   }

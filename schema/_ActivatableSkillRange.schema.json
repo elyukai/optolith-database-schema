@@ -251,9 +251,13 @@
       "additionalProperties": false
     },
     "RangeUnit": {
-      "enum": [
-        "Steps",
-        "Miles"
+      "oneOf": [
+        {
+          "const": "Steps"
+        },
+        {
+          "const": "Miles"
+        }
       ]
     }
   }

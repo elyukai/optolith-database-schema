@@ -14,11 +14,10 @@ export type SkillCheck = [
  * A specific value that represents a penalty for the associated skill check.
  * @title Skill Check Penalty
  */
-export enum SkillCheckPenalty {
-  Spirit = "Spirit",
-  HalfOfSpirit = "HalfOfSpirit",
-  Toughness = "Toughness",
-  HigherOfSpiritAndToughness = "HigherOfSpiritAndToughness",
-  SummoningDifficulty = "SummoningDifficulty",
-  CreationDifficulty = "CreationDifficulty",
-}
+export type SkillCheckPenalty =
+  | "Spirit"
+  | "HalfOfSpirit"
+  | "Toughness"
+  | "HigherOfSpiritAndToughness"
+  | "SummoningDifficulty"
+  | "CreationDifficulty"

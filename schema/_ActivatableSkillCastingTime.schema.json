@@ -38,9 +38,13 @@
       "additionalProperties": false
     },
     "CastingTimeDuringLovemakingUnit": {
-      "enum": [
-        "SeductionActions",
-        "Rounds"
+      "oneOf": [
+        {
+          "const": "SeductionActions"
+        },
+        {
+          "const": "Rounds"
+        }
       ]
     },
     "FastSkillNonModifiableCastingTime": {

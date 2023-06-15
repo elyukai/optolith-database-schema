@@ -26,9 +26,13 @@
       "additionalProperties": false
     },
     "PrimaryAttributeCategory": {
-      "enum": [
-        "Blessed",
-        "Magical"
+      "oneOf": [
+        {
+          "const": "Blessed"
+        },
+        {
+          "const": "Magical"
+        }
       ]
     }
   }

@@ -24,13 +24,25 @@
     "SkillCheckPenalty": {
       "title": "Skill Check Penalty",
       "description": "A specific value that represents a penalty for the associated skill check.",
-      "enum": [
-        "Spirit",
-        "HalfOfSpirit",
-        "Toughness",
-        "HigherOfSpiritAndToughness",
-        "SummoningDifficulty",
-        "CreationDifficulty"
+      "oneOf": [
+        {
+          "const": "Spirit"
+        },
+        {
+          "const": "HalfOfSpirit"
+        },
+        {
+          "const": "Toughness"
+        },
+        {
+          "const": "HigherOfSpiritAndToughness"
+        },
+        {
+          "const": "SummoningDifficulty"
+        },
+        {
+          "const": "CreationDifficulty"
+        }
       ]
     }
   }

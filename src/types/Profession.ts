@@ -55,11 +55,10 @@ export type ProfessionGroup =
   | { tag: "Magical"; magical: MagicalProfessionGroup }
   | { tag: "Blessed"; blessed: {} }
 
-export enum MundaneProfessionGroup {
-  Profane = "Profane",
-  Fighter = "Fighter",
-  Religious = "Religious",
-}
+export type MundaneProfessionGroup =
+  | "Profane"
+  | "Fighter"
+  | "Religious"
 
 export type MagicalProfessionGroup = {
   /**

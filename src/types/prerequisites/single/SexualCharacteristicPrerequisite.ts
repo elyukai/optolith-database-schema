@@ -6,7 +6,6 @@ export type SexualCharacteristicPrerequisite = {
   id: SexualCharacteristic
 }
 
-export enum SexualCharacteristic {
-  Penis = "Penis",
-  Vagina = "Vagina",
-}
+export type SexualCharacteristic =
+  | "Penis"
+  | "Vagina"

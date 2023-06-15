@@ -165,7 +165,26 @@ Key | Description | Details
 
 ### <a name="CombatTechniquesTargetGroup"></a> `CombatTechniquesTargetGroup`
 
-- **Possible values:** `"All"`, `"Close"`, `"Ranged"`
+- **Type:** Union
+- **Cases:** <a href="#CombatTechniquesTargetGroup'0">CombatTechniquesTargetGroup'0</a> | <a href="#CombatTechniquesTargetGroup'1">CombatTechniquesTargetGroup'1</a> | <a href="#CombatTechniquesTargetGroup'2">CombatTechniquesTargetGroup'2</a>
+
+---
+
+### <a name="CombatTechniquesTargetGroup'0"></a> `CombatTechniquesTargetGroup'0`
+
+- **Constant:** `"All"`
+
+---
+
+### <a name="CombatTechniquesTargetGroup'1"></a> `CombatTechniquesTargetGroup'1`
+
+- **Constant:** `"Close"`
+
+---
+
+### <a name="CombatTechniquesTargetGroup'2"></a> `CombatTechniquesTargetGroup'2`
+
+- **Constant:** `"Ranged"`
 
 ---
 

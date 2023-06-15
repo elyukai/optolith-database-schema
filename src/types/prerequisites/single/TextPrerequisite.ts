@@ -49,14 +49,12 @@ export type TextPrerequisite = {
   translations: LocaleMap<TextPrerequisiteTranslation>
 }
 
-export enum TextVerificationRule {
-  Pass = "Pass",
-  Deny = "Deny",
-}
+export type TextVerificationRule =
+  | "Pass"
+  | "Deny"
 
-export enum SentenceType {
-  Standalone = "Standalone",
-  Connected = "Connected",
-}
+export type SentenceType =
+  | "Standalone"
+  | "Connected"
 
 export type TextPrerequisiteTranslation = NonEmptyMarkdown

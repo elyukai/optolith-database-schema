@@ -303,10 +303,16 @@
     },
     "WeightDiceOffsetStrategy": {
       "description": "The strategy how to offset the randomly generated values against the\nbase value. Either they are all added or subtracted or even results are\nadded and odd results are subtracted.",
-      "enum": [
-        "Add",
-        "Subtract",
-        "AddEvenSubtractOdd"
+      "oneOf": [
+        {
+          "const": "Add"
+        },
+        {
+          "const": "Subtract"
+        },
+        {
+          "const": "AddEvenSubtractOdd"
+        }
       ]
     },
     "StartingAgeConfigForExperienceLevel": {

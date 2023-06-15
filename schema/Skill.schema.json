@@ -109,10 +109,16 @@
     },
     "ApplicationCategory": {
       "description": "A category. All available entries from the specified category will be\nincluded as separate applications.",
-      "enum": [
-        "BlessedTraditions",
-        "Diseases",
-        "Regions"
+      "oneOf": [
+        {
+          "const": "BlessedTraditions"
+        },
+        {
+          "const": "Diseases"
+        },
+        {
+          "const": "Regions"
+        }
       ]
     },
     "Applications": {
@@ -201,10 +207,16 @@
     },
     "Encumbrance": {
       "description": "Indicates whether encumbrance gives a penalty for checks with the skill.",
-      "enum": [
-        "True",
-        "False",
-        "Maybe"
+      "oneOf": [
+        {
+          "const": "True"
+        },
+        {
+          "const": "False"
+        },
+        {
+          "const": "Maybe"
+        }
       ]
     }
   }

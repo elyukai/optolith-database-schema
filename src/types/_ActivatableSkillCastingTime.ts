@@ -61,10 +61,9 @@ export type CastingTimeDuringLovemaking = {
   unit: CastingTimeDuringLovemakingUnit
 }
 
-export enum CastingTimeDuringLovemakingUnit {
-  SeductionActions = "SeductionActions",
-  Rounds = "Rounds",
-}
+export type CastingTimeDuringLovemakingUnit =
+  | "SeductionActions"
+  | "Rounds"
 
 export type FastSkillNonModifiableCastingTime = {
   /**

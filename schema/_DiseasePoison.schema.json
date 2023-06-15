@@ -4,10 +4,16 @@
   "$defs": {
     "Resistance": {
       "description": "Depending on the disease, apply Spirit or Toughness as a penalty to the\ndisease roll. It may also happen that the lower of both is applied as a\npenalty.",
-      "enum": [
-        "Spirit",
-        "Toughness",
-        "LowerOfSpiritAndToughness"
+      "oneOf": [
+        {
+          "const": "Spirit"
+        },
+        {
+          "const": "Toughness"
+        },
+        {
+          "const": "LowerOfSpiritAndToughness"
+        }
       ]
     },
     "Cause": {

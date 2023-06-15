@@ -341,4 +341,17 @@ replaced string.
 
 ### <a name="RangeUnit"></a> `RangeUnit`
 
-- **Possible values:** `"Steps"`, `"Miles"`
+- **Type:** Union
+- **Cases:** <a href="#RangeUnit'0">RangeUnit'0</a> | <a href="#RangeUnit'1">RangeUnit'1</a>
+
+---
+
+### <a name="RangeUnit'0"></a> `RangeUnit'0`
+
+- **Constant:** `"Steps"`
+
+---
+
+### <a name="RangeUnit'1"></a> `RangeUnit'1`
+
+- **Constant:** `"Miles"`

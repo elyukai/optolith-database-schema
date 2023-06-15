@@ -29,9 +29,13 @@
       "additionalProperties": false
     },
     "SkillIdentifierValue": {
-      "enum": [
-        9,
-        56
+      "oneOf": [
+        {
+          "const": 9
+        },
+        {
+          "const": 56
+        }
       ]
     }
   }

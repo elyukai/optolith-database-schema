@@ -151,9 +151,13 @@
     },
     "PatronCultureOperation": {
       "description": "The set operation to combine the set of all patron cultures with the\nspecified set of patron cultures: If they should intersect, the patron is\nonly part of the given cultures. If they should differ, the patron is only\npart of the cultures that are not given.",
-      "enum": [
-        "Intersection",
-        "Difference"
+      "oneOf": [
+        {
+          "const": "Intersection"
+        },
+        {
+          "const": "Difference"
+        }
       ]
     },
     "AdvantageAnimalPower": {
@@ -261,13 +265,25 @@
       "additionalProperties": false
     },
     "CombatAnimalPowerType": {
-      "enum": [
-        "Attack",
-        "Parry",
-        "RangedCombat",
-        "Dodge",
-        "DamagePoints",
-        "Protection"
+      "oneOf": [
+        {
+          "const": "Attack"
+        },
+        {
+          "const": "Parry"
+        },
+        {
+          "const": "RangedCombat"
+        },
+        {
+          "const": "Dodge"
+        },
+        {
+          "const": "DamagePoints"
+        },
+        {
+          "const": "Protection"
+        }
       ]
     },
     "AnimalPowerLevel2": {

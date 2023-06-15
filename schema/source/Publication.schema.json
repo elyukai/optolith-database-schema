@@ -84,11 +84,19 @@
     },
     "Category": {
       "description": "The publication category.",
-      "enum": [
-        "CoreRules",
-        "ExpansionRules",
-        "Sourcebook",
-        "RegionalSourcebook"
+      "oneOf": [
+        {
+          "const": "CoreRules"
+        },
+        {
+          "const": "ExpansionRules"
+        },
+        {
+          "const": "Sourcebook"
+        },
+        {
+          "const": "RegionalSourcebook"
+        }
       ]
     }
   }

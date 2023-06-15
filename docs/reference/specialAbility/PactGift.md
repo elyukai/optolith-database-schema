@@ -199,7 +199,20 @@ selection where the player must choose one entry.
 
 ### <a name="AutomaticEntryAction"></a> `AutomaticEntryAction`
 
-- **Possible values:** `"Add"`, `"Remove"`
+- **Type:** Union
+- **Cases:** <a href="#AutomaticEntryAction'0">AutomaticEntryAction'0</a> | <a href="#AutomaticEntryAction'1">AutomaticEntryAction'1</a>
+
+---
+
+### <a name="AutomaticEntryAction'0"></a> `AutomaticEntryAction'0`
+
+- **Constant:** `"Add"`
+
+---
+
+### <a name="AutomaticEntryAction'1"></a> `AutomaticEntryAction'1`
+
+- **Constant:** `"Remove"`
 
 ---
 
@@ -264,7 +277,20 @@ Key | Description | Details
 
 ### <a name="AutomaticEntryTargetSelectionList"></a> `AutomaticEntryTargetSelectionList`
 
-- **Possible values:** `"MagicalTraditions"`, `"MagicalDilettanteTraditions"`
+- **Type:** Union
+- **Cases:** <a href="#AutomaticEntryTargetSelectionList'0">AutomaticEntryTargetSelectionList'0</a> | <a href="#AutomaticEntryTargetSelectionList'1">AutomaticEntryTargetSelectionList'1</a>
+
+---
+
+### <a name="AutomaticEntryTargetSelectionList'0"></a> `AutomaticEntryTargetSelectionList'0`
+
+- **Constant:** `"MagicalTraditions"`
+
+---
+
+### <a name="AutomaticEntryTargetSelectionList'1"></a> `AutomaticEntryTargetSelectionList'1`
+
+- **Constant:** `"MagicalDilettanteTraditions"`
 
 ---
 

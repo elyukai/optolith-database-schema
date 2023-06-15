@@ -111,9 +111,13 @@
       "additionalProperties": false
     },
     "SlowSkillCastingTimeUnit": {
-      "enum": [
-        "Minutes",
-        "Hours"
+      "oneOf": [
+        {
+          "const": "Minutes"
+        },
+        {
+          "const": "Hours"
+        }
       ]
     },
     "SkillModificationLevelTranslation": {

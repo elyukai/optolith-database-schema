@@ -18,8 +18,7 @@ export type Dice = {
 /**
  * Number of sides on every dice. Example: 6 in 2D6.
  */
-export enum DieType {
-  D3 = 3,
-  D6 = 6,
-  D20 = 20,
-}
+export type DieType =
+  | 3
+  | 6
+  | 20

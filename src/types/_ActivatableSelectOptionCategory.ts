@@ -249,10 +249,9 @@ export type SpecificFromSkillSelectOptionCategoryCategory<Ref> = {
 /**
  * Only include (`Intersection`) or exclude (`Difference`) specific entries.
  */
-export enum SpecificFromSkillSelectOptionCategoryCategoryOperation {
-  Intersection = "Intersection",
-  Difference = "Difference",
-}
+export type SpecificFromSkillSelectOptionCategoryCategoryOperation =
+  | "Intersection"
+  | "Difference"
 
 export type SkillSelectOptionCategoryPrerequisite =
   | { tag: "Self"; self: SelfPrerequisite }

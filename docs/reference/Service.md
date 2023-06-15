@@ -58,7 +58,20 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="ServiceAvailability"></a> `ServiceAvailability`
 
-- **Possible values:** `"SummonedCreatures"`, `"Monstrosities"`
+- **Type:** Union
+- **Cases:** <a href="#ServiceAvailability'0">ServiceAvailability'0</a> | <a href="#ServiceAvailability'1">ServiceAvailability'1</a>
+
+---
+
+### <a name="ServiceAvailability'0"></a> `ServiceAvailability'0`
+
+- **Constant:** `"SummonedCreatures"`
+
+---
+
+### <a name="ServiceAvailability'1"></a> `ServiceAvailability'1`
+
+- **Constant:** `"Monstrosities"`
 
 ---
 

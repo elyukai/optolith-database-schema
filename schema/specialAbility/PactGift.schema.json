@@ -149,9 +149,13 @@
       "additionalProperties": false
     },
     "AutomaticEntryAction": {
-      "enum": [
-        "Add",
-        "Remove"
+      "oneOf": [
+        {
+          "const": "Add"
+        },
+        {
+          "const": "Remove"
+        }
       ]
     },
     "AutomaticEntryTarget": {
@@ -203,9 +207,13 @@
       "additionalProperties": false
     },
     "AutomaticEntryTargetSelectionList": {
-      "enum": [
-        "MagicalTraditions",
-        "MagicalDilettanteTraditions"
+      "oneOf": [
+        {
+          "const": "MagicalTraditions"
+        },
+        {
+          "const": "MagicalDilettanteTraditions"
+        }
       ]
     },
     "FixedAutomaticEntryTarget": {

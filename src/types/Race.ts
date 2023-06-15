@@ -219,11 +219,10 @@ export type WeightDice = Dice & {
  * base value. Either they are all added or subtracted or even results are
  * added and odd results are subtracted.
  */
-export enum WeightDiceOffsetStrategy {
-  Add = "Add",
-  Subtract = "Subtract",
-  AddEvenSubtractOdd = "AddEvenSubtractOdd",
-}
+export type WeightDiceOffsetStrategy =
+  | "Add"
+  | "Subtract"
+  | "AddEvenSubtractOdd"
 
 export type StartingAgeConfigForExperienceLevel = {
   /**

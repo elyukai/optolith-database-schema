@@ -1176,9 +1176,13 @@
     },
     "SpecificFromSkillSelectOptionCategoryCategoryOperation": {
       "description": "Only include (`Intersection`) or exclude (`Difference`) specific entries.",
-      "enum": [
-        "Intersection",
-        "Difference"
+      "oneOf": [
+        {
+          "const": "Intersection"
+        },
+        {
+          "const": "Difference"
+        }
       ]
     },
     "SkillSelectOptionCategoryPrerequisite": {

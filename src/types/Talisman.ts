@@ -4,6 +4,7 @@
 
 import { TypeConfig } from "../typeConfig.js"
 import { todo } from "../validation/builders/integrity.js"
+import { validateEntityFileName } from "../validation/builders/naming.js"
 import { createSchemaValidator } from "../validation/builders/schema.js"
 import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { LocaleMap } from "./_LocaleMap.js"
@@ -11,7 +12,6 @@ import { NonEmptyMarkdown, NonEmptyString } from "./_NonEmptyString.js"
 import { BlessedTraditionReference } from "./_SimpleReferences.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
-import { validateEntityFileName } from "../validation/builders/naming.js"
 
 /**
  * @title Talisman
@@ -51,13 +51,12 @@ export type Talisman = {
   translations: LocaleMap<TalismanTranslation>
 }
 
-export enum TalismanType {
-  MainTalisman = "MainTalisman",
-  Talisman = "Talisman",
-  MinorTalisman = "MinorTalisman",
-  Regalia = "Regalia",
-  PowerfulTalisman = "PowerfulTalisman",
-}
+export type TalismanType =
+  | "MainTalisman"
+  | "Talisman"
+  | "MinorTalisman"
+  | "Regalia"
+  | "PowerfulTalisman"
 
 export type TalismanTranslation = {
   /**

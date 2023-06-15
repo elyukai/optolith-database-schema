@@ -123,7 +123,26 @@ Key | Description | Details
 
 ### <a name="MundaneProfessionGroup"></a> `MundaneProfessionGroup`
 
-- **Possible values:** `"Profane"`, `"Fighter"`, `"Religious"`
+- **Type:** Union
+- **Cases:** <a href="#MundaneProfessionGroup'0">MundaneProfessionGroup'0</a> | <a href="#MundaneProfessionGroup'1">MundaneProfessionGroup'1</a> | <a href="#MundaneProfessionGroup'2">MundaneProfessionGroup'2</a>
+
+---
+
+### <a name="MundaneProfessionGroup'0"></a> `MundaneProfessionGroup'0`
+
+- **Constant:** `"Profane"`
+
+---
+
+### <a name="MundaneProfessionGroup'1"></a> `MundaneProfessionGroup'1`
+
+- **Constant:** `"Fighter"`
+
+---
+
+### <a name="MundaneProfessionGroup'2"></a> `MundaneProfessionGroup'2`
+
+- **Constant:** `"Religious"`
 
 ---
 

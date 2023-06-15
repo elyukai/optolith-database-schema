@@ -73,7 +73,38 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="TalismanType"></a> `TalismanType`
 
-- **Possible values:** `"MainTalisman"`, `"Talisman"`, `"MinorTalisman"`, `"Regalia"`, `"PowerfulTalisman"`
+- **Type:** Union
+- **Cases:** <a href="#TalismanType'0">TalismanType'0</a> | <a href="#TalismanType'1">TalismanType'1</a> | <a href="#TalismanType'2">TalismanType'2</a> | <a href="#TalismanType'3">TalismanType'3</a> | <a href="#TalismanType'4">TalismanType'4</a>
+
+---
+
+### <a name="TalismanType'0"></a> `TalismanType'0`
+
+- **Constant:** `"MainTalisman"`
+
+---
+
+### <a name="TalismanType'1"></a> `TalismanType'1`
+
+- **Constant:** `"Talisman"`
+
+---
+
+### <a name="TalismanType'2"></a> `TalismanType'2`
+
+- **Constant:** `"MinorTalisman"`
+
+---
+
+### <a name="TalismanType'3"></a> `TalismanType'3`
+
+- **Constant:** `"Regalia"`
+
+---
+
+### <a name="TalismanType'4"></a> `TalismanType'4`
+
+- **Constant:** `"PowerfulTalisman"`
 
 ---
 

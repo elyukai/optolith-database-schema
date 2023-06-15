@@ -242,7 +242,20 @@ specified set of patron cultures: If they should intersect, the patron is
 only part of the given cultures. If they should differ, the patron is only
 part of the cultures that are not given.
 
-- **Possible values:** `"Intersection"`, `"Difference"`
+- **Type:** Union
+- **Cases:** <a href="#PatronCultureOperation'0">PatronCultureOperation'0</a> | <a href="#PatronCultureOperation'1">PatronCultureOperation'1</a>
+
+---
+
+### <a name="PatronCultureOperation'0"></a> `PatronCultureOperation'0`
+
+- **Constant:** `"Intersection"`
+
+---
+
+### <a name="PatronCultureOperation'1"></a> `PatronCultureOperation'1`
+
+- **Constant:** `"Difference"`
 
 ---
 
@@ -387,7 +400,44 @@ The value that gets added to the combat value.
 
 ### <a name="CombatAnimalPowerType"></a> `CombatAnimalPowerType`
 
-- **Possible values:** `"Attack"`, `"Parry"`, `"RangedCombat"`, `"Dodge"`, `"DamagePoints"`, `"Protection"`
+- **Type:** Union
+- **Cases:** <a href="#CombatAnimalPowerType'0">CombatAnimalPowerType'0</a> | <a href="#CombatAnimalPowerType'1">CombatAnimalPowerType'1</a> | <a href="#CombatAnimalPowerType'2">CombatAnimalPowerType'2</a> | <a href="#CombatAnimalPowerType'3">CombatAnimalPowerType'3</a> | <a href="#CombatAnimalPowerType'4">CombatAnimalPowerType'4</a> | <a href="#CombatAnimalPowerType'5">CombatAnimalPowerType'5</a>
+
+---
+
+### <a name="CombatAnimalPowerType'0"></a> `CombatAnimalPowerType'0`
+
+- **Constant:** `"Attack"`
+
+---
+
+### <a name="CombatAnimalPowerType'1"></a> `CombatAnimalPowerType'1`
+
+- **Constant:** `"Parry"`
+
+---
+
+### <a name="CombatAnimalPowerType'2"></a> `CombatAnimalPowerType'2`
+
+- **Constant:** `"RangedCombat"`
+
+---
+
+### <a name="CombatAnimalPowerType'3"></a> `CombatAnimalPowerType'3`
+
+- **Constant:** `"Dodge"`
+
+---
+
+### <a name="CombatAnimalPowerType'4"></a> `CombatAnimalPowerType'4`
+
+- **Constant:** `"DamagePoints"`
+
+---
+
+### <a name="CombatAnimalPowerType'5"></a> `CombatAnimalPowerType'5`
+
+- **Constant:** `"Protection"`
 
 ---
 

@@ -70,9 +70,8 @@ export type LimitedBurningTime = {
   unit: LimitedBurningTimeUnit
 }
 
-export enum LimitedBurningTimeUnit {
-  Hours = "Hours",
-}
+export type LimitedBurningTimeUnit =
+  | "Hours"
 
 export const config: TypeConfig<IlluminationLightSource> = {
   name: "IlluminationLightSource",

@@ -38,15 +38,23 @@
       "additionalProperties": false
     },
     "TextVerificationRule": {
-      "enum": [
-        "Pass",
-        "Deny"
+      "oneOf": [
+        {
+          "const": "Pass"
+        },
+        {
+          "const": "Deny"
+        }
       ]
     },
     "SentenceType": {
-      "enum": [
-        "Standalone",
-        "Connected"
+      "oneOf": [
+        {
+          "const": "Standalone"
+        },
+        {
+          "const": "Connected"
+        }
       ]
     },
     "TextPrerequisiteTranslation": {

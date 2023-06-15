@@ -96,10 +96,9 @@ export type SlowSkillCastingTime = {
   unit: SlowSkillCastingTimeUnit
 }
 
-export enum SlowSkillCastingTimeUnit {
-  Minutes = "Minutes",
-  Hours = "Hours",
-}
+export type SlowSkillCastingTimeUnit =
+  | "Minutes"
+  | "Hours"
 
 /**
  * @minProperties 1

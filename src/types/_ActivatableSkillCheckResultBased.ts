@@ -1,18 +1,16 @@
 /**
  * Defines the derived (unitless) value.
  */
-export enum CheckResultValue {
-  QualityLevels = "QualityLevels",
-  SkillPoints = "SkillPoints",
-}
+export type CheckResultValue =
+  | "QualityLevels"
+  | "SkillPoints"
 
 /**
  * Defines how the the `value` is set off against the check result.
  */
-export enum CheckResultArithmetic {
-  Multiply = "Multiply",
-  Divide = "Divide",
-}
+export type CheckResultArithmetic =
+  | "Multiply"
+  | "Divide"
 
 export type CheckResultBasedModifier = {
   /**

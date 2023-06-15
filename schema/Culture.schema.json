@@ -188,23 +188,35 @@
     },
     "Weight": {
       "description": "The \"weight\" difference compared to other professions or profession variants.\nSome professions or profession variants are simply more common (Mostly), but\nsometimes only specific elements are used (Only).",
-      "enum": [
-        "Mostly",
-        "Only"
+      "oneOf": [
+        {
+          "const": "Mostly"
+        },
+        {
+          "const": "Only"
+        }
       ]
     },
     "CommonProfessionConstraintsOperation": {
       "description": "This defines how the list of constraints should be offset against the\nlist of all mundane professions: Either only the professions are kept\nthat intersect with the constraints (include) or only the professions\nare kept that are different from the constraints (exclude).",
-      "enum": [
-        "Intersection",
-        "Difference"
+      "oneOf": [
+        {
+          "const": "Intersection"
+        },
+        {
+          "const": "Difference"
+        }
       ]
     },
     "Rarity": {
       "description": "Some professions may be found in a culture, but are not that common.",
-      "enum": [
-        "Rare",
-        "VeryRare"
+      "oneOf": [
+        {
+          "const": "Rare"
+        },
+        {
+          "const": "VeryRare"
+        }
       ]
     },
     "ProfessionConstraint": {
@@ -249,10 +261,16 @@
     },
     "MundaneProfessionSubgroupConstraint": {
       "description": "Some professions may be found in a culture, but are not that common.",
-      "enum": [
-        "Profane",
-        "Fighter",
-        "Religious"
+      "oneOf": [
+        {
+          "const": "Profane"
+        },
+        {
+          "const": "Fighter"
+        },
+        {
+          "const": "Religious"
+        }
       ]
     },
     "MagicalTraditionConstraint": {

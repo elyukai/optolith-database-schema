@@ -17,10 +17,9 @@ export type BlessedTraditionPrerequisite = {
  * The blessed tradition prerequisite may only be satified if the blessed
  * tradition is either church or shamanistic.
  */
-export enum BlessedTraditionPrerequisiteRestriction {
-  Church = "Church",
-  Shamanistic = "Shamanistic",
-}
+export type BlessedTraditionPrerequisiteRestriction =
+  | "Church"
+  | "Shamanistic"
 
 /**
  * @title Magical Tradition Prerequisite
@@ -39,7 +38,6 @@ export type MagicalTraditionPrerequisite = {
  * The magical tradition prerequisite may only be satified if the magical
  * tradition can learn rituals or can bind familiars.
  */
-export enum MagicalTraditionPrerequisiteRestriction {
-  CanLearnRituals = "CanLearnRituals",
-  CanBindFamiliars = "CanBindFamiliars",
-}
+export type MagicalTraditionPrerequisiteRestriction =
+  | "CanLearnRituals"
+  | "CanBindFamiliars"

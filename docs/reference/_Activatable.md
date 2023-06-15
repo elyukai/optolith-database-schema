@@ -509,7 +509,26 @@ The effect description.
 
 The definition of how the combat special ability can be used in combat.
 
-- **Possible values:** `"Passive"`, `"BasicManeuver"`, `"SpecialManeuver"`
+- **Type:** Union
+- **Cases:** <a href="#CombatSpecialAbilityUsageType'0">CombatSpecialAbilityUsageType'0</a> | <a href="#CombatSpecialAbilityUsageType'1">CombatSpecialAbilityUsageType'1</a> | <a href="#CombatSpecialAbilityUsageType'2">CombatSpecialAbilityUsageType'2</a>
+
+---
+
+### <a name="CombatSpecialAbilityUsageType'0"></a> `CombatSpecialAbilityUsageType'0`
+
+- **Constant:** `"Passive"`
+
+---
+
+### <a name="CombatSpecialAbilityUsageType'1"></a> `CombatSpecialAbilityUsageType'1`
+
+- **Constant:** `"BasicManeuver"`
+
+---
+
+### <a name="CombatSpecialAbilityUsageType'2"></a> `CombatSpecialAbilityUsageType'2`
+
+- **Constant:** `"SpecialManeuver"`
 
 ---
 
@@ -518,7 +537,20 @@ The definition of how the combat special ability can be used in combat.
 The definition of if the combat special ability can be used when armed or
 when unarmed.
 
-- **Possible values:** `"Armed"`, `"Unarmed"`
+- **Type:** Union
+- **Cases:** <a href="#CombatSpecialAbilityType'0">CombatSpecialAbilityType'0</a> | <a href="#CombatSpecialAbilityType'1">CombatSpecialAbilityType'1</a>
+
+---
+
+### <a name="CombatSpecialAbilityType'0"></a> `CombatSpecialAbilityType'0`
+
+- **Constant:** `"Armed"`
+
+---
+
+### <a name="CombatSpecialAbilityType'1"></a> `CombatSpecialAbilityType'1`
+
+- **Constant:** `"Unarmed"`
 
 ---
 
@@ -1308,7 +1340,14 @@ The penalty value for this order.
 Set if a predefined different word should be used instead of the word
 `attack` for display purposes.
 
-- **Possible values:** `"Throw"`
+- **Type:** Union
+- **Cases:** <a href="#PenaltyByAttackReplacement'0">PenaltyByAttackReplacement'0</a>
+
+---
+
+### <a name="PenaltyByAttackReplacement'0"></a> `PenaltyByAttackReplacement'0`
+
+- **Constant:** `"Throw"`
 
 ---
 
@@ -1567,7 +1606,20 @@ The AE cost are per level of the enchantment. It may either be displayed
 in a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1
 AE for level I; 2 AE for level II`).
 
-- **Possible values:** `"Compressed"`, `"Verbose"`
+- **Type:** Union
+- **Cases:** <a href="#FixedArcaneEnergyCostPerLevel'0">FixedArcaneEnergyCostPerLevel'0</a> | <a href="#FixedArcaneEnergyCostPerLevel'1">FixedArcaneEnergyCostPerLevel'1</a>
+
+---
+
+### <a name="FixedArcaneEnergyCostPerLevel'0"></a> `FixedArcaneEnergyCostPerLevel'0`
+
+- **Constant:** `"Compressed"`
+
+---
+
+### <a name="FixedArcaneEnergyCostPerLevel'1"></a> `FixedArcaneEnergyCostPerLevel'1`
+
+- **Constant:** `"Verbose"`
 
 ---
 
@@ -1763,7 +1815,14 @@ The value that is applied to the `base` using the defined `arithmetic`.
 
 ### <a name="IndefiniteArcaneEnergyCostModifierArithmetic"></a> `IndefiniteArcaneEnergyCostModifierArithmetic`
 
-- **Possible values:** `"Add"`
+- **Type:** Union
+- **Cases:** <a href="#IndefiniteArcaneEnergyCostModifierArithmetic'0">IndefiniteArcaneEnergyCostModifierArithmetic'0</a>
+
+---
+
+### <a name="IndefiniteArcaneEnergyCostModifierArithmetic'0"></a> `IndefiniteArcaneEnergyCostModifierArithmetic'0`
+
+- **Constant:** `"Add"`
 
 ---
 

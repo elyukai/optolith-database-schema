@@ -1799,7 +1799,20 @@ including) value 14, while value increases for skills are always 1 to
 
 ### <a name="ReferenceListNodeImprovementCostSourceTarget"></a> `ReferenceListNodeImprovementCostSourceTarget`
 
-- **Possible values:** `"Attributes"`, `"Skills"`
+- **Type:** Union
+- **Cases:** <a href="#ReferenceListNodeImprovementCostSourceTarget'0">ReferenceListNodeImprovementCostSourceTarget'0</a> | <a href="#ReferenceListNodeImprovementCostSourceTarget'1">ReferenceListNodeImprovementCostSourceTarget'1</a>
+
+---
+
+### <a name="ReferenceListNodeImprovementCostSourceTarget'0"></a> `ReferenceListNodeImprovementCostSourceTarget'0`
+
+- **Constant:** `"Attributes"`
+
+---
+
+### <a name="ReferenceListNodeImprovementCostSourceTarget'1"></a> `ReferenceListNodeImprovementCostSourceTarget'1`
+
+- **Constant:** `"Skills"`
 
 ---
 

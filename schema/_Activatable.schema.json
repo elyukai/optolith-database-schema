@@ -309,17 +309,27 @@
     },
     "CombatSpecialAbilityUsageType": {
       "description": "The definition of how the combat special ability can be used in combat.",
-      "enum": [
-        "Passive",
-        "BasicManeuver",
-        "SpecialManeuver"
+      "oneOf": [
+        {
+          "const": "Passive"
+        },
+        {
+          "const": "BasicManeuver"
+        },
+        {
+          "const": "SpecialManeuver"
+        }
       ]
     },
     "CombatSpecialAbilityType": {
       "description": "The definition of if the combat special ability can be used when armed or\nwhen unarmed.",
-      "enum": [
-        "Armed",
-        "Unarmed"
+      "oneOf": [
+        {
+          "const": "Armed"
+        },
+        {
+          "const": "Unarmed"
+        }
       ]
     },
     "SkillApplications": {
@@ -901,8 +911,10 @@
     },
     "PenaltyByAttackReplacement": {
       "description": "Set if a predefined different word should be used instead of the word\n`attack` for display purposes.",
-      "enum": [
-        "Throw"
+      "oneOf": [
+        {
+          "const": "Throw"
+        }
       ]
     },
     "EnchantmentCost": {
@@ -1100,9 +1112,13 @@
     },
     "FixedArcaneEnergyCostPerLevel": {
       "description": "The AE cost are per level of the enchantment. It may either be displayed\nin a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1\nAE for level I; 2 AE for level II`).",
-      "enum": [
-        "Compressed",
-        "Verbose"
+      "oneOf": [
+        {
+          "const": "Compressed"
+        },
+        {
+          "const": "Verbose"
+        }
       ]
     },
     "FixedArcaneEnergyCostTranslation": {
@@ -1248,8 +1264,10 @@
       "additionalProperties": false
     },
     "IndefiniteArcaneEnergyCostModifierArithmetic": {
-      "enum": [
-        "Add"
+      "oneOf": [
+        {
+          "const": "Add"
+        }
       ]
     },
     "IndefiniteArcaneEnergyCostTranslation": {

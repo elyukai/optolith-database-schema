@@ -4,16 +4,24 @@
   "$defs": {
     "CheckResultValue": {
       "description": "Defines the derived (unitless) value.",
-      "enum": [
-        "QualityLevels",
-        "SkillPoints"
+      "oneOf": [
+        {
+          "const": "QualityLevels"
+        },
+        {
+          "const": "SkillPoints"
+        }
       ]
     },
     "CheckResultArithmetic": {
       "description": "Defines how the the `value` is set off against the check result.",
-      "enum": [
-        "Multiply",
-        "Divide"
+      "oneOf": [
+        {
+          "const": "Multiply"
+        },
+        {
+          "const": "Divide"
+        }
       ]
     },
     "CheckResultBasedModifier": {

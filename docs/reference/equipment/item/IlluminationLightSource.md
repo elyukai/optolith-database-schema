@@ -154,4 +154,11 @@ The time unit.
 
 ### <a name="LimitedBurningTimeUnit"></a> `LimitedBurningTimeUnit`
 
-- **Possible values:** `"Hours"`
+- **Type:** Union
+- **Cases:** <a href="#LimitedBurningTimeUnit'0">LimitedBurningTimeUnit'0</a>
+
+---
+
+### <a name="LimitedBurningTimeUnit'0"></a> `LimitedBurningTimeUnit'0`
+
+- **Constant:** `"Hours"`

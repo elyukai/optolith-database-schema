@@ -50,7 +50,20 @@ The unit of the `value`.
 
 ### <a name="CastingTimeDuringLovemakingUnit"></a> `CastingTimeDuringLovemakingUnit`
 
-- **Possible values:** `"SeductionActions"`, `"Rounds"`
+- **Type:** Union
+- **Cases:** <a href="#CastingTimeDuringLovemakingUnit'0">CastingTimeDuringLovemakingUnit'0</a> | <a href="#CastingTimeDuringLovemakingUnit'1">CastingTimeDuringLovemakingUnit'1</a>
+
+---
+
+### <a name="CastingTimeDuringLovemakingUnit'0"></a> `CastingTimeDuringLovemakingUnit'0`
+
+- **Constant:** `"SeductionActions"`
+
+---
+
+### <a name="CastingTimeDuringLovemakingUnit'1"></a> `CastingTimeDuringLovemakingUnit'1`
+
+- **Constant:** `"Rounds"`
 
 ---
 

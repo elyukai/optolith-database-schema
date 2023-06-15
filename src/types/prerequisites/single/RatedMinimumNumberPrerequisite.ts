@@ -48,11 +48,10 @@ export type CombatTechniquesTarget = {
   group: CombatTechniquesTargetGroup
 }
 
-export enum CombatTechniquesTargetGroup {
-  All = "All",
-  Close = "Close",
-  Ranged = "Ranged",
-}
+export type CombatTechniquesTargetGroup =
+  | "All"
+  | "Close"
+  | "Ranged"
 
 export type RatedMinimumNumberPrerequisiteSpellworksTarget = {
   /**

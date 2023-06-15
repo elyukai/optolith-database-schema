@@ -10,7 +10,6 @@ export type MusicalSkillReference = {
   id: SkillIdentifier<SkillIdentifierValue>
 }
 
-export enum SkillIdentifierValue {
-  Singing = 9,
-  Music = 56,
-}
+export type SkillIdentifierValue =
+  | 9 // Singing
+  | 56 // Music

@@ -1364,9 +1364,13 @@
       "additionalProperties": false
     },
     "ReferenceListNodeImprovementCostSourceTarget": {
-      "enum": [
-        "Attributes",
-        "Skills"
+      "oneOf": [
+        {
+          "const": "Attributes"
+        },
+        {
+          "const": "Skills"
+        }
       ]
     },
     "ReferenceListNodeTranslation": {

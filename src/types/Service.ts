@@ -38,10 +38,9 @@ export type Service = {
   translations: LocaleMap<ServiceTranslation>
 }
 
-export enum ServiceAvailability {
-  SummonedCreatures = "SummonedCreatures",
-  Monstrosities = "Monstrosities",
-}
+export type ServiceAvailability =
+  | "SummonedCreatures"
+  | "Monstrosities"
 
 export type ServiceTranslation = {
   /**

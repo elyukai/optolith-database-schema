@@ -7,21 +7,19 @@ import { PlainGeneralPrerequisites } from "../../_Prerequisite.js"
 /**
  * Effect type categories of a plant or recipe.
  */
-export enum EffectType {
-  Healing = "Healing",
-  Poison = "Poison",
-  PhysicalEffect = "PhysicalEffect",
-  PsychicEffect = "PsychicEffect",
-  Beneficial = "Beneficial",
-  Defensive = "Defensive",
-  Supernatural = "Supernatural",
-}
+export type EffectType =
+  | "Healing"
+  | "Poison"
+  | "PhysicalEffect"
+  | "PsychicEffect"
+  | "Beneficial"
+  | "Defensive"
+  | "Supernatural"
 
-export enum LaboratoryLevel {
-  ArchaicLaboratory = "ArchaicLaboratory",
-  WitchKitchen = "WitchKitchen",
-  AlchemistsLaboratory = "AlchemistsLaboratory",
-}
+export type LaboratoryLevel =
+  | "ArchaicLaboratory"
+  | "WitchKitchen"
+  | "AlchemistsLaboratory"
 
 export type RecipeTradeSecret = {
   /**

@@ -89,11 +89,19 @@
       "additionalProperties": false
     },
     "PoisonApplicationType": {
-      "enum": [
-        "Weapon",
-        "Ingestion",
-        "Inhalation",
-        "Contact"
+      "oneOf": [
+        {
+          "const": "Weapon"
+        },
+        {
+          "const": "Ingestion"
+        },
+        {
+          "const": "Inhalation"
+        },
+        {
+          "const": "Contact"
+        }
       ]
     },
     "PoisonStart": {
@@ -236,11 +244,19 @@
       "additionalProperties": false
     },
     "PoisonTimeUnit": {
-      "enum": [
-        "CombatRounds",
-        "Minutes",
-        "Hours",
-        "Days"
+      "oneOf": [
+        {
+          "const": "CombatRounds"
+        },
+        {
+          "const": "Minutes"
+        },
+        {
+          "const": "Hours"
+        },
+        {
+          "const": "Days"
+        }
       ]
     },
     "IndefinitePoisonTime": {
@@ -572,8 +588,10 @@
       "additionalProperties": false
     },
     "QualityLevelDemonicPoisonLevelSource": {
-      "enum": [
-        "Spellwork"
+      "oneOf": [
+        {
+          "const": "Spellwork"
+        }
       ]
     },
     "ConstantDemonicPoisonLevel": {

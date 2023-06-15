@@ -105,7 +105,6 @@ export type RangeTranslation = {
   replacement?: ResponsiveTextReplace
 }
 
-export enum RangeUnit {
-  Steps = "Steps",
-  Miles = "Miles",
-}
+export type RangeUnit =
+  | "Steps"
+  | "Miles"

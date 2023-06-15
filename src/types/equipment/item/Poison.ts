@@ -76,12 +76,11 @@ export type Poison = {
   translations: LocaleMap<PoisonTranslation>
 }
 
-export enum PoisonApplicationType {
-  Weapon = "Weapon",
-  Ingestion = "Ingestion",
-  Inhalation = "Inhalation",
-  Contact = "Contact",
-}
+export type PoisonApplicationType =
+  | "Weapon"
+  | "Ingestion"
+  | "Inhalation"
+  | "Contact"
 
 export type PoisonStart =
   | { tag: "Immediate", immediate: {} }
@@ -103,12 +102,11 @@ export type DiceBasedPoisonTime = {
   unit: PoisonTimeUnit
 }
 
-export enum PoisonTimeUnit {
-  CombatRounds = "CombatRounds",
-  Minutes = "Minutes",
-  Hours = "Hours",
-  Days = "Days",
-}
+export type PoisonTimeUnit =
+  | "CombatRounds"
+  | "Minutes"
+  | "Hours"
+  | "Days"
 
 export type IndefinitePoisonTime = {
   /**
@@ -253,9 +251,9 @@ export type QualityLevelDemonicPoisonLevel = {
   source: QualityLevelDemonicPoisonLevelSource
 }
 
-export enum QualityLevelDemonicPoisonLevelSource {
-  Spellwork = "Spellwork"
-}
+export type QualityLevelDemonicPoisonLevelSource =
+  | "Spellwork"
+
 
 export type ConstantDemonicPoisonLevel = {
   /**

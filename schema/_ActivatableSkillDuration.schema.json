@@ -297,17 +297,37 @@
       "additionalProperties": false
     },
     "DurationUnit": {
-      "enum": [
-        "Seconds",
-        "Minutes",
-        "Hours",
-        "Days",
-        "Weeks",
-        "Months",
-        "Years",
-        "Centuries",
-        "Actions",
-        "CombatRounds"
+      "oneOf": [
+        {
+          "const": "Seconds"
+        },
+        {
+          "const": "Minutes"
+        },
+        {
+          "const": "Hours"
+        },
+        {
+          "const": "Days"
+        },
+        {
+          "const": "Weeks"
+        },
+        {
+          "const": "Months"
+        },
+        {
+          "const": "Years"
+        },
+        {
+          "const": "Centuries"
+        },
+        {
+          "const": "Actions"
+        },
+        {
+          "const": "CombatRounds"
+        }
       ]
     },
     "DurationUnitValue": {

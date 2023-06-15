@@ -45,9 +45,13 @@
       "additionalProperties": false
     },
     "ServiceAvailability": {
-      "enum": [
-        "SummonedCreatures",
-        "Monstrosities"
+      "oneOf": [
+        {
+          "const": "SummonedCreatures"
+        },
+        {
+          "const": "Monstrosities"
+        }
       ]
     },
     "ServiceTranslation": {

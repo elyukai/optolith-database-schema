@@ -4,21 +4,41 @@
   "$defs": {
     "EffectType": {
       "description": "Effect type categories of a plant or recipe.",
-      "enum": [
-        "Healing",
-        "Poison",
-        "PhysicalEffect",
-        "PsychicEffect",
-        "Beneficial",
-        "Defensive",
-        "Supernatural"
+      "oneOf": [
+        {
+          "const": "Healing"
+        },
+        {
+          "const": "Poison"
+        },
+        {
+          "const": "PhysicalEffect"
+        },
+        {
+          "const": "PsychicEffect"
+        },
+        {
+          "const": "Beneficial"
+        },
+        {
+          "const": "Defensive"
+        },
+        {
+          "const": "Supernatural"
+        }
       ]
     },
     "LaboratoryLevel": {
-      "enum": [
-        "ArchaicLaboratory",
-        "WitchKitchen",
-        "AlchemistsLaboratory"
+      "oneOf": [
+        {
+          "const": "ArchaicLaboratory"
+        },
+        {
+          "const": "WitchKitchen"
+        },
+        {
+          "const": "AlchemistsLaboratory"
+        }
       ]
     },
     "RecipeTradeSecret": {

@@ -408,20 +408,18 @@ export type Effect = NonEmptyMarkdown
 /**
  * The definition of how the combat special ability can be used in combat.
  */
-export enum CombatSpecialAbilityUsageType {
-  Passive = "Passive",
-  BasicManeuver = "BasicManeuver",
-  SpecialManeuver = "SpecialManeuver",
-}
+export type CombatSpecialAbilityUsageType =
+  | "Passive"
+  | "BasicManeuver"
+  | "SpecialManeuver"
 
 /**
  * The definition of if the combat special ability can be used when armed or
  * when unarmed.
  */
-export enum CombatSpecialAbilityType {
-  Armed = "Armed",
-  Unarmed = "Unarmed",
-}
+export type CombatSpecialAbilityType =
+  | "Armed"
+  | "Unarmed"
 
 /**
  * Registers new skill applications, which get enabled once this entry is
@@ -699,9 +697,8 @@ export type PenaltyByAttackOrderItem = {
  * Set if a predefined different word should be used instead of the word
  * `attack` for display purposes.
  */
-export enum PenaltyByAttackReplacement {
-  Throw = "Throw",
-}
+export type PenaltyByAttackReplacement =
+  | "Throw"
 
 export type EnchantmentCost =
   | { tag: "ArcaneEnergyCost"; arcane_energy_cost: ArcaneEnergyCost }
@@ -757,10 +754,9 @@ export type FixedArcaneEnergyCost = {
  * in a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1
  * AE for level I; 2 AE for level II`).
  */
-export enum FixedArcaneEnergyCostPerLevel {
-  Compressed = "Compressed",
-  Verbose = "Verbose",
-}
+export type FixedArcaneEnergyCostPerLevel =
+  | "Compressed"
+  | "Verbose"
 
 /**
  * @minProperties 1
@@ -864,9 +860,8 @@ export type IndefiniteArcaneEnergyCostModifier = {
   value: number
 }
 
-export enum IndefiniteArcaneEnergyCostModifierArithmetic {
-  Add = "Add",
-}
+export type IndefiniteArcaneEnergyCostModifierArithmetic =
+  | "Add"
 
 export type IndefiniteArcaneEnergyCostTranslation = {
   /**

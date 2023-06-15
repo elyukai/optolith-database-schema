@@ -43,4 +43,17 @@ The skill’s identifier.
 
 ### <a name="SkillIdentifierValue"></a> `SkillIdentifierValue`
 
-- **Possible values:** `9`, `56`
+- **Type:** Union
+- **Cases:** <a href="#SkillIdentifierValue'0">SkillIdentifierValue'0</a> | <a href="#SkillIdentifierValue'1">SkillIdentifierValue'1</a>
+
+---
+
+### <a name="SkillIdentifierValue'0"></a> `SkillIdentifierValue'0`
+
+- **Constant:** `9`
+
+---
+
+### <a name="SkillIdentifierValue'1"></a> `SkillIdentifierValue'1`
+
+- **Constant:** `56`

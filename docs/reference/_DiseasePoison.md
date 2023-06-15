@@ -10,7 +10,26 @@ Depending on the disease, apply Spirit or Toughness as a penalty to the
 disease roll. It may also happen that the lower of both is applied as a
 penalty.
 
-- **Possible values:** `"Spirit"`, `"Toughness"`, `"LowerOfSpiritAndToughness"`
+- **Type:** Union
+- **Cases:** <a href="#Resistance'0">Resistance'0</a> | <a href="#Resistance'1">Resistance'1</a> | <a href="#Resistance'2">Resistance'2</a>
+
+---
+
+### <a name="Resistance'0"></a> `Resistance'0`
+
+- **Constant:** `"Spirit"`
+
+---
+
+### <a name="Resistance'1"></a> `Resistance'1`
+
+- **Constant:** `"Toughness"`
+
+---
+
+### <a name="Resistance'2"></a> `Resistance'2`
+
+- **Constant:** `"LowerOfSpiritAndToughness"`
 
 ---
 

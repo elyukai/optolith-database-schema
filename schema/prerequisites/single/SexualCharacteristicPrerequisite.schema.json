@@ -17,9 +17,13 @@
       "additionalProperties": false
     },
     "SexualCharacteristic": {
-      "enum": [
-        "Penis",
-        "Vagina"
+      "oneOf": [
+        {
+          "const": "Penis"
+        },
+        {
+          "const": "Vagina"
+        }
       ]
     }
   }

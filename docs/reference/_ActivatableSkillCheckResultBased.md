@@ -6,7 +6,20 @@
 
 Defines the derived (unitless) value.
 
-- **Possible values:** `"QualityLevels"`, `"SkillPoints"`
+- **Type:** Union
+- **Cases:** <a href="#CheckResultValue'0">CheckResultValue'0</a> | <a href="#CheckResultValue'1">CheckResultValue'1</a>
+
+---
+
+### <a name="CheckResultValue'0"></a> `CheckResultValue'0`
+
+- **Constant:** `"QualityLevels"`
+
+---
+
+### <a name="CheckResultValue'1"></a> `CheckResultValue'1`
+
+- **Constant:** `"SkillPoints"`
 
 ---
 
@@ -14,7 +27,20 @@ Defines the derived (unitless) value.
 
 Defines how the the `value` is set off against the check result.
 
-- **Possible values:** `"Multiply"`, `"Divide"`
+- **Type:** Union
+- **Cases:** <a href="#CheckResultArithmetic'0">CheckResultArithmetic'0</a> | <a href="#CheckResultArithmetic'1">CheckResultArithmetic'1</a>
+
+---
+
+### <a name="CheckResultArithmetic'0"></a> `CheckResultArithmetic'0`
+
+- **Constant:** `"Multiply"`
+
+---
+
+### <a name="CheckResultArithmetic'1"></a> `CheckResultArithmetic'1`
+
+- **Constant:** `"Divide"`
 
 ---
 

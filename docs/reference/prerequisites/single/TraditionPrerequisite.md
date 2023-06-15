@@ -29,7 +29,20 @@ tradition is either church or shamanistic.
 The blessed tradition prerequisite may only be satified if the blessed
 tradition is either church or shamanistic.
 
-- **Possible values:** `"Church"`, `"Shamanistic"`
+- **Type:** Union
+- **Cases:** <a href="#BlessedTraditionPrerequisiteRestriction'0">BlessedTraditionPrerequisiteRestriction'0</a> | <a href="#BlessedTraditionPrerequisiteRestriction'1">BlessedTraditionPrerequisiteRestriction'1</a>
+
+---
+
+### <a name="BlessedTraditionPrerequisiteRestriction'0"></a> `BlessedTraditionPrerequisiteRestriction'0`
+
+- **Constant:** `"Church"`
+
+---
+
+### <a name="BlessedTraditionPrerequisiteRestriction'1"></a> `BlessedTraditionPrerequisiteRestriction'1`
+
+- **Constant:** `"Shamanistic"`
 
 ---
 
@@ -60,4 +73,17 @@ tradition can learn rituals or can bind familiars.
 The magical tradition prerequisite may only be satified if the magical
 tradition can learn rituals or can bind familiars.
 
-- **Possible values:** `"CanLearnRituals"`, `"CanBindFamiliars"`
+- **Type:** Union
+- **Cases:** <a href="#MagicalTraditionPrerequisiteRestriction'0">MagicalTraditionPrerequisiteRestriction'0</a> | <a href="#MagicalTraditionPrerequisiteRestriction'1">MagicalTraditionPrerequisiteRestriction'1</a>
+
+---
+
+### <a name="MagicalTraditionPrerequisiteRestriction'0"></a> `MagicalTraditionPrerequisiteRestriction'0`
+
+- **Constant:** `"CanLearnRituals"`
+
+---
+
+### <a name="MagicalTraditionPrerequisiteRestriction'1"></a> `MagicalTraditionPrerequisiteRestriction'1`
+
+- **Constant:** `"CanBindFamiliars"`

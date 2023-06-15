@@ -281,7 +281,20 @@ The "weight" difference compared to other professions or profession variants.
 Some professions or profession variants are simply more common (Mostly), but
 sometimes only specific elements are used (Only).
 
-- **Possible values:** `"Mostly"`, `"Only"`
+- **Type:** Union
+- **Cases:** <a href="#Weight'0">Weight'0</a> | <a href="#Weight'1">Weight'1</a>
+
+---
+
+### <a name="Weight'0"></a> `Weight'0`
+
+- **Constant:** `"Mostly"`
+
+---
+
+### <a name="Weight'1"></a> `Weight'1`
+
+- **Constant:** `"Only"`
 
 ---
 
@@ -292,7 +305,20 @@ list of all mundane professions: Either only the professions are kept
 that intersect with the constraints (include) or only the professions
 are kept that are different from the constraints (exclude).
 
-- **Possible values:** `"Intersection"`, `"Difference"`
+- **Type:** Union
+- **Cases:** <a href="#CommonProfessionConstraintsOperation'0">CommonProfessionConstraintsOperation'0</a> | <a href="#CommonProfessionConstraintsOperation'1">CommonProfessionConstraintsOperation'1</a>
+
+---
+
+### <a name="CommonProfessionConstraintsOperation'0"></a> `CommonProfessionConstraintsOperation'0`
+
+- **Constant:** `"Intersection"`
+
+---
+
+### <a name="CommonProfessionConstraintsOperation'1"></a> `CommonProfessionConstraintsOperation'1`
+
+- **Constant:** `"Difference"`
 
 ---
 
@@ -300,7 +326,20 @@ are kept that are different from the constraints (exclude).
 
 Some professions may be found in a culture, but are not that common.
 
-- **Possible values:** `"Rare"`, `"VeryRare"`
+- **Type:** Union
+- **Cases:** <a href="#Rarity'0">Rarity'0</a> | <a href="#Rarity'1">Rarity'1</a>
+
+---
+
+### <a name="Rarity'0"></a> `Rarity'0`
+
+- **Constant:** `"Rare"`
+
+---
+
+### <a name="Rarity'1"></a> `Rarity'1`
+
+- **Constant:** `"VeryRare"`
 
 ---
 
@@ -377,7 +416,26 @@ variants. Some professions or profession variants are simply more common
 
 Some professions may be found in a culture, but are not that common.
 
-- **Possible values:** `"Profane"`, `"Fighter"`, `"Religious"`
+- **Type:** Union
+- **Cases:** <a href="#MundaneProfessionSubgroupConstraint'0">MundaneProfessionSubgroupConstraint'0</a> | <a href="#MundaneProfessionSubgroupConstraint'1">MundaneProfessionSubgroupConstraint'1</a> | <a href="#MundaneProfessionSubgroupConstraint'2">MundaneProfessionSubgroupConstraint'2</a>
+
+---
+
+### <a name="MundaneProfessionSubgroupConstraint'0"></a> `MundaneProfessionSubgroupConstraint'0`
+
+- **Constant:** `"Profane"`
+
+---
+
+### <a name="MundaneProfessionSubgroupConstraint'1"></a> `MundaneProfessionSubgroupConstraint'1`
+
+- **Constant:** `"Fighter"`
+
+---
+
+### <a name="MundaneProfessionSubgroupConstraint'2"></a> `MundaneProfessionSubgroupConstraint'2`
+
+- **Constant:** `"Religious"`
 
 ---
 

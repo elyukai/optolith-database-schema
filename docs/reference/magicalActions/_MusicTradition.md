@@ -75,10 +75,36 @@ Key | Description | Details
 
 ### <a name="MusicLength"></a> `MusicLength`
 
-- **Possible values:** `"Long"`, `"Short"`
+- **Type:** Union
+- **Cases:** <a href="#MusicLength'0">MusicLength'0</a> | <a href="#MusicLength'1">MusicLength'1</a>
+
+---
+
+### <a name="MusicLength'0"></a> `MusicLength'0`
+
+- **Constant:** `"Long"`
+
+---
+
+### <a name="MusicLength'1"></a> `MusicLength'1`
+
+- **Constant:** `"Short"`
 
 ---
 
 ### <a name="MusicReusability"></a> `MusicReusability`
 
-- **Possible values:** `"OneTime"`, `"Sustainable"`
+- **Type:** Union
+- **Cases:** <a href="#MusicReusability'0">MusicReusability'0</a> | <a href="#MusicReusability'1">MusicReusability'1</a>
+
+---
+
+### <a name="MusicReusability'0"></a> `MusicReusability'0`
+
+- **Constant:** `"OneTime"`
+
+---
+
+### <a name="MusicReusability'1"></a> `MusicReusability'1`
+
+- **Constant:** `"Sustainable"`

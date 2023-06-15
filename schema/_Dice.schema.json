@@ -24,10 +24,16 @@
     },
     "DieType": {
       "description": "Number of sides on every dice. Example: 6 in 2D6.",
-      "enum": [
-        3,
-        6,
-        20
+      "oneOf": [
+        {
+          "const": 3
+        },
+        {
+          "const": 6
+        },
+        {
+          "const": 20
+        }
       ]
     }
   }

@@ -54,12 +54,22 @@
       "additionalProperties": false
     },
     "TalismanType": {
-      "enum": [
-        "MainTalisman",
-        "Talisman",
-        "MinorTalisman",
-        "Regalia",
-        "PowerfulTalisman"
+      "oneOf": [
+        {
+          "const": "MainTalisman"
+        },
+        {
+          "const": "Talisman"
+        },
+        {
+          "const": "MinorTalisman"
+        },
+        {
+          "const": "Regalia"
+        },
+        {
+          "const": "PowerfulTalisman"
+        }
       ]
     },
     "TalismanTranslation": {

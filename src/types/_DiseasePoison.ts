@@ -3,21 +3,20 @@
  * @title Disease (shared)
  */
 
-import { Errata } from "./source/_Erratum.js"
 import { AlternativeName } from "./_AlternativeNames.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "./_NonEmptyString.js"
+import { Errata } from "./source/_Erratum.js"
 
 /**
  * Depending on the disease, apply Spirit or Toughness as a penalty to the
  * disease roll. It may also happen that the lower of both is applied as a
  * penalty.
  */
-export enum Resistance {
-  Spirit = "Spirit",
-  Toughness = "Toughness",
-  LowerOfSpiritAndToughness = "LowerOfSpiritAndToughness",
-}
+export type Resistance =
+  | "Spirit"
+  | "Toughness"
+  | "LowerOfSpiritAndToughness"
 
 /**
  * What causes the disease? The GM rolls 1D20 to see if a character gets

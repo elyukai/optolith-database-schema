@@ -132,7 +132,32 @@ entries may not have a reduced value.
 
 ### <a name="PoisonApplicationType"></a> `PoisonApplicationType`
 
-- **Possible values:** `"Weapon"`, `"Ingestion"`, `"Inhalation"`, `"Contact"`
+- **Type:** Union
+- **Cases:** <a href="#PoisonApplicationType'0">PoisonApplicationType'0</a> | <a href="#PoisonApplicationType'1">PoisonApplicationType'1</a> | <a href="#PoisonApplicationType'2">PoisonApplicationType'2</a> | <a href="#PoisonApplicationType'3">PoisonApplicationType'3</a>
+
+---
+
+### <a name="PoisonApplicationType'0"></a> `PoisonApplicationType'0`
+
+- **Constant:** `"Weapon"`
+
+---
+
+### <a name="PoisonApplicationType'1"></a> `PoisonApplicationType'1`
+
+- **Constant:** `"Ingestion"`
+
+---
+
+### <a name="PoisonApplicationType'2"></a> `PoisonApplicationType'2`
+
+- **Constant:** `"Inhalation"`
+
+---
+
+### <a name="PoisonApplicationType'3"></a> `PoisonApplicationType'3`
+
+- **Constant:** `"Contact"`
 
 ---
 
@@ -310,7 +335,32 @@ Key | Description | Details
 
 ### <a name="PoisonTimeUnit"></a> `PoisonTimeUnit`
 
-- **Possible values:** `"CombatRounds"`, `"Minutes"`, `"Hours"`, `"Days"`
+- **Type:** Union
+- **Cases:** <a href="#PoisonTimeUnit'0">PoisonTimeUnit'0</a> | <a href="#PoisonTimeUnit'1">PoisonTimeUnit'1</a> | <a href="#PoisonTimeUnit'2">PoisonTimeUnit'2</a> | <a href="#PoisonTimeUnit'3">PoisonTimeUnit'3</a>
+
+---
+
+### <a name="PoisonTimeUnit'0"></a> `PoisonTimeUnit'0`
+
+- **Constant:** `"CombatRounds"`
+
+---
+
+### <a name="PoisonTimeUnit'1"></a> `PoisonTimeUnit'1`
+
+- **Constant:** `"Minutes"`
+
+---
+
+### <a name="PoisonTimeUnit'2"></a> `PoisonTimeUnit'2`
+
+- **Constant:** `"Hours"`
+
+---
+
+### <a name="PoisonTimeUnit'3"></a> `PoisonTimeUnit'3`
+
+- **Constant:** `"Days"`
 
 ---
 
@@ -743,7 +793,14 @@ Key | Description | Details
 
 ### <a name="QualityLevelDemonicPoisonLevelSource"></a> `QualityLevelDemonicPoisonLevelSource`
 
-- **Possible values:** `"Spellwork"`
+- **Type:** Union
+- **Cases:** <a href="#QualityLevelDemonicPoisonLevelSource'0">QualityLevelDemonicPoisonLevelSource'0</a>
+
+---
+
+### <a name="QualityLevelDemonicPoisonLevelSource'0"></a> `QualityLevelDemonicPoisonLevelSource'0`
+
+- **Constant:** `"Spellwork"`
 
 ---
 

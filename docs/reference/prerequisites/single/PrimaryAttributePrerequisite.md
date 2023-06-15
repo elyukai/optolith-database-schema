@@ -33,4 +33,17 @@ Required value of the attribute
 
 ### <a name="PrimaryAttributeCategory"></a> `PrimaryAttributeCategory`
 
-- **Possible values:** `"Blessed"`, `"Magical"`
+- **Type:** Union
+- **Cases:** <a href="#PrimaryAttributeCategory'0">PrimaryAttributeCategory'0</a> | <a href="#PrimaryAttributeCategory'1">PrimaryAttributeCategory'1</a>
+
+---
+
+### <a name="PrimaryAttributeCategory'0"></a> `PrimaryAttributeCategory'0`
+
+- **Constant:** `"Blessed"`
+
+---
+
+### <a name="PrimaryAttributeCategory'1"></a> `PrimaryAttributeCategory'1`
+
+- **Constant:** `"Magical"`

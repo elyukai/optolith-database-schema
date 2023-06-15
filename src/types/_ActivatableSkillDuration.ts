@@ -136,18 +136,17 @@ export type DurationForSustained = {
   maximum: DurationUnitValue
 }
 
-export enum DurationUnit {
-  Seconds = "Seconds",
-  Minutes = "Minutes",
-  Hours = "Hours",
-  Days = "Days",
-  Weeks = "Weeks",
-  Months = "Months",
-  Years = "Years",
-  Centuries = "Centuries",
-  Actions = "Actions",
-  CombatRounds = "CombatRounds",
-}
+export type DurationUnit =
+  | "Seconds"
+  | "Minutes"
+  | "Hours"
+  | "Days"
+  | "Weeks"
+  | "Months"
+  | "Years"
+  | "Centuries"
+  | "Actions"
+  | "CombatRounds"
 
 export type DurationUnitValue = {
   /**

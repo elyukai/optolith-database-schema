@@ -456,7 +456,26 @@ The strategy how to offset the randomly generated values against the
 base value. Either they are all added or subtracted or even results are
 added and odd results are subtracted.
 
-- **Possible values:** `"Add"`, `"Subtract"`, `"AddEvenSubtractOdd"`
+- **Type:** Union
+- **Cases:** <a href="#WeightDiceOffsetStrategy'0">WeightDiceOffsetStrategy'0</a> | <a href="#WeightDiceOffsetStrategy'1">WeightDiceOffsetStrategy'1</a> | <a href="#WeightDiceOffsetStrategy'2">WeightDiceOffsetStrategy'2</a>
+
+---
+
+### <a name="WeightDiceOffsetStrategy'0"></a> `WeightDiceOffsetStrategy'0`
+
+- **Constant:** `"Add"`
+
+---
+
+### <a name="WeightDiceOffsetStrategy'1"></a> `WeightDiceOffsetStrategy'1`
+
+- **Constant:** `"Subtract"`
+
+---
+
+### <a name="WeightDiceOffsetStrategy'2"></a> `WeightDiceOffsetStrategy'2`
+
+- **Constant:** `"AddEvenSubtractOdd"`
 
 ---
 

@@ -4,11 +4,19 @@
   "$defs": {
     "ImprovementCost": {
       "title": "Improvement Cost",
-      "enum": [
-        "A",
-        "B",
-        "C",
-        "D"
+      "oneOf": [
+        {
+          "const": "A"
+        },
+        {
+          "const": "B"
+        },
+        {
+          "const": "C"
+        },
+        {
+          "const": "D"
+        }
       ]
     }
   }

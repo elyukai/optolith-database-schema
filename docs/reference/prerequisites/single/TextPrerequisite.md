@@ -74,13 +74,39 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="TextVerificationRule"></a> `TextVerificationRule`
 
-- **Possible values:** `"Pass"`, `"Deny"`
+- **Type:** Union
+- **Cases:** <a href="#TextVerificationRule'0">TextVerificationRule'0</a> | <a href="#TextVerificationRule'1">TextVerificationRule'1</a>
+
+---
+
+### <a name="TextVerificationRule'0"></a> `TextVerificationRule'0`
+
+- **Constant:** `"Pass"`
+
+---
+
+### <a name="TextVerificationRule'1"></a> `TextVerificationRule'1`
+
+- **Constant:** `"Deny"`
 
 ---
 
 ### <a name="SentenceType"></a> `SentenceType`
 
-- **Possible values:** `"Standalone"`, `"Connected"`
+- **Type:** Union
+- **Cases:** <a href="#SentenceType'0">SentenceType'0</a> | <a href="#SentenceType'1">SentenceType'1</a>
+
+---
+
+### <a name="SentenceType'0"></a> `SentenceType'0`
+
+- **Constant:** `"Standalone"`
+
+---
+
+### <a name="SentenceType'1"></a> `SentenceType'1`
+
+- **Constant:** `"Connected"`
 
 ---
 

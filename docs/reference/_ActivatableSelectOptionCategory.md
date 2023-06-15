@@ -1689,7 +1689,20 @@ entry's name.
 
 Only include (`Intersection`) or exclude (`Difference`) specific entries.
 
-- **Possible values:** `"Intersection"`, `"Difference"`
+- **Type:** Union
+- **Cases:** <a href="#SpecificFromSkillSelectOptionCategoryCategoryOperation'0">SpecificFromSkillSelectOptionCategoryCategoryOperation'0</a> | <a href="#SpecificFromSkillSelectOptionCategoryCategoryOperation'1">SpecificFromSkillSelectOptionCategoryCategoryOperation'1</a>
+
+---
+
+### <a name="SpecificFromSkillSelectOptionCategoryCategoryOperation'0"></a> `SpecificFromSkillSelectOptionCategoryCategoryOperation'0`
+
+- **Constant:** `"Intersection"`
+
+---
+
+### <a name="SpecificFromSkillSelectOptionCategoryCategoryOperation'1"></a> `SpecificFromSkillSelectOptionCategoryCategoryOperation'1`
+
+- **Constant:** `"Difference"`
 
 ---
 
