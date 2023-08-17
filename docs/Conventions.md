@@ -11,7 +11,7 @@ Branch names mostly follow [Git Flow](https://nvie.com/posts/a-successful-git-br
 
 ## Commit Messages
 
-Git Commit messages should follow Semantic Commit messages if possible: https://nitayneeman.com/posts/understanding-semantic-commit-messages-using-git-and-angular.
+Git commit messages should follow [semantic commit messages](https://nitayneeman.com/posts/understanding-semantic-commit-messages-using-git-and-angular) if possible.
 
 ### Possible scopes
 
