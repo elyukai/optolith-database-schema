@@ -6,7 +6,7 @@ import { TypeConfig } from "../../typeConfig.js"
 import { todo } from "../../validation/builders/integrity.js"
 import { validateEntityFileName } from "../../validation/builders/naming.js"
 import { createSchemaValidator } from "../../validation/builders/schema.js"
-import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
+import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
 import { CoreRuleIdentifier } from "../_Identifier.js"
 import { CoreRuleDerivableContentIdentifier } from "../_IdentifierGroup.js"
 import { LocaleMap } from "../_LocaleMap.js"
@@ -207,7 +207,7 @@ export type ReferenceNode = {
 
 export const config: TypeConfig<CoreRule> = {
   name: "CoreRule",
-  id: getFIlenamePrefixAsNumericId,
+  id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("CoreRule"),
   schemaValidator: createSchemaValidator(import.meta.url),
   fileNameValidator: validateEntityFileName,

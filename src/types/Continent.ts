@@ -6,7 +6,7 @@ import { TypeConfig } from "../typeConfig.js"
 import { todo } from "../validation/builders/integrity.js"
 import { validateEntityFileName } from "../validation/builders/naming.js"
 import { createSchemaValidator } from "../validation/builders/schema.js"
-import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
+import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
 import { LocaleMap } from "./_LocaleMap.js"
 
 /**
@@ -38,7 +38,7 @@ export type ContinentTranslation = {
 
 export const config: TypeConfig<Continent> = {
   name: "Continent",
-  id: getFIlenamePrefixAsNumericId,
+  id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Continent"),
   schemaValidator: createSchemaValidator(import.meta.url),
   fileNameValidator: validateEntityFileName,

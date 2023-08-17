@@ -6,7 +6,7 @@ import { TypeConfig } from "../typeConfig.js"
 import { todo } from "../validation/builders/integrity.js"
 import { validateEntityFileName } from "../validation/builders/naming.js"
 import { createSchemaValidator } from "../validation/builders/schema.js"
-import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
+import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
 import { ArcaneTradition } from "./_ArcaneTradition.js"
 
 /**
@@ -16,7 +16,7 @@ export type ArcaneDancerTradition = ArcaneTradition
 
 export const config: TypeConfig<ArcaneDancerTradition> = {
   name: "ArcaneDancerTradition",
-  id: getFIlenamePrefixAsNumericId,
+  id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("ArcaneDancerTradition"),
   schemaValidator: createSchemaValidator(import.meta.url),
   fileNameValidator: validateEntityFileName,

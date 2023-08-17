@@ -6,7 +6,7 @@ import { TypeConfig } from "../../typeConfig.js"
 import { todo } from "../../validation/builders/integrity.js"
 import { validateEntityFileName } from "../../validation/builders/naming.js"
 import { createSchemaValidator } from "../../validation/builders/schema.js"
-import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
+import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
 import { FixedOneTimeCostTranslation } from "../FamiliarsTrick.js"
 import { CheckResultBasedModifier } from "../_ActivatableSkillCheckResultBased.js"
 import { IndefiniteOneTimeCostTranslation } from "../_ActivatableSkillCost.js"
@@ -133,7 +133,7 @@ export type IndefiniteMagicalDanceCost = {
 
 export const config: TypeConfig<MagicalDance> = {
   name: "MagicalDance",
-  id: getFIlenamePrefixAsNumericId,
+  id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("MagicalDance"),
   schemaValidator: createSchemaValidator(import.meta.url),
   fileNameValidator: validateEntityFileName,

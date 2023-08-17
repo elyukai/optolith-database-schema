@@ -6,7 +6,7 @@ import { TypeConfig } from "../../typeConfig.js"
 import { todo } from "../../validation/builders/integrity.js"
 import { validateEntityFileName } from "../../validation/builders/naming.js"
 import { createSchemaValidator } from "../../validation/builders/schema.js"
-import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
+import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
 import { FixedOneTimeDuration } from "../FamiliarsTrick.js"
 import { CheckResultBasedDuration, DurationUnitValue } from "../_ActivatableSkillDuration.js"
 import { Effect } from "../_ActivatableSkillEffect.js"
@@ -253,7 +253,7 @@ export type AnimistPowerImprovementCost =
 
 export const config: TypeConfig<AnimistPower> = {
   name: "AnimistPower",
-  id: getFIlenamePrefixAsNumericId,
+  id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("AnimistPower"),
   schemaValidator: createSchemaValidator(import.meta.url),
   fileNameValidator: validateEntityFileName,

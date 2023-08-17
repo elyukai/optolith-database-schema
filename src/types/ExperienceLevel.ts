@@ -6,7 +6,7 @@ import { TypeConfig } from "../typeConfig.js"
 import { todo } from "../validation/builders/integrity.js"
 import { validateEntityFileName } from "../validation/builders/naming.js"
 import { createSchemaValidator } from "../validation/builders/schema.js"
-import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
+import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
 import { LocaleMap } from "./_LocaleMap.js"
 
 /**
@@ -79,7 +79,7 @@ export type ExperienceLevelTranslation = {
 
 export const config: TypeConfig<ExperienceLevel> = {
   name: "ExperienceLevel",
-  id: getFIlenamePrefixAsNumericId,
+  id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("ExperienceLevel"),
   schemaValidator: createSchemaValidator(import.meta.url),
   fileNameValidator: validateEntityFileName,

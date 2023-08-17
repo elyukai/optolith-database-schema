@@ -6,7 +6,7 @@ import { TypeConfig } from "../typeConfig.js"
 import { getReferencialIntegrityErrorsForTranslatable, reduceIntegrityValidationResults, validateEntityIntegrity } from "../validation/builders/integrity.js"
 import { validateEntityFileName } from "../validation/builders/naming.js"
 import { createSchemaValidator } from "../validation/builders/schema.js"
-import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
+import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
 
@@ -46,12 +46,12 @@ export type AttributeTranslation = {
 
 export const config: TypeConfig<Attribute> = {
   name: "Attribute",
-  id: getFIlenamePrefixAsNumericId,
+  id: getFilenamePrefixAsNumericId,
   integrityValidator: (validators, data, filepath) =>
     reduceIntegrityValidationResults(
       validateEntityIntegrity(
         validators.identity.attributes.exists,
-        getFIlenamePrefixAsNumericId(data, filepath),
+        getFilenamePrefixAsNumericId(data, filepath),
         data.id,
         [{ k: "id" }]
       ),

@@ -6,7 +6,7 @@ import { TypeConfig } from "../typeConfig.js"
 import { todo } from "../validation/builders/integrity.js"
 import { validateEntityFileName } from "../validation/builders/naming.js"
 import { createSchemaValidator } from "../validation/builders/schema.js"
-import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
+import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "./_NonEmptyString.js"
 import { Errata } from "./source/_Erratum.js"
@@ -55,7 +55,7 @@ export type MetaConditionTranslation = {
 
 export const config: TypeConfig<MetaCondition> = {
   name: "MetaCondition",
-  id: getFIlenamePrefixAsNumericId,
+  id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("MetaCondition"),
   schemaValidator: createSchemaValidator(import.meta.url),
   fileNameValidator: validateEntityFileName,

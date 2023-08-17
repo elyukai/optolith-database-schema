@@ -6,7 +6,7 @@ import { TypeConfig } from "../typeConfig.js"
 import { todo } from "../validation/builders/integrity.js"
 import { validateEntityFileName } from "../validation/builders/naming.js"
 import { createSchemaValidator } from "../validation/builders/schema.js"
-import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
+import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
 import { AdvantageIdentifier, BlessedTraditionIdentifier, DisadvantageIdentifier, MagicalTraditionIdentifier, ProfessionIdentifier, SkillIdentifier } from "./_Identifier.js"
 import { LocaleMap } from "./_LocaleMap.js"
@@ -428,7 +428,7 @@ export type Name = {
 
 export const config: TypeConfig<Culture> = {
   name: "Culture",
-  id: getFIlenamePrefixAsNumericId,
+  id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Culture"),
   schemaValidator: createSchemaValidator(import.meta.url),
   fileNameValidator: validateEntityFileName,

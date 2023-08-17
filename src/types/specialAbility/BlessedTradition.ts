@@ -6,7 +6,7 @@ import { TypeConfig } from "../../typeConfig.js"
 import { todo } from "../../validation/builders/integrity.js"
 import { validateEntityFileName } from "../../validation/builders/naming.js"
 import { createSchemaValidator } from "../../validation/builders/schema.js"
-import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
+import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
 import * as Activatable from "../_Activatable.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
@@ -170,7 +170,7 @@ export type BlessedTraditionTranslation = {
 
 export const config: TypeConfig<BlessedTradition> = {
   name: "BlessedTradition",
-  id: getFIlenamePrefixAsNumericId,
+  id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("BlessedTradition"),
   schemaValidator: createSchemaValidator(import.meta.url),
   fileNameValidator: validateEntityFileName,

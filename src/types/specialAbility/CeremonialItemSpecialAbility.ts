@@ -6,7 +6,7 @@ import { TypeConfig } from "../../typeConfig.js"
 import { todo } from "../../validation/builders/integrity.js"
 import { validateEntityFileName } from "../../validation/builders/naming.js"
 import { createSchemaValidator } from "../../validation/builders/schema.js"
-import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
+import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
 import * as Activatable from "../_Activatable.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
@@ -63,7 +63,7 @@ export type CeremonialItemSpecialAbilityTranslation = {
 
 export const config: TypeConfig<CeremonialItemSpecialAbility> = {
   name: "CeremonialItemSpecialAbility",
-  id: getFIlenamePrefixAsNumericId,
+  id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("CeremonialItemSpecialAbility"),
   schemaValidator: createSchemaValidator(import.meta.url),
   fileNameValidator: validateEntityFileName,

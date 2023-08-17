@@ -6,7 +6,7 @@ import { TypeConfig } from "../../typeConfig.js"
 import { todo } from "../../validation/builders/integrity.js"
 import { validateEntityFileName } from "../../validation/builders/naming.js"
 import { createSchemaValidator } from "../../validation/builders/schema.js"
-import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
+import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
 import * as Activatable from "../_Activatable.js"
 import { AdvancedMagicalSpecialAbilityIdentifier } from "../_Identifier.js"
 import { LocaleMap } from "../_LocaleMap.js"
@@ -58,7 +58,7 @@ export type MagicStyleSpecialAbilityTranslation = {
 
 export const config: TypeConfig<MagicStyleSpecialAbility> = {
   name: "MagicStyleSpecialAbility",
-  id: getFIlenamePrefixAsNumericId,
+  id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("MagicStyleSpecialAbility"),
   schemaValidator: createSchemaValidator(import.meta.url),
   fileNameValidator: validateEntityFileName,

@@ -6,7 +6,7 @@ import { TypeConfig } from "../../../typeConfig.js"
 import { todo } from "../../../validation/builders/integrity.js"
 import { validateEntityFileName } from "../../../validation/builders/naming.js"
 import { createSchemaValidator } from "../../../validation/builders/schema.js"
-import { getFIlenamePrefixAsNumericId } from "../../../validation/filename.js"
+import { getFilenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { LocaleMap } from "../../_LocaleMap.js"
 import { BlessedTraditionReference } from "../../_SimpleReferences.js"
 import { PublicationRefs } from "../../source/_PublicationRef.js"
@@ -39,7 +39,7 @@ export type EquipmentOfBlessedOnes = {
 
 export const config: TypeConfig<EquipmentOfBlessedOnes> = {
   name: "EquipmentOfBlessedOnes",
-  id: getFIlenamePrefixAsNumericId,
+  id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("EquipmentOfBlessedOnes"),
   schemaValidator: createSchemaValidator(import.meta.url),
   fileNameValidator: validateEntityFileName,

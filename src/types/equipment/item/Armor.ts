@@ -6,7 +6,7 @@ import { TypeConfig } from "../../../typeConfig.js"
 import { todo } from "../../../validation/builders/integrity.js"
 import { validateEntityFileName } from "../../../validation/builders/naming.js"
 import { createSchemaValidator } from "../../../validation/builders/schema.js"
-import { getFIlenamePrefixAsNumericId } from "../../../validation/filename.js"
+import { getFilenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { LocaleMap } from "../../_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "../../_NonEmptyString.js"
 import { ArmorReference } from "../../_SimpleReferences.js"
@@ -216,7 +216,7 @@ export type HeadHitZoneCombinationPossibilities = {
 
 export const config: TypeConfig<Armor> = {
   name: "Armor",
-  id: getFIlenamePrefixAsNumericId,
+  id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Armor"),
   schemaValidator: createSchemaValidator(import.meta.url),
   fileNameValidator: validateEntityFileName,

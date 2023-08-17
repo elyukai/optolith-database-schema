@@ -6,7 +6,7 @@ import { TypeConfig } from "../typeConfig.js"
 import { todo } from "../validation/builders/integrity.js"
 import { validateEntityFileName } from "../validation/builders/naming.js"
 import { createSchemaValidator } from "../validation/builders/schema.js"
-import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
+import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
 import { DurationUnit } from "./_ActivatableSkillDuration.js"
 import { FixedRange } from "./_ActivatableSkillRange.js"
 import { TargetCategory } from "./_ActivatableSkillTargetCategory.js"
@@ -124,7 +124,7 @@ export type IndefiniteDurationTranslation = {
 
 export const config: TypeConfig<Blessing> = {
   name: "Blessing",
-  id: getFIlenamePrefixAsNumericId,
+  id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Blessing"),
   schemaValidator: createSchemaValidator(import.meta.url),
   fileNameValidator: validateEntityFileName,

@@ -6,7 +6,7 @@ import { TypeConfig } from "../../../typeConfig.js"
 import { todo } from "../../../validation/builders/integrity.js"
 import { validateEntityFileName } from "../../../validation/builders/naming.js"
 import { createSchemaValidator } from "../../../validation/builders/schema.js"
-import { getFIlenamePrefixAsNumericId } from "../../../validation/filename.js"
+import { getFilenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { LocaleMap } from "../../_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "../../_NonEmptyString.js"
 import { GeneralPrerequisites } from "../../_Prerequisite.js"
@@ -62,7 +62,7 @@ export type TradeSecretTranslation = {
 
 export const config: TypeConfig<TradeSecret> = {
   name: "TradeSecret",
-  id: getFIlenamePrefixAsNumericId,
+  id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("TradeSecret"),
   schemaValidator: createSchemaValidator(import.meta.url),
   fileNameValidator: validateEntityFileName,

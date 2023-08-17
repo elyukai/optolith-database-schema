@@ -6,7 +6,7 @@ import { TypeConfig } from "../typeConfig.js"
 import { todo } from "../validation/builders/integrity.js"
 import { validateEntityFileName } from "../validation/builders/naming.js"
 import { createSchemaValidator } from "../validation/builders/schema.js"
-import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
+import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
 import { SlowPerformanceParameters } from "./_ActivatableSkill.js"
 import { Effect } from "./_ActivatableSkillEffect.js"
 import { TargetCategory } from "./_ActivatableSkillTargetCategory.js"
@@ -126,7 +126,7 @@ export type CeremonyTranslation ={
 
 export const config: TypeConfig<Ceremony> = {
   name: "Ceremony",
-  id: getFIlenamePrefixAsNumericId,
+  id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Ceremony"),
   schemaValidator: createSchemaValidator(import.meta.url),
   fileNameValidator: validateEntityFileName,

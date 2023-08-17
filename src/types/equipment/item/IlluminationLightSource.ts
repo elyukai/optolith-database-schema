@@ -6,7 +6,7 @@ import { TypeConfig } from "../../../typeConfig.js"
 import { todo } from "../../../validation/builders/integrity.js"
 import { validateEntityFileName } from "../../../validation/builders/naming.js"
 import { createSchemaValidator } from "../../../validation/builders/schema.js"
-import { getFIlenamePrefixAsNumericId } from "../../../validation/filename.js"
+import { getFilenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { LocaleMap } from "../../_LocaleMap.js"
 import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { CombatUse, Complexity, Cost, DefaultItemTranslation, StructurePoints, Weight } from "./_Item.js"
@@ -75,7 +75,7 @@ export type LimitedBurningTimeUnit =
 
 export const config: TypeConfig<IlluminationLightSource> = {
   name: "IlluminationLightSource",
-  id: getFIlenamePrefixAsNumericId,
+  id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("IlluminationLightSource"),
   schemaValidator: createSchemaValidator(import.meta.url),
   fileNameValidator: validateEntityFileName,

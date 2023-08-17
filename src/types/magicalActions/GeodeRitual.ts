@@ -6,7 +6,7 @@ import { TypeConfig } from "../../typeConfig.js"
 import { todo } from "../../validation/builders/integrity.js"
 import { validateEntityFileName } from "../../validation/builders/naming.js"
 import { createSchemaValidator } from "../../validation/builders/schema.js"
-import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
+import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
 import { SlowSkillCastingTimeUnit } from "../SkillModificationLevel.js"
 import { CostMap } from "../_ActivatableSkillCost.js"
 import { CheckResultBasedDuration, DurationUnit } from "../_ActivatableSkillDuration.js"
@@ -188,7 +188,7 @@ export type FixedGeodeRitualDuration = {
 
 export const config: TypeConfig<GeodeRitual> = {
   name: "GeodeRitual",
-  id: getFIlenamePrefixAsNumericId,
+  id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("GeodeRitual"),
   schemaValidator: createSchemaValidator(import.meta.url),
   fileNameValidator: validateEntityFileName,

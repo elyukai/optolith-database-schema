@@ -6,7 +6,7 @@ import { TypeConfig } from "../../../../typeConfig.js"
 import { todo } from "../../../../validation/builders/integrity.js"
 import { validateEntityFileName } from "../../../../validation/builders/naming.js"
 import { createSchemaValidator } from "../../../../validation/builders/schema.js"
-import { getFIlenamePrefixAsNumericId } from "../../../../validation/filename.js"
+import { getFilenamePrefixAsNumericId } from "../../../../validation/filename.js"
 import { LocaleMap } from "../../../_LocaleMap.js"
 import { NonEmptyString } from "../../../_NonEmptyString.js"
 
@@ -46,7 +46,7 @@ export type ArmorTypeTranslation = {
 
 export const config: TypeConfig<ArmorType> = {
   name: "ArmorType",
-  id: getFIlenamePrefixAsNumericId,
+  id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("ArmorType"),
   schemaValidator: createSchemaValidator(import.meta.url),
   fileNameValidator: validateEntityFileName,

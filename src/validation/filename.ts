@@ -4,7 +4,7 @@ import { basename, extname } from "node:path"
  * Returns the numeric prefix of a filename, that is, the part before the first
  * underscore.
  */
-export const getFIlenamePrefixAsNumericId = (_data: {}, filepath: string): number =>
+export const getFilenamePrefixAsNumericId = (_data: {}, filepath: string): number =>
   Number.parseInt(/^(\d+?)_/.exec(basename(filepath))?.[1] ?? "", 10)
 
 /**

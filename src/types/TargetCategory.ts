@@ -4,12 +4,12 @@
 
 import { TypeConfig } from "../typeConfig.js"
 import { todo } from "../validation/builders/integrity.js"
+import { validateEntityFileName } from "../validation/builders/naming.js"
 import { createSchemaValidator } from "../validation/builders/schema.js"
-import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
+import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
 import { TargetCategoryIdentifier } from "./_Identifier.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
-import { validateEntityFileName } from "../validation/builders/naming.js"
 
 /**
  * @title Target Category
@@ -52,7 +52,7 @@ export type TargetCategoryTranslation = {
 
 export const config: TypeConfig<TargetCategory> = {
   name: "TargetCategory",
-  id: getFIlenamePrefixAsNumericId,
+  id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("TargetCategory"),
   schemaValidator: createSchemaValidator(import.meta.url),
   fileNameValidator: validateEntityFileName,

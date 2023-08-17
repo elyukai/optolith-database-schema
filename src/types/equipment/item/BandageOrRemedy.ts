@@ -6,7 +6,7 @@ import { TypeConfig } from "../../../typeConfig.js"
 import { todo } from "../../../validation/builders/integrity.js"
 import { validateEntityFileName } from "../../../validation/builders/naming.js"
 import { createSchemaValidator } from "../../../validation/builders/schema.js"
-import { getFIlenamePrefixAsNumericId } from "../../../validation/filename.js"
+import { getFilenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { LocaleMap } from "../../_LocaleMap.js"
 import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { CombatUse, Complexity, Cost, DefaultItemTranslation, StructurePoints, Weight } from "./_Item.js"
@@ -49,7 +49,7 @@ export type BandageOrRemedy = {
 
 export const config: TypeConfig<BandageOrRemedy> = {
   name: "BandageOrRemedy",
-  id: getFIlenamePrefixAsNumericId,
+  id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("BandageOrRemedy"),
   schemaValidator: createSchemaValidator(import.meta.url),
   fileNameValidator: validateEntityFileName,

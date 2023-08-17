@@ -6,7 +6,7 @@ import { TypeConfig } from "../typeConfig.js"
 import { todo } from "../validation/builders/integrity.js"
 import { validateEntityFileName } from "../validation/builders/naming.js"
 import { createSchemaValidator } from "../validation/builders/schema.js"
-import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
+import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
 import { Cause, DiseaseTranslation, Resistance } from "./_DiseasePoison.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { AnimalTypeReference } from "./_SimpleReferences.js"
@@ -72,7 +72,7 @@ export type AnimalDisease = {
 
 export const config: TypeConfig<AnimalDisease> = {
   name: "AnimalDisease",
-  id: getFIlenamePrefixAsNumericId,
+  id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("AnimalDisease"),
   schemaValidator: createSchemaValidator(import.meta.url),
   fileNameValidator: validateEntityFileName,

@@ -6,7 +6,7 @@ import { TypeConfig } from "../typeConfig.js"
 import { todo } from "../validation/builders/integrity.js"
 import { validateEntityFileName } from "../validation/builders/naming.js"
 import { createSchemaValidator } from "../validation/builders/schema.js"
-import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
+import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
 import { ElementIdentifier, MagicalTraditionIdentifier, PropertyIdentifier, SkillIdentifier } from "./_Identifier.js"
 import { CombatTechniqueIdentifier, SpellworkIdentifier } from "./_IdentifierGroup.js"
 import { LocaleMap } from "./_LocaleMap.js"
@@ -254,7 +254,7 @@ export type SpellworkAdjustment = {
 
 export const config: TypeConfig<Curriculum> = {
   name: "Curriculum",
-  id: getFIlenamePrefixAsNumericId,
+  id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Curriculum"),
   schemaValidator: createSchemaValidator(import.meta.url),
   fileNameValidator: validateEntityFileName,

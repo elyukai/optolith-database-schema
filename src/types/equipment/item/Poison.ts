@@ -6,7 +6,7 @@ import { TypeConfig } from "../../../typeConfig.js"
 import { todo } from "../../../validation/builders/integrity.js"
 import { validateEntityFileName } from "../../../validation/builders/naming.js"
 import { createSchemaValidator } from "../../../validation/builders/schema.js"
-import { getFIlenamePrefixAsNumericId } from "../../../validation/filename.js"
+import { getFilenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { AlternativeName } from "../../_AlternativeNames.js"
 import { Dice } from "../../_Dice.js"
 import { Reduceable, Resistance } from "../../_DiseasePoison.js"
@@ -390,7 +390,7 @@ export type PoisonTranslation = {
 
 export const config: TypeConfig<Poison> = {
   name: "Poison",
-  id: getFIlenamePrefixAsNumericId,
+  id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Poison"),
   schemaValidator: createSchemaValidator(import.meta.url),
   fileNameValidator: validateEntityFileName,

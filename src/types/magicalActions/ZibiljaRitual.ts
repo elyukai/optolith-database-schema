@@ -6,7 +6,7 @@ import { TypeConfig } from "../../typeConfig.js"
 import { todo } from "../../validation/builders/integrity.js"
 import { validateEntityFileName } from "../../validation/builders/naming.js"
 import { createSchemaValidator } from "../../validation/builders/schema.js"
-import { getFIlenamePrefixAsNumericId } from "../../validation/filename.js"
+import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
 import { OneTimePerformanceParameters } from "../_ActivatableSkill.js"
 import { CastingTime, SlowSkillNonModifiableCastingTime } from "../_ActivatableSkillCastingTime.js"
 import { Effect } from "../_ActivatableSkillEffect.js"
@@ -113,7 +113,7 @@ export type ZibiljaRitualPerformanceParameters = OneTimePerformanceParameters<Ca
 
 export const config: TypeConfig<ZibiljaRitual> = {
   name: "ZibiljaRitual",
-  id: getFIlenamePrefixAsNumericId,
+  id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("ZibiljaRitual"),
   schemaValidator: createSchemaValidator(import.meta.url),
   fileNameValidator: validateEntityFileName,
