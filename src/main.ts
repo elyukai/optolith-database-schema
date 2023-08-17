@@ -1,3 +1,7 @@
+import { mkdir, readFile, writeFile } from "node:fs/promises"
+import { dirname } from "node:path"
+import { CacheConfig } from "./cacheConfig.js"
+import { CacheMap, cacheMap } from "./config/cache.js"
 import { TypeId, TypeMap } from "./config/types.js"
 import "./helpers/array.js"
 import { mapSecond } from "./helpers/pair.js"
@@ -133,4 +137,50 @@ export const getRawResults = async (
 ): Promise<RawResults> => {
   const rawResultMap = await getRawValidationResults(entityDirPaths, options)
   return Object.fromEntries(rawResultMap) as unknown as RawResults
+}
+
+/**
+ * A dictionary of cache types and their associated location.
+ */
+export type CachePaths = {
+  [K in keyof CacheMap]: string
+}
+
+export type CacheOptions = {
+  /**
+   * Whether to pretty-print the JSON. Default is `false`.
+   */
+  pretty?: boolean
+}
+
+/**
+ * Builds the cache and writes it to the specified paths in JSON format.
+ * @param cachePaths The absolute paths to write each cache to.
+ * @param validResults The data to build the cache from. Usually the result of
+ * `getAllValidData`.
+ * @param options Configuration options for building the cache.
+ */
+export const buildCache = async (cachePaths: CachePaths, validResults: ValidResults, options: CacheOptions = {}): Promise<void> => {
+  const { pretty = false } = options
+  for (const [cacheName, cachePath] of Object.entries(cachePaths)) {
+    const cacheConfig: CacheConfig<unknown> = cacheMap[cacheName as keyof CacheMap]
+    const cacheData = cacheConfig.builder(validResults)
+    await mkdir(dirname(cachePath), { recursive: true })
+    await writeFile(cachePath, JSON.stringify(cacheData, null, pretty ? 2 : undefined), "utf-8")
+  }
+}
+
+/**
+ * Reads the cache from the specified paths in JSON format.
+ * @param cachePaths The absolute paths to read each cache from.
+ * @returns
+ */
+export const getCache = async (cachePaths: CachePaths): Promise<CacheMap> => {
+  const cache: Partial<CacheMap> = {}
+  for (const [cacheName, cachePath] of Object.entries(cachePaths)) {
+    const cacheConfig: CacheConfig<unknown> = cacheMap[cacheName as keyof CacheMap]
+    const cacheData = JSON.parse(await readFile(cachePath, "utf-8"))
+    cache[cacheName as keyof CacheMap] = cacheData
+  }
+  return cache as CacheMap
 }
