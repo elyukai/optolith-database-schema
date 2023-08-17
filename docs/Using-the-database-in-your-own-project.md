@@ -4,7 +4,7 @@ If you're using the Optolith database for your own project, this page is for you
 
 Also, if you've worked with the database previously, feel free to share your insights here as well!
 
-Lastly, please don't forget to credit The Optolith Project, since a lot of work and ❤ went into this database. Thank you! 🥰
+Lastly, please don't forget to credit The Optolith Project, since a ton of work and ❤ went into this database. Thank you! 🥰
 
 ## Integrate into non-JavaScript environments
 
@@ -14,7 +14,7 @@ If you can't support the exact same structure – or it would be way easier to d
 
 ## Breaking Changes
 
-Optolith follows [semantic versioning](https://semver.org/). This includes character exports and the database; they all share the same version. Since the database schema also targets data contributors, it is stricter than required and thus may fail on changes that are not considered breaking.
+Optolith follows [semantic versioning](https://semver.org/). This includes character exports and the database; they all share the same MAJOR version. Since the database schema also targets data contributors, it is stricter than required and thus may fail on changes that are not considered breaking.
 
 ### Changes that **are** considered breaking changes
 

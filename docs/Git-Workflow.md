@@ -1,104 +1,53 @@
 # Git Workflow
 
-Welcome to the introduction on how to contribute to Optolith static data using Git!
+Before following this guide, make sure you meet all the [prerequisites](./Prerequisites.md)
 
-You'll need a [GitHub account](https://github.com) (which you probably have if you see this), [Git](https://git-scm.com/downloads) locally installed and a code editor. I'll explain the steps you need to take using [Visual Studio Code](https://code.visualstudio.com) (VSCode), because it's a very easy-to-use and lightweight editor. I will try to avoid the command line in this tutorial, although it is necessary for some steps.
-
-This tutorial is intended for helpers who have not yet learned about Git and programming. If you are already familiar with both, just jump to the end of the tutorial for a summary list of some rules!
+This tutorial is intended for helpers who have not yet learned about Git and only covers Mac and Windows specifics. If you are already familiar with Git, just jump to the end of the tutorial for a TL;DR! Also note that there are usually multiple ways to achieve the same thing. This guide will just describe a single way to keep it simple.
 
 ## Getting started
 
-Create a new GitHub account, if you don't own one already.
+First, you need to **clone** the **repository** onto your computer. 
 
-Install *Git*. You don't need to change any installation options, just click *Next*—you can change the editor to Visual Studio Code, if you want, though.
+A **repository** &ndash; or simply **repo** &ndash; is kind of a special folder with explicit version control. The source repository resides online on GitHub.com &ndash; which is where you are probably reading this tutorial right now &ndash; but you can create copies of it on other computers so that you can work on them like in normal folders and files.
 
-Let's *clone* the *repository* onto your computer.
+To clone a repository, open a terminal in the folder where you want the cloned repository to be in.
 
-A *repository* &ndash; or simply *repo* &ndash; is kind of a special folder with explicit version control. The source repo is online on GitHub.com &ndash; which is where you are probably reading this tutorial right now &ndash; but you can create copies of it on other computers so that you can work on them like in normal folders and files.
+- **Windows:**
+  - If you have the Terminal application installed (which is pre-installed in Windows 11), just right-click in the Explorer folder and choose *Open in Terminal*.
+  - If you don’t have the Terminal application installed, press Shift while right-clicking and choose *Open PowerShell window here*.
+- **Mac:** Right-click on the folder in the path bar of the Finder and choose *Open in Terminal*.
 
-Now you can create a local copy of the repo by using a command in the command line.
+Now, insert the following command and run it by pressing Enter.
 
-### On Windows
-
-Open the Windows explorer and go to a folder where you would like to out the copy. Open the context menu in the folder while pressing `Shift` and select *Open PowerShell here* from the list.
-
-![](./images/Tutorial-1.png)
-
-Then run
-
-```shell script
+```shell
 git clone https://github.com/elyukai/optolith-data.git
 ```
 
-This will create a new folder named `optolith-data`, which contains the repo.
+This will create a new folder named `optolith-data`, which contains the repo. You can rename the folder afterwards to whatever name you prefer.
 
-If you want to give the folder a new name, instead use
+**Warning:** Don’t put this folder inside a folder synced to a cloud service, like iCloud, OneDrive or Dropbox. They usually don’t work well with large amounts of small files, so it’s best to keep it separate. Git itself is already the syncing tool, in the end.
 
-```shell script
-git clone https://github.com/elyukai/optolith-data.git folder
+Move into the folder by running
+
+```shell
+cd optolith-data
 ```
 
-`folder` is the new folder's name.
+(change the folder name if you renamed it before). Then run
 
-If you want to copy the repo into the current folder without an extra subdirectory, instead use
-
-```shell script
-git clone https://github.com/elyukai/optolith-data.git .
-```
-
-**Warning:** Don't put this folder inside a folder synced to a cloud service, since a lot of tiny files will not work with it and may crash your service.
-
-### On Mac
-
-Open the finder and go *to the parent folder* of a folder where you would like to put the copy. Open the terminal, type `cd` and then drag the folder you want the repo in into the terminal. This will insert the path to the folder. It should roughly look like
-
-```shell script
-cd ~/path/to/folder
-```
-
-The space between `cd` and the folder path is important!
-
-Then run
-
-```shell script
-git clone https://github.com/elyukai/optolith-data.git
-```
-
-This will create a new folder named `optolith-data`, which contains the repo.
-
-If you want to give the folder a new name, instead use
-
-```shell script
-git clone https://github.com/elyukai/optolith-data.git folder
-```
-
-`folder` is the new folder's name.
-
-If you want to copy the repo into the current folder without an extra subdirectory, instead use
-
-```shell script
-git clone https://github.com/elyukai/optolith-data.git .
-```
-
-## Install Node.js and relevant modules
-
-Install the *Current* version of [Node.js](https://nodejs.org/). Then navigate to your cloned folder in the command line, if you are not already inside the correct folder. You can use `cd folder` to move inside `folder`. Then run
-
-```shell script
+```shell
 npm i
 ```
 
-This will install the database configuration, which is necessary to let Visual Studio Code help you enter or change data.
-
-## Install and configure an editor
-
-Follow the [Setting Up an Editor guide](./Setting-Up-an-Editor.md).
+to install the database configuration and other related modules, so you can check your work and also get better help from the editor.
 
 ## Begin your Work
 
-To start working on a new feature you need to create a new *branch*.
+To start working on a new feature you need to create a new **branch**.
 
-*Branches* are a core feature of Git. A branch represents a special development status or direction. Branches build up on each other. You can branch off from an existing branch, but you can also merge a branch into another branch. The default branch is called `develop` &ndash; usually it is called `master` but the `master` branch in this repo has a different meaning. The `develop` branch is where all contributions are merged, and it is also directly reflected in the newest prereleases of Optolith.
+**Branches** are a core feature of Git. A branch represents a special development status or direction. Branches build upon each other. You can branch off from an existing branch, but you can also merge a branch into another branch. The default branch is called `develop` &ndash; usually it is called `main` but the `main` branch in this repo has a different meaning. The `develop` branch is where all contributions are merged, and it is also directly reflected in the newest prereleases of Optolith.
+
+**At the time of writing, the Optolith version with the new database has not been finished and thus branch names differ from what you read here! The branch you should base off and merge into is called `feature/schema-rework-ama3` instead of `develop`!**
 
 To start contributing to a specific area and thus to create a new branch, you need to click on the active branch you are currently on in the status bar of VSCode. Make sure you are currently on the `develop` branch.
 
@@ -113,15 +62,17 @@ We're going to create a new branch via `Create new branch...`. The name of the b
 - If you want to fix an issue, prefix the branch name with `fix/`, e.g. `fix/moa3-source-refs`.
 - If you want to add a new feature, e.g. add a section of a new book, prefix the branch name with `feature/`, e.g. `feature/moa3-spells`
 
+The branch name should also relate to the name of the issue you want to work on and you also need to make sure it is not blocked by the work of others (see [Project Management](./Project-Management.md) for more details on managing work for all contributors) and assigned to yourself.
+
 Type it into the next input field and hit enter.
 
 ![](images/Tutorial-11.png)
 
 Now the active branch in the status bar should be what you just typed in. You created your first branch! Next to the branch name will be the symbol for an unpublished branch. You can click it, and then it will be uploaded to GitHub.
 
-**Note:** You can and should create multiple branches if you are working on multiple areas at once. You can always switch between them. They are independent of each other.
+**Note:** You can and should create multiple branches if you are working on multiple areas at once. You can always switch between them. They are independent of each other. Just make sure to **always** branch off the `develop` to keep them independent!
 
-Now you can start editing the files. Even though this is called *repo* just use it as a normal file system! There are just some advantages over a default file system &ndash; because you can save versions!
+Now you can start editing the files. Even though this is called a *repository* it’s just a simple folder with files! There are just some advantages over a default file system &ndash; because you can save versions!
 
 ## Check out your current work
 
@@ -129,7 +80,7 @@ You can see all changes made in the Git tab.
 
 ![](images/Tutorial-6.png)
 
-In the beginning, this tab will not list any changes &ndash; because you haven't done anything yet!
+In the beginning, this tab will not list any changes &ndash; because you haven’t done anything yet!
 
 Once you change something (and save it) it will be shown here.
 
@@ -157,7 +108,7 @@ Now your list of changes will be clean. Instead, next to the active branch in th
 
 ![](images/Tutorial-12.png)
 
-With *push* and *pull* you can *push* new commits from your local repo to the online repo, or you can *pull* new commits from the online repo into your local repo.
+With *push* and *pull* you can *push* new commits from your local repo to the online repo, or you can *pull* new commits from the online repo into your local repo. This way you can also work on a single branch on multiple machines and sync your work between them.
 
 VSCode does both operations automatically if you click on the counter (the sync functionality is also available without the counter; sometimes VSCode does not update the counter, so you have to click on the sync icon).
 
@@ -165,17 +116,17 @@ Now your commit is online. Let's check it out.
 
 ## Working with GitHub
 
-In the *Code* tab on the repo's page is an option to switch branches. Clicking on that will show a list of all branches that are available online. At the time of writing there are exactly two branches &ndash; the `master` and my own `test` branch.
+In the *Code* tab on the repo's page is an option to switch branches. Clicking on that will show a list of all branches that are available online.
 
 ![](images/Tutorial-13.png)
 
-Switch to your branch. It will now suggest creating a pull request.
+Select your branch. It will now suggest creating a pull request.
 
 ![](images/Tutorial-14.png)
 
 ### Create a Pull Request (PR)
 
-A *Pull Request* (PR) is a request to merge the new commits from a certain branch into another branch &ndash; which is what you want: You want to merge your changes into the main development branch.
+A **Pull Request** (PR) is a request to merge the new commits from a certain branch into another branch &ndash; which is what you want: You want to merge your changes into the main development branch.
 
 Click on *Compare & pull request*.
 
@@ -191,16 +142,22 @@ Example:
 
 ![](images/Tutorial-17.png)
 
-You'll get notified per e-mail if there are any comments and once you're done and your changes are approved, I will merge your PR. You don't need to do anything else then.
+You'll get notified per e-mail if there are any comments and once you're done and your changes are approved, your PR will be merged. Don’t merge the PR on your own!
 
 *Please note that pull requests update if you push more commits to GitHub, so please don't close your already created pull requests. This way we can keep track of the changes and discuss them!*
 
 ## Continue your work
 
-To start on a new feature, create a new branch as explained before. But you need to make sure that you branch off from `develop` and that there are no commits to pull! If you switch to `develop` and the sync indicator says there are one or more changes to pull (incoming changes) you need to sync first! Only then you should create a new branch. It is recommended to sync the `develop` branch in any case. You also need to make sure that the database configuration is up-to-date, since that might change in other commits to that branch. To do that, simply run `npm i` in the command line again.
+If more work is needed, just continue to work on your branch and create and push more commits. To start on a new feature, create a new branch as explained before. But you need to make sure that you branch off from `develop` and that there are no commits to pull! If you switch to `develop` and the sync indicator says there are one or more changes to pull (incoming changes) you need to sync first! Only then you should create a new branch. It is recommended to sync the `develop` branch in any case. You also need to make sure that the database configuration is up-to-date, since that might change in other commits to that branch. To do that, simply run `npm i` in the command line again.
 
-## Summary
+## TL;DR
 
 - Create a separate branch for each issue and always branch off from `develop`.
 - Assign yourself to the issue you’re working on.
   - If you realize you won’t have time to finish the issue, please unassign yourself, so that others can work on it.
+- Don’t merge PRs yourself.
+
+## Continue Reading
+
+- [Insertion Workflow](./Insertion-Workflow.md) or [Translation Workflow](./Translation-Workflow.md)
+- 

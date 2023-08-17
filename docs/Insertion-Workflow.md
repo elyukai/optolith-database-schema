@@ -1,6 +1,6 @@
 # Insertion Workflow
 
-This guide covers how you can get started inserting new content into Optolith as well as some best practises we discovered over the past years. (Feel free to tell us yours!)
+This guide covers how you can get started inserting new content into Optolith as well as some best practices we discovered over the past years. (Feel free to tell us yours!)
 
 **Note:** If you want to *translate* existing content, please check out [Translation Workflow](./Translation-Workflow.md) instead.
 
@@ -10,13 +10,11 @@ First, let's get into some basics.
 
 ### Repository File Structure
 
-There are three folders used for static data: `/Data`, `/Templates` and `/Schema`.
+There are two folders used for static data: `/Data` and `/Templates`.
 
-The `/Data` folder contains another set of folders as well as a `SupportedLanguages.yaml`, which contains all languages that *should be available* in Optolith. Each folder in `/Data` contains all entries of a specific type.
+The `/Data` folder contains another set of folders, where each folder contains all entries of a specific type. The `Locales` folder contains all languages Optolith *should* be available in.
 
-While `/Data` holds all actual contents, `/Schema` contains structural definitions (schemes) for each subfolder in `/Data` about how a file should look like. Additionally, `/Schema` contains some utility schema files that are used by multiple main schemes.
-
-`/Templates` comes as the bridge in between the previous two: prepared forms to fill out, matching the names of the schemes and the respective folder in `/Data`, simplify adding new content.
+`/Templates` contains “empty” entry files that match the folder name in `/Data` and that can be copied and filled out to simplify adding new content.
 
 ### Editor Validation
 
@@ -32,7 +30,7 @@ Each entry has its own file, which contains both the language-independent values
 
 Now you've got some basic knowledge. But how do you actually insert new data?
 
-I would recommend to check out existing data first to understand what is does. Take a data file and open the corresponding reference (~~either~~ the schema file ~~or the [type reference](./Entities), although the type reference is way easier to read if you are not used to JSON schema files~~) and then see if you understand what happens. If you have any problems, feel free to ask for help on the Discord server! Then you'll have fewer problems and I can improve the documentation!
+I would recommend to check out existing data first to understand what is does. Take a data file and open the corresponding reference (either the schema file or the [type reference](./Index-of-Types.md), although the type reference is way easier to read if you are not used to JSON schema files) and then see if you understand what happens. If you have any problems, feel free to ask for help on the Discord server! Then you'll have fewer problems and I can improve the documentation!
 
 Also, don't start with complex entries! Advantages, disadvantages, special abilities and professions are the most complex entries. Try adding spells or cantrips instead!
 
@@ -44,11 +42,13 @@ Always feel free to ask for reviews or hints on the Discord server, if you feel 
 2. Search for an entity type group with **only unassigned** issues.
 3. Work on the listed issues from top to bottom.
 
+See [Project Management](./Project-Management.md) for more details on managing work for all contributors.
+
 ## What to watch out for
 
 ### Duplicates
 
-It is important to always check for duplicates. They may be entries with the same name but different parameters, though. In those cases, please tell me via Discord or in the pull request on GitHub.
+It is important to always check for duplicates. There may be entries with the same name but different parameters, though. In those cases, please tell me via Discord or in the pull request on GitHub.
 
 ### File Names
 
@@ -64,7 +64,7 @@ Entries might span multiple pages. In those cases, use `firstPage` **as well as*
 
 ### New Applications and Uses
 
-Skills may get *New Applications* and *Uses* from advantages or special abilities. Those need to be registered at the advantage or special ability or one of its select options using the `skillApplications` and `skillUses` properties, otherwise it will not be available in the library entry as well as for other entries like Skill Specialization.
+Skills may get *New Applications* and *Uses* from advantages or special abilities. Those need to be registered at the advantage or special ability or one of its select options using the `skillApplications` and `skillUses` properties, otherwise it will not be available in the library entry as well as for other entries like *Skill Specialization*.
 
 ### Missing Punctuation
 
@@ -72,4 +72,4 @@ From time to time, the source you are transferring into the database has small f
 
 ## Recommendations
 
-To search for entry identifiers, I highly recommend global search (in VSCode: the search icon in the left bar or `Ctrl+Shift+F`). If you start the beginning of the entry names with a `"`, you'll get more accurate search results. If you know the English name of an entry, or you are searching for an identifier of a specific group, you can press `Ctrl+P` (in VSCode) and type in the identifier as well as the group, separated by a space. Since the entries always have their identifier and their English name as the filename and the group as the folder name, you can find them pretty easy that way.
+To search for entry identifiers, I highly recommend global search (in VSCode: the search icon in the left bar or `Ctrl+Shift+F`). If you start the beginning of the entry names with a `"`, you'll get more accurate search results. If you know the English name of an entry, or you are searching for an identifier of a specific group, you can press `Ctrl+P` (in VSCode) and type in the identifier as well as the group, separated by a space. Since the entries always have their identifier and their English name (German name if no English translation is available yet) as the filename and the group as the folder name, you can find them pretty easy that way.
