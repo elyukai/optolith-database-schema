@@ -19,13 +19,9 @@ Key | Description | Details
 `automatic_advantages?` | A list of automatically applied advantages. This does only work for advantages with no further configuration such as level or special selection. | <a href="#Race/automatic_advantages">See details</a>
 `strongly_recommended_advantages?` | A list of strongly recommended advantages. | <a href="#Race/strongly_recommended_advantages">See details</a>
 `strongly_recommended_disadvantages?` | A list of strongly recommended disadvantages. | <a href="#Race/strongly_recommended_disadvantages">See details</a>
-`common_advantages?` | A list of common advantages. If common advantages are defined by race variants, leave this field empty. It is overridden by the same field in race variants. | <a href="#Race/common_advantages">See details</a>
-`common_disadvantages?` | A list of common disadvantages. If common disadvantages are defined by race variants, leave this field empty. It is overridden by the same field in race variants. | <a href="#Race/common_disadvantages">See details</a>
-`uncommon_advantages?` | A list of uncommon advantages. If uncommon advantages are defined by race variants, leave this field empty. It is overridden by the same field in race variants. | <a href="#Race/uncommon_advantages">See details</a>
-`uncommon_disadvantages?` | A list of uncommon disadvantages. If uncommon disadvantages are defined by race variants, leave this field empty. It is overridden by the same field in race variants. | <a href="#Race/uncommon_disadvantages">See details</a>
 `weight` | Configuration for random weight generation. | <a href="#Race/weight">See details</a>
 `starting_age` | Defines the starting ages for the race. It depends on the selected experience level. | <a href="#Race/starting_age">See details</a>
-`variant_dependent` | The race may have variants and associated configuration for each variant. If the race is plain (has no variants), the values that would otherwise be defined in the variant configuration need to be set for the whole race. This excludes common and uncommon advantages and disadvantages, since they may be defined for the whole race even if variants exist. | <a href="#Race/variant_dependent">See details</a>
+`variants` | A list of available race variants where one has to be selected. If no variants are to be selected, a single variant with no name has to be provided which will be used as the missing values for the base race. | <a href="#Race/variants">See details</a>
 `src` |  | <a href="#Race/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Race/translations">See details</a>
 
@@ -82,46 +78,6 @@ A list of strongly recommended disadvantages.
 - **Items:** <a href="#Race/strongly_recommended_disadvantages[]">Race/strongly_recommended_disadvantages[]</a>
 - **Minimum Items:** `1`
 
-#### <a name="Race/common_advantages"></a> `common_advantages?`
-
-A list of common advantages. If common advantages are defined by race
-variants, leave this field empty. It is overridden by the same field in
-race variants.
-
-- **Type:** List
-- **Items:** <a href="#Race/common_advantages[]">Race/common_advantages[]</a>
-- **Minimum Items:** `1`
-
-#### <a name="Race/common_disadvantages"></a> `common_disadvantages?`
-
-A list of common disadvantages. If common disadvantages are defined by race
-variants, leave this field empty. It is overridden by the same field in
-race variants.
-
-- **Type:** List
-- **Items:** <a href="#Race/common_disadvantages[]">Race/common_disadvantages[]</a>
-- **Minimum Items:** `1`
-
-#### <a name="Race/uncommon_advantages"></a> `uncommon_advantages?`
-
-A list of uncommon advantages. If uncommon advantages are defined by race
-variants, leave this field empty. It is overridden by the same field in
-race variants.
-
-- **Type:** List
-- **Items:** <a href="#Race/uncommon_advantages[]">Race/uncommon_advantages[]</a>
-- **Minimum Items:** `1`
-
-#### <a name="Race/uncommon_disadvantages"></a> `uncommon_disadvantages?`
-
-A list of uncommon disadvantages. If uncommon disadvantages are defined by
-race variants, leave this field empty. It is overridden by the same field
-in race variants.
-
-- **Type:** List
-- **Items:** <a href="#Race/uncommon_disadvantages[]">Race/uncommon_disadvantages[]</a>
-- **Minimum Items:** `1`
-
 #### <a name="Race/weight"></a> `weight`
 
 Configuration for random weight generation.
@@ -138,15 +94,13 @@ experience level.
 - **Minimum Items:** `7`
 - **Maximum Items:** `7`
 
-#### <a name="Race/variant_dependent"></a> `variant_dependent`
+#### <a name="Race/variants"></a> `variants`
 
-The race may have variants and associated configuration for each variant.
-If the race is plain (has no variants), the values that would otherwise be
-defined in the variant configuration need to be set for the whole race.
-This excludes common and uncommon advantages and disadvantages, since they
-may be defined for the whole race even if variants exist.
+A list of available race variants where one has to be selected. If no
+variants are to be selected, a single variant with no name has to be provided
+which will be used as the missing values for the base race.
 
-- **Type:** <a href="#RaceVariantDependent">RaceVariantDependent</a>
+- **Type:** <a href="#RaceVariants">RaceVariants</a>
 
 #### <a name="Race/src"></a> `src`
 
@@ -198,78 +152,6 @@ Key | Description | Details
 `id` | The advantage's or disadvantage's identifier. | <a href="#Race/strongly_recommended_disadvantages[]/id">See details</a>
 
 #### <a name="Race/strongly_recommended_disadvantages[]/id"></a> `id`
-
-The advantage's or disadvantage's identifier.
-
-- **Type:** <a href="./_Identifier.md#DisadvantageIdentifier">DisadvantageIdentifier</a>
-
----
-
-### <a name="Race/common_advantages[]"></a> Commonness-rated Advantage/Disadvantage (`Race/common_advantages[]`)
-
-Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The advantage's or disadvantage's identifier. | <a href="#Race/common_advantages[]/id">See details</a>
-
-#### <a name="Race/common_advantages[]/id"></a> `id`
-
-The advantage's or disadvantage's identifier.
-
-- **Type:** <a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>
-
----
-
-### <a name="Race/common_disadvantages[]"></a> Commonness-rated Advantage/Disadvantage (`Race/common_disadvantages[]`)
-
-Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The advantage's or disadvantage's identifier. | <a href="#Race/common_disadvantages[]/id">See details</a>
-
-#### <a name="Race/common_disadvantages[]/id"></a> `id`
-
-The advantage's or disadvantage's identifier.
-
-- **Type:** <a href="./_Identifier.md#DisadvantageIdentifier">DisadvantageIdentifier</a>
-
----
-
-### <a name="Race/uncommon_advantages[]"></a> Commonness-rated Advantage/Disadvantage (`Race/uncommon_advantages[]`)
-
-Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The advantage's or disadvantage's identifier. | <a href="#Race/uncommon_advantages[]/id">See details</a>
-
-#### <a name="Race/uncommon_advantages[]/id"></a> `id`
-
-The advantage's or disadvantage's identifier.
-
-- **Type:** <a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>
-
----
-
-### <a name="Race/uncommon_disadvantages[]"></a> Commonness-rated Advantage/Disadvantage (`Race/uncommon_disadvantages[]`)
-
-Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The advantage's or disadvantage's identifier. | <a href="#Race/uncommon_disadvantages[]/id">See details</a>
-
-#### <a name="Race/uncommon_disadvantages[]/id"></a> `id`
 
 The advantage's or disadvantage's identifier.
 
@@ -334,49 +216,107 @@ The race’s tactical movement rate.
 Describes how to raise or lower maximum attribute values during character
 creation.
 
+- **Type:** Object
+- **Minimum Properties:** `1`
+
+Key | Description | Details
+:-- | :-- | :--
+`fixed?` | The values by which the maximum of the respective attribute is modified. | <a href="#AttributeAdjustments/fixed">See details</a>
+`selectable?` | An array of attribute maximum modifiers, where the attribute they apply to is selected from a list of options. | <a href="#AttributeAdjustments/selectable">See details</a>
+
+#### <a name="AttributeAdjustments/fixed"></a> `fixed?`
+
+The values by which the maximum of the respective attribute is modified.
+
 - **Type:** List
-- **Items:** <a href="#AttributeAdjustments[]">AttributeAdjustments[]</a>
+- **Items:** <a href="#AttributeAdjustments/fixed[]">AttributeAdjustments/fixed[]</a>
+- **Minimum Items:** `1`
+
+#### <a name="AttributeAdjustments/selectable"></a> `selectable?`
+
+An array of attribute maximum modifiers, where the attribute they apply to
+is selected from a list of options.
+
+The array only permits a single entry because no race specified more than
+one selectable attribute adjustment so far. But the schema allows for
+multiple entries to be future-proof.
+
+- **Type:** List
+- **Items:** <a href="#AttributeAdjustments/selectable[]">AttributeAdjustments/selectable[]</a>
+- **Minimum Items:** `1`
+- **Maximum Items:** `1`
 
 ---
 
-### <a name="AttributeAdjustments[]"></a> `AttributeAdjustments[]`
+### <a name="AttributeAdjustments/fixed[]"></a> `AttributeAdjustments/fixed[]`
 
-- **Type:** <a href="#AttributeAdjustment">AttributeAdjustment</a>
+- **Type:** <a href="#FixedAttributeAdjustment">FixedAttributeAdjustment</a>
 
 ---
 
-### <a name="AttributeAdjustment"></a> `AttributeAdjustment`
+### <a name="AttributeAdjustments/selectable[]"></a> `AttributeAdjustments/selectable[]`
 
-An array of attribute maximum modifiers. The value will be added to the
-current maximum of the selected attribute that has been chosen from the
-listed attributes (negative values will lower the maximum).
+- **Type:** <a href="#SelectableAttributeAdjustment">SelectableAttributeAdjustment</a>
+
+---
+
+### <a name="FixedAttributeAdjustment"></a> `FixedAttributeAdjustment`
+
+A value by which the maximum of the respective attribute is modified.
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`value` | The value by which the selected attribute's maximum is modified (negative values will lower the maximum). | <a href="#AttributeAdjustment/value">See details</a>
-`list` | A list of attributes the player has to choose from. If only one attribute is listed, no attribute has to be chosen. | <a href="#AttributeAdjustment/list">See details</a>
+`id` | The attribute the modifier applies to. | <a href="#FixedAttributeAdjustment/id">See details</a>
+`value` | The value by which the specified attribute's maximum is modified (negative values will lower the maximum). | <a href="#FixedAttributeAdjustment/value">See details</a>
 
-#### <a name="AttributeAdjustment/value"></a> `value`
+#### <a name="FixedAttributeAdjustment/id"></a> `id`
+
+The attribute the modifier applies to.
+
+- **Type:** <a href="./_Identifier.md#AttributeIdentifier">AttributeIdentifier</a>
+
+#### <a name="FixedAttributeAdjustment/value"></a> `value`
+
+The value by which the specified attribute's maximum is modified
+(negative values will lower the maximum).
+
+- **Type:** Integer
+
+---
+
+### <a name="SelectableAttributeAdjustment"></a> `SelectableAttributeAdjustment`
+
+A value that will be added to the current maximum of the selected attribute
+that has been chosen from the listed attributes (negative values will lower
+the maximum).
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`list` | A list of attributes the player has to choose from. | <a href="#SelectableAttributeAdjustment/list">See details</a>
+`value` | The value by which the selected attribute's maximum is modified (negative values will lower the maximum). | <a href="#SelectableAttributeAdjustment/value">See details</a>
+
+#### <a name="SelectableAttributeAdjustment/list"></a> `list`
+
+A list of attributes the player has to choose from.
+
+- **Type:** List
+- **Items:** <a href="#SelectableAttributeAdjustment/list[]">SelectableAttributeAdjustment/list[]</a>
+- **Minimum Items:** `2`
+
+#### <a name="SelectableAttributeAdjustment/value"></a> `value`
 
 The value by which the selected attribute's maximum is modified
 (negative values will lower the maximum).
 
 - **Type:** Integer
 
-#### <a name="AttributeAdjustment/list"></a> `list`
-
-A list of attributes the player has to choose from. If only one attribute
-is listed, no attribute has to be chosen.
-
-- **Type:** List
-- **Items:** <a href="#AttributeAdjustment/list[]">AttributeAdjustment/list[]</a>
-- **Minimum Items:** `1`
-
 ---
 
-### <a name="AttributeAdjustment/list[]"></a> `AttributeAdjustment/list[]`
+### <a name="SelectableAttributeAdjustment/list[]"></a> `SelectableAttributeAdjustment/list[]`
 
 - **Type:** <a href="./_SimpleReferences.md#AttributeReference">AttributeReference</a>
 
@@ -485,11 +425,11 @@ added and odd results are subtracted.
 
 Key | Description | Details
 :-- | :-- | :--
-`experience_level_id` | The selected experience level's identifier. | <a href="#StartingAgeConfigForExperienceLevel/experience_level_id">See details</a>
+`id` | The selected experience level's identifier. | <a href="#StartingAgeConfigForExperienceLevel/id">See details</a>
 `base` | The base value for the selected experience level. | <a href="#StartingAgeConfigForExperienceLevel/base">See details</a>
 `random` | The random value for the selected experience level. It is going to be added to the base value. | <a href="#StartingAgeConfigForExperienceLevel/random">See details</a>
 
-#### <a name="StartingAgeConfigForExperienceLevel/experience_level_id"></a> `experience_level_id`
+#### <a name="StartingAgeConfigForExperienceLevel/id"></a> `id`
 
 The selected experience level's identifier.
 
@@ -511,60 +451,11 @@ added to the base value.
 
 ---
 
-### <a name="RaceVariantDependent"></a> `RaceVariantDependent`
-
-The race may have variants and associated configuration for each variant.
-If the race is plain (has no variants), the values that would otherwise be
-defined in the variant configuration need to be set for the whole race.
-This excludes common and uncommon advantages and disadvantages, since they
-may be defined for the whole race even if variants exist.
-
-- **Type:** Union
-- **Cases:** <a href="#RaceVariantDependent'HasVariants">RaceVariantDependent'HasVariants</a> | <a href="#RaceVariantDependent'Plain">RaceVariantDependent'Plain</a>
-
----
-
-### <a name="RaceVariantDependent'HasVariants"></a> `RaceVariantDependent'HasVariants`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#RaceVariantDependent'HasVariants/tag">See details</a>
-`has_variants` |  | <a href="#RaceVariantDependent'HasVariants/has_variants">See details</a>
-
-#### <a name="RaceVariantDependent'HasVariants/tag"></a> `tag`
-
-- **Constant:** `"HasVariants"`
-
-#### <a name="RaceVariantDependent'HasVariants/has_variants"></a> `has_variants`
-
-- **Type:** <a href="#RaceVariants">RaceVariants</a>
-
----
-
-### <a name="RaceVariantDependent'Plain"></a> `RaceVariantDependent'Plain`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#RaceVariantDependent'Plain/tag">See details</a>
-`plain` |  | <a href="#RaceVariantDependent'Plain/plain">See details</a>
-
-#### <a name="RaceVariantDependent'Plain/tag"></a> `tag`
-
-- **Constant:** `"Plain"`
-
-#### <a name="RaceVariantDependent'Plain/plain"></a> `plain`
-
-- **Type:** <a href="#ValuesForRaceWithoutVariants">ValuesForRaceWithoutVariants</a>
-
----
-
 ### <a name="RaceVariants"></a> `RaceVariants`
 
-A list of available race variants.
+A list of available race variants where one has to be selected. If no
+variants are to be selected, a single variant with no name has to be provided
+which will be used as the missing values for the base race.
 
 - **Type:** List
 - **Items:** <a href="#RaceVariants[]">RaceVariants[]</a>
@@ -578,69 +469,6 @@ A list of available race variants.
 
 ---
 
-### <a name="ValuesForRaceWithoutVariants"></a> `ValuesForRaceWithoutVariants`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`common_cultures` | The list of common cultures. | <a href="#ValuesForRaceWithoutVariants/common_cultures">See details</a>
-`hair_color` | An array containing 20 (numeric) hair color identifiers. The array also represents the 20-sided die for a random hair color. | <a href="#ValuesForRaceWithoutVariants/hair_color">See details</a>
-`eye_color` | An array containing 20 (numeric) eye color identifiers. The array also represents the 20-sided die for a random eye color. | <a href="#ValuesForRaceWithoutVariants/eye_color">See details</a>
-`height` | Configuration for random height generation. | <a href="#ValuesForRaceWithoutVariants/height">See details</a>
-
-#### <a name="ValuesForRaceWithoutVariants/common_cultures"></a> `common_cultures`
-
-The list of common cultures.
-
-- **Type:** List
-- **Items:** <a href="#ValuesForRaceWithoutVariants/common_cultures[]">ValuesForRaceWithoutVariants/common_cultures[]</a>
-- **Minimum Items:** `1`
-
-#### <a name="ValuesForRaceWithoutVariants/hair_color"></a> `hair_color`
-
-An array containing 20 (numeric) hair color identifiers. The array also represents the 20-sided die for a random hair color.
-
-- **Type:** List
-- **Items:** <a href="#ValuesForRaceWithoutVariants/hair_color[]">ValuesForRaceWithoutVariants/hair_color[]</a>
-- **Minimum Items:** `20`
-- **Maximum Items:** `20`
-
-#### <a name="ValuesForRaceWithoutVariants/eye_color"></a> `eye_color`
-
-An array containing 20 (numeric) eye color identifiers. The array also represents the 20-sided die for a random eye color.
-
-- **Type:** List
-- **Items:** <a href="#ValuesForRaceWithoutVariants/eye_color[]">ValuesForRaceWithoutVariants/eye_color[]</a>
-- **Minimum Items:** `20`
-- **Maximum Items:** `20`
-
-#### <a name="ValuesForRaceWithoutVariants/height"></a> `height`
-
-Configuration for random height generation.
-
-- **Type:** <a href="#Height">Height</a>
-
----
-
-### <a name="ValuesForRaceWithoutVariants/common_cultures[]"></a> `ValuesForRaceWithoutVariants/common_cultures[]`
-
-- **Type:** <a href="./_SimpleReferences.md#CultureReference">CultureReference</a>
-
----
-
-### <a name="ValuesForRaceWithoutVariants/hair_color[]"></a> `ValuesForRaceWithoutVariants/hair_color[]`
-
-- **Type:** <a href="./_SimpleReferences.md#HairColorReference">HairColorReference</a>
-
----
-
-### <a name="ValuesForRaceWithoutVariants/eye_color[]"></a> `ValuesForRaceWithoutVariants/eye_color[]`
-
-- **Type:** <a href="./_SimpleReferences.md#EyeColorReference">EyeColorReference</a>
-
----
-
 ### <a name="RaceVariant"></a> Race Variant (`RaceVariant`)
 
 - **Type:** Object
@@ -649,10 +477,10 @@ Key | Description | Details
 :-- | :-- | :--
 `id` | An unique, increasing integer. | <a href="#RaceVariant/id">See details</a>
 `common_cultures` | The list of common cultures. | <a href="#RaceVariant/common_cultures">See details</a>
-`common_advantages?` | A list of common advantages. If common advantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined. | <a href="#RaceVariant/common_advantages">See details</a>
-`common_disadvantages?` | A list of common disadvantages. If common disadvantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined. | <a href="#RaceVariant/common_disadvantages">See details</a>
-`uncommon_advantages?` | A list of uncommon advantages. If uncommon advantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined. | <a href="#RaceVariant/uncommon_advantages">See details</a>
-`uncommon_disadvantages?` | A list of uncommon disadvantages. If uncommon disadvantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined. | <a href="#RaceVariant/uncommon_disadvantages">See details</a>
+`common_advantages?` | A list of common advantages. | <a href="#RaceVariant/common_advantages">See details</a>
+`common_disadvantages?` | A list of common disadvantages. | <a href="#RaceVariant/common_disadvantages">See details</a>
+`uncommon_advantages?` | A list of uncommon advantages. | <a href="#RaceVariant/uncommon_advantages">See details</a>
+`uncommon_disadvantages?` | A list of uncommon disadvantages. | <a href="#RaceVariant/uncommon_disadvantages">See details</a>
 `hair_color` | An array containing 20 (numeric) hair color identifiers. The array also represents the 20-sided die for a random hair color. | <a href="#RaceVariant/hair_color">See details</a>
 `eye_color` | An array containing 20 (numeric) eye color identifiers. The array also represents the 20-sided die for a random eye color. | <a href="#RaceVariant/eye_color">See details</a>
 `height` | Configuration for random height generation. | <a href="#RaceVariant/height">See details</a>
@@ -675,7 +503,7 @@ The list of common cultures.
 
 #### <a name="RaceVariant/common_advantages"></a> `common_advantages?`
 
-A list of common advantages. If common advantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.
+A list of common advantages.
 
 - **Type:** List
 - **Items:** <a href="#RaceVariant/common_advantages[]">RaceVariant/common_advantages[]</a>
@@ -683,7 +511,7 @@ A list of common advantages. If common advantages are defined by the base race, 
 
 #### <a name="RaceVariant/common_disadvantages"></a> `common_disadvantages?`
 
-A list of common disadvantages. If common disadvantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.
+A list of common disadvantages.
 
 - **Type:** List
 - **Items:** <a href="#RaceVariant/common_disadvantages[]">RaceVariant/common_disadvantages[]</a>
@@ -691,7 +519,7 @@ A list of common disadvantages. If common disadvantages are defined by the base 
 
 #### <a name="RaceVariant/uncommon_advantages"></a> `uncommon_advantages?`
 
-A list of uncommon advantages. If uncommon advantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.
+A list of uncommon advantages.
 
 - **Type:** List
 - **Items:** <a href="#RaceVariant/uncommon_advantages[]">RaceVariant/uncommon_advantages[]</a>
@@ -699,7 +527,7 @@ A list of uncommon advantages. If uncommon advantages are defined by the base ra
 
 #### <a name="RaceVariant/uncommon_disadvantages"></a> `uncommon_disadvantages?`
 
-A list of uncommon disadvantages. If uncommon disadvantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.
+A list of uncommon disadvantages.
 
 - **Type:** List
 - **Items:** <a href="#RaceVariant/uncommon_disadvantages[]">RaceVariant/uncommon_disadvantages[]</a>
@@ -707,7 +535,8 @@ A list of uncommon disadvantages. If uncommon disadvantages are defined by the b
 
 #### <a name="RaceVariant/hair_color"></a> `hair_color`
 
-An array containing 20 (numeric) hair color identifiers. The array also represents the 20-sided die for a random hair color.
+An array containing 20 (numeric) hair color identifiers. The array also
+represents the 20-sided die for a random hair color.
 
 - **Type:** List
 - **Items:** <a href="#RaceVariant/hair_color[]">RaceVariant/hair_color[]</a>
@@ -716,7 +545,8 @@ An array containing 20 (numeric) hair color identifiers. The array also represen
 
 #### <a name="RaceVariant/eye_color"></a> `eye_color`
 
-An array containing 20 (numeric) eye color identifiers. The array also represents the 20-sided die for a random eye color.
+An array containing 20 (numeric) eye color identifiers. The array also
+represents the 20-sided die for a random eye color.
 
 - **Type:** List
 - **Items:** <a href="#RaceVariant/eye_color[]">RaceVariant/eye_color[]</a>
@@ -876,48 +706,41 @@ The dice used for random height.
 
 Key | Description | Details
 :-- | :-- | :--
-`name` | The race variant's name. | <a href="#RaceVariantTranslation/name">See details</a>
-`common_advantages?` | The respective common advantages text from the source book. If common advantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined. | <a href="#RaceVariantTranslation/common_advantages">See details</a>
-`common_disadvantages?` | The respective common disadvantages text from the source book. If common disadvantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined. | <a href="#RaceVariantTranslation/common_disadvantages">See details</a>
-`uncommon_advantages?` | The respective uncommon advantages text from the source book. If uncommon advantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined. | <a href="#RaceVariantTranslation/uncommon_advantages">See details</a>
-`uncommon_disadvantages?` | The respective uncommon disadvantages text from the source book. If uncommon disadvantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined. | <a href="#RaceVariantTranslation/uncommon_disadvantages">See details</a>
+`name?` | The race variant's name. If left empty, it defaults to the base race name. This can be used if the race has no (visible) variants so that a single variant has to be provided. | <a href="#RaceVariantTranslation/name">See details</a>
+`common_advantages?` | The respective common advantages text from the source book. | <a href="#RaceVariantTranslation/common_advantages">See details</a>
+`common_disadvantages?` | The respective common disadvantages text from the source book. | <a href="#RaceVariantTranslation/common_disadvantages">See details</a>
+`uncommon_advantages?` | The respective uncommon advantages text from the source book. | <a href="#RaceVariantTranslation/uncommon_advantages">See details</a>
+`uncommon_disadvantages?` | The respective uncommon disadvantages text from the source book. | <a href="#RaceVariantTranslation/uncommon_disadvantages">See details</a>
 
-#### <a name="RaceVariantTranslation/name"></a> `name`
+#### <a name="RaceVariantTranslation/name"></a> `name?`
 
-The race variant's name.
+The race variant's name. If left empty, it defaults to the base race name.
+This can be used if the race has no (visible) variants so that a single
+variant has to be provided.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="RaceVariantTranslation/common_advantages"></a> `common_advantages?`
 
-The respective common advantages text from the source book. If common
-advantages are defined by the base race, leave this field empty. This field
-overrides the same field of the base race, if both are defined.
+The respective common advantages text from the source book.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="RaceVariantTranslation/common_disadvantages"></a> `common_disadvantages?`
 
-The respective common disadvantages text from the source book. If common
-disadvantages are defined by the base race, leave this field empty. This
-field overrides the same field of the base race, if both are defined.
+The respective common disadvantages text from the source book.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="RaceVariantTranslation/uncommon_advantages"></a> `uncommon_advantages?`
 
-The respective uncommon advantages text from the source book. If uncommon
-advantages are defined by the base race, leave this field empty. This field
-overrides the same field of the base race, if both are defined.
+The respective uncommon advantages text from the source book.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="RaceVariantTranslation/uncommon_disadvantages"></a> `uncommon_disadvantages?`
 
-The respective uncommon disadvantages text from the source book. If
-uncommon disadvantages are defined by the base race, leave this field
-empty. This field overrides the same field of the base race, if both are
-defined.
+The respective uncommon disadvantages text from the source book.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -934,10 +757,6 @@ Key | Description | Details
 `automatic_advantages?` | The respective automatic advantages text from the source book. | <a href="#RaceTranslation/automatic_advantages">See details</a>
 `strongly_recommended_advantages?` | The respective strongly recommended advantages text from the source book. | <a href="#RaceTranslation/strongly_recommended_advantages">See details</a>
 `strongly_recommended_disadvantages?` | The respective strongly recommended disadvantages text from the source book. | <a href="#RaceTranslation/strongly_recommended_disadvantages">See details</a>
-`common_advantages?` | The respective common advantages text from the source book. If common advantages are defined by race variants, leave this field empty. It is overridden by the same field in race variants. | <a href="#RaceTranslation/common_advantages">See details</a>
-`common_disadvantages?` | The respective common disadvantages text from the source book. If common disadvantages are defined by race variants, leave this field empty. It is overridden by the same field in race variants. | <a href="#RaceTranslation/common_disadvantages">See details</a>
-`uncommon_advantages?` | The respective uncommon advantages text from the source book. If uncommon advantages are defined by race variants, leave this field empty. It is overridden by the same field in race variants. | <a href="#RaceTranslation/uncommon_advantages">See details</a>
-`uncommon_disadvantages?` | The respective uncommon disadvantages text from the source book. If uncommon disadvantages are defined by race variants, leave this field empty. It is overridden by the same field in race variants. | <a href="#RaceTranslation/uncommon_disadvantages">See details</a>
 `errata?` |  | <a href="#RaceTranslation/errata">See details</a>
 
 #### <a name="RaceTranslation/name"></a> `name`
@@ -968,38 +787,6 @@ The respective strongly recommended advantages text from the source book.
 
 The respective strongly recommended disadvantages text from the source
 book.
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="RaceTranslation/common_advantages"></a> `common_advantages?`
-
-The respective common advantages text from the source book. If common
-advantages are defined by race variants, leave this field empty. It is
-overridden by the same field in race variants.
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="RaceTranslation/common_disadvantages"></a> `common_disadvantages?`
-
-The respective common disadvantages text from the source book. If common
-disadvantages are defined by race variants, leave this field empty. It is
-overridden by the same field in race variants.
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="RaceTranslation/uncommon_advantages"></a> `uncommon_advantages?`
-
-The respective uncommon advantages text from the source book. If uncommon
-advantages are defined by race variants, leave this field empty. It is
-overridden by the same field in race variants.
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="RaceTranslation/uncommon_disadvantages"></a> `uncommon_disadvantages?`
-
-The respective uncommon disadvantages text from the source book. If
-uncommon disadvantages are defined by race variants, leave this field
-empty. It is overridden by the same field in race variants.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 

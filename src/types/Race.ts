@@ -9,7 +9,7 @@ import { createSchemaValidator } from "../validation/builders/schema.js"
 import { getFIlenamePrefixAsNumericId } from "../validation/filename.js"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
 import { Dice } from "./_Dice.js"
-import { AdvantageIdentifier, DisadvantageIdentifier, ExperienceLevelIdentifier } from "./_Identifier.js"
+import { AdvantageIdentifier, AttributeIdentifier, DisadvantageIdentifier, ExperienceLevelIdentifier } from "./_Identifier.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
 import { AdvantageReference, AttributeReference, CultureReference, EyeColorReference, HairColorReference } from "./_SimpleReferences.js"
@@ -67,38 +67,6 @@ export type Race = {
   strongly_recommended_disadvantages?: CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>[]
 
   /**
-   * A list of common advantages. If common advantages are defined by race
-   * variants, leave this field empty. It is overridden by the same field in
-   * race variants.
-   * @minItems 1
-   */
-  common_advantages?: CommonnessRatedAdvantageDisadvantage<AdvantageIdentifier>[]
-
-  /**
-   * A list of common disadvantages. If common disadvantages are defined by race
-   * variants, leave this field empty. It is overridden by the same field in
-   * race variants.
-   * @minItems 1
-   */
-  common_disadvantages?: CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>[]
-
-  /**
-   * A list of uncommon advantages. If uncommon advantages are defined by race
-   * variants, leave this field empty. It is overridden by the same field in
-   * race variants.
-   * @minItems 1
-   */
-  uncommon_advantages?: CommonnessRatedAdvantageDisadvantage<AdvantageIdentifier>[]
-
-  /**
-   * A list of uncommon disadvantages. If uncommon disadvantages are defined by
-   * race variants, leave this field empty. It is overridden by the same field
-   * in race variants.
-   * @minItems 1
-   */
-  uncommon_disadvantages?: CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>[]
-
-  /**
    * Configuration for random weight generation.
    */
   weight: Weight
@@ -112,13 +80,11 @@ export type Race = {
   starting_age: StartingAgeConfigForExperienceLevel[]
 
   /**
-   * The race may have variants and associated configuration for each variant.
-   * If the race is plain (has no variants), the values that would otherwise be
-   * defined in the variant configuration need to be set for the whole race.
-   * This excludes common and uncommon advantages and disadvantages, since they
-   * may be defined for the whole race even if variants exist.
+   * A list of available race variants where one has to be selected. If no
+   * variants are to be selected, a single variant with no name has to be provided
+   * which will be used as the missing values for the base race.
    */
-  variant_dependent: RaceVariantDependent
+  variants: RaceVariants
 
   src: PublicationRefs
 
@@ -161,29 +127,64 @@ export type BaseValues = {
 /**
  * Describes how to raise or lower maximum attribute values during character
  * creation.
+ * @minProperties 1
  */
-export type AttributeAdjustments = AttributeAdjustment[]
+export type AttributeAdjustments = {
+  /**
+   * The values by which the maximum of the respective attribute is modified.
+   * @minItems 1
+   */
+  fixed?: FixedAttributeAdjustment[]
+
+  /**
+   * An array of attribute maximum modifiers, where the attribute they apply to
+   * is selected from a list of options.
+   *
+   * The array only permits a single entry because no race specified more than
+   * one selectable attribute adjustment so far. But the schema allows for
+   * multiple entries to be future-proof.
+   * @minItems 1
+   * @maxItems 1
+   */
+  selectable?: SelectableAttributeAdjustment[]
+}
 
 /**
- * An array of attribute maximum modifiers. The value will be added to the
- * current maximum of the selected attribute that has been chosen from the
- * listed attributes (negative values will lower the maximum).
+ * A value by which the maximum of the respective attribute is modified.
+ */
+export type FixedAttributeAdjustment = {
+  /**
+   * The attribute the modifier applies to.
+   */
+  id: AttributeIdentifier
+
+  /**
+   * The value by which the specified attribute's maximum is modified
+   * (negative values will lower the maximum).
+   * @integer
+   */
+  value: number
+}
+
+/**
+ * A value that will be added to the current maximum of the selected attribute
+ * that has been chosen from the listed attributes (negative values will lower
+ * the maximum).
  * @minItems 1
  */
-export type AttributeAdjustment = {
+export type SelectableAttributeAdjustment = {
+  /**
+   * A list of attributes the player has to choose from.
+   * @minItems 2
+   */
+  list: AttributeReference[]
+
   /**
    * The value by which the selected attribute's maximum is modified
    * (negative values will lower the maximum).
    * @integer
    */
   value: number
-
-  /**
-   * A list of attributes the player has to choose from. If only one attribute
-   * is listed, no attribute has to be chosen.
-   * @minItems 1
-   */
-  list: AttributeReference[]
 }
 
 /**
@@ -228,7 +229,7 @@ export type StartingAgeConfigForExperienceLevel = {
   /**
    * The selected experience level's identifier.
    */
-  experience_level_id: ExperienceLevelIdentifier
+  id: ExperienceLevelIdentifier
 
   /**
    * The base value for the selected experience level.
@@ -245,48 +246,12 @@ export type StartingAgeConfigForExperienceLevel = {
 }
 
 /**
- * The race may have variants and associated configuration for each variant.
- * If the race is plain (has no variants), the values that would otherwise be
- * defined in the variant configuration need to be set for the whole race.
- * This excludes common and uncommon advantages and disadvantages, since they
- * may be defined for the whole race even if variants exist.
- */
-export type RaceVariantDependent =
-  | { tag: "HasVariants"; has_variants: RaceVariants }
-  | { tag: "Plain"; plain: ValuesForRaceWithoutVariants }
-
-/**
- * A list of available race variants.
+ * A list of available race variants where one has to be selected. If no
+ * variants are to be selected, a single variant with no name has to be provided
+ * which will be used as the missing values for the base race.
  * @minItems 1
  */
 export type RaceVariants = RaceVariant[]
-
-export type ValuesForRaceWithoutVariants = {
-  /**
-   * The list of common cultures.
-   * @minItems 1
-   */
-  common_cultures: CultureReference[]
-
-  /**
-   * An array containing 20 (numeric) hair color identifiers. The array also represents the 20-sided die for a random hair color.
-   * @minItems 20
-   * @maxItems 20
-   */
-  hair_color: HairColorReference[]
-
-  /**
-   * An array containing 20 (numeric) eye color identifiers. The array also represents the 20-sided die for a random eye color.
-   * @minItems 20
-   * @maxItems 20
-   */
-  eye_color: EyeColorReference[]
-
-  /**
-   * Configuration for random height generation.
-   */
-  height: Height
-}
 
 /**
  * @title Race Variant
@@ -306,38 +271,40 @@ export type RaceVariant = {
   common_cultures: CultureReference[]
 
   /**
-   * A list of common advantages. If common advantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.
+   * A list of common advantages.
    * @minItems 1
    */
   common_advantages?: CommonnessRatedAdvantageDisadvantage<AdvantageIdentifier>[]
 
   /**
-   * A list of common disadvantages. If common disadvantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.
+   * A list of common disadvantages.
    * @minItems 1
    */
   common_disadvantages?: CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>[]
 
   /**
-   * A list of uncommon advantages. If uncommon advantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.
+   * A list of uncommon advantages.
    * @minItems 1
    */
   uncommon_advantages?: CommonnessRatedAdvantageDisadvantage<AdvantageIdentifier>[]
 
   /**
-   * A list of uncommon disadvantages. If uncommon disadvantages are defined by the base race, leave this field empty. This field overrides the same field of the base race, if both are defined.
+   * A list of uncommon disadvantages.
    * @minItems 1
    */
   uncommon_disadvantages?: CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>[]
 
   /**
-   * An array containing 20 (numeric) hair color identifiers. The array also represents the 20-sided die for a random hair color.
+   * An array containing 20 (numeric) hair color identifiers. The array also
+   * represents the 20-sided die for a random hair color.
    * @minItems 20
    * @maxItems 20
    */
   hair_color: HairColorReference[]
 
   /**
-   * An array containing 20 (numeric) eye color identifiers. The array also represents the 20-sided die for a random eye color.
+   * An array containing 20 (numeric) eye color identifiers. The array also
+   * represents the 20-sided die for a random eye color.
    * @minItems 20
    * @maxItems 20
    */
@@ -374,36 +341,29 @@ export type Height = {
 
 export type RaceVariantTranslation = {
   /**
-   * The race variant's name.
+   * The race variant's name. If left empty, it defaults to the base race name.
+   * This can be used if the race has no (visible) variants so that a single
+   * variant has to be provided.
    */
-  name: NonEmptyString
+  name?: NonEmptyString
 
   /**
-   * The respective common advantages text from the source book. If common
-   * advantages are defined by the base race, leave this field empty. This field
-   * overrides the same field of the base race, if both are defined.
+   * The respective common advantages text from the source book.
    */
   common_advantages?: NonEmptyString
 
   /**
-   * The respective common disadvantages text from the source book. If common
-   * disadvantages are defined by the base race, leave this field empty. This
-   * field overrides the same field of the base race, if both are defined.
+   * The respective common disadvantages text from the source book.
    */
   common_disadvantages?: NonEmptyString
 
   /**
-   * The respective uncommon advantages text from the source book. If uncommon
-   * advantages are defined by the base race, leave this field empty. This field
-   * overrides the same field of the base race, if both are defined.
+   * The respective uncommon advantages text from the source book.
    */
   uncommon_advantages?: NonEmptyString
 
   /**
-   * The respective uncommon disadvantages text from the source book. If
-   * uncommon disadvantages are defined by the base race, leave this field
-   * empty. This field overrides the same field of the base race, if both are
-   * defined.
+   * The respective uncommon disadvantages text from the source book.
    */
   uncommon_disadvantages?: NonEmptyString
 }
@@ -434,34 +394,6 @@ export type RaceTranslation = {
    * book.
    */
   strongly_recommended_disadvantages?: NonEmptyString
-
-  /**
-   * The respective common advantages text from the source book. If common
-   * advantages are defined by race variants, leave this field empty. It is
-   * overridden by the same field in race variants.
-   */
-  common_advantages?: NonEmptyString
-
-  /**
-   * The respective common disadvantages text from the source book. If common
-   * disadvantages are defined by race variants, leave this field empty. It is
-   * overridden by the same field in race variants.
-   */
-  common_disadvantages?: NonEmptyString
-
-  /**
-   * The respective uncommon advantages text from the source book. If uncommon
-   * advantages are defined by race variants, leave this field empty. It is
-   * overridden by the same field in race variants.
-   */
-  uncommon_advantages?: NonEmptyString
-
-  /**
-   * The respective uncommon disadvantages text from the source book. If
-   * uncommon disadvantages are defined by race variants, leave this field
-   * empty. It is overridden by the same field in race variants.
-   */
-  uncommon_disadvantages?: NonEmptyString
 
   errata?: Errata
 }
