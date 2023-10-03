@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.13.0](https://github.com/elyukai/optolith-database-schema/compare/v0.12.1...v0.13.0) (2023-10-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* change and add lots of new translations with new key format
+* replace all enums with union types to enable type-only usage
+
+### Features
+
+* cache capability ([45cf7bf](https://github.com/elyukai/optolith-database-schema/commit/45cf7bfd3e43f2786926633b0c5e2eee8982d965))
+* change and add lots of new translations with new key format ([3068ee9](https://github.com/elyukai/optolith-database-schema/commit/3068ee94ed6a6d0a021704f92af18984d33bb53b))
+
+
+### Bug Fixes
+
+* typo in getFilenamePrefixAsNumericId ([802349e](https://github.com/elyukai/optolith-database-schema/commit/802349ea5b566682e0fb7bbd45811bda1800a686))
+
+
+* replace all enums with union types to enable type-only usage ([fe5aa11](https://github.com/elyukai/optolith-database-schema/commit/fe5aa116f8fc922c3b6150d2bc663ddde5e8f104))
+
 ### [0.12.1](https://github.com/elyukai/optolith-database-schema/compare/v0.12.0...v0.12.1) (2023-06-11)
 
 
