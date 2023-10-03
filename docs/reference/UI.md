@@ -8,11 +8,54 @@
 
 Key | Description | Details
 :-- | :-- | :--
-`macosmenubar.aboutapp` | - `0`: Name of the app | <a href="#UI/macosmenubar.aboutapp">See details</a>
-`macosmenubar.preferences` |  | <a href="#UI/macosmenubar.preferences">See details</a>
-`macosmenubar.quit` |  | <a href="#UI/macosmenubar.quit">See details</a>
-`macosmenubar.edit` |  | <a href="#UI/macosmenubar.edit">See details</a>
-`macosmenubar.view` |  | <a href="#UI/macosmenubar.view">See details</a>
+`About {0}` |  | <a href="#UI/About {0}">See details</a>
+`Preferences …` |  | <a href="#UI/Preferences …">See details</a>
+`Services` |  | <a href="#UI/Services">See details</a>
+`Hide {0}` |  | <a href="#UI/Hide {0}">See details</a>
+`Hide Others` |  | <a href="#UI/Hide Others">See details</a>
+`Show All` |  | <a href="#UI/Show All">See details</a>
+`Quit {0}` |  | <a href="#UI/Quit {0}">See details</a>
+`File` |  | <a href="#UI/File">See details</a>
+`Close` |  | <a href="#UI/Close">See details</a>
+`Quit` |  | <a href="#UI/Quit">See details</a>
+`Edit` |  | <a href="#UI/Edit">See details</a>
+`Undo` |  | <a href="#UI/Undo">See details</a>
+`Redo` |  | <a href="#UI/Redo">See details</a>
+`Cut` |  | <a href="#UI/Cut">See details</a>
+`Copy` |  | <a href="#UI/Copy">See details</a>
+`Paste` |  | <a href="#UI/Paste">See details</a>
+`Delete` |  | <a href="#UI/Delete">See details</a>
+`Select All` |  | <a href="#UI/Select All">See details</a>
+`View` |  | <a href="#UI/View">See details</a>
+`Toggle Full Screen` |  | <a href="#UI/Toggle Full Screen">See details</a>
+`Window` |  | <a href="#UI/Window">See details</a>
+`Minimize` |  | <a href="#UI/Minimize">See details</a>
+`Zoom` |  | <a href="#UI/Zoom">See details</a>
+`Bring All to Front` |  | <a href="#UI/Bring All to Front">See details</a>
+`Settings` |  | <a href="#UI/Settings">See details</a>
+`Main Language` |  | <a href="#UI/Main Language">See details</a>
+`System Language` |  | <a href="#UI/System Language">See details</a>
+`Fallback Language` |  | <a href="#UI/Fallback Language">See details</a>
+`No fallback language` |  | <a href="#UI/No fallback language">See details</a>
+`Appearance` |  | <a href="#UI/Appearance">See details</a>
+`Auto` |  | <a href="#UI/Auto">See details</a>
+`Light` |  | <a href="#UI/Light">See details</a>
+`Dark` |  | <a href="#UI/Dark">See details</a>
+`Edit characters after creation` |  | <a href="#UI/Edit characters after creation">See details</a>
+`Show animations` |  | <a href="#UI/Show animations">See details</a>
+`Check for updates` |  | <a href="#UI/Check for updates">See details</a>
+`Updater` |  | <a href="#UI/Updater">See details</a>
+`Checking for updates …` |  | <a href="#UI/Checking for updates …">See details</a>
+`New version available` |  | <a href="#UI/New version available">See details</a>
+`Version {0} is available! Do you wish to download and install?` | - `0`: Version number | <a href="#UI/Version {0} is available! Do you wish to download and install?">See details</a>
+`Download` |  | <a href="#UI/Download">See details</a>
+`Download Later` |  | <a href="#UI/Download Later">See details</a>
+`Downloading update …` |  | <a href="#UI/Downloading update …">See details</a>
+`Update downloaded` |  | <a href="#UI/Update downloaded">See details</a>
+`Quit and Install` |  | <a href="#UI/Quit and Install">See details</a>
+`Install Later` |  | <a href="#UI/Install Later">See details</a>
+`No update available` |  | <a href="#UI/No update available">See details</a>
+`You're running the latest version available.` |  | <a href="#UI/You're running the latest version available.">See details</a>
 `initialization.loadtableserror` |  | <a href="#UI/initialization.loadtableserror">See details</a>
 `Characters` |  | <a href="#UI/Characters">See details</a>
 `Groups` |  | <a href="#UI/Groups">See details</a>
@@ -46,30 +89,30 @@ Key | Description | Details
 `Equipment` |  | <a href="#UI/Equipment">See details</a>
 `Hit Zone Armor` |  | <a href="#UI/Hit Zone Armor">See details</a>
 `Pets` |  | <a href="#UI/Pets">See details</a>
-`header.apleft` | - `0`: AP left | <a href="#UI/header.apleft">See details</a>
-`header.savebtn` |  | <a href="#UI/header.savebtn">See details</a>
+`{0} AP Remaining` | - `0`: AP left | <a href="#UI/{0} AP Remaining">See details</a>
+`Save` |  | <a href="#UI/Save">See details</a>
 `Show Settings` |  | <a href="#UI/Show Settings">See details</a>
 `Toggle DevTools` |  | <a href="#UI/Toggle DevTools">See details</a>
-`header.aptooltip.title` |  | <a href="#UI/header.aptooltip.title">See details</a>
-`header.aptooltip.total` | - `0`: AP Total | <a href="#UI/header.aptooltip.total">See details</a>
-`header.aptooltip.spent` | - `0`: AP Spent | <a href="#UI/header.aptooltip.spent">See details</a>
-`header.aptooltip.spentonadvantages` | - `0`: Current AP spent on advantages - `1`: Maximum possible AP spent on advantages | <a href="#UI/header.aptooltip.spentonadvantages">See details</a>
-`header.aptooltip.spentonmagicadvantages` | - `0`: Current AP spent on magic advantages - `1`: Maximum possible AP spent on magic advantages | <a href="#UI/header.aptooltip.spentonmagicadvantages">See details</a>
-`header.aptooltip.spentonblessedadvantages` | - `0`: Current AP spent on blessed advantages - `1`: Maximum possible AP spent on blessed advantages | <a href="#UI/header.aptooltip.spentonblessedadvantages">See details</a>
-`header.aptooltip.spentondisadvantages` | - `0`: Current AP spent on disadvantages - `1`: Maximum possible AP spent on disadvantages | <a href="#UI/header.aptooltip.spentondisadvantages">See details</a>
-`header.aptooltip.spentonmagicdisadvantages` | - `0`: Current AP spent on magic disadvantages - `1`: Maximum possible AP spent on magic disadvantages | <a href="#UI/header.aptooltip.spentonmagicdisadvantages">See details</a>
-`header.aptooltip.spentonblesseddisadvantages` | - `0`: Current AP spent on blessed disadvantages - `1`: Maximum possible AP spent on blessed disadvantages | <a href="#UI/header.aptooltip.spentonblesseddisadvantages">See details</a>
-`header.aptooltip.spentonrace` | - `0`: AP spent on race | <a href="#UI/header.aptooltip.spentonrace">See details</a>
-`header.aptooltip.spentonprofession` | - `0`: AP spent on profession | <a href="#UI/header.aptooltip.spentonprofession">See details</a>
-`header.aptooltip.spentonattributes` | - `0`: AP spent on attributes | <a href="#UI/header.aptooltip.spentonattributes">See details</a>
-`header.aptooltip.spentonskills` | - `0`: AP spent on skills | <a href="#UI/header.aptooltip.spentonskills">See details</a>
-`header.aptooltip.spentoncombattechniques` | - `0`: AP spent on combat techniques | <a href="#UI/header.aptooltip.spentoncombattechniques">See details</a>
-`header.aptooltip.spentonspells` | - `0`: AP spent on spells | <a href="#UI/header.aptooltip.spentonspells">See details</a>
-`header.aptooltip.spentoncantrips` | - `0`: AP spent on cantrips | <a href="#UI/header.aptooltip.spentoncantrips">See details</a>
-`header.aptooltip.spentonliturgicalchants` | - `0`: AP spent on liturgical chants | <a href="#UI/header.aptooltip.spentonliturgicalchants">See details</a>
-`header.aptooltip.spentonblessings` | - `0`: AP spent on blessings | <a href="#UI/header.aptooltip.spentonblessings">See details</a>
-`header.aptooltip.spentonspecialabilities` | - `0`: AP spent on special abilities | <a href="#UI/header.aptooltip.spentonspecialabilities">See details</a>
-`header.aptooltip.spentonenergies` | - `0`: AP spent on energies (LP/AE/KP) | <a href="#UI/header.aptooltip.spentonenergies">See details</a>
+`Adventure Points` |  | <a href="#UI/Adventure Points">See details</a>
+`{0} Total AP` | - `0`: AP Total | <a href="#UI/{0} Total AP">See details</a>
+`{0} AP Spent` | - `0`: AP Spent | <a href="#UI/{0} AP Spent">See details</a>
+`{0}/{1} AP spent on advantages` | - `0`: Current AP spent on advantages - `1`: Maximum possible AP spent on advantages | <a href="#UI/{0}/{1} AP spent on advantages">See details</a>
+`Thereof {0}/{1} on magic advantages` | - `0`: Current AP spent on magic advantages - `1`: Maximum possible AP spent on magic advantages | <a href="#UI/Thereof {0}/{1} on magic advantages">See details</a>
+`Thereof {0}/{1} on blessed advantages` | - `0`: Current AP spent on blessed advantages - `1`: Maximum possible AP spent on blessed advantages | <a href="#UI/Thereof {0}/{1} on blessed advantages">See details</a>
+`{0}/{1} AP received from disadvantages` | - `0`: Current AP spent on disadvantages - `1`: Maximum possible AP spent on disadvantages | <a href="#UI/{0}/{1} AP received from disadvantages">See details</a>
+`Thereof {0}/{1} from magic disadvantages` | - `0`: Current AP spent on magic disadvantages - `1`: Maximum possible AP spent on magic disadvantages | <a href="#UI/Thereof {0}/{1} from magic disadvantages">See details</a>
+`Thereof {0}/{1} from blessed disadvantages` | - `0`: Current AP spent on blessed disadvantages - `1`: Maximum possible AP spent on blessed disadvantages | <a href="#UI/Thereof {0}/{1} from blessed disadvantages">See details</a>
+`{0} AP spent on race` | - `0`: AP spent on race | <a href="#UI/{0} AP spent on race">See details</a>
+`{0} AP spent on profession` | - `0`: AP spent on profession | <a href="#UI/{0} AP spent on profession">See details</a>
+`{0} AP spent on attributes` | - `0`: AP spent on attributes | <a href="#UI/{0} AP spent on attributes">See details</a>
+`{0} AP spent on skills` | - `0`: AP spent on skills | <a href="#UI/{0} AP spent on skills">See details</a>
+`{0} AP spent on combat techniques` | - `0`: AP spent on combat techniques | <a href="#UI/{0} AP spent on combat techniques">See details</a>
+`{0} AP spent on spells` | - `0`: AP spent on spells | <a href="#UI/{0} AP spent on spells">See details</a>
+`{0} AP spent on cantrips` | - `0`: AP spent on cantrips | <a href="#UI/{0} AP spent on cantrips">See details</a>
+`{0} AP spent on liturgical chants` | - `0`: AP spent on liturgical chants | <a href="#UI/{0} AP spent on liturgical chants">See details</a>
+`{0} AP spent on blessings` | - `0`: AP spent on blessings | <a href="#UI/{0} AP spent on blessings">See details</a>
+`{0} AP spent on special abilities` | - `0`: AP spent on special abilities | <a href="#UI/{0} AP spent on special abilities">See details</a>
+`{0} AP spent on improving/buying back LP/AE/KP` | - `0`: AP spent on energies (LP/AE/KP) | <a href="#UI/{0} AP spent on improving/buying back LP/AE/KP">See details</a>
 `header.dialogs.herosaved` |  | <a href="#UI/header.dialogs.herosaved">See details</a>
 `header.dialogs.allsaved` |  | <a href="#UI/header.dialogs.allsaved">See details</a>
 `header.dialogs.everythingelsesaved` |  | <a href="#UI/header.dialogs.everythingelsesaved">See details</a>
@@ -80,7 +123,7 @@ Key | Description | Details
 `general.weightvalue` | - `0`: Weight in kg | <a href="#UI/general.weightvalue">See details</a>
 `general.pricevalue` | - `0`: Price in silverthalers | <a href="#UI/general.pricevalue">See details</a>
 `general.lengthvalue` | - `0`: Length in cm | <a href="#UI/general.lengthvalue">See details</a>
-`general.dice` |  | <a href="#UI/general.dice">See details</a>
+`D` |  | <a href="#UI/D">See details</a>
 `general.none` |  | <a href="#UI/general.none">See details</a>
 `general.or` |  | <a href="#UI/general.or">See details</a>
 `general.and` |  | <a href="#UI/general.and">See details</a>
@@ -88,30 +131,31 @@ Key | Description | Details
 `general.errorcode` |  | <a href="#UI/general.errorcode">See details</a>
 `general.emptylistplaceholder` |  | <a href="#UI/general.emptylistplaceholder">See details</a>
 `general.emptylistnoresultsplaceholder` |  | <a href="#UI/general.emptylistnoresultsplaceholder">See details</a>
-`general.apvalue` | - `0`: AP value | <a href="#UI/general.apvalue">See details</a>
-`general.apvalue.short` | - `0`: AP value | <a href="#UI/general.apvalue.short">See details</a>
+`No Results` |  | <a href="#UI/No Results">See details</a>
+`{0} Adventure Points` | - `0`: AP value | <a href="#UI/{0} Adventure Points">See details</a>
+`{0} AP` | - `0`: AP value | <a href="#UI/{0} AP">See details</a>
 `general.withapvalue` | - `0`: Name of element - `1`: AP value | <a href="#UI/general.withapvalue">See details</a>
-`general.filters.searchfield.placeholder` |  | <a href="#UI/general.filters.searchfield.placeholder">See details</a>
-`general.filters.sort.alphabetically` |  | <a href="#UI/general.filters.sort.alphabetically">See details</a>
-`general.filters.sort.bydatemodified` |  | <a href="#UI/general.filters.sort.bydatemodified">See details</a>
-`general.filters.sort.bygroup` |  | <a href="#UI/general.filters.sort.bygroup">See details</a>
-`general.filters.sort.byimprovementcost` |  | <a href="#UI/general.filters.sort.byimprovementcost">See details</a>
-`general.filters.sort.byproperty` |  | <a href="#UI/general.filters.sort.byproperty">See details</a>
+`Search` |  | <a href="#UI/Search">See details</a>
+`Sort By` |  | <a href="#UI/Sort By">See details</a>
+`Name` |  | <a href="#UI/Name">See details</a>
+`Date Modified` |  | <a href="#UI/Date Modified">See details</a>
+`Group` |  | <a href="#UI/Group">See details</a>
+`Property` |  | <a href="#UI/Property">See details</a>
 `general.filters.sort.bylocation` |  | <a href="#UI/general.filters.sort.bylocation">See details</a>
 `general.filters.sort.bycost` |  | <a href="#UI/general.filters.sort.bycost">See details</a>
 `general.filters.sort.byweight` |  | <a href="#UI/general.filters.sort.byweight">See details</a>
 `general.filters.showactivatedentries` |  | <a href="#UI/general.filters.showactivatedentries">See details</a>
 `general.dialogs.savebtn` |  | <a href="#UI/general.dialogs.savebtn">See details</a>
-`general.dialogs.donebtn` |  | <a href="#UI/general.dialogs.donebtn">See details</a>
+`Done` |  | <a href="#UI/Done">See details</a>
 `general.dialogs.deletebtn` |  | <a href="#UI/general.dialogs.deletebtn">See details</a>
 `general.dialogs.yesbtn` |  | <a href="#UI/general.dialogs.yesbtn">See details</a>
 `general.dialogs.nobtn` |  | <a href="#UI/general.dialogs.nobtn">See details</a>
 `general.dialogs.okbtn` |  | <a href="#UI/general.dialogs.okbtn">See details</a>
-`general.dialogs.cancelbtn` |  | <a href="#UI/general.dialogs.cancelbtn">See details</a>
+`Cancel` |  | <a href="#UI/Cancel">See details</a>
 `general.dialogs.copybtn` |  | <a href="#UI/general.dialogs.copybtn">See details</a>
 `general.dialogs.createbtn` |  | <a href="#UI/general.dialogs.createbtn">See details</a>
 `general.dialogs.applybtn` |  | <a href="#UI/general.dialogs.applybtn">See details</a>
-`general.dialogs.addbtn` |  | <a href="#UI/general.dialogs.addbtn">See details</a>
+`Add` |  | <a href="#UI/Add">See details</a>
 `general.dialogs.notenoughap.title` |  | <a href="#UI/general.dialogs.notenoughap.title">See details</a>
 `general.dialogs.notenoughap.message` | - `0`: Missing AP | <a href="#UI/general.dialogs.notenoughap.message">See details</a>
 `general.dialogs.reachedaplimit.title` | - `0`: Category in which the limit is reached | <a href="#UI/general.dialogs.reachedaplimit.title">See details</a>
@@ -122,33 +166,15 @@ Key | Description | Details
 `general.dialogs.reachedaplimit.disadvantages` |  | <a href="#UI/general.dialogs.reachedaplimit.disadvantages">See details</a>
 `general.dialogs.reachedaplimit.magicaldisadvantages` |  | <a href="#UI/general.dialogs.reachedaplimit.magicaldisadvantages">See details</a>
 `general.dialogs.reachedaplimit.blesseddisadvantages` |  | <a href="#UI/general.dialogs.reachedaplimit.blesseddisadvantages">See details</a>
-`settings.title` |  | <a href="#UI/settings.title">See details</a>
-`settings.language` |  | <a href="#UI/settings.language">See details</a>
-`settings.fallbacklanguage` |  | <a href="#UI/settings.fallbacklanguage">See details</a>
-`settings.systemlanguage` |  | <a href="#UI/settings.systemlanguage">See details</a>
-`settings.languagehint` |  | <a href="#UI/settings.languagehint">See details</a>
-`settings.theme` |  | <a href="#UI/settings.theme">See details</a>
-`settings.theme.dark` |  | <a href="#UI/settings.theme.dark">See details</a>
-`settings.theme.light` |  | <a href="#UI/settings.theme.light">See details</a>
-`settings.showanimations` |  | <a href="#UI/settings.showanimations">See details</a>
-`settings.enableeditingheroaftercreationphase` |  | <a href="#UI/settings.enableeditingheroaftercreationphase">See details</a>
-`settings.checkforupdatesbtn` |  | <a href="#UI/settings.checkforupdatesbtn">See details</a>
-`settings.newversionavailable.title` |  | <a href="#UI/settings.newversionavailable.title">See details</a>
-`settings.newversionavailable.message` | - `0`: Version number | <a href="#UI/settings.newversionavailable.message">See details</a>
-`settings.newversionavailable.messagewithsize` | - `0`: Version number - `1`: Size of update package | <a href="#UI/settings.newversionavailable.messagewithsize">See details</a>
-`settings.newversionavailable.updatebtn` |  | <a href="#UI/settings.newversionavailable.updatebtn">See details</a>
-`settings.nonewversionavailable.title` |  | <a href="#UI/settings.nonewversionavailable.title">See details</a>
-`settings.nonewversionavailable.message` |  | <a href="#UI/settings.nonewversionavailable.message">See details</a>
-`settings.downloadingupdate.title` |  | <a href="#UI/settings.downloadingupdate.title">See details</a>
 `heroes.filters.origin.allheroes` |  | <a href="#UI/heroes.filters.origin.allheroes">See details</a>
 `heroes.filters.origin.ownheroes` |  | <a href="#UI/heroes.filters.origin.ownheroes">See details</a>
 `heroes.filters.origin.sharedheroes` |  | <a href="#UI/heroes.filters.origin.sharedheroes">See details</a>
-`heroes.importherobtn` |  | <a href="#UI/heroes.importherobtn">See details</a>
-`heroes.createherobtn` |  | <a href="#UI/heroes.createherobtn">See details</a>
-`heroes.exportheroasjsonbtn` |  | <a href="#UI/heroes.exportheroasjsonbtn">See details</a>
-`heroes.duplicateherobtn` |  | <a href="#UI/heroes.duplicateherobtn">See details</a>
-`heroes.deleteherobtn` |  | <a href="#UI/heroes.deleteherobtn">See details</a>
-`heroes.openherobtn` |  | <a href="#UI/heroes.openherobtn">See details</a>
+`Import` |  | <a href="#UI/Import">See details</a>
+`New Character` |  | <a href="#UI/New Character">See details</a>
+`Duplicate Character` |  | <a href="#UI/Duplicate Character">See details</a>
+`Export Character as OPTLC file` |  | <a href="#UI/Export Character as OPTLC file">See details</a>
+`Delete Character` |  | <a href="#UI/Delete Character">See details</a>
+`Open Character` |  | <a href="#UI/Open Character">See details</a>
 `heroes.saveherobtn` |  | <a href="#UI/heroes.saveherobtn">See details</a>
 `heroes.unsavedhero.name` |  | <a href="#UI/heroes.unsavedhero.name">See details</a>
 `heroes.list.adventurepoints` |  | <a href="#UI/heroes.list.adventurepoints">See details</a>
@@ -191,34 +217,40 @@ Key | Description | Details
 `wiki.filters.itemtemplates` |  | <a href="#UI/wiki.filters.itemtemplates">See details</a>
 `wiki.filters.itemtemplates.all` |  | <a href="#UI/wiki.filters.itemtemplates.all">See details</a>
 `imprint.title` |  | <a href="#UI/imprint.title">See details</a>
-`profile.editprofessionnamebtn` |  | <a href="#UI/profile.editprofessionnamebtn">See details</a>
-`profile.addadventurepointsbtn` |  | <a href="#UI/profile.addadventurepointsbtn">See details</a>
-`profile.endherocreationbtn` |  | <a href="#UI/profile.endherocreationbtn">See details</a>
-`profile.changeheroavatarbtn` |  | <a href="#UI/profile.changeheroavatarbtn">See details</a>
-`profile.deleteavatarbtn` |  | <a href="#UI/profile.deleteavatarbtn">See details</a>
+`Edit Name` |  | <a href="#UI/Edit Name">See details</a>
+`Change Name` |  | <a href="#UI/Change Name">See details</a>
+`Edit Profession Name` |  | <a href="#UI/Edit Profession Name">See details</a>
+`Change Profession Name` |  | <a href="#UI/Change Profession Name">See details</a>
+`Add AP` |  | <a href="#UI/Add AP">See details</a>
+`Add Adventure Points` |  | <a href="#UI/Add Adventure Points">See details</a>
+`How many Adventure Points do you want to add?` |  | <a href="#UI/How many Adventure Points do you want to add?">See details</a>
+`Finish Character Creation` |  | <a href="#UI/Finish Character Creation">See details</a>
+`Select New Avatar` |  | <a href="#UI/Select New Avatar">See details</a>
+`Delete Avatar` |  | <a href="#UI/Delete Avatar">See details</a>
 `profile.dialogs.changeheroavatar.title` |  | <a href="#UI/profile.dialogs.changeheroavatar.title">See details</a>
 `profile.dialogs.changeheroavatar.selectfilebtn` |  | <a href="#UI/profile.dialogs.changeheroavatar.selectfilebtn">See details</a>
 `profile.dialogs.changeheroavatar.imagefiletype` |  | <a href="#UI/profile.dialogs.changeheroavatar.imagefiletype">See details</a>
 `profile.dialogs.changeheroavatar.invalidfilewarning` |  | <a href="#UI/profile.dialogs.changeheroavatar.invalidfilewarning">See details</a>
-`profile.dialogs.addadventurepoints.title` |  | <a href="#UI/profile.dialogs.addadventurepoints.title">See details</a>
-`profile.dialogs.addadventurepoints.label` |  | <a href="#UI/profile.dialogs.addadventurepoints.label">See details</a>
-`profile.advantages` |  | <a href="#UI/profile.advantages">See details</a>
-`profile.disadvantages` |  | <a href="#UI/profile.disadvantages">See details</a>
-`personaldata.title` |  | <a href="#UI/personaldata.title">See details</a>
-`personaldata.sex.male` |  | <a href="#UI/personaldata.sex.male">See details</a>
-`personaldata.sex.female` |  | <a href="#UI/personaldata.sex.female">See details</a>
-`personaldata.family` |  | <a href="#UI/personaldata.family">See details</a>
-`personaldata.placeofbirth` |  | <a href="#UI/personaldata.placeofbirth">See details</a>
-`personaldata.dateofbirth` |  | <a href="#UI/personaldata.dateofbirth">See details</a>
-`personaldata.age` |  | <a href="#UI/personaldata.age">See details</a>
-`personaldata.haircolor` |  | <a href="#UI/personaldata.haircolor">See details</a>
-`personaldata.eyecolor` |  | <a href="#UI/personaldata.eyecolor">See details</a>
-`personaldata.size` |  | <a href="#UI/personaldata.size">See details</a>
-`personaldata.weight` |  | <a href="#UI/personaldata.weight">See details</a>
-`personaldata.rank` |  | <a href="#UI/personaldata.rank">See details</a>
-`personaldata.socialstatus` |  | <a href="#UI/personaldata.socialstatus">See details</a>
-`personaldata.characteristics` |  | <a href="#UI/personaldata.characteristics">See details</a>
-`personaldata.otherinfo` |  | <a href="#UI/personaldata.otherinfo">See details</a>
+`Male` |  | <a href="#UI/Male">See details</a>
+`Female` |  | <a href="#UI/Female">See details</a>
+`Bal’Thani` |  | <a href="#UI/Bal’Thani">See details</a>
+`Tsajana` |  | <a href="#UI/Tsajana">See details</a>
+`Family` |  | <a href="#UI/Family">See details</a>
+`Place of Birth` |  | <a href="#UI/Place of Birth">See details</a>
+`Date of Birth` |  | <a href="#UI/Date of Birth">See details</a>
+`Age` |  | <a href="#UI/Age">See details</a>
+`Hair Color` |  | <a href="#UI/Hair Color">See details</a>
+`Eye Color` |  | <a href="#UI/Eye Color">See details</a>
+`Size` |  | <a href="#UI/Size">See details</a>
+`Weight` |  | <a href="#UI/Weight">See details</a>
+`Title` |  | <a href="#UI/Title">See details</a>
+`Social Status` |  | <a href="#UI/Social Status">See details</a>
+`Characteristics` |  | <a href="#UI/Characteristics">See details</a>
+`Other Information` |  | <a href="#UI/Other Information">See details</a>
+`Reroll Eye Color` |  | <a href="#UI/Reroll Eye Color">See details</a>
+`Reroll Hair Color` |  | <a href="#UI/Reroll Hair Color">See details</a>
+`Reroll Size` |  | <a href="#UI/Reroll Size">See details</a>
+`Reroll Weight` |  | <a href="#UI/Reroll Weight">See details</a>
 `personaldata.cultureareaknowledge` |  | <a href="#UI/personaldata.cultureareaknowledge">See details</a>
 `sheets.printtopdfbtn` |  | <a href="#UI/sheets.printtopdfbtn">See details</a>
 `sheets.dialogs.pdfexportsavelocation.title` |  | <a href="#UI/sheets.dialogs.pdfexportsavelocation.title">See details</a>
@@ -445,10 +477,10 @@ Key | Description | Details
 `pacts.minorpact` |  | <a href="#UI/pacts.minorpact">See details</a>
 `pacts.pactisincompletehint` |  | <a href="#UI/pacts.pactisincompletehint">See details</a>
 `pacts.name` |  | <a href="#UI/pacts.name">See details</a>
-`rules.rulebase` |  | <a href="#UI/rules.rulebase">See details</a>
-`rules.enableallrulebooks` |  | <a href="#UI/rules.enableallrulebooks">See details</a>
-`rules.focusrules` |  | <a href="#UI/rules.focusrules">See details</a>
-`rules.optionalrules` |  | <a href="#UI/rules.optionalrules">See details</a>
+`Rule Sources` |  | <a href="#UI/Rule Sources">See details</a>
+`Use all publications` |  | <a href="#UI/Use all publications">See details</a>
+`Focus Rules` |  | <a href="#UI/Focus Rules">See details</a>
+`Optional Rules` |  | <a href="#UI/Optional Rules">See details</a>
 `rules.manualherodatarepair` |  | <a href="#UI/rules.manualherodatarepair">See details</a>
 `rules.manualherodatarepairexplanation` |  | <a href="#UI/rules.manualherodatarepairexplanation">See details</a>
 `inlinewiki.complementarysources` |  | <a href="#UI/inlinewiki.complementarysources">See details</a>
@@ -548,23 +580,26 @@ Key | Description | Details
 `rcpselectoptions.unfamiliarspellselectionfortraditionguildmage` |  | <a href="#UI/rcpselectoptions.unfamiliarspellselectionfortraditionguildmage">See details</a>
 `rcpselectoptions.unfamiliarspell.placeholder` |  | <a href="#UI/rcpselectoptions.unfamiliarspell.placeholder">See details</a>
 `rcpselectoptions.unfamiliarspell` |  | <a href="#UI/rcpselectoptions.unfamiliarspell">See details</a>
-`attributes.totalpoints` |  | <a href="#UI/attributes.totalpoints">See details</a>
-`attributes.attributeadjustmentselection` |  | <a href="#UI/attributes.attributeadjustmentselection">See details</a>
-`attributes.derivedcharacteristics.tooltips.modifier` |  | <a href="#UI/attributes.derivedcharacteristics.tooltips.modifier">See details</a>
-`attributes.derivedcharacteristics.tooltips.bought` |  | <a href="#UI/attributes.derivedcharacteristics.tooltips.bought">See details</a>
-`attributes.derivedcharacteristics.tooltips.losttotal` |  | <a href="#UI/attributes.derivedcharacteristics.tooltips.losttotal">See details</a>
-`attributes.derivedcharacteristics.tooltips.boughtback` |  | <a href="#UI/attributes.derivedcharacteristics.tooltips.boughtback">See details</a>
-`attributes.lostpermanently.lifepoints` |  | <a href="#UI/attributes.lostpermanently.lifepoints">See details</a>
-`attributes.lostpermanently.lifepoints.short` |  | <a href="#UI/attributes.lostpermanently.lifepoints.short">See details</a>
-`attributes.lostpermanently.arcaneenergy` |  | <a href="#UI/attributes.lostpermanently.arcaneenergy">See details</a>
-`attributes.lostpermanently.arcaneenergy.short` |  | <a href="#UI/attributes.lostpermanently.arcaneenergy.short">See details</a>
-`attributes.lostpermanently.karmapoints` |  | <a href="#UI/attributes.lostpermanently.karmapoints">See details</a>
-`attributes.lostpermanently.karmapoints.short` |  | <a href="#UI/attributes.lostpermanently.karmapoints.short">See details</a>
-`attributes.removeenergypointslostpermanently.title` |  | <a href="#UI/attributes.removeenergypointslostpermanently.title">See details</a>
-`attributes.removeenergypointslostpermanently.message` |  | <a href="#UI/attributes.removeenergypointslostpermanently.message">See details</a>
-`attributes.removeenergypointslostpermanently.removebtn` |  | <a href="#UI/attributes.removeenergypointslostpermanently.removebtn">See details</a>
-`attributes.pointslostpermanentlyeditor.boughtback` |  | <a href="#UI/attributes.pointslostpermanentlyeditor.boughtback">See details</a>
-`attributes.pointslostpermanentlyeditor.spent` |  | <a href="#UI/attributes.pointslostpermanentlyeditor.spent">See details</a>
+`Total Points` |  | <a href="#UI/Total Points">See details</a>
+`Increment` |  | <a href="#UI/Increment">See details</a>
+`Decrement` |  | <a href="#UI/Decrement">See details</a>
+`Activate` |  | <a href="#UI/Activate">See details</a>
+`Attribute Adjustment Selection` |  | <a href="#UI/Attribute Adjustment Selection">See details</a>
+`Modifier` |  | <a href="#UI/Modifier">See details</a>
+`Bought` |  | <a href="#UI/Bought">See details</a>
+`Lost Total` |  | <a href="#UI/Lost Total">See details</a>
+`Bought Back` |  | <a href="#UI/Bought Back">See details</a>
+`Buy Back Permanently Lost Point` |  | <a href="#UI/Buy Back Permanently Lost Point">See details</a>
+`Permanently Lost Life Points` |  | <a href="#UI/Permanently Lost Life Points">See details</a>
+`pLP` |  | <a href="#UI/pLP">See details</a>
+`Permanently Lost Arcane Energy` |  | <a href="#UI/Permanently Lost Arcane Energy">See details</a>
+`pAE` |  | <a href="#UI/pAE">See details</a>
+`Permanently Lost Karma Points` |  | <a href="#UI/Permanently Lost Karma Points">See details</a>
+`pKP` |  | <a href="#UI/pKP">See details</a>
+`Loose Permanent Points` |  | <a href="#UI/Loose Permanent Points">See details</a>
+`How many points do you want to remove?` |  | <a href="#UI/How many points do you want to remove?">See details</a>
+`Remove` |  | <a href="#UI/Remove">See details</a>
+`Permanently Spent` |  | <a href="#UI/Permanently Spent">See details</a>
 `advantages.filters.commonadvantages` |  | <a href="#UI/advantages.filters.commonadvantages">See details</a>
 `disadvantages.filters.commondisadvantages` |  | <a href="#UI/disadvantages.filters.commondisadvantages">See details</a>
 `advantagesdisadvantages.addbtn` |  | <a href="#UI/advantagesdisadvantages.addbtn">See details</a>
@@ -630,20 +665,8 @@ Key | Description | Details
 `skills.header.check` |  | <a href="#UI/skills.header.check">See details</a>
 `skills.header.improvementcost` |  | <a href="#UI/skills.header.improvementcost">See details</a>
 `skills.header.improvementcost.tooltip` |  | <a href="#UI/skills.header.improvementcost.tooltip">See details</a>
-`inlinewiki.check` |  | <a href="#UI/inlinewiki.check">See details</a>
 `inlinewiki.newapplications` |  | <a href="#UI/inlinewiki.newapplications">See details</a>
-`inlinewiki.applications` |  | <a href="#UI/inlinewiki.applications">See details</a>
 `inlinewiki.uses` |  | <a href="#UI/inlinewiki.uses">See details</a>
-`inlinewiki.encumbrance` |  | <a href="#UI/inlinewiki.encumbrance">See details</a>
-`inlinewiki.encumbrance.yes` |  | <a href="#UI/inlinewiki.encumbrance.yes">See details</a>
-`inlinewiki.encumbrance.no` |  | <a href="#UI/inlinewiki.encumbrance.no">See details</a>
-`inlinewiki.encumbrance.maybe` |  | <a href="#UI/inlinewiki.encumbrance.maybe">See details</a>
-`inlinewiki.tools` |  | <a href="#UI/inlinewiki.tools">See details</a>
-`inlinewiki.quality` |  | <a href="#UI/inlinewiki.quality">See details</a>
-`inlinewiki.failedcheck` |  | <a href="#UI/inlinewiki.failedcheck">See details</a>
-`inlinewiki.criticalsuccess` |  | <a href="#UI/inlinewiki.criticalsuccess">See details</a>
-`inlinewiki.botch` |  | <a href="#UI/inlinewiki.botch">See details</a>
-`inlinewiki.improvementcost` |  | <a href="#UI/inlinewiki.improvementcost">See details</a>
 `showfrequency.stronglyrecommended` |  | <a href="#UI/showfrequency.stronglyrecommended">See details</a>
 `showfrequency.common` |  | <a href="#UI/showfrequency.common">See details</a>
 `showfrequency.uncommon` |  | <a href="#UI/showfrequency.uncommon">See details</a>
@@ -660,6 +683,8 @@ Key | Description | Details
 `combattechniques.header.attack.tooltip` |  | <a href="#UI/combattechniques.header.attack.tooltip">See details</a>
 `combattechniques.header.parry` |  | <a href="#UI/combattechniques.header.parry">See details</a>
 `combattechniques.header.parry.tooltip` |  | <a href="#UI/combattechniques.header.parry.tooltip">See details</a>
+`Close Combat` |  | <a href="#UI/Close Combat">See details</a>
+`Ranged Combat` |  | <a href="#UI/Ranged Combat">See details</a>
 `inlinewiki.special` |  | <a href="#UI/inlinewiki.special">See details</a>
 `inlinewiki.primaryattribute` |  | <a href="#UI/inlinewiki.primaryattribute">See details</a>
 `spells.addbtn` |  | <a href="#UI/spells.addbtn">See details</a>
@@ -701,6 +726,8 @@ Key | Description | Details
 `inlinewiki.spiritortoughness` |  | <a href="#UI/inlinewiki.spiritortoughness">See details</a>
 `inlinewiki.spiritortoughness.short` |  | <a href="#UI/inlinewiki.spiritortoughness.short">See details</a>
 `inlinewiki.note` |  | <a href="#UI/inlinewiki.note">See details</a>
+`Blessings` |  | <a href="#UI/Blessings">See details</a>
+`Ceremonies` |  | <a href="#UI/Ceremonies">See details</a>
 `liturgicalchants.addbtn` |  | <a href="#UI/liturgicalchants.addbtn">See details</a>
 `liturgicalchants.header.name` |  | <a href="#UI/liturgicalchants.header.name">See details</a>
 `liturgicalchants.header.traditions` |  | <a href="#UI/liturgicalchants.header.traditions">See details</a>
@@ -837,26 +864,221 @@ Key | Description | Details
 `pets.dialogs.addedit.notes` |  | <a href="#UI/pets.dialogs.addedit.notes">See details</a>
 `pets.dialogs.addedit.addbtn` |  | <a href="#UI/pets.dialogs.addedit.addbtn">See details</a>
 `pets.dialogs.addedit.savebtn` |  | <a href="#UI/pets.dialogs.addedit.savebtn">See details</a>
+`Show details` |  | <a href="#UI/Show details">See details</a>
+`Maximum Attribute Value` |  | <a href="#UI/Maximum Attribute Value">See details</a>
+`Maximum Skill Value` |  | <a href="#UI/Maximum Skill Value">See details</a>
+`Maximum Combat Technique` |  | <a href="#UI/Maximum Combat Technique">See details</a>
+`Maximum Attribute Total` |  | <a href="#UI/Maximum Attribute Total">See details</a>
+`Number of Spells/Liturgical Chants` |  | <a href="#UI/Number of Spells/Liturgical Chants">See details</a>
+`Number from other Traditions` |  | <a href="#UI/Number from other Traditions">See details</a>
+`Check` |  | <a href="#UI/Check">See details</a>
+`Applications` |  | <a href="#UI/Applications">See details</a>
+`Encumbrance` |  | <a href="#UI/Encumbrance">See details</a>
+`Yes` |  | <a href="#UI/Yes">See details</a>
+`No` |  | <a href="#UI/No">See details</a>
+`Maybe` |  | <a href="#UI/Maybe">See details</a>
+`Tools` |  | <a href="#UI/Tools">See details</a>
+`Quality` |  | <a href="#UI/Quality">See details</a>
+`Failed Check` |  | <a href="#UI/Failed Check">See details</a>
+`Critical Success` |  | <a href="#UI/Critical Success">See details</a>
+`Botch` |  | <a href="#UI/Botch">See details</a>
+`Improvement Cost` |  | <a href="#UI/Improvement Cost">See details</a>
+`Front Cover Inside` |  | <a href="#UI/Front Cover Inside">See details</a>
+`Back Cover Inside` |  | <a href="#UI/Back Cover Inside">See details</a>
+`since the {0}. printing` |  | <a href="#UI/since the {0}. printing">See details</a>
+`removed in {0}. printing` |  | <a href="#UI/removed in {0}. printing">See details</a>
 
-#### <a name="UI/macosmenubar.aboutapp"></a> `macosmenubar.aboutapp`
-
-- `0`: Name of the app
+#### <a name="UI/About {0}"></a> `About {0}`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/macosmenubar.preferences"></a> `macosmenubar.preferences`
+#### <a name="UI/Preferences …"></a> `Preferences …`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/macosmenubar.quit"></a> `macosmenubar.quit`
+#### <a name="UI/Services"></a> `Services`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/macosmenubar.edit"></a> `macosmenubar.edit`
+#### <a name="UI/Hide {0}"></a> `Hide {0}`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/macosmenubar.view"></a> `macosmenubar.view`
+#### <a name="UI/Hide Others"></a> `Hide Others`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Show All"></a> `Show All`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Quit {0}"></a> `Quit {0}`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/File"></a> `File`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Close"></a> `Close`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Quit"></a> `Quit`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Edit"></a> `Edit`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Undo"></a> `Undo`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Redo"></a> `Redo`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Cut"></a> `Cut`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Copy"></a> `Copy`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Paste"></a> `Paste`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Delete"></a> `Delete`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Select All"></a> `Select All`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/View"></a> `View`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Toggle Full Screen"></a> `Toggle Full Screen`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Window"></a> `Window`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Minimize"></a> `Minimize`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Zoom"></a> `Zoom`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Bring All to Front"></a> `Bring All to Front`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Settings"></a> `Settings`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Main Language"></a> `Main Language`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/System Language"></a> `System Language`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Fallback Language"></a> `Fallback Language`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/No fallback language"></a> `No fallback language`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Appearance"></a> `Appearance`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Auto"></a> `Auto`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Light"></a> `Light`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Dark"></a> `Dark`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Edit characters after creation"></a> `Edit characters after creation`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Show animations"></a> `Show animations`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Check for updates"></a> `Check for updates`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Updater"></a> `Updater`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Checking for updates …"></a> `Checking for updates …`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/New version available"></a> `New version available`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Version {0} is available! Do you wish to download and install?"></a> `Version {0} is available! Do you wish to download and install?`
+
+- `0`: Version number
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Download"></a> `Download`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Download Later"></a> `Download Later`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Downloading update …"></a> `Downloading update …`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Update downloaded"></a> `Update downloaded`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Quit and Install"></a> `Quit and Install`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Install Later"></a> `Install Later`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/No update available"></a> `No update available`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/You're running the latest version available."></a> `You're running the latest version available.`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -992,13 +1214,13 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.apleft"></a> `header.apleft`
+#### <a name="UI/{0} AP Remaining"></a> `{0} AP Remaining`
 
 - `0`: AP left
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.savebtn"></a> `header.savebtn`
+#### <a name="UI/Save"></a> `Save`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -1010,125 +1232,125 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.aptooltip.title"></a> `header.aptooltip.title`
+#### <a name="UI/Adventure Points"></a> `Adventure Points`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.aptooltip.total"></a> `header.aptooltip.total`
+#### <a name="UI/{0} Total AP"></a> `{0} Total AP`
 
 - `0`: AP Total
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.aptooltip.spent"></a> `header.aptooltip.spent`
+#### <a name="UI/{0} AP Spent"></a> `{0} AP Spent`
 
 - `0`: AP Spent
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.aptooltip.spentonadvantages"></a> `header.aptooltip.spentonadvantages`
+#### <a name="UI/{0}/{1} AP spent on advantages"></a> `{0}/{1} AP spent on advantages`
 
 - `0`: Current AP spent on advantages
 - `1`: Maximum possible AP spent on advantages
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.aptooltip.spentonmagicadvantages"></a> `header.aptooltip.spentonmagicadvantages`
+#### <a name="UI/Thereof {0}/{1} on magic advantages"></a> `Thereof {0}/{1} on magic advantages`
 
 - `0`: Current AP spent on magic advantages
 - `1`: Maximum possible AP spent on magic advantages
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.aptooltip.spentonblessedadvantages"></a> `header.aptooltip.spentonblessedadvantages`
+#### <a name="UI/Thereof {0}/{1} on blessed advantages"></a> `Thereof {0}/{1} on blessed advantages`
 
 - `0`: Current AP spent on blessed advantages
 - `1`: Maximum possible AP spent on blessed advantages
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.aptooltip.spentondisadvantages"></a> `header.aptooltip.spentondisadvantages`
+#### <a name="UI/{0}/{1} AP received from disadvantages"></a> `{0}/{1} AP received from disadvantages`
 
 - `0`: Current AP spent on disadvantages
 - `1`: Maximum possible AP spent on disadvantages
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.aptooltip.spentonmagicdisadvantages"></a> `header.aptooltip.spentonmagicdisadvantages`
+#### <a name="UI/Thereof {0}/{1} from magic disadvantages"></a> `Thereof {0}/{1} from magic disadvantages`
 
 - `0`: Current AP spent on magic disadvantages
 - `1`: Maximum possible AP spent on magic disadvantages
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.aptooltip.spentonblesseddisadvantages"></a> `header.aptooltip.spentonblesseddisadvantages`
+#### <a name="UI/Thereof {0}/{1} from blessed disadvantages"></a> `Thereof {0}/{1} from blessed disadvantages`
 
 - `0`: Current AP spent on blessed disadvantages
 - `1`: Maximum possible AP spent on blessed disadvantages
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.aptooltip.spentonrace"></a> `header.aptooltip.spentonrace`
+#### <a name="UI/{0} AP spent on race"></a> `{0} AP spent on race`
 
 - `0`: AP spent on race
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.aptooltip.spentonprofession"></a> `header.aptooltip.spentonprofession`
+#### <a name="UI/{0} AP spent on profession"></a> `{0} AP spent on profession`
 
 - `0`: AP spent on profession
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.aptooltip.spentonattributes"></a> `header.aptooltip.spentonattributes`
+#### <a name="UI/{0} AP spent on attributes"></a> `{0} AP spent on attributes`
 
 - `0`: AP spent on attributes
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.aptooltip.spentonskills"></a> `header.aptooltip.spentonskills`
+#### <a name="UI/{0} AP spent on skills"></a> `{0} AP spent on skills`
 
 - `0`: AP spent on skills
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.aptooltip.spentoncombattechniques"></a> `header.aptooltip.spentoncombattechniques`
+#### <a name="UI/{0} AP spent on combat techniques"></a> `{0} AP spent on combat techniques`
 
 - `0`: AP spent on combat techniques
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.aptooltip.spentonspells"></a> `header.aptooltip.spentonspells`
+#### <a name="UI/{0} AP spent on spells"></a> `{0} AP spent on spells`
 
 - `0`: AP spent on spells
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.aptooltip.spentoncantrips"></a> `header.aptooltip.spentoncantrips`
+#### <a name="UI/{0} AP spent on cantrips"></a> `{0} AP spent on cantrips`
 
 - `0`: AP spent on cantrips
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.aptooltip.spentonliturgicalchants"></a> `header.aptooltip.spentonliturgicalchants`
+#### <a name="UI/{0} AP spent on liturgical chants"></a> `{0} AP spent on liturgical chants`
 
 - `0`: AP spent on liturgical chants
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.aptooltip.spentonblessings"></a> `header.aptooltip.spentonblessings`
+#### <a name="UI/{0} AP spent on blessings"></a> `{0} AP spent on blessings`
 
 - `0`: AP spent on blessings
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.aptooltip.spentonspecialabilities"></a> `header.aptooltip.spentonspecialabilities`
+#### <a name="UI/{0} AP spent on special abilities"></a> `{0} AP spent on special abilities`
 
 - `0`: AP spent on special abilities
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/header.aptooltip.spentonenergies"></a> `header.aptooltip.spentonenergies`
+#### <a name="UI/{0} AP spent on improving/buying back LP/AE/KP"></a> `{0} AP spent on improving/buying back LP/AE/KP`
 
 - `0`: AP spent on energies (LP/AE/KP)
 
@@ -1180,7 +1402,7 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/general.dice"></a> `general.dice`
+#### <a name="UI/D"></a> `D`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -1212,13 +1434,17 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/general.apvalue"></a> `general.apvalue`
+#### <a name="UI/No Results"></a> `No Results`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} Adventure Points"></a> `{0} Adventure Points`
 
 - `0`: AP value
 
 - **Type:** <a href="./_I18n.md#PluralizationCategories">PluralizationCategories</a>
 
-#### <a name="UI/general.apvalue.short"></a> `general.apvalue.short`
+#### <a name="UI/{0} AP"></a> `{0} AP`
 
 - `0`: AP value
 
@@ -1231,27 +1457,27 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/general.filters.searchfield.placeholder"></a> `general.filters.searchfield.placeholder`
+#### <a name="UI/Search"></a> `Search`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/general.filters.sort.alphabetically"></a> `general.filters.sort.alphabetically`
+#### <a name="UI/Sort By"></a> `Sort By`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/general.filters.sort.bydatemodified"></a> `general.filters.sort.bydatemodified`
+#### <a name="UI/Name"></a> `Name`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/general.filters.sort.bygroup"></a> `general.filters.sort.bygroup`
+#### <a name="UI/Date Modified"></a> `Date Modified`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/general.filters.sort.byimprovementcost"></a> `general.filters.sort.byimprovementcost`
+#### <a name="UI/Group"></a> `Group`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/general.filters.sort.byproperty"></a> `general.filters.sort.byproperty`
+#### <a name="UI/Property"></a> `Property`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -1275,7 +1501,7 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/general.dialogs.donebtn"></a> `general.dialogs.donebtn`
+#### <a name="UI/Done"></a> `Done`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -1295,7 +1521,7 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/general.dialogs.cancelbtn"></a> `general.dialogs.cancelbtn`
+#### <a name="UI/Cancel"></a> `Cancel`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -1311,7 +1537,7 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/general.dialogs.addbtn"></a> `general.dialogs.addbtn`
+#### <a name="UI/Add"></a> `Add`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -1363,83 +1589,6 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/settings.title"></a> `settings.title`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/settings.language"></a> `settings.language`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/settings.fallbacklanguage"></a> `settings.fallbacklanguage`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/settings.systemlanguage"></a> `settings.systemlanguage`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/settings.languagehint"></a> `settings.languagehint`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/settings.theme"></a> `settings.theme`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/settings.theme.dark"></a> `settings.theme.dark`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/settings.theme.light"></a> `settings.theme.light`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/settings.showanimations"></a> `settings.showanimations`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/settings.enableeditingheroaftercreationphase"></a> `settings.enableeditingheroaftercreationphase`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/settings.checkforupdatesbtn"></a> `settings.checkforupdatesbtn`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/settings.newversionavailable.title"></a> `settings.newversionavailable.title`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/settings.newversionavailable.message"></a> `settings.newversionavailable.message`
-
-- `0`: Version number
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/settings.newversionavailable.messagewithsize"></a> `settings.newversionavailable.messagewithsize`
-
-- `0`: Version number
-- `1`: Size of update package
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/settings.newversionavailable.updatebtn"></a> `settings.newversionavailable.updatebtn`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/settings.nonewversionavailable.title"></a> `settings.nonewversionavailable.title`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/settings.nonewversionavailable.message"></a> `settings.nonewversionavailable.message`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/settings.downloadingupdate.title"></a> `settings.downloadingupdate.title`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
 #### <a name="UI/heroes.filters.origin.allheroes"></a> `heroes.filters.origin.allheroes`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
@@ -1452,27 +1601,27 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/heroes.importherobtn"></a> `heroes.importherobtn`
+#### <a name="UI/Import"></a> `Import`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/heroes.createherobtn"></a> `heroes.createherobtn`
+#### <a name="UI/New Character"></a> `New Character`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/heroes.exportheroasjsonbtn"></a> `heroes.exportheroasjsonbtn`
+#### <a name="UI/Duplicate Character"></a> `Duplicate Character`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/heroes.duplicateherobtn"></a> `heroes.duplicateherobtn`
+#### <a name="UI/Export Character as OPTLC file"></a> `Export Character as OPTLC file`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/heroes.deleteherobtn"></a> `heroes.deleteherobtn`
+#### <a name="UI/Delete Character"></a> `Delete Character`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/heroes.openherobtn"></a> `heroes.openherobtn`
+#### <a name="UI/Open Character"></a> `Open Character`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -1646,23 +1795,43 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/profile.editprofessionnamebtn"></a> `profile.editprofessionnamebtn`
+#### <a name="UI/Edit Name"></a> `Edit Name`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/profile.addadventurepointsbtn"></a> `profile.addadventurepointsbtn`
+#### <a name="UI/Change Name"></a> `Change Name`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/profile.endherocreationbtn"></a> `profile.endherocreationbtn`
+#### <a name="UI/Edit Profession Name"></a> `Edit Profession Name`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/profile.changeheroavatarbtn"></a> `profile.changeheroavatarbtn`
+#### <a name="UI/Change Profession Name"></a> `Change Profession Name`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/profile.deleteavatarbtn"></a> `profile.deleteavatarbtn`
+#### <a name="UI/Add AP"></a> `Add AP`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Add Adventure Points"></a> `Add Adventure Points`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/How many Adventure Points do you want to add?"></a> `How many Adventure Points do you want to add?`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Finish Character Creation"></a> `Finish Character Creation`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Select New Avatar"></a> `Select New Avatar`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Delete Avatar"></a> `Delete Avatar`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -1682,79 +1851,83 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/profile.dialogs.addadventurepoints.title"></a> `profile.dialogs.addadventurepoints.title`
+#### <a name="UI/Male"></a> `Male`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/profile.dialogs.addadventurepoints.label"></a> `profile.dialogs.addadventurepoints.label`
+#### <a name="UI/Female"></a> `Female`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/profile.advantages"></a> `profile.advantages`
+#### <a name="UI/Bal’Thani"></a> `Bal’Thani`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/profile.disadvantages"></a> `profile.disadvantages`
+#### <a name="UI/Tsajana"></a> `Tsajana`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/personaldata.title"></a> `personaldata.title`
+#### <a name="UI/Family"></a> `Family`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/personaldata.sex.male"></a> `personaldata.sex.male`
+#### <a name="UI/Place of Birth"></a> `Place of Birth`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/personaldata.sex.female"></a> `personaldata.sex.female`
+#### <a name="UI/Date of Birth"></a> `Date of Birth`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/personaldata.family"></a> `personaldata.family`
+#### <a name="UI/Age"></a> `Age`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/personaldata.placeofbirth"></a> `personaldata.placeofbirth`
+#### <a name="UI/Hair Color"></a> `Hair Color`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/personaldata.dateofbirth"></a> `personaldata.dateofbirth`
+#### <a name="UI/Eye Color"></a> `Eye Color`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/personaldata.age"></a> `personaldata.age`
+#### <a name="UI/Size"></a> `Size`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/personaldata.haircolor"></a> `personaldata.haircolor`
+#### <a name="UI/Weight"></a> `Weight`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/personaldata.eyecolor"></a> `personaldata.eyecolor`
+#### <a name="UI/Title"></a> `Title`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/personaldata.size"></a> `personaldata.size`
+#### <a name="UI/Social Status"></a> `Social Status`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/personaldata.weight"></a> `personaldata.weight`
+#### <a name="UI/Characteristics"></a> `Characteristics`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/personaldata.rank"></a> `personaldata.rank`
+#### <a name="UI/Other Information"></a> `Other Information`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/personaldata.socialstatus"></a> `personaldata.socialstatus`
+#### <a name="UI/Reroll Eye Color"></a> `Reroll Eye Color`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/personaldata.characteristics"></a> `personaldata.characteristics`
+#### <a name="UI/Reroll Hair Color"></a> `Reroll Hair Color`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/personaldata.otherinfo"></a> `personaldata.otherinfo`
+#### <a name="UI/Reroll Size"></a> `Reroll Size`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Reroll Weight"></a> `Reroll Weight`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -2662,19 +2835,19 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/rules.rulebase"></a> `rules.rulebase`
+#### <a name="UI/Rule Sources"></a> `Rule Sources`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/rules.enableallrulebooks"></a> `rules.enableallrulebooks`
+#### <a name="UI/Use all publications"></a> `Use all publications`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/rules.focusrules"></a> `rules.focusrules`
+#### <a name="UI/Focus Rules"></a> `Focus Rules`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/rules.optionalrules"></a> `rules.optionalrules`
+#### <a name="UI/Optional Rules"></a> `Optional Rules`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -3123,71 +3296,83 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/attributes.totalpoints"></a> `attributes.totalpoints`
+#### <a name="UI/Total Points"></a> `Total Points`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/attributes.attributeadjustmentselection"></a> `attributes.attributeadjustmentselection`
+#### <a name="UI/Increment"></a> `Increment`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/attributes.derivedcharacteristics.tooltips.modifier"></a> `attributes.derivedcharacteristics.tooltips.modifier`
+#### <a name="UI/Decrement"></a> `Decrement`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/attributes.derivedcharacteristics.tooltips.bought"></a> `attributes.derivedcharacteristics.tooltips.bought`
+#### <a name="UI/Activate"></a> `Activate`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/attributes.derivedcharacteristics.tooltips.losttotal"></a> `attributes.derivedcharacteristics.tooltips.losttotal`
+#### <a name="UI/Attribute Adjustment Selection"></a> `Attribute Adjustment Selection`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/attributes.derivedcharacteristics.tooltips.boughtback"></a> `attributes.derivedcharacteristics.tooltips.boughtback`
+#### <a name="UI/Modifier"></a> `Modifier`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/attributes.lostpermanently.lifepoints"></a> `attributes.lostpermanently.lifepoints`
+#### <a name="UI/Bought"></a> `Bought`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/attributes.lostpermanently.lifepoints.short"></a> `attributes.lostpermanently.lifepoints.short`
+#### <a name="UI/Lost Total"></a> `Lost Total`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/attributes.lostpermanently.arcaneenergy"></a> `attributes.lostpermanently.arcaneenergy`
+#### <a name="UI/Bought Back"></a> `Bought Back`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/attributes.lostpermanently.arcaneenergy.short"></a> `attributes.lostpermanently.arcaneenergy.short`
+#### <a name="UI/Buy Back Permanently Lost Point"></a> `Buy Back Permanently Lost Point`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/attributes.lostpermanently.karmapoints"></a> `attributes.lostpermanently.karmapoints`
+#### <a name="UI/Permanently Lost Life Points"></a> `Permanently Lost Life Points`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/attributes.lostpermanently.karmapoints.short"></a> `attributes.lostpermanently.karmapoints.short`
+#### <a name="UI/pLP"></a> `pLP`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/attributes.removeenergypointslostpermanently.title"></a> `attributes.removeenergypointslostpermanently.title`
+#### <a name="UI/Permanently Lost Arcane Energy"></a> `Permanently Lost Arcane Energy`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/attributes.removeenergypointslostpermanently.message"></a> `attributes.removeenergypointslostpermanently.message`
+#### <a name="UI/pAE"></a> `pAE`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/attributes.removeenergypointslostpermanently.removebtn"></a> `attributes.removeenergypointslostpermanently.removebtn`
+#### <a name="UI/Permanently Lost Karma Points"></a> `Permanently Lost Karma Points`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/attributes.pointslostpermanentlyeditor.boughtback"></a> `attributes.pointslostpermanentlyeditor.boughtback`
+#### <a name="UI/pKP"></a> `pKP`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/attributes.pointslostpermanentlyeditor.spent"></a> `attributes.pointslostpermanentlyeditor.spent`
+#### <a name="UI/Loose Permanent Points"></a> `Loose Permanent Points`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/How many points do you want to remove?"></a> `How many points do you want to remove?`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Remove"></a> `Remove`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Permanently Spent"></a> `Permanently Spent`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -3476,59 +3661,11 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/inlinewiki.check"></a> `inlinewiki.check`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
 #### <a name="UI/inlinewiki.newapplications"></a> `inlinewiki.newapplications`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/inlinewiki.applications"></a> `inlinewiki.applications`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
 #### <a name="UI/inlinewiki.uses"></a> `inlinewiki.uses`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/inlinewiki.encumbrance"></a> `inlinewiki.encumbrance`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/inlinewiki.encumbrance.yes"></a> `inlinewiki.encumbrance.yes`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/inlinewiki.encumbrance.no"></a> `inlinewiki.encumbrance.no`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/inlinewiki.encumbrance.maybe"></a> `inlinewiki.encumbrance.maybe`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/inlinewiki.tools"></a> `inlinewiki.tools`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/inlinewiki.quality"></a> `inlinewiki.quality`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/inlinewiki.failedcheck"></a> `inlinewiki.failedcheck`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/inlinewiki.criticalsuccess"></a> `inlinewiki.criticalsuccess`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/inlinewiki.botch"></a> `inlinewiki.botch`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/inlinewiki.improvementcost"></a> `inlinewiki.improvementcost`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -3593,6 +3730,14 @@ Key | Description | Details
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/combattechniques.header.parry.tooltip"></a> `combattechniques.header.parry.tooltip`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Close Combat"></a> `Close Combat`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Ranged Combat"></a> `Ranged Combat`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -3762,6 +3907,14 @@ Key | Description | Details
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/inlinewiki.note"></a> `inlinewiki.note`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Blessings"></a> `Blessings`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Ceremonies"></a> `Ceremonies`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -4315,3 +4468,95 @@ Key | Description | Details
 #### <a name="UI/pets.dialogs.addedit.savebtn"></a> `pets.dialogs.addedit.savebtn`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Show details"></a> `Show details`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Maximum Attribute Value"></a> `Maximum Attribute Value`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Maximum Skill Value"></a> `Maximum Skill Value`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Maximum Combat Technique"></a> `Maximum Combat Technique`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Maximum Attribute Total"></a> `Maximum Attribute Total`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Number of Spells/Liturgical Chants"></a> `Number of Spells/Liturgical Chants`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Number from other Traditions"></a> `Number from other Traditions`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Check"></a> `Check`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Applications"></a> `Applications`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Encumbrance"></a> `Encumbrance`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Yes"></a> `Yes`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/No"></a> `No`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Maybe"></a> `Maybe`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Tools"></a> `Tools`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Quality"></a> `Quality`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Failed Check"></a> `Failed Check`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Critical Success"></a> `Critical Success`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Botch"></a> `Botch`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Improvement Cost"></a> `Improvement Cost`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Front Cover Inside"></a> `Front Cover Inside`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Back Cover Inside"></a> `Back Cover Inside`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/since the {0}. printing"></a> `since the {0}. printing`
+
+- **Type:** <a href="./_I18n.md#PluralizationCategories">PluralizationCategories</a>
+
+#### <a name="UI/removed in {0}. printing"></a> `removed in {0}. printing`
+
+- **Type:** <a href="./_I18n.md#PluralizationCategories">PluralizationCategories</a>

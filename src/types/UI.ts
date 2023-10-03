@@ -14,15 +14,67 @@ import { NonEmptyString } from "./_NonEmptyString.js"
  * @title UI
  */
 export type UI = {
+  // Menu
+  "About {0}": NonEmptyString
+  "Preferences …": NonEmptyString
+  "Services": NonEmptyString
+  "Hide {0}": NonEmptyString
+  "Hide Others": NonEmptyString
+  "Show All": NonEmptyString
+  "Quit {0}": NonEmptyString
+  "File": NonEmptyString
+  "Close": NonEmptyString
+  "Quit": NonEmptyString
+  "Edit": NonEmptyString
+  "Undo": NonEmptyString
+  "Redo": NonEmptyString
+  "Cut": NonEmptyString
+  "Copy": NonEmptyString
+  "Paste": NonEmptyString
+  "Delete": NonEmptyString
+  "Select All": NonEmptyString
+  "View": NonEmptyString
+  "Toggle Full Screen": NonEmptyString
+  "Window": NonEmptyString
+  "Minimize": NonEmptyString
+  "Zoom": NonEmptyString
+  "Bring All to Front": NonEmptyString
+
+  // Settings Window
+  "Settings": NonEmptyString
+  "Main Language": NonEmptyString
+  "System Language": NonEmptyString
+  "Fallback Language": NonEmptyString
+  "No fallback language": NonEmptyString
+  "Appearance": NonEmptyString
+  "Auto": NonEmptyString
+  "Light": NonEmptyString
+  "Dark": NonEmptyString
+  "Edit characters after creation": NonEmptyString
+  "Show animations": NonEmptyString
+  "Check for updates": NonEmptyString
+
+  // Updater Window
+  "Updater": NonEmptyString
+  "Checking for updates …": NonEmptyString
+  "New version available": NonEmptyString
   /**
-   * - `0`: Name of the app
+   * - `0`: Version number
    */
-  "macosmenubar.aboutapp": NonEmptyString
-  "macosmenubar.preferences": NonEmptyString
-  "macosmenubar.quit": NonEmptyString
-  "macosmenubar.edit": NonEmptyString
-  "macosmenubar.view": NonEmptyString
+  "Version {0} is available! Do you wish to download and install?": NonEmptyString
+  "Download": NonEmptyString
+  "Download Later": NonEmptyString
+  "Downloading update …": NonEmptyString
+  "Update downloaded": NonEmptyString
+  "Quit and Install": NonEmptyString
+  "Install Later": NonEmptyString
+  "No update available": NonEmptyString
+  "You're running the latest version available.": NonEmptyString
+
+  // Main Window
+
   "initialization.loadtableserror": NonEmptyString
+
   "Characters": NonEmptyString
   "Groups": NonEmptyString
   "Library": NonEmptyString
@@ -58,93 +110,95 @@ export type UI = {
   /**
    * - `0`: AP left
    */
-  "header.apleft": NonEmptyString
-  "header.savebtn": NonEmptyString
+  "{0} AP Remaining": NonEmptyString
+  "Save": NonEmptyString
   "Show Settings": NonEmptyString
   "Toggle DevTools": NonEmptyString
-  "header.aptooltip.title": NonEmptyString
+
+  "Adventure Points": NonEmptyString
   /**
    * - `0`: AP Total
    */
-  "header.aptooltip.total": NonEmptyString
+  "{0} Total AP": NonEmptyString
   /**
    * - `0`: AP Spent
    */
-  "header.aptooltip.spent": NonEmptyString
+  "{0} AP Spent": NonEmptyString
   /**
    * - `0`: Current AP spent on advantages
    * - `1`: Maximum possible AP spent on advantages
    */
-  "header.aptooltip.spentonadvantages": NonEmptyString
+  "{0}/{1} AP spent on advantages": NonEmptyString
   /**
    * - `0`: Current AP spent on magic advantages
    * - `1`: Maximum possible AP spent on magic advantages
    */
-  "header.aptooltip.spentonmagicadvantages": NonEmptyString
+  "Thereof {0}/{1} on magic advantages": NonEmptyString
   /**
    * - `0`: Current AP spent on blessed advantages
    * - `1`: Maximum possible AP spent on blessed advantages
    */
-  "header.aptooltip.spentonblessedadvantages": NonEmptyString
+  "Thereof {0}/{1} on blessed advantages": NonEmptyString
   /**
    * - `0`: Current AP spent on disadvantages
    * - `1`: Maximum possible AP spent on disadvantages
    */
-  "header.aptooltip.spentondisadvantages": NonEmptyString
+  "{0}/{1} AP received from disadvantages": NonEmptyString
   /**
    * - `0`: Current AP spent on magic disadvantages
    * - `1`: Maximum possible AP spent on magic disadvantages
    */
-  "header.aptooltip.spentonmagicdisadvantages": NonEmptyString
+  "Thereof {0}/{1} from magic disadvantages": NonEmptyString
   /**
    * - `0`: Current AP spent on blessed disadvantages
    * - `1`: Maximum possible AP spent on blessed disadvantages
    */
-  "header.aptooltip.spentonblesseddisadvantages": NonEmptyString
+  "Thereof {0}/{1} from blessed disadvantages": NonEmptyString
   /**
    * - `0`: AP spent on race
    */
-  "header.aptooltip.spentonrace": NonEmptyString
+  "{0} AP spent on race": NonEmptyString
   /**
    * - `0`: AP spent on profession
    */
-  "header.aptooltip.spentonprofession": NonEmptyString
+  "{0} AP spent on profession": NonEmptyString
   /**
    * - `0`: AP spent on attributes
    */
-  "header.aptooltip.spentonattributes": NonEmptyString
+  "{0} AP spent on attributes": NonEmptyString
   /**
    * - `0`: AP spent on skills
    */
-  "header.aptooltip.spentonskills": NonEmptyString
+  "{0} AP spent on skills": NonEmptyString
   /**
    * - `0`: AP spent on combat techniques
    */
-  "header.aptooltip.spentoncombattechniques": NonEmptyString
+  "{0} AP spent on combat techniques": NonEmptyString
   /**
    * - `0`: AP spent on spells
    */
-  "header.aptooltip.spentonspells": NonEmptyString
+  "{0} AP spent on spells": NonEmptyString
   /**
    * - `0`: AP spent on cantrips
    */
-  "header.aptooltip.spentoncantrips": NonEmptyString
+  "{0} AP spent on cantrips": NonEmptyString
   /**
    * - `0`: AP spent on liturgical chants
    */
-  "header.aptooltip.spentonliturgicalchants": NonEmptyString
+  "{0} AP spent on liturgical chants": NonEmptyString
   /**
    * - `0`: AP spent on blessings
    */
-  "header.aptooltip.spentonblessings": NonEmptyString
+  "{0} AP spent on blessings": NonEmptyString
   /**
    * - `0`: AP spent on special abilities
    */
-  "header.aptooltip.spentonspecialabilities": NonEmptyString
+  "{0} AP spent on special abilities": NonEmptyString
   /**
    * - `0`: AP spent on energies (LP/AE/KP)
    */
-  "header.aptooltip.spentonenergies": NonEmptyString
+  "{0} AP spent on improving/buying back LP/AE/KP": NonEmptyString
+
   "header.dialogs.herosaved": NonEmptyString
   "header.dialogs.allsaved": NonEmptyString
   "header.dialogs.everythingelsesaved": NonEmptyString
@@ -164,7 +218,7 @@ export type UI = {
    * - `0`: Length in cm
    */
   "general.lengthvalue": NonEmptyString
-  "general.dice": NonEmptyString
+  "D": NonEmptyString
   "general.none": NonEmptyString
   "general.or": NonEmptyString
   "general.and": NonEmptyString
@@ -172,40 +226,41 @@ export type UI = {
   "general.errorcode": NonEmptyString
   "general.emptylistplaceholder": NonEmptyString
   "general.emptylistnoresultsplaceholder": NonEmptyString
+  "No Results": NonEmptyString
   /**
    * - `0`: AP value
    */
-  "general.apvalue": PluralizationCategories
+  "{0} Adventure Points": PluralizationCategories
   /**
    * - `0`: AP value
    */
-  "general.apvalue.short": NonEmptyString
+  "{0} AP": NonEmptyString
   /**
    * - `0`: Name of element
    * - `1`: AP value
    */
   "general.withapvalue": NonEmptyString
-  "general.filters.searchfield.placeholder": NonEmptyString
-  "general.filters.sort.alphabetically": NonEmptyString
-  "general.filters.sort.bydatemodified": NonEmptyString
-  "general.filters.sort.bygroup": NonEmptyString
-  "general.filters.sort.byimprovementcost": NonEmptyString
-  "general.filters.sort.byproperty": NonEmptyString
+  "Search": NonEmptyString
+  "Sort By": NonEmptyString
+  "Name": NonEmptyString
+  "Date Modified": NonEmptyString
+  "Group": NonEmptyString
+  "Property": NonEmptyString
   "general.filters.sort.bylocation": NonEmptyString
   "general.filters.sort.bycost": NonEmptyString
   "general.filters.sort.byweight": NonEmptyString
   "general.filters.showactivatedentries": NonEmptyString
   "general.dialogs.savebtn": NonEmptyString
-  "general.dialogs.donebtn": NonEmptyString
+  "Done": NonEmptyString
   "general.dialogs.deletebtn": NonEmptyString
   "general.dialogs.yesbtn": NonEmptyString
   "general.dialogs.nobtn": NonEmptyString
   "general.dialogs.okbtn": NonEmptyString
-  "general.dialogs.cancelbtn": NonEmptyString
+  "Cancel": NonEmptyString
   "general.dialogs.copybtn": NonEmptyString
   "general.dialogs.createbtn": NonEmptyString
   "general.dialogs.applybtn": NonEmptyString
-  "general.dialogs.addbtn": NonEmptyString
+  "Add": NonEmptyString
   "general.dialogs.notenoughap.title": NonEmptyString
   /**
    * - `0`: Missing AP
@@ -227,40 +282,15 @@ export type UI = {
   "general.dialogs.reachedaplimit.disadvantages": NonEmptyString
   "general.dialogs.reachedaplimit.magicaldisadvantages": NonEmptyString
   "general.dialogs.reachedaplimit.blesseddisadvantages": NonEmptyString
-  "settings.title": NonEmptyString
-  "settings.language": NonEmptyString
-  "settings.fallbacklanguage": NonEmptyString
-  "settings.systemlanguage": NonEmptyString
-  "settings.languagehint": NonEmptyString
-  "settings.theme": NonEmptyString
-  "settings.theme.dark": NonEmptyString
-  "settings.theme.light": NonEmptyString
-  "settings.showanimations": NonEmptyString
-  "settings.enableeditingheroaftercreationphase": NonEmptyString
-  "settings.checkforupdatesbtn": NonEmptyString
-  "settings.newversionavailable.title": NonEmptyString
-  /**
-   * - `0`: Version number
-   */
-  "settings.newversionavailable.message": NonEmptyString
-  /**
-   * - `0`: Version number
-   * - `1`: Size of update package
-   */
-  "settings.newversionavailable.messagewithsize": NonEmptyString
-  "settings.newversionavailable.updatebtn": NonEmptyString
-  "settings.nonewversionavailable.title": NonEmptyString
-  "settings.nonewversionavailable.message": NonEmptyString
-  "settings.downloadingupdate.title": NonEmptyString
   "heroes.filters.origin.allheroes": NonEmptyString
   "heroes.filters.origin.ownheroes": NonEmptyString
   "heroes.filters.origin.sharedheroes": NonEmptyString
-  "heroes.importherobtn": NonEmptyString
-  "heroes.createherobtn": NonEmptyString
-  "heroes.exportheroasjsonbtn": NonEmptyString
-  "heroes.duplicateherobtn": NonEmptyString
-  "heroes.deleteherobtn": NonEmptyString
-  "heroes.openherobtn": NonEmptyString
+  "Import": NonEmptyString
+  "New Character": NonEmptyString
+  "Duplicate Character": NonEmptyString
+  "Export Character as OPTLC file": NonEmptyString
+  "Delete Character": NonEmptyString
+  "Open Character": NonEmptyString
   "heroes.saveherobtn": NonEmptyString
   "heroes.unsavedhero.name": NonEmptyString
   "heroes.list.adventurepoints": NonEmptyString
@@ -306,34 +336,42 @@ export type UI = {
   "wiki.filters.itemtemplates": NonEmptyString
   "wiki.filters.itemtemplates.all": NonEmptyString
   "imprint.title": NonEmptyString
-  "profile.editprofessionnamebtn": NonEmptyString
-  "profile.addadventurepointsbtn": NonEmptyString
-  "profile.endherocreationbtn": NonEmptyString
-  "profile.changeheroavatarbtn": NonEmptyString
-  "profile.deleteavatarbtn": NonEmptyString
+  "Edit Name": NonEmptyString
+  "Change Name": NonEmptyString
+  "Edit Profession Name": NonEmptyString
+  "Change Profession Name": NonEmptyString
+  "Add AP": NonEmptyString
+  "Add Adventure Points": NonEmptyString
+  "How many Adventure Points do you want to add?": NonEmptyString
+  "Finish Character Creation": NonEmptyString
+  "Select New Avatar": NonEmptyString
+  "Delete Avatar": NonEmptyString
   "profile.dialogs.changeheroavatar.title": NonEmptyString
   "profile.dialogs.changeheroavatar.selectfilebtn": NonEmptyString
   "profile.dialogs.changeheroavatar.imagefiletype": NonEmptyString
   "profile.dialogs.changeheroavatar.invalidfilewarning": NonEmptyString
-  "profile.dialogs.addadventurepoints.title": NonEmptyString
-  "profile.dialogs.addadventurepoints.label": NonEmptyString
-  "profile.advantages": NonEmptyString
-  "profile.disadvantages": NonEmptyString
-  "personaldata.title": NonEmptyString
-  "personaldata.sex.male": NonEmptyString
-  "personaldata.sex.female": NonEmptyString
-  "personaldata.family": NonEmptyString
-  "personaldata.placeofbirth": NonEmptyString
-  "personaldata.dateofbirth": NonEmptyString
-  "personaldata.age": NonEmptyString
-  "personaldata.haircolor": NonEmptyString
-  "personaldata.eyecolor": NonEmptyString
-  "personaldata.size": NonEmptyString
-  "personaldata.weight": NonEmptyString
-  "personaldata.rank": NonEmptyString
-  "personaldata.socialstatus": NonEmptyString
-  "personaldata.characteristics": NonEmptyString
-  "personaldata.otherinfo": NonEmptyString
+
+  // Personal Data
+  "Male": NonEmptyString
+  "Female": NonEmptyString
+  "Bal’Thani": NonEmptyString
+  "Tsajana": NonEmptyString
+  "Family": NonEmptyString
+  "Place of Birth": NonEmptyString
+  "Date of Birth": NonEmptyString
+  "Age": NonEmptyString
+  "Hair Color": NonEmptyString
+  "Eye Color": NonEmptyString
+  "Size": NonEmptyString
+  "Weight": NonEmptyString
+  "Title": NonEmptyString
+  "Social Status": NonEmptyString
+  "Characteristics": NonEmptyString
+  "Other Information": NonEmptyString
+  "Reroll Eye Color": NonEmptyString
+  "Reroll Hair Color": NonEmptyString
+  "Reroll Size": NonEmptyString
+  "Reroll Weight": NonEmptyString
   "personaldata.cultureareaknowledge": NonEmptyString
   "sheets.printtopdfbtn": NonEmptyString
   "sheets.dialogs.pdfexportsavelocation.title": NonEmptyString
@@ -560,10 +598,12 @@ export type UI = {
   "pacts.minorpact": NonEmptyString
   "pacts.pactisincompletehint": NonEmptyString
   "pacts.name": NonEmptyString
-  "rules.rulebase": NonEmptyString
-  "rules.enableallrulebooks": NonEmptyString
-  "rules.focusrules": NonEmptyString
-  "rules.optionalrules": NonEmptyString
+
+  // Rules
+  "Rule Sources": NonEmptyString
+  "Use all publications": NonEmptyString
+  "Focus Rules": NonEmptyString
+  "Optional Rules": NonEmptyString
   "rules.manualherodatarepair": NonEmptyString
   "rules.manualherodatarepairexplanation": NonEmptyString
   "inlinewiki.complementarysources": NonEmptyString
@@ -728,23 +768,26 @@ export type UI = {
   "rcpselectoptions.unfamiliarspellselectionfortraditionguildmage": NonEmptyString
   "rcpselectoptions.unfamiliarspell.placeholder": NonEmptyString
   "rcpselectoptions.unfamiliarspell": NonEmptyString
-  "attributes.totalpoints": NonEmptyString
-  "attributes.attributeadjustmentselection": NonEmptyString
-  "attributes.derivedcharacteristics.tooltips.modifier": NonEmptyString
-  "attributes.derivedcharacteristics.tooltips.bought": NonEmptyString
-  "attributes.derivedcharacteristics.tooltips.losttotal": NonEmptyString
-  "attributes.derivedcharacteristics.tooltips.boughtback": NonEmptyString
-  "attributes.lostpermanently.lifepoints": NonEmptyString
-  "attributes.lostpermanently.lifepoints.short": NonEmptyString
-  "attributes.lostpermanently.arcaneenergy": NonEmptyString
-  "attributes.lostpermanently.arcaneenergy.short": NonEmptyString
-  "attributes.lostpermanently.karmapoints": NonEmptyString
-  "attributes.lostpermanently.karmapoints.short": NonEmptyString
-  "attributes.removeenergypointslostpermanently.title": NonEmptyString
-  "attributes.removeenergypointslostpermanently.message": NonEmptyString
-  "attributes.removeenergypointslostpermanently.removebtn": NonEmptyString
-  "attributes.pointslostpermanentlyeditor.boughtback": NonEmptyString
-  "attributes.pointslostpermanentlyeditor.spent": NonEmptyString
+  "Total Points": NonEmptyString
+  "Increment": NonEmptyString
+  "Decrement": NonEmptyString
+  "Activate": NonEmptyString
+  "Attribute Adjustment Selection": NonEmptyString
+  "Modifier": NonEmptyString
+  "Bought": NonEmptyString
+  "Lost Total": NonEmptyString
+  "Bought Back": NonEmptyString
+  "Buy Back Permanently Lost Point": NonEmptyString
+  "Permanently Lost Life Points": NonEmptyString
+  "pLP": NonEmptyString
+  "Permanently Lost Arcane Energy": NonEmptyString
+  "pAE": NonEmptyString
+  "Permanently Lost Karma Points": NonEmptyString
+  "pKP": NonEmptyString
+  "Loose Permanent Points": NonEmptyString
+  "How many points do you want to remove?": NonEmptyString
+  "Remove": NonEmptyString
+  "Permanently Spent": NonEmptyString
   "advantages.filters.commonadvantages": NonEmptyString
   "disadvantages.filters.commondisadvantages": NonEmptyString
   "advantagesdisadvantages.addbtn": NonEmptyString
@@ -844,20 +887,8 @@ export type UI = {
   "skills.header.check": NonEmptyString
   "skills.header.improvementcost": NonEmptyString
   "skills.header.improvementcost.tooltip": NonEmptyString
-  "inlinewiki.check": NonEmptyString
   "inlinewiki.newapplications": NonEmptyString
-  "inlinewiki.applications": NonEmptyString
   "inlinewiki.uses": NonEmptyString
-  "inlinewiki.encumbrance": NonEmptyString
-  "inlinewiki.encumbrance.yes": NonEmptyString
-  "inlinewiki.encumbrance.no": NonEmptyString
-  "inlinewiki.encumbrance.maybe": NonEmptyString
-  "inlinewiki.tools": NonEmptyString
-  "inlinewiki.quality": NonEmptyString
-  "inlinewiki.failedcheck": NonEmptyString
-  "inlinewiki.criticalsuccess": NonEmptyString
-  "inlinewiki.botch": NonEmptyString
-  "inlinewiki.improvementcost": NonEmptyString
   "showfrequency.stronglyrecommended": NonEmptyString
   "showfrequency.common": NonEmptyString
   "showfrequency.uncommon": NonEmptyString
@@ -874,6 +905,8 @@ export type UI = {
   "combattechniques.header.attack.tooltip": NonEmptyString
   "combattechniques.header.parry": NonEmptyString
   "combattechniques.header.parry.tooltip": NonEmptyString
+  "Close Combat": NonEmptyString
+  "Ranged Combat": NonEmptyString
   "inlinewiki.special": NonEmptyString
   "inlinewiki.primaryattribute": NonEmptyString
   "spells.addbtn": NonEmptyString
@@ -921,6 +954,9 @@ export type UI = {
   "inlinewiki.spiritortoughness": NonEmptyString
   "inlinewiki.spiritortoughness.short": NonEmptyString
   "inlinewiki.note": NonEmptyString
+
+  "Blessings": NonEmptyString
+  "Ceremonies": NonEmptyString
   "liturgicalchants.addbtn": NonEmptyString
   "liturgicalchants.header.name": NonEmptyString
   "liturgicalchants.header.traditions": NonEmptyString
@@ -1066,6 +1102,36 @@ export type UI = {
   "pets.dialogs.addedit.notes": NonEmptyString
   "pets.dialogs.addedit.addbtn": NonEmptyString
   "pets.dialogs.addedit.savebtn": NonEmptyString
+
+  // Inline Library
+  "Show details": NonEmptyString
+
+  // Experience Level
+  "Maximum Attribute Value": NonEmptyString
+  "Maximum Skill Value": NonEmptyString
+  "Maximum Combat Technique": NonEmptyString
+  "Maximum Attribute Total": NonEmptyString
+  "Number of Spells/Liturgical Chants": NonEmptyString
+  "Number from other Traditions": NonEmptyString
+
+  // Skill
+  "Check": NonEmptyString
+  "Applications": NonEmptyString
+  "Encumbrance": NonEmptyString
+  "Yes": NonEmptyString
+  "No": NonEmptyString
+  "Maybe": NonEmptyString
+  "Tools": NonEmptyString
+  "Quality": NonEmptyString
+  "Failed Check": NonEmptyString
+  "Critical Success": NonEmptyString
+  "Botch": NonEmptyString
+  "Improvement Cost": NonEmptyString
+
+  "Front Cover Inside": NonEmptyString
+  "Back Cover Inside": NonEmptyString
+  "since the {0}. printing": PluralizationCategories
+  "removed in {0}. printing": PluralizationCategories
 }
 
 export const config: TypeConfig<UI, string> = {

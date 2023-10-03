@@ -7,20 +7,149 @@
       "title": "UI",
       "type": "object",
       "properties": {
-        "macosmenubar.aboutapp": {
-          "description": "- `0`: Name of the app",
+        "About {0}": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "macosmenubar.preferences": {
+        "Preferences …": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "macosmenubar.quit": {
+        "Services": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "macosmenubar.edit": {
+        "Hide {0}": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "macosmenubar.view": {
+        "Hide Others": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Show All": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Quit {0}": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "File": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Close": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Quit": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Edit": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Undo": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Redo": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Cut": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Copy": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Paste": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Delete": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Select All": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "View": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Toggle Full Screen": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Window": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Minimize": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Zoom": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Bring All to Front": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Settings": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Main Language": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "System Language": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Fallback Language": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "No fallback language": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Appearance": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Auto": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Light": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Dark": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Edit characters after creation": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Show animations": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Check for updates": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Updater": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Checking for updates …": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "New version available": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Version {0} is available! Do you wish to download and install?": {
+          "description": "- `0`: Version number",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Download": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Download Later": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Downloading update …": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Update downloaded": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Quit and Install": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Install Later": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "No update available": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "You're running the latest version available.": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "initialization.loadtableserror": {
@@ -122,11 +251,11 @@
         "Pets": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.apleft": {
+        "{0} AP Remaining": {
           "description": "- `0`: AP left",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.savebtn": {
+        "Save": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "Show Settings": {
@@ -135,82 +264,82 @@
         "Toggle DevTools": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.aptooltip.title": {
+        "Adventure Points": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.aptooltip.total": {
+        "{0} Total AP": {
           "description": "- `0`: AP Total",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.aptooltip.spent": {
+        "{0} AP Spent": {
           "description": "- `0`: AP Spent",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.aptooltip.spentonadvantages": {
+        "{0}/{1} AP spent on advantages": {
           "description": "- `0`: Current AP spent on advantages\n- `1`: Maximum possible AP spent on advantages",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.aptooltip.spentonmagicadvantages": {
+        "Thereof {0}/{1} on magic advantages": {
           "description": "- `0`: Current AP spent on magic advantages\n- `1`: Maximum possible AP spent on magic advantages",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.aptooltip.spentonblessedadvantages": {
+        "Thereof {0}/{1} on blessed advantages": {
           "description": "- `0`: Current AP spent on blessed advantages\n- `1`: Maximum possible AP spent on blessed advantages",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.aptooltip.spentondisadvantages": {
+        "{0}/{1} AP received from disadvantages": {
           "description": "- `0`: Current AP spent on disadvantages\n- `1`: Maximum possible AP spent on disadvantages",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.aptooltip.spentonmagicdisadvantages": {
+        "Thereof {0}/{1} from magic disadvantages": {
           "description": "- `0`: Current AP spent on magic disadvantages\n- `1`: Maximum possible AP spent on magic disadvantages",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.aptooltip.spentonblesseddisadvantages": {
+        "Thereof {0}/{1} from blessed disadvantages": {
           "description": "- `0`: Current AP spent on blessed disadvantages\n- `1`: Maximum possible AP spent on blessed disadvantages",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.aptooltip.spentonrace": {
+        "{0} AP spent on race": {
           "description": "- `0`: AP spent on race",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.aptooltip.spentonprofession": {
+        "{0} AP spent on profession": {
           "description": "- `0`: AP spent on profession",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.aptooltip.spentonattributes": {
+        "{0} AP spent on attributes": {
           "description": "- `0`: AP spent on attributes",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.aptooltip.spentonskills": {
+        "{0} AP spent on skills": {
           "description": "- `0`: AP spent on skills",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.aptooltip.spentoncombattechniques": {
+        "{0} AP spent on combat techniques": {
           "description": "- `0`: AP spent on combat techniques",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.aptooltip.spentonspells": {
+        "{0} AP spent on spells": {
           "description": "- `0`: AP spent on spells",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.aptooltip.spentoncantrips": {
+        "{0} AP spent on cantrips": {
           "description": "- `0`: AP spent on cantrips",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.aptooltip.spentonliturgicalchants": {
+        "{0} AP spent on liturgical chants": {
           "description": "- `0`: AP spent on liturgical chants",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.aptooltip.spentonblessings": {
+        "{0} AP spent on blessings": {
           "description": "- `0`: AP spent on blessings",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.aptooltip.spentonspecialabilities": {
+        "{0} AP spent on special abilities": {
           "description": "- `0`: AP spent on special abilities",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "header.aptooltip.spentonenergies": {
+        "{0} AP spent on improving/buying back LP/AE/KP": {
           "description": "- `0`: AP spent on energies (LP/AE/KP)",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
@@ -247,7 +376,7 @@
           "description": "- `0`: Length in cm",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dice": {
+        "D": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.none": {
@@ -271,11 +400,14 @@
         "general.emptylistnoresultsplaceholder": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.apvalue": {
+        "No Results": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} Adventure Points": {
           "description": "- `0`: AP value",
           "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
         },
-        "general.apvalue.short": {
+        "{0} AP": {
           "description": "- `0`: AP value",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
@@ -283,22 +415,22 @@
           "description": "- `0`: Name of element\n- `1`: AP value",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.filters.searchfield.placeholder": {
+        "Search": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.filters.sort.alphabetically": {
+        "Sort By": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.filters.sort.bydatemodified": {
+        "Name": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.filters.sort.bygroup": {
+        "Date Modified": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.filters.sort.byimprovementcost": {
+        "Group": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.filters.sort.byproperty": {
+        "Property": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.filters.sort.bylocation": {
@@ -316,7 +448,7 @@
         "general.dialogs.savebtn": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.donebtn": {
+        "Done": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.dialogs.deletebtn": {
@@ -331,7 +463,7 @@
         "general.dialogs.okbtn": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.cancelbtn": {
+        "Cancel": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.dialogs.copybtn": {
@@ -343,7 +475,7 @@
         "general.dialogs.applybtn": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.addbtn": {
+        "Add": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.dialogs.notenoughap.title": {
@@ -379,62 +511,6 @@
         "general.dialogs.reachedaplimit.blesseddisadvantages": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "settings.title": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "settings.language": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "settings.fallbacklanguage": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "settings.systemlanguage": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "settings.languagehint": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "settings.theme": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "settings.theme.dark": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "settings.theme.light": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "settings.showanimations": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "settings.enableeditingheroaftercreationphase": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "settings.checkforupdatesbtn": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "settings.newversionavailable.title": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "settings.newversionavailable.message": {
-          "description": "- `0`: Version number",
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "settings.newversionavailable.messagewithsize": {
-          "description": "- `0`: Version number\n- `1`: Size of update package",
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "settings.newversionavailable.updatebtn": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "settings.nonewversionavailable.title": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "settings.nonewversionavailable.message": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "settings.downloadingupdate.title": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
         "heroes.filters.origin.allheroes": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
@@ -444,22 +520,22 @@
         "heroes.filters.origin.sharedheroes": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "heroes.importherobtn": {
+        "Import": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "heroes.createherobtn": {
+        "New Character": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "heroes.exportheroasjsonbtn": {
+        "Duplicate Character": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "heroes.duplicateherobtn": {
+        "Export Character as OPTLC file": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "heroes.deleteherobtn": {
+        "Delete Character": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "heroes.openherobtn": {
+        "Open Character": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.saveherobtn": {
@@ -589,19 +665,34 @@
         "imprint.title": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "profile.editprofessionnamebtn": {
+        "Edit Name": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "profile.addadventurepointsbtn": {
+        "Change Name": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "profile.endherocreationbtn": {
+        "Edit Profession Name": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "profile.changeheroavatarbtn": {
+        "Change Profession Name": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "profile.deleteavatarbtn": {
+        "Add AP": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Add Adventure Points": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "How many Adventure Points do you want to add?": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Finish Character Creation": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Select New Avatar": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Delete Avatar": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "profile.dialogs.changeheroavatar.title": {
@@ -616,61 +707,64 @@
         "profile.dialogs.changeheroavatar.invalidfilewarning": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "profile.dialogs.addadventurepoints.title": {
+        "Male": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "profile.dialogs.addadventurepoints.label": {
+        "Female": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "profile.advantages": {
+        "Bal’Thani": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "profile.disadvantages": {
+        "Tsajana": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "personaldata.title": {
+        "Family": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "personaldata.sex.male": {
+        "Place of Birth": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "personaldata.sex.female": {
+        "Date of Birth": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "personaldata.family": {
+        "Age": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "personaldata.placeofbirth": {
+        "Hair Color": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "personaldata.dateofbirth": {
+        "Eye Color": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "personaldata.age": {
+        "Size": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "personaldata.haircolor": {
+        "Weight": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "personaldata.eyecolor": {
+        "Title": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "personaldata.size": {
+        "Social Status": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "personaldata.weight": {
+        "Characteristics": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "personaldata.rank": {
+        "Other Information": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "personaldata.socialstatus": {
+        "Reroll Eye Color": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "personaldata.characteristics": {
+        "Reroll Hair Color": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "personaldata.otherinfo": {
+        "Reroll Size": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Reroll Weight": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "personaldata.cultureareaknowledge": {
@@ -1351,16 +1445,16 @@
         "pacts.name": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "rules.rulebase": {
+        "Rule Sources": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "rules.enableallrulebooks": {
+        "Use all publications": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "rules.focusrules": {
+        "Focus Rules": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "rules.optionalrules": {
+        "Optional Rules": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "rules.manualherodatarepair": {
@@ -1676,55 +1770,64 @@
         "rcpselectoptions.unfamiliarspell": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "attributes.totalpoints": {
+        "Total Points": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "attributes.attributeadjustmentselection": {
+        "Increment": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "attributes.derivedcharacteristics.tooltips.modifier": {
+        "Decrement": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "attributes.derivedcharacteristics.tooltips.bought": {
+        "Activate": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "attributes.derivedcharacteristics.tooltips.losttotal": {
+        "Attribute Adjustment Selection": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "attributes.derivedcharacteristics.tooltips.boughtback": {
+        "Modifier": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "attributes.lostpermanently.lifepoints": {
+        "Bought": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "attributes.lostpermanently.lifepoints.short": {
+        "Lost Total": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "attributes.lostpermanently.arcaneenergy": {
+        "Bought Back": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "attributes.lostpermanently.arcaneenergy.short": {
+        "Buy Back Permanently Lost Point": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "attributes.lostpermanently.karmapoints": {
+        "Permanently Lost Life Points": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "attributes.lostpermanently.karmapoints.short": {
+        "pLP": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "attributes.removeenergypointslostpermanently.title": {
+        "Permanently Lost Arcane Energy": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "attributes.removeenergypointslostpermanently.message": {
+        "pAE": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "attributes.removeenergypointslostpermanently.removebtn": {
+        "Permanently Lost Karma Points": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "attributes.pointslostpermanentlyeditor.boughtback": {
+        "pKP": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "attributes.pointslostpermanentlyeditor.spent": {
+        "Loose Permanent Points": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "How many points do you want to remove?": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Remove": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Permanently Spent": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "advantages.filters.commonadvantages": {
@@ -1931,46 +2034,10 @@
         "skills.header.improvementcost.tooltip": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "inlinewiki.check": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
         "inlinewiki.newapplications": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "inlinewiki.applications": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
         "inlinewiki.uses": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "inlinewiki.encumbrance": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "inlinewiki.encumbrance.yes": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "inlinewiki.encumbrance.no": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "inlinewiki.encumbrance.maybe": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "inlinewiki.tools": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "inlinewiki.quality": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "inlinewiki.failedcheck": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "inlinewiki.criticalsuccess": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "inlinewiki.botch": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "inlinewiki.improvementcost": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "showfrequency.stronglyrecommended": {
@@ -2019,6 +2086,12 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "combattechniques.header.parry.tooltip": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Close Combat": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Ranged Combat": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.special": {
@@ -2143,6 +2216,12 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.note": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Blessings": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Ceremonies": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "liturgicalchants.addbtn": {
@@ -2554,14 +2633,126 @@
         },
         "pets.dialogs.addedit.savebtn": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Show details": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Maximum Attribute Value": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Maximum Skill Value": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Maximum Combat Technique": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Maximum Attribute Total": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Number of Spells/Liturgical Chants": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Number from other Traditions": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Check": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Applications": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Encumbrance": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Yes": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "No": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Maybe": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Tools": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Quality": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Failed Check": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Critical Success": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Botch": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Improvement Cost": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Front Cover Inside": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Back Cover Inside": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "since the {0}. printing": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "removed in {0}. printing": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
         }
       },
       "required": [
-        "macosmenubar.aboutapp",
-        "macosmenubar.preferences",
-        "macosmenubar.quit",
-        "macosmenubar.edit",
-        "macosmenubar.view",
+        "About {0}",
+        "Preferences …",
+        "Services",
+        "Hide {0}",
+        "Hide Others",
+        "Show All",
+        "Quit {0}",
+        "File",
+        "Close",
+        "Quit",
+        "Edit",
+        "Undo",
+        "Redo",
+        "Cut",
+        "Copy",
+        "Paste",
+        "Delete",
+        "Select All",
+        "View",
+        "Toggle Full Screen",
+        "Window",
+        "Minimize",
+        "Zoom",
+        "Bring All to Front",
+        "Settings",
+        "Main Language",
+        "System Language",
+        "Fallback Language",
+        "No fallback language",
+        "Appearance",
+        "Auto",
+        "Light",
+        "Dark",
+        "Edit characters after creation",
+        "Show animations",
+        "Check for updates",
+        "Updater",
+        "Checking for updates …",
+        "New version available",
+        "Version {0} is available! Do you wish to download and install?",
+        "Download",
+        "Download Later",
+        "Downloading update …",
+        "Update downloaded",
+        "Quit and Install",
+        "Install Later",
+        "No update available",
+        "You're running the latest version available.",
         "initialization.loadtableserror",
         "Characters",
         "Groups",
@@ -2595,30 +2786,30 @@
         "Equipment",
         "Hit Zone Armor",
         "Pets",
-        "header.apleft",
-        "header.savebtn",
+        "{0} AP Remaining",
+        "Save",
         "Show Settings",
         "Toggle DevTools",
-        "header.aptooltip.title",
-        "header.aptooltip.total",
-        "header.aptooltip.spent",
-        "header.aptooltip.spentonadvantages",
-        "header.aptooltip.spentonmagicadvantages",
-        "header.aptooltip.spentonblessedadvantages",
-        "header.aptooltip.spentondisadvantages",
-        "header.aptooltip.spentonmagicdisadvantages",
-        "header.aptooltip.spentonblesseddisadvantages",
-        "header.aptooltip.spentonrace",
-        "header.aptooltip.spentonprofession",
-        "header.aptooltip.spentonattributes",
-        "header.aptooltip.spentonskills",
-        "header.aptooltip.spentoncombattechniques",
-        "header.aptooltip.spentonspells",
-        "header.aptooltip.spentoncantrips",
-        "header.aptooltip.spentonliturgicalchants",
-        "header.aptooltip.spentonblessings",
-        "header.aptooltip.spentonspecialabilities",
-        "header.aptooltip.spentonenergies",
+        "Adventure Points",
+        "{0} Total AP",
+        "{0} AP Spent",
+        "{0}/{1} AP spent on advantages",
+        "Thereof {0}/{1} on magic advantages",
+        "Thereof {0}/{1} on blessed advantages",
+        "{0}/{1} AP received from disadvantages",
+        "Thereof {0}/{1} from magic disadvantages",
+        "Thereof {0}/{1} from blessed disadvantages",
+        "{0} AP spent on race",
+        "{0} AP spent on profession",
+        "{0} AP spent on attributes",
+        "{0} AP spent on skills",
+        "{0} AP spent on combat techniques",
+        "{0} AP spent on spells",
+        "{0} AP spent on cantrips",
+        "{0} AP spent on liturgical chants",
+        "{0} AP spent on blessings",
+        "{0} AP spent on special abilities",
+        "{0} AP spent on improving/buying back LP/AE/KP",
         "header.dialogs.herosaved",
         "header.dialogs.allsaved",
         "header.dialogs.everythingelsesaved",
@@ -2629,7 +2820,7 @@
         "general.weightvalue",
         "general.pricevalue",
         "general.lengthvalue",
-        "general.dice",
+        "D",
         "general.none",
         "general.or",
         "general.and",
@@ -2637,30 +2828,31 @@
         "general.errorcode",
         "general.emptylistplaceholder",
         "general.emptylistnoresultsplaceholder",
-        "general.apvalue",
-        "general.apvalue.short",
+        "No Results",
+        "{0} Adventure Points",
+        "{0} AP",
         "general.withapvalue",
-        "general.filters.searchfield.placeholder",
-        "general.filters.sort.alphabetically",
-        "general.filters.sort.bydatemodified",
-        "general.filters.sort.bygroup",
-        "general.filters.sort.byimprovementcost",
-        "general.filters.sort.byproperty",
+        "Search",
+        "Sort By",
+        "Name",
+        "Date Modified",
+        "Group",
+        "Property",
         "general.filters.sort.bylocation",
         "general.filters.sort.bycost",
         "general.filters.sort.byweight",
         "general.filters.showactivatedentries",
         "general.dialogs.savebtn",
-        "general.dialogs.donebtn",
+        "Done",
         "general.dialogs.deletebtn",
         "general.dialogs.yesbtn",
         "general.dialogs.nobtn",
         "general.dialogs.okbtn",
-        "general.dialogs.cancelbtn",
+        "Cancel",
         "general.dialogs.copybtn",
         "general.dialogs.createbtn",
         "general.dialogs.applybtn",
-        "general.dialogs.addbtn",
+        "Add",
         "general.dialogs.notenoughap.title",
         "general.dialogs.notenoughap.message",
         "general.dialogs.reachedaplimit.title",
@@ -2671,33 +2863,15 @@
         "general.dialogs.reachedaplimit.disadvantages",
         "general.dialogs.reachedaplimit.magicaldisadvantages",
         "general.dialogs.reachedaplimit.blesseddisadvantages",
-        "settings.title",
-        "settings.language",
-        "settings.fallbacklanguage",
-        "settings.systemlanguage",
-        "settings.languagehint",
-        "settings.theme",
-        "settings.theme.dark",
-        "settings.theme.light",
-        "settings.showanimations",
-        "settings.enableeditingheroaftercreationphase",
-        "settings.checkforupdatesbtn",
-        "settings.newversionavailable.title",
-        "settings.newversionavailable.message",
-        "settings.newversionavailable.messagewithsize",
-        "settings.newversionavailable.updatebtn",
-        "settings.nonewversionavailable.title",
-        "settings.nonewversionavailable.message",
-        "settings.downloadingupdate.title",
         "heroes.filters.origin.allheroes",
         "heroes.filters.origin.ownheroes",
         "heroes.filters.origin.sharedheroes",
-        "heroes.importherobtn",
-        "heroes.createherobtn",
-        "heroes.exportheroasjsonbtn",
-        "heroes.duplicateherobtn",
-        "heroes.deleteherobtn",
-        "heroes.openherobtn",
+        "Import",
+        "New Character",
+        "Duplicate Character",
+        "Export Character as OPTLC file",
+        "Delete Character",
+        "Open Character",
         "heroes.saveherobtn",
         "heroes.unsavedhero.name",
         "heroes.list.adventurepoints",
@@ -2740,34 +2914,40 @@
         "wiki.filters.itemtemplates",
         "wiki.filters.itemtemplates.all",
         "imprint.title",
-        "profile.editprofessionnamebtn",
-        "profile.addadventurepointsbtn",
-        "profile.endherocreationbtn",
-        "profile.changeheroavatarbtn",
-        "profile.deleteavatarbtn",
+        "Edit Name",
+        "Change Name",
+        "Edit Profession Name",
+        "Change Profession Name",
+        "Add AP",
+        "Add Adventure Points",
+        "How many Adventure Points do you want to add?",
+        "Finish Character Creation",
+        "Select New Avatar",
+        "Delete Avatar",
         "profile.dialogs.changeheroavatar.title",
         "profile.dialogs.changeheroavatar.selectfilebtn",
         "profile.dialogs.changeheroavatar.imagefiletype",
         "profile.dialogs.changeheroavatar.invalidfilewarning",
-        "profile.dialogs.addadventurepoints.title",
-        "profile.dialogs.addadventurepoints.label",
-        "profile.advantages",
-        "profile.disadvantages",
-        "personaldata.title",
-        "personaldata.sex.male",
-        "personaldata.sex.female",
-        "personaldata.family",
-        "personaldata.placeofbirth",
-        "personaldata.dateofbirth",
-        "personaldata.age",
-        "personaldata.haircolor",
-        "personaldata.eyecolor",
-        "personaldata.size",
-        "personaldata.weight",
-        "personaldata.rank",
-        "personaldata.socialstatus",
-        "personaldata.characteristics",
-        "personaldata.otherinfo",
+        "Male",
+        "Female",
+        "Bal’Thani",
+        "Tsajana",
+        "Family",
+        "Place of Birth",
+        "Date of Birth",
+        "Age",
+        "Hair Color",
+        "Eye Color",
+        "Size",
+        "Weight",
+        "Title",
+        "Social Status",
+        "Characteristics",
+        "Other Information",
+        "Reroll Eye Color",
+        "Reroll Hair Color",
+        "Reroll Size",
+        "Reroll Weight",
         "personaldata.cultureareaknowledge",
         "sheets.printtopdfbtn",
         "sheets.dialogs.pdfexportsavelocation.title",
@@ -2994,10 +3174,10 @@
         "pacts.minorpact",
         "pacts.pactisincompletehint",
         "pacts.name",
-        "rules.rulebase",
-        "rules.enableallrulebooks",
-        "rules.focusrules",
-        "rules.optionalrules",
+        "Rule Sources",
+        "Use all publications",
+        "Focus Rules",
+        "Optional Rules",
         "rules.manualherodatarepair",
         "rules.manualherodatarepairexplanation",
         "inlinewiki.complementarysources",
@@ -3097,23 +3277,26 @@
         "rcpselectoptions.unfamiliarspellselectionfortraditionguildmage",
         "rcpselectoptions.unfamiliarspell.placeholder",
         "rcpselectoptions.unfamiliarspell",
-        "attributes.totalpoints",
-        "attributes.attributeadjustmentselection",
-        "attributes.derivedcharacteristics.tooltips.modifier",
-        "attributes.derivedcharacteristics.tooltips.bought",
-        "attributes.derivedcharacteristics.tooltips.losttotal",
-        "attributes.derivedcharacteristics.tooltips.boughtback",
-        "attributes.lostpermanently.lifepoints",
-        "attributes.lostpermanently.lifepoints.short",
-        "attributes.lostpermanently.arcaneenergy",
-        "attributes.lostpermanently.arcaneenergy.short",
-        "attributes.lostpermanently.karmapoints",
-        "attributes.lostpermanently.karmapoints.short",
-        "attributes.removeenergypointslostpermanently.title",
-        "attributes.removeenergypointslostpermanently.message",
-        "attributes.removeenergypointslostpermanently.removebtn",
-        "attributes.pointslostpermanentlyeditor.boughtback",
-        "attributes.pointslostpermanentlyeditor.spent",
+        "Total Points",
+        "Increment",
+        "Decrement",
+        "Activate",
+        "Attribute Adjustment Selection",
+        "Modifier",
+        "Bought",
+        "Lost Total",
+        "Bought Back",
+        "Buy Back Permanently Lost Point",
+        "Permanently Lost Life Points",
+        "pLP",
+        "Permanently Lost Arcane Energy",
+        "pAE",
+        "Permanently Lost Karma Points",
+        "pKP",
+        "Loose Permanent Points",
+        "How many points do you want to remove?",
+        "Remove",
+        "Permanently Spent",
         "advantages.filters.commonadvantages",
         "disadvantages.filters.commondisadvantages",
         "advantagesdisadvantages.addbtn",
@@ -3179,20 +3362,8 @@
         "skills.header.check",
         "skills.header.improvementcost",
         "skills.header.improvementcost.tooltip",
-        "inlinewiki.check",
         "inlinewiki.newapplications",
-        "inlinewiki.applications",
         "inlinewiki.uses",
-        "inlinewiki.encumbrance",
-        "inlinewiki.encumbrance.yes",
-        "inlinewiki.encumbrance.no",
-        "inlinewiki.encumbrance.maybe",
-        "inlinewiki.tools",
-        "inlinewiki.quality",
-        "inlinewiki.failedcheck",
-        "inlinewiki.criticalsuccess",
-        "inlinewiki.botch",
-        "inlinewiki.improvementcost",
         "showfrequency.stronglyrecommended",
         "showfrequency.common",
         "showfrequency.uncommon",
@@ -3209,6 +3380,8 @@
         "combattechniques.header.attack.tooltip",
         "combattechniques.header.parry",
         "combattechniques.header.parry.tooltip",
+        "Close Combat",
+        "Ranged Combat",
         "inlinewiki.special",
         "inlinewiki.primaryattribute",
         "spells.addbtn",
@@ -3250,6 +3423,8 @@
         "inlinewiki.spiritortoughness",
         "inlinewiki.spiritortoughness.short",
         "inlinewiki.note",
+        "Blessings",
+        "Ceremonies",
         "liturgicalchants.addbtn",
         "liturgicalchants.header.name",
         "liturgicalchants.header.traditions",
@@ -3385,7 +3560,30 @@
         "pets.dialogs.addedit.specialabilities",
         "pets.dialogs.addedit.notes",
         "pets.dialogs.addedit.addbtn",
-        "pets.dialogs.addedit.savebtn"
+        "pets.dialogs.addedit.savebtn",
+        "Show details",
+        "Maximum Attribute Value",
+        "Maximum Skill Value",
+        "Maximum Combat Technique",
+        "Maximum Attribute Total",
+        "Number of Spells/Liturgical Chants",
+        "Number from other Traditions",
+        "Check",
+        "Applications",
+        "Encumbrance",
+        "Yes",
+        "No",
+        "Maybe",
+        "Tools",
+        "Quality",
+        "Failed Check",
+        "Critical Success",
+        "Botch",
+        "Improvement Cost",
+        "Front Cover Inside",
+        "Back Cover Inside",
+        "since the {0}. printing",
+        "removed in {0}. printing"
       ],
       "additionalProperties": false
     }
