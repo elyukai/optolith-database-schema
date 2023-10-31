@@ -31,6 +31,7 @@ Key | Description | Details
 `Window` |  | <a href="#UI/Window">See details</a>
 `Minimize` |  | <a href="#UI/Minimize">See details</a>
 `Zoom` |  | <a href="#UI/Zoom">See details</a>
+`Main Window` |  | <a href="#UI/Main Window">See details</a>
 `Bring All to Front` |  | <a href="#UI/Bring All to Front">See details</a>
 `Settings` |  | <a href="#UI/Settings">See details</a>
 `Main Language` |  | <a href="#UI/Main Language">See details</a>
@@ -687,6 +688,17 @@ Key | Description | Details
 `Ranged Combat` |  | <a href="#UI/Ranged Combat">See details</a>
 `inlinewiki.special` |  | <a href="#UI/inlinewiki.special">See details</a>
 `inlinewiki.primaryattribute` |  | <a href="#UI/inlinewiki.primaryattribute">See details</a>
+`Cantrips` |  | <a href="#UI/Cantrips">See details</a>
+`Rituals` |  | <a href="#UI/Rituals">See details</a>
+`Curses` |  | <a href="#UI/Curses">See details</a>
+`Elven Magical Songs` |  | <a href="#UI/Elven Magical Songs">See details</a>
+`Domination Rituals` |  | <a href="#UI/Domination Rituals">See details</a>
+`Magical Dances` |  | <a href="#UI/Magical Dances">See details</a>
+`Magical Melodies` |  | <a href="#UI/Magical Melodies">See details</a>
+`Jester Tricks` |  | <a href="#UI/Jester Tricks">See details</a>
+`Animist Powers` |  | <a href="#UI/Animist Powers">See details</a>
+`Geode Rituals` |  | <a href="#UI/Geode Rituals">See details</a>
+`Zibilja Rituals` |  | <a href="#UI/Zibilja Rituals">See details</a>
 `spells.addbtn` |  | <a href="#UI/spells.addbtn">See details</a>
 `spells.header.name` |  | <a href="#UI/spells.header.name">See details</a>
 `spells.header.property` |  | <a href="#UI/spells.header.property">See details</a>
@@ -978,6 +990,10 @@ Key | Description | Details
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/Zoom"></a> `Zoom`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Main Window"></a> `Main Window`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -3750,6 +3766,50 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
+#### <a name="UI/Cantrips"></a> `Cantrips`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Rituals"></a> `Rituals`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Curses"></a> `Curses`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Elven Magical Songs"></a> `Elven Magical Songs`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Domination Rituals"></a> `Domination Rituals`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Magical Dances"></a> `Magical Dances`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Magical Melodies"></a> `Magical Melodies`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Jester Tricks"></a> `Jester Tricks`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Animist Powers"></a> `Animist Powers`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Geode Rituals"></a> `Geode Rituals`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Zibilja Rituals"></a> `Zibilja Rituals`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
 #### <a name="UI/spells.addbtn"></a> `spells.addbtn`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
@@ -4561,3 +4621,15 @@ Key | Description | Details
 #### <a name="UI/removed in {0}. printing"></a> `removed in {0}. printing`
 
 - **Type:** <a href="./_I18n.md#PluralizationCategories">PluralizationCategories</a>
+
+---
+
+### <a name="UI/File'NonEmptyString"></a> `UI/File'NonEmptyString`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+---
+
+### <a name="UI/File'VaryBySystem"></a> `UI/File'VaryBySystem`
+
+- **Type:** <a href="./_I18n.md#VaryBySystem">VaryBySystem</a>

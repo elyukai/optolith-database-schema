@@ -38,6 +38,7 @@ export type UI = {
   "Window": NonEmptyString
   "Minimize": NonEmptyString
   "Zoom": NonEmptyString
+  "Main Window": NonEmptyString
   "Bring All to Front": NonEmptyString
 
   // Settings Window
@@ -909,6 +910,18 @@ export type UI = {
   "Ranged Combat": NonEmptyString
   "inlinewiki.special": NonEmptyString
   "inlinewiki.primaryattribute": NonEmptyString
+
+  "Cantrips": NonEmptyString
+  "Rituals": NonEmptyString
+  "Curses": NonEmptyString
+  "Elven Magical Songs": NonEmptyString
+  "Domination Rituals": NonEmptyString
+  "Magical Dances": NonEmptyString
+  "Magical Melodies": NonEmptyString
+  "Jester Tricks": NonEmptyString
+  "Animist Powers": NonEmptyString
+  "Geode Rituals": NonEmptyString
+  "Zibilja Rituals": NonEmptyString
   "spells.addbtn": NonEmptyString
   "spells.header.name": NonEmptyString
   "spells.header.property": NonEmptyString

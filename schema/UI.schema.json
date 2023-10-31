@@ -83,6 +83,9 @@
         "Zoom": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
+        "Main Window": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
         "Bring All to Front": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
@@ -2107,6 +2110,39 @@
         "inlinewiki.primaryattribute": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
+        "Cantrips": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Rituals": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Curses": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Elven Magical Songs": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Domination Rituals": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Magical Dances": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Magical Melodies": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Jester Tricks": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Animist Powers": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Geode Rituals": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Zibilja Rituals": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
         "spells.addbtn": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
@@ -2735,6 +2771,7 @@
         "Window",
         "Minimize",
         "Zoom",
+        "Main Window",
         "Bring All to Front",
         "Settings",
         "Main Language",
@@ -3391,6 +3428,17 @@
         "Ranged Combat",
         "inlinewiki.special",
         "inlinewiki.primaryattribute",
+        "Cantrips",
+        "Rituals",
+        "Curses",
+        "Elven Magical Songs",
+        "Domination Rituals",
+        "Magical Dances",
+        "Magical Melodies",
+        "Jester Tricks",
+        "Animist Powers",
+        "Geode Rituals",
+        "Zibilja Rituals",
         "spells.addbtn",
         "spells.header.name",
         "spells.header.property",
