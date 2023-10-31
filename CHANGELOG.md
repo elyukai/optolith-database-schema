@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.13.1](https://github.com/elyukai/optolith-database-schema/compare/v0.13.0...v0.13.1) (2023-10-31)
+
+
+### Features
+
+* add strings for main window and spellwork/magical action categories ([0fe96bc](https://github.com/elyukai/optolith-database-schema/commit/0fe96bcb9f300dddd21f8f9d02826e4c7e2cee31))
+* translation strings can vary by operating system ([952a0aa](https://github.com/elyukai/optolith-database-schema/commit/952a0aa5bcc8296f15837270d54456e08b2d89b2))
+
 ## [0.13.0](https://github.com/elyukai/optolith-database-schema/compare/v0.12.1...v0.13.0) (2023-10-03)
 
 
