@@ -29,7 +29,14 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "File": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+          "oneOf": [
+            {
+              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+            },
+            {
+              "$ref": "./_I18n.schema.json#/$defs/VaryBySystem"
+            }
+          ]
         },
         "Close": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"

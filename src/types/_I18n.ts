@@ -33,3 +33,12 @@ export type PluralizationCategories = {
   many?: NonEmptyString
   other: NonEmptyString
 }
+
+/**
+ * The item can be different for each operating system.
+ */
+export type VaryBySystem = {
+  mac: NonEmptyString
+  windows: NonEmptyString
+  linux: NonEmptyString
+}

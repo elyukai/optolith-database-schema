@@ -7,7 +7,7 @@ import { TypeConfig } from "../typeConfig.js"
 import { validateLanguageFileName } from "../validation/builders/naming.js"
 import { createSchemaValidator } from "../validation/builders/schema.js"
 import { getFilenameAsStringId } from "../validation/filename.js"
-import { PluralizationCategories } from "./_I18n.js"
+import { PluralizationCategories, VaryBySystem } from "./_I18n.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
 
 /**
@@ -22,7 +22,7 @@ export type UI = {
   "Hide Others": NonEmptyString
   "Show All": NonEmptyString
   "Quit {0}": NonEmptyString
-  "File": NonEmptyString
+  "File": NonEmptyString | VaryBySystem
   "Close": NonEmptyString
   "Quit": NonEmptyString
   "Edit": NonEmptyString

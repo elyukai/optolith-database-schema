@@ -918,7 +918,8 @@ Key | Description | Details
 
 #### <a name="UI/File"></a> `File`
 
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+- **Type:** Union
+- **Cases:** <a href="#UI/File'NonEmptyString">UI/File'NonEmptyString</a> | <a href="#UI/File'VaryBySystem">UI/File'VaryBySystem</a>
 
 #### <a name="UI/Close"></a> `Close`
 

@@ -29,6 +29,27 @@
         "other"
       ],
       "additionalProperties": false
+    },
+    "VaryBySystem": {
+      "description": "The item can be different for each operating system.",
+      "type": "object",
+      "properties": {
+        "mac": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "windows": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "linux": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "mac",
+        "windows",
+        "linux"
+      ],
+      "additionalProperties": false
     }
   }
 }
