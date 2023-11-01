@@ -83,9 +83,9 @@ export const getRawValidationResults = async (
   entityDirPaths: EntityDirectoryPaths,
   options: ValidationOptions = {}
 ): Promise<TypeValidationResultsByType> => {
-  const { checkIntegrity = false } = options
+  const { checkIntegrity = false, ajvOptions = {} } = options
 
-  const validator = await getPreparedSchemaValidator(jsonSchemaSpec, {}, jsonSchemaDir)
+  const validator = await getPreparedSchemaValidator(jsonSchemaSpec, ajvOptions, jsonSchemaDir)
   const entityDirectoryPathEntries =
     Object.entries(entityDirPaths) as [typeName: keyof TypeMap, path: string][]
 

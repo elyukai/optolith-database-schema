@@ -1,3 +1,4 @@
+import type { Options as AjvOptions } from "ajv"
 import { mkdir, readFile, writeFile } from "node:fs/promises"
 import { dirname } from "node:path"
 import { CacheConfig } from "./cacheConfig.js"
@@ -21,6 +22,11 @@ export type ValidationOptions = {
    * @default false
    */
   checkIntegrity?: boolean
+
+  /**
+   * Ajv instance options. See https://ajv.js.org/options.html.
+   */
+  ajvOptions?: AjvOptions
 }
 
 /**
