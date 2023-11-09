@@ -41,16 +41,7 @@ The target category – the kind of creature or object – the skill affects.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Blessing/translations[key]">Blessing/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="Blessing/translations[key]"></a> `Blessing/translations[key]`
-
-- **Type:** <a href="#BlessingTranslation">BlessingTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#BlessingTranslation">BlessingTranslation</a>&gt;
 
 ---
 
@@ -302,16 +293,7 @@ Key | Description | Details
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#IndefiniteBlessingDuration/translations[key]">IndefiniteBlessingDuration/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="IndefiniteBlessingDuration/translations[key]"></a> `IndefiniteBlessingDuration/translations[key]`
-
-- **Type:** <a href="#IndefiniteDurationTranslation">IndefiniteDurationTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#IndefiniteDurationTranslation">IndefiniteDurationTranslation</a>&gt;
 
 ---
 

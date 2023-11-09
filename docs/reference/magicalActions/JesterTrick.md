@@ -69,16 +69,7 @@ States which column is used to improve the skill.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#JesterTrick/translations[key]">JesterTrick/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="JesterTrick/translations[key]"></a> `JesterTrick/translations[key]`
-
-- **Type:** <a href="#JesterTrickTranslation">JesterTrickTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#JesterTrickTranslation">JesterTrickTranslation</a>&gt;
 
 ---
 

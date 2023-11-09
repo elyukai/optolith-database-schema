@@ -53,10 +53,7 @@ The continents this script is present on.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Script/translations[key]">Script/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#ScriptTranslation">ScriptTranslation</a>&gt;
 
 ---
 
@@ -69,12 +66,6 @@ All translations for the entry, identified by IETF language tag (BCP47).
 ### <a name="Script/continent[]"></a> `Script/continent[]`
 
 - **Type:** <a href="./_LanguageScript.md#AssociatedContinent">AssociatedContinent</a>
-
----
-
-### <a name="Script/translations[key]"></a> `Script/translations[key]`
-
-- **Type:** <a href="#ScriptTranslation">ScriptTranslation</a>
 
 ---
 

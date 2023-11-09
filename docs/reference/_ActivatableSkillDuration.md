@@ -123,16 +123,7 @@ Specified if the duration has a maximum time span.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Immediate/translations[key]">Immediate/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="Immediate/translations[key]"></a> `Immediate/translations[key]`
-
-- **Type:** <a href="#ImmediateTranslation">ImmediateTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#ImmediateTranslation">ImmediateTranslation</a>&gt;
 
 ---
 
@@ -164,16 +155,7 @@ Key | Description | Details
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#PermanentDuration/translations[key]">PermanentDuration/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="PermanentDuration/translations[key]"></a> `PermanentDuration/translations[key]`
-
-- **Type:** <a href="#PermanentDurationTranslation">PermanentDurationTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#PermanentDurationTranslation">PermanentDurationTranslation</a>&gt;
 
 ---
 
@@ -227,16 +209,7 @@ The duration unit.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#FixedDuration/translations[key]">FixedDuration/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="FixedDuration/translations[key]"></a> `FixedDuration/translations[key]`
-
-- **Type:** <a href="#FixedDurationTranslation">FixedDurationTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#FixedDurationTranslation">FixedDurationTranslation</a>&gt;
 
 ---
 
@@ -253,61 +226,6 @@ Key | Description | Details
 A replacement string.
 
 - **Type:** <a href="./_ResponsiveText.md#ResponsiveTextReplace">ResponsiveTextReplace</a>
-
----
-
-### <a name="CheckResultBasedDuration"></a> `CheckResultBasedDuration`
-
-Defines the duration being based on a check result.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`base` | The base value that is derived from the check result. | <a href="#CheckResultBasedDuration/base">See details</a>
-`modifier?` | If defined, it modifies the base value. | <a href="#CheckResultBasedDuration/modifier">See details</a>
-`is_maximum?` | If the duration is the maximum duration, so it may end earlier. | <a href="#CheckResultBasedDuration/is_maximum">See details</a>
-`unit` | The duration unit. | <a href="#CheckResultBasedDuration/unit">See details</a>
-`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#CheckResultBasedDuration/translations">See details</a>
-
-#### <a name="CheckResultBasedDuration/base"></a> `base`
-
-The base value that is derived from the check result.
-
-- **Type:** <a href="./_ActivatableSkillCheckResultBased.md#CheckResultValue">CheckResultValue</a>
-
-#### <a name="CheckResultBasedDuration/modifier"></a> `modifier?`
-
-If defined, it modifies the base value.
-
-- **Type:** <a href="./_ActivatableSkillCheckResultBased.md#CheckResultBasedModifier">CheckResultBasedModifier</a>
-
-#### <a name="CheckResultBasedDuration/is_maximum"></a> `is_maximum?`
-
-If the duration is the maximum duration, so it may end earlier.
-
-- **Constant:** `true`
-
-#### <a name="CheckResultBasedDuration/unit"></a> `unit`
-
-The duration unit.
-
-- **Type:** <a href="#DurationUnit">DurationUnit</a>
-
-#### <a name="CheckResultBasedDuration/translations"></a> `translations?`
-
-All translations for the entry, identified by IETF language tag (BCP47).
-
-- **Type:** Dictionary
-- **Property Values:** <a href="#CheckResultBasedDuration/translations[key]">CheckResultBasedDuration/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="CheckResultBasedDuration/translations[key]"></a> `CheckResultBasedDuration/translations[key]`
-
-- **Type:** <a href="#CheckResultBasedDurationTranslation">CheckResultBasedDurationTranslation</a>
 
 ---
 
@@ -339,16 +257,7 @@ Key | Description | Details
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#IndefiniteDuration/translations[key]">IndefiniteDuration/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="IndefiniteDuration/translations[key]"></a> `IndefiniteDuration/translations[key]`
-
-- **Type:** <a href="#IndefiniteDurationTranslation">IndefiniteDurationTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#IndefiniteDurationTranslation">IndefiniteDurationTranslation</a>&gt;
 
 ---
 

@@ -21,27 +21,27 @@ Key | Description | Details
 
 #### <a name="GeneralSpecialAbility/id"></a> `id`
 
-- **Type:** <a href="../_Activatable.md#Id">Id</a>
+- **Type:** <a href="#Id">Id</a>
 
 #### <a name="GeneralSpecialAbility/levels"></a> `levels?`
 
-- **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+- **Type:** <a href="#Levels">Levels</a>
 
 #### <a name="GeneralSpecialAbility/select_options"></a> `select_options?`
 
-- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
+- **Type:** <a href="#SelectOptions">SelectOptions</a>
 
 #### <a name="GeneralSpecialAbility/skill_applications"></a> `skill_applications?`
 
-- **Type:** <a href="../_Activatable.md#SkillApplications">SkillApplications</a>
+- **Type:** <a href="#SkillApplications">SkillApplications</a>
 
 #### <a name="GeneralSpecialAbility/skill_uses"></a> `skill_uses?`
 
-- **Type:** <a href="../_Activatable.md#SkillUses">SkillUses</a>
+- **Type:** <a href="#SkillUses">SkillUses</a>
 
 #### <a name="GeneralSpecialAbility/maximum"></a> `maximum?`
 
-- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+- **Type:** <a href="#Maximum">Maximum</a>
 
 #### <a name="GeneralSpecialAbility/prerequisites"></a> `prerequisites?`
 
@@ -49,7 +49,7 @@ Key | Description | Details
 
 #### <a name="GeneralSpecialAbility/ap_value"></a> `ap_value`
 
-- **Type:** <a href="../_Activatable.md#AdventurePointsValue">AdventurePointsValue</a>
+- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>
 
 #### <a name="GeneralSpecialAbility/src"></a> `src`
 
@@ -59,16 +59,7 @@ Key | Description | Details
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#GeneralSpecialAbility/translations[key]">GeneralSpecialAbility/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="GeneralSpecialAbility/translations[key]"></a> `GeneralSpecialAbility/translations[key]`
-
-- **Type:** <a href="#GeneralSpecialAbilityTranslation">GeneralSpecialAbilityTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#GeneralSpecialAbilityTranslation">GeneralSpecialAbilityTranslation</a>&gt;
 
 ---
 
@@ -87,21 +78,21 @@ Key | Description | Details
 
 #### <a name="GeneralSpecialAbilityTranslation/name"></a> `name`
 
-- **Type:** <a href="../_Activatable.md#Name">Name</a>
+- **Type:** <a href="#Name">Name</a>
 
 #### <a name="GeneralSpecialAbilityTranslation/name_in_library"></a> `name_in_library?`
 
-- **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
+- **Type:** <a href="#NameInLibrary">NameInLibrary</a>
 
 #### <a name="GeneralSpecialAbilityTranslation/input"></a> `input?`
 
 A string that is used as a label for an input field.
 
-- **Type:** <a href="../_Activatable.md#Input">Input</a>
+- **Type:** <a href="#Input">Input</a>
 
 #### <a name="GeneralSpecialAbilityTranslation/rules"></a> `rules`
 
-- **Type:** <a href="../_Activatable.md#Rules">Rules</a>
+- **Type:** <a href="#Rules">Rules</a>
 
 #### <a name="GeneralSpecialAbilityTranslation/ap_value_append"></a> `ap_value_append?`
 
@@ -109,7 +100,7 @@ A string that gets appended to the default AP Value text with a preceding
 space. This always happens if present, even if the generated AP Value text
 is replaced.
 
-- **Type:** <a href="../_Activatable.md#AdventurePointsValueAppend">AdventurePointsValueAppend</a>
+- **Type:** <a href="#AdventurePointsValueAppend">AdventurePointsValueAppend</a>
 
 #### <a name="GeneralSpecialAbilityTranslation/errata"></a> `errata?`
 

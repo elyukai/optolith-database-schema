@@ -60,22 +60,13 @@ default of 3.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Language/translations[key]">Language/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#LanguageTranslation">LanguageTranslation</a>&gt;
 
 ---
 
 ### <a name="Language/continent[]"></a> `Language/continent[]`
 
 - **Type:** <a href="./_LanguageScript.md#AssociatedContinent">AssociatedContinent</a>
-
----
-
-### <a name="Language/translations[key]"></a> `Language/translations[key]`
-
-- **Type:** <a href="#LanguageTranslation">LanguageTranslation</a>
 
 ---
 
@@ -168,16 +159,7 @@ The specialization's identifier. An unique, increasing integer.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#SpecificSpecialization/translations[key]">SpecificSpecialization/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="SpecificSpecialization/translations[key]"></a> `SpecificSpecialization/translations[key]`
-
-- **Type:** <a href="#SpecificSpecializationTranslation">SpecificSpecializationTranslation</a>
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#SpecificSpecializationTranslation">SpecificSpecializationTranslation</a>&gt;
 
 ---
 
@@ -217,16 +199,7 @@ Key | Description | Details
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#IndefiniteSpecializations/translations[key]">IndefiniteSpecializations/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="IndefiniteSpecializations/translations[key]"></a> `IndefiniteSpecializations/translations[key]`
-
-- **Type:** <a href="#IndefiniteSpecializationsTranslation">IndefiniteSpecializationsTranslation</a>
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#IndefiniteSpecializationsTranslation">IndefiniteSpecializationsTranslation</a>&gt;
 
 ---
 

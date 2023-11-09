@@ -37,22 +37,13 @@ Defines for which creature type(s) the service is available.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Service/translations[key]">Service/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#ServiceTranslation">ServiceTranslation</a>&gt;
 
 ---
 
 ### <a name="Service/availability[]"></a> `Service/availability[]`
 
 - **Type:** <a href="#ServiceAvailability">ServiceAvailability</a>
-
----
-
-### <a name="Service/translations[key]"></a> `Service/translations[key]`
-
-- **Type:** <a href="#ServiceTranslation">ServiceTranslation</a>
 
 ---
 

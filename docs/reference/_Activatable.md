@@ -252,16 +252,7 @@ Specific AP cost for the select option.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#ExplicitGeneralSelectOption/translations[key]">ExplicitGeneralSelectOption/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="ExplicitGeneralSelectOption/translations[key]"></a> `ExplicitGeneralSelectOption/translations[key]`
-
-- **Type:** <a href="#ExplicitGeneralSelectOptionTranslation">ExplicitGeneralSelectOptionTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#ExplicitGeneralSelectOptionTranslation">ExplicitGeneralSelectOptionTranslation</a>&gt;
 
 ---
 
@@ -375,10 +366,7 @@ Specific AP cost for the select option.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#ExplicitSkillSelectOption/translations[key]">ExplicitSkillSelectOption/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#ExplicitSkillSelectOptionTranslation">ExplicitSkillSelectOptionTranslation</a>&gt;
 
 ---
 
@@ -391,12 +379,6 @@ All translations for the entry, identified by IETF language tag (BCP47).
 ### <a name="ExplicitSkillSelectOption/skill_uses[]"></a> `ExplicitSkillSelectOption/skill_uses[]`
 
 - **Type:** <a href="./_ActivatableSelectOptionCategory.md#SkillApplicationOrUse">SkillApplicationOrUse</a>
-
----
-
-### <a name="ExplicitSkillSelectOption/translations[key]"></a> `ExplicitSkillSelectOption/translations[key]`
-
-- **Type:** <a href="#ExplicitSkillSelectOptionTranslation">ExplicitSkillSelectOptionTranslation</a>
 
 ---
 
@@ -461,16 +443,7 @@ Specific AP cost for the select option.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#ExplicitCombatTechniqueSelectOption/translations[key]">ExplicitCombatTechniqueSelectOption/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="ExplicitCombatTechniqueSelectOption/translations[key]"></a> `ExplicitCombatTechniqueSelectOption/translations[key]`
-
-- **Type:** <a href="#ExplicitCombatTechniqueSelectOptionTranslation">ExplicitCombatTechniqueSelectOptionTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#ExplicitCombatTechniqueSelectOptionTranslation">ExplicitCombatTechniqueSelectOptionTranslation</a>&gt;
 
 ---
 
@@ -600,16 +573,7 @@ The skill(s) this application belongs to.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#SkillApplication/translations[key]">SkillApplication/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="SkillApplication/translations[key]"></a> `SkillApplication/translations[key]`
-
-- **Type:** <a href="#SkillApplicationTranslation">SkillApplicationTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#SkillApplicationTranslation">SkillApplicationTranslation</a>&gt;
 
 ---
 
@@ -753,16 +717,7 @@ The skill(s) this use belongs to.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#SkillUse/translations[key]">SkillUse/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="SkillUse/translations[key]"></a> `SkillUse/translations[key]`
-
-- **Type:** <a href="#SkillUseTranslation">SkillUseTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#SkillUseTranslation">SkillUseTranslation</a>&gt;
 
 ---
 
@@ -1587,16 +1542,7 @@ AE for level I; 2 AE for level II`).
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#FixedArcaneEnergyCost/translations[key]">FixedArcaneEnergyCost/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="FixedArcaneEnergyCost/translations[key]"></a> `FixedArcaneEnergyCost/translations[key]`
-
-- **Type:** <a href="#FixedArcaneEnergyCostTranslation">FixedArcaneEnergyCostTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#FixedArcaneEnergyCostTranslation">FixedArcaneEnergyCostTranslation</a>&gt;
 
 ---
 
@@ -1669,16 +1615,7 @@ amount, regardless of the entity count.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#ArcaneEnergyCostPerCountable/translations[key]">ArcaneEnergyCostPerCountable/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="ArcaneEnergyCostPerCountable/translations[key]"></a> `ArcaneEnergyCostPerCountable/translations[key]`
-
-- **Type:** <a href="#ArcaneEnergyCostPerCountableTranslation">ArcaneEnergyCostPerCountableTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#ArcaneEnergyCostPerCountableTranslation">ArcaneEnergyCostPerCountableTranslation</a>&gt;
 
 ---
 
@@ -1776,16 +1713,7 @@ certain value.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#IndefiniteArcaneEnergyCost/translations[key]">IndefiniteArcaneEnergyCost/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="IndefiniteArcaneEnergyCost/translations[key]"></a> `IndefiniteArcaneEnergyCost/translations[key]`
-
-- **Type:** <a href="#IndefiniteArcaneEnergyCostTranslation">IndefiniteArcaneEnergyCostTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#IndefiniteArcaneEnergyCostTranslation">IndefiniteArcaneEnergyCostTranslation</a>&gt;
 
 ---
 
@@ -1929,16 +1857,7 @@ A possible AE cost value.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#ArcaneEnergyCostDisjunctionOption/translations[key]">ArcaneEnergyCostDisjunctionOption/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="ArcaneEnergyCostDisjunctionOption/translations[key]"></a> `ArcaneEnergyCostDisjunctionOption/translations[key]`
-
-- **Type:** <a href="#ArcaneEnergyCostDisjunctionOptionTranslation">ArcaneEnergyCostDisjunctionOptionTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#ArcaneEnergyCostDisjunctionOptionTranslation">ArcaneEnergyCostDisjunctionOptionTranslation</a>&gt;
 
 ---
 
@@ -1972,16 +1891,7 @@ Key | Description | Details
 All translations for the entry, identified by IETF language tag
 (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#NoArcaneEnergyCost/translations[key]">NoArcaneEnergyCost/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="NoArcaneEnergyCost/translations[key]"></a> `NoArcaneEnergyCost/translations[key]`
-
-- **Type:** <a href="#NoArcaneEnergyCostTranslation">NoArcaneEnergyCostTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#NoArcaneEnergyCostTranslation">NoArcaneEnergyCostTranslation</a>&gt;
 
 ---
 
@@ -2246,22 +2156,13 @@ The possible costs and associated labels.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#VolumeMap/translations[key]">VolumeMap/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#VolumeMapTranslation">VolumeMapTranslation</a>&gt;
 
 ---
 
 ### <a name="VolumeMap/options[]"></a> `VolumeMap/options[]`
 
 - **Type:** <a href="#VolumeMapOption">VolumeMapOption</a>
-
----
-
-### <a name="VolumeMap/translations[key]"></a> `VolumeMap/translations[key]`
-
-- **Type:** <a href="#VolumeMapTranslation">VolumeMapTranslation</a>
 
 ---
 
@@ -2327,22 +2228,13 @@ Links to the options this volume specification is meant for.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#VolumeMapOption/translations[key]">VolumeMapOption/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#VolumeMapOptionTranslation">VolumeMapOptionTranslation</a>&gt;
 
 ---
 
 ### <a name="VolumeMapOption/associated_options[]"></a> `VolumeMapOption/associated_options[]`
 
 - **Type:** <a href="#VolumeMapOptionAssociatedOption">VolumeMapOptionAssociatedOption</a>
-
----
-
-### <a name="VolumeMapOption/translations[key]"></a> `VolumeMapOption/translations[key]`
-
-- **Type:** <a href="#VolumeMapOptionTranslation">VolumeMapOptionTranslation</a>
 
 ---
 
@@ -2572,22 +2464,13 @@ The possible costs and associated labels.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#BindingCostMap/translations[key]">BindingCostMap/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#BindingCostMapTranslation">BindingCostMapTranslation</a>&gt;
 
 ---
 
 ### <a name="BindingCostMap/options[]"></a> `BindingCostMap/options[]`
 
 - **Type:** <a href="#VolumeMapOption">VolumeMapOption</a>
-
----
-
-### <a name="BindingCostMap/translations[key]"></a> `BindingCostMap/translations[key]`
-
-- **Type:** <a href="#BindingCostMapTranslation">BindingCostMapTranslation</a>
 
 ---
 
@@ -2645,16 +2528,7 @@ The full permanent AE cost value for this option.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#BindingCostMapOption/translations[key]">BindingCostMapOption/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="BindingCostMapOption/translations[key]"></a> `BindingCostMapOption/translations[key]`
-
-- **Type:** <a href="#BindingCostMapOptionTranslation">BindingCostMapOptionTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#BindingCostMapOptionTranslation">BindingCostMapOptionTranslation</a>&gt;
 
 ---
 
@@ -2761,6 +2635,222 @@ The blessed aspect.
 
 ---
 
+### <a name="AdvancedSpecialAbility"></a> `AdvancedSpecialAbility<Identifier>`
+
+A reference to an advanced special ability.
+
+- **Type:** Union
+- **Cases:** <a href="#AdvancedSpecialAbility'General">AdvancedSpecialAbility'General</a> | <a href="#AdvancedSpecialAbility'RestrictOptions">AdvancedSpecialAbility'RestrictOptions</a> | <a href="#AdvancedSpecialAbility'OneOf">AdvancedSpecialAbility'OneOf</a> | <a href="#AdvancedSpecialAbility'DeriveFromExternalOption">AdvancedSpecialAbility'DeriveFromExternalOption</a>
+
+---
+
+### <a name="AdvancedSpecialAbility'General"></a> `AdvancedSpecialAbility'General`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AdvancedSpecialAbility'General/tag">See details</a>
+`general` |  | <a href="#AdvancedSpecialAbility'General/general">See details</a>
+
+#### <a name="AdvancedSpecialAbility'General/tag"></a> `tag`
+
+- **Constant:** `"General"`
+
+#### <a name="AdvancedSpecialAbility'General/general"></a> `general`
+
+- **Type:** <a href="./_SimpleReferences.md#AdvancedSpecialAbilityReference">AdvancedSpecialAbilityReference</a>&lt;<a href="#Identifier">Identifier</a>&gt;
+
+---
+
+### <a name="AdvancedSpecialAbility'RestrictOptions"></a> `AdvancedSpecialAbility'RestrictOptions`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AdvancedSpecialAbility'RestrictOptions/tag">See details</a>
+`restrict_options` |  | <a href="#AdvancedSpecialAbility'RestrictOptions/restrict_options">See details</a>
+
+#### <a name="AdvancedSpecialAbility'RestrictOptions/tag"></a> `tag`
+
+- **Constant:** `"RestrictOptions"`
+
+#### <a name="AdvancedSpecialAbility'RestrictOptions/restrict_options"></a> `restrict_options`
+
+- **Type:** <a href="#RestrictAdvancedSpecialAbilityOptions">RestrictAdvancedSpecialAbilityOptions</a>&lt;<a href="#Identifier">Identifier</a>&gt;
+
+---
+
+### <a name="AdvancedSpecialAbility'OneOf"></a> `AdvancedSpecialAbility'OneOf`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AdvancedSpecialAbility'OneOf/tag">See details</a>
+`one_of` |  | <a href="#AdvancedSpecialAbility'OneOf/one_of">See details</a>
+
+#### <a name="AdvancedSpecialAbility'OneOf/tag"></a> `tag`
+
+- **Constant:** `"OneOf"`
+
+#### <a name="AdvancedSpecialAbility'OneOf/one_of"></a> `one_of`
+
+- **Type:** <a href="#OneOfAdvancedSpecialAbilityOptions">OneOfAdvancedSpecialAbilityOptions</a>&lt;<a href="#Identifier">Identifier</a>&gt;
+
+---
+
+### <a name="AdvancedSpecialAbility'DeriveFromExternalOption"></a> `AdvancedSpecialAbility'DeriveFromExternalOption`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AdvancedSpecialAbility'DeriveFromExternalOption/tag">See details</a>
+`derive_from_external_option` |  | <a href="#AdvancedSpecialAbility'DeriveFromExternalOption/derive_from_external_option">See details</a>
+
+#### <a name="AdvancedSpecialAbility'DeriveFromExternalOption/tag"></a> `tag`
+
+- **Constant:** `"DeriveFromExternalOption"`
+
+#### <a name="AdvancedSpecialAbility'DeriveFromExternalOption/derive_from_external_option"></a> `derive_from_external_option`
+
+- **Type:** <a href="#AdvancedSpecialAbilityDerivedFromExternalOption">AdvancedSpecialAbilityDerivedFromExternalOption</a>&lt;<a href="#Identifier">Identifier</a>&gt;
+
+---
+
+### <a name="RestrictAdvancedSpecialAbilityOptions"></a> `RestrictAdvancedSpecialAbilityOptions<Identifier>`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The advanced special ability’s identifier. | <a href="#RestrictAdvancedSpecialAbilityOptions/id">See details</a>
+`option` | Specify the select option(s) that only are allowed for the referenced advanced special ability; others are disallowed. | <a href="#RestrictAdvancedSpecialAbilityOptions/option">See details</a>
+
+#### <a name="RestrictAdvancedSpecialAbilityOptions/id"></a> `id`
+
+The advanced special ability’s identifier.
+
+- **Type:** <a href="#Identifier">Identifier</a>
+
+#### <a name="RestrictAdvancedSpecialAbilityOptions/option"></a> `option`
+
+Specify the select option(s) that only are allowed for the referenced
+advanced special ability; others are disallowed.
+
+- **Type:** List
+- **Items:** <a href="#RestrictAdvancedSpecialAbilityOptions/option[]">RestrictAdvancedSpecialAbilityOptions/option[]</a>
+- **Minimum Items:** `1`
+
+---
+
+### <a name="RestrictAdvancedSpecialAbilityOptions/option[]"></a> `RestrictAdvancedSpecialAbilityOptions/option[]`
+
+- **Type:** <a href="./_IdentifierGroup.md#AdvancedSpecialAbilityRestrictedOptionIdentifier">AdvancedSpecialAbilityRestrictedOptionIdentifier</a>
+
+---
+
+### <a name="OneOfAdvancedSpecialAbilityOptions"></a> `OneOfAdvancedSpecialAbilityOptions<Identifier>`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`options` | The possible advanced special abilities. | <a href="#OneOfAdvancedSpecialAbilityOptions/options">See details</a>
+`is_selection_required_on_purchase` | Do have to choose the advanced special ability when buying the style special ability? Otherwise the decision can be made later. | <a href="#OneOfAdvancedSpecialAbilityOptions/is_selection_required_on_purchase">See details</a>
+`display_option?` |  | <a href="#OneOfAdvancedSpecialAbilityOptions/display_option">See details</a>
+
+#### <a name="OneOfAdvancedSpecialAbilityOptions/options"></a> `options`
+
+The possible advanced special abilities.
+
+- **Type:** List
+- **Items:** <a href="#OneOfAdvancedSpecialAbilityOptions/options[]">OneOfAdvancedSpecialAbilityOptions/options[]</a>
+- **Minimum Items:** `2`
+
+#### <a name="OneOfAdvancedSpecialAbilityOptions/is_selection_required_on_purchase"></a> `is_selection_required_on_purchase`
+
+Do have to choose the advanced special ability when buying the style
+special ability? Otherwise the decision can be made later.
+
+- **Type:** Boolean
+
+#### <a name="OneOfAdvancedSpecialAbilityOptions/display_option"></a> `display_option?`
+
+- **Type:** <a href="./prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
+
+---
+
+### <a name="OneOfAdvancedSpecialAbilityOptions/options[]"></a> `OneOfAdvancedSpecialAbilityOptions/options[]`
+
+- **Type:** <a href="./_SimpleReferences.md#AdvancedSpecialAbilityReference">AdvancedSpecialAbilityReference</a>&lt;<a href="#Identifier">Identifier</a>&gt;
+
+---
+
+### <a name="AdvancedSpecialAbilityDerivedFromExternalOption"></a> `AdvancedSpecialAbilityDerivedFromExternalOption<Identifier>`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`external_entry` | The possible advanced special abilities. | <a href="#AdvancedSpecialAbilityDerivedFromExternalOption/external_entry">See details</a>
+`map` | Map options from the external entry to allowed advanced special abilities. | <a href="#AdvancedSpecialAbilityDerivedFromExternalOption/map">See details</a>
+`display_option?` |  | <a href="#AdvancedSpecialAbilityDerivedFromExternalOption/display_option">See details</a>
+
+#### <a name="AdvancedSpecialAbilityDerivedFromExternalOption/external_entry"></a> `external_entry`
+
+The possible advanced special abilities.
+
+- **Type:** <a href="./_Identifier.md#MagicalTraditionIdentifier">MagicalTraditionIdentifier</a>
+
+#### <a name="AdvancedSpecialAbilityDerivedFromExternalOption/map"></a> `map`
+
+Map options from the external entry to allowed advanced special abilities.
+
+- **Type:** List
+- **Items:** <a href="#AdvancedSpecialAbilityDerivedFromExternalOption/map[]">AdvancedSpecialAbilityDerivedFromExternalOption/map[]</a>
+- **Minimum Items:** `1`
+
+#### <a name="AdvancedSpecialAbilityDerivedFromExternalOption/display_option"></a> `display_option?`
+
+- **Type:** <a href="./prerequisites/DisplayOption.md#DisplayOption">DisplayOption</a>
+
+---
+
+### <a name="AdvancedSpecialAbilityDerivedFromExternalOption/map[]"></a> `AdvancedSpecialAbilityDerivedFromExternalOption/map[]`
+
+- **Type:** <a href="#AdvancedSpecialAbilityDerivedFromExternalOptionMapping">AdvancedSpecialAbilityDerivedFromExternalOptionMapping</a>&lt;<a href="#Identifier">Identifier</a>&gt;
+
+---
+
+### <a name="AdvancedSpecialAbilityDerivedFromExternalOptionMapping"></a> `AdvancedSpecialAbilityDerivedFromExternalOptionMapping<Identifier>`
+
+Mapping from an option of the external entry to an allowed advanced special
+ability.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`from_option` | The select option's identifier. | <a href="#AdvancedSpecialAbilityDerivedFromExternalOptionMapping/from_option">See details</a>
+`to_advanced` | The advanced special ability's identifier. | <a href="#AdvancedSpecialAbilityDerivedFromExternalOptionMapping/to_advanced">See details</a>
+
+#### <a name="AdvancedSpecialAbilityDerivedFromExternalOptionMapping/from_option"></a> `from_option`
+
+The select option's identifier.
+
+- **Type:** <a href="./_Identifier.md#PatronIdentifier">PatronIdentifier</a>
+
+#### <a name="AdvancedSpecialAbilityDerivedFromExternalOptionMapping/to_advanced"></a> `to_advanced`
+
+The advanced special ability's identifier.
+
+- **Type:** <a href="./_SimpleReferences.md#AdvancedSpecialAbilityReference">AdvancedSpecialAbilityReference</a>&lt;<a href="#Identifier">Identifier</a>&gt;
+
+---
+
 ### <a name="AdvancedSpecialAbilityDerivedExternalEntryId"></a> `AdvancedSpecialAbilityDerivedExternalEntryId`
 
 - **Type:** <a href="./_Identifier.md#MagicalTraditionIdentifier">MagicalTraditionIdentifier</a>
@@ -2770,6 +2860,37 @@ The blessed aspect.
 ### <a name="AdvancedSpecialAbilityDerivedExternalEntryOptionId"></a> `AdvancedSpecialAbilityDerivedExternalEntryOptionId`
 
 - **Type:** <a href="./_Identifier.md#PatronIdentifier">PatronIdentifier</a>
+
+---
+
+### <a name="AdvancedSpecialAbilities"></a> `AdvancedSpecialAbilities<Identifier>`
+
+The Advanced Special Abilities for the respective Style Special Ability.
+Sometimes, only a specific select option or a set of select options of an
+entry is allowed, which can be modelled by the option property. It can also
+be that you can choose from a set of special abilities, but then you can't
+specify an option.
+
+- **Type:** Tuple
+- **Items:** [<a href="AdvancedSpecialAbilities[0]">AdvancedSpecialAbilities[0]</a>, <a href="AdvancedSpecialAbilities[1]">AdvancedSpecialAbilities[1]</a>, <a href="AdvancedSpecialAbilities[2]">AdvancedSpecialAbilities[2]</a>]
+
+---
+
+### <a name="AdvancedSpecialAbilities[0]"></a> `AdvancedSpecialAbilities[0]`
+
+- **Type:** <a href="#AdvancedSpecialAbility">AdvancedSpecialAbility</a>&lt;<a href="#Identifier">Identifier</a>&gt;
+
+---
+
+### <a name="AdvancedSpecialAbilities[1]"></a> `AdvancedSpecialAbilities[1]`
+
+- **Type:** <a href="#AdvancedSpecialAbility">AdvancedSpecialAbility</a>&lt;<a href="#Identifier">Identifier</a>&gt;
+
+---
+
+### <a name="AdvancedSpecialAbilities[2]"></a> `AdvancedSpecialAbilities[2]`
+
+- **Type:** <a href="#AdvancedSpecialAbility">AdvancedSpecialAbility</a>&lt;<a href="#Identifier">Identifier</a>&gt;
 
 ---
 
@@ -3146,32 +3267,7 @@ Key | Description | Details
 
 #### <a name="ApplicableAllCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques"></a> `exclude_combat_techniques`
 
-- **Type:** <a href="#ApplicableAllCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques">Object</a>
-
----
-
-### <a name="ApplicableAllCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques"></a> `ApplicableAllCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`list` | The combat techniques this combat special ability is **not** applicable to. | <a href="#ApplicableAllCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques/list">See details</a>
-
-#### <a name="ApplicableAllCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques/list"></a> `list`
-
-The combat techniques this combat special ability is **not** applicable to.
-
-- **Type:** List
-- **Items:** <a href="#ApplicableAllCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques/list[]">ApplicableAllCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques/list[]</a>
-- **Minimum Items:** `1`
-- **Unique Items:** Yes
-
----
-
-### <a name="ApplicableAllCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques/list[]"></a> `ApplicableAllCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques/list[]`
-
-- **Type:** <a href="./_SimpleReferences.md#CombatTechniqueReference">CombatTechniqueReference</a>
+- **Type:** <a href="#ApplicableCombatTechniquesNegativeCombatTechniquesRestriction">ApplicableCombatTechniquesNegativeCombatTechniquesRestriction</a>&lt;<a href="./_SimpleReferences.md#CombatTechniqueReference">CombatTechniqueReference</a>&gt;
 
 ---
 
@@ -3366,32 +3462,7 @@ Key | Description | Details
 
 #### <a name="ApplicableCloseCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques"></a> `exclude_combat_techniques`
 
-- **Type:** <a href="#ApplicableCloseCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques">Object</a>
-
----
-
-### <a name="ApplicableCloseCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques"></a> `ApplicableCloseCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`list` | The combat techniques this combat special ability is **not** applicable to. | <a href="#ApplicableCloseCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques/list">See details</a>
-
-#### <a name="ApplicableCloseCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques/list"></a> `list`
-
-The combat techniques this combat special ability is **not** applicable to.
-
-- **Type:** List
-- **Items:** <a href="#ApplicableCloseCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques/list[]">ApplicableCloseCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques/list[]</a>
-- **Minimum Items:** `1`
-- **Unique Items:** Yes
-
----
-
-### <a name="ApplicableCloseCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques/list[]"></a> `ApplicableCloseCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques/list[]`
-
-- **Type:** <a href="./_SimpleReferences.md#CloseCombatTechniqueReference">CloseCombatTechniqueReference</a>
+- **Type:** <a href="#ApplicableCombatTechniquesNegativeCombatTechniquesRestriction">ApplicableCombatTechniquesNegativeCombatTechniquesRestriction</a>&lt;<a href="./_SimpleReferences.md#CloseCombatTechniqueReference">CloseCombatTechniqueReference</a>&gt;
 
 ---
 
@@ -3511,32 +3582,7 @@ Key | Description | Details
 
 #### <a name="ApplicableRangedCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques"></a> `exclude_combat_techniques`
 
-- **Type:** <a href="#ApplicableRangedCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques">Object</a>
-
----
-
-### <a name="ApplicableRangedCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques"></a> `ApplicableRangedCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`list` | The combat techniques this combat special ability is **not** applicable to. | <a href="#ApplicableRangedCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques/list">See details</a>
-
-#### <a name="ApplicableRangedCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques/list"></a> `list`
-
-The combat techniques this combat special ability is **not** applicable to.
-
-- **Type:** List
-- **Items:** <a href="#ApplicableRangedCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques/list[]">ApplicableRangedCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques/list[]</a>
-- **Minimum Items:** `1`
-- **Unique Items:** Yes
-
----
-
-### <a name="ApplicableRangedCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques/list[]"></a> `ApplicableRangedCombatTechniquesRestriction'ExcludeCombatTechniques/exclude_combat_techniques/list[]`
-
-- **Type:** <a href="./_SimpleReferences.md#RangedCombatTechniqueReference">RangedCombatTechniqueReference</a>
+- **Type:** <a href="#ApplicableCombatTechniquesNegativeCombatTechniquesRestriction">ApplicableCombatTechniquesNegativeCombatTechniquesRestriction</a>&lt;<a href="./_SimpleReferences.md#RangedCombatTechniqueReference">RangedCombatTechniqueReference</a>&gt;
 
 ---
 
@@ -3676,6 +3722,31 @@ Key | Description | Details
 #### <a name="ApplicableSpecificCombatTechniquesRestriction'Weapons/weapons"></a> `weapons`
 
 - **Type:** <a href="#ApplicableCombatTechniquesWeaponRestriction">ApplicableCombatTechniquesWeaponRestriction</a>
+
+---
+
+### <a name="ApplicableCombatTechniquesNegativeCombatTechniquesRestriction"></a> `ApplicableCombatTechniquesNegativeCombatTechniquesRestriction<Ref>`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`list` | The combat techniques this combat special ability is **not** applicable to. | <a href="#ApplicableCombatTechniquesNegativeCombatTechniquesRestriction/list">See details</a>
+
+#### <a name="ApplicableCombatTechniquesNegativeCombatTechniquesRestriction/list"></a> `list`
+
+The combat techniques this combat special ability is **not** applicable to.
+
+- **Type:** List
+- **Items:** <a href="#ApplicableCombatTechniquesNegativeCombatTechniquesRestriction/list[]">ApplicableCombatTechniquesNegativeCombatTechniquesRestriction/list[]</a>
+- **Minimum Items:** `1`
+- **Unique Items:** Yes
+
+---
+
+### <a name="ApplicableCombatTechniquesNegativeCombatTechniquesRestriction/list[]"></a> `ApplicableCombatTechniquesNegativeCombatTechniquesRestriction/list[]`
+
+- **Type:** <a href="#Ref">Ref</a>
 
 ---
 
@@ -3859,16 +3930,7 @@ Key | Description | Details
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#AdventurePointsDerivedFromSelection/translations[key]">AdventurePointsDerivedFromSelection/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="AdventurePointsDerivedFromSelection/translations[key]"></a> `AdventurePointsDerivedFromSelection/translations[key]`
-
-- **Type:** <a href="#AdventurePointsDerivedFromSelectionTranslation">AdventurePointsDerivedFromSelectionTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#AdventurePointsDerivedFromSelectionTranslation">AdventurePointsDerivedFromSelectionTranslation</a>&gt;
 
 ---
 

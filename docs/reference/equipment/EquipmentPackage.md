@@ -38,22 +38,13 @@ is included in the package.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#EquipmentPackage/translations[key]">EquipmentPackage/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#EquipmentPackageTranslation">EquipmentPackageTranslation</a>&gt;
 
 ---
 
 ### <a name="EquipmentPackage/items[]"></a> `EquipmentPackage/items[]`
 
 - **Type:** <a href="#EquipmentPackageItem">EquipmentPackageItem</a>
-
----
-
-### <a name="EquipmentPackage/translations[key]"></a> `EquipmentPackage/translations[key]`
-
-- **Type:** <a href="#EquipmentPackageTranslation">EquipmentPackageTranslation</a>
 
 ---
 

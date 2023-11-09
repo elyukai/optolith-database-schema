@@ -1434,7 +1434,7 @@ The attribute’s identifier.
 
 ---
 
-### <a name="SkillIdentifier"></a> `SkillIdentifier`
+### <a name="SkillIdentifier"></a> `SkillIdentifier<Value extends Number = Number>`
 
 - **Type:** Object
 
@@ -1451,7 +1451,7 @@ Key | Description | Details
 
 The skill’s identifier.
 
-- **Type:** Number
+- **Type:** <a href="#Value">Value</a>
 
 ---
 

@@ -55,16 +55,7 @@ The associated property.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#DominationRitual/translations[key]">DominationRitual/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="DominationRitual/translations[key]"></a> `DominationRitual/translations[key]`
-
-- **Type:** <a href="#DominationRitualTranslation">DominationRitualTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#DominationRitualTranslation">DominationRitualTranslation</a>&gt;
 
 ---
 
@@ -192,16 +183,7 @@ The initial skill modification identifier/level.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#DominationRitualCost/translations[key]">DominationRitualCost/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="DominationRitualCost/translations[key]"></a> `DominationRitualCost/translations[key]`
-
-- **Type:** <a href="#DominationRitualCostTranslation">DominationRitualCostTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#DominationRitualCostTranslation">DominationRitualCostTranslation</a>&gt;
 
 ---
 
@@ -328,16 +310,7 @@ Specified if the duration has a maximum time span.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#IndefiniteDominationRitualDuration/translations[key]">IndefiniteDominationRitualDuration/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="IndefiniteDominationRitualDuration/translations[key]"></a> `IndefiniteDominationRitualDuration/translations[key]`
-
-- **Type:** <a href="../_ActivatableSkillDuration.md#IndefiniteDurationTranslation">IndefiniteDurationTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="../_ActivatableSkillDuration.md#IndefiniteDurationTranslation">IndefiniteDurationTranslation</a>&gt;
 
 ---
 

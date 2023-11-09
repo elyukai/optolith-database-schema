@@ -21,27 +21,27 @@ Key | Description | Details
 
 #### <a name="AdvancedSkillSpecialAbility/id"></a> `id`
 
-- **Type:** <a href="../_Activatable.md#Id">Id</a>
+- **Type:** <a href="#Id">Id</a>
 
 #### <a name="AdvancedSkillSpecialAbility/levels"></a> `levels?`
 
-- **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+- **Type:** <a href="#Levels">Levels</a>
 
 #### <a name="AdvancedSkillSpecialAbility/select_options"></a> `select_options?`
 
-- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
+- **Type:** <a href="#SelectOptions">SelectOptions</a>
 
 #### <a name="AdvancedSkillSpecialAbility/skill_applications"></a> `skill_applications?`
 
-- **Type:** <a href="../_Activatable.md#SkillApplications">SkillApplications</a>
+- **Type:** <a href="#SkillApplications">SkillApplications</a>
 
 #### <a name="AdvancedSkillSpecialAbility/skill_uses"></a> `skill_uses?`
 
-- **Type:** <a href="../_Activatable.md#SkillUses">SkillUses</a>
+- **Type:** <a href="#SkillUses">SkillUses</a>
 
 #### <a name="AdvancedSkillSpecialAbility/maximum"></a> `maximum?`
 
-- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+- **Type:** <a href="#Maximum">Maximum</a>
 
 #### <a name="AdvancedSkillSpecialAbility/prerequisites"></a> `prerequisites?`
 
@@ -49,7 +49,7 @@ Key | Description | Details
 
 #### <a name="AdvancedSkillSpecialAbility/ap_value"></a> `ap_value`
 
-- **Type:** <a href="../_Activatable.md#AdventurePointsValue">AdventurePointsValue</a>
+- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>
 
 #### <a name="AdvancedSkillSpecialAbility/src"></a> `src`
 
@@ -59,16 +59,7 @@ Key | Description | Details
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#AdvancedSkillSpecialAbility/translations[key]">AdvancedSkillSpecialAbility/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="AdvancedSkillSpecialAbility/translations[key]"></a> `AdvancedSkillSpecialAbility/translations[key]`
-
-- **Type:** <a href="#AdvancedSkillSpecialAbilityTranslation">AdvancedSkillSpecialAbilityTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#AdvancedSkillSpecialAbilityTranslation">AdvancedSkillSpecialAbilityTranslation</a>&gt;
 
 ---
 
@@ -85,15 +76,15 @@ Key | Description | Details
 
 #### <a name="AdvancedSkillSpecialAbilityTranslation/name"></a> `name`
 
-- **Type:** <a href="../_Activatable.md#Name">Name</a>
+- **Type:** <a href="#Name">Name</a>
 
 #### <a name="AdvancedSkillSpecialAbilityTranslation/name_in_library"></a> `name_in_library?`
 
-- **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
+- **Type:** <a href="#NameInLibrary">NameInLibrary</a>
 
 #### <a name="AdvancedSkillSpecialAbilityTranslation/rules"></a> `rules`
 
-- **Type:** <a href="../_Activatable.md#Rules">Rules</a>
+- **Type:** <a href="#Rules">Rules</a>
 
 #### <a name="AdvancedSkillSpecialAbilityTranslation/errata"></a> `errata?`
 

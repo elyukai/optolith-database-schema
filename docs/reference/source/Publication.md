@@ -51,16 +51,7 @@ The specific other publications this publication depends on data from.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Publication/translations[key]">Publication/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="Publication/translations[key]"></a> `Publication/translations[key]`
-
-- **Type:** <a href="#PublicationTranslation">PublicationTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#PublicationTranslation">PublicationTranslation</a>&gt;
 
 ---
 

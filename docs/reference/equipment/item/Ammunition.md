@@ -26,16 +26,7 @@ The cost in silverthalers.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Ammunition/translations[key]">Ammunition/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="Ammunition/translations[key]"></a> `Ammunition/translations[key]`
-
-- **Type:** <a href="#AmmunitionTranslation">AmmunitionTranslation</a>
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#AmmunitionTranslation">AmmunitionTranslation</a>&gt;
 
 ---
 

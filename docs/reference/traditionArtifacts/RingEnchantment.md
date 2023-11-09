@@ -22,19 +22,19 @@ Key | Description | Details
 
 #### <a name="RingEnchantment/id"></a> `id`
 
-- **Type:** <a href="../_Activatable.md#Id">Id</a>
+- **Type:** <a href="#Id">Id</a>
 
 #### <a name="RingEnchantment/levels"></a> `levels?`
 
-- **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+- **Type:** <a href="#Levels">Levels</a>
 
 #### <a name="RingEnchantment/select_options"></a> `select_options?`
 
-- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
+- **Type:** <a href="#SelectOptions">SelectOptions</a>
 
 #### <a name="RingEnchantment/maximum"></a> `maximum?`
 
-- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+- **Type:** <a href="#Maximum">Maximum</a>
 
 #### <a name="RingEnchantment/prerequisites"></a> `prerequisites?`
 
@@ -42,19 +42,19 @@ Key | Description | Details
 
 #### <a name="RingEnchantment/volume"></a> `volume`
 
-- **Type:** <a href="../_Activatable.md#Volume">Volume</a>
+- **Type:** <a href="#Volume">Volume</a>
 
 #### <a name="RingEnchantment/cost"></a> `cost?`
 
-- **Type:** <a href="../_Activatable.md#EnchantmentCost">EnchantmentCost</a>
+- **Type:** <a href="#EnchantmentCost">EnchantmentCost</a>
 
 #### <a name="RingEnchantment/property"></a> `property`
 
-- **Type:** <a href="../_Activatable.md#Property">Property</a>
+- **Type:** <a href="#Property">Property</a>
 
 #### <a name="RingEnchantment/ap_value"></a> `ap_value`
 
-- **Type:** <a href="../_Activatable.md#AdventurePointsValue">AdventurePointsValue</a>
+- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>
 
 #### <a name="RingEnchantment/src"></a> `src`
 
@@ -64,16 +64,7 @@ Key | Description | Details
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#RingEnchantment/translations[key]">RingEnchantment/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="RingEnchantment/translations[key]"></a> `RingEnchantment/translations[key]`
-
-- **Type:** <a href="#RingEnchantmentTranslation">RingEnchantmentTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#RingEnchantmentTranslation">RingEnchantmentTranslation</a>&gt;
 
 ---
 
@@ -93,15 +84,15 @@ Key | Description | Details
 
 #### <a name="RingEnchantmentTranslation/name"></a> `name`
 
-- **Type:** <a href="../_Activatable.md#Name">Name</a>
+- **Type:** <a href="#Name">Name</a>
 
 #### <a name="RingEnchantmentTranslation/name_in_library"></a> `name_in_library?`
 
-- **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
+- **Type:** <a href="#NameInLibrary">NameInLibrary</a>
 
 #### <a name="RingEnchantmentTranslation/effect"></a> `effect`
 
-- **Type:** <a href="../_Activatable.md#Effect">Effect</a>
+- **Type:** <a href="#Effect">Effect</a>
 
 #### <a name="RingEnchantmentTranslation/volume"></a> `volume`
 

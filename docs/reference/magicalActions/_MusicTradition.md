@@ -25,16 +25,7 @@ The music tradition's identifier.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#MusicTraditionReference/translations[key]">MusicTraditionReference/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="MusicTraditionReference/translations[key]"></a> `MusicTraditionReference/translations[key]`
-
-- **Type:** <a href="#MusicTraditionReferenceTranslation">MusicTraditionReferenceTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#MusicTraditionReferenceTranslation">MusicTraditionReferenceTranslation</a>&gt;
 
 ---
 

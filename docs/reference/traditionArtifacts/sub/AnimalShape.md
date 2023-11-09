@@ -36,16 +36,7 @@ The animal shape's size.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#AnimalShape/translations[key]">AnimalShape/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="AnimalShape/translations[key]"></a> `AnimalShape/translations[key]`
-
-- **Type:** <a href="#AnimalShapeTranslation">AnimalShapeTranslation</a>
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#AnimalShapeTranslation">AnimalShapeTranslation</a>&gt;
 
 ---
 

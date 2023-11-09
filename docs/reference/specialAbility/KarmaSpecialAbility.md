@@ -19,19 +19,19 @@ Key | Description | Details
 
 #### <a name="KarmaSpecialAbility/id"></a> `id`
 
-- **Type:** <a href="../_Activatable.md#Id">Id</a>
+- **Type:** <a href="#Id">Id</a>
 
 #### <a name="KarmaSpecialAbility/levels"></a> `levels?`
 
-- **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+- **Type:** <a href="#Levels">Levels</a>
 
 #### <a name="KarmaSpecialAbility/select_options"></a> `select_options?`
 
-- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
+- **Type:** <a href="#SelectOptions">SelectOptions</a>
 
 #### <a name="KarmaSpecialAbility/maximum"></a> `maximum?`
 
-- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+- **Type:** <a href="#Maximum">Maximum</a>
 
 #### <a name="KarmaSpecialAbility/prerequisites"></a> `prerequisites?`
 
@@ -39,7 +39,7 @@ Key | Description | Details
 
 #### <a name="KarmaSpecialAbility/ap_value"></a> `ap_value`
 
-- **Type:** <a href="../_Activatable.md#AdventurePointsValue">AdventurePointsValue</a>
+- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>
 
 #### <a name="KarmaSpecialAbility/src"></a> `src`
 
@@ -49,16 +49,7 @@ Key | Description | Details
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#KarmaSpecialAbility/translations[key]">KarmaSpecialAbility/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="KarmaSpecialAbility/translations[key]"></a> `KarmaSpecialAbility/translations[key]`
-
-- **Type:** <a href="#KarmaSpecialAbilityTranslation">KarmaSpecialAbilityTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#KarmaSpecialAbilityTranslation">KarmaSpecialAbilityTranslation</a>&gt;
 
 ---
 
@@ -76,22 +67,22 @@ Key | Description | Details
 
 #### <a name="KarmaSpecialAbilityTranslation/name"></a> `name`
 
-- **Type:** <a href="../_Activatable.md#Name">Name</a>
+- **Type:** <a href="#Name">Name</a>
 
 #### <a name="KarmaSpecialAbilityTranslation/name_in_library"></a> `name_in_library?`
 
-- **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
+- **Type:** <a href="#NameInLibrary">NameInLibrary</a>
 
 #### <a name="KarmaSpecialAbilityTranslation/rules"></a> `rules`
 
-- **Type:** <a href="../_Activatable.md#Rules">Rules</a>
+- **Type:** <a href="#Rules">Rules</a>
 
 #### <a name="KarmaSpecialAbilityTranslation/ap_value"></a> `ap_value?`
 
 The AP value. It is only used if the text cannot be generated from the
 given information.
 
-- **Type:** <a href="../_Activatable.md#AdventurePointsValueReplacement">AdventurePointsValueReplacement</a>
+- **Type:** <a href="#AdventurePointsValueReplacement">AdventurePointsValueReplacement</a>
 
 #### <a name="KarmaSpecialAbilityTranslation/errata"></a> `errata?`
 

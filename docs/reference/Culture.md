@@ -135,10 +135,7 @@ The skill points you get for buying the culture package.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Culture/translations[key]">Culture/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#CultureTranslation">CultureTranslation</a>&gt;
 
 ---
 
@@ -160,75 +157,27 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="Culture/common_advantages[]"></a> Commonness-rated Advantage/Disadvantage (`Culture/common_advantages[]`)
+### <a name="Culture/common_advantages[]"></a> `Culture/common_advantages[]`
 
-Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The advantage's or disadvantage's identifier. | <a href="#Culture/common_advantages[]/id">See details</a>
-
-#### <a name="Culture/common_advantages[]/id"></a> `id`
-
-The advantage's or disadvantage's identifier.
-
-- **Type:** <a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>
+- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>&lt;<a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>&gt;
 
 ---
 
-### <a name="Culture/common_disadvantages[]"></a> Commonness-rated Advantage/Disadvantage (`Culture/common_disadvantages[]`)
+### <a name="Culture/common_disadvantages[]"></a> `Culture/common_disadvantages[]`
 
-Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The advantage's or disadvantage's identifier. | <a href="#Culture/common_disadvantages[]/id">See details</a>
-
-#### <a name="Culture/common_disadvantages[]/id"></a> `id`
-
-The advantage's or disadvantage's identifier.
-
-- **Type:** <a href="./_Identifier.md#DisadvantageIdentifier">DisadvantageIdentifier</a>
+- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>&lt;<a href="./_Identifier.md#DisadvantageIdentifier">DisadvantageIdentifier</a>&gt;
 
 ---
 
-### <a name="Culture/uncommon_advantages[]"></a> Commonness-rated Advantage/Disadvantage (`Culture/uncommon_advantages[]`)
+### <a name="Culture/uncommon_advantages[]"></a> `Culture/uncommon_advantages[]`
 
-Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The advantage's or disadvantage's identifier. | <a href="#Culture/uncommon_advantages[]/id">See details</a>
-
-#### <a name="Culture/uncommon_advantages[]/id"></a> `id`
-
-The advantage's or disadvantage's identifier.
-
-- **Type:** <a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>
+- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>&lt;<a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>&gt;
 
 ---
 
-### <a name="Culture/uncommon_disadvantages[]"></a> Commonness-rated Advantage/Disadvantage (`Culture/uncommon_disadvantages[]`)
+### <a name="Culture/uncommon_disadvantages[]"></a> `Culture/uncommon_disadvantages[]`
 
-Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The advantage's or disadvantage's identifier. | <a href="#Culture/uncommon_disadvantages[]/id">See details</a>
-
-#### <a name="Culture/uncommon_disadvantages[]/id"></a> `id`
-
-The advantage's or disadvantage's identifier.
-
-- **Type:** <a href="./_Identifier.md#DisadvantageIdentifier">DisadvantageIdentifier</a>
+- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>&lt;<a href="./_Identifier.md#DisadvantageIdentifier">DisadvantageIdentifier</a>&gt;
 
 ---
 
@@ -247,12 +196,6 @@ The advantage's or disadvantage's identifier.
 ### <a name="Culture/cultural_package[]"></a> `Culture/cultural_package[]`
 
 - **Type:** <a href="#CulturalPackageItem">CulturalPackageItem</a>
-
----
-
-### <a name="Culture/translations[key]"></a> `Culture/translations[key]`
-
-- **Type:** <a href="#CultureTranslation">CultureTranslation</a>
 
 ---
 
@@ -298,6 +241,43 @@ sometimes only specific elements are used (Only).
 
 ---
 
+### <a name="Weighted"></a> `Weighted<ProfessionOrVariant>`
+
+Some professions or profession variants are more common than others. There
+may be cultures where some professions or profession variants are not
+represented at all.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`elements` | The list of more common professions or profession variants. | <a href="#Weighted/elements">See details</a>
+`weight` | The "weight" difference compared to other professions or profession variants. Some professions or profession variants are simply more common (Mostly), but sometimes only specific elements are used (Only). | <a href="#Weighted/weight">See details</a>
+
+#### <a name="Weighted/elements"></a> `elements`
+
+The list of more common professions or profession variants.
+
+- **Type:** List
+- **Items:** <a href="#Weighted/elements[]">Weighted/elements[]</a>
+- **Minimum Items:** `1`
+
+#### <a name="Weighted/weight"></a> `weight`
+
+The "weight" difference compared to other professions or profession
+variants. Some professions or profession variants are simply more common
+(Mostly), but sometimes only specific elements are used (Only).
+
+- **Type:** <a href="#Weight">Weight</a>
+
+---
+
+### <a name="Weighted/elements[]"></a> `Weighted/elements[]`
+
+- **Type:** <a href="#ProfessionOrVariant">ProfessionOrVariant</a>
+
+---
+
 ### <a name="CommonProfessionConstraintsOperation"></a> `CommonProfessionConstraintsOperation`
 
 This defines how the list of constraints should be offset against the
@@ -319,6 +299,43 @@ are kept that are different from the constraints (exclude).
 ### <a name="CommonProfessionConstraintsOperation'1"></a> `CommonProfessionConstraintsOperation'1`
 
 - **Constant:** `"Difference"`
+
+---
+
+### <a name="CommonProfessionConstraints"></a> `CommonProfessionConstraints<Constraint>`
+
+A list of professions. The filter specifies how the list is applied to
+all mundane professions.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`constraints` | The list of constraints. | <a href="#CommonProfessionConstraints/constraints">See details</a>
+`operation` | This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints (include) or only the professions are kept that are different from the constraints (exclude). | <a href="#CommonProfessionConstraints/operation">See details</a>
+
+#### <a name="CommonProfessionConstraints/constraints"></a> `constraints`
+
+The list of constraints.
+
+- **Type:** List
+- **Items:** <a href="#CommonProfessionConstraints/constraints[]">CommonProfessionConstraints/constraints[]</a>
+- **Minimum Items:** `1`
+
+#### <a name="CommonProfessionConstraints/operation"></a> `operation`
+
+This defines how the list of constraints should be offset against the
+list of all mundane professions: Either only the professions are kept
+that intersect with the constraints (include) or only the professions
+are kept that are different from the constraints (exclude).
+
+- **Type:** <a href="#CommonProfessionConstraintsOperation">CommonProfessionConstraintsOperation</a>
+
+---
+
+### <a name="CommonProfessionConstraints/constraints[]"></a> `CommonProfessionConstraints/constraints[]`
+
+- **Type:** <a href="#Constraint">Constraint</a>
 
 ---
 
@@ -364,7 +381,7 @@ The profession's identifier.
 Some profession variants are more common than others. There may be
 cultures where some variants are not represented at all.
 
-- **Type:** <a href="#ProfessionConstraint/weighted_variants">Object</a>
+- **Type:** <a href="#Weighted">Weighted</a>&lt;<a href="./_SimpleReferences.md#ProfessionVariantReference">ProfessionVariantReference</a>&gt;
 
 #### <a name="ProfessionConstraint/rarity"></a> `rarity?`
 
@@ -372,43 +389,6 @@ Some professions may be found in a culture, but are not that
 common.
 
 - **Type:** <a href="#Rarity">Rarity</a>
-
----
-
-### <a name="ProfessionConstraint/weighted_variants"></a> `ProfessionConstraint/weighted_variants`
-
-Some professions or profession variants are more common than others. There
-may be cultures where some professions or profession variants are not
-represented at all.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`elements` | The list of more common professions or profession variants. | <a href="#ProfessionConstraint/weighted_variants/elements">See details</a>
-`weight` | The "weight" difference compared to other professions or profession variants. Some professions or profession variants are simply more common (Mostly), but sometimes only specific elements are used (Only). | <a href="#ProfessionConstraint/weighted_variants/weight">See details</a>
-
-#### <a name="ProfessionConstraint/weighted_variants/elements"></a> `elements`
-
-The list of more common professions or profession variants.
-
-- **Type:** List
-- **Items:** <a href="#ProfessionConstraint/weighted_variants/elements[]">ProfessionConstraint/weighted_variants/elements[]</a>
-- **Minimum Items:** `1`
-
-#### <a name="ProfessionConstraint/weighted_variants/weight"></a> `weight`
-
-The "weight" difference compared to other professions or profession
-variants. Some professions or profession variants are simply more common
-(Mostly), but sometimes only specific elements are used (Only).
-
-- **Type:** <a href="#Weight">Weight</a>
-
----
-
-### <a name="ProfessionConstraint/weighted_variants/elements[]"></a> `ProfessionConstraint/weighted_variants/elements[]`
-
-- **Type:** <a href="./_SimpleReferences.md#ProfessionVariantReference">ProfessionVariantReference</a>
 
 ---
 
@@ -460,50 +440,13 @@ The magical tradition's identifier.
 Some professions are more common than others. There may be cultures
 where some professions are not represented at all.
 
-- **Type:** <a href="#MagicalTraditionConstraint/weighted_professions">Object</a>
+- **Type:** <a href="#Weighted">Weighted</a>&lt;<a href="./_SimpleReferences.md#ProfessionReference">ProfessionReference</a>&gt;
 
 #### <a name="MagicalTraditionConstraint/rarity"></a> `rarity?`
 
 Some traditions may be found in a culture, but are not that common.
 
 - **Type:** <a href="#Rarity">Rarity</a>
-
----
-
-### <a name="MagicalTraditionConstraint/weighted_professions"></a> `MagicalTraditionConstraint/weighted_professions`
-
-Some professions or profession variants are more common than others. There
-may be cultures where some professions or profession variants are not
-represented at all.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`elements` | The list of more common professions or profession variants. | <a href="#MagicalTraditionConstraint/weighted_professions/elements">See details</a>
-`weight` | The "weight" difference compared to other professions or profession variants. Some professions or profession variants are simply more common (Mostly), but sometimes only specific elements are used (Only). | <a href="#MagicalTraditionConstraint/weighted_professions/weight">See details</a>
-
-#### <a name="MagicalTraditionConstraint/weighted_professions/elements"></a> `elements`
-
-The list of more common professions or profession variants.
-
-- **Type:** List
-- **Items:** <a href="#MagicalTraditionConstraint/weighted_professions/elements[]">MagicalTraditionConstraint/weighted_professions/elements[]</a>
-- **Minimum Items:** `1`
-
-#### <a name="MagicalTraditionConstraint/weighted_professions/weight"></a> `weight`
-
-The "weight" difference compared to other professions or profession
-variants. Some professions or profession variants are simply more common
-(Mostly), but sometimes only specific elements are used (Only).
-
-- **Type:** <a href="#Weight">Weight</a>
-
----
-
-### <a name="MagicalTraditionConstraint/weighted_professions/elements[]"></a> `MagicalTraditionConstraint/weighted_professions/elements[]`
-
-- **Type:** <a href="./_SimpleReferences.md#ProfessionReference">ProfessionReference</a>
 
 ---
 
@@ -528,50 +471,13 @@ The magical tradition's identifier.
 Some professions are more common than others. There may be cultures
 where some professions are not represented at all.
 
-- **Type:** <a href="#BlessedTraditionConstraint/weighted_professions">Object</a>
+- **Type:** <a href="#Weighted">Weighted</a>&lt;<a href="./_SimpleReferences.md#ProfessionReference">ProfessionReference</a>&gt;
 
 #### <a name="BlessedTraditionConstraint/rarity"></a> `rarity?`
 
 Some traditions may be found in a culture, but are not that common.
 
 - **Type:** <a href="#Rarity">Rarity</a>
-
----
-
-### <a name="BlessedTraditionConstraint/weighted_professions"></a> `BlessedTraditionConstraint/weighted_professions`
-
-Some professions or profession variants are more common than others. There
-may be cultures where some professions or profession variants are not
-represented at all.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`elements` | The list of more common professions or profession variants. | <a href="#BlessedTraditionConstraint/weighted_professions/elements">See details</a>
-`weight` | The "weight" difference compared to other professions or profession variants. Some professions or profession variants are simply more common (Mostly), but sometimes only specific elements are used (Only). | <a href="#BlessedTraditionConstraint/weighted_professions/weight">See details</a>
-
-#### <a name="BlessedTraditionConstraint/weighted_professions/elements"></a> `elements`
-
-The list of more common professions or profession variants.
-
-- **Type:** List
-- **Items:** <a href="#BlessedTraditionConstraint/weighted_professions/elements[]">BlessedTraditionConstraint/weighted_professions/elements[]</a>
-- **Minimum Items:** `1`
-
-#### <a name="BlessedTraditionConstraint/weighted_professions/weight"></a> `weight`
-
-The "weight" difference compared to other professions or profession
-variants. Some professions or profession variants are simply more common
-(Mostly), but sometimes only specific elements are used (Only).
-
-- **Type:** <a href="#Weight">Weight</a>
-
----
-
-### <a name="BlessedTraditionConstraint/weighted_professions/elements[]"></a> `BlessedTraditionConstraint/weighted_professions/elements[]`
-
-- **Type:** <a href="./_SimpleReferences.md#ProfessionReference">ProfessionReference</a>
 
 ---
 
@@ -718,38 +624,7 @@ Key | Description | Details
 
 ### <a name="PlainCommonProfessions"></a> `PlainCommonProfessions`
 
-A list of professions. The filter specifies how the list is applied to
-all mundane professions.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`constraints` | The list of constraints. | <a href="#PlainCommonProfessions/constraints">See details</a>
-`operation` | This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints (include) or only the professions are kept that are different from the constraints (exclude). | <a href="#PlainCommonProfessions/operation">See details</a>
-
-#### <a name="PlainCommonProfessions/constraints"></a> `constraints`
-
-The list of constraints.
-
-- **Type:** List
-- **Items:** <a href="#PlainCommonProfessions/constraints[]">PlainCommonProfessions/constraints[]</a>
-- **Minimum Items:** `1`
-
-#### <a name="PlainCommonProfessions/operation"></a> `operation`
-
-This defines how the list of constraints should be offset against the
-list of all mundane professions: Either only the professions are kept
-that intersect with the constraints (include) or only the professions
-are kept that are different from the constraints (exclude).
-
-- **Type:** <a href="#CommonProfessionConstraintsOperation">CommonProfessionConstraintsOperation</a>
-
----
-
-### <a name="PlainCommonProfessions/constraints[]"></a> `PlainCommonProfessions/constraints[]`
-
-- **Type:** <a href="./_SimpleReferences.md#ProfessionReference">ProfessionReference</a>
+- **Type:** <a href="#CommonProfessionConstraints">CommonProfessionConstraints</a>&lt;<a href="./_SimpleReferences.md#ProfessionReference">ProfessionReference</a>&gt;
 
 ---
 
@@ -768,126 +643,15 @@ Key | Description | Details
 
 #### <a name="GroupedCommonProfessions/mundane"></a> `mundane?`
 
-- **Type:** <a href="#GroupedCommonProfessions/mundane">Object</a>
+- **Type:** <a href="#CommonProfessionConstraints">CommonProfessionConstraints</a>&lt;<a href="#MundaneCommonProfessionConstraint">MundaneCommonProfessionConstraint</a>&gt;
 
 #### <a name="GroupedCommonProfessions/magic"></a> `magic?`
 
-- **Type:** <a href="#GroupedCommonProfessions/magic">Object</a>
+- **Type:** <a href="#CommonProfessionConstraints">CommonProfessionConstraints</a>&lt;<a href="#MagicCommonProfessionConstraint">MagicCommonProfessionConstraint</a>&gt;
 
 #### <a name="GroupedCommonProfessions/blessed"></a> `blessed?`
 
-- **Type:** <a href="#GroupedCommonProfessions/blessed">Object</a>
-
----
-
-### <a name="GroupedCommonProfessions/mundane"></a> `GroupedCommonProfessions/mundane`
-
-A list of professions. The filter specifies how the list is applied to
-all mundane professions.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`constraints` | The list of constraints. | <a href="#GroupedCommonProfessions/mundane/constraints">See details</a>
-`operation` | This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints (include) or only the professions are kept that are different from the constraints (exclude). | <a href="#GroupedCommonProfessions/mundane/operation">See details</a>
-
-#### <a name="GroupedCommonProfessions/mundane/constraints"></a> `constraints`
-
-The list of constraints.
-
-- **Type:** List
-- **Items:** <a href="#GroupedCommonProfessions/mundane/constraints[]">GroupedCommonProfessions/mundane/constraints[]</a>
-- **Minimum Items:** `1`
-
-#### <a name="GroupedCommonProfessions/mundane/operation"></a> `operation`
-
-This defines how the list of constraints should be offset against the
-list of all mundane professions: Either only the professions are kept
-that intersect with the constraints (include) or only the professions
-are kept that are different from the constraints (exclude).
-
-- **Type:** <a href="#CommonProfessionConstraintsOperation">CommonProfessionConstraintsOperation</a>
-
----
-
-### <a name="GroupedCommonProfessions/mundane/constraints[]"></a> `GroupedCommonProfessions/mundane/constraints[]`
-
-- **Type:** <a href="#MundaneCommonProfessionConstraint">MundaneCommonProfessionConstraint</a>
-
----
-
-### <a name="GroupedCommonProfessions/magic"></a> `GroupedCommonProfessions/magic`
-
-A list of professions. The filter specifies how the list is applied to
-all mundane professions.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`constraints` | The list of constraints. | <a href="#GroupedCommonProfessions/magic/constraints">See details</a>
-`operation` | This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints (include) or only the professions are kept that are different from the constraints (exclude). | <a href="#GroupedCommonProfessions/magic/operation">See details</a>
-
-#### <a name="GroupedCommonProfessions/magic/constraints"></a> `constraints`
-
-The list of constraints.
-
-- **Type:** List
-- **Items:** <a href="#GroupedCommonProfessions/magic/constraints[]">GroupedCommonProfessions/magic/constraints[]</a>
-- **Minimum Items:** `1`
-
-#### <a name="GroupedCommonProfessions/magic/operation"></a> `operation`
-
-This defines how the list of constraints should be offset against the
-list of all mundane professions: Either only the professions are kept
-that intersect with the constraints (include) or only the professions
-are kept that are different from the constraints (exclude).
-
-- **Type:** <a href="#CommonProfessionConstraintsOperation">CommonProfessionConstraintsOperation</a>
-
----
-
-### <a name="GroupedCommonProfessions/magic/constraints[]"></a> `GroupedCommonProfessions/magic/constraints[]`
-
-- **Type:** <a href="#MagicCommonProfessionConstraint">MagicCommonProfessionConstraint</a>
-
----
-
-### <a name="GroupedCommonProfessions/blessed"></a> `GroupedCommonProfessions/blessed`
-
-A list of professions. The filter specifies how the list is applied to
-all mundane professions.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`constraints` | The list of constraints. | <a href="#GroupedCommonProfessions/blessed/constraints">See details</a>
-`operation` | This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints (include) or only the professions are kept that are different from the constraints (exclude). | <a href="#GroupedCommonProfessions/blessed/operation">See details</a>
-
-#### <a name="GroupedCommonProfessions/blessed/constraints"></a> `constraints`
-
-The list of constraints.
-
-- **Type:** List
-- **Items:** <a href="#GroupedCommonProfessions/blessed/constraints[]">GroupedCommonProfessions/blessed/constraints[]</a>
-- **Minimum Items:** `1`
-
-#### <a name="GroupedCommonProfessions/blessed/operation"></a> `operation`
-
-This defines how the list of constraints should be offset against the
-list of all mundane professions: Either only the professions are kept
-that intersect with the constraints (include) or only the professions
-are kept that are different from the constraints (exclude).
-
-- **Type:** <a href="#CommonProfessionConstraintsOperation">CommonProfessionConstraintsOperation</a>
-
----
-
-### <a name="GroupedCommonProfessions/blessed/constraints[]"></a> `GroupedCommonProfessions/blessed/constraints[]`
-
-- **Type:** <a href="#BlessedCommonProfessionConstraint">BlessedCommonProfessionConstraint</a>
+- **Type:** <a href="#CommonProfessionConstraints">CommonProfessionConstraints</a>&lt;<a href="#BlessedCommonProfessionConstraint">BlessedCommonProfessionConstraint</a>&gt;
 
 ---
 

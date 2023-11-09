@@ -84,20 +84,11 @@ States which column is used to improve the skill.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Ritual/translations[key]">Ritual/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#RitualTranslation">RitualTranslation</a>&gt;
 
 #### <a name="Ritual/enhancements"></a> `enhancements?`
 
 - **Type:** <a href="./_Enhancements.md#Enhancements">Enhancements</a>
-
----
-
-### <a name="Ritual/translations[key]"></a> `Ritual/translations[key]`
-
-- **Type:** <a href="#RitualTranslation">RitualTranslation</a>
 
 ---
 

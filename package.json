@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.8.10",
-    "optolith-tsjsonschemamd": "^0.9.4",
+    "optolith-tsjsonschemamd": "file:../optolith-tsjsonschemamd",
     "standard-version": "^9.5.0",
     "typescript": "^5.2.2"
   },

@@ -27,19 +27,19 @@ Key | Description | Details
 
 #### <a name="BlessedTradition/id"></a> `id`
 
-- **Type:** <a href="../_Activatable.md#Id">Id</a>
+- **Type:** <a href="#Id">Id</a>
 
 #### <a name="BlessedTradition/select_options"></a> `select_options?`
 
-- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
+- **Type:** <a href="#SelectOptions">SelectOptions</a>
 
 #### <a name="BlessedTradition/skill_applications"></a> `skill_applications?`
 
-- **Type:** <a href="../_Activatable.md#SkillApplications">SkillApplications</a>
+- **Type:** <a href="#SkillApplications">SkillApplications</a>
 
 #### <a name="BlessedTradition/skill_uses"></a> `skill_uses?`
 
-- **Type:** <a href="../_Activatable.md#SkillUses">SkillUses</a>
+- **Type:** <a href="#SkillUses">SkillUses</a>
 
 #### <a name="BlessedTradition/primary"></a> `primary?`
 
@@ -102,7 +102,7 @@ represent this tradition's code, if any.
 
 #### <a name="BlessedTradition/ap_value"></a> `ap_value`
 
-- **Type:** <a href="../_Activatable.md#AdventurePointsValue">AdventurePointsValue</a>
+- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>
 
 #### <a name="BlessedTradition/src"></a> `src`
 
@@ -112,10 +112,7 @@ represent this tradition's code, if any.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#BlessedTradition/translations[key]">BlessedTradition/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#BlessedTraditionTranslation">BlessedTraditionTranslation</a>&gt;
 
 ---
 
@@ -134,12 +131,6 @@ All translations for the entry, identified by IETF language tag (BCP47).
 ### <a name="BlessedTradition/favored_skills[]"></a> `BlessedTradition/favored_skills[]`
 
 - **Type:** <a href="../_SimpleReferences.md#SkillReference">SkillReference</a>
-
----
-
-### <a name="BlessedTradition/translations[key]"></a> `BlessedTradition/translations[key]`
-
-- **Type:** <a href="#BlessedTraditionTranslation">BlessedTraditionTranslation</a>
 
 ---
 
@@ -432,7 +423,7 @@ Key | Description | Details
 
 #### <a name="BlessedTraditionTranslation/name"></a> `name`
 
-- **Type:** <a href="../_Activatable.md#Name">Name</a>
+- **Type:** <a href="#Name">Name</a>
 
 #### <a name="BlessedTraditionTranslation/name_compressed"></a> `name_compressed?`
 
@@ -444,7 +435,7 @@ descriptions.
 
 #### <a name="BlessedTraditionTranslation/name_in_library"></a> `name_in_library?`
 
-- **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
+- **Type:** <a href="#NameInLibrary">NameInLibrary</a>
 
 #### <a name="BlessedTraditionTranslation/special_rules"></a> `special_rules`
 

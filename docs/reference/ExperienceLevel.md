@@ -75,16 +75,7 @@ The maximum of spells of an unfamiliar tradition you can activate.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#ExperienceLevel/translations[key]">ExperienceLevel/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="ExperienceLevel/translations[key]"></a> `ExperienceLevel/translations[key]`
-
-- **Type:** <a href="#ExperienceLevelTranslation">ExperienceLevelTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#ExperienceLevelTranslation">ExperienceLevelTranslation</a>&gt;
 
 ---
 

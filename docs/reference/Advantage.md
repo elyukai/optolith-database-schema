@@ -23,27 +23,27 @@ Key | Description | Details
 
 #### <a name="Advantage/id"></a> `id`
 
-- **Type:** <a href="./_Activatable.md#Id">Id</a>
+- **Type:** <a href="#Id">Id</a>
 
 #### <a name="Advantage/levels"></a> `levels?`
 
-- **Type:** <a href="./_Activatable.md#Levels">Levels</a>
+- **Type:** <a href="#Levels">Levels</a>
 
 #### <a name="Advantage/select_options"></a> `select_options?`
 
-- **Type:** <a href="./_Activatable.md#SelectOptions">SelectOptions</a>
+- **Type:** <a href="#SelectOptions">SelectOptions</a>
 
 #### <a name="Advantage/skill_applications"></a> `skill_applications?`
 
-- **Type:** <a href="./_Activatable.md#SkillApplications">SkillApplications</a>
+- **Type:** <a href="#SkillApplications">SkillApplications</a>
 
 #### <a name="Advantage/skill_uses"></a> `skill_uses?`
 
-- **Type:** <a href="./_Activatable.md#SkillUses">SkillUses</a>
+- **Type:** <a href="#SkillUses">SkillUses</a>
 
 #### <a name="Advantage/maximum"></a> `maximum?`
 
-- **Type:** <a href="./_Activatable.md#Maximum">Maximum</a>
+- **Type:** <a href="#Maximum">Maximum</a>
 
 #### <a name="Advantage/prerequisites"></a> `prerequisites?`
 
@@ -51,7 +51,7 @@ Key | Description | Details
 
 #### <a name="Advantage/ap_value"></a> `ap_value`
 
-- **Type:** <a href="./_Activatable.md#AdventurePointsValue">AdventurePointsValue</a>
+- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>
 
 #### <a name="Advantage/has_maximum_spent_influence"></a> `has_maximum_spent_influence`
 
@@ -77,16 +77,7 @@ to magical actions and magical applications?
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Advantage/translations[key]">Advantage/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="Advantage/translations[key]"></a> `Advantage/translations[key]`
-
-- **Type:** <a href="#AdvantageTranslation">AdvantageTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#AdvantageTranslation">AdvantageTranslation</a>&gt;
 
 ---
 
@@ -107,21 +98,21 @@ Key | Description | Details
 
 #### <a name="AdvantageTranslation/name"></a> `name`
 
-- **Type:** <a href="./_Activatable.md#Name">Name</a>
+- **Type:** <a href="#Name">Name</a>
 
 #### <a name="AdvantageTranslation/name_in_library"></a> `name_in_library?`
 
-- **Type:** <a href="./_Activatable.md#NameInLibrary">NameInLibrary</a>
+- **Type:** <a href="#NameInLibrary">NameInLibrary</a>
 
 #### <a name="AdvantageTranslation/input"></a> `input?`
 
 A string that is used as a label for an input field.
 
-- **Type:** <a href="./_Activatable.md#Input">Input</a>
+- **Type:** <a href="#Input">Input</a>
 
 #### <a name="AdvantageTranslation/rules"></a> `rules`
 
-- **Type:** <a href="./_Activatable.md#Rules">Rules</a>
+- **Type:** <a href="#Rules">Rules</a>
 
 #### <a name="AdvantageTranslation/range"></a> `range?`
 
@@ -132,7 +123,7 @@ The range.
 
 #### <a name="AdvantageTranslation/ap_value"></a> `ap_value?`
 
-- **Type:** <a href="./_Activatable.md#AdventurePointsValueReplacement">AdventurePointsValueReplacement</a>
+- **Type:** <a href="#AdventurePointsValueReplacement">AdventurePointsValueReplacement</a>
 
 #### <a name="AdvantageTranslation/ap_value_append"></a> `ap_value_append?`
 
@@ -140,7 +131,7 @@ A string that gets appended to the default AP Value text with a preceding
 space. This always happens if present, even if the generated AP Value text
 is replaced.
 
-- **Type:** <a href="./_Activatable.md#AdventurePointsValueAppend">AdventurePointsValueAppend</a>
+- **Type:** <a href="#AdventurePointsValueAppend">AdventurePointsValueAppend</a>
 
 #### <a name="AdvantageTranslation/errata"></a> `errata?`
 

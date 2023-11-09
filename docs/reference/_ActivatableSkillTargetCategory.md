@@ -37,16 +37,7 @@ Key | Description | Details
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#SpecificTargetCategory/translations[key]">SpecificTargetCategory/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="SpecificTargetCategory/translations[key]"></a> `SpecificTargetCategory/translations[key]`
-
-- **Type:** <a href="#SpecificTargetCategoryTranslation">SpecificTargetCategoryTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#SpecificTargetCategoryTranslation">SpecificTargetCategoryTranslation</a>&gt;
 
 ---
 

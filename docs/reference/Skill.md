@@ -64,16 +64,7 @@ The skill group this skill belongs to.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Skill/translations[key]">Skill/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="Skill/translations[key]"></a> `Skill/translations[key]`
-
-- **Type:** <a href="#SkillTranslation">SkillTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#SkillTranslation">SkillTranslation</a>&gt;
 
 ---
 
@@ -264,16 +255,7 @@ The skill application's identifier. An unique, increasing integer.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Application/translations[key]">Application/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="Application/translations[key]"></a> `Application/translations[key]`
-
-- **Type:** <a href="#ApplicationTranslation">ApplicationTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#ApplicationTranslation">ApplicationTranslation</a>&gt;
 
 ---
 

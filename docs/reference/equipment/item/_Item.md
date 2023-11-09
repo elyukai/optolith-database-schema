@@ -56,16 +56,7 @@ although this is not the primary use case of the item.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#DefaultItem/translations[key]">DefaultItem/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="DefaultItem/translations[key]"></a> `DefaultItem/translations[key]`
-
-- **Type:** <a href="#DefaultItemTranslation">DefaultItemTranslation</a>
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#DefaultItemTranslation">DefaultItemTranslation</a>&gt;
 
 ---
 
@@ -335,16 +326,7 @@ The cost in silverthalers.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#FixedCost/translations[key]">FixedCost/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="FixedCost/translations[key]"></a> `FixedCost/translations[key]`
-
-- **Type:** <a href="#CostTranslation">CostTranslation</a>
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#CostTranslation">CostTranslation</a>&gt;
 
 ---
 
@@ -376,16 +358,7 @@ The upper bound of the cost in silverthalers.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#CostRange/translations[key]">CostRange/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="CostRange/translations[key]"></a> `CostRange/translations[key]`
-
-- **Type:** <a href="#CostTranslation">CostTranslation</a>
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#CostTranslation">CostTranslation</a>&gt;
 
 ---
 

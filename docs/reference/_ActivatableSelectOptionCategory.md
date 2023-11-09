@@ -691,102 +691,13 @@ A list of skill categories.
 
 Generate AP values for each entry.
 
-- **Type:** Union
-- **Cases:** <a href="#SkillsSelectOptionCategory/ap_value'DerivedFromImprovementCost">SkillsSelectOptionCategory/ap_value'DerivedFromImprovementCost</a> | <a href="#SkillsSelectOptionCategory/ap_value'Fixed">SkillsSelectOptionCategory/ap_value'Fixed</a>
+- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>&lt;<a href="./_IdentifierGroup.md#SkillIdentifier">SkillIdentifier</a>&gt;
 
 ---
 
 ### <a name="SkillsSelectOptionCategory/categories[]"></a> `SkillsSelectOptionCategory/categories[]`
 
 - **Type:** <a href="#SkillsSelectOptionCategoryCategory">SkillsSelectOptionCategoryCategory</a>
-
----
-
-### <a name="SkillsSelectOptionCategory/ap_value'DerivedFromImprovementCost"></a> `SkillsSelectOptionCategory/ap_value'DerivedFromImprovementCost`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#SkillsSelectOptionCategory/ap_value'DerivedFromImprovementCost/tag">See details</a>
-`derived_from_improvement_cost` |  | <a href="#SkillsSelectOptionCategory/ap_value'DerivedFromImprovementCost/derived_from_improvement_cost">See details</a>
-
-#### <a name="SkillsSelectOptionCategory/ap_value'DerivedFromImprovementCost/tag"></a> `tag`
-
-- **Constant:** `"DerivedFromImprovementCost"`
-
-#### <a name="SkillsSelectOptionCategory/ap_value'DerivedFromImprovementCost/derived_from_improvement_cost"></a> `derived_from_improvement_cost`
-
-- **Type:** <a href="#DeriveAdventurePointsValueFromImprovementCost">DeriveAdventurePointsValueFromImprovementCost</a>
-
----
-
-### <a name="SkillsSelectOptionCategory/ap_value'Fixed"></a> `SkillsSelectOptionCategory/ap_value'Fixed`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#SkillsSelectOptionCategory/ap_value'Fixed/tag">See details</a>
-`fixed` |  | <a href="#SkillsSelectOptionCategory/ap_value'Fixed/fixed">See details</a>
-
-#### <a name="SkillsSelectOptionCategory/ap_value'Fixed/tag"></a> `tag`
-
-- **Constant:** `"Fixed"`
-
-#### <a name="SkillsSelectOptionCategory/ap_value'Fixed/fixed"></a> `fixed`
-
-- **Type:** <a href="#SkillsSelectOptionCategory/ap_value'Fixed/fixed">Object</a>
-
----
-
-### <a name="SkillsSelectOptionCategory/ap_value'Fixed/fixed"></a> `SkillsSelectOptionCategory/ap_value'Fixed/fixed`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`map` | A mapping of skill identifiers to their specific AP values. | <a href="#SkillsSelectOptionCategory/ap_value'Fixed/fixed/map">See details</a>
-`default` | The default value of an entry. Used as a fallback if no value is found in `list`. | <a href="#SkillsSelectOptionCategory/ap_value'Fixed/fixed/default">See details</a>
-
-#### <a name="SkillsSelectOptionCategory/ap_value'Fixed/fixed/map"></a> `map`
-
-A mapping of skill identifiers to their specific AP values.
-
-- **Type:** List
-- **Items:** <a href="#SkillsSelectOptionCategory/ap_value'Fixed/fixed/map[]">SkillsSelectOptionCategory/ap_value'Fixed/fixed/map[]</a>
-
-#### <a name="SkillsSelectOptionCategory/ap_value'Fixed/fixed/default"></a> `default`
-
-The default value of an entry. Used as a fallback if no value is
-found in `list`.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="SkillsSelectOptionCategory/ap_value'Fixed/fixed/map[]"></a> `SkillsSelectOptionCategory/ap_value'Fixed/fixed/map[]`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The entry's identifier. | <a href="#SkillsSelectOptionCategory/ap_value'Fixed/fixed/map[]/id">See details</a>
-`ap_value` | The AP value for the specified entry. | <a href="#SkillsSelectOptionCategory/ap_value'Fixed/fixed/map[]/ap_value">See details</a>
-
-#### <a name="SkillsSelectOptionCategory/ap_value'Fixed/fixed/map[]/id"></a> `id`
-
-The entry's identifier.
-
-- **Type:** <a href="./_IdentifierGroup.md#SkillIdentifier">SkillIdentifier</a>
-
-#### <a name="SkillsSelectOptionCategory/ap_value'Fixed/fixed/map[]/ap_value"></a> `ap_value`
-
-The AP value for the specified entry.
-
-- **Type:** Integer
-- **Minimum:** `1`
 
 ---
 
@@ -831,68 +742,7 @@ Key | Description | Details
 
 #### <a name="SkillsSelectOptionCategoryCategory'Spells/spells"></a> `spells`
 
-- **Type:** <a href="#SkillsSelectOptionCategoryCategory'Spells/spells">Object</a>
-
----
-
-### <a name="SkillsSelectOptionCategoryCategory'Spells/spells"></a> `SkillsSelectOptionCategoryCategory'Spells/spells`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`specific?` | Only include (`Intersection`) or exclude (`Difference`) specific entries. | <a href="#SkillsSelectOptionCategoryCategory'Spells/spells/specific">See details</a>
-`prerequisites?` | Generate prerequisites for each entry of the category. | <a href="#SkillsSelectOptionCategoryCategory'Spells/spells/prerequisites">See details</a>
-
-#### <a name="SkillsSelectOptionCategoryCategory'Spells/spells/specific"></a> `specific?`
-
-Only include (`Intersection`) or exclude (`Difference`) specific entries.
-
-- **Type:** <a href="#SkillsSelectOptionCategoryCategory'Spells/spells/specific">Object</a>
-
-#### <a name="SkillsSelectOptionCategoryCategory'Spells/spells/prerequisites"></a> `prerequisites?`
-
-Generate prerequisites for each entry of the category.
-
-- **Type:** List
-- **Items:** <a href="#SkillsSelectOptionCategoryCategory'Spells/spells/prerequisites[]">SkillsSelectOptionCategoryCategory'Spells/spells/prerequisites[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="SkillsSelectOptionCategoryCategory'Spells/spells/specific"></a> `SkillsSelectOptionCategoryCategory'Spells/spells/specific`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`operation` |  | <a href="#SkillsSelectOptionCategoryCategory'Spells/spells/specific/operation">See details</a>
-`list` | The list of specific entries. | <a href="#SkillsSelectOptionCategoryCategory'Spells/spells/specific/list">See details</a>
-
-#### <a name="SkillsSelectOptionCategoryCategory'Spells/spells/specific/operation"></a> `operation`
-
-- **Type:** <a href="#SpecificFromSkillSelectOptionCategoryCategoryOperation">SpecificFromSkillSelectOptionCategoryCategoryOperation</a>
-
-#### <a name="SkillsSelectOptionCategoryCategory'Spells/spells/specific/list"></a> `list`
-
-The list of specific entries.
-
-- **Type:** List
-- **Items:** <a href="#SkillsSelectOptionCategoryCategory'Spells/spells/specific/list[]">SkillsSelectOptionCategoryCategory'Spells/spells/specific/list[]</a>
-- **Minimum Items:** `1`
-- **Unique Items:** Yes
-
----
-
-### <a name="SkillsSelectOptionCategoryCategory'Spells/spells/specific/list[]"></a> `SkillsSelectOptionCategoryCategory'Spells/spells/specific/list[]`
-
-- **Type:** <a href="./_SimpleReferences.md#SpellReference">SpellReference</a>
-
----
-
-### <a name="SkillsSelectOptionCategoryCategory'Spells/spells/prerequisites[]"></a> `SkillsSelectOptionCategoryCategory'Spells/spells/prerequisites[]`
-
-- **Type:** <a href="#SkillSelectOptionCategoryPrerequisite">SkillSelectOptionCategoryPrerequisite</a>
+- **Type:** <a href="#GenericSkillsSelectOptionCategoryCategory">GenericSkillsSelectOptionCategoryCategory</a>&lt;<a href="./_SimpleReferences.md#SpellReference">SpellReference</a>&gt;
 
 ---
 
@@ -911,68 +761,7 @@ Key | Description | Details
 
 #### <a name="SkillsSelectOptionCategoryCategory'Rituals/rituals"></a> `rituals`
 
-- **Type:** <a href="#SkillsSelectOptionCategoryCategory'Rituals/rituals">Object</a>
-
----
-
-### <a name="SkillsSelectOptionCategoryCategory'Rituals/rituals"></a> `SkillsSelectOptionCategoryCategory'Rituals/rituals`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`specific?` | Only include (`Intersection`) or exclude (`Difference`) specific entries. | <a href="#SkillsSelectOptionCategoryCategory'Rituals/rituals/specific">See details</a>
-`prerequisites?` | Generate prerequisites for each entry of the category. | <a href="#SkillsSelectOptionCategoryCategory'Rituals/rituals/prerequisites">See details</a>
-
-#### <a name="SkillsSelectOptionCategoryCategory'Rituals/rituals/specific"></a> `specific?`
-
-Only include (`Intersection`) or exclude (`Difference`) specific entries.
-
-- **Type:** <a href="#SkillsSelectOptionCategoryCategory'Rituals/rituals/specific">Object</a>
-
-#### <a name="SkillsSelectOptionCategoryCategory'Rituals/rituals/prerequisites"></a> `prerequisites?`
-
-Generate prerequisites for each entry of the category.
-
-- **Type:** List
-- **Items:** <a href="#SkillsSelectOptionCategoryCategory'Rituals/rituals/prerequisites[]">SkillsSelectOptionCategoryCategory'Rituals/rituals/prerequisites[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="SkillsSelectOptionCategoryCategory'Rituals/rituals/specific"></a> `SkillsSelectOptionCategoryCategory'Rituals/rituals/specific`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`operation` |  | <a href="#SkillsSelectOptionCategoryCategory'Rituals/rituals/specific/operation">See details</a>
-`list` | The list of specific entries. | <a href="#SkillsSelectOptionCategoryCategory'Rituals/rituals/specific/list">See details</a>
-
-#### <a name="SkillsSelectOptionCategoryCategory'Rituals/rituals/specific/operation"></a> `operation`
-
-- **Type:** <a href="#SpecificFromSkillSelectOptionCategoryCategoryOperation">SpecificFromSkillSelectOptionCategoryCategoryOperation</a>
-
-#### <a name="SkillsSelectOptionCategoryCategory'Rituals/rituals/specific/list"></a> `list`
-
-The list of specific entries.
-
-- **Type:** List
-- **Items:** <a href="#SkillsSelectOptionCategoryCategory'Rituals/rituals/specific/list[]">SkillsSelectOptionCategoryCategory'Rituals/rituals/specific/list[]</a>
-- **Minimum Items:** `1`
-- **Unique Items:** Yes
-
----
-
-### <a name="SkillsSelectOptionCategoryCategory'Rituals/rituals/specific/list[]"></a> `SkillsSelectOptionCategoryCategory'Rituals/rituals/specific/list[]`
-
-- **Type:** <a href="./_SimpleReferences.md#RitualReference">RitualReference</a>
-
----
-
-### <a name="SkillsSelectOptionCategoryCategory'Rituals/rituals/prerequisites[]"></a> `SkillsSelectOptionCategoryCategory'Rituals/rituals/prerequisites[]`
-
-- **Type:** <a href="#SkillSelectOptionCategoryPrerequisite">SkillSelectOptionCategoryPrerequisite</a>
+- **Type:** <a href="#GenericSkillsSelectOptionCategoryCategory">GenericSkillsSelectOptionCategoryCategory</a>&lt;<a href="./_SimpleReferences.md#RitualReference">RitualReference</a>&gt;
 
 ---
 
@@ -991,68 +780,7 @@ Key | Description | Details
 
 #### <a name="SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants"></a> `liturgical_chants`
 
-- **Type:** <a href="#SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants">Object</a>
-
----
-
-### <a name="SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants"></a> `SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`specific?` | Only include (`Intersection`) or exclude (`Difference`) specific entries. | <a href="#SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants/specific">See details</a>
-`prerequisites?` | Generate prerequisites for each entry of the category. | <a href="#SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants/prerequisites">See details</a>
-
-#### <a name="SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants/specific"></a> `specific?`
-
-Only include (`Intersection`) or exclude (`Difference`) specific entries.
-
-- **Type:** <a href="#SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants/specific">Object</a>
-
-#### <a name="SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants/prerequisites"></a> `prerequisites?`
-
-Generate prerequisites for each entry of the category.
-
-- **Type:** List
-- **Items:** <a href="#SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants/prerequisites[]">SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants/prerequisites[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants/specific"></a> `SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants/specific`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`operation` |  | <a href="#SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants/specific/operation">See details</a>
-`list` | The list of specific entries. | <a href="#SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants/specific/list">See details</a>
-
-#### <a name="SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants/specific/operation"></a> `operation`
-
-- **Type:** <a href="#SpecificFromSkillSelectOptionCategoryCategoryOperation">SpecificFromSkillSelectOptionCategoryCategoryOperation</a>
-
-#### <a name="SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants/specific/list"></a> `list`
-
-The list of specific entries.
-
-- **Type:** List
-- **Items:** <a href="#SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants/specific/list[]">SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants/specific/list[]</a>
-- **Minimum Items:** `1`
-- **Unique Items:** Yes
-
----
-
-### <a name="SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants/specific/list[]"></a> `SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants/specific/list[]`
-
-- **Type:** <a href="./_SimpleReferences.md#LiturgicalChantReference">LiturgicalChantReference</a>
-
----
-
-### <a name="SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants/prerequisites[]"></a> `SkillsSelectOptionCategoryCategory'LiturgicalChants/liturgical_chants/prerequisites[]`
-
-- **Type:** <a href="#SkillSelectOptionCategoryPrerequisite">SkillSelectOptionCategoryPrerequisite</a>
+- **Type:** <a href="#GenericSkillsSelectOptionCategoryCategory">GenericSkillsSelectOptionCategoryCategory</a>&lt;<a href="./_SimpleReferences.md#LiturgicalChantReference">LiturgicalChantReference</a>&gt;
 
 ---
 
@@ -1071,68 +799,7 @@ Key | Description | Details
 
 #### <a name="SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies"></a> `ceremonies`
 
-- **Type:** <a href="#SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies">Object</a>
-
----
-
-### <a name="SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies"></a> `SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`specific?` | Only include (`Intersection`) or exclude (`Difference`) specific entries. | <a href="#SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies/specific">See details</a>
-`prerequisites?` | Generate prerequisites for each entry of the category. | <a href="#SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies/prerequisites">See details</a>
-
-#### <a name="SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies/specific"></a> `specific?`
-
-Only include (`Intersection`) or exclude (`Difference`) specific entries.
-
-- **Type:** <a href="#SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies/specific">Object</a>
-
-#### <a name="SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies/prerequisites"></a> `prerequisites?`
-
-Generate prerequisites for each entry of the category.
-
-- **Type:** List
-- **Items:** <a href="#SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies/prerequisites[]">SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies/prerequisites[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies/specific"></a> `SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies/specific`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`operation` |  | <a href="#SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies/specific/operation">See details</a>
-`list` | The list of specific entries. | <a href="#SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies/specific/list">See details</a>
-
-#### <a name="SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies/specific/operation"></a> `operation`
-
-- **Type:** <a href="#SpecificFromSkillSelectOptionCategoryCategoryOperation">SpecificFromSkillSelectOptionCategoryCategoryOperation</a>
-
-#### <a name="SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies/specific/list"></a> `list`
-
-The list of specific entries.
-
-- **Type:** List
-- **Items:** <a href="#SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies/specific/list[]">SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies/specific/list[]</a>
-- **Minimum Items:** `1`
-- **Unique Items:** Yes
-
----
-
-### <a name="SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies/specific/list[]"></a> `SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies/specific/list[]`
-
-- **Type:** <a href="./_SimpleReferences.md#CeremonyReference">CeremonyReference</a>
-
----
-
-### <a name="SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies/prerequisites[]"></a> `SkillsSelectOptionCategoryCategory'Ceremonies/ceremonies/prerequisites[]`
-
-- **Type:** <a href="#SkillSelectOptionCategoryPrerequisite">SkillSelectOptionCategoryPrerequisite</a>
+- **Type:** <a href="#GenericSkillsSelectOptionCategoryCategory">GenericSkillsSelectOptionCategoryCategory</a>&lt;<a href="./_SimpleReferences.md#CeremonyReference">CeremonyReference</a>&gt;
 
 ---
 
@@ -1162,7 +829,7 @@ Only include entries of the specified groups.
 Only include (`Intersection`) or exclude (`Difference`) specific
 skills.
 
-- **Type:** <a href="#SkillSelectOptionCategoryCategory/specific">Object</a>
+- **Type:** <a href="#SpecificFromSkillSelectOptionCategoryCategory">SpecificFromSkillSelectOptionCategoryCategory</a>&lt;<a href="./_IdentifierGroup.md#SkillIdentifier">SkillIdentifier</a>&gt;
 
 #### <a name="SkillSelectOptionCategoryCategory/skill_applications"></a> `skill_applications?`
 
@@ -1200,44 +867,13 @@ Generate prerequisites for each entry of the category.
 
 Generate AP values for each entry.
 
-- **Type:** Union
-- **Cases:** <a href="#SkillSelectOptionCategoryCategory/ap_value'DerivedFromImprovementCost">SkillSelectOptionCategoryCategory/ap_value'DerivedFromImprovementCost</a> | <a href="#SkillSelectOptionCategoryCategory/ap_value'Fixed">SkillSelectOptionCategoryCategory/ap_value'Fixed</a>
+- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>&lt;<a href="./_IdentifierGroup.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>&gt;
 
 ---
 
 ### <a name="SkillSelectOptionCategoryCategory/groups[]"></a> `SkillSelectOptionCategoryCategory/groups[]`
 
 - **Type:** <a href="./_SimpleReferences.md#SkillGroupReference">SkillGroupReference</a>
-
----
-
-### <a name="SkillSelectOptionCategoryCategory/specific"></a> `SkillSelectOptionCategoryCategory/specific`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`operation` |  | <a href="#SkillSelectOptionCategoryCategory/specific/operation">See details</a>
-`list` | The list of specific entries. | <a href="#SkillSelectOptionCategoryCategory/specific/list">See details</a>
-
-#### <a name="SkillSelectOptionCategoryCategory/specific/operation"></a> `operation`
-
-- **Type:** <a href="#SpecificFromSkillSelectOptionCategoryCategoryOperation">SpecificFromSkillSelectOptionCategoryCategoryOperation</a>
-
-#### <a name="SkillSelectOptionCategoryCategory/specific/list"></a> `list`
-
-The list of specific entries.
-
-- **Type:** List
-- **Items:** <a href="#SkillSelectOptionCategoryCategory/specific/list[]">SkillSelectOptionCategoryCategory/specific/list[]</a>
-- **Minimum Items:** `1`
-- **Unique Items:** Yes
-
----
-
-### <a name="SkillSelectOptionCategoryCategory/specific/list[]"></a> `SkillSelectOptionCategoryCategory/specific/list[]`
-
-- **Type:** <a href="./_IdentifierGroup.md#SkillIdentifier">SkillIdentifier</a>
 
 ---
 
@@ -1256,94 +892,6 @@ The list of specific entries.
 ### <a name="SkillSelectOptionCategoryCategory/prerequisites[]"></a> `SkillSelectOptionCategoryCategory/prerequisites[]`
 
 - **Type:** <a href="#SkillSelectOptionCategoryPrerequisite">SkillSelectOptionCategoryPrerequisite</a>
-
----
-
-### <a name="SkillSelectOptionCategoryCategory/ap_value'DerivedFromImprovementCost"></a> `SkillSelectOptionCategoryCategory/ap_value'DerivedFromImprovementCost`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#SkillSelectOptionCategoryCategory/ap_value'DerivedFromImprovementCost/tag">See details</a>
-`derived_from_improvement_cost` |  | <a href="#SkillSelectOptionCategoryCategory/ap_value'DerivedFromImprovementCost/derived_from_improvement_cost">See details</a>
-
-#### <a name="SkillSelectOptionCategoryCategory/ap_value'DerivedFromImprovementCost/tag"></a> `tag`
-
-- **Constant:** `"DerivedFromImprovementCost"`
-
-#### <a name="SkillSelectOptionCategoryCategory/ap_value'DerivedFromImprovementCost/derived_from_improvement_cost"></a> `derived_from_improvement_cost`
-
-- **Type:** <a href="#DeriveAdventurePointsValueFromImprovementCost">DeriveAdventurePointsValueFromImprovementCost</a>
-
----
-
-### <a name="SkillSelectOptionCategoryCategory/ap_value'Fixed"></a> `SkillSelectOptionCategoryCategory/ap_value'Fixed`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#SkillSelectOptionCategoryCategory/ap_value'Fixed/tag">See details</a>
-`fixed` |  | <a href="#SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed">See details</a>
-
-#### <a name="SkillSelectOptionCategoryCategory/ap_value'Fixed/tag"></a> `tag`
-
-- **Constant:** `"Fixed"`
-
-#### <a name="SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed"></a> `fixed`
-
-- **Type:** <a href="#SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed">Object</a>
-
----
-
-### <a name="SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed"></a> `SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`map` | A mapping of skill identifiers to their specific AP values. | <a href="#SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed/map">See details</a>
-`default` | The default value of an entry. Used as a fallback if no value is found in `list`. | <a href="#SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed/default">See details</a>
-
-#### <a name="SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed/map"></a> `map`
-
-A mapping of skill identifiers to their specific AP values.
-
-- **Type:** List
-- **Items:** <a href="#SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed/map[]">SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed/map[]</a>
-
-#### <a name="SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed/default"></a> `default`
-
-The default value of an entry. Used as a fallback if no value is
-found in `list`.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed/map[]"></a> `SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed/map[]`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The entry's identifier. | <a href="#SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed/map[]/id">See details</a>
-`ap_value` | The AP value for the specified entry. | <a href="#SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed/map[]/ap_value">See details</a>
-
-#### <a name="SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed/map[]/id"></a> `id`
-
-The entry's identifier.
-
-- **Type:** <a href="./_IdentifierGroup.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>
-
-#### <a name="SkillSelectOptionCategoryCategory/ap_value'Fixed/fixed/map[]/ap_value"></a> `ap_value`
-
-The AP value for the specified entry.
-
-- **Type:** Integer
-- **Minimum:** `1`
 
 ---
 
@@ -1368,102 +916,13 @@ A list of combat technique categories.
 
 Generate AP values for each entry.
 
-- **Type:** Union
-- **Cases:** <a href="#CombatTechniquesSelectOptionCategory/ap_value'DerivedFromImprovementCost">CombatTechniquesSelectOptionCategory/ap_value'DerivedFromImprovementCost</a> | <a href="#CombatTechniquesSelectOptionCategory/ap_value'Fixed">CombatTechniquesSelectOptionCategory/ap_value'Fixed</a>
+- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>&lt;<a href="./_IdentifierGroup.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>&gt;
 
 ---
 
 ### <a name="CombatTechniquesSelectOptionCategory/categories[]"></a> `CombatTechniquesSelectOptionCategory/categories[]`
 
 - **Type:** <a href="#CombatTechniquesSelectOptionCategoryCategory">CombatTechniquesSelectOptionCategoryCategory</a>
-
----
-
-### <a name="CombatTechniquesSelectOptionCategory/ap_value'DerivedFromImprovementCost"></a> `CombatTechniquesSelectOptionCategory/ap_value'DerivedFromImprovementCost`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#CombatTechniquesSelectOptionCategory/ap_value'DerivedFromImprovementCost/tag">See details</a>
-`derived_from_improvement_cost` |  | <a href="#CombatTechniquesSelectOptionCategory/ap_value'DerivedFromImprovementCost/derived_from_improvement_cost">See details</a>
-
-#### <a name="CombatTechniquesSelectOptionCategory/ap_value'DerivedFromImprovementCost/tag"></a> `tag`
-
-- **Constant:** `"DerivedFromImprovementCost"`
-
-#### <a name="CombatTechniquesSelectOptionCategory/ap_value'DerivedFromImprovementCost/derived_from_improvement_cost"></a> `derived_from_improvement_cost`
-
-- **Type:** <a href="#DeriveAdventurePointsValueFromImprovementCost">DeriveAdventurePointsValueFromImprovementCost</a>
-
----
-
-### <a name="CombatTechniquesSelectOptionCategory/ap_value'Fixed"></a> `CombatTechniquesSelectOptionCategory/ap_value'Fixed`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#CombatTechniquesSelectOptionCategory/ap_value'Fixed/tag">See details</a>
-`fixed` |  | <a href="#CombatTechniquesSelectOptionCategory/ap_value'Fixed/fixed">See details</a>
-
-#### <a name="CombatTechniquesSelectOptionCategory/ap_value'Fixed/tag"></a> `tag`
-
-- **Constant:** `"Fixed"`
-
-#### <a name="CombatTechniquesSelectOptionCategory/ap_value'Fixed/fixed"></a> `fixed`
-
-- **Type:** <a href="#CombatTechniquesSelectOptionCategory/ap_value'Fixed/fixed">Object</a>
-
----
-
-### <a name="CombatTechniquesSelectOptionCategory/ap_value'Fixed/fixed"></a> `CombatTechniquesSelectOptionCategory/ap_value'Fixed/fixed`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`map` | A mapping of skill identifiers to their specific AP values. | <a href="#CombatTechniquesSelectOptionCategory/ap_value'Fixed/fixed/map">See details</a>
-`default` | The default value of an entry. Used as a fallback if no value is found in `list`. | <a href="#CombatTechniquesSelectOptionCategory/ap_value'Fixed/fixed/default">See details</a>
-
-#### <a name="CombatTechniquesSelectOptionCategory/ap_value'Fixed/fixed/map"></a> `map`
-
-A mapping of skill identifiers to their specific AP values.
-
-- **Type:** List
-- **Items:** <a href="#CombatTechniquesSelectOptionCategory/ap_value'Fixed/fixed/map[]">CombatTechniquesSelectOptionCategory/ap_value'Fixed/fixed/map[]</a>
-
-#### <a name="CombatTechniquesSelectOptionCategory/ap_value'Fixed/fixed/default"></a> `default`
-
-The default value of an entry. Used as a fallback if no value is
-found in `list`.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
-### <a name="CombatTechniquesSelectOptionCategory/ap_value'Fixed/fixed/map[]"></a> `CombatTechniquesSelectOptionCategory/ap_value'Fixed/fixed/map[]`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The entry's identifier. | <a href="#CombatTechniquesSelectOptionCategory/ap_value'Fixed/fixed/map[]/id">See details</a>
-`ap_value` | The AP value for the specified entry. | <a href="#CombatTechniquesSelectOptionCategory/ap_value'Fixed/fixed/map[]/ap_value">See details</a>
-
-#### <a name="CombatTechniquesSelectOptionCategory/ap_value'Fixed/fixed/map[]/id"></a> `id`
-
-The entry's identifier.
-
-- **Type:** <a href="./_IdentifierGroup.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>
-
-#### <a name="CombatTechniquesSelectOptionCategory/ap_value'Fixed/fixed/map[]/ap_value"></a> `ap_value`
-
-The AP value for the specified entry.
-
-- **Type:** Integer
-- **Minimum:** `1`
 
 ---
 
@@ -1489,68 +948,7 @@ Key | Description | Details
 
 #### <a name="CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques"></a> `close_combat_techniques`
 
-- **Type:** <a href="#CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques">Object</a>
-
----
-
-### <a name="CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques"></a> `CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`specific?` | Only include (`Intersection`) or exclude (`Difference`) specific entries. | <a href="#CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques/specific">See details</a>
-`prerequisites?` | Generate prerequisites for each entry of the category. | <a href="#CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques/prerequisites">See details</a>
-
-#### <a name="CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques/specific"></a> `specific?`
-
-Only include (`Intersection`) or exclude (`Difference`) specific entries.
-
-- **Type:** <a href="#CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques/specific">Object</a>
-
-#### <a name="CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques/prerequisites"></a> `prerequisites?`
-
-Generate prerequisites for each entry of the category.
-
-- **Type:** List
-- **Items:** <a href="#CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques/prerequisites[]">CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques/prerequisites[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques/specific"></a> `CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques/specific`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`operation` |  | <a href="#CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques/specific/operation">See details</a>
-`list` | The list of specific entries. | <a href="#CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques/specific/list">See details</a>
-
-#### <a name="CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques/specific/operation"></a> `operation`
-
-- **Type:** <a href="#SpecificFromSkillSelectOptionCategoryCategoryOperation">SpecificFromSkillSelectOptionCategoryCategoryOperation</a>
-
-#### <a name="CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques/specific/list"></a> `list`
-
-The list of specific entries.
-
-- **Type:** List
-- **Items:** <a href="#CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques/specific/list[]">CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques/specific/list[]</a>
-- **Minimum Items:** `1`
-- **Unique Items:** Yes
-
----
-
-### <a name="CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques/specific/list[]"></a> `CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques/specific/list[]`
-
-- **Type:** <a href="./_SimpleReferences.md#CloseCombatTechniqueReference">CloseCombatTechniqueReference</a>
-
----
-
-### <a name="CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques/prerequisites[]"></a> `CombatTechniquesSelectOptionCategoryCategory'CloseCombatTechniques/close_combat_techniques/prerequisites[]`
-
-- **Type:** <a href="#SkillSelectOptionCategoryPrerequisite">SkillSelectOptionCategoryPrerequisite</a>
+- **Type:** <a href="#GenericSkillsSelectOptionCategoryCategory">GenericSkillsSelectOptionCategoryCategory</a>&lt;<a href="./_SimpleReferences.md#CloseCombatTechniqueReference">CloseCombatTechniqueReference</a>&gt;
 
 ---
 
@@ -1569,68 +967,7 @@ Key | Description | Details
 
 #### <a name="CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques"></a> `ranged_combat_techniques`
 
-- **Type:** <a href="#CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques">Object</a>
-
----
-
-### <a name="CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques"></a> `CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`specific?` | Only include (`Intersection`) or exclude (`Difference`) specific entries. | <a href="#CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques/specific">See details</a>
-`prerequisites?` | Generate prerequisites for each entry of the category. | <a href="#CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques/prerequisites">See details</a>
-
-#### <a name="CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques/specific"></a> `specific?`
-
-Only include (`Intersection`) or exclude (`Difference`) specific entries.
-
-- **Type:** <a href="#CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques/specific">Object</a>
-
-#### <a name="CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques/prerequisites"></a> `prerequisites?`
-
-Generate prerequisites for each entry of the category.
-
-- **Type:** List
-- **Items:** <a href="#CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques/prerequisites[]">CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques/prerequisites[]</a>
-- **Minimum Items:** `1`
-
----
-
-### <a name="CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques/specific"></a> `CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques/specific`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`operation` |  | <a href="#CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques/specific/operation">See details</a>
-`list` | The list of specific entries. | <a href="#CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques/specific/list">See details</a>
-
-#### <a name="CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques/specific/operation"></a> `operation`
-
-- **Type:** <a href="#SpecificFromSkillSelectOptionCategoryCategoryOperation">SpecificFromSkillSelectOptionCategoryCategoryOperation</a>
-
-#### <a name="CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques/specific/list"></a> `list`
-
-The list of specific entries.
-
-- **Type:** List
-- **Items:** <a href="#CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques/specific/list[]">CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques/specific/list[]</a>
-- **Minimum Items:** `1`
-- **Unique Items:** Yes
-
----
-
-### <a name="CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques/specific/list[]"></a> `CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques/specific/list[]`
-
-- **Type:** <a href="./_SimpleReferences.md#RangedCombatTechniqueReference">RangedCombatTechniqueReference</a>
-
----
-
-### <a name="CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques/prerequisites[]"></a> `CombatTechniquesSelectOptionCategoryCategory'RangedCombatTechniques/ranged_combat_techniques/prerequisites[]`
-
-- **Type:** <a href="#SkillSelectOptionCategoryPrerequisite">SkillSelectOptionCategoryPrerequisite</a>
+- **Type:** <a href="#GenericSkillsSelectOptionCategoryCategory">GenericSkillsSelectOptionCategoryCategory</a>&lt;<a href="./_SimpleReferences.md#RangedCombatTechniqueReference">RangedCombatTechniqueReference</a>&gt;
 
 ---
 
@@ -1654,16 +991,7 @@ The application's or use's identifier. An entry-unique, increasing integer.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#SkillApplicationOrUse/translations[key]">SkillApplicationOrUse/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="SkillApplicationOrUse/translations[key]"></a> `SkillApplicationOrUse/translations[key]`
-
-- **Type:** <a href="#SkillApplicationOrUseTranslation">SkillApplicationOrUseTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#SkillApplicationOrUseTranslation">SkillApplicationOrUseTranslation</a>&gt;
 
 ---
 
@@ -1682,6 +1010,67 @@ entry's name.
 
 - **Type:** String
 - **Minimum Length:** `1`
+
+---
+
+### <a name="GenericSkillsSelectOptionCategoryCategory"></a> `GenericSkillsSelectOptionCategoryCategory<Ref>`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`specific?` | Only include (`Intersection`) or exclude (`Difference`) specific entries. | <a href="#GenericSkillsSelectOptionCategoryCategory/specific">See details</a>
+`prerequisites?` | Generate prerequisites for each entry of the category. | <a href="#GenericSkillsSelectOptionCategoryCategory/prerequisites">See details</a>
+
+#### <a name="GenericSkillsSelectOptionCategoryCategory/specific"></a> `specific?`
+
+Only include (`Intersection`) or exclude (`Difference`) specific entries.
+
+- **Type:** <a href="#SpecificFromSkillSelectOptionCategoryCategory">SpecificFromSkillSelectOptionCategoryCategory</a>&lt;<a href="#Ref">Ref</a>&gt;
+
+#### <a name="GenericSkillsSelectOptionCategoryCategory/prerequisites"></a> `prerequisites?`
+
+Generate prerequisites for each entry of the category.
+
+- **Type:** List
+- **Items:** <a href="#GenericSkillsSelectOptionCategoryCategory/prerequisites[]">GenericSkillsSelectOptionCategoryCategory/prerequisites[]</a>
+- **Minimum Items:** `1`
+
+---
+
+### <a name="GenericSkillsSelectOptionCategoryCategory/prerequisites[]"></a> `GenericSkillsSelectOptionCategoryCategory/prerequisites[]`
+
+- **Type:** <a href="#SkillSelectOptionCategoryPrerequisite">SkillSelectOptionCategoryPrerequisite</a>
+
+---
+
+### <a name="SpecificFromSkillSelectOptionCategoryCategory"></a> `SpecificFromSkillSelectOptionCategoryCategory<Ref>`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`operation` |  | <a href="#SpecificFromSkillSelectOptionCategoryCategory/operation">See details</a>
+`list` | The list of specific entries. | <a href="#SpecificFromSkillSelectOptionCategoryCategory/list">See details</a>
+
+#### <a name="SpecificFromSkillSelectOptionCategoryCategory/operation"></a> `operation`
+
+- **Type:** <a href="#SpecificFromSkillSelectOptionCategoryCategoryOperation">SpecificFromSkillSelectOptionCategoryCategoryOperation</a>
+
+#### <a name="SpecificFromSkillSelectOptionCategoryCategory/list"></a> `list`
+
+The list of specific entries.
+
+- **Type:** List
+- **Items:** <a href="#SpecificFromSkillSelectOptionCategoryCategory/list[]">SpecificFromSkillSelectOptionCategoryCategory/list[]</a>
+- **Minimum Items:** `1`
+- **Unique Items:** Yes
+
+---
+
+### <a name="SpecificFromSkillSelectOptionCategoryCategory/list[]"></a> `SpecificFromSkillSelectOptionCategoryCategory/list[]`
+
+- **Type:** <a href="#Ref">Ref</a>
 
 ---
 
@@ -1801,6 +1190,53 @@ The required level, if any.
 
 ---
 
+### <a name="AdventurePointsValue"></a> `AdventurePointsValue<Identifier>`
+
+Generate AP values for each entry.
+
+- **Type:** Union
+- **Cases:** <a href="#AdventurePointsValue'DerivedFromImprovementCost">AdventurePointsValue'DerivedFromImprovementCost</a> | <a href="#AdventurePointsValue'Fixed">AdventurePointsValue'Fixed</a>
+
+---
+
+### <a name="AdventurePointsValue'DerivedFromImprovementCost"></a> `AdventurePointsValue'DerivedFromImprovementCost`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AdventurePointsValue'DerivedFromImprovementCost/tag">See details</a>
+`derived_from_improvement_cost` |  | <a href="#AdventurePointsValue'DerivedFromImprovementCost/derived_from_improvement_cost">See details</a>
+
+#### <a name="AdventurePointsValue'DerivedFromImprovementCost/tag"></a> `tag`
+
+- **Constant:** `"DerivedFromImprovementCost"`
+
+#### <a name="AdventurePointsValue'DerivedFromImprovementCost/derived_from_improvement_cost"></a> `derived_from_improvement_cost`
+
+- **Type:** <a href="#DeriveAdventurePointsValueFromImprovementCost">DeriveAdventurePointsValueFromImprovementCost</a>
+
+---
+
+### <a name="AdventurePointsValue'Fixed"></a> `AdventurePointsValue'Fixed`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AdventurePointsValue'Fixed/tag">See details</a>
+`fixed` |  | <a href="#AdventurePointsValue'Fixed/fixed">See details</a>
+
+#### <a name="AdventurePointsValue'Fixed/tag"></a> `tag`
+
+- **Constant:** `"Fixed"`
+
+#### <a name="AdventurePointsValue'Fixed/fixed"></a> `fixed`
+
+- **Type:** <a href="#FixedAdventurePointsValue">FixedAdventurePointsValue</a>&lt;<a href="#Identifier">Identifier</a>&gt;
+
+---
+
 ### <a name="DeriveAdventurePointsValueFromImprovementCost"></a> `DeriveAdventurePointsValueFromImprovementCost`
 
 Derive the cost from the improvement cost of each entry.
@@ -1829,6 +1265,62 @@ This number is added to the multiplied improvement cost of the entry.
 
 - **Type:** Integer
 - **Default:** `0`
+
+---
+
+### <a name="FixedAdventurePointsValue"></a> `FixedAdventurePointsValue<Identifier>`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`map` | A mapping of skill identifiers to their specific AP values. | <a href="#FixedAdventurePointsValue/map">See details</a>
+`default` | The default value of an entry. Used as a fallback if no value is found in `list`. | <a href="#FixedAdventurePointsValue/default">See details</a>
+
+#### <a name="FixedAdventurePointsValue/map"></a> `map`
+
+A mapping of skill identifiers to their specific AP values.
+
+- **Type:** List
+- **Items:** <a href="#FixedAdventurePointsValue/map[]">FixedAdventurePointsValue/map[]</a>
+
+#### <a name="FixedAdventurePointsValue/default"></a> `default`
+
+The default value of an entry. Used as a fallback if no value is
+found in `list`.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="FixedAdventurePointsValue/map[]"></a> `FixedAdventurePointsValue/map[]`
+
+- **Type:** <a href="#FixedAdventurePointsValueMapping">FixedAdventurePointsValueMapping</a>&lt;<a href="#Identifier">Identifier</a>&gt;
+
+---
+
+### <a name="FixedAdventurePointsValueMapping"></a> `FixedAdventurePointsValueMapping<Identifier>`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The entry's identifier. | <a href="#FixedAdventurePointsValueMapping/id">See details</a>
+`ap_value` | The AP value for the specified entry. | <a href="#FixedAdventurePointsValueMapping/ap_value">See details</a>
+
+#### <a name="FixedAdventurePointsValueMapping/id"></a> `id`
+
+The entry's identifier.
+
+- **Type:** <a href="#Identifier">Identifier</a>
+
+#### <a name="FixedAdventurePointsValueMapping/ap_value"></a> `ap_value`
+
+The AP value for the specified entry.
+
+- **Type:** Integer
+- **Minimum:** `1`
 
 ---
 

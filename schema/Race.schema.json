@@ -240,28 +240,24 @@
       "additionalProperties": false
     },
     "WeightDice": {
-      "type": "object",
-      "properties": {
-        "number": {
-          "description": "Number of dice of the same type. Example: 2 in 2D6.",
-          "type": "integer",
-          "minimum": 1
+      "allOf": [
+        {
+          "$ref": "./_Dice.schema.json#/$defs/Dice"
         },
-        "sides": {
-          "description": "Number of sides on every die. Example: 6 in 2D6.",
-          "$ref": "./_Dice.schema.json#/$defs/DieType"
-        },
-        "offset_strategy": {
-          "description": "The strategy how to offset the randomly generated values against the\nbase value. Either they are all added or subtracted or even results are\nadded and odd results are subtracted.",
-          "$ref": "#/$defs/WeightDiceOffsetStrategy"
+        {
+          "type": "object",
+          "properties": {
+            "offset_strategy": {
+              "description": "The strategy how to offset the randomly generated values against the\nbase value. Either they are all added or subtracted or even results are\nadded and odd results are subtracted.",
+              "$ref": "#/$defs/WeightDiceOffsetStrategy"
+            }
+          },
+          "required": [
+            "offset_strategy"
+          ]
         }
-      },
-      "required": [
-        "number",
-        "sides",
-        "offset_strategy"
       ],
-      "additionalProperties": false
+      "unresolvedProperties": false
     },
     "WeightDiceOffsetStrategy": {
       "description": "The strategy how to offset the randomly generated values against the\nbase value. Either they are all added or subtracted or even results are\nadded and odd results are subtracted.",

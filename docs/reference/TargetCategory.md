@@ -29,16 +29,7 @@ A superordinate target category, if present.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#TargetCategory/translations[key]">TargetCategory/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="TargetCategory/translations[key]"></a> `TargetCategory/translations[key]`
-
-- **Type:** <a href="#TargetCategoryTranslation">TargetCategoryTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#TargetCategoryTranslation">TargetCategoryTranslation</a>&gt;
 
 ---
 

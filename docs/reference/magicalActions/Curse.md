@@ -55,16 +55,7 @@ The associated property.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Curse/translations[key]">Curse/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="Curse/translations[key]"></a> `Curse/translations[key]`
-
-- **Type:** <a href="#CurseTranslation">CurseTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#CurseTranslation">CurseTranslation</a>&gt;
 
 ---
 
@@ -236,16 +227,7 @@ The (temporary) AE cost value.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#FixedCurseCost/translations[key]">FixedCurseCost/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="FixedCurseCost/translations[key]"></a> `FixedCurseCost/translations[key]`
-
-- **Type:** <a href="#FixedCurseCostTranslation">FixedCurseCostTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#FixedCurseCostTranslation">FixedCurseCostTranslation</a>&gt;
 
 ---
 
@@ -406,16 +388,7 @@ Specified if the duration has a maximum time span.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#IndefiniteCurseDuration/translations[key]">IndefiniteCurseDuration/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="IndefiniteCurseDuration/translations[key]"></a> `IndefiniteCurseDuration/translations[key]`
-
-- **Type:** <a href="../_ActivatableSkillDuration.md#IndefiniteDurationTranslation">IndefiniteDurationTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="../_ActivatableSkillDuration.md#IndefiniteDurationTranslation">IndefiniteDurationTranslation</a>&gt;
 
 ---
 

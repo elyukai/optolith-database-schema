@@ -26,13 +26,4 @@ The cost in silverthalers.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Vehicle/translations[key]">Vehicle/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="Vehicle/translations[key]"></a> `Vehicle/translations[key]`
-
-- **Type:** <a href="./_Item.md#DefaultItemTranslation">DefaultItemTranslation</a>
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="./_Item.md#DefaultItemTranslation">DefaultItemTranslation</a>&gt;

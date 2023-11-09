@@ -59,16 +59,7 @@ The chance to get infected by this cause, in percent.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Cause/translations[key]">Cause/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="Cause/translations[key]"></a> `Cause/translations[key]`
-
-- **Type:** <a href="#CauseTranslation">CauseTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#CauseTranslation">CauseTranslation</a>&gt;
 
 ---
 
@@ -192,7 +183,7 @@ Known remedies for the disease.
 
 ---
 
-### <a name="Reduceable"></a> `Reduceable`
+### <a name="Reduceable"></a> `Reduceable<Content = NonEmptyMarkdown>`
 
 An effect or other parameter that may be reduced by a failed disease check
 for lessening or a degraded poison.
@@ -211,11 +202,11 @@ Key | Description | Details
 
 The default value. In the source, it's the text before the slash.
 
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
+- **Type:** <a href="#Content">Content</a>
 
 #### <a name="Reduceable/reduced"></a> `reduced?`
 
 The reduced value. In the source, it's the text after the slash. Some
 entries may not have a reduced value.
 
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
+- **Type:** <a href="#Content">Content</a>

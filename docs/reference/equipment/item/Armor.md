@@ -75,16 +75,7 @@ Specify if armor is only available for a specific hit zone.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Armor/translations[key]">Armor/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="Armor/translations[key]"></a> `Armor/translations[key]`
-
-- **Type:** <a href="#ArmorTranslation">ArmorTranslation</a>
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#ArmorTranslation">ArmorTranslation</a>&gt;
 
 ---
 
@@ -192,16 +183,7 @@ Specify if armor is only available for a specific hit zone.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#SecondaryArmor/translations[key]">SecondaryArmor/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="SecondaryArmor/translations[key]"></a> `SecondaryArmor/translations[key]`
-
-- **Type:** <a href="#SecondaryArmorTranslation">SecondaryArmorTranslation</a>
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#SecondaryArmorTranslation">SecondaryArmorTranslation</a>&gt;
 
 ---
 

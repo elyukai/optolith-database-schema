@@ -116,10 +116,7 @@ The animist may learn spellworks common for this patron.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Patron/translations[key]">Patron/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#PatronTranslation">PatronTranslation</a>&gt;
 
 ---
 
@@ -180,12 +177,6 @@ All translations for the entry, identified by IETF language tag (BCP47).
 ### <a name="Patron/common_spellworks[]"></a> `Patron/common_spellworks[]`
 
 - **Type:** <a href="./_SimpleReferences.md#SpellworkReference">SpellworkReference</a>
-
----
-
-### <a name="Patron/translations[key]"></a> `Patron/translations[key]`
-
-- **Type:** <a href="#PatronTranslation">PatronTranslation</a>
 
 ---
 

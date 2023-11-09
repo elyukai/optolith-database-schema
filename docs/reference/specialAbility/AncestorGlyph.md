@@ -20,19 +20,19 @@ Key | Description | Details
 
 #### <a name="AncestorGlyph/id"></a> `id`
 
-- **Type:** <a href="../_Activatable.md#Id">Id</a>
+- **Type:** <a href="#Id">Id</a>
 
 #### <a name="AncestorGlyph/levels"></a> `levels?`
 
-- **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+- **Type:** <a href="#Levels">Levels</a>
 
 #### <a name="AncestorGlyph/select_options"></a> `select_options?`
 
-- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
+- **Type:** <a href="#SelectOptions">SelectOptions</a>
 
 #### <a name="AncestorGlyph/maximum"></a> `maximum?`
 
-- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+- **Type:** <a href="#Maximum">Maximum</a>
 
 #### <a name="AncestorGlyph/prerequisites"></a> `prerequisites?`
 
@@ -47,7 +47,7 @@ The AE cost of the ancestor glyph.
 
 #### <a name="AncestorGlyph/ap_value"></a> `ap_value`
 
-- **Type:** <a href="../_Activatable.md#AdventurePointsValue">AdventurePointsValue</a>
+- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>
 
 #### <a name="AncestorGlyph/src"></a> `src`
 
@@ -57,16 +57,7 @@ The AE cost of the ancestor glyph.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#AncestorGlyph/translations[key]">AncestorGlyph/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="AncestorGlyph/translations[key]"></a> `AncestorGlyph/translations[key]`
-
-- **Type:** <a href="#AncestorGlyphTranslation">AncestorGlyphTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#AncestorGlyphTranslation">AncestorGlyphTranslation</a>&gt;
 
 ---
 
@@ -83,15 +74,15 @@ Key | Description | Details
 
 #### <a name="AncestorGlyphTranslation/name"></a> `name`
 
-- **Type:** <a href="../_Activatable.md#Name">Name</a>
+- **Type:** <a href="#Name">Name</a>
 
 #### <a name="AncestorGlyphTranslation/name_in_library"></a> `name_in_library?`
 
-- **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
+- **Type:** <a href="#NameInLibrary">NameInLibrary</a>
 
 #### <a name="AncestorGlyphTranslation/rules"></a> `rules`
 
-- **Type:** <a href="../_Activatable.md#Rules">Rules</a>
+- **Type:** <a href="#Rules">Rules</a>
 
 #### <a name="AncestorGlyphTranslation/errata"></a> `errata?`
 

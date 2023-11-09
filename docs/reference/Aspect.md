@@ -22,16 +22,7 @@ The aspect's identifier. An unique, increasing integer.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Aspect/translations[key]">Aspect/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="Aspect/translations[key]"></a> `Aspect/translations[key]`
-
-- **Type:** <a href="#AspectTranslation">AspectTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#AspectTranslation">AspectTranslation</a>&gt;
 
 ---
 

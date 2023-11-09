@@ -35,16 +35,7 @@ The meta condition's identifier. An unique, increasing integer.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#MetaCondition/translations[key]">MetaCondition/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="MetaCondition/translations[key]"></a> `MetaCondition/translations[key]`
-
-- **Type:** <a href="#MetaConditionTranslation">MetaConditionTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#MetaConditionTranslation">MetaConditionTranslation</a>&gt;
 
 ---
 

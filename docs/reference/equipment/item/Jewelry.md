@@ -19,13 +19,13 @@ Key | Description | Details
 
 The cost in silverthalers.
 
-- **Type:** <a href="#Jewelry/cost">Object</a>
+- **Type:** <a href="#JewelryMaterialDifference">JewelryMaterialDifference</a>&lt;<a href="./_Item.md#Cost">Cost</a>&gt;
 
 #### <a name="Jewelry/weight"></a> `weight`
 
 The weight in kg.
 
-- **Type:** <a href="#Jewelry/weight">Object</a>
+- **Type:** <a href="#JewelryMaterialDifference">JewelryMaterialDifference</a>&lt;<a href="./_Item.md#Weight">Weight</a>&gt;
 
 #### <a name="Jewelry/complexity"></a> `complexity`
 
@@ -48,14 +48,11 @@ multiple components that have individual structure points.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Jewelry/translations[key]">Jewelry/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#JewelryTranslation">JewelryTranslation</a>&gt;
 
 ---
 
-### <a name="Jewelry/cost"></a> `Jewelry/cost`
+### <a name="JewelryMaterialDifference"></a> `JewelryMaterialDifference<T>`
 
 Jewelry has different cost based on the material.
 
@@ -63,53 +60,21 @@ Jewelry has different cost based on the material.
 
 Key | Description | Details
 :-- | :-- | :--
-`bronze` |  | <a href="#Jewelry/cost/bronze">See details</a>
-`silver` |  | <a href="#Jewelry/cost/silver">See details</a>
-`gold` |  | <a href="#Jewelry/cost/gold">See details</a>
+`bronze` |  | <a href="#JewelryMaterialDifference/bronze">See details</a>
+`silver` |  | <a href="#JewelryMaterialDifference/silver">See details</a>
+`gold` |  | <a href="#JewelryMaterialDifference/gold">See details</a>
 
-#### <a name="Jewelry/cost/bronze"></a> `bronze`
+#### <a name="JewelryMaterialDifference/bronze"></a> `bronze`
 
-- **Type:** <a href="./_Item.md#Cost">Cost</a>
+- **Type:** <a href="#T">T</a>
 
-#### <a name="Jewelry/cost/silver"></a> `silver`
+#### <a name="JewelryMaterialDifference/silver"></a> `silver`
 
-- **Type:** <a href="./_Item.md#Cost">Cost</a>
+- **Type:** <a href="#T">T</a>
 
-#### <a name="Jewelry/cost/gold"></a> `gold`
+#### <a name="JewelryMaterialDifference/gold"></a> `gold`
 
-- **Type:** <a href="./_Item.md#Cost">Cost</a>
-
----
-
-### <a name="Jewelry/weight"></a> `Jewelry/weight`
-
-Jewelry has different cost based on the material.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`bronze` |  | <a href="#Jewelry/weight/bronze">See details</a>
-`silver` |  | <a href="#Jewelry/weight/silver">See details</a>
-`gold` |  | <a href="#Jewelry/weight/gold">See details</a>
-
-#### <a name="Jewelry/weight/bronze"></a> `bronze`
-
-- **Type:** <a href="./_Item.md#Weight">Weight</a>
-
-#### <a name="Jewelry/weight/silver"></a> `silver`
-
-- **Type:** <a href="./_Item.md#Weight">Weight</a>
-
-#### <a name="Jewelry/weight/gold"></a> `gold`
-
-- **Type:** <a href="./_Item.md#Weight">Weight</a>
-
----
-
-### <a name="Jewelry/translations[key]"></a> `Jewelry/translations[key]`
-
-- **Type:** <a href="#JewelryTranslation">JewelryTranslation</a>
+- **Type:** <a href="#T">T</a>
 
 ---
 

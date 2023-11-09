@@ -205,34 +205,32 @@
     },
     "CheckResultBasedRange": {
       "description": "Defines the range being based on a check result.",
-      "type": "object",
-      "properties": {
-        "base": {
-          "description": "The base value that is derived from the check result.",
-          "$ref": "./_ActivatableSkillCheckResultBased.schema.json#/$defs/CheckResultValue"
+      "allOf": [
+        {
+          "$ref": "./_ActivatableSkillCheckResultBased.schema.json#/$defs/CheckResultBased"
         },
-        "modifier": {
-          "description": "If defined, it modifies the base value.",
-          "$ref": "./_ActivatableSkillCheckResultBased.schema.json#/$defs/CheckResultBasedModifier"
-        },
-        "is_maximum": {
-          "description": "If the range is the maximum range.",
-          "const": true
-        },
-        "unit": {
-          "description": "The duration unit.",
-          "$ref": "#/$defs/RangeUnit"
-        },
-        "is_radius": {
-          "description": "If `true`, the range is a radius.",
-          "const": true
+        {
+          "type": "object",
+          "properties": {
+            "is_maximum": {
+              "description": "If the range is the maximum range.",
+              "const": true
+            },
+            "unit": {
+              "description": "The duration unit.",
+              "$ref": "#/$defs/RangeUnit"
+            },
+            "is_radius": {
+              "description": "If `true`, the range is a radius.",
+              "const": true
+            }
+          },
+          "required": [
+            "unit"
+          ]
         }
-      },
-      "required": [
-        "base",
-        "unit"
       ],
-      "additionalProperties": false
+      "unresolvedProperties": false
     },
     "RangeTranslation": {
       "type": "object",

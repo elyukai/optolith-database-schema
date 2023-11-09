@@ -26,16 +26,7 @@ The cost in silverthalers per 10 karat.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#GemOrPreciousStone/translations[key]">GemOrPreciousStone/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="GemOrPreciousStone/translations[key]"></a> `GemOrPreciousStone/translations[key]`
-
-- **Type:** <a href="#GemOrPreciousStoneTranslation">GemOrPreciousStoneTranslation</a>
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#GemOrPreciousStoneTranslation">GemOrPreciousStoneTranslation</a>&gt;
 
 ---
 

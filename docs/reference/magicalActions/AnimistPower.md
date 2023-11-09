@@ -87,10 +87,7 @@ first level.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#AnimistPower/translations[key]">AnimistPower/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#AnimistPowerTranslation">AnimistPowerTranslation</a>&gt;
 
 ---
 
@@ -103,12 +100,6 @@ All translations for the entry, identified by IETF language tag (BCP47).
 ### <a name="AnimistPower/levels[]"></a> `AnimistPower/levels[]`
 
 - **Type:** <a href="#AnimistPowerLevel">AnimistPowerLevel</a>
-
----
-
-### <a name="AnimistPower/translations[key]"></a> `AnimistPower/translations[key]`
-
-- **Type:** <a href="#AnimistPowerTranslation">AnimistPowerTranslation</a>
 
 ---
 
@@ -233,16 +224,7 @@ The source references, if different than the references for level 1.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#AnimistPowerLevel/translations[key]">AnimistPowerLevel/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="AnimistPowerLevel/translations[key]"></a> `AnimistPowerLevel/translations[key]`
-
-- **Type:** <a href="#AnimistPowerLevelTranslation">AnimistPowerLevelTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#AnimistPowerLevelTranslation">AnimistPowerLevelTranslation</a>&gt;
 
 ---
 
@@ -421,16 +403,7 @@ If defined, half of the AE cost `value` has to be paid each interval.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#OneTimeAnimistPowerCostByPrimaryPatron/translations[key]">OneTimeAnimistPowerCostByPrimaryPatron/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="OneTimeAnimistPowerCostByPrimaryPatron/translations[key]"></a> `OneTimeAnimistPowerCostByPrimaryPatron/translations[key]`
-
-- **Type:** <a href="#AnimistPowerCostByPrimaryPatronTranslation">AnimistPowerCostByPrimaryPatronTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#AnimistPowerCostByPrimaryPatronTranslation">AnimistPowerCostByPrimaryPatronTranslation</a>&gt;
 
 ---
 
@@ -609,16 +582,7 @@ Half of the AE cost `value` has to be paid each interval.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#SustainedAnimistPowerCostByPrimaryPatron/translations[key]">SustainedAnimistPowerCostByPrimaryPatron/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="SustainedAnimistPowerCostByPrimaryPatron/translations[key]"></a> `SustainedAnimistPowerCostByPrimaryPatron/translations[key]`
-
-- **Type:** <a href="#AnimistPowerCostByPrimaryPatronTranslation">AnimistPowerCostByPrimaryPatronTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#AnimistPowerCostByPrimaryPatronTranslation">AnimistPowerCostByPrimaryPatronTranslation</a>&gt;
 
 ---
 

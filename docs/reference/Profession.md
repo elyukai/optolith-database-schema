@@ -238,16 +238,7 @@ integer.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#ExperiencedProfessionPackage/translations[key]">ExperiencedProfessionPackage/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="ExperiencedProfessionPackage/translations[key]"></a> `ExperiencedProfessionPackage/translations[key]`
-
-- **Type:** <a href="#ProfessionTranslation">ProfessionTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#ProfessionTranslation">ProfessionTranslation</a>&gt;
 
 ---
 
@@ -283,22 +274,13 @@ integer.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#ProfessionPackagesForDifferentExperienceLevels/translations[key]">ProfessionPackagesForDifferentExperienceLevels/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#ProfessionTranslation">ProfessionTranslation</a>&gt;
 
 ---
 
 ### <a name="ProfessionPackagesForDifferentExperienceLevels/packages_map[]"></a> `ProfessionPackagesForDifferentExperienceLevels/packages_map[]`
 
 - **Type:** <a href="#ExperienceLevelDynamicProfessionPackage">ExperienceLevelDynamicProfessionPackage</a>
-
----
-
-### <a name="ProfessionPackagesForDifferentExperienceLevels/translations[key]"></a> `ProfessionPackagesForDifferentExperienceLevels/translations[key]`
-
-- **Type:** <a href="#ProfessionTranslation">ProfessionTranslation</a>
 
 ---
 
@@ -484,75 +466,27 @@ variant is required.
 
 ---
 
-### <a name="ProfessionPackage/suggested_advantages[]"></a> Commonness-rated Advantage/Disadvantage (`ProfessionPackage/suggested_advantages[]`)
+### <a name="ProfessionPackage/suggested_advantages[]"></a> `ProfessionPackage/suggested_advantages[]`
 
-Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The advantage's or disadvantage's identifier. | <a href="#ProfessionPackage/suggested_advantages[]/id">See details</a>
-
-#### <a name="ProfessionPackage/suggested_advantages[]/id"></a> `id`
-
-The advantage's or disadvantage's identifier.
-
-- **Type:** <a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>
+- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>&lt;<a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>&gt;
 
 ---
 
-### <a name="ProfessionPackage/suggested_disadvantages[]"></a> Commonness-rated Advantage/Disadvantage (`ProfessionPackage/suggested_disadvantages[]`)
+### <a name="ProfessionPackage/suggested_disadvantages[]"></a> `ProfessionPackage/suggested_disadvantages[]`
 
-Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The advantage's or disadvantage's identifier. | <a href="#ProfessionPackage/suggested_disadvantages[]/id">See details</a>
-
-#### <a name="ProfessionPackage/suggested_disadvantages[]/id"></a> `id`
-
-The advantage's or disadvantage's identifier.
-
-- **Type:** <a href="./_Identifier.md#DisadvantageIdentifier">DisadvantageIdentifier</a>
+- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>&lt;<a href="./_Identifier.md#DisadvantageIdentifier">DisadvantageIdentifier</a>&gt;
 
 ---
 
-### <a name="ProfessionPackage/unsuitable_advantages[]"></a> Commonness-rated Advantage/Disadvantage (`ProfessionPackage/unsuitable_advantages[]`)
+### <a name="ProfessionPackage/unsuitable_advantages[]"></a> `ProfessionPackage/unsuitable_advantages[]`
 
-Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The advantage's or disadvantage's identifier. | <a href="#ProfessionPackage/unsuitable_advantages[]/id">See details</a>
-
-#### <a name="ProfessionPackage/unsuitable_advantages[]/id"></a> `id`
-
-The advantage's or disadvantage's identifier.
-
-- **Type:** <a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>
+- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>&lt;<a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>&gt;
 
 ---
 
-### <a name="ProfessionPackage/unsuitable_disadvantages[]"></a> Commonness-rated Advantage/Disadvantage (`ProfessionPackage/unsuitable_disadvantages[]`)
+### <a name="ProfessionPackage/unsuitable_disadvantages[]"></a> `ProfessionPackage/unsuitable_disadvantages[]`
 
-Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The advantage's or disadvantage's identifier. | <a href="#ProfessionPackage/unsuitable_disadvantages[]/id">See details</a>
-
-#### <a name="ProfessionPackage/unsuitable_disadvantages[]/id"></a> `id`
-
-The advantage's or disadvantage's identifier.
-
-- **Type:** <a href="./_Identifier.md#DisadvantageIdentifier">DisadvantageIdentifier</a>
+- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>&lt;<a href="./_Identifier.md#DisadvantageIdentifier">DisadvantageIdentifier</a>&gt;
 
 ---
 
@@ -738,10 +672,7 @@ ratings. These liturgical chants are considered activated.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#ProfessionVariant/translations[key]">ProfessionVariant/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#ProfessionVariantTranslation">ProfessionVariantTranslation</a>&gt;
 
 ---
 
@@ -772,12 +703,6 @@ All translations for the entry, identified by IETF language tag (BCP47).
 ### <a name="ProfessionVariant/liturgical_chants[]"></a> `ProfessionVariant/liturgical_chants[]`
 
 - **Type:** <a href="#LiturgicalChantRating">LiturgicalChantRating</a>
-
----
-
-### <a name="ProfessionVariant/translations[key]"></a> `ProfessionVariant/translations[key]`
-
-- **Type:** <a href="#ProfessionVariantTranslation">ProfessionVariantTranslation</a>
 
 ---
 
@@ -968,54 +893,6 @@ Key | Description | Details
 #### <a name="VariantSpecialAbility'Selection/selection"></a> `selection`
 
 - **Type:** <a href="#VariantSpecialAbilitySelection">VariantSpecialAbilitySelection</a>
-
----
-
-### <a name="FixedVariantSpecialAbility"></a> `FixedVariantSpecialAbility`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The identifier of the combat technique to provide the rating for. | <a href="#FixedVariantSpecialAbility/id">See details</a>
-`level?` | The level of the received special ability. | <a href="#FixedVariantSpecialAbility/level">See details</a>
-`options?` | Received select options. Order is important. Typically, you only need the first array index, though. | <a href="#FixedVariantSpecialAbility/options">See details</a>
-`active?` | if set to `false`, if the selection is granted by the basic package, it is removed. | <a href="#FixedVariantSpecialAbility/active">See details</a>
-
-#### <a name="FixedVariantSpecialAbility/id"></a> `id`
-
-The identifier of the combat technique to provide the rating for.
-
-- **Type:** <a href="./_IdentifierGroup.md#SpecialAbilityIdentifier">SpecialAbilityIdentifier</a>
-
-#### <a name="FixedVariantSpecialAbility/level"></a> `level?`
-
-The level of the received special ability.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
-#### <a name="FixedVariantSpecialAbility/options"></a> `options?`
-
-Received select options. Order is important. Typically, you only need the
-first array index, though.
-
-- **Type:** List
-- **Items:** <a href="#FixedVariantSpecialAbility/options[]">FixedVariantSpecialAbility/options[]</a>
-- **Minimum Items:** `1`
-
-#### <a name="FixedVariantSpecialAbility/active"></a> `active?`
-
-if set to `false`, if the selection is granted by the basic package, it
-is removed.
-
-- **Constant:** `false`
-
----
-
-### <a name="FixedVariantSpecialAbility/options[]"></a> `FixedVariantSpecialAbility/options[]`
-
-- **Type:** <a href="./_IdentifierGroup.md#RequirableSelectOptionIdentifier">RequirableSelectOptionIdentifier</a>
 
 ---
 
@@ -1334,346 +1211,82 @@ Key | Description | Details
 
 #### <a name="ProfessionVariantPackageOptions/skill_specialization"></a> `skill_specialization?`
 
-- **Type:** Union
-- **Cases:** <a href="#ProfessionVariantPackageOptions/skill_specialization'Remove">ProfessionVariantPackageOptions/skill_specialization'Remove</a> | <a href="#ProfessionVariantPackageOptions/skill_specialization'Override">ProfessionVariantPackageOptions/skill_specialization'Override</a>
+- **Type:** <a href="#VariantOptionAction">VariantOptionAction</a>&lt;<a href="#SkillSpecializationOptions">SkillSpecializationOptions</a>&gt;
 
 #### <a name="ProfessionVariantPackageOptions/languages_scripts"></a> `languages_scripts?`
 
-- **Type:** Union
-- **Cases:** <a href="#ProfessionVariantPackageOptions/languages_scripts'Remove">ProfessionVariantPackageOptions/languages_scripts'Remove</a> | <a href="#ProfessionVariantPackageOptions/languages_scripts'Override">ProfessionVariantPackageOptions/languages_scripts'Override</a>
+- **Type:** <a href="#VariantOptionAction">VariantOptionAction</a>&lt;<a href="#LanguagesScriptsOptions">LanguagesScriptsOptions</a>&gt;
 
 #### <a name="ProfessionVariantPackageOptions/combat_techniques"></a> `combat_techniques?`
 
-- **Type:** Union
-- **Cases:** <a href="#ProfessionVariantPackageOptions/combat_techniques'Remove">ProfessionVariantPackageOptions/combat_techniques'Remove</a> | <a href="#ProfessionVariantPackageOptions/combat_techniques'Override">ProfessionVariantPackageOptions/combat_techniques'Override</a>
+- **Type:** <a href="#VariantOptionAction">VariantOptionAction</a>&lt;<a href="#CombatTechniquesOptions">CombatTechniquesOptions</a>&gt;
 
 #### <a name="ProfessionVariantPackageOptions/cantrips"></a> `cantrips?`
 
-- **Type:** Union
-- **Cases:** <a href="#ProfessionVariantPackageOptions/cantrips'Remove">ProfessionVariantPackageOptions/cantrips'Remove</a> | <a href="#ProfessionVariantPackageOptions/cantrips'Override">ProfessionVariantPackageOptions/cantrips'Override</a>
+- **Type:** <a href="#VariantOptionAction">VariantOptionAction</a>&lt;<a href="#CantripsOptions">CantripsOptions</a>&gt;
 
 #### <a name="ProfessionVariantPackageOptions/curses"></a> `curses?`
 
-- **Type:** Union
-- **Cases:** <a href="#ProfessionVariantPackageOptions/curses'Remove">ProfessionVariantPackageOptions/curses'Remove</a> | <a href="#ProfessionVariantPackageOptions/curses'Override">ProfessionVariantPackageOptions/curses'Override</a>
+- **Type:** <a href="#VariantOptionAction">VariantOptionAction</a>&lt;<a href="#CursesOptions">CursesOptions</a>&gt;
 
 #### <a name="ProfessionVariantPackageOptions/terrain_knowledge"></a> `terrain_knowledge?`
 
-- **Type:** Union
-- **Cases:** <a href="#ProfessionVariantPackageOptions/terrain_knowledge'Remove">ProfessionVariantPackageOptions/terrain_knowledge'Remove</a> | <a href="#ProfessionVariantPackageOptions/terrain_knowledge'Override">ProfessionVariantPackageOptions/terrain_knowledge'Override</a>
+- **Type:** <a href="#VariantOptionAction">VariantOptionAction</a>&lt;<a href="#TerrainKnowledgeOptions">TerrainKnowledgeOptions</a>&gt;
 
 #### <a name="ProfessionVariantPackageOptions/skills"></a> `skills?`
 
+- **Type:** <a href="#VariantOptionAction">VariantOptionAction</a>&lt;<a href="#SkillsOptions">SkillsOptions</a>&gt;
+
+---
+
+### <a name="VariantOptionAction"></a> `VariantOptionAction<T>`
+
 - **Type:** Union
-- **Cases:** <a href="#ProfessionVariantPackageOptions/skills'Remove">ProfessionVariantPackageOptions/skills'Remove</a> | <a href="#ProfessionVariantPackageOptions/skills'Override">ProfessionVariantPackageOptions/skills'Override</a>
+- **Cases:** <a href="#VariantOptionAction'Remove">VariantOptionAction'Remove</a> | <a href="#VariantOptionAction'Override">VariantOptionAction'Override</a>
 
 ---
 
-### <a name="ProfessionVariantPackageOptions/skill_specialization'Remove"></a> `ProfessionVariantPackageOptions/skill_specialization'Remove`
+### <a name="VariantOptionAction'Remove"></a> `VariantOptionAction'Remove`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariantPackageOptions/skill_specialization'Remove/tag">See details</a>
-`remove` |  | <a href="#ProfessionVariantPackageOptions/skill_specialization'Remove/remove">See details</a>
+`tag` |  | <a href="#VariantOptionAction'Remove/tag">See details</a>
+`remove` |  | <a href="#VariantOptionAction'Remove/remove">See details</a>
 
-#### <a name="ProfessionVariantPackageOptions/skill_specialization'Remove/tag"></a> `tag`
+#### <a name="VariantOptionAction'Remove/tag"></a> `tag`
 
 - **Constant:** `"Remove"`
 
-#### <a name="ProfessionVariantPackageOptions/skill_specialization'Remove/remove"></a> `remove`
+#### <a name="VariantOptionAction'Remove/remove"></a> `remove`
 
-- **Type:** <a href="#ProfessionVariantPackageOptions/skill_specialization'Remove/remove">Object</a>
+- **Type:** <a href="#VariantOptionAction'Remove/remove">Object</a>
 
 ---
 
-### <a name="ProfessionVariantPackageOptions/skill_specialization'Remove/remove"></a> `ProfessionVariantPackageOptions/skill_specialization'Remove/remove`
+### <a name="VariantOptionAction'Remove/remove"></a> `VariantOptionAction'Remove/remove`
 
 - **Type:** Empty Object
 
 ---
 
-### <a name="ProfessionVariantPackageOptions/skill_specialization'Override"></a> `ProfessionVariantPackageOptions/skill_specialization'Override`
+### <a name="VariantOptionAction'Override"></a> `VariantOptionAction'Override`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariantPackageOptions/skill_specialization'Override/tag">See details</a>
-`override` |  | <a href="#ProfessionVariantPackageOptions/skill_specialization'Override/override">See details</a>
+`tag` |  | <a href="#VariantOptionAction'Override/tag">See details</a>
+`override` |  | <a href="#VariantOptionAction'Override/override">See details</a>
 
-#### <a name="ProfessionVariantPackageOptions/skill_specialization'Override/tag"></a> `tag`
+#### <a name="VariantOptionAction'Override/tag"></a> `tag`
 
 - **Constant:** `"Override"`
 
-#### <a name="ProfessionVariantPackageOptions/skill_specialization'Override/override"></a> `override`
+#### <a name="VariantOptionAction'Override/override"></a> `override`
 
-- **Type:** <a href="#SkillSpecializationOptions">SkillSpecializationOptions</a>
-
----
-
-### <a name="ProfessionVariantPackageOptions/languages_scripts'Remove"></a> `ProfessionVariantPackageOptions/languages_scripts'Remove`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariantPackageOptions/languages_scripts'Remove/tag">See details</a>
-`remove` |  | <a href="#ProfessionVariantPackageOptions/languages_scripts'Remove/remove">See details</a>
-
-#### <a name="ProfessionVariantPackageOptions/languages_scripts'Remove/tag"></a> `tag`
-
-- **Constant:** `"Remove"`
-
-#### <a name="ProfessionVariantPackageOptions/languages_scripts'Remove/remove"></a> `remove`
-
-- **Type:** <a href="#ProfessionVariantPackageOptions/languages_scripts'Remove/remove">Object</a>
-
----
-
-### <a name="ProfessionVariantPackageOptions/languages_scripts'Remove/remove"></a> `ProfessionVariantPackageOptions/languages_scripts'Remove/remove`
-
-- **Type:** Empty Object
-
----
-
-### <a name="ProfessionVariantPackageOptions/languages_scripts'Override"></a> `ProfessionVariantPackageOptions/languages_scripts'Override`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariantPackageOptions/languages_scripts'Override/tag">See details</a>
-`override` |  | <a href="#ProfessionVariantPackageOptions/languages_scripts'Override/override">See details</a>
-
-#### <a name="ProfessionVariantPackageOptions/languages_scripts'Override/tag"></a> `tag`
-
-- **Constant:** `"Override"`
-
-#### <a name="ProfessionVariantPackageOptions/languages_scripts'Override/override"></a> `override`
-
-- **Type:** <a href="#LanguagesScriptsOptions">LanguagesScriptsOptions</a>
-
----
-
-### <a name="ProfessionVariantPackageOptions/combat_techniques'Remove"></a> `ProfessionVariantPackageOptions/combat_techniques'Remove`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariantPackageOptions/combat_techniques'Remove/tag">See details</a>
-`remove` |  | <a href="#ProfessionVariantPackageOptions/combat_techniques'Remove/remove">See details</a>
-
-#### <a name="ProfessionVariantPackageOptions/combat_techniques'Remove/tag"></a> `tag`
-
-- **Constant:** `"Remove"`
-
-#### <a name="ProfessionVariantPackageOptions/combat_techniques'Remove/remove"></a> `remove`
-
-- **Type:** <a href="#ProfessionVariantPackageOptions/combat_techniques'Remove/remove">Object</a>
-
----
-
-### <a name="ProfessionVariantPackageOptions/combat_techniques'Remove/remove"></a> `ProfessionVariantPackageOptions/combat_techniques'Remove/remove`
-
-- **Type:** Empty Object
-
----
-
-### <a name="ProfessionVariantPackageOptions/combat_techniques'Override"></a> `ProfessionVariantPackageOptions/combat_techniques'Override`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariantPackageOptions/combat_techniques'Override/tag">See details</a>
-`override` |  | <a href="#ProfessionVariantPackageOptions/combat_techniques'Override/override">See details</a>
-
-#### <a name="ProfessionVariantPackageOptions/combat_techniques'Override/tag"></a> `tag`
-
-- **Constant:** `"Override"`
-
-#### <a name="ProfessionVariantPackageOptions/combat_techniques'Override/override"></a> `override`
-
-- **Type:** <a href="#CombatTechniquesOptions">CombatTechniquesOptions</a>
-
----
-
-### <a name="ProfessionVariantPackageOptions/cantrips'Remove"></a> `ProfessionVariantPackageOptions/cantrips'Remove`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariantPackageOptions/cantrips'Remove/tag">See details</a>
-`remove` |  | <a href="#ProfessionVariantPackageOptions/cantrips'Remove/remove">See details</a>
-
-#### <a name="ProfessionVariantPackageOptions/cantrips'Remove/tag"></a> `tag`
-
-- **Constant:** `"Remove"`
-
-#### <a name="ProfessionVariantPackageOptions/cantrips'Remove/remove"></a> `remove`
-
-- **Type:** <a href="#ProfessionVariantPackageOptions/cantrips'Remove/remove">Object</a>
-
----
-
-### <a name="ProfessionVariantPackageOptions/cantrips'Remove/remove"></a> `ProfessionVariantPackageOptions/cantrips'Remove/remove`
-
-- **Type:** Empty Object
-
----
-
-### <a name="ProfessionVariantPackageOptions/cantrips'Override"></a> `ProfessionVariantPackageOptions/cantrips'Override`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariantPackageOptions/cantrips'Override/tag">See details</a>
-`override` |  | <a href="#ProfessionVariantPackageOptions/cantrips'Override/override">See details</a>
-
-#### <a name="ProfessionVariantPackageOptions/cantrips'Override/tag"></a> `tag`
-
-- **Constant:** `"Override"`
-
-#### <a name="ProfessionVariantPackageOptions/cantrips'Override/override"></a> `override`
-
-- **Type:** <a href="#CantripsOptions">CantripsOptions</a>
-
----
-
-### <a name="ProfessionVariantPackageOptions/curses'Remove"></a> `ProfessionVariantPackageOptions/curses'Remove`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariantPackageOptions/curses'Remove/tag">See details</a>
-`remove` |  | <a href="#ProfessionVariantPackageOptions/curses'Remove/remove">See details</a>
-
-#### <a name="ProfessionVariantPackageOptions/curses'Remove/tag"></a> `tag`
-
-- **Constant:** `"Remove"`
-
-#### <a name="ProfessionVariantPackageOptions/curses'Remove/remove"></a> `remove`
-
-- **Type:** <a href="#ProfessionVariantPackageOptions/curses'Remove/remove">Object</a>
-
----
-
-### <a name="ProfessionVariantPackageOptions/curses'Remove/remove"></a> `ProfessionVariantPackageOptions/curses'Remove/remove`
-
-- **Type:** Empty Object
-
----
-
-### <a name="ProfessionVariantPackageOptions/curses'Override"></a> `ProfessionVariantPackageOptions/curses'Override`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariantPackageOptions/curses'Override/tag">See details</a>
-`override` |  | <a href="#ProfessionVariantPackageOptions/curses'Override/override">See details</a>
-
-#### <a name="ProfessionVariantPackageOptions/curses'Override/tag"></a> `tag`
-
-- **Constant:** `"Override"`
-
-#### <a name="ProfessionVariantPackageOptions/curses'Override/override"></a> `override`
-
-- **Type:** <a href="#CursesOptions">CursesOptions</a>
-
----
-
-### <a name="ProfessionVariantPackageOptions/terrain_knowledge'Remove"></a> `ProfessionVariantPackageOptions/terrain_knowledge'Remove`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariantPackageOptions/terrain_knowledge'Remove/tag">See details</a>
-`remove` |  | <a href="#ProfessionVariantPackageOptions/terrain_knowledge'Remove/remove">See details</a>
-
-#### <a name="ProfessionVariantPackageOptions/terrain_knowledge'Remove/tag"></a> `tag`
-
-- **Constant:** `"Remove"`
-
-#### <a name="ProfessionVariantPackageOptions/terrain_knowledge'Remove/remove"></a> `remove`
-
-- **Type:** <a href="#ProfessionVariantPackageOptions/terrain_knowledge'Remove/remove">Object</a>
-
----
-
-### <a name="ProfessionVariantPackageOptions/terrain_knowledge'Remove/remove"></a> `ProfessionVariantPackageOptions/terrain_knowledge'Remove/remove`
-
-- **Type:** Empty Object
-
----
-
-### <a name="ProfessionVariantPackageOptions/terrain_knowledge'Override"></a> `ProfessionVariantPackageOptions/terrain_knowledge'Override`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariantPackageOptions/terrain_knowledge'Override/tag">See details</a>
-`override` |  | <a href="#ProfessionVariantPackageOptions/terrain_knowledge'Override/override">See details</a>
-
-#### <a name="ProfessionVariantPackageOptions/terrain_knowledge'Override/tag"></a> `tag`
-
-- **Constant:** `"Override"`
-
-#### <a name="ProfessionVariantPackageOptions/terrain_knowledge'Override/override"></a> `override`
-
-- **Type:** <a href="#TerrainKnowledgeOptions">TerrainKnowledgeOptions</a>
-
----
-
-### <a name="ProfessionVariantPackageOptions/skills'Remove"></a> `ProfessionVariantPackageOptions/skills'Remove`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariantPackageOptions/skills'Remove/tag">See details</a>
-`remove` |  | <a href="#ProfessionVariantPackageOptions/skills'Remove/remove">See details</a>
-
-#### <a name="ProfessionVariantPackageOptions/skills'Remove/tag"></a> `tag`
-
-- **Constant:** `"Remove"`
-
-#### <a name="ProfessionVariantPackageOptions/skills'Remove/remove"></a> `remove`
-
-- **Type:** <a href="#ProfessionVariantPackageOptions/skills'Remove/remove">Object</a>
-
----
-
-### <a name="ProfessionVariantPackageOptions/skills'Remove/remove"></a> `ProfessionVariantPackageOptions/skills'Remove/remove`
-
-- **Type:** Empty Object
-
----
-
-### <a name="ProfessionVariantPackageOptions/skills'Override"></a> `ProfessionVariantPackageOptions/skills'Override`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ProfessionVariantPackageOptions/skills'Override/tag">See details</a>
-`override` |  | <a href="#ProfessionVariantPackageOptions/skills'Override/override">See details</a>
-
-#### <a name="ProfessionVariantPackageOptions/skills'Override/tag"></a> `tag`
-
-- **Constant:** `"Override"`
-
-#### <a name="ProfessionVariantPackageOptions/skills'Override/override"></a> `override`
-
-- **Type:** <a href="#SkillsOptions">SkillsOptions</a>
+- **Type:** <a href="#T">T</a>
 
 ---
 

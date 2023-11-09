@@ -84,10 +84,7 @@ characters of specific magical or blessed traditions.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Weapon/translations[key]">Weapon/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#WeaponTranslation">WeaponTranslation</a>&gt;
 
 ---
 
@@ -100,12 +97,6 @@ All translations for the entry, identified by IETF language tag (BCP47).
 ### <a name="Weapon/restricted_to_traditions[]"></a> `Weapon/restricted_to_traditions[]`
 
 - **Type:** <a href="../../_SimpleReferences.md#MagicalTraditionReference">MagicalTraditionReference</a>
-
----
-
-### <a name="Weapon/translations[key]"></a> `Weapon/translations[key]`
-
-- **Type:** <a href="#WeaponTranslation">WeaponTranslation</a>
 
 ---
 
@@ -213,10 +204,7 @@ characters of specific magical or blessed traditions.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#SecondaryWeapon/translations[key]">SecondaryWeapon/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#ImprovisedWeaponTranslation">ImprovisedWeaponTranslation</a>&gt;
 
 ---
 
@@ -229,12 +217,6 @@ All translations for the entry, identified by IETF language tag (BCP47).
 ### <a name="SecondaryWeapon/restricted_to_traditions[]"></a> `SecondaryWeapon/restricted_to_traditions[]`
 
 - **Type:** <a href="../../_SimpleReferences.md#MagicalTraditionReference">MagicalTraditionReference</a>
-
----
-
-### <a name="SecondaryWeapon/translations[key]"></a> `SecondaryWeapon/translations[key]`
-
-- **Type:** <a href="#ImprovisedWeaponTranslation">ImprovisedWeaponTranslation</a>
 
 ---
 

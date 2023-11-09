@@ -69,16 +69,7 @@ States which column is used to improve the skill.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#ZibiljaRitual/translations[key]">ZibiljaRitual/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="ZibiljaRitual/translations[key]"></a> `ZibiljaRitual/translations[key]`
-
-- **Type:** <a href="#ZibiljaRitualTranslation">ZibiljaRitualTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#ZibiljaRitualTranslation">ZibiljaRitualTranslation</a>&gt;
 
 ---
 
@@ -215,66 +206,4 @@ Key | Description | Details
 
 ### <a name="ZibiljaRitualPerformanceParameters"></a> `ZibiljaRitualPerformanceParameters`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`casting_time` |  | <a href="#ZibiljaRitualPerformanceParameters/casting_time">See details</a>
-`cost` |  | <a href="#ZibiljaRitualPerformanceParameters/cost">See details</a>
-`range` |  | <a href="#ZibiljaRitualPerformanceParameters/range">See details</a>
-`duration` |  | <a href="#ZibiljaRitualPerformanceParameters/duration">See details</a>
-
-#### <a name="ZibiljaRitualPerformanceParameters/casting_time"></a> `casting_time`
-
-- **Type:** Union
-- **Cases:** <a href="#ZibiljaRitualPerformanceParameters/casting_time'Modifiable">ZibiljaRitualPerformanceParameters/casting_time'Modifiable</a> | <a href="#ZibiljaRitualPerformanceParameters/casting_time'NonModifiable">ZibiljaRitualPerformanceParameters/casting_time'NonModifiable</a>
-
-#### <a name="ZibiljaRitualPerformanceParameters/cost"></a> `cost`
-
-- **Type:** <a href="../_ActivatableSkillCost.md#OneTimeCost">OneTimeCost</a>
-
-#### <a name="ZibiljaRitualPerformanceParameters/range"></a> `range`
-
-- **Type:** <a href="../_ActivatableSkillRange.md#Range">Range</a>
-
-#### <a name="ZibiljaRitualPerformanceParameters/duration"></a> `duration`
-
-- **Type:** <a href="../_ActivatableSkillDuration.md#DurationForOneTime">DurationForOneTime</a>
-
----
-
-### <a name="ZibiljaRitualPerformanceParameters/casting_time'Modifiable"></a> `ZibiljaRitualPerformanceParameters/casting_time'Modifiable`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ZibiljaRitualPerformanceParameters/casting_time'Modifiable/tag">See details</a>
-`modifiable` |  | <a href="#ZibiljaRitualPerformanceParameters/casting_time'Modifiable/modifiable">See details</a>
-
-#### <a name="ZibiljaRitualPerformanceParameters/casting_time'Modifiable/tag"></a> `tag`
-
-- **Constant:** `"Modifiable"`
-
-#### <a name="ZibiljaRitualPerformanceParameters/casting_time'Modifiable/modifiable"></a> `modifiable`
-
-- **Type:** <a href="../_ActivatableSkillCastingTime.md#ModifiableCastingTime">ModifiableCastingTime</a>
-
----
-
-### <a name="ZibiljaRitualPerformanceParameters/casting_time'NonModifiable"></a> `ZibiljaRitualPerformanceParameters/casting_time'NonModifiable`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#ZibiljaRitualPerformanceParameters/casting_time'NonModifiable/tag">See details</a>
-`non_modifiable` |  | <a href="#ZibiljaRitualPerformanceParameters/casting_time'NonModifiable/non_modifiable">See details</a>
-
-#### <a name="ZibiljaRitualPerformanceParameters/casting_time'NonModifiable/tag"></a> `tag`
-
-- **Constant:** `"NonModifiable"`
-
-#### <a name="ZibiljaRitualPerformanceParameters/casting_time'NonModifiable/non_modifiable"></a> `non_modifiable`
-
-- **Type:** <a href="../_ActivatableSkillCastingTime.md#SlowSkillNonModifiableCastingTime">SlowSkillNonModifiableCastingTime</a>
+- **Type:** <a href="../_ActivatableSkill.md#OneTimePerformanceParameters">OneTimePerformanceParameters</a>&lt;<a href="../_ActivatableSkillCastingTime.md#CastingTime">CastingTime</a>&gt;

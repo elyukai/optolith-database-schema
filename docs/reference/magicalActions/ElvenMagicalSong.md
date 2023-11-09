@@ -75,22 +75,13 @@ States which column is used to improve the skill.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#ElvenMagicalSong/translations[key]">ElvenMagicalSong/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#ElvenMagicalSongTranslation">ElvenMagicalSongTranslation</a>&gt;
 
 ---
 
 ### <a name="ElvenMagicalSong/skill[]"></a> `ElvenMagicalSong/skill[]`
 
 - **Type:** <a href="./_SkillReference.md#MusicalSkillReference">MusicalSkillReference</a>
-
----
-
-### <a name="ElvenMagicalSong/translations[key]"></a> `ElvenMagicalSong/translations[key]`
-
-- **Type:** <a href="#ElvenMagicalSongTranslation">ElvenMagicalSongTranslation</a>
 
 ---
 
@@ -200,16 +191,7 @@ A permanent AE cost, independent from a possible interval.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#ElvenMagicalSongCost/translations[key]">ElvenMagicalSongCost/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="ElvenMagicalSongCost/translations[key]"></a> `ElvenMagicalSongCost/translations[key]`
-
-- **Type:** <a href="#ElvenMagicalSongCostTranslation">ElvenMagicalSongCostTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#ElvenMagicalSongCostTranslation">ElvenMagicalSongCostTranslation</a>&gt;
 
 ---
 
@@ -233,16 +215,7 @@ The permanent AE cost value.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#ElvenMagicalSongPermanentCost/translations[key]">ElvenMagicalSongPermanentCost/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="ElvenMagicalSongPermanentCost/translations[key]"></a> `ElvenMagicalSongPermanentCost/translations[key]`
-
-- **Type:** <a href="#ElvenMagicalSongPermanentCostTranslation">ElvenMagicalSongPermanentCostTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#ElvenMagicalSongPermanentCostTranslation">ElvenMagicalSongPermanentCostTranslation</a>&gt;
 
 ---
 

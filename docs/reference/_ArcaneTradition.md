@@ -27,16 +27,7 @@ The arcane tradition's identifier. An unique, increasing integer.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#ArcaneTradition/translations[key]">ArcaneTradition/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="ArcaneTradition/translations[key]"></a> `ArcaneTradition/translations[key]`
-
-- **Type:** <a href="#ArcaneTraditionTranslation">ArcaneTraditionTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#ArcaneTraditionTranslation">ArcaneTraditionTranslation</a>&gt;
 
 ---
 

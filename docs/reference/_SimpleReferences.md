@@ -338,6 +338,20 @@ Key | Description | Details
 
 ---
 
+### <a name="AdvancedSpecialAbilityReference"></a> `AdvancedSpecialAbilityReference<Identifier>`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` |  | <a href="#AdvancedSpecialAbilityReference/id">See details</a>
+
+#### <a name="AdvancedSpecialAbilityReference/id"></a> `id`
+
+- **Type:** <a href="#Identifier">Identifier</a>
+
+---
+
 ### <a name="LanguageReference"></a> `LanguageReference`
 
 - **Type:** Object

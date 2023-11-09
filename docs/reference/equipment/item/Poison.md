@@ -57,7 +57,7 @@ When the poison takes effect.
 
 The normal and degraded poison's duration.
 
-- **Type:** <a href="#Poison/duration">Object</a>
+- **Type:** <a href="../../_DiseasePoison.md#Reduceable">Reduceable</a>&lt;<a href="#PoisonDuration">PoisonDuration</a>&gt;
 
 #### <a name="Poison/value"></a> `value`
 
@@ -81,52 +81,13 @@ Price for one dose, in silverthalers.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Poison/translations[key]">Poison/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#PoisonTranslation">PoisonTranslation</a>&gt;
 
 ---
 
 ### <a name="Poison/application_type[]"></a> `Poison/application_type[]`
 
 - **Type:** <a href="#PoisonApplicationType">PoisonApplicationType</a>
-
----
-
-### <a name="Poison/duration"></a> `Poison/duration`
-
-An effect or other parameter that may be reduced by a failed disease check
-for lessening or a degraded poison.
-
-This streamlines the wording for diseases and poison by using a unified
-wording for *lessened* (disease) and *degraded* (poison).
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`default` | The default value. In the source, it's the text before the slash. | <a href="#Poison/duration/default">See details</a>
-`reduced?` | The reduced value. In the source, it's the text after the slash. Some entries may not have a reduced value. | <a href="#Poison/duration/reduced">See details</a>
-
-#### <a name="Poison/duration/default"></a> `default`
-
-The default value. In the source, it's the text before the slash.
-
-- **Type:** <a href="#PoisonDuration">PoisonDuration</a>
-
-#### <a name="Poison/duration/reduced"></a> `reduced?`
-
-The reduced value. In the source, it's the text after the slash. Some
-entries may not have a reduced value.
-
-- **Type:** <a href="#PoisonDuration">PoisonDuration</a>
-
----
-
-### <a name="Poison/translations[key]"></a> `Poison/translations[key]`
-
-- **Type:** <a href="#PoisonTranslation">PoisonTranslation</a>
 
 ---
 
@@ -376,16 +337,7 @@ Key | Description | Details
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#IndefinitePoisonTime/translations[key]">IndefinitePoisonTime/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="IndefinitePoisonTime/translations[key]"></a> `IndefinitePoisonTime/translations[key]`
-
-- **Type:** <a href="#IndefinitePoisonTimeTranslation">IndefinitePoisonTimeTranslation</a>
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#IndefinitePoisonTimeTranslation">IndefinitePoisonTimeTranslation</a>&gt;
 
 ---
 
@@ -590,22 +542,13 @@ Additional information if the poison is an intoxicant.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#AlchemicalPoison/translations[key]">AlchemicalPoison/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#AlchemicalPoisonTranslation">AlchemicalPoisonTranslation</a>&gt;
 
 ---
 
 ### <a name="AlchemicalPoison/effect_types[]"></a> `AlchemicalPoison/effect_types[]`
 
 - **Type:** <a href="./_Herbary.md#EffectType">EffectType</a>
-
----
-
-### <a name="AlchemicalPoison/translations[key]"></a> `AlchemicalPoison/translations[key]`
-
-- **Type:** <a href="#AlchemicalPoisonTranslation">AlchemicalPoisonTranslation</a>
 
 ---
 
@@ -719,16 +662,7 @@ The poison’s level.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#DemonicPoison/translations[key]">DemonicPoison/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="DemonicPoison/translations[key]"></a> `DemonicPoison/translations[key]`
-
-- **Type:** <a href="#DemonicPoisonTranslation">DemonicPoisonTranslation</a>
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#DemonicPoisonTranslation">DemonicPoisonTranslation</a>&gt;
 
 ---
 
@@ -869,16 +803,7 @@ suffer from withdrawal symptoms.
 All translations for the entry, identified by IETF language tag
 (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Intoxicant/translations[key]">Intoxicant/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="Intoxicant/translations[key]"></a> `Intoxicant/translations[key]`
-
-- **Type:** <a href="#IntoxicantTranslation">IntoxicantTranslation</a>
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#IntoxicantTranslation">IntoxicantTranslation</a>&gt;
 
 ---
 

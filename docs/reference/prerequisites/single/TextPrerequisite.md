@@ -59,16 +59,7 @@ This is the only use case for this property.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#TextPrerequisite/translations[key]">TextPrerequisite/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="TextPrerequisite/translations[key]"></a> `TextPrerequisite/translations[key]`
-
-- **Type:** <a href="#TextPrerequisiteTranslation">TextPrerequisiteTranslation</a>
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#TextPrerequisiteTranslation">TextPrerequisiteTranslation</a>&gt;
 
 ---
 

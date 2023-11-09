@@ -60,16 +60,7 @@ The associated property.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#GeodeRitual/translations[key]">GeodeRitual/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="GeodeRitual/translations[key]"></a> `GeodeRitual/translations[key]`
-
-- **Type:** <a href="#GeodeRitualTranslation">GeodeRitualTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#GeodeRitualTranslation">GeodeRitualTranslation</a>&gt;
 
 ---
 

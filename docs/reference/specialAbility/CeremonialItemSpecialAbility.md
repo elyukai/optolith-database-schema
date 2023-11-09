@@ -22,31 +22,31 @@ Key | Description | Details
 
 #### <a name="CeremonialItemSpecialAbility/id"></a> `id`
 
-- **Type:** <a href="../_Activatable.md#Id">Id</a>
+- **Type:** <a href="#Id">Id</a>
 
 #### <a name="CeremonialItemSpecialAbility/levels"></a> `levels?`
 
-- **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+- **Type:** <a href="#Levels">Levels</a>
 
 #### <a name="CeremonialItemSpecialAbility/select_options"></a> `select_options?`
 
-- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
+- **Type:** <a href="#SelectOptions">SelectOptions</a>
 
 #### <a name="CeremonialItemSpecialAbility/skill_applications"></a> `skill_applications?`
 
-- **Type:** <a href="../_Activatable.md#SkillApplications">SkillApplications</a>
+- **Type:** <a href="#SkillApplications">SkillApplications</a>
 
 #### <a name="CeremonialItemSpecialAbility/skill_uses"></a> `skill_uses?`
 
-- **Type:** <a href="../_Activatable.md#SkillUses">SkillUses</a>
+- **Type:** <a href="#SkillUses">SkillUses</a>
 
 #### <a name="CeremonialItemSpecialAbility/maximum"></a> `maximum?`
 
-- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+- **Type:** <a href="#Maximum">Maximum</a>
 
 #### <a name="CeremonialItemSpecialAbility/aspect"></a> `aspect?`
 
-- **Type:** <a href="../_Activatable.md#Aspect">Aspect</a>
+- **Type:** <a href="#Aspect">Aspect</a>
 
 #### <a name="CeremonialItemSpecialAbility/prerequisites"></a> `prerequisites?`
 
@@ -54,7 +54,7 @@ Key | Description | Details
 
 #### <a name="CeremonialItemSpecialAbility/ap_value"></a> `ap_value`
 
-- **Type:** <a href="../_Activatable.md#AdventurePointsValue">AdventurePointsValue</a>
+- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>
 
 #### <a name="CeremonialItemSpecialAbility/src"></a> `src`
 
@@ -64,16 +64,7 @@ Key | Description | Details
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#CeremonialItemSpecialAbility/translations[key]">CeremonialItemSpecialAbility/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="CeremonialItemSpecialAbility/translations[key]"></a> `CeremonialItemSpecialAbility/translations[key]`
-
-- **Type:** <a href="#CeremonialItemSpecialAbilityTranslation">CeremonialItemSpecialAbilityTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#CeremonialItemSpecialAbilityTranslation">CeremonialItemSpecialAbilityTranslation</a>&gt;
 
 ---
 
@@ -91,22 +82,22 @@ Key | Description | Details
 
 #### <a name="CeremonialItemSpecialAbilityTranslation/name"></a> `name`
 
-- **Type:** <a href="../_Activatable.md#Name">Name</a>
+- **Type:** <a href="#Name">Name</a>
 
 #### <a name="CeremonialItemSpecialAbilityTranslation/name_in_library"></a> `name_in_library?`
 
-- **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
+- **Type:** <a href="#NameInLibrary">NameInLibrary</a>
 
 #### <a name="CeremonialItemSpecialAbilityTranslation/effect"></a> `effect`
 
-- **Type:** <a href="../_Activatable.md#Effect">Effect</a>
+- **Type:** <a href="#Effect">Effect</a>
 
 #### <a name="CeremonialItemSpecialAbilityTranslation/prerequisites"></a> `prerequisites?`
 
 The prerequisites text. It is only used if the text cannot be generated
 from the given information.
 
-- **Type:** <a href="../_Activatable.md#PrerequisitesReplacement">PrerequisitesReplacement</a>
+- **Type:** <a href="#PrerequisitesReplacement">PrerequisitesReplacement</a>
 
 #### <a name="CeremonialItemSpecialAbilityTranslation/errata"></a> `errata?`
 

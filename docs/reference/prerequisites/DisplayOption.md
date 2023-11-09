@@ -81,13 +81,4 @@ different punctuation mark is present at the end of the given text.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#ReplacementDisplayOption/translations[key]">ReplacementDisplayOption/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="ReplacementDisplayOption/translations[key]"></a> `ReplacementDisplayOption/translations[key]`
-
-- **Type:** <a href="../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>&gt;

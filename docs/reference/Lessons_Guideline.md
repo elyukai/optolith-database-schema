@@ -30,16 +30,7 @@ Maximum number of spells that can be exchanged.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Guideline/translations[key]">Guideline/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="Guideline/translations[key]"></a> `Guideline/translations[key]`
-
-- **Type:** <a href="#GuidelineTranslation">GuidelineTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#GuidelineTranslation">GuidelineTranslation</a>&gt;
 
 ---
 

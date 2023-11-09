@@ -11,289 +11,289 @@
 
 ### <a name="ActivatableIdentifier'AdvantageIdentifier"></a> `ActivatableIdentifier'AdvantageIdentifier`
 
-- **Type:** <a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>
+- **Type:** <a href="#AdvantageIdentifier">AdvantageIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'DisadvantageIdentifier"></a> `ActivatableIdentifier'DisadvantageIdentifier`
 
-- **Type:** <a href="./_Identifier.md#DisadvantageIdentifier">DisadvantageIdentifier</a>
+- **Type:** <a href="#DisadvantageIdentifier">DisadvantageIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'GeneralSpecialAbilityIdentifier"></a> `ActivatableIdentifier'GeneralSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#GeneralSpecialAbilityIdentifier">GeneralSpecialAbilityIdentifier</a>
+- **Type:** <a href="#GeneralSpecialAbilityIdentifier">GeneralSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'FatePointSpecialAbilityIdentifier"></a> `ActivatableIdentifier'FatePointSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#FatePointSpecialAbilityIdentifier">FatePointSpecialAbilityIdentifier</a>
+- **Type:** <a href="#FatePointSpecialAbilityIdentifier">FatePointSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'CombatSpecialAbilityIdentifier"></a> `ActivatableIdentifier'CombatSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#CombatSpecialAbilityIdentifier">CombatSpecialAbilityIdentifier</a>
+- **Type:** <a href="#CombatSpecialAbilityIdentifier">CombatSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'MagicalSpecialAbilityIdentifier"></a> `ActivatableIdentifier'MagicalSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#MagicalSpecialAbilityIdentifier">MagicalSpecialAbilityIdentifier</a>
+- **Type:** <a href="#MagicalSpecialAbilityIdentifier">MagicalSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'StaffEnchantmentIdentifier"></a> `ActivatableIdentifier'StaffEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#StaffEnchantmentIdentifier">StaffEnchantmentIdentifier</a>
+- **Type:** <a href="#StaffEnchantmentIdentifier">StaffEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'FamiliarSpecialAbilityIdentifier"></a> `ActivatableIdentifier'FamiliarSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#FamiliarSpecialAbilityIdentifier">FamiliarSpecialAbilityIdentifier</a>
+- **Type:** <a href="#FamiliarSpecialAbilityIdentifier">FamiliarSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'KarmaSpecialAbilityIdentifier"></a> `ActivatableIdentifier'KarmaSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#KarmaSpecialAbilityIdentifier">KarmaSpecialAbilityIdentifier</a>
+- **Type:** <a href="#KarmaSpecialAbilityIdentifier">KarmaSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'ProtectiveWardingCircleSpecialAbilityIdentifier"></a> `ActivatableIdentifier'ProtectiveWardingCircleSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#ProtectiveWardingCircleSpecialAbilityIdentifier">ProtectiveWardingCircleSpecialAbilityIdentifier</a>
+- **Type:** <a href="#ProtectiveWardingCircleSpecialAbilityIdentifier">ProtectiveWardingCircleSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'CombatStyleSpecialAbilityIdentifier"></a> `ActivatableIdentifier'CombatStyleSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#CombatStyleSpecialAbilityIdentifier">CombatStyleSpecialAbilityIdentifier</a>
+- **Type:** <a href="#CombatStyleSpecialAbilityIdentifier">CombatStyleSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'AdvancedCombatSpecialAbilityIdentifier"></a> `ActivatableIdentifier'AdvancedCombatSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#AdvancedCombatSpecialAbilityIdentifier">AdvancedCombatSpecialAbilityIdentifier</a>
+- **Type:** <a href="#AdvancedCombatSpecialAbilityIdentifier">AdvancedCombatSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'CommandSpecialAbilityIdentifier"></a> `ActivatableIdentifier'CommandSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#CommandSpecialAbilityIdentifier">CommandSpecialAbilityIdentifier</a>
+- **Type:** <a href="#CommandSpecialAbilityIdentifier">CommandSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'MagicStyleSpecialAbilityIdentifier"></a> `ActivatableIdentifier'MagicStyleSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#MagicStyleSpecialAbilityIdentifier">MagicStyleSpecialAbilityIdentifier</a>
+- **Type:** <a href="#MagicStyleSpecialAbilityIdentifier">MagicStyleSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'AdvancedMagicalSpecialAbilityIdentifier"></a> `ActivatableIdentifier'AdvancedMagicalSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#AdvancedMagicalSpecialAbilityIdentifier">AdvancedMagicalSpecialAbilityIdentifier</a>
+- **Type:** <a href="#AdvancedMagicalSpecialAbilityIdentifier">AdvancedMagicalSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'SpellSwordEnchantmentIdentifier"></a> `ActivatableIdentifier'SpellSwordEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#SpellSwordEnchantmentIdentifier">SpellSwordEnchantmentIdentifier</a>
+- **Type:** <a href="#SpellSwordEnchantmentIdentifier">SpellSwordEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'DaggerRitualIdentifier"></a> `ActivatableIdentifier'DaggerRitualIdentifier`
 
-- **Type:** <a href="./_Identifier.md#DaggerRitualIdentifier">DaggerRitualIdentifier</a>
+- **Type:** <a href="#DaggerRitualIdentifier">DaggerRitualIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'InstrumentEnchantmentIdentifier"></a> `ActivatableIdentifier'InstrumentEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#InstrumentEnchantmentIdentifier">InstrumentEnchantmentIdentifier</a>
+- **Type:** <a href="#InstrumentEnchantmentIdentifier">InstrumentEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'AttireEnchantmentIdentifier"></a> `ActivatableIdentifier'AttireEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#AttireEnchantmentIdentifier">AttireEnchantmentIdentifier</a>
+- **Type:** <a href="#AttireEnchantmentIdentifier">AttireEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'OrbEnchantmentIdentifier"></a> `ActivatableIdentifier'OrbEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#OrbEnchantmentIdentifier">OrbEnchantmentIdentifier</a>
+- **Type:** <a href="#OrbEnchantmentIdentifier">OrbEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'WandEnchantmentIdentifier"></a> `ActivatableIdentifier'WandEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#WandEnchantmentIdentifier">WandEnchantmentIdentifier</a>
+- **Type:** <a href="#WandEnchantmentIdentifier">WandEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'BrawlingSpecialAbilityIdentifier"></a> `ActivatableIdentifier'BrawlingSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#BrawlingSpecialAbilityIdentifier">BrawlingSpecialAbilityIdentifier</a>
+- **Type:** <a href="#BrawlingSpecialAbilityIdentifier">BrawlingSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'AncestorGlyphIdentifier"></a> `ActivatableIdentifier'AncestorGlyphIdentifier`
 
-- **Type:** <a href="./_Identifier.md#AncestorGlyphIdentifier">AncestorGlyphIdentifier</a>
+- **Type:** <a href="#AncestorGlyphIdentifier">AncestorGlyphIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'CeremonialItemSpecialAbilityIdentifier"></a> `ActivatableIdentifier'CeremonialItemSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#CeremonialItemSpecialAbilityIdentifier">CeremonialItemSpecialAbilityIdentifier</a>
+- **Type:** <a href="#CeremonialItemSpecialAbilityIdentifier">CeremonialItemSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'SermonIdentifier"></a> `ActivatableIdentifier'SermonIdentifier`
 
-- **Type:** <a href="./_Identifier.md#SermonIdentifier">SermonIdentifier</a>
+- **Type:** <a href="#SermonIdentifier">SermonIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'LiturgicalStyleSpecialAbilityIdentifier"></a> `ActivatableIdentifier'LiturgicalStyleSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#LiturgicalStyleSpecialAbilityIdentifier">LiturgicalStyleSpecialAbilityIdentifier</a>
+- **Type:** <a href="#LiturgicalStyleSpecialAbilityIdentifier">LiturgicalStyleSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'AdvancedKarmaSpecialAbilityIdentifier"></a> `ActivatableIdentifier'AdvancedKarmaSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#AdvancedKarmaSpecialAbilityIdentifier">AdvancedKarmaSpecialAbilityIdentifier</a>
+- **Type:** <a href="#AdvancedKarmaSpecialAbilityIdentifier">AdvancedKarmaSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'VisionIdentifier"></a> `ActivatableIdentifier'VisionIdentifier`
 
-- **Type:** <a href="./_Identifier.md#VisionIdentifier">VisionIdentifier</a>
+- **Type:** <a href="#VisionIdentifier">VisionIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'MagicalTraditionIdentifier"></a> `ActivatableIdentifier'MagicalTraditionIdentifier`
 
-- **Type:** <a href="./_Identifier.md#MagicalTraditionIdentifier">MagicalTraditionIdentifier</a>
+- **Type:** <a href="#MagicalTraditionIdentifier">MagicalTraditionIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'BlessedTraditionIdentifier"></a> `ActivatableIdentifier'BlessedTraditionIdentifier`
 
-- **Type:** <a href="./_Identifier.md#BlessedTraditionIdentifier">BlessedTraditionIdentifier</a>
+- **Type:** <a href="#BlessedTraditionIdentifier">BlessedTraditionIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'PactGiftIdentifier"></a> `ActivatableIdentifier'PactGiftIdentifier`
 
-- **Type:** <a href="./_Identifier.md#PactGiftIdentifier">PactGiftIdentifier</a>
+- **Type:** <a href="#PactGiftIdentifier">PactGiftIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'SikaryanDrainSpecialAbilityIdentifier"></a> `ActivatableIdentifier'SikaryanDrainSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#SikaryanDrainSpecialAbilityIdentifier">SikaryanDrainSpecialAbilityIdentifier</a>
+- **Type:** <a href="#SikaryanDrainSpecialAbilityIdentifier">SikaryanDrainSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'LycantropicGiftIdentifier"></a> `ActivatableIdentifier'LycantropicGiftIdentifier`
 
-- **Type:** <a href="./_Identifier.md#LycantropicGiftIdentifier">LycantropicGiftIdentifier</a>
+- **Type:** <a href="#LycantropicGiftIdentifier">LycantropicGiftIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'SkillStyleSpecialAbilityIdentifier"></a> `ActivatableIdentifier'SkillStyleSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#SkillStyleSpecialAbilityIdentifier">SkillStyleSpecialAbilityIdentifier</a>
+- **Type:** <a href="#SkillStyleSpecialAbilityIdentifier">SkillStyleSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'AdvancedSkillSpecialAbilityIdentifier"></a> `ActivatableIdentifier'AdvancedSkillSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#AdvancedSkillSpecialAbilityIdentifier">AdvancedSkillSpecialAbilityIdentifier</a>
+- **Type:** <a href="#AdvancedSkillSpecialAbilityIdentifier">AdvancedSkillSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'ArcaneOrbEnchantmentIdentifier"></a> `ActivatableIdentifier'ArcaneOrbEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#ArcaneOrbEnchantmentIdentifier">ArcaneOrbEnchantmentIdentifier</a>
+- **Type:** <a href="#ArcaneOrbEnchantmentIdentifier">ArcaneOrbEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'CauldronEnchantmentIdentifier"></a> `ActivatableIdentifier'CauldronEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#CauldronEnchantmentIdentifier">CauldronEnchantmentIdentifier</a>
+- **Type:** <a href="#CauldronEnchantmentIdentifier">CauldronEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'FoolsHatEnchantmentIdentifier"></a> `ActivatableIdentifier'FoolsHatEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#FoolsHatEnchantmentIdentifier">FoolsHatEnchantmentIdentifier</a>
+- **Type:** <a href="#FoolsHatEnchantmentIdentifier">FoolsHatEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'ToyEnchantmentIdentifier"></a> `ActivatableIdentifier'ToyEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#ToyEnchantmentIdentifier">ToyEnchantmentIdentifier</a>
+- **Type:** <a href="#ToyEnchantmentIdentifier">ToyEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'BowlEnchantmentIdentifier"></a> `ActivatableIdentifier'BowlEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#BowlEnchantmentIdentifier">BowlEnchantmentIdentifier</a>
+- **Type:** <a href="#BowlEnchantmentIdentifier">BowlEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'FatePointSexSpecialAbilityIdentifier"></a> `ActivatableIdentifier'FatePointSexSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#FatePointSexSpecialAbilityIdentifier">FatePointSexSpecialAbilityIdentifier</a>
+- **Type:** <a href="#FatePointSexSpecialAbilityIdentifier">FatePointSexSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'SexSpecialAbilityIdentifier"></a> `ActivatableIdentifier'SexSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#SexSpecialAbilityIdentifier">SexSpecialAbilityIdentifier</a>
+- **Type:** <a href="#SexSpecialAbilityIdentifier">SexSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'WeaponEnchantmentIdentifier"></a> `ActivatableIdentifier'WeaponEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#WeaponEnchantmentIdentifier">WeaponEnchantmentIdentifier</a>
+- **Type:** <a href="#WeaponEnchantmentIdentifier">WeaponEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'SickleRitualIdentifier"></a> `ActivatableIdentifier'SickleRitualIdentifier`
 
-- **Type:** <a href="./_Identifier.md#SickleRitualIdentifier">SickleRitualIdentifier</a>
+- **Type:** <a href="#SickleRitualIdentifier">SickleRitualIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'RingEnchantmentIdentifier"></a> `ActivatableIdentifier'RingEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#RingEnchantmentIdentifier">RingEnchantmentIdentifier</a>
+- **Type:** <a href="#RingEnchantmentIdentifier">RingEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'ChronicleEnchantmentIdentifier"></a> `ActivatableIdentifier'ChronicleEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#ChronicleEnchantmentIdentifier">ChronicleEnchantmentIdentifier</a>
+- **Type:** <a href="#ChronicleEnchantmentIdentifier">ChronicleEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'KrallenkettenzauberIdentifier"></a> `ActivatableIdentifier'KrallenkettenzauberIdentifier`
 
-- **Type:** <a href="./_Identifier.md#KrallenkettenzauberIdentifier">KrallenkettenzauberIdentifier</a>
+- **Type:** <a href="#KrallenkettenzauberIdentifier">KrallenkettenzauberIdentifier</a>
 
 ---
 
 ### <a name="ActivatableIdentifier'TrinkhornzauberIdentifier"></a> `ActivatableIdentifier'TrinkhornzauberIdentifier`
 
-- **Type:** <a href="./_Identifier.md#TrinkhornzauberIdentifier">TrinkhornzauberIdentifier</a>
+- **Type:** <a href="#TrinkhornzauberIdentifier">TrinkhornzauberIdentifier</a>
 
 ---
 
@@ -306,277 +306,277 @@
 
 ### <a name="SpecialAbilityIdentifier'GeneralSpecialAbilityIdentifier"></a> `SpecialAbilityIdentifier'GeneralSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#GeneralSpecialAbilityIdentifier">GeneralSpecialAbilityIdentifier</a>
+- **Type:** <a href="#GeneralSpecialAbilityIdentifier">GeneralSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'FatePointSpecialAbilityIdentifier"></a> `SpecialAbilityIdentifier'FatePointSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#FatePointSpecialAbilityIdentifier">FatePointSpecialAbilityIdentifier</a>
+- **Type:** <a href="#FatePointSpecialAbilityIdentifier">FatePointSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'CombatSpecialAbilityIdentifier"></a> `SpecialAbilityIdentifier'CombatSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#CombatSpecialAbilityIdentifier">CombatSpecialAbilityIdentifier</a>
+- **Type:** <a href="#CombatSpecialAbilityIdentifier">CombatSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'MagicalSpecialAbilityIdentifier"></a> `SpecialAbilityIdentifier'MagicalSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#MagicalSpecialAbilityIdentifier">MagicalSpecialAbilityIdentifier</a>
+- **Type:** <a href="#MagicalSpecialAbilityIdentifier">MagicalSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'StaffEnchantmentIdentifier"></a> `SpecialAbilityIdentifier'StaffEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#StaffEnchantmentIdentifier">StaffEnchantmentIdentifier</a>
+- **Type:** <a href="#StaffEnchantmentIdentifier">StaffEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'FamiliarSpecialAbilityIdentifier"></a> `SpecialAbilityIdentifier'FamiliarSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#FamiliarSpecialAbilityIdentifier">FamiliarSpecialAbilityIdentifier</a>
+- **Type:** <a href="#FamiliarSpecialAbilityIdentifier">FamiliarSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'KarmaSpecialAbilityIdentifier"></a> `SpecialAbilityIdentifier'KarmaSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#KarmaSpecialAbilityIdentifier">KarmaSpecialAbilityIdentifier</a>
+- **Type:** <a href="#KarmaSpecialAbilityIdentifier">KarmaSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'ProtectiveWardingCircleSpecialAbilityIdentifier"></a> `SpecialAbilityIdentifier'ProtectiveWardingCircleSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#ProtectiveWardingCircleSpecialAbilityIdentifier">ProtectiveWardingCircleSpecialAbilityIdentifier</a>
+- **Type:** <a href="#ProtectiveWardingCircleSpecialAbilityIdentifier">ProtectiveWardingCircleSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'CombatStyleSpecialAbilityIdentifier"></a> `SpecialAbilityIdentifier'CombatStyleSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#CombatStyleSpecialAbilityIdentifier">CombatStyleSpecialAbilityIdentifier</a>
+- **Type:** <a href="#CombatStyleSpecialAbilityIdentifier">CombatStyleSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'AdvancedCombatSpecialAbilityIdentifier"></a> `SpecialAbilityIdentifier'AdvancedCombatSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#AdvancedCombatSpecialAbilityIdentifier">AdvancedCombatSpecialAbilityIdentifier</a>
+- **Type:** <a href="#AdvancedCombatSpecialAbilityIdentifier">AdvancedCombatSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'CommandSpecialAbilityIdentifier"></a> `SpecialAbilityIdentifier'CommandSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#CommandSpecialAbilityIdentifier">CommandSpecialAbilityIdentifier</a>
+- **Type:** <a href="#CommandSpecialAbilityIdentifier">CommandSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'MagicStyleSpecialAbilityIdentifier"></a> `SpecialAbilityIdentifier'MagicStyleSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#MagicStyleSpecialAbilityIdentifier">MagicStyleSpecialAbilityIdentifier</a>
+- **Type:** <a href="#MagicStyleSpecialAbilityIdentifier">MagicStyleSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'AdvancedMagicalSpecialAbilityIdentifier"></a> `SpecialAbilityIdentifier'AdvancedMagicalSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#AdvancedMagicalSpecialAbilityIdentifier">AdvancedMagicalSpecialAbilityIdentifier</a>
+- **Type:** <a href="#AdvancedMagicalSpecialAbilityIdentifier">AdvancedMagicalSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'SpellSwordEnchantmentIdentifier"></a> `SpecialAbilityIdentifier'SpellSwordEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#SpellSwordEnchantmentIdentifier">SpellSwordEnchantmentIdentifier</a>
+- **Type:** <a href="#SpellSwordEnchantmentIdentifier">SpellSwordEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'DaggerRitualIdentifier"></a> `SpecialAbilityIdentifier'DaggerRitualIdentifier`
 
-- **Type:** <a href="./_Identifier.md#DaggerRitualIdentifier">DaggerRitualIdentifier</a>
+- **Type:** <a href="#DaggerRitualIdentifier">DaggerRitualIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'InstrumentEnchantmentIdentifier"></a> `SpecialAbilityIdentifier'InstrumentEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#InstrumentEnchantmentIdentifier">InstrumentEnchantmentIdentifier</a>
+- **Type:** <a href="#InstrumentEnchantmentIdentifier">InstrumentEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'AttireEnchantmentIdentifier"></a> `SpecialAbilityIdentifier'AttireEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#AttireEnchantmentIdentifier">AttireEnchantmentIdentifier</a>
+- **Type:** <a href="#AttireEnchantmentIdentifier">AttireEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'OrbEnchantmentIdentifier"></a> `SpecialAbilityIdentifier'OrbEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#OrbEnchantmentIdentifier">OrbEnchantmentIdentifier</a>
+- **Type:** <a href="#OrbEnchantmentIdentifier">OrbEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'WandEnchantmentIdentifier"></a> `SpecialAbilityIdentifier'WandEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#WandEnchantmentIdentifier">WandEnchantmentIdentifier</a>
+- **Type:** <a href="#WandEnchantmentIdentifier">WandEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'BrawlingSpecialAbilityIdentifier"></a> `SpecialAbilityIdentifier'BrawlingSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#BrawlingSpecialAbilityIdentifier">BrawlingSpecialAbilityIdentifier</a>
+- **Type:** <a href="#BrawlingSpecialAbilityIdentifier">BrawlingSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'AncestorGlyphIdentifier"></a> `SpecialAbilityIdentifier'AncestorGlyphIdentifier`
 
-- **Type:** <a href="./_Identifier.md#AncestorGlyphIdentifier">AncestorGlyphIdentifier</a>
+- **Type:** <a href="#AncestorGlyphIdentifier">AncestorGlyphIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'CeremonialItemSpecialAbilityIdentifier"></a> `SpecialAbilityIdentifier'CeremonialItemSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#CeremonialItemSpecialAbilityIdentifier">CeremonialItemSpecialAbilityIdentifier</a>
+- **Type:** <a href="#CeremonialItemSpecialAbilityIdentifier">CeremonialItemSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'SermonIdentifier"></a> `SpecialAbilityIdentifier'SermonIdentifier`
 
-- **Type:** <a href="./_Identifier.md#SermonIdentifier">SermonIdentifier</a>
+- **Type:** <a href="#SermonIdentifier">SermonIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'LiturgicalStyleSpecialAbilityIdentifier"></a> `SpecialAbilityIdentifier'LiturgicalStyleSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#LiturgicalStyleSpecialAbilityIdentifier">LiturgicalStyleSpecialAbilityIdentifier</a>
+- **Type:** <a href="#LiturgicalStyleSpecialAbilityIdentifier">LiturgicalStyleSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'AdvancedKarmaSpecialAbilityIdentifier"></a> `SpecialAbilityIdentifier'AdvancedKarmaSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#AdvancedKarmaSpecialAbilityIdentifier">AdvancedKarmaSpecialAbilityIdentifier</a>
+- **Type:** <a href="#AdvancedKarmaSpecialAbilityIdentifier">AdvancedKarmaSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'VisionIdentifier"></a> `SpecialAbilityIdentifier'VisionIdentifier`
 
-- **Type:** <a href="./_Identifier.md#VisionIdentifier">VisionIdentifier</a>
+- **Type:** <a href="#VisionIdentifier">VisionIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'MagicalTraditionIdentifier"></a> `SpecialAbilityIdentifier'MagicalTraditionIdentifier`
 
-- **Type:** <a href="./_Identifier.md#MagicalTraditionIdentifier">MagicalTraditionIdentifier</a>
+- **Type:** <a href="#MagicalTraditionIdentifier">MagicalTraditionIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'BlessedTraditionIdentifier"></a> `SpecialAbilityIdentifier'BlessedTraditionIdentifier`
 
-- **Type:** <a href="./_Identifier.md#BlessedTraditionIdentifier">BlessedTraditionIdentifier</a>
+- **Type:** <a href="#BlessedTraditionIdentifier">BlessedTraditionIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'PactGiftIdentifier"></a> `SpecialAbilityIdentifier'PactGiftIdentifier`
 
-- **Type:** <a href="./_Identifier.md#PactGiftIdentifier">PactGiftIdentifier</a>
+- **Type:** <a href="#PactGiftIdentifier">PactGiftIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'SikaryanDrainSpecialAbilityIdentifier"></a> `SpecialAbilityIdentifier'SikaryanDrainSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#SikaryanDrainSpecialAbilityIdentifier">SikaryanDrainSpecialAbilityIdentifier</a>
+- **Type:** <a href="#SikaryanDrainSpecialAbilityIdentifier">SikaryanDrainSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'LycantropicGiftIdentifier"></a> `SpecialAbilityIdentifier'LycantropicGiftIdentifier`
 
-- **Type:** <a href="./_Identifier.md#LycantropicGiftIdentifier">LycantropicGiftIdentifier</a>
+- **Type:** <a href="#LycantropicGiftIdentifier">LycantropicGiftIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'SkillStyleSpecialAbilityIdentifier"></a> `SpecialAbilityIdentifier'SkillStyleSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#SkillStyleSpecialAbilityIdentifier">SkillStyleSpecialAbilityIdentifier</a>
+- **Type:** <a href="#SkillStyleSpecialAbilityIdentifier">SkillStyleSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'AdvancedSkillSpecialAbilityIdentifier"></a> `SpecialAbilityIdentifier'AdvancedSkillSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#AdvancedSkillSpecialAbilityIdentifier">AdvancedSkillSpecialAbilityIdentifier</a>
+- **Type:** <a href="#AdvancedSkillSpecialAbilityIdentifier">AdvancedSkillSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'ArcaneOrbEnchantmentIdentifier"></a> `SpecialAbilityIdentifier'ArcaneOrbEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#ArcaneOrbEnchantmentIdentifier">ArcaneOrbEnchantmentIdentifier</a>
+- **Type:** <a href="#ArcaneOrbEnchantmentIdentifier">ArcaneOrbEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'CauldronEnchantmentIdentifier"></a> `SpecialAbilityIdentifier'CauldronEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#CauldronEnchantmentIdentifier">CauldronEnchantmentIdentifier</a>
+- **Type:** <a href="#CauldronEnchantmentIdentifier">CauldronEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'FoolsHatEnchantmentIdentifier"></a> `SpecialAbilityIdentifier'FoolsHatEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#FoolsHatEnchantmentIdentifier">FoolsHatEnchantmentIdentifier</a>
+- **Type:** <a href="#FoolsHatEnchantmentIdentifier">FoolsHatEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'ToyEnchantmentIdentifier"></a> `SpecialAbilityIdentifier'ToyEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#ToyEnchantmentIdentifier">ToyEnchantmentIdentifier</a>
+- **Type:** <a href="#ToyEnchantmentIdentifier">ToyEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'BowlEnchantmentIdentifier"></a> `SpecialAbilityIdentifier'BowlEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#BowlEnchantmentIdentifier">BowlEnchantmentIdentifier</a>
+- **Type:** <a href="#BowlEnchantmentIdentifier">BowlEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'FatePointSexSpecialAbilityIdentifier"></a> `SpecialAbilityIdentifier'FatePointSexSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#FatePointSexSpecialAbilityIdentifier">FatePointSexSpecialAbilityIdentifier</a>
+- **Type:** <a href="#FatePointSexSpecialAbilityIdentifier">FatePointSexSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'SexSpecialAbilityIdentifier"></a> `SpecialAbilityIdentifier'SexSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#SexSpecialAbilityIdentifier">SexSpecialAbilityIdentifier</a>
+- **Type:** <a href="#SexSpecialAbilityIdentifier">SexSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'WeaponEnchantmentIdentifier"></a> `SpecialAbilityIdentifier'WeaponEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#WeaponEnchantmentIdentifier">WeaponEnchantmentIdentifier</a>
+- **Type:** <a href="#WeaponEnchantmentIdentifier">WeaponEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'SickleRitualIdentifier"></a> `SpecialAbilityIdentifier'SickleRitualIdentifier`
 
-- **Type:** <a href="./_Identifier.md#SickleRitualIdentifier">SickleRitualIdentifier</a>
+- **Type:** <a href="#SickleRitualIdentifier">SickleRitualIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'RingEnchantmentIdentifier"></a> `SpecialAbilityIdentifier'RingEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#RingEnchantmentIdentifier">RingEnchantmentIdentifier</a>
+- **Type:** <a href="#RingEnchantmentIdentifier">RingEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'ChronicleEnchantmentIdentifier"></a> `SpecialAbilityIdentifier'ChronicleEnchantmentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#ChronicleEnchantmentIdentifier">ChronicleEnchantmentIdentifier</a>
+- **Type:** <a href="#ChronicleEnchantmentIdentifier">ChronicleEnchantmentIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'KrallenkettenzauberIdentifier"></a> `SpecialAbilityIdentifier'KrallenkettenzauberIdentifier`
 
-- **Type:** <a href="./_Identifier.md#KrallenkettenzauberIdentifier">KrallenkettenzauberIdentifier</a>
+- **Type:** <a href="#KrallenkettenzauberIdentifier">KrallenkettenzauberIdentifier</a>
 
 ---
 
 ### <a name="SpecialAbilityIdentifier'TrinkhornzauberIdentifier"></a> `SpecialAbilityIdentifier'TrinkhornzauberIdentifier`
 
-- **Type:** <a href="./_Identifier.md#TrinkhornzauberIdentifier">TrinkhornzauberIdentifier</a>
+- **Type:** <a href="#TrinkhornzauberIdentifier">TrinkhornzauberIdentifier</a>
 
 ---
 
@@ -589,25 +589,25 @@
 
 ### <a name="CombatRelatedSpecialAbilityIdentifier'CombatSpecialAbilityIdentifier"></a> `CombatRelatedSpecialAbilityIdentifier'CombatSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#CombatSpecialAbilityIdentifier">CombatSpecialAbilityIdentifier</a>
+- **Type:** <a href="#CombatSpecialAbilityIdentifier">CombatSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="CombatRelatedSpecialAbilityIdentifier'CombatStyleSpecialAbilityIdentifier"></a> `CombatRelatedSpecialAbilityIdentifier'CombatStyleSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#CombatStyleSpecialAbilityIdentifier">CombatStyleSpecialAbilityIdentifier</a>
+- **Type:** <a href="#CombatStyleSpecialAbilityIdentifier">CombatStyleSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="CombatRelatedSpecialAbilityIdentifier'AdvancedCombatSpecialAbilityIdentifier"></a> `CombatRelatedSpecialAbilityIdentifier'AdvancedCombatSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#AdvancedCombatSpecialAbilityIdentifier">AdvancedCombatSpecialAbilityIdentifier</a>
+- **Type:** <a href="#AdvancedCombatSpecialAbilityIdentifier">AdvancedCombatSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="CombatRelatedSpecialAbilityIdentifier'CommandSpecialAbilityIdentifier"></a> `CombatRelatedSpecialAbilityIdentifier'CommandSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#CommandSpecialAbilityIdentifier">CommandSpecialAbilityIdentifier</a>
+- **Type:** <a href="#CommandSpecialAbilityIdentifier">CommandSpecialAbilityIdentifier</a>
 
 ---
 
@@ -620,13 +620,13 @@
 
 ### <a name="TraditionIdentifier'MagicalTraditionIdentifier"></a> `TraditionIdentifier'MagicalTraditionIdentifier`
 
-- **Type:** <a href="./_Identifier.md#MagicalTraditionIdentifier">MagicalTraditionIdentifier</a>
+- **Type:** <a href="#MagicalTraditionIdentifier">MagicalTraditionIdentifier</a>
 
 ---
 
 ### <a name="TraditionIdentifier'BlessedTraditionIdentifier"></a> `TraditionIdentifier'BlessedTraditionIdentifier`
 
-- **Type:** <a href="./_Identifier.md#BlessedTraditionIdentifier">BlessedTraditionIdentifier</a>
+- **Type:** <a href="#BlessedTraditionIdentifier">BlessedTraditionIdentifier</a>
 
 ---
 
@@ -639,49 +639,49 @@
 
 ### <a name="RatedIdentifier'AttributeIdentifier"></a> `RatedIdentifier'AttributeIdentifier`
 
-- **Type:** <a href="./_Identifier.md#AttributeIdentifier">AttributeIdentifier</a>
+- **Type:** <a href="#AttributeIdentifier">AttributeIdentifier</a>
 
 ---
 
 ### <a name="RatedIdentifier'SkillIdentifier"></a> `RatedIdentifier'SkillIdentifier`
 
-- **Type:** <a href="./_Identifier.md#SkillIdentifier">SkillIdentifier</a>
+- **Type:** <a href="#SkillIdentifier">SkillIdentifier</a>
 
 ---
 
 ### <a name="RatedIdentifier'CloseCombatTechniqueIdentifier"></a> `RatedIdentifier'CloseCombatTechniqueIdentifier`
 
-- **Type:** <a href="./_Identifier.md#CloseCombatTechniqueIdentifier">CloseCombatTechniqueIdentifier</a>
+- **Type:** <a href="#CloseCombatTechniqueIdentifier">CloseCombatTechniqueIdentifier</a>
 
 ---
 
 ### <a name="RatedIdentifier'RangedCombatTechniqueIdentifier"></a> `RatedIdentifier'RangedCombatTechniqueIdentifier`
 
-- **Type:** <a href="./_Identifier.md#RangedCombatTechniqueIdentifier">RangedCombatTechniqueIdentifier</a>
+- **Type:** <a href="#RangedCombatTechniqueIdentifier">RangedCombatTechniqueIdentifier</a>
 
 ---
 
 ### <a name="RatedIdentifier'SpellIdentifier"></a> `RatedIdentifier'SpellIdentifier`
 
-- **Type:** <a href="./_Identifier.md#SpellIdentifier">SpellIdentifier</a>
+- **Type:** <a href="#SpellIdentifier">SpellIdentifier</a>
 
 ---
 
 ### <a name="RatedIdentifier'RitualIdentifier"></a> `RatedIdentifier'RitualIdentifier`
 
-- **Type:** <a href="./_Identifier.md#RitualIdentifier">RitualIdentifier</a>
+- **Type:** <a href="#RitualIdentifier">RitualIdentifier</a>
 
 ---
 
 ### <a name="RatedIdentifier'LiturgicalChantIdentifier"></a> `RatedIdentifier'LiturgicalChantIdentifier`
 
-- **Type:** <a href="./_Identifier.md#LiturgicalChantIdentifier">LiturgicalChantIdentifier</a>
+- **Type:** <a href="#LiturgicalChantIdentifier">LiturgicalChantIdentifier</a>
 
 ---
 
 ### <a name="RatedIdentifier'CeremonyIdentifier"></a> `RatedIdentifier'CeremonyIdentifier`
 
-- **Type:** <a href="./_Identifier.md#CeremonyIdentifier">CeremonyIdentifier</a>
+- **Type:** <a href="#CeremonyIdentifier">CeremonyIdentifier</a>
 
 ---
 
@@ -694,31 +694,31 @@
 
 ### <a name="SkillIdentifier'SkillIdentifier"></a> `SkillIdentifier'SkillIdentifier`
 
-- **Type:** <a href="./_Identifier.md#SkillIdentifier">SkillIdentifier</a>
+- **Type:** <a href="#SkillIdentifier">SkillIdentifier</a>
 
 ---
 
 ### <a name="SkillIdentifier'SpellIdentifier"></a> `SkillIdentifier'SpellIdentifier`
 
-- **Type:** <a href="./_Identifier.md#SpellIdentifier">SpellIdentifier</a>
+- **Type:** <a href="#SpellIdentifier">SpellIdentifier</a>
 
 ---
 
 ### <a name="SkillIdentifier'RitualIdentifier"></a> `SkillIdentifier'RitualIdentifier`
 
-- **Type:** <a href="./_Identifier.md#RitualIdentifier">RitualIdentifier</a>
+- **Type:** <a href="#RitualIdentifier">RitualIdentifier</a>
 
 ---
 
 ### <a name="SkillIdentifier'LiturgicalChantIdentifier"></a> `SkillIdentifier'LiturgicalChantIdentifier`
 
-- **Type:** <a href="./_Identifier.md#LiturgicalChantIdentifier">LiturgicalChantIdentifier</a>
+- **Type:** <a href="#LiturgicalChantIdentifier">LiturgicalChantIdentifier</a>
 
 ---
 
 ### <a name="SkillIdentifier'CeremonyIdentifier"></a> `SkillIdentifier'CeremonyIdentifier`
 
-- **Type:** <a href="./_Identifier.md#CeremonyIdentifier">CeremonyIdentifier</a>
+- **Type:** <a href="#CeremonyIdentifier">CeremonyIdentifier</a>
 
 ---
 
@@ -731,25 +731,25 @@
 
 ### <a name="AdvancedSpecialAbilityRestrictedOptionIdentifier'GeneralIdentifier"></a> `AdvancedSpecialAbilityRestrictedOptionIdentifier'GeneralIdentifier`
 
-- **Type:** <a href="./_Identifier.md#GeneralIdentifier">GeneralIdentifier</a>
+- **Type:** <a href="#GeneralIdentifier">GeneralIdentifier</a>
 
 ---
 
 ### <a name="AdvancedSpecialAbilityRestrictedOptionIdentifier'SkillIdentifier"></a> `AdvancedSpecialAbilityRestrictedOptionIdentifier'SkillIdentifier`
 
-- **Type:** <a href="./_Identifier.md#SkillIdentifier">SkillIdentifier</a>
+- **Type:** <a href="#SkillIdentifier">SkillIdentifier</a>
 
 ---
 
 ### <a name="AdvancedSpecialAbilityRestrictedOptionIdentifier'ElementIdentifier"></a> `AdvancedSpecialAbilityRestrictedOptionIdentifier'ElementIdentifier`
 
-- **Type:** <a href="./_Identifier.md#ElementIdentifier">ElementIdentifier</a>
+- **Type:** <a href="#ElementIdentifier">ElementIdentifier</a>
 
 ---
 
 ### <a name="AdvancedSpecialAbilityRestrictedOptionIdentifier'AspectIdentifier"></a> `AdvancedSpecialAbilityRestrictedOptionIdentifier'AspectIdentifier`
 
-- **Type:** <a href="./_Identifier.md#AspectIdentifier">AspectIdentifier</a>
+- **Type:** <a href="#AspectIdentifier">AspectIdentifier</a>
 
 ---
 
@@ -762,13 +762,13 @@
 
 ### <a name="VolumePointsOptionReferenceIdentifier'GeneralIdentifier"></a> `VolumePointsOptionReferenceIdentifier'GeneralIdentifier`
 
-- **Type:** <a href="./_Identifier.md#GeneralIdentifier">GeneralIdentifier</a>
+- **Type:** <a href="#GeneralIdentifier">GeneralIdentifier</a>
 
 ---
 
 ### <a name="VolumePointsOptionReferenceIdentifier'AnimalShapeSizeIdentifier"></a> `VolumePointsOptionReferenceIdentifier'AnimalShapeSizeIdentifier`
 
-- **Type:** <a href="./_Identifier.md#AnimalShapeSizeIdentifier">AnimalShapeSizeIdentifier</a>
+- **Type:** <a href="#AnimalShapeSizeIdentifier">AnimalShapeSizeIdentifier</a>
 
 ---
 
@@ -781,13 +781,13 @@
 
 ### <a name="CombatTechniqueIdentifier'CloseCombatTechniqueIdentifier"></a> `CombatTechniqueIdentifier'CloseCombatTechniqueIdentifier`
 
-- **Type:** <a href="./_Identifier.md#CloseCombatTechniqueIdentifier">CloseCombatTechniqueIdentifier</a>
+- **Type:** <a href="#CloseCombatTechniqueIdentifier">CloseCombatTechniqueIdentifier</a>
 
 ---
 
 ### <a name="CombatTechniqueIdentifier'RangedCombatTechniqueIdentifier"></a> `CombatTechniqueIdentifier'RangedCombatTechniqueIdentifier`
 
-- **Type:** <a href="./_Identifier.md#RangedCombatTechniqueIdentifier">RangedCombatTechniqueIdentifier</a>
+- **Type:** <a href="#RangedCombatTechniqueIdentifier">RangedCombatTechniqueIdentifier</a>
 
 ---
 
@@ -800,13 +800,13 @@
 
 ### <a name="ExtensionRuleIdentifier'FocusRuleIdentifier"></a> `ExtensionRuleIdentifier'FocusRuleIdentifier`
 
-- **Type:** <a href="./_Identifier.md#FocusRuleIdentifier">FocusRuleIdentifier</a>
+- **Type:** <a href="#FocusRuleIdentifier">FocusRuleIdentifier</a>
 
 ---
 
 ### <a name="ExtensionRuleIdentifier'OptionalRuleIdentifier"></a> `ExtensionRuleIdentifier'OptionalRuleIdentifier`
 
-- **Type:** <a href="./_Identifier.md#OptionalRuleIdentifier">OptionalRuleIdentifier</a>
+- **Type:** <a href="#OptionalRuleIdentifier">OptionalRuleIdentifier</a>
 
 ---
 
@@ -819,25 +819,25 @@
 
 ### <a name="SkillWithEnhancementsIdentifier'SpellIdentifier"></a> `SkillWithEnhancementsIdentifier'SpellIdentifier`
 
-- **Type:** <a href="./_Identifier.md#SpellIdentifier">SpellIdentifier</a>
+- **Type:** <a href="#SpellIdentifier">SpellIdentifier</a>
 
 ---
 
 ### <a name="SkillWithEnhancementsIdentifier'RitualIdentifier"></a> `SkillWithEnhancementsIdentifier'RitualIdentifier`
 
-- **Type:** <a href="./_Identifier.md#RitualIdentifier">RitualIdentifier</a>
+- **Type:** <a href="#RitualIdentifier">RitualIdentifier</a>
 
 ---
 
 ### <a name="SkillWithEnhancementsIdentifier'LiturgicalChantIdentifier"></a> `SkillWithEnhancementsIdentifier'LiturgicalChantIdentifier`
 
-- **Type:** <a href="./_Identifier.md#LiturgicalChantIdentifier">LiturgicalChantIdentifier</a>
+- **Type:** <a href="#LiturgicalChantIdentifier">LiturgicalChantIdentifier</a>
 
 ---
 
 ### <a name="SkillWithEnhancementsIdentifier'CeremonyIdentifier"></a> `SkillWithEnhancementsIdentifier'CeremonyIdentifier`
 
-- **Type:** <a href="./_Identifier.md#CeremonyIdentifier">CeremonyIdentifier</a>
+- **Type:** <a href="#CeremonyIdentifier">CeremonyIdentifier</a>
 
 ---
 
@@ -850,13 +850,13 @@
 
 ### <a name="SpellworkIdentifier'SpellIdentifier"></a> `SpellworkIdentifier'SpellIdentifier`
 
-- **Type:** <a href="./_Identifier.md#SpellIdentifier">SpellIdentifier</a>
+- **Type:** <a href="#SpellIdentifier">SpellIdentifier</a>
 
 ---
 
 ### <a name="SpellworkIdentifier'RitualIdentifier"></a> `SpellworkIdentifier'RitualIdentifier`
 
-- **Type:** <a href="./_Identifier.md#RitualIdentifier">RitualIdentifier</a>
+- **Type:** <a href="#RitualIdentifier">RitualIdentifier</a>
 
 ---
 
@@ -869,13 +869,13 @@
 
 ### <a name="LiturgyIdentifier'LiturgicalChantIdentifier"></a> `LiturgyIdentifier'LiturgicalChantIdentifier`
 
-- **Type:** <a href="./_Identifier.md#LiturgicalChantIdentifier">LiturgicalChantIdentifier</a>
+- **Type:** <a href="#LiturgicalChantIdentifier">LiturgicalChantIdentifier</a>
 
 ---
 
 ### <a name="LiturgyIdentifier'CeremonyIdentifier"></a> `LiturgyIdentifier'CeremonyIdentifier`
 
-- **Type:** <a href="./_Identifier.md#CeremonyIdentifier">CeremonyIdentifier</a>
+- **Type:** <a href="#CeremonyIdentifier">CeremonyIdentifier</a>
 
 ---
 
@@ -888,55 +888,55 @@
 
 ### <a name="MagicalActionIdentifier'CurseIdentifier"></a> `MagicalActionIdentifier'CurseIdentifier`
 
-- **Type:** <a href="./_Identifier.md#CurseIdentifier">CurseIdentifier</a>
+- **Type:** <a href="#CurseIdentifier">CurseIdentifier</a>
 
 ---
 
 ### <a name="MagicalActionIdentifier'ElvenMagicalSongIdentifier"></a> `MagicalActionIdentifier'ElvenMagicalSongIdentifier`
 
-- **Type:** <a href="./_Identifier.md#ElvenMagicalSongIdentifier">ElvenMagicalSongIdentifier</a>
+- **Type:** <a href="#ElvenMagicalSongIdentifier">ElvenMagicalSongIdentifier</a>
 
 ---
 
 ### <a name="MagicalActionIdentifier'DominationRitualIdentifier"></a> `MagicalActionIdentifier'DominationRitualIdentifier`
 
-- **Type:** <a href="./_Identifier.md#DominationRitualIdentifier">DominationRitualIdentifier</a>
+- **Type:** <a href="#DominationRitualIdentifier">DominationRitualIdentifier</a>
 
 ---
 
 ### <a name="MagicalActionIdentifier'MagicalMelodyIdentifier"></a> `MagicalActionIdentifier'MagicalMelodyIdentifier`
 
-- **Type:** <a href="./_Identifier.md#MagicalMelodyIdentifier">MagicalMelodyIdentifier</a>
+- **Type:** <a href="#MagicalMelodyIdentifier">MagicalMelodyIdentifier</a>
 
 ---
 
 ### <a name="MagicalActionIdentifier'MagicalDanceIdentifier"></a> `MagicalActionIdentifier'MagicalDanceIdentifier`
 
-- **Type:** <a href="./_Identifier.md#MagicalDanceIdentifier">MagicalDanceIdentifier</a>
+- **Type:** <a href="#MagicalDanceIdentifier">MagicalDanceIdentifier</a>
 
 ---
 
 ### <a name="MagicalActionIdentifier'JesterTrickIdentifier"></a> `MagicalActionIdentifier'JesterTrickIdentifier`
 
-- **Type:** <a href="./_Identifier.md#JesterTrickIdentifier">JesterTrickIdentifier</a>
+- **Type:** <a href="#JesterTrickIdentifier">JesterTrickIdentifier</a>
 
 ---
 
 ### <a name="MagicalActionIdentifier'AnimistPowerIdentifier"></a> `MagicalActionIdentifier'AnimistPowerIdentifier`
 
-- **Type:** <a href="./_Identifier.md#AnimistPowerIdentifier">AnimistPowerIdentifier</a>
+- **Type:** <a href="#AnimistPowerIdentifier">AnimistPowerIdentifier</a>
 
 ---
 
 ### <a name="MagicalActionIdentifier'GeodeRitualIdentifier"></a> `MagicalActionIdentifier'GeodeRitualIdentifier`
 
-- **Type:** <a href="./_Identifier.md#GeodeRitualIdentifier">GeodeRitualIdentifier</a>
+- **Type:** <a href="#GeodeRitualIdentifier">GeodeRitualIdentifier</a>
 
 ---
 
 ### <a name="MagicalActionIdentifier'ZibiljaRitualIdentifier"></a> `MagicalActionIdentifier'ZibiljaRitualIdentifier`
 
-- **Type:** <a href="./_Identifier.md#ZibiljaRitualIdentifier">ZibiljaRitualIdentifier</a>
+- **Type:** <a href="#ZibiljaRitualIdentifier">ZibiljaRitualIdentifier</a>
 
 ---
 
@@ -949,25 +949,25 @@
 
 ### <a name="RequirableSelectOptionIdentifier'GeneralIdentifier"></a> `RequirableSelectOptionIdentifier'GeneralIdentifier`
 
-- **Type:** <a href="./_Identifier.md#GeneralIdentifier">GeneralIdentifier</a>
+- **Type:** <a href="#GeneralIdentifier">GeneralIdentifier</a>
 
 ---
 
 ### <a name="RequirableSelectOptionIdentifier'SkillIdentifier"></a> `RequirableSelectOptionIdentifier'SkillIdentifier`
 
-- **Type:** <a href="./_Identifier.md#SkillIdentifier">SkillIdentifier</a>
+- **Type:** <a href="#SkillIdentifier">SkillIdentifier</a>
 
 ---
 
 ### <a name="RequirableSelectOptionIdentifier'CloseCombatTechniqueIdentifier"></a> `RequirableSelectOptionIdentifier'CloseCombatTechniqueIdentifier`
 
-- **Type:** <a href="./_Identifier.md#CloseCombatTechniqueIdentifier">CloseCombatTechniqueIdentifier</a>
+- **Type:** <a href="#CloseCombatTechniqueIdentifier">CloseCombatTechniqueIdentifier</a>
 
 ---
 
 ### <a name="RequirableSelectOptionIdentifier'RangedCombatTechniqueIdentifier"></a> `RequirableSelectOptionIdentifier'RangedCombatTechniqueIdentifier`
 
-- **Type:** <a href="./_Identifier.md#RangedCombatTechniqueIdentifier">RangedCombatTechniqueIdentifier</a>
+- **Type:** <a href="#RangedCombatTechniqueIdentifier">RangedCombatTechniqueIdentifier</a>
 
 ---
 
@@ -980,25 +980,25 @@
 
 ### <a name="CoreRuleDerivableContentIdentifier'MagicalTraditionIdentifier"></a> `CoreRuleDerivableContentIdentifier'MagicalTraditionIdentifier`
 
-- **Type:** <a href="./_Identifier.md#MagicalTraditionIdentifier">MagicalTraditionIdentifier</a>
+- **Type:** <a href="#MagicalTraditionIdentifier">MagicalTraditionIdentifier</a>
 
 ---
 
 ### <a name="CoreRuleDerivableContentIdentifier'FamiliarSpecialAbilityIdentifier"></a> `CoreRuleDerivableContentIdentifier'FamiliarSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#FamiliarSpecialAbilityIdentifier">FamiliarSpecialAbilityIdentifier</a>
+- **Type:** <a href="#FamiliarSpecialAbilityIdentifier">FamiliarSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="CoreRuleDerivableContentIdentifier'MagicalSpecialAbilityIdentifier"></a> `CoreRuleDerivableContentIdentifier'MagicalSpecialAbilityIdentifier`
 
-- **Type:** <a href="./_Identifier.md#MagicalSpecialAbilityIdentifier">MagicalSpecialAbilityIdentifier</a>
+- **Type:** <a href="#MagicalSpecialAbilityIdentifier">MagicalSpecialAbilityIdentifier</a>
 
 ---
 
 ### <a name="CoreRuleDerivableContentIdentifier'BlessedTraditionIdentifier"></a> `CoreRuleDerivableContentIdentifier'BlessedTraditionIdentifier`
 
-- **Type:** <a href="./_Identifier.md#BlessedTraditionIdentifier">BlessedTraditionIdentifier</a>
+- **Type:** <a href="#BlessedTraditionIdentifier">BlessedTraditionIdentifier</a>
 
 ---
 
@@ -1011,175 +1011,175 @@
 
 ### <a name="EquipmentIdentifier'AlchemicumIdentifier"></a> `EquipmentIdentifier'AlchemicumIdentifier`
 
-- **Type:** <a href="./_Identifier.md#AlchemicumIdentifier">AlchemicumIdentifier</a>
+- **Type:** <a href="#AlchemicumIdentifier">AlchemicumIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'AmmunitionIdentifier"></a> `EquipmentIdentifier'AmmunitionIdentifier`
 
-- **Type:** <a href="./_Identifier.md#AmmunitionIdentifier">AmmunitionIdentifier</a>
+- **Type:** <a href="#AmmunitionIdentifier">AmmunitionIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'AnimalIdentifier"></a> `EquipmentIdentifier'AnimalIdentifier`
 
-- **Type:** <a href="./_Identifier.md#AnimalIdentifier">AnimalIdentifier</a>
+- **Type:** <a href="#AnimalIdentifier">AnimalIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'AnimalCareIdentifier"></a> `EquipmentIdentifier'AnimalCareIdentifier`
 
-- **Type:** <a href="./_Identifier.md#AnimalCareIdentifier">AnimalCareIdentifier</a>
+- **Type:** <a href="#AnimalCareIdentifier">AnimalCareIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'ArmorIdentifier"></a> `EquipmentIdentifier'ArmorIdentifier`
 
-- **Type:** <a href="./_Identifier.md#ArmorIdentifier">ArmorIdentifier</a>
+- **Type:** <a href="#ArmorIdentifier">ArmorIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'BandageOrRemedyIdentifier"></a> `EquipmentIdentifier'BandageOrRemedyIdentifier`
 
-- **Type:** <a href="./_Identifier.md#BandageOrRemedyIdentifier">BandageOrRemedyIdentifier</a>
+- **Type:** <a href="#BandageOrRemedyIdentifier">BandageOrRemedyIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'BookIdentifier"></a> `EquipmentIdentifier'BookIdentifier`
 
-- **Type:** <a href="./_Identifier.md#BookIdentifier">BookIdentifier</a>
+- **Type:** <a href="#BookIdentifier">BookIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'CeremonialItemIdentifier"></a> `EquipmentIdentifier'CeremonialItemIdentifier`
 
-- **Type:** <a href="./_Identifier.md#CeremonialItemIdentifier">CeremonialItemIdentifier</a>
+- **Type:** <a href="#CeremonialItemIdentifier">CeremonialItemIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'ClothesIdentifier"></a> `EquipmentIdentifier'ClothesIdentifier`
 
-- **Type:** <a href="./_Identifier.md#ClothesIdentifier">ClothesIdentifier</a>
+- **Type:** <a href="#ClothesIdentifier">ClothesIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'ContainerIdentifier"></a> `EquipmentIdentifier'ContainerIdentifier`
 
-- **Type:** <a href="./_Identifier.md#ContainerIdentifier">ContainerIdentifier</a>
+- **Type:** <a href="#ContainerIdentifier">ContainerIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'EquipmentOfBlessedOnesIdentifier"></a> `EquipmentIdentifier'EquipmentOfBlessedOnesIdentifier`
 
-- **Type:** <a href="./_Identifier.md#EquipmentOfBlessedOnesIdentifier">EquipmentOfBlessedOnesIdentifier</a>
+- **Type:** <a href="#EquipmentOfBlessedOnesIdentifier">EquipmentOfBlessedOnesIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'GemOrPreciousStoneIdentifier"></a> `EquipmentIdentifier'GemOrPreciousStoneIdentifier`
 
-- **Type:** <a href="./_Identifier.md#GemOrPreciousStoneIdentifier">GemOrPreciousStoneIdentifier</a>
+- **Type:** <a href="#GemOrPreciousStoneIdentifier">GemOrPreciousStoneIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'IlluminationLightSourceIdentifier"></a> `EquipmentIdentifier'IlluminationLightSourceIdentifier`
 
-- **Type:** <a href="./_Identifier.md#IlluminationLightSourceIdentifier">IlluminationLightSourceIdentifier</a>
+- **Type:** <a href="#IlluminationLightSourceIdentifier">IlluminationLightSourceIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'IlluminationRefillsOrSuppliesIdentifier"></a> `EquipmentIdentifier'IlluminationRefillsOrSuppliesIdentifier`
 
-- **Type:** <a href="./_Identifier.md#IlluminationRefillsOrSuppliesIdentifier">IlluminationRefillsOrSuppliesIdentifier</a>
+- **Type:** <a href="#IlluminationRefillsOrSuppliesIdentifier">IlluminationRefillsOrSuppliesIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'JewelryIdentifier"></a> `EquipmentIdentifier'JewelryIdentifier`
 
-- **Type:** <a href="./_Identifier.md#JewelryIdentifier">JewelryIdentifier</a>
+- **Type:** <a href="#JewelryIdentifier">JewelryIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'LiebesspielzeugIdentifier"></a> `EquipmentIdentifier'LiebesspielzeugIdentifier`
 
-- **Type:** <a href="./_Identifier.md#LiebesspielzeugIdentifier">LiebesspielzeugIdentifier</a>
+- **Type:** <a href="#LiebesspielzeugIdentifier">LiebesspielzeugIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'LuxuryGoodIdentifier"></a> `EquipmentIdentifier'LuxuryGoodIdentifier`
 
-- **Type:** <a href="./_Identifier.md#LuxuryGoodIdentifier">LuxuryGoodIdentifier</a>
+- **Type:** <a href="#LuxuryGoodIdentifier">LuxuryGoodIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'MagicalArtifactIdentifier"></a> `EquipmentIdentifier'MagicalArtifactIdentifier`
 
-- **Type:** <a href="./_Identifier.md#MagicalArtifactIdentifier">MagicalArtifactIdentifier</a>
+- **Type:** <a href="#MagicalArtifactIdentifier">MagicalArtifactIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'MusicalInstrumentIdentifier"></a> `EquipmentIdentifier'MusicalInstrumentIdentifier`
 
-- **Type:** <a href="./_Identifier.md#MusicalInstrumentIdentifier">MusicalInstrumentIdentifier</a>
+- **Type:** <a href="#MusicalInstrumentIdentifier">MusicalInstrumentIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'OrienteeringAidIdentifier"></a> `EquipmentIdentifier'OrienteeringAidIdentifier`
 
-- **Type:** <a href="./_Identifier.md#OrienteeringAidIdentifier">OrienteeringAidIdentifier</a>
+- **Type:** <a href="#OrienteeringAidIdentifier">OrienteeringAidIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'PoisonIdentifier"></a> `EquipmentIdentifier'PoisonIdentifier`
 
-- **Type:** <a href="./_Identifier.md#PoisonIdentifier">PoisonIdentifier</a>
+- **Type:** <a href="#PoisonIdentifier">PoisonIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'RopeOrChainIdentifier"></a> `EquipmentIdentifier'RopeOrChainIdentifier`
 
-- **Type:** <a href="./_Identifier.md#RopeOrChainIdentifier">RopeOrChainIdentifier</a>
+- **Type:** <a href="#RopeOrChainIdentifier">RopeOrChainIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'StationaryIdentifier"></a> `EquipmentIdentifier'StationaryIdentifier`
 
-- **Type:** <a href="./_Identifier.md#StationaryIdentifier">StationaryIdentifier</a>
+- **Type:** <a href="#StationaryIdentifier">StationaryIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'ThievesToolIdentifier"></a> `EquipmentIdentifier'ThievesToolIdentifier`
 
-- **Type:** <a href="./_Identifier.md#ThievesToolIdentifier">ThievesToolIdentifier</a>
+- **Type:** <a href="#ThievesToolIdentifier">ThievesToolIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'ToolOfTheTradeIdentifier"></a> `EquipmentIdentifier'ToolOfTheTradeIdentifier`
 
-- **Type:** <a href="./_Identifier.md#ToolOfTheTradeIdentifier">ToolOfTheTradeIdentifier</a>
+- **Type:** <a href="#ToolOfTheTradeIdentifier">ToolOfTheTradeIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'TravelGearOrToolIdentifier"></a> `EquipmentIdentifier'TravelGearOrToolIdentifier`
 
-- **Type:** <a href="./_Identifier.md#TravelGearOrToolIdentifier">TravelGearOrToolIdentifier</a>
+- **Type:** <a href="#TravelGearOrToolIdentifier">TravelGearOrToolIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'VehicleIdentifier"></a> `EquipmentIdentifier'VehicleIdentifier`
 
-- **Type:** <a href="./_Identifier.md#VehicleIdentifier">VehicleIdentifier</a>
+- **Type:** <a href="#VehicleIdentifier">VehicleIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'WeaponIdentifier"></a> `EquipmentIdentifier'WeaponIdentifier`
 
-- **Type:** <a href="./_Identifier.md#WeaponIdentifier">WeaponIdentifier</a>
+- **Type:** <a href="#WeaponIdentifier">WeaponIdentifier</a>
 
 ---
 
 ### <a name="EquipmentIdentifier'WeaponAccessoryIdentifier"></a> `EquipmentIdentifier'WeaponAccessoryIdentifier`
 
-- **Type:** <a href="./_Identifier.md#WeaponAccessoryIdentifier">WeaponAccessoryIdentifier</a>
+- **Type:** <a href="#WeaponAccessoryIdentifier">WeaponAccessoryIdentifier</a>
 
 ---
 

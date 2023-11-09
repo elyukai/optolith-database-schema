@@ -2,6 +2,51 @@
 
 ## Definitions
 
+### <a name="CastingTime"></a> `CastingTime<NonModifiable extends Object>`
+
+- **Type:** Union
+- **Cases:** <a href="#CastingTime'Modifiable">CastingTime'Modifiable</a> | <a href="#CastingTime'NonModifiable">CastingTime'NonModifiable</a>
+
+---
+
+### <a name="CastingTime'Modifiable"></a> `CastingTime'Modifiable`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CastingTime'Modifiable/tag">See details</a>
+`modifiable` |  | <a href="#CastingTime'Modifiable/modifiable">See details</a>
+
+#### <a name="CastingTime'Modifiable/tag"></a> `tag`
+
+- **Constant:** `"Modifiable"`
+
+#### <a name="CastingTime'Modifiable/modifiable"></a> `modifiable`
+
+- **Type:** <a href="#ModifiableCastingTime">ModifiableCastingTime</a>
+
+---
+
+### <a name="CastingTime'NonModifiable"></a> `CastingTime'NonModifiable`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#CastingTime'NonModifiable/tag">See details</a>
+`non_modifiable` |  | <a href="#CastingTime'NonModifiable/non_modifiable">See details</a>
+
+#### <a name="CastingTime'NonModifiable/tag"></a> `tag`
+
+- **Constant:** `"NonModifiable"`
+
+#### <a name="CastingTime'NonModifiable/non_modifiable"></a> `non_modifiable`
+
+- **Type:** <a href="#NonModifiable">NonModifiable</a>
+
+---
+
 ### <a name="ModifiableCastingTime"></a> `ModifiableCastingTime`
 
 - **Type:** Object
@@ -17,6 +62,38 @@ The initial skill modification identifier/level.
 - **Type:** Integer
 - **Minimum:** `1`
 - **Maximum:** `6`
+
+---
+
+### <a name="CastingTimeIncludingLovemaking"></a> `CastingTimeIncludingLovemaking<NonModifiable extends Object>`
+
+The casting time may have two different values: One for use in “normal” time,
+i. e. actions, combat rounds and others, and one for use during lovemaking,
+which is a rule set from Aventurian Intimacy.
+
+There must always be at least one casting time value.
+
+- **Type:** Object
+- **Minimum Properties:** `1`
+
+Key | Description | Details
+:-- | :-- | :--
+`default?` | The default casting time definition. | <a href="#CastingTimeIncludingLovemaking/default">See details</a>
+`during_lovemaking?` | The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking. | <a href="#CastingTimeIncludingLovemaking/during_lovemaking">See details</a>
+
+#### <a name="CastingTimeIncludingLovemaking/default"></a> `default?`
+
+The default casting time definition.
+
+- **Type:** <a href="#CastingTime">CastingTime</a>&lt;<a href="#NonModifiable">NonModifiable</a>&gt;
+
+#### <a name="CastingTimeIncludingLovemaking/during_lovemaking"></a> `during_lovemaking?`
+
+The casting time during lovemaking. In Aventurian Intimacy, you may only
+use an activatable skill during lovemaking if it has a casting time used
+during lovemaking.
+
+- **Type:** <a href="#CastingTimeDuringLovemaking">CastingTimeDuringLovemaking</a>
 
 ---
 
@@ -108,140 +185,10 @@ The (unitless) casting time value.
 
 ### <a name="FastCastingTime"></a> `FastCastingTime`
 
-The casting time may have two different values: One for use in “normal” time,
-i. e. actions, combat rounds and others, and one for use during lovemaking,
-which is a rule set from Aventurian Intimacy.
-
-There must always be at least one casting time value.
-
-- **Type:** Object
-- **Minimum Properties:** `1`
-
-Key | Description | Details
-:-- | :-- | :--
-`default?` | The default casting time definition. | <a href="#FastCastingTime/default">See details</a>
-`during_lovemaking?` | The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking. | <a href="#FastCastingTime/during_lovemaking">See details</a>
-
-#### <a name="FastCastingTime/default"></a> `default?`
-
-The default casting time definition.
-
-- **Type:** Union
-- **Cases:** <a href="#FastCastingTime/default'Modifiable">FastCastingTime/default'Modifiable</a> | <a href="#FastCastingTime/default'NonModifiable">FastCastingTime/default'NonModifiable</a>
-
-#### <a name="FastCastingTime/during_lovemaking"></a> `during_lovemaking?`
-
-The casting time during lovemaking. In Aventurian Intimacy, you may only
-use an activatable skill during lovemaking if it has a casting time used
-during lovemaking.
-
-- **Type:** <a href="#CastingTimeDuringLovemaking">CastingTimeDuringLovemaking</a>
-
----
-
-### <a name="FastCastingTime/default'Modifiable"></a> `FastCastingTime/default'Modifiable`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#FastCastingTime/default'Modifiable/tag">See details</a>
-`modifiable` |  | <a href="#FastCastingTime/default'Modifiable/modifiable">See details</a>
-
-#### <a name="FastCastingTime/default'Modifiable/tag"></a> `tag`
-
-- **Constant:** `"Modifiable"`
-
-#### <a name="FastCastingTime/default'Modifiable/modifiable"></a> `modifiable`
-
-- **Type:** <a href="#ModifiableCastingTime">ModifiableCastingTime</a>
-
----
-
-### <a name="FastCastingTime/default'NonModifiable"></a> `FastCastingTime/default'NonModifiable`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#FastCastingTime/default'NonModifiable/tag">See details</a>
-`non_modifiable` |  | <a href="#FastCastingTime/default'NonModifiable/non_modifiable">See details</a>
-
-#### <a name="FastCastingTime/default'NonModifiable/tag"></a> `tag`
-
-- **Constant:** `"NonModifiable"`
-
-#### <a name="FastCastingTime/default'NonModifiable/non_modifiable"></a> `non_modifiable`
-
-- **Type:** <a href="#FastSkillNonModifiableCastingTime">FastSkillNonModifiableCastingTime</a>
+- **Type:** <a href="#CastingTimeIncludingLovemaking">CastingTimeIncludingLovemaking</a>&lt;<a href="#FastSkillNonModifiableCastingTime">FastSkillNonModifiableCastingTime</a>&gt;
 
 ---
 
 ### <a name="SlowCastingTime"></a> `SlowCastingTime`
 
-The casting time may have two different values: One for use in “normal” time,
-i. e. actions, combat rounds and others, and one for use during lovemaking,
-which is a rule set from Aventurian Intimacy.
-
-There must always be at least one casting time value.
-
-- **Type:** Object
-- **Minimum Properties:** `1`
-
-Key | Description | Details
-:-- | :-- | :--
-`default?` | The default casting time definition. | <a href="#SlowCastingTime/default">See details</a>
-`during_lovemaking?` | The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking. | <a href="#SlowCastingTime/during_lovemaking">See details</a>
-
-#### <a name="SlowCastingTime/default"></a> `default?`
-
-The default casting time definition.
-
-- **Type:** Union
-- **Cases:** <a href="#SlowCastingTime/default'Modifiable">SlowCastingTime/default'Modifiable</a> | <a href="#SlowCastingTime/default'NonModifiable">SlowCastingTime/default'NonModifiable</a>
-
-#### <a name="SlowCastingTime/during_lovemaking"></a> `during_lovemaking?`
-
-The casting time during lovemaking. In Aventurian Intimacy, you may only
-use an activatable skill during lovemaking if it has a casting time used
-during lovemaking.
-
-- **Type:** <a href="#CastingTimeDuringLovemaking">CastingTimeDuringLovemaking</a>
-
----
-
-### <a name="SlowCastingTime/default'Modifiable"></a> `SlowCastingTime/default'Modifiable`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#SlowCastingTime/default'Modifiable/tag">See details</a>
-`modifiable` |  | <a href="#SlowCastingTime/default'Modifiable/modifiable">See details</a>
-
-#### <a name="SlowCastingTime/default'Modifiable/tag"></a> `tag`
-
-- **Constant:** `"Modifiable"`
-
-#### <a name="SlowCastingTime/default'Modifiable/modifiable"></a> `modifiable`
-
-- **Type:** <a href="#ModifiableCastingTime">ModifiableCastingTime</a>
-
----
-
-### <a name="SlowCastingTime/default'NonModifiable"></a> `SlowCastingTime/default'NonModifiable`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#SlowCastingTime/default'NonModifiable/tag">See details</a>
-`non_modifiable` |  | <a href="#SlowCastingTime/default'NonModifiable/non_modifiable">See details</a>
-
-#### <a name="SlowCastingTime/default'NonModifiable/tag"></a> `tag`
-
-- **Constant:** `"NonModifiable"`
-
-#### <a name="SlowCastingTime/default'NonModifiable/non_modifiable"></a> `non_modifiable`
-
-- **Type:** <a href="#SlowSkillNonModifiableCastingTime">SlowSkillNonModifiableCastingTime</a>
+- **Type:** <a href="#CastingTimeIncludingLovemaking">CastingTimeIncludingLovemaking</a>&lt;<a href="#SlowSkillNonModifiableCastingTime">SlowSkillNonModifiableCastingTime</a>&gt;

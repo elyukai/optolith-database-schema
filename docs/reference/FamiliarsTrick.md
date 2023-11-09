@@ -62,22 +62,13 @@ known by all familiar by default. In the latter case the field is not set.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#FamiliarsTrick/translations[key]">FamiliarsTrick/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#FamiliarsTrickTranslation">FamiliarsTrickTranslation</a>&gt;
 
 ---
 
 ### <a name="FamiliarsTrick/animal_types[]"></a> `FamiliarsTrick/animal_types[]`
 
 - **Type:** <a href="./_SimpleReferences.md#AnimalTypeReference">AnimalTypeReference</a>
-
----
-
-### <a name="FamiliarsTrick/translations[key]"></a> `FamiliarsTrick/translations[key]`
-
-- **Type:** <a href="#FamiliarsTrickTranslation">FamiliarsTrickTranslation</a>
 
 ---
 
@@ -138,16 +129,7 @@ Key | Description | Details
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#IndefiniteProperty/translations[key]">IndefiniteProperty/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="IndefiniteProperty/translations[key]"></a> `IndefiniteProperty/translations[key]`
-
-- **Type:** <a href="#IndefinitePropertyTranslation">IndefinitePropertyTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#IndefinitePropertyTranslation">IndefinitePropertyTranslation</a>&gt;
 
 ---
 
@@ -430,16 +412,7 @@ The interval in which you have to pay the AE cost again.
 All translations for the entry, identified by IETF language tag
 (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#FixedOneTimeCost/translations[key]">FixedOneTimeCost/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="FixedOneTimeCost/translations[key]"></a> `FixedOneTimeCost/translations[key]`
-
-- **Type:** <a href="#FixedOneTimeCostTranslation">FixedOneTimeCostTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#FixedOneTimeCostTranslation">FixedOneTimeCostTranslation</a>&gt;
 
 ---
 
@@ -490,16 +463,7 @@ Key | Description | Details
 All translations for the entry, identified by IETF language tag
 (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#IndefiniteOneTimeCost/translations[key]">IndefiniteOneTimeCost/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="IndefiniteOneTimeCost/translations[key]"></a> `IndefiniteOneTimeCost/translations[key]`
-
-- **Type:** <a href="#IndefiniteOneTimeCostTranslation">IndefiniteOneTimeCostTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#IndefiniteOneTimeCostTranslation">IndefiniteOneTimeCostTranslation</a>&gt;
 
 ---
 
@@ -623,16 +587,7 @@ The duration unit.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#FixedOneTimeDuration/translations[key]">FixedOneTimeDuration/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="FixedOneTimeDuration/translations[key]"></a> `FixedOneTimeDuration/translations[key]`
-
-- **Type:** <a href="#FixedOneTimeDurationTranslation">FixedOneTimeDurationTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#FixedOneTimeDurationTranslation">FixedOneTimeDurationTranslation</a>&gt;
 
 ---
 
@@ -665,16 +620,7 @@ Key | Description | Details
 All translations for the entry, identified by IETF language tag
 (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#IndefiniteOneTimeDuration/translations[key]">IndefiniteOneTimeDuration/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="IndefiniteOneTimeDuration/translations[key]"></a> `IndefiniteOneTimeDuration/translations[key]`
-
-- **Type:** <a href="#IndefiniteOneTimeDurationTranslation">IndefiniteOneTimeDurationTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#IndefiniteOneTimeDurationTranslation">IndefiniteOneTimeDurationTranslation</a>&gt;
 
 ---
 

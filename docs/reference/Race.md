@@ -110,10 +110,7 @@ which will be used as the missing values for the base race.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Race/translations[key]">Race/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#RaceTranslation">RaceTranslation</a>&gt;
 
 ---
 
@@ -123,51 +120,21 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="Race/strongly_recommended_advantages[]"></a> Commonness-rated Advantage/Disadvantage (`Race/strongly_recommended_advantages[]`)
+### <a name="Race/strongly_recommended_advantages[]"></a> `Race/strongly_recommended_advantages[]`
 
-Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The advantage's or disadvantage's identifier. | <a href="#Race/strongly_recommended_advantages[]/id">See details</a>
-
-#### <a name="Race/strongly_recommended_advantages[]/id"></a> `id`
-
-The advantage's or disadvantage's identifier.
-
-- **Type:** <a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>
+- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>&lt;<a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>&gt;
 
 ---
 
-### <a name="Race/strongly_recommended_disadvantages[]"></a> Commonness-rated Advantage/Disadvantage (`Race/strongly_recommended_disadvantages[]`)
+### <a name="Race/strongly_recommended_disadvantages[]"></a> `Race/strongly_recommended_disadvantages[]`
 
-Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The advantage's or disadvantage's identifier. | <a href="#Race/strongly_recommended_disadvantages[]/id">See details</a>
-
-#### <a name="Race/strongly_recommended_disadvantages[]/id"></a> `id`
-
-The advantage's or disadvantage's identifier.
-
-- **Type:** <a href="./_Identifier.md#DisadvantageIdentifier">DisadvantageIdentifier</a>
+- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>&lt;<a href="./_Identifier.md#DisadvantageIdentifier">DisadvantageIdentifier</a>&gt;
 
 ---
 
 ### <a name="Race/starting_age[]"></a> `Race/starting_age[]`
 
 - **Type:** <a href="#StartingAgeConfigForExperienceLevel">StartingAgeConfigForExperienceLevel</a>
-
----
-
-### <a name="Race/translations[key]"></a> `Race/translations[key]`
-
-- **Type:** <a href="#RaceTranslation">RaceTranslation</a>
 
 ---
 
@@ -357,39 +324,6 @@ The dice used for random weight.
 
 ---
 
-### <a name="WeightDice"></a> `WeightDice`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`number` | Number of dice of the same type. Example: 2 in 2D6. | <a href="#WeightDice/number">See details</a>
-`sides` | Number of sides on every die. Example: 6 in 2D6. | <a href="#WeightDice/sides">See details</a>
-`offset_strategy` | The strategy how to offset the randomly generated values against the base value. Either they are all added or subtracted or even results are added and odd results are subtracted. | <a href="#WeightDice/offset_strategy">See details</a>
-
-#### <a name="WeightDice/number"></a> `number`
-
-Number of dice of the same type. Example: 2 in 2D6.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
-#### <a name="WeightDice/sides"></a> `sides`
-
-Number of sides on every die. Example: 6 in 2D6.
-
-- **Type:** <a href="./_Dice.md#DieType">DieType</a>
-
-#### <a name="WeightDice/offset_strategy"></a> `offset_strategy`
-
-The strategy how to offset the randomly generated values against the
-base value. Either they are all added or subtracted or even results are
-added and odd results are subtracted.
-
-- **Type:** <a href="#WeightDiceOffsetStrategy">WeightDiceOffsetStrategy</a>
-
----
-
 ### <a name="WeightDiceOffsetStrategy"></a> `WeightDiceOffsetStrategy`
 
 The strategy how to offset the randomly generated values against the
@@ -563,10 +497,7 @@ Configuration for random height generation.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#RaceVariant/translations[key]">RaceVariant/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#RaceVariantTranslation">RaceVariantTranslation</a>&gt;
 
 ---
 
@@ -576,75 +507,27 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="RaceVariant/common_advantages[]"></a> Commonness-rated Advantage/Disadvantage (`RaceVariant/common_advantages[]`)
+### <a name="RaceVariant/common_advantages[]"></a> `RaceVariant/common_advantages[]`
 
-Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The advantage's or disadvantage's identifier. | <a href="#RaceVariant/common_advantages[]/id">See details</a>
-
-#### <a name="RaceVariant/common_advantages[]/id"></a> `id`
-
-The advantage's or disadvantage's identifier.
-
-- **Type:** <a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>
+- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>&lt;<a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>&gt;
 
 ---
 
-### <a name="RaceVariant/common_disadvantages[]"></a> Commonness-rated Advantage/Disadvantage (`RaceVariant/common_disadvantages[]`)
+### <a name="RaceVariant/common_disadvantages[]"></a> `RaceVariant/common_disadvantages[]`
 
-Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The advantage's or disadvantage's identifier. | <a href="#RaceVariant/common_disadvantages[]/id">See details</a>
-
-#### <a name="RaceVariant/common_disadvantages[]/id"></a> `id`
-
-The advantage's or disadvantage's identifier.
-
-- **Type:** <a href="./_Identifier.md#DisadvantageIdentifier">DisadvantageIdentifier</a>
+- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>&lt;<a href="./_Identifier.md#DisadvantageIdentifier">DisadvantageIdentifier</a>&gt;
 
 ---
 
-### <a name="RaceVariant/uncommon_advantages[]"></a> Commonness-rated Advantage/Disadvantage (`RaceVariant/uncommon_advantages[]`)
+### <a name="RaceVariant/uncommon_advantages[]"></a> `RaceVariant/uncommon_advantages[]`
 
-Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The advantage's or disadvantage's identifier. | <a href="#RaceVariant/uncommon_advantages[]/id">See details</a>
-
-#### <a name="RaceVariant/uncommon_advantages[]/id"></a> `id`
-
-The advantage's or disadvantage's identifier.
-
-- **Type:** <a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>
+- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>&lt;<a href="./_Identifier.md#AdvantageIdentifier">AdvantageIdentifier</a>&gt;
 
 ---
 
-### <a name="RaceVariant/uncommon_disadvantages[]"></a> Commonness-rated Advantage/Disadvantage (`RaceVariant/uncommon_disadvantages[]`)
+### <a name="RaceVariant/uncommon_disadvantages[]"></a> `RaceVariant/uncommon_disadvantages[]`
 
-Reference to a commonness-rated advantage or disadvantage. Commonness-rating terms used in the source books are strongly recommended, common, uncommon, suggested and unsuitable.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` | The advantage's or disadvantage's identifier. | <a href="#RaceVariant/uncommon_disadvantages[]/id">See details</a>
-
-#### <a name="RaceVariant/uncommon_disadvantages[]/id"></a> `id`
-
-The advantage's or disadvantage's identifier.
-
-- **Type:** <a href="./_Identifier.md#DisadvantageIdentifier">DisadvantageIdentifier</a>
+- **Type:** <a href="./_CommonnessRatedAdvantageDisadvantage.md#CommonnessRatedAdvantageDisadvantage">CommonnessRatedAdvantageDisadvantage</a>&lt;<a href="./_Identifier.md#DisadvantageIdentifier">DisadvantageIdentifier</a>&gt;
 
 ---
 
@@ -657,12 +540,6 @@ The advantage's or disadvantage's identifier.
 ### <a name="RaceVariant/eye_color[]"></a> `RaceVariant/eye_color[]`
 
 - **Type:** <a href="./_SimpleReferences.md#EyeColorReference">EyeColorReference</a>
-
----
-
-### <a name="RaceVariant/translations[key]"></a> `RaceVariant/translations[key]`
-
-- **Type:** <a href="#RaceVariantTranslation">RaceVariantTranslation</a>
 
 ---
 

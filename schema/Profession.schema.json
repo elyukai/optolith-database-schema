@@ -648,34 +648,22 @@
       ]
     },
     "FixedVariantSpecialAbility": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "The identifier of the combat technique to provide the rating for.",
-          "$ref": "./_IdentifierGroup.schema.json#/$defs/SpecialAbilityIdentifier"
+      "allOf": [
+        {
+          "$ref": "#/$defs/SpecialAbilityDefinition"
         },
-        "level": {
-          "description": "The level of the received special ability.",
-          "type": "integer",
-          "minimum": 1
-        },
-        "options": {
-          "description": "Received select options. Order is important. Typically, you only need the\nfirst array index, though.",
-          "type": "array",
-          "items": {
-            "$ref": "./_IdentifierGroup.schema.json#/$defs/RequirableSelectOptionIdentifier"
+        {
+          "type": "object",
+          "properties": {
+            "active": {
+              "description": "if set to `false`, if the selection is granted by the basic package, it\nis removed.",
+              "const": false
+            }
           },
-          "minItems": 1
-        },
-        "active": {
-          "description": "if set to `false`, if the selection is granted by the basic package, it\nis removed.",
-          "const": false
+          "required": []
         }
-      },
-      "required": [
-        "id"
       ],
-      "additionalProperties": false
+      "unresolvedProperties": false
     },
     "VariantSpecialAbilitySelection": {
       "type": "object",

@@ -22,16 +22,7 @@ The animal shape path's identifier. An unique, increasing integer.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#AnimalShapePath/translations[key]">AnimalShapePath/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="AnimalShapePath/translations[key]"></a> `AnimalShapePath/translations[key]`
-
-- **Type:** <a href="#AnimalShapePathTranslation">AnimalShapePathTranslation</a>
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#AnimalShapePathTranslation">AnimalShapePathTranslation</a>&gt;
 
 ---
 

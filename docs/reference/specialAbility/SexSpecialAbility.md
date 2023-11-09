@@ -21,27 +21,27 @@ Key | Description | Details
 
 #### <a name="SexSpecialAbility/id"></a> `id`
 
-- **Type:** <a href="../_Activatable.md#Id">Id</a>
+- **Type:** <a href="#Id">Id</a>
 
 #### <a name="SexSpecialAbility/levels"></a> `levels?`
 
-- **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+- **Type:** <a href="#Levels">Levels</a>
 
 #### <a name="SexSpecialAbility/select_options"></a> `select_options?`
 
-- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
+- **Type:** <a href="#SelectOptions">SelectOptions</a>
 
 #### <a name="SexSpecialAbility/skill_applications"></a> `skill_applications?`
 
-- **Type:** <a href="../_Activatable.md#SkillApplications">SkillApplications</a>
+- **Type:** <a href="#SkillApplications">SkillApplications</a>
 
 #### <a name="SexSpecialAbility/skill_uses"></a> `skill_uses?`
 
-- **Type:** <a href="../_Activatable.md#SkillUses">SkillUses</a>
+- **Type:** <a href="#SkillUses">SkillUses</a>
 
 #### <a name="SexSpecialAbility/maximum"></a> `maximum?`
 
-- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+- **Type:** <a href="#Maximum">Maximum</a>
 
 #### <a name="SexSpecialAbility/prerequisites"></a> `prerequisites?`
 
@@ -49,7 +49,7 @@ Key | Description | Details
 
 #### <a name="SexSpecialAbility/ap_value"></a> `ap_value`
 
-- **Type:** <a href="../_Activatable.md#AdventurePointsValue">AdventurePointsValue</a>
+- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>
 
 #### <a name="SexSpecialAbility/src"></a> `src`
 
@@ -59,16 +59,7 @@ Key | Description | Details
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#SexSpecialAbility/translations[key]">SexSpecialAbility/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="SexSpecialAbility/translations[key]"></a> `SexSpecialAbility/translations[key]`
-
-- **Type:** <a href="#SexSpecialAbilityTranslation">SexSpecialAbilityTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#SexSpecialAbilityTranslation">SexSpecialAbilityTranslation</a>&gt;
 
 ---
 
@@ -85,15 +76,15 @@ Key | Description | Details
 
 #### <a name="SexSpecialAbilityTranslation/name"></a> `name`
 
-- **Type:** <a href="../_Activatable.md#Name">Name</a>
+- **Type:** <a href="#Name">Name</a>
 
 #### <a name="SexSpecialAbilityTranslation/name_in_library"></a> `name_in_library?`
 
-- **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
+- **Type:** <a href="#NameInLibrary">NameInLibrary</a>
 
 #### <a name="SexSpecialAbilityTranslation/rules"></a> `rules`
 
-- **Type:** <a href="../_Activatable.md#Rules">Rules</a>
+- **Type:** <a href="#Rules">Rules</a>
 
 #### <a name="SexSpecialAbilityTranslation/errata"></a> `errata?`
 

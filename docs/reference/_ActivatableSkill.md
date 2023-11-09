@@ -2,6 +2,64 @@
 
 ## Definitions
 
+### <a name="OneTimePerformanceParameters"></a> `OneTimePerformanceParameters<CastingTime>`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`casting_time` |  | <a href="#OneTimePerformanceParameters/casting_time">See details</a>
+`cost` |  | <a href="#OneTimePerformanceParameters/cost">See details</a>
+`range` |  | <a href="#OneTimePerformanceParameters/range">See details</a>
+`duration` |  | <a href="#OneTimePerformanceParameters/duration">See details</a>
+
+#### <a name="OneTimePerformanceParameters/casting_time"></a> `casting_time`
+
+- **Type:** <a href="#CastingTime">CastingTime</a>
+
+#### <a name="OneTimePerformanceParameters/cost"></a> `cost`
+
+- **Type:** <a href="./_ActivatableSkillCost.md#OneTimeCost">OneTimeCost</a>
+
+#### <a name="OneTimePerformanceParameters/range"></a> `range`
+
+- **Type:** <a href="./_ActivatableSkillRange.md#Range">Range</a>
+
+#### <a name="OneTimePerformanceParameters/duration"></a> `duration`
+
+- **Type:** <a href="./_ActivatableSkillDuration.md#DurationForOneTime">DurationForOneTime</a>
+
+---
+
+### <a name="SustainedPerformanceParameters"></a> `SustainedPerformanceParameters<CastingTime>`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`casting_time` |  | <a href="#SustainedPerformanceParameters/casting_time">See details</a>
+`cost` |  | <a href="#SustainedPerformanceParameters/cost">See details</a>
+`range` |  | <a href="#SustainedPerformanceParameters/range">See details</a>
+`duration?` |  | <a href="#SustainedPerformanceParameters/duration">See details</a>
+
+#### <a name="SustainedPerformanceParameters/casting_time"></a> `casting_time`
+
+- **Type:** <a href="#CastingTime">CastingTime</a>
+
+#### <a name="SustainedPerformanceParameters/cost"></a> `cost`
+
+- **Type:** <a href="./_ActivatableSkillCost.md#SustainedCost">SustainedCost</a>
+
+#### <a name="SustainedPerformanceParameters/range"></a> `range`
+
+- **Type:** <a href="./_ActivatableSkillRange.md#Range">Range</a>
+
+#### <a name="SustainedPerformanceParameters/duration"></a> `duration?`
+
+- **Type:** <a href="./_ActivatableSkillDuration.md#DurationForSustained">DurationForSustained</a>
+
+---
+
 ### <a name="FastPerformanceParameters"></a> `FastPerformanceParameters`
 
 - **Type:** Union
@@ -49,59 +107,13 @@ Key | Description | Details
 
 ### <a name="FastOneTimePerformanceParameters"></a> `FastOneTimePerformanceParameters`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`casting_time` |  | <a href="#FastOneTimePerformanceParameters/casting_time">See details</a>
-`cost` |  | <a href="#FastOneTimePerformanceParameters/cost">See details</a>
-`range` |  | <a href="#FastOneTimePerformanceParameters/range">See details</a>
-`duration` |  | <a href="#FastOneTimePerformanceParameters/duration">See details</a>
-
-#### <a name="FastOneTimePerformanceParameters/casting_time"></a> `casting_time`
-
-- **Type:** <a href="./_ActivatableSkillCastingTime.md#FastCastingTime">FastCastingTime</a>
-
-#### <a name="FastOneTimePerformanceParameters/cost"></a> `cost`
-
-- **Type:** <a href="./_ActivatableSkillCost.md#OneTimeCost">OneTimeCost</a>
-
-#### <a name="FastOneTimePerformanceParameters/range"></a> `range`
-
-- **Type:** <a href="./_ActivatableSkillRange.md#Range">Range</a>
-
-#### <a name="FastOneTimePerformanceParameters/duration"></a> `duration`
-
-- **Type:** <a href="./_ActivatableSkillDuration.md#DurationForOneTime">DurationForOneTime</a>
+- **Type:** <a href="#OneTimePerformanceParameters">OneTimePerformanceParameters</a>&lt;<a href="./_ActivatableSkillCastingTime.md#FastCastingTime">FastCastingTime</a>&gt;
 
 ---
 
 ### <a name="FastSustainedPerformanceParameters"></a> `FastSustainedPerformanceParameters`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`casting_time` |  | <a href="#FastSustainedPerformanceParameters/casting_time">See details</a>
-`cost` |  | <a href="#FastSustainedPerformanceParameters/cost">See details</a>
-`range` |  | <a href="#FastSustainedPerformanceParameters/range">See details</a>
-`duration?` |  | <a href="#FastSustainedPerformanceParameters/duration">See details</a>
-
-#### <a name="FastSustainedPerformanceParameters/casting_time"></a> `casting_time`
-
-- **Type:** <a href="./_ActivatableSkillCastingTime.md#FastCastingTime">FastCastingTime</a>
-
-#### <a name="FastSustainedPerformanceParameters/cost"></a> `cost`
-
-- **Type:** <a href="./_ActivatableSkillCost.md#SustainedCost">SustainedCost</a>
-
-#### <a name="FastSustainedPerformanceParameters/range"></a> `range`
-
-- **Type:** <a href="./_ActivatableSkillRange.md#Range">Range</a>
-
-#### <a name="FastSustainedPerformanceParameters/duration"></a> `duration?`
-
-- **Type:** <a href="./_ActivatableSkillDuration.md#DurationForSustained">DurationForSustained</a>
+- **Type:** <a href="#SustainedPerformanceParameters">SustainedPerformanceParameters</a>&lt;<a href="./_ActivatableSkillCastingTime.md#FastCastingTime">FastCastingTime</a>&gt;
 
 ---
 
@@ -152,56 +164,10 @@ Key | Description | Details
 
 ### <a name="SlowOneTimePerformanceParameters"></a> `SlowOneTimePerformanceParameters`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`casting_time` |  | <a href="#SlowOneTimePerformanceParameters/casting_time">See details</a>
-`cost` |  | <a href="#SlowOneTimePerformanceParameters/cost">See details</a>
-`range` |  | <a href="#SlowOneTimePerformanceParameters/range">See details</a>
-`duration` |  | <a href="#SlowOneTimePerformanceParameters/duration">See details</a>
-
-#### <a name="SlowOneTimePerformanceParameters/casting_time"></a> `casting_time`
-
-- **Type:** <a href="./_ActivatableSkillCastingTime.md#SlowCastingTime">SlowCastingTime</a>
-
-#### <a name="SlowOneTimePerformanceParameters/cost"></a> `cost`
-
-- **Type:** <a href="./_ActivatableSkillCost.md#OneTimeCost">OneTimeCost</a>
-
-#### <a name="SlowOneTimePerformanceParameters/range"></a> `range`
-
-- **Type:** <a href="./_ActivatableSkillRange.md#Range">Range</a>
-
-#### <a name="SlowOneTimePerformanceParameters/duration"></a> `duration`
-
-- **Type:** <a href="./_ActivatableSkillDuration.md#DurationForOneTime">DurationForOneTime</a>
+- **Type:** <a href="#OneTimePerformanceParameters">OneTimePerformanceParameters</a>&lt;<a href="./_ActivatableSkillCastingTime.md#SlowCastingTime">SlowCastingTime</a>&gt;
 
 ---
 
 ### <a name="SlowSustainedPerformanceParameters"></a> `SlowSustainedPerformanceParameters`
 
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`casting_time` |  | <a href="#SlowSustainedPerformanceParameters/casting_time">See details</a>
-`cost` |  | <a href="#SlowSustainedPerformanceParameters/cost">See details</a>
-`range` |  | <a href="#SlowSustainedPerformanceParameters/range">See details</a>
-`duration?` |  | <a href="#SlowSustainedPerformanceParameters/duration">See details</a>
-
-#### <a name="SlowSustainedPerformanceParameters/casting_time"></a> `casting_time`
-
-- **Type:** <a href="./_ActivatableSkillCastingTime.md#SlowCastingTime">SlowCastingTime</a>
-
-#### <a name="SlowSustainedPerformanceParameters/cost"></a> `cost`
-
-- **Type:** <a href="./_ActivatableSkillCost.md#SustainedCost">SustainedCost</a>
-
-#### <a name="SlowSustainedPerformanceParameters/range"></a> `range`
-
-- **Type:** <a href="./_ActivatableSkillRange.md#Range">Range</a>
-
-#### <a name="SlowSustainedPerformanceParameters/duration"></a> `duration?`
-
-- **Type:** <a href="./_ActivatableSkillDuration.md#DurationForSustained">DurationForSustained</a>
+- **Type:** <a href="#SustainedPerformanceParameters">SustainedPerformanceParameters</a>&lt;<a href="./_ActivatableSkillCastingTime.md#SlowCastingTime">SlowCastingTime</a>&gt;

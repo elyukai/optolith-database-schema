@@ -79,10 +79,7 @@ States which column is used to improve the skill.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#LiturgicalChant/translations[key]">LiturgicalChant/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#LiturgicalChantTranslation">LiturgicalChantTranslation</a>&gt;
 
 #### <a name="LiturgicalChant/enhancements"></a> `enhancements?`
 
@@ -93,12 +90,6 @@ All translations for the entry, identified by IETF language tag (BCP47).
 ### <a name="LiturgicalChant/traditions[]"></a> `LiturgicalChant/traditions[]`
 
 - **Type:** <a href="./_Blessed.md#SkillTradition">SkillTradition</a>
-
----
-
-### <a name="LiturgicalChant/translations[key]"></a> `LiturgicalChant/translations[key]`
-
-- **Type:** <a href="#LiturgicalChantTranslation">LiturgicalChantTranslation</a>
 
 ---
 

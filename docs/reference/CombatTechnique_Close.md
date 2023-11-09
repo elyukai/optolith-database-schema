@@ -59,22 +59,13 @@ The *Breaking Point Rating* of the respective combat technique.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#CloseCombatTechnique/translations[key]">CloseCombatTechnique/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#CloseCombatTechniqueTranslation">CloseCombatTechniqueTranslation</a>&gt;
 
 ---
 
 ### <a name="CloseCombatTechnique/primary_attribute[]"></a> `CloseCombatTechnique/primary_attribute[]`
 
 - **Type:** <a href="./_SimpleReferences.md#AttributeReference">AttributeReference</a>
-
----
-
-### <a name="CloseCombatTechnique/translations[key]"></a> `CloseCombatTechnique/translations[key]`
-
-- **Type:** <a href="#CloseCombatTechniqueTranslation">CloseCombatTechniqueTranslation</a>
 
 ---
 

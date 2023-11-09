@@ -63,16 +63,7 @@ A list of available lesson packages.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Curriculum/translations[key]">Curriculum/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="Curriculum/translations[key]"></a> `Curriculum/translations[key]`
-
-- **Type:** <a href="#CurriculumTranslation">CurriculumTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#CurriculumTranslation">CurriculumTranslation</a>&gt;
 
 ---
 
@@ -479,10 +470,7 @@ completely.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#LessonPackage/translations[key]">LessonPackage/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#LessonPackageTranslation">LessonPackageTranslation</a>&gt;
 
 ---
 
@@ -495,12 +483,6 @@ All translations for the entry, identified by IETF language tag (BCP47).
 ### <a name="LessonPackage/skills[]"></a> `LessonPackage/skills[]`
 
 - **Type:** <a href="#AbilityAdjustment">AbilityAdjustment</a>
-
----
-
-### <a name="LessonPackage/translations[key]"></a> `LessonPackage/translations[key]`
-
-- **Type:** <a href="#LessonPackageTranslation">LessonPackageTranslation</a>
 
 ---
 

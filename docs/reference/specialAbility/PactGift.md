@@ -21,19 +21,19 @@ Key | Description | Details
 
 #### <a name="PactGift/id"></a> `id`
 
-- **Type:** <a href="../_Activatable.md#Id">Id</a>
+- **Type:** <a href="#Id">Id</a>
 
 #### <a name="PactGift/levels"></a> `levels?`
 
-- **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+- **Type:** <a href="#Levels">Levels</a>
 
 #### <a name="PactGift/select_options"></a> `select_options?`
 
-- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
+- **Type:** <a href="#SelectOptions">SelectOptions</a>
 
 #### <a name="PactGift/maximum"></a> `maximum?`
 
-- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+- **Type:** <a href="#Maximum">Maximum</a>
 
 #### <a name="PactGift/permanent_demonic_consumption"></a> `permanent_demonic_consumption?`
 
@@ -54,7 +54,7 @@ may add or remove entries.
 
 #### <a name="PactGift/ap_value"></a> `ap_value`
 
-- **Type:** <a href="../_Activatable.md#AdventurePointsValue">AdventurePointsValue</a>
+- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>
 
 #### <a name="PactGift/src"></a> `src`
 
@@ -64,22 +64,13 @@ may add or remove entries.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#PactGift/translations[key]">PactGift/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#PactGiftTranslation">PactGiftTranslation</a>&gt;
 
 ---
 
 ### <a name="PactGift/automatic_entries[]"></a> `PactGift/automatic_entries[]`
 
 - **Type:** <a href="#AutomaticEntry">AutomaticEntry</a>
-
----
-
-### <a name="PactGift/translations[key]"></a> `PactGift/translations[key]`
-
-- **Type:** <a href="#PactGiftTranslation">PactGiftTranslation</a>
 
 ---
 
@@ -321,15 +312,15 @@ Key | Description | Details
 
 #### <a name="PactGiftTranslation/name"></a> `name`
 
-- **Type:** <a href="../_Activatable.md#Name">Name</a>
+- **Type:** <a href="#Name">Name</a>
 
 #### <a name="PactGiftTranslation/name_in_library"></a> `name_in_library?`
 
-- **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
+- **Type:** <a href="#NameInLibrary">NameInLibrary</a>
 
 #### <a name="PactGiftTranslation/effect"></a> `effect`
 
-- **Type:** <a href="../_Activatable.md#Effect">Effect</a>
+- **Type:** <a href="#Effect">Effect</a>
 
 #### <a name="PactGiftTranslation/errata"></a> `errata?`
 

@@ -38,16 +38,7 @@ The adventure point value of the animal shape.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#AnimalShapeSize/translations[key]">AnimalShapeSize/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="AnimalShapeSize/translations[key]"></a> `AnimalShapeSize/translations[key]`
-
-- **Type:** <a href="#AnimalShapeSizeTranslation">AnimalShapeSizeTranslation</a>
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#AnimalShapeSizeTranslation">AnimalShapeSizeTranslation</a>&gt;
 
 ---
 

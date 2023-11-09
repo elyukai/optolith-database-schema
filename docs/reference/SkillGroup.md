@@ -29,16 +29,7 @@ The skill group check's attributes.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#SkillGroup/translations[key]">SkillGroup/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="SkillGroup/translations[key]"></a> `SkillGroup/translations[key]`
-
-- **Type:** <a href="#SkillGroupTranslation">SkillGroupTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#SkillGroupTranslation">SkillGroupTranslation</a>&gt;
 
 ---
 

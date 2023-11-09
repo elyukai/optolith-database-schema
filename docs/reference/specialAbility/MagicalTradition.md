@@ -31,23 +31,23 @@ Key | Description | Details
 
 #### <a name="MagicalTradition/id"></a> `id`
 
-- **Type:** <a href="../_Activatable.md#Id">Id</a>
+- **Type:** <a href="#Id">Id</a>
 
 #### <a name="MagicalTradition/levels"></a> `levels?`
 
-- **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+- **Type:** <a href="#Levels">Levels</a>
 
 #### <a name="MagicalTradition/select_options"></a> `select_options?`
 
-- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
+- **Type:** <a href="#SelectOptions">SelectOptions</a>
 
 #### <a name="MagicalTradition/skill_applications"></a> `skill_applications?`
 
-- **Type:** <a href="../_Activatable.md#SkillApplications">SkillApplications</a>
+- **Type:** <a href="#SkillApplications">SkillApplications</a>
 
 #### <a name="MagicalTradition/skill_uses"></a> `skill_uses?`
 
-- **Type:** <a href="../_Activatable.md#SkillUses">SkillUses</a>
+- **Type:** <a href="#SkillUses">SkillUses</a>
 
 #### <a name="MagicalTradition/primary"></a> `primary?`
 
@@ -131,7 +131,7 @@ The Influences for the traditions. Influences are enabled by Focus Rules.
 
 #### <a name="MagicalTradition/ap_value"></a> `ap_value`
 
-- **Type:** <a href="../_Activatable.md#AdventurePointsValue">AdventurePointsValue</a>
+- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>
 
 #### <a name="MagicalTradition/src"></a> `src`
 
@@ -141,22 +141,13 @@ The Influences for the traditions. Influences are enabled by Focus Rules.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#MagicalTradition/translations[key]">MagicalTradition/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#MagicalTraditionTranslation">MagicalTraditionTranslation</a>&gt;
 
 ---
 
 ### <a name="MagicalTradition/influences[]"></a> `MagicalTradition/influences[]`
 
 - **Type:** <a href="../_Influence.md#Influence">Influence</a>
-
----
-
-### <a name="MagicalTradition/translations[key]"></a> `MagicalTradition/translations[key]`
-
-- **Type:** <a href="#MagicalTraditionTranslation">MagicalTraditionTranslation</a>
 
 ---
 
@@ -199,7 +190,7 @@ Key | Description | Details
 
 #### <a name="MagicalTraditionTranslation/name"></a> `name`
 
-- **Type:** <a href="../_Activatable.md#Name">Name</a>
+- **Type:** <a href="#Name">Name</a>
 
 #### <a name="MagicalTraditionTranslation/name_for_arcane_spellworks"></a> `name_for_arcane_spellworks?`
 
@@ -211,7 +202,7 @@ different than the `name` of the special ability.
 
 #### <a name="MagicalTraditionTranslation/name_in_library"></a> `name_in_library?`
 
-- **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
+- **Type:** <a href="#NameInLibrary">NameInLibrary</a>
 
 #### <a name="MagicalTraditionTranslation/special_rules"></a> `special_rules`
 

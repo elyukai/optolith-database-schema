@@ -23,19 +23,19 @@ Key | Description | Details
 
 #### <a name="CauldronEnchantment/id"></a> `id`
 
-- **Type:** <a href="../_Activatable.md#Id">Id</a>
+- **Type:** <a href="#Id">Id</a>
 
 #### <a name="CauldronEnchantment/levels"></a> `levels?`
 
-- **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+- **Type:** <a href="#Levels">Levels</a>
 
 #### <a name="CauldronEnchantment/select_options"></a> `select_options?`
 
-- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
+- **Type:** <a href="#SelectOptions">SelectOptions</a>
 
 #### <a name="CauldronEnchantment/maximum"></a> `maximum?`
 
-- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+- **Type:** <a href="#Maximum">Maximum</a>
 
 #### <a name="CauldronEnchantment/prerequisites"></a> `prerequisites?`
 
@@ -43,7 +43,7 @@ Key | Description | Details
 
 #### <a name="CauldronEnchantment/volume"></a> `volume`
 
-- **Type:** <a href="../_Activatable.md#Volume">Volume</a>
+- **Type:** <a href="#Volume">Volume</a>
 
 #### <a name="CauldronEnchantment/brew"></a> `brew`
 
@@ -54,15 +54,15 @@ brews can be categorized in different types.
 
 #### <a name="CauldronEnchantment/cost"></a> `cost?`
 
-- **Type:** <a href="../_Activatable.md#EnchantmentCost">EnchantmentCost</a>
+- **Type:** <a href="#EnchantmentCost">EnchantmentCost</a>
 
 #### <a name="CauldronEnchantment/property"></a> `property`
 
-- **Type:** <a href="../_Activatable.md#Property">Property</a>
+- **Type:** <a href="#Property">Property</a>
 
 #### <a name="CauldronEnchantment/ap_value"></a> `ap_value`
 
-- **Type:** <a href="../_Activatable.md#AdventurePointsValue">AdventurePointsValue</a>
+- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>
 
 #### <a name="CauldronEnchantment/src"></a> `src`
 
@@ -72,16 +72,7 @@ brews can be categorized in different types.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#CauldronEnchantment/translations[key]">CauldronEnchantment/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="CauldronEnchantment/translations[key]"></a> `CauldronEnchantment/translations[key]`
-
-- **Type:** <a href="#CauldronEnchantmentTranslation">CauldronEnchantmentTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#CauldronEnchantmentTranslation">CauldronEnchantmentTranslation</a>&gt;
 
 ---
 
@@ -119,15 +110,15 @@ Key | Description | Details
 
 #### <a name="CauldronEnchantmentTranslation/name"></a> `name`
 
-- **Type:** <a href="../_Activatable.md#Name">Name</a>
+- **Type:** <a href="#Name">Name</a>
 
 #### <a name="CauldronEnchantmentTranslation/name_in_library"></a> `name_in_library?`
 
-- **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
+- **Type:** <a href="#NameInLibrary">NameInLibrary</a>
 
 #### <a name="CauldronEnchantmentTranslation/effect"></a> `effect`
 
-- **Type:** <a href="../_Activatable.md#Effect">Effect</a>
+- **Type:** <a href="#Effect">Effect</a>
 
 #### <a name="CauldronEnchantmentTranslation/volume"></a> `volume`
 

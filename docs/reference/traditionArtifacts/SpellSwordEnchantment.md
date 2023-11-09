@@ -22,19 +22,19 @@ Key | Description | Details
 
 #### <a name="SpellSwordEnchantment/id"></a> `id`
 
-- **Type:** <a href="../_Activatable.md#Id">Id</a>
+- **Type:** <a href="#Id">Id</a>
 
 #### <a name="SpellSwordEnchantment/levels"></a> `levels?`
 
-- **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+- **Type:** <a href="#Levels">Levels</a>
 
 #### <a name="SpellSwordEnchantment/select_options"></a> `select_options?`
 
-- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
+- **Type:** <a href="#SelectOptions">SelectOptions</a>
 
 #### <a name="SpellSwordEnchantment/maximum"></a> `maximum?`
 
-- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+- **Type:** <a href="#Maximum">Maximum</a>
 
 #### <a name="SpellSwordEnchantment/prerequisites"></a> `prerequisites?`
 
@@ -42,19 +42,19 @@ Key | Description | Details
 
 #### <a name="SpellSwordEnchantment/volume"></a> `volume`
 
-- **Type:** <a href="../_Activatable.md#Volume">Volume</a>
+- **Type:** <a href="#Volume">Volume</a>
 
 #### <a name="SpellSwordEnchantment/cost"></a> `cost?`
 
-- **Type:** <a href="../_Activatable.md#EnchantmentCost">EnchantmentCost</a>
+- **Type:** <a href="#EnchantmentCost">EnchantmentCost</a>
 
 #### <a name="SpellSwordEnchantment/property"></a> `property`
 
-- **Type:** <a href="../_Activatable.md#Property">Property</a>
+- **Type:** <a href="#Property">Property</a>
 
 #### <a name="SpellSwordEnchantment/ap_value"></a> `ap_value`
 
-- **Type:** <a href="../_Activatable.md#AdventurePointsValue">AdventurePointsValue</a>
+- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>
 
 #### <a name="SpellSwordEnchantment/src"></a> `src`
 
@@ -64,16 +64,7 @@ Key | Description | Details
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#SpellSwordEnchantment/translations[key]">SpellSwordEnchantment/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="SpellSwordEnchantment/translations[key]"></a> `SpellSwordEnchantment/translations[key]`
-
-- **Type:** <a href="#SpellSwordEnchantmentTranslation">SpellSwordEnchantmentTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#SpellSwordEnchantmentTranslation">SpellSwordEnchantmentTranslation</a>&gt;
 
 ---
 
@@ -94,15 +85,15 @@ Key | Description | Details
 
 #### <a name="SpellSwordEnchantmentTranslation/name"></a> `name`
 
-- **Type:** <a href="../_Activatable.md#Name">Name</a>
+- **Type:** <a href="#Name">Name</a>
 
 #### <a name="SpellSwordEnchantmentTranslation/name_in_library"></a> `name_in_library?`
 
-- **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
+- **Type:** <a href="#NameInLibrary">NameInLibrary</a>
 
 #### <a name="SpellSwordEnchantmentTranslation/effect"></a> `effect`
 
-- **Type:** <a href="../_Activatable.md#Effect">Effect</a>
+- **Type:** <a href="#Effect">Effect</a>
 
 #### <a name="SpellSwordEnchantmentTranslation/volume"></a> `volume`
 
@@ -121,7 +112,7 @@ Key | Description | Details
 The AP value. It is only used if the text cannot be generated from the
 given information.
 
-- **Type:** <a href="../_Activatable.md#AdventurePointsValueReplacement">AdventurePointsValueReplacement</a>
+- **Type:** <a href="#AdventurePointsValueReplacement">AdventurePointsValueReplacement</a>
 
 #### <a name="SpellSwordEnchantmentTranslation/errata"></a> `errata?`
 

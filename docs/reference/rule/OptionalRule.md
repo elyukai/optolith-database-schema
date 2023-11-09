@@ -35,16 +35,7 @@ if the focus rule does not (currently) apply to any Optolith feature.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#OptionalRule/translations[key]">OptionalRule/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="OptionalRule/translations[key]"></a> `OptionalRule/translations[key]`
-
-- **Type:** <a href="#OptionalRuleTranslation">OptionalRuleTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#OptionalRuleTranslation">OptionalRuleTranslation</a>&gt;
 
 ---
 

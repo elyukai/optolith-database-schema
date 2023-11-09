@@ -42,19 +42,10 @@ The deity associated with the equipment item.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#EquipmentOfBlessedOnes/translations[key]">EquipmentOfBlessedOnes/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="./_Item.md#DefaultItemTranslation">DefaultItemTranslation</a>&gt;
 
 ---
 
 ### <a name="EquipmentOfBlessedOnes/associated_tradition[]"></a> `EquipmentOfBlessedOnes/associated_tradition[]`
 
 - **Type:** <a href="../../_SimpleReferences.md#BlessedTraditionReference">BlessedTraditionReference</a>
-
----
-
-### <a name="EquipmentOfBlessedOnes/translations[key]"></a> `EquipmentOfBlessedOnes/translations[key]`
-
-- **Type:** <a href="./_Item.md#DefaultItemTranslation">DefaultItemTranslation</a>

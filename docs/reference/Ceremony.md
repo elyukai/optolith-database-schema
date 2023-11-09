@@ -79,10 +79,7 @@ States which column is used to improve the skill.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Ceremony/translations[key]">Ceremony/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#CeremonyTranslation">CeremonyTranslation</a>&gt;
 
 #### <a name="Ceremony/enhancements"></a> `enhancements?`
 
@@ -93,12 +90,6 @@ All translations for the entry, identified by IETF language tag (BCP47).
 ### <a name="Ceremony/traditions[]"></a> `Ceremony/traditions[]`
 
 - **Type:** <a href="./_Blessed.md#SkillTradition">SkillTradition</a>
-
----
-
-### <a name="Ceremony/translations[key]"></a> `Ceremony/translations[key]`
-
-- **Type:** <a href="#CeremonyTranslation">CeremonyTranslation</a>
 
 ---
 

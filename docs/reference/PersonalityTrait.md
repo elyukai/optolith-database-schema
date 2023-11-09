@@ -59,22 +59,13 @@ The lower-level personality trait(s) this trait can be combined with.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#PersonalityTrait/translations[key]">PersonalityTrait/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#PersonalityTraitTranslation">PersonalityTraitTranslation</a>&gt;
 
 ---
 
 ### <a name="PersonalityTrait/combination_options[]"></a> `PersonalityTrait/combination_options[]`
 
 - **Type:** <a href="./_SimpleReferences.md#PersonalityTraitReference">PersonalityTraitReference</a>
-
----
-
-### <a name="PersonalityTrait/translations[key]"></a> `PersonalityTrait/translations[key]`
-
-- **Type:** <a href="#PersonalityTraitTranslation">PersonalityTraitTranslation</a>
 
 ---
 

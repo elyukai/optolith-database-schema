@@ -78,10 +78,7 @@ creatures.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#AnimalDisease/translations[key]">AnimalDisease/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="./_DiseasePoison.md#DiseaseTranslation">DiseaseTranslation</a>&gt;
 
 ---
 
@@ -100,9 +97,3 @@ All translations for the entry, identified by IETF language tag (BCP47).
 ### <a name="AnimalDisease/communicability_to_intelligent_creatures[]"></a> `AnimalDisease/communicability_to_intelligent_creatures[]`
 
 - **Type:** <a href="./_DiseasePoison.md#Cause">Cause</a>
-
----
-
-### <a name="AnimalDisease/translations[key]"></a> `AnimalDisease/translations[key]`
-
-- **Type:** <a href="./_DiseasePoison.md#DiseaseTranslation">DiseaseTranslation</a>

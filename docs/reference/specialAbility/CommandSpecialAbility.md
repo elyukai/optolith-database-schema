@@ -21,23 +21,23 @@ Key | Description | Details
 
 #### <a name="CommandSpecialAbility/id"></a> `id`
 
-- **Type:** <a href="../_Activatable.md#Id">Id</a>
+- **Type:** <a href="#Id">Id</a>
 
 #### <a name="CommandSpecialAbility/levels"></a> `levels?`
 
-- **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+- **Type:** <a href="#Levels">Levels</a>
 
 #### <a name="CommandSpecialAbility/usage_type"></a> `usage_type`
 
-- **Type:** <a href="../_Activatable.md#CombatSpecialAbilityUsageType">CombatSpecialAbilityUsageType</a>
+- **Type:** <a href="#CombatSpecialAbilityUsageType">CombatSpecialAbilityUsageType</a>
 
 #### <a name="CommandSpecialAbility/select_options"></a> `select_options?`
 
-- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
+- **Type:** <a href="#SelectOptions">SelectOptions</a>
 
 #### <a name="CommandSpecialAbility/maximum"></a> `maximum?`
 
-- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+- **Type:** <a href="#Maximum">Maximum</a>
 
 #### <a name="CommandSpecialAbility/prerequisites"></a> `prerequisites?`
 
@@ -45,11 +45,11 @@ Key | Description | Details
 
 #### <a name="CommandSpecialAbility/combat_techniques"></a> `combat_techniques`
 
-- **Type:** <a href="../_Activatable.md#ApplicableCombatTechniques">ApplicableCombatTechniques</a>
+- **Type:** <a href="#ApplicableCombatTechniques">ApplicableCombatTechniques</a>
 
 #### <a name="CommandSpecialAbility/ap_value"></a> `ap_value`
 
-- **Type:** <a href="../_Activatable.md#AdventurePointsValue">AdventurePointsValue</a>
+- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>
 
 #### <a name="CommandSpecialAbility/src"></a> `src`
 
@@ -79,15 +79,15 @@ Key | Description | Details
 
 #### <a name="CommandSpecialAbility/translations[key]/name"></a> `name`
 
-- **Type:** <a href="../_Activatable.md#Name">Name</a>
+- **Type:** <a href="#Name">Name</a>
 
 #### <a name="CommandSpecialAbility/translations[key]/name_in_library"></a> `name_in_library?`
 
-- **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
+- **Type:** <a href="#NameInLibrary">NameInLibrary</a>
 
 #### <a name="CommandSpecialAbility/translations[key]/rules"></a> `rules`
 
-- **Type:** <a href="../_Activatable.md#Rules">Rules</a>
+- **Type:** <a href="#Rules">Rules</a>
 
 #### <a name="CommandSpecialAbility/translations[key]/errata"></a> `errata?`
 

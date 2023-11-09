@@ -56,16 +56,7 @@ AP value and prerequisites of the elixir recipe’s trade secret.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Elixir/translations[key]">Elixir/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="Elixir/translations[key]"></a> `Elixir/translations[key]`
-
-- **Type:** <a href="#ElixirTranslation">ElixirTranslation</a>
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#ElixirTranslation">ElixirTranslation</a>&gt;
 
 ---
 

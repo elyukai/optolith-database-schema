@@ -27,16 +27,7 @@ The state's identifier. An unique, increasing integer.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#State/translations[key]">State/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="State/translations[key]"></a> `State/translations[key]`
-
-- **Type:** <a href="#StateTranslation">StateTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#StateTranslation">StateTranslation</a>&gt;
 
 ---
 

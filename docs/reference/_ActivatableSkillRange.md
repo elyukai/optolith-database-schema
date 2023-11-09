@@ -19,16 +19,7 @@ Key | Description | Details
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Range/translations[key]">Range/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="Range/translations[key]"></a> `Range/translations[key]`
-
-- **Type:** <a href="#RangeTranslation">RangeTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#RangeTranslation">RangeTranslation</a>&gt;
 
 ---
 
@@ -259,52 +250,6 @@ The unit of the `value`.
 - **Type:** <a href="#RangeUnit">RangeUnit</a>
 
 #### <a name="FixedRange/is_radius"></a> `is_radius?`
-
-If `true`, the range is a radius.
-
-- **Constant:** `true`
-
----
-
-### <a name="CheckResultBasedRange"></a> `CheckResultBasedRange`
-
-Defines the range being based on a check result.
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`base` | The base value that is derived from the check result. | <a href="#CheckResultBasedRange/base">See details</a>
-`modifier?` | If defined, it modifies the base value. | <a href="#CheckResultBasedRange/modifier">See details</a>
-`is_maximum?` | If the range is the maximum range. | <a href="#CheckResultBasedRange/is_maximum">See details</a>
-`unit` | The duration unit. | <a href="#CheckResultBasedRange/unit">See details</a>
-`is_radius?` | If `true`, the range is a radius. | <a href="#CheckResultBasedRange/is_radius">See details</a>
-
-#### <a name="CheckResultBasedRange/base"></a> `base`
-
-The base value that is derived from the check result.
-
-- **Type:** <a href="./_ActivatableSkillCheckResultBased.md#CheckResultValue">CheckResultValue</a>
-
-#### <a name="CheckResultBasedRange/modifier"></a> `modifier?`
-
-If defined, it modifies the base value.
-
-- **Type:** <a href="./_ActivatableSkillCheckResultBased.md#CheckResultBasedModifier">CheckResultBasedModifier</a>
-
-#### <a name="CheckResultBasedRange/is_maximum"></a> `is_maximum?`
-
-If the range is the maximum range.
-
-- **Constant:** `true`
-
-#### <a name="CheckResultBasedRange/unit"></a> `unit`
-
-The duration unit.
-
-- **Type:** <a href="#RangeUnit">RangeUnit</a>
-
-#### <a name="CheckResultBasedRange/is_radius"></a> `is_radius?`
 
 If `true`, the range is a radius.
 

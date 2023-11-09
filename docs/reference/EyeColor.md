@@ -22,16 +22,7 @@ The eye color's identifier. An unique, increasing integer.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#EyeColor/translations[key]">EyeColor/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="EyeColor/translations[key]"></a> `EyeColor/translations[key]`
-
-- **Type:** <a href="#EyeColorTranslation">EyeColorTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#EyeColorTranslation">EyeColorTranslation</a>&gt;
 
 ---
 

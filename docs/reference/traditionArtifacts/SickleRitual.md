@@ -22,19 +22,19 @@ Key | Description | Details
 
 #### <a name="SickleRitual/id"></a> `id`
 
-- **Type:** <a href="../_Activatable.md#Id">Id</a>
+- **Type:** <a href="#Id">Id</a>
 
 #### <a name="SickleRitual/levels"></a> `levels?`
 
-- **Type:** <a href="../_Activatable.md#Levels">Levels</a>
+- **Type:** <a href="#Levels">Levels</a>
 
 #### <a name="SickleRitual/select_options"></a> `select_options?`
 
-- **Type:** <a href="../_Activatable.md#SelectOptions">SelectOptions</a>
+- **Type:** <a href="#SelectOptions">SelectOptions</a>
 
 #### <a name="SickleRitual/maximum"></a> `maximum?`
 
-- **Type:** <a href="../_Activatable.md#Maximum">Maximum</a>
+- **Type:** <a href="#Maximum">Maximum</a>
 
 #### <a name="SickleRitual/prerequisites"></a> `prerequisites?`
 
@@ -42,19 +42,19 @@ Key | Description | Details
 
 #### <a name="SickleRitual/volume"></a> `volume`
 
-- **Type:** <a href="../_Activatable.md#Volume">Volume</a>
+- **Type:** <a href="#Volume">Volume</a>
 
 #### <a name="SickleRitual/cost"></a> `cost?`
 
-- **Type:** <a href="../_Activatable.md#EnchantmentCost">EnchantmentCost</a>
+- **Type:** <a href="#EnchantmentCost">EnchantmentCost</a>
 
 #### <a name="SickleRitual/property"></a> `property`
 
-- **Type:** <a href="../_Activatable.md#Property">Property</a>
+- **Type:** <a href="#Property">Property</a>
 
 #### <a name="SickleRitual/ap_value"></a> `ap_value`
 
-- **Type:** <a href="../_Activatable.md#AdventurePointsValue">AdventurePointsValue</a>
+- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>
 
 #### <a name="SickleRitual/src"></a> `src`
 
@@ -64,16 +64,7 @@ Key | Description | Details
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#SickleRitual/translations[key]">SickleRitual/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="SickleRitual/translations[key]"></a> `SickleRitual/translations[key]`
-
-- **Type:** <a href="#SickleRitualTranslation">SickleRitualTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#SickleRitualTranslation">SickleRitualTranslation</a>&gt;
 
 ---
 
@@ -93,15 +84,15 @@ Key | Description | Details
 
 #### <a name="SickleRitualTranslation/name"></a> `name`
 
-- **Type:** <a href="../_Activatable.md#Name">Name</a>
+- **Type:** <a href="#Name">Name</a>
 
 #### <a name="SickleRitualTranslation/name_in_library"></a> `name_in_library?`
 
-- **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
+- **Type:** <a href="#NameInLibrary">NameInLibrary</a>
 
 #### <a name="SickleRitualTranslation/effect"></a> `effect`
 
-- **Type:** <a href="../_Activatable.md#Effect">Effect</a>
+- **Type:** <a href="#Effect">Effect</a>
 
 #### <a name="SickleRitualTranslation/volume"></a> `volume`
 

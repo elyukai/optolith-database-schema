@@ -65,22 +65,13 @@ States which column is used to improve the skill.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#MagicalDance/translations[key]">MagicalDance/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#MagicalDanceTranslation">MagicalDanceTranslation</a>&gt;
 
 ---
 
 ### <a name="MagicalDance/music_tradition[]"></a> `MagicalDance/music_tradition[]`
 
 - **Type:** <a href="./_MusicTradition.md#MusicTraditionReference">MusicTraditionReference</a>
-
----
-
-### <a name="MagicalDance/translations[key]"></a> `MagicalDance/translations[key]`
-
-- **Type:** <a href="#MagicalDanceTranslation">MagicalDanceTranslation</a>
 
 ---
 
@@ -248,16 +239,7 @@ The (temporary) AE cost value.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#FixedMagicalDanceCost/translations[key]">FixedMagicalDanceCost/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="FixedMagicalDanceCost/translations[key]"></a> `FixedMagicalDanceCost/translations[key]`
-
-- **Type:** <a href="../FamiliarsTrick.md#FixedOneTimeCostTranslation">FixedOneTimeCostTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="../FamiliarsTrick.md#FixedOneTimeCostTranslation">FixedOneTimeCostTranslation</a>&gt;
 
 ---
 
@@ -281,13 +263,4 @@ modified by a certain number.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#IndefiniteMagicalDanceCost/translations[key]">IndefiniteMagicalDanceCost/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="IndefiniteMagicalDanceCost/translations[key]"></a> `IndefiniteMagicalDanceCost/translations[key]`
-
-- **Type:** <a href="../_ActivatableSkillCost.md#IndefiniteOneTimeCostTranslation">IndefiniteOneTimeCostTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="../_ActivatableSkillCost.md#IndefiniteOneTimeCostTranslation">IndefiniteOneTimeCostTranslation</a>&gt;

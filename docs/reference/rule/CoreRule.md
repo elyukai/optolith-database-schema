@@ -33,22 +33,13 @@ The core rule's identifier. An unique, increasing integer.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#CoreRule/translations[key]">CoreRule/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#CoreRuleTranslation">CoreRuleTranslation</a>&gt;
 
 ---
 
 ### <a name="CoreRule/content[]"></a> `CoreRule/content[]`
 
 - **Type:** <a href="#ContentNode">ContentNode</a>
-
----
-
-### <a name="CoreRule/translations[key]"></a> `CoreRule/translations[key]`
-
-- **Type:** <a href="#CoreRuleTranslation">CoreRuleTranslation</a>
 
 ---
 
@@ -202,16 +193,7 @@ Key | Description | Details
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#TextNode/translations[key]">TextNode/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="TextNode/translations[key]"></a> `TextNode/translations[key]`
-
-- **Type:** <a href="#TextNodeTranslation">TextNodeTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#TextNodeTranslation">TextNodeTranslation</a>&gt;
 
 ---
 
@@ -250,16 +232,7 @@ Key | Description | Details
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#ReferenceListNode/translations[key]">ReferenceListNode/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="ReferenceListNode/translations[key]"></a> `ReferenceListNode/translations[key]`
-
-- **Type:** <a href="#ReferenceListNodeTranslation">ReferenceListNodeTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#ReferenceListNodeTranslation">ReferenceListNodeTranslation</a>&gt;
 
 ---
 

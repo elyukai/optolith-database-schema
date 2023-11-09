@@ -59,22 +59,13 @@ The *Breaking Point Rating* of the respective combat technique.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#RangedCombatTechnique/translations[key]">RangedCombatTechnique/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#RangedCombatTechniqueTranslation">RangedCombatTechniqueTranslation</a>&gt;
 
 ---
 
 ### <a name="RangedCombatTechnique/primary_attribute[]"></a> `RangedCombatTechnique/primary_attribute[]`
 
 - **Type:** <a href="./_SimpleReferences.md#AttributeReference">AttributeReference</a>
-
----
-
-### <a name="RangedCombatTechnique/translations[key]"></a> `RangedCombatTechnique/translations[key]`
-
-- **Type:** <a href="#RangedCombatTechniqueTranslation">RangedCombatTechniqueTranslation</a>
 
 ---
 

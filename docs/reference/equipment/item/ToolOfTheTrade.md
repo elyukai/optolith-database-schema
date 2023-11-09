@@ -55,16 +55,7 @@ Additional information if the item is a laboratory.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#ToolOfTheTrade/translations[key]">ToolOfTheTrade/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="ToolOfTheTrade/translations[key]"></a> `ToolOfTheTrade/translations[key]`
-
-- **Type:** <a href="#ToolOfTheTradeTranslation">ToolOfTheTradeTranslation</a>
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#ToolOfTheTradeTranslation">ToolOfTheTradeTranslation</a>&gt;
 
 ---
 

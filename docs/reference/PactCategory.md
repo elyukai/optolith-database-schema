@@ -45,10 +45,7 @@ Domains in this category.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#PactCategory/translations[key]">PactCategory/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#PactCategoryTranslation">PactCategoryTranslation</a>&gt;
 
 ---
 
@@ -61,12 +58,6 @@ All translations for the entry, identified by IETF language tag (BCP47).
 ### <a name="PactCategory/domains[]"></a> `PactCategory/domains[]`
 
 - **Type:** <a href="#PactDomain">PactDomain</a>
-
----
-
-### <a name="PactCategory/translations[key]"></a> `PactCategory/translations[key]`
-
-- **Type:** <a href="#PactCategoryTranslation">PactCategoryTranslation</a>
 
 ---
 
@@ -111,16 +102,7 @@ The type's identifier. An unique, increasing integer.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#PactType/translations[key]">PactType/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="PactType/translations[key]"></a> `PactType/translations[key]`
-
-- **Type:** <a href="#PactTypeTranslation">PactTypeTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#PactTypeTranslation">PactTypeTranslation</a>&gt;
 
 ---
 
@@ -160,16 +142,7 @@ The domain's identifier. An unique, increasing integer.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#PactDomain/translations[key]">PactDomain/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="PactDomain/translations[key]"></a> `PactDomain/translations[key]`
-
-- **Type:** <a href="#PactDomainTranslation">PactDomainTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#PactDomainTranslation">PactDomainTranslation</a>&gt;
 
 ---
 

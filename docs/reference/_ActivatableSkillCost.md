@@ -192,16 +192,7 @@ The part of the cost value that has to be spent permanently.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#ModifiableOneTimeCost/translations[key]">ModifiableOneTimeCost/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="ModifiableOneTimeCost/translations[key]"></a> `ModifiableOneTimeCost/translations[key]`
-
-- **Type:** <a href="#ModifiableOneTimeCostTranslation">ModifiableOneTimeCostTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#ModifiableOneTimeCostTranslation">ModifiableOneTimeCostTranslation</a>&gt;
 
 ---
 
@@ -265,16 +256,7 @@ person`.
 All translations for the entry, identified by IETF language tag
 (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#NonModifiableOneTimeCost/translations[key]">NonModifiableOneTimeCost/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="NonModifiableOneTimeCost/translations[key]"></a> `NonModifiableOneTimeCost/translations[key]`
-
-- **Type:** <a href="#NonModifiableOneTimeCostTranslation">NonModifiableOneTimeCostTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#NonModifiableOneTimeCostTranslation">NonModifiableOneTimeCostTranslation</a>&gt;
 
 ---
 
@@ -299,16 +281,7 @@ skill.
 All translations for the entry, identified by IETF language tag
 (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#NonModifiableOneTimeCostPerCountable/translations[key]">NonModifiableOneTimeCostPerCountable/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="NonModifiableOneTimeCostPerCountable/translations[key]"></a> `NonModifiableOneTimeCostPerCountable/translations[key]`
-
-- **Type:** <a href="#NonModifiableOneTimeCostPerCountableTranslation">NonModifiableOneTimeCostPerCountableTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#NonModifiableOneTimeCostPerCountableTranslation">NonModifiableOneTimeCostPerCountableTranslation</a>&gt;
 
 ---
 
@@ -356,16 +329,7 @@ Key | Description | Details
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#IndefiniteOneTimeCost/translations[key]">IndefiniteOneTimeCost/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="IndefiniteOneTimeCost/translations[key]"></a> `IndefiniteOneTimeCost/translations[key]`
-
-- **Type:** <a href="#IndefiniteOneTimeCostTranslation">IndefiniteOneTimeCostTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#IndefiniteOneTimeCostTranslation">IndefiniteOneTimeCostTranslation</a>&gt;
 
 ---
 
@@ -425,22 +389,13 @@ The possible costs and associated labels.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#CostMap/translations[key]">CostMap/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#CostMapTranslation">CostMapTranslation</a>&gt;
 
 ---
 
 ### <a name="CostMap/options[]"></a> `CostMap/options[]`
 
 - **Type:** <a href="#CostMapOption">CostMapOption</a>
-
----
-
-### <a name="CostMap/translations[key]"></a> `CostMap/translations[key]`
-
-- **Type:** <a href="#CostMapTranslation">CostMapTranslation</a>
 
 ---
 
@@ -472,16 +427,7 @@ The part of the `value` that has to be paid permanently.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#CostMapOption/translations[key]">CostMapOption/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="CostMapOption/translations[key]"></a> `CostMapOption/translations[key]`
-
-- **Type:** <a href="#CostMapOptionTranslation">CostMapOptionTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#CostMapOptionTranslation">CostMapOptionTranslation</a>&gt;
 
 ---
 
@@ -671,16 +617,7 @@ skill.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#NonModifiableSustainedCostPerCountable/translations[key]">NonModifiableSustainedCostPerCountable/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="NonModifiableSustainedCostPerCountable/translations[key]"></a> `NonModifiableSustainedCostPerCountable/translations[key]`
-
-- **Type:** <a href="#NonModifiableSustainedCostPerCountableTranslation">NonModifiableSustainedCostPerCountableTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#NonModifiableSustainedCostPerCountableTranslation">NonModifiableSustainedCostPerCountableTranslation</a>&gt;
 
 ---
 

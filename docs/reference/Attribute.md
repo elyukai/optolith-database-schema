@@ -22,16 +22,7 @@ The attribute's identifier. An unique, increasing integer.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Attribute/translations[key]">Attribute/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="Attribute/translations[key]"></a> `Attribute/translations[key]`
-
-- **Type:** <a href="#AttributeTranslation">AttributeTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#AttributeTranslation">AttributeTranslation</a>&gt;
 
 ---
 

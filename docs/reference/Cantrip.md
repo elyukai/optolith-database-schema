@@ -59,20 +59,11 @@ cantrip is most commonly teached in.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Cantrip/translations[key]">Cantrip/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#CantripTranslation">CantripTranslation</a>&gt;
 
 #### <a name="Cantrip/enhancements"></a> `enhancements?`
 
 - **Type:** <a href="./_Enhancements.md#Enhancements">Enhancements</a>
-
----
-
-### <a name="Cantrip/translations[key]"></a> `Cantrip/translations[key]`
-
-- **Type:** <a href="#CantripTranslation">CantripTranslation</a>
 
 ---
 
@@ -235,16 +226,7 @@ The magical tradition's identifier.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#CommonCantripTraditionNote/translations[key]">CommonCantripTraditionNote/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="CommonCantripTraditionNote/translations[key]"></a> `CommonCantripTraditionNote/translations[key]`
-
-- **Type:** <a href="#CommonCantripTraditionNoteTranslation">CommonCantripTraditionNoteTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#CommonCantripTraditionNoteTranslation">CommonCantripTraditionNoteTranslation</a>&gt;
 
 ---
 
@@ -539,16 +521,7 @@ Key | Description | Details
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#IndefiniteCantripDuration/translations[key]">IndefiniteCantripDuration/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="IndefiniteCantripDuration/translations[key]"></a> `IndefiniteCantripDuration/translations[key]`
-
-- **Type:** <a href="#IndefiniteDurationTranslation">IndefiniteDurationTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#IndefiniteDurationTranslation">IndefiniteDurationTranslation</a>&gt;
 
 ---
 

@@ -33,22 +33,13 @@ patron of.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#PatronCategory/translations[key]">PatronCategory/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#PatronCategoryTranslation">PatronCategoryTranslation</a>&gt;
 
 ---
 
 ### <a name="PatronCategory/primary_patron_cultures[]"></a> `PatronCategory/primary_patron_cultures[]`
 
 - **Type:** <a href="./_SimpleReferences.md#CultureReference">CultureReference</a>
-
----
-
-### <a name="PatronCategory/translations[key]"></a> `PatronCategory/translations[key]`
-
-- **Type:** <a href="#PatronCategoryTranslation">PatronCategoryTranslation</a>
 
 ---
 

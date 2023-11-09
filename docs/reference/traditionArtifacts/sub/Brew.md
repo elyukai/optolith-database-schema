@@ -22,16 +22,7 @@ The brew's identifier. An unique, increasing integer.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Brew/translations[key]">Brew/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="Brew/translations[key]"></a> `Brew/translations[key]`
-
-- **Type:** <a href="#BrewTranslation">BrewTranslation</a>
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#BrewTranslation">BrewTranslation</a>&gt;
 
 ---
 

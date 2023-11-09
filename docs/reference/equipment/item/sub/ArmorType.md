@@ -32,16 +32,7 @@ check means the armor receives one level of the new condition *Wear*.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#ArmorType/translations[key]">ArmorType/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="ArmorType/translations[key]"></a> `ArmorType/translations[key]`
-
-- **Type:** <a href="#ArmorTypeTranslation">ArmorTypeTranslation</a>
+- **Type:** <a href="../../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#ArmorTypeTranslation">ArmorTypeTranslation</a>&gt;
 
 ---
 

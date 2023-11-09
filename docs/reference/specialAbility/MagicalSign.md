@@ -17,7 +17,7 @@ Key | Description | Details
 
 #### <a name="MagicalSign/id"></a> `id`
 
-- **Type:** <a href="../_Activatable.md#Id">Id</a>
+- **Type:** <a href="#Id">Id</a>
 
 #### <a name="MagicalSign/prerequisites"></a> `prerequisites?`
 
@@ -44,16 +44,7 @@ The adventure points value.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#MagicalSign/translations[key]">MagicalSign/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="MagicalSign/translations[key]"></a> `MagicalSign/translations[key]`
-
-- **Type:** <a href="#ProtectiveWardingCircleSpecialAbilityTranslation">ProtectiveWardingCircleSpecialAbilityTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#ProtectiveWardingCircleSpecialAbilityTranslation">ProtectiveWardingCircleSpecialAbilityTranslation</a>&gt;
 
 ---
 
@@ -70,15 +61,15 @@ Key | Description | Details
 
 #### <a name="ProtectiveWardingCircleSpecialAbilityTranslation/name"></a> `name`
 
-- **Type:** <a href="../_Activatable.md#Name">Name</a>
+- **Type:** <a href="#Name">Name</a>
 
 #### <a name="ProtectiveWardingCircleSpecialAbilityTranslation/name_in_library"></a> `name_in_library?`
 
-- **Type:** <a href="../_Activatable.md#NameInLibrary">NameInLibrary</a>
+- **Type:** <a href="#NameInLibrary">NameInLibrary</a>
 
 #### <a name="ProtectiveWardingCircleSpecialAbilityTranslation/effect"></a> `effect`
 
-- **Type:** <a href="../_Activatable.md#Effect">Effect</a>
+- **Type:** <a href="#Effect">Effect</a>
 
 #### <a name="ProtectiveWardingCircleSpecialAbilityTranslation/errata"></a> `errata?`
 

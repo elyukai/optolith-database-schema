@@ -52,22 +52,13 @@ The AP value for the required trade secret, if possible.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Talisman/translations[key]">Talisman/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#TalismanTranslation">TalismanTranslation</a>&gt;
 
 ---
 
 ### <a name="Talisman/tradition[]"></a> `Talisman/tradition[]`
 
 - **Type:** <a href="./_SimpleReferences.md#BlessedTraditionReference">BlessedTraditionReference</a>
-
----
-
-### <a name="Talisman/translations[key]"></a> `Talisman/translations[key]`
-
-- **Type:** <a href="#TalismanTranslation">TalismanTranslation</a>
 
 ---
 

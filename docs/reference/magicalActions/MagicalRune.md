@@ -73,22 +73,13 @@ States which column is used to improve the skill.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#MagicalRune/translations[key]">MagicalRune/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#MagicalRuneTranslation">MagicalRuneTranslation</a>&gt;
 
 ---
 
 ### <a name="MagicalRune/options[]"></a> `MagicalRune/options[]`
 
 - **Type:** <a href="#MagicalRuneOption">MagicalRuneOption</a>
-
----
-
-### <a name="MagicalRune/translations[key]"></a> `MagicalRune/translations[key]`
-
-- **Type:** <a href="#MagicalRuneTranslation">MagicalRuneTranslation</a>
 
 ---
 
@@ -550,16 +541,7 @@ The AE cost value.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#SingleMagicalRuneCost/translations[key]">SingleMagicalRuneCost/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="SingleMagicalRuneCost/translations[key]"></a> `SingleMagicalRuneCost/translations[key]`
-
-- **Type:** <a href="#SingleMagicalRuneCostTranslation">SingleMagicalRuneCostTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#SingleMagicalRuneCostTranslation">SingleMagicalRuneCostTranslation</a>&gt;
 
 ---
 
@@ -623,10 +605,7 @@ The (unitless) crafting time.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#MagicalRuneCraftingTime/translations[key]">MagicalRuneCraftingTime/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#MagicalRuneCraftingTimeTranslation">MagicalRuneCraftingTimeTranslation</a>&gt;
 
 ---
 
@@ -645,12 +624,6 @@ All translations for the entry, identified by IETF language tag (BCP47).
 ### <a name="MagicalRuneCraftingTime/value'2"></a> `MagicalRuneCraftingTime/value'2`
 
 - **Constant:** `4`
-
----
-
-### <a name="MagicalRuneCraftingTime/translations[key]"></a> `MagicalRuneCraftingTime/translations[key]`
-
-- **Type:** <a href="#MagicalRuneCraftingTimeTranslation">MagicalRuneCraftingTimeTranslation</a>
 
 ---
 
@@ -798,16 +771,7 @@ The option-specific improvement cost.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#MagicalRuneOption/translations[key]">MagicalRuneOption/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="MagicalRuneOption/translations[key]"></a> `MagicalRuneOption/translations[key]`
-
-- **Type:** <a href="#MagicalRuneOptionTranslation">MagicalRuneOptionTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#MagicalRuneOptionTranslation">MagicalRuneOptionTranslation</a>&gt;
 
 ---
 
@@ -849,16 +813,7 @@ Key | Description | Details
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#CustomMagicalRuneSuboption/translations[key]">CustomMagicalRuneSuboption/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="CustomMagicalRuneSuboption/translations[key]"></a> `CustomMagicalRuneSuboption/translations[key]`
-
-- **Type:** <a href="#CustomMagicalRuneSuboptionTranslation">CustomMagicalRuneSuboptionTranslation</a>
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#CustomMagicalRuneSuboptionTranslation">CustomMagicalRuneSuboptionTranslation</a>&gt;
 
 ---
 

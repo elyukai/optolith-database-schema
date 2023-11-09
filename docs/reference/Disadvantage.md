@@ -21,19 +21,19 @@ Key | Description | Details
 
 #### <a name="Disadvantage/id"></a> `id`
 
-- **Type:** <a href="./_Activatable.md#Id">Id</a>
+- **Type:** <a href="#Id">Id</a>
 
 #### <a name="Disadvantage/levels"></a> `levels?`
 
-- **Type:** <a href="./_Activatable.md#Levels">Levels</a>
+- **Type:** <a href="#Levels">Levels</a>
 
 #### <a name="Disadvantage/select_options"></a> `select_options?`
 
-- **Type:** <a href="./_Activatable.md#SelectOptions">SelectOptions</a>
+- **Type:** <a href="#SelectOptions">SelectOptions</a>
 
 #### <a name="Disadvantage/maximum"></a> `maximum?`
 
-- **Type:** <a href="./_Activatable.md#Maximum">Maximum</a>
+- **Type:** <a href="#Maximum">Maximum</a>
 
 #### <a name="Disadvantage/prerequisites"></a> `prerequisites?`
 
@@ -41,7 +41,7 @@ Key | Description | Details
 
 #### <a name="Disadvantage/ap_value"></a> `ap_value`
 
-- **Type:** <a href="./_Activatable.md#AdventurePointsValue">AdventurePointsValue</a>
+- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>
 
 #### <a name="Disadvantage/has_maximum_spent_influence"></a> `has_maximum_spent_influence`
 
@@ -65,16 +65,7 @@ to magical actions and magical applications?
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#Disadvantage/translations[key]">Disadvantage/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
-
----
-
-### <a name="Disadvantage/translations[key]"></a> `Disadvantage/translations[key]`
-
-- **Type:** <a href="#DisadvantageTranslation">DisadvantageTranslation</a>
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#DisadvantageTranslation">DisadvantageTranslation</a>&gt;
 
 ---
 
@@ -94,21 +85,21 @@ Key | Description | Details
 
 #### <a name="DisadvantageTranslation/name"></a> `name`
 
-- **Type:** <a href="./_Activatable.md#Name">Name</a>
+- **Type:** <a href="#Name">Name</a>
 
 #### <a name="DisadvantageTranslation/name_in_library"></a> `name_in_library?`
 
-- **Type:** <a href="./_Activatable.md#NameInLibrary">NameInLibrary</a>
+- **Type:** <a href="#NameInLibrary">NameInLibrary</a>
 
 #### <a name="DisadvantageTranslation/input"></a> `input?`
 
 A string that is used as a label for an input field.
 
-- **Type:** <a href="./_Activatable.md#Input">Input</a>
+- **Type:** <a href="#Input">Input</a>
 
 #### <a name="DisadvantageTranslation/rules"></a> `rules`
 
-- **Type:** <a href="./_Activatable.md#Rules">Rules</a>
+- **Type:** <a href="#Rules">Rules</a>
 
 #### <a name="DisadvantageTranslation/range"></a> `range?`
 
@@ -123,7 +114,7 @@ A string that gets appended to the default AP Value text with a preceding
 space. This always happens if present, even if the generated AP Value text
 is replaced.
 
-- **Type:** <a href="./_Activatable.md#AdventurePointsValueAppend">AdventurePointsValueAppend</a>
+- **Type:** <a href="#AdventurePointsValueAppend">AdventurePointsValueAppend</a>
 
 #### <a name="DisadvantageTranslation/errata"></a> `errata?`
 
