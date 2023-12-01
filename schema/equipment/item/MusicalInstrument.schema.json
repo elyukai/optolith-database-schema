@@ -14,6 +14,14 @@
           "description": "The weight in kg.",
           "$ref": "./_Item.schema.json#/$defs/Weight"
         },
+        "complexity": {
+          "description": "The complexity of crafting the item.",
+          "$ref": "./_Item.schema.json#/$defs/Complexity"
+        },
+        "combat_use": {
+          "description": "The item can also be used either as an improvised weapon or as an armor,\nalthough this is not the primary use case of the item.",
+          "$ref": "./_Item.schema.json#/$defs/CombatUse"
+        },
         "src": {
           "$ref": "../../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
         },

@@ -9,7 +9,7 @@ import { createSchemaValidator } from "../../../validation/builders/schema.js"
 import { getFilenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { LocaleMap } from "../../_LocaleMap.js"
 import { PublicationRefs } from "../../source/_PublicationRef.js"
-import { Cost, DefaultItemTranslation, Weight } from "./_Item.js"
+import { CombatUse, Complexity, Cost, DefaultItemTranslation, Weight } from "./_Item.js"
 
 export type MusicalInstrument = {
   /**
@@ -21,6 +21,17 @@ export type MusicalInstrument = {
    * The weight in kg.
    */
   weight: Weight
+
+  /**
+   * The complexity of crafting the item.
+   */
+  complexity?: Complexity
+
+  /**
+   * The item can also be used either as an improvised weapon or as an armor,
+   * although this is not the primary use case of the item.
+   */
+  combat_use?: CombatUse
 
   src: PublicationRefs
 
