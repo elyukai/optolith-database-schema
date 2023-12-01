@@ -10,7 +10,7 @@ Key | Description | Details
 :-- | :-- | :--
 `cost` | The cost in silverthalers. | <a href="#Weapon/cost">See details</a>
 `weight` | The weight in kg. | <a href="#Weapon/weight">See details</a>
-`complexity` | The complexity of crafting the item. | <a href="#Weapon/complexity">See details</a>
+`complexity?` | The complexity of crafting the item, if any. | <a href="#Weapon/complexity">See details</a>
 `structure_points?` | The structure points of the item. Use an array if the item consists of multiple components that have individual structure points. | <a href="#Weapon/structure_points">See details</a>
 `uses` | A list of stat blocks for each combat technique this weapon can be used with. | <a href="#Weapon/uses">See details</a>
 `sanctified_by?` | If the weapon is sanctified by a god and thus restricted to it's Blessed Ones. | <a href="#Weapon/sanctified_by">See details</a>
@@ -31,9 +31,9 @@ The weight in kg.
 
 - **Type:** <a href="./_Item.md#Weight">Weight</a>
 
-#### <a name="Weapon/complexity"></a> `complexity`
+#### <a name="Weapon/complexity"></a> `complexity?`
 
-The complexity of crafting the item.
+The complexity of crafting the item, if any.
 
 - **Type:** <a href="./_Item.md#Complexity">Complexity</a>
 

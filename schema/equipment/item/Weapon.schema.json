@@ -15,7 +15,7 @@
           "$ref": "./_Item.schema.json#/$defs/Weight"
         },
         "complexity": {
-          "description": "The complexity of crafting the item.",
+          "description": "The complexity of crafting the item, if any.",
           "$ref": "./_Item.schema.json#/$defs/Complexity"
         },
         "structure_points": {
@@ -64,7 +64,6 @@
       "required": [
         "cost",
         "weight",
-        "complexity",
         "uses",
         "src",
         "translations"
