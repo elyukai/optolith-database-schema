@@ -2,7 +2,7 @@ import AjvModule, { AnySchemaObject, Options } from "ajv"
 import addFormatsModule from "ajv-formats"
 import Ajv2019Module from "ajv/dist/2019.js"
 import Ajv2020Module from "ajv/dist/2020.js"
-import type { JsonSchemaSpec } from "optolith-tsjsonschemamd/config"
+import { JsonSchemaSpec } from "optolith-tsjsonschemamd/renderers/jsonSchema"
 import "../helpers/array.js"
 import { isHiddenFileName, readDirectoryRec, readJsonFile } from "../helpers/io.js"
 import { assertExhaustive } from "../helpers/typeSafety.js"
@@ -15,11 +15,11 @@ const addFormats = addFormatsModule.default
 
 const createSchemaValidator = (jsonSchemaSpec: JsonSchemaSpec, validatorOptions: Options = {}) => {
   switch (jsonSchemaSpec) {
-    case "Draft_07":
-    case "Draft_2019_09":
+    case JsonSchemaSpec.Draft_07:
+    case JsonSchemaSpec.Draft_2019_09:
       return new Ajv2019(validatorOptions)
 
-    case "Draft_2020_12":
+    case JsonSchemaSpec.Draft_2020_12:
       return new Ajv2020(validatorOptions)
 
     default:
