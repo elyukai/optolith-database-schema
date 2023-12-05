@@ -9,4 +9,4 @@ export const libDir        = join(root, "lib", "types")
 export const jsonSchemaDir = join(root, "schema")
 export const markdownDir   = join(root, "docs", "reference")
 
-export const jsonSchemaSpec: JsonSchemaSpec = JsonSchemaSpec.Draft_2019_09
+export const jsonSchemaSpec: JsonSchemaSpec = "Draft_2019_09"
