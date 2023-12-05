@@ -15,11 +15,11 @@ const addFormats = addFormatsModule.default
 
 const createSchemaValidator = (jsonSchemaSpec: JsonSchemaSpec, validatorOptions: Options = {}) => {
   switch (jsonSchemaSpec) {
-    case JsonSchemaSpec.Draft_07:
-    case JsonSchemaSpec.Draft_2019_09:
+    case "Draft_07":
+    case "Draft_2019_09":
       return new Ajv2019(validatorOptions)
 
-    case JsonSchemaSpec.Draft_2020_12:
+    case "Draft_2020_12":
       return new Ajv2020(validatorOptions)
 
     default:
