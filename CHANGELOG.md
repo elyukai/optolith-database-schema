@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.13.7](https://github.com/elyukai/optolith-database-schema/compare/v0.13.6...v0.13.7) (2023-12-05)
+
 ### [0.13.6](https://github.com/elyukai/optolith-database-schema/compare/v0.13.5...v0.13.6) (2023-12-05)
 
 ### [0.13.5](https://github.com/elyukai/optolith-database-schema/compare/v0.13.4...v0.13.5) (2023-12-05)
