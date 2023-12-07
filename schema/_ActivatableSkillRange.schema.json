@@ -230,7 +230,8 @@
           ]
         }
       ],
-      "unresolvedProperties": false
+      "type": "object",
+      "unevaluatedProperties": false
     },
     "RangeTranslation": {
       "type": "object",

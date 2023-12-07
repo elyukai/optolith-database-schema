@@ -233,7 +233,8 @@
           ]
         }
       ],
-      "unresolvedProperties": false
+      "type": "object",
+      "unevaluatedProperties": false
     },
     "CheckResultBasedDurationTranslation": {
       "type": "object",
