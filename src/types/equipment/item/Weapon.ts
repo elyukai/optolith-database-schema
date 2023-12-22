@@ -28,9 +28,9 @@ export type Weapon = {
   weight: Weight
 
   /**
-   * The complexity of crafting the item, if any.
+   * The complexity of crafting the item.
    */
-  complexity?: Complexity
+  complexity: Complexity
 
   /**
    * The structure points of the item. Use an array if the item consists of
