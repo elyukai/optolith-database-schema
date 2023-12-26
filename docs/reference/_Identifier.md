@@ -2249,6 +2249,28 @@ The container’s identifier.
 
 ---
 
+### <a name="ElixirIdentifier"></a> `ElixirIdentifier`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ElixirIdentifier/tag">See details</a>
+`elixir` | The elixir’s identifier. | <a href="#ElixirIdentifier/elixir">See details</a>
+
+#### <a name="ElixirIdentifier/tag"></a> `tag`
+
+- **Constant:** `"Elixir"`
+
+#### <a name="ElixirIdentifier/elixir"></a> `elixir`
+
+The elixir’s identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
 ### <a name="EquipmentOfBlessedOnesIdentifier"></a> `EquipmentOfBlessedOnesIdentifier`
 
 - **Type:** Object

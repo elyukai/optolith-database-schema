@@ -543,6 +543,9 @@
           "$ref": "./_Identifier.schema.json#/$defs/ContainerIdentifier"
         },
         {
+          "$ref": "./_Identifier.schema.json#/$defs/ElixirIdentifier"
+        },        
+        {
           "$ref": "./_Identifier.schema.json#/$defs/EquipmentOfBlessedOnesIdentifier"
         },
         {

@@ -1124,6 +1124,17 @@ export type ContainerIdentifier = {
   container: number
 }
 
+export type ElixirIdentifier = {
+  tag: "Elixir"
+
+  /**
+   * The elixir’s identifier.
+   * @integer
+   * @minimum 1
+   */
+  elixir: number
+}
+
 export type EquipmentOfBlessedOnesIdentifier = {
   tag: "EquipmentOfBlessedOnes"
 
