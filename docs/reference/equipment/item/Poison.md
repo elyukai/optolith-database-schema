@@ -195,7 +195,32 @@ Key | Description | Details
 ### <a name="PoisonDuration"></a> `PoisonDuration`
 
 - **Type:** Union
-- **Cases:** <a href="#PoisonDuration'Constant">PoisonDuration'Constant</a> | <a href="#PoisonDuration'DiceBased">PoisonDuration'DiceBased</a> | <a href="#PoisonDuration'Indefinite">PoisonDuration'Indefinite</a>
+- **Cases:** <a href="#PoisonDuration'Instant">PoisonDuration'Instant</a> | <a href="#PoisonDuration'Constant">PoisonDuration'Constant</a> | <a href="#PoisonDuration'DiceBased">PoisonDuration'DiceBased</a> | <a href="#PoisonDuration'Indefinite">PoisonDuration'Indefinite</a>
+
+---
+
+### <a name="PoisonDuration'Instant"></a> `PoisonDuration'Instant`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#PoisonDuration'Instant/tag">See details</a>
+`instant` |  | <a href="#PoisonDuration'Instant/instant">See details</a>
+
+#### <a name="PoisonDuration'Instant/tag"></a> `tag`
+
+- **Instant:** `"Instant"`
+
+#### <a name="PoisonDuration'Instant/instant"></a> `instant`
+
+- **Type:** <a href="#PoisonDuration'Instant/instant">Object</a>
+
+---
+
+### <a name="PoisonDuration'Instant/instant"></a> `PoisonStart'Instant/instant`
+
+- **Type:** Empty Object
 
 ---
 

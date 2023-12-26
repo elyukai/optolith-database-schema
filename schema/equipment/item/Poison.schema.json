@@ -197,6 +197,25 @@
           "type": "object",
           "properties": {
             "tag": {
+              "const": "Instant"
+            },
+            "instant": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "tag",
+            "instant"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
               "const": "Indefinite"
             },
             "indefinite": {
