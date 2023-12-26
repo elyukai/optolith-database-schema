@@ -1840,6 +1840,24 @@
       ],
       "additionalProperties": false
     },
+    "ElixirIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Elixir"
+        },
+        "elixir": {
+          "description": "The elixir’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "elixir"
+      ],
+      "additionalProperties": false
+    },
     "EquipmentOfBlessedOnesIdentifier": {
       "type": "object",
       "properties": {

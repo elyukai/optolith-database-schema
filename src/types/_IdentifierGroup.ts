@@ -191,6 +191,7 @@ export type EquipmentIdentifier =
   | Identifier.CeremonialItemIdentifier
   | Identifier.ClothesIdentifier
   | Identifier.ContainerIdentifier
+  | Identifier.ElixirIdentifier
   | Identifier.EquipmentOfBlessedOnesIdentifier
   | Identifier.GemOrPreciousStoneIdentifier
   | Identifier.IlluminationLightSourceIdentifier
