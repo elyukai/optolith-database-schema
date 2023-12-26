@@ -216,15 +216,15 @@
           "type": "object",
           "properties": {
             "tag": {
-              "const": "Indefinite"
+              "const": "Other"
             },
-            "indefinite": {
-              "$ref": "#/$defs/IndefinitePoisonTime"
+            "ither": {
+              "$ref": "#/$defs/OtherPoisonTime"
             }
           },
           "required": [
             "tag",
-            "indefinite"
+            "ither"
           ],
           "additionalProperties": false
         }
@@ -278,7 +278,7 @@
         }
       ]
     },
-    "IndefinitePoisonTime": {
+    "OtherPoisonTime": {
       "type": "object",
       "properties": {
         "translations": {
@@ -286,7 +286,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "$ref": "#/$defs/IndefinitePoisonTimeTranslation"
+              "$ref": "#/$defs/OtherPoisonTimeTranslation"
             }
           },
           "minProperties": 1,
@@ -298,7 +298,7 @@
       ],
       "additionalProperties": false
     },
-    "IndefinitePoisonTimeTranslation": {
+    "OtherPoisonTimeTranslation": {
       "type": "object",
       "properties": {
         "description": {

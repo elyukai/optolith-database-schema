@@ -91,7 +91,7 @@ export type PoisonDuration =
   | { tag: "Instant", instant: {} }  
   | { tag: "Constant", constant: ConstantPoisonTime }
   | { tag: "DiceBased", dice_based: DiceBasedPoisonTime }
-  | { tag: "Indefinite", indefinite: IndefinitePoisonTime }
+  | { tag: "Other", other: OtherPoisonTime }
 
 export type ConstantPoisonTime = {
   value: number
@@ -109,14 +109,14 @@ export type PoisonTimeUnit =
   | "Hours"
   | "Days"
 
-export type IndefinitePoisonTime = {
+export type OtherPoisonTime = {
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
    */
-  translations: LocaleMap<IndefinitePoisonTimeTranslation>
+  translations: LocaleMap<OtherPoisonTimeTranslation>
 }
 
-export type IndefinitePoisonTimeTranslation = {
+export type OtherPoisonTimeTranslation = {
   /**
    * A description of the duration.
    */

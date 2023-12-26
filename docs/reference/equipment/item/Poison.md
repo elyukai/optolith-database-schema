@@ -195,7 +195,7 @@ Key | Description | Details
 ### <a name="PoisonDuration"></a> `PoisonDuration`
 
 - **Type:** Union
-- **Cases:** <a href="#PoisonDuration'Instant">PoisonDuration'Instant</a> | <a href="#PoisonDuration'Constant">PoisonDuration'Constant</a> | <a href="#PoisonDuration'DiceBased">PoisonDuration'DiceBased</a> | <a href="#PoisonDuration'Indefinite">PoisonDuration'Indefinite</a>
+- **Cases:** <a href="#PoisonDuration'Instant">PoisonDuration'Instant</a> | <a href="#PoisonDuration'Constant">PoisonDuration'Constant</a> | <a href="#PoisonDuration'DiceBased">PoisonDuration'DiceBased</a> | <a href="#PoisonDuration'Other">PoisonDuration'Other</a>
 
 ---
 
@@ -262,22 +262,22 @@ Key | Description | Details
 
 ---
 
-### <a name="PoisonDuration'Indefinite"></a> `PoisonDuration'Indefinite`
+### <a name="PoisonDuration'Other"></a> `PoisonDuration'Other`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PoisonDuration'Indefinite/tag">See details</a>
-`indefinite` |  | <a href="#PoisonDuration'Indefinite/indefinite">See details</a>
+`tag` |  | <a href="#PoisonDuration'Other/tag">See details</a>
+`other` |  | <a href="#PoisonDuration'Other/other">See details</a>
 
-#### <a name="PoisonDuration'Indefinite/tag"></a> `tag`
+#### <a name="PoisonDuration'Other/tag"></a> `tag`
 
-- **Constant:** `"Indefinite"`
+- **Constant:** `"Other"`
 
-#### <a name="PoisonDuration'Indefinite/indefinite"></a> `indefinite`
+#### <a name="PoisonDuration'Other/other"></a> `other`
 
-- **Type:** <a href="#IndefinitePoisonTime">IndefinitePoisonTime</a>
+- **Type:** <a href="#OtherPoisonTime">OtherPoisonTime</a>
 
 ---
 
@@ -350,31 +350,31 @@ Key | Description | Details
 
 ---
 
-### <a name="IndefinitePoisonTime"></a> `IndefinitePoisonTime`
+### <a name="OtherPoisonTime"></a> `OtherPoisonTime`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#IndefinitePoisonTime/translations">See details</a>
+`translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#OtherPoisonTime/translations">See details</a>
 
-#### <a name="IndefinitePoisonTime/translations"></a> `translations`
+#### <a name="OtherPoisonTime/translations"></a> `translations`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#IndefinitePoisonTimeTranslation">IndefinitePoisonTimeTranslation</a>&gt;
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#OtherPoisonTimeTranslation">OtherPoisonTimeTranslation</a>&gt;
 
 ---
 
-### <a name="IndefinitePoisonTimeTranslation"></a> `IndefinitePoisonTimeTranslation`
+### <a name="OtherPoisonTimeTranslation"></a> `OtherPoisonTimeTranslation`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`description` | A description of the duration. | <a href="#IndefinitePoisonTimeTranslation/description">See details</a>
+`description` | A description of the duration. | <a href="#OtherPoisonTimeTranslation/description">See details</a>
 
-#### <a name="IndefinitePoisonTimeTranslation/description"></a> `description`
+#### <a name="OtherPoisonTimeTranslation/description"></a> `description`
 
 A description of the duration.
 
