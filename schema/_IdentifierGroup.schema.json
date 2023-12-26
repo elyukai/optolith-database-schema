@@ -513,9 +513,6 @@
     "EquipmentIdentifier": {
       "oneOf": [
         {
-          "$ref": "./_Identifier.schema.json#/$defs/AlchemicumIdentifier"
-        },
-        {
           "$ref": "./_Identifier.schema.json#/$defs/AmmunitionIdentifier"
         },
         {

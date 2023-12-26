@@ -48,7 +48,6 @@ import * as Talisman from "../types/Talisman.js"
 import * as TargetCategory from "../types/TargetCategory.js"
 import * as UI from "../types/UI.js"
 import * as EquipmentPackage from "../types/equipment/EquipmentPackage.js"
-import * as Alchemicum from "../types/equipment/item/Alchemicum.js"
 import * as Ammunition from "../types/equipment/item/Ammunition.js"
 import * as Animal from "../types/equipment/item/Animal.js"
 import * as AnimalCare from "../types/equipment/item/AnimalCare.js"
@@ -158,7 +157,6 @@ export type TypeMap = {
   advancedMagicalSpecialAbilities: AdvancedMagicalSpecialAbility.AdvancedMagicalSpecialAbility
   advancedSkillSpecialAbilities: AdvancedSkillSpecialAbility.AdvancedSkillSpecialAbility
   advantages: Advantage.Advantage
-  alchemicae: Alchemicum.Alchemicum
   ammunition: Ammunition.Ammunition
   ancestorGlyphs: AncestorGlyph.AncestorGlyph
   animalCare: AnimalCare.AnimalCare
@@ -314,7 +312,6 @@ export const configMap = {
   advancedMagicalSpecialAbilities: AdvancedMagicalSpecialAbility.config,
   advancedSkillSpecialAbilities: AdvancedSkillSpecialAbility.config,
   advantages: Advantage.config,
-  alchemicae: Alchemicum.config,
   ammunition: Ammunition.config,
   ancestorGlyphs: AncestorGlyph.config,
   animalCare: AnimalCare.config,

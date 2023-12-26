@@ -1660,24 +1660,6 @@
       ],
       "additionalProperties": false
     },
-    "AlchemicumIdentifier": {
-      "type": "object",
-      "properties": {
-        "tag": {
-          "const": "Alchemicum"
-        },
-        "alchemicum": {
-          "description": "The alchemicum’s identifier.",
-          "type": "integer",
-          "minimum": 1
-        }
-      },
-      "required": [
-        "tag",
-        "alchemicum"
-      ],
-      "additionalProperties": false
-    },
     "AmmunitionIdentifier": {
       "type": "object",
       "properties": {
