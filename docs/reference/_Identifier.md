@@ -2029,28 +2029,6 @@ The patron’s identifier.
 
 ---
 
-### <a name="AlchemicumIdentifier"></a> `AlchemicumIdentifier`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#AlchemicumIdentifier/tag">See details</a>
-`alchemicum` | The alchemicum’s identifier. | <a href="#AlchemicumIdentifier/alchemicum">See details</a>
-
-#### <a name="AlchemicumIdentifier/tag"></a> `tag`
-
-- **Constant:** `"Alchemicum"`
-
-#### <a name="AlchemicumIdentifier/alchemicum"></a> `alchemicum`
-
-The alchemicum’s identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
 ### <a name="AmmunitionIdentifier"></a> `AmmunitionIdentifier`
 
 - **Type:** Object

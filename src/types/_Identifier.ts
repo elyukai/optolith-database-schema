@@ -1014,17 +1014,6 @@ export type PatronIdentifier = {
    patron: number
 }
 
-export type AlchemicumIdentifier = {
-  tag: "Alchemicum"
-
-  /**
-   * The alchemicum’s identifier.
-   * @integer
-   * @minimum 1
-   */
-  alchemicum: number
-}
-
 export type AmmunitionIdentifier = {
   tag: "Ammunition"
 

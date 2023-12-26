@@ -181,7 +181,6 @@ export type CoreRuleDerivableContentIdentifier =
   | Identifier.BlessedTraditionIdentifier
 
 export type EquipmentIdentifier =
-  | Identifier.AlchemicumIdentifier
   | Identifier.AmmunitionIdentifier
   | Identifier.AnimalIdentifier
   | Identifier.AnimalCareIdentifier
