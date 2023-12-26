@@ -1005,6 +1005,7 @@ Key | Description | Details
 `name` | The name of the poison. | <a href="#PoisonTranslation/name">See details</a>
 `alternative_names?` | A list of alternative names. | <a href="#PoisonTranslation/alternative_names">See details</a>
 `effect` | The normal and degraded poison's effects. | <a href="#PoisonTranslation/effect">See details</a>
+`notes?` | Notes on the poison's special features. | <a href="#PoisonTranslation/notes">See details</a>
 `errata?` |  | <a href="#PoisonTranslation/errata">See details</a>
 
 #### <a name="PoisonTranslation/name"></a> `name`
@@ -1026,6 +1027,12 @@ A list of alternative names.
 The normal and degraded poison's effects.
 
 - **Type:** <a href="../../_DiseasePoison.md#Reduceable">Reduceable</a>
+
+#### <a name="PoisonTranslation/notes"></a> `notes?`
+
+Notes on the poison's special features.
+
+- **Type:** <a href="../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="PoisonTranslation/errata"></a> `errata?`
 
