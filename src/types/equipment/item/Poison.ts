@@ -88,6 +88,7 @@ export type PoisonStart =
   | { tag: "DiceBased", dice_based: DiceBasedPoisonTime }
 
 export type PoisonDuration =
+  | { tag: "Instant", instant: {} }  
   | { tag: "Constant", constant: ConstantPoisonTime }
   | { tag: "DiceBased", dice_based: DiceBasedPoisonTime }
   | { tag: "Indefinite", indefinite: IndefinitePoisonTime }
