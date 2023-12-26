@@ -386,6 +386,11 @@ export type PoisonTranslation = {
    */
   effect: Reduceable
 
+  /**
+   * Notes on the poison's special features.
+   */
+  notes?: NonEmptyString
+
   errata?: Errata
 }
 

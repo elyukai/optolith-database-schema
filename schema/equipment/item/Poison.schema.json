@@ -809,6 +809,10 @@
           "description": "The normal and degraded poison's effects.",
           "$ref": "../../_DiseasePoison.schema.json#/$defs/Reduceable"
         },
+        "notes": {
+          "description": "Notes on the poison's special features.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
         "errata": {
           "$ref": "../../source/_Erratum.schema.json#/$defs/Errata"
         }
