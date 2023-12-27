@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.14.0](https://github.com/elyukai/optolith-database-schema/compare/v0.13.8...v0.14.0) (2023-12-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove equipment category Alchemicum
+
+### Features
+
+* add optional "notes" field to poison translation ([0cf9d98](https://github.com/elyukai/optolith-database-schema/commit/0cf9d988907734b89119cf6d9e3a3d480199128f)), closes [#28](https://github.com/elyukai/optolith-database-schema/issues/28)
+* add poison duration type "instant" ([0581049](https://github.com/elyukai/optolith-database-schema/commit/0581049f282988ca5a24ff4ba219310003061d59))
+
+
+### Bug Fixes
+
+* add elixir identifier ([98993f7](https://github.com/elyukai/optolith-database-schema/commit/98993f7c351fc647cbe6982276cebab0e014ec44))
+* remove equipment category Alchemicum ([95768f3](https://github.com/elyukai/optolith-database-schema/commit/95768f30131b9c4e3f66f01950b6c7ea6f9ccfff)), closes [#32](https://github.com/elyukai/optolith-database-schema/issues/32)
+* weapons should require a complexity ([7ad54e1](https://github.com/elyukai/optolith-database-schema/commit/7ad54e1c16e8782072d543450a27a5572ab875ed))
+
 ### [0.13.8](https://github.com/elyukai/optolith-database-schema/compare/v0.13.7...v0.13.8) (2023-12-07)
 
 ### [0.13.7](https://github.com/elyukai/optolith-database-schema/compare/v0.13.6...v0.13.7) (2023-12-05)
