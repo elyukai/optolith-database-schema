@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.15.0](https://github.com/elyukai/optolith-database-schema/compare/v0.14.0...v0.15.0) (2023-12-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* convert core rule identifier to plain integer
+
+### Features
+
+* type config type includes type name literal ([04a57e8](https://github.com/elyukai/optolith-database-schema/commit/04a57e8bc4063444c66d118938fe9b011a0b7448))
+
+
+* convert core rule identifier to plain integer ([d6395ea](https://github.com/elyukai/optolith-database-schema/commit/d6395ea8f5c105596e3ce68f5212e0e44550bfe2))
+
 ## [0.14.0](https://github.com/elyukai/optolith-database-schema/compare/v0.13.8...v0.14.0) (2023-12-27)
 
 
