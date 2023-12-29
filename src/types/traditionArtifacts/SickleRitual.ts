@@ -68,7 +68,7 @@ export type SickleRitualTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<SickleRitual> = {
+export const config: TypeConfig<SickleRitual, SickleRitual["id"], "SickleRitual"> = {
   name: "SickleRitual",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("SickleRitual"),

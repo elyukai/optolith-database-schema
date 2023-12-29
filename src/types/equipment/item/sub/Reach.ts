@@ -34,7 +34,7 @@ export type ReachTranslation = {
   name: NonEmptyString
 }
 
-export const config: TypeConfig<Reach> = {
+export const config: TypeConfig<Reach, Reach["id"], "Reach"> = {
   name: "Reach",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Reach"),

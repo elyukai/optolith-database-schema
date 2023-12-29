@@ -55,7 +55,7 @@ export type SikaryanDrainSpecialAbilityTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<SikaryanDrainSpecialAbility> = {
+export const config: TypeConfig<SikaryanDrainSpecialAbility, SikaryanDrainSpecialAbility["id"], "SikaryanDrainSpecialAbility"> = {
   name: "SikaryanDrainSpecialAbility",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("SikaryanDrainSpecialAbility"),

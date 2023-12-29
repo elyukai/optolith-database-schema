@@ -34,7 +34,7 @@ export type SocialStatusTranslation = {
   name: NonEmptyString
 }
 
-export const config: TypeConfig<SocialStatus> = {
+export const config: TypeConfig<SocialStatus, SocialStatus["id"], "SocialStatus"> = {
   name: "SocialStatus",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("SocialStatus"),

@@ -53,7 +53,7 @@ export type SexSpecialAbilityTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<SexSpecialAbility> = {
+export const config: TypeConfig<SexSpecialAbility, SexSpecialAbility["id"], "SexSpecialAbility"> = {
   name: "SexSpecialAbility",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("SexSpecialAbility"),

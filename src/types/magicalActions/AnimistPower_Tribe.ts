@@ -34,7 +34,7 @@ export type TribeTranslation = {
   name: NonEmptyString
 }
 
-export const config: TypeConfig<Tribe> = {
+export const config: TypeConfig<Tribe, Tribe["id"], "Tribe"> = {
   name: "Tribe",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Tribe"),

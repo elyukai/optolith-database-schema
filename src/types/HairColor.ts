@@ -34,7 +34,7 @@ export type HairColorTranslation = {
   name: NonEmptyString
 }
 
-export const config: TypeConfig<HairColor> = {
+export const config: TypeConfig<HairColor, HairColor["id"], "HairColor"> = {
   name: "HairColor",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("HairColor"),

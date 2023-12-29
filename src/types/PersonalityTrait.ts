@@ -81,7 +81,7 @@ export type PersonalityTraitEffect = {
   text: NonEmptyString
 }
 
-export const config: TypeConfig<PersonalityTrait> = {
+export const config: TypeConfig<PersonalityTrait, PersonalityTrait["id"], "PersonalityTrait"> = {
   name: "PersonalityTrait",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("PersonalityTrait"),

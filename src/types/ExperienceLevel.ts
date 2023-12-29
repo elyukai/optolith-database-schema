@@ -77,7 +77,7 @@ export type ExperienceLevelTranslation = {
   name: string
 }
 
-export const config: TypeConfig<ExperienceLevel> = {
+export const config: TypeConfig<ExperienceLevel, ExperienceLevel["id"], "ExperienceLevel"> = {
   name: "ExperienceLevel",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("ExperienceLevel"),

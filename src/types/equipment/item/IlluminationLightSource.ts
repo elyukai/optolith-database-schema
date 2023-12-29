@@ -73,7 +73,7 @@ export type LimitedBurningTime = {
 export type LimitedBurningTimeUnit =
   | "Hours"
 
-export const config: TypeConfig<IlluminationLightSource> = {
+export const config: TypeConfig<IlluminationLightSource, number, "IlluminationLightSource"> = {
   name: "IlluminationLightSource",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("IlluminationLightSource"),

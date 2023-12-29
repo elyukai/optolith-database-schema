@@ -206,7 +206,7 @@ export type ReferenceNode = {
   id: CoreRuleDerivableContentIdentifier
 }
 
-export const config: TypeConfig<CoreRule> = {
+export const config: TypeConfig<CoreRule, CoreRule["id"], "CoreRule"> = {
   name: "CoreRule",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("CoreRule"),

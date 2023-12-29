@@ -68,7 +68,7 @@ export type TrinkhornzauberTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<Trinkhornzauber> = {
+export const config: TypeConfig<Trinkhornzauber, Trinkhornzauber["id"], "Trinkhornzauber"> = {
   name: "Trinkhornzauber",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Trinkhornzauber"),

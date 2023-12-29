@@ -283,7 +283,7 @@ export type SustainedCost = {
   interval?: DurationUnitValue
 }
 
-export const config: TypeConfig<FamiliarsTrick> = {
+export const config: TypeConfig<FamiliarsTrick, FamiliarsTrick["id"], "FamiliarsTrick"> = {
   name: "FamiliarsTrick",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("FamiliarsTrick"),

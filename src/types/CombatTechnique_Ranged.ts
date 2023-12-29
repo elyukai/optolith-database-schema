@@ -80,7 +80,7 @@ export type RangedCombatTechniqueTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<RangedCombatTechnique> = {
+export const config: TypeConfig<RangedCombatTechnique, RangedCombatTechnique["id"], "RangedCombatTechnique"> = {
   name: "RangedCombatTechnique",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("RangedCombatTechnique"),

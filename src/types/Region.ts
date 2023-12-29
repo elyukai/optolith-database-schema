@@ -34,7 +34,7 @@ export type RegionTranslation = {
   name: NonEmptyString
 }
 
-export const config: TypeConfig<Region> = {
+export const config: TypeConfig<Region, Region["id"], "Region"> = {
   name: "Region",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Region"),

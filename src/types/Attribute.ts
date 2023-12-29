@@ -44,7 +44,7 @@ export type AttributeTranslation = {
   description: NonEmptyString
 }
 
-export const config: TypeConfig<Attribute> = {
+export const config: TypeConfig<Attribute, Attribute["id"], "Attribute"> = {
   name: "Attribute",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: (validators, data, filepath) =>

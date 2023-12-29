@@ -49,7 +49,7 @@ export type FatePointSexSpecialAbilityTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<FatePointSexSpecialAbility> = {
+export const config: TypeConfig<FatePointSexSpecialAbility, FatePointSexSpecialAbility["id"], "FatePointSexSpecialAbility"> = {
   name: "FatePointSexSpecialAbility",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("FatePointSexSpecialAbility"),

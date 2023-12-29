@@ -186,7 +186,7 @@ export type FixedGeodeRitualDuration = {
   unit: DurationUnit
 }
 
-export const config: TypeConfig<GeodeRitual> = {
+export const config: TypeConfig<GeodeRitual, GeodeRitual["id"], "GeodeRitual"> = {
   name: "GeodeRitual",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("GeodeRitual"),

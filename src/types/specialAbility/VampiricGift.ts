@@ -55,7 +55,7 @@ export type VampiricGiftTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<VampiricGift> = {
+export const config: TypeConfig<VampiricGift, VampiricGift["id"], "VampiricGift"> = {
   name: "VampiricGift",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("VampiricGift"),

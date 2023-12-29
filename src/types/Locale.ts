@@ -43,7 +43,7 @@ export type Locale = {
   is_missing_implementation?: true
 }
 
-export const config: TypeConfig<Locale, string> = {
+export const config: TypeConfig<Locale, string, "Locale"> = {
   name: "Locale",
   id: getFilenameAsStringId,
   integrityValidator: () => Result.ok(undefined),

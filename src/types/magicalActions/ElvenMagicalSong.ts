@@ -157,7 +157,7 @@ export type ElvenMagicalSongCostTranslation = {
   per: ResponsiveText
 }
 
-export const config: TypeConfig<ElvenMagicalSong> = {
+export const config: TypeConfig<ElvenMagicalSong, ElvenMagicalSong["id"], "ElvenMagicalSong"> = {
   name: "ElvenMagicalSong",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("ElvenMagicalSong"),

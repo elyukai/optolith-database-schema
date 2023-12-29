@@ -25,7 +25,7 @@ export type Animal = {
   translations: LocaleMap<DefaultItemTranslation>
 }
 
-export const config: TypeConfig<Animal> = {
+export const config: TypeConfig<Animal, number, "Animal"> = {
   name: "Animal",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Animal"),

@@ -73,7 +73,7 @@ export type ScriptTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<Script> = {
+export const config: TypeConfig<Script, Script["id"], "Script"> = {
   name: "Script",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Script"),

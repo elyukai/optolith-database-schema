@@ -231,7 +231,7 @@ export type AnimalPowerLevel3 =
  */
 export type AnimalPowersLevel3 = AnimalPowerLevel3[]
 
-export const config: TypeConfig<Patron> = {
+export const config: TypeConfig<Patron, Patron["id"], "Patron"> = {
   name: "Patron",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Patron"),

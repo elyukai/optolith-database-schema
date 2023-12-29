@@ -49,7 +49,7 @@ export type LycantropicGiftTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<LycantropicGift> = {
+export const config: TypeConfig<LycantropicGift, LycantropicGift["id"], "LycantropicGift"> = {
   name: "LycantropicGift",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("LycantropicGift"),

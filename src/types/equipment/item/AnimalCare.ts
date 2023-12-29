@@ -54,7 +54,7 @@ export type AnimalFeed = {
 export type AnimalFeedCost =
   | { tag: "PerWeek"; per_week: FixedCost }
 
-export const config: TypeConfig<AnimalCare> = {
+export const config: TypeConfig<AnimalCare, number, "AnimalCare"> = {
   name: "AnimalCare",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("AnimalCare"),

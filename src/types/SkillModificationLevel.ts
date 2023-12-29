@@ -125,7 +125,7 @@ export type LevelTypeConfigTranslation = {
   range: NonEmptyString
 }
 
-export const config: TypeConfig<SkillModificationLevel> = {
+export const config: TypeConfig<SkillModificationLevel, SkillModificationLevel["id"], "SkillModificationLevel"> = {
   name: "SkillModificationLevel",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("SkillModificationLevel"),

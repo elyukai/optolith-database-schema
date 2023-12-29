@@ -252,7 +252,7 @@ export type SpellworkAdjustment = {
   tradition?: MagicalTraditionIdentifier
 }
 
-export const config: TypeConfig<Curriculum> = {
+export const config: TypeConfig<Curriculum, Curriculum["id"], "Curriculum"> = {
   name: "Curriculum",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Curriculum"),

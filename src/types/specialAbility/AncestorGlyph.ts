@@ -58,7 +58,7 @@ export type AncestorGlyphTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<AncestorGlyph> = {
+export const config: TypeConfig<AncestorGlyph, AncestorGlyph["id"], "AncestorGlyph"> = {
   name: "AncestorGlyph",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("AncestorGlyph"),

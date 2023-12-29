@@ -111,7 +111,7 @@ export type ZibiljaRitualTranslation = {
 
 export type ZibiljaRitualPerformanceParameters = OneTimePerformanceParameters<CastingTime<SlowSkillNonModifiableCastingTime>>
 
-export const config: TypeConfig<ZibiljaRitual> = {
+export const config: TypeConfig<ZibiljaRitual, ZibiljaRitual["id"], "ZibiljaRitual"> = {
   name: "ZibiljaRitual",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("ZibiljaRitual"),

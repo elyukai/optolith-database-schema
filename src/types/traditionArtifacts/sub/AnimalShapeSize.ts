@@ -48,7 +48,7 @@ export type AnimalShapeSizeTranslation = {
   name: NonEmptyString
 }
 
-export const config: TypeConfig<AnimalShapeSize> = {
+export const config: TypeConfig<AnimalShapeSize, AnimalShapeSize["id"], "AnimalShapeSize"> = {
   name: "AnimalShapeSize",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("AnimalShapeSize"),

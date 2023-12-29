@@ -61,7 +61,7 @@ export type CeremonialItemSpecialAbilityTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<CeremonialItemSpecialAbility> = {
+export const config: TypeConfig<CeremonialItemSpecialAbility, CeremonialItemSpecialAbility["id"], "CeremonialItemSpecialAbility"> = {
   name: "CeremonialItemSpecialAbility",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("CeremonialItemSpecialAbility"),

@@ -63,7 +63,7 @@ export type GeneralSpecialAbilityTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<GeneralSpecialAbility> = {
+export const config: TypeConfig<GeneralSpecialAbility, GeneralSpecialAbility["id"], "GeneralSpecialAbility"> = {
   name: "GeneralSpecialAbility",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("GeneralSpecialAbility"),

@@ -55,7 +55,7 @@ export type BrawlingSpecialAbilityTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<BrawlingSpecialAbility> = {
+export const config: TypeConfig<BrawlingSpecialAbility, BrawlingSpecialAbility["id"], "BrawlingSpecialAbility"> = {
   name: "BrawlingSpecialAbility",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("BrawlingSpecialAbility"),

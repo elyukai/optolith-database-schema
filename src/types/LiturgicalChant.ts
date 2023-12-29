@@ -124,7 +124,7 @@ export type LiturgicalChantTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<LiturgicalChant> = {
+export const config: TypeConfig<LiturgicalChant, LiturgicalChant["id"], "LiturgicalChant"> = {
   name: "LiturgicalChant",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("LiturgicalChant"),

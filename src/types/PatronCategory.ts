@@ -43,7 +43,7 @@ export type PatronCategoryTranslation = {
   name: NonEmptyString
 }
 
-export const config: TypeConfig<PatronCategory> = {
+export const config: TypeConfig<PatronCategory, PatronCategory["id"], "PatronCategory"> = {
   name: "PatronCategory",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("PatronCategory"),

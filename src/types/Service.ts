@@ -56,7 +56,7 @@ export type ServiceTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<Service> = {
+export const config: TypeConfig<Service, Service["id"], "Service"> = {
   name: "Service",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Service"),

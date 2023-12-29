@@ -92,7 +92,7 @@ export type AdvantageTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<Advantage> = {
+export const config: TypeConfig<Advantage, Advantage["id"], "Advantage"> = {
   name: "Advantage",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Advantage"),

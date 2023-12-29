@@ -35,7 +35,7 @@ export type SubjectTranslation = {
   name: NonEmptyString
 }
 
-export const config: TypeConfig<Subject> = {
+export const config: TypeConfig<Subject, Subject["id"], "Subject"> = {
   name: "Subject",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Subject"),

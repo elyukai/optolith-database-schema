@@ -145,7 +145,7 @@ export type MagicalTraditionTranslation = {
 
   errata?: Errata
 }
-export const config: TypeConfig<MagicalTradition> = {
+export const config: TypeConfig<MagicalTradition, MagicalTradition["id"], "MagicalTradition"> = {
   name: "MagicalTradition",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("MagicalTradition"),

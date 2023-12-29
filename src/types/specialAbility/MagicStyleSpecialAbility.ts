@@ -56,7 +56,7 @@ export type MagicStyleSpecialAbilityTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<MagicStyleSpecialAbility> = {
+export const config: TypeConfig<MagicStyleSpecialAbility, MagicStyleSpecialAbility["id"], "MagicStyleSpecialAbility"> = {
   name: "MagicStyleSpecialAbility",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("MagicStyleSpecialAbility"),

@@ -11,7 +11,7 @@ import { DefaultItem } from "./_Item.js"
 
 export type IlluminationRefillsOrSupplies = DefaultItem
 
-export const config: TypeConfig<IlluminationRefillsOrSupplies> = {
+export const config: TypeConfig<IlluminationRefillsOrSupplies, number, "IlluminationRefillsOrSupplies"> = {
   name: "IlluminationRefillsOrSupplies",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("IlluminationRefillsOrSupplies"),

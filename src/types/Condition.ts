@@ -50,7 +50,7 @@ export type ConditionTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<Condition> = {
+export const config: TypeConfig<Condition, Condition["id"], "Condition"> = {
   name: "Condition",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Condition"),

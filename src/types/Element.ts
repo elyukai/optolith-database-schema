@@ -34,7 +34,7 @@ export type ElementTranslation ={
   name: string
 }
 
-export const config: TypeConfig<Element> = {
+export const config: TypeConfig<Element, Element["id"], "Element"> = {
   name: "Element",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Element"),

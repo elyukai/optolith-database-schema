@@ -92,7 +92,7 @@ export type ElixirTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<Elixir> = {
+export const config: TypeConfig<Elixir, number, "Elixir"> = {
   name: "Elixir",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Elixir"),

@@ -184,7 +184,7 @@ export type FixedJesterTrickDuration = {
   unit: DurationUnit
 }
 
-export const config: TypeConfig<JesterTrick> = {
+export const config: TypeConfig<JesterTrick, JesterTrick["id"], "JesterTrick"> = {
   name: "JesterTrick",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("JesterTrick"),

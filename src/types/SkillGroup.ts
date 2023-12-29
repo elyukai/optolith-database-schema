@@ -45,7 +45,7 @@ export type SkillGroupTranslation = {
   long_name: NonEmptyString
 }
 
-export const config: TypeConfig<SkillGroup> = {
+export const config: TypeConfig<SkillGroup, SkillGroup["id"], "SkillGroup"> = {
   name: "SkillGroup",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("SkillGroup"),

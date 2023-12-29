@@ -11,7 +11,7 @@ import { DefaultItem } from "./_Item.js"
 
 export type OrienteeringAid = DefaultItem
 
-export const config: TypeConfig<OrienteeringAid> = {
+export const config: TypeConfig<OrienteeringAid, number, "OrienteeringAid"> = {
   name: "OrienteeringAid",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("OrienteeringAid"),

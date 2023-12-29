@@ -122,7 +122,7 @@ export type SpellTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<Spell> = {
+export const config: TypeConfig<Spell, Spell["id"], "Spell"> = {
   name: "Spell",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Spell"),

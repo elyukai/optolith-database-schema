@@ -77,7 +77,7 @@ export type ToolOfTheTradeTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<ToolOfTheTrade> = {
+export const config: TypeConfig<ToolOfTheTrade, number, "ToolOfTheTrade"> = {
   name: "ToolOfTheTrade",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("ToolOfTheTrade"),

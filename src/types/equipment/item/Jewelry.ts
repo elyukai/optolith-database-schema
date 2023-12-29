@@ -76,7 +76,7 @@ export type JewelryTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<Jewelry> = {
+export const config: TypeConfig<Jewelry, number, "Jewelry"> = {
   name: "Jewelry",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Jewelry"),

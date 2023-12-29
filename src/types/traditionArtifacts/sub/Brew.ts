@@ -34,7 +34,7 @@ export type BrewTranslation = {
   name: NonEmptyString
 }
 
-export const config: TypeConfig<Brew> = {
+export const config: TypeConfig<Brew, Brew["id"], "Brew"> = {
   name: "Brew",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Brew"),

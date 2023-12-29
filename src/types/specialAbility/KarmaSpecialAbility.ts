@@ -55,7 +55,7 @@ export type KarmaSpecialAbilityTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<KarmaSpecialAbility> = {
+export const config: TypeConfig<KarmaSpecialAbility, KarmaSpecialAbility["id"], "KarmaSpecialAbility"> = {
   name: "KarmaSpecialAbility",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("KarmaSpecialAbility"),

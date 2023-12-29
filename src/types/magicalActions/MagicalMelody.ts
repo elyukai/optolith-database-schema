@@ -136,7 +136,7 @@ export type FirstPersonMagicalMelodyCost = {
   value: number
 }
 
-export const config: TypeConfig<MagicalMelody> = {
+export const config: TypeConfig<MagicalMelody, MagicalMelody["id"], "MagicalMelody"> = {
   name: "MagicalMelody",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("MagicalMelody"),

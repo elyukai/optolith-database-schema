@@ -41,7 +41,7 @@ export type MusicalInstrument = {
   translations: LocaleMap<DefaultItemTranslation>
 }
 
-export const config: TypeConfig<MusicalInstrument> = {
+export const config: TypeConfig<MusicalInstrument, number, "MusicalInstrument"> = {
   name: "MusicalInstrument",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("MusicalInstrument"),

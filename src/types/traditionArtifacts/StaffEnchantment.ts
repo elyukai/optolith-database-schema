@@ -90,7 +90,7 @@ export type StaffEnchantmentTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<StaffEnchantment> = {
+export const config: TypeConfig<StaffEnchantment, StaffEnchantment["id"], "StaffEnchantment"> = {
   name: "StaffEnchantment",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("StaffEnchantment"),

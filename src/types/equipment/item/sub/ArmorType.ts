@@ -44,7 +44,7 @@ export type ArmorTypeTranslation = {
   name: NonEmptyString
 }
 
-export const config: TypeConfig<ArmorType> = {
+export const config: TypeConfig<ArmorType, ArmorType["id"], "ArmorType"> = {
   name: "ArmorType",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("ArmorType"),

@@ -155,7 +155,7 @@ export type MaximumIndefiniteCurseDuration =
   | { tag: "Fixed"; fixed: FixedDominationRitualDuration }
   | { tag: "CheckResultBased"; check_result_based: CheckResultBasedDuration }
 
-export const config: TypeConfig<DominationRitual> = {
+export const config: TypeConfig<DominationRitual, DominationRitual["id"], "DominationRitual"> = {
   name: "DominationRitual",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("DominationRitual"),

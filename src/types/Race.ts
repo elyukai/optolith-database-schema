@@ -398,7 +398,7 @@ export type RaceTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<Race> = {
+export const config: TypeConfig<Race, Race["id"], "Race"> = {
   name: "Race",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Race"),

@@ -131,7 +131,7 @@ export type IndefiniteMagicalDanceCost = {
   translations: LocaleMap<IndefiniteOneTimeCostTranslation>
 }
 
-export const config: TypeConfig<MagicalDance> = {
+export const config: TypeConfig<MagicalDance, MagicalDance["id"], "MagicalDance"> = {
   name: "MagicalDance",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("MagicalDance"),

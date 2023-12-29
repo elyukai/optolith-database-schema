@@ -67,7 +67,7 @@ export type CombatStyleSpecialAbilityTransition = {
   errata?: Errata
 }
 
-export const config: TypeConfig<CombatStyleSpecialAbility> = {
+export const config: TypeConfig<CombatStyleSpecialAbility, CombatStyleSpecialAbility["id"], "CombatStyleSpecialAbility"> = {
   name: "CombatStyleSpecialAbility",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("CombatStyleSpecialAbility"),

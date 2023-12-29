@@ -51,7 +51,7 @@ export type MagicalArtifactTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<MagicalArtifact> = {
+export const config: TypeConfig<MagicalArtifact, number, "MagicalArtifact"> = {
   name: "MagicalArtifact",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("MagicalArtifact"),

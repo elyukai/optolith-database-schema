@@ -14,7 +14,7 @@ import { Influence } from "./_Influence.js"
  */
 export type Kirchenpraegung = Influence
 
-export const config: TypeConfig<Kirchenpraegung> = {
+export const config: TypeConfig<Kirchenpraegung, Kirchenpraegung["id"], "Kirchenpraegung"> = {
   name: "Kirchenpraegung",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Kirchenpraegung"),

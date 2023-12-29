@@ -122,7 +122,7 @@ export type RitualTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<Ritual> = {
+export const config: TypeConfig<Ritual, Ritual["id"], "Ritual"> = {
   name: "Ritual",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Ritual"),

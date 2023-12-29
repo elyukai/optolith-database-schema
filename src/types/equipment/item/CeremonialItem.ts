@@ -53,7 +53,7 @@ export type CeremonialItem = {
   translations: LocaleMap<DefaultItemTranslation>
 }
 
-export const config: TypeConfig<CeremonialItem> = {
+export const config: TypeConfig<CeremonialItem, number, "CeremonialItem"> = {
   name: "CeremonialItem",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("CeremonialItem"),

@@ -45,7 +45,7 @@ export type StateTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<State> = {
+export const config: TypeConfig<State, State["id"], "State"> = {
   name: "State",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("State"),

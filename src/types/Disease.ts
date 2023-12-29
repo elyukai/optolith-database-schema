@@ -52,7 +52,7 @@ export type Disease = {
   translations: LocaleMap<DiseaseTranslation>
 }
 
-export const config: TypeConfig<Disease> = {
+export const config: TypeConfig<Disease, Disease["id"], "Disease"> = {
   name: "Disease",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Disease"),

@@ -313,7 +313,7 @@ export type MagicalRuneOptionTranslation = {
   native_name: NonEmptyString
 }
 
-export const config: TypeConfig<MagicalRune> = {
+export const config: TypeConfig<MagicalRune, MagicalRune["id"], "MagicalRune"> = {
   name: "MagicalRune",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("MagicalRune"),

@@ -63,7 +63,7 @@ export type ProtectiveWardingCircleSpecialAbilityTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<ProtectiveWardingCircleSpecialAbility> = {
+export const config: TypeConfig<ProtectiveWardingCircleSpecialAbility, ProtectiveWardingCircleSpecialAbility["id"], "ProtectiveWardingCircleSpecialAbility"> = {
   name: "ProtectiveWardingCircleSpecialAbility",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("ProtectiveWardingCircleSpecialAbility"),

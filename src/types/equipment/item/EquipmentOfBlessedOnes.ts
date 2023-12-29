@@ -37,7 +37,7 @@ export type EquipmentOfBlessedOnes = {
   translations: LocaleMap<DefaultItemTranslation>
 }
 
-export const config: TypeConfig<EquipmentOfBlessedOnes> = {
+export const config: TypeConfig<EquipmentOfBlessedOnes, number, "EquipmentOfBlessedOnes"> = {
   name: "EquipmentOfBlessedOnes",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("EquipmentOfBlessedOnes"),

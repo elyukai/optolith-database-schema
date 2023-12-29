@@ -122,7 +122,7 @@ export type IndefiniteDurationTranslation = {
   description: string
 }
 
-export const config: TypeConfig<Blessing> = {
+export const config: TypeConfig<Blessing, Blessing["id"], "Blessing"> = {
   name: "Blessing",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Blessing"),

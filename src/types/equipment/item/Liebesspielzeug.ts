@@ -11,7 +11,7 @@ import { DefaultItem } from "./_Item.js"
 
 export type Liebesspielzeug = DefaultItem
 
-export const config: TypeConfig<Liebesspielzeug> = {
+export const config: TypeConfig<Liebesspielzeug, number, "Liebesspielzeug"> = {
   name: "Liebesspielzeug",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Liebesspielzeug"),

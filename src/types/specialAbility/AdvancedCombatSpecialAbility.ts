@@ -77,7 +77,7 @@ export type AdvancedCombatSpecialAbilityTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<AdvancedCombatSpecialAbility> = {
+export const config: TypeConfig<AdvancedCombatSpecialAbility, AdvancedCombatSpecialAbility["id"], "AdvancedCombatSpecialAbility"> = {
   name: "AdvancedCombatSpecialAbility",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("AdvancedCombatSpecialAbility"),

@@ -51,7 +51,7 @@ export type OptionalRuleTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<OptionalRule> = {
+export const config: TypeConfig<OptionalRule, OptionalRule["id"], "OptionalRule"> = {
   name: "OptionalRule",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("OptionalRule"),

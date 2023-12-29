@@ -193,7 +193,7 @@ export type IndefiniteDurationTranslation = {
   description: ResponsiveText
 }
 
-export const config: TypeConfig<Cantrip> = {
+export const config: TypeConfig<Cantrip, Cantrip["id"], "Cantrip"> = {
   name: "Cantrip",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Cantrip"),

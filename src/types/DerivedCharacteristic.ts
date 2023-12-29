@@ -74,7 +74,7 @@ export type CalculationTranslation = {
   no_primary?: string;
 }
 
-export const config: TypeConfig<DerivedCharacteristic> = {
+export const config: TypeConfig<DerivedCharacteristic, DerivedCharacteristic["id"], "DerivedCharacteristic"> = {
   name: "DerivedCharacteristic",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("DerivedCharacteristic"),

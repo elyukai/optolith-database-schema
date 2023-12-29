@@ -56,7 +56,7 @@ export type GemOrPreciousStoneTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<GemOrPreciousStone> = {
+export const config: TypeConfig<GemOrPreciousStone, number, "GemOrPreciousStone"> = {
   name: "GemOrPreciousStone",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("GemOrPreciousStone"),

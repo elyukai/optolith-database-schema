@@ -41,7 +41,7 @@ export type AmmunitionTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<Ammunition> = {
+export const config: TypeConfig<Ammunition, number, "Ammunition"> = {
   name: "Ammunition",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Ammunition"),

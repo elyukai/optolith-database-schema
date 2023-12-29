@@ -41,7 +41,7 @@ export type PropertyTranslation = {
   name: NonEmptyString
 }
 
-export const config: TypeConfig<Property> = {
+export const config: TypeConfig<Property, Property["id"], "Property"> = {
   name: "Property",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Property"),

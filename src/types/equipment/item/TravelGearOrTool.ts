@@ -11,7 +11,7 @@ import { DefaultItem } from "./_Item.js"
 
 export type TravelGearOrTool = DefaultItem
 
-export const config: TypeConfig<TravelGearOrTool> = {
+export const config: TypeConfig<TravelGearOrTool, number, "TravelGearOrTool"> = {
   name: "TravelGearOrTool",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("TravelGearOrTool"),

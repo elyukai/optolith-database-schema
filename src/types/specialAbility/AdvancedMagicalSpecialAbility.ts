@@ -53,7 +53,7 @@ export type AdvancedMagicalSpecialAbilityTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<AdvancedMagicalSpecialAbility> = {
+export const config: TypeConfig<AdvancedMagicalSpecialAbility, AdvancedMagicalSpecialAbility["id"], "AdvancedMagicalSpecialAbility"> = {
   name: "AdvancedMagicalSpecialAbility",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("AdvancedMagicalSpecialAbility"),

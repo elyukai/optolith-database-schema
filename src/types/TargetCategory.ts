@@ -50,7 +50,7 @@ export type TargetCategoryTranslation = {
   name: NonEmptyString
 }
 
-export const config: TypeConfig<TargetCategory> = {
+export const config: TypeConfig<TargetCategory, TargetCategory["id"], "TargetCategory"> = {
   name: "TargetCategory",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("TargetCategory"),

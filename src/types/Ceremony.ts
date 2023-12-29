@@ -124,7 +124,7 @@ export type CeremonyTranslation ={
   errata?: Errata
 }
 
-export const config: TypeConfig<Ceremony> = {
+export const config: TypeConfig<Ceremony, Ceremony["id"], "Ceremony"> = {
   name: "Ceremony",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Ceremony"),

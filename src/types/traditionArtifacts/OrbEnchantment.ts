@@ -68,7 +68,7 @@ export type OrbEnchantmentTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<OrbEnchantment> = {
+export const config: TypeConfig<OrbEnchantment, OrbEnchantment["id"], "OrbEnchantment"> = {
   name: "OrbEnchantment",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("OrbEnchantment"),

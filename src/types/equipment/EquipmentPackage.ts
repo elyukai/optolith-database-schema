@@ -61,7 +61,7 @@ export type EquipmentPackageTranslation = {
   name: NonEmptyString
 }
 
-export const config: TypeConfig<EquipmentPackage> = {
+export const config: TypeConfig<EquipmentPackage, EquipmentPackage["id"], "EquipmentPackage"> = {
   name: "EquipmentPackage",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("EquipmentPackage"),

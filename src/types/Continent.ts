@@ -36,7 +36,7 @@ export type ContinentTranslation = {
   name: string
 }
 
-export const config: TypeConfig<Continent> = {
+export const config: TypeConfig<Continent, Continent["id"], "Continent"> = {
   name: "Continent",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Continent"),

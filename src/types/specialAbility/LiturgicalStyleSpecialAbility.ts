@@ -58,7 +58,7 @@ export type LiturgicalStyleSpecialAbilityTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<LiturgicalStyleSpecialAbility> = {
+export const config: TypeConfig<LiturgicalStyleSpecialAbility, LiturgicalStyleSpecialAbility["id"], "LiturgicalStyleSpecialAbility"> = {
   name: "LiturgicalStyleSpecialAbility",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("LiturgicalStyleSpecialAbility"),

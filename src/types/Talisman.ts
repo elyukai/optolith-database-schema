@@ -91,7 +91,7 @@ export type TalismanActivationTranslation = {
   duration: NonEmptyString
 }
 
-export const config: TypeConfig<Talisman> = {
+export const config: TypeConfig<Talisman, Talisman["id"], "Talisman"> = {
   name: "Talisman",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Talisman"),

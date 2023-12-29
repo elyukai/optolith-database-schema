@@ -49,7 +49,7 @@ export type FamiliarSpecialAbilityTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<FamiliarSpecialAbility> = {
+export const config: TypeConfig<FamiliarSpecialAbility, FamiliarSpecialAbility["id"], "FamiliarSpecialAbility"> = {
   name: "FamiliarSpecialAbility",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("FamiliarSpecialAbility"),

@@ -62,7 +62,7 @@ export type AnimalShapeTranslation = {
   name: NonEmptyString
 }
 
-export const config: TypeConfig<AnimalShape> = {
+export const config: TypeConfig<AnimalShape, AnimalShape["id"], "AnimalShape"> = {
   name: "AnimalShape",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("AnimalShape"),

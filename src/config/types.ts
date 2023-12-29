@@ -462,3 +462,4 @@ export const configMap = {
 }
 
 export type TypeId<K extends keyof TypeMap> = ReturnType<(typeof configMap)[K]["id"]>
+export type TypeName<K extends keyof TypeMap> = (typeof configMap)[K]["name"]

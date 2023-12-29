@@ -94,7 +94,7 @@ export type PactDomainTranslation = {
   name: NonEmptyString
 }
 
-export const config: TypeConfig<PactCategory> = {
+export const config: TypeConfig<PactCategory, PactCategory["id"], "PactCategory"> = {
   name: "PactCategory",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("PactCategory"),

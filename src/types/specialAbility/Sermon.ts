@@ -49,7 +49,7 @@ export type SermonTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<Sermon> = {
+export const config: TypeConfig<Sermon, Sermon["id"], "Sermon"> = {
   name: "Sermon",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Sermon"),

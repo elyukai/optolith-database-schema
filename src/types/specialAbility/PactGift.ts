@@ -123,7 +123,7 @@ export type PactGiftTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<PactGift> = {
+export const config: TypeConfig<PactGift, PactGift["id"], "PactGift"> = {
   name: "PactGift",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("PactGift"),

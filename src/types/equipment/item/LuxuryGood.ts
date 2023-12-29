@@ -47,7 +47,7 @@ export type LuxuryGood = {
   translations: LocaleMap<DefaultItemTranslation>
 }
 
-export const config: TypeConfig<LuxuryGood> = {
+export const config: TypeConfig<LuxuryGood, number, "LuxuryGood"> = {
   name: "LuxuryGood",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("LuxuryGood"),

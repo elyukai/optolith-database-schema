@@ -34,7 +34,7 @@ export type AnimalShapePathTranslation = {
   name: NonEmptyString
 }
 
-export const config: TypeConfig<AnimalShapePath> = {
+export const config: TypeConfig<AnimalShapePath, AnimalShapePath["id"], "AnimalShapePath"> = {
   name: "AnimalShapePath",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("AnimalShapePath"),

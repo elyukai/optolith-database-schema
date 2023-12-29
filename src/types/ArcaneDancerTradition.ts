@@ -14,7 +14,7 @@ import { ArcaneTradition } from "./_ArcaneTradition.js"
  */
 export type ArcaneDancerTradition = ArcaneTradition
 
-export const config: TypeConfig<ArcaneDancerTradition> = {
+export const config: TypeConfig<ArcaneDancerTradition, ArcaneDancerTradition["id"], "ArcaneDancerTradition"> = {
   name: "ArcaneDancerTradition",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("ArcaneDancerTradition"),

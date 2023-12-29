@@ -1147,7 +1147,7 @@ export type UI = {
   "removed in {0}. printing": PluralizationCategories
 }
 
-export const config: TypeConfig<UI, string> = {
+export const config: TypeConfig<UI, string, "UI"> = {
   name: "UI",
   id: getFilenameAsStringId,
   integrityValidator: () => Result.ok(undefined),

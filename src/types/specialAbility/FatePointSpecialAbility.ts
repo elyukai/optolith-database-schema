@@ -59,7 +59,7 @@ export type FatePointSpecialAbilityTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<FatePointSpecialAbility> = {
+export const config: TypeConfig<FatePointSpecialAbility, FatePointSpecialAbility["id"], "FatePointSpecialAbility"> = {
   name: "FatePointSpecialAbility",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("FatePointSpecialAbility"),

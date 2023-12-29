@@ -214,7 +214,7 @@ export type HeadHitZoneCombinationPossibilities = {
   protection?: number
 }
 
-export const config: TypeConfig<Armor> = {
+export const config: TypeConfig<Armor, number, "Armor"> = {
   name: "Armor",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Armor"),

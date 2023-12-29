@@ -168,7 +168,7 @@ export type BlessedTraditionTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<BlessedTradition> = {
+export const config: TypeConfig<BlessedTradition, BlessedTradition["id"], "BlessedTradition"> = {
   name: "BlessedTradition",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("BlessedTradition"),

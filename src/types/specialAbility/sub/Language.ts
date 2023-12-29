@@ -136,7 +136,7 @@ export type LanguageTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<Language> = {
+export const config: TypeConfig<Language, Language["id"], "Language"> = {
   name: "Language",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Language"),

@@ -52,7 +52,7 @@ export type ProtectiveWardingCircleSpecialAbilityTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<MagicalSign> = {
+export const config: TypeConfig<MagicalSign, MagicalSign["id"], "MagicalSign"> = {
   name: "MagicalSign",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("MagicalSign"),

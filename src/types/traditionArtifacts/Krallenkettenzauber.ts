@@ -68,7 +68,7 @@ export type KrallenkettenzauberTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<Krallenkettenzauber> = {
+export const config: TypeConfig<Krallenkettenzauber, Krallenkettenzauber["id"], "Krallenkettenzauber"> = {
   name: "Krallenkettenzauber",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Krallenkettenzauber"),

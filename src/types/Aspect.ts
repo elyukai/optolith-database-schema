@@ -40,7 +40,7 @@ export type AspectTranslation = {
   master_of_aspect_suffix?: NonEmptyString
 }
 
-export const config: TypeConfig<Aspect> = {
+export const config: TypeConfig<Aspect, Aspect["id"], "Aspect"> = {
   name: "Aspect",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Aspect"),

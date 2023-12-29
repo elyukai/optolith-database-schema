@@ -25,7 +25,7 @@ export type Vehicle = {
   translations: LocaleMap<DefaultItemTranslation>
 }
 
-export const config: TypeConfig<Vehicle> = {
+export const config: TypeConfig<Vehicle, number, "Vehicle"> = {
   name: "Vehicle",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Vehicle"),

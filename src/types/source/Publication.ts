@@ -89,7 +89,7 @@ export type Category =
   | "Sourcebook"
   | "RegionalSourcebook"
 
-export const config: TypeConfig<Publication> = {
+export const config: TypeConfig<Publication, Publication["id"], "Publication"> = {
   name: "Publication",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Publication"),

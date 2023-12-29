@@ -34,7 +34,7 @@ export type AnimalTypeTranslation = {
   name: NonEmptyString
 }
 
-export const config: TypeConfig<AnimalType> = {
+export const config: TypeConfig<AnimalType, AnimalType["id"], "AnimalType"> = {
   name: "AnimalType",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("AnimalType"),

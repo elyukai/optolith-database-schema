@@ -11,7 +11,7 @@ import { DefaultItem } from "./_Item.js"
 
 export type Stationary = DefaultItem
 
-export const config: TypeConfig<Stationary> = {
+export const config: TypeConfig<Stationary, number, "Stationary"> = {
   name: "Stationary",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Stationary"),

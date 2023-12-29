@@ -168,7 +168,7 @@ export type MaximumIndefiniteCurseDuration =
   | { tag: "Fixed"; fixed: FixedCurseDuration }
   | { tag: "CheckResultBased"; check_result_based: CheckResultBasedDuration }
 
-export const config: TypeConfig<Curse> = {
+export const config: TypeConfig<Curse, Curse["id"], "Curse"> = {
   name: "Curse",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Curse"),

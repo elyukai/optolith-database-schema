@@ -70,7 +70,7 @@ export type AnimalDisease = {
   translations: LocaleMap<DiseaseTranslation>
 }
 
-export const config: TypeConfig<AnimalDisease> = {
+export const config: TypeConfig<AnimalDisease, AnimalDisease["id"], "AnimalDisease"> = {
   name: "AnimalDisease",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("AnimalDisease"),

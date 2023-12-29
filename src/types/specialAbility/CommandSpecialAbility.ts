@@ -56,7 +56,7 @@ export type CommandSpecialAbility = {
   }
 }
 
-export const config: TypeConfig<CommandSpecialAbility> = {
+export const config: TypeConfig<CommandSpecialAbility, CommandSpecialAbility["id"], "CommandSpecialAbility"> = {
   name: "CommandSpecialAbility",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("CommandSpecialAbility"),

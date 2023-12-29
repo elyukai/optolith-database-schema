@@ -163,7 +163,7 @@ export type Encumbrance =
   | "False"
   | "Maybe"
 
-export const config: TypeConfig<Skill> = {
+export const config: TypeConfig<Skill, Skill["id"], "Skill"> = {
   name: "Skill",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Skill"),

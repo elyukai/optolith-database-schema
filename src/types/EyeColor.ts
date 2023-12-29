@@ -34,7 +34,7 @@ export type EyeColorTranslation = {
   name: NonEmptyString
 }
 
-export const config: TypeConfig<EyeColor> = {
+export const config: TypeConfig<EyeColor, EyeColor["id"], "EyeColor"> = {
   name: "EyeColor",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("EyeColor"),

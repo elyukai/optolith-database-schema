@@ -53,7 +53,7 @@ export type MetaConditionTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<MetaCondition> = {
+export const config: TypeConfig<MetaCondition, MetaCondition["id"], "MetaCondition"> = {
   name: "MetaCondition",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("MetaCondition"),

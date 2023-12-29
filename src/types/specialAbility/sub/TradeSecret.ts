@@ -60,7 +60,7 @@ export type TradeSecretTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<TradeSecret> = {
+export const config: TypeConfig<TradeSecret, TradeSecret["id"], "TradeSecret"> = {
   name: "TradeSecret",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("TradeSecret"),

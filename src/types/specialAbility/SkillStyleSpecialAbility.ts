@@ -54,7 +54,7 @@ export type SkillStyleSpecialAbilityTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<SkillStyleSpecialAbility> = {
+export const config: TypeConfig<SkillStyleSpecialAbility, SkillStyleSpecialAbility["id"], "SkillStyleSpecialAbility"> = {
   name: "SkillStyleSpecialAbility",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("SkillStyleSpecialAbility"),

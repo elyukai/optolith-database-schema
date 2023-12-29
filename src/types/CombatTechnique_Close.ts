@@ -91,7 +91,7 @@ export type CloseCombatTechniqueTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<CloseCombatTechnique> = {
+export const config: TypeConfig<CloseCombatTechnique, CloseCombatTechnique["id"], "CloseCombatTechnique"> = {
   name: "CloseCombatTechnique",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("CloseCombatTechnique"),

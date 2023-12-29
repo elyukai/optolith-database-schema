@@ -65,7 +65,7 @@ export type FocusRuleTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<FocusRule> = {
+export const config: TypeConfig<FocusRule, FocusRule["id"], "FocusRule"> = {
   name: "FocusRule",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("FocusRule"),

@@ -90,7 +90,7 @@ export type DaggerRitualTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<DaggerRitual> = {
+export const config: TypeConfig<DaggerRitual, DaggerRitual["id"], "DaggerRitual"> = {
   name: "DaggerRitual",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("DaggerRitual"),

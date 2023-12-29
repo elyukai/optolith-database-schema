@@ -88,7 +88,7 @@ export type PoisonStart =
   | { tag: "DiceBased", dice_based: DiceBasedPoisonTime }
 
 export type PoisonDuration =
-  | { tag: "Instant", instant: {} }  
+  | { tag: "Instant", instant: {} }
   | { tag: "Constant", constant: ConstantPoisonTime }
   | { tag: "DiceBased", dice_based: DiceBasedPoisonTime }
   | { tag: "Indefinite", indefinite: IndefinitePoisonTime }
@@ -394,7 +394,7 @@ export type PoisonTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<Poison> = {
+export const config: TypeConfig<Poison, number, "Poison"> = {
   name: "Poison",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Poison"),

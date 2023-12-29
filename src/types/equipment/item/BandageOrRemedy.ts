@@ -47,7 +47,7 @@ export type BandageOrRemedy = {
   translations: LocaleMap<DefaultItemTranslation>
 }
 
-export const config: TypeConfig<BandageOrRemedy> = {
+export const config: TypeConfig<BandageOrRemedy, number, "BandageOrRemedy"> = {
   name: "BandageOrRemedy",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("BandageOrRemedy"),

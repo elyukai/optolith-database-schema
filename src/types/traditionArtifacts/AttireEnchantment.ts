@@ -68,7 +68,7 @@ export type AttireEnchantmentTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<AttireEnchantment> = {
+export const config: TypeConfig<AttireEnchantment, AttireEnchantment["id"], "AttireEnchantment"> = {
   name: "AttireEnchantment",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("AttireEnchantment"),

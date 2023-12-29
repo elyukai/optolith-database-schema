@@ -74,7 +74,7 @@ export type SpellSwordEnchantmentTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<SpellSwordEnchantment> = {
+export const config: TypeConfig<SpellSwordEnchantment, SpellSwordEnchantment["id"], "SpellSwordEnchantment"> = {
   name: "SpellSwordEnchantment",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("SpellSwordEnchantment"),

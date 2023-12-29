@@ -84,7 +84,7 @@ export type CauldronEnchantmentTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<CauldronEnchantment> = {
+export const config: TypeConfig<CauldronEnchantment, CauldronEnchantment["id"], "CauldronEnchantment"> = {
   name: "CauldronEnchantment",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("CauldronEnchantment"),

@@ -191,7 +191,7 @@ export type RestrictedToSpecificCultures = {
   list: CultureReference[]
 }
 
-export const config: TypeConfig<Weapon> = {
+export const config: TypeConfig<Weapon, number, "Weapon"> = {
   name: "Weapon",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Weapon"),

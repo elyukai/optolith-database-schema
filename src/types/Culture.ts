@@ -426,7 +426,7 @@ export type Name = {
   note?: NonEmptyString
 }
 
-export const config: TypeConfig<Culture> = {
+export const config: TypeConfig<Culture, Culture["id"], "Culture"> = {
   name: "Culture",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Culture"),

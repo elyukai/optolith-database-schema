@@ -77,7 +77,7 @@ export type BookTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<Book> = {
+export const config: TypeConfig<Book, number, "Book"> = {
   name: "Book",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Book"),

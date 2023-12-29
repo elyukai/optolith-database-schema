@@ -251,7 +251,7 @@ export type AnimistPowerImprovementCost =
   | { tag: "Fixed"; fixed: ImprovementCost }
   | { tag: "ByPrimaryPatron"; by_primary_patron: {} }
 
-export const config: TypeConfig<AnimistPower> = {
+export const config: TypeConfig<AnimistPower, AnimistPower["id"], "AnimistPower"> = {
   name: "AnimistPower",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("AnimistPower"),

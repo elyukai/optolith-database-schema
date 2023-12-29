@@ -41,7 +41,7 @@ export type GuidelineTranslation = {
   name: NonEmptyString
 }
 
-export const config: TypeConfig<Guideline> = {
+export const config: TypeConfig<Guideline, Guideline["id"], "Guideline"> = {
   name: "Guideline",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Guideline"),

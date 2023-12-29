@@ -58,7 +58,7 @@ export type SexPracticeTranslation = {
   failed: NonEmptyString
 }
 
-export const config: TypeConfig<SexPractice> = {
+export const config: TypeConfig<SexPractice, SexPractice["id"], "SexPractice"> = {
   name: "SexPractice",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("SexPractice"),

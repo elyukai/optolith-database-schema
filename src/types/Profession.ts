@@ -723,7 +723,7 @@ export type ProfessionName =
     female: NonEmptyString
   }
 
-export const config: TypeConfig<Profession> = {
+export const config: TypeConfig<Profession, Profession["id"], "Profession"> = {
   name: "Profession",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Profession"),

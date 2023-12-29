@@ -2,7 +2,7 @@ import type AjvModule from "ajv"
 import { readdir } from "node:fs/promises"
 import { join } from "node:path"
 import { jsonSchemaDir, jsonSchemaSpec } from "../config/build.js"
-import { TypeId, TypeMap, configMap } from "../config/types.js"
+import { TypeId, TypeMap, TypeName, configMap } from "../config/types.js"
 import "../helpers/array.js"
 import { collator } from "../helpers/i18n.js"
 import { isHiddenFileName, readYamlFile } from "../helpers/io.js"
@@ -43,7 +43,7 @@ const getFiles = async (path: string): Promise<[path: string, data: unknown][]> 
 
 const validateStructuralIntegrityOfFiles = <K extends keyof TypeMap>(
   validator: Ajv,
-  typeConfig: TypeConfig<TypeMap[K], TypeId<K>>,
+  typeConfig: TypeConfig<TypeMap[K], TypeId<K>, TypeName<keyof TypeMap>>,
   validateFileName: FileNameValidator,
   files: [path: string, data: unknown][],
 ): [path: string, result: TypeValidationResult<K>][] =>
@@ -64,7 +64,7 @@ const validateStructuralIntegrityOfFiles = <K extends keyof TypeMap>(
 
 const validateSemanticAndReferencialIntegrityOfFiles = <K extends keyof TypeMap>(
   validators: IntegrityValidators,
-  typeConfig: TypeConfig<TypeMap[K], TypeId<K>>,
+  typeConfig: TypeConfig<TypeMap[K], TypeId<K>, TypeName<keyof TypeMap>>,
   results: [filePath: string, result: TypeValidationResult<K>][]
 ): [filePath: string, result: TypeValidationResult<K>][] =>
   results.map(mapSecond((res, path) =>
@@ -96,7 +96,7 @@ export const getRawValidationResults = async (
 
         return validateStructuralIntegrityOfFiles(
           validator,
-          configMap[typeName] as TypeConfig<TypeMap[keyof TypeMap], TypeId<keyof TypeMap>>,
+          configMap[typeName] as TypeConfig<TypeMap[keyof TypeMap], TypeId<keyof TypeMap>, TypeName<keyof TypeMap>>,
           configMap[typeName].fileNameValidator,
           files
         )
@@ -120,7 +120,7 @@ export const getRawValidationResults = async (
     return structuralIntegrityResults.map(mapSecond((results, typeName) =>
       validateSemanticAndReferencialIntegrityOfFiles(
         { identity: identityIntegrityValidators },
-        configMap[typeName] as TypeConfig<TypeMap[keyof TypeMap], TypeId<keyof TypeMap>>,
+        configMap[typeName] as TypeConfig<TypeMap[keyof TypeMap], TypeId<keyof TypeMap>, TypeName<keyof TypeMap>>,
         results
       )
     ))
