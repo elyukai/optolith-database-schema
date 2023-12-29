@@ -20,8 +20,9 @@ import { PublicationRefs } from "../source/_PublicationRef.js"
 export type CoreRule = {
   /**
    * The core rule's identifier. An unique, increasing integer.
+   * @integer
    */
-  id: CoreRuleIdentifier
+  id: number
 
   /**
    * @minItems 1

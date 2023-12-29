@@ -17,7 +17,7 @@ Key | Description | Details
 
 The core rule's identifier. An unique, increasing integer.
 
-- **Type:** <a href="../_Identifier.md#CoreRuleIdentifier">CoreRuleIdentifier</a>
+- **Type:** Integer
 
 #### <a name="CoreRule/content"></a> `content`
 
