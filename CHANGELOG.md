@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.15.1](https://github.com/elyukai/optolith-database-schema/compare/v0.15.0...v0.15.1) (2024-01-06)
+
+
+### Features
+
+* group abbreviated and full adventure points translations with and without preceding value ([b0e0bdd](https://github.com/elyukai/optolith-database-schema/commit/b0e0bddf32326bd3529f7ed15e7a416ba6da21ea))
+
 ## [0.15.0](https://github.com/elyukai/optolith-database-schema/compare/v0.14.0...v0.15.0) (2023-12-29)
 
 
