@@ -95,6 +95,9 @@ Key | Description | Details
 `Show Settings` |  | <a href="#UI/Show Settings">See details</a>
 `Toggle DevTools` |  | <a href="#UI/Toggle DevTools">See details</a>
 `Adventure Points` |  | <a href="#UI/Adventure Points">See details</a>
+`AP` |  | <a href="#UI/AP">See details</a>
+`{0} Adventure Points` | - `0`: AP value | <a href="#UI/{0} Adventure Points">See details</a>
+`{0} AP` | - `0`: AP value | <a href="#UI/{0} AP">See details</a>
 `{0} Total AP` | - `0`: AP Total | <a href="#UI/{0} Total AP">See details</a>
 `{0} AP Spent` | - `0`: AP Spent | <a href="#UI/{0} AP Spent">See details</a>
 `{0}/{1} AP spent on advantages` | - `0`: Current AP spent on advantages - `1`: Maximum possible AP spent on advantages | <a href="#UI/{0}/{1} AP spent on advantages">See details</a>
@@ -133,8 +136,6 @@ Key | Description | Details
 `general.emptylistplaceholder` |  | <a href="#UI/general.emptylistplaceholder">See details</a>
 `general.emptylistnoresultsplaceholder` |  | <a href="#UI/general.emptylistnoresultsplaceholder">See details</a>
 `No Results` |  | <a href="#UI/No Results">See details</a>
-`{0} Adventure Points` | - `0`: AP value | <a href="#UI/{0} Adventure Points">See details</a>
-`{0} AP` | - `0`: AP value | <a href="#UI/{0} AP">See details</a>
 `general.withapvalue` | - `0`: Name of element - `1`: AP value | <a href="#UI/general.withapvalue">See details</a>
 `Search` |  | <a href="#UI/Search">See details</a>
 `Sort By` |  | <a href="#UI/Sort By">See details</a>
@@ -1253,6 +1254,22 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
+#### <a name="UI/AP"></a> `AP`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} Adventure Points"></a> `{0} Adventure Points`
+
+- `0`: AP value
+
+- **Type:** <a href="./_I18n.md#PluralizationCategories">PluralizationCategories</a>
+
+#### <a name="UI/{0} AP"></a> `{0} AP`
+
+- `0`: AP value
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
 #### <a name="UI/{0} Total AP"></a> `{0} Total AP`
 
 - `0`: AP Total
@@ -1452,18 +1469,6 @@ Key | Description | Details
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/No Results"></a> `No Results`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/{0} Adventure Points"></a> `{0} Adventure Points`
-
-- `0`: AP value
-
-- **Type:** <a href="./_I18n.md#PluralizationCategories">PluralizationCategories</a>
-
-#### <a name="UI/{0} AP"></a> `{0} AP`
-
-- `0`: AP value
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 

@@ -277,6 +277,17 @@
         "Adventure Points": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
+        "AP": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} Adventure Points": {
+          "description": "- `0`: AP value",
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "{0} AP": {
+          "description": "- `0`: AP value",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
         "{0} Total AP": {
           "description": "- `0`: AP Total",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
@@ -411,14 +422,6 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "No Results": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "{0} Adventure Points": {
-          "description": "- `0`: AP value",
-          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
-        },
-        "{0} AP": {
-          "description": "- `0`: AP value",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.withapvalue": {
@@ -2835,6 +2838,9 @@
         "Show Settings",
         "Toggle DevTools",
         "Adventure Points",
+        "AP",
+        "{0} Adventure Points",
+        "{0} AP",
         "{0} Total AP",
         "{0} AP Spent",
         "{0}/{1} AP spent on advantages",
@@ -2873,8 +2879,6 @@
         "general.emptylistplaceholder",
         "general.emptylistnoresultsplaceholder",
         "No Results",
-        "{0} Adventure Points",
-        "{0} AP",
         "general.withapvalue",
         "Search",
         "Sort By",

@@ -117,6 +117,16 @@ export type UI = {
   "Toggle DevTools": NonEmptyString
 
   "Adventure Points": NonEmptyString
+  "AP": NonEmptyString
+  /**
+   * - `0`: AP value
+   */
+  "{0} Adventure Points": PluralizationCategories
+  /**
+   * - `0`: AP value
+   */
+  "{0} AP": NonEmptyString
+
   /**
    * - `0`: AP Total
    */
@@ -228,14 +238,6 @@ export type UI = {
   "general.emptylistplaceholder": NonEmptyString
   "general.emptylistnoresultsplaceholder": NonEmptyString
   "No Results": NonEmptyString
-  /**
-   * - `0`: AP value
-   */
-  "{0} Adventure Points": PluralizationCategories
-  /**
-   * - `0`: AP value
-   */
-  "{0} AP": NonEmptyString
   /**
    * - `0`: Name of element
    * - `1`: AP value
