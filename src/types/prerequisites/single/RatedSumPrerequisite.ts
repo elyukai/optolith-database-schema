@@ -1,4 +1,4 @@
-import { SkillIdentifier } from "../../_IdentifierGroup.js"
+import { SkillIdentifier } from "../../_Identifier.js"
 import { DisplayOption } from "../DisplayOption.js"
 
 /**
