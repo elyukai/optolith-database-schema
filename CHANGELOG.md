@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.15.2](https://github.com/elyukai/optolith-database-schema/compare/v0.15.1...v0.15.2) (2024-01-08)
+
+
+### Bug Fixes
+
+* rated sum targets should only be skill identifiers ([7247292](https://github.com/elyukai/optolith-database-schema/commit/7247292c9e8f47bca7d0e96e139b77eeeaa6a08a))
+
 ### [0.15.1](https://github.com/elyukai/optolith-database-schema/compare/v0.15.0...v0.15.1) (2024-01-06)
 
 
