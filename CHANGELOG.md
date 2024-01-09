@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.15.3](https://github.com/elyukai/optolith-database-schema/compare/v0.15.2...v0.15.3) (2024-01-09)
+
+
+### Features
+
+* **cache:** add ancestor blood advantages list as cache ([8f06497](https://github.com/elyukai/optolith-database-schema/commit/8f0649704670264a10acd4985311345b8f80c45a))
+
 ### [0.15.2](https://github.com/elyukai/optolith-database-schema/compare/v0.15.1...v0.15.2) (2024-01-08)
 
 
