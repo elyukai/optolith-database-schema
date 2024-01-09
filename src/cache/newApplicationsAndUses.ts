@@ -32,7 +32,7 @@ export const config: CacheConfig<NewApplicationsAndUsesCache> = {
 
     const addNewApplicationsAndUses = (
       activatable: WithApplicationsAndUses,
-      activatableId: ActivatableIdentifier,
+      activatableId: ActivatableIdentifier
     ) => {
       if (activatable.skill_applications) {
         for (const newApplication of activatable.skill_applications) {
@@ -68,6 +68,7 @@ export const config: CacheConfig<NewApplicationsAndUsesCache> = {
       }
     }
 
+    // prettier-ignore
     const entries: [
       [id: number, data: WithApplicationsAndUses][],
       (numericId: number) => ActivatableIdentifier,
@@ -97,5 +98,5 @@ export const config: CacheConfig<NewApplicationsAndUsesCache> = {
     })
 
     return cache
-  }
+  },
 }
