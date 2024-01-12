@@ -101,6 +101,9 @@
           "$ref": "./_Identifier.schema.json#/$defs/SikaryanDrainSpecialAbilityIdentifier"
         },
         {
+          "$ref": "./_Identifier.schema.json#/$defs/VampiricGiftIdentifier"
+        },
+        {
           "$ref": "./_Identifier.schema.json#/$defs/LycantropicGiftIdentifier"
         },
         {

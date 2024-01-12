@@ -471,6 +471,17 @@ export type PactGiftIdentifier = {
   pact_gift: number
 }
 
+export type VampiricGiftIdentifier = {
+  tag: "VampiricGift"
+
+  /**
+   * The vampiric gift’s identifier.
+   * @integer
+   * @minimum 1
+   */
+  vampiric_gift: number
+}
+
 export type SikaryanDrainSpecialAbilityIdentifier = {
   tag: "SikaryanDrainSpecialAbility"
 

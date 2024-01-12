@@ -948,6 +948,28 @@ The pact gift’s identifier.
 
 ---
 
+### <a name="VampiricGiftIdentifier"></a> `VampiricGiftIdentifier`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#VampiricGiftIdentifier/tag">See details</a>
+`vampiric_gift` | The vampiric gift’s identifier. | <a href="#VampiricGiftIdentifier/vampiric_gift">See details</a>
+
+#### <a name="VampiricGiftIdentifier/tag"></a> `tag`
+
+- **Constant:** `"VampiricGift"`
+
+#### <a name="VampiricGiftIdentifier/vampiric_gift"></a> `vampiric_gift`
+
+The vampiric gift’s identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
 ### <a name="SikaryanDrainSpecialAbilityIdentifier"></a> `SikaryanDrainSpecialAbilityIdentifier`
 
 - **Type:** Object

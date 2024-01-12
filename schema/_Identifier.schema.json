@@ -776,6 +776,24 @@
       ],
       "additionalProperties": false
     },
+    "VampiricGiftIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "VampiricGift"
+        },
+        "vampiric_gift": {
+          "description": "The vampiric gift’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "vampiric_gift"
+      ],
+      "additionalProperties": false
+    },
     "SikaryanDrainSpecialAbilityIdentifier": {
       "type": "object",
       "properties": {

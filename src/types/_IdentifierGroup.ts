@@ -33,6 +33,7 @@ export type ActivatableIdentifier =
   | Identifier.BlessedTraditionIdentifier
   | Identifier.PactGiftIdentifier
   | Identifier.SikaryanDrainSpecialAbilityIdentifier
+  | Identifier.VampiricGiftIdentifier
   | Identifier.LycantropicGiftIdentifier
   | Identifier.SkillStyleSpecialAbilityIdentifier
   | Identifier.AdvancedSkillSpecialAbilityIdentifier
