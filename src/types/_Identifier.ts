@@ -1488,17 +1488,6 @@ export type SexPracticeIdentifier = {
   sex_practice: number
 }
 
-export type GenericIdentifier = {
-  tag: "Generic"
-
-  /**
-   * The generic entry‘s identifier.
-   * @integer
-   * @minimum 1
-   */
-  generic: number
-}
-
 export type TradeSecretIdentifier = {
   tag: "TradeSecret"
 

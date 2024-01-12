@@ -1015,7 +1015,7 @@ const getExplicitSelectOptions = (
       switch (explicitSelectOption.tag) {
         case "General":
           return {
-            id: { tag: "Generic", generic: explicitSelectOption.general.id },
+            id: { tag: "General", general: explicitSelectOption.general.id },
             translations: explicitSelectOption.general.translations,
           }
         case "Skill": {

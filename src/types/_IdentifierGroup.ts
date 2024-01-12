@@ -170,7 +170,7 @@ export type MagicalActionIdentifier =
   | Identifier.ZibiljaRitualIdentifier
 
 export type SelectOptionIdentifier =
-  | Identifier.GenericIdentifier
+  | Identifier.GeneralIdentifier
   | Identifier.BlessingIdentifier
   | Identifier.CantripIdentifier
   | Identifier.TradeSecretIdentifier
