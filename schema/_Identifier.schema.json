@@ -2398,6 +2398,132 @@
         "state"
       ],
       "additionalProperties": false
+    },
+    "DiseaseIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Disease"
+        },
+        "disease": {
+          "description": "The disease’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "disease"
+      ],
+      "additionalProperties": false
+    },
+    "SexPracticeIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "SexPractice"
+        },
+        "sex_practice": {
+          "description": "The sex practice’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "sex_practice"
+      ],
+      "additionalProperties": false
+    },
+    "GenericIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Generic"
+        },
+        "generic": {
+          "description": "The generic entry‘s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "generic"
+      ],
+      "additionalProperties": false
+    },
+    "TradeSecretIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "TradeSecret"
+        },
+        "trade_secret": {
+          "description": "The trade secret‘s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "trade_secret"
+      ],
+      "additionalProperties": false
+    },
+    "AnimalShapeIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "AnimalShape"
+        },
+        "animal_shape": {
+          "description": "The animal shape‘s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "animal_shape"
+      ],
+      "additionalProperties": false
+    },
+    "ArcaneBardTraditionIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "ArcaneBardTradition"
+        },
+        "arcane_bard_tradition": {
+          "description": "The arcane bard tradition‘s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "arcane_bard_tradition"
+      ],
+      "additionalProperties": false
+    },
+    "ArcaneDancerTraditionIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "ArcaneDancerTradition"
+        },
+        "arcane_dancer_tradition": {
+          "description": "The arcane dancer tradition‘s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "arcane_dancer_tradition"
+      ],
+      "additionalProperties": false
     }
   }
 }

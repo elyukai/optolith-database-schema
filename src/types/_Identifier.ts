@@ -1022,7 +1022,7 @@ export type PatronIdentifier = {
    * @integer
    * @minimum 1
    */
-   patron: number
+  patron: number
 }
 
 export type AmmunitionIdentifier = {
@@ -1464,4 +1464,81 @@ export type StateIdentifier = {
    * @minimum 1
    */
   state: number
+}
+
+export type DiseaseIdentifier = {
+  tag: "Disease"
+
+  /**
+   * The disease’s identifier.
+   * @integer
+   * @minimum 1
+   */
+  disease: number
+}
+
+export type SexPracticeIdentifier = {
+  tag: "SexPractice"
+
+  /**
+   * The sex practice’s identifier.
+   * @integer
+   * @minimum 1
+   */
+  sex_practice: number
+}
+
+export type GenericIdentifier = {
+  tag: "Generic"
+
+  /**
+   * The generic entry‘s identifier.
+   * @integer
+   * @minimum 1
+   */
+  generic: number
+}
+
+export type TradeSecretIdentifier = {
+  tag: "TradeSecret"
+
+  /**
+   * The trade secret‘s identifier.
+   * @integer
+   * @minimum 1
+   */
+  trade_secret: number
+}
+
+export type AnimalShapeIdentifier = {
+  tag: "AnimalShape"
+
+  /**
+   * The animal shape‘s identifier.
+   * @integer
+   * @minimum 1
+   */
+  animal_shape: number
+}
+
+export type ArcaneBardTraditionIdentifier = {
+  tag: "ArcaneBardTradition"
+
+  /**
+   * The arcane bard tradition‘s identifier.
+   * @integer
+   * @minimum 1
+   */
+  arcane_bard_tradition: number
+}
+
+export type ArcaneDancerTraditionIdentifier = {
+  tag: "ArcaneDancerTradition"
+
+  /**
+   * The arcane dancer tradition‘s identifier.
+   * @integer
+   * @minimum 1
+   */
+  arcane_dancer_tradition: number
 }

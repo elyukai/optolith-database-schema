@@ -169,11 +169,47 @@ export type MagicalActionIdentifier =
   | Identifier.GeodeRitualIdentifier
   | Identifier.ZibiljaRitualIdentifier
 
+export type SelectOptionIdentifier =
+  | Identifier.GenericIdentifier
+  | Identifier.BlessingIdentifier
+  | Identifier.CantripIdentifier
+  | Identifier.TradeSecretIdentifier
+  | Identifier.ScriptIdentifier
+  | Identifier.AnimalShapeIdentifier
+  | Identifier.ArcaneBardTraditionIdentifier
+  | Identifier.ArcaneDancerTraditionIdentifier
+  | Identifier.SexPracticeIdentifier
+  | Identifier.RaceIdentifier
+  | Identifier.CultureIdentifier
+  | Identifier.BlessedTraditionIdentifier
+  | Identifier.ElementIdentifier
+  | Identifier.PropertyIdentifier
+  | Identifier.AspectIdentifier
+  | Identifier.DiseaseIdentifier
+  | Identifier.PoisonIdentifier
+  | Identifier.LanguageIdentifier
+  | Identifier.SkillIdentifier
+  | Identifier.CloseCombatTechniqueIdentifier
+  | Identifier.RangedCombatTechniqueIdentifier
+  | Identifier.LiturgicalChantIdentifier
+  | Identifier.CeremonyIdentifier
+  | Identifier.SpellIdentifier
+  | Identifier.RitualIdentifier
+  | Identifier.TargetCategoryIdentifier
+
 export type RequirableSelectOptionIdentifier =
   | Identifier.GeneralIdentifier
   | Identifier.SkillIdentifier
   | Identifier.CloseCombatTechniqueIdentifier
   | Identifier.RangedCombatTechniqueIdentifier
+  | Identifier.PropertyIdentifier
+  | Identifier.AspectIdentifier
+  | Identifier.LanguageIdentifier
+  | Identifier.AnimalShapeIdentifier
+  | Identifier.LiturgicalChantIdentifier
+  | Identifier.CeremonyIdentifier
+  | Identifier.SpellIdentifier
+  | Identifier.RitualIdentifier
 
 export type CoreRuleDerivableContentIdentifier =
   | Identifier.MagicalTraditionIdentifier

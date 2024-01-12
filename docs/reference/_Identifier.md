@@ -2929,3 +2929,157 @@ The state’s identifier.
 
 - **Type:** Integer
 - **Minimum:** `1`
+
+---
+
+### <a name="DiseaseIdentifier"></a> `DiseaseIdentifier`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#DiseaseIdentifier/tag">See details</a>
+`disease` | The disease’s identifier. | <a href="#DiseaseIdentifier/disease">See details</a>
+
+#### <a name="DiseaseIdentifier/tag"></a> `tag`
+
+- **Constant:** `"Disease"`
+
+#### <a name="DiseaseIdentifier/disease"></a> `disease`
+
+The disease’s identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="SexPracticeIdentifier"></a> `SexPracticeIdentifier`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#SexPracticeIdentifier/tag">See details</a>
+`sex_practice` | The sex practice’s identifier. | <a href="#SexPracticeIdentifier/sex_practice">See details</a>
+
+#### <a name="SexPracticeIdentifier/tag"></a> `tag`
+
+- **Constant:** `"SexPractice"`
+
+#### <a name="SexPracticeIdentifier/sex_practice"></a> `sex_practice`
+
+The sex practice’s identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="GenericIdentifier"></a> `GenericIdentifier`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#GenericIdentifier/tag">See details</a>
+`generic` | The generic entry‘s identifier. | <a href="#GenericIdentifier/generic">See details</a>
+
+#### <a name="GenericIdentifier/tag"></a> `tag`
+
+- **Constant:** `"Generic"`
+
+#### <a name="GenericIdentifier/generic"></a> `generic`
+
+The generic entry‘s identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="TradeSecretIdentifier"></a> `TradeSecretIdentifier`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#TradeSecretIdentifier/tag">See details</a>
+`trade_secret` | The trade secret‘s identifier. | <a href="#TradeSecretIdentifier/trade_secret">See details</a>
+
+#### <a name="TradeSecretIdentifier/tag"></a> `tag`
+
+- **Constant:** `"TradeSecret"`
+
+#### <a name="TradeSecretIdentifier/trade_secret"></a> `trade_secret`
+
+The trade secret‘s identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="AnimalShapeIdentifier"></a> `AnimalShapeIdentifier`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#AnimalShapeIdentifier/tag">See details</a>
+`animal_shape` | The animal shape‘s identifier. | <a href="#AnimalShapeIdentifier/animal_shape">See details</a>
+
+#### <a name="AnimalShapeIdentifier/tag"></a> `tag`
+
+- **Constant:** `"AnimalShape"`
+
+#### <a name="AnimalShapeIdentifier/animal_shape"></a> `animal_shape`
+
+The animal shape‘s identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="ArcaneBardTraditionIdentifier"></a> `ArcaneBardTraditionIdentifier`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ArcaneBardTraditionIdentifier/tag">See details</a>
+`arcane_bard_tradition` | The arcane bard tradition‘s identifier. | <a href="#ArcaneBardTraditionIdentifier/arcane_bard_tradition">See details</a>
+
+#### <a name="ArcaneBardTraditionIdentifier/tag"></a> `tag`
+
+- **Constant:** `"ArcaneBardTradition"`
+
+#### <a name="ArcaneBardTraditionIdentifier/arcane_bard_tradition"></a> `arcane_bard_tradition`
+
+The arcane bard tradition‘s identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="ArcaneDancerTraditionIdentifier"></a> `ArcaneDancerTraditionIdentifier`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#ArcaneDancerTraditionIdentifier/tag">See details</a>
+`arcane_dancer_tradition` | The arcane dancer tradition‘s identifier. | <a href="#ArcaneDancerTraditionIdentifier/arcane_dancer_tradition">See details</a>
+
+#### <a name="ArcaneDancerTraditionIdentifier/tag"></a> `tag`
+
+- **Constant:** `"ArcaneDancerTradition"`
+
+#### <a name="ArcaneDancerTraditionIdentifier/arcane_dancer_tradition"></a> `arcane_dancer_tradition`
+
+The arcane dancer tradition‘s identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`

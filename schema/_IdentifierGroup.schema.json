@@ -481,6 +481,88 @@
         }
       ]
     },
+    "SelectOptionIdentifier": {
+      "oneOf": [
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/GenericIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/BlessingIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/CantripIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/TradeSecretIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/ScriptIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/AnimalShapeIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/ArcaneBardTraditionIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/ArcaneDancerTraditionIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/SexPracticeIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/RaceIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/CultureIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/BlessedTraditionIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/ElementIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/PropertyIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/AspectIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/DiseaseIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/PoisonIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/LanguageIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/SkillIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/CloseCombatTechniqueIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/RangedCombatTechniqueIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/LiturgicalChantIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/CeremonyIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/SpellIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/RitualIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/TargetCategoryIdentifier"
+        }
+      ]
+    },
     "RequirableSelectOptionIdentifier": {
       "oneOf": [
         {
@@ -494,6 +576,30 @@
         },
         {
           "$ref": "./_Identifier.schema.json#/$defs/RangedCombatTechniqueIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/PropertyIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/AspectIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/LanguageIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/AnimalShapeIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/LiturgicalChantIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/CeremonyIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/SpellIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/RitualIdentifier"
         }
       ]
     },
