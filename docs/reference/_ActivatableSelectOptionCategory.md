@@ -691,7 +691,7 @@ A list of skill categories.
 
 Generate AP values for each entry.
 
-- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>&lt;<a href="./_IdentifierGroup.md#SkillIdentifier">SkillIdentifier</a>&gt;
+- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>&lt;<a href="./_IdentifierGroup.md#SkillIdentifier">SkillIdentifierGroup</a>&gt;
 
 ---
 
@@ -829,7 +829,7 @@ Only include entries of the specified groups.
 Only include (`Intersection`) or exclude (`Difference`) specific
 skills.
 
-- **Type:** <a href="#SpecificFromSkillSelectOptionCategoryCategory">SpecificFromSkillSelectOptionCategoryCategory</a>&lt;<a href="./_IdentifierGroup.md#SkillIdentifier">SkillIdentifier</a>&gt;
+- **Type:** <a href="#SpecificFromSkillSelectOptionCategoryCategory">SpecificFromSkillSelectOptionCategoryCategory</a>&lt;<a href="./_SimpleReferences.md#SkillReference">SkillReference</a>&gt;
 
 #### <a name="SkillSelectOptionCategoryCategory/skill_applications"></a> `skill_applications?`
 
@@ -867,7 +867,7 @@ Generate prerequisites for each entry of the category.
 
 Generate AP values for each entry.
 
-- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>&lt;<a href="./_IdentifierGroup.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>&gt;
+- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>&lt;<a href="./_Identifier.md#SkillIdentifier">SkillIdentifier</a>&gt;
 
 ---
 

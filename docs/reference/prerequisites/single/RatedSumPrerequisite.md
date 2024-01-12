@@ -35,4 +35,4 @@ The targets that are included in calculating the sum.
 
 ### <a name="RatedSumPrerequisite/targets[]"></a> `RatedSumPrerequisite/targets[]`
 
-- **Type:** <a href="../../_IdentifierGroup.md#SkillIdentifier">SkillIdentifier</a>
+- **Type:** <a href="../../_Identifier.md#SkillIdentifier">SkillIdentifier</a>

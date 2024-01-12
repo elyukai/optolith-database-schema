@@ -15,7 +15,7 @@
           "description": "The targets that are included in calculating the sum.",
           "type": "array",
           "items": {
-            "$ref": "../../_IdentifierGroup.schema.json#/$defs/SkillIdentifier"
+            "$ref": "../../_Identifier.schema.json#/$defs/SkillIdentifier"
           },
           "minItems": 2
         },

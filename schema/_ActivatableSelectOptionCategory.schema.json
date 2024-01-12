@@ -832,7 +832,7 @@
               "description": "The list of specific entries.",
               "type": "array",
               "items": {
-                "$ref": "./_IdentifierGroup.schema.json#/$defs/SkillIdentifier"
+                "$ref": "./_SimpleReferences.schema.json#/$defs/SkillReference"
               },
               "minItems": 1,
               "uniqueItems": true
@@ -903,7 +903,7 @@
                         "type": "object",
                         "properties": {
                           "id": {
-                            "$ref": "./_IdentifierGroup.schema.json#/$defs/CombatTechniqueIdentifier"
+                            "$ref": "./_Identifier.schema.json#/$defs/SkillIdentifier"
                           },
                           "ap_value": {
                             "description": "The AP value for the specified entry.",

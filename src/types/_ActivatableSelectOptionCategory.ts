@@ -1,7 +1,7 @@
-import { TargetCategoryIdentifier } from "./_Identifier.js"
-import { ActivatableIdentifier, CombatTechniqueIdentifier, SkillIdentifier } from "./_IdentifierGroup.js"
+import { SkillIdentifier, TargetCategoryIdentifier } from "./_Identifier.js"
+import { ActivatableIdentifier, CombatTechniqueIdentifier, SkillIdentifier as SkillIdentifierGroup } from "./_IdentifierGroup.js"
 import { LocaleMap } from "./_LocaleMap.js"
-import { CeremonyReference, CloseCombatTechniqueReference, ElementReference, LiturgicalChantReference, RangedCombatTechniqueReference, RitualReference, SkillGroupReference, SpellReference } from "./_SimpleReferences.js"
+import { CeremonyReference, CloseCombatTechniqueReference, ElementReference, LiturgicalChantReference, RangedCombatTechniqueReference, RitualReference, SkillGroupReference, SkillReference, SpellReference } from "./_SimpleReferences.js"
 
 export type SelectOptionCategory =
   | { tag: "Blessings"; blessings: {} }
@@ -127,7 +127,7 @@ export type SkillsSelectOptionCategory = {
   /**
    * Generate AP values for each entry.
    */
-  ap_value?: AdventurePointsValue<SkillIdentifier>
+  ap_value?: AdventurePointsValue<SkillIdentifierGroup>
 }
 
 export type SkillsSelectOptionCategoryCategory =
@@ -148,7 +148,7 @@ export type SkillSelectOptionCategoryCategory = {
    * Only include (`Intersection`) or exclude (`Difference`) specific
    * skills.
    */
-  specific?: SpecificFromSkillSelectOptionCategoryCategory<SkillIdentifier>
+  specific?: SpecificFromSkillSelectOptionCategoryCategory<SkillReference>
 
   /**
    * Registers new applications, which get enabled once this entry is
@@ -179,7 +179,7 @@ export type SkillSelectOptionCategoryCategory = {
   /**
    * Generate AP values for each entry.
    */
-  ap_value?: AdventurePointsValue<CombatTechniqueIdentifier>
+  ap_value?: AdventurePointsValue<SkillIdentifier>
 }
 
 export type CombatTechniquesSelectOptionCategory = {
