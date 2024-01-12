@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.16.0](https://github.com/elyukai/optolith-database-schema/compare/v0.15.5...v0.16.0) (2024-01-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove GenericIdentifier in favor of GeneralIdentifier
+
+### Bug Fixes
+
+* remove GenericIdentifier in favor of GeneralIdentifier ([aea4586](https://github.com/elyukai/optolith-database-schema/commit/aea4586074ff4d4a1e7441e0149b3671bbb3de00))
+
 ### [0.15.5](https://github.com/elyukai/optolith-database-schema/compare/v0.15.4...v0.15.5) (2024-01-12)
 
 ### [0.15.4](https://github.com/elyukai/optolith-database-schema/compare/v0.15.3...v0.15.4) (2024-01-12)
