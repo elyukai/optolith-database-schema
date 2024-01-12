@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.15.4](https://github.com/elyukai/optolith-database-schema/compare/v0.15.3...v0.15.4) (2024-01-12)
+
+
+### Features
+
+* add possible and requirable select option identifiers ([0ee088a](https://github.com/elyukai/optolith-database-schema/commit/0ee088a01b98e2f8828303d43f40ac8143db1eac))
+* add pre-generated select options for activatable entries as cache ([3fdcaf2](https://github.com/elyukai/optolith-database-schema/commit/3fdcaf2a95623e751993c1e696f2b269acbc7594))
+
+
+### Bug Fixes
+
+* add missing vampiric gift identifier to activatable identifier group ([98316b6](https://github.com/elyukai/optolith-database-schema/commit/98316b63a9b9e7dd00939d596621a3b5782e2d2e))
+* wrong identifier references in select option config ([a70a7ea](https://github.com/elyukai/optolith-database-schema/commit/a70a7ea4a02ecbcb5167ab13b1e3a1d75c327e3f))
+
 ### [0.15.3](https://github.com/elyukai/optolith-database-schema/compare/v0.15.2...v0.15.3) (2024-01-09)
 
 
