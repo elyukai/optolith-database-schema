@@ -1,7 +1,6 @@
 import type { Options as AjvOptions } from "ajv"
 import { mkdir, readFile, writeFile } from "node:fs/promises"
 import { dirname } from "node:path"
-import { CacheConfig } from "./cacheConfig.js"
 import { CacheMap, cacheMap } from "./config/cache.js"
 import { TypeId, TypeMap } from "./config/types.js"
 import "./helpers/array.js"
@@ -10,7 +9,12 @@ import { Ok, Result, error, isError, isOk, ok } from "./helpers/result.js"
 import { IntegrityError } from "./validation/builders/integrity.js"
 import { FileNameError } from "./validation/builders/naming.js"
 import { SchemaError } from "./validation/builders/schema.js"
-import { TypeIdPair, TypeValidationResult, TypeValidationResultsByType, getRawValidationResults } from "./validation/raw.js"
+import {
+  TypeIdPair,
+  TypeValidationResult,
+  TypeValidationResultsByType,
+  getRawValidationResults,
+} from "./validation/raw.js"
 
 /**
  * Options for validating data files.
@@ -61,41 +65,40 @@ type StrictResults = Result<ValidResults, Record<string, TypeValidationError[]>>
 const rawResultMapToResult = (rawResultMap: TypeValidationResultsByType): StrictResults =>
   rawResultMap.reduce<StrictResults>(
     (result: StrictResults, [typeName, typeResults]) =>
-      typeResults.reduce<StrictResults>(
-        (outerResult, [filePath, fileResult]): StrictResults => {
-          if (isOk(outerResult) && isOk(fileResult)) {
-            return ok({
-              ...outerResult.value,
-              [typeName]: [...(outerResult.value[typeName] ?? []), fileResult.value]
-            })
-          }
-          else if (isOk(outerResult) && isError(fileResult)) {
-            return error({
-              [filePath]: fileResult.error
-            })
-          }
-          else if (isError(outerResult) && isError(fileResult)) {
-            return error({
-              ...outerResult.error,
-              [filePath]: fileResult.error
-            })
-          }
-          else {
-            return outerResult
-          }
-        },
-        result
-      ),
+      typeResults.reduce<StrictResults>((outerResult, [filePath, fileResult]): StrictResults => {
+        if (isOk(outerResult) && isOk(fileResult)) {
+          return ok({
+            ...outerResult.value,
+            [typeName]: [...(outerResult.value[typeName] ?? []), fileResult.value],
+          })
+        } else if (isOk(outerResult) && isError(fileResult)) {
+          return error({
+            [filePath]: fileResult.error,
+          })
+        } else if (isError(outerResult) && isError(fileResult)) {
+          return error({
+            ...outerResult.error,
+            [filePath]: fileResult.error,
+          })
+        } else {
+          return outerResult
+        }
+      }, result),
     ok({}) as StrictResults
   )
 
 const filterResultMapByValidData = (rawResultMap: TypeValidationResultsByType): ValidResults =>
   rawResultMap
-    .map(mapSecond((typeResults): [id: TypeId<keyof TypeMap>, data: TypeMap[keyof TypeMap]][] =>
-      typeResults
-        .filter((typeResult): typeResult is [filePath: string, result: Ok<TypeIdPair<keyof TypeMap>>] => Result.isOk(typeResult[1]))
-        .map(fileResult => fileResult[1].value)
-    ))
+    .map(
+      mapSecond((typeResults): [id: TypeId<keyof TypeMap>, data: TypeMap[keyof TypeMap]][] =>
+        typeResults
+          .filter(
+            (typeResult): typeResult is [filePath: string, result: Ok<TypeIdPair<keyof TypeMap>>] =>
+              Result.isOk(typeResult[1])
+          )
+          .map(fileResult => fileResult[1].value)
+      )
+    )
     .objectFromEntries() as ValidResults
 
 /**
@@ -166,13 +169,33 @@ export type CacheOptions = {
  * `getAllValidData`.
  * @param options Configuration options for building the cache.
  */
-export const buildCache = async (cachePaths: CachePaths, validResults: ValidResults, options: CacheOptions = {}): Promise<void> => {
+export const buildCache = async (
+  cachePaths: CachePaths,
+  validResults: ValidResults,
+  options: CacheOptions = {}
+): Promise<void> => {
   const { pretty = false } = options
+
+  const activatableSelectOptionsCache = cacheMap.activatableSelectOptions.builder(validResults)
+  const ancestorBloodAdvantagesCache = cacheMap.ancestorBloodAdvantages.builder(validResults)
+  const newApplicationsAndUsesCache = cacheMap.newApplicationsAndUses.builder(
+    validResults,
+    activatableSelectOptionsCache
+  )
+
+  const cacheData: CacheMap = {
+    activatableSelectOptions: activatableSelectOptionsCache,
+    ancestorBloodAdvantages: ancestorBloodAdvantagesCache,
+    newApplicationsAndUses: newApplicationsAndUsesCache,
+  }
+
   for (const [cacheName, cachePath] of Object.entries(cachePaths)) {
-    const cacheConfig: CacheConfig<unknown> = cacheMap[cacheName as keyof CacheMap]
-    const cacheData = cacheConfig.builder(validResults)
     await mkdir(dirname(cachePath), { recursive: true })
-    await writeFile(cachePath, JSON.stringify(cacheData, null, pretty ? 2 : undefined), "utf-8")
+    await writeFile(
+      cachePath,
+      JSON.stringify(cacheData[cacheName as keyof CachePaths], null, pretty ? 2 : undefined),
+      "utf-8"
+    )
   }
 }
 
@@ -184,7 +207,6 @@ export const buildCache = async (cachePaths: CachePaths, validResults: ValidResu
 export const getCache = async (cachePaths: CachePaths): Promise<CacheMap> => {
   const cache: Partial<CacheMap> = {}
   for (const [cacheName, cachePath] of Object.entries(cachePaths)) {
-    const cacheConfig: CacheConfig<unknown> = cacheMap[cacheName as keyof CacheMap]
     const cacheData = JSON.parse(await readFile(cachePath, "utf-8"))
     cache[cacheName as keyof CacheMap] = cacheData
   }

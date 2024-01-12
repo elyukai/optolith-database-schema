@@ -1,5 +1,5 @@
 import { ValidResults } from "./main.js"
 
-export type CacheConfig<T> = {
-  builder: (data: ValidResults) => T
+export type CacheConfig<T, D extends unknown[] = []> = {
+  builder: (data: ValidResults, ...deps: D) => T
 }
