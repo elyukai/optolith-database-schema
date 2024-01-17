@@ -1267,15 +1267,15 @@ export type RopeOrChainIdentifier = {
   rope_or_chain: number
 }
 
-export type StationaryIdentifier = {
-  tag: "Stationary"
+export type StationeryIdentifier = {
+  tag: "Stationery"
 
   /**
-   * The stationary’s identifier.
+   * The stationery’s identifier.
    * @integer
    * @minimum 1
    */
-  stationary: number
+  stationery: number
 }
 
 export type ThievesToolIdentifier = {

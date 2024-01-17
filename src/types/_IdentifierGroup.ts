@@ -240,7 +240,7 @@ export type EquipmentIdentifier =
   | Identifier.OrienteeringAidIdentifier
   | Identifier.PoisonIdentifier
   | Identifier.RopeOrChainIdentifier
-  | Identifier.StationaryIdentifier
+  | Identifier.StationeryIdentifier
   | Identifier.ThievesToolIdentifier
   | Identifier.ToolOfTheTradeIdentifier
   | Identifier.TravelGearOrToolIdentifier

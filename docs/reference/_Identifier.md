@@ -2535,22 +2535,22 @@ The rope or chain’s identifier.
 
 ---
 
-### <a name="StationaryIdentifier"></a> `StationaryIdentifier`
+### <a name="StationeryIdentifier"></a> `StationeryIdentifier`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#StationaryIdentifier/tag">See details</a>
-`stationary` | The stationary’s identifier. | <a href="#StationaryIdentifier/stationary">See details</a>
+`tag` |  | <a href="#StationeryIdentifier/tag">See details</a>
+`stationery` | The stationery’s identifier. | <a href="#StationeryIdentifier/stationery">See details</a>
 
-#### <a name="StationaryIdentifier/tag"></a> `tag`
+#### <a name="StationeryIdentifier/tag"></a> `tag`
 
-- **Constant:** `"Stationary"`
+- **Constant:** `"Stationery"`
 
-#### <a name="StationaryIdentifier/stationary"></a> `stationary`
+#### <a name="StationeryIdentifier/stationery"></a> `stationery`
 
-The stationary’s identifier.
+The stationery’s identifier.
 
 - **Type:** Integer
 - **Minimum:** `1`

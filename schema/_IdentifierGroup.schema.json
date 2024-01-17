@@ -688,7 +688,7 @@
           "$ref": "./_Identifier.schema.json#/$defs/RopeOrChainIdentifier"
         },
         {
-          "$ref": "./_Identifier.schema.json#/$defs/StationaryIdentifier"
+          "$ref": "./_Identifier.schema.json#/$defs/StationeryIdentifier"
         },
         {
           "$ref": "./_Identifier.schema.json#/$defs/ThievesToolIdentifier"

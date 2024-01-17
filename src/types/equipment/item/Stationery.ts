@@ -1,5 +1,5 @@
 /**
- * @main Stationary
+ * @main Stationery
  */
 
 import { TypeConfig } from "../../../typeConfig.js"
@@ -9,12 +9,12 @@ import { createSchemaValidator } from "../../../validation/builders/schema.js"
 import { getFilenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { DefaultItem } from "./_Item.js"
 
-export type Stationary = DefaultItem
+export type Stationery = DefaultItem
 
-export const config: TypeConfig<Stationary, number, "Stationary"> = {
-  name: "Stationary",
+export const config: TypeConfig<Stationery, number, "Stationery"> = {
+  name: "Stationery",
   id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("Stationary"),
+  integrityValidator: todo("Stationery"),
   schemaValidator: createSchemaValidator(import.meta.url),
   fileNameValidator: validateEntityFileName,
 }
