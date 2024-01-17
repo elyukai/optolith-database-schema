@@ -2976,28 +2976,6 @@ The sex practice’s identifier.
 
 ---
 
-### <a name="GenericIdentifier"></a> `GenericIdentifier`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#GenericIdentifier/tag">See details</a>
-`generic` | The generic entry‘s identifier. | <a href="#GenericIdentifier/generic">See details</a>
-
-#### <a name="GenericIdentifier/tag"></a> `tag`
-
-- **Constant:** `"Generic"`
-
-#### <a name="GenericIdentifier/generic"></a> `generic`
-
-The generic entry‘s identifier.
-
-- **Type:** Integer
-- **Minimum:** `1`
-
----
-
 ### <a name="TradeSecretIdentifier"></a> `TradeSecretIdentifier`
 
 - **Type:** Object

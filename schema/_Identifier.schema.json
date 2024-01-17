@@ -2435,24 +2435,6 @@
       ],
       "additionalProperties": false
     },
-    "GenericIdentifier": {
-      "type": "object",
-      "properties": {
-        "tag": {
-          "const": "Generic"
-        },
-        "generic": {
-          "description": "The generic entry‘s identifier.",
-          "type": "integer",
-          "minimum": 1
-        }
-      },
-      "required": [
-        "tag",
-        "generic"
-      ],
-      "additionalProperties": false
-    },
     "TradeSecretIdentifier": {
       "type": "object",
       "properties": {
