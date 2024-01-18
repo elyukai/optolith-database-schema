@@ -7,7 +7,7 @@
       "type": "object",
       "properties": {
         "effect_types": {
-          "description": "Effect type(s) of the plant's usage(s).",
+          "description": "Effect type(s) of the plant's effect(s) and usage(s).",
           "type": "array",
           "items": {
             "$ref": "./_Herbary.schema.json#/$defs/EffectType"
@@ -15,12 +15,14 @@
           "minItems": 1,
           "uniqueItems": true
         },
-        "landscape_type": {
-          "description": "The landscape type where the plant can be found.",
+        "prevalence": {
+          "description": "The herb's prevalence per landscape type.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/DistributionLandscapeType"
-          }
+            "$ref": "./_Herbary.schema.json#/$defs/LandscapeTypePrevalence"
+          },
+          "minItems": 1,
+          "uniqueItems": true
         },
         "search_difficulty": {
           "description": "Modifier for plant lore check when searching for the plant.",
@@ -32,7 +34,13 @@
         },
         "uses": {
           "description": "Doses of plant material found with a search check.",
-          "type": "integer"
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "minItems": 6,
+          "maxItems": 6
         },
         "src": {
           "$ref": "../../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
@@ -70,12 +78,28 @@
           },
           "minItems": 1
         },
-        "effect_raw": {
-          "description": "The plant's effect(s) when .",
+        "effect_touch": {
+          "description": "The raw plant's effect(s) when touched.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "effect_inhale": {
+          "description": "The raw plant's effect(s) when inhaled.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "effect_ingest": {
+          "description": "The raw plant's effect(s) when ingested.",
           "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "description": {
           "description": "The plant's description.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "prevalence_remarks":{
+          "description": "Additional remarks on the prevalence per landscape type of the herb.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "prevalence_regions":{
+          "description": "Description of the plant's regional prevalence.",
           "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "errata": {
@@ -83,30 +107,164 @@
         }
       },
       "required": [
-        "name"
+        "name",
+        "prevalence_regions",
+        "effect_touch",
+        "effect_inhale",
+        "effect_ingest"
       ],
       "additionalProperties": false
     },
-    "DistributionLandscapeType": {
+    "LandscapeTypePrevalence": {
+      "description": "Prevalence of a herb in a certain landscape type.",
       "oneOf": [
         {
-          "const": "FarNorth"
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PrevalenceFarNorth"
+            },
+            "prevalence_far_north": {
+              "$ref": "#/$defs/PrevalenceClass"
+            }
+          },
+          "required": [
+            "tag",
+            "prevalence_far_north"
+          ],
+          "additionalProperties": false
         },
         {
-          "const": "Veld"
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PevalenceVeld"
+            },
+            "prevalence_veld": {
+              "$ref": "#/$defs/PrevalenceClass"
+            }
+          },
+          "required": [
+            "tag",
+            "prevalence_veld"
+          ],
+          "additionalProperties": false
         },
         {
-          "const": "Swamp"
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PevalenceMarsh"
+            },
+            "prevalence_marsh": {
+              "$ref": "#/$defs/PrevalenceClass"
+            }
+          },
+          "required": [
+            "tag",
+            "prevalence_marsh"
+          ],
+          "additionalProperties": false
         },
         {
-          "const": "Woods"
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PevalenceWoods"
+            },
+            "prevalence_woods": {
+              "$ref": "#/$defs/PrevalenceClass"
+            }
+          },
+          "required": [
+            "tag",
+            "prevalence_woods"
+          ],
+          "additionalProperties": false
         },
         {
-          "const": "RainForest"
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PevalenceRainForest"
+            },
+            "prevalence_rain_forest": {
+              "$ref": "#/$defs/PrevalenceClass"
+            }
+          },
+          "required": [
+            "tag",
+            "prevalence_rain_forest"
+          ],
+          "additionalProperties": false
         },
         {
-          "const": "Swamp"
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PevalenceMountains"
+            },
+            "prevalence_mountains": {
+              "$ref": "#/$defs/PrevalenceClass"
+            }
+          },
+          "required": [
+            "tag",
+            "prevalence_mountains"
+          ],
+          "additionalProperties": false
         },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PevalenceDesert"
+            },
+            "prevalence_desert": {
+              "$ref": "#/$defs/PrevalenceClass"
+            }
+          },
+          "required": [
+            "tag",
+            "prevalence_desert"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "PevalenceMaraskan"
+            },
+            "prevalence_maraskan": {
+              "$ref": "#/$defs/PrevalenceClass"
+            }
+          },
+          "required": [
+            "tag",
+            "prevalence_maraskan"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "PrevalenceClass": {
+      "oneOf": [
+        {
+          "const": "Common"
+        },
+        {
+          "const": "Occasional"
+        },
+        {
+          "const": "NowAndThen"
+        },
+        {
+          "const": "Rare"
+        },
+        {
+          "const": "VeryRare"
+        }
       ]
     }
   }
