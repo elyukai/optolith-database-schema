@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.16.3](https://github.com/elyukai/optolith-database-schema/compare/v0.16.2...v0.16.3) (2024-01-18)
+
+
+### Bug Fixes
+
+* resolve intersection types ([829da00](https://github.com/elyukai/optolith-database-schema/commit/829da0079a60693dbeec94cbfb02b447c5105da5))
+
 ### [0.16.2](https://github.com/elyukai/optolith-database-schema/compare/v0.16.1...v0.16.2) (2024-01-18)
 
 
