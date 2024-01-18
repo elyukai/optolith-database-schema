@@ -667,8 +667,8 @@ Key | Description | Details
 `skills.header.check` |  | <a href="#UI/skills.header.check">See details</a>
 `skills.header.improvementcost` |  | <a href="#UI/skills.header.improvementcost">See details</a>
 `skills.header.improvementcost.tooltip` |  | <a href="#UI/skills.header.improvementcost.tooltip">See details</a>
-`inlinewiki.newapplications` |  | <a href="#UI/inlinewiki.newapplications">See details</a>
-`inlinewiki.uses` |  | <a href="#UI/inlinewiki.uses">See details</a>
+`New Applications` |  | <a href="#UI/New Applications">See details</a>
+`Uses` |  | <a href="#UI/Uses">See details</a>
 `showfrequency.stronglyrecommended` |  | <a href="#UI/showfrequency.stronglyrecommended">See details</a>
 `showfrequency.common` |  | <a href="#UI/showfrequency.common">See details</a>
 `showfrequency.uncommon` |  | <a href="#UI/showfrequency.uncommon">See details</a>
@@ -3683,11 +3683,11 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/inlinewiki.newapplications"></a> `inlinewiki.newapplications`
+#### <a name="UI/New Applications"></a> `New Applications`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/inlinewiki.uses"></a> `inlinewiki.uses`
+#### <a name="UI/Uses"></a> `Uses`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
