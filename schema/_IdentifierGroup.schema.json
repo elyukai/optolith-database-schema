@@ -484,7 +484,7 @@
     "SelectOptionIdentifier": {
       "oneOf": [
         {
-          "$ref": "./_Identifier.schema.json#/$defs/GenericIdentifier"
+          "$ref": "./_Identifier.schema.json#/$defs/GeneralIdentifier"
         },
         {
           "$ref": "./_Identifier.schema.json#/$defs/BlessingIdentifier"
