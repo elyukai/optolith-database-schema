@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "/equipment/item/Herb.schema.json",
+  "$ref": "#/$defs/Herb",
+  "$defs": {
+    "Herb": {
+      "type": "object",
+      "properties": {
+        "effect_types": {
+          "description": "Effect type(s) of the plant's usage(s).",
+          "type": "array",
+          "items": {
+            "$ref": "./_Herbary.schema.json#/$defs/EffectType"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "landscape_type": {
+          "description": "The landscape type where the plant can be found.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DistributionLandscapeType"
+          }
+        },
+        "search_difficulty": {
+          "description": "Modifier for plant lore check when searching for the plant.",
+          "type": "integer"
+        },
+        "identification_difficulty": {
+          "description": "Modifier for plant lore check when identifying the plant.",
+          "type": "integer"
+        },
+        "uses": {
+          "description": "Doses of plant material found with a search check.",
+          "type": "integer"
+        },
+        "src": {
+          "$ref": "../../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
+        },
+        "translations": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/HerbTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "src",
+        "translations"
+      ],
+      "additionalProperties": false
+    },
+    "HerbTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The name of the poison.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "alternative_names": {
+          "description": "A list of alternative names.",
+          "type": "array",
+          "items": {
+            "$ref": "../../_AlternativeNames.schema.json#/$defs/AlternativeName"
+          },
+          "minItems": 1
+        },
+        "effect_raw": {
+          "description": "The plant's effect(s) when .",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "description": {
+          "description": "The plant's description.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "errata": {
+          "$ref": "../../source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "DistributionLandscapeType": {
+      "oneOf": [
+        {
+          "const": "FarNorth"
+        },
+        {
+          "const": "Veld"
+        },
+        {
+          "const": "Swamp"
+        },
+        {
+          "const": "Woods"
+        },
+        {
+          "const": "RainForest"
+        },
+        {
+          "const": "Swamp"
+        },
+      ]
+    }
+  }
+}
