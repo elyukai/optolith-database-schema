@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.16.2](https://github.com/elyukai/optolith-database-schema/compare/v0.16.1...v0.16.2) (2024-01-18)
+
+
+### Bug Fixes
+
+* update build artifacts ([cb11b32](https://github.com/elyukai/optolith-database-schema/commit/cb11b322783236738eee3541e1ac3165ab172c1c))
+
 ### [0.16.1](https://github.com/elyukai/optolith-database-schema/compare/v0.16.0...v0.16.1) (2024-01-16)
 
 ## [0.16.0](https://github.com/elyukai/optolith-database-schema/compare/v0.15.5...v0.16.0) (2024-01-12)
