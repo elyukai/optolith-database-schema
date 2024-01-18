@@ -324,6 +324,39 @@ The dice used for random weight.
 
 ---
 
+### <a name="WeightDice"></a> `WeightDice`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`number` | Number of dice of the same type. Example: 2 in 2D6. | <a href="#WeightDice/number">See details</a>
+`sides` | Number of sides on every die. Example: 6 in 2D6. | <a href="#WeightDice/sides">See details</a>
+`offset_strategy` | The strategy how to offset the randomly generated values against the base value. Either they are all added or subtracted or even results are added and odd results are subtracted. | <a href="#WeightDice/offset_strategy">See details</a>
+
+#### <a name="WeightDice/number"></a> `number`
+
+Number of dice of the same type. Example: 2 in 2D6.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="WeightDice/sides"></a> `sides`
+
+Number of sides on every die. Example: 6 in 2D6.
+
+- **Type:** <a href="./_Dice.md#DieType">DieType</a>
+
+#### <a name="WeightDice/offset_strategy"></a> `offset_strategy`
+
+The strategy how to offset the randomly generated values against the
+base value. Either they are all added or subtracted or even results are
+added and odd results are subtracted.
+
+- **Type:** <a href="#WeightDiceOffsetStrategy">WeightDiceOffsetStrategy</a>
+
+---
+
 ### <a name="WeightDiceOffsetStrategy"></a> `WeightDiceOffsetStrategy`
 
 The strategy how to offset the randomly generated values against the
