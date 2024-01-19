@@ -503,26 +503,45 @@ Key | Description | Details
 Details on the preservation method of a herb.
 
 - **Type:** Union
-- **Cases:** <a href="#PreservationMethodDescription'HerbalAidOrPreserve">PreservationMethodDescription'HerbalAidOrPreserve</a> | <a href="#PreservationMethodDescription'Special">PreservationMethodDescription'Special</a>
+- **Cases:** <a href="#PreservationMethodDescription'HerbalAid">PreservationMethodDescription'HerbalAid</a> | <a href="#PreservationMethodDescription'HerbalPreserve">PreservationMethodDescription'HerbalPreserve</a> | <a href="#PreservationMethodDescription'Special">PreservationMethodDescription'Special</a>
 
 ---
 
-### <a name="PreservationMethodDescription'HerbalAidOrPreserve"></a> `PreservationMethodDescription'HerbalAidOrPreserve`
+### <a name="PreservationMethodDescription'HerbalAid"></a> `PreservationMethodDescription'HerbalAid`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#PreservationMethodDescription'HerbalAidOrPreserve/tag">See details</a>
-`herbal_aid_or_preserve` |  | <a href="#PreservationMethodDescription'HerbalAidOrPreserve/herbal_aid_or_preserve">See details</a>
+`tag` |  | <a href="#PreservationMethodDescription'HerbalAid/tag">See details</a>
+`herbal_aid` |  | <a href="#PreservationMethodDescription'HerbalAid/herbal_aid">See details</a>
 
-#### <a name="PreservationMethodDescription'HerbalAidOrPreserve/tag"></a> `tag`
+#### <a name="PreservationMethodDescription'HerbalAid/tag"></a> `tag`
 
-- **Constant:** `"HerbalAidOrPreserve"`
+- **Constant:** `"HerbalAid"`
 
-#### <a name="PreservationMethodDescription'HerbalAidOrPreserve/herbal_aid_or_preserve"></a> `herbal_aid_or_preserve`
+#### <a name="PreservationMethodDescription'HerbalAid/herbal_aid"></a> `herbal_aid`
 
-- **Type:** <a href="../../_SimpleReferences.md#HerbalAidOrPreserveReference">HerbalAidOrPreserveReference</a>
+- **Type:** <a href="../../_SimpleReferences.md#HerbalAidReference">HerbalAidReference</a>
+
+---
+
+### <a name="PreservationMethodDescription'HerbalPreserve"></a> `PreservationMethodDescription'HerbalPreserve`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#PreservationMethodDescription'HerbalPreserve/tag">See details</a>
+`herbal_preserve` |  | <a href="#PreservationMethodDescription'HerbalPreserve/herbal_preserve">See details</a>
+
+#### <a name="PreservationMethodDescription'HerbalPreserve/tag"></a> `tag`
+
+- **Constant:** `"HerbalPreserve"`
+
+#### <a name="PreservationMethodDescription'HerbalPreserve/herbal_preserve"></a> `herbal_preserve`
+
+- **Type:** <a href="../../_SimpleReferences.md#HerbalPreserveReference">HerbalPreserveReference</a>
 
 ---
 

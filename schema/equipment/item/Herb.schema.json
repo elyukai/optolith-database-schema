@@ -380,15 +380,31 @@
           "type": "object",
           "properties": {
             "tag": {
-              "const": "HerbalAidOrPreserve"
+              "const": "HerbalAid"
             },
-            "herbal_aid_or_preserve": {
-              "$ref": "../../_SimpleReferences.schema.json#/$defs/HerbalAidOrPreserveReference"
+            "herbal_aid": {
+              "$ref": "../../_SimpleReferences.schema.json#/$defs/HerbalAidReference"
             }
           },
           "required": [
             "tag",
-            "herbal_aid_or_preserve"
+            "herbal_aid"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "HerbalPreserve"
+            },
+            "herbal_preserve": {
+              "$ref": "../../_SimpleReferences.schema.json#/$defs/HerbalPreserveReference"
+            }
+          },
+          "required": [
+            "tag",
+            "herbal_preserve"
           ],
           "additionalProperties": false
         },

@@ -632,6 +632,34 @@ Key | Description | Details
 
 ---
 
+### <a name="HerbalAidReference"></a> `HerbalAidReference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` |  | <a href="#HerbalAidReference/id">See details</a>
+
+#### <a name="HerbalAidReference/id"></a> `id`
+
+- **Type:** <a href="./_Identifier.md#HerbalAidIdentifier">HerbalAidIdentifier</a>
+
+---
+
+### <a name="HerbalPreserveReference"></a> `HerbalPreserveReference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` |  | <a href="#HerbalPreserveReference/id">See details</a>
+
+#### <a name="HerbalPreserveReference/id"></a> `id`
+
+- **Type:** <a href="./_Identifier.md#HerbalPreserveIdentifier">HerbalPreserveIdentifier</a>
+
+---
+
 ### <a name="HerbReference"></a> `HerbReference`
 
 - **Type:** Object
@@ -643,17 +671,3 @@ Key | Description | Details
 #### <a name="HerbReference/id"></a> `id`
 
 - **Type:** <a href="./_Identifier.md#HerbIdentifier">HerbIdentifier</a>
-
----
-
-### <a name="HerbalAidOrPreserveReference"></a> `HerbalAidOrPreserveReference`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`id` |  | <a href="#HerbalAidOrPreserveReference/id">See details</a>
-
-#### <a name="HerbalAidOrPreserveReference/id"></a> `id`
-
-- **Type:** <a href="./_IdentifierGroup.md#HerbalAidOrPreserveIdentifier">HerbalAidOrPreserveIdentifier</a>

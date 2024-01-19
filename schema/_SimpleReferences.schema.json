@@ -530,11 +530,11 @@
       ],
       "additionalProperties": false
     },
-    "HerbReference": {
+    "HerbalAidReference": {
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "./_Identifier.schema.json#/$defs/HerbIdentifier"
+          "$ref": "./_Identifier.schema.json#/$defs/HerbalAidIdentifier"
         }
       },
       "required": [
@@ -542,11 +542,23 @@
       ],
       "additionalProperties": false
     },
-    "HerbalAidOrPreserveReference": {
+    "HerbalPreserveReference": {
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "./_IdentifierGroup.schema.json#/$defs/HerbalAidOrPreserveIdentifier"
+          "$ref": "./_Identifier.schema.json#/$defs/HerbalPreserveIdentifier"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "HerbReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "./_Identifier.schema.json#/$defs/HerbIdentifier"
         }
       },
       "required": [
