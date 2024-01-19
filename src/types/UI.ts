@@ -890,8 +890,8 @@ export type UI = {
   "skills.header.check": NonEmptyString
   "skills.header.improvementcost": NonEmptyString
   "skills.header.improvementcost.tooltip": NonEmptyString
-  "inlinewiki.newapplications": NonEmptyString
-  "inlinewiki.uses": NonEmptyString
+  "New Applications": NonEmptyString
+  "Uses": NonEmptyString
   "showfrequency.stronglyrecommended": NonEmptyString
   "showfrequency.common": NonEmptyString
   "showfrequency.uncommon": NonEmptyString

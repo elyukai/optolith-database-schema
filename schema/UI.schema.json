@@ -2047,10 +2047,10 @@
         "skills.header.improvementcost.tooltip": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "inlinewiki.newapplications": {
+        "New Applications": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "inlinewiki.uses": {
+        "Uses": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "showfrequency.stronglyrecommended": {
@@ -3410,8 +3410,8 @@
         "skills.header.check",
         "skills.header.improvementcost",
         "skills.header.improvementcost.tooltip",
-        "inlinewiki.newapplications",
-        "inlinewiki.uses",
+        "New Applications",
+        "Uses",
         "showfrequency.stronglyrecommended",
         "showfrequency.common",
         "showfrequency.uncommon",

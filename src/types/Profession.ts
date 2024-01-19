@@ -9,11 +9,25 @@ import { createSchemaValidator } from "../validation/builders/schema.js"
 import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
 import { AdvantageIdentifier, DisadvantageIdentifier, SkillIdentifier } from "./_Identifier.js"
-import { CombatTechniqueIdentifier, LiturgyIdentifier, MagicalActionIdentifier, RequirableSelectOptionIdentifier, SpecialAbilityIdentifier, SpellworkIdentifier } from "./_IdentifierGroup.js"
+import {
+  CombatTechniqueIdentifier,
+  LiturgyIdentifier,
+  MagicalActionIdentifier,
+  RequirableSelectOptionIdentifier,
+  SpecialAbilityIdentifier,
+  SpellworkIdentifier,
+} from "./_IdentifierGroup.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
 import { ProfessionPrerequisites } from "./_Prerequisite.js"
-import { CantripReference, CombatTechniqueReference, CurriculumReference, MagicalTraditionReference, SkillGroupReference, SkillReference } from "./_SimpleReferences.js"
+import {
+  CantripReference,
+  CombatTechniqueReference,
+  CurriculumReference,
+  MagicalTraditionReference,
+  SkillGroupReference,
+  SkillReference,
+} from "./_SimpleReferences.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 
@@ -55,10 +69,7 @@ export type ProfessionGroup =
   | { tag: "Magical"; magical: MagicalProfessionGroup }
   | { tag: "Blessed"; blessed: {} }
 
-export type MundaneProfessionGroup =
-  | "Profane"
-  | "Fighter"
-  | "Religious"
+export type MundaneProfessionGroup = "Profane" | "Fighter" | "Religious"
 
 export type MagicalProfessionGroup = {
   /**
@@ -69,7 +80,10 @@ export type MagicalProfessionGroup = {
 
 export type ProfessionVersion =
   | { tag: "Experienced"; experienced: ExperiencedProfessionPackage }
-  | { tag: "ByExperienceLevel"; by_experience_level: ProfessionPackagesForDifferentExperienceLevels }
+  | {
+      tag: "ByExperienceLevel"
+      by_experience_level: ProfessionPackagesForDifferentExperienceLevels
+    }
 
 export type ExperiencedProfessionPackage = {
   /**
@@ -391,12 +405,31 @@ export type VariantSpecialAbility =
   | { tag: "Fixed"; fixed: FixedVariantSpecialAbility }
   | { tag: "Selection"; selection: VariantSpecialAbilitySelection }
 
-export type FixedVariantSpecialAbility = SpecialAbilityDefinition & {
+export type FixedVariantSpecialAbility = {
+  /**
+   * The identifier of the combat technique to provide the rating for.
+   */
+  id: SpecialAbilityIdentifier
+
   /**
    * if set to `false`, if the selection is granted by the basic package, it
    * is removed.
    */
   active?: false
+
+  /**
+   * The level of the received special ability.
+   * @integer
+   * @minimum 1
+   */
+  level?: number
+
+  /**
+   * Received select options. Order is important. Typically, you only need the
+   * first array index, though.
+   * @minItems 1
+   */
+  options?: RequirableSelectOptionIdentifier[]
 }
 
 export type VariantSpecialAbilitySelection = {
@@ -705,23 +738,23 @@ export type SkillsOptions = {
  * The name of the profession that may have sex-specific names.
  */
 export type ProfessionName =
-  NonEmptyString
+  | NonEmptyString
   | {
-    /**
-     * The name from the source publication.
-     */
-    default: NonEmptyString
+      /**
+       * The name from the source publication.
+       */
+      default: NonEmptyString
 
-    /**
-     * The male name.
-     */
-    male: NonEmptyString
+      /**
+       * The male name.
+       */
+      male: NonEmptyString
 
-    /**
-     * The female name.
-     */
-    female: NonEmptyString
-  }
+      /**
+       * The female name.
+       */
+      female: NonEmptyString
+    }
 
 export const config: TypeConfig<Profession, Profession["id"], "Profession"> = {
   name: "Profession",

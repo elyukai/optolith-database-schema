@@ -8,11 +8,22 @@ import { validateEntityFileName } from "../validation/builders/naming.js"
 import { createSchemaValidator } from "../validation/builders/schema.js"
 import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
-import { Dice } from "./_Dice.js"
-import { AdvantageIdentifier, AttributeIdentifier, DisadvantageIdentifier, ExperienceLevelIdentifier } from "./_Identifier.js"
+import { Dice, DieType } from "./_Dice.js"
+import {
+  AdvantageIdentifier,
+  AttributeIdentifier,
+  DisadvantageIdentifier,
+  ExperienceLevelIdentifier,
+} from "./_Identifier.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
-import { AdvantageReference, AttributeReference, CultureReference, EyeColorReference, HairColorReference } from "./_SimpleReferences.js"
+import {
+  AdvantageReference,
+  AttributeReference,
+  CultureReference,
+  EyeColorReference,
+  HairColorReference,
+} from "./_SimpleReferences.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 
@@ -206,7 +217,19 @@ export type Weight = {
   random: WeightDice[]
 }
 
-export type WeightDice = Dice & {
+export type WeightDice = {
+  /**
+   * Number of dice of the same type. Example: 2 in 2D6.
+   * @integer
+   * @minimum 1
+   */
+  number: number
+
+  /**
+   * Number of sides on every die. Example: 6 in 2D6.
+   */
+  sides: DieType
+
   /**
    * The strategy how to offset the randomly generated values against the
    * base value. Either they are all added or subtracted or even results are
@@ -220,10 +243,7 @@ export type WeightDice = Dice & {
  * base value. Either they are all added or subtracted or even results are
  * added and odd results are subtracted.
  */
-export type WeightDiceOffsetStrategy =
-  | "Add"
-  | "Subtract"
-  | "AddEvenSubtractOdd"
+export type WeightDiceOffsetStrategy = "Add" | "Subtract" | "AddEvenSubtractOdd"
 
 export type StartingAgeConfigForExperienceLevel = {
   /**

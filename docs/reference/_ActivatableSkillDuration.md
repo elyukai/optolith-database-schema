@@ -229,6 +229,52 @@ A replacement string.
 
 ---
 
+### <a name="CheckResultBasedDuration"></a> `CheckResultBasedDuration`
+
+Defines the duration being based on a check result.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`is_maximum?` | If the duration is the maximum duration, so it may end earlier. | <a href="#CheckResultBasedDuration/is_maximum">See details</a>
+`base` | The base value that is derived from the check result. | <a href="#CheckResultBasedDuration/base">See details</a>
+`modifier?` | If defined, it modifies the base value. | <a href="#CheckResultBasedDuration/modifier">See details</a>
+`unit` | The duration unit. | <a href="#CheckResultBasedDuration/unit">See details</a>
+`translations?` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#CheckResultBasedDuration/translations">See details</a>
+
+#### <a name="CheckResultBasedDuration/is_maximum"></a> `is_maximum?`
+
+If the duration is the maximum duration, so it may end earlier.
+
+- **Constant:** `true`
+
+#### <a name="CheckResultBasedDuration/base"></a> `base`
+
+The base value that is derived from the check result.
+
+- **Type:** <a href="./_ActivatableSkillCheckResultBased.md#CheckResultValue">CheckResultValue</a>
+
+#### <a name="CheckResultBasedDuration/modifier"></a> `modifier?`
+
+If defined, it modifies the base value.
+
+- **Type:** <a href="./_ActivatableSkillCheckResultBased.md#CheckResultBasedModifier">CheckResultBasedModifier</a>
+
+#### <a name="CheckResultBasedDuration/unit"></a> `unit`
+
+The duration unit.
+
+- **Type:** <a href="#DurationUnit">DurationUnit</a>
+
+#### <a name="CheckResultBasedDuration/translations"></a> `translations?`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#CheckResultBasedDurationTranslation">CheckResultBasedDurationTranslation</a>&gt;
+
+---
+
 ### <a name="CheckResultBasedDurationTranslation"></a> `CheckResultBasedDurationTranslation`
 
 - **Type:** Object
