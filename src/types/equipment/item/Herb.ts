@@ -88,29 +88,21 @@ export type Herb = {
 }
 
 export type LandscapeTypePrevalences =
-  | { tag: "PrevalenceFarNorth", prevalence_far_north: LandscapeTypePrevalence }
-  | { tag: "PevalenceVeld", prevalence_veld: LandscapeTypePrevalence }
-  | { tag: "PevalenceMarsh", prevalence_marsh: LandscapeTypePrevalence }
-  | { tag: "PevalenceWoods", prevalence_woods: LandscapeTypePrevalence }
-  | { tag: "PevalenceRainForest", prevalence_rain_forest: LandscapeTypePrevalence }
-  | { tag: "PevalenceMountains", prevalence_mountains: LandscapeTypePrevalence }
-  | { tag: "PevalenceDesert", prevalence_desert: LandscapeTypePrevalence }
-  | { tag: "PevalenceMaraskan", prevalence_maraskan: LandscapeTypePrevalence }
+  | { tag: "PrevalenceFarNorth", prevalence_far_north: LandscapeTypePrevalence[] }
+  | { tag: "PevalenceVeld", prevalence_veld: LandscapeTypePrevalence[] }
+  | { tag: "PevalenceMarsh", prevalence_marsh: LandscapeTypePrevalence[] }
+  | { tag: "PevalenceWoods", prevalence_woods: LandscapeTypePrevalence[] }
+  | { tag: "PevalenceRainForest", prevalence_rain_forest: LandscapeTypePrevalence[] }
+  | { tag: "PevalenceMountains", prevalence_mountains: LandscapeTypePrevalence[] }
+  | { tag: "PevalenceDesert", prevalence_desert: LandscapeTypePrevalence[] }
+  | { tag: "PevalenceMaraskan", prevalence_maraskan: LandscapeTypePrevalence[] }
 
 export type LandscapeTypePrevalence = {
   /**
-   * Prevalence(s) in a certain landscape.
+   * Simple or conditional prevalence(s) in a certain landscape.
    * @minItems 1
    */
-  prevalences: Prevalence[]
-}
-
-export type Prevalence = {
-  /**
-   * Simple or conditional prevalence.
-   * @minItems 1
-   */
-  preval: PrevalenceClass
+  prevalence: PrevalenceClass
   condition?: NonEmptyString
 }
 
