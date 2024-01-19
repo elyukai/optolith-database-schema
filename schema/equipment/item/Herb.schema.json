@@ -25,7 +25,7 @@
           "description": "The herb's prevalence per landscape type.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/LandscapeTypePrevalence"
+            "$ref": "#/$defs/LandscapeTypePrevalences"
           },
           "minItems": 1,
           "uniqueItems": true
@@ -57,7 +57,7 @@
           "type": "integer",
           "minimum": 1
         },
-        "list": {
+        "recipes": {
           "description": "The recipes the herb is used in.",
           "type": "array",
           "items": {
@@ -89,13 +89,13 @@
         "uses",
         "value",
         "cost",
-        "list",
+        "recipes",
         "src",
         "translations"
       ],
       "additionalProperties": false
     },
-    "LandscapeTypePrevalence": {
+    "LandscapeTypePrevalences": {
       "oneOf": [
         {
           "type": "object",
@@ -104,7 +104,7 @@
               "const": "PrevalenceFarNorth"
             },
             "prevalence_far_north": {
-              "$ref": "#/$defs/PrevalenceClass"
+              "$ref": "#/$defs/LandscapeTypePrevalence"
             }
           },
           "required": [
@@ -120,7 +120,7 @@
               "const": "PevalenceVeld"
             },
             "prevalence_veld": {
-              "$ref": "#/$defs/PrevalenceClass"
+              "$ref": "#/$defs/LandscapeTypePrevalence"
             }
           },
           "required": [
@@ -136,7 +136,7 @@
               "const": "PevalenceMarsh"
             },
             "prevalence_marsh": {
-              "$ref": "#/$defs/PrevalenceClass"
+              "$ref": "#/$defs/LandscapeTypePrevalence"
             }
           },
           "required": [
@@ -152,7 +152,7 @@
               "const": "PevalenceWoods"
             },
             "prevalence_woods": {
-              "$ref": "#/$defs/PrevalenceClass"
+              "$ref": "#/$defs/LandscapeTypePrevalence"
             }
           },
           "required": [
@@ -168,7 +168,7 @@
               "const": "PevalenceRainForest"
             },
             "prevalence_rain_forest": {
-              "$ref": "#/$defs/PrevalenceClass"
+              "$ref": "#/$defs/LandscapeTypePrevalence"
             }
           },
           "required": [
@@ -184,7 +184,7 @@
               "const": "PevalenceMountains"
             },
             "prevalence_mountains": {
-              "$ref": "#/$defs/PrevalenceClass"
+              "$ref": "#/$defs/LandscapeTypePrevalence"
             }
           },
           "required": [
@@ -200,7 +200,7 @@
               "const": "PevalenceDesert"
             },
             "prevalence_desert": {
-              "$ref": "#/$defs/PrevalenceClass"
+              "$ref": "#/$defs/LandscapeTypePrevalence"
             }
           },
           "required": [
@@ -216,7 +216,7 @@
               "const": "PevalenceMaraskan"
             },
             "prevalence_maraskan": {
-              "$ref": "#/$defs/PrevalenceClass"
+              "$ref": "#/$defs/LandscapeTypePrevalence"
             }
           },
           "required": [
@@ -226,6 +226,39 @@
           "additionalProperties": false
         }
       ]
+    },
+    "LandscapeTypePrevalence": {
+      "type": "object",
+      "properties": {
+        "prevalences": {
+          "description": "Prevalence(s) in a certain landscape.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Prevalence"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "prevalences"
+      ],
+      "additionalProperties": false
+    },
+    "Prevalence": {
+      "type": "object",
+      "properties": {
+        "preval": {
+          "description": "Simple or conditional prevalence.",
+          "$ref": "#/$defs/PrevalenceClass"
+        },
+        "condition": {
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "preval"
+      ],
+      "additionalProperties": false
     },
     "PrevalenceClass": {
       "oneOf": [

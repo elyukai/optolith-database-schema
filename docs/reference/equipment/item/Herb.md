@@ -16,7 +16,7 @@ Key | Description | Details
 `uses` | Doses of plant material found with a search check per quality level. | <a href="#Herb/uses">See details</a>
 `value` | Value per dose, in silverthalers. | <a href="#Herb/value">See details</a>
 `cost` | Price per dose, in silverthalers. | <a href="#Herb/cost">See details</a>
-`list` | The recipes the herb is used in. | <a href="#Herb/list">See details</a>
+`recipes` | The recipes the herb is used in. | <a href="#Herb/recipes">See details</a>
 `src` |  | <a href="#Herb/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Herb/translations">See details</a>
 
@@ -80,12 +80,12 @@ Price per dose, in silverthalers.
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="Herb/list"></a> `list`
+#### <a name="Herb/recipes"></a> `recipes`
 
 The recipes the herb is used in.
 
 - **Type:** List
-- **Items:** <a href="#Herb/list[]">Herb/list[]</a>
+- **Items:** <a href="#Herb/recipes[]">Herb/recipes[]</a>
 - **Unique Items:** Yes
 
 #### <a name="Herb/src"></a> `src`
@@ -108,7 +108,7 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="Herb/prevalence[]"></a> `Herb/prevalence[]`
 
-- **Type:** <a href="#LandscapeTypePrevalence">LandscapeTypePrevalence</a>
+- **Type:** <a href="#LandscapeTypePrevalences">LandscapeTypePrevalences</a>
 
 ---
 
@@ -118,168 +118,213 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="Herb/list[]"></a> `Herb/list[]`
+### <a name="Herb/recipes[]"></a> `Herb/recipes[]`
 
 - **Type:** <a href="../../_SimpleReferences.md#RecipeReference">RecipeReference</a>
 
 ---
 
-### <a name="LandscapeTypePrevalence"></a> `LandscapeTypePrevalence`
+### <a name="LandscapeTypePrevalences"></a> `LandscapeTypePrevalences`
 
 - **Type:** Union
-- **Cases:** <a href="#LandscapeTypePrevalence'PrevalenceFarNorth">LandscapeTypePrevalence'PrevalenceFarNorth</a> | <a href="#LandscapeTypePrevalence'PevalenceVeld">LandscapeTypePrevalence'PevalenceVeld</a> | <a href="#LandscapeTypePrevalence'PevalenceMarsh">LandscapeTypePrevalence'PevalenceMarsh</a> | <a href="#LandscapeTypePrevalence'PevalenceWoods">LandscapeTypePrevalence'PevalenceWoods</a> | <a href="#LandscapeTypePrevalence'PevalenceRainForest">LandscapeTypePrevalence'PevalenceRainForest</a> | <a href="#LandscapeTypePrevalence'PevalenceMountains">LandscapeTypePrevalence'PevalenceMountains</a> | <a href="#LandscapeTypePrevalence'PevalenceDesert">LandscapeTypePrevalence'PevalenceDesert</a> | <a href="#LandscapeTypePrevalence'PevalenceMaraskan">LandscapeTypePrevalence'PevalenceMaraskan</a>
+- **Cases:** <a href="#LandscapeTypePrevalences'PrevalenceFarNorth">LandscapeTypePrevalences'PrevalenceFarNorth</a> | <a href="#LandscapeTypePrevalences'PevalenceVeld">LandscapeTypePrevalences'PevalenceVeld</a> | <a href="#LandscapeTypePrevalences'PevalenceMarsh">LandscapeTypePrevalences'PevalenceMarsh</a> | <a href="#LandscapeTypePrevalences'PevalenceWoods">LandscapeTypePrevalences'PevalenceWoods</a> | <a href="#LandscapeTypePrevalences'PevalenceRainForest">LandscapeTypePrevalences'PevalenceRainForest</a> | <a href="#LandscapeTypePrevalences'PevalenceMountains">LandscapeTypePrevalences'PevalenceMountains</a> | <a href="#LandscapeTypePrevalences'PevalenceDesert">LandscapeTypePrevalences'PevalenceDesert</a> | <a href="#LandscapeTypePrevalences'PevalenceMaraskan">LandscapeTypePrevalences'PevalenceMaraskan</a>
 
 ---
 
-### <a name="LandscapeTypePrevalence'PrevalenceFarNorth"></a> `LandscapeTypePrevalence'PrevalenceFarNorth`
+### <a name="LandscapeTypePrevalences'PrevalenceFarNorth"></a> `LandscapeTypePrevalences'PrevalenceFarNorth`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#LandscapeTypePrevalence'PrevalenceFarNorth/tag">See details</a>
-`prevalence_far_north` |  | <a href="#LandscapeTypePrevalence'PrevalenceFarNorth/prevalence_far_north">See details</a>
+`tag` |  | <a href="#LandscapeTypePrevalences'PrevalenceFarNorth/tag">See details</a>
+`prevalence_far_north` |  | <a href="#LandscapeTypePrevalences'PrevalenceFarNorth/prevalence_far_north">See details</a>
 
-#### <a name="LandscapeTypePrevalence'PrevalenceFarNorth/tag"></a> `tag`
+#### <a name="LandscapeTypePrevalences'PrevalenceFarNorth/tag"></a> `tag`
 
 - **Constant:** `"PrevalenceFarNorth"`
 
-#### <a name="LandscapeTypePrevalence'PrevalenceFarNorth/prevalence_far_north"></a> `prevalence_far_north`
+#### <a name="LandscapeTypePrevalences'PrevalenceFarNorth/prevalence_far_north"></a> `prevalence_far_north`
 
-- **Type:** <a href="#PrevalenceClass">PrevalenceClass</a>
+- **Type:** <a href="#LandscapeTypePrevalence">LandscapeTypePrevalence</a>
 
 ---
 
-### <a name="LandscapeTypePrevalence'PevalenceVeld"></a> `LandscapeTypePrevalence'PevalenceVeld`
+### <a name="LandscapeTypePrevalences'PevalenceVeld"></a> `LandscapeTypePrevalences'PevalenceVeld`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#LandscapeTypePrevalence'PevalenceVeld/tag">See details</a>
-`prevalence_veld` |  | <a href="#LandscapeTypePrevalence'PevalenceVeld/prevalence_veld">See details</a>
+`tag` |  | <a href="#LandscapeTypePrevalences'PevalenceVeld/tag">See details</a>
+`prevalence_veld` |  | <a href="#LandscapeTypePrevalences'PevalenceVeld/prevalence_veld">See details</a>
 
-#### <a name="LandscapeTypePrevalence'PevalenceVeld/tag"></a> `tag`
+#### <a name="LandscapeTypePrevalences'PevalenceVeld/tag"></a> `tag`
 
 - **Constant:** `"PevalenceVeld"`
 
-#### <a name="LandscapeTypePrevalence'PevalenceVeld/prevalence_veld"></a> `prevalence_veld`
+#### <a name="LandscapeTypePrevalences'PevalenceVeld/prevalence_veld"></a> `prevalence_veld`
 
-- **Type:** <a href="#PrevalenceClass">PrevalenceClass</a>
+- **Type:** <a href="#LandscapeTypePrevalence">LandscapeTypePrevalence</a>
 
 ---
 
-### <a name="LandscapeTypePrevalence'PevalenceMarsh"></a> `LandscapeTypePrevalence'PevalenceMarsh`
+### <a name="LandscapeTypePrevalences'PevalenceMarsh"></a> `LandscapeTypePrevalences'PevalenceMarsh`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#LandscapeTypePrevalence'PevalenceMarsh/tag">See details</a>
-`prevalence_marsh` |  | <a href="#LandscapeTypePrevalence'PevalenceMarsh/prevalence_marsh">See details</a>
+`tag` |  | <a href="#LandscapeTypePrevalences'PevalenceMarsh/tag">See details</a>
+`prevalence_marsh` |  | <a href="#LandscapeTypePrevalences'PevalenceMarsh/prevalence_marsh">See details</a>
 
-#### <a name="LandscapeTypePrevalence'PevalenceMarsh/tag"></a> `tag`
+#### <a name="LandscapeTypePrevalences'PevalenceMarsh/tag"></a> `tag`
 
 - **Constant:** `"PevalenceMarsh"`
 
-#### <a name="LandscapeTypePrevalence'PevalenceMarsh/prevalence_marsh"></a> `prevalence_marsh`
+#### <a name="LandscapeTypePrevalences'PevalenceMarsh/prevalence_marsh"></a> `prevalence_marsh`
 
-- **Type:** <a href="#PrevalenceClass">PrevalenceClass</a>
+- **Type:** <a href="#LandscapeTypePrevalence">LandscapeTypePrevalence</a>
 
 ---
 
-### <a name="LandscapeTypePrevalence'PevalenceWoods"></a> `LandscapeTypePrevalence'PevalenceWoods`
+### <a name="LandscapeTypePrevalences'PevalenceWoods"></a> `LandscapeTypePrevalences'PevalenceWoods`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#LandscapeTypePrevalence'PevalenceWoods/tag">See details</a>
-`prevalence_woods` |  | <a href="#LandscapeTypePrevalence'PevalenceWoods/prevalence_woods">See details</a>
+`tag` |  | <a href="#LandscapeTypePrevalences'PevalenceWoods/tag">See details</a>
+`prevalence_woods` |  | <a href="#LandscapeTypePrevalences'PevalenceWoods/prevalence_woods">See details</a>
 
-#### <a name="LandscapeTypePrevalence'PevalenceWoods/tag"></a> `tag`
+#### <a name="LandscapeTypePrevalences'PevalenceWoods/tag"></a> `tag`
 
 - **Constant:** `"PevalenceWoods"`
 
-#### <a name="LandscapeTypePrevalence'PevalenceWoods/prevalence_woods"></a> `prevalence_woods`
+#### <a name="LandscapeTypePrevalences'PevalenceWoods/prevalence_woods"></a> `prevalence_woods`
 
-- **Type:** <a href="#PrevalenceClass">PrevalenceClass</a>
+- **Type:** <a href="#LandscapeTypePrevalence">LandscapeTypePrevalence</a>
 
 ---
 
-### <a name="LandscapeTypePrevalence'PevalenceRainForest"></a> `LandscapeTypePrevalence'PevalenceRainForest`
+### <a name="LandscapeTypePrevalences'PevalenceRainForest"></a> `LandscapeTypePrevalences'PevalenceRainForest`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#LandscapeTypePrevalence'PevalenceRainForest/tag">See details</a>
-`prevalence_rain_forest` |  | <a href="#LandscapeTypePrevalence'PevalenceRainForest/prevalence_rain_forest">See details</a>
+`tag` |  | <a href="#LandscapeTypePrevalences'PevalenceRainForest/tag">See details</a>
+`prevalence_rain_forest` |  | <a href="#LandscapeTypePrevalences'PevalenceRainForest/prevalence_rain_forest">See details</a>
 
-#### <a name="LandscapeTypePrevalence'PevalenceRainForest/tag"></a> `tag`
+#### <a name="LandscapeTypePrevalences'PevalenceRainForest/tag"></a> `tag`
 
 - **Constant:** `"PevalenceRainForest"`
 
-#### <a name="LandscapeTypePrevalence'PevalenceRainForest/prevalence_rain_forest"></a> `prevalence_rain_forest`
+#### <a name="LandscapeTypePrevalences'PevalenceRainForest/prevalence_rain_forest"></a> `prevalence_rain_forest`
 
-- **Type:** <a href="#PrevalenceClass">PrevalenceClass</a>
+- **Type:** <a href="#LandscapeTypePrevalence">LandscapeTypePrevalence</a>
 
 ---
 
-### <a name="LandscapeTypePrevalence'PevalenceMountains"></a> `LandscapeTypePrevalence'PevalenceMountains`
+### <a name="LandscapeTypePrevalences'PevalenceMountains"></a> `LandscapeTypePrevalences'PevalenceMountains`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#LandscapeTypePrevalence'PevalenceMountains/tag">See details</a>
-`prevalence_mountains` |  | <a href="#LandscapeTypePrevalence'PevalenceMountains/prevalence_mountains">See details</a>
+`tag` |  | <a href="#LandscapeTypePrevalences'PevalenceMountains/tag">See details</a>
+`prevalence_mountains` |  | <a href="#LandscapeTypePrevalences'PevalenceMountains/prevalence_mountains">See details</a>
 
-#### <a name="LandscapeTypePrevalence'PevalenceMountains/tag"></a> `tag`
+#### <a name="LandscapeTypePrevalences'PevalenceMountains/tag"></a> `tag`
 
 - **Constant:** `"PevalenceMountains"`
 
-#### <a name="LandscapeTypePrevalence'PevalenceMountains/prevalence_mountains"></a> `prevalence_mountains`
+#### <a name="LandscapeTypePrevalences'PevalenceMountains/prevalence_mountains"></a> `prevalence_mountains`
 
-- **Type:** <a href="#PrevalenceClass">PrevalenceClass</a>
+- **Type:** <a href="#LandscapeTypePrevalence">LandscapeTypePrevalence</a>
 
 ---
 
-### <a name="LandscapeTypePrevalence'PevalenceDesert"></a> `LandscapeTypePrevalence'PevalenceDesert`
+### <a name="LandscapeTypePrevalences'PevalenceDesert"></a> `LandscapeTypePrevalences'PevalenceDesert`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#LandscapeTypePrevalence'PevalenceDesert/tag">See details</a>
-`prevalence_desert` |  | <a href="#LandscapeTypePrevalence'PevalenceDesert/prevalence_desert">See details</a>
+`tag` |  | <a href="#LandscapeTypePrevalences'PevalenceDesert/tag">See details</a>
+`prevalence_desert` |  | <a href="#LandscapeTypePrevalences'PevalenceDesert/prevalence_desert">See details</a>
 
-#### <a name="LandscapeTypePrevalence'PevalenceDesert/tag"></a> `tag`
+#### <a name="LandscapeTypePrevalences'PevalenceDesert/tag"></a> `tag`
 
 - **Constant:** `"PevalenceDesert"`
 
-#### <a name="LandscapeTypePrevalence'PevalenceDesert/prevalence_desert"></a> `prevalence_desert`
+#### <a name="LandscapeTypePrevalences'PevalenceDesert/prevalence_desert"></a> `prevalence_desert`
 
-- **Type:** <a href="#PrevalenceClass">PrevalenceClass</a>
+- **Type:** <a href="#LandscapeTypePrevalence">LandscapeTypePrevalence</a>
 
 ---
 
-### <a name="LandscapeTypePrevalence'PevalenceMaraskan"></a> `LandscapeTypePrevalence'PevalenceMaraskan`
+### <a name="LandscapeTypePrevalences'PevalenceMaraskan"></a> `LandscapeTypePrevalences'PevalenceMaraskan`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#LandscapeTypePrevalence'PevalenceMaraskan/tag">See details</a>
-`prevalence_maraskan` |  | <a href="#LandscapeTypePrevalence'PevalenceMaraskan/prevalence_maraskan">See details</a>
+`tag` |  | <a href="#LandscapeTypePrevalences'PevalenceMaraskan/tag">See details</a>
+`prevalence_maraskan` |  | <a href="#LandscapeTypePrevalences'PevalenceMaraskan/prevalence_maraskan">See details</a>
 
-#### <a name="LandscapeTypePrevalence'PevalenceMaraskan/tag"></a> `tag`
+#### <a name="LandscapeTypePrevalences'PevalenceMaraskan/tag"></a> `tag`
 
 - **Constant:** `"PevalenceMaraskan"`
 
-#### <a name="LandscapeTypePrevalence'PevalenceMaraskan/prevalence_maraskan"></a> `prevalence_maraskan`
+#### <a name="LandscapeTypePrevalences'PevalenceMaraskan/prevalence_maraskan"></a> `prevalence_maraskan`
+
+- **Type:** <a href="#LandscapeTypePrevalence">LandscapeTypePrevalence</a>
+
+---
+
+### <a name="LandscapeTypePrevalence"></a> `LandscapeTypePrevalence`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`prevalences` | Prevalence(s) in a certain landscape. | <a href="#LandscapeTypePrevalence/prevalences">See details</a>
+
+#### <a name="LandscapeTypePrevalence/prevalences"></a> `prevalences`
+
+Prevalence(s) in a certain landscape.
+
+- **Type:** List
+- **Items:** <a href="#LandscapeTypePrevalence/prevalences[]">LandscapeTypePrevalence/prevalences[]</a>
+- **Minimum Items:** `1`
+
+---
+
+### <a name="LandscapeTypePrevalence/prevalences[]"></a> `LandscapeTypePrevalence/prevalences[]`
+
+- **Type:** <a href="#Prevalence">Prevalence</a>
+
+---
+
+### <a name="Prevalence"></a> `Prevalence`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`preval` | Simple or conditional prevalence. | <a href="#Prevalence/preval">See details</a>
+`condition?` |  | <a href="#Prevalence/condition">See details</a>
+
+#### <a name="Prevalence/preval"></a> `preval`
+
+Simple or conditional prevalence.
 
 - **Type:** <a href="#PrevalenceClass">PrevalenceClass</a>
+
+#### <a name="Prevalence/condition"></a> `condition?`
+
+- **Type:** <a href="../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 ---
 
