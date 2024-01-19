@@ -12,8 +12,8 @@ import { LocaleMap } from "../../_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "../../_NonEmptyString.js"
 import { Errata } from "../../source/_Erratum.js"
 import { PublicationRefs } from "../../source/_PublicationRef.js"
-import { EffectType, TimeUnit } from "./_Herbary.js"
-import { RecipeReference } from "../../_SimpleReferences.js"
+import { EffectType, StorageLife } from "./_Herbary.js"
+import { RecipeReference, HerbalAidOrPreserveReference } from "../../_SimpleReferences.js"
 
 /**
  * @title Herb
@@ -85,7 +85,7 @@ export type Herb = {
   storage_life: StorageLifeRaw
 
   /**
-   * The preservation options, identified by IETF language tag (BCP47).
+   * The preservation options and respective storage life.
    */
   preservation_methods: PreservationMethod[]
 
@@ -97,6 +97,9 @@ export type Herb = {
   translations: LocaleMap<HerbTranslation>
 }
 
+/**
+ * Prevalence and/or conditional prevalence(s) per landscape type.
+ */
 export type LandscapeTypePrevalences =
   | { tag: "PrevalenceFarNorth", prevalence_far_north: LandscapeTypePrevalence[] }
   | { tag: "PrevalenceVeld", prevalence_veld: LandscapeTypePrevalence[] }
@@ -109,13 +112,18 @@ export type LandscapeTypePrevalences =
 
 export type LandscapeTypePrevalence = {
   /**
-   * Simple or conditional prevalence(s) in a certain landscape.
-   * @minItems 1
+   * Prevalence class.
    */
   prevalence: PrevalenceClass
+  /**
+   * Condition or restrictions concerning the prevalence.
+   */
   condition?: LocaleMap<NonEmptyString>
 }
 
+/**
+ * Prevalence class from 5 (common) down to 1 (very rare)
+ */
 export type PrevalenceClass =
   | "Common"
   | "Occasional"
@@ -123,45 +131,27 @@ export type PrevalenceClass =
   | "Rare"
   | "VeryRare"
 
+/**
+ * The Storage life of a raw herb.
+ */
 export type StorageLifeRaw = 
   | { tag: "Default", default: {} }
   | { tag: "Special", special: LocaleMap<NonEmptyString> }
 
+/**
+ * The preservation options of a herb and respective storage life.
+ */
 export type PreservationMethod = {
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translation: LocaleMap<PreservationMethodTranslation>
-  /**
-   * The storage life of the product.
-   */
+  method: PreservationMethodDescription
   storage_life: StorageLife
 }
 
-export type StorageLife = {
-  /**
-   * The storage life of a (processed) herb.
-   * @integer
-   * @minmum 1
-   */
-  value: number
-  unit: TimeUnit
-}
-
-export type PreservationMethodTranslation = {
-  /**
-   * Name of the preservation method.
-   */
-  name: NonEmptyString
-  /**
-   * Description of the preservation method.
-   */
-  preparation: NonEmptyString
-  /**
-   * Alternative effect of the product.
-   */
-  alternative_effect: NonEmptyString
-}
+/**
+ * Details on the preservation method of a herb.
+ */
+export type PreservationMethodDescription =
+| { tag: "HerbalAidOrPreserve", herbal_aid_or_preserve: HerbalAidOrPreserveReference }
+| { tag: "Special", special: LocaleMap<NonEmptyString> }
 
 export type HerbTranslation = {
   /**

@@ -1157,6 +1157,40 @@ export type GemOrPreciousStoneIdentifier = {
   gem_or_precious_stone: number
 }
 
+
+export type HerbIdentifier = {
+  tag: "Herb"
+
+  /**
+   * The herb’s identifier.
+   * @integer
+   * @minimum 1
+   */
+  herb: number
+}
+
+export type HerbalAidIdentifier = {
+  tag: "HerbalAid"
+
+  /**
+   * The herbal aid’s identifier.
+   * @integer
+   * @minimum 1
+   */
+  herbal_aid: number
+}
+
+export type HerbalPreserveIdentifier = {
+  tag: "HerbalPreserve"
+
+  /**
+   * The herbal preserve’s identifier.
+   * @integer
+   * @minimum 1
+   */
+  herbal_preserve: number
+}
+
 export type IlluminationLightSourceIdentifier = {
   tag: "IlluminationLightSource"
 
