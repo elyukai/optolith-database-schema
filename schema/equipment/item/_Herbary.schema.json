@@ -41,6 +41,31 @@
         }
       ]
     },
+    "TimeUnit": {
+      "oneOf": [
+        {
+          "const": "CombatRounds"
+        },
+        {
+          "const": "Minutes"
+        },
+        {
+          "const": "Hours"
+        },
+        {
+          "const": "Days"
+        },
+        {
+          "const": "Weeks"
+        },
+        {
+          "const": "Months"
+        },
+        {
+          "const": "Years"
+        }
+      ]
+    },
     "RecipeTradeSecret": {
       "type": "object",
       "properties": {

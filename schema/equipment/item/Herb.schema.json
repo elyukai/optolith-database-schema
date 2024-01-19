@@ -65,6 +65,17 @@
           },
           "uniqueItems": true
         },
+        "storage_life": {
+          "description": "The Storage life of the raw herb.",
+          "$ref": "#/$defs/StorageLifeRaw"
+        },
+        "preservation_methods": {
+          "description": "The preservation options, identified by IETF language tag (BCP47).",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PreservationMethod"
+          }
+        },
         "src": {
           "$ref": "../../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
         },
@@ -90,6 +101,8 @@
         "value",
         "cost",
         "recipes",
+        "storage_life",
+        "preservation_methods",
         "src",
         "translations"
       ],
@@ -293,6 +306,118 @@
           "const": "VeryRare"
         }
       ]
+    },
+    "StorageLifeRaw": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Default"
+            },
+            "default": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "tag",
+            "default"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Special"
+            },
+            "special": {
+              "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+              "type": "object",
+              "patternProperties": {
+                "^[a-z]{2}-[A-Z]{2}$": {
+                  "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                }
+              },
+              "minProperties": 1,
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "tag",
+            "special"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "PreservationMethod": {
+      "type": "object",
+      "properties": {
+        "translation": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/PreservationMethodTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        },
+        "storage_life": {
+          "description": "The storage life of the product.",
+          "$ref": "#/$defs/StorageLife"
+        }
+      },
+      "required": [
+        "translation",
+        "storage_life"
+      ],
+      "additionalProperties": false
+    },
+    "StorageLife": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The storage life of a (processed) herb.",
+          "type": "integer"
+        },
+        "unit": {
+          "$ref": "./_Herbary.schema.json#/$defs/TimeUnit"
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "additionalProperties": false
+    },
+    "PreservationMethodTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Name of the preservation method.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "preparation": {
+          "description": "Description of the preservation method.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "alternative_effect": {
+          "description": "Alternative effect of the product.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "name",
+        "preparation",
+        "alternative_effect"
+      ],
+      "additionalProperties": false
     },
     "HerbTranslation": {
       "type": "object",

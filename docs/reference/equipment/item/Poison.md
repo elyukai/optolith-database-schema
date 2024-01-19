@@ -296,7 +296,7 @@ Key | Description | Details
 
 #### <a name="ConstantPoisonTime/unit"></a> `unit`
 
-- **Type:** <a href="#PoisonTimeUnit">PoisonTimeUnit</a>
+- **Type:** <a href="./_Herbary.md#TimeUnit">TimeUnit</a>
 
 ---
 
@@ -315,38 +315,7 @@ Key | Description | Details
 
 #### <a name="DiceBasedPoisonTime/unit"></a> `unit`
 
-- **Type:** <a href="#PoisonTimeUnit">PoisonTimeUnit</a>
-
----
-
-### <a name="PoisonTimeUnit"></a> `PoisonTimeUnit`
-
-- **Type:** Union
-- **Cases:** <a href="#PoisonTimeUnit'0">PoisonTimeUnit'0</a> | <a href="#PoisonTimeUnit'1">PoisonTimeUnit'1</a> | <a href="#PoisonTimeUnit'2">PoisonTimeUnit'2</a> | <a href="#PoisonTimeUnit'3">PoisonTimeUnit'3</a>
-
----
-
-### <a name="PoisonTimeUnit'0"></a> `PoisonTimeUnit'0`
-
-- **Constant:** `"CombatRounds"`
-
----
-
-### <a name="PoisonTimeUnit'1"></a> `PoisonTimeUnit'1`
-
-- **Constant:** `"Minutes"`
-
----
-
-### <a name="PoisonTimeUnit'2"></a> `PoisonTimeUnit'2`
-
-- **Constant:** `"Hours"`
-
----
-
-### <a name="PoisonTimeUnit'3"></a> `PoisonTimeUnit'3`
-
-- **Constant:** `"Days"`
+- **Type:** <a href="./_Herbary.md#TimeUnit">TimeUnit</a>
 
 ---
 

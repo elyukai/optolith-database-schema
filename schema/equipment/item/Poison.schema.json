@@ -237,7 +237,7 @@
           "type": "number"
         },
         "unit": {
-          "$ref": "#/$defs/PoisonTimeUnit"
+          "$ref": "./_Herbary.schema.json#/$defs/TimeUnit"
         }
       },
       "required": [
@@ -253,7 +253,7 @@
           "$ref": "../../_Dice.schema.json#/$defs/Dice"
         },
         "unit": {
-          "$ref": "#/$defs/PoisonTimeUnit"
+          "$ref": "./_Herbary.schema.json#/$defs/TimeUnit"
         }
       },
       "required": [
@@ -261,22 +261,6 @@
         "unit"
       ],
       "additionalProperties": false
-    },
-    "PoisonTimeUnit": {
-      "oneOf": [
-        {
-          "const": "CombatRounds"
-        },
-        {
-          "const": "Minutes"
-        },
-        {
-          "const": "Hours"
-        },
-        {
-          "const": "Days"
-        }
-      ]
     },
     "IndefinitePoisonTime": {
       "type": "object",

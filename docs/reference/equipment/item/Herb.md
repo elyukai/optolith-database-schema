@@ -17,6 +17,8 @@ Key | Description | Details
 `value` | Value per dose, in silverthalers. | <a href="#Herb/value">See details</a>
 `cost` | Price per dose, in silverthalers. | <a href="#Herb/cost">See details</a>
 `recipes` | The recipes the herb is used in. | <a href="#Herb/recipes">See details</a>
+`storage_life` | The Storage life of the raw herb. | <a href="#Herb/storage_life">See details</a>
+`preservation_methods` | The preservation options, identified by IETF language tag (BCP47). | <a href="#Herb/preservation_methods">See details</a>
 `src` |  | <a href="#Herb/src">See details</a>
 `translations` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#Herb/translations">See details</a>
 
@@ -88,6 +90,19 @@ The recipes the herb is used in.
 - **Items:** <a href="#Herb/recipes[]">Herb/recipes[]</a>
 - **Unique Items:** Yes
 
+#### <a name="Herb/storage_life"></a> `storage_life`
+
+The Storage life of the raw herb.
+
+- **Type:** <a href="#StorageLifeRaw">StorageLifeRaw</a>
+
+#### <a name="Herb/preservation_methods"></a> `preservation_methods`
+
+The preservation options, identified by IETF language tag (BCP47).
+
+- **Type:** List
+- **Items:** <a href="#Herb/preservation_methods[]">Herb/preservation_methods[]</a>
+
 #### <a name="Herb/src"></a> `src`
 
 - **Type:** <a href="../../source/_PublicationRef.md#PublicationRefs">PublicationRefs</a>
@@ -121,6 +136,12 @@ All translations for the entry, identified by IETF language tag (BCP47).
 ### <a name="Herb/recipes[]"></a> `Herb/recipes[]`
 
 - **Type:** <a href="../../_SimpleReferences.md#RecipeReference">RecipeReference</a>
+
+---
+
+### <a name="Herb/preservation_methods[]"></a> `Herb/preservation_methods[]`
+
+- **Type:** <a href="#PreservationMethod">PreservationMethod</a>
 
 ---
 
@@ -394,6 +415,131 @@ Simple or conditional prevalence(s) in a certain landscape.
 ### <a name="PrevalenceClass'4"></a> `PrevalenceClass'4`
 
 - **Constant:** `"VeryRare"`
+
+---
+
+### <a name="StorageLifeRaw"></a> `StorageLifeRaw`
+
+- **Type:** Union
+- **Cases:** <a href="#StorageLifeRaw'Default">StorageLifeRaw'Default</a> | <a href="#StorageLifeRaw'Special">StorageLifeRaw'Special</a>
+
+---
+
+### <a name="StorageLifeRaw'Default"></a> `StorageLifeRaw'Default`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#StorageLifeRaw'Default/tag">See details</a>
+`default` |  | <a href="#StorageLifeRaw'Default/default">See details</a>
+
+#### <a name="StorageLifeRaw'Default/tag"></a> `tag`
+
+- **Constant:** `"Default"`
+
+#### <a name="StorageLifeRaw'Default/default"></a> `default`
+
+- **Type:** <a href="#StorageLifeRaw'Default/default">Object</a>
+
+---
+
+### <a name="StorageLifeRaw'Default/default"></a> `StorageLifeRaw'Default/default`
+
+- **Type:** Empty Object
+
+---
+
+### <a name="StorageLifeRaw'Special"></a> `StorageLifeRaw'Special`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#StorageLifeRaw'Special/tag">See details</a>
+`special` |  | <a href="#StorageLifeRaw'Special/special">See details</a>
+
+#### <a name="StorageLifeRaw'Special/tag"></a> `tag`
+
+- **Constant:** `"Special"`
+
+#### <a name="StorageLifeRaw'Special/special"></a> `special`
+
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>&gt;
+
+---
+
+### <a name="PreservationMethod"></a> `PreservationMethod`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`translation` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#PreservationMethod/translation">See details</a>
+`storage_life` | The storage life of the product. | <a href="#PreservationMethod/storage_life">See details</a>
+
+#### <a name="PreservationMethod/translation"></a> `translation`
+
+All translations for the entry, identified by IETF language tag (BCP47).
+
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#PreservationMethodTranslation">PreservationMethodTranslation</a>&gt;
+
+#### <a name="PreservationMethod/storage_life"></a> `storage_life`
+
+The storage life of the product.
+
+- **Type:** <a href="#StorageLife">StorageLife</a>
+
+---
+
+### <a name="StorageLife"></a> `StorageLife`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`value` | The storage life of a (processed) herb. | <a href="#StorageLife/value">See details</a>
+`unit` |  | <a href="#StorageLife/unit">See details</a>
+
+#### <a name="StorageLife/value"></a> `value`
+
+The storage life of a (processed) herb.
+
+- **Type:** Integer
+
+#### <a name="StorageLife/unit"></a> `unit`
+
+- **Type:** <a href="./_Herbary.md#TimeUnit">TimeUnit</a>
+
+---
+
+### <a name="PreservationMethodTranslation"></a> `PreservationMethodTranslation`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`name` | Name of the preservation method. | <a href="#PreservationMethodTranslation/name">See details</a>
+`preparation` | Description of the preservation method. | <a href="#PreservationMethodTranslation/preparation">See details</a>
+`alternative_effect` | Alternative effect of the product. | <a href="#PreservationMethodTranslation/alternative_effect">See details</a>
+
+#### <a name="PreservationMethodTranslation/name"></a> `name`
+
+Name of the preservation method.
+
+- **Type:** <a href="../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="PreservationMethodTranslation/preparation"></a> `preparation`
+
+Description of the preservation method.
+
+- **Type:** <a href="../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="PreservationMethodTranslation/alternative_effect"></a> `alternative_effect`
+
+Alternative effect of the product.
+
+- **Type:** <a href="../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 ---
 
