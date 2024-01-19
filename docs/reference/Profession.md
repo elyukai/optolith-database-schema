@@ -896,6 +896,54 @@ Key | Description | Details
 
 ---
 
+### <a name="FixedVariantSpecialAbility"></a> `FixedVariantSpecialAbility`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` | The identifier of the combat technique to provide the rating for. | <a href="#FixedVariantSpecialAbility/id">See details</a>
+`active?` | if set to `false`, if the selection is granted by the basic package, it is removed. | <a href="#FixedVariantSpecialAbility/active">See details</a>
+`level?` | The level of the received special ability. | <a href="#FixedVariantSpecialAbility/level">See details</a>
+`options?` | Received select options. Order is important. Typically, you only need the first array index, though. | <a href="#FixedVariantSpecialAbility/options">See details</a>
+
+#### <a name="FixedVariantSpecialAbility/id"></a> `id`
+
+The identifier of the combat technique to provide the rating for.
+
+- **Type:** <a href="./_IdentifierGroup.md#SpecialAbilityIdentifier">SpecialAbilityIdentifier</a>
+
+#### <a name="FixedVariantSpecialAbility/active"></a> `active?`
+
+if set to `false`, if the selection is granted by the basic package, it
+is removed.
+
+- **Constant:** `false`
+
+#### <a name="FixedVariantSpecialAbility/level"></a> `level?`
+
+The level of the received special ability.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="FixedVariantSpecialAbility/options"></a> `options?`
+
+Received select options. Order is important. Typically, you only need the
+first array index, though.
+
+- **Type:** List
+- **Items:** <a href="#FixedVariantSpecialAbility/options[]">FixedVariantSpecialAbility/options[]</a>
+- **Minimum Items:** `1`
+
+---
+
+### <a name="FixedVariantSpecialAbility/options[]"></a> `FixedVariantSpecialAbility/options[]`
+
+- **Type:** <a href="./_IdentifierGroup.md#RequirableSelectOptionIdentifier">RequirableSelectOptionIdentifier</a>
+
+---
+
 ### <a name="VariantSpecialAbilitySelection"></a> `VariantSpecialAbilitySelection`
 
 - **Type:** Object

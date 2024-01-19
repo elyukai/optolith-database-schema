@@ -1,4 +1,4 @@
-import { CheckResultBased } from "./_ActivatableSkillCheckResultBased.js"
+import { CheckResultBasedModifier, CheckResultValue } from "./_ActivatableSkillCheckResultBased.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { ResponsiveTextOptional, ResponsiveTextReplace } from "./_ResponsiveText.js"
 
@@ -70,11 +70,21 @@ export type FixedRange = {
 /**
  * Defines the range being based on a check result.
  */
-export type CheckResultBasedRange = CheckResultBased & {
+export type CheckResultBasedRange = {
   /**
    * If the range is the maximum range.
    */
   is_maximum?: true
+
+  /**
+   * The base value that is derived from the check result.
+   */
+  base: CheckResultValue
+
+  /**
+   * If defined, it modifies the base value.
+   */
+  modifier?: CheckResultBasedModifier
 
   /**
    * The duration unit.
@@ -105,6 +115,4 @@ export type RangeTranslation = {
   replacement?: ResponsiveTextReplace
 }
 
-export type RangeUnit =
-  | "Steps"
-  | "Miles"
+export type RangeUnit = "Steps" | "Miles"

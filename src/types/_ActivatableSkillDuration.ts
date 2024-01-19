@@ -1,28 +1,28 @@
-import { CheckResultBased } from "./_ActivatableSkillCheckResultBased.js"
+import { CheckResultBasedModifier, CheckResultValue } from "./_ActivatableSkillCheckResultBased.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { ResponsiveText, ResponsiveTextReplace } from "./_ResponsiveText.js"
 
 export type DurationForOneTime =
   | {
-    tag: "Immediate"
-    immediate: Immediate
-  }
+      tag: "Immediate"
+      immediate: Immediate
+    }
   | {
-    tag: "Permanent"
-    permanent: PermanentDuration
-  }
+      tag: "Permanent"
+      permanent: PermanentDuration
+    }
   | {
-    tag: "Fixed"
-    fixed: FixedDuration
-  }
+      tag: "Fixed"
+      fixed: FixedDuration
+    }
   | {
-    tag: "CheckResultBased"
-    check_result_based: CheckResultBasedDuration
-  }
+      tag: "CheckResultBased"
+      check_result_based: CheckResultBasedDuration
+    }
   | {
-    tag: "Indefinite"
-    indefinite: IndefiniteDuration
-  }
+      tag: "Indefinite"
+      indefinite: IndefiniteDuration
+    }
 
 export type Immediate = {
   /**
@@ -91,11 +91,21 @@ export type FixedDurationTranslation = {
 /**
  * Defines the duration being based on a check result.
  */
-export type CheckResultBasedDuration = CheckResultBased & {
+export type CheckResultBasedDuration = {
   /**
    * If the duration is the maximum duration, so it may end earlier.
    */
   is_maximum?: true
+
+  /**
+   * The base value that is derived from the check result.
+   */
+  base: CheckResultValue
+
+  /**
+   * If defined, it modifies the base value.
+   */
+  modifier?: CheckResultBasedModifier
 
   /**
    * The duration unit.
