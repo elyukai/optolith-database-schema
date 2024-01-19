@@ -62,14 +62,14 @@ export type Herb = {
 
   /**
    * Value per dose, in silverthalers.
-   * @integer
+   * @float
    * @minimum 1
    */
   value: number
 
   /**
    * Price per dose, in silverthalers.
-   * @integer
+   * @float
    * @minimum 1
    */
   cost: number
@@ -186,6 +186,11 @@ export type HerbTranslation = {
    * The raw plant's effect(s) when ingested.
    */
   effect_ingest?: NonEmptyString
+
+  /**
+   * Simple recipes the herb is used in.
+   */
+  simple_recipe?: NonEmptyString[]
 
   /**
    * Additional remarks on the prevalence per landscape type of the herb.

@@ -263,6 +263,8 @@ type ManyNumericIdentifiers = OneNumericIdentifier[]
 export type RecipeIdentifier =
   | Identifier.ElixirIdentifier
   | Identifier.PoisonIdentifier
+  | Identifier.HerbalAidIdentifier
+  | Identifier.HerbalPreserveIdentifier
 
 export type HerbalAidOrPreserveIdentifier = 
   | Identifier.HerbalAidIdentifier
