@@ -103,7 +103,7 @@ export type LandscapeTypePrevalence = {
    * @minItems 1
    */
   prevalence: PrevalenceClass
-  condition?: NonEmptyString
+  condition?: LocaleMap<NonEmptyString>
 }
 
 export type PrevalenceClass =
