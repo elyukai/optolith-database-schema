@@ -503,19 +503,19 @@ Key | Description | Details
 Details on the preservation method of a herb.
 
 - **Type:** Union
-- **Cases:** <a href="#PreservationMethodDescription'HerbalAidReference">PreservationMethodDescription'HerbalAidReference</a> | <a href="#PreservationMethodDescription'HerbalPreserveReference">PreservationMethodDescription'HerbalPreserveReference</a> | <a href="#PreservationMethodDescription'Special">PreservationMethodDescription'Special</a>
+- **Cases:** <a href="#PreservationMethodDescription'HerbalAidIdentifier">PreservationMethodDescription'HerbalAidIdentifier</a> | <a href="#PreservationMethodDescription'HerbalPreserveIdentifier">PreservationMethodDescription'HerbalPreserveIdentifier</a> | <a href="#PreservationMethodDescription'Special">PreservationMethodDescription'Special</a>
 
 ---
 
-### <a name="PreservationMethodDescription'HerbalAidReference"></a> `PreservationMethodDescription'HerbalAidReference`
+### <a name="PreservationMethodDescription'HerbalAidIdentifier"></a> `PreservationMethodDescription'HerbalAidIdentifier`
 
-- **Type:** <a href="../../_SimpleReferences.md#HerbalAidReference">HerbalAidReference</a>
+- **Type:** <a href="../../_Identifier.md#HerbalAidIdentifier">HerbalAidIdentifier</a>
 
 ---
 
-### <a name="PreservationMethodDescription'HerbalPreserveReference"></a> `PreservationMethodDescription'HerbalPreserveReference`
+### <a name="PreservationMethodDescription'HerbalPreserveIdentifier"></a> `PreservationMethodDescription'HerbalPreserveIdentifier`
 
-- **Type:** <a href="../../_SimpleReferences.md#HerbalPreserveReference">HerbalPreserveReference</a>
+- **Type:** <a href="../../_Identifier.md#HerbalPreserveIdentifier">HerbalPreserveIdentifier</a>
 
 ---
 

@@ -377,10 +377,10 @@
       "description": "Details on the preservation method of a herb.",
       "oneOf": [
         {
-          "$ref": "../../_SimpleReferences.schema.json#/$defs/HerbalAidReference"
+          "$ref": "../../_Identifier.schema.json#/$defs/HerbalAidIdentifier"
         },
         {
-          "$ref": "../../_SimpleReferences.schema.json#/$defs/HerbalPreserveReference"
+          "$ref": "../../_Identifier.schema.json#/$defs/HerbalPreserveIdentifier"
         },
         {
           "type": "object",
