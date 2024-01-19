@@ -1,4 +1,4 @@
-import { AdvantageIdentifier, AnimalTypeIdentifier, AnimistTribeIdentifier, ArmorIdentifier, AspectIdentifier, AttributeIdentifier, BlessedTraditionIdentifier, BlessingIdentifier, CantripIdentifier, CeremonyIdentifier, CloseCombatTechniqueIdentifier, CultureIdentifier, CurriculumIdentifier, DisadvantageIdentifier, ElementIdentifier, EyeColorIdentifier, GuidelineIdentifier, HairColorIdentifier, HerbIdentifier, LanguageIdentifier, LiturgicalChantIdentifier, MagicalTraditionIdentifier, PactCategoryIdentifier, PactDomainIdentifier, PatronCategoryIdentifier, PatronIdentifier, PersonalityTraitIdentifier, ProfessionIdentifier, ProfessionVariantIdentifier, PropertyIdentifier, RaceIdentifier, RangedCombatTechniqueIdentifier, RitualIdentifier, ScriptIdentifier, SkillGroupIdentifier, SkillIdentifier, SocialStatusIdentifier, SpellIdentifier, SubjectIdentifier, TargetCategoryIdentifier, WeaponIdentifier } from "./_Identifier.js"
+import { AdvantageIdentifier, AnimalTypeIdentifier, AnimistTribeIdentifier, ArmorIdentifier, AspectIdentifier, AttributeIdentifier, BlessedTraditionIdentifier, BlessingIdentifier, CantripIdentifier, CeremonyIdentifier, CloseCombatTechniqueIdentifier, CultureIdentifier, CurriculumIdentifier, DisadvantageIdentifier, ElementIdentifier, EyeColorIdentifier, GuidelineIdentifier, HairColorIdentifier, HerbalAidIdentifier, HerbalPreserveIdentifier, HerbIdentifier, LanguageIdentifier, LiturgicalChantIdentifier, MagicalTraditionIdentifier, PactCategoryIdentifier, PactDomainIdentifier, PatronCategoryIdentifier, PatronIdentifier, PersonalityTraitIdentifier, ProfessionIdentifier, ProfessionVariantIdentifier, PropertyIdentifier, RaceIdentifier, RangedCombatTechniqueIdentifier, RitualIdentifier, ScriptIdentifier, SkillGroupIdentifier, SkillIdentifier, SocialStatusIdentifier, SpellIdentifier, SubjectIdentifier, TargetCategoryIdentifier, WeaponIdentifier } from "./_Identifier.js"
 import { CombatTechniqueIdentifier, HerbalAidOrPreserveIdentifier, SpellworkIdentifier, TraditionIdentifier, RecipeIdentifier } from "./_IdentifierGroup.js"
 
 export type FocusRuleSubjectReference = {
@@ -181,10 +181,14 @@ export type RecipeReference = {
   id: RecipeIdentifier
 }
 
-export type HerbReference = {
-  id: HerbIdentifier
+export type HerbalAidReference = {
+  id: HerbalAidIdentifier
 }
 
-export type HerbalAidOrPreserveReference = {
-  id: HerbalAidOrPreserveIdentifier
+export type HerbalPreserveReference = {
+  id: HerbalPreserveIdentifier
+}
+
+export type HerbReference = {
+  id: HerbIdentifier
 }

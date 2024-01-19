@@ -13,7 +13,7 @@ import { NonEmptyMarkdown, NonEmptyString } from "../../_NonEmptyString.js"
 import { Errata } from "../../source/_Erratum.js"
 import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { EffectType, StorageLife } from "./_Herbary.js"
-import { RecipeReference, HerbalAidOrPreserveReference } from "../../_SimpleReferences.js"
+import { RecipeReference, HerbalAidReference, HerbalPreserveReference } from "../../_SimpleReferences.js"
 
 /**
  * @title Herb
@@ -150,7 +150,8 @@ export type PreservationMethod = {
  * Details on the preservation method of a herb.
  */
 export type PreservationMethodDescription =
-| { tag: "HerbalAidOrPreserve", herbal_aid_or_preserve: HerbalAidOrPreserveReference }
+| { tag: "HerbalAid", herbal_aid: HerbalAidReference }
+| { tag: "HerbalPreserve", herbal_preserve: HerbalPreserveReference}
 | { tag: "Special", special: LocaleMap<NonEmptyString> }
 
 export type HerbTranslation = {
