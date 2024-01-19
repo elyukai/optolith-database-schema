@@ -150,8 +150,8 @@ export type PreservationMethod = {
  * Details on the preservation method of a herb.
  */
 export type PreservationMethodDescription =
-| { tag: "HerbalAid", herbal_aid: HerbalAidReference }
-| { tag: "HerbalPreserve", herbal_preserve: HerbalPreserveReference}
+| HerbalAidReference
+| HerbalPreserveReference
 | { tag: "Special", special: LocaleMap<NonEmptyString> }
 
 export type HerbTranslation = {
