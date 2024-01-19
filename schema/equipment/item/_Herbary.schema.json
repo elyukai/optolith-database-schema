@@ -41,6 +41,40 @@
         }
       ]
     },
+    "RecipeTradeSecret": {
+      "type": "object",
+      "properties": {
+        "ap_value": {
+          "description": "The AP value of the trade secret.",
+          "type": "number"
+        },
+        "prerequisites": {
+          "description": "The prerequisites of the trade secret, if any.",
+          "$ref": "../../_Prerequisite.schema.json#/$defs/PlainGeneralPrerequisites"
+        }
+      },
+      "required": [
+        "ap_value"
+      ],
+      "additionalProperties": false
+    },
+    "StorageLife": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The storage life of a (processed) herb.",
+          "type": "integer"
+        },
+        "unit": {
+          "$ref": "#/$defs/TimeUnit"
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "additionalProperties": false
+    },
     "TimeUnit": {
       "oneOf": [
         {
@@ -65,23 +99,6 @@
           "const": "Years"
         }
       ]
-    },
-    "RecipeTradeSecret": {
-      "type": "object",
-      "properties": {
-        "ap_value": {
-          "description": "The AP value of the trade secret.",
-          "type": "number"
-        },
-        "prerequisites": {
-          "description": "The prerequisites of the trade secret, if any.",
-          "$ref": "../../_Prerequisite.schema.json#/$defs/PlainGeneralPrerequisites"
-        }
-      },
-      "required": [
-        "ap_value"
-      ],
-      "additionalProperties": false
     }
   }
 }

@@ -70,7 +70,7 @@
           "$ref": "#/$defs/StorageLifeRaw"
         },
         "preservation_methods": {
-          "description": "The preservation options, identified by IETF language tag (BCP47).",
+          "description": "The preservation options and respective storage life.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/PreservationMethod"
@@ -100,7 +100,6 @@
         "uses",
         "value",
         "cost",
-        "recipes",
         "storage_life",
         "preservation_methods",
         "src",
@@ -109,6 +108,7 @@
       "additionalProperties": false
     },
     "LandscapeTypePrevalences": {
+      "description": "Prevalence and/or conditional prevalence(s) per landscape type.",
       "oneOf": [
         {
           "type": "object",
@@ -133,7 +133,7 @@
           "type": "object",
           "properties": {
             "tag": {
-              "const": "PevalenceVeld"
+              "const": "PrevalenceVeld"
             },
             "prevalence_veld": {
               "type": "array",
@@ -152,7 +152,7 @@
           "type": "object",
           "properties": {
             "tag": {
-              "const": "PevalenceMarsh"
+              "const": "PrevalenceMarsh"
             },
             "prevalence_marsh": {
               "type": "array",
@@ -171,7 +171,7 @@
           "type": "object",
           "properties": {
             "tag": {
-              "const": "PevalenceWoods"
+              "const": "PrevalenceWoods"
             },
             "prevalence_woods": {
               "type": "array",
@@ -190,7 +190,7 @@
           "type": "object",
           "properties": {
             "tag": {
-              "const": "PevalenceRainForest"
+              "const": "PrevalenceRainForest"
             },
             "prevalence_rain_forest": {
               "type": "array",
@@ -209,7 +209,7 @@
           "type": "object",
           "properties": {
             "tag": {
-              "const": "PevalenceMountains"
+              "const": "PrevalenceMountains"
             },
             "prevalence_mountains": {
               "type": "array",
@@ -228,7 +228,7 @@
           "type": "object",
           "properties": {
             "tag": {
-              "const": "PevalenceDesert"
+              "const": "PrevalenceDesert"
             },
             "prevalence_desert": {
               "type": "array",
@@ -247,7 +247,7 @@
           "type": "object",
           "properties": {
             "tag": {
-              "const": "PevalenceMaraskan"
+              "const": "PrevalenceMaraskan"
             },
             "prevalence_maraskan": {
               "type": "array",
@@ -268,7 +268,7 @@
       "type": "object",
       "properties": {
         "prevalence": {
-          "description": "Simple or conditional prevalence(s) in a certain landscape.",
+          "description": "Prevalence class.",
           "$ref": "#/$defs/PrevalenceClass"
         },
         "condition": {
@@ -289,6 +289,7 @@
       "additionalProperties": false
     },
     "PrevalenceClass": {
+      "description": "Prevalence class from 5 (common) down to 1 (very rare)",
       "oneOf": [
         {
           "const": "Common"
@@ -308,6 +309,7 @@
       ]
     },
     "StorageLifeRaw": {
+      "description": "The Storage life of a raw herb.",
       "oneOf": [
         {
           "type": "object",
@@ -355,69 +357,66 @@
       ]
     },
     "PreservationMethod": {
+      "description": "The preservation options of a herb and respective storage life.",
       "type": "object",
       "properties": {
-        "translation": {
-          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
-          "type": "object",
-          "patternProperties": {
-            "^[a-z]{2}-[A-Z]{2}$": {
-              "$ref": "#/$defs/PreservationMethodTranslation"
-            }
-          },
-          "minProperties": 1,
-          "additionalProperties": false
+        "method": {
+          "$ref": "#/$defs/PreservationMethodDescription"
         },
         "storage_life": {
-          "description": "The storage life of the product.",
-          "$ref": "#/$defs/StorageLife"
+          "$ref": "./_Herbary.schema.json#/$defs/StorageLife"
         }
       },
       "required": [
-        "translation",
+        "method",
         "storage_life"
       ],
       "additionalProperties": false
     },
-    "StorageLife": {
-      "type": "object",
-      "properties": {
-        "value": {
-          "description": "The storage life of a (processed) herb.",
-          "type": "integer"
+    "PreservationMethodDescription": {
+      "description": "Details on the preservation method of a herb.",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "HerbalAidOrPreserve"
+            },
+            "herbal_aid_or_preserve": {
+              "$ref": "../../_SimpleReferences.schema.json#/$defs/HerbalAidOrPreserveReference"
+            }
+          },
+          "required": [
+            "tag",
+            "herbal_aid_or_preserve"
+          ],
+          "additionalProperties": false
         },
-        "unit": {
-          "$ref": "./_Herbary.schema.json#/$defs/TimeUnit"
+        {
+          "type": "object",
+          "properties": {
+            "tag": {
+              "const": "Special"
+            },
+            "special": {
+              "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+              "type": "object",
+              "patternProperties": {
+                "^[a-z]{2}-[A-Z]{2}$": {
+                  "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+                }
+              },
+              "minProperties": 1,
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "tag",
+            "special"
+          ],
+          "additionalProperties": false
         }
-      },
-      "required": [
-        "value",
-        "unit"
-      ],
-      "additionalProperties": false
-    },
-    "PreservationMethodTranslation": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "description": "Name of the preservation method.",
-          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "preparation": {
-          "description": "Description of the preservation method.",
-          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "alternative_effect": {
-          "description": "Alternative effect of the product.",
-          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        }
-      },
-      "required": [
-        "name",
-        "preparation",
-        "alternative_effect"
-      ],
-      "additionalProperties": false
+      ]
     },
     "HerbTranslation": {
       "type": "object",

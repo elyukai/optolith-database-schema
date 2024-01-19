@@ -1894,6 +1894,60 @@
       ],
       "additionalProperties": false
     },
+    "HerbIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Herb"
+        },
+        "herb": {
+          "description": "The herb’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "herb"
+      ],
+      "additionalProperties": false
+    },
+    "HerbalAidIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "HerbalAid"
+        },
+        "herbal_aid": {
+          "description": "The herbal aid’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "herbal_aid"
+      ],
+      "additionalProperties": false
+    },
+    "HerbalPreserveIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "HerbalPreserve"
+        },
+        "herbal_preserve": {
+          "description": "The herbal preserve’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "herbal_preserve"
+      ],
+      "additionalProperties": false
+    },
     "IlluminationLightSourceIdentifier": {
       "type": "object",
       "properties": {

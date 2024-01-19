@@ -1419,6 +1419,27 @@
 
 ---
 
+### <a name="OneNumericIdentifier"></a> `OneNumericIdentifier`
+
+- **Type:** Number
+- **Minimum:** `1`
+
+---
+
+### <a name="ManyNumericIdentifiers"></a> `ManyNumericIdentifiers`
+
+- **Type:** List
+- **Items:** <a href="#ManyNumericIdentifiers[]">ManyNumericIdentifiers[]</a>
+- **Minimum Items:** `2`
+
+---
+
+### <a name="ManyNumericIdentifiers[]"></a> `ManyNumericIdentifiers[]`
+
+- **Type:** <a href="#OneNumericIdentifier">OneNumericIdentifier</a>
+
+---
+
 ### <a name="RecipeIdentifier"></a> `RecipeIdentifier`
 
 - **Type:** Union
@@ -1438,21 +1459,19 @@
 
 ---
 
-### <a name="OneNumericIdentifier"></a> `OneNumericIdentifier`
+### <a name="HerbalAidOrPreserveIdentifier"></a> `HerbalAidOrPreserveIdentifier`
 
-- **Type:** Number
-- **Minimum:** `1`
-
----
-
-### <a name="ManyNumericIdentifiers"></a> `ManyNumericIdentifiers`
-
-- **Type:** List
-- **Items:** <a href="#ManyNumericIdentifiers[]">ManyNumericIdentifiers[]</a>
-- **Minimum Items:** `2`
+- **Type:** Union
+- **Cases:** <a href="#HerbalAidOrPreserveIdentifier'HerbalAidIdentifier">HerbalAidOrPreserveIdentifier'HerbalAidIdentifier</a> | <a href="#HerbalAidOrPreserveIdentifier'HerbalPreserveIdentifier">HerbalAidOrPreserveIdentifier'HerbalPreserveIdentifier</a>
 
 ---
 
-### <a name="ManyNumericIdentifiers[]"></a> `ManyNumericIdentifiers[]`
+### <a name="HerbalAidOrPreserveIdentifier'HerbalAidIdentifier"></a> `HerbalAidOrPreserveIdentifier'HerbalAidIdentifier`
 
-- **Type:** <a href="#OneNumericIdentifier">OneNumericIdentifier</a>
+- **Type:** <a href="#HerbalAidIdentifier">HerbalAidIdentifier</a>
+
+---
+
+### <a name="HerbalAidOrPreserveIdentifier'HerbalPreserveIdentifier"></a> `HerbalAidOrPreserveIdentifier'HerbalPreserveIdentifier`
+
+- **Type:** <a href="#HerbalPreserveIdentifier">HerbalPreserveIdentifier</a>

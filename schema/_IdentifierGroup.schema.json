@@ -720,16 +720,6 @@
         }
       ]
     },
-    "RecipeIdentifier": {
-      "oneOf": [
-        {
-          "$ref": "./_Identifier.schema.json#/$defs/ElixirIdentifier"
-        },
-        {
-          "$ref": "./_Identifier.schema.json#/$defs/PoisonIdentifier"
-        }
-      ]
-    },
     "OneNumericIdentifier": {
       "type": "number",
       "minimum": 1
@@ -740,6 +730,26 @@
         "$ref": "#/$defs/OneNumericIdentifier"
       },
       "minItems": 2
+    },
+    "RecipeIdentifier": {
+      "oneOf": [
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/ElixirIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/PoisonIdentifier"
+        }
+      ]
+    },
+    "HerbalAidOrPreserveIdentifier": {
+      "oneOf": [
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/HerbalAidIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/HerbalPreserveIdentifier"
+        }
+      ]
     }
   }
 }

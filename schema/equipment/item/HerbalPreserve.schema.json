@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "/equipment/item/HerbalPreserve.schema.json",
+  "$ref": "#/$defs/HerbalPreserve",
+  "$defs": {
+    "HerbalPreserve": {
+      "title": "HerbalPreserve",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The preserve's identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "main_ingredient": {
+          "description": "The main ingredient, a herb.",
+          "$ref": "../../_SimpleReferences.schema.json#/$defs/HerbReference"
+        },
+        "storage_life": {
+          "description": "The storage life of the product.",
+          "$ref": "./_Herbary.schema.json#/$defs/StorageLife"
+        },
+        "translation": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/HerbalPreserveTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "main_ingredient",
+        "storage_life",
+        "translation"
+      ],
+      "additionalProperties": false
+    },
+    "HerbalPreserveTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Name of the preservation method.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "preparation": {
+          "description": "Description of the preservation method.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "alternative_effect": {
+          "description": "Alternative effect of the product.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "errata": {
+          "$ref": "../../source/_Erratum.schema.json#/$defs/Errata"
+        },
+        "src": {
+          "$ref": "../../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
+        }
+      },
+      "required": [
+        "name",
+        "preparation",
+        "alternative_effect",
+        "src"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

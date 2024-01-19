@@ -80,6 +80,50 @@ Effect type categories of a plant or recipe.
 
 ---
 
+### <a name="RecipeTradeSecret"></a> `RecipeTradeSecret`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`ap_value` | The AP value of the trade secret. | <a href="#RecipeTradeSecret/ap_value">See details</a>
+`prerequisites?` | The prerequisites of the trade secret, if any. | <a href="#RecipeTradeSecret/prerequisites">See details</a>
+
+#### <a name="RecipeTradeSecret/ap_value"></a> `ap_value`
+
+The AP value of the trade secret.
+
+- **Type:** Number
+
+#### <a name="RecipeTradeSecret/prerequisites"></a> `prerequisites?`
+
+The prerequisites of the trade secret, if any.
+
+- **Type:** <a href="../../_Prerequisite.md#PlainGeneralPrerequisites">PlainGeneralPrerequisites</a>
+
+---
+
+### <a name="StorageLife"></a> `StorageLife`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`value` | The storage life of a (processed) herb. | <a href="#StorageLife/value">See details</a>
+`unit` |  | <a href="#StorageLife/unit">See details</a>
+
+#### <a name="StorageLife/value"></a> `value`
+
+The storage life of a (processed) herb.
+
+- **Type:** Integer
+
+#### <a name="StorageLife/unit"></a> `unit`
+
+- **Type:** <a href="#TimeUnit">TimeUnit</a>
+
+---
+
 ### <a name="TimeUnit"></a> `TimeUnit`
 
 - **Type:** Union
@@ -126,26 +170,3 @@ Effect type categories of a plant or recipe.
 ### <a name="TimeUnit'6"></a> `TimeUnit'6`
 
 - **Constant:** `"Years"`
-
----
-
-### <a name="RecipeTradeSecret"></a> `RecipeTradeSecret`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`ap_value` | The AP value of the trade secret. | <a href="#RecipeTradeSecret/ap_value">See details</a>
-`prerequisites?` | The prerequisites of the trade secret, if any. | <a href="#RecipeTradeSecret/prerequisites">See details</a>
-
-#### <a name="RecipeTradeSecret/ap_value"></a> `ap_value`
-
-The AP value of the trade secret.
-
-- **Type:** Number
-
-#### <a name="RecipeTradeSecret/prerequisites"></a> `prerequisites?`
-
-The prerequisites of the trade secret, if any.
-
-- **Type:** <a href="../../_Prerequisite.md#PlainGeneralPrerequisites">PlainGeneralPrerequisites</a>

@@ -629,3 +629,31 @@ Key | Description | Details
 #### <a name="RecipeReference/id"></a> `id`
 
 - **Type:** <a href="./_IdentifierGroup.md#RecipeIdentifier">RecipeIdentifier</a>
+
+---
+
+### <a name="HerbReference"></a> `HerbReference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` |  | <a href="#HerbReference/id">See details</a>
+
+#### <a name="HerbReference/id"></a> `id`
+
+- **Type:** <a href="./_Identifier.md#HerbIdentifier">HerbIdentifier</a>
+
+---
+
+### <a name="HerbalAidOrPreserveReference"></a> `HerbalAidOrPreserveReference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` |  | <a href="#HerbalAidOrPreserveReference/id">See details</a>
+
+#### <a name="HerbalAidOrPreserveReference/id"></a> `id`
+
+- **Type:** <a href="./_IdentifierGroup.md#HerbalAidOrPreserveIdentifier">HerbalAidOrPreserveIdentifier</a>

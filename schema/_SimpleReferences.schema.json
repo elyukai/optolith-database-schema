@@ -529,6 +529,30 @@
         "id"
       ],
       "additionalProperties": false
+    },
+    "HerbReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "./_Identifier.schema.json#/$defs/HerbIdentifier"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "HerbalAidOrPreserveReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "./_IdentifierGroup.schema.json#/$defs/HerbalAidOrPreserveIdentifier"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
     }
   }
 }
