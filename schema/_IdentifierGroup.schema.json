@@ -720,6 +720,16 @@
         }
       ]
     },
+    "RecipeIdentifier": {
+      "oneOf": [
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/ElixirIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/PoisonIdentifier"
+        }
+      ]
+    },
     "OneNumericIdentifier": {
       "type": "number",
       "minimum": 1

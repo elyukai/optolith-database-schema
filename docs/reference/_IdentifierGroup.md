@@ -1419,6 +1419,25 @@
 
 ---
 
+### <a name="RecipeIdentifier"></a> `RecipeIdentifier`
+
+- **Type:** Union
+- **Cases:** <a href="#RecipeIdentifier'ElixirIdentifier">RecipeIdentifier'ElixirIdentifier</a> | <a href="#RecipeIdentifier'PoisonIdentifier">RecipeIdentifier'PoisonIdentifier</a>
+
+---
+
+### <a name="RecipeIdentifier'ElixirIdentifier"></a> `RecipeIdentifier'ElixirIdentifier`
+
+- **Type:** <a href="#ElixirIdentifier">ElixirIdentifier</a>
+
+---
+
+### <a name="RecipeIdentifier'PoisonIdentifier"></a> `RecipeIdentifier'PoisonIdentifier`
+
+- **Type:** <a href="#PoisonIdentifier">PoisonIdentifier</a>
+
+---
+
 ### <a name="OneNumericIdentifier"></a> `OneNumericIdentifier`
 
 - **Type:** Number

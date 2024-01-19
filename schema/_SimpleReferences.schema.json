@@ -517,6 +517,18 @@
         "id"
       ],
       "additionalProperties": false
+    },
+    "RecipeReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "./_IdentifierGroup.schema.json#/$defs/RecipeIdentifier"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
     }
   }
 }

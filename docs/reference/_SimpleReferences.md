@@ -615,3 +615,17 @@ Key | Description | Details
 #### <a name="TraditionReference/id"></a> `id`
 
 - **Type:** <a href="./_IdentifierGroup.md#TraditionIdentifier">TraditionIdentifier</a>
+
+---
+
+### <a name="RecipeReference"></a> `RecipeReference`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`id` |  | <a href="#RecipeReference/id">See details</a>
+
+#### <a name="RecipeReference/id"></a> `id`
+
+- **Type:** <a href="./_IdentifierGroup.md#RecipeIdentifier">RecipeIdentifier</a>
