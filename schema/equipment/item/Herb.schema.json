@@ -377,36 +377,10 @@
       "description": "Details on the preservation method of a herb.",
       "oneOf": [
         {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "HerbalAid"
-            },
-            "herbal_aid": {
-              "$ref": "../../_SimpleReferences.schema.json#/$defs/HerbalAidReference"
-            }
-          },
-          "required": [
-            "tag",
-            "herbal_aid"
-          ],
-          "additionalProperties": false
+          "$ref": "../../_SimpleReferences.schema.json#/$defs/HerbalAidReference"
         },
         {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "HerbalPreserve"
-            },
-            "herbal_preserve": {
-              "$ref": "../../_SimpleReferences.schema.json#/$defs/HerbalPreserveReference"
-            }
-          },
-          "required": [
-            "tag",
-            "herbal_preserve"
-          ],
-          "additionalProperties": false
+          "$ref": "../../_SimpleReferences.schema.json#/$defs/HerbalPreserveReference"
         },
         {
           "type": "object",

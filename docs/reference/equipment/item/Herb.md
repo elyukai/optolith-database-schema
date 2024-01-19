@@ -503,43 +503,17 @@ Key | Description | Details
 Details on the preservation method of a herb.
 
 - **Type:** Union
-- **Cases:** <a href="#PreservationMethodDescription'HerbalAid">PreservationMethodDescription'HerbalAid</a> | <a href="#PreservationMethodDescription'HerbalPreserve">PreservationMethodDescription'HerbalPreserve</a> | <a href="#PreservationMethodDescription'Special">PreservationMethodDescription'Special</a>
+- **Cases:** <a href="#PreservationMethodDescription'HerbalAidReference">PreservationMethodDescription'HerbalAidReference</a> | <a href="#PreservationMethodDescription'HerbalPreserveReference">PreservationMethodDescription'HerbalPreserveReference</a> | <a href="#PreservationMethodDescription'Special">PreservationMethodDescription'Special</a>
 
 ---
 
-### <a name="PreservationMethodDescription'HerbalAid"></a> `PreservationMethodDescription'HerbalAid`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PreservationMethodDescription'HerbalAid/tag">See details</a>
-`herbal_aid` |  | <a href="#PreservationMethodDescription'HerbalAid/herbal_aid">See details</a>
-
-#### <a name="PreservationMethodDescription'HerbalAid/tag"></a> `tag`
-
-- **Constant:** `"HerbalAid"`
-
-#### <a name="PreservationMethodDescription'HerbalAid/herbal_aid"></a> `herbal_aid`
+### <a name="PreservationMethodDescription'HerbalAidReference"></a> `PreservationMethodDescription'HerbalAidReference`
 
 - **Type:** <a href="../../_SimpleReferences.md#HerbalAidReference">HerbalAidReference</a>
 
 ---
 
-### <a name="PreservationMethodDescription'HerbalPreserve"></a> `PreservationMethodDescription'HerbalPreserve`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`tag` |  | <a href="#PreservationMethodDescription'HerbalPreserve/tag">See details</a>
-`herbal_preserve` |  | <a href="#PreservationMethodDescription'HerbalPreserve/herbal_preserve">See details</a>
-
-#### <a name="PreservationMethodDescription'HerbalPreserve/tag"></a> `tag`
-
-- **Constant:** `"HerbalPreserve"`
-
-#### <a name="PreservationMethodDescription'HerbalPreserve/herbal_preserve"></a> `herbal_preserve`
+### <a name="PreservationMethodDescription'HerbalPreserveReference"></a> `PreservationMethodDescription'HerbalPreserveReference`
 
 - **Type:** <a href="../../_SimpleReferences.md#HerbalPreserveReference">HerbalPreserveReference</a>
 
