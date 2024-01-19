@@ -39,6 +39,8 @@ export type HerbalPreserve = {
   * All translations for the entry, identified by IETF language tag (BCP47).
   */
   translation: LocaleMap<HerbalPreserveTranslation>
+
+  src: PublicationRefs
 }
   
 export type HerbalPreserveTranslation = {
@@ -58,8 +60,6 @@ export type HerbalPreserveTranslation = {
   alternative_effect: NonEmptyString
 
   errata?: Errata
-
-  src: PublicationRefs
 }
 
 export const config: TypeConfig<HerbalPreserve, number, "HerbalPreserve"> = {

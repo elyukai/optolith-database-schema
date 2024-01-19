@@ -44,6 +44,8 @@ export type HerbalAid = {
   * All translations for the entry, identified by IETF language tag (BCP47).
   */
   translation: LocaleMap<HerbalAidTranslation>
+
+  src: PublicationRefs
 }
 
 export type HerbalAidTranslation = {
@@ -68,8 +70,6 @@ export type HerbalAidTranslation = {
   typical_tools: NonEmptyString[]
 
   errata?: Errata
-
-  src: PublicationRefs
 }
 
 export const config: TypeConfig<HerbalAid, number, "HerbalAid"> = {
