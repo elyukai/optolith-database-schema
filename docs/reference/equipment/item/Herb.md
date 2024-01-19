@@ -356,7 +356,7 @@ Simple or conditional prevalence(s) in a certain landscape.
 
 #### <a name="LandscapeTypePrevalence/condition"></a> `condition?`
 
-- **Type:** <a href="../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+- **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>&gt;
 
 ---
 

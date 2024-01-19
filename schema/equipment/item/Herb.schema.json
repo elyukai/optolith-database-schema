@@ -259,7 +259,15 @@
           "$ref": "#/$defs/PrevalenceClass"
         },
         "condition": {
-          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
         }
       },
       "required": [
