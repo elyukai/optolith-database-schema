@@ -1443,7 +1443,7 @@
 ### <a name="RecipeIdentifier"></a> `RecipeIdentifier`
 
 - **Type:** Union
-- **Cases:** <a href="#RecipeIdentifier'ElixirIdentifier">RecipeIdentifier'ElixirIdentifier</a> | <a href="#RecipeIdentifier'PoisonIdentifier">RecipeIdentifier'PoisonIdentifier</a>
+- **Cases:** <a href="#RecipeIdentifier'ElixirIdentifier">RecipeIdentifier'ElixirIdentifier</a> | <a href="#RecipeIdentifier'PoisonIdentifier">RecipeIdentifier'PoisonIdentifier</a> | <a href="#RecipeIdentifier'HerbalAidIdentifier">RecipeIdentifier'HerbalAidIdentifier</a> | <a href="#RecipeIdentifier'HerbalPreserveIdentifier">RecipeIdentifier'HerbalPreserveIdentifier</a>
 
 ---
 
@@ -1456,6 +1456,18 @@
 ### <a name="RecipeIdentifier'PoisonIdentifier"></a> `RecipeIdentifier'PoisonIdentifier`
 
 - **Type:** <a href="#PoisonIdentifier">PoisonIdentifier</a>
+
+---
+
+### <a name="RecipeIdentifier'HerbalAidIdentifier"></a> `RecipeIdentifier'HerbalAidIdentifier`
+
+- **Type:** <a href="#HerbalAidIdentifier">HerbalAidIdentifier</a>
+
+---
+
+### <a name="RecipeIdentifier'HerbalPreserveIdentifier"></a> `RecipeIdentifier'HerbalPreserveIdentifier`
+
+- **Type:** <a href="#HerbalPreserveIdentifier">HerbalPreserveIdentifier</a>
 
 ---
 

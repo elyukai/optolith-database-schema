@@ -49,12 +49,12 @@
         },
         "value": {
           "description": "Value per dose, in silverthalers.",
-          "type": "integer",
+          "type": "number",
           "minimum": 1
         },
         "cost": {
           "description": "Price per dose, in silverthalers.",
-          "type": "integer",
+          "type": "number",
           "minimum": 1
         },
         "recipes": {
@@ -438,6 +438,13 @@
         "effect_ingest": {
           "description": "The raw plant's effect(s) when ingested.",
           "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "simple_recipe": {
+          "description": "Simple recipes the herb is used in.",
+          "type": "array",
+          "items": {
+            "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+          }
         },
         "prevalence_remarks": {
           "description": "Additional remarks on the prevalence per landscape type of the herb.",

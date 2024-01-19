@@ -738,6 +738,12 @@
         },
         {
           "$ref": "./_Identifier.schema.json#/$defs/PoisonIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/HerbalAidIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/HerbalPreserveIdentifier"
         }
       ]
     },

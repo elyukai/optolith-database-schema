@@ -72,14 +72,14 @@ Doses of plant material found with a search check per quality level.
 
 Value per dose, in silverthalers.
 
-- **Type:** Integer
+- **Type:** Number
 - **Minimum:** `1`
 
 #### <a name="Herb/cost"></a> `cost`
 
 Price per dose, in silverthalers.
 
-- **Type:** Integer
+- **Type:** Number
 - **Minimum:** `1`
 
 #### <a name="Herb/recipes"></a> `recipes?`
@@ -550,6 +550,7 @@ Key | Description | Details
 `effect_touch?` | The raw plant's effect(s) when touched. | <a href="#HerbTranslation/effect_touch">See details</a>
 `effect_inhale?` | The raw plant's effect(s) when inhaled. | <a href="#HerbTranslation/effect_inhale">See details</a>
 `effect_ingest?` | The raw plant's effect(s) when ingested. | <a href="#HerbTranslation/effect_ingest">See details</a>
+`simple_recipe?` | Simple recipes the herb is used in. | <a href="#HerbTranslation/simple_recipe">See details</a>
 `prevalence_remarks?` | Additional remarks on the prevalence per landscape type of the herb. | <a href="#HerbTranslation/prevalence_remarks">See details</a>
 `prevalence_regions` | Description of the plant's regional prevalence. | <a href="#HerbTranslation/prevalence_regions">See details</a>
 `legend_tradition` | Description of traditonal use of and legends about the herb. | <a href="#HerbTranslation/legend_tradition">See details</a>
@@ -593,6 +594,13 @@ The raw plant's effect(s) when ingested.
 
 - **Type:** <a href="../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
+#### <a name="HerbTranslation/simple_recipe"></a> `simple_recipe?`
+
+Simple recipes the herb is used in.
+
+- **Type:** List
+- **Items:** <a href="#HerbTranslation/simple_recipe[]">HerbTranslation/simple_recipe[]</a>
+
 #### <a name="HerbTranslation/prevalence_remarks"></a> `prevalence_remarks?`
 
 Additional remarks on the prevalence per landscape type of the herb.
@@ -620,3 +628,9 @@ Description of traditonal use of and legends about the herb.
 ### <a name="HerbTranslation/alternative_names[]"></a> `HerbTranslation/alternative_names[]`
 
 - **Type:** <a href="../../_AlternativeNames.md#AlternativeName">AlternativeName</a>
+
+---
+
+### <a name="HerbTranslation/simple_recipe[]"></a> `HerbTranslation/simple_recipe[]`
+
+- **Type:** <a href="../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
