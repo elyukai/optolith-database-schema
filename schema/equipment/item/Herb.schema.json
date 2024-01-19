@@ -104,7 +104,10 @@
               "const": "PrevalenceFarNorth"
             },
             "prevalence_far_north": {
-              "$ref": "#/$defs/LandscapeTypePrevalence"
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/LandscapeTypePrevalence"
+              }
             }
           },
           "required": [
@@ -120,7 +123,10 @@
               "const": "PevalenceVeld"
             },
             "prevalence_veld": {
-              "$ref": "#/$defs/LandscapeTypePrevalence"
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/LandscapeTypePrevalence"
+              }
             }
           },
           "required": [
@@ -136,7 +142,10 @@
               "const": "PevalenceMarsh"
             },
             "prevalence_marsh": {
-              "$ref": "#/$defs/LandscapeTypePrevalence"
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/LandscapeTypePrevalence"
+              }
             }
           },
           "required": [
@@ -152,7 +161,10 @@
               "const": "PevalenceWoods"
             },
             "prevalence_woods": {
-              "$ref": "#/$defs/LandscapeTypePrevalence"
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/LandscapeTypePrevalence"
+              }
             }
           },
           "required": [
@@ -168,7 +180,10 @@
               "const": "PevalenceRainForest"
             },
             "prevalence_rain_forest": {
-              "$ref": "#/$defs/LandscapeTypePrevalence"
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/LandscapeTypePrevalence"
+              }
             }
           },
           "required": [
@@ -184,7 +199,10 @@
               "const": "PevalenceMountains"
             },
             "prevalence_mountains": {
-              "$ref": "#/$defs/LandscapeTypePrevalence"
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/LandscapeTypePrevalence"
+              }
             }
           },
           "required": [
@@ -200,7 +218,10 @@
               "const": "PevalenceDesert"
             },
             "prevalence_desert": {
-              "$ref": "#/$defs/LandscapeTypePrevalence"
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/LandscapeTypePrevalence"
+              }
             }
           },
           "required": [
@@ -216,7 +237,10 @@
               "const": "PevalenceMaraskan"
             },
             "prevalence_maraskan": {
-              "$ref": "#/$defs/LandscapeTypePrevalence"
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/LandscapeTypePrevalence"
+              }
             }
           },
           "required": [
@@ -230,25 +254,8 @@
     "LandscapeTypePrevalence": {
       "type": "object",
       "properties": {
-        "prevalences": {
-          "description": "Prevalence(s) in a certain landscape.",
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/Prevalence"
-          },
-          "minItems": 1
-        }
-      },
-      "required": [
-        "prevalences"
-      ],
-      "additionalProperties": false
-    },
-    "Prevalence": {
-      "type": "object",
-      "properties": {
-        "preval": {
-          "description": "Simple or conditional prevalence.",
+        "prevalence": {
+          "description": "Simple or conditional prevalence(s) in a certain landscape.",
           "$ref": "#/$defs/PrevalenceClass"
         },
         "condition": {
@@ -256,7 +263,7 @@
         }
       },
       "required": [
-        "preval"
+        "prevalence"
       ],
       "additionalProperties": false
     },
