@@ -77,7 +77,7 @@ export type Herb = {
    * The recipes the herb is used in.
    * @uniqueItems
    */
-  recipes: RecipeReference[]
+  recipes?: RecipeReference[]
 
   /**
    * The Storage life of the raw herb.
@@ -99,13 +99,13 @@ export type Herb = {
 
 export type LandscapeTypePrevalences =
   | { tag: "PrevalenceFarNorth", prevalence_far_north: LandscapeTypePrevalence[] }
-  | { tag: "PevalenceVeld", prevalence_veld: LandscapeTypePrevalence[] }
-  | { tag: "PevalenceMarsh", prevalence_marsh: LandscapeTypePrevalence[] }
-  | { tag: "PevalenceWoods", prevalence_woods: LandscapeTypePrevalence[] }
-  | { tag: "PevalenceRainForest", prevalence_rain_forest: LandscapeTypePrevalence[] }
-  | { tag: "PevalenceMountains", prevalence_mountains: LandscapeTypePrevalence[] }
-  | { tag: "PevalenceDesert", prevalence_desert: LandscapeTypePrevalence[] }
-  | { tag: "PevalenceMaraskan", prevalence_maraskan: LandscapeTypePrevalence[] }
+  | { tag: "PrevalenceVeld", prevalence_veld: LandscapeTypePrevalence[] }
+  | { tag: "PrevalenceMarsh", prevalence_marsh: LandscapeTypePrevalence[] }
+  | { tag: "PrevalenceWoods", prevalence_woods: LandscapeTypePrevalence[] }
+  | { tag: "PrevalenceRainForest", prevalence_rain_forest: LandscapeTypePrevalence[] }
+  | { tag: "PrevalenceMountains", prevalence_mountains: LandscapeTypePrevalence[] }
+  | { tag: "PrevalenceDesert", prevalence_desert: LandscapeTypePrevalence[] }
+  | { tag: "PrevalenceMaraskan", prevalence_maraskan: LandscapeTypePrevalence[] }
 
 export type LandscapeTypePrevalence = {
   /**
