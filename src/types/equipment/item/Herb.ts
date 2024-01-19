@@ -12,7 +12,7 @@ import { LocaleMap } from "../../_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "../../_NonEmptyString.js"
 import { Errata } from "../../source/_Erratum.js"
 import { PublicationRefs } from "../../source/_PublicationRef.js"
-import { EffectType } from "./_Herbary.js"
+import { EffectType, TimeUnit } from "./_Herbary.js"
 import { RecipeReference } from "../../_SimpleReferences.js"
 
 /**
@@ -79,6 +79,16 @@ export type Herb = {
    */
   recipes: RecipeReference[]
 
+  /**
+   * The Storage life of the raw herb.
+   */
+  storage_life: StorageLifeRaw
+
+  /**
+   * The preservation options, identified by IETF language tag (BCP47).
+   */
+  preservation_methods: PreservationMethod[]
+
   src: PublicationRefs
 
   /**
@@ -112,6 +122,46 @@ export type PrevalenceClass =
   | "NowAndThen"
   | "Rare"
   | "VeryRare"
+
+export type StorageLifeRaw = 
+  | { tag: "Default", default: {} }
+  | { tag: "Special", special: LocaleMap<NonEmptyString> }
+
+export type PreservationMethod = {
+  /**
+   * All translations for the entry, identified by IETF language tag (BCP47).
+   */
+  translation: LocaleMap<PreservationMethodTranslation>
+  /**
+   * The storage life of the product.
+   */
+  storage_life: StorageLife
+}
+
+export type StorageLife = {
+  /**
+   * The storage life of a (processed) herb.
+   * @integer
+   * @minmum 1
+   */
+  value: number
+  unit: TimeUnit
+}
+
+export type PreservationMethodTranslation = {
+  /**
+   * Name of the preservation method.
+   */
+  name: NonEmptyString
+  /**
+   * Description of the preservation method.
+   */
+  preparation: NonEmptyString
+  /**
+   * Alternative effect of the product.
+   */
+  alternative_effect: NonEmptyString
+}
 
 export type HerbTranslation = {
   /**

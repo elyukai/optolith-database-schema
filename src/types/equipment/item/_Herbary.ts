@@ -21,6 +21,16 @@ export type LaboratoryLevel =
   | "WitchKitchen"
   | "AlchemistsLaboratory"
 
+
+export type TimeUnit =
+  | "CombatRounds"
+  | "Minutes"
+  | "Hours"
+  | "Days"
+  | "Weeks"
+  | "Months"
+  | "Years"
+
 export type RecipeTradeSecret = {
   /**
    * The AP value of the trade secret.
