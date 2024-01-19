@@ -13,6 +13,7 @@ Key | Description | Details
 `alternative_main_ingredient?` | An alternative main ingredient, a herb. | <a href="#HerbalAid/alternative_main_ingredient">See details</a>
 `production_difficulty` | Modifier for plant lore check when making the aid. | <a href="#HerbalAid/production_difficulty">See details</a>
 `translation` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#HerbalAid/translation">See details</a>
+`src` |  | <a href="#HerbalAid/src">See details</a>
 
 #### <a name="HerbalAid/id"></a> `id`
 
@@ -45,6 +46,10 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#HerbalAidTranslation">HerbalAidTranslation</a>&gt;
 
+#### <a name="HerbalAid/src"></a> `src`
+
+- **Type:** <a href="../../source/_PublicationRef.md#PublicationRefs">PublicationRefs</a>
+
 ---
 
 ### <a name="HerbalAidTranslation"></a> `HerbalAidTranslation`
@@ -58,7 +63,6 @@ Key | Description | Details
 `additional_ingredients?` | Ingredients beside the main ingredient. | <a href="#HerbalAidTranslation/additional_ingredients">See details</a>
 `typical_tools` | Tools and aids used in the production process. | <a href="#HerbalAidTranslation/typical_tools">See details</a>
 `errata?` |  | <a href="#HerbalAidTranslation/errata">See details</a>
-`src` |  | <a href="#HerbalAidTranslation/src">See details</a>
 
 #### <a name="HerbalAidTranslation/name"></a> `name`
 
@@ -90,10 +94,6 @@ Tools and aids used in the production process.
 #### <a name="HerbalAidTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../../source/_Erratum.md#Errata">Errata</a>
-
-#### <a name="HerbalAidTranslation/src"></a> `src`
-
-- **Type:** <a href="../../source/_PublicationRef.md#PublicationRefs">PublicationRefs</a>
 
 ---
 

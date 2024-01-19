@@ -34,13 +34,17 @@
           },
           "minProperties": 1,
           "additionalProperties": false
+        },
+        "src": {
+          "$ref": "../../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
         }
       },
       "required": [
         "id",
         "main_ingredient",
         "production_difficulty",
-        "translation"
+        "translation",
+        "src"
       ],
       "additionalProperties": false
     },
@@ -72,16 +76,12 @@
         },
         "errata": {
           "$ref": "../../source/_Erratum.schema.json#/$defs/Errata"
-        },
-        "src": {
-          "$ref": "../../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
         }
       },
       "required": [
         "name",
         "description",
-        "typical_tools",
-        "src"
+        "typical_tools"
       ],
       "additionalProperties": false
     }

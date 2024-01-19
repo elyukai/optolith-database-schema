@@ -30,13 +30,17 @@
           },
           "minProperties": 1,
           "additionalProperties": false
+        },
+        "src": {
+          "$ref": "../../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
         }
       },
       "required": [
         "id",
         "main_ingredient",
         "storage_life",
-        "translation"
+        "translation",
+        "src"
       ],
       "additionalProperties": false
     },
@@ -57,16 +61,12 @@
         },
         "errata": {
           "$ref": "../../source/_Erratum.schema.json#/$defs/Errata"
-        },
-        "src": {
-          "$ref": "../../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
         }
       },
       "required": [
         "name",
         "preparation",
-        "alternative_effect",
-        "src"
+        "alternative_effect"
       ],
       "additionalProperties": false
     }

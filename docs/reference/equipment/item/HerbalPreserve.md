@@ -12,6 +12,7 @@ Key | Description | Details
 `main_ingredient` | The main ingredient, a herb. | <a href="#HerbalPreserve/main_ingredient">See details</a>
 `storage_life` | The storage life of the product. | <a href="#HerbalPreserve/storage_life">See details</a>
 `translation` | All translations for the entry, identified by IETF language tag (BCP47). | <a href="#HerbalPreserve/translation">See details</a>
+`src` |  | <a href="#HerbalPreserve/src">See details</a>
 
 #### <a name="HerbalPreserve/id"></a> `id`
 
@@ -38,6 +39,10 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** <a href="../../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#HerbalPreserveTranslation">HerbalPreserveTranslation</a>&gt;
 
+#### <a name="HerbalPreserve/src"></a> `src`
+
+- **Type:** <a href="../../source/_PublicationRef.md#PublicationRefs">PublicationRefs</a>
+
 ---
 
 ### <a name="HerbalPreserveTranslation"></a> `HerbalPreserveTranslation`
@@ -50,7 +55,6 @@ Key | Description | Details
 `preparation` | Description of the preservation method. | <a href="#HerbalPreserveTranslation/preparation">See details</a>
 `alternative_effect` | Alternative effect of the product. | <a href="#HerbalPreserveTranslation/alternative_effect">See details</a>
 `errata?` |  | <a href="#HerbalPreserveTranslation/errata">See details</a>
-`src` |  | <a href="#HerbalPreserveTranslation/src">See details</a>
 
 #### <a name="HerbalPreserveTranslation/name"></a> `name`
 
@@ -73,7 +77,3 @@ Alternative effect of the product.
 #### <a name="HerbalPreserveTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../../source/_Erratum.md#Errata">Errata</a>
-
-#### <a name="HerbalPreserveTranslation/src"></a> `src`
-
-- **Type:** <a href="../../source/_PublicationRef.md#PublicationRefs">PublicationRefs</a>
