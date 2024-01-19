@@ -250,6 +250,10 @@ export type EquipmentIdentifier =
 
 export type OneOrManyNumericIdentifiers = OneNumericIdentifier | ManyNumericIdentifiers
 
+export type RecipeIdentifier =
+  | Identifier.ElixirIdentifier
+  | Identifier.PoisonIdentifier
+
 /**
  * @minimum 1
  */
