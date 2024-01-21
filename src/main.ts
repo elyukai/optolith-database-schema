@@ -178,6 +178,8 @@ export const buildCache = async (
 
   const activatableSelectOptionsCache = cacheMap.activatableSelectOptions.builder(validResults)
   const ancestorBloodAdvantagesCache = cacheMap.ancestorBloodAdvantages.builder(validResults)
+  const magicalAndBlessedAdvantagesAndDisadvantagesCache =
+    cacheMap.magicalAndBlessedAdvantagesAndDisadvantages.builder(validResults)
   const newApplicationsAndUsesCache = cacheMap.newApplicationsAndUses.builder(
     validResults,
     activatableSelectOptionsCache
@@ -186,6 +188,7 @@ export const buildCache = async (
   const cacheData: CacheMap = {
     activatableSelectOptions: activatableSelectOptionsCache,
     ancestorBloodAdvantages: ancestorBloodAdvantagesCache,
+    magicalAndBlessedAdvantagesAndDisadvantages: magicalAndBlessedAdvantagesAndDisadvantagesCache,
     newApplicationsAndUses: newApplicationsAndUsesCache,
   }
 
