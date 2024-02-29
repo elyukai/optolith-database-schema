@@ -1344,6 +1344,50 @@ The Trinkhornzauber’s identifier.
 
 ---
 
+### <a name="MagicalRuneIdentifier"></a> `MagicalRuneIdentifier`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#MagicalRuneIdentifier/tag">See details</a>
+`magical_rune` | The magical rune’s identifier. | <a href="#MagicalRuneIdentifier/magical_rune">See details</a>
+
+#### <a name="MagicalRuneIdentifier/tag"></a> `tag`
+
+- **Constant:** `"MagicalRune"`
+
+#### <a name="MagicalRuneIdentifier/magical_rune"></a> `magical_rune`
+
+The magical rune’s identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="MagicalSignIdentifier"></a> `MagicalSignIdentifier`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#MagicalSignIdentifier/tag">See details</a>
+`magical_sign` | The magical sign’s identifier. | <a href="#MagicalSignIdentifier/magical_sign">See details</a>
+
+#### <a name="MagicalSignIdentifier/tag"></a> `tag`
+
+- **Constant:** `"MagicalSign"`
+
+#### <a name="MagicalSignIdentifier/magical_sign"></a> `magical_sign`
+
+The magical sign’s identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
 ### <a name="LanguageIdentifier"></a> `LanguageIdentifier`
 
 - **Type:** Object

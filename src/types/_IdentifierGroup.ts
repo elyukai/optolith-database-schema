@@ -3,101 +3,104 @@ import * as Identifier from "./_Identifier.js"
 export type ActivatableIdentifier =
   | Identifier.AdvantageIdentifier
   | Identifier.DisadvantageIdentifier
-  | Identifier.GeneralSpecialAbilityIdentifier
-  | Identifier.FatePointSpecialAbilityIdentifier
-  | Identifier.CombatSpecialAbilityIdentifier
-  | Identifier.MagicalSpecialAbilityIdentifier
-  | Identifier.StaffEnchantmentIdentifier
-  | Identifier.FamiliarSpecialAbilityIdentifier
-  | Identifier.KarmaSpecialAbilityIdentifier
-  | Identifier.ProtectiveWardingCircleSpecialAbilityIdentifier
-  | Identifier.CombatStyleSpecialAbilityIdentifier
   | Identifier.AdvancedCombatSpecialAbilityIdentifier
-  | Identifier.CommandSpecialAbilityIdentifier
-  | Identifier.MagicStyleSpecialAbilityIdentifier
-  | Identifier.AdvancedMagicalSpecialAbilityIdentifier
-  | Identifier.SpellSwordEnchantmentIdentifier
-  | Identifier.DaggerRitualIdentifier
-  | Identifier.InstrumentEnchantmentIdentifier
-  | Identifier.AttireEnchantmentIdentifier
-  | Identifier.OrbEnchantmentIdentifier
-  | Identifier.WandEnchantmentIdentifier
-  | Identifier.BrawlingSpecialAbilityIdentifier
-  | Identifier.AncestorGlyphIdentifier
-  | Identifier.CeremonialItemSpecialAbilityIdentifier
-  | Identifier.SermonIdentifier
-  | Identifier.LiturgicalStyleSpecialAbilityIdentifier
   | Identifier.AdvancedKarmaSpecialAbilityIdentifier
-  | Identifier.VisionIdentifier
-  | Identifier.MagicalTraditionIdentifier
-  | Identifier.BlessedTraditionIdentifier
-  | Identifier.PactGiftIdentifier
-  | Identifier.SikaryanDrainSpecialAbilityIdentifier
-  | Identifier.VampiricGiftIdentifier
-  | Identifier.LycantropicGiftIdentifier
-  | Identifier.SkillStyleSpecialAbilityIdentifier
+  | Identifier.AdvancedMagicalSpecialAbilityIdentifier
   | Identifier.AdvancedSkillSpecialAbilityIdentifier
+  | Identifier.AncestorGlyphIdentifier
   | Identifier.ArcaneOrbEnchantmentIdentifier
-  | Identifier.CauldronEnchantmentIdentifier
-  | Identifier.FoolsHatEnchantmentIdentifier
-  | Identifier.ToyEnchantmentIdentifier
+  | Identifier.AttireEnchantmentIdentifier
+  | Identifier.BlessedTraditionIdentifier
   | Identifier.BowlEnchantmentIdentifier
-  | Identifier.FatePointSexSpecialAbilityIdentifier
-  | Identifier.SexSpecialAbilityIdentifier
-  | Identifier.WeaponEnchantmentIdentifier
-  | Identifier.SickleRitualIdentifier
-  | Identifier.RingEnchantmentIdentifier
+  | Identifier.BrawlingSpecialAbilityIdentifier
+  | Identifier.CauldronEnchantmentIdentifier
+  | Identifier.CeremonialItemSpecialAbilityIdentifier
   | Identifier.ChronicleEnchantmentIdentifier
+  | Identifier.CombatSpecialAbilityIdentifier
+  | Identifier.CombatStyleSpecialAbilityIdentifier
+  | Identifier.CommandSpecialAbilityIdentifier
+  | Identifier.DaggerRitualIdentifier
+  | Identifier.FamiliarSpecialAbilityIdentifier
+  | Identifier.FatePointSexSpecialAbilityIdentifier
+  | Identifier.FatePointSpecialAbilityIdentifier
+  | Identifier.FoolsHatEnchantmentIdentifier
+  | Identifier.GeneralSpecialAbilityIdentifier
+  | Identifier.InstrumentEnchantmentIdentifier
+  | Identifier.KarmaSpecialAbilityIdentifier
   | Identifier.KrallenkettenzauberIdentifier
+  | Identifier.LiturgicalStyleSpecialAbilityIdentifier
+  | Identifier.LycantropicGiftIdentifier
+  | Identifier.MagicalSignIdentifier
+  | Identifier.MagicalSpecialAbilityIdentifier
+  | Identifier.MagicalTraditionIdentifier
+  | Identifier.MagicStyleSpecialAbilityIdentifier
+  | Identifier.OrbEnchantmentIdentifier
+  | Identifier.PactGiftIdentifier
+  | Identifier.ProtectiveWardingCircleSpecialAbilityIdentifier
+  | Identifier.RingEnchantmentIdentifier
+  | Identifier.SermonIdentifier
+  | Identifier.SexSpecialAbilityIdentifier
+  | Identifier.SickleRitualIdentifier
+  | Identifier.SikaryanDrainSpecialAbilityIdentifier
+  | Identifier.SkillStyleSpecialAbilityIdentifier
+  | Identifier.SpellSwordEnchantmentIdentifier
+  | Identifier.StaffEnchantmentIdentifier
+  | Identifier.ToyEnchantmentIdentifier
   | Identifier.TrinkhornzauberIdentifier
+  | Identifier.VampiricGiftIdentifier
+  | Identifier.VisionIdentifier
+  | Identifier.WandEnchantmentIdentifier
+  | Identifier.WeaponEnchantmentIdentifier
 
 export type SpecialAbilityIdentifier =
-  | Identifier.GeneralSpecialAbilityIdentifier
-  | Identifier.FatePointSpecialAbilityIdentifier
-  | Identifier.CombatSpecialAbilityIdentifier
-  | Identifier.MagicalSpecialAbilityIdentifier
-  | Identifier.StaffEnchantmentIdentifier
-  | Identifier.FamiliarSpecialAbilityIdentifier
-  | Identifier.KarmaSpecialAbilityIdentifier
-  | Identifier.ProtectiveWardingCircleSpecialAbilityIdentifier
-  | Identifier.CombatStyleSpecialAbilityIdentifier
   | Identifier.AdvancedCombatSpecialAbilityIdentifier
-  | Identifier.CommandSpecialAbilityIdentifier
-  | Identifier.MagicStyleSpecialAbilityIdentifier
-  | Identifier.AdvancedMagicalSpecialAbilityIdentifier
-  | Identifier.SpellSwordEnchantmentIdentifier
-  | Identifier.DaggerRitualIdentifier
-  | Identifier.InstrumentEnchantmentIdentifier
-  | Identifier.AttireEnchantmentIdentifier
-  | Identifier.OrbEnchantmentIdentifier
-  | Identifier.WandEnchantmentIdentifier
-  | Identifier.BrawlingSpecialAbilityIdentifier
-  | Identifier.AncestorGlyphIdentifier
-  | Identifier.CeremonialItemSpecialAbilityIdentifier
-  | Identifier.SermonIdentifier
-  | Identifier.LiturgicalStyleSpecialAbilityIdentifier
   | Identifier.AdvancedKarmaSpecialAbilityIdentifier
-  | Identifier.VisionIdentifier
-  | Identifier.MagicalTraditionIdentifier
-  | Identifier.BlessedTraditionIdentifier
-  | Identifier.PactGiftIdentifier
-  | Identifier.SikaryanDrainSpecialAbilityIdentifier
-  | Identifier.LycantropicGiftIdentifier
-  | Identifier.SkillStyleSpecialAbilityIdentifier
+  | Identifier.AdvancedMagicalSpecialAbilityIdentifier
   | Identifier.AdvancedSkillSpecialAbilityIdentifier
+  | Identifier.AncestorGlyphIdentifier
   | Identifier.ArcaneOrbEnchantmentIdentifier
-  | Identifier.CauldronEnchantmentIdentifier
-  | Identifier.FoolsHatEnchantmentIdentifier
-  | Identifier.ToyEnchantmentIdentifier
+  | Identifier.AttireEnchantmentIdentifier
+  | Identifier.BlessedTraditionIdentifier
   | Identifier.BowlEnchantmentIdentifier
-  | Identifier.FatePointSexSpecialAbilityIdentifier
-  | Identifier.SexSpecialAbilityIdentifier
-  | Identifier.WeaponEnchantmentIdentifier
-  | Identifier.SickleRitualIdentifier
-  | Identifier.RingEnchantmentIdentifier
+  | Identifier.BrawlingSpecialAbilityIdentifier
+  | Identifier.CauldronEnchantmentIdentifier
+  | Identifier.CeremonialItemSpecialAbilityIdentifier
   | Identifier.ChronicleEnchantmentIdentifier
+  | Identifier.CombatSpecialAbilityIdentifier
+  | Identifier.CombatStyleSpecialAbilityIdentifier
+  | Identifier.CommandSpecialAbilityIdentifier
+  | Identifier.DaggerRitualIdentifier
+  | Identifier.FamiliarSpecialAbilityIdentifier
+  | Identifier.FatePointSexSpecialAbilityIdentifier
+  | Identifier.FatePointSpecialAbilityIdentifier
+  | Identifier.FoolsHatEnchantmentIdentifier
+  | Identifier.GeneralSpecialAbilityIdentifier
+  | Identifier.InstrumentEnchantmentIdentifier
+  | Identifier.KarmaSpecialAbilityIdentifier
   | Identifier.KrallenkettenzauberIdentifier
+  | Identifier.LiturgicalStyleSpecialAbilityIdentifier
+  | Identifier.LycantropicGiftIdentifier
+  | Identifier.MagicalSignIdentifier
+  | Identifier.MagicalSpecialAbilityIdentifier
+  | Identifier.MagicalTraditionIdentifier
+  | Identifier.MagicStyleSpecialAbilityIdentifier
+  | Identifier.OrbEnchantmentIdentifier
+  | Identifier.PactGiftIdentifier
+  | Identifier.ProtectiveWardingCircleSpecialAbilityIdentifier
+  | Identifier.RingEnchantmentIdentifier
+  | Identifier.SermonIdentifier
+  | Identifier.SexSpecialAbilityIdentifier
+  | Identifier.SickleRitualIdentifier
+  | Identifier.SikaryanDrainSpecialAbilityIdentifier
+  | Identifier.SkillStyleSpecialAbilityIdentifier
+  | Identifier.SpellSwordEnchantmentIdentifier
+  | Identifier.StaffEnchantmentIdentifier
+  | Identifier.ToyEnchantmentIdentifier
   | Identifier.TrinkhornzauberIdentifier
+  | Identifier.VampiricGiftIdentifier
+  | Identifier.VisionIdentifier
+  | Identifier.WandEnchantmentIdentifier
+  | Identifier.WeaponEnchantmentIdentifier
 
 export type CombatRelatedSpecialAbilityIdentifier =
   | Identifier.CombatSpecialAbilityIdentifier
@@ -150,13 +153,9 @@ export type SkillWithEnhancementsIdentifier =
   | Identifier.LiturgicalChantIdentifier
   | Identifier.CeremonyIdentifier
 
-export type SpellworkIdentifier =
-  | Identifier.SpellIdentifier
-  | Identifier.RitualIdentifier
+export type SpellworkIdentifier = Identifier.SpellIdentifier | Identifier.RitualIdentifier
 
-export type LiturgyIdentifier =
-  | Identifier.LiturgicalChantIdentifier
-  | Identifier.CeremonyIdentifier
+export type LiturgyIdentifier = Identifier.LiturgicalChantIdentifier | Identifier.CeremonyIdentifier
 
 export type MagicalActionIdentifier =
   | Identifier.CurseIdentifier
@@ -168,6 +167,7 @@ export type MagicalActionIdentifier =
   | Identifier.AnimistPowerIdentifier
   | Identifier.GeodeRitualIdentifier
   | Identifier.ZibiljaRitualIdentifier
+  | Identifier.MagicalRuneIdentifier
 
 export type SelectOptionIdentifier =
   | Identifier.GeneralIdentifier
@@ -196,6 +196,7 @@ export type SelectOptionIdentifier =
   | Identifier.SpellIdentifier
   | Identifier.RitualIdentifier
   | Identifier.TargetCategoryIdentifier
+  | Identifier.PatronIdentifier
 
 export type RequirableSelectOptionIdentifier =
   | Identifier.GeneralIdentifier

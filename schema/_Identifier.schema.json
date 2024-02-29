@@ -1100,6 +1100,42 @@
       ],
       "additionalProperties": false
     },
+    "MagicalRuneIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "MagicalRune"
+        },
+        "magical_rune": {
+          "description": "The magical rune’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "magical_rune"
+      ],
+      "additionalProperties": false
+    },
+    "MagicalSignIdentifier": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "MagicalSign"
+        },
+        "magical_sign": {
+          "description": "The magical sign’s identifier.",
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tag",
+        "magical_sign"
+      ],
+      "additionalProperties": false
+    },
     "LanguageIdentifier": {
       "type": "object",
       "properties": {
