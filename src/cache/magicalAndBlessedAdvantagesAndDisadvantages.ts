@@ -170,6 +170,7 @@ export const config: CacheConfig<MagicalAndBlessedAdvantagesAndDisadvantagesCach
         case "Krallenkettenzauber": return database.krallenkettenzauber.find(([entryId]) => entryId === id.krallenkettenzauber)?.[1]
         case "LiturgicalStyleSpecialAbility": return database.liturgicalStyleSpecialAbilities.find(([entryId]) => entryId === id.liturgical_style_special_ability)?.[1]
         case "LycantropicGift": return database.lycantropicGifts.find(([entryId]) => entryId === id.lycantropic_gift)?.[1]
+        case "MagicalSign": return database.magicalSigns.find(([entryId]) => entryId === id.magical_sign)?.[1]
         case "MagicalSpecialAbility": return database.magicalSpecialAbilities.find(([entryId]) => entryId === id.magical_special_ability)?.[1]
         case "MagicalTradition": return database.magicalTraditions.find(([entryId]) => entryId === id.magical_tradition)?.[1]
         case "MagicStyleSpecialAbility": return database.magicStyleSpecialAbilities.find(([entryId]) => entryId === id.magic_style_special_ability)?.[1]
