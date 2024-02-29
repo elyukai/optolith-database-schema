@@ -162,9 +162,6 @@
         "You're running the latest version available.": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "initialization.loadtableserror": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
         "Characters": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
@@ -398,6 +395,7 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "D": {
+          "description": "As in *2D6*.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.none": {
@@ -422,10 +420,6 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "No Results": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "general.withapvalue": {
-          "description": "- `0`: Name of element\n- `1`: AP value",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "Search": {
@@ -458,70 +452,64 @@
         "general.filters.showactivatedentries": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.savebtn": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
         "Done": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.deletebtn": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "general.dialogs.yesbtn": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "general.dialogs.nobtn": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "general.dialogs.okbtn": {
+        "OK": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "Cancel": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.copybtn": {
+        "Create": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.createbtn": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "general.dialogs.applybtn": {
+        "Apply": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "Add": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.notenoughap.title": {
+        "Not enough AP": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.notenoughap.message": {
-          "description": "- `0`: Missing AP",
+        "You are missing {0} Adventure Points to do this.": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "Exceeding Adventure Points limit for advantages": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.reachedaplimit.title": {
-          "description": "- `0`: Category in which the limit is reached",
+        "You cannot spend more than {0} AP on advantages. You would exceed this limit by {1} AP.": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.reachedaplimit.message": {
-          "description": "- `0`: Missing AP\n- `1`: Maximum possible AP spent on category\n- `2`: Category in which the limit is reached",
+        "Exceeding Adventure Points limit for magical advantages": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.reachedaplimit.advantages": {
+        "You cannot spend more than {0} AP on magical advantages. You would exceed this limit by {1} AP.": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.reachedaplimit.magicaladvantages": {
+        "Exceeding Adventure Points limit for blessed advantages": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.reachedaplimit.blessedadvantages": {
+        "You cannot spend more than {0} AP on blessed advantages. You would exceed this limit by {1} AP.": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.reachedaplimit.disadvantages": {
+        "Exceeding Adventure Points limit for disadvantages": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.reachedaplimit.magicaldisadvantages": {
+        "You cannot receive more than {0} AP from disadvantages. You would exceed this limit by {1} AP.": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.reachedaplimit.blesseddisadvantages": {
+        "Exceeding Adventure Points limit for magical disadvantages": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "You cannot receive more than {0} AP from magical disadvantages. You would exceed this limit by {1} AP.": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Exceeding Adventure Points limit for blessed disadvantages": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "You cannot receive more than {0} AP from blessed disadvantages. You would exceed this limit by {1} AP.": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.filters.origin.allheroes": {
@@ -675,9 +663,6 @@
         "wiki.filters.itemtemplates.all": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "imprint.title": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
         "Edit Name": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
@@ -781,6 +766,9 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "personaldata.cultureareaknowledge": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "You can save up no more than 10 AP to use later during the game, and you cannot begin the game with a negative AP balance.": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.printtopdfbtn": {
@@ -1843,77 +1831,20 @@
         "Permanently Spent": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "advantages.filters.commonadvantages": {
+        "Common Advantages": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "disadvantages.filters.commondisadvantages": {
+        "Common Disadvantages": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "advantagesdisadvantages.addbtn": {
+        "Custom AP Cost": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "advantagesdisadvantages.afraidof": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "advantagesdisadvantages.immunityto": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "advantagesdisadvantages.hatredfor": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "advantagesdisadvantages.header.name": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "advantagesdisadvantages.header.adventurepoints": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "advantagesdisadvantages.header.adventurepoints.tooltip": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "advantagesdisadvantages.apspent.spentonadvantages": {
-          "description": "- `0`: Current AP spent on advantages\n- `1`: Maximum possible AP spent on advantages",
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "advantagesdisadvantages.apspent.spentonmagicadvantages": {
-          "description": "- `0`: Current AP spent on magic advantages\n- `1`: Maximum possible AP spent on magic advantages",
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "advantagesdisadvantages.apspent.spentonblessedadvantages": {
-          "description": "- `0`: Current AP spent on blessed advantages\n- `1`: Maximum possible AP spent on blessed advantages",
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "advantagesdisadvantages.apspent.spentondisadvantages": {
-          "description": "- `0`: Current AP spent on disadvantages\n- `1`: Maximum possible AP spent on disadvantages",
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "advantagesdisadvantages.apspent.spentonmagicdisadvantages": {
-          "description": "- `0`: Current AP spent on magic disadvantages\n- `1`: Maximum possible AP spent on magic disadvantages",
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "advantagesdisadvantages.apspent.spentonblesseddisadvantages": {
-          "description": "- `0`: Current AP spent on blessed disadvantages\n- `1`: Maximum possible AP spent on blessed disadvantages",
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "advantagesdisadvantages.dialogs.customcost.title": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "advantagesdisadvantages.dialogs.customcost.for": {
+        "AP Cost for {0}": {
           "description": "- `0`: Entry name",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "specialabilities.addbtn": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "specialabilities.header.name": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "specialabilities.header.group": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "specialabilities.header.adventurepoints": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "specialabilities.header.adventurepoints.tooltip": {
+        "Custom option": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "specialabilities.nativetonguelevel": {
@@ -2023,28 +1954,16 @@
           "description": "- `0`: Minimum social status",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "skills.commonskills": {
+        "Common Skills": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "skills.header.name": {
+        "SR": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "skills.header.skillrating": {
+        "Skill Rating": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "skills.header.skillrating.tooltip": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "skills.header.group": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "skills.header.check": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "skills.header.improvementcost": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "skills.header.improvementcost.tooltip": {
+        "IC": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "New Applications": {
@@ -2053,52 +1972,40 @@
         "Uses": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "showfrequency.stronglyrecommended": {
+        "Strongly Recommended": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "showfrequency.common": {
+        "Common": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "showfrequency.uncommon": {
+        "Uncommon": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "showfrequency.unfamiliarspells": {
+        "Unfamiliar Spells": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "combattechniques.header.name": {
+        "CTR": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "combattechniques.header.group": {
+        "Combat Technique Rating": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "combattechniques.header.combattechniquerating": {
+        "P": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "combattechniques.header.combattechniquerating.tooltip": {
+        "Primary Attribute(s)": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "combattechniques.header.improvementcost": {
+        "AT": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "combattechniques.header.improvementcost.tooltip": {
+        "Attack": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "combattechniques.header.primaryattribute": {
+        "PA": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "combattechniques.header.primaryattribute.tooltip": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "combattechniques.header.attack": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "combattechniques.header.attack.tooltip": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "combattechniques.header.parry": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "combattechniques.header.parry.tooltip": {
+        "Parry": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "Close Combat": {
@@ -2146,40 +2053,10 @@
         "Zibilja Rituals": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "spells.addbtn": {
+        "Mod": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "spells.header.name": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "spells.header.property": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "spells.header.group": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "spells.header.skillrating": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "spells.header.skillrating.tooltip": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "spells.header.check": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "spells.header.checkmodifier": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "spells.header.checkmodifier.tooltip": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "spells.header.improvementcost": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "spells.header.improvementcost.tooltip": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "spells.groups.cantrip": {
+        "Check Modifier": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "spells.traditions.general": {
@@ -2800,7 +2677,6 @@
         "Install Later",
         "No update available",
         "You're running the latest version available.",
-        "initialization.loadtableserror",
         "Characters",
         "Groups",
         "Library",
@@ -2879,7 +2755,6 @@
         "general.emptylistplaceholder",
         "general.emptylistnoresultsplaceholder",
         "No Results",
-        "general.withapvalue",
         "Search",
         "Sort By",
         "Name",
@@ -2890,27 +2765,26 @@
         "general.filters.sort.bycost",
         "general.filters.sort.byweight",
         "general.filters.showactivatedentries",
-        "general.dialogs.savebtn",
         "Done",
-        "general.dialogs.deletebtn",
-        "general.dialogs.yesbtn",
-        "general.dialogs.nobtn",
-        "general.dialogs.okbtn",
+        "OK",
         "Cancel",
-        "general.dialogs.copybtn",
-        "general.dialogs.createbtn",
-        "general.dialogs.applybtn",
+        "Create",
+        "Apply",
         "Add",
-        "general.dialogs.notenoughap.title",
-        "general.dialogs.notenoughap.message",
-        "general.dialogs.reachedaplimit.title",
-        "general.dialogs.reachedaplimit.message",
-        "general.dialogs.reachedaplimit.advantages",
-        "general.dialogs.reachedaplimit.magicaladvantages",
-        "general.dialogs.reachedaplimit.blessedadvantages",
-        "general.dialogs.reachedaplimit.disadvantages",
-        "general.dialogs.reachedaplimit.magicaldisadvantages",
-        "general.dialogs.reachedaplimit.blesseddisadvantages",
+        "Not enough AP",
+        "You are missing {0} Adventure Points to do this.",
+        "Exceeding Adventure Points limit for advantages",
+        "You cannot spend more than {0} AP on advantages. You would exceed this limit by {1} AP.",
+        "Exceeding Adventure Points limit for magical advantages",
+        "You cannot spend more than {0} AP on magical advantages. You would exceed this limit by {1} AP.",
+        "Exceeding Adventure Points limit for blessed advantages",
+        "You cannot spend more than {0} AP on blessed advantages. You would exceed this limit by {1} AP.",
+        "Exceeding Adventure Points limit for disadvantages",
+        "You cannot receive more than {0} AP from disadvantages. You would exceed this limit by {1} AP.",
+        "Exceeding Adventure Points limit for magical disadvantages",
+        "You cannot receive more than {0} AP from magical disadvantages. You would exceed this limit by {1} AP.",
+        "Exceeding Adventure Points limit for blessed disadvantages",
+        "You cannot receive more than {0} AP from blessed disadvantages. You would exceed this limit by {1} AP.",
         "heroes.filters.origin.allheroes",
         "heroes.filters.origin.ownheroes",
         "heroes.filters.origin.sharedheroes",
@@ -2961,7 +2835,6 @@
         "wiki.filters.specialabilities.all",
         "wiki.filters.itemtemplates",
         "wiki.filters.itemtemplates.all",
-        "imprint.title",
         "Edit Name",
         "Change Name",
         "Edit Profession Name",
@@ -2997,6 +2870,7 @@
         "Reroll Size",
         "Reroll Weight",
         "personaldata.cultureareaknowledge",
+        "You can save up no more than 10 AP to use later during the game, and you cannot begin the game with a negative AP balance.",
         "sheets.printtopdfbtn",
         "sheets.dialogs.pdfexportsavelocation.title",
         "sheets.dialogs.pdfsaved",
@@ -3345,28 +3219,11 @@
         "How many points do you want to remove?",
         "Remove",
         "Permanently Spent",
-        "advantages.filters.commonadvantages",
-        "disadvantages.filters.commondisadvantages",
-        "advantagesdisadvantages.addbtn",
-        "advantagesdisadvantages.afraidof",
-        "advantagesdisadvantages.immunityto",
-        "advantagesdisadvantages.hatredfor",
-        "advantagesdisadvantages.header.name",
-        "advantagesdisadvantages.header.adventurepoints",
-        "advantagesdisadvantages.header.adventurepoints.tooltip",
-        "advantagesdisadvantages.apspent.spentonadvantages",
-        "advantagesdisadvantages.apspent.spentonmagicadvantages",
-        "advantagesdisadvantages.apspent.spentonblessedadvantages",
-        "advantagesdisadvantages.apspent.spentondisadvantages",
-        "advantagesdisadvantages.apspent.spentonmagicdisadvantages",
-        "advantagesdisadvantages.apspent.spentonblesseddisadvantages",
-        "advantagesdisadvantages.dialogs.customcost.title",
-        "advantagesdisadvantages.dialogs.customcost.for",
-        "specialabilities.addbtn",
-        "specialabilities.header.name",
-        "specialabilities.header.group",
-        "specialabilities.header.adventurepoints",
-        "specialabilities.header.adventurepoints.tooltip",
+        "Common Advantages",
+        "Common Disadvantages",
+        "Custom AP Cost",
+        "AP Cost for {0}",
+        "Custom option",
         "specialabilities.nativetonguelevel",
         "inlinewiki.rule",
         "inlinewiki.effect",
@@ -3402,32 +3259,24 @@
         "inlinewiki.combattechniques.groups.allmeleecombattechniqueswithparry",
         "inlinewiki.combattechniques.groups.allmeleecombattechniquesforonehandedweapons",
         "inlinewiki.socialstatusxorhigher",
-        "skills.commonskills",
-        "skills.header.name",
-        "skills.header.skillrating",
-        "skills.header.skillrating.tooltip",
-        "skills.header.group",
-        "skills.header.check",
-        "skills.header.improvementcost",
-        "skills.header.improvementcost.tooltip",
+        "Common Skills",
+        "SR",
+        "Skill Rating",
+        "IC",
         "New Applications",
         "Uses",
-        "showfrequency.stronglyrecommended",
-        "showfrequency.common",
-        "showfrequency.uncommon",
-        "showfrequency.unfamiliarspells",
-        "combattechniques.header.name",
-        "combattechniques.header.group",
-        "combattechniques.header.combattechniquerating",
-        "combattechniques.header.combattechniquerating.tooltip",
-        "combattechniques.header.improvementcost",
-        "combattechniques.header.improvementcost.tooltip",
-        "combattechniques.header.primaryattribute",
-        "combattechniques.header.primaryattribute.tooltip",
-        "combattechniques.header.attack",
-        "combattechniques.header.attack.tooltip",
-        "combattechniques.header.parry",
-        "combattechniques.header.parry.tooltip",
+        "Strongly Recommended",
+        "Common",
+        "Uncommon",
+        "Unfamiliar Spells",
+        "CTR",
+        "Combat Technique Rating",
+        "P",
+        "Primary Attribute(s)",
+        "AT",
+        "Attack",
+        "PA",
+        "Parry",
         "Close Combat",
         "Ranged Combat",
         "inlinewiki.special",
@@ -3443,18 +3292,8 @@
         "Animist Powers",
         "Geode Rituals",
         "Zibilja Rituals",
-        "spells.addbtn",
-        "spells.header.name",
-        "spells.header.property",
-        "spells.header.group",
-        "spells.header.skillrating",
-        "spells.header.skillrating.tooltip",
-        "spells.header.check",
-        "spells.header.checkmodifier",
-        "spells.header.checkmodifier.tooltip",
-        "spells.header.improvementcost",
-        "spells.header.improvementcost.tooltip",
-        "spells.groups.cantrip",
+        "Mod",
+        "Check Modifier",
         "spells.traditions.general",
         "magicalactions.animistforces.tribes.general",
         "inlinewiki.castingtime",

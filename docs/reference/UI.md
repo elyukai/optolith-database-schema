@@ -57,7 +57,6 @@ Key | Description | Details
 `Install Later` |  | <a href="#UI/Install Later">See details</a>
 `No update available` |  | <a href="#UI/No update available">See details</a>
 `You're running the latest version available.` |  | <a href="#UI/You're running the latest version available.">See details</a>
-`initialization.loadtableserror` |  | <a href="#UI/initialization.loadtableserror">See details</a>
 `Characters` |  | <a href="#UI/Characters">See details</a>
 `Groups` |  | <a href="#UI/Groups">See details</a>
 `Library` |  | <a href="#UI/Library">See details</a>
@@ -127,7 +126,7 @@ Key | Description | Details
 `general.weightvalue` | - `0`: Weight in kg | <a href="#UI/general.weightvalue">See details</a>
 `general.pricevalue` | - `0`: Price in silverthalers | <a href="#UI/general.pricevalue">See details</a>
 `general.lengthvalue` | - `0`: Length in cm | <a href="#UI/general.lengthvalue">See details</a>
-`D` |  | <a href="#UI/D">See details</a>
+`D` | As in *2D6*. | <a href="#UI/D">See details</a>
 `general.none` |  | <a href="#UI/general.none">See details</a>
 `general.or` |  | <a href="#UI/general.or">See details</a>
 `general.and` |  | <a href="#UI/general.and">See details</a>
@@ -136,7 +135,6 @@ Key | Description | Details
 `general.emptylistplaceholder` |  | <a href="#UI/general.emptylistplaceholder">See details</a>
 `general.emptylistnoresultsplaceholder` |  | <a href="#UI/general.emptylistnoresultsplaceholder">See details</a>
 `No Results` |  | <a href="#UI/No Results">See details</a>
-`general.withapvalue` | - `0`: Name of element - `1`: AP value | <a href="#UI/general.withapvalue">See details</a>
 `Search` |  | <a href="#UI/Search">See details</a>
 `Sort By` |  | <a href="#UI/Sort By">See details</a>
 `Name` |  | <a href="#UI/Name">See details</a>
@@ -147,27 +145,26 @@ Key | Description | Details
 `general.filters.sort.bycost` |  | <a href="#UI/general.filters.sort.bycost">See details</a>
 `general.filters.sort.byweight` |  | <a href="#UI/general.filters.sort.byweight">See details</a>
 `general.filters.showactivatedentries` |  | <a href="#UI/general.filters.showactivatedentries">See details</a>
-`general.dialogs.savebtn` |  | <a href="#UI/general.dialogs.savebtn">See details</a>
 `Done` |  | <a href="#UI/Done">See details</a>
-`general.dialogs.deletebtn` |  | <a href="#UI/general.dialogs.deletebtn">See details</a>
-`general.dialogs.yesbtn` |  | <a href="#UI/general.dialogs.yesbtn">See details</a>
-`general.dialogs.nobtn` |  | <a href="#UI/general.dialogs.nobtn">See details</a>
-`general.dialogs.okbtn` |  | <a href="#UI/general.dialogs.okbtn">See details</a>
+`OK` |  | <a href="#UI/OK">See details</a>
 `Cancel` |  | <a href="#UI/Cancel">See details</a>
-`general.dialogs.copybtn` |  | <a href="#UI/general.dialogs.copybtn">See details</a>
-`general.dialogs.createbtn` |  | <a href="#UI/general.dialogs.createbtn">See details</a>
-`general.dialogs.applybtn` |  | <a href="#UI/general.dialogs.applybtn">See details</a>
+`Create` |  | <a href="#UI/Create">See details</a>
+`Apply` |  | <a href="#UI/Apply">See details</a>
 `Add` |  | <a href="#UI/Add">See details</a>
-`general.dialogs.notenoughap.title` |  | <a href="#UI/general.dialogs.notenoughap.title">See details</a>
-`general.dialogs.notenoughap.message` | - `0`: Missing AP | <a href="#UI/general.dialogs.notenoughap.message">See details</a>
-`general.dialogs.reachedaplimit.title` | - `0`: Category in which the limit is reached | <a href="#UI/general.dialogs.reachedaplimit.title">See details</a>
-`general.dialogs.reachedaplimit.message` | - `0`: Missing AP - `1`: Maximum possible AP spent on category - `2`: Category in which the limit is reached | <a href="#UI/general.dialogs.reachedaplimit.message">See details</a>
-`general.dialogs.reachedaplimit.advantages` |  | <a href="#UI/general.dialogs.reachedaplimit.advantages">See details</a>
-`general.dialogs.reachedaplimit.magicaladvantages` |  | <a href="#UI/general.dialogs.reachedaplimit.magicaladvantages">See details</a>
-`general.dialogs.reachedaplimit.blessedadvantages` |  | <a href="#UI/general.dialogs.reachedaplimit.blessedadvantages">See details</a>
-`general.dialogs.reachedaplimit.disadvantages` |  | <a href="#UI/general.dialogs.reachedaplimit.disadvantages">See details</a>
-`general.dialogs.reachedaplimit.magicaldisadvantages` |  | <a href="#UI/general.dialogs.reachedaplimit.magicaldisadvantages">See details</a>
-`general.dialogs.reachedaplimit.blesseddisadvantages` |  | <a href="#UI/general.dialogs.reachedaplimit.blesseddisadvantages">See details</a>
+`Not enough AP` |  | <a href="#UI/Not enough AP">See details</a>
+`You are missing {0} Adventure Points to do this.` |  | <a href="#UI/You are missing {0} Adventure Points to do this.">See details</a>
+`Exceeding Adventure Points limit for advantages` |  | <a href="#UI/Exceeding Adventure Points limit for advantages">See details</a>
+`You cannot spend more than {0} AP on advantages. You would exceed this limit by {1} AP.` |  | <a href="#UI/You cannot spend more than {0} AP on advantages. You would exceed this limit by {1} AP.">See details</a>
+`Exceeding Adventure Points limit for magical advantages` |  | <a href="#UI/Exceeding Adventure Points limit for magical advantages">See details</a>
+`You cannot spend more than {0} AP on magical advantages. You would exceed this limit by {1} AP.` |  | <a href="#UI/You cannot spend more than {0} AP on magical advantages. You would exceed this limit by {1} AP.">See details</a>
+`Exceeding Adventure Points limit for blessed advantages` |  | <a href="#UI/Exceeding Adventure Points limit for blessed advantages">See details</a>
+`You cannot spend more than {0} AP on blessed advantages. You would exceed this limit by {1} AP.` |  | <a href="#UI/You cannot spend more than {0} AP on blessed advantages. You would exceed this limit by {1} AP.">See details</a>
+`Exceeding Adventure Points limit for disadvantages` |  | <a href="#UI/Exceeding Adventure Points limit for disadvantages">See details</a>
+`You cannot receive more than {0} AP from disadvantages. You would exceed this limit by {1} AP.` |  | <a href="#UI/You cannot receive more than {0} AP from disadvantages. You would exceed this limit by {1} AP.">See details</a>
+`Exceeding Adventure Points limit for magical disadvantages` |  | <a href="#UI/Exceeding Adventure Points limit for magical disadvantages">See details</a>
+`You cannot receive more than {0} AP from magical disadvantages. You would exceed this limit by {1} AP.` |  | <a href="#UI/You cannot receive more than {0} AP from magical disadvantages. You would exceed this limit by {1} AP.">See details</a>
+`Exceeding Adventure Points limit for blessed disadvantages` |  | <a href="#UI/Exceeding Adventure Points limit for blessed disadvantages">See details</a>
+`You cannot receive more than {0} AP from blessed disadvantages. You would exceed this limit by {1} AP.` |  | <a href="#UI/You cannot receive more than {0} AP from blessed disadvantages. You would exceed this limit by {1} AP.">See details</a>
 `heroes.filters.origin.allheroes` |  | <a href="#UI/heroes.filters.origin.allheroes">See details</a>
 `heroes.filters.origin.ownheroes` |  | <a href="#UI/heroes.filters.origin.ownheroes">See details</a>
 `heroes.filters.origin.sharedheroes` |  | <a href="#UI/heroes.filters.origin.sharedheroes">See details</a>
@@ -218,7 +215,6 @@ Key | Description | Details
 `wiki.filters.specialabilities.all` |  | <a href="#UI/wiki.filters.specialabilities.all">See details</a>
 `wiki.filters.itemtemplates` |  | <a href="#UI/wiki.filters.itemtemplates">See details</a>
 `wiki.filters.itemtemplates.all` |  | <a href="#UI/wiki.filters.itemtemplates.all">See details</a>
-`imprint.title` |  | <a href="#UI/imprint.title">See details</a>
 `Edit Name` |  | <a href="#UI/Edit Name">See details</a>
 `Change Name` |  | <a href="#UI/Change Name">See details</a>
 `Edit Profession Name` |  | <a href="#UI/Edit Profession Name">See details</a>
@@ -254,6 +250,7 @@ Key | Description | Details
 `Reroll Size` |  | <a href="#UI/Reroll Size">See details</a>
 `Reroll Weight` |  | <a href="#UI/Reroll Weight">See details</a>
 `personaldata.cultureareaknowledge` |  | <a href="#UI/personaldata.cultureareaknowledge">See details</a>
+`You can save up no more than 10 AP to use later during the game, and you cannot begin the game with a negative AP balance.` |  | <a href="#UI/You can save up no more than 10 AP to use later during the game, and you cannot begin the game with a negative AP balance.">See details</a>
 `sheets.printtopdfbtn` |  | <a href="#UI/sheets.printtopdfbtn">See details</a>
 `sheets.dialogs.pdfexportsavelocation.title` |  | <a href="#UI/sheets.dialogs.pdfexportsavelocation.title">See details</a>
 `sheets.dialogs.pdfsaved` |  | <a href="#UI/sheets.dialogs.pdfsaved">See details</a>
@@ -602,28 +599,11 @@ Key | Description | Details
 `How many points do you want to remove?` |  | <a href="#UI/How many points do you want to remove?">See details</a>
 `Remove` |  | <a href="#UI/Remove">See details</a>
 `Permanently Spent` |  | <a href="#UI/Permanently Spent">See details</a>
-`advantages.filters.commonadvantages` |  | <a href="#UI/advantages.filters.commonadvantages">See details</a>
-`disadvantages.filters.commondisadvantages` |  | <a href="#UI/disadvantages.filters.commondisadvantages">See details</a>
-`advantagesdisadvantages.addbtn` |  | <a href="#UI/advantagesdisadvantages.addbtn">See details</a>
-`advantagesdisadvantages.afraidof` |  | <a href="#UI/advantagesdisadvantages.afraidof">See details</a>
-`advantagesdisadvantages.immunityto` |  | <a href="#UI/advantagesdisadvantages.immunityto">See details</a>
-`advantagesdisadvantages.hatredfor` |  | <a href="#UI/advantagesdisadvantages.hatredfor">See details</a>
-`advantagesdisadvantages.header.name` |  | <a href="#UI/advantagesdisadvantages.header.name">See details</a>
-`advantagesdisadvantages.header.adventurepoints` |  | <a href="#UI/advantagesdisadvantages.header.adventurepoints">See details</a>
-`advantagesdisadvantages.header.adventurepoints.tooltip` |  | <a href="#UI/advantagesdisadvantages.header.adventurepoints.tooltip">See details</a>
-`advantagesdisadvantages.apspent.spentonadvantages` | - `0`: Current AP spent on advantages - `1`: Maximum possible AP spent on advantages | <a href="#UI/advantagesdisadvantages.apspent.spentonadvantages">See details</a>
-`advantagesdisadvantages.apspent.spentonmagicadvantages` | - `0`: Current AP spent on magic advantages - `1`: Maximum possible AP spent on magic advantages | <a href="#UI/advantagesdisadvantages.apspent.spentonmagicadvantages">See details</a>
-`advantagesdisadvantages.apspent.spentonblessedadvantages` | - `0`: Current AP spent on blessed advantages - `1`: Maximum possible AP spent on blessed advantages | <a href="#UI/advantagesdisadvantages.apspent.spentonblessedadvantages">See details</a>
-`advantagesdisadvantages.apspent.spentondisadvantages` | - `0`: Current AP spent on disadvantages - `1`: Maximum possible AP spent on disadvantages | <a href="#UI/advantagesdisadvantages.apspent.spentondisadvantages">See details</a>
-`advantagesdisadvantages.apspent.spentonmagicdisadvantages` | - `0`: Current AP spent on magic disadvantages - `1`: Maximum possible AP spent on magic disadvantages | <a href="#UI/advantagesdisadvantages.apspent.spentonmagicdisadvantages">See details</a>
-`advantagesdisadvantages.apspent.spentonblesseddisadvantages` | - `0`: Current AP spent on blessed disadvantages - `1`: Maximum possible AP spent on blessed disadvantages | <a href="#UI/advantagesdisadvantages.apspent.spentonblesseddisadvantages">See details</a>
-`advantagesdisadvantages.dialogs.customcost.title` |  | <a href="#UI/advantagesdisadvantages.dialogs.customcost.title">See details</a>
-`advantagesdisadvantages.dialogs.customcost.for` | - `0`: Entry name | <a href="#UI/advantagesdisadvantages.dialogs.customcost.for">See details</a>
-`specialabilities.addbtn` |  | <a href="#UI/specialabilities.addbtn">See details</a>
-`specialabilities.header.name` |  | <a href="#UI/specialabilities.header.name">See details</a>
-`specialabilities.header.group` |  | <a href="#UI/specialabilities.header.group">See details</a>
-`specialabilities.header.adventurepoints` |  | <a href="#UI/specialabilities.header.adventurepoints">See details</a>
-`specialabilities.header.adventurepoints.tooltip` |  | <a href="#UI/specialabilities.header.adventurepoints.tooltip">See details</a>
+`Common Advantages` |  | <a href="#UI/Common Advantages">See details</a>
+`Common Disadvantages` |  | <a href="#UI/Common Disadvantages">See details</a>
+`Custom AP Cost` |  | <a href="#UI/Custom AP Cost">See details</a>
+`AP Cost for {0}` | - `0`: Entry name | <a href="#UI/AP Cost for {0}">See details</a>
+`Custom option` |  | <a href="#UI/Custom option">See details</a>
 `specialabilities.nativetonguelevel` |  | <a href="#UI/specialabilities.nativetonguelevel">See details</a>
 `inlinewiki.rule` |  | <a href="#UI/inlinewiki.rule">See details</a>
 `inlinewiki.effect` |  | <a href="#UI/inlinewiki.effect">See details</a>
@@ -659,32 +639,24 @@ Key | Description | Details
 `inlinewiki.combattechniques.groups.allmeleecombattechniqueswithparry` |  | <a href="#UI/inlinewiki.combattechniques.groups.allmeleecombattechniqueswithparry">See details</a>
 `inlinewiki.combattechniques.groups.allmeleecombattechniquesforonehandedweapons` |  | <a href="#UI/inlinewiki.combattechniques.groups.allmeleecombattechniquesforonehandedweapons">See details</a>
 `inlinewiki.socialstatusxorhigher` | - `0`: Minimum social status | <a href="#UI/inlinewiki.socialstatusxorhigher">See details</a>
-`skills.commonskills` |  | <a href="#UI/skills.commonskills">See details</a>
-`skills.header.name` |  | <a href="#UI/skills.header.name">See details</a>
-`skills.header.skillrating` |  | <a href="#UI/skills.header.skillrating">See details</a>
-`skills.header.skillrating.tooltip` |  | <a href="#UI/skills.header.skillrating.tooltip">See details</a>
-`skills.header.group` |  | <a href="#UI/skills.header.group">See details</a>
-`skills.header.check` |  | <a href="#UI/skills.header.check">See details</a>
-`skills.header.improvementcost` |  | <a href="#UI/skills.header.improvementcost">See details</a>
-`skills.header.improvementcost.tooltip` |  | <a href="#UI/skills.header.improvementcost.tooltip">See details</a>
+`Common Skills` |  | <a href="#UI/Common Skills">See details</a>
+`SR` |  | <a href="#UI/SR">See details</a>
+`Skill Rating` |  | <a href="#UI/Skill Rating">See details</a>
+`IC` |  | <a href="#UI/IC">See details</a>
 `New Applications` |  | <a href="#UI/New Applications">See details</a>
 `Uses` |  | <a href="#UI/Uses">See details</a>
-`showfrequency.stronglyrecommended` |  | <a href="#UI/showfrequency.stronglyrecommended">See details</a>
-`showfrequency.common` |  | <a href="#UI/showfrequency.common">See details</a>
-`showfrequency.uncommon` |  | <a href="#UI/showfrequency.uncommon">See details</a>
-`showfrequency.unfamiliarspells` |  | <a href="#UI/showfrequency.unfamiliarspells">See details</a>
-`combattechniques.header.name` |  | <a href="#UI/combattechniques.header.name">See details</a>
-`combattechniques.header.group` |  | <a href="#UI/combattechniques.header.group">See details</a>
-`combattechniques.header.combattechniquerating` |  | <a href="#UI/combattechniques.header.combattechniquerating">See details</a>
-`combattechniques.header.combattechniquerating.tooltip` |  | <a href="#UI/combattechniques.header.combattechniquerating.tooltip">See details</a>
-`combattechniques.header.improvementcost` |  | <a href="#UI/combattechniques.header.improvementcost">See details</a>
-`combattechniques.header.improvementcost.tooltip` |  | <a href="#UI/combattechniques.header.improvementcost.tooltip">See details</a>
-`combattechniques.header.primaryattribute` |  | <a href="#UI/combattechniques.header.primaryattribute">See details</a>
-`combattechniques.header.primaryattribute.tooltip` |  | <a href="#UI/combattechniques.header.primaryattribute.tooltip">See details</a>
-`combattechniques.header.attack` |  | <a href="#UI/combattechniques.header.attack">See details</a>
-`combattechniques.header.attack.tooltip` |  | <a href="#UI/combattechniques.header.attack.tooltip">See details</a>
-`combattechniques.header.parry` |  | <a href="#UI/combattechniques.header.parry">See details</a>
-`combattechniques.header.parry.tooltip` |  | <a href="#UI/combattechniques.header.parry.tooltip">See details</a>
+`Strongly Recommended` |  | <a href="#UI/Strongly Recommended">See details</a>
+`Common` |  | <a href="#UI/Common">See details</a>
+`Uncommon` |  | <a href="#UI/Uncommon">See details</a>
+`Unfamiliar Spells` |  | <a href="#UI/Unfamiliar Spells">See details</a>
+`CTR` |  | <a href="#UI/CTR">See details</a>
+`Combat Technique Rating` |  | <a href="#UI/Combat Technique Rating">See details</a>
+`P` |  | <a href="#UI/P">See details</a>
+`Primary Attribute(s)` |  | <a href="#UI/Primary Attribute(s)">See details</a>
+`AT` |  | <a href="#UI/AT">See details</a>
+`Attack` |  | <a href="#UI/Attack">See details</a>
+`PA` |  | <a href="#UI/PA">See details</a>
+`Parry` |  | <a href="#UI/Parry">See details</a>
 `Close Combat` |  | <a href="#UI/Close Combat">See details</a>
 `Ranged Combat` |  | <a href="#UI/Ranged Combat">See details</a>
 `inlinewiki.special` |  | <a href="#UI/inlinewiki.special">See details</a>
@@ -700,18 +672,8 @@ Key | Description | Details
 `Animist Powers` |  | <a href="#UI/Animist Powers">See details</a>
 `Geode Rituals` |  | <a href="#UI/Geode Rituals">See details</a>
 `Zibilja Rituals` |  | <a href="#UI/Zibilja Rituals">See details</a>
-`spells.addbtn` |  | <a href="#UI/spells.addbtn">See details</a>
-`spells.header.name` |  | <a href="#UI/spells.header.name">See details</a>
-`spells.header.property` |  | <a href="#UI/spells.header.property">See details</a>
-`spells.header.group` |  | <a href="#UI/spells.header.group">See details</a>
-`spells.header.skillrating` |  | <a href="#UI/spells.header.skillrating">See details</a>
-`spells.header.skillrating.tooltip` |  | <a href="#UI/spells.header.skillrating.tooltip">See details</a>
-`spells.header.check` |  | <a href="#UI/spells.header.check">See details</a>
-`spells.header.checkmodifier` |  | <a href="#UI/spells.header.checkmodifier">See details</a>
-`spells.header.checkmodifier.tooltip` |  | <a href="#UI/spells.header.checkmodifier.tooltip">See details</a>
-`spells.header.improvementcost` |  | <a href="#UI/spells.header.improvementcost">See details</a>
-`spells.header.improvementcost.tooltip` |  | <a href="#UI/spells.header.improvementcost.tooltip">See details</a>
-`spells.groups.cantrip` |  | <a href="#UI/spells.groups.cantrip">See details</a>
+`Mod` |  | <a href="#UI/Mod">See details</a>
+`Check Modifier` |  | <a href="#UI/Check Modifier">See details</a>
 `spells.traditions.general` |  | <a href="#UI/spells.traditions.general">See details</a>
 `magicalactions.animistforces.tribes.general` |  | <a href="#UI/magicalactions.animistforces.tribes.general">See details</a>
 `inlinewiki.castingtime` |  | <a href="#UI/inlinewiki.castingtime">See details</a>
@@ -1100,10 +1062,6 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/initialization.loadtableserror"></a> `initialization.loadtableserror`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
 #### <a name="UI/Characters"></a> `Characters`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
@@ -1438,6 +1396,8 @@ Key | Description | Details
 
 #### <a name="UI/D"></a> `D`
 
+As in *2D6*.
+
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/general.none"></a> `general.none`
@@ -1469,13 +1429,6 @@ Key | Description | Details
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/No Results"></a> `No Results`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/general.withapvalue"></a> `general.withapvalue`
-
-- `0`: Name of element
-- `1`: AP value
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -1519,27 +1472,11 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/general.dialogs.savebtn"></a> `general.dialogs.savebtn`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
 #### <a name="UI/Done"></a> `Done`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/general.dialogs.deletebtn"></a> `general.dialogs.deletebtn`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/general.dialogs.yesbtn"></a> `general.dialogs.yesbtn`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/general.dialogs.nobtn"></a> `general.dialogs.nobtn`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/general.dialogs.okbtn"></a> `general.dialogs.okbtn`
+#### <a name="UI/OK"></a> `OK`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -1547,15 +1484,11 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/general.dialogs.copybtn"></a> `general.dialogs.copybtn`
+#### <a name="UI/Create"></a> `Create`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/general.dialogs.createbtn"></a> `general.dialogs.createbtn`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/general.dialogs.applybtn"></a> `general.dialogs.applybtn`
+#### <a name="UI/Apply"></a> `Apply`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -1563,51 +1496,59 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/general.dialogs.notenoughap.title"></a> `general.dialogs.notenoughap.title`
+#### <a name="UI/Not enough AP"></a> `Not enough AP`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/general.dialogs.notenoughap.message"></a> `general.dialogs.notenoughap.message`
+#### <a name="UI/You are missing {0} Adventure Points to do this."></a> `You are missing {0} Adventure Points to do this.`
 
-- `0`: Missing AP
+- **Type:** <a href="./_I18n.md#PluralizationCategories">PluralizationCategories</a>
 
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/general.dialogs.reachedaplimit.title"></a> `general.dialogs.reachedaplimit.title`
-
-- `0`: Category in which the limit is reached
+#### <a name="UI/Exceeding Adventure Points limit for advantages"></a> `Exceeding Adventure Points limit for advantages`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/general.dialogs.reachedaplimit.message"></a> `general.dialogs.reachedaplimit.message`
-
-- `0`: Missing AP
-- `1`: Maximum possible AP spent on category
-- `2`: Category in which the limit is reached
+#### <a name="UI/You cannot spend more than {0} AP on advantages. You would exceed this limit by {1} AP."></a> `You cannot spend more than {0} AP on advantages. You would exceed this limit by {1} AP.`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/general.dialogs.reachedaplimit.advantages"></a> `general.dialogs.reachedaplimit.advantages`
+#### <a name="UI/Exceeding Adventure Points limit for magical advantages"></a> `Exceeding Adventure Points limit for magical advantages`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/general.dialogs.reachedaplimit.magicaladvantages"></a> `general.dialogs.reachedaplimit.magicaladvantages`
+#### <a name="UI/You cannot spend more than {0} AP on magical advantages. You would exceed this limit by {1} AP."></a> `You cannot spend more than {0} AP on magical advantages. You would exceed this limit by {1} AP.`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/general.dialogs.reachedaplimit.blessedadvantages"></a> `general.dialogs.reachedaplimit.blessedadvantages`
+#### <a name="UI/Exceeding Adventure Points limit for blessed advantages"></a> `Exceeding Adventure Points limit for blessed advantages`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/general.dialogs.reachedaplimit.disadvantages"></a> `general.dialogs.reachedaplimit.disadvantages`
+#### <a name="UI/You cannot spend more than {0} AP on blessed advantages. You would exceed this limit by {1} AP."></a> `You cannot spend more than {0} AP on blessed advantages. You would exceed this limit by {1} AP.`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/general.dialogs.reachedaplimit.magicaldisadvantages"></a> `general.dialogs.reachedaplimit.magicaldisadvantages`
+#### <a name="UI/Exceeding Adventure Points limit for disadvantages"></a> `Exceeding Adventure Points limit for disadvantages`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/general.dialogs.reachedaplimit.blesseddisadvantages"></a> `general.dialogs.reachedaplimit.blesseddisadvantages`
+#### <a name="UI/You cannot receive more than {0} AP from disadvantages. You would exceed this limit by {1} AP."></a> `You cannot receive more than {0} AP from disadvantages. You would exceed this limit by {1} AP.`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Exceeding Adventure Points limit for magical disadvantages"></a> `Exceeding Adventure Points limit for magical disadvantages`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/You cannot receive more than {0} AP from magical disadvantages. You would exceed this limit by {1} AP."></a> `You cannot receive more than {0} AP from magical disadvantages. You would exceed this limit by {1} AP.`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Exceeding Adventure Points limit for blessed disadvantages"></a> `Exceeding Adventure Points limit for blessed disadvantages`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/You cannot receive more than {0} AP from blessed disadvantages. You would exceed this limit by {1} AP."></a> `You cannot receive more than {0} AP from blessed disadvantages. You would exceed this limit by {1} AP.`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -1813,10 +1754,6 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/imprint.title"></a> `imprint.title`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
 #### <a name="UI/Edit Name"></a> `Edit Name`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
@@ -1954,6 +1891,10 @@ Key | Description | Details
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/personaldata.cultureareaknowledge"></a> `personaldata.cultureareaknowledge`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/You can save up no more than 10 AP to use later during the game, and you cannot begin the game with a negative AP balance."></a> `You can save up no more than 10 AP to use later during the game, and you cannot begin the game with a negative AP balance.`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -3398,111 +3339,25 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/advantages.filters.commonadvantages"></a> `advantages.filters.commonadvantages`
+#### <a name="UI/Common Advantages"></a> `Common Advantages`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/disadvantages.filters.commondisadvantages"></a> `disadvantages.filters.commondisadvantages`
+#### <a name="UI/Common Disadvantages"></a> `Common Disadvantages`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/advantagesdisadvantages.addbtn"></a> `advantagesdisadvantages.addbtn`
+#### <a name="UI/Custom AP Cost"></a> `Custom AP Cost`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/advantagesdisadvantages.afraidof"></a> `advantagesdisadvantages.afraidof`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/advantagesdisadvantages.immunityto"></a> `advantagesdisadvantages.immunityto`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/advantagesdisadvantages.hatredfor"></a> `advantagesdisadvantages.hatredfor`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/advantagesdisadvantages.header.name"></a> `advantagesdisadvantages.header.name`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/advantagesdisadvantages.header.adventurepoints"></a> `advantagesdisadvantages.header.adventurepoints`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/advantagesdisadvantages.header.adventurepoints.tooltip"></a> `advantagesdisadvantages.header.adventurepoints.tooltip`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/advantagesdisadvantages.apspent.spentonadvantages"></a> `advantagesdisadvantages.apspent.spentonadvantages`
-
-- `0`: Current AP spent on advantages
-- `1`: Maximum possible AP spent on advantages
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/advantagesdisadvantages.apspent.spentonmagicadvantages"></a> `advantagesdisadvantages.apspent.spentonmagicadvantages`
-
-- `0`: Current AP spent on magic advantages
-- `1`: Maximum possible AP spent on magic advantages
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/advantagesdisadvantages.apspent.spentonblessedadvantages"></a> `advantagesdisadvantages.apspent.spentonblessedadvantages`
-
-- `0`: Current AP spent on blessed advantages
-- `1`: Maximum possible AP spent on blessed advantages
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/advantagesdisadvantages.apspent.spentondisadvantages"></a> `advantagesdisadvantages.apspent.spentondisadvantages`
-
-- `0`: Current AP spent on disadvantages
-- `1`: Maximum possible AP spent on disadvantages
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/advantagesdisadvantages.apspent.spentonmagicdisadvantages"></a> `advantagesdisadvantages.apspent.spentonmagicdisadvantages`
-
-- `0`: Current AP spent on magic disadvantages
-- `1`: Maximum possible AP spent on magic disadvantages
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/advantagesdisadvantages.apspent.spentonblesseddisadvantages"></a> `advantagesdisadvantages.apspent.spentonblesseddisadvantages`
-
-- `0`: Current AP spent on blessed disadvantages
-- `1`: Maximum possible AP spent on blessed disadvantages
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/advantagesdisadvantages.dialogs.customcost.title"></a> `advantagesdisadvantages.dialogs.customcost.title`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/advantagesdisadvantages.dialogs.customcost.for"></a> `advantagesdisadvantages.dialogs.customcost.for`
+#### <a name="UI/AP Cost for {0}"></a> `AP Cost for {0}`
 
 - `0`: Entry name
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/specialabilities.addbtn"></a> `specialabilities.addbtn`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/specialabilities.header.name"></a> `specialabilities.header.name`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/specialabilities.header.group"></a> `specialabilities.header.group`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/specialabilities.header.adventurepoints"></a> `specialabilities.header.adventurepoints`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/specialabilities.header.adventurepoints.tooltip"></a> `specialabilities.header.adventurepoints.tooltip`
+#### <a name="UI/Custom option"></a> `Custom option`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -3651,35 +3506,19 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/skills.commonskills"></a> `skills.commonskills`
+#### <a name="UI/Common Skills"></a> `Common Skills`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/skills.header.name"></a> `skills.header.name`
+#### <a name="UI/SR"></a> `SR`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/skills.header.skillrating"></a> `skills.header.skillrating`
+#### <a name="UI/Skill Rating"></a> `Skill Rating`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/skills.header.skillrating.tooltip"></a> `skills.header.skillrating.tooltip`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/skills.header.group"></a> `skills.header.group`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/skills.header.check"></a> `skills.header.check`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/skills.header.improvementcost"></a> `skills.header.improvementcost`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/skills.header.improvementcost.tooltip"></a> `skills.header.improvementcost.tooltip`
+#### <a name="UI/IC"></a> `IC`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -3691,67 +3530,51 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/showfrequency.stronglyrecommended"></a> `showfrequency.stronglyrecommended`
+#### <a name="UI/Strongly Recommended"></a> `Strongly Recommended`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/showfrequency.common"></a> `showfrequency.common`
+#### <a name="UI/Common"></a> `Common`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/showfrequency.uncommon"></a> `showfrequency.uncommon`
+#### <a name="UI/Uncommon"></a> `Uncommon`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/showfrequency.unfamiliarspells"></a> `showfrequency.unfamiliarspells`
+#### <a name="UI/Unfamiliar Spells"></a> `Unfamiliar Spells`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/combattechniques.header.name"></a> `combattechniques.header.name`
+#### <a name="UI/CTR"></a> `CTR`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/combattechniques.header.group"></a> `combattechniques.header.group`
+#### <a name="UI/Combat Technique Rating"></a> `Combat Technique Rating`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/combattechniques.header.combattechniquerating"></a> `combattechniques.header.combattechniquerating`
+#### <a name="UI/P"></a> `P`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/combattechniques.header.combattechniquerating.tooltip"></a> `combattechniques.header.combattechniquerating.tooltip`
+#### <a name="UI/Primary Attribute(s)"></a> `Primary Attribute(s)`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/combattechniques.header.improvementcost"></a> `combattechniques.header.improvementcost`
+#### <a name="UI/AT"></a> `AT`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/combattechniques.header.improvementcost.tooltip"></a> `combattechniques.header.improvementcost.tooltip`
+#### <a name="UI/Attack"></a> `Attack`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/combattechniques.header.primaryattribute"></a> `combattechniques.header.primaryattribute`
+#### <a name="UI/PA"></a> `PA`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/combattechniques.header.primaryattribute.tooltip"></a> `combattechniques.header.primaryattribute.tooltip`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/combattechniques.header.attack"></a> `combattechniques.header.attack`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/combattechniques.header.attack.tooltip"></a> `combattechniques.header.attack.tooltip`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/combattechniques.header.parry"></a> `combattechniques.header.parry`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/combattechniques.header.parry.tooltip"></a> `combattechniques.header.parry.tooltip`
+#### <a name="UI/Parry"></a> `Parry`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -3815,51 +3638,11 @@ Key | Description | Details
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/spells.addbtn"></a> `spells.addbtn`
+#### <a name="UI/Mod"></a> `Mod`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/spells.header.name"></a> `spells.header.name`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/spells.header.property"></a> `spells.header.property`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/spells.header.group"></a> `spells.header.group`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/spells.header.skillrating"></a> `spells.header.skillrating`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/spells.header.skillrating.tooltip"></a> `spells.header.skillrating.tooltip`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/spells.header.check"></a> `spells.header.check`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/spells.header.checkmodifier"></a> `spells.header.checkmodifier`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/spells.header.checkmodifier.tooltip"></a> `spells.header.checkmodifier.tooltip`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/spells.header.improvementcost"></a> `spells.header.improvementcost`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/spells.header.improvementcost.tooltip"></a> `spells.header.improvementcost.tooltip`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
-
-#### <a name="UI/spells.groups.cantrip"></a> `spells.groups.cantrip`
+#### <a name="UI/Check Modifier"></a> `Check Modifier`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
