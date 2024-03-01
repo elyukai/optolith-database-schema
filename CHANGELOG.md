@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.16.6](https://github.com/elyukai/optolith-database-schema/compare/v0.16.5...v0.16.6) (2024-03-01)
+
+
+### Features
+
+* add special ability group translations ([5b95dd5](https://github.com/elyukai/optolith-database-schema/commit/5b95dd52e1ef9124da51b38bc1263b44f85740fa))
+
 ### [0.16.5](https://github.com/elyukai/optolith-database-schema/compare/v0.16.4...v0.16.5) (2024-02-29)
 
 
