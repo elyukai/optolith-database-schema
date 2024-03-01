@@ -1850,6 +1850,150 @@
         "specialabilities.nativetonguelevel": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
+        "Advanced Combat Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Advanced Karma Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Advanced Magical Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Advanced Skill Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Ancestor Glyphs": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Arcane Orb Enchantments": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Attire Enchantments": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Blessed Traditions": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Bowl Enchantments": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Brawling Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Cauldron Enchantments": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Ceremonial Item Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Chronicle Enchantments": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Combat Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Combat Style Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Command Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Dagger Rituals": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Familiar Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Fate Point Sex Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Fate Point Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Fools Hat Enchantments": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "General Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Instrument Enchantments": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Karma Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Krallenkettenzauber": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Liturgical Style Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Lycantropic Gifts": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Magical Signs": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Magical Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Magical Traditions": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Magic Style Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Orb Enchantments": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Pact Gifts": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Protective Warding Circle Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Ring Enchantments": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Sermons": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Sex Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Sickle Rituals": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Sikaryan Drain Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Skill Style Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Spell Sword Enchantments": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Staff Enchantments": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Toy Enchantments": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Trinkhornzauber": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Vampiric Gifts": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Visions": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Wand Enchantments": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Weapon Enchantments": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
         "inlinewiki.rule": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
@@ -3225,6 +3369,54 @@
         "AP Cost for {0}",
         "Custom option",
         "specialabilities.nativetonguelevel",
+        "Advanced Combat Special Abilities",
+        "Advanced Karma Special Abilities",
+        "Advanced Magical Special Abilities",
+        "Advanced Skill Special Abilities",
+        "Ancestor Glyphs",
+        "Arcane Orb Enchantments",
+        "Attire Enchantments",
+        "Blessed Traditions",
+        "Bowl Enchantments",
+        "Brawling Special Abilities",
+        "Cauldron Enchantments",
+        "Ceremonial Item Special Abilities",
+        "Chronicle Enchantments",
+        "Combat Special Abilities",
+        "Combat Style Special Abilities",
+        "Command Special Abilities",
+        "Dagger Rituals",
+        "Familiar Special Abilities",
+        "Fate Point Sex Special Abilities",
+        "Fate Point Special Abilities",
+        "Fools Hat Enchantments",
+        "General Special Abilities",
+        "Instrument Enchantments",
+        "Karma Special Abilities",
+        "Krallenkettenzauber",
+        "Liturgical Style Special Abilities",
+        "Lycantropic Gifts",
+        "Magical Signs",
+        "Magical Special Abilities",
+        "Magical Traditions",
+        "Magic Style Special Abilities",
+        "Orb Enchantments",
+        "Pact Gifts",
+        "Protective Warding Circle Special Abilities",
+        "Ring Enchantments",
+        "Sermons",
+        "Sex Special Abilities",
+        "Sickle Rituals",
+        "Sikaryan Drain Special Abilities",
+        "Skill Style Special Abilities",
+        "Spell Sword Enchantments",
+        "Staff Enchantments",
+        "Toy Enchantments",
+        "Trinkhornzauber",
+        "Vampiric Gifts",
+        "Visions",
+        "Wand Enchantments",
+        "Weapon Enchantments",
         "inlinewiki.rule",
         "inlinewiki.effect",
         "inlinewiki.extendedcombatspecialabilities",

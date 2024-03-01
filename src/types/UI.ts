@@ -810,6 +810,54 @@ export type UI = {
   "Custom option": NonEmptyString
 
   "specialabilities.nativetonguelevel": NonEmptyString
+  "Advanced Combat Special Abilities": NonEmptyString
+  "Advanced Karma Special Abilities": NonEmptyString
+  "Advanced Magical Special Abilities": NonEmptyString
+  "Advanced Skill Special Abilities": NonEmptyString
+  "Ancestor Glyphs": NonEmptyString
+  "Arcane Orb Enchantments": NonEmptyString
+  "Attire Enchantments": NonEmptyString
+  "Blessed Traditions": NonEmptyString
+  "Bowl Enchantments": NonEmptyString
+  "Brawling Special Abilities": NonEmptyString
+  "Cauldron Enchantments": NonEmptyString
+  "Ceremonial Item Special Abilities": NonEmptyString
+  "Chronicle Enchantments": NonEmptyString
+  "Combat Special Abilities": NonEmptyString
+  "Combat Style Special Abilities": NonEmptyString
+  "Command Special Abilities": NonEmptyString
+  "Dagger Rituals": NonEmptyString
+  "Familiar Special Abilities": NonEmptyString
+  "Fate Point Sex Special Abilities": NonEmptyString
+  "Fate Point Special Abilities": NonEmptyString
+  "Fools Hat Enchantments": NonEmptyString
+  "General Special Abilities": NonEmptyString
+  "Instrument Enchantments": NonEmptyString
+  "Karma Special Abilities": NonEmptyString
+  "Krallenkettenzauber": NonEmptyString
+  "Liturgical Style Special Abilities": NonEmptyString
+  "Lycantropic Gifts": NonEmptyString
+  "Magical Signs": NonEmptyString
+  "Magical Special Abilities": NonEmptyString
+  "Magical Traditions": NonEmptyString
+  "Magic Style Special Abilities": NonEmptyString
+  "Orb Enchantments": NonEmptyString
+  "Pact Gifts": NonEmptyString
+  "Protective Warding Circle Special Abilities": NonEmptyString
+  "Ring Enchantments": NonEmptyString
+  "Sermons": NonEmptyString
+  "Sex Special Abilities": NonEmptyString
+  "Sickle Rituals": NonEmptyString
+  "Sikaryan Drain Special Abilities": NonEmptyString
+  "Skill Style Special Abilities": NonEmptyString
+  "Spell Sword Enchantments": NonEmptyString
+  "Staff Enchantments": NonEmptyString
+  "Toy Enchantments": NonEmptyString
+  "Trinkhornzauber": NonEmptyString
+  "Vampiric Gifts": NonEmptyString
+  "Visions": NonEmptyString
+  "Wand Enchantments": NonEmptyString
+  "Weapon Enchantments": NonEmptyString
 
   "inlinewiki.rule": NonEmptyString
   "inlinewiki.effect": NonEmptyString

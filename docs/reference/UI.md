@@ -605,6 +605,54 @@ Key | Description | Details
 `AP Cost for {0}` | - `0`: Entry name | <a href="#UI/AP Cost for {0}">See details</a>
 `Custom option` |  | <a href="#UI/Custom option">See details</a>
 `specialabilities.nativetonguelevel` |  | <a href="#UI/specialabilities.nativetonguelevel">See details</a>
+`Advanced Combat Special Abilities` |  | <a href="#UI/Advanced Combat Special Abilities">See details</a>
+`Advanced Karma Special Abilities` |  | <a href="#UI/Advanced Karma Special Abilities">See details</a>
+`Advanced Magical Special Abilities` |  | <a href="#UI/Advanced Magical Special Abilities">See details</a>
+`Advanced Skill Special Abilities` |  | <a href="#UI/Advanced Skill Special Abilities">See details</a>
+`Ancestor Glyphs` |  | <a href="#UI/Ancestor Glyphs">See details</a>
+`Arcane Orb Enchantments` |  | <a href="#UI/Arcane Orb Enchantments">See details</a>
+`Attire Enchantments` |  | <a href="#UI/Attire Enchantments">See details</a>
+`Blessed Traditions` |  | <a href="#UI/Blessed Traditions">See details</a>
+`Bowl Enchantments` |  | <a href="#UI/Bowl Enchantments">See details</a>
+`Brawling Special Abilities` |  | <a href="#UI/Brawling Special Abilities">See details</a>
+`Cauldron Enchantments` |  | <a href="#UI/Cauldron Enchantments">See details</a>
+`Ceremonial Item Special Abilities` |  | <a href="#UI/Ceremonial Item Special Abilities">See details</a>
+`Chronicle Enchantments` |  | <a href="#UI/Chronicle Enchantments">See details</a>
+`Combat Special Abilities` |  | <a href="#UI/Combat Special Abilities">See details</a>
+`Combat Style Special Abilities` |  | <a href="#UI/Combat Style Special Abilities">See details</a>
+`Command Special Abilities` |  | <a href="#UI/Command Special Abilities">See details</a>
+`Dagger Rituals` |  | <a href="#UI/Dagger Rituals">See details</a>
+`Familiar Special Abilities` |  | <a href="#UI/Familiar Special Abilities">See details</a>
+`Fate Point Sex Special Abilities` |  | <a href="#UI/Fate Point Sex Special Abilities">See details</a>
+`Fate Point Special Abilities` |  | <a href="#UI/Fate Point Special Abilities">See details</a>
+`Fools Hat Enchantments` |  | <a href="#UI/Fools Hat Enchantments">See details</a>
+`General Special Abilities` |  | <a href="#UI/General Special Abilities">See details</a>
+`Instrument Enchantments` |  | <a href="#UI/Instrument Enchantments">See details</a>
+`Karma Special Abilities` |  | <a href="#UI/Karma Special Abilities">See details</a>
+`Krallenkettenzauber` |  | <a href="#UI/Krallenkettenzauber">See details</a>
+`Liturgical Style Special Abilities` |  | <a href="#UI/Liturgical Style Special Abilities">See details</a>
+`Lycantropic Gifts` |  | <a href="#UI/Lycantropic Gifts">See details</a>
+`Magical Signs` |  | <a href="#UI/Magical Signs">See details</a>
+`Magical Special Abilities` |  | <a href="#UI/Magical Special Abilities">See details</a>
+`Magical Traditions` |  | <a href="#UI/Magical Traditions">See details</a>
+`Magic Style Special Abilities` |  | <a href="#UI/Magic Style Special Abilities">See details</a>
+`Orb Enchantments` |  | <a href="#UI/Orb Enchantments">See details</a>
+`Pact Gifts` |  | <a href="#UI/Pact Gifts">See details</a>
+`Protective Warding Circle Special Abilities` |  | <a href="#UI/Protective Warding Circle Special Abilities">See details</a>
+`Ring Enchantments` |  | <a href="#UI/Ring Enchantments">See details</a>
+`Sermons` |  | <a href="#UI/Sermons">See details</a>
+`Sex Special Abilities` |  | <a href="#UI/Sex Special Abilities">See details</a>
+`Sickle Rituals` |  | <a href="#UI/Sickle Rituals">See details</a>
+`Sikaryan Drain Special Abilities` |  | <a href="#UI/Sikaryan Drain Special Abilities">See details</a>
+`Skill Style Special Abilities` |  | <a href="#UI/Skill Style Special Abilities">See details</a>
+`Spell Sword Enchantments` |  | <a href="#UI/Spell Sword Enchantments">See details</a>
+`Staff Enchantments` |  | <a href="#UI/Staff Enchantments">See details</a>
+`Toy Enchantments` |  | <a href="#UI/Toy Enchantments">See details</a>
+`Trinkhornzauber` |  | <a href="#UI/Trinkhornzauber">See details</a>
+`Vampiric Gifts` |  | <a href="#UI/Vampiric Gifts">See details</a>
+`Visions` |  | <a href="#UI/Visions">See details</a>
+`Wand Enchantments` |  | <a href="#UI/Wand Enchantments">See details</a>
+`Weapon Enchantments` |  | <a href="#UI/Weapon Enchantments">See details</a>
 `inlinewiki.rule` |  | <a href="#UI/inlinewiki.rule">See details</a>
 `inlinewiki.effect` |  | <a href="#UI/inlinewiki.effect">See details</a>
 `inlinewiki.extendedcombatspecialabilities` |  | <a href="#UI/inlinewiki.extendedcombatspecialabilities">See details</a>
@@ -3362,6 +3410,198 @@ As in *2D6*.
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/specialabilities.nativetonguelevel"></a> `specialabilities.nativetonguelevel`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Advanced Combat Special Abilities"></a> `Advanced Combat Special Abilities`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Advanced Karma Special Abilities"></a> `Advanced Karma Special Abilities`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Advanced Magical Special Abilities"></a> `Advanced Magical Special Abilities`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Advanced Skill Special Abilities"></a> `Advanced Skill Special Abilities`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Ancestor Glyphs"></a> `Ancestor Glyphs`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Arcane Orb Enchantments"></a> `Arcane Orb Enchantments`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Attire Enchantments"></a> `Attire Enchantments`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Blessed Traditions"></a> `Blessed Traditions`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Bowl Enchantments"></a> `Bowl Enchantments`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Brawling Special Abilities"></a> `Brawling Special Abilities`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Cauldron Enchantments"></a> `Cauldron Enchantments`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Ceremonial Item Special Abilities"></a> `Ceremonial Item Special Abilities`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Chronicle Enchantments"></a> `Chronicle Enchantments`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Combat Special Abilities"></a> `Combat Special Abilities`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Combat Style Special Abilities"></a> `Combat Style Special Abilities`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Command Special Abilities"></a> `Command Special Abilities`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Dagger Rituals"></a> `Dagger Rituals`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Familiar Special Abilities"></a> `Familiar Special Abilities`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Fate Point Sex Special Abilities"></a> `Fate Point Sex Special Abilities`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Fate Point Special Abilities"></a> `Fate Point Special Abilities`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Fools Hat Enchantments"></a> `Fools Hat Enchantments`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/General Special Abilities"></a> `General Special Abilities`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Instrument Enchantments"></a> `Instrument Enchantments`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Karma Special Abilities"></a> `Karma Special Abilities`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Krallenkettenzauber"></a> `Krallenkettenzauber`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Liturgical Style Special Abilities"></a> `Liturgical Style Special Abilities`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Lycantropic Gifts"></a> `Lycantropic Gifts`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Magical Signs"></a> `Magical Signs`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Magical Special Abilities"></a> `Magical Special Abilities`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Magical Traditions"></a> `Magical Traditions`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Magic Style Special Abilities"></a> `Magic Style Special Abilities`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Orb Enchantments"></a> `Orb Enchantments`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Pact Gifts"></a> `Pact Gifts`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Protective Warding Circle Special Abilities"></a> `Protective Warding Circle Special Abilities`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Ring Enchantments"></a> `Ring Enchantments`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Sermons"></a> `Sermons`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Sex Special Abilities"></a> `Sex Special Abilities`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Sickle Rituals"></a> `Sickle Rituals`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Sikaryan Drain Special Abilities"></a> `Sikaryan Drain Special Abilities`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Skill Style Special Abilities"></a> `Skill Style Special Abilities`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Spell Sword Enchantments"></a> `Spell Sword Enchantments`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Staff Enchantments"></a> `Staff Enchantments`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Toy Enchantments"></a> `Toy Enchantments`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Trinkhornzauber"></a> `Trinkhornzauber`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Vampiric Gifts"></a> `Vampiric Gifts`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Visions"></a> `Visions`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Wand Enchantments"></a> `Wand Enchantments`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Weapon Enchantments"></a> `Weapon Enchantments`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
