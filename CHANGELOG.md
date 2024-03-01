@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.16.8](https://github.com/elyukai/optolith-database-schema/compare/v0.16.7...v0.16.8) (2024-03-01)
+
+
+### Bug Fixes
+
+* add slash to protective and warding circle key ([ef91f89](https://github.com/elyukai/optolith-database-schema/commit/ef91f897ad56db97f93a76958fab8dd69121830c))
+
 ### [0.16.7](https://github.com/elyukai/optolith-database-schema/compare/v0.16.6...v0.16.7) (2024-03-01)
 
 ### [0.16.6](https://github.com/elyukai/optolith-database-schema/compare/v0.16.5...v0.16.6) (2024-03-01)
