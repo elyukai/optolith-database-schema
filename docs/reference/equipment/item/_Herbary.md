@@ -100,3 +100,73 @@ The AP value of the trade secret.
 The prerequisites of the trade secret, if any.
 
 - **Type:** <a href="../../_Prerequisite.md#PlainGeneralPrerequisites">PlainGeneralPrerequisites</a>
+
+---
+
+### <a name="StorageLife"></a> `StorageLife`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`value` | The storage life of a (processed) herb. | <a href="#StorageLife/value">See details</a>
+`unit` |  | <a href="#StorageLife/unit">See details</a>
+
+#### <a name="StorageLife/value"></a> `value`
+
+The storage life of a (processed) herb.
+
+- **Type:** Integer
+
+#### <a name="StorageLife/unit"></a> `unit`
+
+- **Type:** <a href="#TimeUnit">TimeUnit</a>
+
+---
+
+### <a name="TimeUnit"></a> `TimeUnit`
+
+- **Type:** Union
+- **Cases:** <a href="#TimeUnit'0">TimeUnit'0</a> | <a href="#TimeUnit'1">TimeUnit'1</a> | <a href="#TimeUnit'2">TimeUnit'2</a> | <a href="#TimeUnit'3">TimeUnit'3</a> | <a href="#TimeUnit'4">TimeUnit'4</a> | <a href="#TimeUnit'5">TimeUnit'5</a> | <a href="#TimeUnit'6">TimeUnit'6</a>
+
+---
+
+### <a name="TimeUnit'0"></a> `TimeUnit'0`
+
+- **Constant:** `"CombatRounds"`
+
+---
+
+### <a name="TimeUnit'1"></a> `TimeUnit'1`
+
+- **Constant:** `"Minutes"`
+
+---
+
+### <a name="TimeUnit'2"></a> `TimeUnit'2`
+
+- **Constant:** `"Hours"`
+
+---
+
+### <a name="TimeUnit'3"></a> `TimeUnit'3`
+
+- **Constant:** `"Days"`
+
+---
+
+### <a name="TimeUnit'4"></a> `TimeUnit'4`
+
+- **Constant:** `"Weeks"`
+
+---
+
+### <a name="TimeUnit'5"></a> `TimeUnit'5`
+
+- **Constant:** `"Months"`
+
+---
+
+### <a name="TimeUnit'6"></a> `TimeUnit'6`
+
+- **Constant:** `"Years"`
