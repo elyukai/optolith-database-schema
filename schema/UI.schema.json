@@ -1949,7 +1949,7 @@
         "Pact Gifts": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "Protective Warding Circle Special Abilities": {
+        "Protective/Warding Circle Special Abilities": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "Ring Enchantments": {
@@ -3402,7 +3402,7 @@
         "Magic Style Special Abilities",
         "Orb Enchantments",
         "Pact Gifts",
-        "Protective Warding Circle Special Abilities",
+        "Protective/Warding Circle Special Abilities",
         "Ring Enchantments",
         "Sermons",
         "Sex Special Abilities",

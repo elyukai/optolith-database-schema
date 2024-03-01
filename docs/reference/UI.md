@@ -638,7 +638,7 @@ Key | Description | Details
 `Magic Style Special Abilities` |  | <a href="#UI/Magic Style Special Abilities">See details</a>
 `Orb Enchantments` |  | <a href="#UI/Orb Enchantments">See details</a>
 `Pact Gifts` |  | <a href="#UI/Pact Gifts">See details</a>
-`Protective Warding Circle Special Abilities` |  | <a href="#UI/Protective Warding Circle Special Abilities">See details</a>
+`Protective/Warding Circle Special Abilities` |  | <a href="#UI/Protective/Warding Circle Special Abilities">See details</a>
 `Ring Enchantments` |  | <a href="#UI/Ring Enchantments">See details</a>
 `Sermons` |  | <a href="#UI/Sermons">See details</a>
 `Sex Special Abilities` |  | <a href="#UI/Sex Special Abilities">See details</a>
@@ -3545,7 +3545,7 @@ As in *2D6*.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/Protective Warding Circle Special Abilities"></a> `Protective Warding Circle Special Abilities`
+#### <a name="UI/Protective/Warding Circle Special Abilities"></a> `Protective/Warding Circle Special Abilities`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 

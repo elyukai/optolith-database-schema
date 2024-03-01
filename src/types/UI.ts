@@ -843,7 +843,7 @@ export type UI = {
   "Magic Style Special Abilities": NonEmptyString
   "Orb Enchantments": NonEmptyString
   "Pact Gifts": NonEmptyString
-  "Protective Warding Circle Special Abilities": NonEmptyString
+  "Protective/Warding Circle Special Abilities": NonEmptyString
   "Ring Enchantments": NonEmptyString
   "Sermons": NonEmptyString
   "Sex Special Abilities": NonEmptyString
