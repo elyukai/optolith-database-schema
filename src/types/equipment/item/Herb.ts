@@ -63,14 +63,14 @@ export type Herb = {
   /**
    * Value per dose, in silverthalers.
    * @float
-   * @minimum 1
+   * @minimum 0
    */
   value: number
 
   /**
    * Price per dose, in silverthalers.
    * @float
-   * @minimum 1
+   * @minimum 0
    */
   cost: number
 
