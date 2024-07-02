@@ -50,12 +50,12 @@
         "value": {
           "description": "Value per dose, in silverthalers.",
           "type": "number",
-          "minimum": 1
+          "minimum": 0
         },
         "cost": {
           "description": "Price per dose, in silverthalers.",
           "type": "number",
-          "minimum": 1
+          "minimum": 0
         },
         "recipes": {
           "description": "The recipes the herb is used in.",

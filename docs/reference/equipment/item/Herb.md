@@ -73,14 +73,14 @@ Doses of plant material found with a search check per quality level.
 Value per dose, in silverthalers.
 
 - **Type:** Number
-- **Minimum:** `1`
+- **Minimum:** `0`
 
 #### <a name="Herb/cost"></a> `cost`
 
 Price per dose, in silverthalers.
 
 - **Type:** Number
-- **Minimum:** `1`
+- **Minimum:** `0`
 
 #### <a name="Herb/recipes"></a> `recipes?`
 
