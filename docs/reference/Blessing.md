@@ -309,5 +309,4 @@ Key | Description | Details
 
 A description of the duration.
 
-- **Type:** String
-- **Minimum Length:** `1`
+- **Type:** <a href="./_ResponsiveText.md#ResponsiveText">ResponsiveText</a>

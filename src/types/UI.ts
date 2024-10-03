@@ -924,8 +924,8 @@ export type UI = {
   "Close Combat": NonEmptyString
   "Ranged Combat": NonEmptyString
 
-  "inlinewiki.special": NonEmptyString
-  "inlinewiki.primaryattribute": NonEmptyString
+  "Special": NonEmptyString
+  "Primary Attribute": NonEmptyString
 
   "Cantrips": NonEmptyString
   "Rituals": NonEmptyString
@@ -942,6 +942,125 @@ export type UI = {
   "Check Modifier": NonEmptyString
   "spells.traditions.general": NonEmptyString
   "magicalactions.animistforces.tribes.general": NonEmptyString
+
+  " (modified by {0})": NonEmptyString
+  " (− {0})": NonEmptyString
+  "{0} or {1}, depending on which value is higher": NonEmptyString
+  "Invocation Difficulty": NonEmptyString
+  "ID": NonEmptyString
+  "Creation Difficulty": NonEmptyString
+  "CD": NonEmptyString
+  "Effect": NonEmptyString
+  "Casting Time": NonEmptyString
+  "Ritual Time": NonEmptyString
+  "Liturgical Time": NonEmptyString
+  "Ceremonial Time": NonEmptyString
+  "AE Cost": NonEmptyString
+  "KP Cost": NonEmptyString
+  "Range": NonEmptyString
+  "Duration": NonEmptyString
+  "Target Category": NonEmptyString
+  "Traditions": NonEmptyString
+  " (you cannot use a modification on this spell’s casting time)": NonEmptyString
+  " (you cannot use a modification on this spell’s cost)": NonEmptyString
+  " (you cannot use a modification on this spell’s range)": NonEmptyString
+  " (you cannot use a modification on this ritual’s ritual time)": NonEmptyString
+  " (you cannot use a modification on this ritual’s cost)": NonEmptyString
+  " (you cannot use a modification on this ritual’s range)": NonEmptyString
+  " (you cannot use a modification on this chant’s liturgical time)": NonEmptyString
+  " (you cannot use a modification on this chant’s cost)": NonEmptyString
+  " (you cannot use a modification on this chant’s range)": NonEmptyString
+  " (you cannot use a modification on this ceremony’s ceremonial time)": NonEmptyString
+  " (you cannot use a modification on this ceremony’s cost)": NonEmptyString
+  " (you cannot use a modification on this ceremony’s range)": NonEmptyString
+  " (cannot modify)": NonEmptyString
+  "{0} act": NonEmptyString
+  "act": NonEmptyString
+  "{0} actions": PluralizationCategories
+  "actions": NonEmptyString
+  "{0} s": NonEmptyString
+  "s": NonEmptyString
+  "{0} seconds": PluralizationCategories
+  "seconds": NonEmptyString
+  "{0} min": NonEmptyString
+  "min": NonEmptyString
+  "{0} minutes": PluralizationCategories
+  "minutes": NonEmptyString
+  "{0} h": NonEmptyString
+  "h": NonEmptyString
+  "{0} hours": PluralizationCategories
+  "hours": NonEmptyString
+  "{0} d": NonEmptyString
+  "d": NonEmptyString
+  "{0} days": PluralizationCategories
+  "days": NonEmptyString
+  "{0} wks.": PluralizationCategories
+  "wks.": NonEmptyString
+  "{0} weeks": PluralizationCategories
+  "weeks": NonEmptyString
+  "{0} mos.": PluralizationCategories
+  "mos.": NonEmptyString
+  "{0} months": PluralizationCategories
+  "months": NonEmptyString
+  "{0} yrs.": PluralizationCategories
+  "yrs.": NonEmptyString
+  "{0} years": PluralizationCategories
+  "years": NonEmptyString
+  "{0} cent.": NonEmptyString
+  "cent.": NonEmptyString
+  "{0} centuries": PluralizationCategories
+  "centuries": NonEmptyString
+  "{0} SA": NonEmptyString
+  "{0} seduction actions": PluralizationCategories
+  "{0} rnds": NonEmptyString
+  "{0} rounds": PluralizationCategories
+  "{0} CR": NonEmptyString
+  "CR": NonEmptyString
+  "{0} combat rounds": PluralizationCategories
+  "combat rounds": NonEmptyString
+  "{0} AE": NonEmptyString
+  "{0} KP": NonEmptyString
+  "min. ": NonEmptyString
+  "at least ": NonEmptyString
+  "/{0}": NonEmptyString
+  " per {0}": NonEmptyString
+  ", minimum of {0}": NonEmptyString
+  " ({0} perm.)": NonEmptyString
+  ", {0} of which are permanent": PluralizationCategories
+  "half of the activation cost": NonEmptyString
+  " and ": NonEmptyString
+  " + ": NonEmptyString
+  " or ": NonEmptyString
+  " / ": NonEmptyString
+  " for ": NonEmptyString
+  " (no more than {0})": NonEmptyString
+  " (max. {0})": NonEmptyString
+  "Immediate": NonEmptyString
+  "Permanent": NonEmptyString
+  "no more than ": NonEmptyString
+  "max. ": NonEmptyString
+  "Quality Levels": NonEmptyString
+  "QL": NonEmptyString
+  "QL {0}": NonEmptyString
+  "Skill Points": NonEmptyString
+  "SP": NonEmptyString
+  "Sustained": NonEmptyString
+  "(S)": NonEmptyString
+  "{0} yards": PluralizationCategories
+  "{0} yd": NonEmptyString
+  "{0} miles": PluralizationCategories
+  "{0} mi.": NonEmptyString
+  "Sight": NonEmptyString
+  "Self": NonEmptyString
+  "Global": NonEmptyString
+  "Touch": NonEmptyString
+  "Radius": NonEmptyString
+  " (casting)": NonEmptyString
+  "Zone": NonEmptyString
+  "Liturgical Chants and Ceremonies": NonEmptyString
+  "General": NonEmptyString
+  "Note": NonEmptyString
+  "all": NonEmptyString
 
   "inlinewiki.castingtime": NonEmptyString
   "inlinewiki.ritualtime": NonEmptyString

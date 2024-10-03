@@ -2158,10 +2158,10 @@
         "Ranged Combat": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "inlinewiki.special": {
+        "Special": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "inlinewiki.primaryattribute": {
+        "Primary Attribute": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "Cantrips": {
@@ -2207,6 +2207,360 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "magicalactions.animistforces.tribes.general": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (modified by {0})": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (− {0})": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} or {1}, depending on which value is higher": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Invocation Difficulty": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "ID": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Creation Difficulty": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "CD": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Effect": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Casting Time": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Ritual Time": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Liturgical Time": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Ceremonial Time": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "AE Cost": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "KP Cost": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Range": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Duration": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Target Category": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Traditions": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (you cannot use a modification on this spell’s casting time)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (you cannot use a modification on this spell’s cost)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (you cannot use a modification on this spell’s range)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (you cannot use a modification on this ritual’s ritual time)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (you cannot use a modification on this ritual’s cost)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (you cannot use a modification on this ritual’s range)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (you cannot use a modification on this chant’s liturgical time)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (you cannot use a modification on this chant’s cost)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (you cannot use a modification on this chant’s range)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (you cannot use a modification on this ceremony’s ceremonial time)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (you cannot use a modification on this ceremony’s cost)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (you cannot use a modification on this ceremony’s range)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (cannot modify)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} act": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "act": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} actions": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "actions": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} s": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "s": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} seconds": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "seconds": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} min": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "min": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} minutes": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "minutes": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} h": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "h": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} hours": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "hours": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} d": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "d": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} days": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "days": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} wks.": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "wks.": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} weeks": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "weeks": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} mos.": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "mos.": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} months": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "months": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} yrs.": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "yrs.": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} years": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "years": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} cent.": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "cent.": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} centuries": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "centuries": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} SA": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} seduction actions": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "{0} rnds": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} rounds": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "{0} CR": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "CR": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} combat rounds": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "combat rounds": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} AE": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} KP": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "min. ": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "at least ": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "/{0}": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " per {0}": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        ", minimum of {0}": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " ({0} perm.)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        ", {0} of which are permanent": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "half of the activation cost": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " and ": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " + ": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " or ": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " / ": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " for ": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (no more than {0})": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (max. {0})": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Immediate": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Permanent": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "no more than ": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "max. ": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Quality Levels": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "QL": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "QL {0}": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Skill Points": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "SP": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Sustained": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "(S)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} yards": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "{0} yd": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} miles": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "{0} mi.": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Sight": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Self": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Global": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Touch": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Radius": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (casting)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Zone": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Liturgical Chants and Ceremonies": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "General": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Note": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "all": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.castingtime": {
@@ -3471,8 +3825,8 @@
         "Parry",
         "Close Combat",
         "Ranged Combat",
-        "inlinewiki.special",
-        "inlinewiki.primaryattribute",
+        "Special",
+        "Primary Attribute",
         "Cantrips",
         "Rituals",
         "Curses",
@@ -3488,6 +3842,124 @@
         "Check Modifier",
         "spells.traditions.general",
         "magicalactions.animistforces.tribes.general",
+        " (modified by {0})",
+        " (− {0})",
+        "{0} or {1}, depending on which value is higher",
+        "Invocation Difficulty",
+        "ID",
+        "Creation Difficulty",
+        "CD",
+        "Effect",
+        "Casting Time",
+        "Ritual Time",
+        "Liturgical Time",
+        "Ceremonial Time",
+        "AE Cost",
+        "KP Cost",
+        "Range",
+        "Duration",
+        "Target Category",
+        "Traditions",
+        " (you cannot use a modification on this spell’s casting time)",
+        " (you cannot use a modification on this spell’s cost)",
+        " (you cannot use a modification on this spell’s range)",
+        " (you cannot use a modification on this ritual’s ritual time)",
+        " (you cannot use a modification on this ritual’s cost)",
+        " (you cannot use a modification on this ritual’s range)",
+        " (you cannot use a modification on this chant’s liturgical time)",
+        " (you cannot use a modification on this chant’s cost)",
+        " (you cannot use a modification on this chant’s range)",
+        " (you cannot use a modification on this ceremony’s ceremonial time)",
+        " (you cannot use a modification on this ceremony’s cost)",
+        " (you cannot use a modification on this ceremony’s range)",
+        " (cannot modify)",
+        "{0} act",
+        "act",
+        "{0} actions",
+        "actions",
+        "{0} s",
+        "s",
+        "{0} seconds",
+        "seconds",
+        "{0} min",
+        "min",
+        "{0} minutes",
+        "minutes",
+        "{0} h",
+        "h",
+        "{0} hours",
+        "hours",
+        "{0} d",
+        "d",
+        "{0} days",
+        "days",
+        "{0} wks.",
+        "wks.",
+        "{0} weeks",
+        "weeks",
+        "{0} mos.",
+        "mos.",
+        "{0} months",
+        "months",
+        "{0} yrs.",
+        "yrs.",
+        "{0} years",
+        "years",
+        "{0} cent.",
+        "cent.",
+        "{0} centuries",
+        "centuries",
+        "{0} SA",
+        "{0} seduction actions",
+        "{0} rnds",
+        "{0} rounds",
+        "{0} CR",
+        "CR",
+        "{0} combat rounds",
+        "combat rounds",
+        "{0} AE",
+        "{0} KP",
+        "min. ",
+        "at least ",
+        "/{0}",
+        " per {0}",
+        ", minimum of {0}",
+        " ({0} perm.)",
+        ", {0} of which are permanent",
+        "half of the activation cost",
+        " and ",
+        " + ",
+        " or ",
+        " / ",
+        " for ",
+        " (no more than {0})",
+        " (max. {0})",
+        "Immediate",
+        "Permanent",
+        "no more than ",
+        "max. ",
+        "Quality Levels",
+        "QL",
+        "QL {0}",
+        "Skill Points",
+        "SP",
+        "Sustained",
+        "(S)",
+        "{0} yards",
+        "{0} yd",
+        "{0} miles",
+        "{0} mi.",
+        "Sight",
+        "Self",
+        "Global",
+        "Touch",
+        "Radius",
+        " (casting)",
+        "Zone",
+        "Liturgical Chants and Ceremonies",
+        "General",
+        "Note",
+        "all",
         "inlinewiki.castingtime",
         "inlinewiki.ritualtime",
         "inlinewiki.aecost",

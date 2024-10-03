@@ -11,6 +11,7 @@ import { DurationUnit } from "./_ActivatableSkillDuration.js"
 import { FixedRange } from "./_ActivatableSkillRange.js"
 import { TargetCategory } from "./_ActivatableSkillTargetCategory.js"
 import { LocaleMap } from "./_LocaleMap.js"
+import { ResponsiveText } from "./_ResponsiveText.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 
@@ -117,9 +118,8 @@ export type IndefiniteBlessingDuration = {
 export type IndefiniteDurationTranslation = {
   /**
    * A description of the duration.
-   * @minLength 1
    */
-  description: string
+  description: ResponsiveText
 }
 
 export const config: TypeConfig<Blessing, Blessing["id"], "Blessing"> = {

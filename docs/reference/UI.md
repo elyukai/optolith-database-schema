@@ -707,8 +707,8 @@ Key | Description | Details
 `Parry` |  | <a href="#UI/Parry">See details</a>
 `Close Combat` |  | <a href="#UI/Close Combat">See details</a>
 `Ranged Combat` |  | <a href="#UI/Ranged Combat">See details</a>
-`inlinewiki.special` |  | <a href="#UI/inlinewiki.special">See details</a>
-`inlinewiki.primaryattribute` |  | <a href="#UI/inlinewiki.primaryattribute">See details</a>
+`Special` |  | <a href="#UI/Special">See details</a>
+`Primary Attribute` |  | <a href="#UI/Primary Attribute">See details</a>
 `Cantrips` |  | <a href="#UI/Cantrips">See details</a>
 `Rituals` |  | <a href="#UI/Rituals">See details</a>
 `Curses` |  | <a href="#UI/Curses">See details</a>
@@ -724,6 +724,124 @@ Key | Description | Details
 `Check Modifier` |  | <a href="#UI/Check Modifier">See details</a>
 `spells.traditions.general` |  | <a href="#UI/spells.traditions.general">See details</a>
 `magicalactions.animistforces.tribes.general` |  | <a href="#UI/magicalactions.animistforces.tribes.general">See details</a>
+` (modified by {0})` |  | <a href="#UI/ (modified by {0})">See details</a>
+` (− {0})` |  | <a href="#UI/ (− {0})">See details</a>
+`{0} or {1}, depending on which value is higher` |  | <a href="#UI/{0} or {1}, depending on which value is higher">See details</a>
+`Invocation Difficulty` |  | <a href="#UI/Invocation Difficulty">See details</a>
+`ID` |  | <a href="#UI/ID">See details</a>
+`Creation Difficulty` |  | <a href="#UI/Creation Difficulty">See details</a>
+`CD` |  | <a href="#UI/CD">See details</a>
+`Effect` |  | <a href="#UI/Effect">See details</a>
+`Casting Time` |  | <a href="#UI/Casting Time">See details</a>
+`Ritual Time` |  | <a href="#UI/Ritual Time">See details</a>
+`Liturgical Time` |  | <a href="#UI/Liturgical Time">See details</a>
+`Ceremonial Time` |  | <a href="#UI/Ceremonial Time">See details</a>
+`AE Cost` |  | <a href="#UI/AE Cost">See details</a>
+`KP Cost` |  | <a href="#UI/KP Cost">See details</a>
+`Range` |  | <a href="#UI/Range">See details</a>
+`Duration` |  | <a href="#UI/Duration">See details</a>
+`Target Category` |  | <a href="#UI/Target Category">See details</a>
+`Traditions` |  | <a href="#UI/Traditions">See details</a>
+` (you cannot use a modification on this spell’s casting time)` |  | <a href="#UI/ (you cannot use a modification on this spell’s casting time)">See details</a>
+` (you cannot use a modification on this spell’s cost)` |  | <a href="#UI/ (you cannot use a modification on this spell’s cost)">See details</a>
+` (you cannot use a modification on this spell’s range)` |  | <a href="#UI/ (you cannot use a modification on this spell’s range)">See details</a>
+` (you cannot use a modification on this ritual’s ritual time)` |  | <a href="#UI/ (you cannot use a modification on this ritual’s ritual time)">See details</a>
+` (you cannot use a modification on this ritual’s cost)` |  | <a href="#UI/ (you cannot use a modification on this ritual’s cost)">See details</a>
+` (you cannot use a modification on this ritual’s range)` |  | <a href="#UI/ (you cannot use a modification on this ritual’s range)">See details</a>
+` (you cannot use a modification on this chant’s liturgical time)` |  | <a href="#UI/ (you cannot use a modification on this chant’s liturgical time)">See details</a>
+` (you cannot use a modification on this chant’s cost)` |  | <a href="#UI/ (you cannot use a modification on this chant’s cost)">See details</a>
+` (you cannot use a modification on this chant’s range)` |  | <a href="#UI/ (you cannot use a modification on this chant’s range)">See details</a>
+` (you cannot use a modification on this ceremony’s ceremonial time)` |  | <a href="#UI/ (you cannot use a modification on this ceremony’s ceremonial time)">See details</a>
+` (you cannot use a modification on this ceremony’s cost)` |  | <a href="#UI/ (you cannot use a modification on this ceremony’s cost)">See details</a>
+` (you cannot use a modification on this ceremony’s range)` |  | <a href="#UI/ (you cannot use a modification on this ceremony’s range)">See details</a>
+` (cannot modify)` |  | <a href="#UI/ (cannot modify)">See details</a>
+`{0} act` |  | <a href="#UI/{0} act">See details</a>
+`act` |  | <a href="#UI/act">See details</a>
+`{0} actions` |  | <a href="#UI/{0} actions">See details</a>
+`actions` |  | <a href="#UI/actions">See details</a>
+`{0} s` |  | <a href="#UI/{0} s">See details</a>
+`s` |  | <a href="#UI/s">See details</a>
+`{0} seconds` |  | <a href="#UI/{0} seconds">See details</a>
+`seconds` |  | <a href="#UI/seconds">See details</a>
+`{0} min` |  | <a href="#UI/{0} min">See details</a>
+`min` |  | <a href="#UI/min">See details</a>
+`{0} minutes` |  | <a href="#UI/{0} minutes">See details</a>
+`minutes` |  | <a href="#UI/minutes">See details</a>
+`{0} h` |  | <a href="#UI/{0} h">See details</a>
+`h` |  | <a href="#UI/h">See details</a>
+`{0} hours` |  | <a href="#UI/{0} hours">See details</a>
+`hours` |  | <a href="#UI/hours">See details</a>
+`{0} d` |  | <a href="#UI/{0} d">See details</a>
+`d` |  | <a href="#UI/d">See details</a>
+`{0} days` |  | <a href="#UI/{0} days">See details</a>
+`days` |  | <a href="#UI/days">See details</a>
+`{0} wks.` |  | <a href="#UI/{0} wks.">See details</a>
+`wks.` |  | <a href="#UI/wks.">See details</a>
+`{0} weeks` |  | <a href="#UI/{0} weeks">See details</a>
+`weeks` |  | <a href="#UI/weeks">See details</a>
+`{0} mos.` |  | <a href="#UI/{0} mos.">See details</a>
+`mos.` |  | <a href="#UI/mos.">See details</a>
+`{0} months` |  | <a href="#UI/{0} months">See details</a>
+`months` |  | <a href="#UI/months">See details</a>
+`{0} yrs.` |  | <a href="#UI/{0} yrs.">See details</a>
+`yrs.` |  | <a href="#UI/yrs.">See details</a>
+`{0} years` |  | <a href="#UI/{0} years">See details</a>
+`years` |  | <a href="#UI/years">See details</a>
+`{0} cent.` |  | <a href="#UI/{0} cent.">See details</a>
+`cent.` |  | <a href="#UI/cent.">See details</a>
+`{0} centuries` |  | <a href="#UI/{0} centuries">See details</a>
+`centuries` |  | <a href="#UI/centuries">See details</a>
+`{0} SA` |  | <a href="#UI/{0} SA">See details</a>
+`{0} seduction actions` |  | <a href="#UI/{0} seduction actions">See details</a>
+`{0} rnds` |  | <a href="#UI/{0} rnds">See details</a>
+`{0} rounds` |  | <a href="#UI/{0} rounds">See details</a>
+`{0} CR` |  | <a href="#UI/{0} CR">See details</a>
+`CR` |  | <a href="#UI/CR">See details</a>
+`{0} combat rounds` |  | <a href="#UI/{0} combat rounds">See details</a>
+`combat rounds` |  | <a href="#UI/combat rounds">See details</a>
+`{0} AE` |  | <a href="#UI/{0} AE">See details</a>
+`{0} KP` |  | <a href="#UI/{0} KP">See details</a>
+`min. ` |  | <a href="#UI/min. ">See details</a>
+`at least ` |  | <a href="#UI/at least ">See details</a>
+`/{0}` |  | <a href="#UI//{0}">See details</a>
+` per {0}` |  | <a href="#UI/ per {0}">See details</a>
+`, minimum of {0}` |  | <a href="#UI/, minimum of {0}">See details</a>
+` ({0} perm.)` |  | <a href="#UI/ ({0} perm.)">See details</a>
+`, {0} of which are permanent` |  | <a href="#UI/, {0} of which are permanent">See details</a>
+`half of the activation cost` |  | <a href="#UI/half of the activation cost">See details</a>
+` and ` |  | <a href="#UI/ and ">See details</a>
+` + ` |  | <a href="#UI/ + ">See details</a>
+` or ` |  | <a href="#UI/ or ">See details</a>
+` / ` |  | <a href="#UI/ / ">See details</a>
+` for ` |  | <a href="#UI/ for ">See details</a>
+` (no more than {0})` |  | <a href="#UI/ (no more than {0})">See details</a>
+` (max. {0})` |  | <a href="#UI/ (max. {0})">See details</a>
+`Immediate` |  | <a href="#UI/Immediate">See details</a>
+`Permanent` |  | <a href="#UI/Permanent">See details</a>
+`no more than ` |  | <a href="#UI/no more than ">See details</a>
+`max. ` |  | <a href="#UI/max. ">See details</a>
+`Quality Levels` |  | <a href="#UI/Quality Levels">See details</a>
+`QL` |  | <a href="#UI/QL">See details</a>
+`QL {0}` |  | <a href="#UI/QL {0}">See details</a>
+`Skill Points` |  | <a href="#UI/Skill Points">See details</a>
+`SP` |  | <a href="#UI/SP">See details</a>
+`Sustained` |  | <a href="#UI/Sustained">See details</a>
+`(S)` |  | <a href="#UI/(S)">See details</a>
+`{0} yards` |  | <a href="#UI/{0} yards">See details</a>
+`{0} yd` |  | <a href="#UI/{0} yd">See details</a>
+`{0} miles` |  | <a href="#UI/{0} miles">See details</a>
+`{0} mi.` |  | <a href="#UI/{0} mi.">See details</a>
+`Sight` |  | <a href="#UI/Sight">See details</a>
+`Self` |  | <a href="#UI/Self">See details</a>
+`Global` |  | <a href="#UI/Global">See details</a>
+`Touch` |  | <a href="#UI/Touch">See details</a>
+`Radius` |  | <a href="#UI/Radius">See details</a>
+` (casting)` |  | <a href="#UI/ (casting)">See details</a>
+`Zone` |  | <a href="#UI/Zone">See details</a>
+`Liturgical Chants and Ceremonies` |  | <a href="#UI/Liturgical Chants and Ceremonies">See details</a>
+`General` |  | <a href="#UI/General">See details</a>
+`Note` |  | <a href="#UI/Note">See details</a>
+`all` |  | <a href="#UI/all">See details</a>
 `inlinewiki.castingtime` |  | <a href="#UI/inlinewiki.castingtime">See details</a>
 `inlinewiki.ritualtime` |  | <a href="#UI/inlinewiki.ritualtime">See details</a>
 `inlinewiki.aecost` |  | <a href="#UI/inlinewiki.aecost">See details</a>
@@ -3826,11 +3944,11 @@ As in *2D6*.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/inlinewiki.special"></a> `inlinewiki.special`
+#### <a name="UI/Special"></a> `Special`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="UI/inlinewiki.primaryattribute"></a> `inlinewiki.primaryattribute`
+#### <a name="UI/Primary Attribute"></a> `Primary Attribute`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -3891,6 +4009,478 @@ As in *2D6*.
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/magicalactions.animistforces.tribes.general"></a> `magicalactions.animistforces.tribes.general`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/ (modified by {0})"></a> ` (modified by {0})`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/ (− {0})"></a> ` (− {0})`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} or {1}, depending on which value is higher"></a> `{0} or {1}, depending on which value is higher`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Invocation Difficulty"></a> `Invocation Difficulty`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/ID"></a> `ID`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Creation Difficulty"></a> `Creation Difficulty`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/CD"></a> `CD`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Effect"></a> `Effect`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Casting Time"></a> `Casting Time`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Ritual Time"></a> `Ritual Time`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Liturgical Time"></a> `Liturgical Time`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Ceremonial Time"></a> `Ceremonial Time`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/AE Cost"></a> `AE Cost`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/KP Cost"></a> `KP Cost`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Range"></a> `Range`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Duration"></a> `Duration`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Target Category"></a> `Target Category`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Traditions"></a> `Traditions`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/ (you cannot use a modification on this spell’s casting time)"></a> ` (you cannot use a modification on this spell’s casting time)`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/ (you cannot use a modification on this spell’s cost)"></a> ` (you cannot use a modification on this spell’s cost)`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/ (you cannot use a modification on this spell’s range)"></a> ` (you cannot use a modification on this spell’s range)`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/ (you cannot use a modification on this ritual’s ritual time)"></a> ` (you cannot use a modification on this ritual’s ritual time)`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/ (you cannot use a modification on this ritual’s cost)"></a> ` (you cannot use a modification on this ritual’s cost)`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/ (you cannot use a modification on this ritual’s range)"></a> ` (you cannot use a modification on this ritual’s range)`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/ (you cannot use a modification on this chant’s liturgical time)"></a> ` (you cannot use a modification on this chant’s liturgical time)`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/ (you cannot use a modification on this chant’s cost)"></a> ` (you cannot use a modification on this chant’s cost)`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/ (you cannot use a modification on this chant’s range)"></a> ` (you cannot use a modification on this chant’s range)`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/ (you cannot use a modification on this ceremony’s ceremonial time)"></a> ` (you cannot use a modification on this ceremony’s ceremonial time)`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/ (you cannot use a modification on this ceremony’s cost)"></a> ` (you cannot use a modification on this ceremony’s cost)`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/ (you cannot use a modification on this ceremony’s range)"></a> ` (you cannot use a modification on this ceremony’s range)`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/ (cannot modify)"></a> ` (cannot modify)`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} act"></a> `{0} act`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/act"></a> `act`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} actions"></a> `{0} actions`
+
+- **Type:** <a href="./_I18n.md#PluralizationCategories">PluralizationCategories</a>
+
+#### <a name="UI/actions"></a> `actions`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} s"></a> `{0} s`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/s"></a> `s`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} seconds"></a> `{0} seconds`
+
+- **Type:** <a href="./_I18n.md#PluralizationCategories">PluralizationCategories</a>
+
+#### <a name="UI/seconds"></a> `seconds`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} min"></a> `{0} min`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/min"></a> `min`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} minutes"></a> `{0} minutes`
+
+- **Type:** <a href="./_I18n.md#PluralizationCategories">PluralizationCategories</a>
+
+#### <a name="UI/minutes"></a> `minutes`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} h"></a> `{0} h`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/h"></a> `h`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} hours"></a> `{0} hours`
+
+- **Type:** <a href="./_I18n.md#PluralizationCategories">PluralizationCategories</a>
+
+#### <a name="UI/hours"></a> `hours`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} d"></a> `{0} d`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/d"></a> `d`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} days"></a> `{0} days`
+
+- **Type:** <a href="./_I18n.md#PluralizationCategories">PluralizationCategories</a>
+
+#### <a name="UI/days"></a> `days`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} wks."></a> `{0} wks.`
+
+- **Type:** <a href="./_I18n.md#PluralizationCategories">PluralizationCategories</a>
+
+#### <a name="UI/wks."></a> `wks.`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} weeks"></a> `{0} weeks`
+
+- **Type:** <a href="./_I18n.md#PluralizationCategories">PluralizationCategories</a>
+
+#### <a name="UI/weeks"></a> `weeks`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} mos."></a> `{0} mos.`
+
+- **Type:** <a href="./_I18n.md#PluralizationCategories">PluralizationCategories</a>
+
+#### <a name="UI/mos."></a> `mos.`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} months"></a> `{0} months`
+
+- **Type:** <a href="./_I18n.md#PluralizationCategories">PluralizationCategories</a>
+
+#### <a name="UI/months"></a> `months`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} yrs."></a> `{0} yrs.`
+
+- **Type:** <a href="./_I18n.md#PluralizationCategories">PluralizationCategories</a>
+
+#### <a name="UI/yrs."></a> `yrs.`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} years"></a> `{0} years`
+
+- **Type:** <a href="./_I18n.md#PluralizationCategories">PluralizationCategories</a>
+
+#### <a name="UI/years"></a> `years`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} cent."></a> `{0} cent.`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/cent."></a> `cent.`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} centuries"></a> `{0} centuries`
+
+- **Type:** <a href="./_I18n.md#PluralizationCategories">PluralizationCategories</a>
+
+#### <a name="UI/centuries"></a> `centuries`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} SA"></a> `{0} SA`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} seduction actions"></a> `{0} seduction actions`
+
+- **Type:** <a href="./_I18n.md#PluralizationCategories">PluralizationCategories</a>
+
+#### <a name="UI/{0} rnds"></a> `{0} rnds`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} rounds"></a> `{0} rounds`
+
+- **Type:** <a href="./_I18n.md#PluralizationCategories">PluralizationCategories</a>
+
+#### <a name="UI/{0} CR"></a> `{0} CR`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/CR"></a> `CR`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} combat rounds"></a> `{0} combat rounds`
+
+- **Type:** <a href="./_I18n.md#PluralizationCategories">PluralizationCategories</a>
+
+#### <a name="UI/combat rounds"></a> `combat rounds`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} AE"></a> `{0} AE`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} KP"></a> `{0} KP`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/min. "></a> `min. `
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/at least "></a> `at least `
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI//{0}"></a> `/{0}`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/ per {0}"></a> ` per {0}`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/, minimum of {0}"></a> `, minimum of {0}`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/ ({0} perm.)"></a> ` ({0} perm.)`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/, {0} of which are permanent"></a> `, {0} of which are permanent`
+
+- **Type:** <a href="./_I18n.md#PluralizationCategories">PluralizationCategories</a>
+
+#### <a name="UI/half of the activation cost"></a> `half of the activation cost`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/ and "></a> ` and `
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/ + "></a> ` + `
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/ or "></a> ` or `
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/ / "></a> ` / `
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/ for "></a> ` for `
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/ (no more than {0})"></a> ` (no more than {0})`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/ (max. {0})"></a> ` (max. {0})`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Immediate"></a> `Immediate`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Permanent"></a> `Permanent`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/no more than "></a> `no more than `
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/max. "></a> `max. `
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Quality Levels"></a> `Quality Levels`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/QL"></a> `QL`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/QL {0}"></a> `QL {0}`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Skill Points"></a> `Skill Points`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/SP"></a> `SP`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Sustained"></a> `Sustained`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/(S)"></a> `(S)`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} yards"></a> `{0} yards`
+
+- **Type:** <a href="./_I18n.md#PluralizationCategories">PluralizationCategories</a>
+
+#### <a name="UI/{0} yd"></a> `{0} yd`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} miles"></a> `{0} miles`
+
+- **Type:** <a href="./_I18n.md#PluralizationCategories">PluralizationCategories</a>
+
+#### <a name="UI/{0} mi."></a> `{0} mi.`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Sight"></a> `Sight`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Self"></a> `Self`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Global"></a> `Global`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Touch"></a> `Touch`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Radius"></a> `Radius`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/ (casting)"></a> ` (casting)`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Zone"></a> `Zone`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Liturgical Chants and Ceremonies"></a> `Liturgical Chants and Ceremonies`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/General"></a> `General`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Note"></a> `Note`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/all"></a> `all`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 

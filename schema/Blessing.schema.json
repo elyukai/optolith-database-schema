@@ -253,8 +253,7 @@
       "properties": {
         "description": {
           "description": "A description of the duration.",
-          "type": "string",
-          "minLength": 1
+          "$ref": "./_ResponsiveText.schema.json#/$defs/ResponsiveText"
         }
       },
       "required": [
