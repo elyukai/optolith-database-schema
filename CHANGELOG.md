@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.17.0](https://github.com/elyukai/optolith-database-schema/compare/v0.16.8...v0.17.0) (2024-10-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* add translations for library entries of spellworks and liturgical chants
+
+### Features
+
+* add translations for library entries of spellworks and liturgical chants ([223a469](https://github.com/elyukai/optolith-database-schema/commit/223a469a63b44d0204d762b17905d622d7b6b9a2))
+
 ### [0.16.8](https://github.com/elyukai/optolith-database-schema/compare/v0.16.7...v0.16.8) (2024-03-01)
 
 
