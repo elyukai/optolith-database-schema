@@ -13,6 +13,7 @@ import { NonEmptyString } from "./_NonEmptyString.js"
 /**
  * @title UI
  */
+// prettier-ignore
 export type UI = {
   // Menu
   "About {0}": NonEmptyString
@@ -73,9 +74,6 @@ export type UI = {
   "You're running the latest version available.": NonEmptyString
 
   // Main Window
-
-  "initialization.loadtableserror": NonEmptyString
-
   "Characters": NonEmptyString
   "Groups": NonEmptyString
   "Library": NonEmptyString
@@ -116,6 +114,7 @@ export type UI = {
   "Show Settings": NonEmptyString
   "Toggle DevTools": NonEmptyString
 
+  // Adventure Points
   "Adventure Points": NonEmptyString
   "AP": NonEmptyString
   /**
@@ -126,7 +125,6 @@ export type UI = {
    * - `0`: AP value
    */
   "{0} AP": NonEmptyString
-
   /**
    * - `0`: AP Total
    */
@@ -217,6 +215,7 @@ export type UI = {
   "header.dialogs.saveconfigerror.message": NonEmptyString
   "header.dialogs.saveheroeserror.title": NonEmptyString
   "header.dialogs.saveheroeserror.message": NonEmptyString
+
   /**
    * - `0`: Weight in kg
    */
@@ -229,6 +228,9 @@ export type UI = {
    * - `0`: Length in cm
    */
   "general.lengthvalue": NonEmptyString
+  /**
+   * As in *2D6*.
+   */
   "D": NonEmptyString
   "general.none": NonEmptyString
   "general.or": NonEmptyString
@@ -238,11 +240,7 @@ export type UI = {
   "general.emptylistplaceholder": NonEmptyString
   "general.emptylistnoresultsplaceholder": NonEmptyString
   "No Results": NonEmptyString
-  /**
-   * - `0`: Name of element
-   * - `1`: AP value
-   */
-  "general.withapvalue": NonEmptyString
+
   "Search": NonEmptyString
   "Sort By": NonEmptyString
   "Name": NonEmptyString
@@ -253,38 +251,28 @@ export type UI = {
   "general.filters.sort.bycost": NonEmptyString
   "general.filters.sort.byweight": NonEmptyString
   "general.filters.showactivatedentries": NonEmptyString
-  "general.dialogs.savebtn": NonEmptyString
+
   "Done": NonEmptyString
-  "general.dialogs.deletebtn": NonEmptyString
-  "general.dialogs.yesbtn": NonEmptyString
-  "general.dialogs.nobtn": NonEmptyString
-  "general.dialogs.okbtn": NonEmptyString
+  "OK": NonEmptyString
   "Cancel": NonEmptyString
-  "general.dialogs.copybtn": NonEmptyString
-  "general.dialogs.createbtn": NonEmptyString
-  "general.dialogs.applybtn": NonEmptyString
+  "Create": NonEmptyString
+  "Apply": NonEmptyString
   "Add": NonEmptyString
-  "general.dialogs.notenoughap.title": NonEmptyString
-  /**
-   * - `0`: Missing AP
-   */
-  "general.dialogs.notenoughap.message": NonEmptyString
-  /**
-   * - `0`: Category in which the limit is reached
-   */
-  "general.dialogs.reachedaplimit.title": NonEmptyString
-  /**
-   * - `0`: Missing AP
-   * - `1`: Maximum possible AP spent on category
-   * - `2`: Category in which the limit is reached
-   */
-  "general.dialogs.reachedaplimit.message": NonEmptyString
-  "general.dialogs.reachedaplimit.advantages": NonEmptyString
-  "general.dialogs.reachedaplimit.magicaladvantages": NonEmptyString
-  "general.dialogs.reachedaplimit.blessedadvantages": NonEmptyString
-  "general.dialogs.reachedaplimit.disadvantages": NonEmptyString
-  "general.dialogs.reachedaplimit.magicaldisadvantages": NonEmptyString
-  "general.dialogs.reachedaplimit.blesseddisadvantages": NonEmptyString
+  "Not enough AP": NonEmptyString
+  "You are missing {0} Adventure Points to do this.": PluralizationCategories
+  "Exceeding Adventure Points limit for advantages": NonEmptyString
+  "You cannot spend more than {0} AP on advantages. You would exceed this limit by {1} AP.": NonEmptyString
+  "Exceeding Adventure Points limit for magical advantages": NonEmptyString
+  "You cannot spend more than {0} AP on magical advantages. You would exceed this limit by {1} AP.": NonEmptyString
+  "Exceeding Adventure Points limit for blessed advantages": NonEmptyString
+  "You cannot spend more than {0} AP on blessed advantages. You would exceed this limit by {1} AP.": NonEmptyString
+  "Exceeding Adventure Points limit for disadvantages": NonEmptyString
+  "You cannot receive more than {0} AP from disadvantages. You would exceed this limit by {1} AP.": NonEmptyString
+  "Exceeding Adventure Points limit for magical disadvantages": NonEmptyString
+  "You cannot receive more than {0} AP from magical disadvantages. You would exceed this limit by {1} AP.": NonEmptyString
+  "Exceeding Adventure Points limit for blessed disadvantages": NonEmptyString
+  "You cannot receive more than {0} AP from blessed disadvantages. You would exceed this limit by {1} AP.": NonEmptyString
+
   "heroes.filters.origin.allheroes": NonEmptyString
   "heroes.filters.origin.ownheroes": NonEmptyString
   "heroes.filters.origin.sharedheroes": NonEmptyString
@@ -319,6 +307,7 @@ export type UI = {
   "heroes.dialogs.herocreation.sex.female": NonEmptyString
   "heroes.dialogs.herocreation.experiencelevel.placeholder": NonEmptyString
   "heroes.dialogs.herocreation.startbtn": NonEmptyString
+
   "wiki.chooseacategory": NonEmptyString
   "wiki.chooseacategorytodisplayalist": NonEmptyString
   "wiki.filters.races": NonEmptyString
@@ -338,7 +327,7 @@ export type UI = {
   "wiki.filters.specialabilities.all": NonEmptyString
   "wiki.filters.itemtemplates": NonEmptyString
   "wiki.filters.itemtemplates.all": NonEmptyString
-  "imprint.title": NonEmptyString
+
   "Edit Name": NonEmptyString
   "Change Name": NonEmptyString
   "Edit Profession Name": NonEmptyString
@@ -376,6 +365,8 @@ export type UI = {
   "Reroll Size": NonEmptyString
   "Reroll Weight": NonEmptyString
   "personaldata.cultureareaknowledge": NonEmptyString
+  "You can save up no more than 10 AP to use later during the game, and you cannot begin the game with a negative AP balance.": NonEmptyString
+
   "sheets.printtopdfbtn": NonEmptyString
   "sheets.dialogs.pdfexportsavelocation.title": NonEmptyString
   "sheets.dialogs.pdfsaved": NonEmptyString
@@ -388,6 +379,7 @@ export type UI = {
   "sheets.zoomfactor": NonEmptyString
   "sheets.charactersheet": NonEmptyString
   "sheets.attributemodifiers.title": NonEmptyString
+
   "sheets.mainsheet.title": NonEmptyString
   "sheets.mainsheet.name": NonEmptyString
   "sheets.mainsheet.family": NonEmptyString
@@ -423,6 +415,7 @@ export type UI = {
   "sheets.mainsheet.derivedcharacteristics.labels.current": NonEmptyString
   "sheets.mainsheet.derivedcharacteristics.labels.basestat": NonEmptyString
   "sheets.mainsheet.derivedcharacteristics.labels.permanentlylostboughtback": NonEmptyString
+
   "sheets.gamestatssheet.title": NonEmptyString
   "sheets.gamestatssheet.skillstable.title": NonEmptyString
   "sheets.gamestatssheet.skillstable.labels.skill": NonEmptyString
@@ -450,6 +443,7 @@ export type UI = {
   "sheets.gamestatssheet.qualitylevels.title": NonEmptyString
   "sheets.gamestatssheet.qualitylevels.labels.skillpoints": NonEmptyString
   "sheets.gamestatssheet.qualitylevels.labels.qualitylevel": NonEmptyString
+
   "sheets.combatsheet.title": NonEmptyString
   "sheets.combatsheet.combattechniquestable.title": NonEmptyString
   "sheets.combatsheet.combattechniquestable.labels.combattechnique": NonEmptyString
@@ -515,6 +509,7 @@ export type UI = {
   "sheets.combatsheet.combatspecialabilities": NonEmptyString
   "sheets.combatsheet.conditions": NonEmptyString
   "sheets.combatsheet.states": NonEmptyString
+
   "sheets.belongingssheet.title": NonEmptyString
   "sheets.belongingssheet.equipmenttable.title": NonEmptyString
   "sheets.belongingssheet.equipmenttable.labels.item": NonEmptyString
@@ -549,6 +544,7 @@ export type UI = {
   "sheets.belongingssheet.animal.skills": NonEmptyString
   "sheets.belongingssheet.animal.specialabilities": NonEmptyString
   "sheets.belongingssheet.animal.notes": NonEmptyString
+
   "sheets.spellssheet.title": NonEmptyString
   "sheets.spellssheet.header.labels.aemax": NonEmptyString
   "sheets.spellssheet.header.labels.aecurrent": NonEmptyString
@@ -570,6 +566,7 @@ export type UI = {
   "sheets.spellssheet.tradition": NonEmptyString
   "sheets.spellssheet.magicalspecialabilities": NonEmptyString
   "sheets.spellssheet.cantrips": NonEmptyString
+
   "sheets.chantssheet.title": NonEmptyString
   "sheets.chantssheet.header.labels.kpmax": NonEmptyString
   "sheets.chantssheet.header.labels.kpcurrent": NonEmptyString
@@ -590,6 +587,7 @@ export type UI = {
   "sheets.chantssheet.tradition": NonEmptyString
   "sheets.chantssheet.blessedspecialabilities": NonEmptyString
   "sheets.chantssheet.blessings": NonEmptyString
+
   "pacts.pactcategory": NonEmptyString
   "pacts.nopact": NonEmptyString
   "pacts.pactlevel": NonEmptyString
@@ -609,10 +607,13 @@ export type UI = {
   "Optional Rules": NonEmptyString
   "rules.manualherodatarepair": NonEmptyString
   "rules.manualherodatarepairexplanation": NonEmptyString
+
   "inlinewiki.complementarysources": NonEmptyString
+
   "race.header.name": NonEmptyString
   "race.header.adventurepoints": NonEmptyString
   "race.header.adventurepoints.tooltip": NonEmptyString
+
   "inlinewiki.apvalue": NonEmptyString
   "inlinewiki.adventurepoints": NonEmptyString
   "inlinewiki.lifepointbasevalue": NonEmptyString
@@ -628,9 +629,11 @@ export type UI = {
   "inlinewiki.commondisadvantages": NonEmptyString
   "inlinewiki.uncommonadvantages": NonEmptyString
   "inlinewiki.uncommondisadvantages": NonEmptyString
+
   "culture.filters.common.allcultures": NonEmptyString
   "culture.filters.common.commoncultures": NonEmptyString
   "culture.header.name": NonEmptyString
+
   "inlinewiki.language": NonEmptyString
   "inlinewiki.script": NonEmptyString
   "inlinewiki.areaknowledge": NonEmptyString
@@ -647,6 +650,7 @@ export type UI = {
    * - `1`: AP cost of the cultural package
    */
   "inlinewiki.culturalpackage": NonEmptyString
+
   "profession.ownprofession": NonEmptyString
   "profession.variants.novariant": NonEmptyString
   "profession.filters.common.allprofessions": NonEmptyString
@@ -658,6 +662,7 @@ export type UI = {
   "profession.header.name": NonEmptyString
   "profession.header.adventurepoints": NonEmptyString
   "profession.header.adventurepoints.tooltip": NonEmptyString
+
   "inlinewiki.prerequisites": NonEmptyString
   "inlinewiki.race": NonEmptyString
   "inlinewiki.specialabilities": NonEmptyString
@@ -719,6 +724,7 @@ export type UI = {
   "inlinewiki.unsuitabledisadvantages": NonEmptyString
   "inlinewiki.variants": NonEmptyString
   "inlinewiki.insteadof": NonEmptyString
+
   "rcpselectoptions.race": NonEmptyString
   "rcpselectoptions.culture": NonEmptyString
   "rcpselectoptions.profession": NonEmptyString
@@ -771,6 +777,8 @@ export type UI = {
   "rcpselectoptions.unfamiliarspellselectionfortraditionguildmage": NonEmptyString
   "rcpselectoptions.unfamiliarspell.placeholder": NonEmptyString
   "rcpselectoptions.unfamiliarspell": NonEmptyString
+
+  // Attributes
   "Total Points": NonEmptyString
   "Increment": NonEmptyString
   "Decrement": NonEmptyString
@@ -791,56 +799,66 @@ export type UI = {
   "How many points do you want to remove?": NonEmptyString
   "Remove": NonEmptyString
   "Permanently Spent": NonEmptyString
-  "advantages.filters.commonadvantages": NonEmptyString
-  "disadvantages.filters.commondisadvantages": NonEmptyString
-  "advantagesdisadvantages.addbtn": NonEmptyString
-  "advantagesdisadvantages.afraidof": NonEmptyString
-  "advantagesdisadvantages.immunityto": NonEmptyString
-  "advantagesdisadvantages.hatredfor": NonEmptyString
-  "advantagesdisadvantages.header.name": NonEmptyString
-  "advantagesdisadvantages.header.adventurepoints": NonEmptyString
-  "advantagesdisadvantages.header.adventurepoints.tooltip": NonEmptyString
-  /**
-   * - `0`: Current AP spent on advantages
-   * - `1`: Maximum possible AP spent on advantages
-   */
-  "advantagesdisadvantages.apspent.spentonadvantages": NonEmptyString
-  /**
-   * - `0`: Current AP spent on magic advantages
-   * - `1`: Maximum possible AP spent on magic advantages
-   */
-  "advantagesdisadvantages.apspent.spentonmagicadvantages": NonEmptyString
-  /**
-   * - `0`: Current AP spent on blessed advantages
-   * - `1`: Maximum possible AP spent on blessed advantages
-   */
-  "advantagesdisadvantages.apspent.spentonblessedadvantages": NonEmptyString
-  /**
-   * - `0`: Current AP spent on disadvantages
-   * - `1`: Maximum possible AP spent on disadvantages
-   */
-  "advantagesdisadvantages.apspent.spentondisadvantages": NonEmptyString
-  /**
-   * - `0`: Current AP spent on magic disadvantages
-   * - `1`: Maximum possible AP spent on magic disadvantages
-   */
-  "advantagesdisadvantages.apspent.spentonmagicdisadvantages": NonEmptyString
-  /**
-   * - `0`: Current AP spent on blessed disadvantages
-   * - `1`: Maximum possible AP spent on blessed disadvantages
-   */
-  "advantagesdisadvantages.apspent.spentonblesseddisadvantages": NonEmptyString
-  "advantagesdisadvantages.dialogs.customcost.title": NonEmptyString
+
+  "Common Advantages": NonEmptyString
+  "Common Disadvantages": NonEmptyString
+  "Custom AP Cost": NonEmptyString
   /**
    * - `0`: Entry name
    */
-  "advantagesdisadvantages.dialogs.customcost.for": NonEmptyString
-  "specialabilities.addbtn": NonEmptyString
-  "specialabilities.header.name": NonEmptyString
-  "specialabilities.header.group": NonEmptyString
-  "specialabilities.header.adventurepoints": NonEmptyString
-  "specialabilities.header.adventurepoints.tooltip": NonEmptyString
+  "AP Cost for {0}": NonEmptyString
+  "Custom option": NonEmptyString
+
   "specialabilities.nativetonguelevel": NonEmptyString
+  "Advanced Combat Special Abilities": NonEmptyString
+  "Advanced Karma Special Abilities": NonEmptyString
+  "Advanced Magical Special Abilities": NonEmptyString
+  "Advanced Skill Special Abilities": NonEmptyString
+  "Ancestor Glyphs": NonEmptyString
+  "Arcane Orb Enchantments": NonEmptyString
+  "Attire Enchantments": NonEmptyString
+  "Blessed Traditions": NonEmptyString
+  "Bowl Enchantments": NonEmptyString
+  "Brawling Special Abilities": NonEmptyString
+  "Cauldron Enchantments": NonEmptyString
+  "Ceremonial Item Special Abilities": NonEmptyString
+  "Chronicle Enchantments": NonEmptyString
+  "Combat Special Abilities": NonEmptyString
+  "Combat Style Special Abilities": NonEmptyString
+  "Command Special Abilities": NonEmptyString
+  "Dagger Rituals": NonEmptyString
+  "Familiar Special Abilities": NonEmptyString
+  "Fate Point Sex Special Abilities": NonEmptyString
+  "Fate Point Special Abilities": NonEmptyString
+  "Fools Hat Enchantments": NonEmptyString
+  "General Special Abilities": NonEmptyString
+  "Instrument Enchantments": NonEmptyString
+  "Karma Special Abilities": NonEmptyString
+  "Krallenkettenzauber": NonEmptyString
+  "Liturgical Style Special Abilities": NonEmptyString
+  "Lycantropic Gifts": NonEmptyString
+  "Magical Signs": NonEmptyString
+  "Magical Special Abilities": NonEmptyString
+  "Magical Traditions": NonEmptyString
+  "Magic Style Special Abilities": NonEmptyString
+  "Orb Enchantments": NonEmptyString
+  "Pact Gifts": NonEmptyString
+  "Protective/Warding Circle Special Abilities": NonEmptyString
+  "Ring Enchantments": NonEmptyString
+  "Sermons": NonEmptyString
+  "Sex Special Abilities": NonEmptyString
+  "Sickle Rituals": NonEmptyString
+  "Sikaryan Drain Special Abilities": NonEmptyString
+  "Skill Style Special Abilities": NonEmptyString
+  "Spell Sword Enchantments": NonEmptyString
+  "Staff Enchantments": NonEmptyString
+  "Toy Enchantments": NonEmptyString
+  "Trinkhornzauber": NonEmptyString
+  "Vampiric Gifts": NonEmptyString
+  "Visions": NonEmptyString
+  "Wand Enchantments": NonEmptyString
+  "Weapon Enchantments": NonEmptyString
+
   "inlinewiki.rule": NonEmptyString
   "inlinewiki.effect": NonEmptyString
   "inlinewiki.extendedcombatspecialabilities": NonEmptyString
@@ -882,36 +900,32 @@ export type UI = {
    * - `0`: Minimum social status
    */
   "inlinewiki.socialstatusxorhigher": NonEmptyString
-  "skills.commonskills": NonEmptyString
-  "skills.header.name": NonEmptyString
-  "skills.header.skillrating": NonEmptyString
-  "skills.header.skillrating.tooltip": NonEmptyString
-  "skills.header.group": NonEmptyString
-  "skills.header.check": NonEmptyString
-  "skills.header.improvementcost": NonEmptyString
-  "skills.header.improvementcost.tooltip": NonEmptyString
+
+  "Common Skills": NonEmptyString
+  "SR": NonEmptyString
+  "Skill Rating": NonEmptyString
+  "IC": NonEmptyString
   "New Applications": NonEmptyString
   "Uses": NonEmptyString
-  "showfrequency.stronglyrecommended": NonEmptyString
-  "showfrequency.common": NonEmptyString
-  "showfrequency.uncommon": NonEmptyString
-  "showfrequency.unfamiliarspells": NonEmptyString
-  "combattechniques.header.name": NonEmptyString
-  "combattechniques.header.group": NonEmptyString
-  "combattechniques.header.combattechniquerating": NonEmptyString
-  "combattechniques.header.combattechniquerating.tooltip": NonEmptyString
-  "combattechniques.header.improvementcost": NonEmptyString
-  "combattechniques.header.improvementcost.tooltip": NonEmptyString
-  "combattechniques.header.primaryattribute": NonEmptyString
-  "combattechniques.header.primaryattribute.tooltip": NonEmptyString
-  "combattechniques.header.attack": NonEmptyString
-  "combattechniques.header.attack.tooltip": NonEmptyString
-  "combattechniques.header.parry": NonEmptyString
-  "combattechniques.header.parry.tooltip": NonEmptyString
+
+  "Strongly Recommended": NonEmptyString
+  "Common": NonEmptyString
+  "Uncommon": NonEmptyString
+  "Unfamiliar Spells": NonEmptyString
+
+  "CTR": NonEmptyString
+  "Combat Technique Rating": NonEmptyString
+  "P": NonEmptyString
+  "Primary Attribute(s)": NonEmptyString
+  "AT": NonEmptyString
+  "Attack": NonEmptyString
+  "PA": NonEmptyString
+  "Parry": NonEmptyString
   "Close Combat": NonEmptyString
   "Ranged Combat": NonEmptyString
-  "inlinewiki.special": NonEmptyString
-  "inlinewiki.primaryattribute": NonEmptyString
+
+  "Special": NonEmptyString
+  "Primary Attribute": NonEmptyString
 
   "Cantrips": NonEmptyString
   "Rituals": NonEmptyString
@@ -924,20 +938,130 @@ export type UI = {
   "Animist Powers": NonEmptyString
   "Geode Rituals": NonEmptyString
   "Zibilja Rituals": NonEmptyString
-  "spells.addbtn": NonEmptyString
-  "spells.header.name": NonEmptyString
-  "spells.header.property": NonEmptyString
-  "spells.header.group": NonEmptyString
-  "spells.header.skillrating": NonEmptyString
-  "spells.header.skillrating.tooltip": NonEmptyString
-  "spells.header.check": NonEmptyString
-  "spells.header.checkmodifier": NonEmptyString
-  "spells.header.checkmodifier.tooltip": NonEmptyString
-  "spells.header.improvementcost": NonEmptyString
-  "spells.header.improvementcost.tooltip": NonEmptyString
-  "spells.groups.cantrip": NonEmptyString
+  "Mod": NonEmptyString
+  "Check Modifier": NonEmptyString
   "spells.traditions.general": NonEmptyString
   "magicalactions.animistforces.tribes.general": NonEmptyString
+
+  " (modified by {0})": NonEmptyString
+  " (− {0})": NonEmptyString
+  "{0} or {1}, depending on which value is higher": NonEmptyString
+  "Invocation Difficulty": NonEmptyString
+  "ID": NonEmptyString
+  "Creation Difficulty": NonEmptyString
+  "CD": NonEmptyString
+  "Effect": NonEmptyString
+  "Casting Time": NonEmptyString
+  "Ritual Time": NonEmptyString
+  "Liturgical Time": NonEmptyString
+  "Ceremonial Time": NonEmptyString
+  "AE Cost": NonEmptyString
+  "KP Cost": NonEmptyString
+  "Range": NonEmptyString
+  "Duration": NonEmptyString
+  "Target Category": NonEmptyString
+  "Traditions": NonEmptyString
+  " (you cannot use a modification on this spell’s casting time)": NonEmptyString
+  " (you cannot use a modification on this spell’s cost)": NonEmptyString
+  " (you cannot use a modification on this spell’s range)": NonEmptyString
+  " (you cannot use a modification on this ritual’s ritual time)": NonEmptyString
+  " (you cannot use a modification on this ritual’s cost)": NonEmptyString
+  " (you cannot use a modification on this ritual’s range)": NonEmptyString
+  " (you cannot use a modification on this chant’s liturgical time)": NonEmptyString
+  " (you cannot use a modification on this chant’s cost)": NonEmptyString
+  " (you cannot use a modification on this chant’s range)": NonEmptyString
+  " (you cannot use a modification on this ceremony’s ceremonial time)": NonEmptyString
+  " (you cannot use a modification on this ceremony’s cost)": NonEmptyString
+  " (you cannot use a modification on this ceremony’s range)": NonEmptyString
+  " (cannot modify)": NonEmptyString
+  "{0} act": NonEmptyString
+  "act": NonEmptyString
+  "{0} actions": PluralizationCategories
+  "actions": NonEmptyString
+  "{0} s": NonEmptyString
+  "s": NonEmptyString
+  "{0} seconds": PluralizationCategories
+  "seconds": NonEmptyString
+  "{0} min": NonEmptyString
+  "min": NonEmptyString
+  "{0} minutes": PluralizationCategories
+  "minutes": NonEmptyString
+  "{0} h": NonEmptyString
+  "h": NonEmptyString
+  "{0} hours": PluralizationCategories
+  "hours": NonEmptyString
+  "{0} d": NonEmptyString
+  "d": NonEmptyString
+  "{0} days": PluralizationCategories
+  "days": NonEmptyString
+  "{0} wks.": PluralizationCategories
+  "wks.": NonEmptyString
+  "{0} weeks": PluralizationCategories
+  "weeks": NonEmptyString
+  "{0} mos.": PluralizationCategories
+  "mos.": NonEmptyString
+  "{0} months": PluralizationCategories
+  "months": NonEmptyString
+  "{0} yrs.": PluralizationCategories
+  "yrs.": NonEmptyString
+  "{0} years": PluralizationCategories
+  "years": NonEmptyString
+  "{0} cent.": NonEmptyString
+  "cent.": NonEmptyString
+  "{0} centuries": PluralizationCategories
+  "centuries": NonEmptyString
+  "{0} SA": NonEmptyString
+  "{0} seduction actions": PluralizationCategories
+  "{0} rnds": NonEmptyString
+  "{0} rounds": PluralizationCategories
+  "{0} CR": NonEmptyString
+  "CR": NonEmptyString
+  "{0} combat rounds": PluralizationCategories
+  "combat rounds": NonEmptyString
+  "{0} AE": NonEmptyString
+  "{0} KP": NonEmptyString
+  "min. ": NonEmptyString
+  "at least ": NonEmptyString
+  "/{0}": NonEmptyString
+  " per {0}": NonEmptyString
+  ", minimum of {0}": NonEmptyString
+  " ({0} perm.)": NonEmptyString
+  ", {0} of which are permanent": PluralizationCategories
+  "half of the activation cost": NonEmptyString
+  " and ": NonEmptyString
+  " + ": NonEmptyString
+  " or ": NonEmptyString
+  " / ": NonEmptyString
+  " for ": NonEmptyString
+  " (no more than {0})": NonEmptyString
+  " (max. {0})": NonEmptyString
+  "Immediate": NonEmptyString
+  "Permanent": NonEmptyString
+  "no more than ": NonEmptyString
+  "max. ": NonEmptyString
+  "Quality Levels": NonEmptyString
+  "QL": NonEmptyString
+  "QL {0}": NonEmptyString
+  "Skill Points": NonEmptyString
+  "SP": NonEmptyString
+  "Sustained": NonEmptyString
+  "(S)": NonEmptyString
+  "{0} yards": PluralizationCategories
+  "{0} yd": NonEmptyString
+  "{0} miles": PluralizationCategories
+  "{0} mi.": NonEmptyString
+  "Sight": NonEmptyString
+  "Self": NonEmptyString
+  "Global": NonEmptyString
+  "Touch": NonEmptyString
+  "Radius": NonEmptyString
+  " (casting)": NonEmptyString
+  "Zone": NonEmptyString
+  "Liturgical Chants and Ceremonies": NonEmptyString
+  "General": NonEmptyString
+  "Note": NonEmptyString
+  "all": NonEmptyString
+
   "inlinewiki.castingtime": NonEmptyString
   "inlinewiki.ritualtime": NonEmptyString
   "inlinewiki.aecost": NonEmptyString
@@ -985,6 +1109,7 @@ export type UI = {
   "liturgicalchants.header.improvementcost.tooltip": NonEmptyString
   "liturgicalchants.groups.blessing": NonEmptyString
   "liturgicalchants.aspects.general": NonEmptyString
+
   "inlinewiki.liturgicaltime": NonEmptyString
   "inlinewiki.ceremonialtime": NonEmptyString
   "inlinewiki.kpcost": NonEmptyString
@@ -1001,11 +1126,13 @@ export type UI = {
    * - `3`: Description
    */
   "inlinewiki.liturgicalchantenhancements.title": NonEmptyString
+
   "equipment.header.name": NonEmptyString
   "equipment.header.group": NonEmptyString
   "equipment.addbtn": NonEmptyString
   "equipment.createbtn": NonEmptyString
   "equipment.filters.allcombattechniques": NonEmptyString
+
   "equipment.purse.title": NonEmptyString
   "equipment.purse.ducats": NonEmptyString
   "equipment.purse.silverthalers": NonEmptyString
@@ -1013,13 +1140,14 @@ export type UI = {
   "equipment.purse.kreutzers": NonEmptyString
   "equipment.purse.carryingcapacity": NonEmptyString
   "equipment.purse.initialstartingwealthandcarryingcapacity": NonEmptyString
-  "equipment.purse.earnpay":  NonEmptyString
-  "equipment.purse.earn":  NonEmptyString
-  "equipment.purse.pay":  NonEmptyString
-  "equipment.purse.notefirst":  NonEmptyString
-  "equipment.purse.notesecond":  NonEmptyString
+  "equipment.purse.earnpay": NonEmptyString
+  "equipment.purse.earn": NonEmptyString
+  "equipment.purse.pay": NonEmptyString
+  "equipment.purse.notefirst": NonEmptyString
+  "equipment.purse.notesecond": NonEmptyString
   "equipment.purse.currentcredit": NonEmptyString
   "equipment.purse.amount": NonEmptyString
+
   "equipment.dialogs.addedit.damage": NonEmptyString
   "equipment.dialogs.addedit.length": NonEmptyString
   "equipment.dialogs.addedit.range": NonEmptyString
@@ -1063,6 +1191,7 @@ export type UI = {
   "equipment.dialogs.addedit.movementmodifier": NonEmptyString
   "equipment.dialogs.addedit.initiativemodifier": NonEmptyString
   "equipment.dialogs.addedit.additionalpenalties": NonEmptyString
+
   "hitzonearmors.header.name": NonEmptyString
   "hitzonearmors.createbtn": NonEmptyString
   "hitzonearmors.dialogs.addedit.name": NonEmptyString
@@ -1075,6 +1204,7 @@ export type UI = {
   "hitzonearmors.dialogs.addedit.leftleg": NonEmptyString
   "hitzonearmors.dialogs.addedit.rightleg": NonEmptyString
   "hitzonearmors.dialogs.addedit.wear": NonEmptyString
+
   "inlinewiki.equipment.weight": NonEmptyString
   "inlinewiki.equipment.price": NonEmptyString
   "inlinewiki.equipment.ammunition": NonEmptyString
@@ -1099,6 +1229,7 @@ export type UI = {
   "inlinewiki.equipment.weapondisadvantage": NonEmptyString
   "inlinewiki.equipment.armoradvantage": NonEmptyString
   "inlinewiki.equipment.armordisadvantage": NonEmptyString
+
   "pets.dialogs.addedit.deleteavatarbtn": NonEmptyString
   "pets.dialogs.addedit.name": NonEmptyString
   "pets.dialogs.addedit.sizecategory": NonEmptyString

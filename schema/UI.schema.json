@@ -162,9 +162,6 @@
         "You're running the latest version available.": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "initialization.loadtableserror": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
         "Characters": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
@@ -398,6 +395,7 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "D": {
+          "description": "As in *2D6*.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "general.none": {
@@ -422,10 +420,6 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "No Results": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "general.withapvalue": {
-          "description": "- `0`: Name of element\n- `1`: AP value",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "Search": {
@@ -458,70 +452,64 @@
         "general.filters.showactivatedentries": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.savebtn": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
         "Done": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.deletebtn": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "general.dialogs.yesbtn": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "general.dialogs.nobtn": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "general.dialogs.okbtn": {
+        "OK": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "Cancel": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.copybtn": {
+        "Create": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.createbtn": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "general.dialogs.applybtn": {
+        "Apply": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "Add": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.notenoughap.title": {
+        "Not enough AP": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.notenoughap.message": {
-          "description": "- `0`: Missing AP",
+        "You are missing {0} Adventure Points to do this.": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "Exceeding Adventure Points limit for advantages": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.reachedaplimit.title": {
-          "description": "- `0`: Category in which the limit is reached",
+        "You cannot spend more than {0} AP on advantages. You would exceed this limit by {1} AP.": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.reachedaplimit.message": {
-          "description": "- `0`: Missing AP\n- `1`: Maximum possible AP spent on category\n- `2`: Category in which the limit is reached",
+        "Exceeding Adventure Points limit for magical advantages": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.reachedaplimit.advantages": {
+        "You cannot spend more than {0} AP on magical advantages. You would exceed this limit by {1} AP.": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.reachedaplimit.magicaladvantages": {
+        "Exceeding Adventure Points limit for blessed advantages": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.reachedaplimit.blessedadvantages": {
+        "You cannot spend more than {0} AP on blessed advantages. You would exceed this limit by {1} AP.": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.reachedaplimit.disadvantages": {
+        "Exceeding Adventure Points limit for disadvantages": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.reachedaplimit.magicaldisadvantages": {
+        "You cannot receive more than {0} AP from disadvantages. You would exceed this limit by {1} AP.": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "general.dialogs.reachedaplimit.blesseddisadvantages": {
+        "Exceeding Adventure Points limit for magical disadvantages": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "You cannot receive more than {0} AP from magical disadvantages. You would exceed this limit by {1} AP.": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Exceeding Adventure Points limit for blessed disadvantages": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "You cannot receive more than {0} AP from blessed disadvantages. You would exceed this limit by {1} AP.": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "heroes.filters.origin.allheroes": {
@@ -675,9 +663,6 @@
         "wiki.filters.itemtemplates.all": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "imprint.title": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
         "Edit Name": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
@@ -781,6 +766,9 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "personaldata.cultureareaknowledge": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "You can save up no more than 10 AP to use later during the game, and you cannot begin the game with a negative AP balance.": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "sheets.printtopdfbtn": {
@@ -1843,80 +1831,167 @@
         "Permanently Spent": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "advantages.filters.commonadvantages": {
+        "Common Advantages": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "disadvantages.filters.commondisadvantages": {
+        "Common Disadvantages": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "advantagesdisadvantages.addbtn": {
+        "Custom AP Cost": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "advantagesdisadvantages.afraidof": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "advantagesdisadvantages.immunityto": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "advantagesdisadvantages.hatredfor": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "advantagesdisadvantages.header.name": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "advantagesdisadvantages.header.adventurepoints": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "advantagesdisadvantages.header.adventurepoints.tooltip": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "advantagesdisadvantages.apspent.spentonadvantages": {
-          "description": "- `0`: Current AP spent on advantages\n- `1`: Maximum possible AP spent on advantages",
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "advantagesdisadvantages.apspent.spentonmagicadvantages": {
-          "description": "- `0`: Current AP spent on magic advantages\n- `1`: Maximum possible AP spent on magic advantages",
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "advantagesdisadvantages.apspent.spentonblessedadvantages": {
-          "description": "- `0`: Current AP spent on blessed advantages\n- `1`: Maximum possible AP spent on blessed advantages",
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "advantagesdisadvantages.apspent.spentondisadvantages": {
-          "description": "- `0`: Current AP spent on disadvantages\n- `1`: Maximum possible AP spent on disadvantages",
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "advantagesdisadvantages.apspent.spentonmagicdisadvantages": {
-          "description": "- `0`: Current AP spent on magic disadvantages\n- `1`: Maximum possible AP spent on magic disadvantages",
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "advantagesdisadvantages.apspent.spentonblesseddisadvantages": {
-          "description": "- `0`: Current AP spent on blessed disadvantages\n- `1`: Maximum possible AP spent on blessed disadvantages",
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "advantagesdisadvantages.dialogs.customcost.title": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "advantagesdisadvantages.dialogs.customcost.for": {
+        "AP Cost for {0}": {
           "description": "- `0`: Entry name",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "specialabilities.addbtn": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "specialabilities.header.name": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "specialabilities.header.group": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "specialabilities.header.adventurepoints": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "specialabilities.header.adventurepoints.tooltip": {
+        "Custom option": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "specialabilities.nativetonguelevel": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Advanced Combat Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Advanced Karma Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Advanced Magical Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Advanced Skill Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Ancestor Glyphs": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Arcane Orb Enchantments": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Attire Enchantments": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Blessed Traditions": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Bowl Enchantments": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Brawling Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Cauldron Enchantments": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Ceremonial Item Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Chronicle Enchantments": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Combat Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Combat Style Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Command Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Dagger Rituals": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Familiar Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Fate Point Sex Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Fate Point Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Fools Hat Enchantments": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "General Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Instrument Enchantments": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Karma Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Krallenkettenzauber": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Liturgical Style Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Lycantropic Gifts": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Magical Signs": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Magical Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Magical Traditions": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Magic Style Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Orb Enchantments": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Pact Gifts": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Protective/Warding Circle Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Ring Enchantments": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Sermons": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Sex Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Sickle Rituals": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Sikaryan Drain Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Skill Style Special Abilities": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Spell Sword Enchantments": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Staff Enchantments": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Toy Enchantments": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Trinkhornzauber": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Vampiric Gifts": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Visions": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Wand Enchantments": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Weapon Enchantments": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.rule": {
@@ -2023,28 +2098,16 @@
           "description": "- `0`: Minimum social status",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "skills.commonskills": {
+        "Common Skills": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "skills.header.name": {
+        "SR": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "skills.header.skillrating": {
+        "Skill Rating": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "skills.header.skillrating.tooltip": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "skills.header.group": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "skills.header.check": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "skills.header.improvementcost": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "skills.header.improvementcost.tooltip": {
+        "IC": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "New Applications": {
@@ -2053,52 +2116,40 @@
         "Uses": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "showfrequency.stronglyrecommended": {
+        "Strongly Recommended": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "showfrequency.common": {
+        "Common": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "showfrequency.uncommon": {
+        "Uncommon": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "showfrequency.unfamiliarspells": {
+        "Unfamiliar Spells": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "combattechniques.header.name": {
+        "CTR": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "combattechniques.header.group": {
+        "Combat Technique Rating": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "combattechniques.header.combattechniquerating": {
+        "P": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "combattechniques.header.combattechniquerating.tooltip": {
+        "Primary Attribute(s)": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "combattechniques.header.improvementcost": {
+        "AT": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "combattechniques.header.improvementcost.tooltip": {
+        "Attack": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "combattechniques.header.primaryattribute": {
+        "PA": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "combattechniques.header.primaryattribute.tooltip": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "combattechniques.header.attack": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "combattechniques.header.attack.tooltip": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "combattechniques.header.parry": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "combattechniques.header.parry.tooltip": {
+        "Parry": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "Close Combat": {
@@ -2107,10 +2158,10 @@
         "Ranged Combat": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "inlinewiki.special": {
+        "Special": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "inlinewiki.primaryattribute": {
+        "Primary Attribute": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "Cantrips": {
@@ -2146,46 +2197,370 @@
         "Zibilja Rituals": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "spells.addbtn": {
+        "Mod": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
-        "spells.header.name": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "spells.header.property": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "spells.header.group": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "spells.header.skillrating": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "spells.header.skillrating.tooltip": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "spells.header.check": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "spells.header.checkmodifier": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "spells.header.checkmodifier.tooltip": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "spells.header.improvementcost": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "spells.header.improvementcost.tooltip": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-        },
-        "spells.groups.cantrip": {
+        "Check Modifier": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "spells.traditions.general": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "magicalactions.animistforces.tribes.general": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (modified by {0})": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (− {0})": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} or {1}, depending on which value is higher": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Invocation Difficulty": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "ID": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Creation Difficulty": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "CD": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Effect": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Casting Time": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Ritual Time": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Liturgical Time": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Ceremonial Time": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "AE Cost": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "KP Cost": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Range": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Duration": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Target Category": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Traditions": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (you cannot use a modification on this spell’s casting time)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (you cannot use a modification on this spell’s cost)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (you cannot use a modification on this spell’s range)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (you cannot use a modification on this ritual’s ritual time)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (you cannot use a modification on this ritual’s cost)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (you cannot use a modification on this ritual’s range)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (you cannot use a modification on this chant’s liturgical time)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (you cannot use a modification on this chant’s cost)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (you cannot use a modification on this chant’s range)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (you cannot use a modification on this ceremony’s ceremonial time)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (you cannot use a modification on this ceremony’s cost)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (you cannot use a modification on this ceremony’s range)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (cannot modify)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} act": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "act": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} actions": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "actions": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} s": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "s": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} seconds": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "seconds": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} min": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "min": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} minutes": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "minutes": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} h": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "h": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} hours": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "hours": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} d": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "d": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} days": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "days": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} wks.": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "wks.": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} weeks": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "weeks": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} mos.": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "mos.": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} months": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "months": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} yrs.": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "yrs.": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} years": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "years": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} cent.": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "cent.": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} centuries": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "centuries": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} SA": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} seduction actions": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "{0} rnds": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} rounds": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "{0} CR": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "CR": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} combat rounds": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "combat rounds": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} AE": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} KP": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "min. ": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "at least ": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "/{0}": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " per {0}": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        ", minimum of {0}": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " ({0} perm.)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        ", {0} of which are permanent": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "half of the activation cost": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " and ": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " + ": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " or ": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " / ": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " for ": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (no more than {0})": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (max. {0})": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Immediate": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Permanent": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "no more than ": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "max. ": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Quality Levels": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "QL": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "QL {0}": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Skill Points": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "SP": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Sustained": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "(S)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} yards": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "{0} yd": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} miles": {
+          "$ref": "./_I18n.schema.json#/$defs/PluralizationCategories"
+        },
+        "{0} mi.": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Sight": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Self": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Global": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Touch": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Radius": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        " (casting)": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Zone": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Liturgical Chants and Ceremonies": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "General": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Note": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "all": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "inlinewiki.castingtime": {
@@ -2800,7 +3175,6 @@
         "Install Later",
         "No update available",
         "You're running the latest version available.",
-        "initialization.loadtableserror",
         "Characters",
         "Groups",
         "Library",
@@ -2879,7 +3253,6 @@
         "general.emptylistplaceholder",
         "general.emptylistnoresultsplaceholder",
         "No Results",
-        "general.withapvalue",
         "Search",
         "Sort By",
         "Name",
@@ -2890,27 +3263,26 @@
         "general.filters.sort.bycost",
         "general.filters.sort.byweight",
         "general.filters.showactivatedentries",
-        "general.dialogs.savebtn",
         "Done",
-        "general.dialogs.deletebtn",
-        "general.dialogs.yesbtn",
-        "general.dialogs.nobtn",
-        "general.dialogs.okbtn",
+        "OK",
         "Cancel",
-        "general.dialogs.copybtn",
-        "general.dialogs.createbtn",
-        "general.dialogs.applybtn",
+        "Create",
+        "Apply",
         "Add",
-        "general.dialogs.notenoughap.title",
-        "general.dialogs.notenoughap.message",
-        "general.dialogs.reachedaplimit.title",
-        "general.dialogs.reachedaplimit.message",
-        "general.dialogs.reachedaplimit.advantages",
-        "general.dialogs.reachedaplimit.magicaladvantages",
-        "general.dialogs.reachedaplimit.blessedadvantages",
-        "general.dialogs.reachedaplimit.disadvantages",
-        "general.dialogs.reachedaplimit.magicaldisadvantages",
-        "general.dialogs.reachedaplimit.blesseddisadvantages",
+        "Not enough AP",
+        "You are missing {0} Adventure Points to do this.",
+        "Exceeding Adventure Points limit for advantages",
+        "You cannot spend more than {0} AP on advantages. You would exceed this limit by {1} AP.",
+        "Exceeding Adventure Points limit for magical advantages",
+        "You cannot spend more than {0} AP on magical advantages. You would exceed this limit by {1} AP.",
+        "Exceeding Adventure Points limit for blessed advantages",
+        "You cannot spend more than {0} AP on blessed advantages. You would exceed this limit by {1} AP.",
+        "Exceeding Adventure Points limit for disadvantages",
+        "You cannot receive more than {0} AP from disadvantages. You would exceed this limit by {1} AP.",
+        "Exceeding Adventure Points limit for magical disadvantages",
+        "You cannot receive more than {0} AP from magical disadvantages. You would exceed this limit by {1} AP.",
+        "Exceeding Adventure Points limit for blessed disadvantages",
+        "You cannot receive more than {0} AP from blessed disadvantages. You would exceed this limit by {1} AP.",
         "heroes.filters.origin.allheroes",
         "heroes.filters.origin.ownheroes",
         "heroes.filters.origin.sharedheroes",
@@ -2961,7 +3333,6 @@
         "wiki.filters.specialabilities.all",
         "wiki.filters.itemtemplates",
         "wiki.filters.itemtemplates.all",
-        "imprint.title",
         "Edit Name",
         "Change Name",
         "Edit Profession Name",
@@ -2997,6 +3368,7 @@
         "Reroll Size",
         "Reroll Weight",
         "personaldata.cultureareaknowledge",
+        "You can save up no more than 10 AP to use later during the game, and you cannot begin the game with a negative AP balance.",
         "sheets.printtopdfbtn",
         "sheets.dialogs.pdfexportsavelocation.title",
         "sheets.dialogs.pdfsaved",
@@ -3345,29 +3717,60 @@
         "How many points do you want to remove?",
         "Remove",
         "Permanently Spent",
-        "advantages.filters.commonadvantages",
-        "disadvantages.filters.commondisadvantages",
-        "advantagesdisadvantages.addbtn",
-        "advantagesdisadvantages.afraidof",
-        "advantagesdisadvantages.immunityto",
-        "advantagesdisadvantages.hatredfor",
-        "advantagesdisadvantages.header.name",
-        "advantagesdisadvantages.header.adventurepoints",
-        "advantagesdisadvantages.header.adventurepoints.tooltip",
-        "advantagesdisadvantages.apspent.spentonadvantages",
-        "advantagesdisadvantages.apspent.spentonmagicadvantages",
-        "advantagesdisadvantages.apspent.spentonblessedadvantages",
-        "advantagesdisadvantages.apspent.spentondisadvantages",
-        "advantagesdisadvantages.apspent.spentonmagicdisadvantages",
-        "advantagesdisadvantages.apspent.spentonblesseddisadvantages",
-        "advantagesdisadvantages.dialogs.customcost.title",
-        "advantagesdisadvantages.dialogs.customcost.for",
-        "specialabilities.addbtn",
-        "specialabilities.header.name",
-        "specialabilities.header.group",
-        "specialabilities.header.adventurepoints",
-        "specialabilities.header.adventurepoints.tooltip",
+        "Common Advantages",
+        "Common Disadvantages",
+        "Custom AP Cost",
+        "AP Cost for {0}",
+        "Custom option",
         "specialabilities.nativetonguelevel",
+        "Advanced Combat Special Abilities",
+        "Advanced Karma Special Abilities",
+        "Advanced Magical Special Abilities",
+        "Advanced Skill Special Abilities",
+        "Ancestor Glyphs",
+        "Arcane Orb Enchantments",
+        "Attire Enchantments",
+        "Blessed Traditions",
+        "Bowl Enchantments",
+        "Brawling Special Abilities",
+        "Cauldron Enchantments",
+        "Ceremonial Item Special Abilities",
+        "Chronicle Enchantments",
+        "Combat Special Abilities",
+        "Combat Style Special Abilities",
+        "Command Special Abilities",
+        "Dagger Rituals",
+        "Familiar Special Abilities",
+        "Fate Point Sex Special Abilities",
+        "Fate Point Special Abilities",
+        "Fools Hat Enchantments",
+        "General Special Abilities",
+        "Instrument Enchantments",
+        "Karma Special Abilities",
+        "Krallenkettenzauber",
+        "Liturgical Style Special Abilities",
+        "Lycantropic Gifts",
+        "Magical Signs",
+        "Magical Special Abilities",
+        "Magical Traditions",
+        "Magic Style Special Abilities",
+        "Orb Enchantments",
+        "Pact Gifts",
+        "Protective/Warding Circle Special Abilities",
+        "Ring Enchantments",
+        "Sermons",
+        "Sex Special Abilities",
+        "Sickle Rituals",
+        "Sikaryan Drain Special Abilities",
+        "Skill Style Special Abilities",
+        "Spell Sword Enchantments",
+        "Staff Enchantments",
+        "Toy Enchantments",
+        "Trinkhornzauber",
+        "Vampiric Gifts",
+        "Visions",
+        "Wand Enchantments",
+        "Weapon Enchantments",
         "inlinewiki.rule",
         "inlinewiki.effect",
         "inlinewiki.extendedcombatspecialabilities",
@@ -3402,36 +3805,28 @@
         "inlinewiki.combattechniques.groups.allmeleecombattechniqueswithparry",
         "inlinewiki.combattechniques.groups.allmeleecombattechniquesforonehandedweapons",
         "inlinewiki.socialstatusxorhigher",
-        "skills.commonskills",
-        "skills.header.name",
-        "skills.header.skillrating",
-        "skills.header.skillrating.tooltip",
-        "skills.header.group",
-        "skills.header.check",
-        "skills.header.improvementcost",
-        "skills.header.improvementcost.tooltip",
+        "Common Skills",
+        "SR",
+        "Skill Rating",
+        "IC",
         "New Applications",
         "Uses",
-        "showfrequency.stronglyrecommended",
-        "showfrequency.common",
-        "showfrequency.uncommon",
-        "showfrequency.unfamiliarspells",
-        "combattechniques.header.name",
-        "combattechniques.header.group",
-        "combattechniques.header.combattechniquerating",
-        "combattechniques.header.combattechniquerating.tooltip",
-        "combattechniques.header.improvementcost",
-        "combattechniques.header.improvementcost.tooltip",
-        "combattechniques.header.primaryattribute",
-        "combattechniques.header.primaryattribute.tooltip",
-        "combattechniques.header.attack",
-        "combattechniques.header.attack.tooltip",
-        "combattechniques.header.parry",
-        "combattechniques.header.parry.tooltip",
+        "Strongly Recommended",
+        "Common",
+        "Uncommon",
+        "Unfamiliar Spells",
+        "CTR",
+        "Combat Technique Rating",
+        "P",
+        "Primary Attribute(s)",
+        "AT",
+        "Attack",
+        "PA",
+        "Parry",
         "Close Combat",
         "Ranged Combat",
-        "inlinewiki.special",
-        "inlinewiki.primaryattribute",
+        "Special",
+        "Primary Attribute",
         "Cantrips",
         "Rituals",
         "Curses",
@@ -3443,20 +3838,128 @@
         "Animist Powers",
         "Geode Rituals",
         "Zibilja Rituals",
-        "spells.addbtn",
-        "spells.header.name",
-        "spells.header.property",
-        "spells.header.group",
-        "spells.header.skillrating",
-        "spells.header.skillrating.tooltip",
-        "spells.header.check",
-        "spells.header.checkmodifier",
-        "spells.header.checkmodifier.tooltip",
-        "spells.header.improvementcost",
-        "spells.header.improvementcost.tooltip",
-        "spells.groups.cantrip",
+        "Mod",
+        "Check Modifier",
         "spells.traditions.general",
         "magicalactions.animistforces.tribes.general",
+        " (modified by {0})",
+        " (− {0})",
+        "{0} or {1}, depending on which value is higher",
+        "Invocation Difficulty",
+        "ID",
+        "Creation Difficulty",
+        "CD",
+        "Effect",
+        "Casting Time",
+        "Ritual Time",
+        "Liturgical Time",
+        "Ceremonial Time",
+        "AE Cost",
+        "KP Cost",
+        "Range",
+        "Duration",
+        "Target Category",
+        "Traditions",
+        " (you cannot use a modification on this spell’s casting time)",
+        " (you cannot use a modification on this spell’s cost)",
+        " (you cannot use a modification on this spell’s range)",
+        " (you cannot use a modification on this ritual’s ritual time)",
+        " (you cannot use a modification on this ritual’s cost)",
+        " (you cannot use a modification on this ritual’s range)",
+        " (you cannot use a modification on this chant’s liturgical time)",
+        " (you cannot use a modification on this chant’s cost)",
+        " (you cannot use a modification on this chant’s range)",
+        " (you cannot use a modification on this ceremony’s ceremonial time)",
+        " (you cannot use a modification on this ceremony’s cost)",
+        " (you cannot use a modification on this ceremony’s range)",
+        " (cannot modify)",
+        "{0} act",
+        "act",
+        "{0} actions",
+        "actions",
+        "{0} s",
+        "s",
+        "{0} seconds",
+        "seconds",
+        "{0} min",
+        "min",
+        "{0} minutes",
+        "minutes",
+        "{0} h",
+        "h",
+        "{0} hours",
+        "hours",
+        "{0} d",
+        "d",
+        "{0} days",
+        "days",
+        "{0} wks.",
+        "wks.",
+        "{0} weeks",
+        "weeks",
+        "{0} mos.",
+        "mos.",
+        "{0} months",
+        "months",
+        "{0} yrs.",
+        "yrs.",
+        "{0} years",
+        "years",
+        "{0} cent.",
+        "cent.",
+        "{0} centuries",
+        "centuries",
+        "{0} SA",
+        "{0} seduction actions",
+        "{0} rnds",
+        "{0} rounds",
+        "{0} CR",
+        "CR",
+        "{0} combat rounds",
+        "combat rounds",
+        "{0} AE",
+        "{0} KP",
+        "min. ",
+        "at least ",
+        "/{0}",
+        " per {0}",
+        ", minimum of {0}",
+        " ({0} perm.)",
+        ", {0} of which are permanent",
+        "half of the activation cost",
+        " and ",
+        " + ",
+        " or ",
+        " / ",
+        " for ",
+        " (no more than {0})",
+        " (max. {0})",
+        "Immediate",
+        "Permanent",
+        "no more than ",
+        "max. ",
+        "Quality Levels",
+        "QL",
+        "QL {0}",
+        "Skill Points",
+        "SP",
+        "Sustained",
+        "(S)",
+        "{0} yards",
+        "{0} yd",
+        "{0} miles",
+        "{0} mi.",
+        "Sight",
+        "Self",
+        "Global",
+        "Touch",
+        "Radius",
+        " (casting)",
+        "Zone",
+        "Liturgical Chants and Ceremonies",
+        "General",
+        "Note",
+        "all",
         "inlinewiki.castingtime",
         "inlinewiki.ritualtime",
         "inlinewiki.aecost",

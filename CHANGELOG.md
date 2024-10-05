@@ -2,6 +2,47 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.17.0](https://github.com/elyukai/optolith-database-schema/compare/v0.16.8...v0.17.0) (2024-10-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* add translations for library entries of spellworks and liturgical chants
+
+### Features
+
+* add translations for library entries of spellworks and liturgical chants ([223a469](https://github.com/elyukai/optolith-database-schema/commit/223a469a63b44d0204d762b17905d622d7b6b9a2))
+
+### [0.16.8](https://github.com/elyukai/optolith-database-schema/compare/v0.16.7...v0.16.8) (2024-03-01)
+
+
+### Bug Fixes
+
+* add slash to protective and warding circle key ([ef91f89](https://github.com/elyukai/optolith-database-schema/commit/ef91f897ad56db97f93a76958fab8dd69121830c))
+
+### [0.16.7](https://github.com/elyukai/optolith-database-schema/compare/v0.16.6...v0.16.7) (2024-03-01)
+
+### [0.16.6](https://github.com/elyukai/optolith-database-schema/compare/v0.16.5...v0.16.6) (2024-03-01)
+
+
+### Features
+
+* add special ability group translations ([5b95dd5](https://github.com/elyukai/optolith-database-schema/commit/5b95dd52e1ef9124da51b38bc1263b44f85740fa))
+
+### [0.16.5](https://github.com/elyukai/optolith-database-schema/compare/v0.16.4...v0.16.5) (2024-02-29)
+
+
+### Features
+
+* add missing activatable and rated identifiers ([a34676b](https://github.com/elyukai/optolith-database-schema/commit/a34676b3c3a7d91621d285447eb913d6888e2c8e))
+* convert many used keys to their english fallback and add some new keys ([ae07fd2](https://github.com/elyukai/optolith-database-schema/commit/ae07fd2b6def34c4a5269202a9ac3a3b8e735b37))
+
+
+### Bug Fixes
+
+* add missing identifier handling to magical and blessed advantages and disadvantages cache ([eba871a](https://github.com/elyukai/optolith-database-schema/commit/eba871a0e7ea803775a30c01e2d2c278bd60856f))
+* applications and uses for select options ([c21b851](https://github.com/elyukai/optolith-database-schema/commit/c21b8512817204129a9213b330abc811b64dad13))
+
 ### [0.16.4](https://github.com/elyukai/optolith-database-schema/compare/v0.16.3...v0.16.4) (2024-01-21)
 
 

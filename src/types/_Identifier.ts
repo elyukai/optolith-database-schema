@@ -669,6 +669,28 @@ export type TrinkhornzauberIdentifier = {
   trinkhornzauber: number
 }
 
+export type MagicalRuneIdentifier = {
+  tag: "MagicalRune"
+
+  /**
+   * The magical rune’s identifier.
+   * @integer
+   * @minimum 1
+   */
+  magical_rune: number
+}
+
+export type MagicalSignIdentifier = {
+  tag: "MagicalSign"
+
+  /**
+   * The magical sign’s identifier.
+   * @integer
+   * @minimum 1
+   */
+  magical_sign: number
+}
+
 export type LanguageIdentifier = {
   tag: "Language"
 

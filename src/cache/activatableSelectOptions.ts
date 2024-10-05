@@ -11,12 +11,15 @@ import { TargetCategory } from "../types/TargetCategory.js"
 import {
   ExplicitSelectOption,
   SelectOptions,
+  SkillApplication,
   SkillApplications,
+  SkillUse,
   SkillUses,
 } from "../types/_Activatable.js"
 import {
   AdventurePointsValue,
   SelectOptionCategory,
+  SkillApplicationOrUse,
   SkillSelectOptionCategoryPrerequisite,
   SpecificFromSkillSelectOptionCategoryCategory,
   SpecificTargetCategory,
@@ -251,6 +254,15 @@ const getApValueForSkillish = (
       return assertExhaustive(config)
   }
 }
+
+const convertSkillApplicationOrUse = (
+  id: SkillIdentifier,
+  applicationOrUse: SkillApplicationOrUse
+): SkillApplication | SkillUse => ({
+  id: applicationOrUse.id,
+  skill: { tag: "Single", single: { id } },
+  translations: applicationOrUse.translations,
+})
 
 const getDerivedSelectOptions = (
   selectOptionCategory: SelectOptionCategory,
@@ -762,16 +774,12 @@ const getDerivedSelectOptions = (
                 const id: SkillIdentifier = { tag: "Skill", skill: skill.id }
                 return {
                   id,
-                  skill_uses: category.skills.skill_uses?.map(use => ({
-                    id: use.id,
-                    skill: { tag: "Single", single: { id } },
-                    translations: use.translations,
-                  })),
-                  skill_applications: category.skills.skill_applications?.map(use => ({
-                    id: use.id,
-                    skill: { tag: "Single", single: { id } },
-                    translations: use.translations,
-                  })),
+                  skill_uses: category.skills.skill_uses?.map(use =>
+                    convertSkillApplicationOrUse(id, use)
+                  ),
+                  skill_applications: category.skills.skill_applications?.map(use =>
+                    convertSkillApplicationOrUse(id, use)
+                  ),
                   prerequisites: getSkillishPrerequisites(category.skills.prerequisites, id),
                   ap_value: getApValueForSkillish(
                     category.skills.ap_value ?? apValueGen,
@@ -1006,6 +1014,21 @@ const getDerivedSelectOptions = (
   }
 }
 
+const joinLocaleMaps = <T, U, V>(
+  a: LocaleMap<T>,
+  b: LocaleMap<U>,
+  join: (a?: T, b?: U) => V
+): LocaleMap<NonNullable<V>> => {
+  const combinedLocaleMap: LocaleMap<NonNullable<V>> = {}
+  for (const key of new Set([...Object.keys(a), ...Object.keys(b)])) {
+    const newValue = join(a[key], b[key])
+    if (newValue != null) {
+      combinedLocaleMap[key] = newValue
+    }
+  }
+  return combinedLocaleMap
+}
+
 const getExplicitSelectOptions = (
   explicitSelectOptions: ExplicitSelectOption[],
   database: ValidResults
@@ -1015,17 +1038,30 @@ const getExplicitSelectOptions = (
       switch (explicitSelectOption.tag) {
         case "General":
           return {
+            ...explicitSelectOption.general,
             id: { tag: "General", general: explicitSelectOption.general.id },
-            translations: explicitSelectOption.general.translations,
           }
         case "Skill": {
           const skill = database.skills.find(p => p[0] === explicitSelectOption.skill.id.skill)?.[1]
           if (skill === undefined) {
             return undefined
           }
+          const id: SkillIdentifier = { tag: "Skill", skill: explicitSelectOption.skill.id.skill }
           return {
-            id: { tag: "Skill", skill: explicitSelectOption.skill.id.skill },
-            translations: mapObject(skill.translations, t10n => ({ name: t10n.name })),
+            ...explicitSelectOption.skill,
+            id,
+            skill_applications: explicitSelectOption.skill.skill_applications?.map(use =>
+              convertSkillApplicationOrUse(id, use)
+            ),
+            skill_uses: explicitSelectOption.skill.skill_uses?.map(use =>
+              convertSkillApplicationOrUse(id, use)
+            ),
+            translations: joinLocaleMaps(
+              explicitSelectOption.skill.translations ?? {},
+              skill.translations,
+              (explicit, base) =>
+                base === undefined ? undefined : { ...explicit, name: base.name }
+            ),
           }
         }
         case "CombatTechnique":
@@ -1039,10 +1075,14 @@ const getExplicitSelectOptions = (
                 return undefined
               }
               return {
+                ...explicitSelectOption.combat_technique,
                 id: { tag: "CloseCombatTechnique", close_combat_technique: id },
-                translations: mapObject(closeCombatTechnique.translations, t10n => ({
-                  name: t10n.name,
-                })),
+                translations: joinLocaleMaps(
+                  explicitSelectOption.combat_technique.translations ?? {},
+                  closeCombatTechnique.translations,
+                  (explicit, base) =>
+                    base === undefined ? undefined : { ...explicit, name: base.name }
+                ),
               }
             }
             case "RangedCombatTechnique": {
@@ -1054,10 +1094,14 @@ const getExplicitSelectOptions = (
                 return undefined
               }
               return {
+                ...explicitSelectOption.combat_technique,
                 id: { tag: "RangedCombatTechnique", ranged_combat_technique: id },
-                translations: mapObject(rangedCombatTechnique.translations, t10n => ({
-                  name: t10n.name,
-                })),
+                translations: joinLocaleMaps(
+                  explicitSelectOption.combat_technique.translations ?? {},
+                  rangedCombatTechnique.translations,
+                  (explicit, base) =>
+                    base === undefined ? undefined : { ...explicit, name: base.name }
+                ),
               }
             }
             default:
@@ -1195,6 +1239,8 @@ const getSelectOptionsForResults = (
             return { tag: "Krallenkettenzauber", krallenkettenzauber: id }
           case "Trinkhornzauber":
             return { tag: "Trinkhornzauber", trinkhornzauber: id }
+          case "MagicalSign":
+            return { tag: "MagicalSign", magical_sign: id }
           default:
             return assertExhaustive(idTag)
         }
