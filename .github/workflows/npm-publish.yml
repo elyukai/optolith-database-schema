@@ -31,6 +31,6 @@ jobs:
       - run: npm ci
       - run: npm run build:ts
       - run: npm run build:gen
-      - run: npm publish
+      - run: npm publish --provenance
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
