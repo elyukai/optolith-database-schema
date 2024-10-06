@@ -34,7 +34,11 @@ const registerAllJsonSchemaDocuments = async (jsonSchemaDir: string, validator: 
   }
 }
 
-export const getPreparedSchemaValidator = async (jsonSchemaSpec: JsonSchemaSpec, validatorOptions: Options = {}, jsonSchemaDir: string) => {
+export const getPreparedSchemaValidator = async (
+  jsonSchemaSpec: JsonSchemaSpec,
+  validatorOptions: Options = {},
+  jsonSchemaDir: string
+) => {
   const validator = createSchemaValidator(jsonSchemaSpec, validatorOptions)
   await registerAllJsonSchemaDocuments(jsonSchemaDir, validator)
   addFormats(validator)
