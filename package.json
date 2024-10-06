@@ -29,7 +29,7 @@
   "author": "Lukas Obermann",
   "license": "MPL-2.0",
   "dependencies": {
-    "@optolith/helpers": "^0.2.0",
+    "@optolith/helpers": "^0.2.1",
     "ajv": "^8.12.0",
     "ajv-formats": "^2.1.1",
     "yaml": "^2.3.3"
