@@ -28,5 +28,3 @@ Object.defineProperty(Array.prototype, "objectFromEntries", {
     return Object.fromEntries(this)
   }
 })
-
-export const filterNullable = <T>(arr: T[]): NonNullable<T>[] => arr.filter((x): x is NonNullable<typeof x> => x != null)

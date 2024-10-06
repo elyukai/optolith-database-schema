@@ -1,4 +1,4 @@
-import { filterNullable } from "./helpers/array.js"
+import { filterNonNullable } from "@optolith/helpers/array"
 import { collator } from "./helpers/i18n.js"
 import { TypeValidationError } from "./main.js"
 import { IntegrityError } from "./validation/builders/integrity.js"
@@ -30,7 +30,7 @@ export const printErrors = (errorsByFile: Record<string, TypeValidationError[]>,
     .sort(([filePathA], [filePathB]) => collator.compare(filePathA, filePathB))
     .flatMap(
       verbose
-      ? ([filePath, errors]) => filterNullable(errors.map(printVerboseError(filePath)))
+      ? ([filePath, errors]) => filterNonNullable(errors.map(printVerboseError(filePath)))
       : ([filePath, errors]) => [
         ...(
           errors
