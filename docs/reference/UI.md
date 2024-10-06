@@ -803,6 +803,8 @@ Key | Description | Details
 `{0} KP` |  | <a href="#UI/{0} KP">See details</a>
 `min. ` |  | <a href="#UI/min. ">See details</a>
 `at least ` |  | <a href="#UI/at least ">See details</a>
+`min. {0}` |  | <a href="#UI/min. {0}">See details</a>
+`at least {0}` |  | <a href="#UI/at least {0}">See details</a>
 `/{0}` |  | <a href="#UI//{0}">See details</a>
 ` per {0}` |  | <a href="#UI/ per {0}">See details</a>
 `, minimum of {0}` |  | <a href="#UI/, minimum of {0}">See details</a>
@@ -816,6 +818,8 @@ Key | Description | Details
 ` for ` |  | <a href="#UI/ for ">See details</a>
 ` (no more than {0})` |  | <a href="#UI/ (no more than {0})">See details</a>
 ` (max. {0})` |  | <a href="#UI/ (max. {0})">See details</a>
+`no more than {0}` |  | <a href="#UI/no more than {0}">See details</a>
+`max. {0}` |  | <a href="#UI/max. {0}">See details</a>
 `Immediate` |  | <a href="#UI/Immediate">See details</a>
 `Permanent` |  | <a href="#UI/Permanent">See details</a>
 `no more than ` |  | <a href="#UI/no more than ">See details</a>
@@ -4328,6 +4332,14 @@ As in *2D6*.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
+#### <a name="UI/min. {0}"></a> `min. {0}`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/at least {0}"></a> `at least {0}`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
 #### <a name="UI//{0}"></a> `/{0}`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
@@ -4377,6 +4389,14 @@ As in *2D6*.
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/ (max. {0})"></a> ` (max. {0})`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/no more than {0}"></a> `no more than {0}`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/max. {0}"></a> `max. {0}`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
