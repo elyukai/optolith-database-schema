@@ -23,7 +23,7 @@ const createSchemaValidator = (jsonSchemaSpec: JsonSchemaSpec, validatorOptions:
       return new Ajv2020(validatorOptions)
 
     default:
-      assertExhaustive(jsonSchemaSpec)
+      return assertExhaustive(jsonSchemaSpec)
   }
 }
 
