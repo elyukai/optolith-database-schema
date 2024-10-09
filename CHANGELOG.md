@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.17.2](https://github.com/elyukai/optolith-database-schema/compare/v0.17.1...v0.17.2) (2024-10-06)
+
+### [0.17.1](https://github.com/elyukai/optolith-database-schema/compare/v0.17.0...v0.17.1) (2024-10-06)
+
+
+### Features
+
+* add minimum and maximum UI strings with placeholders ([1bf8df1](https://github.com/elyukai/optolith-database-schema/commit/1bf8df1575c605b50d2990ed5cd85892d871ecba))
+* add pluralization type definitions ([a8340e6](https://github.com/elyukai/optolith-database-schema/commit/a8340e6dd488945b63347a80de0f54f5eb5050e8))
+* use @optolith/helpers package ([d8324f7](https://github.com/elyukai/optolith-database-schema/commit/d8324f7042f459201452704bffa3c06e1ec582fe))
+
 ## [0.17.0](https://github.com/elyukai/optolith-database-schema/compare/v0.16.8...v0.17.0) (2024-10-03)
 
 

@@ -18,7 +18,7 @@ Object.defineProperty(Array.prototype, "promiseAll", {
   writable: true,
   value: function promiseAll<T>(this: Promise<T>[]): Promise<T[]> {
     return Promise.all(this)
-  }
+  },
 })
 
 Object.defineProperty(Array.prototype, "objectFromEntries", {
@@ -26,7 +26,5 @@ Object.defineProperty(Array.prototype, "objectFromEntries", {
   writable: true,
   value: function objectFromEntries<T>(this: [string, T][]): { [k: string]: T } {
     return Object.fromEntries(this)
-  }
+  },
 })
-
-export const filterNullable = <T>(arr: T[]): NonNullable<T>[] => arr.filter((x): x is NonNullable<typeof x> => x != null)

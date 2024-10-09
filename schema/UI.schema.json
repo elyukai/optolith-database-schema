@@ -2446,6 +2446,12 @@
         "at least ": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
+        "min. {0}": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "at least {0}": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
         "/{0}": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
@@ -2483,6 +2489,12 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         " (max. {0})": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "no more than {0}": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "max. {0}": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "Immediate": {
@@ -3921,6 +3933,8 @@
         "{0} KP",
         "min. ",
         "at least ",
+        "min. {0}",
+        "at least {0}",
         "/{0}",
         " per {0}",
         ", minimum of {0}",
@@ -3934,6 +3948,8 @@
         " for ",
         " (no more than {0})",
         " (max. {0})",
+        "no more than {0}",
+        "max. {0}",
         "Immediate",
         "Permanent",
         "no more than ",

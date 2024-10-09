@@ -1,3 +1,4 @@
+import { assertExhaustive } from "@optolith/helpers/typeSafety"
 import AjvModule, { AnySchemaObject, Options } from "ajv"
 import addFormatsModule from "ajv-formats"
 import Ajv2019Module from "ajv/dist/2019.js"
@@ -5,7 +6,6 @@ import Ajv2020Module from "ajv/dist/2020.js"
 import { JsonSchemaSpec } from "optolith-tsjsonschemamd/renderers/jsonSchema"
 import "../helpers/array.js"
 import { isHiddenFileName, readDirectoryRec, readJsonFile } from "../helpers/io.js"
-import { assertExhaustive } from "../helpers/typeSafety.js"
 
 // import resolution fixes for TypeScript
 type Ajv = AjvModule.default
@@ -23,7 +23,7 @@ const createSchemaValidator = (jsonSchemaSpec: JsonSchemaSpec, validatorOptions:
       return new Ajv2020(validatorOptions)
 
     default:
-      assertExhaustive(jsonSchemaSpec)
+      return assertExhaustive(jsonSchemaSpec)
   }
 }
 
@@ -34,7 +34,11 @@ const registerAllJsonSchemaDocuments = async (jsonSchemaDir: string, validator: 
   }
 }
 
-export const getPreparedSchemaValidator = async (jsonSchemaSpec: JsonSchemaSpec, validatorOptions: Options = {}, jsonSchemaDir: string) => {
+export const getPreparedSchemaValidator = async (
+  jsonSchemaSpec: JsonSchemaSpec,
+  validatorOptions: Options = {},
+  jsonSchemaDir: string
+) => {
   const validator = createSchemaValidator(jsonSchemaSpec, validatorOptions)
   await registerAllJsonSchemaDocuments(jsonSchemaDir, validator)
   addFormats(validator)

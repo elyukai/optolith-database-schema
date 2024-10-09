@@ -1022,6 +1022,8 @@ export type UI = {
   "{0} KP": NonEmptyString
   "min. ": NonEmptyString
   "at least ": NonEmptyString
+  "min. {0}": NonEmptyString
+  "at least {0}": NonEmptyString
   "/{0}": NonEmptyString
   " per {0}": NonEmptyString
   ", minimum of {0}": NonEmptyString
@@ -1035,6 +1037,8 @@ export type UI = {
   " for ": NonEmptyString
   " (no more than {0})": NonEmptyString
   " (max. {0})": NonEmptyString
+  "no more than {0}": NonEmptyString
+  "max. {0}": NonEmptyString
   "Immediate": NonEmptyString
   "Permanent": NonEmptyString
   "no more than ": NonEmptyString

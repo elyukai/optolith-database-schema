@@ -1,5 +1,5 @@
+import { assertExhaustive } from "@optolith/helpers/typeSafety"
 import type { CacheConfig } from "../cacheConfig.js"
-import { assertExhaustive } from "../helpers/typeSafety.js"
 import { ActivatableIdentifier, RatedIdentifier } from "../types/_IdentifierGroup.js"
 import { AdvantageDisadvantagePrerequisites } from "../types/_Prerequisite.js"
 import { AdvantageDisadvantagePrerequisiteGroup } from "../types/prerequisites/PrerequisiteGroups.js"

@@ -1,4 +1,4 @@
-import { filterNullable } from "./helpers/array.js"
+import { filterNonNullable } from "@optolith/helpers/array"
 import { collator } from "./helpers/i18n.js"
 import { TypeValidationError } from "./main.js"
 import { IntegrityError } from "./validation/builders/integrity.js"
@@ -23,39 +23,41 @@ export type PrintOptions = {
  * @param printOptions Configuration options for the printer.
  * @returns The pretty-printed error map.
  */
-export const printErrors = (errorsByFile: Record<string, TypeValidationError[]>, printOptions: PrintOptions = {}): string => {
+export const printErrors = (
+  errorsByFile: Record<string, TypeValidationError[]>,
+  printOptions: PrintOptions = {}
+): string => {
   const { verbose = false } = printOptions
 
   return Object.entries(errorsByFile)
     .sort(([filePathA], [filePathB]) => collator.compare(filePathA, filePathB))
     .flatMap(
       verbose
-      ? ([filePath, errors]) => filterNullable(errors.map(printVerboseError(filePath)))
-      : ([filePath, errors]) => [
-        ...(
-          errors
-            .filter((error): error is IntegrityError | FileNameError =>
-              error.keyword === "integrity" || error.keyword === "filename"
-            )
-            .map(printVerboseError(filePath))
-        ),
-        ...(
-          errors.some(error => error.keyword !== "integrity" && error.keyword !== "filename")
-          ? [errorMessageBlock([filePath], "has schema errors")]
-          : []
-        ),
-      ]
+        ? ([filePath, errors]) => filterNonNullable(errors.map(printVerboseError(filePath)))
+        : ([filePath, errors]) => [
+            ...errors
+              .filter(
+                (error): error is IntegrityError | FileNameError =>
+                  error.keyword === "integrity" || error.keyword === "filename"
+              )
+              .map(printVerboseError(filePath)),
+            ...(errors.some(error => error.keyword !== "integrity" && error.keyword !== "filename")
+              ? [errorMessageBlock([filePath], "has schema errors")]
+              : []),
+          ]
     )
     .join("\n\n")
 }
 
-const printVerboseError = (filePath: string) => (error: TypeValidationError): string => {
-  const pathSegments = [filePath, ...error.instancePath.split("/").slice(1)]
-  return errorMessageBlock(pathSegments, error.message ?? "")
-}
+const printVerboseError =
+  (filePath: string) =>
+  (error: TypeValidationError): string => {
+    const pathSegments = [filePath, ...error.instancePath.split("/").slice(1)]
+    return errorMessageBlock(pathSegments, error.message ?? "")
+  }
 
 const errorMessageBlock = (path: string[], message: string): string =>
   [
     ...path.map((segment, i) => `${" ".repeat(i * 2)}in "${segment}":`),
-    `${" ".repeat(path.length * 2)}${message}`
+    `${" ".repeat(path.length * 2)}${message}`,
   ].join("\n")
