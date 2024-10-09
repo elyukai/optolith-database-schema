@@ -57,6 +57,48 @@
         "ap_value"
       ],
       "additionalProperties": false
+    },
+    "StorageLife": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "The storage life of a (processed) herb.",
+          "type": "integer"
+        },
+        "unit": {
+          "$ref": "#/$defs/TimeUnit"
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "additionalProperties": false
+    },
+    "TimeUnit": {
+      "oneOf": [
+        {
+          "const": "CombatRounds"
+        },
+        {
+          "const": "Minutes"
+        },
+        {
+          "const": "Hours"
+        },
+        {
+          "const": "Days"
+        },
+        {
+          "const": "Weeks"
+        },
+        {
+          "const": "Months"
+        },
+        {
+          "const": "Years"
+        }
+      ]
     }
   }
 }
