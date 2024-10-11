@@ -14,7 +14,7 @@ import { Errata } from "../../source/_Erratum.js"
 import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { EffectType, StorageLife } from "./_Herbary.js"
 import { RecipeReference } from "../../_SimpleReferences.js"
-import { HerbalAidIdentifier, HerbalPreserveIdentifier } from "../../_Identifier.js"
+import { ElixirIdentifier, HerbalAidIdentifier, HerbalPreserveIdentifier, PoisonIdentifier } from "../../_Identifier.js"
 
 /**
  * @title Herb
@@ -110,6 +110,7 @@ export type LandscapeTypePrevalences =
   | { tag: "PrevalenceMountains", prevalence_mountains: LandscapeTypePrevalence[] }
   | { tag: "PrevalenceDesert", prevalence_desert: LandscapeTypePrevalence[] }
   | { tag: "PrevalenceMaraskan", prevalence_maraskan: LandscapeTypePrevalence[] }
+  | { tag: "PrevalenceAny", prevalence_any: LandscapeTypePrevalence[] }
 
 export type LandscapeTypePrevalence = {
   /**
@@ -137,6 +138,7 @@ export type PrevalenceClass =
  */
 export type StorageLifeRaw = 
   | { tag: "Default", default: {} }
+  | { tag: "Custom", custom: StorageLife }
   | { tag: "Special", special: LocaleMap<NonEmptyString> }
 
 /**
@@ -153,6 +155,8 @@ export type PreservationMethod = {
 export type PreservationMethodDescription =
 | HerbalAidIdentifier
 | HerbalPreserveIdentifier
+| PoisonIdentifier
+| ElixirIdentifier
 | { tag: "Special", special: LocaleMap<NonEmptyString> }
 
 export type HerbTranslation = {
@@ -191,21 +195,6 @@ export type HerbTranslation = {
    * Simple recipes the herb is used in.
    */
   simple_recipe?: NonEmptyString[]
-
-  /**
-   * Additional remarks on the prevalence per landscape type of the herb.
-   */
-  prevalence_remarks?: NonEmptyString
-
-  /**
-   * Description of the plant's regional prevalence.
-   */
-  prevalence_regions: NonEmptyString
-
-  /**
-   * Description of traditonal use of and legends about the herb.
-   */
-  legend_tradition: NonEmptyString
 
   errata?: Errata
 }
