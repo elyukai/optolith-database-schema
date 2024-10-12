@@ -18,7 +18,7 @@ Key | Description | Details
 `favored_combat_techniques?` | A list of favored combat techniques. | <a href="#BlessedTradition/favored_combat_techniques">See details</a>
 `favored_skills` | A list of favored skills. | <a href="#BlessedTradition/favored_skills">See details</a>
 `favored_skills_selection?` | On activation of the tradition, a specific number of skills from a list of skills must be selected as being favored. | <a href="#BlessedTradition/favored_skills_selection">See details</a>
-`is_shamanistic` | Is this a schamanistic tradition? | <a href="#BlessedTradition/is_shamanistic">See details</a>
+`type` | The type of the tradition. May be either church or shamanistic. | <a href="#BlessedTradition/type">See details</a>
 `associated_principles_id?` | The select option's identifier of the disadvantage *Principles* that represent this tradition's code, if any. | <a href="#BlessedTradition/associated_principles_id">See details</a>
 `prerequisites?` |  | <a href="#BlessedTradition/prerequisites">See details</a>
 `ap_value` |  | <a href="#BlessedTradition/ap_value">See details</a>
@@ -83,11 +83,11 @@ skills must be selected as being favored.
 
 - **Type:** <a href="#FavoredSkillsSelection">FavoredSkillsSelection</a>
 
-#### <a name="BlessedTradition/is_shamanistic"></a> `is_shamanistic`
+#### <a name="BlessedTradition/type"></a> `type`
 
-Is this a schamanistic tradition?
+The type of the tradition. May be either church or shamanistic.
 
-- **Type:** Boolean
+- **Type:** <a href="#BlessedTraditionType">BlessedTraditionType</a>
 
 #### <a name="BlessedTradition/associated_principles_id"></a> `associated_principles_id?`
 
@@ -406,6 +406,75 @@ The possible set of skills.
 ### <a name="FavoredSkillsSelection/options[]"></a> `FavoredSkillsSelection/options[]`
 
 - **Type:** <a href="../_SimpleReferences.md#SkillReference">SkillReference</a>
+
+---
+
+### <a name="BlessedTraditionType"></a> `BlessedTraditionType`
+
+The type of the tradition. May be either church or shamanistic.
+
+- **Type:** Union
+- **Cases:** <a href="#BlessedTraditionType'Church">BlessedTraditionType'Church</a> | <a href="#BlessedTraditionType'Shamanistic">BlessedTraditionType'Shamanistic</a>
+
+---
+
+### <a name="BlessedTraditionType'Church"></a> `BlessedTraditionType'Church`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#BlessedTraditionType'Church/tag">See details</a>
+`church` |  | <a href="#BlessedTraditionType'Church/church">See details</a>
+
+#### <a name="BlessedTraditionType'Church/tag"></a> `tag`
+
+- **Constant:** `"Church"`
+
+#### <a name="BlessedTraditionType'Church/church"></a> `church`
+
+- **Type:** <a href="#BlessedTraditionType'Church/church">Object</a>
+
+---
+
+### <a name="BlessedTraditionType'Church/church"></a> `BlessedTraditionType'Church/church`
+
+- **Type:** Empty Object
+
+---
+
+### <a name="BlessedTraditionType'Shamanistic"></a> `BlessedTraditionType'Shamanistic`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#BlessedTraditionType'Shamanistic/tag">See details</a>
+`shamanistic` |  | <a href="#BlessedTraditionType'Shamanistic/shamanistic">See details</a>
+
+#### <a name="BlessedTraditionType'Shamanistic/tag"></a> `tag`
+
+- **Constant:** `"Shamanistic"`
+
+#### <a name="BlessedTraditionType'Shamanistic/shamanistic"></a> `shamanistic`
+
+- **Type:** <a href="#ShamanisticBlessedTradition">ShamanisticBlessedTradition</a>
+
+---
+
+### <a name="ShamanisticBlessedTradition"></a> `ShamanisticBlessedTradition`
+
+Additional rules for shamanistic traditions.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`can_use_bone_mace_as_ceremonial_item` |  | <a href="#ShamanisticBlessedTradition/can_use_bone_mace_as_ceremonial_item">See details</a>
+
+#### <a name="ShamanisticBlessedTradition/can_use_bone_mace_as_ceremonial_item"></a> `can_use_bone_mace_as_ceremonial_item`
+
+- **Type:** Boolean
 
 ---
 

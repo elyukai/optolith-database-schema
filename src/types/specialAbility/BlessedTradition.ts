@@ -10,7 +10,13 @@ import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
 import * as Activatable from "../_Activatable.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
-import { AspectReference, AttributeReference, BlessingReference, CombatTechniqueReference, SkillReference } from "../_SimpleReferences.js"
+import {
+  AspectReference,
+  AttributeReference,
+  BlessingReference,
+  CombatTechniqueReference,
+  SkillReference,
+} from "../_SimpleReferences.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
 import { SpecialRule } from "./_Tradition.js"
@@ -62,9 +68,9 @@ export type BlessedTradition = {
   favored_skills_selection?: FavoredSkillsSelection
 
   /**
-   * Is this a schamanistic tradition?
+   * The type of the tradition. May be either church or shamanistic.
    */
-  is_shamanistic: boolean
+  type: BlessedTraditionType
 
   /**
    * The select option's identifier of the disadvantage *Principles* that
@@ -95,11 +101,7 @@ export type RestrictedBlessings =
 /**
  * @uniqueItems
  */
-export type ThreeRestrictedBlessings = [
-  BlessingReference,
-  BlessingReference,
-  BlessingReference,
-]
+export type ThreeRestrictedBlessings = [BlessingReference, BlessingReference, BlessingReference]
 
 /**
  * @uniqueItems
@@ -110,7 +112,7 @@ export type SixRestrictedBlessings = [
   BlessingReference,
   BlessingReference,
   BlessingReference,
-  BlessingReference,
+  BlessingReference
 ]
 
 export type FavoredCombatTechniques =
@@ -142,6 +144,20 @@ export type FavoredSkillsSelection = {
    * @uniqueItems
    */
   options: SkillReference[]
+}
+
+/**
+ * The type of the tradition. May be either church or shamanistic.
+ */
+export type BlessedTraditionType =
+  | { tag: "Church"; church: {} }
+  | { tag: "Shamanistic"; shamanistic: ShamanisticBlessedTradition }
+
+/**
+ * Additional rules for shamanistic traditions.
+ */
+export type ShamanisticBlessedTradition = {
+  can_use_bone_mace_as_ceremonial_item: boolean
 }
 
 export type BlessedTraditionTranslation = {
