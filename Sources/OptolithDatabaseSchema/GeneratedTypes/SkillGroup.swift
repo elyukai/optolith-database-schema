@@ -1,8 +1,6 @@
 //
 //  SkillGroup.swift
-//  OptolithDatabase
-//
-//  Generated on 16.11.2024
+//  OptolithDatabaseSchema
 //
 
 import DiscriminatedEnum

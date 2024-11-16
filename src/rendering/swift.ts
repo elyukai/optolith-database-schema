@@ -371,11 +371,7 @@ const transformer: AstTransformer = (ast, meta) => {
 
   const fileHeader = `//
 //  ${basename(meta.absolutePath)}
-//  OptolithDatabase
-//
-//  Generated on ${date.getDate().toString().padStart(2, "0")}.${(date.getMonth() + 1)
-    .toString()
-    .padStart(2, "0")}.${date.getFullYear()}
+//  OptolithDatabaseSchema
 //`
 
   if (ignoreFile) {
