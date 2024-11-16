@@ -42,7 +42,7 @@ purchased via certain advantages or special abilities.
 
 Indicates whether encumbrance gives a penalty for checks with the skill.
 
-- **Type:** <a href="#Encumbrance">Encumbrance</a>
+- **Type:** <a href="#EncumbranceInfluence">EncumbranceInfluence</a>
 
 #### <a name="Skill/improvement_cost"></a> `improvement_cost`
 
@@ -275,27 +275,27 @@ The skill application's name.
 
 ---
 
-### <a name="Encumbrance"></a> `Encumbrance`
+### <a name="EncumbranceInfluence"></a> `EncumbranceInfluence`
 
 Indicates whether encumbrance gives a penalty for checks with the skill.
 
 - **Type:** Union
-- **Cases:** <a href="#Encumbrance'0">Encumbrance'0</a> | <a href="#Encumbrance'1">Encumbrance'1</a> | <a href="#Encumbrance'2">Encumbrance'2</a>
+- **Cases:** <a href="#EncumbranceInfluence'0">EncumbranceInfluence'0</a> | <a href="#EncumbranceInfluence'1">EncumbranceInfluence'1</a> | <a href="#EncumbranceInfluence'2">EncumbranceInfluence'2</a>
 
 ---
 
-### <a name="Encumbrance'0"></a> `Encumbrance'0`
+### <a name="EncumbranceInfluence'0"></a> `EncumbranceInfluence'0`
 
 - **Constant:** `"True"`
 
 ---
 
-### <a name="Encumbrance'1"></a> `Encumbrance'1`
+### <a name="EncumbranceInfluence'1"></a> `EncumbranceInfluence'1`
 
 - **Constant:** `"False"`
 
 ---
 
-### <a name="Encumbrance'2"></a> `Encumbrance'2`
+### <a name="EncumbranceInfluence'2"></a> `EncumbranceInfluence'2`
 
 - **Constant:** `"Maybe"`

@@ -29,7 +29,7 @@
           "$ref": "#/$defs/DaggerRitualCost"
         },
         "property": {
-          "$ref": "../_Activatable.schema.json#/$defs/Property"
+          "$ref": "../_Activatable.schema.json#/$defs/PropertyDeclaration"
         },
         "ap_value": {
           "$ref": "../_Activatable.schema.json#/$defs/AdventurePointsValue"
@@ -111,24 +111,20 @@
       "additionalProperties": false
     },
     "LifePointsCost": {
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Fixed"
-            },
-            "fixed": {
-              "$ref": "#/$defs/FixedLifePointsCost"
-            }
-          },
-          "required": [
-            "tag",
-            "fixed"
-          ],
-          "additionalProperties": false
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Fixed"
+        },
+        "fixed": {
+          "$ref": "#/$defs/FixedLifePointsCost"
         }
-      ]
+      },
+      "required": [
+        "tag",
+        "fixed"
+      ],
+      "additionalProperties": false
     },
     "FixedLifePointsCost": {
       "type": "object",

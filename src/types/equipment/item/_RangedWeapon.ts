@@ -61,7 +61,7 @@ export type RangedWeapon = {
   /**
    * The range brackets for the weapon: close, medium, far. Distances in m.
    */
-  range: Range
+  range: RangeBrackets
 
   /**
    * The needed ammunition.
@@ -86,7 +86,7 @@ export type AmmunitionReference = {
   id: AmmunitionIdentifier
 }
 
-export type Range = {
+export type RangeBrackets = {
   /**
    * The close range bracket for the weapon. Distance in m.
    * @integer

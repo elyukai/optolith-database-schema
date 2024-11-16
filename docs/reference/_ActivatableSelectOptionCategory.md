@@ -646,25 +646,18 @@ Generate prerequisites for each entry of the category.
 
 ### <a name="LanguagesSelectOptionCategoryPrerequisite"></a> `LanguagesSelectOptionCategoryPrerequisite`
 
-- **Type:** Union
-- **Cases:** <a href="#LanguagesSelectOptionCategoryPrerequisite'SelectOption">LanguagesSelectOptionCategoryPrerequisite'SelectOption</a>
-
----
-
-### <a name="LanguagesSelectOptionCategoryPrerequisite'SelectOption"></a> `LanguagesSelectOptionCategoryPrerequisite'SelectOption`
-
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#LanguagesSelectOptionCategoryPrerequisite'SelectOption/tag">See details</a>
-`select_option` |  | <a href="#LanguagesSelectOptionCategoryPrerequisite'SelectOption/select_option">See details</a>
+`tag` |  | <a href="#LanguagesSelectOptionCategoryPrerequisite/tag">See details</a>
+`select_option` |  | <a href="#LanguagesSelectOptionCategoryPrerequisite/select_option">See details</a>
 
-#### <a name="LanguagesSelectOptionCategoryPrerequisite'SelectOption/tag"></a> `tag`
+#### <a name="LanguagesSelectOptionCategoryPrerequisite/tag"></a> `tag`
 
 - **Constant:** `"SelectOption"`
 
-#### <a name="LanguagesSelectOptionCategoryPrerequisite'SelectOption/select_option"></a> `select_option`
+#### <a name="LanguagesSelectOptionCategoryPrerequisite/select_option"></a> `select_option`
 
 - **Type:** <a href="#OptionPrerequisite">OptionPrerequisite</a>
 
@@ -691,7 +684,7 @@ A list of skill categories.
 
 Generate AP values for each entry.
 
-- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>&lt;<a href="./_IdentifierGroup.md#SkillIdentifier">SkillIdentifierGroup</a>&gt;
+- **Type:** <a href="#SelectOptionsAdventurePointsValue">SelectOptionsAdventurePointsValue</a>&lt;<a href="./_IdentifierGroup.md#SkillishIdentifier">SkillishIdentifier</a>&gt;
 
 ---
 
@@ -867,7 +860,7 @@ Generate prerequisites for each entry of the category.
 
 Generate AP values for each entry.
 
-- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>&lt;<a href="./_Identifier.md#SkillIdentifier">SkillIdentifier</a>&gt;
+- **Type:** <a href="#SelectOptionsAdventurePointsValue">SelectOptionsAdventurePointsValue</a>&lt;<a href="./_Identifier.md#SkillIdentifier">SkillIdentifier</a>&gt;
 
 ---
 
@@ -916,7 +909,7 @@ A list of combat technique categories.
 
 Generate AP values for each entry.
 
-- **Type:** <a href="#AdventurePointsValue">AdventurePointsValue</a>&lt;<a href="./_IdentifierGroup.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>&gt;
+- **Type:** <a href="#SelectOptionsAdventurePointsValue">SelectOptionsAdventurePointsValue</a>&lt;<a href="./_IdentifierGroup.md#CombatTechniqueIdentifier">CombatTechniqueIdentifier</a>&gt;
 
 ---
 
@@ -1190,54 +1183,54 @@ The required level, if any.
 
 ---
 
-### <a name="AdventurePointsValue"></a> `AdventurePointsValue<Identifier>`
+### <a name="SelectOptionsAdventurePointsValue"></a> `SelectOptionsAdventurePointsValue<Identifier>`
 
 Generate AP values for each entry.
 
 - **Type:** Union
-- **Cases:** <a href="#AdventurePointsValue'DerivedFromImprovementCost">AdventurePointsValue'DerivedFromImprovementCost</a> | <a href="#AdventurePointsValue'Fixed">AdventurePointsValue'Fixed</a>
+- **Cases:** <a href="#SelectOptionsAdventurePointsValue'DerivedFromImprovementCost">SelectOptionsAdventurePointsValue'DerivedFromImprovementCost</a> | <a href="#SelectOptionsAdventurePointsValue'Fixed">SelectOptionsAdventurePointsValue'Fixed</a>
 
 ---
 
-### <a name="AdventurePointsValue'DerivedFromImprovementCost"></a> `AdventurePointsValue'DerivedFromImprovementCost`
+### <a name="SelectOptionsAdventurePointsValue'DerivedFromImprovementCost"></a> `SelectOptionsAdventurePointsValue'DerivedFromImprovementCost`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#AdventurePointsValue'DerivedFromImprovementCost/tag">See details</a>
-`derived_from_improvement_cost` |  | <a href="#AdventurePointsValue'DerivedFromImprovementCost/derived_from_improvement_cost">See details</a>
+`tag` |  | <a href="#SelectOptionsAdventurePointsValue'DerivedFromImprovementCost/tag">See details</a>
+`derived_from_improvement_cost` |  | <a href="#SelectOptionsAdventurePointsValue'DerivedFromImprovementCost/derived_from_improvement_cost">See details</a>
 
-#### <a name="AdventurePointsValue'DerivedFromImprovementCost/tag"></a> `tag`
+#### <a name="SelectOptionsAdventurePointsValue'DerivedFromImprovementCost/tag"></a> `tag`
 
 - **Constant:** `"DerivedFromImprovementCost"`
 
-#### <a name="AdventurePointsValue'DerivedFromImprovementCost/derived_from_improvement_cost"></a> `derived_from_improvement_cost`
+#### <a name="SelectOptionsAdventurePointsValue'DerivedFromImprovementCost/derived_from_improvement_cost"></a> `derived_from_improvement_cost`
 
-- **Type:** <a href="#DeriveAdventurePointsValueFromImprovementCost">DeriveAdventurePointsValueFromImprovementCost</a>
+- **Type:** <a href="#SelectOptionsDeriveAdventurePointsValueFromImprovementCost">SelectOptionsDeriveAdventurePointsValueFromImprovementCost</a>
 
 ---
 
-### <a name="AdventurePointsValue'Fixed"></a> `AdventurePointsValue'Fixed`
+### <a name="SelectOptionsAdventurePointsValue'Fixed"></a> `SelectOptionsAdventurePointsValue'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#AdventurePointsValue'Fixed/tag">See details</a>
-`fixed` |  | <a href="#AdventurePointsValue'Fixed/fixed">See details</a>
+`tag` |  | <a href="#SelectOptionsAdventurePointsValue'Fixed/tag">See details</a>
+`fixed` |  | <a href="#SelectOptionsAdventurePointsValue'Fixed/fixed">See details</a>
 
-#### <a name="AdventurePointsValue'Fixed/tag"></a> `tag`
+#### <a name="SelectOptionsAdventurePointsValue'Fixed/tag"></a> `tag`
 
 - **Constant:** `"Fixed"`
 
-#### <a name="AdventurePointsValue'Fixed/fixed"></a> `fixed`
+#### <a name="SelectOptionsAdventurePointsValue'Fixed/fixed"></a> `fixed`
 
-- **Type:** <a href="#FixedAdventurePointsValue">FixedAdventurePointsValue</a>&lt;<a href="#Identifier">Identifier</a>&gt;
+- **Type:** <a href="#SelectOptionsFixedAdventurePointsValue">SelectOptionsFixedAdventurePointsValue</a>&lt;<a href="#Identifier">Identifier</a>&gt;
 
 ---
 
-### <a name="DeriveAdventurePointsValueFromImprovementCost"></a> `DeriveAdventurePointsValueFromImprovementCost`
+### <a name="SelectOptionsDeriveAdventurePointsValueFromImprovementCost"></a> `SelectOptionsDeriveAdventurePointsValueFromImprovementCost`
 
 Derive the cost from the improvement cost of each entry.
 
@@ -1247,10 +1240,10 @@ Derive the cost from the improvement cost of each entry.
 
 Key | Description | Details
 :-- | :-- | :--
-`multiplier?` | This number is multiplied with the improvement cost of the entry (A = 1 to D = 4). | <a href="#DeriveAdventurePointsValueFromImprovementCost/multiplier">See details</a>
-`offset?` | This number is added to the multiplied improvement cost of the entry. | <a href="#DeriveAdventurePointsValueFromImprovementCost/offset">See details</a>
+`multiplier?` | This number is multiplied with the improvement cost of the entry (A = 1 to D = 4). | <a href="#SelectOptionsDeriveAdventurePointsValueFromImprovementCost/multiplier">See details</a>
+`offset?` | This number is added to the multiplied improvement cost of the entry. | <a href="#SelectOptionsDeriveAdventurePointsValueFromImprovementCost/offset">See details</a>
 
-#### <a name="DeriveAdventurePointsValueFromImprovementCost/multiplier"></a> `multiplier?`
+#### <a name="SelectOptionsDeriveAdventurePointsValueFromImprovementCost/multiplier"></a> `multiplier?`
 
 This number is multiplied with the improvement cost of the entry
 (A = 1 to D = 4).
@@ -1259,7 +1252,7 @@ This number is multiplied with the improvement cost of the entry
 - **Default:** `1`
 - **Minimum:** `2`
 
-#### <a name="DeriveAdventurePointsValueFromImprovementCost/offset"></a> `offset?`
+#### <a name="SelectOptionsDeriveAdventurePointsValueFromImprovementCost/offset"></a> `offset?`
 
 This number is added to the multiplied improvement cost of the entry.
 
@@ -1268,23 +1261,23 @@ This number is added to the multiplied improvement cost of the entry.
 
 ---
 
-### <a name="FixedAdventurePointsValue"></a> `FixedAdventurePointsValue<Identifier>`
+### <a name="SelectOptionsFixedAdventurePointsValue"></a> `SelectOptionsFixedAdventurePointsValue<Identifier>`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`map` | A mapping of skill identifiers to their specific AP values. | <a href="#FixedAdventurePointsValue/map">See details</a>
-`default` | The default value of an entry. Used as a fallback if no value is found in `list`. | <a href="#FixedAdventurePointsValue/default">See details</a>
+`map` | A mapping of skill identifiers to their specific AP values. | <a href="#SelectOptionsFixedAdventurePointsValue/map">See details</a>
+`default` | The default value of an entry. Used as a fallback if no value is found in `list`. | <a href="#SelectOptionsFixedAdventurePointsValue/default">See details</a>
 
-#### <a name="FixedAdventurePointsValue/map"></a> `map`
+#### <a name="SelectOptionsFixedAdventurePointsValue/map"></a> `map`
 
 A mapping of skill identifiers to their specific AP values.
 
 - **Type:** List
-- **Items:** <a href="#FixedAdventurePointsValue/map[]">FixedAdventurePointsValue/map[]</a>
+- **Items:** <a href="#SelectOptionsFixedAdventurePointsValue/map[]">SelectOptionsFixedAdventurePointsValue/map[]</a>
 
-#### <a name="FixedAdventurePointsValue/default"></a> `default`
+#### <a name="SelectOptionsFixedAdventurePointsValue/default"></a> `default`
 
 The default value of an entry. Used as a fallback if no value is
 found in `list`.
@@ -1294,28 +1287,28 @@ found in `list`.
 
 ---
 
-### <a name="FixedAdventurePointsValue/map[]"></a> `FixedAdventurePointsValue/map[]`
+### <a name="SelectOptionsFixedAdventurePointsValue/map[]"></a> `SelectOptionsFixedAdventurePointsValue/map[]`
 
-- **Type:** <a href="#FixedAdventurePointsValueMapping">FixedAdventurePointsValueMapping</a>&lt;<a href="#Identifier">Identifier</a>&gt;
+- **Type:** <a href="#SelectOptionsFixedAdventurePointsValueMapping">SelectOptionsFixedAdventurePointsValueMapping</a>&lt;<a href="#Identifier">Identifier</a>&gt;
 
 ---
 
-### <a name="FixedAdventurePointsValueMapping"></a> `FixedAdventurePointsValueMapping<Identifier>`
+### <a name="SelectOptionsFixedAdventurePointsValueMapping"></a> `SelectOptionsFixedAdventurePointsValueMapping<Identifier>`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The entry's identifier. | <a href="#FixedAdventurePointsValueMapping/id">See details</a>
-`ap_value` | The AP value for the specified entry. | <a href="#FixedAdventurePointsValueMapping/ap_value">See details</a>
+`id` | The entry's identifier. | <a href="#SelectOptionsFixedAdventurePointsValueMapping/id">See details</a>
+`ap_value` | The AP value for the specified entry. | <a href="#SelectOptionsFixedAdventurePointsValueMapping/ap_value">See details</a>
 
-#### <a name="FixedAdventurePointsValueMapping/id"></a> `id`
+#### <a name="SelectOptionsFixedAdventurePointsValueMapping/id"></a> `id`
 
 The entry's identifier.
 
 - **Type:** <a href="#Identifier">Identifier</a>
 
-#### <a name="FixedAdventurePointsValueMapping/ap_value"></a> `ap_value`
+#### <a name="SelectOptionsFixedAdventurePointsValueMapping/ap_value"></a> `ap_value`
 
 The AP value for the specified entry.
 

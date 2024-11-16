@@ -7,6 +7,7 @@ import { todo } from "../validation/builders/integrity.js"
 import { validateEntityFileName } from "../validation/builders/naming.js"
 import { createSchemaValidator } from "../validation/builders/schema.js"
 import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
+import { OldParameter } from "./_ActivatableSkill.js"
 import { DurationUnit, DurationUnitValue } from "./_ActivatableSkillDuration.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { ResponsiveText, ResponsiveTextOptional, ResponsiveTextReplace } from "./_ResponsiveText.js"
@@ -37,12 +38,12 @@ export type FamiliarsTrick = {
   /**
    * Measurable parameters of a familiar's trick.
    */
-  parameters: PerformanceParameters
+  parameters: FamiliarsTrickPerformanceParameters
 
   /**
    * The property of the trick.
    */
-  property: Property
+  property: FamiliarsTrickProperty
 
   /**
    * The AP value the familiar has to pay for. It may also be that a specific is
@@ -60,18 +61,18 @@ export type FamiliarsTrick = {
   translations: LocaleMap<FamiliarsTrickTranslation>
 }
 
-export type Property =
+export type FamiliarsTrickProperty =
   | { tag: "Fixed"; fixed: PropertyReference }
-  | { tag: "Indefinite"; indefinite: IndefiniteProperty }
+  | { tag: "Indefinite"; indefinite: IndefiniteFamiliarsTrickProperty }
 
-export type IndefiniteProperty = {
+export type IndefiniteFamiliarsTrickProperty = {
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
    */
-  translations: LocaleMap<IndefinitePropertyTranslation>
+  translations: LocaleMap<IndefiniteFamiliarsTrickPropertyTranslation>
 }
 
-export type IndefinitePropertyTranslation = {
+export type IndefiniteFamiliarsTrickPropertyTranslation = {
   /**
    * A description of the property.
    */
@@ -95,12 +96,12 @@ export type FamiliarsTrickTranslation = {
   /**
    * @deprecated
    */
-  cost: { full: string; abbr: string }
+  cost: OldParameter
 
   /**
    * @deprecated
    */
-  duration: { full: string; abbr: string }
+  duration: OldParameter
 
   errata?: Errata
 }
@@ -108,22 +109,25 @@ export type FamiliarsTrickTranslation = {
 /**
  * Measurable parameters of a familiar's trick.
  */
-export type PerformanceParameters =
-  | { tag: "OneTime"; one_time: OneTimePerformanceParameters }
-  | { tag: "OneTimeInterval"; one_time_interval: OneTimeIntervalPerformanceParameters }
-  | { tag: "Sustained"; sustained: SustainedPerformanceParameters }
+export type FamiliarsTrickPerformanceParameters =
+  | { tag: "OneTime"; one_time: FamiliarsTrickOneTimePerformanceParameters }
+  | {
+      tag: "OneTimeInterval"
+      one_time_interval: FamiliarsTrickOneTimeIntervalPerformanceParameters
+    }
+  | { tag: "Sustained"; sustained: FamiliarsTrickSustainedPerformanceParameters }
 
-export type OneTimePerformanceParameters = {
-  cost: OneTimeCost
-  duration: OneTimeDuration
+export type FamiliarsTrickOneTimePerformanceParameters = {
+  cost: FamiliarsTrickOneTimeCost
+  duration: FamiliarsTrickOneTimeDuration
 }
 
-export type OneTimeCost =
-  | { tag: "Fixed"; fixed: FixedOneTimeCost }
-  | { tag: "All"; all: AllOneTimeCost }
-  | { tag: "Indefinite"; indefinite: IndefiniteOneTimeCost }
+export type FamiliarsTrickOneTimeCost =
+  | { tag: "Fixed"; fixed: FamiliarsTrickFixedOneTimeCost }
+  | { tag: "All"; all: FamiliarsTrickAllOneTimeCost }
+  | { tag: "Indefinite"; indefinite: FamiliarsTrickIndefiniteOneTimeCost }
 
-export type FixedOneTimeCost = {
+export type FamiliarsTrickFixedOneTimeCost = {
   /**
    * The AE cost value.
    * @integer
@@ -147,10 +151,10 @@ export type FixedOneTimeCost = {
    * All translations for the entry, identified by IETF language tag
    * (BCP47).
    */
-  translations?: LocaleMap<FixedOneTimeCostTranslation>
+  translations?: LocaleMap<FamiliarsTrickFixedOneTimeCostTranslation>
 }
 
-export type FixedOneTimeCostTranslation = {
+export type FamiliarsTrickFixedOneTimeCostTranslation = {
   /**
    * The cost have to be per a specific countable entity, e.g. `8 KP
    * per person`.
@@ -158,7 +162,7 @@ export type FixedOneTimeCostTranslation = {
   per?: ResponsiveTextOptional
 }
 
-export type AllOneTimeCost = {
+export type FamiliarsTrickAllOneTimeCost = {
   /**
    * The minimum AE the familiar has to have.
    * @integer
@@ -167,27 +171,27 @@ export type AllOneTimeCost = {
   minimum?: number
 }
 
-export type IndefiniteOneTimeCost = {
+export type FamiliarsTrickIndefiniteOneTimeCost = {
   /**
    * All translations for the entry, identified by IETF language tag
    * (BCP47).
    */
-  translations: LocaleMap<IndefiniteOneTimeCostTranslation>
+  translations: LocaleMap<FamiliarsTrickIndefiniteOneTimeCostTranslation>
 }
 
-export type IndefiniteOneTimeCostTranslation = {
+export type FamiliarsTrickIndefiniteOneTimeCostTranslation = {
   /**
    * A description of the AE cost.
    */
   description: ResponsiveText
 }
 
-export type OneTimeDuration =
+export type FamiliarsTrickOneTimeDuration =
   | { tag: "Immediate"; immediate: {} }
-  | { tag: "Fixed"; fixed: FixedOneTimeDuration }
-  | { tag: "Indefinite"; indefinite: IndefiniteOneTimeDuration }
+  | { tag: "Fixed"; fixed: FamiliarsTrickFixedOneTimeDuration }
+  | { tag: "Indefinite"; indefinite: FamiliarsTrickIndefiniteOneTimeDuration }
 
-export type FixedOneTimeDuration = {
+export type FamiliarsTrickFixedOneTimeDuration = {
   /**
    * If the duration is the maximum duration, so it may end earlier.
    */
@@ -208,36 +212,36 @@ export type FixedOneTimeDuration = {
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
    */
-  translations?: LocaleMap<FixedOneTimeDurationTranslation>
+  translations?: LocaleMap<FamiliarsTrickFixedOneTimeDurationTranslation>
 }
 
-export type FixedOneTimeDurationTranslation = {
+export type FamiliarsTrickFixedOneTimeDurationTranslation = {
   /**
    * A replacement string.
    */
   replacement?: ResponsiveTextReplace
 }
 
-export type IndefiniteOneTimeDuration = {
+export type FamiliarsTrickIndefiniteOneTimeDuration = {
   /**
    * All translations for the entry, identified by IETF language tag
    * (BCP47).
    */
-  translations: LocaleMap<IndefiniteOneTimeDurationTranslation>
+  translations: LocaleMap<FamiliarsTrickIndefiniteOneTimeDurationTranslation>
 }
 
-export type IndefiniteOneTimeDurationTranslation = {
+export type FamiliarsTrickIndefiniteOneTimeDurationTranslation = {
   /**
    * A description of the duration.
    */
   description: ResponsiveText
 }
 
-export type OneTimeIntervalPerformanceParameters = {
-  cost: OneTimeIntervalCost
+export type FamiliarsTrickOneTimeIntervalPerformanceParameters = {
+  cost: FamiliarsTrickOneTimeIntervalCost
 }
 
-export type OneTimeIntervalCost = {
+export type FamiliarsTrickOneTimeIntervalCost = {
   /**
    * The AE cost value.
    * @integer
@@ -258,11 +262,11 @@ export type OneTimeIntervalCost = {
   interval: DurationUnitValue
 }
 
-export type SustainedPerformanceParameters = {
-  cost: SustainedCost
+export type FamiliarsTrickSustainedPerformanceParameters = {
+  cost: FamiliarsTrickSustainedCost
 }
 
-export type SustainedCost = {
+export type FamiliarsTrickSustainedCost = {
   /**
    * The AE cost value.
    * @integer

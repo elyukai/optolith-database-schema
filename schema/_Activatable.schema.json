@@ -911,11 +911,7 @@
     },
     "PenaltyByAttackReplacement": {
       "description": "Set if a predefined different word should be used instead of the word\n`attack` for display purposes.",
-      "oneOf": [
-        {
-          "const": "Throw"
-        }
-      ]
+      "const": "Throw"
     },
     "EnchantmentCost": {
       "oneOf": [
@@ -1264,11 +1260,7 @@
       "additionalProperties": false
     },
     "IndefiniteArcaneEnergyCostModifierArithmetic": {
-      "oneOf": [
-        {
-          "const": "Add"
-        }
-      ]
+      "const": "Add"
     },
     "IndefiniteArcaneEnergyCostTranslation": {
       "type": "object",
@@ -1866,7 +1858,7 @@
       ],
       "additionalProperties": false
     },
-    "Property": {
+    "PropertyDeclaration": {
       "description": "The magic property's identifier. `DependingOnProperty` can only be used if\nthe special ability has an option to select a property.",
       "oneOf": [
         {
@@ -1906,7 +1898,7 @@
         }
       ]
     },
-    "Aspect": {
+    "AspectDeclaration": {
       "description": "The blessed aspect.",
       "$ref": "./_SimpleReferences.schema.json#/$defs/AspectReference"
     },

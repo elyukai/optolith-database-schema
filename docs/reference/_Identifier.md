@@ -1500,7 +1500,7 @@ The attribute’s identifier.
 
 ---
 
-### <a name="SkillIdentifier"></a> `SkillIdentifier<Value extends Number = Number>`
+### <a name="SkillIdentifier"></a> `SkillIdentifier`
 
 - **Type:** Object
 
@@ -1517,7 +1517,8 @@ Key | Description | Details
 
 The skill’s identifier.
 
-- **Type:** <a href="#Value">Value</a>
+- **Type:** Integer
+- **Minimum:** `1`
 
 ---
 

@@ -1,6 +1,7 @@
 // @ts-check
 import { jsonSchema, markdown } from "optolith-tsjsonschemamd/renderers"
-import { jsonSchemaDir, jsonSchemaSpec, markdownDir, sourceDir } from "./lib/config/build.js"
+import { jsonSchemaDir, jsonSchemaSpec, markdownDir, sourceDir, swiftDir } from "./lib/config/build.js"
+import { swiftRenderer } from "./lib/rendering/swift.js"
 
 /** @type {import("optolith-tsjsonschemamd").GeneratorOptions} */
 export default {
@@ -13,6 +14,10 @@ export default {
     {
       targetDir: markdownDir,
       renderer: markdown(),
+    },
+    {
+      targetDir: swiftDir,
+      renderer: swiftRenderer(),
     }
   ],
   clean: true,

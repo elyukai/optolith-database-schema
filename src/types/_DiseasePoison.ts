@@ -85,13 +85,13 @@ export type DiseaseTranslation = {
    * The damage caused by the disease. If the disease check fails, apply the
    * lessened effects.
    */
-  damage: Reduceable
+  damage: Reduceable<NonEmptyMarkdown>
 
   /**
    * The duration of the disease. If the disease check fails, use the
    * lessened duration.
    */
-  duration: Reduceable
+  duration: Reduceable<NonEmptyMarkdown>
 
   /**
    * Special information about the disease.
@@ -118,7 +118,7 @@ export type DiseaseTranslation = {
  * This streamlines the wording for diseases and poison by using a unified
  * wording for *lessened* (disease) and *degraded* (poison).
  */
-export type Reduceable<Content = NonEmptyMarkdown> = {
+export type Reduceable<Content> = {
   /**
    * The default value. In the source, it's the text before the slash.
    */

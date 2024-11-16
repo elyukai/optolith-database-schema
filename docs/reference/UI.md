@@ -846,6 +846,16 @@ Key | Description | Details
 `General` |  | <a href="#UI/General">See details</a>
 `Note` |  | <a href="#UI/Note">See details</a>
 `all` |  | <a href="#UI/all">See details</a>
+`none` |  | <a href="#UI/none">See details</a>
+`State` |  | <a href="#UI/State">See details</a>
+`special ability` |  | <a href="#UI/special ability">See details</a>
+`no special ability` |  | <a href="#UI/no special ability">See details</a>
+`Tradition` |  | <a href="#UI/Tradition">See details</a>
+`Tradition ({0})` |  | <a href="#UI/Tradition ({0})">See details</a>
+`Church` |  | <a href="#UI/Church">See details</a>
+`Shaman` |  | <a href="#UI/Shaman">See details</a>
+`Tradition must be able to use rituals` |  | <a href="#UI/Tradition must be able to use rituals">See details</a>
+`Tradition must be able to bind familiars` |  | <a href="#UI/Tradition must be able to bind familiars">See details</a>
 `inlinewiki.castingtime` |  | <a href="#UI/inlinewiki.castingtime">See details</a>
 `inlinewiki.ritualtime` |  | <a href="#UI/inlinewiki.ritualtime">See details</a>
 `inlinewiki.aecost` |  | <a href="#UI/inlinewiki.aecost">See details</a>
@@ -4501,6 +4511,46 @@ As in *2D6*.
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/all"></a> `all`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/none"></a> `none`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/State"></a> `State`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/special ability"></a> `special ability`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/no special ability"></a> `no special ability`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Tradition"></a> `Tradition`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Tradition ({0})"></a> `Tradition ({0})`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Church"></a> `Church`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Shaman"></a> `Shaman`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Tradition must be able to use rituals"></a> `Tradition must be able to use rituals`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Tradition must be able to bind familiars"></a> `Tradition must be able to bind familiars`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 

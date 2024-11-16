@@ -11,7 +11,14 @@ import { AdvantageIdentifier, AttributeIdentifier, SkillIdentifier } from "./_Id
 import { ImprovementCost } from "./_ImprovementCost.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
-import { AdvantageReference, CultureReference, DisadvantageReference, PatronCategoryReference, SkillReference, SpellworkReference } from "./_SimpleReferences.js"
+import {
+  AdvantageReference,
+  CultureReference,
+  DisadvantageReference,
+  PatronCategoryReference,
+  SkillReference,
+  SpellworkReference,
+} from "./_SimpleReferences.js"
 
 /**
  * @title Patron
@@ -31,8 +38,10 @@ export type Patron = {
 
   /**
    * The patron-specific skills.
+   * @minItems 3
+   * @maxItems 3
    */
-  skills: [SkillReference, SkillReference, SkillReference]
+  skills: SkillReference[]
 
   /**
    * The patron is only available to a certain set of cultures. It may be
@@ -53,7 +62,7 @@ export type Patron = {
    * The patron-specific powers. Used by animist power Animal Powers I–III and
    * should only be present on animal patrons.
    */
-  powers?: [AnimalPowersLevel1, AnimalPowersLevel2, AnimalPowersLevel3]
+  powers?: AnimalPowers
 
   /**
    * The patron-specific AE cost. Used by several animist forces for animal
@@ -125,9 +134,13 @@ export type PatronCulture = {
  * only part of the given cultures. If they should differ, the patron is only
  * part of the cultures that are not given.
  */
-export type PatronCultureOperation =
-  | "Intersection"
-  | "Difference"
+export type PatronCultureOperation = "Intersection" | "Difference"
+
+export type AnimalPowers = {
+  level1: AnimalPowersLevel1
+  level2: AnimalPowersLevel2
+  level3: AnimalPowersLevel3
+}
 
 export type AdvantageAnimalPower = {
   /**
@@ -199,8 +212,7 @@ export type CombatAnimalPowerType =
   | "DamagePoints"
   | "Protection"
 
-export type AnimalPowerLevel2 =
-  | { tag: "Combat"; combat: CombatAnimalPower }
+export type AnimalPowerLevel2 = { tag: "Combat"; combat: CombatAnimalPower }
 
 /**
  * @minItems 1
@@ -223,8 +235,7 @@ export type AttributeAnimalPower = {
   value: number
 }
 
-export type AnimalPowerLevel3 =
-  | { tag: "Attribute"; attribute: AttributeAnimalPower }
+export type AnimalPowerLevel3 = { tag: "Attribute"; attribute: AttributeAnimalPower }
 
 /**
  * @minItems 1

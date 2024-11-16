@@ -99,57 +99,19 @@ The effect description may be either a plain text or a text that is
 divided by a list of effects for each quality level. It may also be a
 list for each two quality levels.
 
-- **Type:** <a href="../_ActivatableSkillEffect.md#Effect">Effect</a>
+- **Type:** <a href="../_ActivatableSkillEffect.md#ActivatableSkillEffect">ActivatableSkillEffect</a>
 
 #### <a name="MagicalDanceTranslation/duration"></a> `duration`
 
-- **Type:** <a href="#MagicalDanceTranslation/duration">Object</a>
+- **Type:** <a href="../_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="MagicalDanceTranslation/cost"></a> `cost`
 
-- **Type:** <a href="#MagicalDanceTranslation/cost">Object</a>
+- **Type:** <a href="../_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="MagicalDanceTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>
-
----
-
-### <a name="MagicalDanceTranslation/duration"></a> `MagicalDanceTranslation/duration`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#MagicalDanceTranslation/duration/full">See details</a>
-`abbr` |  | <a href="#MagicalDanceTranslation/duration/abbr">See details</a>
-
-#### <a name="MagicalDanceTranslation/duration/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="MagicalDanceTranslation/duration/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="MagicalDanceTranslation/cost"></a> `MagicalDanceTranslation/cost`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#MagicalDanceTranslation/cost/full">See details</a>
-`abbr` |  | <a href="#MagicalDanceTranslation/cost/abbr">See details</a>
-
-#### <a name="MagicalDanceTranslation/cost/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="MagicalDanceTranslation/cost/abbr"></a> `abbr`
-
-- **Type:** String
 
 ---
 
@@ -239,7 +201,7 @@ The (temporary) AE cost value.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="../FamiliarsTrick.md#FixedOneTimeCostTranslation">FixedOneTimeCostTranslation</a>&gt;
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="../FamiliarsTrick.md#FamiliarsTrickFixedOneTimeCostTranslation">FamiliarsTrickFixedOneTimeCostTranslation</a>&gt;
 
 ---
 

@@ -52,8 +52,10 @@ have one.
 
 The tradition's aspects, if any.
 
-- **Type:** Tuple
-- **Items:** [<a href="BlessedTradition/aspects[0]">BlessedTradition/aspects[0]</a>, <a href="BlessedTradition/aspects[1]">BlessedTradition/aspects[1]</a>]
+- **Type:** List
+- **Items:** <a href="#BlessedTradition/aspects[]">BlessedTradition/aspects[]</a>
+- **Minimum Items:** `2`
+- **Maximum Items:** `2`
 
 #### <a name="BlessedTradition/restricted_blessings"></a> `restricted_blessings?`
 
@@ -116,13 +118,7 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="BlessedTradition/aspects[0]"></a> `BlessedTradition/aspects[0]`
-
-- **Type:** <a href="../_SimpleReferences.md#AspectReference">AspectReference</a>
-
----
-
-### <a name="BlessedTradition/aspects[1]"></a> `BlessedTradition/aspects[1]`
+### <a name="BlessedTradition/aspects[]"></a> `BlessedTradition/aspects[]`
 
 - **Type:** <a href="../_SimpleReferences.md#AspectReference">AspectReference</a>
 
@@ -184,24 +180,15 @@ Key | Description | Details
 
 ### <a name="ThreeRestrictedBlessings"></a> `ThreeRestrictedBlessings`
 
-- **Type:** Tuple
-- **Items:** [<a href="ThreeRestrictedBlessings[0]">ThreeRestrictedBlessings[0]</a>, <a href="ThreeRestrictedBlessings[1]">ThreeRestrictedBlessings[1]</a>, <a href="ThreeRestrictedBlessings[2]">ThreeRestrictedBlessings[2]</a>]
+- **Type:** List
+- **Items:** <a href="#ThreeRestrictedBlessings[]">ThreeRestrictedBlessings[]</a>
+- **Minimum Items:** `3`
+- **Maximum Items:** `3`
+- **Unique Items:** Yes
 
 ---
 
-### <a name="ThreeRestrictedBlessings[0]"></a> `ThreeRestrictedBlessings[0]`
-
-- **Type:** <a href="../_SimpleReferences.md#BlessingReference">BlessingReference</a>
-
----
-
-### <a name="ThreeRestrictedBlessings[1]"></a> `ThreeRestrictedBlessings[1]`
-
-- **Type:** <a href="../_SimpleReferences.md#BlessingReference">BlessingReference</a>
-
----
-
-### <a name="ThreeRestrictedBlessings[2]"></a> `ThreeRestrictedBlessings[2]`
+### <a name="ThreeRestrictedBlessings[]"></a> `ThreeRestrictedBlessings[]`
 
 - **Type:** <a href="../_SimpleReferences.md#BlessingReference">BlessingReference</a>
 
@@ -209,42 +196,15 @@ Key | Description | Details
 
 ### <a name="SixRestrictedBlessings"></a> `SixRestrictedBlessings`
 
-- **Type:** Tuple
-- **Items:** [<a href="SixRestrictedBlessings[0]">SixRestrictedBlessings[0]</a>, <a href="SixRestrictedBlessings[1]">SixRestrictedBlessings[1]</a>, <a href="SixRestrictedBlessings[2]">SixRestrictedBlessings[2]</a>, <a href="SixRestrictedBlessings[3]">SixRestrictedBlessings[3]</a>, <a href="SixRestrictedBlessings[4]">SixRestrictedBlessings[4]</a>, <a href="SixRestrictedBlessings[5]">SixRestrictedBlessings[5]</a>]
+- **Type:** List
+- **Items:** <a href="#SixRestrictedBlessings[]">SixRestrictedBlessings[]</a>
+- **Minimum Items:** `6`
+- **Maximum Items:** `6`
+- **Unique Items:** Yes
 
 ---
 
-### <a name="SixRestrictedBlessings[0]"></a> `SixRestrictedBlessings[0]`
-
-- **Type:** <a href="../_SimpleReferences.md#BlessingReference">BlessingReference</a>
-
----
-
-### <a name="SixRestrictedBlessings[1]"></a> `SixRestrictedBlessings[1]`
-
-- **Type:** <a href="../_SimpleReferences.md#BlessingReference">BlessingReference</a>
-
----
-
-### <a name="SixRestrictedBlessings[2]"></a> `SixRestrictedBlessings[2]`
-
-- **Type:** <a href="../_SimpleReferences.md#BlessingReference">BlessingReference</a>
-
----
-
-### <a name="SixRestrictedBlessings[3]"></a> `SixRestrictedBlessings[3]`
-
-- **Type:** <a href="../_SimpleReferences.md#BlessingReference">BlessingReference</a>
-
----
-
-### <a name="SixRestrictedBlessings[4]"></a> `SixRestrictedBlessings[4]`
-
-- **Type:** <a href="../_SimpleReferences.md#BlessingReference">BlessingReference</a>
-
----
-
-### <a name="SixRestrictedBlessings[5]"></a> `SixRestrictedBlessings[5]`
+### <a name="SixRestrictedBlessings[]"></a> `SixRestrictedBlessings[]`
 
 - **Type:** <a href="../_SimpleReferences.md#BlessingReference">BlessingReference</a>
 

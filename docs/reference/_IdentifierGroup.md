@@ -709,38 +709,38 @@
 
 ---
 
-### <a name="SkillIdentifier"></a> `SkillIdentifier`
+### <a name="SkillishIdentifier"></a> `SkillishIdentifier`
 
 - **Type:** Union
-- **Cases:** <a href="#SkillIdentifier'SkillIdentifier">SkillIdentifier'SkillIdentifier</a> | <a href="#SkillIdentifier'SpellIdentifier">SkillIdentifier'SpellIdentifier</a> | <a href="#SkillIdentifier'RitualIdentifier">SkillIdentifier'RitualIdentifier</a> | <a href="#SkillIdentifier'LiturgicalChantIdentifier">SkillIdentifier'LiturgicalChantIdentifier</a> | <a href="#SkillIdentifier'CeremonyIdentifier">SkillIdentifier'CeremonyIdentifier</a>
+- **Cases:** <a href="#SkillishIdentifier'SkillIdentifier">SkillishIdentifier'SkillIdentifier</a> | <a href="#SkillishIdentifier'SpellIdentifier">SkillishIdentifier'SpellIdentifier</a> | <a href="#SkillishIdentifier'RitualIdentifier">SkillishIdentifier'RitualIdentifier</a> | <a href="#SkillishIdentifier'LiturgicalChantIdentifier">SkillishIdentifier'LiturgicalChantIdentifier</a> | <a href="#SkillishIdentifier'CeremonyIdentifier">SkillishIdentifier'CeremonyIdentifier</a>
 
 ---
 
-### <a name="SkillIdentifier'SkillIdentifier"></a> `SkillIdentifier'SkillIdentifier`
+### <a name="SkillishIdentifier'SkillIdentifier"></a> `SkillishIdentifier'SkillIdentifier`
 
 - **Type:** <a href="#SkillIdentifier">SkillIdentifier</a>
 
 ---
 
-### <a name="SkillIdentifier'SpellIdentifier"></a> `SkillIdentifier'SpellIdentifier`
+### <a name="SkillishIdentifier'SpellIdentifier"></a> `SkillishIdentifier'SpellIdentifier`
 
 - **Type:** <a href="#SpellIdentifier">SpellIdentifier</a>
 
 ---
 
-### <a name="SkillIdentifier'RitualIdentifier"></a> `SkillIdentifier'RitualIdentifier`
+### <a name="SkillishIdentifier'RitualIdentifier"></a> `SkillishIdentifier'RitualIdentifier`
 
 - **Type:** <a href="#RitualIdentifier">RitualIdentifier</a>
 
 ---
 
-### <a name="SkillIdentifier'LiturgicalChantIdentifier"></a> `SkillIdentifier'LiturgicalChantIdentifier`
+### <a name="SkillishIdentifier'LiturgicalChantIdentifier"></a> `SkillishIdentifier'LiturgicalChantIdentifier`
 
 - **Type:** <a href="#LiturgicalChantIdentifier">LiturgicalChantIdentifier</a>
 
 ---
 
-### <a name="SkillIdentifier'CeremonyIdentifier"></a> `SkillIdentifier'CeremonyIdentifier`
+### <a name="SkillishIdentifier'CeremonyIdentifier"></a> `SkillishIdentifier'CeremonyIdentifier`
 
 - **Type:** <a href="#CeremonyIdentifier">CeremonyIdentifier</a>
 

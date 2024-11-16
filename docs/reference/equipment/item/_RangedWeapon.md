@@ -152,7 +152,7 @@ One or multiple reload times.
 
 The range brackets for the weapon: close, medium, far. Distances in m.
 
-- **Type:** <a href="#Range">Range</a>
+- **Type:** <a href="#RangeBrackets">RangeBrackets</a>
 
 #### <a name="RangedWeapon/ammunition"></a> `ammunition?`
 
@@ -196,31 +196,31 @@ The item's identifier.
 
 ---
 
-### <a name="Range"></a> `Range`
+### <a name="RangeBrackets"></a> `RangeBrackets`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`close` | The close range bracket for the weapon. Distance in m. | <a href="#Range/close">See details</a>
-`medium` | The medium range bracket for the weapon. Distance in m. | <a href="#Range/medium">See details</a>
-`far` | The far range bracket for the weapon. Distance in m. | <a href="#Range/far">See details</a>
+`close` | The close range bracket for the weapon. Distance in m. | <a href="#RangeBrackets/close">See details</a>
+`medium` | The medium range bracket for the weapon. Distance in m. | <a href="#RangeBrackets/medium">See details</a>
+`far` | The far range bracket for the weapon. Distance in m. | <a href="#RangeBrackets/far">See details</a>
 
-#### <a name="Range/close"></a> `close`
+#### <a name="RangeBrackets/close"></a> `close`
 
 The close range bracket for the weapon. Distance in m.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="Range/medium"></a> `medium`
+#### <a name="RangeBrackets/medium"></a> `medium`
 
 The medium range bracket for the weapon. Distance in m.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="Range/far"></a> `far`
+#### <a name="RangeBrackets/far"></a> `far`
 
 The far range bracket for the weapon. Distance in m.
 

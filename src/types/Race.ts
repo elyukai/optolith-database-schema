@@ -80,7 +80,7 @@ export type Race = {
   /**
    * Configuration for random weight generation.
    */
-  weight: Weight
+  weight: RandomWeightGeneration
 
   /**
    * Defines the starting ages for the race. It depends on the selected
@@ -201,7 +201,7 @@ export type SelectableAttributeAdjustment = {
 /**
  * Configuration for random weight generation.
  */
-export type Weight = {
+export type RandomWeightGeneration = {
   /**
    * The base value used for random weight. The height subtrahend; in case of
    * `Height - 110 + 2D6` it is `110`.

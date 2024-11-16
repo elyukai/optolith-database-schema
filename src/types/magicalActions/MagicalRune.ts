@@ -7,8 +7,9 @@ import { todo } from "../../validation/builders/integrity.js"
 import { validateEntityFileName } from "../../validation/builders/naming.js"
 import { createSchemaValidator } from "../../validation/builders/schema.js"
 import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
+import { OldParameter } from "../_ActivatableSkill.js"
 import { CheckResultBasedDuration } from "../_ActivatableSkillDuration.js"
-import { Effect } from "../_ActivatableSkillEffect.js"
+import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"
 import { CombatTechniqueIdentifier } from "../_IdentifierGroup.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
 import { LocaleMap } from "../_LocaleMap.js"
@@ -97,34 +98,35 @@ export type MagicalRuneTranslation = {
    * divided by a list of effects for each quality level. It may also be a
    * list for each two quality levels.
    */
-  effect: Effect
+  effect: ActivatableSkillEffect
 
   /**
    * @deprecated
    */
-  cost: { full: string; abbr: string }
+  cost: OldParameter
 
   /**
    * @deprecated
    */
-  crafting_time: {
-    slow: { full: string; abbr: string }
-    fast: { full: string; abbr: string }
-  }
+  crafting_time: OldParameterBySpeed
 
   /**
    * @deprecated
    */
-  duration: {
-    slow: { full: string; abbr: string }
-    fast: { full: string; abbr: string }
-  }
+  duration: OldParameterBySpeed
 
   errata?: Errata
 }
 
-export type MagicalRuneCheckPenalty =
-  | { tag: "CombatTechnique"; combat_technique: MagicalRuneCombatTechniqueCheckPenalty }
+export type OldParameterBySpeed = {
+  slow: OldParameter
+  fast: OldParameter
+}
+
+export type MagicalRuneCheckPenalty = {
+  tag: "CombatTechnique"
+  combat_technique: MagicalRuneCombatTechniqueCheckPenalty
+}
 
 export type MagicalRuneCombatTechniqueCheckPenalty = {
   /**
@@ -218,8 +220,9 @@ export type MagicalRuneCostDisjunction = {
 export type MagicalRuneCraftingTime = {
   /**
    * The (unitless) crafting time.
+   * @integer
    */
-  value: 1 | 2 | 4
+  value: number
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
@@ -281,8 +284,7 @@ export type MagicalRuneOption = {
   translations: LocaleMap<MagicalRuneOptionTranslation>
 }
 
-export type MagicalRuneSuboption =
-  | { tag: "Custom"; custom: CustomMagicalRuneSuboption }
+export type MagicalRuneSuboption = { tag: "Custom"; custom: CustomMagicalRuneSuboption }
 
 export type CustomMagicalRuneSuboption = {
   /**

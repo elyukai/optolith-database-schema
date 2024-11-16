@@ -7,9 +7,5 @@ export type MusicalSkillReference = {
   /**
    * The skill's identifier.
    */
-  id: SkillIdentifier<SkillIdentifierValue>
+  id: SkillIdentifier
 }
-
-export type SkillIdentifierValue =
-  | 9 // Singing
-  | 56 // Music

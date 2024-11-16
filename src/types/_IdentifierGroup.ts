@@ -122,7 +122,7 @@ export type RatedIdentifier =
   | Identifier.LiturgicalChantIdentifier
   | Identifier.CeremonyIdentifier
 
-export type SkillIdentifier =
+export type SkillishIdentifier =
   | Identifier.SkillIdentifier
   | Identifier.SpellIdentifier
   | Identifier.RitualIdentifier

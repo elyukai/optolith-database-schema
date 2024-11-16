@@ -484,24 +484,20 @@
       "additionalProperties": false
     },
     "LanguagesSelectOptionCategoryPrerequisite": {
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "SelectOption"
-            },
-            "select_option": {
-              "$ref": "#/$defs/OptionPrerequisite"
-            }
-          },
-          "required": [
-            "tag",
-            "select_option"
-          ],
-          "additionalProperties": false
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "SelectOption"
+        },
+        "select_option": {
+          "$ref": "#/$defs/OptionPrerequisite"
         }
-      ]
+      },
+      "required": [
+        "tag",
+        "select_option"
+      ],
+      "additionalProperties": false
     },
     "SkillsSelectOptionCategory": {
       "type": "object",
@@ -524,7 +520,7 @@
                   "const": "DerivedFromImprovementCost"
                 },
                 "derived_from_improvement_cost": {
-                  "$ref": "#/$defs/DeriveAdventurePointsValueFromImprovementCost"
+                  "$ref": "#/$defs/SelectOptionsDeriveAdventurePointsValueFromImprovementCost"
                 }
               },
               "required": [
@@ -549,7 +545,7 @@
                         "type": "object",
                         "properties": {
                           "id": {
-                            "$ref": "./_IdentifierGroup.schema.json#/$defs/SkillIdentifier"
+                            "$ref": "./_IdentifierGroup.schema.json#/$defs/SkillishIdentifier"
                           },
                           "ap_value": {
                             "description": "The AP value for the specified entry.",
@@ -878,7 +874,7 @@
                   "const": "DerivedFromImprovementCost"
                 },
                 "derived_from_improvement_cost": {
-                  "$ref": "#/$defs/DeriveAdventurePointsValueFromImprovementCost"
+                  "$ref": "#/$defs/SelectOptionsDeriveAdventurePointsValueFromImprovementCost"
                 }
               },
               "required": [
@@ -964,7 +960,7 @@
                   "const": "DerivedFromImprovementCost"
                 },
                 "derived_from_improvement_cost": {
-                  "$ref": "#/$defs/DeriveAdventurePointsValueFromImprovementCost"
+                  "$ref": "#/$defs/SelectOptionsDeriveAdventurePointsValueFromImprovementCost"
                 }
               },
               "required": [
@@ -1259,7 +1255,7 @@
       ],
       "additionalProperties": false
     },
-    "DeriveAdventurePointsValueFromImprovementCost": {
+    "SelectOptionsDeriveAdventurePointsValueFromImprovementCost": {
       "description": "Derive the cost from the improvement cost of each entry.\n\n**Calculation:** AP Value = Improvement Cost × `multiplier` + `offset`",
       "type": "object",
       "properties": {

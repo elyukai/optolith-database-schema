@@ -137,15 +137,15 @@ The effect description may be either a plain text or a text that is
 divided by a list of effects for each quality level. It may also be a
 list for each two quality levels.
 
-- **Type:** <a href="../_ActivatableSkillEffect.md#Effect">Effect</a>
+- **Type:** <a href="../_ActivatableSkillEffect.md#ActivatableSkillEffect">ActivatableSkillEffect</a>
 
 #### <a name="AnimistPowerTranslation/cost"></a> `cost`
 
-- **Type:** <a href="#AnimistPowerTranslation/cost">Object</a>
+- **Type:** <a href="../_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="AnimistPowerTranslation/duration"></a> `duration`
 
-- **Type:** <a href="#AnimistPowerTranslation/duration">Object</a>
+- **Type:** <a href="../_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="AnimistPowerTranslation/prerequisites"></a> `prerequisites?`
 
@@ -156,44 +156,6 @@ A prerequisites text.
 #### <a name="AnimistPowerTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>
-
----
-
-### <a name="AnimistPowerTranslation/cost"></a> `AnimistPowerTranslation/cost`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#AnimistPowerTranslation/cost/full">See details</a>
-`abbr` |  | <a href="#AnimistPowerTranslation/cost/abbr">See details</a>
-
-#### <a name="AnimistPowerTranslation/cost/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="AnimistPowerTranslation/cost/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="AnimistPowerTranslation/duration"></a> `AnimistPowerTranslation/duration`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#AnimistPowerTranslation/duration/full">See details</a>
-`abbr` |  | <a href="#AnimistPowerTranslation/duration/abbr">See details</a>
-
-#### <a name="AnimistPowerTranslation/duration/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="AnimistPowerTranslation/duration/abbr"></a> `abbr`
-
-- **Type:** String
 
 ---
 
@@ -454,7 +416,7 @@ Key | Description | Details
 
 #### <a name="OneTimeAnimistPowerDuration'Fixed/fixed"></a> `fixed`
 
-- **Type:** <a href="../FamiliarsTrick.md#FixedOneTimeDuration">FixedOneTimeDuration</a>
+- **Type:** <a href="../FamiliarsTrick.md#FamiliarsTrickFixedOneTimeCostTranslation">FamiliarsTrickFixedOneTimeCostTranslation</a>
 
 ---
 

@@ -41,8 +41,10 @@ export type BlessedTradition = {
 
   /**
    * The tradition's aspects, if any.
+   * @minItems 2
+   * @maxItems 2
    */
-  aspects?: [AspectReference, AspectReference]
+  aspects?: AspectReference[]
 
   /**
    * If a tradition restricts the possible blessings, the blessings that are
@@ -100,20 +102,17 @@ export type RestrictedBlessings =
 
 /**
  * @uniqueItems
+ * @minItems 3
+ * @maxItems 3
  */
-export type ThreeRestrictedBlessings = [BlessingReference, BlessingReference, BlessingReference]
+export type ThreeRestrictedBlessings = BlessingReference[]
 
 /**
  * @uniqueItems
+ * @minItems 6
+ * @maxItems 6
  */
-export type SixRestrictedBlessings = [
-  BlessingReference,
-  BlessingReference,
-  BlessingReference,
-  BlessingReference,
-  BlessingReference,
-  BlessingReference
-]
+export type SixRestrictedBlessings = BlessingReference[]
 
 export type FavoredCombatTechniques =
   | { tag: "All"; all: {} }

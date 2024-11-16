@@ -108,34 +108,15 @@ The effect description may be either a plain text or a text that is
 divided by a list of effects for each quality level. It may also be a
 list for each two quality levels.
 
-- **Type:** <a href="../_ActivatableSkillEffect.md#Effect">Effect</a>
+- **Type:** <a href="../_ActivatableSkillEffect.md#ActivatableSkillEffect">ActivatableSkillEffect</a>
 
 #### <a name="ElvenMagicalSongTranslation/cost"></a> `cost`
 
-- **Type:** <a href="#ElvenMagicalSongTranslation/cost">Object</a>
+- **Type:** <a href="../_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="ElvenMagicalSongTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>
-
----
-
-### <a name="ElvenMagicalSongTranslation/cost"></a> `ElvenMagicalSongTranslation/cost`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#ElvenMagicalSongTranslation/cost/full">See details</a>
-`abbr` |  | <a href="#ElvenMagicalSongTranslation/cost/abbr">See details</a>
-
-#### <a name="ElvenMagicalSongTranslation/cost/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="ElvenMagicalSongTranslation/cost/abbr"></a> `abbr`
-
-- **Type:** String
 
 ---
 

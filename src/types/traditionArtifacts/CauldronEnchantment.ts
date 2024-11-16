@@ -37,7 +37,7 @@ export type CauldronEnchantment = {
 
   cost?: Activatable.EnchantmentCost
 
-  property: Activatable.Property
+  property: Activatable.PropertyDeclaration
 
   ap_value: Activatable.AdventurePointsValue
 
@@ -84,7 +84,11 @@ export type CauldronEnchantmentTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<CauldronEnchantment, CauldronEnchantment["id"], "CauldronEnchantment"> = {
+export const config: TypeConfig<
+  CauldronEnchantment,
+  CauldronEnchantment["id"],
+  "CauldronEnchantment"
+> = {
   name: "CauldronEnchantment",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("CauldronEnchantment"),

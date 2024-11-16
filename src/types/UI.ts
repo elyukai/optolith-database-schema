@@ -1,5 +1,6 @@
 /**
  * @main UI
+ * @ignore swift
  */
 
 import { Result } from "../helpers/result.js"
@@ -1065,6 +1066,17 @@ export type UI = {
   "General": NonEmptyString
   "Note": NonEmptyString
   "all": NonEmptyString
+
+  "none": NonEmptyString
+  "State": NonEmptyString
+  "special ability": NonEmptyString
+  "no special ability": NonEmptyString
+  "Tradition": NonEmptyString
+  "Tradition ({0})": NonEmptyString
+  "Church": NonEmptyString
+  "Shaman": NonEmptyString
+  "Tradition must be able to use rituals": NonEmptyString
+  "Tradition must be able to bind familiars": NonEmptyString
 
   "inlinewiki.castingtime": NonEmptyString
   "inlinewiki.ritualtime": NonEmptyString

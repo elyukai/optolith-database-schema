@@ -20,14 +20,6 @@ The PA modifier.
 
 ---
 
-### <a name="Reach"></a> `Reach`
-
-The reach of the weapon.
-
-- **Type:** <a href="../../_Identifier.md#ReachIdentifier">ReachIdentifier</a>
-
----
-
 ### <a name="MeleeDamage"></a> `MeleeDamage`
 
 The damage of a weapon consists of a random part using dice and an optional
@@ -203,7 +195,7 @@ The PA modifier.
 
 The reach of the weapon.
 
-- **Type:** <a href="#Reach">Reach</a>
+- **Type:** <a href="../../_Identifier.md#ReachIdentifier">ReachIdentifier</a>
 
 #### <a name="MeleeWeapon/length"></a> `length?`
 

@@ -46,7 +46,7 @@ Key | Description | Details
 
 #### <a name="CeremonialItemSpecialAbility/aspect"></a> `aspect?`
 
-- **Type:** <a href="#Aspect">Aspect</a>
+- **Type:** <a href="#AspectDeclaration">AspectDeclaration</a>
 
 #### <a name="CeremonialItemSpecialAbility/prerequisites"></a> `prerequisites?`
 

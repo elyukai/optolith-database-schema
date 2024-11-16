@@ -107,8 +107,8 @@ Prerequsites for the brewing process, if any.
 The list of effects for each quality level. The first element
 represents QL 1, the second element QL 2, and so on.
 
-- **Type:** Tuple
-- **Items:** [<a href="ElixirTranslation/quality_levels[0]">ElixirTranslation/quality_levels[0]</a>, <a href="ElixirTranslation/quality_levels[1]">ElixirTranslation/quality_levels[1]</a>, <a href="ElixirTranslation/quality_levels[2]">ElixirTranslation/quality_levels[2]</a>, <a href="ElixirTranslation/quality_levels[3]">ElixirTranslation/quality_levels[3]</a>, <a href="ElixirTranslation/quality_levels[4]">ElixirTranslation/quality_levels[4]</a>, <a href="ElixirTranslation/quality_levels[5]">ElixirTranslation/quality_levels[5]</a>]
+- **Type:** List
+- **Items:** <a href="#ElixirTranslation/quality_levels[]">ElixirTranslation/quality_levels[]</a>
 
 #### <a name="ElixirTranslation/errata"></a> `errata?`
 
@@ -128,36 +128,6 @@ represents QL 1, the second element QL 2, and so on.
 
 ---
 
-### <a name="ElixirTranslation/quality_levels[0]"></a> `ElixirTranslation/quality_levels[0]`
-
-- **Type:** <a href="../../_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
-
----
-
-### <a name="ElixirTranslation/quality_levels[1]"></a> `ElixirTranslation/quality_levels[1]`
-
-- **Type:** <a href="../../_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
-
----
-
-### <a name="ElixirTranslation/quality_levels[2]"></a> `ElixirTranslation/quality_levels[2]`
-
-- **Type:** <a href="../../_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
-
----
-
-### <a name="ElixirTranslation/quality_levels[3]"></a> `ElixirTranslation/quality_levels[3]`
-
-- **Type:** <a href="../../_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
-
----
-
-### <a name="ElixirTranslation/quality_levels[4]"></a> `ElixirTranslation/quality_levels[4]`
-
-- **Type:** <a href="../../_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
-
----
-
-### <a name="ElixirTranslation/quality_levels[5]"></a> `ElixirTranslation/quality_levels[5]`
+### <a name="ElixirTranslation/quality_levels[]"></a> `ElixirTranslation/quality_levels[]`
 
 - **Type:** <a href="../../_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>

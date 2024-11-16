@@ -29,7 +29,7 @@
           "$ref": "../_Activatable.schema.json#/$defs/EnchantmentCost"
         },
         "property": {
-          "$ref": "../_Activatable.schema.json#/$defs/Property"
+          "$ref": "../_Activatable.schema.json#/$defs/PropertyDeclaration"
         },
         "ap_value": {
           "$ref": "../_Activatable.schema.json#/$defs/AdventurePointsValue"

@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$id": "/_ActivatableSkillEffect.schema.json",
   "$defs": {
-    "Effect": {
+    "ActivatableSkillEffect": {
       "description": "The effect description may be either a plain text or a text that is divided\nby a list of effects for each quality level. It may also be a list for each\ntwo quality levels.",
       "oneOf": [
         {
@@ -12,7 +12,7 @@
               "const": "Plain"
             },
             "plain": {
-              "$ref": "#/$defs/PlainEffect"
+              "$ref": "#/$defs/ActivatableSkillPlainEffect"
             }
           },
           "required": [
@@ -28,7 +28,7 @@
               "const": "ForEachQualityLevel"
             },
             "for_each_quality_level": {
-              "$ref": "#/$defs/EffectForEachQualityLevel"
+              "$ref": "#/$defs/ActivatableSkillEffectForEachQualityLevel"
             }
           },
           "required": [
@@ -44,7 +44,7 @@
               "const": "ForEachTwoQualityLevels"
             },
             "for_each_two_quality_levels": {
-              "$ref": "#/$defs/EffectForEachTwoQualityLevels"
+              "$ref": "#/$defs/ActivatableSkillEffectForEachTwoQualityLevels"
             }
           },
           "required": [
@@ -55,7 +55,7 @@
         }
       ]
     },
-    "PlainEffect": {
+    "ActivatableSkillPlainEffect": {
       "type": "object",
       "properties": {
         "text": {
@@ -68,7 +68,7 @@
       ],
       "additionalProperties": false
     },
-    "EffectForEachQualityLevel": {
+    "ActivatableSkillEffectForEachQualityLevel": {
       "type": "object",
       "properties": {
         "text_before": {
@@ -78,29 +78,9 @@
         "quality_levels": {
           "description": "The list of effects for each quality level. The first element\nrepresents QL 1, the second element QL 2, and so on.",
           "type": "array",
-          "items": [
-            {
-              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
-            },
-            {
-              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
-            },
-            {
-              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
-            },
-            {
-              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
-            },
-            {
-              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
-            },
-            {
-              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
-            }
-          ],
-          "minItems": 6,
-          "maxItems": 6,
-          "additionalItems": false
+          "items": {
+            "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+          }
         },
         "text_after": {
           "description": "The effect description after the list of effects for each quality\nlevel.",
@@ -113,7 +93,7 @@
       ],
       "additionalProperties": false
     },
-    "EffectForEachTwoQualityLevels": {
+    "ActivatableSkillEffectForEachTwoQualityLevels": {
       "type": "object",
       "properties": {
         "text_before": {
@@ -123,20 +103,9 @@
         "quality_levels": {
           "description": "The list of effects for each two quality levels. The first element\nrepresents QL 1–2, the second element QL 3–4 and the third element QL\n5–6.",
           "type": "array",
-          "items": [
-            {
-              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
-            },
-            {
-              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
-            },
-            {
-              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
-            }
-          ],
-          "minItems": 3,
-          "maxItems": 3,
-          "additionalItems": false
+          "items": {
+            "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+          }
         },
         "text_after": {
           "description": "The effect description after the list of effects for each quality\nlevel.",

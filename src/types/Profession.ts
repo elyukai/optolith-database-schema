@@ -164,7 +164,7 @@ export type ProfessionPackage = {
   /**
    * Any special abilities the profession receives from the package.
    */
-  special_abilities?: SpecialAbility[]
+  special_abilities?: ProfessionSpecialAbility[]
 
   /**
    * Provides ratings for the combat techniques that the hero receives from the
@@ -367,7 +367,7 @@ export type ProfessionVariantTranslation = {
   concluding_text?: NonEmptyString
 }
 
-export type SpecialAbility =
+export type ProfessionSpecialAbility =
   | { tag: "Fixed"; fixed: FixedSpecialAbility }
   | { tag: "Selection"; selection: SpecialAbilitySelection }
 
@@ -490,7 +490,7 @@ export type SpellRating = {
    * cost.
    * @minItems 1
    */
-  id: SpellIdentifier[]
+  id: ProfessionSpellIdentifier[]
 
   /**
    * The rating bonus provided for the (selected) spell. If used in a profession
@@ -502,7 +502,7 @@ export type SpellRating = {
   rating: number
 }
 
-export type SpellIdentifier =
+export type ProfessionSpellIdentifier =
   | { tag: "Spellwork"; spellwork: ProfessionSpellworkIdentifier }
   | { tag: "MagicalAction"; magical_action: ProfessionMagicalActionIdentifier }
 
@@ -737,24 +737,26 @@ export type SkillsOptions = {
 /**
  * The name of the profession that may have sex-specific names.
  */
-export type ProfessionName =
-  | NonEmptyString
-  | {
-      /**
-       * The name from the source publication.
-       */
-      default: NonEmptyString
+export type ProfessionName = SimpleProfessionName | ProfessionNameBySex
 
-      /**
-       * The male name.
-       */
-      male: NonEmptyString
+export type SimpleProfessionName = NonEmptyString
 
-      /**
-       * The female name.
-       */
-      female: NonEmptyString
-    }
+export type ProfessionNameBySex = {
+  /**
+   * The name from the source publication.
+   */
+  default: NonEmptyString
+
+  /**
+   * The male name.
+   */
+  male: NonEmptyString
+
+  /**
+   * The female name.
+   */
+  female: NonEmptyString
+}
 
 export const config: TypeConfig<Profession, Profession["id"], "Profession"> = {
   name: "Profession",

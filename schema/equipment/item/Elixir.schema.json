@@ -84,29 +84,9 @@
         "quality_levels": {
           "description": "The list of effects for each quality level. The first element\nrepresents QL 1, the second element QL 2, and so on.",
           "type": "array",
-          "items": [
-            {
-              "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
-            },
-            {
-              "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
-            },
-            {
-              "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
-            },
-            {
-              "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
-            },
-            {
-              "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
-            },
-            {
-              "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
-            }
-          ],
-          "minItems": 6,
-          "maxItems": 6,
-          "additionalItems": false
+          "items": {
+            "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+          }
         },
         "errata": {
           "$ref": "../../source/_Erratum.schema.json#/$defs/Errata"

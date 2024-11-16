@@ -7,7 +7,12 @@ import { todo } from "../validation/builders/integrity.js"
 import { validateEntityFileName } from "../validation/builders/naming.js"
 import { createSchemaValidator } from "../validation/builders/schema.js"
 import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
-import { ElementIdentifier, MagicalTraditionIdentifier, PropertyIdentifier, SkillIdentifier } from "./_Identifier.js"
+import {
+  ElementIdentifier,
+  MagicalTraditionIdentifier,
+  PropertyIdentifier,
+  SkillIdentifier,
+} from "./_Identifier.js"
 import { CombatTechniqueIdentifier, SpellworkIdentifier } from "./_IdentifierGroup.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
@@ -98,8 +103,10 @@ export type ElectiveSpellwork = {
  * designed so that it can work without a specific profession, as multiple may
  * belong to an institute, but with referencing other entities instead.
  */
-export type ElectiveSpellworkRestriction =
-  | { tag: "Element"; element: ElectiveSpellworkElementRestriction }
+export type ElectiveSpellworkRestriction = {
+  tag: "Element"
+  element: ElectiveSpellworkElementRestriction
+}
 
 export type ElectiveSpellworkElementRestriction = {
   id: ElementIdentifier
@@ -145,8 +152,10 @@ export type RestrictedProperty = {
 
 /**
  * A list of available lesson packages.
+ * @minItems 2
+ * @maxItems 2
  */
-export type LessonPackages = [LessonPackage, LessonPackage]
+export type LessonPackages = LessonPackage[]
 
 /**
  * @title Lesson Package

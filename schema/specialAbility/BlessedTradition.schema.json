@@ -26,17 +26,11 @@
         "aspects": {
           "description": "The tradition's aspects, if any.",
           "type": "array",
-          "items": [
-            {
-              "$ref": "../_SimpleReferences.schema.json#/$defs/AspectReference"
-            },
-            {
-              "$ref": "../_SimpleReferences.schema.json#/$defs/AspectReference"
-            }
-          ],
+          "items": {
+            "$ref": "../_SimpleReferences.schema.json#/$defs/AspectReference"
+          },
           "minItems": 2,
-          "maxItems": 2,
-          "additionalItems": false
+          "maxItems": 2
         },
         "restricted_blessings": {
           "description": "If a tradition restricts the possible blessings, the blessings that are\n**not** allowed.",
@@ -136,46 +130,21 @@
     },
     "ThreeRestrictedBlessings": {
       "type": "array",
-      "items": [
-        {
-          "$ref": "../_SimpleReferences.schema.json#/$defs/BlessingReference"
-        },
-        {
-          "$ref": "../_SimpleReferences.schema.json#/$defs/BlessingReference"
-        },
-        {
-          "$ref": "../_SimpleReferences.schema.json#/$defs/BlessingReference"
-        }
-      ],
+      "items": {
+        "$ref": "../_SimpleReferences.schema.json#/$defs/BlessingReference"
+      },
       "minItems": 3,
       "maxItems": 3,
-      "additionalItems": false
+      "uniqueItems": true
     },
     "SixRestrictedBlessings": {
       "type": "array",
-      "items": [
-        {
-          "$ref": "../_SimpleReferences.schema.json#/$defs/BlessingReference"
-        },
-        {
-          "$ref": "../_SimpleReferences.schema.json#/$defs/BlessingReference"
-        },
-        {
-          "$ref": "../_SimpleReferences.schema.json#/$defs/BlessingReference"
-        },
-        {
-          "$ref": "../_SimpleReferences.schema.json#/$defs/BlessingReference"
-        },
-        {
-          "$ref": "../_SimpleReferences.schema.json#/$defs/BlessingReference"
-        },
-        {
-          "$ref": "../_SimpleReferences.schema.json#/$defs/BlessingReference"
-        }
-      ],
+      "items": {
+        "$ref": "../_SimpleReferences.schema.json#/$defs/BlessingReference"
+      },
       "minItems": 6,
       "maxItems": 6,
-      "additionalItems": false
+      "uniqueItems": true
     },
     "FavoredCombatTechniques": {
       "oneOf": [

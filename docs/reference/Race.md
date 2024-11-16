@@ -82,7 +82,7 @@ A list of strongly recommended disadvantages.
 
 Configuration for random weight generation.
 
-- **Type:** <a href="#Weight">Weight</a>
+- **Type:** <a href="#RandomWeightGeneration">RandomWeightGeneration</a>
 
 #### <a name="Race/starting_age"></a> `starting_age`
 
@@ -289,7 +289,7 @@ The value by which the selected attribute's maximum is modified
 
 ---
 
-### <a name="Weight"></a> `Weight`
+### <a name="RandomWeightGeneration"></a> `RandomWeightGeneration`
 
 Configuration for random weight generation.
 
@@ -297,10 +297,10 @@ Configuration for random weight generation.
 
 Key | Description | Details
 :-- | :-- | :--
-`base` | The base value used for random weight. The height subtrahend; in case of `Height - 110 + 2D6` it is `110`. | <a href="#Weight/base">See details</a>
-`random` | The dice used for random weight. | <a href="#Weight/random">See details</a>
+`base` | The base value used for random weight. The height subtrahend; in case of `Height - 110 + 2D6` it is `110`. | <a href="#RandomWeightGeneration/base">See details</a>
+`random` | The dice used for random weight. | <a href="#RandomWeightGeneration/random">See details</a>
 
-#### <a name="Weight/base"></a> `base`
+#### <a name="RandomWeightGeneration/base"></a> `base`
 
 The base value used for random weight. The height subtrahend; in case of
 `Height - 110 + 2D6` it is `110`.
@@ -308,17 +308,17 @@ The base value used for random weight. The height subtrahend; in case of
 - **Type:** Integer
 - **Minimum:** `1`
 
-#### <a name="Weight/random"></a> `random`
+#### <a name="RandomWeightGeneration/random"></a> `random`
 
 The dice used for random weight.
 
 - **Type:** List
-- **Items:** <a href="#Weight/random[]">Weight/random[]</a>
+- **Items:** <a href="#RandomWeightGeneration/random[]">RandomWeightGeneration/random[]</a>
 - **Minimum Items:** `1`
 
 ---
 
-### <a name="Weight/random[]"></a> `Weight/random[]`
+### <a name="RandomWeightGeneration/random[]"></a> `RandomWeightGeneration/random[]`
 
 - **Type:** <a href="#WeightDice">WeightDice</a>
 

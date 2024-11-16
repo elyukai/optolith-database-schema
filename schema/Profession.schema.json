@@ -259,7 +259,7 @@
           "description": "Any special abilities the profession receives from the package.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/SpecialAbility"
+            "$ref": "#/$defs/ProfessionSpecialAbility"
           }
         },
         "combat_techniques": {
@@ -530,7 +530,7 @@
       ],
       "additionalProperties": false
     },
-    "SpecialAbility": {
+    "ProfessionSpecialAbility": {
       "oneOf": [
         {
           "type": "object",
@@ -744,7 +744,7 @@
           "description": "The identifier(s) of the spell(s) to choose from to provide the rating for.\nIf multiple spells are provided, they must all have the same improvement\ncost.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/SpellIdentifier"
+            "$ref": "#/$defs/ProfessionSpellIdentifier"
           },
           "minItems": 1
         },
@@ -761,7 +761,7 @@
       ],
       "additionalProperties": false
     },
-    "SpellIdentifier": {
+    "ProfessionSpellIdentifier": {
       "oneOf": [
         {
           "type": "object",
@@ -1387,32 +1387,38 @@
       "description": "The name of the profession that may have sex-specific names.",
       "oneOf": [
         {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+          "$ref": "#/$defs/SimpleProfessionName"
         },
         {
-          "type": "object",
-          "properties": {
-            "default": {
-              "description": "The name from the source publication.",
-              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-            },
-            "male": {
-              "description": "The male name.",
-              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-            },
-            "female": {
-              "description": "The female name.",
-              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-            }
-          },
-          "required": [
-            "default",
-            "male",
-            "female"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/ProfessionNameBySex"
         }
       ]
+    },
+    "SimpleProfessionName": {
+      "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+    },
+    "ProfessionNameBySex": {
+      "type": "object",
+      "properties": {
+        "default": {
+          "description": "The name from the source publication.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "male": {
+          "description": "The male name.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "female": {
+          "description": "The female name.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "default",
+        "male",
+        "female"
+      ],
+      "additionalProperties": false
     }
   }
 }

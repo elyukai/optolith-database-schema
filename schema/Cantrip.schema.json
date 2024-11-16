@@ -18,7 +18,7 @@
         },
         "target": {
           "description": "The target category – the kind of creature or object – the skill affects.",
-          "$ref": "./_ActivatableSkillTargetCategory.schema.json#/$defs/TargetCategory"
+          "$ref": "./_ActivatableSkillTargetCategory.schema.json#/$defs/AffectedTargetCategories"
         },
         "property": {
           "description": "The associated property.",
@@ -414,7 +414,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "$ref": "#/$defs/IndefiniteDurationTranslation"
+              "$ref": "#/$defs/IndefiniteCantripDurationTranslation"
             }
           },
           "minProperties": 1,
@@ -426,7 +426,7 @@
       ],
       "additionalProperties": false
     },
-    "IndefiniteDurationTranslation": {
+    "IndefiniteCantripDurationTranslation": {
       "type": "object",
       "properties": {
         "description": {

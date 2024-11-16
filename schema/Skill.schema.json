@@ -22,7 +22,7 @@
         },
         "encumbrance": {
           "description": "Indicates whether encumbrance gives a penalty for checks with the skill.",
-          "$ref": "#/$defs/Encumbrance"
+          "$ref": "#/$defs/EncumbranceInfluence"
         },
         "improvement_cost": {
           "description": "States which column is used to improve the skill.",
@@ -205,7 +205,7 @@
       ],
       "additionalProperties": false
     },
-    "Encumbrance": {
+    "EncumbranceInfluence": {
       "description": "Indicates whether encumbrance gives a penalty for checks with the skill.",
       "oneOf": [
         {

@@ -58,7 +58,7 @@ brews can be categorized in different types.
 
 #### <a name="CauldronEnchantment/property"></a> `property`
 
-- **Type:** <a href="#Property">Property</a>
+- **Type:** <a href="#PropertyDeclaration">PropertyDeclaration</a>
 
 #### <a name="CauldronEnchantment/ap_value"></a> `ap_value`
 

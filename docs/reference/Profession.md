@@ -438,7 +438,7 @@ variant is required.
 
 ### <a name="ProfessionPackage/special_abilities[]"></a> `ProfessionPackage/special_abilities[]`
 
-- **Type:** <a href="#SpecialAbility">SpecialAbility</a>
+- **Type:** <a href="#ProfessionSpecialAbility">ProfessionSpecialAbility</a>
 
 ---
 
@@ -738,46 +738,46 @@ Has no effect when `full_text` is set.
 
 ---
 
-### <a name="SpecialAbility"></a> `SpecialAbility`
+### <a name="ProfessionSpecialAbility"></a> `ProfessionSpecialAbility`
 
 - **Type:** Union
-- **Cases:** <a href="#SpecialAbility'Fixed">SpecialAbility'Fixed</a> | <a href="#SpecialAbility'Selection">SpecialAbility'Selection</a>
+- **Cases:** <a href="#ProfessionSpecialAbility'Fixed">ProfessionSpecialAbility'Fixed</a> | <a href="#ProfessionSpecialAbility'Selection">ProfessionSpecialAbility'Selection</a>
 
 ---
 
-### <a name="SpecialAbility'Fixed"></a> `SpecialAbility'Fixed`
+### <a name="ProfessionSpecialAbility'Fixed"></a> `ProfessionSpecialAbility'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#SpecialAbility'Fixed/tag">See details</a>
-`fixed` |  | <a href="#SpecialAbility'Fixed/fixed">See details</a>
+`tag` |  | <a href="#ProfessionSpecialAbility'Fixed/tag">See details</a>
+`fixed` |  | <a href="#ProfessionSpecialAbility'Fixed/fixed">See details</a>
 
-#### <a name="SpecialAbility'Fixed/tag"></a> `tag`
+#### <a name="ProfessionSpecialAbility'Fixed/tag"></a> `tag`
 
 - **Constant:** `"Fixed"`
 
-#### <a name="SpecialAbility'Fixed/fixed"></a> `fixed`
+#### <a name="ProfessionSpecialAbility'Fixed/fixed"></a> `fixed`
 
 - **Type:** <a href="#FixedSpecialAbility">FixedSpecialAbility</a>
 
 ---
 
-### <a name="SpecialAbility'Selection"></a> `SpecialAbility'Selection`
+### <a name="ProfessionSpecialAbility'Selection"></a> `ProfessionSpecialAbility'Selection`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#SpecialAbility'Selection/tag">See details</a>
-`selection` |  | <a href="#SpecialAbility'Selection/selection">See details</a>
+`tag` |  | <a href="#ProfessionSpecialAbility'Selection/tag">See details</a>
+`selection` |  | <a href="#ProfessionSpecialAbility'Selection/selection">See details</a>
 
-#### <a name="SpecialAbility'Selection/tag"></a> `tag`
+#### <a name="ProfessionSpecialAbility'Selection/tag"></a> `tag`
 
 - **Constant:** `"Selection"`
 
-#### <a name="SpecialAbility'Selection/selection"></a> `selection`
+#### <a name="ProfessionSpecialAbility'Selection/selection"></a> `selection`
 
 - **Type:** <a href="#SpecialAbilitySelection">SpecialAbilitySelection</a>
 
@@ -1061,50 +1061,50 @@ variant, it can also be used to lower the bonus of the base profession.
 
 ### <a name="SpellRating/id[]"></a> `SpellRating/id[]`
 
-- **Type:** <a href="#SpellIdentifier">SpellIdentifier</a>
+- **Type:** <a href="#ProfessionSpellIdentifier">ProfessionSpellIdentifier</a>
 
 ---
 
-### <a name="SpellIdentifier"></a> `SpellIdentifier`
+### <a name="ProfessionSpellIdentifier"></a> `ProfessionSpellIdentifier`
 
 - **Type:** Union
-- **Cases:** <a href="#SpellIdentifier'Spellwork">SpellIdentifier'Spellwork</a> | <a href="#SpellIdentifier'MagicalAction">SpellIdentifier'MagicalAction</a>
+- **Cases:** <a href="#ProfessionSpellIdentifier'Spellwork">ProfessionSpellIdentifier'Spellwork</a> | <a href="#ProfessionSpellIdentifier'MagicalAction">ProfessionSpellIdentifier'MagicalAction</a>
 
 ---
 
-### <a name="SpellIdentifier'Spellwork"></a> `SpellIdentifier'Spellwork`
+### <a name="ProfessionSpellIdentifier'Spellwork"></a> `ProfessionSpellIdentifier'Spellwork`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#SpellIdentifier'Spellwork/tag">See details</a>
-`spellwork` |  | <a href="#SpellIdentifier'Spellwork/spellwork">See details</a>
+`tag` |  | <a href="#ProfessionSpellIdentifier'Spellwork/tag">See details</a>
+`spellwork` |  | <a href="#ProfessionSpellIdentifier'Spellwork/spellwork">See details</a>
 
-#### <a name="SpellIdentifier'Spellwork/tag"></a> `tag`
+#### <a name="ProfessionSpellIdentifier'Spellwork/tag"></a> `tag`
 
 - **Constant:** `"Spellwork"`
 
-#### <a name="SpellIdentifier'Spellwork/spellwork"></a> `spellwork`
+#### <a name="ProfessionSpellIdentifier'Spellwork/spellwork"></a> `spellwork`
 
 - **Type:** <a href="#ProfessionSpellworkIdentifier">ProfessionSpellworkIdentifier</a>
 
 ---
 
-### <a name="SpellIdentifier'MagicalAction"></a> `SpellIdentifier'MagicalAction`
+### <a name="ProfessionSpellIdentifier'MagicalAction"></a> `ProfessionSpellIdentifier'MagicalAction`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#SpellIdentifier'MagicalAction/tag">See details</a>
-`magical_action` |  | <a href="#SpellIdentifier'MagicalAction/magical_action">See details</a>
+`tag` |  | <a href="#ProfessionSpellIdentifier'MagicalAction/tag">See details</a>
+`magical_action` |  | <a href="#ProfessionSpellIdentifier'MagicalAction/magical_action">See details</a>
 
-#### <a name="SpellIdentifier'MagicalAction/tag"></a> `tag`
+#### <a name="ProfessionSpellIdentifier'MagicalAction/tag"></a> `tag`
 
 - **Constant:** `"MagicalAction"`
 
-#### <a name="SpellIdentifier'MagicalAction/magical_action"></a> `magical_action`
+#### <a name="ProfessionSpellIdentifier'MagicalAction/magical_action"></a> `magical_action`
 
 - **Type:** <a href="#ProfessionMagicalActionIdentifier">ProfessionMagicalActionIdentifier</a>
 
@@ -1649,39 +1649,51 @@ The AP value you can buy skills for.
 The name of the profession that may have sex-specific names.
 
 - **Type:** Union
-- **Cases:** <a href="#ProfessionName'NonEmptyString">ProfessionName'NonEmptyString</a> | <a href="#ProfessionName'1">ProfessionName'1</a>
+- **Cases:** <a href="#ProfessionName'SimpleProfessionName">ProfessionName'SimpleProfessionName</a> | <a href="#ProfessionName'ProfessionNameBySex">ProfessionName'ProfessionNameBySex</a>
 
 ---
 
-### <a name="ProfessionName'NonEmptyString"></a> `ProfessionName'NonEmptyString`
+### <a name="ProfessionName'SimpleProfessionName"></a> `ProfessionName'SimpleProfessionName`
+
+- **Type:** <a href="#SimpleProfessionName">SimpleProfessionName</a>
+
+---
+
+### <a name="ProfessionName'ProfessionNameBySex"></a> `ProfessionName'ProfessionNameBySex`
+
+- **Type:** <a href="#ProfessionNameBySex">ProfessionNameBySex</a>
+
+---
+
+### <a name="SimpleProfessionName"></a> `SimpleProfessionName`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 ---
 
-### <a name="ProfessionName'1"></a> `ProfessionName'1`
+### <a name="ProfessionNameBySex"></a> `ProfessionNameBySex`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`default` | The name from the source publication. | <a href="#ProfessionName'1/default">See details</a>
-`male` | The male name. | <a href="#ProfessionName'1/male">See details</a>
-`female` | The female name. | <a href="#ProfessionName'1/female">See details</a>
+`default` | The name from the source publication. | <a href="#ProfessionNameBySex/default">See details</a>
+`male` | The male name. | <a href="#ProfessionNameBySex/male">See details</a>
+`female` | The female name. | <a href="#ProfessionNameBySex/female">See details</a>
 
-#### <a name="ProfessionName'1/default"></a> `default`
+#### <a name="ProfessionNameBySex/default"></a> `default`
 
 The name from the source publication.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="ProfessionName'1/male"></a> `male`
+#### <a name="ProfessionNameBySex/male"></a> `male`
 
 The male name.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="ProfessionName'1/female"></a> `female`
+#### <a name="ProfessionNameBySex/female"></a> `female`
 
 The female name.
 

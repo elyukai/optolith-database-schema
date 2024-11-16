@@ -48,7 +48,7 @@ export type Armor = {
   /**
    * The armor type.
    */
-  armor_type: ArmorType
+  armor_type: ArmorTypeReference
 
   /**
    * Specify if armor is only available for a specific hit zone.
@@ -119,7 +119,7 @@ export type SecondaryArmor = {
   /**
    * The armor type.
    */
-  armor_type: ArmorType
+  armor_type: ArmorTypeReference
 
   /**
    * Specify if armor is only available for a specific hit zone.
@@ -170,7 +170,7 @@ export type HasAdditionalPenalties = boolean
  * The armor type.
  * @title Armor Type
  */
-export type ArmorType = {
+export type ArmorTypeReference = {
   /**
    * The armor type's identifier.
    * @integer

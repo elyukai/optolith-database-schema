@@ -124,57 +124,19 @@ The effect description may be either a plain text or a text that is
 divided by a list of effects for each quality level. It may also be a
 list for each two quality levels.
 
-- **Type:** <a href="../_ActivatableSkillEffect.md#Effect">Effect</a>
+- **Type:** <a href="../_ActivatableSkillEffect.md#ActivatableSkillEffect">ActivatableSkillEffect</a>
 
 #### <a name="MagicalMelodyTranslation/duration"></a> `duration`
 
-- **Type:** <a href="#MagicalMelodyTranslation/duration">Object</a>
+- **Type:** <a href="../_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="MagicalMelodyTranslation/cost"></a> `cost`
 
-- **Type:** <a href="#MagicalMelodyTranslation/cost">Object</a>
+- **Type:** <a href="../_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="MagicalMelodyTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>
-
----
-
-### <a name="MagicalMelodyTranslation/duration"></a> `MagicalMelodyTranslation/duration`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#MagicalMelodyTranslation/duration/full">See details</a>
-`abbr` |  | <a href="#MagicalMelodyTranslation/duration/abbr">See details</a>
-
-#### <a name="MagicalMelodyTranslation/duration/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="MagicalMelodyTranslation/duration/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="MagicalMelodyTranslation/cost"></a> `MagicalMelodyTranslation/cost`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#MagicalMelodyTranslation/cost/full">See details</a>
-`abbr` |  | <a href="#MagicalMelodyTranslation/cost/abbr">See details</a>
-
-#### <a name="MagicalMelodyTranslation/cost/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="MagicalMelodyTranslation/cost/abbr"></a> `abbr`
-
-- **Type:** String
 
 ---
 

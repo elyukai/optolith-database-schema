@@ -384,7 +384,7 @@ export type PoisonTranslation = {
   /**
    * The normal and degraded poison's effects.
    */
-  effect: Reduceable
+  effect: Reduceable<NonEmptyMarkdown>
 
   /**
    * Notes on the poison's special features.

@@ -26,7 +26,7 @@
           "$ref": "../_Activatable.schema.json#/$defs/Maximum"
         },
         "aspect": {
-          "$ref": "../_Activatable.schema.json#/$defs/Aspect"
+          "$ref": "../_Activatable.schema.json#/$defs/AspectDeclaration"
         },
         "prerequisites": {
           "$ref": "../_Prerequisite.schema.json#/$defs/GeneralPrerequisites"

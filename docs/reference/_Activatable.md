@@ -1295,13 +1295,6 @@ The penalty value for this order.
 Set if a predefined different word should be used instead of the word
 `attack` for display purposes.
 
-- **Type:** Union
-- **Cases:** <a href="#PenaltyByAttackReplacement'0">PenaltyByAttackReplacement'0</a>
-
----
-
-### <a name="PenaltyByAttackReplacement'0"></a> `PenaltyByAttackReplacement'0`
-
 - **Constant:** `"Throw"`
 
 ---
@@ -1742,13 +1735,6 @@ The value that is applied to the `base` using the defined `arithmetic`.
 ---
 
 ### <a name="IndefiniteArcaneEnergyCostModifierArithmetic"></a> `IndefiniteArcaneEnergyCostModifierArithmetic`
-
-- **Type:** Union
-- **Cases:** <a href="#IndefiniteArcaneEnergyCostModifierArithmetic'0">IndefiniteArcaneEnergyCostModifierArithmetic'0</a>
-
----
-
-### <a name="IndefiniteArcaneEnergyCostModifierArithmetic'0"></a> `IndefiniteArcaneEnergyCostModifierArithmetic'0`
 
 - **Constant:** `"Add"`
 
@@ -2573,61 +2559,61 @@ The binding cost for the selection if it does not define a specific one.
 
 ---
 
-### <a name="Property"></a> `Property`
+### <a name="PropertyDeclaration"></a> `PropertyDeclaration`
 
 The magic property's identifier. `DependingOnProperty` can only be used if
 the special ability has an option to select a property.
 
 - **Type:** Union
-- **Cases:** <a href="#Property'DependingOnSelection">Property'DependingOnSelection</a> | <a href="#Property'Fixed">Property'Fixed</a>
+- **Cases:** <a href="#PropertyDeclaration'DependingOnSelection">PropertyDeclaration'DependingOnSelection</a> | <a href="#PropertyDeclaration'Fixed">PropertyDeclaration'Fixed</a>
 
 ---
 
-### <a name="Property'DependingOnSelection"></a> `Property'DependingOnSelection`
+### <a name="PropertyDeclaration'DependingOnSelection"></a> `PropertyDeclaration'DependingOnSelection`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Property'DependingOnSelection/tag">See details</a>
-`depending_on_selection` |  | <a href="#Property'DependingOnSelection/depending_on_selection">See details</a>
+`tag` |  | <a href="#PropertyDeclaration'DependingOnSelection/tag">See details</a>
+`depending_on_selection` |  | <a href="#PropertyDeclaration'DependingOnSelection/depending_on_selection">See details</a>
 
-#### <a name="Property'DependingOnSelection/tag"></a> `tag`
+#### <a name="PropertyDeclaration'DependingOnSelection/tag"></a> `tag`
 
 - **Constant:** `"DependingOnSelection"`
 
-#### <a name="Property'DependingOnSelection/depending_on_selection"></a> `depending_on_selection`
+#### <a name="PropertyDeclaration'DependingOnSelection/depending_on_selection"></a> `depending_on_selection`
 
-- **Type:** <a href="#Property'DependingOnSelection/depending_on_selection">Object</a>
+- **Type:** <a href="#PropertyDeclaration'DependingOnSelection/depending_on_selection">Object</a>
 
 ---
 
-### <a name="Property'DependingOnSelection/depending_on_selection"></a> `Property'DependingOnSelection/depending_on_selection`
+### <a name="PropertyDeclaration'DependingOnSelection/depending_on_selection"></a> `PropertyDeclaration'DependingOnSelection/depending_on_selection`
 
 - **Type:** Empty Object
 
 ---
 
-### <a name="Property'Fixed"></a> `Property'Fixed`
+### <a name="PropertyDeclaration'Fixed"></a> `PropertyDeclaration'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#Property'Fixed/tag">See details</a>
-`fixed` |  | <a href="#Property'Fixed/fixed">See details</a>
+`tag` |  | <a href="#PropertyDeclaration'Fixed/tag">See details</a>
+`fixed` |  | <a href="#PropertyDeclaration'Fixed/fixed">See details</a>
 
-#### <a name="Property'Fixed/tag"></a> `tag`
+#### <a name="PropertyDeclaration'Fixed/tag"></a> `tag`
 
 - **Constant:** `"Fixed"`
 
-#### <a name="Property'Fixed/fixed"></a> `fixed`
+#### <a name="PropertyDeclaration'Fixed/fixed"></a> `fixed`
 
 - **Type:** <a href="./_SimpleReferences.md#PropertyReference">PropertyReference</a>
 
 ---
 
-### <a name="Aspect"></a> `Aspect`
+### <a name="AspectDeclaration"></a> `AspectDeclaration`
 
 The blessed aspect.
 
@@ -2871,24 +2857,14 @@ entry is allowed, which can be modelled by the option property. It can also
 be that you can choose from a set of special abilities, but then you can't
 specify an option.
 
-- **Type:** Tuple
-- **Items:** [<a href="AdvancedSpecialAbilities[0]">AdvancedSpecialAbilities[0]</a>, <a href="AdvancedSpecialAbilities[1]">AdvancedSpecialAbilities[1]</a>, <a href="AdvancedSpecialAbilities[2]">AdvancedSpecialAbilities[2]</a>]
+- **Type:** List
+- **Items:** <a href="#AdvancedSpecialAbilities[]">AdvancedSpecialAbilities[]</a>
+- **Minimum Items:** `3`
+- **Maximum Items:** `3`
 
 ---
 
-### <a name="AdvancedSpecialAbilities[0]"></a> `AdvancedSpecialAbilities[0]`
-
-- **Type:** <a href="#AdvancedSpecialAbility">AdvancedSpecialAbility</a>&lt;<a href="#Identifier">Identifier</a>&gt;
-
----
-
-### <a name="AdvancedSpecialAbilities[1]"></a> `AdvancedSpecialAbilities[1]`
-
-- **Type:** <a href="#AdvancedSpecialAbility">AdvancedSpecialAbility</a>&lt;<a href="#Identifier">Identifier</a>&gt;
-
----
-
-### <a name="AdvancedSpecialAbilities[2]"></a> `AdvancedSpecialAbilities[2]`
+### <a name="AdvancedSpecialAbilities[]"></a> `AdvancedSpecialAbilities[]`
 
 - **Type:** <a href="#AdvancedSpecialAbility">AdvancedSpecialAbility</a>&lt;<a href="#Identifier">Identifier</a>&gt;
 

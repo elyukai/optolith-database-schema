@@ -358,7 +358,7 @@
         }
       ]
     },
-    "SkillIdentifier": {
+    "SkillishIdentifier": {
       "oneOf": [
         {
           "$ref": "./_Identifier.schema.json#/$defs/SkillIdentifier"

@@ -41,7 +41,7 @@ export type Skill = {
   /**
    * Indicates whether encumbrance gives a penalty for checks with the skill.
    */
-  encumbrance: Encumbrance
+  encumbrance: EncumbranceInfluence
 
   /**
    * States which column is used to improve the skill.
@@ -158,7 +158,7 @@ export type ApplicationTranslation = {
 /**
  * Indicates whether encumbrance gives a penalty for checks with the skill.
  */
-export type Encumbrance =
+export type EncumbranceInfluence =
   | "True"
   | "False"
   | "Maybe"

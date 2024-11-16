@@ -7,9 +7,10 @@ import { todo } from "../../validation/builders/integrity.js"
 import { validateEntityFileName } from "../../validation/builders/naming.js"
 import { createSchemaValidator } from "../../validation/builders/schema.js"
 import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
-import { FixedOneTimeDuration } from "../FamiliarsTrick.js"
+import { FamiliarsTrickFixedOneTimeCostTranslation } from "../FamiliarsTrick.js"
+import { OldParameter } from "../_ActivatableSkill.js"
 import { CheckResultBasedDuration, DurationUnitValue } from "../_ActivatableSkillDuration.js"
-import { Effect } from "../_ActivatableSkillEffect.js"
+import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "../_NonEmptyString.js"
@@ -100,17 +101,17 @@ export type AnimistPowerTranslation = {
    * divided by a list of effects for each quality level. It may also be a
    * list for each two quality levels.
    */
-  effect: Effect
+  effect: ActivatableSkillEffect
 
   /**
    * @deprecated
    */
-  cost: { full: string; abbr: string }
+  cost: OldParameter
 
   /**
    * @deprecated
    */
-  duration: { full: string; abbr: string }
+  duration: OldParameter
 
   /**
    * A prerequisites text.
@@ -199,7 +200,7 @@ export type OneTimeAnimistPowerCostByPrimaryPatron = {
 
 export type OneTimeAnimistPowerDuration =
   | { tag: "Immediate"; immediate: {} }
-  | { tag: "Fixed"; fixed: FixedOneTimeDuration }
+  | { tag: "Fixed"; fixed: FamiliarsTrickFixedOneTimeCostTranslation }
   | { tag: "CheckResultBased"; check_result_based: CheckResultBasedDuration }
 
 export type SustainedAnimistPowerPerformanceParameters = {

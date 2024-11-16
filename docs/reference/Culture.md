@@ -218,24 +218,24 @@ adjusted.
 
 ---
 
-### <a name="Weight"></a> `Weight`
+### <a name="CommonnessWeight"></a> `CommonnessWeight`
 
 The "weight" difference compared to other professions or profession variants.
 Some professions or profession variants are simply more common (Mostly), but
 sometimes only specific elements are used (Only).
 
 - **Type:** Union
-- **Cases:** <a href="#Weight'0">Weight'0</a> | <a href="#Weight'1">Weight'1</a>
+- **Cases:** <a href="#CommonnessWeight'0">CommonnessWeight'0</a> | <a href="#CommonnessWeight'1">CommonnessWeight'1</a>
 
 ---
 
-### <a name="Weight'0"></a> `Weight'0`
+### <a name="CommonnessWeight'0"></a> `CommonnessWeight'0`
 
 - **Constant:** `"Mostly"`
 
 ---
 
-### <a name="Weight'1"></a> `Weight'1`
+### <a name="CommonnessWeight'1"></a> `CommonnessWeight'1`
 
 - **Constant:** `"Only"`
 
@@ -268,7 +268,7 @@ The "weight" difference compared to other professions or profession
 variants. Some professions or profession variants are simply more common
 (Mostly), but sometimes only specific elements are used (Only).
 
-- **Type:** <a href="#Weight">Weight</a>
+- **Type:** <a href="#CommonnessWeight">CommonnessWeight</a>
 
 ---
 
@@ -900,68 +900,68 @@ Special naming rules.
 
 ### <a name="CommonNames/first_name_groups[]"></a> `CommonNames/first_name_groups[]`
 
-- **Type:** <a href="#NameGroup">NameGroup</a>
+- **Type:** <a href="#CommonNameGroup">CommonNameGroup</a>
 
 ---
 
 ### <a name="CommonNames/last_name_groups[]"></a> `CommonNames/last_name_groups[]`
 
-- **Type:** <a href="#NameGroup">NameGroup</a>
+- **Type:** <a href="#CommonNameGroup">CommonNameGroup</a>
 
 ---
 
-### <a name="NameGroup"></a> `NameGroup`
+### <a name="CommonNameGroup"></a> `CommonNameGroup`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`label` | The group label. | <a href="#NameGroup/label">See details</a>
-`sex?` | The binary sex if the group is only for a certain binary sex. | <a href="#NameGroup/sex">See details</a>
-`names` | The names from the group. | <a href="#NameGroup/names">See details</a>
+`label` | The group label. | <a href="#CommonNameGroup/label">See details</a>
+`sex?` | The binary sex if the group is only for a certain binary sex. | <a href="#CommonNameGroup/sex">See details</a>
+`names` | The names from the group. | <a href="#CommonNameGroup/names">See details</a>
 
-#### <a name="NameGroup/label"></a> `label`
+#### <a name="CommonNameGroup/label"></a> `label`
 
 The group label.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="NameGroup/sex"></a> `sex?`
+#### <a name="CommonNameGroup/sex"></a> `sex?`
 
 The binary sex if the group is only for a certain binary sex.
 
 - **Type:** <a href="./_Sex.md#BinarySex">BinarySex</a>
 
-#### <a name="NameGroup/names"></a> `names`
+#### <a name="CommonNameGroup/names"></a> `names`
 
 The names from the group.
 
 - **Type:** List
-- **Items:** <a href="#NameGroup/names[]">NameGroup/names[]</a>
+- **Items:** <a href="#CommonNameGroup/names[]">CommonNameGroup/names[]</a>
 - **Minimum Items:** `1`
 
 ---
 
-### <a name="NameGroup/names[]"></a> `NameGroup/names[]`
+### <a name="CommonNameGroup/names[]"></a> `CommonNameGroup/names[]`
 
-- **Type:** <a href="#Name">Name</a>
+- **Type:** <a href="#CommonName">CommonName</a>
 
 ---
 
-### <a name="Name"></a> `Name`
+### <a name="CommonName"></a> `CommonName`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#Name/name">See details</a>
-`note?` | Additional information about the name, appended in parenthesis. | <a href="#Name/note">See details</a>
+`name` |  | <a href="#CommonName/name">See details</a>
+`note?` | Additional information about the name, appended in parenthesis. | <a href="#CommonName/note">See details</a>
 
-#### <a name="Name/name"></a> `name`
+#### <a name="CommonName/name"></a> `name`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Name/note"></a> `note?`
+#### <a name="CommonName/note"></a> `note?`
 
 Additional information about the name, appended in parenthesis.
 

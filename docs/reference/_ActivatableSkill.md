@@ -171,3 +171,22 @@ Key | Description | Details
 ### <a name="SlowSustainedPerformanceParameters"></a> `SlowSustainedPerformanceParameters`
 
 - **Type:** <a href="#SustainedPerformanceParameters">SustainedPerformanceParameters</a>&lt;<a href="./_ActivatableSkillCastingTime.md#SlowCastingTime">SlowCastingTime</a>&gt;
+
+---
+
+### <a name="OldParameter"></a> `OldParameter`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`full` |  | <a href="#OldParameter/full">See details</a>
+`abbr` |  | <a href="#OldParameter/abbr">See details</a>
+
+#### <a name="OldParameter/full"></a> `full`
+
+- **Type:** String
+
+#### <a name="OldParameter/abbr"></a> `abbr`
+
+- **Type:** String

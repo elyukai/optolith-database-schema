@@ -32,7 +32,7 @@
         },
         "armor_type": {
           "description": "The armor type.",
-          "$ref": "#/$defs/ArmorType"
+          "$ref": "#/$defs/ArmorTypeReference"
         },
         "hit_zone": {
           "description": "Specify if armor is only available for a specific hit zone.",
@@ -120,7 +120,7 @@
         },
         "armor_type": {
           "description": "The armor type.",
-          "$ref": "#/$defs/ArmorType"
+          "$ref": "#/$defs/ArmorTypeReference"
         },
         "hit_zone": {
           "description": "Specify if armor is only available for a specific hit zone.",
@@ -176,7 +176,7 @@
       "description": "Does the armor have additional penalties (MOV -1, INI -1)?",
       "type": "boolean"
     },
-    "ArmorType": {
+    "ArmorTypeReference": {
       "title": "Armor Type",
       "description": "The armor type.",
       "type": "object",

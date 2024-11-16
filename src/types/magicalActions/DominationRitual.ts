@@ -7,8 +7,13 @@ import { todo } from "../../validation/builders/integrity.js"
 import { validateEntityFileName } from "../../validation/builders/naming.js"
 import { createSchemaValidator } from "../../validation/builders/schema.js"
 import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
-import { CheckResultBasedDuration, DurationUnit, IndefiniteDurationTranslation } from "../_ActivatableSkillDuration.js"
-import { Effect } from "../_ActivatableSkillEffect.js"
+import { OldParameter } from "../_ActivatableSkill.js"
+import {
+  CheckResultBasedDuration,
+  DurationUnit,
+  IndefiniteDurationTranslation,
+} from "../_ActivatableSkillDuration.js"
+import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { NonEmptyString } from "../_NonEmptyString.js"
 import { ResponsiveText } from "../_ResponsiveText.js"
@@ -67,17 +72,17 @@ export type DominationRitualTranslation = {
    * divided by a list of effects for each quality level. It may also be a
    * list for each two quality levels.
    */
-  effect: Effect
+  effect: ActivatableSkillEffect
 
   /**
    * @deprecated
    */
-  cost: { full: string; abbr: string }
+  cost: OldParameter
 
   /**
    * @deprecated
    */
-  duration: { full: string; abbr: string }
+  duration: OldParameter
 
   errata?: Errata
 }
@@ -143,7 +148,7 @@ export type IndefiniteDominationRitualDuration = {
   /**
    * Specified if the duration has a maximum time span.
    */
-  maximum?: MaximumIndefiniteCurseDuration
+  maximum?: MaximumIndefiniteDominationRitualDuration
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
@@ -151,7 +156,7 @@ export type IndefiniteDominationRitualDuration = {
   translations: LocaleMap<IndefiniteDurationTranslation>
 }
 
-export type MaximumIndefiniteCurseDuration =
+export type MaximumIndefiniteDominationRitualDuration =
   | { tag: "Fixed"; fixed: FixedDominationRitualDuration }
   | { tag: "CheckResultBased"; check_result_based: CheckResultBasedDuration }
 

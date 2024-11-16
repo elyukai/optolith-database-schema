@@ -127,19 +127,19 @@ The effect description may be either a plain text or a text that is
 divided by a list of effects for each quality level. It may also be a
 list for each two quality levels.
 
-- **Type:** <a href="../_ActivatableSkillEffect.md#Effect">Effect</a>
+- **Type:** <a href="../_ActivatableSkillEffect.md#ActivatableSkillEffect">ActivatableSkillEffect</a>
 
 #### <a name="MagicalRuneTranslation/cost"></a> `cost`
 
-- **Type:** <a href="#MagicalRuneTranslation/cost">Object</a>
+- **Type:** <a href="../_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="MagicalRuneTranslation/crafting_time"></a> `crafting_time`
 
-- **Type:** <a href="#MagicalRuneTranslation/crafting_time">Object</a>
+- **Type:** <a href="#OldParameterBySpeed">OldParameterBySpeed</a>
 
 #### <a name="MagicalRuneTranslation/duration"></a> `duration`
 
-- **Type:** <a href="#MagicalRuneTranslation/duration">Object</a>
+- **Type:** <a href="#OldParameterBySpeed">OldParameterBySpeed</a>
 
 #### <a name="MagicalRuneTranslation/errata"></a> `errata?`
 
@@ -147,160 +147,39 @@ list for each two quality levels.
 
 ---
 
-### <a name="MagicalRuneTranslation/cost"></a> `MagicalRuneTranslation/cost`
+### <a name="OldParameterBySpeed"></a> `OldParameterBySpeed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`full` |  | <a href="#MagicalRuneTranslation/cost/full">See details</a>
-`abbr` |  | <a href="#MagicalRuneTranslation/cost/abbr">See details</a>
+`slow` |  | <a href="#OldParameterBySpeed/slow">See details</a>
+`fast` |  | <a href="#OldParameterBySpeed/fast">See details</a>
 
-#### <a name="MagicalRuneTranslation/cost/full"></a> `full`
+#### <a name="OldParameterBySpeed/slow"></a> `slow`
 
-- **Type:** String
+- **Type:** <a href="../_ActivatableSkill.md#OldParameter">OldParameter</a>
 
-#### <a name="MagicalRuneTranslation/cost/abbr"></a> `abbr`
+#### <a name="OldParameterBySpeed/fast"></a> `fast`
 
-- **Type:** String
-
----
-
-### <a name="MagicalRuneTranslation/crafting_time"></a> `MagicalRuneTranslation/crafting_time`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`slow` |  | <a href="#MagicalRuneTranslation/crafting_time/slow">See details</a>
-`fast` |  | <a href="#MagicalRuneTranslation/crafting_time/fast">See details</a>
-
-#### <a name="MagicalRuneTranslation/crafting_time/slow"></a> `slow`
-
-- **Type:** <a href="#MagicalRuneTranslation/crafting_time/slow">Object</a>
-
-#### <a name="MagicalRuneTranslation/crafting_time/fast"></a> `fast`
-
-- **Type:** <a href="#MagicalRuneTranslation/crafting_time/fast">Object</a>
-
----
-
-### <a name="MagicalRuneTranslation/crafting_time/slow"></a> `MagicalRuneTranslation/crafting_time/slow`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#MagicalRuneTranslation/crafting_time/slow/full">See details</a>
-`abbr` |  | <a href="#MagicalRuneTranslation/crafting_time/slow/abbr">See details</a>
-
-#### <a name="MagicalRuneTranslation/crafting_time/slow/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="MagicalRuneTranslation/crafting_time/slow/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="MagicalRuneTranslation/crafting_time/fast"></a> `MagicalRuneTranslation/crafting_time/fast`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#MagicalRuneTranslation/crafting_time/fast/full">See details</a>
-`abbr` |  | <a href="#MagicalRuneTranslation/crafting_time/fast/abbr">See details</a>
-
-#### <a name="MagicalRuneTranslation/crafting_time/fast/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="MagicalRuneTranslation/crafting_time/fast/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="MagicalRuneTranslation/duration"></a> `MagicalRuneTranslation/duration`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`slow` |  | <a href="#MagicalRuneTranslation/duration/slow">See details</a>
-`fast` |  | <a href="#MagicalRuneTranslation/duration/fast">See details</a>
-
-#### <a name="MagicalRuneTranslation/duration/slow"></a> `slow`
-
-- **Type:** <a href="#MagicalRuneTranslation/duration/slow">Object</a>
-
-#### <a name="MagicalRuneTranslation/duration/fast"></a> `fast`
-
-- **Type:** <a href="#MagicalRuneTranslation/duration/fast">Object</a>
-
----
-
-### <a name="MagicalRuneTranslation/duration/slow"></a> `MagicalRuneTranslation/duration/slow`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#MagicalRuneTranslation/duration/slow/full">See details</a>
-`abbr` |  | <a href="#MagicalRuneTranslation/duration/slow/abbr">See details</a>
-
-#### <a name="MagicalRuneTranslation/duration/slow/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="MagicalRuneTranslation/duration/slow/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="MagicalRuneTranslation/duration/fast"></a> `MagicalRuneTranslation/duration/fast`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#MagicalRuneTranslation/duration/fast/full">See details</a>
-`abbr` |  | <a href="#MagicalRuneTranslation/duration/fast/abbr">See details</a>
-
-#### <a name="MagicalRuneTranslation/duration/fast/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="MagicalRuneTranslation/duration/fast/abbr"></a> `abbr`
-
-- **Type:** String
+- **Type:** <a href="../_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 ---
 
 ### <a name="MagicalRuneCheckPenalty"></a> `MagicalRuneCheckPenalty`
 
-- **Type:** Union
-- **Cases:** <a href="#MagicalRuneCheckPenalty'CombatTechnique">MagicalRuneCheckPenalty'CombatTechnique</a>
-
----
-
-### <a name="MagicalRuneCheckPenalty'CombatTechnique"></a> `MagicalRuneCheckPenalty'CombatTechnique`
-
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#MagicalRuneCheckPenalty'CombatTechnique/tag">See details</a>
-`combat_technique` |  | <a href="#MagicalRuneCheckPenalty'CombatTechnique/combat_technique">See details</a>
+`tag` |  | <a href="#MagicalRuneCheckPenalty/tag">See details</a>
+`combat_technique` |  | <a href="#MagicalRuneCheckPenalty/combat_technique">See details</a>
 
-#### <a name="MagicalRuneCheckPenalty'CombatTechnique/tag"></a> `tag`
+#### <a name="MagicalRuneCheckPenalty/tag"></a> `tag`
 
 - **Constant:** `"CombatTechnique"`
 
-#### <a name="MagicalRuneCheckPenalty'CombatTechnique/combat_technique"></a> `combat_technique`
+#### <a name="MagicalRuneCheckPenalty/combat_technique"></a> `combat_technique`
 
 - **Type:** <a href="#MagicalRuneCombatTechniqueCheckPenalty">MagicalRuneCombatTechniqueCheckPenalty</a>
 
@@ -598,32 +477,13 @@ Key | Description | Details
 
 The (unitless) crafting time.
 
-- **Type:** Union
-- **Cases:** <a href="#MagicalRuneCraftingTime/value'0">MagicalRuneCraftingTime/value'0</a> | <a href="#MagicalRuneCraftingTime/value'1">MagicalRuneCraftingTime/value'1</a> | <a href="#MagicalRuneCraftingTime/value'2">MagicalRuneCraftingTime/value'2</a>
+- **Type:** Integer
 
 #### <a name="MagicalRuneCraftingTime/translations"></a> `translations?`
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
 - **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#MagicalRuneCraftingTimeTranslation">MagicalRuneCraftingTimeTranslation</a>&gt;
-
----
-
-### <a name="MagicalRuneCraftingTime/value'0"></a> `MagicalRuneCraftingTime/value'0`
-
-- **Constant:** `1`
-
----
-
-### <a name="MagicalRuneCraftingTime/value'1"></a> `MagicalRuneCraftingTime/value'1`
-
-- **Constant:** `2`
-
----
-
-### <a name="MagicalRuneCraftingTime/value'2"></a> `MagicalRuneCraftingTime/value'2`
-
-- **Constant:** `4`
 
 ---
 
@@ -777,25 +637,18 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="MagicalRuneSuboption"></a> `MagicalRuneSuboption`
 
-- **Type:** Union
-- **Cases:** <a href="#MagicalRuneSuboption'Custom">MagicalRuneSuboption'Custom</a>
-
----
-
-### <a name="MagicalRuneSuboption'Custom"></a> `MagicalRuneSuboption'Custom`
-
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#MagicalRuneSuboption'Custom/tag">See details</a>
-`custom` |  | <a href="#MagicalRuneSuboption'Custom/custom">See details</a>
+`tag` |  | <a href="#MagicalRuneSuboption/tag">See details</a>
+`custom` |  | <a href="#MagicalRuneSuboption/custom">See details</a>
 
-#### <a name="MagicalRuneSuboption'Custom/tag"></a> `tag`
+#### <a name="MagicalRuneSuboption/tag"></a> `tag`
 
 - **Constant:** `"Custom"`
 
-#### <a name="MagicalRuneSuboption'Custom/custom"></a> `custom`
+#### <a name="MagicalRuneSuboption/custom"></a> `custom`
 
 - **Type:** <a href="#CustomMagicalRuneSuboption">CustomMagicalRuneSuboption</a>
 

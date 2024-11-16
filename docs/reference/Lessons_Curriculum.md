@@ -194,25 +194,18 @@ The condition may be related to professions or profession variants, but it is
 designed so that it can work without a specific profession, as multiple may
 belong to an institute, but with referencing other entities instead.
 
-- **Type:** Union
-- **Cases:** <a href="#ElectiveSpellworkRestriction'Element">ElectiveSpellworkRestriction'Element</a>
-
----
-
-### <a name="ElectiveSpellworkRestriction'Element"></a> `ElectiveSpellworkRestriction'Element`
-
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#ElectiveSpellworkRestriction'Element/tag">See details</a>
-`element` |  | <a href="#ElectiveSpellworkRestriction'Element/element">See details</a>
+`tag` |  | <a href="#ElectiveSpellworkRestriction/tag">See details</a>
+`element` |  | <a href="#ElectiveSpellworkRestriction/element">See details</a>
 
-#### <a name="ElectiveSpellworkRestriction'Element/tag"></a> `tag`
+#### <a name="ElectiveSpellworkRestriction/tag"></a> `tag`
 
 - **Constant:** `"Element"`
 
-#### <a name="ElectiveSpellworkRestriction'Element/element"></a> `element`
+#### <a name="ElectiveSpellworkRestriction/element"></a> `element`
 
 - **Type:** <a href="#ElectiveSpellworkElementRestriction">ElectiveSpellworkElementRestriction</a>
 
@@ -414,18 +407,14 @@ not contribute to the maximum.
 
 A list of available lesson packages.
 
-- **Type:** Tuple
-- **Items:** [<a href="LessonPackages[0]">LessonPackages[0]</a>, <a href="LessonPackages[1]">LessonPackages[1]</a>]
+- **Type:** List
+- **Items:** <a href="#LessonPackages[]">LessonPackages[]</a>
+- **Minimum Items:** `2`
+- **Maximum Items:** `2`
 
 ---
 
-### <a name="LessonPackages[0]"></a> `LessonPackages[0]`
-
-- **Type:** <a href="#LessonPackage">LessonPackage</a>
-
----
-
-### <a name="LessonPackages[1]"></a> `LessonPackages[1]`
+### <a name="LessonPackages[]"></a> `LessonPackages[]`
 
 - **Type:** <a href="#LessonPackage">LessonPackage</a>
 

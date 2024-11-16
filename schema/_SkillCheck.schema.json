@@ -6,20 +6,9 @@
       "title": "Skill Check",
       "description": "The attributes' identifiers of the skill check.",
       "type": "array",
-      "items": [
-        {
-          "$ref": "./_SimpleReferences.schema.json#/$defs/AttributeReference"
-        },
-        {
-          "$ref": "./_SimpleReferences.schema.json#/$defs/AttributeReference"
-        },
-        {
-          "$ref": "./_SimpleReferences.schema.json#/$defs/AttributeReference"
-        }
-      ],
-      "minItems": 3,
-      "maxItems": 3,
-      "additionalItems": false
+      "items": {
+        "$ref": "./_SimpleReferences.schema.json#/$defs/AttributeReference"
+      }
     },
     "SkillCheckPenalty": {
       "title": "Skill Check Penalty",

@@ -1,3 +1,10 @@
+/**
+ * @ignore swift
+ */
+
+/**
+ *
+ */
 export type PublicationIdentifier = {
   tag: "Publication"
 
@@ -748,7 +755,7 @@ export type AttributeIdentifier = {
   attribute: number
 }
 
-export type SkillIdentifier<Value extends number = number> = {
+export type SkillIdentifier = {
   tag: "Skill"
 
   /**
@@ -756,7 +763,7 @@ export type SkillIdentifier<Value extends number = number> = {
    * @integer
    * @minimum 1
    */
-  skill: Value
+  skill: number
 }
 
 export type SkillGroupIdentifier = {

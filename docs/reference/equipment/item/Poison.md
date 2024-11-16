@@ -1026,7 +1026,7 @@ A list of alternative names.
 
 The normal and degraded poison's effects.
 
-- **Type:** <a href="../../_DiseasePoison.md#Reduceable">Reduceable</a>
+- **Type:** <a href="../../_DiseasePoison.md#Reduceable">Reduceable</a>&lt;<a href="../../_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>&gt;
 
 #### <a name="PoisonTranslation/notes"></a> `notes?`
 

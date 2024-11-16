@@ -143,24 +143,20 @@
     },
     "ElectiveSpellworkRestriction": {
       "description": "The elective spellwork may only take effect if a certain condition is met.\nThe condition may be related to professions or profession variants, but it is\ndesigned so that it can work without a specific profession, as multiple may\nbelong to an institute, but with referencing other entities instead.",
-      "oneOf": [
-        {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Element"
-            },
-            "element": {
-              "$ref": "#/$defs/ElectiveSpellworkElementRestriction"
-            }
-          },
-          "required": [
-            "tag",
-            "element"
-          ],
-          "additionalProperties": false
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "Element"
+        },
+        "element": {
+          "$ref": "#/$defs/ElectiveSpellworkElementRestriction"
         }
-      ]
+      },
+      "required": [
+        "tag",
+        "element"
+      ],
+      "additionalProperties": false
     },
     "ElectiveSpellworkElementRestriction": {
       "type": "object",
@@ -304,17 +300,11 @@
     "LessonPackages": {
       "description": "A list of available lesson packages.",
       "type": "array",
-      "items": [
-        {
-          "$ref": "#/$defs/LessonPackage"
-        },
-        {
-          "$ref": "#/$defs/LessonPackage"
-        }
-      ],
+      "items": {
+        "$ref": "#/$defs/LessonPackage"
+      },
       "minItems": 2,
-      "maxItems": 2,
-      "additionalItems": false
+      "maxItems": 2
     },
     "LessonPackage": {
       "title": "Lesson Package",

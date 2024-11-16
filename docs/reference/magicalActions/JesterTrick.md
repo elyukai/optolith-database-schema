@@ -47,7 +47,7 @@ Measurable parameters of a jester trick.
 
 The target category – the kind of creature or object – the skill affects.
 
-- **Type:** <a href="../_ActivatableSkillTargetCategory.md#TargetCategory">TargetCategory</a>
+- **Type:** <a href="../_ActivatableSkillTargetCategory.md#AffectedTargetCategories">AffectedTargetCategories</a>
 
 #### <a name="JesterTrick/property"></a> `property`
 
@@ -100,23 +100,23 @@ The effect description may be either a plain text or a text that is
 divided by a list of effects for each quality level. It may also be a
 list for each two quality levels.
 
-- **Type:** <a href="../_ActivatableSkillEffect.md#Effect">Effect</a>
+- **Type:** <a href="../_ActivatableSkillEffect.md#ActivatableSkillEffect">ActivatableSkillEffect</a>
 
 #### <a name="JesterTrickTranslation/casting_time"></a> `casting_time`
 
-- **Type:** <a href="#JesterTrickTranslation/casting_time">Object</a>
+- **Type:** <a href="../_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="JesterTrickTranslation/cost"></a> `cost`
 
-- **Type:** <a href="#JesterTrickTranslation/cost">Object</a>
+- **Type:** <a href="../_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="JesterTrickTranslation/range"></a> `range`
 
-- **Type:** <a href="#JesterTrickTranslation/range">Object</a>
+- **Type:** <a href="../_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="JesterTrickTranslation/duration"></a> `duration`
 
-- **Type:** <a href="#JesterTrickTranslation/duration">Object</a>
+- **Type:** <a href="../_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="JesterTrickTranslation/target"></a> `target`
 
@@ -125,82 +125,6 @@ list for each two quality levels.
 #### <a name="JesterTrickTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>
-
----
-
-### <a name="JesterTrickTranslation/casting_time"></a> `JesterTrickTranslation/casting_time`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#JesterTrickTranslation/casting_time/full">See details</a>
-`abbr` |  | <a href="#JesterTrickTranslation/casting_time/abbr">See details</a>
-
-#### <a name="JesterTrickTranslation/casting_time/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="JesterTrickTranslation/casting_time/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="JesterTrickTranslation/cost"></a> `JesterTrickTranslation/cost`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#JesterTrickTranslation/cost/full">See details</a>
-`abbr` |  | <a href="#JesterTrickTranslation/cost/abbr">See details</a>
-
-#### <a name="JesterTrickTranslation/cost/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="JesterTrickTranslation/cost/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="JesterTrickTranslation/range"></a> `JesterTrickTranslation/range`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#JesterTrickTranslation/range/full">See details</a>
-`abbr` |  | <a href="#JesterTrickTranslation/range/abbr">See details</a>
-
-#### <a name="JesterTrickTranslation/range/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="JesterTrickTranslation/range/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="JesterTrickTranslation/duration"></a> `JesterTrickTranslation/duration`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#JesterTrickTranslation/duration/full">See details</a>
-`abbr` |  | <a href="#JesterTrickTranslation/duration/abbr">See details</a>
-
-#### <a name="JesterTrickTranslation/duration/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="JesterTrickTranslation/duration/abbr"></a> `abbr`
-
-- **Type:** String
 
 ---
 

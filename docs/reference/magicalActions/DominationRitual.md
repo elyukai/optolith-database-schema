@@ -83,57 +83,19 @@ The effect description may be either a plain text or a text that is
 divided by a list of effects for each quality level. It may also be a
 list for each two quality levels.
 
-- **Type:** <a href="../_ActivatableSkillEffect.md#Effect">Effect</a>
+- **Type:** <a href="../_ActivatableSkillEffect.md#ActivatableSkillEffect">ActivatableSkillEffect</a>
 
 #### <a name="DominationRitualTranslation/cost"></a> `cost`
 
-- **Type:** <a href="#DominationRitualTranslation/cost">Object</a>
+- **Type:** <a href="../_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="DominationRitualTranslation/duration"></a> `duration`
 
-- **Type:** <a href="#DominationRitualTranslation/duration">Object</a>
+- **Type:** <a href="../_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="DominationRitualTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>
-
----
-
-### <a name="DominationRitualTranslation/cost"></a> `DominationRitualTranslation/cost`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#DominationRitualTranslation/cost/full">See details</a>
-`abbr` |  | <a href="#DominationRitualTranslation/cost/abbr">See details</a>
-
-#### <a name="DominationRitualTranslation/cost/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="DominationRitualTranslation/cost/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="DominationRitualTranslation/duration"></a> `DominationRitualTranslation/duration`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#DominationRitualTranslation/duration/full">See details</a>
-`abbr` |  | <a href="#DominationRitualTranslation/duration/abbr">See details</a>
-
-#### <a name="DominationRitualTranslation/duration/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="DominationRitualTranslation/duration/abbr"></a> `abbr`
-
-- **Type:** String
 
 ---
 
@@ -304,7 +266,7 @@ Key | Description | Details
 
 Specified if the duration has a maximum time span.
 
-- **Type:** <a href="#MaximumIndefiniteCurseDuration">MaximumIndefiniteCurseDuration</a>
+- **Type:** <a href="#MaximumIndefiniteDominationRitualDuration">MaximumIndefiniteDominationRitualDuration</a>
 
 #### <a name="IndefiniteDominationRitualDuration/translations"></a> `translations`
 
@@ -314,45 +276,45 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="MaximumIndefiniteCurseDuration"></a> `MaximumIndefiniteCurseDuration`
+### <a name="MaximumIndefiniteDominationRitualDuration"></a> `MaximumIndefiniteDominationRitualDuration`
 
 - **Type:** Union
-- **Cases:** <a href="#MaximumIndefiniteCurseDuration'Fixed">MaximumIndefiniteCurseDuration'Fixed</a> | <a href="#MaximumIndefiniteCurseDuration'CheckResultBased">MaximumIndefiniteCurseDuration'CheckResultBased</a>
+- **Cases:** <a href="#MaximumIndefiniteDominationRitualDuration'Fixed">MaximumIndefiniteDominationRitualDuration'Fixed</a> | <a href="#MaximumIndefiniteDominationRitualDuration'CheckResultBased">MaximumIndefiniteDominationRitualDuration'CheckResultBased</a>
 
 ---
 
-### <a name="MaximumIndefiniteCurseDuration'Fixed"></a> `MaximumIndefiniteCurseDuration'Fixed`
+### <a name="MaximumIndefiniteDominationRitualDuration'Fixed"></a> `MaximumIndefiniteDominationRitualDuration'Fixed`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#MaximumIndefiniteCurseDuration'Fixed/tag">See details</a>
-`fixed` |  | <a href="#MaximumIndefiniteCurseDuration'Fixed/fixed">See details</a>
+`tag` |  | <a href="#MaximumIndefiniteDominationRitualDuration'Fixed/tag">See details</a>
+`fixed` |  | <a href="#MaximumIndefiniteDominationRitualDuration'Fixed/fixed">See details</a>
 
-#### <a name="MaximumIndefiniteCurseDuration'Fixed/tag"></a> `tag`
+#### <a name="MaximumIndefiniteDominationRitualDuration'Fixed/tag"></a> `tag`
 
 - **Constant:** `"Fixed"`
 
-#### <a name="MaximumIndefiniteCurseDuration'Fixed/fixed"></a> `fixed`
+#### <a name="MaximumIndefiniteDominationRitualDuration'Fixed/fixed"></a> `fixed`
 
 - **Type:** <a href="#FixedDominationRitualDuration">FixedDominationRitualDuration</a>
 
 ---
 
-### <a name="MaximumIndefiniteCurseDuration'CheckResultBased"></a> `MaximumIndefiniteCurseDuration'CheckResultBased`
+### <a name="MaximumIndefiniteDominationRitualDuration'CheckResultBased"></a> `MaximumIndefiniteDominationRitualDuration'CheckResultBased`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#MaximumIndefiniteCurseDuration'CheckResultBased/tag">See details</a>
-`check_result_based` |  | <a href="#MaximumIndefiniteCurseDuration'CheckResultBased/check_result_based">See details</a>
+`tag` |  | <a href="#MaximumIndefiniteDominationRitualDuration'CheckResultBased/tag">See details</a>
+`check_result_based` |  | <a href="#MaximumIndefiniteDominationRitualDuration'CheckResultBased/check_result_based">See details</a>
 
-#### <a name="MaximumIndefiniteCurseDuration'CheckResultBased/tag"></a> `tag`
+#### <a name="MaximumIndefiniteDominationRitualDuration'CheckResultBased/tag"></a> `tag`
 
 - **Constant:** `"CheckResultBased"`
 
-#### <a name="MaximumIndefiniteCurseDuration'CheckResultBased/check_result_based"></a> `check_result_based`
+#### <a name="MaximumIndefiniteDominationRitualDuration'CheckResultBased/check_result_based"></a> `check_result_based`
 
 - **Type:** <a href="../_ActivatableSkillDuration.md#CheckResultBasedDuration">CheckResultBasedDuration</a>

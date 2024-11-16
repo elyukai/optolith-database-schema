@@ -125,7 +125,7 @@ export type AreaKnowledge = {
  * Some professions or profession variants are simply more common (Mostly), but
  * sometimes only specific elements are used (Only).
  */
-export type Weight =
+export type CommonnessWeight =
   | "Mostly"
   | "Only"
 
@@ -146,7 +146,7 @@ export type Weighted<ProfessionOrVariant> = {
    * variants. Some professions or profession variants are simply more common
    * (Mostly), but sometimes only specific elements are used (Only).
    */
-  weight: Weight
+  weight: CommonnessWeight
 }
 
 /**
@@ -384,14 +384,14 @@ export type CommonNames = {
    * binary sex. They are sorted into groups.
    * @minItems 1
    */
-  first_name_groups?: NameGroup[]
+  first_name_groups?: CommonNameGroup[]
 
   /**
    * Last names can be gender-neutral, like family names, but they can also be
    * for a specific binary sex. They are sorted into groups.
    * @minItems 1
    */
-  last_name_groups?: NameGroup[]
+  last_name_groups?: CommonNameGroup[]
 
   /**
    * Special naming rules.
@@ -399,7 +399,7 @@ export type CommonNames = {
   naming_rules?: NonEmptyString
 }
 
-export type NameGroup = {
+export type CommonNameGroup = {
   /**
    * The group label.
    */
@@ -414,10 +414,10 @@ export type NameGroup = {
    * The names from the group.
    * @minItems 1
    */
-  names: Name[]
+  names: CommonName[]
 }
 
-export type Name = {
+export type CommonName = {
   name: NonEmptyString
 
   /**

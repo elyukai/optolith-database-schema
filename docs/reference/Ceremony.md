@@ -49,7 +49,7 @@ Measurable parameters of a ceremony.
 
 The target category – the kind of creature or object – the skill affects.
 
-- **Type:** <a href="./_ActivatableSkillTargetCategory.md#TargetCategory">TargetCategory</a>
+- **Type:** <a href="./_ActivatableSkillTargetCategory.md#AffectedTargetCategories">AffectedTargetCategories</a>
 
 #### <a name="Ceremony/traditions"></a> `traditions`
 
@@ -129,23 +129,23 @@ The effect description may be either a plain text or a text that is
 divided by a list of effects for each quality level. It may also be a
 list for each two quality levels.
 
-- **Type:** <a href="./_ActivatableSkillEffect.md#Effect">Effect</a>
+- **Type:** <a href="./_ActivatableSkillEffect.md#ActivatableSkillEffect">ActivatableSkillEffect</a>
 
 #### <a name="CeremonyTranslation/casting_time"></a> `casting_time`
 
-- **Type:** <a href="#CeremonyTranslation/casting_time">Object</a>
+- **Type:** <a href="./_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="CeremonyTranslation/cost"></a> `cost`
 
-- **Type:** <a href="#CeremonyTranslation/cost">Object</a>
+- **Type:** <a href="./_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="CeremonyTranslation/range"></a> `range`
 
-- **Type:** <a href="#CeremonyTranslation/range">Object</a>
+- **Type:** <a href="./_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="CeremonyTranslation/duration"></a> `duration`
 
-- **Type:** <a href="#CeremonyTranslation/duration">Object</a>
+- **Type:** <a href="./_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="CeremonyTranslation/target"></a> `target`
 
@@ -154,79 +154,3 @@ list for each two quality levels.
 #### <a name="CeremonyTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
-
----
-
-### <a name="CeremonyTranslation/casting_time"></a> `CeremonyTranslation/casting_time`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#CeremonyTranslation/casting_time/full">See details</a>
-`abbr` |  | <a href="#CeremonyTranslation/casting_time/abbr">See details</a>
-
-#### <a name="CeremonyTranslation/casting_time/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="CeremonyTranslation/casting_time/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="CeremonyTranslation/cost"></a> `CeremonyTranslation/cost`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#CeremonyTranslation/cost/full">See details</a>
-`abbr` |  | <a href="#CeremonyTranslation/cost/abbr">See details</a>
-
-#### <a name="CeremonyTranslation/cost/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="CeremonyTranslation/cost/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="CeremonyTranslation/range"></a> `CeremonyTranslation/range`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#CeremonyTranslation/range/full">See details</a>
-`abbr` |  | <a href="#CeremonyTranslation/range/abbr">See details</a>
-
-#### <a name="CeremonyTranslation/range/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="CeremonyTranslation/range/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="CeremonyTranslation/duration"></a> `CeremonyTranslation/duration`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#CeremonyTranslation/duration/full">See details</a>
-`abbr` |  | <a href="#CeremonyTranslation/duration/abbr">See details</a>
-
-#### <a name="CeremonyTranslation/duration/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="CeremonyTranslation/duration/abbr"></a> `abbr`
-
-- **Type:** String

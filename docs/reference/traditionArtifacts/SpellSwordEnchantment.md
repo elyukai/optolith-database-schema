@@ -50,7 +50,7 @@ Key | Description | Details
 
 #### <a name="SpellSwordEnchantment/property"></a> `property`
 
-- **Type:** <a href="#Property">Property</a>
+- **Type:** <a href="#PropertyDeclaration">PropertyDeclaration</a>
 
 #### <a name="SpellSwordEnchantment/ap_value"></a> `ap_value`
 

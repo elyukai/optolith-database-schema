@@ -23,13 +23,13 @@ export type SustainedPerformanceParameters<CastingTime> = {
 
 export type FastPerformanceParameters =
   | {
-    tag: "OneTime"
-    one_time: FastOneTimePerformanceParameters
-  }
+      tag: "OneTime"
+      one_time: FastOneTimePerformanceParameters
+    }
   | {
-    tag: "Sustained"
-    sustained: FastSustainedPerformanceParameters
-  }
+      tag: "Sustained"
+      sustained: FastSustainedPerformanceParameters
+    }
 
 export type FastOneTimePerformanceParameters = OneTimePerformanceParameters<FastCastingTime>
 
@@ -37,14 +37,19 @@ export type FastSustainedPerformanceParameters = SustainedPerformanceParameters<
 
 export type SlowPerformanceParameters =
   | {
-    tag: "OneTime"
-    one_time: SlowOneTimePerformanceParameters
-  }
+      tag: "OneTime"
+      one_time: SlowOneTimePerformanceParameters
+    }
   | {
-    tag: "Sustained"
-    sustained: SlowSustainedPerformanceParameters
-  }
+      tag: "Sustained"
+      sustained: SlowSustainedPerformanceParameters
+    }
 
 export type SlowOneTimePerformanceParameters = OneTimePerformanceParameters<SlowCastingTime>
 
 export type SlowSustainedPerformanceParameters = SustainedPerformanceParameters<SlowCastingTime>
+
+export type OldParameter = {
+  full: string
+  abbr: string
+}

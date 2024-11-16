@@ -1,7 +1,21 @@
 import { SkillIdentifier, TargetCategoryIdentifier } from "./_Identifier.js"
-import { ActivatableIdentifier, CombatTechniqueIdentifier, SkillIdentifier as SkillIdentifierGroup } from "./_IdentifierGroup.js"
+import {
+  ActivatableIdentifier,
+  CombatTechniqueIdentifier,
+  SkillishIdentifier,
+} from "./_IdentifierGroup.js"
 import { LocaleMap } from "./_LocaleMap.js"
-import { CeremonyReference, CloseCombatTechniqueReference, ElementReference, LiturgicalChantReference, RangedCombatTechniqueReference, RitualReference, SkillGroupReference, SkillReference, SpellReference } from "./_SimpleReferences.js"
+import {
+  CeremonyReference,
+  CloseCombatTechniqueReference,
+  ElementReference,
+  LiturgicalChantReference,
+  RangedCombatTechniqueReference,
+  RitualReference,
+  SkillGroupReference,
+  SkillReference,
+  SpellReference,
+} from "./_SimpleReferences.js"
 
 export type SelectOptionCategory =
   | { tag: "Blessings"; blessings: {} }
@@ -114,8 +128,10 @@ export type LanguagesSelectOptionCategory = {
   prerequisites?: LanguagesSelectOptionCategoryPrerequisite[]
 }
 
-export type LanguagesSelectOptionCategoryPrerequisite =
-  | { tag: "SelectOption"; select_option: OptionPrerequisite }
+export type LanguagesSelectOptionCategoryPrerequisite = {
+  tag: "SelectOption"
+  select_option: OptionPrerequisite
+}
 
 export type SkillsSelectOptionCategory = {
   /**
@@ -127,14 +143,17 @@ export type SkillsSelectOptionCategory = {
   /**
    * Generate AP values for each entry.
    */
-  ap_value?: AdventurePointsValue<SkillIdentifierGroup>
+  ap_value?: SelectOptionsAdventurePointsValue<SkillishIdentifier>
 }
 
 export type SkillsSelectOptionCategoryCategory =
   | { tag: "Skills"; skills: SkillSelectOptionCategoryCategory }
   | { tag: "Spells"; spells: GenericSkillsSelectOptionCategoryCategory<SpellReference> }
   | { tag: "Rituals"; rituals: GenericSkillsSelectOptionCategoryCategory<RitualReference> }
-  | { tag: "LiturgicalChants"; liturgical_chants: GenericSkillsSelectOptionCategoryCategory<LiturgicalChantReference> }
+  | {
+      tag: "LiturgicalChants"
+      liturgical_chants: GenericSkillsSelectOptionCategoryCategory<LiturgicalChantReference>
+    }
   | { tag: "Ceremonies"; ceremonies: GenericSkillsSelectOptionCategoryCategory<CeremonyReference> }
 
 export type SkillSelectOptionCategoryCategory = {
@@ -179,7 +198,7 @@ export type SkillSelectOptionCategoryCategory = {
   /**
    * Generate AP values for each entry.
    */
-  ap_value?: AdventurePointsValue<SkillIdentifier>
+  ap_value?: SelectOptionsAdventurePointsValue<SkillIdentifier>
 }
 
 export type CombatTechniquesSelectOptionCategory = {
@@ -192,12 +211,18 @@ export type CombatTechniquesSelectOptionCategory = {
   /**
    * Generate AP values for each entry.
    */
-  ap_value?: AdventurePointsValue<CombatTechniqueIdentifier>
+  ap_value?: SelectOptionsAdventurePointsValue<CombatTechniqueIdentifier>
 }
 
 export type CombatTechniquesSelectOptionCategoryCategory =
-  | { tag: "CloseCombatTechniques"; close_combat_techniques: GenericSkillsSelectOptionCategoryCategory<CloseCombatTechniqueReference> }
-  | { tag: "RangedCombatTechniques"; ranged_combat_techniques: GenericSkillsSelectOptionCategoryCategory<RangedCombatTechniqueReference> }
+  | {
+      tag: "CloseCombatTechniques"
+      close_combat_techniques: GenericSkillsSelectOptionCategoryCategory<CloseCombatTechniqueReference>
+    }
+  | {
+      tag: "RangedCombatTechniques"
+      ranged_combat_techniques: GenericSkillsSelectOptionCategoryCategory<RangedCombatTechniqueReference>
+    }
 
 export type SkillApplicationOrUse = {
   /**
@@ -249,9 +274,7 @@ export type SpecificFromSkillSelectOptionCategoryCategory<Ref> = {
 /**
  * Only include (`Intersection`) or exclude (`Difference`) specific entries.
  */
-export type SpecificFromSkillSelectOptionCategoryCategoryOperation =
-  | "Intersection"
-  | "Difference"
+export type SpecificFromSkillSelectOptionCategoryCategoryOperation = "Intersection" | "Difference"
 
 export type SkillSelectOptionCategoryPrerequisite =
   | { tag: "Self"; self: SelfPrerequisite }
@@ -291,16 +314,19 @@ export type OptionPrerequisite = {
 /**
  * Generate AP values for each entry.
  */
-export type AdventurePointsValue<Identifier> =
-  | { tag: "DerivedFromImprovementCost"; derived_from_improvement_cost: DeriveAdventurePointsValueFromImprovementCost }
-  | { tag: "Fixed"; fixed: FixedAdventurePointsValue<Identifier> }
+export type SelectOptionsAdventurePointsValue<Identifier> =
+  | {
+      tag: "DerivedFromImprovementCost"
+      derived_from_improvement_cost: SelectOptionsDeriveAdventurePointsValueFromImprovementCost
+    }
+  | { tag: "Fixed"; fixed: SelectOptionsFixedAdventurePointsValue<Identifier> }
 
 /**
  * Derive the cost from the improvement cost of each entry.
  *
  * **Calculation:** AP Value = Improvement Cost × `multiplier` + `offset`
  */
-export type DeriveAdventurePointsValueFromImprovementCost = {
+export type SelectOptionsDeriveAdventurePointsValueFromImprovementCost = {
   /**
    * This number is multiplied with the improvement cost of the entry
    * (A = 1 to D = 4).
@@ -318,11 +344,11 @@ export type DeriveAdventurePointsValueFromImprovementCost = {
   offset?: number
 }
 
-export type FixedAdventurePointsValue<Identifier> = {
+export type SelectOptionsFixedAdventurePointsValue<Identifier> = {
   /**
    * A mapping of skill identifiers to their specific AP values.
    */
-  map: FixedAdventurePointsValueMapping<Identifier>[]
+  map: SelectOptionsFixedAdventurePointsValueMapping<Identifier>[]
 
   /**
    * The default value of an entry. Used as a fallback if no value is
@@ -333,7 +359,7 @@ export type FixedAdventurePointsValue<Identifier> = {
   default: number
 }
 
-export type FixedAdventurePointsValueMapping<Identifier> = {
+export type SelectOptionsFixedAdventurePointsValueMapping<Identifier> = {
   /**
    * The entry's identifier.
    */

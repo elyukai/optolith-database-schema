@@ -40,7 +40,7 @@ Measurable parameters of a geode ritual.
 
 The target category – the kind of creature or object – the skill affects.
 
-- **Type:** <a href="../_ActivatableSkillTargetCategory.md#TargetCategory">TargetCategory</a>
+- **Type:** <a href="../_ActivatableSkillTargetCategory.md#AffectedTargetCategories">AffectedTargetCategories</a>
 
 #### <a name="GeodeRitual/property"></a> `property`
 
@@ -91,23 +91,23 @@ The effect description may be either a plain text or a text that is
 divided by a list of effects for each quality level. It may also be a
 list for each two quality levels.
 
-- **Type:** <a href="../_ActivatableSkillEffect.md#Effect">Effect</a>
+- **Type:** <a href="../_ActivatableSkillEffect.md#ActivatableSkillEffect">ActivatableSkillEffect</a>
 
 #### <a name="GeodeRitualTranslation/casting_time"></a> `casting_time`
 
-- **Type:** <a href="#GeodeRitualTranslation/casting_time">Object</a>
+- **Type:** <a href="../_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="GeodeRitualTranslation/cost"></a> `cost`
 
-- **Type:** <a href="#GeodeRitualTranslation/cost">Object</a>
+- **Type:** <a href="../_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="GeodeRitualTranslation/range"></a> `range`
 
-- **Type:** <a href="#GeodeRitualTranslation/range">Object</a>
+- **Type:** <a href="../_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="GeodeRitualTranslation/duration"></a> `duration`
 
-- **Type:** <a href="#GeodeRitualTranslation/duration">Object</a>
+- **Type:** <a href="../_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="GeodeRitualTranslation/target"></a> `target`
 
@@ -116,82 +116,6 @@ list for each two quality levels.
 #### <a name="GeodeRitualTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>
-
----
-
-### <a name="GeodeRitualTranslation/casting_time"></a> `GeodeRitualTranslation/casting_time`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#GeodeRitualTranslation/casting_time/full">See details</a>
-`abbr` |  | <a href="#GeodeRitualTranslation/casting_time/abbr">See details</a>
-
-#### <a name="GeodeRitualTranslation/casting_time/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="GeodeRitualTranslation/casting_time/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="GeodeRitualTranslation/cost"></a> `GeodeRitualTranslation/cost`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#GeodeRitualTranslation/cost/full">See details</a>
-`abbr` |  | <a href="#GeodeRitualTranslation/cost/abbr">See details</a>
-
-#### <a name="GeodeRitualTranslation/cost/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="GeodeRitualTranslation/cost/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="GeodeRitualTranslation/range"></a> `GeodeRitualTranslation/range`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#GeodeRitualTranslation/range/full">See details</a>
-`abbr` |  | <a href="#GeodeRitualTranslation/range/abbr">See details</a>
-
-#### <a name="GeodeRitualTranslation/range/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="GeodeRitualTranslation/range/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="GeodeRitualTranslation/duration"></a> `GeodeRitualTranslation/duration`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#GeodeRitualTranslation/duration/full">See details</a>
-`abbr` |  | <a href="#GeodeRitualTranslation/duration/abbr">See details</a>
-
-#### <a name="GeodeRitualTranslation/duration/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="GeodeRitualTranslation/duration/abbr"></a> `abbr`
-
-- **Type:** String
 
 ---
 

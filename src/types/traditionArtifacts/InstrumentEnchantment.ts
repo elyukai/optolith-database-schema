@@ -31,7 +31,7 @@ export type InstrumentEnchantment = {
 
   cost?: Activatable.EnchantmentCost
 
-  property: Activatable.Property
+  property: Activatable.PropertyDeclaration
 
   ap_value: Activatable.AdventurePointsValue
 
@@ -68,7 +68,11 @@ export type InstrumentEnchantmentTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<InstrumentEnchantment, InstrumentEnchantment["id"], "InstrumentEnchantment"> = {
+export const config: TypeConfig<
+  InstrumentEnchantment,
+  InstrumentEnchantment["id"],
+  "InstrumentEnchantment"
+> = {
   name: "InstrumentEnchantment",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("InstrumentEnchantment"),

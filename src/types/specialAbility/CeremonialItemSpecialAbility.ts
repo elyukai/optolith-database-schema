@@ -29,7 +29,7 @@ export type CeremonialItemSpecialAbility = {
 
   maximum?: Activatable.Maximum
 
-  aspect?: Activatable.Aspect
+  aspect?: Activatable.AspectDeclaration
 
   prerequisites?: GeneralPrerequisites
 
@@ -61,7 +61,11 @@ export type CeremonialItemSpecialAbilityTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<CeremonialItemSpecialAbility, CeremonialItemSpecialAbility["id"], "CeremonialItemSpecialAbility"> = {
+export const config: TypeConfig<
+  CeremonialItemSpecialAbility,
+  CeremonialItemSpecialAbility["id"],
+  "CeremonialItemSpecialAbility"
+> = {
   name: "CeremonialItemSpecialAbility",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("CeremonialItemSpecialAbility"),

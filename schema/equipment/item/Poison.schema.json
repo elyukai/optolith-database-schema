@@ -806,8 +806,20 @@
           "minItems": 1
         },
         "effect": {
-          "description": "The normal and degraded poison's effects.",
-          "$ref": "../../_DiseasePoison.schema.json#/$defs/Reduceable"
+          "description": "An effect or other parameter that may be reduced by a failed disease check\nfor lessening or a degraded poison.\n\nThis streamlines the wording for diseases and poison by using a unified\nwording for *lessened* (disease) and *degraded* (poison).",
+          "type": "object",
+          "properties": {
+            "default": {
+              "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+            },
+            "reduced": {
+              "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+            }
+          },
+          "required": [
+            "default"
+          ],
+          "additionalProperties": false
         },
         "notes": {
           "description": "Notes on the poison's special features.",

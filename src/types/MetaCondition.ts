@@ -47,8 +47,10 @@ export type MetaConditionTranslation = {
 
   /**
    * The effects for level 1 to 4.
+   * @minItems 4
+   * @maxItems 4
    */
-  effects: [NonEmptyMarkdown, NonEmptyMarkdown, NonEmptyMarkdown, NonEmptyMarkdown]
+  effects: NonEmptyMarkdown[]
 
   errata?: Errata
 }

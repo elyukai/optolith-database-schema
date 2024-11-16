@@ -74,7 +74,7 @@
         },
         "weight": {
           "description": "Configuration for random weight generation.",
-          "$ref": "#/$defs/Weight"
+          "$ref": "#/$defs/RandomWeightGeneration"
         },
         "starting_age": {
           "description": "Defines the starting ages for the race. It depends on the selected\nexperience level.",
@@ -215,7 +215,7 @@
       ],
       "additionalProperties": false
     },
-    "Weight": {
+    "RandomWeightGeneration": {
       "description": "Configuration for random weight generation.",
       "type": "object",
       "properties": {

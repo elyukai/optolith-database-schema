@@ -47,7 +47,7 @@ Measurable parameters of a zibilja ritual.
 
 The target category – the kind of creature or object – the skill affects.
 
-- **Type:** <a href="../_ActivatableSkillTargetCategory.md#TargetCategory">TargetCategory</a>
+- **Type:** <a href="../_ActivatableSkillTargetCategory.md#AffectedTargetCategories">AffectedTargetCategories</a>
 
 #### <a name="ZibiljaRitual/property"></a> `property`
 
@@ -100,23 +100,23 @@ The effect description may be either a plain text or a text that is
 divided by a list of effects for each quality level. It may also be a
 list for each two quality levels.
 
-- **Type:** <a href="../_ActivatableSkillEffect.md#Effect">Effect</a>
+- **Type:** <a href="../_ActivatableSkillEffect.md#ActivatableSkillEffect">ActivatableSkillEffect</a>
 
 #### <a name="ZibiljaRitualTranslation/casting_time"></a> `casting_time`
 
-- **Type:** <a href="#ZibiljaRitualTranslation/casting_time">Object</a>
+- **Type:** <a href="../_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="ZibiljaRitualTranslation/cost"></a> `cost`
 
-- **Type:** <a href="#ZibiljaRitualTranslation/cost">Object</a>
+- **Type:** <a href="../_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="ZibiljaRitualTranslation/range"></a> `range`
 
-- **Type:** <a href="#ZibiljaRitualTranslation/range">Object</a>
+- **Type:** <a href="../_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="ZibiljaRitualTranslation/duration"></a> `duration`
 
-- **Type:** <a href="#ZibiljaRitualTranslation/duration">Object</a>
+- **Type:** <a href="../_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="ZibiljaRitualTranslation/target"></a> `target`
 
@@ -125,82 +125,6 @@ list for each two quality levels.
 #### <a name="ZibiljaRitualTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>
-
----
-
-### <a name="ZibiljaRitualTranslation/casting_time"></a> `ZibiljaRitualTranslation/casting_time`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#ZibiljaRitualTranslation/casting_time/full">See details</a>
-`abbr` |  | <a href="#ZibiljaRitualTranslation/casting_time/abbr">See details</a>
-
-#### <a name="ZibiljaRitualTranslation/casting_time/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="ZibiljaRitualTranslation/casting_time/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="ZibiljaRitualTranslation/cost"></a> `ZibiljaRitualTranslation/cost`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#ZibiljaRitualTranslation/cost/full">See details</a>
-`abbr` |  | <a href="#ZibiljaRitualTranslation/cost/abbr">See details</a>
-
-#### <a name="ZibiljaRitualTranslation/cost/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="ZibiljaRitualTranslation/cost/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="ZibiljaRitualTranslation/range"></a> `ZibiljaRitualTranslation/range`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#ZibiljaRitualTranslation/range/full">See details</a>
-`abbr` |  | <a href="#ZibiljaRitualTranslation/range/abbr">See details</a>
-
-#### <a name="ZibiljaRitualTranslation/range/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="ZibiljaRitualTranslation/range/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="ZibiljaRitualTranslation/duration"></a> `ZibiljaRitualTranslation/duration`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#ZibiljaRitualTranslation/duration/full">See details</a>
-`abbr` |  | <a href="#ZibiljaRitualTranslation/duration/abbr">See details</a>
-
-#### <a name="ZibiljaRitualTranslation/duration/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="ZibiljaRitualTranslation/duration/abbr"></a> `abbr`
-
-- **Type:** String
 
 ---
 

@@ -2575,6 +2575,36 @@
         "all": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
+        "none": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "State": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "special ability": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "no special ability": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Tradition": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Tradition ({0})": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Church": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Shaman": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Tradition must be able to use rituals": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Tradition must be able to bind familiars": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
         "inlinewiki.castingtime": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
@@ -3976,6 +4006,16 @@
         "General",
         "Note",
         "all",
+        "none",
+        "State",
+        "special ability",
+        "no special ability",
+        "Tradition",
+        "Tradition ({0})",
+        "Church",
+        "Shaman",
+        "Tradition must be able to use rituals",
+        "Tradition must be able to bind familiars",
         "inlinewiki.castingtime",
         "inlinewiki.ritualtime",
         "inlinewiki.aecost",

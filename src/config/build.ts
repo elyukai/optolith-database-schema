@@ -4,9 +4,10 @@ import { JsonSchemaSpec } from "optolith-tsjsonschemamd/renderers/jsonSchema"
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..", "..")
 
-export const sourceDir     = join(root, "src", "types")
-export const libDir        = join(root, "lib", "types")
+export const sourceDir = join(root, "src", "types")
+export const libDir = join(root, "lib", "types")
 export const jsonSchemaDir = join(root, "schema")
-export const markdownDir   = join(root, "docs", "reference")
+export const markdownDir = join(root, "docs", "reference")
+export const swiftDir = join(root, "Sources", "OptolithDatabaseSchema", "GeneratedTypes")
 
 export const jsonSchemaSpec: JsonSchemaSpec = "Draft_2019_09"

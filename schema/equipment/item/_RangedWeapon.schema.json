@@ -103,7 +103,7 @@
         },
         "range": {
           "description": "The range brackets for the weapon: close, medium, far. Distances in m.",
-          "$ref": "#/$defs/Range"
+          "$ref": "#/$defs/RangeBrackets"
         },
         "ammunition": {
           "description": "The needed ammunition.",
@@ -141,7 +141,7 @@
       ],
       "additionalProperties": false
     },
-    "Range": {
+    "RangeBrackets": {
       "type": "object",
       "properties": {
         "close": {

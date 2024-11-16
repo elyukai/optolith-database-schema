@@ -144,14 +144,14 @@ After infection, how much time passes before symptoms appear?
 The damage caused by the disease. If the disease check fails, apply the
 lessened effects.
 
-- **Type:** <a href="#Reduceable">Reduceable</a>
+- **Type:** <a href="#Reduceable">Reduceable</a>&lt;<a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>&gt;
 
 #### <a name="DiseaseTranslation/duration"></a> `duration`
 
 The duration of the disease. If the disease check fails, use the
 lessened duration.
 
-- **Type:** <a href="#Reduceable">Reduceable</a>
+- **Type:** <a href="#Reduceable">Reduceable</a>&lt;<a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>&gt;
 
 #### <a name="DiseaseTranslation/special"></a> `special?`
 
@@ -183,7 +183,7 @@ Known remedies for the disease.
 
 ---
 
-### <a name="Reduceable"></a> `Reduceable<Content = NonEmptyMarkdown>`
+### <a name="Reduceable"></a> `Reduceable<Content>`
 
 An effect or other parameter that may be reduced by a failed disease check
 for lessening or a degraded poison.

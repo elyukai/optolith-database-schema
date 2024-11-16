@@ -79,15 +79,10 @@ export type ElixirTranslation = {
   /**
    * The list of effects for each quality level. The first element
    * represents QL 1, the second element QL 2, and so on.
+   * @minLength 6
+   * @maxLength 6
    */
-  quality_levels: [
-    NonEmptyMarkdown,
-    NonEmptyMarkdown,
-    NonEmptyMarkdown,
-    NonEmptyMarkdown,
-    NonEmptyMarkdown,
-    NonEmptyMarkdown,
-  ]
+  quality_levels: NonEmptyMarkdown[]
 
   errata?: Errata
 }

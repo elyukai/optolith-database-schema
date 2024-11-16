@@ -10,12 +10,16 @@ import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
 import { CastingTimeDuringLovemaking } from "./_ActivatableSkillCastingTime.js"
 import { DurationUnit } from "./_ActivatableSkillDuration.js"
 import { FixedRange } from "./_ActivatableSkillRange.js"
-import { TargetCategory } from "./_ActivatableSkillTargetCategory.js"
+import { AffectedTargetCategories } from "./_ActivatableSkillTargetCategory.js"
 import { Enhancements } from "./_Enhancements.js"
 import { MagicalTraditionIdentifier } from "./_Identifier.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { ResponsiveText } from "./_ResponsiveText.js"
-import { CurriculumReference, MagicalTraditionReference, PropertyReference } from "./_SimpleReferences.js"
+import {
+  CurriculumReference,
+  MagicalTraditionReference,
+  PropertyReference,
+} from "./_SimpleReferences.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 
@@ -38,7 +42,7 @@ export type Cantrip = {
   /**
    * The target category – the kind of creature or object – the skill affects.
    */
-  target: TargetCategory
+  target: AffectedTargetCategories
 
   /**
    * The associated property.
@@ -183,10 +187,10 @@ export type IndefiniteCantripDuration = {
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
    */
-  translations: LocaleMap<IndefiniteDurationTranslation>
+  translations: LocaleMap<IndefiniteCantripDurationTranslation>
 }
 
-export type IndefiniteDurationTranslation = {
+export type IndefiniteCantripDurationTranslation = {
   /**
    * A description of the duration.
    */

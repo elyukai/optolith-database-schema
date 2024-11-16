@@ -45,7 +45,7 @@ Key | Description | Details
 
 #### <a name="WandEnchantment/property"></a> `property`
 
-- **Type:** <a href="#Property">Property</a>
+- **Type:** <a href="#PropertyDeclaration">PropertyDeclaration</a>
 
 #### <a name="WandEnchantment/ap_value"></a> `ap_value`
 

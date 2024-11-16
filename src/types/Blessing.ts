@@ -9,7 +9,7 @@ import { createSchemaValidator } from "../validation/builders/schema.js"
 import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
 import { DurationUnit } from "./_ActivatableSkillDuration.js"
 import { FixedRange } from "./_ActivatableSkillRange.js"
-import { TargetCategory } from "./_ActivatableSkillTargetCategory.js"
+import { AffectedTargetCategories } from "./_ActivatableSkillTargetCategory.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { ResponsiveText } from "./_ResponsiveText.js"
 import { Errata } from "./source/_Erratum.js"
@@ -34,7 +34,7 @@ export type Blessing = {
   /**
    * The target category – the kind of creature or object – the skill affects.
    */
-  target: TargetCategory
+  target: AffectedTargetCategories
 
   src: PublicationRefs
 
@@ -112,10 +112,10 @@ export type IndefiniteBlessingDuration = {
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
    */
-  translations: LocaleMap<IndefiniteDurationTranslation>
+  translations: LocaleMap<IndefiniteBlessingDurationTranslation>
 }
 
-export type IndefiniteDurationTranslation = {
+export type IndefiniteBlessingDurationTranslation = {
   /**
    * A description of the duration.
    */
