@@ -14,7 +14,7 @@ import { LocaleMap } from "../../_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "../../_NonEmptyString.js"
 import { Errata } from "../../source/_Erratum.js"
 import { PublicationRefs } from "../../source/_PublicationRef.js"
-import { EffectType, LaboratoryLevel, RecipeTradeSecret } from "./_Herbary.js"
+import { EffectType, LaboratoryLevel, RecipeTradeSecret, TimeUnit } from "./_Herbary.js"
 
 /**
  * @title Poison
@@ -95,19 +95,13 @@ export type PoisonDuration =
 
 export type ConstantPoisonTime = {
   value: number
-  unit: PoisonTimeUnit
+  unit: TimeUnit
 }
 
 export type DiceBasedPoisonTime = {
   dice: Dice
-  unit: PoisonTimeUnit
+  unit: TimeUnit
 }
-
-export type PoisonTimeUnit =
-  | "CombatRounds"
-  | "Minutes"
-  | "Hours"
-  | "Days"
 
 export type IndefinitePoisonTime = {
   /**

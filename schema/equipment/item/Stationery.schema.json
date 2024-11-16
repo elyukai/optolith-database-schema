@@ -1,9 +1,9 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "/equipment/item/Stationary.schema.json",
-  "$ref": "#/$defs/Stationary",
+  "$id": "/equipment/item/Stationery.schema.json",
+  "$ref": "#/$defs/Stationery",
   "$defs": {
-    "Stationary": {
+    "Stationery": {
       "$ref": "./_Item.schema.json#/$defs/DefaultItem"
     }
   }

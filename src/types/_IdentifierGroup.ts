@@ -241,7 +241,7 @@ export type EquipmentIdentifier =
   | Identifier.OrienteeringAidIdentifier
   | Identifier.PoisonIdentifier
   | Identifier.RopeOrChainIdentifier
-  | Identifier.StationaryIdentifier
+  | Identifier.StationeryIdentifier
   | Identifier.ThievesToolIdentifier
   | Identifier.ToolOfTheTradeIdentifier
   | Identifier.TravelGearOrToolIdentifier
@@ -260,3 +260,14 @@ type OneNumericIdentifier = number
  * @minItems 2
  */
 type ManyNumericIdentifiers = OneNumericIdentifier[]
+
+export type RecipeIdentifier =
+  | Identifier.ElixirIdentifier
+  | Identifier.PoisonIdentifier
+  | Identifier.HerbalAidIdentifier
+  | Identifier.HerbalPreserveIdentifier
+
+export type HerbalAidOrPreserveIdentifier = 
+  | Identifier.HerbalAidIdentifier
+  | Identifier.HerbalPreserveIdentifier
+  
