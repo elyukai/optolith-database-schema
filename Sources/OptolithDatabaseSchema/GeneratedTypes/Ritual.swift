@@ -26,9 +26,7 @@ public struct Ritual: LocalizableEntity {
     /// The associated property.
     public let property: PropertyReference
     
-    /// The tradition(s) the ritual is available for. It may be *generally*
-    /// available to all traditions or it may be only familiar in specific
-    /// traditions.
+    /// The tradition(s) the ritual is available for. It may be *generally* available to all traditions or it may be only familiar in specific traditions.
     public let traditions: Traditions
     
     /// States which column is used to improve the skill.
@@ -63,9 +61,7 @@ public struct RitualTranslation: EntitySubtype {
     /// The name of the ritual.
     public let name: String
     
-    /// The effect description may be either a plain text or a text that is
-    /// divided by a list of effects for each quality level. It may also be a
-    /// list for each two quality levels.
+    /// The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
     public let effect: ActivatableSkillEffect
     
     @available(*, deprecated)

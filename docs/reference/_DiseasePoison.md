@@ -6,9 +6,7 @@ This file defines some shared types for different diseases and poisons.
 
 ### <a name="Resistance"></a> `Resistance`
 
-Depending on the disease, apply Spirit or Toughness as a penalty to the
-disease roll. It may also happen that the lower of both is applied as a
-penalty.
+Depending on the disease, apply Spirit or Toughness as a penalty to the disease roll. It may also happen that the lower of both is applied as a penalty.
 
 - **Type:** Union
 - **Cases:** <a href="#Resistance'0">Resistance'0</a> | <a href="#Resistance'1">Resistance'1</a> | <a href="#Resistance'2">Resistance'2</a>
@@ -35,9 +33,7 @@ penalty.
 
 ### <a name="Cause"></a> `Cause`
 
-What causes the disease? The GM rolls 1D20 to see if a character gets
-infected. If the infection check succeeds, the GM makes a disease check to
-determine the severity of the infection.
+What causes the disease? The GM rolls 1D20 to see if a character gets infected. If the infection check succeeds, the GM makes a disease check to determine the severity of the infection.
 
 - **Type:** Object
 
@@ -82,9 +78,7 @@ The name of the cause.
 
 #### <a name="CauseTranslation/chance"></a> `chance?`
 
-The chance to get infected by this cause. If present for this
-language, this overrides the universal `chance` field; they cannot be
-used at the same time.
+The chance to get infected by this cause. If present for this language, this overrides the universal `chance` field; they cannot be used at the same time.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -141,15 +135,13 @@ After infection, how much time passes before symptoms appear?
 
 #### <a name="DiseaseTranslation/damage"></a> `damage`
 
-The damage caused by the disease. If the disease check fails, apply the
-lessened effects.
+The damage caused by the disease. If the disease check fails, apply the lessened effects.
 
 - **Type:** <a href="#Reduceable">Reduceable</a>&lt;<a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>&gt;
 
 #### <a name="DiseaseTranslation/duration"></a> `duration`
 
-The duration of the disease. If the disease check fails, use the
-lessened duration.
+The duration of the disease. If the disease check fails, use the lessened duration.
 
 - **Type:** <a href="#Reduceable">Reduceable</a>&lt;<a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>&gt;
 
@@ -185,11 +177,9 @@ Known remedies for the disease.
 
 ### <a name="Reduceable"></a> `Reduceable<Content>`
 
-An effect or other parameter that may be reduced by a failed disease check
-for lessening or a degraded poison.
+An effect or other parameter that may be reduced by a failed disease check for lessening or a degraded poison.
 
-This streamlines the wording for diseases and poison by using a unified
-wording for *lessened* (disease) and *degraded* (poison).
+This streamlines the wording for diseases and poison by using a unified wording for *lessened* (disease) and *degraded* (poison).
 
 - **Type:** Object
 
@@ -206,7 +196,6 @@ The default value. In the source, it's the text before the slash.
 
 #### <a name="Reduceable/reduced"></a> `reduced?`
 
-The reduced value. In the source, it's the text after the slash. Some
-entries may not have a reduced value.
+The reduced value. In the source, it's the text after the slash. Some entries may not have a reduced value.
 
 - **Type:** <a href="#Content">Content</a>

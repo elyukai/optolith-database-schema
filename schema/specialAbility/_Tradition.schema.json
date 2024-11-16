@@ -6,7 +6,7 @@
       "type": "object",
       "properties": {
         "label": {
-          "description": "An optional label that is displayed and placed before the actual\ntext.",
+          "description": "An optional label that is displayed and placed before the actual text.",
           "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "text": {

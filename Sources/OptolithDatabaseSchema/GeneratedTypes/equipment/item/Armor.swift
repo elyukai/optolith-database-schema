@@ -145,8 +145,7 @@ public enum HitZone: EntitySubtype {
 }
 
 public struct HeadHitZone: EntitySubtype {
-    /// In some cases, multiple armors for the same hit zone can be combined.
-    /// They're listed at the item that can be combined with others.
+    /// In some cases, multiple armors for the same hit zone can be combined. They're listed at the item that can be combined with others.
     public let combinationPossibilities: HeadHitZoneCombinationPossibilities?    
     
     private enum CodingKeys: String, CodingKey {
@@ -158,7 +157,6 @@ public struct HeadHitZoneCombinationPossibilities: EntitySubtype {
     /// A list of armors that can be combined with this armor.
     public let armors: [ArmorReference]
     
-    /// The PRO value that is added to the PRO value of the other armor instead
-    /// of adding the normale PRO value.
+    /// The PRO value that is added to the PRO value of the other armor instead of adding the normale PRO value.
     public let protection: Int?
 }

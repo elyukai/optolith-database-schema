@@ -79,9 +79,7 @@ The name of the curse.
 
 #### <a name="CurseTranslation/effect"></a> `effect`
 
-The effect description may be either a plain text or a text that is
-divided by a list of effects for each quality level. It may also be a
-list for each two quality levels.
+The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
 
 - **Type:** <a href="../_ActivatableSkillEffect.md#ActivatableSkillEffect">ActivatableSkillEffect</a>
 
@@ -205,8 +203,7 @@ Key | Description | Details
 
 #### <a name="FixedCurseCostTranslation/per"></a> `per?`
 
-The cost have to be per a specific countable entity, e.g. `8 KP
-per person`.
+The cost have to be per a specific countable entity, e.g. `8 KP per person`.
 
 - **Type:** <a href="../_ResponsiveText.md#ResponsiveText">ResponsiveText</a>
 

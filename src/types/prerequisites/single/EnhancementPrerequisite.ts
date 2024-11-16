@@ -2,9 +2,7 @@ import { SkillWithEnhancementsIdentifier } from "../../_IdentifierGroup.js"
 import { DisplayOption } from "../DisplayOption.js"
 
 /**
- * Requires a specific enhancement from a skill. This should **not** be used
- * for enhancements themselves; they can only require enhancements from the same
- * skill they enhance.
+ * Requires a specific enhancement from a skill. This should **not** be used for enhancements themselves; they can only require enhancements from the same skill they enhance.
  * @title External Enhancement Prerequisite
  */
 export type ExternalEnhancementPrerequisite = {
@@ -38,8 +36,7 @@ export type EnhancementsReference = {
 }
 
 /**
- * Requires a specific enhancement from a skill. This can only be used by an
- * enhancement to require another enhancement from the same skill.
+ * Requires a specific enhancement from a skill. This can only be used by an enhancement to require another enhancement from the same skill.
  * @title Internal Enhancement Prerequisite
  */
 export type InternalEnhancementPrerequisite = EnhancementsReference

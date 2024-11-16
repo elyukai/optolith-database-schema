@@ -11,8 +11,7 @@ public struct RangedCombatTechnique: LocalizableEntity {
     /// The ranged combat technique's identifier. An unique, increasing integer.
     public let id: Int
     
-    /// Special rules for the combat technique that apply to all weapons in this
-    /// category.
+    /// Special rules for the combat technique that apply to all weapons in this category.
     public let special: RangedCombatTechniqueSpecialRules
     
     /// The primary attribute(s).
@@ -39,8 +38,7 @@ public struct RangedCombatTechnique: LocalizableEntity {
     }
 }
 
-/// Special rules for the combat technique that apply to all weapons in this
-/// category.
+/// Special rules for the combat technique that apply to all weapons in this category.
 public struct RangedCombatTechniqueSpecialRules: EntitySubtype {
     public let hasAmmunition: Bool    
     

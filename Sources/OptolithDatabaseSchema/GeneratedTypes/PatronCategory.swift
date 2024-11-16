@@ -11,8 +11,7 @@ public struct PatronCategory: LocalizableEntity {
     /// The patron category's identifier. An unique, increasing integer.
     public let id: Int
     
-    /// The list of cultures where patrons from this category can be the primary
-    /// patron of.
+    /// The list of cultures where patrons from this category can be the primary patron of.
     public let primaryPatronCultures: [CultureReference]
     
     /// All translations for the entry, identified by IETF language tag (BCP47).

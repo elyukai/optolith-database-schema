@@ -37,8 +37,7 @@ export type Locale = {
   region: string
 
   /**
-   * The language is not (fully) implemented and thus needs to be excluded from
-   * stable releases.
+   * The language is not (fully) implemented and thus needs to be excluded from stable releases.
    */
   is_missing_implementation?: true
 }

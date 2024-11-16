@@ -17,24 +17,19 @@ public struct Weapon: LocalizableEntity {
     /// The complexity of crafting the item.
     public let complexity: Complexity
     
-    /// The structure points of the item. Use an array if the item consists of
-    /// multiple components that have individual structure points.
+    /// The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
     public let structurePoints: StructurePoints?
     
-    /// A list of stat blocks for each combat technique this weapon can be used
-    /// with.
+    /// A list of stat blocks for each combat technique this weapon can be used with.
     public let uses: [WeaponUse]
     
-    /// If the weapon is sanctified by a god and thus restricted to it's Blessed
-    /// Ones.
+    /// If the weapon is sanctified by a god and thus restricted to it's Blessed Ones.
     public let sanctifiedBy: SanctifiedBy?
     
-    /// Define if during character creation this weapon can only be bought by
-    /// characters of a specific race or culture.
+    /// Define if during character creation this weapon can only be bought by characters of a specific race or culture.
     public let restrictedToCultures: RestrictedToCultures?
     
-    /// Define if during character creation this weapon can only be bought by
-    /// characters of specific magical or blessed traditions.
+    /// Define if during character creation this weapon can only be bought by characters of specific magical or blessed traditions.
     public let restrictedToTraditions: [MagicalTraditionReference]?
     
     public let src: PublicationRefs
@@ -89,20 +84,16 @@ public struct WeaponTranslation: EntitySubtype {
 }
 
 public struct SecondaryWeapon: EntitySubtype {
-    /// A list of stat blocks for each combat technique this weapon can be used
-    /// with.
+    /// A list of stat blocks for each combat technique this weapon can be used with.
     public let uses: [WeaponUse]
     
-    /// If the weapon is sanctified by a god and thus restricted to it's Blessed
-    /// Ones.
+    /// If the weapon is sanctified by a god and thus restricted to it's Blessed Ones.
     public let sanctifiedBy: SanctifiedBy?
     
-    /// Define if during character creation this weapon can only be bought by
-    /// characters of a specific race or culture.
+    /// Define if during character creation this weapon can only be bought by characters of a specific race or culture.
     public let restrictedToCultures: RestrictedToCultures?
     
-    /// Define if during character creation this weapon can only be bought by
-    /// characters of specific magical or blessed traditions.
+    /// Define if during character creation this weapon can only be bought by characters of specific magical or blessed traditions.
     public let restrictedToTraditions: [MagicalTraditionReference]?
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
@@ -138,12 +129,10 @@ public enum WeaponUseValues: EntitySubtype {
     case ranged(RangedWeapon)
 }
 
-/// If the weapon is sanctified by a god and thus restricted to it's Blessed
-/// Ones.
+/// If the weapon is sanctified by a god and thus restricted to it's Blessed Ones.
 public typealias SanctifiedBy = [BlessedTraditionReference]
 
-/// Define if during character creation this weapon can only be bought by
-/// characters of a specific race or culture.
+/// Define if during character creation this weapon can only be bought by characters of a specific race or culture.
 @DiscriminatedEnum
 public enum RestrictedToCultures: EntitySubtype {
     case culturesOfRace(RaceReference)

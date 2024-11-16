@@ -33,7 +33,7 @@
           "$ref": "../_Activatable.schema.json#/$defs/Maximum"
         },
         "advanced": {
-          "description": "The Advanced Special Abilities for the respective Style Special Ability.\nSometimes, only a specific select option or a set of select options of an\nentry is allowed, which can be modelled by the option property. It can also\nbe that you can choose from a set of special abilities, but then you can't\nspecify an option.",
+          "description": "The Advanced Special Abilities for the respective Style Special Ability. Sometimes, only a specific select option or a set of select options of an entry is allowed, which can be modelled by the option property. It can also be that you can choose from a set of special abilities, but then you can't specify an option.",
           "type": "array",
           "items": {
             "description": "A reference to an advanced special ability.",
@@ -76,7 +76,7 @@
                         "$ref": "../_Identifier.schema.json#/$defs/AdvancedCombatSpecialAbilityIdentifier"
                       },
                       "option": {
-                        "description": "Specify the select option(s) that only are allowed for the referenced\nadvanced special ability; others are disallowed.",
+                        "description": "Specify the select option(s) that only are allowed for the referenced advanced special ability; others are disallowed.",
                         "type": "array",
                         "items": {
                           "$ref": "../_IdentifierGroup.schema.json#/$defs/AdvancedSpecialAbilityRestrictedOptionIdentifier"
@@ -124,7 +124,7 @@
                         "minItems": 2
                       },
                       "is_selection_required_on_purchase": {
-                        "description": "Do have to choose the advanced special ability when buying the style\nspecial ability? Otherwise the decision can be made later.",
+                        "description": "Do have to choose the advanced special ability when buying the style special ability? Otherwise the decision can be made later.",
                         "type": "boolean"
                       },
                       "display_option": {
@@ -161,7 +161,7 @@
                         "description": "Map options from the external entry to allowed advanced special abilities.",
                         "type": "array",
                         "items": {
-                          "description": "Mapping from an option of the external entry to an allowed advanced special\nability.",
+                          "description": "Mapping from an option of the external entry to an allowed advanced special ability.",
                           "type": "object",
                           "properties": {
                             "from_option": {

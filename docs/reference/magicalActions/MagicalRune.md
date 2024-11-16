@@ -29,8 +29,7 @@ The magical rune's identifier. An unique, increasing integer.
 
 The options the magical rune has, if any.
 
-If there are multiple options, the magical rune may be activated for each
-option, that is, multiple times.
+If there are multiple options, the magical rune may be activated for each option, that is, multiple times.
 
 - **Type:** List
 - **Items:** <a href="#MagicalRune/options[]">MagicalRune/options[]</a>
@@ -102,16 +101,13 @@ Key | Description | Details
 
 The name of the magical rune.
 
-If the rune has an option, the option’s name will/should not be included in
-the name as well as its surrounding parenthesis. It will/should be combined
-on demand.
+If the rune has an option, the option’s name will/should not be included in the name as well as its surrounding parenthesis. It will/should be combined on demand.
 
 - **Type:** <a href="../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="MagicalRuneTranslation/name_in_library"></a> `name_in_library?`
 
-The full name of the entry as stated in the sources. Only use when `name`
-needs to be different from full name for text generation purposes.
+The full name of the entry as stated in the sources. Only use when `name` needs to be different from full name for text generation purposes.
 
 - **Type:** <a href="../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -123,9 +119,7 @@ The native name of the magical rune.
 
 #### <a name="MagicalRuneTranslation/effect"></a> `effect`
 
-The effect description may be either a plain text or a text that is
-divided by a list of effects for each quality level. It may also be a
-list for each two quality levels.
+The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
 
 - **Type:** <a href="../_ActivatableSkillEffect.md#ActivatableSkillEffect">ActivatableSkillEffect</a>
 
@@ -497,8 +491,7 @@ Key | Description | Details
 
 #### <a name="MagicalRuneCraftingTimeTranslation/per"></a> `per`
 
-The crafting time has to be per a specific countable entity, e.g. `8
-action per person`.
+The crafting time has to be per a specific countable entity, e.g. `8 action per person`.
 
 - **Type:** <a href="../_ResponsiveText.md#ResponsiveText">ResponsiveText</a>
 
@@ -706,8 +699,7 @@ Key | Description | Details
 
 The name of the option.
 
-The surrounding parenthesis will/should not be included, they will/should
-be generated.
+The surrounding parenthesis will/should not be included, they will/should be generated.
 
 - **Type:** <a href="../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 

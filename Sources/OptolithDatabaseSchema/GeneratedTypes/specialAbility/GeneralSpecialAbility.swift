@@ -53,9 +53,7 @@ public struct GeneralSpecialAbilityTranslation: EntitySubtype {
     
     public let rules: Rules
     
-    /// A string that gets appended to the default AP Value text with a preceding
-    /// space. This always happens if present, even if the generated AP Value text
-    /// is replaced.
+    /// A string that gets appended to the default AP Value text with a preceding space. This always happens if present, even if the generated AP Value text is replaced.
     public let apValueAppend: AdventurePointsValueAppend?
     
     public let errata: Errata?    

@@ -7,7 +7,7 @@
       "type": "object",
       "properties": {
         "restriction": {
-          "description": "The blessed tradition prerequisite may only be satified if the blessed\ntradition is either church or shamanistic.",
+          "description": "The blessed tradition prerequisite may only be satified if the blessed tradition is either church or shamanistic.",
           "$ref": "#/$defs/BlessedTraditionPrerequisiteRestriction"
         },
         "display_option": {
@@ -18,7 +18,7 @@
       "additionalProperties": false
     },
     "BlessedTraditionPrerequisiteRestriction": {
-      "description": "The blessed tradition prerequisite may only be satified if the blessed\ntradition is either church or shamanistic.",
+      "description": "The blessed tradition prerequisite may only be satified if the blessed tradition is either church or shamanistic.",
       "oneOf": [
         {
           "const": "Church"
@@ -33,7 +33,7 @@
       "type": "object",
       "properties": {
         "restriction": {
-          "description": "The magical tradition prerequisite may only be satified if the magical\ntradition can learn rituals or can bind familiars.",
+          "description": "The magical tradition prerequisite may only be satified if the magical tradition can learn rituals or can bind familiars.",
           "$ref": "#/$defs/MagicalTraditionPrerequisiteRestriction"
         },
         "display_option": {
@@ -44,7 +44,7 @@
       "additionalProperties": false
     },
     "MagicalTraditionPrerequisiteRestriction": {
-      "description": "The magical tradition prerequisite may only be satified if the magical\ntradition can learn rituals or can bind familiars.",
+      "description": "The magical tradition prerequisite may only be satified if the magical tradition can learn rituals or can bind familiars.",
       "oneOf": [
         {
           "const": "CanLearnRituals"

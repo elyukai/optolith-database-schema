@@ -55,16 +55,14 @@ Key | Description | Details
 
 #### <a name="Advantage/has_maximum_spent_influence"></a> `has_maximum_spent_influence`
 
-Does this advantage count towards the maximum of AP to be spent on
-advantages?
+Does this advantage count towards the maximum of AP to be spent on advantages?
 
 - **Type:** Boolean
 - **Default:** `true`
 
 #### <a name="Advantage/is_exclusive_to_arcane_spellworks"></a> `is_exclusive_to_arcane_spellworks`
 
-Does this advantage exclusively applies to arcane spellworks and not
-to magical actions and magical applications?
+Does this advantage exclusively applies to arcane spellworks and not to magical actions and magical applications?
 
 - **Type:** Boolean
 - **Default:** `false`
@@ -127,9 +125,7 @@ The range.
 
 #### <a name="AdvantageTranslation/ap_value_append"></a> `ap_value_append?`
 
-A string that gets appended to the default AP Value text with a preceding
-space. This always happens if present, even if the generated AP Value text
-is replaced.
+A string that gets appended to the default AP Value text with a preceding space. This always happens if present, even if the generated AP Value text is replaced.
 
 - **Type:** <a href="#AdventurePointsValueAppend">AdventurePointsValueAppend</a>
 

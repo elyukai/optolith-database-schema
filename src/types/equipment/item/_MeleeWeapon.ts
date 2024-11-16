@@ -20,8 +20,7 @@ export type AttackModifier = number
 export type ParryModifier = number
 
 /**
- * The damage of a weapon consists of a random part using dice and an optional
- * flat part.
+ * The damage of a weapon consists of a random part using dice and an optional flat part.
  */
 export type MeleeDamage = {
   /**
@@ -64,8 +63,7 @@ export type MeleeWeapon = {
   combat_technique: CloseCombatTechniqueReference
 
   /**
-   * The damage of a weapon consists of a random part using dice and an optional
-   * flat part.
+   * The damage of a weapon consists of a random part using dice and an optional flat part.
    */
   damage: MeleeDamage
 

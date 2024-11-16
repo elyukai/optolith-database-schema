@@ -47,16 +47,13 @@ The race’s base values.
 
 #### <a name="Race/attribute_adjustments"></a> `attribute_adjustments`
 
-Describes how to raise or lower maximum attribute values during character
-creation.
+Describes how to raise or lower maximum attribute values during character creation.
 
 - **Type:** <a href="#AttributeAdjustments">AttributeAdjustments</a>
 
 #### <a name="Race/automatic_advantages"></a> `automatic_advantages?`
 
-A list of automatically applied advantages. This does only work for
-advantages with no further configuration such as level or special
-selection.
+A list of automatically applied advantages. This does only work for advantages with no further configuration such as level or special selection.
 
 - **Type:** List
 - **Items:** <a href="#Race/automatic_advantages[]">Race/automatic_advantages[]</a>
@@ -86,8 +83,7 @@ Configuration for random weight generation.
 
 #### <a name="Race/starting_age"></a> `starting_age`
 
-Defines the starting ages for the race. It depends on the selected
-experience level.
+Defines the starting ages for the race. It depends on the selected experience level.
 
 - **Type:** List
 - **Items:** <a href="#Race/starting_age[]">Race/starting_age[]</a>
@@ -96,9 +92,7 @@ experience level.
 
 #### <a name="Race/variants"></a> `variants`
 
-A list of available race variants where one has to be selected. If no
-variants are to be selected, a single variant with no name has to be provided
-which will be used as the missing values for the base race.
+A list of available race variants where one has to be selected. If no variants are to be selected, a single variant with no name has to be provided which will be used as the missing values for the base race.
 
 - **Type:** <a href="#RaceVariants">RaceVariants</a>
 
@@ -180,8 +174,7 @@ The race’s tactical movement rate.
 
 ### <a name="AttributeAdjustments"></a> `AttributeAdjustments`
 
-Describes how to raise or lower maximum attribute values during character
-creation.
+Describes how to raise or lower maximum attribute values during character creation.
 
 - **Type:** Object
 - **Minimum Properties:** `1`
@@ -201,12 +194,9 @@ The values by which the maximum of the respective attribute is modified.
 
 #### <a name="AttributeAdjustments/selectable"></a> `selectable?`
 
-An array of attribute maximum modifiers, where the attribute they apply to
-is selected from a list of options.
+An array of attribute maximum modifiers, where the attribute they apply to is selected from a list of options.
 
-The array only permits a single entry because no race specified more than
-one selectable attribute adjustment so far. But the schema allows for
-multiple entries to be future-proof.
+The array only permits a single entry because no race specified more than one selectable attribute adjustment so far. But the schema allows for multiple entries to be future-proof.
 
 - **Type:** List
 - **Items:** <a href="#AttributeAdjustments/selectable[]">AttributeAdjustments/selectable[]</a>
@@ -255,9 +245,7 @@ The value by which the specified attribute's maximum is modified
 
 ### <a name="SelectableAttributeAdjustment"></a> `SelectableAttributeAdjustment`
 
-A value that will be added to the current maximum of the selected attribute
-that has been chosen from the listed attributes (negative values will lower
-the maximum).
+A value that will be added to the current maximum of the selected attribute that has been chosen from the listed attributes (negative values will lower the maximum).
 
 - **Type:** Object
 
@@ -349,9 +337,7 @@ Number of sides on every die. Example: 6 in 2D6.
 
 #### <a name="WeightDice/offset_strategy"></a> `offset_strategy`
 
-The strategy how to offset the randomly generated values against the
-base value. Either they are all added or subtracted or even results are
-added and odd results are subtracted.
+The strategy how to offset the randomly generated values against the base value. Either they are all added or subtracted or even results are added and odd results are subtracted.
 
 - **Type:** <a href="#WeightDiceOffsetStrategy">WeightDiceOffsetStrategy</a>
 
@@ -359,9 +345,7 @@ added and odd results are subtracted.
 
 ### <a name="WeightDiceOffsetStrategy"></a> `WeightDiceOffsetStrategy`
 
-The strategy how to offset the randomly generated values against the
-base value. Either they are all added or subtracted or even results are
-added and odd results are subtracted.
+The strategy how to offset the randomly generated values against the base value. Either they are all added or subtracted or even results are added and odd results are subtracted.
 
 - **Type:** Union
 - **Cases:** <a href="#WeightDiceOffsetStrategy'0">WeightDiceOffsetStrategy'0</a> | <a href="#WeightDiceOffsetStrategy'1">WeightDiceOffsetStrategy'1</a> | <a href="#WeightDiceOffsetStrategy'2">WeightDiceOffsetStrategy'2</a>
@@ -411,8 +395,7 @@ The base value for the selected experience level.
 
 #### <a name="StartingAgeConfigForExperienceLevel/random"></a> `random`
 
-The random value for the selected experience level. It is going to be
-added to the base value.
+The random value for the selected experience level. It is going to be added to the base value.
 
 - **Type:** <a href="./_Dice.md#Dice">Dice</a>
 
@@ -420,9 +403,7 @@ added to the base value.
 
 ### <a name="RaceVariants"></a> `RaceVariants`
 
-A list of available race variants where one has to be selected. If no
-variants are to be selected, a single variant with no name has to be provided
-which will be used as the missing values for the base race.
+A list of available race variants where one has to be selected. If no variants are to be selected, a single variant with no name has to be provided which will be used as the missing values for the base race.
 
 - **Type:** List
 - **Items:** <a href="#RaceVariants[]">RaceVariants[]</a>
@@ -502,8 +483,7 @@ A list of uncommon disadvantages.
 
 #### <a name="RaceVariant/hair_color"></a> `hair_color`
 
-An array containing 20 (numeric) hair color identifiers. The array also
-represents the 20-sided die for a random hair color.
+An array containing 20 (numeric) hair color identifiers. The array also represents the 20-sided die for a random hair color.
 
 - **Type:** List
 - **Items:** <a href="#RaceVariant/hair_color[]">RaceVariant/hair_color[]</a>
@@ -512,8 +492,7 @@ represents the 20-sided die for a random hair color.
 
 #### <a name="RaceVariant/eye_color"></a> `eye_color`
 
-An array containing 20 (numeric) eye color identifiers. The array also
-represents the 20-sided die for a random eye color.
+An array containing 20 (numeric) eye color identifiers. The array also represents the 20-sided die for a random eye color.
 
 - **Type:** List
 - **Items:** <a href="#RaceVariant/eye_color[]">RaceVariant/eye_color[]</a>
@@ -624,9 +603,7 @@ Key | Description | Details
 
 #### <a name="RaceVariantTranslation/name"></a> `name?`
 
-The race variant's name. If left empty, it defaults to the base race name.
-This can be used if the race has no (visible) variants so that a single
-variant has to be provided.
+The race variant's name. If left empty, it defaults to the base race name. This can be used if the race has no (visible) variants so that a single variant has to be provided.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -695,8 +672,7 @@ The respective strongly recommended advantages text from the source book.
 
 #### <a name="RaceTranslation/strongly_recommended_disadvantages"></a> `strongly_recommended_disadvantages?`
 
-The respective strongly recommended disadvantages text from the source
-book.
+The respective strongly recommended disadvantages text from the source book.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 

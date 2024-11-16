@@ -23,7 +23,7 @@
           "$ref": "../_Activatable.schema.json#/$defs/SkillUses"
         },
         "primary": {
-          "description": "The tradition's primary attribute. Leave empty if the tradition does not\nhave one.",
+          "description": "The tradition's primary attribute. Leave empty if the tradition does not have one.",
           "$ref": "#/$defs/PrimaryAttribute"
         },
         "can_learn_cantrips": {
@@ -43,18 +43,18 @@
           "type": "boolean"
         },
         "allows_multiple_traditions": {
-          "description": "Does the tradition allow learning more traditions or having learned a\ndifferent tradition before learning this tradition?",
+          "description": "Does the tradition allow learning more traditions or having learned a different tradition before learning this tradition?",
           "type": "boolean"
         },
         "alternative_magical_adventure_points_maximum": {
-          "description": "Is the maximum AP you're able to spent on magical advantages and able to\nget by magical disadvantages different than the default of 50 AP?",
+          "description": "Is the maximum AP you're able to spent on magical advantages and able to get by magical disadvantages different than the default of 50 AP?",
           "type": "integer",
           "maximum": 30,
           "minimum": 25,
           "multipleOf": 5
         },
         "require_non_spellwork_exclusive_effects": {
-          "description": "Are advantages/disadvantages required to not exclusively apply to arcane\nspellworks, but also to the tradition's magical actions or applications?",
+          "description": "Are advantages/disadvantages required to not exclusively apply to arcane spellworks, but also to the tradition's magical actions or applications?",
           "type": "boolean"
         },
         "is_magical_dilettante": {
@@ -62,7 +62,7 @@
           "type": "boolean"
         },
         "use_arcane_spellworks_from_tradition": {
-          "description": "If arcane spellworks from a different tradition count as arcane spellworks\nof this tradition, this is the different tradition's reference.",
+          "description": "If arcane spellworks from a different tradition count as arcane spellworks of this tradition, this is the different tradition's reference.",
           "$ref": "../_SimpleReferences.schema.json#/$defs/MagicalTraditionReference"
         },
         "influences": {
@@ -117,7 +117,7 @@
           "$ref": "../_Identifier.schema.json#/$defs/AttributeIdentifier"
         },
         "use_half_for_arcane_energy": {
-          "description": "Typically, the value of the primary attribute (if one exists) is added\nonto the base of 20 AE to get the actual AE. But sometimes, only half the\nvalue is added.",
+          "description": "Typically, the value of the primary attribute (if one exists) is added onto the base of 20 AE to get the actual AE. But sometimes, only half the value is added.",
           "type": "boolean"
         }
       },
@@ -134,7 +134,7 @@
           "$ref": "../_Activatable.schema.json#/$defs/Name"
         },
         "name_for_arcane_spellworks": {
-          "description": "The name used for the traditions list of arcane spellworks if it is\ndifferent than the `name` of the special ability.",
+          "description": "The name used for the traditions list of arcane spellworks if it is different than the `name` of the special ability.",
           "type": "string",
           "minLength": 1
         },
@@ -142,7 +142,7 @@
           "$ref": "../_Activatable.schema.json#/$defs/NameInLibrary"
         },
         "special_rules": {
-          "description": "The special rules of the tradition. They should be sorted like they are\nin the book.",
+          "description": "The special rules of the tradition. They should be sorted like they are in the book.",
           "type": "array",
           "items": {
             "$ref": "./_Tradition.schema.json#/$defs/SpecialRule"

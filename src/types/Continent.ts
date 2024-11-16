@@ -10,8 +10,7 @@ import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
 import { LocaleMap } from "./_LocaleMap.js"
 
 /**
- * Continents are mostly referenced to in languages and scripts that occur on a
- * specific continent.
+ * Continents are mostly referenced to in languages and scripts that occur on a specific continent.
  * @title Continent
  */
 export type Continent = {

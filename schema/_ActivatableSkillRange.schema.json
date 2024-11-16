@@ -238,11 +238,11 @@
       "type": "object",
       "properties": {
         "note": {
-          "description": "A note, appended to the generated string in parenthesis. If the\ngenerated is modified using `replacement`, the note is appended to\nthe modifier string.",
+          "description": "A note, appended to the generated string in parenthesis. If the generated is modified using `replacement`, the note is appended to the modifier string.",
           "$ref": "./_ResponsiveText.schema.json#/$defs/ResponsiveTextOptional"
         },
         "replacement": {
-          "description": "A replacement string. If `note` is provided, it is appended to the\nreplaced string.",
+          "description": "A replacement string. If `note` is provided, it is appended to the replaced string.",
           "$ref": "./_ResponsiveText.schema.json#/$defs/ResponsiveTextReplace"
         }
       },

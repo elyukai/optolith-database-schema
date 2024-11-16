@@ -52,15 +52,12 @@ export type Race = {
   base_values: BaseValues
 
   /**
-   * Describes how to raise or lower maximum attribute values during character
-   * creation.
+   * Describes how to raise or lower maximum attribute values during character creation.
    */
   attribute_adjustments: AttributeAdjustments
 
   /**
-   * A list of automatically applied advantages. This does only work for
-   * advantages with no further configuration such as level or special
-   * selection.
+   * A list of automatically applied advantages. This does only work for advantages with no further configuration such as level or special selection.
    * @minItems 1
    */
   automatic_advantages?: AdvantageReference[]
@@ -83,17 +80,14 @@ export type Race = {
   weight: RandomWeightGeneration
 
   /**
-   * Defines the starting ages for the race. It depends on the selected
-   * experience level.
+   * Defines the starting ages for the race. It depends on the selected experience level.
    * @minItems 7
    * @maxItems 7
    */
   starting_age: StartingAgeConfigForExperienceLevel[]
 
   /**
-   * A list of available race variants where one has to be selected. If no
-   * variants are to be selected, a single variant with no name has to be provided
-   * which will be used as the missing values for the base race.
+   * A list of available race variants where one has to be selected. If no variants are to be selected, a single variant with no name has to be provided which will be used as the missing values for the base race.
    */
   variants: RaceVariants
 
@@ -136,8 +130,7 @@ export type BaseValues = {
 }
 
 /**
- * Describes how to raise or lower maximum attribute values during character
- * creation.
+ * Describes how to raise or lower maximum attribute values during character creation.
  * @minProperties 1
  */
 export type AttributeAdjustments = {
@@ -148,12 +141,9 @@ export type AttributeAdjustments = {
   fixed?: FixedAttributeAdjustment[]
 
   /**
-   * An array of attribute maximum modifiers, where the attribute they apply to
-   * is selected from a list of options.
+   * An array of attribute maximum modifiers, where the attribute they apply to is selected from a list of options.
    *
-   * The array only permits a single entry because no race specified more than
-   * one selectable attribute adjustment so far. But the schema allows for
-   * multiple entries to be future-proof.
+   * The array only permits a single entry because no race specified more than one selectable attribute adjustment so far. But the schema allows for multiple entries to be future-proof.
    * @minItems 1
    * @maxItems 1
    */
@@ -178,9 +168,7 @@ export type FixedAttributeAdjustment = {
 }
 
 /**
- * A value that will be added to the current maximum of the selected attribute
- * that has been chosen from the listed attributes (negative values will lower
- * the maximum).
+ * A value that will be added to the current maximum of the selected attribute that has been chosen from the listed attributes (negative values will lower the maximum).
  * @minItems 1
  */
 export type SelectableAttributeAdjustment = {
@@ -231,17 +219,13 @@ export type WeightDice = {
   sides: DieType
 
   /**
-   * The strategy how to offset the randomly generated values against the
-   * base value. Either they are all added or subtracted or even results are
-   * added and odd results are subtracted.
+   * The strategy how to offset the randomly generated values against the base value. Either they are all added or subtracted or even results are added and odd results are subtracted.
    */
   offset_strategy: WeightDiceOffsetStrategy
 }
 
 /**
- * The strategy how to offset the randomly generated values against the
- * base value. Either they are all added or subtracted or even results are
- * added and odd results are subtracted.
+ * The strategy how to offset the randomly generated values against the base value. Either they are all added or subtracted or even results are added and odd results are subtracted.
  */
 export type WeightDiceOffsetStrategy = "Add" | "Subtract" | "AddEvenSubtractOdd"
 
@@ -259,16 +243,13 @@ export type StartingAgeConfigForExperienceLevel = {
   base: number
 
   /**
-   * The random value for the selected experience level. It is going to be
-   * added to the base value.
+   * The random value for the selected experience level. It is going to be added to the base value.
    */
   random: Dice
 }
 
 /**
- * A list of available race variants where one has to be selected. If no
- * variants are to be selected, a single variant with no name has to be provided
- * which will be used as the missing values for the base race.
+ * A list of available race variants where one has to be selected. If no variants are to be selected, a single variant with no name has to be provided which will be used as the missing values for the base race.
  * @minItems 1
  */
 export type RaceVariants = RaceVariant[]
@@ -315,16 +296,14 @@ export type RaceVariant = {
   uncommon_disadvantages?: CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>[]
 
   /**
-   * An array containing 20 (numeric) hair color identifiers. The array also
-   * represents the 20-sided die for a random hair color.
+   * An array containing 20 (numeric) hair color identifiers. The array also represents the 20-sided die for a random hair color.
    * @minItems 20
    * @maxItems 20
    */
   hair_color: HairColorReference[]
 
   /**
-   * An array containing 20 (numeric) eye color identifiers. The array also
-   * represents the 20-sided die for a random eye color.
+   * An array containing 20 (numeric) eye color identifiers. The array also represents the 20-sided die for a random eye color.
    * @minItems 20
    * @maxItems 20
    */
@@ -361,9 +340,7 @@ export type Height = {
 
 export type RaceVariantTranslation = {
   /**
-   * The race variant's name. If left empty, it defaults to the base race name.
-   * This can be used if the race has no (visible) variants so that a single
-   * variant has to be provided.
+   * The race variant's name. If left empty, it defaults to the base race name. This can be used if the race has no (visible) variants so that a single variant has to be provided.
    */
   name?: NonEmptyString
 
@@ -410,8 +387,7 @@ export type RaceTranslation = {
   strongly_recommended_advantages?: NonEmptyString
 
   /**
-   * The respective strongly recommended disadvantages text from the source
-   * book.
+   * The respective strongly recommended disadvantages text from the source book.
    */
   strongly_recommended_disadvantages?: NonEmptyString
 

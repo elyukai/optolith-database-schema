@@ -2,10 +2,10 @@
  * @title Enhancements
  */
 
-import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { EnhancementPrerequisites } from "./_Prerequisite.js"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
  * A list of enhancements.
@@ -35,8 +35,7 @@ export type Enhancement = {
   skill_rating: number
 
   /**
-   * The value to multiply with the numeric representation of the associated
-   * skill's improvement cost to form the final AP cost of this enhancement.
+   * The value to multiply with the numeric representation of the associated skill's improvement cost to form the final AP cost of this enhancement.
    * @integer
    * @minimum 1
    */

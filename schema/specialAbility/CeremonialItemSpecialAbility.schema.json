@@ -70,7 +70,7 @@
           "$ref": "../_Activatable.schema.json#/$defs/Effect"
         },
         "prerequisites": {
-          "description": "The prerequisites text. It is only used if the text cannot be generated\nfrom the given information.",
+          "description": "The prerequisites text. It is only used if the text cannot be generated from the given information.",
           "$ref": "../_Activatable.schema.json#/$defs/PrerequisitesReplacement"
         },
         "errata": {

@@ -11,8 +11,7 @@ public struct CloseCombatTechnique: LocalizableEntity {
     /// The close combat technique's identifier. An unique, increasing integer.
     public let id: Int
     
-    /// Special rules for the combat technique that apply to all weapons in this
-    /// category.
+    /// Special rules for the combat technique that apply to all weapons in this category.
     public let special: CloseCombatTechniqueSpecialRules
     
     /// The primary attribute(s).
@@ -39,8 +38,7 @@ public struct CloseCombatTechnique: LocalizableEntity {
     }
 }
 
-/// Special rules for the combat technique that apply to all weapons in this
-/// category.
+/// Special rules for the combat technique that apply to all weapons in this category.
 public struct CloseCombatTechniqueSpecialRules: EntitySubtype {
     /// Is parrying possible with this combat technique?
     public let canParry: Bool

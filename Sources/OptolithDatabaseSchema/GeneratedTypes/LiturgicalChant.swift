@@ -23,9 +23,7 @@ public struct LiturgicalChant: LocalizableEntity {
     /// The target category – the kind of creature or object – the skill affects.
     public let target: AffectedTargetCategories
     
-    /// The tradition(s) the liturgical chant is available for. Note that general
-    /// aspects do not have an associated tradition and thus need to be defined in
-    /// a special way.
+    /// The tradition(s) the liturgical chant is available for. Note that general aspects do not have an associated tradition and thus need to be defined in a special way.
     public let traditions: [SkillTradition]
     
     /// States which column is used to improve the skill.
@@ -59,14 +57,10 @@ public struct LiturgicalChantTranslation: EntitySubtype {
     /// The name of the liturgical chant.
     public let name: NonEmptyString
     
-    /// A compressed name of the liturgical chant for use in small areas (e.g.
-    /// on character sheet). Should only be defined if the `name` does not fit
-    /// on character sheet.
+    /// A compressed name of the liturgical chant for use in small areas (e.g. on character sheet). Should only be defined if the `name` does not fit on character sheet.
     public let nameCompressed: NonEmptyString?
     
-    /// The effect description may be either a plain text or a text that is
-    /// divided by a list of effects for each quality level. It may also be a
-    /// list for each two quality levels.
+    /// The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
     public let effect: ActivatableSkillEffect
     
     @available(*, deprecated)

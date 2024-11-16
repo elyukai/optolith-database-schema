@@ -6,10 +6,7 @@ Auxiliary types for ranged weapons.
 
 ### <a name="RangedDamage"></a> `RangedDamage`
 
-The damage of a ranged weapon. It consists of a random part using dice and an
-optional flat part ny default. Some ranged weapons may work different so that
-damage is either not applicable at all or it is outlined as *Special* and
-further defined in a description.
+The damage of a ranged weapon. It consists of a random part using dice and an optional flat part ny default. Some ranged weapons may work different so that damage is either not applicable at all or it is outlined as *Special* and further defined in a description.
 
 - **Type:** Union
 - **Cases:** <a href="#RangedDamage'Default">RangedDamage'Default</a> | <a href="#RangedDamage'NotApplicable">RangedDamage'NotApplicable</a> | <a href="#RangedDamage'Special">RangedDamage'Special</a>
@@ -87,8 +84,7 @@ Key | Description | Details
 
 ### <a name="DefaultRangedDamage"></a> `DefaultRangedDamage`
 
-The damage of a weapon consists of a random part using dice and an optional
-flat part.
+The damage of a weapon consists of a random part using dice and an optional flat part.
 
 - **Type:** Object
 
@@ -134,8 +130,7 @@ The combat techniques and dependent values.
 
 #### <a name="RangedWeapon/damage"></a> `damage`
 
-The damage of a weapon consists of a random part using dice and an optional
-flat part.
+The damage of a weapon consists of a random part using dice and an optional flat part.
 
 - **Type:** <a href="#RangedDamage">RangedDamage</a>
 

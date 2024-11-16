@@ -34,8 +34,7 @@ export type BlessedTradition = {
   skill_uses?: Activatable.SkillUses
 
   /**
-   * The tradition's primary attribute. Leave empty if the tradition does not
-   * have one.
+   * The tradition's primary attribute. Leave empty if the tradition does not have one.
    */
   primary?: AttributeReference
 
@@ -64,8 +63,7 @@ export type BlessedTradition = {
   favored_skills: SkillReference[]
 
   /**
-   * On activation of the tradition, a specific number of skills from a list of
-   * skills must be selected as being favored.
+   * On activation of the tradition, a specific number of skills from a list of skills must be selected as being favored.
    */
   favored_skills_selection?: FavoredSkillsSelection
 
@@ -75,8 +73,7 @@ export type BlessedTradition = {
   type: BlessedTraditionType
 
   /**
-   * The select option's identifier of the disadvantage *Principles* that
-   * represent this tradition's code, if any.
+   * The select option's identifier of the disadvantage *Principles* that represent this tradition's code, if any.
    */
   associated_principles_id?: number
 
@@ -163,8 +160,7 @@ export type BlessedTraditionTranslation = {
   name: Activatable.Name
 
   /**
-   * A shorter name of the tradition's name, used in liturgical chant
-   * descriptions.
+   * A shorter name of the tradition's name, used in liturgical chant descriptions.
    * @minLength 1
    */
   name_compressed?: string
@@ -174,8 +170,7 @@ export type BlessedTraditionTranslation = {
   // input?: Activatable.Input
 
   /**
-   * The special rules of the tradition. They should be sorted like they are
-   * in the book.
+   * The special rules of the tradition. They should be sorted like they are in the book.
    * @minItems 1
    */
   special_rules: SpecialRule[]

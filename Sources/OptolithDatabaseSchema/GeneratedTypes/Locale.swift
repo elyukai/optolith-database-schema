@@ -17,8 +17,7 @@ public struct Locale: Entity {
     /// Region in which the language is spoken in it's language.
     public let region: String
     
-    /// The language is not (fully) implemented and thus needs to be excluded from
-    /// stable releases.
+    /// The language is not (fully) implemented and thus needs to be excluded from stable releases.
     public let isMissingImplementation: Bool?    
     
     private enum CodingKeys: String, CodingKey {

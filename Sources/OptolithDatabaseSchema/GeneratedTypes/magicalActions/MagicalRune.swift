@@ -13,8 +13,7 @@ public struct MagicalRune: LocalizableEntity {
     
     /// The options the magical rune has, if any.
     /// 
-    /// If there are multiple options, the magical rune may be activated for each
-    /// option, that is, multiple times.
+    /// If there are multiple options, the magical rune may be activated for each option, that is, multiple times.
     public let options: [MagicalRuneOption]?
     
     /// Lists the linked three attributes used to make a skill check.
@@ -53,21 +52,16 @@ public struct MagicalRune: LocalizableEntity {
 public struct MagicalRuneTranslation: EntitySubtype {
     /// The name of the magical rune.
     /// 
-    /// If the rune has an option, the option’s name will/should not be included in
-    /// the name as well as its surrounding parenthesis. It will/should be combined
-    /// on demand.
+    /// If the rune has an option, the option’s name will/should not be included in the name as well as its surrounding parenthesis. It will/should be combined on demand.
     public let name: NonEmptyString
     
-    /// The full name of the entry as stated in the sources. Only use when `name`
-    /// needs to be different from full name for text generation purposes.
+    /// The full name of the entry as stated in the sources. Only use when `name` needs to be different from full name for text generation purposes.
     public let nameInLibrary: NonEmptyString?
     
     /// The native name of the magical rune.
     public let nativeName: NonEmptyString?
     
-    /// The effect description may be either a plain text or a text that is
-    /// divided by a list of effects for each quality level. It may also be a
-    /// list for each two quality levels.
+    /// The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
     public let effect: ActivatableSkillEffect
     
     @available(*, deprecated)
@@ -182,8 +176,7 @@ public struct MagicalRuneCraftingTime: EntitySubtype {
 }
 
 public struct MagicalRuneCraftingTimeTranslation: EntitySubtype {
-    /// The crafting time has to be per a specific countable entity, e.g. `8
-    /// action per person`.
+    /// The crafting time has to be per a specific countable entity, e.g. `8 action per person`.
     public let per: ResponsiveText
 }
 
@@ -247,8 +240,7 @@ public struct CustomMagicalRuneSuboptionTranslation: EntitySubtype {
 public struct MagicalRuneOptionTranslation: EntitySubtype {
     /// The name of the option.
     /// 
-    /// The surrounding parenthesis will/should not be included, they will/should
-    /// be generated.
+    /// The surrounding parenthesis will/should not be included, they will/should be generated.
     public let name: NonEmptyString
     
     /// The native name of the magical rune option.

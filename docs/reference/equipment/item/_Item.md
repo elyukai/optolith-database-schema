@@ -36,15 +36,13 @@ The complexity of crafting the item.
 
 #### <a name="DefaultItem/structure_points"></a> `structure_points`
 
-The structure points of the item. Use an array if the item consists of
-multiple components that have individual structure points.
+The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
 
 - **Type:** <a href="#StructurePoints">StructurePoints</a>
 
 #### <a name="DefaultItem/combat_use"></a> `combat_use?`
 
-The item can also be used either as an improvised weapon or as an armor,
-although this is not the primary use case of the item.
+The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.
 
 - **Type:** <a href="#CombatUse">CombatUse</a>
 
@@ -62,8 +60,7 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="CombatUse"></a> `CombatUse`
 
-The item can also be used either as an improvised weapon or as an armor,
-although this is not the primary use case of the item.
+The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.
 
 - **Type:** Union
 - **Cases:** <a href="#CombatUse'Weapon">CombatUse'Weapon</a> | <a href="#CombatUse'Armor">CombatUse'Armor</a>
@@ -152,8 +149,7 @@ Special rules text.
 
 ### <a name="StructurePoints"></a> Structure Points (`StructurePoints`)
 
-The structure points of the item. Use an array if the item consists of
-multiple components that have individual structure points.
+The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
 
 - **Type:** List
 - **Items:** <a href="#StructurePoints[]">StructurePoints[]</a>

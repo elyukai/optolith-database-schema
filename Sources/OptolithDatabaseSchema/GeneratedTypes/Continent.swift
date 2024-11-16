@@ -7,8 +7,7 @@
 
 import DiscriminatedEnum
 
-/// Continents are mostly referenced to in languages and scripts that occur on a
-/// specific continent.
+/// Continents are mostly referenced to in languages and scripts that occur on a specific continent.
 public struct Continent: LocalizableEntity {
     /// The continent's identifier. An unique, increasing integer.
     public let id: Int

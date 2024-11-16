@@ -18,8 +18,7 @@ public struct PactGift: LocalizableEntity {
     
     public let permanentDemonicConsumption: PactGiftPermanentDemonicConsumption?
     
-    /// This pact gift has direct influence on the existence of other entries. It
-    /// may add or remove entries.
+    /// This pact gift has direct influence on the existence of other entries. It may add or remove entries.
     public let automaticEntries: [AutomaticEntry]?
     
     public let prerequisites: GeneralPrerequisites?
@@ -57,8 +56,7 @@ public struct FixedPactGiftPermanentDemonicConsumption: EntitySubtype {
 }
 
 public struct PactGiftPermanentDemonicConsumptionPerLevel: EntitySubtype {
-    /// The levels of *Demonic Consumption* the pact gift causes per activated
-    /// level of the pact gift.
+    /// The levels of *Demonic Consumption* the pact gift causes per activated level of the pact gift.
     public let levels: Int
 }
 
@@ -66,12 +64,10 @@ public struct AutomaticEntry: EntitySubtype {
     /// What type of action is applied to the target entry?
     public let action: AutomaticEntryAction
     
-    /// If an entry is added or removed, does is cost or grant adventure points
-    /// or is it free of charge?
+    /// If an entry is added or removed, does is cost or grant adventure points or is it free of charge?
     public let applyApValue: Bool
     
-    /// The entry that is to be added or removed. It can be a fixed entry or a
-    /// selection where the player must choose one entry.
+    /// The entry that is to be added or removed. It can be a fixed entry or a selection where the player must choose one entry.
     public let target: AutomaticEntryTarget    
     
     private enum CodingKeys: String, CodingKey {

@@ -44,10 +44,7 @@ The associated property.
 
 #### <a name="Cantrip/note"></a> `note?`
 
-A note specifying the dissemination of the cantrip in different traditions.
-Sometimes a cantrip is exclusively available to one or more specific
-traditions, but usually one the academies and traditions are listed the
-cantrip is most commonly teached in.
+A note specifying the dissemination of the cantrip in different traditions. Sometimes a cantrip is exclusively available to one or more specific traditions, but usually one the academies and traditions are listed the cantrip is most commonly teached in.
 
 - **Type:** <a href="#CantripNote">CantripNote</a>
 

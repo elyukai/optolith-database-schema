@@ -7,12 +7,12 @@
       "type": "object",
       "properties": {
         "number": {
-          "description": "The minimum number of skills that need to be on the defined minimum skill\nrating.",
+          "description": "The minimum number of skills that need to be on the defined minimum skill rating.",
           "type": "integer",
           "minimum": 1
         },
         "value": {
-          "description": "The minimum skill rating the defined minimum number of skills need to be\non.",
+          "description": "The minimum skill rating the defined minimum number of skills need to be on.",
           "type": "integer",
           "minimum": 1
         },

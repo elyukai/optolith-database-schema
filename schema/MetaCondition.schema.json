@@ -5,7 +5,7 @@
   "$defs": {
     "MetaCondition": {
       "title": "Meta Condition",
-      "description": "Meta Conditions are rule elements that work like conditions in the sense that\nthey have four levels with different effects, but which are not explicitly\nlisted as conditions.",
+      "description": "Meta Conditions are rule elements that work like conditions in the sense that they have four levels with different effects, but which are not explicitly listed as conditions.",
       "type": "object",
       "properties": {
         "id": {

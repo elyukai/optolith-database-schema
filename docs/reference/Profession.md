@@ -27,17 +27,9 @@ The profession group.
 
 #### <a name="Profession/versions"></a> `versions`
 
-A list of professions representing the same profession but with (slightly)
-different stats. For example, there may be a profession in a regional
-sourcebook or in the core rules and a profession in an extension rulebook
-like Magic of Aventuria, where the profession is basically called the same
-and almost has the same values, but the version from Magic of Aventuria
-features a spell style special ability that does not exist in the core
-rules or regional sourcebook.
+A list of professions representing the same profession but with (slightly) different stats. For example, there may be a profession in a regional sourcebook or in the core rules and a profession in an extension rulebook like Magic of Aventuria, where the profession is basically called the same and almost has the same values, but the version from Magic of Aventuria features a spell style special ability that does not exist in the core rules or regional sourcebook.
 
-The profession representation may feature different values for different
-explicitly mentioned experience levels. In most cases, there is only one
-stats package, which targets the experience level *Experienced*.
+The profession representation may feature different values for different explicitly mentioned experience levels. In most cases, there is only one stats package, which targets the experience level *Experienced*.
 
 - **Type:** List
 - **Items:** <a href="#Profession/versions[]">Profession/versions[]</a>
@@ -220,8 +212,7 @@ Key | Description | Details
 
 #### <a name="ExperiencedProfessionPackage/id"></a> `id`
 
-The profession representation variant's identifier. An unique, increasing
-integer.
+The profession representation variant's identifier. An unique, increasing integer.
 
 - **Type:** Integer
 - **Minimum:** `1`
@@ -255,8 +246,7 @@ Key | Description | Details
 
 #### <a name="ProfessionPackagesForDifferentExperienceLevels/id"></a> `id`
 
-The profession representation variant's identifier. An unique, increasing
-integer.
+The profession representation variant's identifier. An unique, increasing integer.
 
 - **Type:** Integer
 - **Minimum:** `1`
@@ -295,8 +285,7 @@ Key | Description | Details
 
 #### <a name="ExperienceLevelDynamicProfessionPackage/experience_level_id"></a> `experience_level_id`
 
-The experience level this profession targets. The experience level
-must be unique for this representation.
+The experience level this profession targets. The experience level must be unique for this representation.
 
 - **Type:** Integer
 - **Default:** `3`
@@ -338,16 +327,13 @@ What does the professional package cost in adventure points?
 
 #### <a name="ProfessionPackage/prerequisites"></a> `prerequisites?`
 
-Which prerequisites must be met to buy the stat block? For example, a
-character might need the advantage Spellcaster or Blessed. Note: the AP
-cost for a profession package does not include these prerequisites.
+Which prerequisites must be met to buy the stat block? For example, a character might need the advantage Spellcaster or Blessed. Note: the AP cost for a profession package does not include these prerequisites.
 
 - **Type:** <a href="./_Prerequisite.md#ProfessionPrerequisites">ProfessionPrerequisites</a>
 
 #### <a name="ProfessionPackage/options"></a> `options?`
 
-In some areas, the profession package grants a loose set of stats where the
-player must choose between different options for the profession package.
+In some areas, the profession package grants a loose set of stats where the player must choose between different options for the profession package.
 
 - **Type:** <a href="#ProfessionPackageOptions">ProfessionPackageOptions</a>
 
@@ -360,8 +346,7 @@ Any special abilities the profession receives from the package.
 
 #### <a name="ProfessionPackage/combat_techniques"></a> `combat_techniques?`
 
-Provides ratings for the combat techniques that the hero receives from the
-package.
+Provides ratings for the combat techniques that the hero receives from the package.
 
 - **Type:** List
 - **Items:** <a href="#ProfessionPackage/combat_techniques[]">ProfessionPackage/combat_techniques[]</a>
@@ -375,17 +360,14 @@ The skill ratings the package grants to the hero.
 
 #### <a name="ProfessionPackage/spells"></a> `spells?`
 
-The skill ratings a magical profession receives for spells; these spells
-are considered activated. Spells from an unfamiliar Tradition, if any, are
-identified as such.
+The skill ratings a magical profession receives for spells; these spells are considered activated. Spells from an unfamiliar Tradition, if any, are identified as such.
 
 - **Type:** List
 - **Items:** <a href="#ProfessionPackage/spells[]">ProfessionPackage/spells[]</a>
 
 #### <a name="ProfessionPackage/liturgical_chants"></a> `liturgical_chants?`
 
-Clerical professions receive these liturgical chants at the listed skill
-ratings. These liturgical chants are considered activated.
+Clerical professions receive these liturgical chants at the listed skill ratings. These liturgical chants are considered activated.
 
 - **Type:** List
 - **Items:** <a href="#ProfessionPackage/liturgical_chants[]">ProfessionPackage/liturgical_chants[]</a>
@@ -408,8 +390,7 @@ Typical disadvantages for the profession.
 
 #### <a name="ProfessionPackage/unsuitable_advantages"></a> `unsuitable_advantages?`
 
-These advantages do not fit well with this profession; to be checked with
-the GM before taking any of them.
+These advantages do not fit well with this profession; to be checked with the GM before taking any of them.
 
 - **Type:** List
 - **Items:** <a href="#ProfessionPackage/unsuitable_advantages[]">ProfessionPackage/unsuitable_advantages[]</a>
@@ -417,8 +398,7 @@ the GM before taking any of them.
 
 #### <a name="ProfessionPackage/unsuitable_disadvantages"></a> `unsuitable_disadvantages?`
 
-These disadvantages do not fit well with this profession; to be checked
-with the GM before taking any of them.
+These disadvantages do not fit well with this profession; to be checked with the GM before taking any of them.
 
 - **Type:** List
 - **Items:** <a href="#ProfessionPackage/unsuitable_disadvantages[]">ProfessionPackage/unsuitable_disadvantages[]</a>
@@ -426,11 +406,7 @@ with the GM before taking any of them.
 
 #### <a name="ProfessionPackage/variants"></a> `variants?`
 
-Provides examples of variants for the profession, which may include changes
-to AP values and additional or modified skill ratings, special abilities,
-or combat techniques, as compared to the basic profession. Usually picking
-a variant is optional, but there are some rare exceptions where picking a
-variant is required.
+Provides examples of variants for the profession, which may include changes to AP values and additional or modified skill ratings, special abilities, or combat techniques, as compared to the basic profession. Usually picking a variant is optional, but there are some rare exceptions where picking a variant is required.
 
 - **Type:** <a href="#ProfessionVariants">ProfessionVariants</a>
 
@@ -512,9 +488,7 @@ Name of the basic profession.
 
 #### <a name="ProfessionTranslation/specification"></a> `specification?`
 
-A name addition of the profession. This will contain texts like name of
-the academy or the witch circle. It is enclosed in parenthesis, but the
-database entry must not contain parenthesis.
+A name addition of the profession. This will contain texts like name of the academy or the witch circle. It is enclosed in parenthesis, but the database entry must not contain parenthesis.
 
 - **Type:** <a href="#ProfessionName">ProfessionName</a>
 
@@ -532,15 +506,13 @@ Typical disadvantages for the profession.
 
 #### <a name="ProfessionTranslation/unsuitable_advantages"></a> `unsuitable_advantages?`
 
-These advantages do not fit well with this profession; to be checked with
-the GM before taking any of them.
+These advantages do not fit well with this profession; to be checked with the GM before taking any of them.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="ProfessionTranslation/unsuitable_disadvantages"></a> `unsuitable_disadvantages?`
 
-These disadvantages do not fit well with this profession; to be checked
-with the GM before taking any of them.
+These disadvantages do not fit well with this profession; to be checked with the GM before taking any of them.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -552,11 +524,7 @@ with the GM before taking any of them.
 
 ### <a name="ProfessionVariants"></a> `ProfessionVariants`
 
-Provides examples of variants for the profession, which may include changes
-to AP values and additional or modified skill ratings, special abilities, or
-combat techniques, as compared to the basic profession. Usually picking a
-variant is optional, but there are some rare exceptions where picking a
-variant is required.
+Provides examples of variants for the profession, which may include changes to AP values and additional or modified skill ratings, special abilities, or combat techniques, as compared to the basic profession. Usually picking a variant is optional, but there are some rare exceptions where picking a variant is required.
 
 - **Type:** Object
 
@@ -619,9 +587,7 @@ The AP value you have to pay for the package variant.
 
 #### <a name="ProfessionVariant/prerequisites"></a> `prerequisites?`
 
-Which prerequisites must be met to buy the stat block? For example, a
-character might need the advantage Spellcaster or Blessed. Note: the AP
-cost for a profession package does not include these prerequisites.
+Which prerequisites must be met to buy the stat block? For example, a character might need the advantage Spellcaster or Blessed. Note: the AP cost for a profession package does not include these prerequisites.
 
 - **Type:** <a href="./_Prerequisite.md#ProfessionPrerequisites">ProfessionPrerequisites</a>
 
@@ -638,8 +604,7 @@ Any special abilities the profession receives from the package variant.
 
 #### <a name="ProfessionVariant/combat_techniques"></a> `combat_techniques?`
 
-Provides ratings for the combat techniques that the hero receives from the
-package variant.
+Provides ratings for the combat techniques that the hero receives from the package variant.
 
 - **Type:** List
 - **Items:** <a href="#ProfessionVariant/combat_techniques[]">ProfessionVariant/combat_techniques[]</a>
@@ -653,17 +618,14 @@ The skill ratings the package variant grants to the hero.
 
 #### <a name="ProfessionVariant/spells"></a> `spells?`
 
-The skill ratings a magical profession variant receives for spells; these
-spells are considered activated. Spells from an unfamiliar Tradition, if
-any, are identified as such.
+The skill ratings a magical profession variant receives for spells; these spells are considered activated. Spells from an unfamiliar Tradition, if any, are identified as such.
 
 - **Type:** List
 - **Items:** <a href="#ProfessionVariant/spells[]">ProfessionVariant/spells[]</a>
 
 #### <a name="ProfessionVariant/liturgical_chants"></a> `liturgical_chants?`
 
-Clerical professions receive these liturgical chants at the listed skill
-ratings. These liturgical chants are considered activated.
+Clerical professions receive these liturgical chants at the listed skill ratings. These liturgical chants are considered activated.
 
 - **Type:** List
 - **Items:** <a href="#ProfessionVariant/liturgical_chants[]">ProfessionVariant/liturgical_chants[]</a>
@@ -836,8 +798,7 @@ The level of the received special ability.
 
 #### <a name="SpecialAbilityDefinition/options"></a> `options?`
 
-Received select options. Order is important. Typically, you only need the
-first array index, though.
+Received select options. Order is important. Typically, you only need the first array index, though.
 
 - **Type:** List
 - **Items:** <a href="#SpecialAbilityDefinition/options[]">SpecialAbilityDefinition/options[]</a>
@@ -915,8 +876,7 @@ The identifier of the combat technique to provide the rating for.
 
 #### <a name="FixedVariantSpecialAbility/active"></a> `active?`
 
-if set to `false`, if the selection is granted by the basic package, it
-is removed.
+if set to `false`, if the selection is granted by the basic package, it is removed.
 
 - **Constant:** `false`
 
@@ -929,8 +889,7 @@ The level of the received special ability.
 
 #### <a name="FixedVariantSpecialAbility/options"></a> `options?`
 
-Received select options. Order is important. Typically, you only need the
-first array index, though.
+Received select options. Order is important. Typically, you only need the first array index, though.
 
 - **Type:** List
 - **Items:** <a href="#FixedVariantSpecialAbility/options[]">FixedVariantSpecialAbility/options[]</a>
@@ -955,8 +914,7 @@ Key | Description | Details
 
 #### <a name="VariantSpecialAbilitySelection/active"></a> `active?`
 
-if set to `false`, if the selection is granted by the basic package, it
-is removed.
+if set to `false`, if the selection is granted by the basic package, it is removed.
 
 - **Constant:** `false`
 
@@ -991,8 +949,7 @@ The identifier of the combat technique to provide the rating for.
 
 #### <a name="CombatTechniqueRating/rating"></a> `rating`
 
-The rating bonus provided for the combat technique. If used in a profession
-variant, it can also be used to lower the bonus of the base profession.
+The rating bonus provided for the combat technique. If used in a profession variant, it can also be used to lower the bonus of the base profession.
 
 **Note:** This is a rating *bonus*, so it will be *added* to the default
 value of 6.
@@ -1020,8 +977,7 @@ The identifier of the skill to provide the rating for.
 
 #### <a name="SkillRating/rating"></a> `rating`
 
-The rating bonus provided for the skill. If used in a profession variant,
-it can also be used to lower the bonus of the base profession
+The rating bonus provided for the skill. If used in a profession variant, it can also be used to lower the bonus of the base profession
 
 - **Type:** Integer
 - **Minimum:** `-8`
@@ -1040,9 +996,7 @@ Key | Description | Details
 
 #### <a name="SpellRating/id"></a> `id`
 
-The identifier(s) of the spell(s) to choose from to provide the rating for.
-If multiple spells are provided, they must all have the same improvement
-cost.
+The identifier(s) of the spell(s) to choose from to provide the rating for. If multiple spells are provided, they must all have the same improvement cost.
 
 - **Type:** List
 - **Items:** <a href="#SpellRating/id[]">SpellRating/id[]</a>
@@ -1050,8 +1004,7 @@ cost.
 
 #### <a name="SpellRating/rating"></a> `rating`
 
-The rating bonus provided for the (selected) spell. If used in a profession
-variant, it can also be used to lower the bonus of the base profession.
+The rating bonus provided for the (selected) spell. If used in a profession variant, it can also be used to lower the bonus of the base profession.
 
 - **Type:** Integer
 - **Minimum:** `-10`
@@ -1127,11 +1080,7 @@ The identifier of the spell to provide the rating for.
 
 #### <a name="ProfessionSpellworkIdentifier/tradition"></a> `tradition?`
 
-If the spell is not part of the magical tradition required by the
-package, this references the magical tradition it is part of. It can also
-be used to define the target magical tradition of a spell if multiple
-magical traditions are required and the spell is available to multiple
-of them.
+If the spell is not part of the magical tradition required by the package, this references the magical tradition it is part of. It can also be used to define the target magical tradition of a spell if multiple magical traditions are required and the spell is available to multiple of them.
 
 - **Type:** <a href="./_SimpleReferences.md#MagicalTraditionReference">MagicalTraditionReference</a>
 
@@ -1164,9 +1113,7 @@ Key | Description | Details
 
 #### <a name="LiturgicalChantRating/id"></a> `id`
 
-The identifier(s) of the liturgical chant(s) to choose from to provide
-the rating for. If multiple liturgical chants are provided, they must all
-have the same improvement cost.
+The identifier(s) of the liturgical chant(s) to choose from to provide the rating for. If multiple liturgical chants are provided, they must all have the same improvement cost.
 
 - **Type:** List
 - **Items:** <a href="#LiturgicalChantRating/id[]">LiturgicalChantRating/id[]</a>
@@ -1174,9 +1121,7 @@ have the same improvement cost.
 
 #### <a name="LiturgicalChantRating/rating"></a> `rating`
 
-The rating bonus provided for the selected liturgical chant. If used in a
-profession variant, it can also be used to lower the bonus of the base
-profession.
+The rating bonus provided for the selected liturgical chant. If used in a profession variant, it can also be used to lower the bonus of the base profession.
 
 - **Type:** Integer
 - **Minimum:** `-10`
@@ -1192,8 +1137,7 @@ profession.
 
 ### <a name="ProfessionPackageOptions"></a> `ProfessionPackageOptions`
 
-In some areas, the profession package grants a loose set of stats where the
-player must choose between different options for the profession package.
+In some areas, the profession package grants a loose set of stats where the player must choose between different options for the profession package.
 
 - **Type:** Object
 - **Minimum Properties:** `1`
@@ -1240,9 +1184,7 @@ Key | Description | Details
 
 ### <a name="ProfessionVariantPackageOptions"></a> `ProfessionVariantPackageOptions`
 
-In some areas, the profession package grants a loose set of stats where the
-player must choose between different options for the profession package. The
-variant may override or remove those options.
+In some areas, the profession package grants a loose set of stats where the player must choose between different options for the profession package. The variant may override or remove those options.
 
 - **Type:** Object
 - **Minimum Properties:** `1`
@@ -1340,9 +1282,7 @@ Key | Description | Details
 
 ### <a name="SkillSpecializationOptions"></a> `SkillSpecializationOptions`
 
-Select an application from a skill or from one of a list of skills where you
-get a skill specialization for. You can also specify a skill groups from
-which you can choose a skill.
+Select an application from a skill or from one of a list of skills where you get a skill specialization for. You can also specify a skill groups from which you can choose a skill.
 
 - **Type:** Union
 - **Cases:** <a href="#SkillSpecializationOptions'Single">SkillSpecializationOptions'Single</a> | <a href="#SkillSpecializationOptions'Group">SkillSpecializationOptions'Group</a>
@@ -1452,9 +1392,7 @@ Key | Description | Details
 
 #### <a name="CombatTechniquesOptions/fixed"></a> `fixed`
 
-Specify the number of combat techniques that can be selected so that they
-get increased to a specific CtR. There can be multiple selections with
-different CtRs.
+Specify the number of combat techniques that can be selected so that they get increased to a specific CtR. There can be multiple selections with different CtRs.
 
 - **Type:** List
 - **Items:** <a href="#CombatTechniquesOptions/fixed[]">CombatTechniquesOptions/fixed[]</a>
@@ -1462,8 +1400,7 @@ different CtRs.
 
 #### <a name="CombatTechniquesOptions/rest_rating"></a> `rest_rating?`
 
-Define if after the fixed selections the remaining unselected combat
-techniques will receive a certain rating bonus as well.
+Define if after the fixed selections the remaining unselected combat techniques will receive a certain rating bonus as well.
 
 - **Type:** Integer
 - **Minimum:** `1`

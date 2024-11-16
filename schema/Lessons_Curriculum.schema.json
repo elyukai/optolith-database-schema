@@ -5,7 +5,7 @@
   "$defs": {
     "Curriculum": {
       "title": "Curriculum",
-      "description": "This is a curriculum of a specified academy, containing the guideline,\nelective and restricted spellworks as well as the lesson packages of that\nacademy.",
+      "description": "This is a curriculum of a specified academy, containing the guideline, elective and restricted spellworks as well as the lesson packages of that academy.",
       "type": "object",
       "properties": {
         "id": {
@@ -132,7 +132,7 @@
           "$ref": "./_IdentifierGroup.schema.json#/$defs/SpellworkIdentifier"
         },
         "restriction": {
-          "description": "The elective spellwork may only take effect if a certain condition is met.\nThe condition may be related to professions or profession variants, but it\nis designed so that it can work without a specific profession, as multiple\nmay belong to an institute, but with referencing other entities instead.",
+          "description": "The elective spellwork may only take effect if a certain condition is met. The condition may be related to professions or profession variants, but it is designed so that it can work without a specific profession, as multiple may belong to an institute, but with referencing other entities instead.",
           "$ref": "#/$defs/ElectiveSpellworkRestriction"
         }
       },
@@ -142,7 +142,7 @@
       "additionalProperties": false
     },
     "ElectiveSpellworkRestriction": {
-      "description": "The elective spellwork may only take effect if a certain condition is met.\nThe condition may be related to professions or profession variants, but it is\ndesigned so that it can work without a specific profession, as multiple may\nbelong to an institute, but with referencing other entities instead.",
+      "description": "The elective spellwork may only take effect if a certain condition is met. The condition may be related to professions or profession variants, but it is designed so that it can work without a specific profession, as multiple may belong to an institute, but with referencing other entities instead.",
       "type": "object",
       "properties": {
         "tag": {
@@ -288,7 +288,7 @@
           "minItems": 1
         },
         "maximum": {
-          "description": "Spellworks from this property up to a certain number are allowed.\nSpellworks excluded from this restriction definition using `exclude` do\nnot contribute to the maximum.",
+          "description": "Spellworks from this property up to a certain number are allowed. Spellworks excluded from this restriction definition using `exclude` do not contribute to the maximum.",
           "type": "number"
         }
       },
@@ -316,7 +316,7 @@
           "minimum": 1
         },
         "spellwork_changes": {
-          "description": "The spell values difference of the lesson package. This field reflects the\nchanges (difference) to the field of the same name in the profession\npackage. If a spell gets to SR 0 because of this, it will be removed\ncompletely.",
+          "description": "The spell values difference of the lesson package. This field reflects the changes (difference) to the field of the same name in the profession package. If a spell gets to SR 0 because of this, it will be removed completely.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/SpellworkChange"
@@ -372,7 +372,7 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "spellwork_changes": {
-          "description": "The spell values difference of the lesson package. Use this field to\nspecify a text that is displayed instead of the generated\n`spellwork_changes` list. The field is displayed even if no list is\npresent.",
+          "description": "The spell values difference of the lesson package. Use this field to specify a text that is displayed instead of the generated\n`spellwork_changes` list. The field is displayed even if no list is\npresent.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         }
       },
@@ -440,7 +440,7 @@
           "$ref": "./_IdentifierGroup.schema.json#/$defs/CombatTechniqueIdentifier"
         },
         "points": {
-          "description": "The combat technique points that will be added to the current combat\ntechnique rating.",
+          "description": "The combat technique points that will be added to the current combat technique rating.",
           "type": "integer",
           "maximum": 6,
           "minimum": -6
@@ -479,13 +479,13 @@
           "$ref": "./_IdentifierGroup.schema.json#/$defs/SpellworkIdentifier"
         },
         "points": {
-          "description": "The skill points that will be added to the current skill rating. If a\nspell gets to a skill rating of 0 because of this, it will be removed\ncompletely.",
+          "description": "The skill points that will be added to the current skill rating. If a spell gets to a skill rating of 0 because of this, it will be removed completely.",
           "type": "integer",
           "maximum": 10,
           "minimum": -10
         },
         "tradition": {
-          "description": "The target tradition. If the target spell is not from the Guild Mage\ntradition, specify the tradition identifier here.",
+          "description": "The target tradition. If the target spell is not from the Guild Mage tradition, specify the tradition identifier here.",
           "$ref": "./_Identifier.schema.json#/$defs/MagicalTraditionIdentifier"
         }
       },

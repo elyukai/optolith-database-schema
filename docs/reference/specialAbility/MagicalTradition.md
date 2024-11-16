@@ -51,8 +51,7 @@ Key | Description | Details
 
 #### <a name="MagicalTradition/primary"></a> `primary?`
 
-The tradition's primary attribute. Leave empty if the tradition does not
-have one.
+The tradition's primary attribute. Leave empty if the tradition does not have one.
 
 - **Type:** <a href="#PrimaryAttribute">PrimaryAttribute</a>
 
@@ -82,15 +81,13 @@ Can this magical tradition bind familiars?
 
 #### <a name="MagicalTradition/allows_multiple_traditions"></a> `allows_multiple_traditions`
 
-Does the tradition allow learning more traditions or having learned a
-different tradition before learning this tradition?
+Does the tradition allow learning more traditions or having learned a different tradition before learning this tradition?
 
 - **Type:** Boolean
 
 #### <a name="MagicalTradition/alternative_magical_adventure_points_maximum"></a> `alternative_magical_adventure_points_maximum?`
 
-Is the maximum AP you're able to spent on magical advantages and able to
-get by magical disadvantages different than the default of 50 AP?
+Is the maximum AP you're able to spent on magical advantages and able to get by magical disadvantages different than the default of 50 AP?
 
 - **Type:** Integer
 - **Minimum:** `25`
@@ -99,8 +96,7 @@ get by magical disadvantages different than the default of 50 AP?
 
 #### <a name="MagicalTradition/require_non_spellwork_exclusive_effects"></a> `require_non_spellwork_exclusive_effects`
 
-Are advantages/disadvantages required to not exclusively apply to arcane
-spellworks, but also to the tradition's magical actions or applications?
+Are advantages/disadvantages required to not exclusively apply to arcane spellworks, but also to the tradition's magical actions or applications?
 
 - **Type:** Boolean
 
@@ -112,8 +108,7 @@ Is this a magical dilettante tradition?
 
 #### <a name="MagicalTradition/use_arcane_spellworks_from_tradition"></a> `use_arcane_spellworks_from_tradition?`
 
-If arcane spellworks from a different tradition count as arcane spellworks
-of this tradition, this is the different tradition's reference.
+If arcane spellworks from a different tradition count as arcane spellworks of this tradition, this is the different tradition's reference.
 
 - **Type:** <a href="../_SimpleReferences.md#MagicalTraditionReference">MagicalTraditionReference</a>
 
@@ -168,9 +163,7 @@ The attribute's identifier.
 
 #### <a name="PrimaryAttribute/use_half_for_arcane_energy"></a> `use_half_for_arcane_energy`
 
-Typically, the value of the primary attribute (if one exists) is added
-onto the base of 20 AE to get the actual AE. But sometimes, only half the
-value is added.
+Typically, the value of the primary attribute (if one exists) is added onto the base of 20 AE to get the actual AE. But sometimes, only half the value is added.
 
 - **Type:** Boolean
 
@@ -194,8 +187,7 @@ Key | Description | Details
 
 #### <a name="MagicalTraditionTranslation/name_for_arcane_spellworks"></a> `name_for_arcane_spellworks?`
 
-The name used for the traditions list of arcane spellworks if it is
-different than the `name` of the special ability.
+The name used for the traditions list of arcane spellworks if it is different than the `name` of the special ability.
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -206,8 +198,7 @@ different than the `name` of the special ability.
 
 #### <a name="MagicalTraditionTranslation/special_rules"></a> `special_rules`
 
-The special rules of the tradition. They should be sorted like they are
-in the book.
+The special rules of the tradition. They should be sorted like they are in the book.
 
 - **Type:** List
 - **Items:** <a href="#MagicalTraditionTranslation/special_rules[]">MagicalTraditionTranslation/special_rules[]</a>

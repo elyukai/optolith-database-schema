@@ -33,8 +33,7 @@ public enum SelectOptionCategory: EntitySubtype {
 }
 
 public struct BlessedTraditionsSelectOptionCategory: EntitySubtype {
-    /// Should the principles (code) of the tradition be required to select the
-    /// respective tradition?
+    /// Should the principles (code) of the tradition be required to select the respective tradition?
     public let requirePrinciples: Bool?    
     
     private enum CodingKeys: String, CodingKey {
@@ -51,8 +50,7 @@ public struct PropertiesSelectOptionCategory: EntitySubtype {
     /// Does each property require it's corresponding property knowledge?
     public let requireKnowledge: Bool?
     
-    /// Require a minimum number of spellworks of the respective property to be
-    /// on a minimum skill rating.
+    /// Require a minimum number of spellworks of the respective property to be on a minimum skill rating.
     public let requireMinimumSpellworksOn: RequiredMinimumSkillsToBeOnSkillRating?    
     
     private enum CodingKeys: String, CodingKey {
@@ -65,14 +63,10 @@ public struct AspectSelectOptionCategory: EntitySubtype {
     /// Does each aspect require it's corresponding aspect knowledge?
     public let requireKnowledge: Bool?
     
-    /// The generated name should be the *Master of (Aspect)* suffix for this
-    /// aspect instead of the aspect's name. If an aspect does not provide a
-    /// suffix (such as the General aspect), it is automatically excluded from
-    /// the list.
+    /// The generated name should be the *Master of (Aspect)* suffix for this aspect instead of the aspect's name. If an aspect does not provide a suffix (such as the General aspect), it is automatically excluded from the list.
     public let useMasterOfSuffixAsName: Bool?
     
-    /// Require a minimum number of liturgies of the respective aspect to be on a
-    /// minimum skill rating.
+    /// Require a minimum number of liturgies of the respective aspect to be on a minimum skill rating.
     public let requireMinimumLiturgiesOn: RequiredMinimumSkillsToBeOnSkillRating?    
     
     private enum CodingKeys: String, CodingKey {
@@ -82,15 +76,12 @@ public struct AspectSelectOptionCategory: EntitySubtype {
     }
 }
 
-/// Require a minimum number of spellworks/liturgies of the respective
-/// property/aspect to be on a minimum skill rating.
+/// Require a minimum number of spellworks/liturgies of the respective property/aspect to be on a minimum skill rating.
 public struct RequiredMinimumSkillsToBeOnSkillRating: EntitySubtype {
-    /// The minimum number of liturgies that need to be on the defined minimum
-    /// skill rating.
+    /// The minimum number of liturgies that need to be on the defined minimum skill rating.
     public let number: Int
     
-    /// The minimum skill rating the defined minimum number of liturgies need
-    /// to be on.
+    /// The minimum skill rating the defined minimum number of liturgies need to be on.
     public let rating: Int
 }
 
@@ -139,22 +130,13 @@ public struct SkillSelectOptionCategoryCategory: EntitySubtype {
     /// Only include entries of the specified groups.
     public let groups: [SkillGroupReference]?
     
-    /// Only include (`Intersection`) or exclude (`Difference`) specific
-    /// skills.
+    /// Only include (`Intersection`) or exclude (`Difference`) specific skills.
     public let specific: SpecificFromSkillSelectOptionCategoryCategory<SkillReference>?
     
-    /// Registers new applications, which get enabled once this entry is
-    /// activated with its respective select option. It specifies an
-    /// entry-unique identifier, the skill it belongs to is derived from the
-    /// select option automatically. A translation can be left out if its
-    /// name equals the name of the origin entry.
+    /// Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry.
     public let skillApplications: [SkillApplicationOrUse]?
     
-    /// Registers uses, which get enabled once this entry is activated with
-    /// its respective select option. It specifies an entry-unique
-    /// identifier, the skill it belongs to is derived from the select option
-    /// automatically. A translation can be left out if its name equals the
-    /// name of the origin entry.
+    /// Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry.
     public let skillUses: [SkillApplicationOrUse]?
     
     /// Generate prerequisites for each entry of the category.
@@ -201,8 +183,7 @@ public struct SkillApplicationOrUse: EntitySubtype {
 }
 
 public struct SkillApplicationOrUseTranslation: EntitySubtype {
-    /// The name of the application or use if different from the activatable
-    /// entry's name.
+    /// The name of the application or use if different from the activatable entry's name.
     public let name: String
 }
 
@@ -273,8 +254,7 @@ public struct SelectOptionsFixedAdventurePointsValue<Identifier: EntitySubtype>:
     /// A mapping of skill identifiers to their specific AP values.
     public let map: [SelectOptionsFixedAdventurePointsValueMapping<Identifier>]
     
-    /// The default value of an entry. Used as a fallback if no value is
-    /// found in `list`.
+    /// The default value of an entry. Used as a fallback if no value is found in `list`.
     public let `default`: Int
 }
 

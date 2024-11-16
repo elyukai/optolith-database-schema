@@ -31,17 +31,13 @@ The disease's level.
 
 #### <a name="Disease/resistance"></a> `resistance`
 
-Depending on the disease, apply Spirit or Toughness as a penalty to the
-disease roll. It may also happen that the lower of both is applied as a
-penalty.
+Depending on the disease, apply Spirit or Toughness as a penalty to the disease roll. It may also happen that the lower of both is applied as a penalty.
 
 - **Type:** <a href="./_DiseasePoison.md#Resistance">Resistance</a>
 
 #### <a name="Disease/cause"></a> `cause`
 
-What causes the disease? The GM rolls 1D20 to see if a character gets
-infected. If the infection check succeeds, the GM makes a disease check to
-determine the severity of the infection.
+What causes the disease? The GM rolls 1D20 to see if a character gets infected. If the infection check succeeds, the GM makes a disease check to determine the severity of the infection.
 
 - **Type:** List
 - **Items:** <a href="#Disease/cause[]">Disease/cause[]</a>

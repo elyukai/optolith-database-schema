@@ -34,8 +34,7 @@ export type MagicalRune = {
   /**
    * The options the magical rune has, if any.
    *
-   * If there are multiple options, the magical rune may be activated for each
-   * option, that is, multiple times.
+   * If there are multiple options, the magical rune may be activated for each option, that is, multiple times.
    */
   options?: MagicalRuneOption[]
 
@@ -76,15 +75,12 @@ export type MagicalRuneTranslation = {
   /**
    * The name of the magical rune.
    *
-   * If the rune has an option, the option’s name will/should not be included in
-   * the name as well as its surrounding parenthesis. It will/should be combined
-   * on demand.
+   * If the rune has an option, the option’s name will/should not be included in the name as well as its surrounding parenthesis. It will/should be combined on demand.
    */
   name: NonEmptyString
 
   /**
-   * The full name of the entry as stated in the sources. Only use when `name`
-   * needs to be different from full name for text generation purposes.
+   * The full name of the entry as stated in the sources. Only use when `name` needs to be different from full name for text generation purposes.
    */
   name_in_library?: NonEmptyString
 
@@ -94,9 +90,7 @@ export type MagicalRuneTranslation = {
   native_name?: NonEmptyString
 
   /**
-   * The effect description may be either a plain text or a text that is
-   * divided by a list of effects for each quality level. It may also be a
-   * list for each two quality levels.
+   * The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
    */
   effect: ActivatableSkillEffect
 
@@ -232,8 +226,7 @@ export type MagicalRuneCraftingTime = {
 
 export type MagicalRuneCraftingTimeTranslation = {
   /**
-   * The crafting time has to be per a specific countable entity, e.g. `8
-   * action per person`.
+   * The crafting time has to be per a specific countable entity, e.g. `8 action per person`.
    */
   per: ResponsiveText
 }
@@ -304,8 +297,7 @@ export type MagicalRuneOptionTranslation = {
   /**
    * The name of the option.
    *
-   * The surrounding parenthesis will/should not be included, they will/should
-   * be generated.
+   * The surrounding parenthesis will/should not be included, they will/should be generated.
    */
   name: NonEmptyString
 

@@ -13,8 +13,7 @@ Key | Description | Details
 
 #### <a name="SpecialRule/label"></a> `label?`
 
-An optional label that is displayed and placed before the actual
-text.
+An optional label that is displayed and placed before the actual text.
 
 - **Type:** <a href="../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 

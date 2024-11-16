@@ -44,29 +44,24 @@ export type Patron = {
   skills: SkillReference[]
 
   /**
-   * The patron is only available to a certain set of cultures. It may be
-   * available to all, it may be available to only specific ones (intersection)
-   * and it may be available to all except specific ones to the listed cultures
+   * The patron is only available to a certain set of cultures. It may be available to all, it may be available to only specific ones (intersection) and it may be available to all except specific ones to the listed cultures
    * (difference).
    */
   culture: PatronCulture
 
   /**
-   * The list of cultures where patrons from this category can be the primary
-   * patron of.
+   * The list of cultures where patrons from this category can be the primary patron of.
    * @uniqueItems
    */
   primary_patron_cultures?: CultureReference[]
 
   /**
-   * The patron-specific powers. Used by animist power Animal Powers I–III and
-   * should only be present on animal patrons.
+   * The patron-specific powers. Used by animist power Animal Powers I–III and should only be present on animal patrons.
    */
   powers?: AnimalPowers
 
   /**
-   * The patron-specific AE cost. Used by several animist forces for animal
-   * patrons.
+   * The patron-specific AE cost. Used by several animist forces for animal patrons.
    * @integer
    * @minimum 2
    * @multipleOf 2
@@ -74,14 +69,12 @@ export type Patron = {
   ae_cost?: number
 
   /**
-   * The patron-specific improvement cost. Used by several animist forces for
-   * animal patrons.
+   * The patron-specific improvement cost. Used by several animist forces for animal patrons.
    */
   improvement_cost?: ImprovementCost
 
   /**
-   * The patron may grant common advantages that are taken into account during
-   * character creation.
+   * The patron may grant common advantages that are taken into account during character creation.
    *
    * *Source:* Geisterwald & Knochenklippen, p. 6-7
    * @minLength 1
@@ -89,8 +82,7 @@ export type Patron = {
   common_advantages?: AdvantageReference[]
 
   /**
-   * The patron may grant common disadvantages that are taken into account
-   * during character creation.
+   * The patron may grant common disadvantages that are taken into account during character creation.
    *
    * *Source:* Geisterwald & Knochenklippen, p. 6-7
    * @minLength 1
@@ -119,9 +111,7 @@ export type PatronTranslation = {
 }
 
 /**
- * The patron cultures the patron is or is not part of. If the patron is part of
- * all patron cultures, the set should be empty and the operation should be
- * difference.
+ * The patron cultures the patron is or is not part of. If the patron is part of all patron cultures, the set should be empty and the operation should be difference.
  */
 export type PatronCulture = {
   set: CultureReference[]
@@ -129,10 +119,7 @@ export type PatronCulture = {
 }
 
 /**
- * The set operation to combine the set of all patron cultures with the
- * specified set of patron cultures: If they should intersect, the patron is
- * only part of the given cultures. If they should differ, the patron is only
- * part of the cultures that are not given.
+ * The set operation to combine the set of all patron cultures with the specified set of patron cultures: If they should intersect, the patron is only part of the given cultures. If they should differ, the patron is only part of the cultures that are not given.
  */
 export type PatronCultureOperation = "Intersection" | "Difference"
 

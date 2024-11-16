@@ -17,8 +17,7 @@ public struct MagicalMelody: LocalizableEntity {
     /// In some cases, the target's Spirit or Toughness is applied as a penalty.
     public let checkPenalty: SkillCheckPenalty?
     
-    /// Arcane bards must make a *Singing (area of application)* or *Music (area of
-    /// application)* check for each magical melody.
+    /// Arcane bards must make a *Singing (area of application)* or *Music (area of application)* check for each magical melody.
     public let skill: [MusicalSkillReference]
     
     /// Measurable parameters of a magical melody.
@@ -27,8 +26,7 @@ public struct MagicalMelody: LocalizableEntity {
     /// The associated property.
     public let property: PropertyReference
     
-    /// The music tradition(s) the magical melody is available for. This also
-    /// defines the different names in each music tradition.
+    /// The music tradition(s) the magical melody is available for. This also defines the different names in each music tradition.
     public let musicTradition: [MusicTraditionReference]
     
     /// States which column is used to improve the skill.
@@ -57,9 +55,7 @@ public struct MagicalMelodyTranslation: EntitySubtype {
     /// The name of the magical melody.
     public let name: NonEmptyString
     
-    /// The effect description may be either a plain text or a text that is
-    /// divided by a list of effects for each quality level. It may also be a
-    /// list for each two quality levels.
+    /// The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
     public let effect: ActivatableSkillEffect
     
     @available(*, deprecated)
@@ -90,7 +86,6 @@ public struct FixedMagicalMelodyCost: EntitySubtype {
 }
 
 public struct FirstPersonMagicalMelodyCost: EntitySubtype {
-    /// The (temporary) AE cost value for the first targeted person. The AE
-    /// cost for each additional person is half this value.
+    /// The (temporary) AE cost value for the first targeted person. The AE cost for each additional person is half this value.
     public let value: Int
 }

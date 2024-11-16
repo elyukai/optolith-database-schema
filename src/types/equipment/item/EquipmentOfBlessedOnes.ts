@@ -19,8 +19,7 @@ export type EquipmentOfBlessedOnes = {
   cost: Cost
 
   /**
-   * The structure points of the item. Use an array if the item consists of
-   * multiple components that have individual structure points.
+   * The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
    */
   structure_points: StructurePoints
 

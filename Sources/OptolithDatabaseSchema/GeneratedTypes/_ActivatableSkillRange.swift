@@ -90,13 +90,10 @@ public struct CheckResultBasedRange: EntitySubtype {
 }
 
 public struct RangeTranslation: EntitySubtype {
-    /// A note, appended to the generated string in parenthesis. If the
-    /// generated is modified using `replacement`, the note is appended to
-    /// the modifier string.
+    /// A note, appended to the generated string in parenthesis. If the generated is modified using `replacement`, the note is appended to the modifier string.
     public let note: ResponsiveTextOptional?
     
-    /// A replacement string. If `note` is provided, it is appended to the
-    /// replaced string.
+    /// A replacement string. If `note` is provided, it is appended to the replaced string.
     public let replacement: ResponsiveTextReplace?
 }
 

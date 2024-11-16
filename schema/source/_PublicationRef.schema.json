@@ -14,7 +14,7 @@
     },
     "PublicationRef": {
       "title": "Publication Reference",
-      "description": "A source reference. It contains the book's publisher identifier and the page\nwhere it occurs. If an entry spans multiple pages, provide the last page as\nwell.",
+      "description": "A source reference. It contains the book's publisher identifier and the page where it occurs. If an entry spans multiple pages, provide the last page as well.",
       "type": "object",
       "properties": {
         "id": {
@@ -65,12 +65,12 @@
       "type": "object",
       "properties": {
         "first_page": {
-          "description": "The page where it occurs. If the entry spans multiple pages, use this as\nthe first page and `last_page` as the last page.",
+          "description": "The page where it occurs. If the entry spans multiple pages, use this as the first page and `last_page` as the last page.",
           "type": "integer",
           "minimum": 1
         },
         "last_page": {
-          "description": "The last page where it occurs. If there is only one page, set this to the\nsame as `first_page` oder remove it.",
+          "description": "The last page where it occurs. If there is only one page, set this to the same as `first_page` oder remove it.",
           "type": "integer",
           "minimum": 2
         }
@@ -89,7 +89,7 @@
           "$ref": "#/$defs/InitialOccurrence"
         },
         "revisions": {
-          "description": "Revisions of the entry, resulting in either changed page references or\nre-addition or removal of an entry.",
+          "description": "Revisions of the entry, resulting in either changed page references or re-addition or removal of an entry.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/Revision"
@@ -107,7 +107,7 @@
       "type": "object",
       "properties": {
         "printing": {
-          "description": "The publication's printing since which the entry is present. Leave\nempty if present since the beginning.",
+          "description": "The publication's printing since which the entry is present. Leave empty if present since the beginning.",
           "type": "integer",
           "minimum": 2
         },
@@ -127,7 +127,7 @@
     },
     "Revision": {
       "title": "Revision",
-      "description": "A revision of the entry, resulting in either changed page references or\nre-addition or removal of an entry.",
+      "description": "A revision of the entry, resulting in either changed page references or re-addition or removal of an entry.",
       "oneOf": [
         {
           "type": "object",
@@ -167,7 +167,7 @@
       "type": "object",
       "properties": {
         "printing": {
-          "description": "The publication's printing since which the entry is present again or has\nchanged page references.",
+          "description": "The publication's printing since which the entry is present again or has changed page references.",
           "type": "integer",
           "minimum": 2
         },
@@ -205,11 +205,11 @@
       "type": "object",
       "properties": {
         "first_page": {
-          "description": "The page where it occurs. If the entry spans multiple pages, use this as\nthe first page and `last_page` as the last page.",
+          "description": "The page where it occurs. If the entry spans multiple pages, use this as the first page and `last_page` as the last page.",
           "$ref": "#/$defs/Page"
         },
         "last_page": {
-          "description": "The last page where it occurs. If there is only one page, set this to the\nsame as `first_page` oder remove it.",
+          "description": "The last page where it occurs. If there is only one page, set this to the same as `first_page` oder remove it.",
           "$ref": "#/$defs/Page"
         }
       },

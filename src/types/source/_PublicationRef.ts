@@ -12,12 +12,10 @@ import { LocaleMap } from "../_LocaleMap.js"
  */
 export type PublicationRefs = PublicationRef[]
 
- /**
-  * A source reference. It contains the book's publisher identifier and the page
-  * where it occurs. If an entry spans multiple pages, provide the last page as
-  * well.
-  * @title Publication Reference
-  */
+/**
+ * A source reference. It contains the book's publisher identifier and the page where it occurs. If an entry spans multiple pages, provide the last page as well.
+ * @title Publication Reference
+ */
 export type PublicationRef = {
   /**
    * The publication's identifier.
@@ -43,16 +41,14 @@ export type SimpleOccurrences = SimpleOccurrence[]
  */
 export type SimpleOccurrence = {
   /**
-   * The page where it occurs. If the entry spans multiple pages, use this as
-   * the first page and `last_page` as the last page.
+   * The page where it occurs. If the entry spans multiple pages, use this as the first page and `last_page` as the last page.
    * @integer
    * @minimum 1
    */
   first_page: number
 
   /**
-   * The last page where it occurs. If there is only one page, set this to the
-   * same as `first_page` oder remove it.
+   * The last page where it occurs. If there is only one page, set this to the same as `first_page` oder remove it.
    * @integer
    * @minimum 2
    */
@@ -69,8 +65,7 @@ export type VersionedOccurrence = {
   initial: InitialOccurrence
 
   /**
-   * Revisions of the entry, resulting in either changed page references or
-   * re-addition or removal of an entry.
+   * Revisions of the entry, resulting in either changed page references or re-addition or removal of an entry.
    * @minItems 1
    */
   revisions?: Revision[]
@@ -81,8 +76,7 @@ export type VersionedOccurrence = {
  */
 export type InitialOccurrence = {
   /**
-   * The publication's printing since which the entry is present. Leave
-   * empty if present since the beginning.
+   * The publication's printing since which the entry is present. Leave empty if present since the beginning.
    * @integer
    * @minimum 2
    */
@@ -96,8 +90,7 @@ export type InitialOccurrence = {
 }
 
 /**
- * A revision of the entry, resulting in either changed page references or
- * re-addition or removal of an entry.
+ * A revision of the entry, resulting in either changed page references or re-addition or removal of an entry.
  * @title Revision
  */
 export type Revision =
@@ -106,12 +99,11 @@ export type Revision =
 
 export type Since = {
   /**
-   * The publication's printing since which the entry is present again or has
-   * changed page references.
+   * The publication's printing since which the entry is present again or has changed page references.
    * @integer
    * @minimum 2
    */
-  printing: number;
+  printing: number
 
   /**
    * The changed or new page references.
@@ -126,7 +118,7 @@ export type Deprecation = {
    * @integer
    * @minimum 2
    */
-  printing: number;
+  printing: number
 }
 
 /**
@@ -134,14 +126,12 @@ export type Deprecation = {
  */
 export type PageRange = {
   /**
-   * The page where it occurs. If the entry spans multiple pages, use this as
-   * the first page and `last_page` as the last page.
+   * The page where it occurs. If the entry spans multiple pages, use this as the first page and `last_page` as the last page.
    */
   first_page: Page
 
   /**
-   * The last page where it occurs. If there is only one page, set this to the
-   * same as `first_page` oder remove it.
+   * The last page where it occurs. If there is only one page, set this to the same as `first_page` oder remove it.
    */
   last_page?: Page
 }

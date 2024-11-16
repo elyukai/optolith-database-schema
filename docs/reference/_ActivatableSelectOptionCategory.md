@@ -484,8 +484,7 @@ Key | Description | Details
 
 #### <a name="BlessedTraditionsSelectOptionCategory/require_principles"></a> `require_principles?`
 
-Should the principles (code) of the tradition be required to select the
-respective tradition?
+Should the principles (code) of the tradition be required to select the respective tradition?
 
 - **Constant:** `true`
 
@@ -533,8 +532,7 @@ Does each property require it's corresponding property knowledge?
 
 #### <a name="PropertiesSelectOptionCategory/require_minimum_spellworks_on"></a> `require_minimum_spellworks_on?`
 
-Require a minimum number of spellworks of the respective property to be
-on a minimum skill rating.
+Require a minimum number of spellworks of the respective property to be on a minimum skill rating.
 
 - **Type:** <a href="#RequiredMinimumSkillsToBeOnSkillRating">RequiredMinimumSkillsToBeOnSkillRating</a>
 
@@ -558,17 +556,13 @@ Does each aspect require it's corresponding aspect knowledge?
 
 #### <a name="AspectSelectOptionCategory/use_master_of_suffix_as_name"></a> `use_master_of_suffix_as_name?`
 
-The generated name should be the *Master of (Aspect)* suffix for this
-aspect instead of the aspect's name. If an aspect does not provide a
-suffix (such as the General aspect), it is automatically excluded from
-the list.
+The generated name should be the *Master of (Aspect)* suffix for this aspect instead of the aspect's name. If an aspect does not provide a suffix (such as the General aspect), it is automatically excluded from the list.
 
 - **Constant:** `true`
 
 #### <a name="AspectSelectOptionCategory/require_minimum_liturgies_on"></a> `require_minimum_liturgies_on?`
 
-Require a minimum number of liturgies of the respective aspect to be on a
-minimum skill rating.
+Require a minimum number of liturgies of the respective aspect to be on a minimum skill rating.
 
 - **Type:** <a href="#RequiredMinimumSkillsToBeOnSkillRating">RequiredMinimumSkillsToBeOnSkillRating</a>
 
@@ -576,8 +570,7 @@ minimum skill rating.
 
 ### <a name="RequiredMinimumSkillsToBeOnSkillRating"></a> `RequiredMinimumSkillsToBeOnSkillRating`
 
-Require a minimum number of spellworks/liturgies of the respective
-property/aspect to be on a minimum skill rating.
+Require a minimum number of spellworks/liturgies of the respective property/aspect to be on a minimum skill rating.
 
 - **Type:** Object
 
@@ -588,16 +581,14 @@ Key | Description | Details
 
 #### <a name="RequiredMinimumSkillsToBeOnSkillRating/number"></a> `number`
 
-The minimum number of liturgies that need to be on the defined minimum
-skill rating.
+The minimum number of liturgies that need to be on the defined minimum skill rating.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
 #### <a name="RequiredMinimumSkillsToBeOnSkillRating/rating"></a> `rating`
 
-The minimum skill rating the defined minimum number of liturgies need
-to be on.
+The minimum skill rating the defined minimum number of liturgies need to be on.
 
 - **Type:** Integer
 - **Minimum:** `1`
@@ -819,18 +810,13 @@ Only include entries of the specified groups.
 
 #### <a name="SkillSelectOptionCategoryCategory/specific"></a> `specific?`
 
-Only include (`Intersection`) or exclude (`Difference`) specific
-skills.
+Only include (`Intersection`) or exclude (`Difference`) specific skills.
 
 - **Type:** <a href="#SpecificFromSkillSelectOptionCategoryCategory">SpecificFromSkillSelectOptionCategoryCategory</a>&lt;<a href="./_SimpleReferences.md#SkillReference">SkillReference</a>&gt;
 
 #### <a name="SkillSelectOptionCategoryCategory/skill_applications"></a> `skill_applications?`
 
-Registers new applications, which get enabled once this entry is
-activated with its respective select option. It specifies an
-entry-unique identifier, the skill it belongs to is derived from the
-select option automatically. A translation can be left out if its
-name equals the name of the origin entry.
+Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry.
 
 - **Type:** List
 - **Items:** <a href="#SkillSelectOptionCategoryCategory/skill_applications[]">SkillSelectOptionCategoryCategory/skill_applications[]</a>
@@ -838,11 +824,7 @@ name equals the name of the origin entry.
 
 #### <a name="SkillSelectOptionCategoryCategory/skill_uses"></a> `skill_uses?`
 
-Registers uses, which get enabled once this entry is activated with
-its respective select option. It specifies an entry-unique
-identifier, the skill it belongs to is derived from the select option
-automatically. A translation can be left out if its name equals the
-name of the origin entry.
+Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry.
 
 - **Type:** List
 - **Items:** <a href="#SkillSelectOptionCategoryCategory/skill_uses[]">SkillSelectOptionCategoryCategory/skill_uses[]</a>
@@ -998,8 +980,7 @@ Key | Description | Details
 
 #### <a name="SkillApplicationOrUseTranslation/name"></a> `name`
 
-The name of the application or use if different from the activatable
-entry's name.
+The name of the application or use if different from the activatable entry's name.
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -1279,8 +1260,7 @@ A mapping of skill identifiers to their specific AP values.
 
 #### <a name="SelectOptionsFixedAdventurePointsValue/default"></a> `default`
 
-The default value of an entry. Used as a fallback if no value is
-found in `list`.
+The default value of an entry. Used as a fallback if no value is found in `list`.
 
 - **Type:** Integer
 - **Minimum:** `1`

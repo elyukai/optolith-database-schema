@@ -23,7 +23,7 @@
           "$ref": "#/$defs/PactGiftPermanentDemonicConsumption"
         },
         "automatic_entries": {
-          "description": "This pact gift has direct influence on the existence of other entries. It\nmay add or remove entries.",
+          "description": "This pact gift has direct influence on the existence of other entries. It may add or remove entries.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/AutomaticEntry"
@@ -114,7 +114,7 @@
       "type": "object",
       "properties": {
         "levels": {
-          "description": "The levels of *Demonic Consumption* the pact gift causes per activated\nlevel of the pact gift.",
+          "description": "The levels of *Demonic Consumption* the pact gift causes per activated level of the pact gift.",
           "type": "integer",
           "maximum": 4,
           "minimum": 1
@@ -133,11 +133,11 @@
           "$ref": "#/$defs/AutomaticEntryAction"
         },
         "apply_ap_value": {
-          "description": "If an entry is added or removed, does is cost or grant adventure points\nor is it free of charge?",
+          "description": "If an entry is added or removed, does is cost or grant adventure points or is it free of charge?",
           "type": "boolean"
         },
         "target": {
-          "description": "The entry that is to be added or removed. It can be a fixed entry or a\nselection where the player must choose one entry.",
+          "description": "The entry that is to be added or removed. It can be a fixed entry or a selection where the player must choose one entry.",
           "$ref": "#/$defs/AutomaticEntryTarget"
         }
       },

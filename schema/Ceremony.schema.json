@@ -29,7 +29,7 @@
           "$ref": "./_ActivatableSkillTargetCategory.schema.json#/$defs/AffectedTargetCategories"
         },
         "traditions": {
-          "description": "The tradition(s) the ceremony is available for. Note that general aspects\ndo not have an associated tradition and thus need to be defined in a\nspecial way.",
+          "description": "The tradition(s) the ceremony is available for. Note that general aspects do not have an associated tradition and thus need to be defined in a special way.",
           "type": "array",
           "items": {
             "$ref": "./_Blessed.schema.json#/$defs/SkillTradition"
@@ -81,11 +81,11 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "name_compressed": {
-          "description": "A compressed name of the ceremony for use in small areas (e.g. on\ncharacter sheet). Should only be defined if the `name` does not fit on\ncharacter sheet.",
+          "description": "A compressed name of the ceremony for use in small areas (e.g. on character sheet). Should only be defined if the `name` does not fit on character sheet.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "effect": {
-          "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
+          "description": "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
           "$ref": "./_ActivatableSkillEffect.schema.json#/$defs/ActivatableSkillEffect"
         },
         "casting_time": {

@@ -17,8 +17,7 @@ public struct Publication: LocalizableEntity {
     /// If the publication may contain adult content.
     public let containsAdultContent: Bool
     
-    /// If the publication is not (fully) implemented and thus needs to be excluded
-    /// from * stable releases.
+    /// If the publication is not (fully) implemented and thus needs to be excluded from * stable releases.
     public let isMissingImplementation: Bool
     
     /// The specific other publications this publication depends on data from.
@@ -50,8 +49,7 @@ public struct PublicationTranslation: EntitySubtype {
     /// The publication's release date.
     public let releaseDate: String?
     
-    /// If this publication translation is not (fully) implemented and thus needs
-    /// to be excluded from stable releases.
+    /// If this publication translation is not (fully) implemented and thus needs to be excluded from stable releases.
     public let isMissingImplementation: Bool    
     
     private enum CodingKeys: String, CodingKey {

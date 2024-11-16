@@ -62,13 +62,10 @@ public struct AdvancedCombatSpecialAbilityTranslation: EntitySubtype {
     @available(*, deprecated)
     public let penalty: String?
     
-    /// The AP value. It is only used if the text cannot be generated from the
-    /// given information.
+    /// The AP value. It is only used if the text cannot be generated from the given information.
     public let apValue: AdventurePointsValueReplacement?
     
-    /// A string that gets appended to the default AP Value text with a preceding
-    /// space. This always happens if present, even if the generated AP Value text
-    /// is replaced.
+    /// A string that gets appended to the default AP Value text with a preceding space. This always happens if present, even if the generated AP Value text is replaced.
     public let apValueAppend: AdventurePointsValueAppend?
     
     public let errata: Errata?    

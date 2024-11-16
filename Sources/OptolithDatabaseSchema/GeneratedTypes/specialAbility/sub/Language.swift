@@ -14,14 +14,12 @@ public struct Language: LocalizableEntity {
     /// The continents this language is present on.
     public let continent: [AssociatedContinent]
     
-    /// Language-specific specializations. Either a list of possible options or a
-    /// indefinite description of what may be a specialization.
+    /// Language-specific specializations. Either a list of possible options or a indefinite description of what may be a specialization.
     public let specializations: Specializations?
     
     public let prerequisites: LanguagePrerequisites?
     
-    /// The maximum possible level of the language. Only specified if lower than
-    /// default of 3.
+    /// The maximum possible level of the language. Only specified if lower than default of 3.
     public let maxLevel: Double?
     
     public let src: PublicationRefs
@@ -63,8 +61,7 @@ public struct SpecificSpecializationTranslation: EntitySubtype {
     /// The name of the specialization.
     public let name: NonEmptyString
     
-    /// The specialization description. It will be appended to the name in
-    /// parenthesis.
+    /// The specialization description. It will be appended to the name in parenthesis.
     public let description: NonEmptyString?
 }
 
@@ -77,8 +74,7 @@ public struct IndefiniteSpecializationsTranslation: EntitySubtype {
     /// The specializations description.
     public let description: NonEmptyString
     
-    /// An input label or placeholder text for an UI element if it differs
-    /// from the `description`.
+    /// An input label or placeholder text for an UI element if it differs from the `description`.
     public let label: NonEmptyString?
 }
 

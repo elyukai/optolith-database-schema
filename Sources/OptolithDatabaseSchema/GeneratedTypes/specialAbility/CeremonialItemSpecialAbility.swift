@@ -53,8 +53,7 @@ public struct CeremonialItemSpecialAbilityTranslation: EntitySubtype {
     
     public let effect: Effect
     
-    /// The prerequisites text. It is only used if the text cannot be generated
-    /// from the given information.
+    /// The prerequisites text. It is only used if the text cannot be generated from the given information.
     public let prerequisites: PrerequisitesReplacement?
     
     public let errata: Errata?    

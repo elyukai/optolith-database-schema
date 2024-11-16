@@ -17,12 +17,10 @@ public struct BandageOrRemedy: LocalizableEntity {
     /// The complexity of crafting the item.
     public let complexity: Complexity?
     
-    /// The structure points of the item. Use an array if the item consists of
-    /// multiple components that have individual structure points.
+    /// The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
     public let structurePoints: StructurePoints?
     
-    /// The item can also be used either as an improvised weapon or as an armor,
-    /// although this is not the primary use case of the item.
+    /// The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.
     public let combatUse: CombatUse?
     
     public let src: PublicationRefs

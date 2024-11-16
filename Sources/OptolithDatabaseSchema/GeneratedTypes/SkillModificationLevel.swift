@@ -69,17 +69,14 @@ public enum SlowSkillCastingTimeUnit: String, EntitySubtype {
 }
 
 public struct SkillModificationLevelTranslation: EntitySubtype {
-    /// Configuration for this level for fast skills (spells, liturgical chants).
-    /// Values set here override the default generated text.
+    /// Configuration for this level for fast skills (spells, liturgical chants). Values set here override the default generated text.
     public let fast: LevelTypeConfigTranslation?
     
-    /// Configuration for this level for slow skills (rituals, ceremonies). Values
-    /// set here override the default generated text.
+    /// Configuration for this level for slow skills (rituals, ceremonies). Values set here override the default generated text.
     public let slow: LevelTypeConfigTranslation?
 }
 
-/// Configuration translation of a type for a level. Values set here override the
-/// default generated text.
+/// Configuration translation of a type for a level. Values set here override the default generated text.
 public struct LevelTypeConfigTranslation: EntitySubtype {
     public let range: NonEmptyString
 }

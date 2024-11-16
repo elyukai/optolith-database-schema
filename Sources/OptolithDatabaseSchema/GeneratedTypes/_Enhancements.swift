@@ -17,8 +17,7 @@ public struct Enhancement: EntitySubtype {
     /// The skill rating required to learn this enhancement.
     public let skillRating: Int
     
-    /// The value to multiply with the numeric representation of the associated
-    /// skill's improvement cost to form the final AP cost of this enhancement.
+    /// The value to multiply with the numeric representation of the associated skill's improvement cost to form the final AP cost of this enhancement.
     public let adventurePointsModifier: Int
     
     public let prerequisites: EnhancementPrerequisites?

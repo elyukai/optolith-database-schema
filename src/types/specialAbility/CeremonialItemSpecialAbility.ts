@@ -53,8 +53,7 @@ export type CeremonialItemSpecialAbilityTranslation = {
   effect: Activatable.Effect
 
   /**
-   * The prerequisites text. It is only used if the text cannot be generated
-   * from the given information.
+   * The prerequisites text. It is only used if the text cannot be generated from the given information.
    */
   prerequisites?: Activatable.PrerequisitesReplacement
 

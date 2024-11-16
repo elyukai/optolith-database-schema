@@ -3,7 +3,7 @@
   "$id": "/_ActivatableSkillEffect.schema.json",
   "$defs": {
     "ActivatableSkillEffect": {
-      "description": "The effect description may be either a plain text or a text that is divided\nby a list of effects for each quality level. It may also be a list for each\ntwo quality levels.",
+      "description": "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
       "oneOf": [
         {
           "type": "object",
@@ -72,18 +72,18 @@
       "type": "object",
       "properties": {
         "text_before": {
-          "description": "The effect description before the list of effects for each quality\nlevel.",
+          "description": "The effect description before the list of effects for each quality level.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
         },
         "quality_levels": {
-          "description": "The list of effects for each quality level. The first element\nrepresents QL 1, the second element QL 2, and so on.",
+          "description": "The list of effects for each quality level. The first element represents QL 1, the second element QL 2, and so on.",
           "type": "array",
           "items": {
             "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
           }
         },
         "text_after": {
-          "description": "The effect description after the list of effects for each quality\nlevel.",
+          "description": "The effect description after the list of effects for each quality level.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
         }
       },
@@ -97,18 +97,18 @@
       "type": "object",
       "properties": {
         "text_before": {
-          "description": "The effect description before the list of effects for each quality\nlevel.",
+          "description": "The effect description before the list of effects for each quality level.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
         },
         "quality_levels": {
-          "description": "The list of effects for each two quality levels. The first element\nrepresents QL 1–2, the second element QL 3–4 and the third element QL\n5–6.",
+          "description": "The list of effects for each two quality levels. The first element represents QL 1–2, the second element QL 3–4 and the third element QL 5–6.",
           "type": "array",
           "items": {
             "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
           }
         },
         "text_after": {
-          "description": "The effect description after the list of effects for each quality\nlevel.",
+          "description": "The effect description after the list of effects for each quality level.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
         }
       },

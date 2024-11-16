@@ -94,8 +94,7 @@ Key | Description | Details
 
 #### <a name="CeremonialItemSpecialAbilityTranslation/prerequisites"></a> `prerequisites?`
 
-The prerequisites text. It is only used if the text cannot be generated
-from the given information.
+The prerequisites text. It is only used if the text cannot be generated from the given information.
 
 - **Type:** <a href="#PrerequisitesReplacement">PrerequisitesReplacement</a>
 

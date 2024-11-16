@@ -20,8 +20,7 @@ public struct CauldronEnchantment: LocalizableEntity {
     
     public let volume: Volume
     
-    /// Witches can learn to brew special things in their Witch's Cauldron. These
-    /// brews can be categorized in different types.
+    /// Witches can learn to brew special things in their Witch's Cauldron. These brews can be categorized in different types.
     public let brew: BrewReference
     
     public let cost: EnchantmentCost?

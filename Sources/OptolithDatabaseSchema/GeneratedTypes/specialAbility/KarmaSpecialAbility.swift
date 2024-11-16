@@ -44,8 +44,7 @@ public struct KarmaSpecialAbilityTranslation: EntitySubtype {
     
     public let rules: Rules
     
-    /// The AP value. It is only used if the text cannot be generated from the
-    /// given information.
+    /// The AP value. It is only used if the text cannot be generated from the given information.
     public let apValue: AdventurePointsValueReplacement?
     
     public let errata: Errata?    

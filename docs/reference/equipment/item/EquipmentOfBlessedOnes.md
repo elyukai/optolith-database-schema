@@ -22,8 +22,7 @@ The cost in silverthalers.
 
 #### <a name="EquipmentOfBlessedOnes/structure_points"></a> `structure_points`
 
-The structure points of the item. Use an array if the item consists of
-multiple components that have individual structure points.
+The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
 
 - **Type:** <a href="./_Item.md#StructurePoints">StructurePoints</a>
 

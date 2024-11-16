@@ -18,8 +18,7 @@ public struct ActivatablePrerequisite: EntitySubtype {
     /// The required minimum level of the entry.
     public let level: Int?
     
-    /// Required select options. Order is important. Typically, you only need the
-    /// first array index, though.
+    /// Required select options. Order is important. Typically, you only need the first array index, though.
     public let options: [RequirableSelectOptionIdentifier]?
     
     public let displayOption: DisplayOption?

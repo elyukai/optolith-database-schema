@@ -17,8 +17,6 @@ public struct SkillTraditionWithAspects: EntitySubtype {
     /// The blessed tradition.
     public let tradition: BlessedTraditionReference
     
-    /// The aspect(s) from the tradition the ceremony belongs to. Note that not
-    /// all traditions have aspects. Traditions with aspects must have at least one
-    /// aspect specified.
+    /// The aspect(s) from the tradition the ceremony belongs to. Note that not all traditions have aspects. Traditions with aspects must have at least one aspect specified.
     public let aspects: [AspectReference]?
 }

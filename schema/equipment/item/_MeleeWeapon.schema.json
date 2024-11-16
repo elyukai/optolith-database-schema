@@ -11,7 +11,7 @@
       "type": "integer"
     },
     "MeleeDamage": {
-      "description": "The damage of a weapon consists of a random part using dice and an optional\nflat part.",
+      "description": "The damage of a weapon consists of a random part using dice and an optional flat part.",
       "type": "object",
       "properties": {
         "dice": {
@@ -110,7 +110,7 @@
           "$ref": "../../_SimpleReferences.schema.json#/$defs/CloseCombatTechniqueReference"
         },
         "damage": {
-          "description": "The damage of a weapon consists of a random part using dice and an optional\nflat part.",
+          "description": "The damage of a weapon consists of a random part using dice and an optional flat part.",
           "$ref": "#/$defs/MeleeDamage"
         },
         "damage_threshold": {

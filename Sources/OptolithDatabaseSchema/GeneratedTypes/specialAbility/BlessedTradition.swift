@@ -16,8 +16,7 @@ public struct BlessedTradition: LocalizableEntity {
     
     public let skillUses: SkillUses?
     
-    /// The tradition's primary attribute. Leave empty if the tradition does not
-    /// have one.
+    /// The tradition's primary attribute. Leave empty if the tradition does not have one.
     public let primary: AttributeReference?
     
     /// The tradition's aspects, if any.
@@ -33,15 +32,13 @@ public struct BlessedTradition: LocalizableEntity {
     /// A list of favored skills.
     public let favoredSkills: [SkillReference]
     
-    /// On activation of the tradition, a specific number of skills from a list of
-    /// skills must be selected as being favored.
+    /// On activation of the tradition, a specific number of skills from a list of skills must be selected as being favored.
     public let favoredSkillsSelection: FavoredSkillsSelection?
     
     /// The type of the tradition. May be either church or shamanistic.
     public let type: BlessedTraditionType
     
-    /// The select option's identifier of the disadvantage *Principles* that
-    /// represent this tradition's code, if any.
+    /// The select option's identifier of the disadvantage *Principles* that represent this tradition's code, if any.
     public let associatedPrinciplesId: Double?
     
     public let prerequisites: GeneralPrerequisites?
@@ -125,14 +122,12 @@ public struct ShamanisticBlessedTradition: EntitySubtype {
 public struct BlessedTraditionTranslation: EntitySubtype {
     public let name: Name
     
-    /// A shorter name of the tradition's name, used in liturgical chant
-    /// descriptions.
+    /// A shorter name of the tradition's name, used in liturgical chant descriptions.
     public let nameCompressed: String?
     
     public let nameInLibrary: NameInLibrary?
     
-    /// The special rules of the tradition. They should be sorted like they are
-    /// in the book.
+    /// The special rules of the tradition. They should be sorted like they are in the book.
     public let specialRules: [SpecialRule]
     
     public let errata: Errata?    

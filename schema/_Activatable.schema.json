@@ -13,7 +13,7 @@
       "minLength": 1
     },
     "NameInLibrary": {
-      "description": "The full name of the entry as stated in the sources. Only use when `name`\nneeds to be different from full name for text generation purposes.",
+      "description": "The full name of the entry as stated in the sources. Only use when `name` needs to be different from full name for text generation purposes.",
       "type": "string",
       "minLength": 1
     },
@@ -23,20 +23,20 @@
       "minimum": 2
     },
     "Maximum": {
-      "description": "The number stating how often you can buy the entry. The **default** depends on\nthe entry type:\n\n- **Advantage:** `1` in all cases (as specified in the **Core Rules**)\n- **Disadvantage:** `1` in all cases (as specified in the **Core Rules**)\n- **Special Abilities:** `1` if no options can be selected, otherwise the\n  number of possible options\n\nThe maximum is only set if it differs from the defaults specified above.",
+      "description": "The number stating how often you can buy the entry. The **default** depends on the entry type:\n\n- **Advantage:** `1` in all cases (as specified in the **Core Rules**)\n- **Disadvantage:** `1` in all cases (as specified in the **Core Rules**)\n- **Special Abilities:** `1` if no options can be selected, otherwise the\n  number of possible options\n\nThe maximum is only set if it differs from the defaults specified above.",
       "type": "integer",
       "minimum": 1
     },
     "SelectOptions": {
-      "description": "Definitions for possible options for the activatable entry. They can either\nbe derived from entry categories or be defined explicitly. Both can happen as\nwell, but if there is an explicitly defined select option and a derived\nselect option has the same identifier (which may only happen if skill or\ncombat technique identifiers are used for explicit select options), the\nexplicit definition overwrites the derived option.\n\nNote that this is only a full definition of options for simple logic that can\nbe made explicit using the more detailed configuration for both derived\ncategories and explicit options. There are quite a few entries whose option\nlogic cannot be fully represented here, so that it needs to be implemented\nmanually.",
+      "description": "Definitions for possible options for the activatable entry. They can either be derived from entry categories or be defined explicitly. Both can happen as well, but if there is an explicitly defined select option and a derived select option has the same identifier (which may only happen if skill or combat technique identifiers are used for explicit select options), the explicit definition overwrites the derived option.\n\nNote that this is only a full definition of options for simple logic that can be made explicit using the more detailed configuration for both derived categories and explicit options. There are quite a few entries whose option logic cannot be fully represented here, so that it needs to be implemented manually.",
       "type": "object",
       "properties": {
         "derived": {
-          "description": "An entry category with optional further configuration. All available\nentries from the specified categories will be included as separate select\noptions. You can also specify a set of groups that should only be\nincluded. Groups not mentioned will be excluded then.",
+          "description": "An entry category with optional further configuration. All available entries from the specified categories will be included as separate select options. You can also specify a set of groups that should only be included. Groups not mentioned will be excluded then.",
           "$ref": "./_ActivatableSelectOptionCategory.schema.json#/$defs/SelectOptionCategory"
         },
         "explicit": {
-          "description": "A list of explicit select options. If the identifier has a specific type,\nits entry is the base of this select option, where values defined here\noverride values from the base. Define the `src` property if the options\nare not derived from the rules text of the advantage/disadvantage/special\nability but instead are listed in a separate block and/or on a separate\npage.",
+          "description": "A list of explicit select options. If the identifier has a specific type, its entry is the base of this select option, where values defined here override values from the base. Define the `src` property if the options are not derived from the rules text of the advantage/disadvantage/special ability but instead are listed in a separate block and/or on a separate page.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/ExplicitSelectOption"
@@ -109,22 +109,22 @@
           "minimum": 1
         },
         "profession_only": {
-          "description": "Sometimes, professions use specific text selections that are not\ncontained in described lists. This ensures you can use them for\nprofessions only. They are not going to be displayed as options to the\nuser.",
+          "description": "Sometimes, professions use specific text selections that are not contained in described lists. This ensures you can use them for professions only. They are not going to be displayed as options to the user.",
           "const": true
         },
         "skill_applications": {
-          "description": "Registers new applications, which get enabled once this entry is\nactivated with its respective select option. It specifies an entry-unique\nidentifier and the skill it belongs to. A translation can be left out if\nits name equals the name of the origin select option.",
+          "description": "Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option.",
           "$ref": "#/$defs/SkillApplications"
         },
         "skill_uses": {
-          "description": "Registers uses, which get enabled once this entry is activated with its\nrespective select option. It specifies an entry-unique identifier and the\nskill it belongs to. A translation can be left out if its name equals the\nname of the origin select option.",
+          "description": "Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option.",
           "$ref": "#/$defs/SkillUses"
         },
         "prerequisites": {
           "$ref": "./_Prerequisite.schema.json#/$defs/GeneralPrerequisites"
         },
         "binding_cost": {
-          "description": "Specific binding cost for the select option. Only has an effect if the\nassociated entry supports binding costs.",
+          "description": "Specific binding cost for the select option. Only has an effect if the associated entry supports binding costs.",
           "type": "integer",
           "minimum": 0
         },
@@ -163,12 +163,12 @@
           "minLength": 1
         },
         "name_in_profession": {
-          "description": "The name of the select option when displayed in a generated\nprofession text.",
+          "description": "The name of the select option when displayed in a generated profession text.",
           "type": "string",
           "minLength": 1
         },
         "description": {
-          "description": "The description of the select option. Useful for Bad Habits, Trade\nSecrets and other entries where a description is available.",
+          "description": "The description of the select option. Useful for Bad Habits, Trade Secrets and other entries where a description is available.",
           "type": "string",
           "minLength": 1
         },
@@ -189,7 +189,7 @@
           "$ref": "./_Identifier.schema.json#/$defs/SkillIdentifier"
         },
         "skill_applications": {
-          "description": "Registers new applications, which get enabled once this entry is\nactivated with its respective select option. It specifies an entry-unique\nidentifier and the skill it belongs to. A translation can be left out if\nits name equals the name of the origin select option.",
+          "description": "Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option.",
           "type": "array",
           "items": {
             "$ref": "./_ActivatableSelectOptionCategory.schema.json#/$defs/SkillApplicationOrUse"
@@ -197,7 +197,7 @@
           "minItems": 1
         },
         "skill_uses": {
-          "description": "Registers uses, which get enabled once this entry is activated with its\nrespective select option. It specifies an entry-unique identifier and the\nskill it belongs to. A translation can be left out if its name equals the\nname of the origin select option.",
+          "description": "Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option.",
           "type": "array",
           "items": {
             "$ref": "./_ActivatableSelectOptionCategory.schema.json#/$defs/SkillApplicationOrUse"
@@ -208,7 +208,7 @@
           "$ref": "./_Prerequisite.schema.json#/$defs/GeneralPrerequisites"
         },
         "binding_cost": {
-          "description": "Specific binding cost for the select option. Only has an effect if the\nassociated entry supports binding costs.",
+          "description": "Specific binding cost for the select option. Only has an effect if the associated entry supports binding costs.",
           "type": "integer",
           "minimum": 0
         },
@@ -259,7 +259,7 @@
           "$ref": "./_Prerequisite.schema.json#/$defs/GeneralPrerequisites"
         },
         "binding_cost": {
-          "description": "Specific binding cost for the select option. Only has an effect if the\nassociated entry supports binding costs.",
+          "description": "Specific binding cost for the select option. Only has an effect if the associated entry supports binding costs.",
           "type": "integer",
           "minimum": 0
         },
@@ -322,7 +322,7 @@
       ]
     },
     "CombatSpecialAbilityType": {
-      "description": "The definition of if the combat special ability can be used when armed or\nwhen unarmed.",
+      "description": "The definition of if the combat special ability can be used when armed or when unarmed.",
       "oneOf": [
         {
           "const": "Armed"
@@ -333,7 +333,7 @@
       ]
     },
     "SkillApplications": {
-      "description": "Registers new skill applications, which get enabled once this entry is\nactivated. It specifies an entry-unique identifier and the skill it belongs\nto. A translation can be left out if its name equals the name of the origin\nactivatable entry.",
+      "description": "Registers new skill applications, which get enabled once this entry is activated. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin activatable entry.",
       "type": "array",
       "items": {
         "$ref": "#/$defs/SkillApplication"
@@ -418,7 +418,7 @@
           "minItems": 2
         },
         "required_skill_rating": {
-          "description": "If an application applies to multiple skills, it may need to ensure the\nrespective skill is on a certain skill rating if the activatable entry\ncannot ensure this prerequisite.",
+          "description": "If an application applies to multiple skills, it may need to ensure the respective skill is on a certain skill rating if the activatable entry cannot ensure this prerequisite.",
           "type": "integer",
           "minimum": 1
         }
@@ -442,7 +442,7 @@
       "additionalProperties": false
     },
     "SkillUses": {
-      "description": "Registers uses, which get enabled once this entry is activated. It specifies\nan entry-unique identifier and the skill it belongs to. A translation can be\nleft out if its name equals the name of the origin activatable entry.",
+      "description": "Registers uses, which get enabled once this entry is activated. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin activatable entry.",
       "type": "array",
       "items": {
         "$ref": "#/$defs/SkillUse"
@@ -827,7 +827,7 @@
       "type": "object",
       "properties": {
         "levels": {
-          "description": "A continuous range of penalties for each level. The first element is the\npenalty for the first level, the second element is the penalty for the\nsecond level, and so on.",
+          "description": "A continuous range of penalties for each level. The first element is the penalty for the first level, the second element is the penalty for the second level, and so on.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/PenaltyByLevelLevel"
@@ -835,7 +835,7 @@
           "minItems": 2
         },
         "external": {
-          "description": "The combat-related special ability of which the level defines the penalty\ninstead.",
+          "description": "The combat-related special ability of which the level defines the penalty instead.",
           "$ref": "#/$defs/PenaltyByExternalLevel"
         }
       },
@@ -858,11 +858,11 @@
       "additionalProperties": false
     },
     "PenaltyByExternalLevel": {
-      "description": "The combat-related special ability of which the level defines the penalty\ninstead.",
+      "description": "The combat-related special ability of which the level defines the penalty instead.",
       "type": "object",
       "properties": {
         "id": {
-          "description": "The identifier of the combat-related special ability of which the level\ndefines the penalty instead.",
+          "description": "The identifier of the combat-related special ability of which the level defines the penalty instead.",
           "$ref": "./_IdentifierGroup.schema.json#/$defs/CombatRelatedSpecialAbilityIdentifier"
         }
       },
@@ -875,7 +875,7 @@
       "type": "object",
       "properties": {
         "list": {
-          "description": "A list of penalties for subsequent attacks. The first element is the\npenalty for the first attack, the second element is the penalty for the\nsecond attack, and so on. The order of the first element may be changed\nusing `initial_order`, so that e.g. if set to `2`, the first element is\nthe penalty for the second attack, the second element is the penalty for\nthe third attack, and so on.",
+          "description": "A list of penalties for subsequent attacks. The first element is the penalty for the first attack, the second element is the penalty for the second attack, and so on. The order of the first element may be changed using `initial_order`, so that e.g. if set to `2`, the first element is the penalty for the second attack, the second element is the penalty for the third attack, and so on.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/PenaltyByAttackOrderItem"
@@ -1086,7 +1086,7 @@
           "$ref": "./_ActivatableSkillDuration.schema.json#/$defs/DurationUnitValue"
         },
         "per_level": {
-          "description": "The AE cost are per level of the enchantment. It may either be displayed\nin a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1\nAE for level I; 2 AE for level II`).",
+          "description": "The AE cost are per level of the enchantment. It may either be displayed in a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1 AE for level I; 2 AE for level II`).",
           "$ref": "#/$defs/FixedArcaneEnergyCostPerLevel"
         },
         "translations": {
@@ -1107,7 +1107,7 @@
       "additionalProperties": false
     },
     "FixedArcaneEnergyCostPerLevel": {
-      "description": "The AE cost are per level of the enchantment. It may either be displayed\nin a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1\nAE for level I; 2 AE for level II`).",
+      "description": "The AE cost are per level of the enchantment. It may either be displayed in a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1 AE for level I; 2 AE for level II`).",
       "oneOf": [
         {
           "const": "Compressed"
@@ -1138,7 +1138,7 @@
           "minimum": 1
         },
         "base_value": {
-          "description": "If defined, in addition to the cost per entity you have to pay a flat\namount, regardless of the entity count.",
+          "description": "If defined, in addition to the cost per entity you have to pay a flat amount, regardless of the entity count.",
           "type": "integer",
           "minimum": 1
         },
@@ -1164,7 +1164,7 @@
       "type": "object",
       "properties": {
         "per": {
-          "description": "The cost have to be per a specific countable entity, e.g. `8 AE per\nperson`.",
+          "description": "The cost have to be per a specific countable entity, e.g. `8 AE per person`.",
           "$ref": "./_ResponsiveText.schema.json#/$defs/ResponsiveText"
         },
         "note": {
@@ -1200,7 +1200,7 @@
       "type": "object",
       "properties": {
         "value": {
-          "description": "The AE cost value that has to be payed for activation. Half of this value\nhas to be payed each interval.",
+          "description": "The AE cost value that has to be payed for activation. Half of this value has to be payed each interval.",
           "type": "integer",
           "minimum": 2,
           "multipleOf": 2
@@ -1220,7 +1220,7 @@
       "type": "object",
       "properties": {
         "modifier": {
-          "description": "Specified if the indefinite AP cost description needs to be modified by a\ncertain value.",
+          "description": "Specified if the indefinite AP cost description needs to be modified by a certain value.",
           "$ref": "#/$defs/IndefiniteArcaneEnergyCostModifier"
         },
         "translations": {
@@ -1279,7 +1279,7 @@
       "type": "object",
       "properties": {
         "interval": {
-          "description": "Specified if the selected AE cost option has to be paid for each time\ninterval.",
+          "description": "Specified if the selected AE cost option has to be paid for each time interval.",
           "$ref": "#/$defs/ArcaneEnergyCostDisjunctionInterval"
         },
         "options": {
@@ -1308,7 +1308,7 @@
           "minimum": 1
         },
         "after_activation": {
-          "description": "Set to `true` if the action where the enchantment is casted does\n**not** as a part of the first interval that has to be payed, so that\nthe first interval payment needs to be done after the activation.\n\nThis works different than other sustained spells, since for them the\nend of the cast usually already counts as part of the first interval.",
+          "description": "Set to `true` if the action where the enchantment is casted does\n**not** as a part of the first interval that has to be payed, so that\nthe first interval payment needs to be done after the activation.\n\nThis works different than other sustained spells, since for them the end of the cast usually already counts as part of the first interval.",
           "type": "boolean"
         }
       },
@@ -1503,7 +1503,7 @@
       "type": "object",
       "properties": {
         "list": {
-          "description": "The volume points for each level. The first element is the volume points\nfor the first level, the second element is the volume points for the\nsecond level, and so on.",
+          "description": "The volume points for each level. The first element is the volume points for the first level, the second element is the volume points for the second level, and so on.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/VolumeByLevelItem"
@@ -1531,7 +1531,7 @@
       "additionalProperties": false
     },
     "VolumeMap": {
-      "description": "A content that is `3/4/5 Points for Chimera, Daimonid, Golems, Undead /\nFairies, Ghosts / Demons, Elementals` may be respresented as the following\nmap:\n\n```yaml\noptions:\n  - points: 3\n    associated_options:\n      - id:\n          tag: General\n          value: # ...\n      # ...\n    translations:\n      en-US:\n        label: \"Chimera, Daimonid, Golems, Undead\"\n        label_standalone: \"Chimera/Daimonid/Golems/Undead\"\n  - points: 4\n    associated_options:\n      - id:\n          tag: General\n          value: # ...\n      # ...\n    translations:\n      en-US:\n        label: \"Fairies, Ghosts\"\n        label_standalone: \"Fairies/Ghosts\"\n  - points: 5\n    associated_options:\n      - id:\n          tag: General\n          value: # ...\n      # ...\n    translations:\n      en-US:\n        label: \"Demons, Elementals\"\n        label_standalone: \"Demons/Elementals\"\n```\n\nThis will generate the exact same string as seen above. The associated\noptions are not present in the example, but they link to the options the\nvolume specification is meant for.",
+      "description": "A content that is `3/4/5 Points for Chimera, Daimonid, Golems, Undead / Fairies, Ghosts / Demons, Elementals` may be respresented as the following map:\n\n```yaml\noptions:\n  - points: 3\n    associated_options:\n      - id:\n          tag: General\n          value: # ...\n      # ...\n    translations:\n      en-US:\n        label: \"Chimera, Daimonid, Golems, Undead\"\n        label_standalone: \"Chimera/Daimonid/Golems/Undead\"\n  - points: 4\n    associated_options:\n      - id:\n          tag: General\n          value: # ...\n      # ...\n    translations:\n      en-US:\n        label: \"Fairies, Ghosts\"\n        label_standalone: \"Fairies/Ghosts\"\n  - points: 5\n    associated_options:\n      - id:\n          tag: General\n          value: # ...\n      # ...\n    translations:\n      en-US:\n        label: \"Demons, Elementals\"\n        label_standalone: \"Demons/Elementals\"\n```\n\nThis will generate the exact same string as seen above. The associated options are not present in the example, but they link to the options the volume specification is meant for.",
       "type": "object",
       "properties": {
         "options": {
@@ -1571,7 +1571,7 @@
           "type": "string"
         },
         "replacement": {
-          "description": "If the string from the book cannot be generated using the default\ngeneration technique, use this string. All options still need to be\ninserted propertly, since it may be used by in-game tools to provide a\nselection to players.",
+          "description": "If the string from the book cannot be generated using the default generation technique, use this string. All options still need to be inserted propertly, since it may be used by in-game tools to provide a selection to players.",
           "type": "string"
         }
       },
@@ -1633,7 +1633,7 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "label_standalone": {
-          "description": "The description of the option if used standalone. Only used if\ndifferent from `label`.",
+          "description": "The description of the option if used standalone. Only used if different from `label`.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         }
       },
@@ -1729,7 +1729,7 @@
       "type": "object",
       "properties": {
         "permanent_value": {
-          "description": "The permanent AE cost.\n\nIf the enchantment has multiple levels, it is only applied for the first\nlevel.",
+          "description": "The permanent AE cost.\n\nIf the enchantment has multiple levels, it is only applied for the first level.",
           "type": "integer",
           "minimum": 1
         }
@@ -1754,7 +1754,7 @@
       "additionalProperties": false
     },
     "BindingCostMap": {
-      "description": "A content that is `2/4/8 permanent AE for spell-swords with the combat\ntechnique Daggers, Swords, or Two-Handed Swords` may be respresented as the\nfollowing map:\n\n```yaml\noptions:\n  - permanent_value: 2\n    translations:\n      en-US:\n        label: \"Daggers\"\n        label_standalone: \"Dagger\"\n  - permanent_value: 4\n    translations:\n      en-US:\n        label: \"Swords\"\n        label_standalone: \"Sword\"\n  - permanent_value: 8\n    translations:\n      en-US:\n        label: \"Two-Handed Swords\"\n        label_standalone: \"Two-Handed Sword\"\nlist_prepend: \"spell-swords with the combat technique\"\n```\n\nThis will generate the exact same string as seen above.",
+      "description": "A content that is `2/4/8 permanent AE for spell-swords with the combat technique Daggers, Swords, or Two-Handed Swords` may be respresented as the following map:\n\n```yaml\noptions:\n  - permanent_value: 2\n    translations:\n      en-US:\n        label: \"Daggers\"\n        label_standalone: \"Dagger\"\n  - permanent_value: 4\n    translations:\n      en-US:\n        label: \"Swords\"\n        label_standalone: \"Sword\"\n  - permanent_value: 8\n    translations:\n      en-US:\n        label: \"Two-Handed Swords\"\n        label_standalone: \"Two-Handed Sword\"\nlist_prepend: \"spell-swords with the combat technique\"\n```\n\nThis will generate the exact same string as seen above.",
       "type": "object",
       "properties": {
         "options": {
@@ -1794,7 +1794,7 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "replacement": {
-          "description": "If the string from the book cannot be generated using the default\ngeneration technique, use this string. All options still need to be\ninserted propertly, since it may be used by in-game tools to provide a\nselection to players.",
+          "description": "If the string from the book cannot be generated using the default generation technique, use this string. All options still need to be inserted propertly, since it may be used by in-game tools to provide a selection to players.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         }
       },
@@ -1835,7 +1835,7 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "label_standalone": {
-          "description": "The description of the option if used standalone. Only used if\ndifferent from `label`.",
+          "description": "The description of the option if used standalone. Only used if different from `label`.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         }
       },
@@ -1859,7 +1859,7 @@
       "additionalProperties": false
     },
     "PropertyDeclaration": {
-      "description": "The magic property's identifier. `DependingOnProperty` can only be used if\nthe special ability has an option to select a property.",
+      "description": "The magic property's identifier. `DependingOnProperty` can only be used if the special ability has an option to select a property.",
       "oneOf": [
         {
           "type": "object",
@@ -1909,7 +1909,7 @@
       "$ref": "./_Identifier.schema.json#/$defs/PatronIdentifier"
     },
     "PrerequisitesReplacement": {
-      "description": "The prerequisites text. It is only used if the text cannot be generated from\nthe given information.",
+      "description": "The prerequisites text. It is only used if the text cannot be generated from the given information.",
       "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
     },
     "ApplicableCombatTechniques": {
@@ -2692,11 +2692,11 @@
       ]
     },
     "FixedAdventurePointsValue": {
-      "description": "A fixed adventure points value. If the entry has levels, this is the cost per\nlevel as well.",
+      "description": "A fixed adventure points value. If the entry has levels, this is the cost per level as well.",
       "$ref": "#/$defs/AdventurePointsSingleValue"
     },
     "AdventurePointsValueByLevel": {
-      "description": "An entry with levels may have different costs for each level. The length of\nthe list must match the amount of levels the special ability has.",
+      "description": "An entry with levels may have different costs for each level. The length of the list must match the amount of levels the special ability has.",
       "type": "array",
       "items": {
         "$ref": "#/$defs/AdventurePointsSingleValue"
@@ -2704,7 +2704,7 @@
       "minItems": 2
     },
     "AdventurePointsDerivedFromSelection": {
-      "description": "The adventure points value is derived from the selection of the special\nability. Its display value may be able to be derived from the given\ninformation for the select options. If that is not the case or the generated\ntext would not match the original one, a replacement text can be provided.",
+      "description": "The adventure points value is derived from the selection of the special ability. Its display value may be able to be derived from the given information for the select options. If that is not the case or the generated text would not match the original one, a replacement text can be provided.",
       "type": "object",
       "properties": {
         "translations": {
@@ -2726,7 +2726,7 @@
       "type": "object",
       "properties": {
         "replacement": {
-          "description": "A replacement for the generated text if it would not match the original\none.",
+          "description": "A replacement for the generated text if it would not match the original one.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
         }
       },
@@ -2744,11 +2744,11 @@
       "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
     },
     "AdventurePointsValueReplacement": {
-      "description": "The AP value. It is only used if the text cannot be generated from the given\ninformation.",
+      "description": "The AP value. It is only used if the text cannot be generated from the given information.",
       "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
     },
     "AdventurePointsValueAppend": {
-      "description": "A string that gets appended to the default AP Value text with a preceding\nspace. This always happens if present, even if the generated AP Value text is\nreplaced.",
+      "description": "A string that gets appended to the default AP Value text with a preceding space. This always happens if present, even if the generated AP Value text is replaced.",
       "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
     }
   }

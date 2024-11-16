@@ -276,7 +276,7 @@
       "type": "object",
       "properties": {
         "combination_possibilities": {
-          "description": "In some cases, multiple armors for the same hit zone can be combined.\nThey're listed at the item that can be combined with others.",
+          "description": "In some cases, multiple armors for the same hit zone can be combined. They're listed at the item that can be combined with others.",
           "$ref": "#/$defs/HeadHitZoneCombinationPossibilities"
         }
       },
@@ -295,7 +295,7 @@
           "minItems": 1
         },
         "protection": {
-          "description": "The PRO value that is added to the PRO value of the other armor instead\nof adding the normale PRO value.",
+          "description": "The PRO value that is added to the PRO value of the other armor instead of adding the normale PRO value.",
           "type": "integer",
           "minimum": 0
         }

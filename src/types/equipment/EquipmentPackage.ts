@@ -24,9 +24,7 @@ export type EquipmentPackage = {
   id: number
 
   /**
-   * All items in the package. You have to provide the item (template)
-   * identifier and you can optionally provide the number of how often an item
-   * is included in the package.
+   * All items in the package. You have to provide the item (template) identifier and you can optionally provide the number of how often an item is included in the package.
    * @minItems 2
    */
   items: EquipmentPackageItem[]

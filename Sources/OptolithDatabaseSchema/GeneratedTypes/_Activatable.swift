@@ -13,15 +13,13 @@ public typealias Id = Int
 /// The name of the activatable entry.
 public typealias Name = String
 
-/// The full name of the entry as stated in the sources. Only use when `name`
-/// needs to be different from full name for text generation purposes.
+/// The full name of the entry as stated in the sources. Only use when `name` needs to be different from full name for text generation purposes.
 public typealias NameInLibrary = String
 
 /// Number of available levels.
 public typealias Levels = Int
 
-/// The number stating how often you can buy the entry. The **default** depends on
-/// the entry type:
+/// The number stating how often you can buy the entry. The **default** depends on the entry type:
 /// 
 /// - **Advantage:** `1` in all cases (as specified in the **Core Rules**)
 /// - **Disadvantage:** `1` in all cases (as specified in the **Core Rules**)
@@ -31,31 +29,14 @@ public typealias Levels = Int
 /// The maximum is only set if it differs from the defaults specified above.
 public typealias Maximum = Int
 
-/// Definitions for possible options for the activatable entry. They can either
-/// be derived from entry categories or be defined explicitly. Both can happen as
-/// well, but if there is an explicitly defined select option and a derived
-/// select option has the same identifier (which may only happen if skill or
-/// combat technique identifiers are used for explicit select options), the
-/// explicit definition overwrites the derived option.
+/// Definitions for possible options for the activatable entry. They can either be derived from entry categories or be defined explicitly. Both can happen as well, but if there is an explicitly defined select option and a derived select option has the same identifier (which may only happen if skill or combat technique identifiers are used for explicit select options), the explicit definition overwrites the derived option.
 /// 
-/// Note that this is only a full definition of options for simple logic that can
-/// be made explicit using the more detailed configuration for both derived
-/// categories and explicit options. There are quite a few entries whose option
-/// logic cannot be fully represented here, so that it needs to be implemented
-/// manually.
+/// Note that this is only a full definition of options for simple logic that can be made explicit using the more detailed configuration for both derived categories and explicit options. There are quite a few entries whose option logic cannot be fully represented here, so that it needs to be implemented manually.
 public struct SelectOptions: EntitySubtype {
-    /// An entry category with optional further configuration. All available
-    /// entries from the specified categories will be included as separate select
-    /// options. You can also specify a set of groups that should only be
-    /// included. Groups not mentioned will be excluded then.
+    /// An entry category with optional further configuration. All available entries from the specified categories will be included as separate select options. You can also specify a set of groups that should only be included. Groups not mentioned will be excluded then.
     public let derived: SelectOptionCategory?
     
-    /// A list of explicit select options. If the identifier has a specific type,
-    /// its entry is the base of this select option, where values defined here
-    /// override values from the base. Define the `src` property if the options
-    /// are not derived from the rules text of the advantage/disadvantage/special
-    /// ability but instead are listed in a separate block and/or on a separate
-    /// page.
+    /// A list of explicit select options. If the identifier has a specific type, its entry is the base of this select option, where values defined here override values from the base. Define the `src` property if the options are not derived from the rules text of the advantage/disadvantage/special ability but instead are listed in a separate block and/or on a separate page.
     public let explicit: [ExplicitSelectOption]?
 }
 
@@ -70,28 +51,18 @@ public struct ExplicitGeneralSelectOption: EntitySubtype {
     /// The option's identifier. An unique, increasing integer.
     public let id: Int
     
-    /// Sometimes, professions use specific text selections that are not
-    /// contained in described lists. This ensures you can use them for
-    /// professions only. They are not going to be displayed as options to the
-    /// user.
+    /// Sometimes, professions use specific text selections that are not contained in described lists. This ensures you can use them for professions only. They are not going to be displayed as options to the user.
     public let professionOnly: Bool?
     
-    /// Registers new applications, which get enabled once this entry is
-    /// activated with its respective select option. It specifies an entry-unique
-    /// identifier and the skill it belongs to. A translation can be left out if
-    /// its name equals the name of the origin select option.
+    /// Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option.
     public let skillApplications: SkillApplications?
     
-    /// Registers uses, which get enabled once this entry is activated with its
-    /// respective select option. It specifies an entry-unique identifier and the
-    /// skill it belongs to. A translation can be left out if its name equals the
-    /// name of the origin select option.
+    /// Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option.
     public let skillUses: SkillUses?
     
     public let prerequisites: GeneralPrerequisites?
     
-    /// Specific binding cost for the select option. Only has an effect if the
-    /// associated entry supports binding costs.
+    /// Specific binding cost for the select option. Only has an effect if the associated entry supports binding costs.
     public let bindingCost: Int?
     
     /// Specific AP cost for the select option.
@@ -119,12 +90,10 @@ public struct ExplicitGeneralSelectOptionTranslation: EntitySubtype {
     /// The name of the select option.
     public let name: String
     
-    /// The name of the select option when displayed in a generated
-    /// profession text.
+    /// The name of the select option when displayed in a generated profession text.
     public let nameInProfession: String?
     
-    /// The description of the select option. Useful for Bad Habits, Trade
-    /// Secrets and other entries where a description is available.
+    /// The description of the select option. Useful for Bad Habits, Trade Secrets and other entries where a description is available.
     public let description: String?
     
     public let errata: Errata?    
@@ -141,22 +110,15 @@ public struct ExplicitSkillSelectOption: EntitySubtype {
     /// The skill's identifier. An unique, increasing integer.
     public let id: SkillIdentifier
     
-    /// Registers new applications, which get enabled once this entry is
-    /// activated with its respective select option. It specifies an entry-unique
-    /// identifier and the skill it belongs to. A translation can be left out if
-    /// its name equals the name of the origin select option.
+    /// Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option.
     public let skillApplications: [SkillApplicationOrUse]?
     
-    /// Registers uses, which get enabled once this entry is activated with its
-    /// respective select option. It specifies an entry-unique identifier and the
-    /// skill it belongs to. A translation can be left out if its name equals the
-    /// name of the origin select option.
+    /// Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option.
     public let skillUses: [SkillApplicationOrUse]?
     
     public let prerequisites: GeneralPrerequisites?
     
-    /// Specific binding cost for the select option. Only has an effect if the
-    /// associated entry supports binding costs.
+    /// Specific binding cost for the select option. Only has an effect if the associated entry supports binding costs.
     public let bindingCost: Int?
     
     /// Specific AP cost for the select option.
@@ -189,8 +151,7 @@ public struct ExplicitCombatTechniqueSelectOption: EntitySubtype {
     
     public let prerequisites: GeneralPrerequisites?
     
-    /// Specific binding cost for the select option. Only has an effect if the
-    /// associated entry supports binding costs.
+    /// Specific binding cost for the select option. Only has an effect if the associated entry supports binding costs.
     public let bindingCost: Int?
     
     /// Specific AP cost for the select option.
@@ -228,17 +189,13 @@ public enum CombatSpecialAbilityUsageType: String, EntitySubtype {
     case specialManeuver = "SpecialManeuver"
 }
 
-/// The definition of if the combat special ability can be used when armed or
-/// when unarmed.
+/// The definition of if the combat special ability can be used when armed or when unarmed.
 public enum CombatSpecialAbilityType: String, EntitySubtype {
     case armed = "Armed"
     case unarmed = "Unarmed"
 }
 
-/// Registers new skill applications, which get enabled once this entry is
-/// activated. It specifies an entry-unique identifier and the skill it belongs
-/// to. A translation can be left out if its name equals the name of the origin
-/// activatable entry.
+/// Registers new skill applications, which get enabled once this entry is activated. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin activatable entry.
 public typealias SkillApplications = [SkillApplication]
 
 public struct SkillApplication: EntitySubtype {
@@ -262,9 +219,7 @@ public struct SkillApplicationAssociatedSkills: EntitySubtype {
     /// The skills this application belongs to.
     public let list: [SkillReference]
     
-    /// If an application applies to multiple skills, it may need to ensure the
-    /// respective skill is on a certain skill rating if the activatable entry
-    /// cannot ensure this prerequisite.
+    /// If an application applies to multiple skills, it may need to ensure the respective skill is on a certain skill rating if the activatable entry cannot ensure this prerequisite.
     public let requiredSkillRating: Int?    
     
     private enum CodingKeys: String, CodingKey {
@@ -278,9 +233,7 @@ public struct SkillApplicationTranslation: EntitySubtype {
     public let name: NonEmptyString
 }
 
-/// Registers uses, which get enabled once this entry is activated. It specifies
-/// an entry-unique identifier and the skill it belongs to. A translation can be
-/// left out if its name equals the name of the origin activatable entry.
+/// Registers uses, which get enabled once this entry is activated. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin activatable entry.
 public typealias SkillUses = [SkillUse]
 
 public struct SkillUse: EntitySubtype {
@@ -398,13 +351,10 @@ public struct PenaltySelectionOptionsRange: EntitySubtype {
 }
 
 public struct PenaltyByLevel: EntitySubtype {
-    /// A continuous range of penalties for each level. The first element is the
-    /// penalty for the first level, the second element is the penalty for the
-    /// second level, and so on.
+    /// A continuous range of penalties for each level. The first element is the penalty for the first level, the second element is the penalty for the second level, and so on.
     public let levels: [PenaltyByLevelLevel]
     
-    /// The combat-related special ability of which the level defines the penalty
-    /// instead.
+    /// The combat-related special ability of which the level defines the penalty instead.
     public let external: PenaltyByExternalLevel?
 }
 
@@ -413,21 +363,14 @@ public struct PenaltyByLevelLevel: EntitySubtype {
     public let value: Int
 }
 
-/// The combat-related special ability of which the level defines the penalty
-/// instead.
+/// The combat-related special ability of which the level defines the penalty instead.
 public struct PenaltyByExternalLevel: EntitySubtype {
-    /// The identifier of the combat-related special ability of which the level
-    /// defines the penalty instead.
+    /// The identifier of the combat-related special ability of which the level defines the penalty instead.
     public let id: CombatRelatedSpecialAbilityIdentifier
 }
 
 public struct PenaltyByAttack: EntitySubtype {
-    /// A list of penalties for subsequent attacks. The first element is the
-    /// penalty for the first attack, the second element is the penalty for the
-    /// second attack, and so on. The order of the first element may be changed
-    /// using `initial_order`, so that e.g. if set to `2`, the first element is
-    /// the penalty for the second attack, the second element is the penalty for
-    /// the third attack, and so on.
+    /// A list of penalties for subsequent attacks. The first element is the penalty for the first attack, the second element is the penalty for the second attack, and so on. The order of the first element may be changed using `initial_order`, so that e.g. if set to `2`, the first element is the penalty for the second attack, the second element is the penalty for the third attack, and so on.
     public let list: [PenaltyByAttackOrderItem]
     
     /// The order of the first element in the `list` of penalties.
@@ -483,9 +426,7 @@ public struct FixedArcaneEnergyCost: EntitySubtype {
     /// Specified if the AE cost `value` has to be paid for each time interval.
     public let interval: DurationUnitValue?
     
-    /// The AE cost are per level of the enchantment. It may either be displayed
-    /// in a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1
-    /// AE for level I; 2 AE for level II`).
+    /// The AE cost are per level of the enchantment. It may either be displayed in a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1 AE for level I; 2 AE for level II`).
     public let perLevel: FixedArcaneEnergyCostPerLevel?
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
@@ -500,9 +441,7 @@ public struct FixedArcaneEnergyCost: EntitySubtype {
     }
 }
 
-/// The AE cost are per level of the enchantment. It may either be displayed
-/// in a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1
-/// AE for level I; 2 AE for level II`).
+/// The AE cost are per level of the enchantment. It may either be displayed in a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1 AE for level I; 2 AE for level II`).
 public enum FixedArcaneEnergyCostPerLevel: String, EntitySubtype {
     case compressed = "Compressed"
     case verbose = "Verbose"
@@ -517,8 +456,7 @@ public struct ArcaneEnergyCostPerCountable: EntitySubtype {
     /// The AE cost value that has to be per a specific countable entity.
     public let value: Int
     
-    /// If defined, in addition to the cost per entity you have to pay a flat
-    /// amount, regardless of the entity count.
+    /// If defined, in addition to the cost per entity you have to pay a flat amount, regardless of the entity count.
     public let baseValue: Int?
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
@@ -532,8 +470,7 @@ public struct ArcaneEnergyCostPerCountable: EntitySubtype {
 }
 
 public struct ArcaneEnergyCostPerCountableTranslation: EntitySubtype {
-    /// The cost have to be per a specific countable entity, e.g. `8 AE per
-    /// person`.
+    /// The cost have to be per a specific countable entity, e.g. `8 AE per person`.
     public let per: ResponsiveText
     
     /// A note, appended to the generated string in parenthesis.
@@ -549,8 +486,7 @@ public struct IntervalArcaneEnergyCost: EntitySubtype {
 }
 
 public struct ActivationAndHalfIntervalArcaneEnergyCost: EntitySubtype {
-    /// The AE cost value that has to be payed for activation. Half of this value
-    /// has to be payed each interval.
+    /// The AE cost value that has to be payed for activation. Half of this value has to be payed each interval.
     public let value: Int
     
     /// The time interval for which the AE cost `value` has to be paid.
@@ -558,8 +494,7 @@ public struct ActivationAndHalfIntervalArcaneEnergyCost: EntitySubtype {
 }
 
 public struct IndefiniteArcaneEnergyCost: EntitySubtype {
-    /// Specified if the indefinite AP cost description needs to be modified by a
-    /// certain value.
+    /// Specified if the indefinite AP cost description needs to be modified by a certain value.
     public let modifier: IndefiniteArcaneEnergyCostModifier?
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
@@ -584,8 +519,7 @@ public struct IndefiniteArcaneEnergyCostTranslation: EntitySubtype {
 }
 
 public struct ArcaneEnergyCostDisjunction: EntitySubtype {
-    /// Specified if the selected AE cost option has to be paid for each time
-    /// interval.
+    /// Specified if the selected AE cost option has to be paid for each time interval.
     public let interval: ArcaneEnergyCostDisjunctionInterval?
     
     /// The possible AE cost values.
@@ -603,8 +537,7 @@ public struct ArcaneEnergyCostDisjunctionInterval: EntitySubtype {
     /// **not** as a part of the first interval that has to be payed, so that
     /// the first interval payment needs to be done after the activation.
     /// 
-    /// This works different than other sustained spells, since for them the
-    /// end of the cast usually already counts as part of the first interval.
+    /// This works different than other sustained spells, since for them the end of the cast usually already counts as part of the first interval.
     public let afterActivation: Bool    
     
     private enum CodingKeys: String, CodingKey {
@@ -659,9 +592,7 @@ public struct VolumePerLevel: EntitySubtype {
 }
 
 public struct VolumeByLevel: EntitySubtype {
-    /// The volume points for each level. The first element is the volume points
-    /// for the first level, the second element is the volume points for the
-    /// second level, and so on.
+    /// The volume points for each level. The first element is the volume points for the first level, the second element is the volume points for the second level, and so on.
     public let list: [VolumeByLevelItem]
 }
 
@@ -670,9 +601,7 @@ public struct VolumeByLevelItem: EntitySubtype {
     public let points: Int
 }
 
-/// A content that is `3/4/5 Points for Chimera, Daimonid, Golems, Undead /
-/// Fairies, Ghosts / Demons, Elementals` may be respresented as the following
-/// map:
+/// A content that is `3/4/5 Points for Chimera, Daimonid, Golems, Undead / Fairies, Ghosts / Demons, Elementals` may be respresented as the following map:
 /// 
 /// ```yaml
 /// options:
@@ -708,9 +637,7 @@ public struct VolumeByLevelItem: EntitySubtype {
 ///         label_standalone: "Demons/Elementals"
 /// ```
 /// 
-/// This will generate the exact same string as seen above. The associated
-/// options are not present in the example, but they link to the options the
-/// volume specification is meant for.
+/// This will generate the exact same string as seen above. The associated options are not present in the example, but they link to the options the volume specification is meant for.
 public struct VolumeMap: EntitySubtype {
     /// The possible costs and associated labels.
     public let options: [VolumeMapOption]
@@ -726,10 +653,7 @@ public struct VolumeMapTranslation: EntitySubtype {
     /// Place a string after the grouped map option labels.
     public let listAppend: String?
     
-    /// If the string from the book cannot be generated using the default
-    /// generation technique, use this string. All options still need to be
-    /// inserted propertly, since it may be used by in-game tools to provide a
-    /// selection to players.
+    /// If the string from the book cannot be generated using the default generation technique, use this string. All options still need to be inserted propertly, since it may be used by in-game tools to provide a selection to players.
     public let replacement: String?    
     
     private enum CodingKeys: String, CodingKey {
@@ -765,8 +689,7 @@ public struct VolumeMapOptionTranslation: EntitySubtype {
     /// The description of the option for cost string generation.
     public let label: NonEmptyString
     
-    /// The description of the option if used standalone. Only used if
-    /// different from `label`.
+    /// The description of the option if used standalone. Only used if different from `label`.
     public let labelStandalone: NonEmptyString?    
     
     private enum CodingKeys: String, CodingKey {
@@ -792,8 +715,7 @@ public enum BindingCost: EntitySubtype {
 public struct FixedBindingCost: EntitySubtype {
     /// The permanent AE cost.
     /// 
-    /// If the enchantment has multiple levels, it is only applied for the first
-    /// level.
+    /// If the enchantment has multiple levels, it is only applied for the first level.
     public let permanentValue: Int    
     
     private enum CodingKeys: String, CodingKey {
@@ -810,9 +732,7 @@ public struct BindingCostPerLevel: EntitySubtype {
     }
 }
 
-/// A content that is `2/4/8 permanent AE for spell-swords with the combat
-/// technique Daggers, Swords, or Two-Handed Swords` may be respresented as the
-/// following map:
+/// A content that is `2/4/8 permanent AE for spell-swords with the combat technique Daggers, Swords, or Two-Handed Swords` may be respresented as the following map:
 /// 
 /// ```yaml
 /// options:
@@ -850,10 +770,7 @@ public struct BindingCostMapTranslation: EntitySubtype {
     /// Place a string after the grouped map option labels.
     public let listAppend: NonEmptyString?
     
-    /// If the string from the book cannot be generated using the default
-    /// generation technique, use this string. All options still need to be
-    /// inserted propertly, since it may be used by in-game tools to provide a
-    /// selection to players.
+    /// If the string from the book cannot be generated using the default generation technique, use this string. All options still need to be inserted propertly, since it may be used by in-game tools to provide a selection to players.
     public let replacement: NonEmptyString?    
     
     private enum CodingKeys: String, CodingKey {
@@ -880,8 +797,7 @@ public struct BindingCostMapOptionTranslation: EntitySubtype {
     /// The description of the option for cost string generation.
     public let label: NonEmptyString
     
-    /// The description of the option if used standalone. Only used if
-    /// different from `label`.
+    /// The description of the option if used standalone. Only used if different from `label`.
     public let labelStandalone: NonEmptyString?    
     
     private enum CodingKeys: String, CodingKey {
@@ -895,8 +811,7 @@ public struct BindingCostDerivedFromSelection: EntitySubtype {
     public let fallback: Int
 }
 
-/// The magic property's identifier. `DependingOnProperty` can only be used if
-/// the special ability has an option to select a property.
+/// The magic property's identifier. `DependingOnProperty` can only be used if the special ability has an option to select a property.
 @DiscriminatedEnum
 public enum PropertyDeclaration: EntitySubtype {
     case dependingOnSelection
@@ -919,8 +834,7 @@ public struct RestrictAdvancedSpecialAbilityOptions<Identifier: EntitySubtype>: 
     /// The advanced special ability’s identifier.
     public let id: Identifier
     
-    /// Specify the select option(s) that only are allowed for the referenced
-    /// advanced special ability; others are disallowed.
+    /// Specify the select option(s) that only are allowed for the referenced advanced special ability; others are disallowed.
     public let option: [AdvancedSpecialAbilityRestrictedOptionIdentifier]
 }
 
@@ -928,8 +842,7 @@ public struct OneOfAdvancedSpecialAbilityOptions<Identifier: EntitySubtype>: Ent
     /// The possible advanced special abilities.
     public let options: [AdvancedSpecialAbilityReference<Identifier>]
     
-    /// Do have to choose the advanced special ability when buying the style
-    /// special ability? Otherwise the decision can be made later.
+    /// Do have to choose the advanced special ability when buying the style special ability? Otherwise the decision can be made later.
     public let isSelectionRequiredOnPurchase: Bool
     
     public let displayOption: DisplayOption?    
@@ -957,8 +870,7 @@ public struct AdvancedSpecialAbilityDerivedFromExternalOption<Identifier: Entity
     }
 }
 
-/// Mapping from an option of the external entry to an allowed advanced special
-/// ability.
+/// Mapping from an option of the external entry to an allowed advanced special ability.
 public struct AdvancedSpecialAbilityDerivedFromExternalOptionMapping<Identifier: EntitySubtype>: EntitySubtype {
     /// The select option's identifier.
     public let fromOption: PatronIdentifier
@@ -976,15 +888,10 @@ public typealias AdvancedSpecialAbilityDerivedExternalEntryId = MagicalTradition
 
 public typealias AdvancedSpecialAbilityDerivedExternalEntryOptionId = PatronIdentifier
 
-/// The Advanced Special Abilities for the respective Style Special Ability.
-/// Sometimes, only a specific select option or a set of select options of an
-/// entry is allowed, which can be modelled by the option property. It can also
-/// be that you can choose from a set of special abilities, but then you can't
-/// specify an option.
+/// The Advanced Special Abilities for the respective Style Special Ability. Sometimes, only a specific select option or a set of select options of an entry is allowed, which can be modelled by the option property. It can also be that you can choose from a set of special abilities, but then you can't specify an option.
 public typealias AdvancedSpecialAbilities<Identifier: EntitySubtype> = [AdvancedSpecialAbility<Identifier>]
 
-/// The prerequisites text. It is only used if the text cannot be generated from
-/// the given information.
+/// The prerequisites text. It is only used if the text cannot be generated from the given information.
 public typealias PrerequisitesReplacement = NonEmptyMarkdown
 
 @DiscriminatedEnum
@@ -1084,26 +991,20 @@ public enum AdventurePointsValue: EntitySubtype {
     case indefinite
 }
 
-/// A fixed adventure points value. If the entry has levels, this is the cost per
-/// level as well.
+/// A fixed adventure points value. If the entry has levels, this is the cost per level as well.
 public typealias FixedAdventurePointsValue = AdventurePointsSingleValue
 
-/// An entry with levels may have different costs for each level. The length of
-/// the list must match the amount of levels the special ability has.
+/// An entry with levels may have different costs for each level. The length of the list must match the amount of levels the special ability has.
 public typealias AdventurePointsValueByLevel = [AdventurePointsSingleValue]
 
-/// The adventure points value is derived from the selection of the special
-/// ability. Its display value may be able to be derived from the given
-/// information for the select options. If that is not the case or the generated
-/// text would not match the original one, a replacement text can be provided.
+/// The adventure points value is derived from the selection of the special ability. Its display value may be able to be derived from the given information for the select options. If that is not the case or the generated text would not match the original one, a replacement text can be provided.
 public struct AdventurePointsDerivedFromSelection: EntitySubtype {
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<AdventurePointsDerivedFromSelectionTranslation>?
 }
 
 public struct AdventurePointsDerivedFromSelectionTranslation: EntitySubtype {
-    /// A replacement for the generated text if it would not match the original
-    /// one.
+    /// A replacement for the generated text if it would not match the original one.
     public let replacement: NonEmptyMarkdown?
 }
 
@@ -1113,11 +1014,8 @@ public typealias AdventurePointsSingleValue = Int
 /// A string that is used as a label for an input field.
 public typealias Input = NonEmptyString
 
-/// The AP value. It is only used if the text cannot be generated from the given
-/// information.
+/// The AP value. It is only used if the text cannot be generated from the given information.
 public typealias AdventurePointsValueReplacement = NonEmptyMarkdown
 
-/// A string that gets appended to the default AP Value text with a preceding
-/// space. This always happens if present, even if the generated AP Value text is
-/// replaced.
+/// A string that gets appended to the default AP Value text with a preceding space. This always happens if present, even if the generated AP Value text is replaced.
 public typealias AdventurePointsValueAppend = NonEmptyMarkdown

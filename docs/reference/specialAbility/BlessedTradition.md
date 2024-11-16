@@ -43,8 +43,7 @@ Key | Description | Details
 
 #### <a name="BlessedTradition/primary"></a> `primary?`
 
-The tradition's primary attribute. Leave empty if the tradition does not
-have one.
+The tradition's primary attribute. Leave empty if the tradition does not have one.
 
 - **Type:** <a href="../_SimpleReferences.md#AttributeReference">AttributeReference</a>
 
@@ -80,8 +79,7 @@ A list of favored skills.
 
 #### <a name="BlessedTradition/favored_skills_selection"></a> `favored_skills_selection?`
 
-On activation of the tradition, a specific number of skills from a list of
-skills must be selected as being favored.
+On activation of the tradition, a specific number of skills from a list of skills must be selected as being favored.
 
 - **Type:** <a href="#FavoredSkillsSelection">FavoredSkillsSelection</a>
 
@@ -93,8 +91,7 @@ The type of the tradition. May be either church or shamanistic.
 
 #### <a name="BlessedTradition/associated_principles_id"></a> `associated_principles_id?`
 
-The select option's identifier of the disadvantage *Principles* that
-represent this tradition's code, if any.
+The select option's identifier of the disadvantage *Principles* that represent this tradition's code, if any.
 
 - **Type:** Number
 
@@ -456,8 +453,7 @@ Key | Description | Details
 
 #### <a name="BlessedTraditionTranslation/name_compressed"></a> `name_compressed?`
 
-A shorter name of the tradition's name, used in liturgical chant
-descriptions.
+A shorter name of the tradition's name, used in liturgical chant descriptions.
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -468,8 +464,7 @@ descriptions.
 
 #### <a name="BlessedTraditionTranslation/special_rules"></a> `special_rules`
 
-The special rules of the tradition. They should be sorted like they are
-in the book.
+The special rules of the tradition. They should be sorted like they are in the book.
 
 - **Type:** List
 - **Items:** <a href="#BlessedTraditionTranslation/special_rules[]">BlessedTraditionTranslation/special_rules[]</a>

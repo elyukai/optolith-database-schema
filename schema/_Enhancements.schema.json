@@ -27,7 +27,7 @@
           "minimum": 8
         },
         "adventure_points_modifier": {
-          "description": "The value to multiply with the numeric representation of the associated\nskill's improvement cost to form the final AP cost of this enhancement.",
+          "description": "The value to multiply with the numeric representation of the associated skill's improvement cost to form the final AP cost of this enhancement.",
           "type": "integer",
           "minimum": 1
         },

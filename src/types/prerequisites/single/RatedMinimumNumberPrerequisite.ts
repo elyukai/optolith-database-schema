@@ -6,16 +6,14 @@ import { DisplayOption } from "../DisplayOption.js"
  */
 export type RatedMinimumNumberPrerequisite = {
   /**
-   * The minimum number of skills that need to be on the defined minimum skill
-   * rating.
+   * The minimum number of skills that need to be on the defined minimum skill rating.
    * @integer
    * @minimum 1
    */
   number: number
 
   /**
-   * The minimum skill rating the defined minimum number of skills need to be
-   * on.
+   * The minimum skill rating the defined minimum number of skills need to be on.
    * @integer
    * @minimum 1
    */
@@ -48,10 +46,7 @@ export type CombatTechniquesTarget = {
   group: CombatTechniquesTargetGroup
 }
 
-export type CombatTechniquesTargetGroup =
-  | "All"
-  | "Close"
-  | "Ranged"
+export type CombatTechniquesTargetGroup = "All" | "Close" | "Ranged"
 
 export type RatedMinimumNumberPrerequisiteSpellworksTarget = {
   /**

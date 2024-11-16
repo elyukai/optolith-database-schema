@@ -546,8 +546,7 @@ The laboratory level needed to brew the elixir.
 
 #### <a name="AlchemicalPoison/brewing_difficulty"></a> `brewing_difficulty`
 
-The brewing difficulty, which represents the challenge of creating an
-elixir.
+The brewing difficulty, which represents the challenge of creating an elixir.
 
 - **Type:** Integer
 
@@ -752,13 +751,6 @@ Key | Description | Details
 
 ### <a name="QualityLevelDemonicPoisonLevelSource"></a> `QualityLevelDemonicPoisonLevelSource`
 
-- **Type:** Union
-- **Cases:** <a href="#QualityLevelDemonicPoisonLevelSource'0">QualityLevelDemonicPoisonLevelSource'0</a>
-
----
-
-### <a name="QualityLevelDemonicPoisonLevelSource'0"></a> `QualityLevelDemonicPoisonLevelSource'0`
-
 - **Constant:** `"Spellwork"`
 
 ---
@@ -810,16 +802,13 @@ Key | Description | Details
 
 #### <a name="Intoxicant/legality"></a> `legality`
 
-Whether the use of the intoxicant is legal or not, usually from the
-perspective of most middle-Aventurian an northern-Aventurian nations.
+Whether the use of the intoxicant is legal or not, usually from the perspective of most middle-Aventurian an northern-Aventurian nations.
 
 - **Type:** <a href="#IntoxicantLegality">IntoxicantLegality</a>
 
 #### <a name="Intoxicant/addiction"></a> `addiction?`
 
-The chance of getting addicted after an ingestion in addition to the
-maximum interval at which it, while addicted, must be ingested to not
-suffer from withdrawal symptoms.
+The chance of getting addicted after an ingestion in addition to the maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.
 
 - **Type:** <a href="#IntoxicantAddiction">IntoxicantAddiction</a>
 
@@ -834,8 +823,7 @@ All translations for the entry, identified by IETF language tag
 
 ### <a name="IntoxicantLegality"></a> `IntoxicantLegality`
 
-Whether the use of the intoxicant is legal or not, usually from the
-perspective of most middle-Aventurian an northern-Aventurian nations.
+Whether the use of the intoxicant is legal or not, usually from the perspective of most middle-Aventurian an northern-Aventurian nations.
 
 - **Type:** Object
 
@@ -851,9 +839,7 @@ Key | Description | Details
 
 ### <a name="IntoxicantAddiction"></a> `IntoxicantAddiction`
 
-The chance of getting addicted after an ingestion in addition to the maximum
-interval at which it, while addicted, must be ingested to not suffer from
-withdrawal symptoms.
+The chance of getting addicted after an ingestion in addition to the maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.
 
 - **Type:** Object
 
@@ -870,8 +856,7 @@ The chance of getting addicted after an ingestion.
 
 #### <a name="IntoxicantAddiction/interval"></a> `interval`
 
-The maximum interval at which it, while addicted, must be ingested to not
-suffer from withdrawal symptoms.
+The maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.
 
 - **Type:** <a href="#IntoxicantAddictionInterval">IntoxicantAddictionInterval</a>
 
@@ -879,8 +864,7 @@ suffer from withdrawal symptoms.
 
 ### <a name="IntoxicantAddictionInterval"></a> `IntoxicantAddictionInterval`
 
-The maximum interval at which it, while addicted, must be ingested to not
-suffer from withdrawal symptoms.
+The maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.
 
 - **Type:** Union
 - **Cases:** <a href="#IntoxicantAddictionInterval'Constant">IntoxicantAddictionInterval'Constant</a> | <a href="#IntoxicantAddictionInterval'DiceBased">IntoxicantAddictionInterval'DiceBased</a>
@@ -976,15 +960,13 @@ How to ingest the intoxicant.
 
 #### <a name="IntoxicantTranslation/side_effect"></a> `side_effect?`
 
-The intoxicants side effects that always happen, no matter whether the
-intoxicant has the default or the reduced effect.
+The intoxicants side effects that always happen, no matter whether the intoxicant has the default or the reduced effect.
 
 - **Type:** <a href="../../_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
 #### <a name="IntoxicantTranslation/overdose"></a> `overdose`
 
-What happens if the intoxicant has been overdosed, that is, it has been
-ingested another time within the duration.
+What happens if the intoxicant has been overdosed, that is, it has been ingested another time within the duration.
 
 - **Type:** <a href="../../_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 

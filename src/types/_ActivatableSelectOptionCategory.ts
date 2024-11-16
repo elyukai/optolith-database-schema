@@ -42,8 +42,7 @@ export type SelectOptionCategory =
 
 export type BlessedTraditionsSelectOptionCategory = {
   /**
-   * Should the principles (code) of the tradition be required to select the
-   * respective tradition?
+   * Should the principles (code) of the tradition be required to select the respective tradition?
    */
   require_principles?: true
 }
@@ -64,8 +63,7 @@ export type PropertiesSelectOptionCategory = {
   require_knowledge?: true
 
   /**
-   * Require a minimum number of spellworks of the respective property to be
-   * on a minimum skill rating.
+   * Require a minimum number of spellworks of the respective property to be on a minimum skill rating.
    */
   require_minimum_spellworks_on?: RequiredMinimumSkillsToBeOnSkillRating
 }
@@ -77,36 +75,29 @@ export type AspectSelectOptionCategory = {
   require_knowledge?: true
 
   /**
-   * The generated name should be the *Master of (Aspect)* suffix for this
-   * aspect instead of the aspect's name. If an aspect does not provide a
-   * suffix (such as the General aspect), it is automatically excluded from
-   * the list.
+   * The generated name should be the *Master of (Aspect)* suffix for this aspect instead of the aspect's name. If an aspect does not provide a suffix (such as the General aspect), it is automatically excluded from the list.
    */
   use_master_of_suffix_as_name?: true
 
   /**
-   * Require a minimum number of liturgies of the respective aspect to be on a
-   * minimum skill rating.
+   * Require a minimum number of liturgies of the respective aspect to be on a minimum skill rating.
    */
   require_minimum_liturgies_on?: RequiredMinimumSkillsToBeOnSkillRating
 }
 
 /**
- * Require a minimum number of spellworks/liturgies of the respective
- * property/aspect to be on a minimum skill rating.
+ * Require a minimum number of spellworks/liturgies of the respective property/aspect to be on a minimum skill rating.
  */
 export type RequiredMinimumSkillsToBeOnSkillRating = {
   /**
-   * The minimum number of liturgies that need to be on the defined minimum
-   * skill rating.
+   * The minimum number of liturgies that need to be on the defined minimum skill rating.
    * @integer
    * @minimum 1
    */
   number: number
 
   /**
-   * The minimum skill rating the defined minimum number of liturgies need
-   * to be on.
+   * The minimum skill rating the defined minimum number of liturgies need to be on.
    * @integer
    * @minimum 1
    */
@@ -164,27 +155,18 @@ export type SkillSelectOptionCategoryCategory = {
   groups?: SkillGroupReference[]
 
   /**
-   * Only include (`Intersection`) or exclude (`Difference`) specific
-   * skills.
+   * Only include (`Intersection`) or exclude (`Difference`) specific skills.
    */
   specific?: SpecificFromSkillSelectOptionCategoryCategory<SkillReference>
 
   /**
-   * Registers new applications, which get enabled once this entry is
-   * activated with its respective select option. It specifies an
-   * entry-unique identifier, the skill it belongs to is derived from the
-   * select option automatically. A translation can be left out if its
-   * name equals the name of the origin entry.
+   * Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry.
    * @minItems 1
    */
   skill_applications?: SkillApplicationOrUse[]
 
   /**
-   * Registers uses, which get enabled once this entry is activated with
-   * its respective select option. It specifies an entry-unique
-   * identifier, the skill it belongs to is derived from the select option
-   * automatically. A translation can be left out if its name equals the
-   * name of the origin entry.
+   * Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry.
    * @minItems 1
    */
   skill_uses?: SkillApplicationOrUse[]
@@ -240,8 +222,7 @@ export type SkillApplicationOrUse = {
 
 export type SkillApplicationOrUseTranslation = {
   /**
-   * The name of the application or use if different from the activatable
-   * entry's name.
+   * The name of the application or use if different from the activatable entry's name.
    * @minLength 1
    */
   name: string
@@ -351,8 +332,7 @@ export type SelectOptionsFixedAdventurePointsValue<Identifier> = {
   map: SelectOptionsFixedAdventurePointsValueMapping<Identifier>[]
 
   /**
-   * The default value of an entry. Used as a fallback if no value is
-   * found in `list`.
+   * The default value of an entry. Used as a fallback if no value is found in `list`.
    * @integer
    * @minimum 1
    */

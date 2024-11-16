@@ -17,8 +17,7 @@ public struct FocusRule: LocalizableEntity {
     /// The focus rule's level.
     public let level: Int
     
-    /// Has the focus rule not been implemented in Optolith yet? This is also true
-    /// if the focus rule does not (currently) apply to any Optolith feature.
+    /// Has the focus rule not been implemented in Optolith yet? This is also true if the focus rule does not (currently) apply to any Optolith feature.
     public let isMissingImplementation: Bool
     
     public let src: PublicationRefs

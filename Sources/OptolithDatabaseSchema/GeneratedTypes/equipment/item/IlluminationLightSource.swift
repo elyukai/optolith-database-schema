@@ -17,16 +17,13 @@ public struct IlluminationLightSource: LocalizableEntity {
     /// The complexity of crafting the item.
     public let complexity: Complexity?
     
-    /// The structure points of the item. Use an array if the item consists of
-    /// multiple components that have individual structure points.
+    /// The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
     public let structurePoints: StructurePoints
     
-    /// The burning time is the time how long the light source can be lit. After
-    /// that time you have to use a new light source.
+    /// The burning time is the time how long the light source can be lit. After that time you have to use a new light source.
     public let burningTime: BurningTime
     
-    /// The item can also be used either as an improvised weapon or as an armor,
-    /// although this is not the primary use case of the item.
+    /// The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.
     public let combatUse: CombatUse?
     
     public let src: PublicationRefs

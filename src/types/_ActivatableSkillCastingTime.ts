@@ -2,13 +2,13 @@ import { SlowSkillCastingTimeUnit } from "./SkillModificationLevel.js"
 
 export type CastingTime<NonModifiable extends Object> =
   | {
-    tag: "Modifiable"
-    modifiable: ModifiableCastingTime
-  }
+      tag: "Modifiable"
+      modifiable: ModifiableCastingTime
+    }
   | {
-    tag: "NonModifiable"
-    non_modifiable: NonModifiable
-  }
+      tag: "NonModifiable"
+      non_modifiable: NonModifiable
+    }
 
 export type ModifiableCastingTime = {
   /**
@@ -21,9 +21,7 @@ export type ModifiableCastingTime = {
 }
 
 /**
- * The casting time may have two different values: One for use in “normal” time,
- * i. e. actions, combat rounds and others, and one for use during lovemaking,
- * which is a rule set from Aventurian Intimacy.
+ * The casting time may have two different values: One for use in “normal” time, i. e. actions, combat rounds and others, and one for use during lovemaking, which is a rule set from Aventurian Intimacy.
  *
  * There must always be at least one casting time value.
  * @minProperties 1
@@ -35,17 +33,13 @@ export type CastingTimeIncludingLovemaking<NonModifiable extends Object> = {
   default?: CastingTime<NonModifiable>
 
   /**
-   * The casting time during lovemaking. In Aventurian Intimacy, you may only
-   * use an activatable skill during lovemaking if it has a casting time used
-   * during lovemaking.
+   * The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking.
    */
   during_lovemaking?: CastingTimeDuringLovemaking
 }
 
 /**
- * The casting time during lovemaking. In Aventurian Intimacy, you may only use
- * an activatable skill during lovemaking if it has a casting time used during
- * lovemaking.
+ * The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking.
  */
 export type CastingTimeDuringLovemaking = {
   /**
@@ -61,9 +55,7 @@ export type CastingTimeDuringLovemaking = {
   unit: CastingTimeDuringLovemakingUnit
 }
 
-export type CastingTimeDuringLovemakingUnit =
-  | "SeductionActions"
-  | "Rounds"
+export type CastingTimeDuringLovemakingUnit = "SeductionActions" | "Rounds"
 
 export type FastSkillNonModifiableCastingTime = {
   /**

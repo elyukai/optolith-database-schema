@@ -5,7 +5,7 @@
   "$defs": {
     "PersonalityTrait": {
       "title": "Personality Trait",
-      "description": "A personality trait describes character aspects of a person from a certain\nregion. Higher trait levels only cover a part of the region covered by\nlower-level traits.",
+      "description": "A personality trait describes character aspects of a person from a certain region. Higher trait levels only cover a part of the region covered by lower-level traits.",
       "type": "object",
       "properties": {
         "id": {
@@ -62,7 +62,7 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "effects": {
-          "description": "The effects of the personality trait. They should be sorted like they\nare in the book.",
+          "description": "The effects of the personality trait. They should be sorted like they are in the book.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/PersonalityTraitEffect"

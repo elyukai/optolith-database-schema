@@ -20,24 +20,17 @@ public struct AnimistPower: LocalizableEntity {
     /// The associated property.
     public let property: PropertyReference
     
-    /// The tribe traditions the animist power is available to. It may be available
-    /// to all or only specific tribes.
+    /// The tribe traditions the animist power is available to. It may be available to all or only specific tribes.
     /// 
-    /// If no tribe tradition is given, the animist power is generally available to
-    /// all tribe traditions.
+    /// If no tribe tradition is given, the animist power is generally available to all tribe traditions.
     public let tribeTradition: [AnimistTribeReference]
     
-    /// States which column is used to improve the skill. It is a fixed value or
-    /// depends on the primary patron.
+    /// States which column is used to improve the skill. It is a fixed value or depends on the primary patron.
     public let improvementCost: AnimistPowerImprovementCost
     
     public let prerequisites: AnimistPowerPrerequisites?
     
-    /// The animist power can have multiple levels. Each level is skilled
-    /// separately. A previous level must be on at least 10 so that the next higher
-    /// level can be activated and skilled. A higher level cannot be skilled higher
-    /// than a lower level. Each level also adds an effect text to the text of the
-    /// first level.
+    /// The animist power can have multiple levels. Each level is skilled separately. A previous level must be on at least 10 so that the next higher level can be activated and skilled. A higher level cannot be skilled higher than a lower level. Each level also adds an effect text to the text of the first level.
     public let levels: [AnimistPowerLevel]?
     
     public let src: PublicationRefs
@@ -68,9 +61,7 @@ public struct AnimistPowerTranslation: EntitySubtype {
     /// purposes.
     public let nameInLibrary: NonEmptyString?
     
-    /// The effect description may be either a plain text or a text that is
-    /// divided by a list of effects for each quality level. It may also be a
-    /// list for each two quality levels.
+    /// The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
     public let effect: ActivatableSkillEffect
     
     @available(*, deprecated)
@@ -120,8 +111,7 @@ public enum AnimistPowerPerformanceParameters: EntitySubtype {
 }
 
 public struct OneTimeAnimistPowerPerformanceParameters: EntitySubtype {
-    /// The AE cost value, either a flat value or defined dynamically by the
-    /// primary patron.
+    /// The AE cost value, either a flat value or defined dynamically by the primary patron.
     public let cost: OneTimeAnimistPowerCost
     
     /// The duration.
@@ -158,8 +148,7 @@ public enum OneTimeAnimistPowerDuration: EntitySubtype {
 }
 
 public struct SustainedAnimistPowerPerformanceParameters: EntitySubtype {
-    /// The AE cost value, either a flat value or defined dynamically by the
-    /// primary patron.
+    /// The AE cost value, either a flat value or defined dynamically by the primary patron.
     public let cost: SustainedAnimistPowerCost
 }
 

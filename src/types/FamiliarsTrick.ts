@@ -27,11 +27,9 @@ export type FamiliarsTrick = {
   id: number
 
   /**
-   * The animal types this trick is available to. Either it is available to all
-   * or only a list of specific animal types.
+   * The animal types this trick is available to. Either it is available to all or only a list of specific animal types.
    *
-   * If no animal types are given, the animal disease applies to all animal
-   * types.
+   * If no animal types are given, the animal disease applies to all animal types.
    */
   animal_types: AnimalTypeReference[]
 
@@ -46,8 +44,7 @@ export type FamiliarsTrick = {
   property: FamiliarsTrickProperty
 
   /**
-   * The AP value the familiar has to pay for. It may also be that a specific is
-   * known by all familiar by default. In the latter case the field is not set.
+   * The AP value the familiar has to pay for. It may also be that a specific is known by all familiar by default. In the latter case the field is not set.
    * @integer
    * @minimum 1
    */
@@ -156,8 +153,7 @@ export type FamiliarsTrickFixedOneTimeCost = {
 
 export type FamiliarsTrickFixedOneTimeCostTranslation = {
   /**
-   * The cost have to be per a specific countable entity, e.g. `8 KP
-   * per person`.
+   * The cost have to be per a specific countable entity, e.g. `8 KP per person`.
    */
   per?: ResponsiveTextOptional
 }

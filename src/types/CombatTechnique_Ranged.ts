@@ -25,8 +25,7 @@ export type RangedCombatTechnique = {
   id: number
 
   /**
-   * Special rules for the combat technique that apply to all weapons in this
-   * category.
+   * Special rules for the combat technique that apply to all weapons in this category.
    */
   special: RangedCombatTechniqueSpecialRules
 
@@ -56,8 +55,7 @@ export type RangedCombatTechnique = {
 }
 
 /**
- * Special rules for the combat technique that apply to all weapons in this
- * category.
+ * Special rules for the combat technique that apply to all weapons in this category.
  */
 export type RangedCombatTechniqueSpecialRules = {
   has_ammunition: boolean
@@ -80,7 +78,11 @@ export type RangedCombatTechniqueTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<RangedCombatTechnique, RangedCombatTechnique["id"], "RangedCombatTechnique"> = {
+export const config: TypeConfig<
+  RangedCombatTechnique,
+  RangedCombatTechnique["id"],
+  "RangedCombatTechnique"
+> = {
   name: "RangedCombatTechnique",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("RangedCombatTechnique"),

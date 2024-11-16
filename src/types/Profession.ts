@@ -48,17 +48,9 @@ export type Profession = {
   group: ProfessionGroup
 
   /**
-   * A list of professions representing the same profession but with (slightly)
-   * different stats. For example, there may be a profession in a regional
-   * sourcebook or in the core rules and a profession in an extension rulebook
-   * like Magic of Aventuria, where the profession is basically called the same
-   * and almost has the same values, but the version from Magic of Aventuria
-   * features a spell style special ability that does not exist in the core
-   * rules or regional sourcebook.
+   * A list of professions representing the same profession but with (slightly) different stats. For example, there may be a profession in a regional sourcebook or in the core rules and a profession in an extension rulebook like Magic of Aventuria, where the profession is basically called the same and almost has the same values, but the version from Magic of Aventuria features a spell style special ability that does not exist in the core rules or regional sourcebook.
    *
-   * The profession representation may feature different values for different
-   * explicitly mentioned experience levels. In most cases, there is only one
-   * stats package, which targets the experience level *Experienced*.
+   * The profession representation may feature different values for different explicitly mentioned experience levels. In most cases, there is only one stats package, which targets the experience level *Experienced*.
    * @minItems 1
    */
   versions: ProfessionVersion[]
@@ -87,8 +79,7 @@ export type ProfessionVersion =
 
 export type ExperiencedProfessionPackage = {
   /**
-   * The profession representation variant's identifier. An unique, increasing
-   * integer.
+   * The profession representation variant's identifier. An unique, increasing integer.
    * @integer
    * @minimum 1
    */
@@ -106,8 +97,7 @@ export type ExperiencedProfessionPackage = {
 
 export type ProfessionPackagesForDifferentExperienceLevels = {
   /**
-   * The profession representation variant's identifier. An unique, increasing
-   * integer.
+   * The profession representation variant's identifier. An unique, increasing integer.
    * @integer
    * @minimum 1
    */
@@ -125,8 +115,7 @@ export type ProfessionPackagesForDifferentExperienceLevels = {
 
 export type ExperienceLevelDynamicProfessionPackage = {
   /**
-   * The experience level this profession targets. The experience level
-   * must be unique for this representation.
+   * The experience level this profession targets. The experience level must be unique for this representation.
    * @integer
    * @minimum 1
    * @maximum 7
@@ -149,15 +138,12 @@ export type ProfessionPackage = {
   ap_value: number
 
   /**
-   * Which prerequisites must be met to buy the stat block? For example, a
-   * character might need the advantage Spellcaster or Blessed. Note: the AP
-   * cost for a profession package does not include these prerequisites.
+   * Which prerequisites must be met to buy the stat block? For example, a character might need the advantage Spellcaster or Blessed. Note: the AP cost for a profession package does not include these prerequisites.
    */
   prerequisites?: ProfessionPrerequisites
 
   /**
-   * In some areas, the profession package grants a loose set of stats where the
-   * player must choose between different options for the profession package.
+   * In some areas, the profession package grants a loose set of stats where the player must choose between different options for the profession package.
    */
   options?: ProfessionPackageOptions
 
@@ -167,8 +153,7 @@ export type ProfessionPackage = {
   special_abilities?: ProfessionSpecialAbility[]
 
   /**
-   * Provides ratings for the combat techniques that the hero receives from the
-   * package.
+   * Provides ratings for the combat techniques that the hero receives from the package.
    */
   combat_techniques?: CombatTechniqueRating[]
 
@@ -178,15 +163,12 @@ export type ProfessionPackage = {
   skills?: SkillRating[]
 
   /**
-   * The skill ratings a magical profession receives for spells; these spells
-   * are considered activated. Spells from an unfamiliar Tradition, if any, are
-   * identified as such.
+   * The skill ratings a magical profession receives for spells; these spells are considered activated. Spells from an unfamiliar Tradition, if any, are identified as such.
    */
   spells?: SpellRating[]
 
   /**
-   * Clerical professions receive these liturgical chants at the listed skill
-   * ratings. These liturgical chants are considered activated.
+   * Clerical professions receive these liturgical chants at the listed skill ratings. These liturgical chants are considered activated.
    */
   liturgical_chants?: LiturgicalChantRating[]
 
@@ -203,25 +185,19 @@ export type ProfessionPackage = {
   suggested_disadvantages?: CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>[]
 
   /**
-   * These advantages do not fit well with this profession; to be checked with
-   * the GM before taking any of them.
+   * These advantages do not fit well with this profession; to be checked with the GM before taking any of them.
    * @minItems 1
    */
   unsuitable_advantages?: CommonnessRatedAdvantageDisadvantage<AdvantageIdentifier>[]
 
   /**
-   * These disadvantages do not fit well with this profession; to be checked
-   * with the GM before taking any of them.
+   * These disadvantages do not fit well with this profession; to be checked with the GM before taking any of them.
    * @minItems 1
    */
   unsuitable_disadvantages?: CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>[]
 
   /**
-   * Provides examples of variants for the profession, which may include changes
-   * to AP values and additional or modified skill ratings, special abilities,
-   * or combat techniques, as compared to the basic profession. Usually picking
-   * a variant is optional, but there are some rare exceptions where picking a
-   * variant is required.
+   * Provides examples of variants for the profession, which may include changes to AP values and additional or modified skill ratings, special abilities, or combat techniques, as compared to the basic profession. Usually picking a variant is optional, but there are some rare exceptions where picking a variant is required.
    */
   variants?: ProfessionVariants
 }
@@ -233,9 +209,7 @@ export type ProfessionTranslation = {
   name: ProfessionName
 
   /**
-   * A name addition of the profession. This will contain texts like name of
-   * the academy or the witch circle. It is enclosed in parenthesis, but the
-   * database entry must not contain parenthesis.
+   * A name addition of the profession. This will contain texts like name of the academy or the witch circle. It is enclosed in parenthesis, but the database entry must not contain parenthesis.
    */
   specification?: ProfessionName
 
@@ -250,14 +224,12 @@ export type ProfessionTranslation = {
   suggested_disadvantages?: NonEmptyString
 
   /**
-   * These advantages do not fit well with this profession; to be checked with
-   * the GM before taking any of them.
+   * These advantages do not fit well with this profession; to be checked with the GM before taking any of them.
    */
   unsuitable_advantages?: NonEmptyString
 
   /**
-   * These disadvantages do not fit well with this profession; to be checked
-   * with the GM before taking any of them.
+   * These disadvantages do not fit well with this profession; to be checked with the GM before taking any of them.
    */
   unsuitable_disadvantages?: NonEmptyString
 
@@ -265,11 +237,7 @@ export type ProfessionTranslation = {
 }
 
 /**
- * Provides examples of variants for the profession, which may include changes
- * to AP values and additional or modified skill ratings, special abilities, or
- * combat techniques, as compared to the basic profession. Usually picking a
- * variant is optional, but there are some rare exceptions where picking a
- * variant is required.
+ * Provides examples of variants for the profession, which may include changes to AP values and additional or modified skill ratings, special abilities, or combat techniques, as compared to the basic profession. Usually picking a variant is optional, but there are some rare exceptions where picking a variant is required.
  */
 export type ProfessionVariants = {
   /**
@@ -302,9 +270,7 @@ export type ProfessionVariant = {
   ap_value: number
 
   /**
-   * Which prerequisites must be met to buy the stat block? For example, a
-   * character might need the advantage Spellcaster or Blessed. Note: the AP
-   * cost for a profession package does not include these prerequisites.
+   * Which prerequisites must be met to buy the stat block? For example, a character might need the advantage Spellcaster or Blessed. Note: the AP cost for a profession package does not include these prerequisites.
    */
   prerequisites?: ProfessionPrerequisites
 
@@ -319,8 +285,7 @@ export type ProfessionVariant = {
   special_abilities?: VariantSpecialAbility[]
 
   /**
-   * Provides ratings for the combat techniques that the hero receives from the
-   * package variant.
+   * Provides ratings for the combat techniques that the hero receives from the package variant.
    */
   combat_techniques?: CombatTechniqueRating[]
 
@@ -330,15 +295,12 @@ export type ProfessionVariant = {
   skills?: SkillRating[]
 
   /**
-   * The skill ratings a magical profession variant receives for spells; these
-   * spells are considered activated. Spells from an unfamiliar Tradition, if
-   * any, are identified as such.
+   * The skill ratings a magical profession variant receives for spells; these spells are considered activated. Spells from an unfamiliar Tradition, if any, are identified as such.
    */
   spells?: SpellRating[]
 
   /**
-   * Clerical professions receive these liturgical chants at the listed skill
-   * ratings. These liturgical chants are considered activated.
+   * Clerical professions receive these liturgical chants at the listed skill ratings. These liturgical chants are considered activated.
    */
   liturgical_chants?: LiturgicalChantRating[]
 
@@ -394,8 +356,7 @@ export type SpecialAbilityDefinition = {
   level?: number
 
   /**
-   * Received select options. Order is important. Typically, you only need the
-   * first array index, though.
+   * Received select options. Order is important. Typically, you only need the first array index, though.
    * @minItems 1
    */
   options?: RequirableSelectOptionIdentifier[]
@@ -412,8 +373,7 @@ export type FixedVariantSpecialAbility = {
   id: SpecialAbilityIdentifier
 
   /**
-   * if set to `false`, if the selection is granted by the basic package, it
-   * is removed.
+   * if set to `false`, if the selection is granted by the basic package, it is removed.
    */
   active?: false
 
@@ -425,8 +385,7 @@ export type FixedVariantSpecialAbility = {
   level?: number
 
   /**
-   * Received select options. Order is important. Typically, you only need the
-   * first array index, though.
+   * Received select options. Order is important. Typically, you only need the first array index, though.
    * @minItems 1
    */
   options?: RequirableSelectOptionIdentifier[]
@@ -434,8 +393,7 @@ export type FixedVariantSpecialAbility = {
 
 export type VariantSpecialAbilitySelection = {
   /**
-   * if set to `false`, if the selection is granted by the basic package, it
-   * is removed.
+   * if set to `false`, if the selection is granted by the basic package, it is removed.
    */
   active?: false
 
@@ -452,8 +410,7 @@ export type CombatTechniqueRating = {
   id: CombatTechniqueIdentifier
 
   /**
-   * The rating bonus provided for the combat technique. If used in a profession
-   * variant, it can also be used to lower the bonus of the base profession.
+   * The rating bonus provided for the combat technique. If used in a profession variant, it can also be used to lower the bonus of the base profession.
    *
    * **Note:** This is a rating *bonus*, so it will be *added* to the default
    * value of 6.
@@ -474,8 +431,7 @@ export type SkillRating = {
   id: SkillIdentifier
 
   /**
-   * The rating bonus provided for the skill. If used in a profession variant,
-   * it can also be used to lower the bonus of the base profession
+   * The rating bonus provided for the skill. If used in a profession variant, it can also be used to lower the bonus of the base profession
    * @integer
    * @minimum -8
    * @maximum 8
@@ -485,16 +441,13 @@ export type SkillRating = {
 
 export type SpellRating = {
   /**
-   * The identifier(s) of the spell(s) to choose from to provide the rating for.
-   * If multiple spells are provided, they must all have the same improvement
-   * cost.
+   * The identifier(s) of the spell(s) to choose from to provide the rating for. If multiple spells are provided, they must all have the same improvement cost.
    * @minItems 1
    */
   id: ProfessionSpellIdentifier[]
 
   /**
-   * The rating bonus provided for the (selected) spell. If used in a profession
-   * variant, it can also be used to lower the bonus of the base profession.
+   * The rating bonus provided for the (selected) spell. If used in a profession variant, it can also be used to lower the bonus of the base profession.
    * @integer
    * @minimum -10
    * @maximum 10
@@ -513,11 +466,7 @@ export type ProfessionSpellworkIdentifier = {
   id: SpellworkIdentifier
 
   /**
-   * If the spell is not part of the magical tradition required by the
-   * package, this references the magical tradition it is part of. It can also
-   * be used to define the target magical tradition of a spell if multiple
-   * magical traditions are required and the spell is available to multiple
-   * of them.
+   * If the spell is not part of the magical tradition required by the package, this references the magical tradition it is part of. It can also be used to define the target magical tradition of a spell if multiple magical traditions are required and the spell is available to multiple of them.
    */
   tradition?: MagicalTraditionReference
 }
@@ -531,17 +480,13 @@ export type ProfessionMagicalActionIdentifier = {
 
 export type LiturgicalChantRating = {
   /**
-   * The identifier(s) of the liturgical chant(s) to choose from to provide
-   * the rating for. If multiple liturgical chants are provided, they must all
-   * have the same improvement cost.
+   * The identifier(s) of the liturgical chant(s) to choose from to provide the rating for. If multiple liturgical chants are provided, they must all have the same improvement cost.
    * @minItems 1
    */
   id: LiturgyIdentifier[]
 
   /**
-   * The rating bonus provided for the selected liturgical chant. If used in a
-   * profession variant, it can also be used to lower the bonus of the base
-   * profession.
+   * The rating bonus provided for the selected liturgical chant. If used in a profession variant, it can also be used to lower the bonus of the base profession.
    * @integer
    * @minimum -10
    * @maximum 10
@@ -550,8 +495,7 @@ export type LiturgicalChantRating = {
 }
 
 /**
- * In some areas, the profession package grants a loose set of stats where the
- * player must choose between different options for the profession package.
+ * In some areas, the profession package grants a loose set of stats where the player must choose between different options for the profession package.
  * @minProperties 1
  */
 export type ProfessionPackageOptions = {
@@ -565,9 +509,7 @@ export type ProfessionPackageOptions = {
 }
 
 /**
- * In some areas, the profession package grants a loose set of stats where the
- * player must choose between different options for the profession package. The
- * variant may override or remove those options.
+ * In some areas, the profession package grants a loose set of stats where the player must choose between different options for the profession package. The variant may override or remove those options.
  * @minProperties 1
  */
 export type ProfessionVariantPackageOptions = {
@@ -585,9 +527,7 @@ export type VariantOptionAction<T> =
   | { tag: "Override"; override: T }
 
 /**
- * Select an application from a skill or from one of a list of skills where you
- * get a skill specialization for. You can also specify a skill groups from
- * which you can choose a skill.
+ * Select an application from a skill or from one of a list of skills where you get a skill specialization for. You can also specify a skill groups from which you can choose a skill.
  */
 export type SkillSpecializationOptions =
   | { tag: "Single"; single: SingleSkillSpecializationOption }
@@ -622,16 +562,13 @@ export type LanguagesScriptsOptions = {
  */
 export type CombatTechniquesOptions = {
   /**
-   * Specify the number of combat techniques that can be selected so that they
-   * get increased to a specific CtR. There can be multiple selections with
-   * different CtRs.
+   * Specify the number of combat techniques that can be selected so that they get increased to a specific CtR. There can be multiple selections with different CtRs.
    * @minItems 1
    */
   fixed: RatingForCombatTechniquesNumber[]
 
   /**
-   * Define if after the fixed selections the remaining unselected combat
-   * techniques will receive a certain rating bonus as well.
+   * Define if after the fixed selections the remaining unselected combat techniques will receive a certain rating bonus as well.
    * @integer
    * @minimum 1
    * @maximum 6

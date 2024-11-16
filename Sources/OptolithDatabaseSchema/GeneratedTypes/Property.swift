@@ -11,8 +11,7 @@ public struct Property: LocalizableEntity {
     /// The property's identifier. An unique, increasing integer.
     public let id: Int
     
-    /// The property check's attributes. Only the properties from the Core Rules
-    /// have defined property checks.
+    /// The property check's attributes. Only the properties from the Core Rules have defined property checks.
     public let check: SkillCheck?
     
     /// All translations for the entry, identified by IETF language tag (BCP47).

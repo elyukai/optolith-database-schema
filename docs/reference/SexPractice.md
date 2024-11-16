@@ -63,8 +63,7 @@ How long a round of this sex practice takes.
 
 #### <a name="SexPracticeTranslation/prerequisites"></a> `prerequisites?`
 
-Prerequisites of participants and environment. Do not specify if the
-sex practice has no prerequisites.
+Prerequisites of participants and environment. Do not specify if the sex practice has no prerequisites.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 

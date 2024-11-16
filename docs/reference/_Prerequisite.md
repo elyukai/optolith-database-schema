@@ -4,9 +4,7 @@
 
 ### <a name="PrerequisiteGroup"></a> `PrerequisiteGroup<T>`
 
-A prerequisite group has no influence on validation logic. It serves as a
-single unit for displaying purposes, where the source uses a prerequisites
-item that cannot be represented as a single prerequisite.
+A prerequisite group has no influence on validation logic. It serves as a single unit for displaying purposes, where the source uses a prerequisites item that cannot be represented as a single prerequisite.
 
 - **Type:** Object
 

@@ -18,13 +18,10 @@ public struct Race: LocalizableEntity {
     /// The race’s base values.
     public let baseValues: BaseValues
     
-    /// Describes how to raise or lower maximum attribute values during character
-    /// creation.
+    /// Describes how to raise or lower maximum attribute values during character creation.
     public let attributeAdjustments: AttributeAdjustments
     
-    /// A list of automatically applied advantages. This does only work for
-    /// advantages with no further configuration such as level or special
-    /// selection.
+    /// A list of automatically applied advantages. This does only work for advantages with no further configuration such as level or special selection.
     public let automaticAdvantages: [AdvantageReference]?
     
     /// A list of strongly recommended advantages.
@@ -36,13 +33,10 @@ public struct Race: LocalizableEntity {
     /// Configuration for random weight generation.
     public let weight: RandomWeightGeneration
     
-    /// Defines the starting ages for the race. It depends on the selected
-    /// experience level.
+    /// Defines the starting ages for the race. It depends on the selected experience level.
     public let startingAge: [StartingAgeConfigForExperienceLevel]
     
-    /// A list of available race variants where one has to be selected. If no
-    /// variants are to be selected, a single variant with no name has to be provided
-    /// which will be used as the missing values for the base race.
+    /// A list of available race variants where one has to be selected. If no variants are to be selected, a single variant with no name has to be provided which will be used as the missing values for the base race.
     public let variants: RaceVariants
     
     public let src: PublicationRefs
@@ -88,18 +82,14 @@ public struct BaseValues: EntitySubtype {
     }
 }
 
-/// Describes how to raise or lower maximum attribute values during character
-/// creation.
+/// Describes how to raise or lower maximum attribute values during character creation.
 public struct AttributeAdjustments: EntitySubtype {
     /// The values by which the maximum of the respective attribute is modified.
     public let fixed: [FixedAttributeAdjustment]?
     
-    /// An array of attribute maximum modifiers, where the attribute they apply to
-    /// is selected from a list of options.
+    /// An array of attribute maximum modifiers, where the attribute they apply to is selected from a list of options.
     /// 
-    /// The array only permits a single entry because no race specified more than
-    /// one selectable attribute adjustment so far. But the schema allows for
-    /// multiple entries to be future-proof.
+    /// The array only permits a single entry because no race specified more than one selectable attribute adjustment so far. But the schema allows for multiple entries to be future-proof.
     public let selectable: [SelectableAttributeAdjustment]?
 }
 
@@ -113,9 +103,7 @@ public struct FixedAttributeAdjustment: EntitySubtype {
     public let value: Int
 }
 
-/// A value that will be added to the current maximum of the selected attribute
-/// that has been chosen from the listed attributes (negative values will lower
-/// the maximum).
+/// A value that will be added to the current maximum of the selected attribute that has been chosen from the listed attributes (negative values will lower the maximum).
 public struct SelectableAttributeAdjustment: EntitySubtype {
     /// A list of attributes the player has to choose from.
     public let list: [AttributeReference]
@@ -142,9 +130,7 @@ public struct WeightDice: EntitySubtype {
     /// Number of sides on every die. Example: 6 in 2D6.
     public let sides: DieType
     
-    /// The strategy how to offset the randomly generated values against the
-    /// base value. Either they are all added or subtracted or even results are
-    /// added and odd results are subtracted.
+    /// The strategy how to offset the randomly generated values against the base value. Either they are all added or subtracted or even results are added and odd results are subtracted.
     public let offsetStrategy: WeightDiceOffsetStrategy    
     
     private enum CodingKeys: String, CodingKey {
@@ -154,9 +140,7 @@ public struct WeightDice: EntitySubtype {
     }
 }
 
-/// The strategy how to offset the randomly generated values against the
-/// base value. Either they are all added or subtracted or even results are
-/// added and odd results are subtracted.
+/// The strategy how to offset the randomly generated values against the base value. Either they are all added or subtracted or even results are added and odd results are subtracted.
 public enum WeightDiceOffsetStrategy: String, EntitySubtype {
     case add = "Add"
     case subtract = "Subtract"
@@ -170,14 +154,11 @@ public struct StartingAgeConfigForExperienceLevel: EntitySubtype {
     /// The base value for the selected experience level.
     public let base: Int
     
-    /// The random value for the selected experience level. It is going to be
-    /// added to the base value.
+    /// The random value for the selected experience level. It is going to be added to the base value.
     public let random: Dice
 }
 
-/// A list of available race variants where one has to be selected. If no
-/// variants are to be selected, a single variant with no name has to be provided
-/// which will be used as the missing values for the base race.
+/// A list of available race variants where one has to be selected. If no variants are to be selected, a single variant with no name has to be provided which will be used as the missing values for the base race.
 public typealias RaceVariants = [RaceVariant]
 
 public struct RaceVariant: EntitySubtype {
@@ -199,12 +180,10 @@ public struct RaceVariant: EntitySubtype {
     /// A list of uncommon disadvantages.
     public let uncommonDisadvantages: [CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>]?
     
-    /// An array containing 20 (numeric) hair color identifiers. The array also
-    /// represents the 20-sided die for a random hair color.
+    /// An array containing 20 (numeric) hair color identifiers. The array also represents the 20-sided die for a random hair color.
     public let hairColor: [HairColorReference]
     
-    /// An array containing 20 (numeric) eye color identifiers. The array also
-    /// represents the 20-sided die for a random eye color.
+    /// An array containing 20 (numeric) eye color identifiers. The array also represents the 20-sided die for a random eye color.
     public let eyeColor: [EyeColorReference]
     
     /// Configuration for random height generation.
@@ -237,9 +216,7 @@ public struct Height: EntitySubtype {
 }
 
 public struct RaceVariantTranslation: EntitySubtype {
-    /// The race variant's name. If left empty, it defaults to the base race name.
-    /// This can be used if the race has no (visible) variants so that a single
-    /// variant has to be provided.
+    /// The race variant's name. If left empty, it defaults to the base race name. This can be used if the race has no (visible) variants so that a single variant has to be provided.
     public let name: NonEmptyString?
     
     /// The respective common advantages text from the source book.
@@ -276,8 +253,7 @@ public struct RaceTranslation: EntitySubtype {
     /// The respective strongly recommended advantages text from the source book.
     public let stronglyRecommendedAdvantages: NonEmptyString?
     
-    /// The respective strongly recommended disadvantages text from the source
-    /// book.
+    /// The respective strongly recommended disadvantages text from the source book.
     public let stronglyRecommendedDisadvantages: NonEmptyString?
     
     public let errata: Errata?    

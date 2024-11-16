@@ -7,9 +7,7 @@
 
 import DiscriminatedEnum
 
-/// A personality trait describes character aspects of a person from a certain
-/// region. Higher trait levels only cover a part of the region covered by
-/// lower-level traits.
+/// A personality trait describes character aspects of a person from a certain region. Higher trait levels only cover a part of the region covered by lower-level traits.
 public struct PersonalityTrait: LocalizableEntity {
     /// The personality trait's identifier. An unique, increasing integer.
     public let id: Int
@@ -41,8 +39,7 @@ public struct PersonalityTraitTranslation: EntitySubtype {
     /// The name of the personality trait.
     public let name: NonEmptyString
     
-    /// The effects of the personality trait. They should be sorted like they
-    /// are in the book.
+    /// The effects of the personality trait. They should be sorted like they are in the book.
     public let effects: [PersonalityTraitEffect]
     
     public let errata: Errata?

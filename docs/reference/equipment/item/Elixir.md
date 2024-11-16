@@ -37,8 +37,7 @@ The laboratory level needed to brew the elixir.
 
 #### <a name="Elixir/brewing_difficulty"></a> `brewing_difficulty`
 
-The brewing difficulty, which represents the challenge of creating an
-elixir.
+The brewing difficulty, which represents the challenge of creating an elixir.
 
 - **Type:** Integer
 
@@ -104,8 +103,7 @@ Prerequsites for the brewing process, if any.
 
 #### <a name="ElixirTranslation/quality_levels"></a> `quality_levels`
 
-The list of effects for each quality level. The first element
-represents QL 1, the second element QL 2, and so on.
+The list of effects for each quality level. The first element represents QL 1, the second element QL 2, and so on.
 
 - **Type:** List
 - **Items:** <a href="#ElixirTranslation/quality_levels[]">ElixirTranslation/quality_levels[]</a>

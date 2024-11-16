@@ -38,7 +38,7 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "master_of_aspect_suffix": {
-          "description": "The aspect's name appended to the simple name (not `name_in_library`)\nof the special ability *Master of (Aspect)*.",
+          "description": "The aspect's name appended to the simple name (not `name_in_library`) of the special ability *Master of (Aspect)*.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         }
       },

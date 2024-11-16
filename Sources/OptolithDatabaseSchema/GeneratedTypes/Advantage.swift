@@ -24,12 +24,10 @@ public struct Advantage: LocalizableEntity {
     
     public let apValue: AdventurePointsValue
     
-    /// Does this advantage count towards the maximum of AP to be spent on
-    /// advantages?
+    /// Does this advantage count towards the maximum of AP to be spent on advantages?
     public let hasMaximumSpentInfluence: Bool
     
-    /// Does this advantage exclusively applies to arcane spellworks and not
-    /// to magical actions and magical applications?
+    /// Does this advantage exclusively applies to arcane spellworks and not to magical actions and magical applications?
     public let isExclusiveToArcaneSpellworks: Bool
     
     public let src: PublicationRefs
@@ -68,9 +66,7 @@ public struct AdvantageTranslation: EntitySubtype {
     
     public let apValue: AdventurePointsValueReplacement?
     
-    /// A string that gets appended to the default AP Value text with a preceding
-    /// space. This always happens if present, even if the generated AP Value text
-    /// is replaced.
+    /// A string that gets appended to the default AP Value text with a preceding space. This always happens if present, even if the generated AP Value text is replaced.
     public let apValueAppend: AdventurePointsValueAppend?
     
     public let errata: Errata?    

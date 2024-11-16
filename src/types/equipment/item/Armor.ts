@@ -192,8 +192,7 @@ export type HitZone =
 
 export type HeadHitZone = {
   /**
-   * In some cases, multiple armors for the same hit zone can be combined.
-   * They're listed at the item that can be combined with others.
+   * In some cases, multiple armors for the same hit zone can be combined. They're listed at the item that can be combined with others.
    */
   combination_possibilities?: HeadHitZoneCombinationPossibilities
 }
@@ -206,8 +205,7 @@ export type HeadHitZoneCombinationPossibilities = {
   armors: ArmorReference[]
 
   /**
-   * The PRO value that is added to the PRO value of the other armor instead
-   * of adding the normale PRO value.
+   * The PRO value that is added to the PRO value of the other armor instead of adding the normale PRO value.
    * @integer
    * @minimum 0
    */

@@ -104,9 +104,7 @@ The name of the elven magical song.
 
 #### <a name="ElvenMagicalSongTranslation/effect"></a> `effect`
 
-The effect description may be either a plain text or a text that is
-divided by a list of effects for each quality level. It may also be a
-list for each two quality levels.
+The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
 
 - **Type:** <a href="../_ActivatableSkillEffect.md#ActivatableSkillEffect">ActivatableSkillEffect</a>
 
@@ -226,7 +224,6 @@ Key | Description | Details
 
 #### <a name="ElvenMagicalSongCostTranslation/per"></a> `per`
 
-The cost have to be per a specific countable entity, e.g. `8 AE
-per person`.
+The cost have to be per a specific countable entity, e.g. `8 AE per person`.
 
 - **Type:** <a href="../_ResponsiveText.md#ResponsiveText">ResponsiveText</a>

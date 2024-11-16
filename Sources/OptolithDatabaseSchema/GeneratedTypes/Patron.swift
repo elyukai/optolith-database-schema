@@ -17,36 +17,28 @@ public struct Patron: LocalizableEntity {
     /// The patron-specific skills.
     public let skills: [SkillReference]
     
-    /// The patron is only available to a certain set of cultures. It may be
-    /// available to all, it may be available to only specific ones (intersection)
-    /// and it may be available to all except specific ones to the listed cultures
+    /// The patron is only available to a certain set of cultures. It may be available to all, it may be available to only specific ones (intersection) and it may be available to all except specific ones to the listed cultures
     /// (difference).
     public let culture: PatronCulture
     
-    /// The list of cultures where patrons from this category can be the primary
-    /// patron of.
+    /// The list of cultures where patrons from this category can be the primary patron of.
     public let primaryPatronCultures: [CultureReference]?
     
-    /// The patron-specific powers. Used by animist power Animal Powers I–III and
-    /// should only be present on animal patrons.
+    /// The patron-specific powers. Used by animist power Animal Powers I–III and should only be present on animal patrons.
     public let powers: AnimalPowers?
     
-    /// The patron-specific AE cost. Used by several animist forces for animal
-    /// patrons.
+    /// The patron-specific AE cost. Used by several animist forces for animal patrons.
     public let aeCost: Int?
     
-    /// The patron-specific improvement cost. Used by several animist forces for
-    /// animal patrons.
+    /// The patron-specific improvement cost. Used by several animist forces for animal patrons.
     public let improvementCost: ImprovementCost?
     
-    /// The patron may grant common advantages that are taken into account during
-    /// character creation.
+    /// The patron may grant common advantages that are taken into account during character creation.
     /// 
     /// *Source:* Geisterwald & Knochenklippen, p. 6-7
     public let commonAdvantages: [AdvantageReference]?
     
-    /// The patron may grant common disadvantages that are taken into account
-    /// during character creation.
+    /// The patron may grant common disadvantages that are taken into account during character creation.
     /// 
     /// *Source:* Geisterwald & Knochenklippen, p. 6-7
     public let commonDisadvantages: [DisadvantageReference]?
@@ -80,19 +72,14 @@ public struct PatronTranslation: EntitySubtype {
     public let name: NonEmptyString
 }
 
-/// The patron cultures the patron is or is not part of. If the patron is part of
-/// all patron cultures, the set should be empty and the operation should be
-/// difference.
+/// The patron cultures the patron is or is not part of. If the patron is part of all patron cultures, the set should be empty and the operation should be difference.
 public struct PatronCulture: EntitySubtype {
     public let set: [CultureReference]
     
     public let operation: PatronCultureOperation
 }
 
-/// The set operation to combine the set of all patron cultures with the
-/// specified set of patron cultures: If they should intersect, the patron is
-/// only part of the given cultures. If they should differ, the patron is only
-/// part of the cultures that are not given.
+/// The set operation to combine the set of all patron cultures with the specified set of patron cultures: If they should intersect, the patron is only part of the given cultures. If they should differ, the patron is only part of the cultures that are not given.
 public enum PatronCultureOperation: String, EntitySubtype {
     case intersection = "Intersection"
     case difference = "Difference"

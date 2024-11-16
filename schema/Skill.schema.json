@@ -17,7 +17,7 @@
           "$ref": "./_SkillCheck.schema.json#/$defs/SkillCheck"
         },
         "applications": {
-          "description": "Lists applications for the skill, if any. This does not necessarily include\nall possible applications. There may also be new applications that could be\npurchased via certain advantages or special abilities.",
+          "description": "Lists applications for the skill, if any. This does not necessarily include all possible applications. There may also be new applications that could be purchased via certain advantages or special abilities.",
           "$ref": "#/$defs/Applications"
         },
         "encumbrance": {
@@ -67,15 +67,15 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "applications_input_label": {
-          "description": "If there are options available that can not be put into a selection\nlist (like different cults), provide the label text for the input\nelement here. Otherwise leave empty.",
+          "description": "If there are options available that can not be put into a selection list (like different cults), provide the label text for the input element here. Otherwise leave empty.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "encumbrance_description": {
-          "description": "The text listing the certain circumstances in which the encumbrance may\ncount. This text must be used if `encumbrance` is set to `\"Maybe\"`,\notherwise it is ignored if defined.",
+          "description": "The text listing the certain circumstances in which the encumbrance may count. This text must be used if `encumbrance` is set to `\"Maybe\"`, otherwise it is ignored if defined.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "tools": {
-          "description": "Mentions any tools from the equipment list that are necessary to employ\nthe skill.",
+          "description": "Mentions any tools from the equipment list that are necessary to employ the skill.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
         },
         "quality": {
@@ -108,7 +108,7 @@
       "additionalProperties": false
     },
     "ApplicationCategory": {
-      "description": "A category. All available entries from the specified category will be\nincluded as separate applications.",
+      "description": "A category. All available entries from the specified category will be included as separate applications.",
       "oneOf": [
         {
           "const": "BlessedTraditions"

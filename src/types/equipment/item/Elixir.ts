@@ -33,8 +33,7 @@ export type Elixir = {
   laboratory: LaboratoryLevel
 
   /**
-   * The brewing difficulty, which represents the challenge of creating an
-   * elixir.
+   * The brewing difficulty, which represents the challenge of creating an elixir.
    * @integer
    */
   brewing_difficulty: number
@@ -77,8 +76,7 @@ export type ElixirTranslation = {
   brewing_process_prerequisites?: NonEmptyMarkdown
 
   /**
-   * The list of effects for each quality level. The first element
-   * represents QL 1, the second element QL 2, and so on.
+   * The list of effects for each quality level. The first element represents QL 1, the second element QL 2, and so on.
    * @minLength 6
    * @maxLength 6
    */

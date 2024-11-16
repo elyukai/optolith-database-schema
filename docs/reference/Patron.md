@@ -45,17 +45,14 @@ The patron-specific skills.
 
 #### <a name="Patron/culture"></a> `culture`
 
-The patron is only available to a certain set of cultures. It may be
-available to all, it may be available to only specific ones (intersection)
-and it may be available to all except specific ones to the listed cultures
+The patron is only available to a certain set of cultures. It may be available to all, it may be available to only specific ones (intersection) and it may be available to all except specific ones to the listed cultures
 (difference).
 
 - **Type:** <a href="#PatronCulture">PatronCulture</a>
 
 #### <a name="Patron/primary_patron_cultures"></a> `primary_patron_cultures?`
 
-The list of cultures where patrons from this category can be the primary
-patron of.
+The list of cultures where patrons from this category can be the primary patron of.
 
 - **Type:** List
 - **Items:** <a href="#Patron/primary_patron_cultures[]">Patron/primary_patron_cultures[]</a>
@@ -63,15 +60,13 @@ patron of.
 
 #### <a name="Patron/powers"></a> `powers?`
 
-The patron-specific powers. Used by animist power Animal Powers I–III and
-should only be present on animal patrons.
+The patron-specific powers. Used by animist power Animal Powers I–III and should only be present on animal patrons.
 
 - **Type:** <a href="#AnimalPowers">AnimalPowers</a>
 
 #### <a name="Patron/ae_cost"></a> `ae_cost?`
 
-The patron-specific AE cost. Used by several animist forces for animal
-patrons.
+The patron-specific AE cost. Used by several animist forces for animal patrons.
 
 - **Type:** Integer
 - **Minimum:** `2`
@@ -79,15 +74,13 @@ patrons.
 
 #### <a name="Patron/improvement_cost"></a> `improvement_cost?`
 
-The patron-specific improvement cost. Used by several animist forces for
-animal patrons.
+The patron-specific improvement cost. Used by several animist forces for animal patrons.
 
 - **Type:** <a href="./_ImprovementCost.md#ImprovementCost">ImprovementCost</a>
 
 #### <a name="Patron/common_advantages"></a> `common_advantages?`
 
-The patron may grant common advantages that are taken into account during
-character creation.
+The patron may grant common advantages that are taken into account during character creation.
 
 *Source:* Geisterwald & Knochenklippen, p. 6-7
 
@@ -96,8 +89,7 @@ character creation.
 
 #### <a name="Patron/common_disadvantages"></a> `common_disadvantages?`
 
-The patron may grant common disadvantages that are taken into account
-during character creation.
+The patron may grant common disadvantages that are taken into account during character creation.
 
 *Source:* Geisterwald & Knochenklippen, p. 6-7
 
@@ -169,9 +161,7 @@ The name of the patron.
 
 ### <a name="PatronCulture"></a> `PatronCulture`
 
-The patron cultures the patron is or is not part of. If the patron is part of
-all patron cultures, the set should be empty and the operation should be
-difference.
+The patron cultures the patron is or is not part of. If the patron is part of all patron cultures, the set should be empty and the operation should be difference.
 
 - **Type:** Object
 
@@ -199,10 +189,7 @@ Key | Description | Details
 
 ### <a name="PatronCultureOperation"></a> `PatronCultureOperation`
 
-The set operation to combine the set of all patron cultures with the
-specified set of patron cultures: If they should intersect, the patron is
-only part of the given cultures. If they should differ, the patron is only
-part of the cultures that are not given.
+The set operation to combine the set of all patron cultures with the specified set of patron cultures: If they should intersect, the patron is only part of the given cultures. If they should differ, the patron is only part of the cultures that are not given.
 
 - **Type:** Union
 - **Cases:** <a href="#PatronCultureOperation'0">PatronCultureOperation'0</a> | <a href="#PatronCultureOperation'1">PatronCultureOperation'1</a>

@@ -79,8 +79,7 @@ Key | Description | Details
 
 #### <a name="SikaryanDrainSpecialAbilityTranslation/ap_value"></a> `ap_value?`
 
-The AP value. It is only used if the text cannot be generated from the
-given information.
+The AP value. It is only used if the text cannot be generated from the given information.
 
 - **Type:** <a href="#AdventurePointsValueReplacement">AdventurePointsValueReplacement</a>
 

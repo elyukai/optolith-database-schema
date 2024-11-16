@@ -20,8 +20,7 @@ public struct MagicalDance: LocalizableEntity {
     /// The associated property.
     public let property: PropertyReference
     
-    /// The music tradition(s) the magical dance is available for. This also
-    /// defines the different names in each music tradition.
+    /// The music tradition(s) the magical dance is available for. This also defines the different names in each music tradition.
     public let musicTradition: [MusicTraditionReference]
     
     /// States which column is used to improve the skill.
@@ -48,9 +47,7 @@ public struct MagicalDanceTranslation: EntitySubtype {
     /// The name of the magical dance.
     public let name: NonEmptyString
     
-    /// The effect description may be either a plain text or a text that is
-    /// divided by a list of effects for each quality level. It may also be a
-    /// list for each two quality levels.
+    /// The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
     public let effect: ActivatableSkillEffect
     
     @available(*, deprecated)
@@ -84,8 +81,7 @@ public struct FixedMagicalDanceCost: EntitySubtype {
 }
 
 public struct IndefiniteMagicalDanceCost: EntitySubtype {
-    /// Specified if the indefinite description's result value is to be
-    /// modified by a certain number.
+    /// Specified if the indefinite description's result value is to be modified by a certain number.
     public let modifier: CheckResultBasedModifier?
     
     /// All translations for the entry, identified by IETF language tag (BCP47).

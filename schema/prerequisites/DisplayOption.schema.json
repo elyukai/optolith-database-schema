@@ -46,7 +46,7 @@
       "type": "object",
       "properties": {
         "sentence_type": {
-          "description": "If the replacement text is a sentence or sentence-like fragment, this\nproperty ensures it is integrated into the prerequisite string correctly.\n\nA standalone sentence is connected to the previous prerequisite string with\na period and a period is also added at the end of the sentence\nautomatically, if it is not present. A connected sentence is connected to\nthe previous prerequisite string with a semicolon and a period is not added\nto the end of the sentence. In this case, if there are prerequisites after\nthis one, they will be connected using a semicolon again, unless a\ndifferent punctuation mark is present at the end of the given text.",
+          "description": "If the replacement text is a sentence or sentence-like fragment, this property ensures it is integrated into the prerequisite string correctly.\n\nA standalone sentence is connected to the previous prerequisite string with a period and a period is also added at the end of the sentence automatically, if it is not present. A connected sentence is connected to the previous prerequisite string with a semicolon and a period is not added to the end of the sentence. In this case, if there are prerequisites after this one, they will be connected using a semicolon again, unless a different punctuation mark is present at the end of the given text.",
           "$ref": "./single/TextPrerequisite.schema.json#/$defs/SentenceType"
         },
         "translations": {

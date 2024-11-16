@@ -30,8 +30,7 @@ export type CauldronEnchantment = {
   volume: Activatable.Volume
 
   /**
-   * Witches can learn to brew special things in their Witch's Cauldron. These
-   * brews can be categorized in different types.
+   * Witches can learn to brew special things in their Witch's Cauldron. These brews can be categorized in different types.
    */
   brew: BrewReference
 

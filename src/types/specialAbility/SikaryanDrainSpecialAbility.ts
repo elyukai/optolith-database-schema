@@ -47,15 +47,18 @@ export type SikaryanDrainSpecialAbilityTranslation = {
   rules: Activatable.Rules
 
   /**
-   * The AP value. It is only used if the text cannot be generated from the
-   * given information.
+   * The AP value. It is only used if the text cannot be generated from the given information.
    */
   ap_value?: Activatable.AdventurePointsValueReplacement
 
   errata?: Errata
 }
 
-export const config: TypeConfig<SikaryanDrainSpecialAbility, SikaryanDrainSpecialAbility["id"], "SikaryanDrainSpecialAbility"> = {
+export const config: TypeConfig<
+  SikaryanDrainSpecialAbility,
+  SikaryanDrainSpecialAbility["id"],
+  "SikaryanDrainSpecialAbility"
+> = {
   name: "SikaryanDrainSpecialAbility",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("SikaryanDrainSpecialAbility"),

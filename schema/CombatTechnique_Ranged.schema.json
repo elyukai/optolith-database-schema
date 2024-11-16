@@ -13,7 +13,7 @@
           "minimum": 1
         },
         "special": {
-          "description": "Special rules for the combat technique that apply to all weapons in this\ncategory.",
+          "description": "Special rules for the combat technique that apply to all weapons in this category.",
           "$ref": "#/$defs/RangedCombatTechniqueSpecialRules"
         },
         "primary_attribute": {
@@ -61,7 +61,7 @@
       "additionalProperties": false
     },
     "RangedCombatTechniqueSpecialRules": {
-      "description": "Special rules for the combat technique that apply to all weapons in this\ncategory.",
+      "description": "Special rules for the combat technique that apply to all weapons in this category.",
       "type": "object",
       "properties": {
         "has_ammunition": {

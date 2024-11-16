@@ -33,8 +33,7 @@ export type Publication = {
   contains_adult_content: boolean
 
   /**
-   * If the publication is not (fully) implemented and thus needs to be excluded
-   * from * stable releases.
+   * If the publication is not (fully) implemented and thus needs to be excluded from * stable releases.
    */
   is_missing_implementation: boolean
 
@@ -74,8 +73,7 @@ export type PublicationTranslation = {
   release_date?: string
 
   /**
-   * If this publication translation is not (fully) implemented and thus needs
-   * to be excluded from stable releases.
+   * If this publication translation is not (fully) implemented and thus needs to be excluded from stable releases.
    */
   is_missing_implementation: boolean
 }
@@ -83,11 +81,7 @@ export type PublicationTranslation = {
 /**
  * The publication category.
  */
-export type Category =
-  | "CoreRules"
-  | "ExpansionRules"
-  | "Sourcebook"
-  | "RegionalSourcebook"
+export type Category = "CoreRules" | "ExpansionRules" | "Sourcebook" | "RegionalSourcebook"
 
 export const config: TypeConfig<Publication, Publication["id"], "Publication"> = {
   name: "Publication",

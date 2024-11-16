@@ -20,7 +20,7 @@
           "$ref": "../_Activatable.schema.json#/$defs/SkillUses"
         },
         "primary": {
-          "description": "The tradition's primary attribute. Leave empty if the tradition does not\nhave one.",
+          "description": "The tradition's primary attribute. Leave empty if the tradition does not have one.",
           "$ref": "../_SimpleReferences.schema.json#/$defs/AttributeReference"
         },
         "aspects": {
@@ -49,7 +49,7 @@
           "minItems": 1
         },
         "favored_skills_selection": {
-          "description": "On activation of the tradition, a specific number of skills from a list of\nskills must be selected as being favored.",
+          "description": "On activation of the tradition, a specific number of skills from a list of skills must be selected as being favored.",
           "$ref": "#/$defs/FavoredSkillsSelection"
         },
         "type": {
@@ -57,7 +57,7 @@
           "$ref": "#/$defs/BlessedTraditionType"
         },
         "associated_principles_id": {
-          "description": "The select option's identifier of the disadvantage *Principles* that\nrepresent this tradition's code, if any.",
+          "description": "The select option's identifier of the disadvantage *Principles* that represent this tradition's code, if any.",
           "type": "number"
         },
         "prerequisites": {
@@ -325,7 +325,7 @@
           "$ref": "../_Activatable.schema.json#/$defs/Name"
         },
         "name_compressed": {
-          "description": "A shorter name of the tradition's name, used in liturgical chant\ndescriptions.",
+          "description": "A shorter name of the tradition's name, used in liturgical chant descriptions.",
           "type": "string",
           "minLength": 1
         },
@@ -333,7 +333,7 @@
           "$ref": "../_Activatable.schema.json#/$defs/NameInLibrary"
         },
         "special_rules": {
-          "description": "The special rules of the tradition. They should be sorted like they are\nin the book.",
+          "description": "The special rules of the tradition. They should be sorted like they are in the book.",
           "type": "array",
           "items": {
             "$ref": "./_Tradition.schema.json#/$defs/SpecialRule"

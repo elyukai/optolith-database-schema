@@ -24,8 +24,7 @@ The name of the activatable entry.
 
 ### <a name="NameInLibrary"></a> `NameInLibrary`
 
-The full name of the entry as stated in the sources. Only use when `name`
-needs to be different from full name for text generation purposes.
+The full name of the entry as stated in the sources. Only use when `name` needs to be different from full name for text generation purposes.
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -43,8 +42,7 @@ Number of available levels.
 
 ### <a name="Maximum"></a> `Maximum`
 
-The number stating how often you can buy the entry. The **default** depends on
-the entry type:
+The number stating how often you can buy the entry. The **default** depends on the entry type:
 
 - **Advantage:** `1` in all cases (as specified in the **Core Rules**)
 - **Disadvantage:** `1` in all cases (as specified in the **Core Rules**)
@@ -60,18 +58,9 @@ The maximum is only set if it differs from the defaults specified above.
 
 ### <a name="SelectOptions"></a> `SelectOptions`
 
-Definitions for possible options for the activatable entry. They can either
-be derived from entry categories or be defined explicitly. Both can happen as
-well, but if there is an explicitly defined select option and a derived
-select option has the same identifier (which may only happen if skill or
-combat technique identifiers are used for explicit select options), the
-explicit definition overwrites the derived option.
+Definitions for possible options for the activatable entry. They can either be derived from entry categories or be defined explicitly. Both can happen as well, but if there is an explicitly defined select option and a derived select option has the same identifier (which may only happen if skill or combat technique identifiers are used for explicit select options), the explicit definition overwrites the derived option.
 
-Note that this is only a full definition of options for simple logic that can
-be made explicit using the more detailed configuration for both derived
-categories and explicit options. There are quite a few entries whose option
-logic cannot be fully represented here, so that it needs to be implemented
-manually.
+Note that this is only a full definition of options for simple logic that can be made explicit using the more detailed configuration for both derived categories and explicit options. There are quite a few entries whose option logic cannot be fully represented here, so that it needs to be implemented manually.
 
 - **Type:** Object
 - **Minimum Properties:** `1`
@@ -83,21 +72,13 @@ Key | Description | Details
 
 #### <a name="SelectOptions/derived"></a> `derived?`
 
-An entry category with optional further configuration. All available
-entries from the specified categories will be included as separate select
-options. You can also specify a set of groups that should only be
-included. Groups not mentioned will be excluded then.
+An entry category with optional further configuration. All available entries from the specified categories will be included as separate select options. You can also specify a set of groups that should only be included. Groups not mentioned will be excluded then.
 
 - **Type:** <a href="./_ActivatableSelectOptionCategory.md#SelectOptionCategory">SelectOptionCategory</a>
 
 #### <a name="SelectOptions/explicit"></a> `explicit?`
 
-A list of explicit select options. If the identifier has a specific type,
-its entry is the base of this select option, where values defined here
-override values from the base. Define the `src` property if the options
-are not derived from the rules text of the advantage/disadvantage/special
-ability but instead are listed in a separate block and/or on a separate
-page.
+A list of explicit select options. If the identifier has a specific type, its entry is the base of this select option, where values defined here override values from the base. Define the `src` property if the options are not derived from the rules text of the advantage/disadvantage/special ability but instead are listed in a separate block and/or on a separate page.
 
 - **Type:** List
 - **Items:** <a href="#SelectOptions/explicit[]">SelectOptions/explicit[]</a>
@@ -200,28 +181,19 @@ The option's identifier. An unique, increasing integer.
 
 #### <a name="ExplicitGeneralSelectOption/profession_only"></a> `profession_only?`
 
-Sometimes, professions use specific text selections that are not
-contained in described lists. This ensures you can use them for
-professions only. They are not going to be displayed as options to the
-user.
+Sometimes, professions use specific text selections that are not contained in described lists. This ensures you can use them for professions only. They are not going to be displayed as options to the user.
 
 - **Constant:** `true`
 
 #### <a name="ExplicitGeneralSelectOption/skill_applications"></a> `skill_applications?`
 
-Registers new applications, which get enabled once this entry is
-activated with its respective select option. It specifies an entry-unique
-identifier and the skill it belongs to. A translation can be left out if
-its name equals the name of the origin select option.
+Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option.
 
 - **Type:** <a href="#SkillApplications">SkillApplications</a>
 
 #### <a name="ExplicitGeneralSelectOption/skill_uses"></a> `skill_uses?`
 
-Registers uses, which get enabled once this entry is activated with its
-respective select option. It specifies an entry-unique identifier and the
-skill it belongs to. A translation can be left out if its name equals the
-name of the origin select option.
+Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option.
 
 - **Type:** <a href="#SkillUses">SkillUses</a>
 
@@ -231,8 +203,7 @@ name of the origin select option.
 
 #### <a name="ExplicitGeneralSelectOption/binding_cost"></a> `binding_cost?`
 
-Specific binding cost for the select option. Only has an effect if the
-associated entry supports binding costs.
+Specific binding cost for the select option. Only has an effect if the associated entry supports binding costs.
 
 - **Type:** Integer
 - **Minimum:** `0`
@@ -276,16 +247,14 @@ The name of the select option.
 
 #### <a name="ExplicitGeneralSelectOptionTranslation/name_in_profession"></a> `name_in_profession?`
 
-The name of the select option when displayed in a generated
-profession text.
+The name of the select option when displayed in a generated profession text.
 
 - **Type:** String
 - **Minimum Length:** `1`
 
 #### <a name="ExplicitGeneralSelectOptionTranslation/description"></a> `description?`
 
-The description of the select option. Useful for Bad Habits, Trade
-Secrets and other entries where a description is available.
+The description of the select option. Useful for Bad Habits, Trade Secrets and other entries where a description is available.
 
 - **Type:** Markdown-formatted text
 - **Minimum Length:** `1`
@@ -319,10 +288,7 @@ The skill's identifier. An unique, increasing integer.
 
 #### <a name="ExplicitSkillSelectOption/skill_applications"></a> `skill_applications?`
 
-Registers new applications, which get enabled once this entry is
-activated with its respective select option. It specifies an entry-unique
-identifier and the skill it belongs to. A translation can be left out if
-its name equals the name of the origin select option.
+Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option.
 
 - **Type:** List
 - **Items:** <a href="#ExplicitSkillSelectOption/skill_applications[]">ExplicitSkillSelectOption/skill_applications[]</a>
@@ -330,10 +296,7 @@ its name equals the name of the origin select option.
 
 #### <a name="ExplicitSkillSelectOption/skill_uses"></a> `skill_uses?`
 
-Registers uses, which get enabled once this entry is activated with its
-respective select option. It specifies an entry-unique identifier and the
-skill it belongs to. A translation can be left out if its name equals the
-name of the origin select option.
+Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option.
 
 - **Type:** List
 - **Items:** <a href="#ExplicitSkillSelectOption/skill_uses[]">ExplicitSkillSelectOption/skill_uses[]</a>
@@ -345,8 +308,7 @@ name of the origin select option.
 
 #### <a name="ExplicitSkillSelectOption/binding_cost"></a> `binding_cost?`
 
-Specific binding cost for the select option. Only has an effect if the
-associated entry supports binding costs.
+Specific binding cost for the select option. Only has an effect if the associated entry supports binding costs.
 
 - **Type:** Integer
 - **Minimum:** `0`
@@ -422,8 +384,7 @@ The combat technique's identifier.
 
 #### <a name="ExplicitCombatTechniqueSelectOption/binding_cost"></a> `binding_cost?`
 
-Specific binding cost for the select option. Only has an effect if the
-associated entry supports binding costs.
+Specific binding cost for the select option. Only has an effect if the associated entry supports binding costs.
 
 - **Type:** Integer
 - **Minimum:** `0`
@@ -507,8 +468,7 @@ The definition of how the combat special ability can be used in combat.
 
 ### <a name="CombatSpecialAbilityType"></a> `CombatSpecialAbilityType`
 
-The definition of if the combat special ability can be used when armed or
-when unarmed.
+The definition of if the combat special ability can be used when armed or when unarmed.
 
 - **Type:** Union
 - **Cases:** <a href="#CombatSpecialAbilityType'0">CombatSpecialAbilityType'0</a> | <a href="#CombatSpecialAbilityType'1">CombatSpecialAbilityType'1</a>
@@ -529,10 +489,7 @@ when unarmed.
 
 ### <a name="SkillApplications"></a> `SkillApplications`
 
-Registers new skill applications, which get enabled once this entry is
-activated. It specifies an entry-unique identifier and the skill it belongs
-to. A translation can be left out if its name equals the name of the origin
-activatable entry.
+Registers new skill applications, which get enabled once this entry is activated. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin activatable entry.
 
 - **Type:** List
 - **Items:** <a href="#SkillApplications[]">SkillApplications[]</a>
@@ -641,9 +598,7 @@ The skills this application belongs to.
 
 #### <a name="SkillApplicationAssociatedSkills/required_skill_rating"></a> `required_skill_rating?`
 
-If an application applies to multiple skills, it may need to ensure the
-respective skill is on a certain skill rating if the activatable entry
-cannot ensure this prerequisite.
+If an application applies to multiple skills, it may need to ensure the respective skill is on a certain skill rating if the activatable entry cannot ensure this prerequisite.
 
 - **Type:** Integer
 - **Minimum:** `1`
@@ -674,9 +629,7 @@ The name of the application if different from the activatable entry's name.
 
 ### <a name="SkillUses"></a> `SkillUses`
 
-Registers uses, which get enabled once this entry is activated. It specifies
-an entry-unique identifier and the skill it belongs to. A translation can be
-left out if its name equals the name of the origin activatable entry.
+Registers uses, which get enabled once this entry is activated. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin activatable entry.
 
 - **Type:** List
 - **Items:** <a href="#SkillUses[]">SkillUses[]</a>
@@ -1171,9 +1124,7 @@ Key | Description | Details
 
 #### <a name="PenaltyByLevel/levels"></a> `levels`
 
-A continuous range of penalties for each level. The first element is the
-penalty for the first level, the second element is the penalty for the
-second level, and so on.
+A continuous range of penalties for each level. The first element is the penalty for the first level, the second element is the penalty for the second level, and so on.
 
 - **Type:** List
 - **Items:** <a href="#PenaltyByLevel/levels[]">PenaltyByLevel/levels[]</a>
@@ -1181,8 +1132,7 @@ second level, and so on.
 
 #### <a name="PenaltyByLevel/external"></a> `external?`
 
-The combat-related special ability of which the level defines the penalty
-instead.
+The combat-related special ability of which the level defines the penalty instead.
 
 - **Type:** <a href="#PenaltyByExternalLevel">PenaltyByExternalLevel</a>
 
@@ -1212,8 +1162,7 @@ The penalty value for this level.
 
 ### <a name="PenaltyByExternalLevel"></a> `PenaltyByExternalLevel`
 
-The combat-related special ability of which the level defines the penalty
-instead.
+The combat-related special ability of which the level defines the penalty instead.
 
 - **Type:** Object
 
@@ -1223,8 +1172,7 @@ Key | Description | Details
 
 #### <a name="PenaltyByExternalLevel/id"></a> `id`
 
-The identifier of the combat-related special ability of which the level
-defines the penalty instead.
+The identifier of the combat-related special ability of which the level defines the penalty instead.
 
 - **Type:** <a href="./_IdentifierGroup.md#CombatRelatedSpecialAbilityIdentifier">CombatRelatedSpecialAbilityIdentifier</a>
 
@@ -1242,12 +1190,7 @@ Key | Description | Details
 
 #### <a name="PenaltyByAttack/list"></a> `list`
 
-A list of penalties for subsequent attacks. The first element is the
-penalty for the first attack, the second element is the penalty for the
-second attack, and so on. The order of the first element may be changed
-using `initial_order`, so that e.g. if set to `2`, the first element is
-the penalty for the second attack, the second element is the penalty for
-the third attack, and so on.
+A list of penalties for subsequent attacks. The first element is the penalty for the first attack, the second element is the penalty for the second attack, and so on. The order of the first element may be changed using `initial_order`, so that e.g. if set to `2`, the first element is the penalty for the second attack, the second element is the penalty for the third attack, and so on.
 
 - **Type:** List
 - **Items:** <a href="#PenaltyByAttack/list[]">PenaltyByAttack/list[]</a>
@@ -1525,9 +1468,7 @@ Specified if the AE cost `value` has to be paid for each time interval.
 
 #### <a name="FixedArcaneEnergyCost/per_level"></a> `per_level?`
 
-The AE cost are per level of the enchantment. It may either be displayed
-in a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1
-AE for level I; 2 AE for level II`).
+The AE cost are per level of the enchantment. It may either be displayed in a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1 AE for level I; 2 AE for level II`).
 
 - **Type:** <a href="#FixedArcaneEnergyCostPerLevel">FixedArcaneEnergyCostPerLevel</a>
 
@@ -1541,9 +1482,7 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="FixedArcaneEnergyCostPerLevel"></a> `FixedArcaneEnergyCostPerLevel`
 
-The AE cost are per level of the enchantment. It may either be displayed
-in a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1
-AE for level I; 2 AE for level II`).
+The AE cost are per level of the enchantment. It may either be displayed in a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1 AE for level I; 2 AE for level II`).
 
 - **Type:** Union
 - **Cases:** <a href="#FixedArcaneEnergyCostPerLevel'0">FixedArcaneEnergyCostPerLevel'0</a> | <a href="#FixedArcaneEnergyCostPerLevel'1">FixedArcaneEnergyCostPerLevel'1</a>
@@ -1598,8 +1537,7 @@ The AE cost value that has to be per a specific countable entity.
 
 #### <a name="ArcaneEnergyCostPerCountable/base_value"></a> `base_value?`
 
-If defined, in addition to the cost per entity you have to pay a flat
-amount, regardless of the entity count.
+If defined, in addition to the cost per entity you have to pay a flat amount, regardless of the entity count.
 
 - **Type:** Integer
 - **Minimum:** `1`
@@ -1623,8 +1561,7 @@ Key | Description | Details
 
 #### <a name="ArcaneEnergyCostPerCountableTranslation/per"></a> `per`
 
-The cost have to be per a specific countable entity, e.g. `8 AE per
-person`.
+The cost have to be per a specific countable entity, e.g. `8 AE per person`.
 
 - **Type:** <a href="./_ResponsiveText.md#ResponsiveText">ResponsiveText</a>
 
@@ -1671,8 +1608,7 @@ Key | Description | Details
 
 #### <a name="ActivationAndHalfIntervalArcaneEnergyCost/value"></a> `value`
 
-The AE cost value that has to be payed for activation. Half of this value
-has to be payed each interval.
+The AE cost value that has to be payed for activation. Half of this value has to be payed each interval.
 
 - **Type:** Integer
 - **Minimum:** `2`
@@ -1697,8 +1633,7 @@ Key | Description | Details
 
 #### <a name="IndefiniteArcaneEnergyCost/modifier"></a> `modifier?`
 
-Specified if the indefinite AP cost description needs to be modified by a
-certain value.
+Specified if the indefinite AP cost description needs to be modified by a certain value.
 
 - **Type:** <a href="#IndefiniteArcaneEnergyCostModifier">IndefiniteArcaneEnergyCostModifier</a>
 
@@ -1767,8 +1702,7 @@ Key | Description | Details
 
 #### <a name="ArcaneEnergyCostDisjunction/interval"></a> `interval?`
 
-Specified if the selected AE cost option has to be paid for each time
-interval.
+Specified if the selected AE cost option has to be paid for each time interval.
 
 - **Type:** <a href="#ArcaneEnergyCostDisjunctionInterval">ArcaneEnergyCostDisjunctionInterval</a>
 
@@ -1816,8 +1750,7 @@ Set to `true` if the action where the enchantment is casted does
 **not** as a part of the first interval that has to be payed, so that
 the first interval payment needs to be done after the activation.
 
-This works different than other sustained spells, since for them the
-end of the cast usually already counts as part of the first interval.
+This works different than other sustained spells, since for them the end of the cast usually already counts as part of the first interval.
 
 - **Type:** Boolean
 
@@ -2046,9 +1979,7 @@ Key | Description | Details
 
 #### <a name="VolumeByLevel/list"></a> `list`
 
-The volume points for each level. The first element is the volume points
-for the first level, the second element is the volume points for the
-second level, and so on.
+The volume points for each level. The first element is the volume points for the first level, the second element is the volume points for the second level, and so on.
 
 - **Type:** List
 - **Items:** <a href="#VolumeByLevel/list[]">VolumeByLevel/list[]</a>
@@ -2081,9 +2012,7 @@ The volume points for this level.
 
 ### <a name="VolumeMap"></a> `VolumeMap`
 
-A content that is `3/4/5 Points for Chimera, Daimonid, Golems, Undead /
-Fairies, Ghosts / Demons, Elementals` may be respresented as the following
-map:
+A content that is `3/4/5 Points for Chimera, Daimonid, Golems, Undead / Fairies, Ghosts / Demons, Elementals` may be respresented as the following map:
 
 ```yaml
 options:
@@ -2119,9 +2048,7 @@ options:
         label_standalone: "Demons/Elementals"
 ```
 
-This will generate the exact same string as seen above. The associated
-options are not present in the example, but they link to the options the
-volume specification is meant for.
+This will generate the exact same string as seen above. The associated options are not present in the example, but they link to the options the volume specification is meant for.
 
 - **Type:** Object
 
@@ -2177,10 +2104,7 @@ Place a string after the grouped map option labels.
 
 #### <a name="VolumeMapTranslation/replacement"></a> `replacement?`
 
-If the string from the book cannot be generated using the default
-generation technique, use this string. All options still need to be
-inserted propertly, since it may be used by in-game tools to provide a
-selection to players.
+If the string from the book cannot be generated using the default generation technique, use this string. All options still need to be inserted propertly, since it may be used by in-game tools to provide a selection to players.
 
 - **Type:** String
 
@@ -2257,8 +2181,7 @@ The description of the option for cost string generation.
 
 #### <a name="VolumeMapOptionTranslation/label_standalone"></a> `label_standalone?`
 
-The description of the option if used standalone. Only used if
-different from `label`.
+The description of the option if used standalone. Only used if different from `label`.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -2378,8 +2301,7 @@ Key | Description | Details
 
 The permanent AE cost.
 
-If the enchantment has multiple levels, it is only applied for the first
-level.
+If the enchantment has multiple levels, it is only applied for the first level.
 
 - **Type:** Integer
 - **Minimum:** `1`
@@ -2405,9 +2327,7 @@ The permanent AE cost per level.
 
 ### <a name="BindingCostMap"></a> `BindingCostMap`
 
-A content that is `2/4/8 permanent AE for spell-swords with the combat
-technique Daggers, Swords, or Two-Handed Swords` may be respresented as the
-following map:
+A content that is `2/4/8 permanent AE for spell-swords with the combat technique Daggers, Swords, or Two-Handed Swords` may be respresented as the following map:
 
 ```yaml
 options:
@@ -2485,10 +2405,7 @@ Place a string after the grouped map option labels.
 
 #### <a name="BindingCostMapTranslation/replacement"></a> `replacement?`
 
-If the string from the book cannot be generated using the default
-generation technique, use this string. All options still need to be
-inserted propertly, since it may be used by in-game tools to provide a
-selection to players.
+If the string from the book cannot be generated using the default generation technique, use this string. All options still need to be inserted propertly, since it may be used by in-game tools to provide a selection to players.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -2535,8 +2452,7 @@ The description of the option for cost string generation.
 
 #### <a name="BindingCostMapOptionTranslation/label_standalone"></a> `label_standalone?`
 
-The description of the option if used standalone. Only used if
-different from `label`.
+The description of the option if used standalone. Only used if different from `label`.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -2561,8 +2477,7 @@ The binding cost for the selection if it does not define a specific one.
 
 ### <a name="PropertyDeclaration"></a> `PropertyDeclaration`
 
-The magic property's identifier. `DependingOnProperty` can only be used if
-the special ability has an option to select a property.
+The magic property's identifier. `DependingOnProperty` can only be used if the special ability has an option to select a property.
 
 - **Type:** Union
 - **Cases:** <a href="#PropertyDeclaration'DependingOnSelection">PropertyDeclaration'DependingOnSelection</a> | <a href="#PropertyDeclaration'Fixed">PropertyDeclaration'Fixed</a>
@@ -2723,8 +2638,7 @@ The advanced special ability’s identifier.
 
 #### <a name="RestrictAdvancedSpecialAbilityOptions/option"></a> `option`
 
-Specify the select option(s) that only are allowed for the referenced
-advanced special ability; others are disallowed.
+Specify the select option(s) that only are allowed for the referenced advanced special ability; others are disallowed.
 
 - **Type:** List
 - **Items:** <a href="#RestrictAdvancedSpecialAbilityOptions/option[]">RestrictAdvancedSpecialAbilityOptions/option[]</a>
@@ -2758,8 +2672,7 @@ The possible advanced special abilities.
 
 #### <a name="OneOfAdvancedSpecialAbilityOptions/is_selection_required_on_purchase"></a> `is_selection_required_on_purchase`
 
-Do have to choose the advanced special ability when buying the style
-special ability? Otherwise the decision can be made later.
+Do have to choose the advanced special ability when buying the style special ability? Otherwise the decision can be made later.
 
 - **Type:** Boolean
 
@@ -2813,8 +2726,7 @@ Map options from the external entry to allowed advanced special abilities.
 
 ### <a name="AdvancedSpecialAbilityDerivedFromExternalOptionMapping"></a> `AdvancedSpecialAbilityDerivedFromExternalOptionMapping<Identifier>`
 
-Mapping from an option of the external entry to an allowed advanced special
-ability.
+Mapping from an option of the external entry to an allowed advanced special ability.
 
 - **Type:** Object
 
@@ -2851,11 +2763,7 @@ The advanced special ability's identifier.
 
 ### <a name="AdvancedSpecialAbilities"></a> `AdvancedSpecialAbilities<Identifier>`
 
-The Advanced Special Abilities for the respective Style Special Ability.
-Sometimes, only a specific select option or a set of select options of an
-entry is allowed, which can be modelled by the option property. It can also
-be that you can choose from a set of special abilities, but then you can't
-specify an option.
+The Advanced Special Abilities for the respective Style Special Ability. Sometimes, only a specific select option or a set of select options of an entry is allowed, which can be modelled by the option property. It can also be that you can choose from a set of special abilities, but then you can't specify an option.
 
 - **Type:** List
 - **Items:** <a href="#AdvancedSpecialAbilities[]">AdvancedSpecialAbilities[]</a>
@@ -2872,8 +2780,7 @@ specify an option.
 
 ### <a name="PrerequisitesReplacement"></a> `PrerequisitesReplacement`
 
-The prerequisites text. It is only used if the text cannot be generated from
-the given information.
+The prerequisites text. It is only used if the text cannot be generated from the given information.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
@@ -3865,8 +3772,7 @@ Key | Description | Details
 
 ### <a name="FixedAdventurePointsValue"></a> `FixedAdventurePointsValue`
 
-A fixed adventure points value. If the entry has levels, this is the cost per
-level as well.
+A fixed adventure points value. If the entry has levels, this is the cost per level as well.
 
 - **Type:** <a href="#AdventurePointsSingleValue">AdventurePointsSingleValue</a>
 
@@ -3874,8 +3780,7 @@ level as well.
 
 ### <a name="AdventurePointsValueByLevel"></a> `AdventurePointsValueByLevel`
 
-An entry with levels may have different costs for each level. The length of
-the list must match the amount of levels the special ability has.
+An entry with levels may have different costs for each level. The length of the list must match the amount of levels the special ability has.
 
 - **Type:** List
 - **Items:** <a href="#AdventurePointsValueByLevel[]">AdventurePointsValueByLevel[]</a>
@@ -3891,10 +3796,7 @@ the list must match the amount of levels the special ability has.
 
 ### <a name="AdventurePointsDerivedFromSelection"></a> `AdventurePointsDerivedFromSelection`
 
-The adventure points value is derived from the selection of the special
-ability. Its display value may be able to be derived from the given
-information for the select options. If that is not the case or the generated
-text would not match the original one, a replacement text can be provided.
+The adventure points value is derived from the selection of the special ability. Its display value may be able to be derived from the given information for the select options. If that is not the case or the generated text would not match the original one, a replacement text can be provided.
 
 - **Type:** Object
 
@@ -3921,8 +3823,7 @@ Key | Description | Details
 
 #### <a name="AdventurePointsDerivedFromSelectionTranslation/replacement"></a> `replacement?`
 
-A replacement for the generated text if it would not match the original
-one.
+A replacement for the generated text if it would not match the original one.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
@@ -3947,8 +3848,7 @@ A string that is used as a label for an input field.
 
 ### <a name="AdventurePointsValueReplacement"></a> `AdventurePointsValueReplacement`
 
-The AP value. It is only used if the text cannot be generated from the given
-information.
+The AP value. It is only used if the text cannot be generated from the given information.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
@@ -3956,8 +3856,6 @@ information.
 
 ### <a name="AdventurePointsValueAppend"></a> `AdventurePointsValueAppend`
 
-A string that gets appended to the default AP Value text with a preceding
-space. This always happens if present, even if the generated AP Value text is
-replaced.
+A string that gets appended to the default AP Value text with a preceding space. This always happens if present, even if the generated AP Value text is replaced.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>

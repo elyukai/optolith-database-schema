@@ -54,16 +54,18 @@ export type GeneralSpecialAbilityTranslation = {
   rules: Activatable.Rules
 
   /**
-   * A string that gets appended to the default AP Value text with a preceding
-   * space. This always happens if present, even if the generated AP Value text
-   * is replaced.
+   * A string that gets appended to the default AP Value text with a preceding space. This always happens if present, even if the generated AP Value text is replaced.
    */
   ap_value_append?: Activatable.AdventurePointsValueAppend
 
   errata?: Errata
 }
 
-export const config: TypeConfig<GeneralSpecialAbility, GeneralSpecialAbility["id"], "GeneralSpecialAbility"> = {
+export const config: TypeConfig<
+  GeneralSpecialAbility,
+  GeneralSpecialAbility["id"],
+  "GeneralSpecialAbility"
+> = {
   name: "GeneralSpecialAbility",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("GeneralSpecialAbility"),

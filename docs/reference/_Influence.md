@@ -54,8 +54,7 @@ The influence name.
 
 #### <a name="InfluenceTranslation/effects"></a> `effects`
 
-The effects of the influence. They should be sorted like they are in
-the book.
+The effects of the influence. They should be sorted like they are in the book.
 
 - **Type:** List
 - **Items:** <a href="#InfluenceTranslation/effects[]">InfluenceTranslation/effects[]</a>
@@ -84,8 +83,7 @@ Key | Description | Details
 
 #### <a name="InfluenceEffect/label"></a> `label?`
 
-An optional label that is displayed and placed before the actual
-text.
+An optional label that is displayed and placed before the actual text.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 

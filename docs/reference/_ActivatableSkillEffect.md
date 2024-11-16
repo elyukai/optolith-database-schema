@@ -4,9 +4,7 @@
 
 ### <a name="ActivatableSkillEffect"></a> `ActivatableSkillEffect`
 
-The effect description may be either a plain text or a text that is divided
-by a list of effects for each quality level. It may also be a list for each
-two quality levels.
+The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
 
 - **Type:** Union
 - **Cases:** <a href="#ActivatableSkillEffect'Plain">ActivatableSkillEffect'Plain</a> | <a href="#ActivatableSkillEffect'ForEachQualityLevel">ActivatableSkillEffect'ForEachQualityLevel</a> | <a href="#ActivatableSkillEffect'ForEachTwoQualityLevels">ActivatableSkillEffect'ForEachTwoQualityLevels</a>
@@ -98,23 +96,20 @@ Key | Description | Details
 
 #### <a name="ActivatableSkillEffectForEachQualityLevel/text_before"></a> `text_before`
 
-The effect description before the list of effects for each quality
-level.
+The effect description before the list of effects for each quality level.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
 #### <a name="ActivatableSkillEffectForEachQualityLevel/quality_levels"></a> `quality_levels`
 
-The list of effects for each quality level. The first element
-represents QL 1, the second element QL 2, and so on.
+The list of effects for each quality level. The first element represents QL 1, the second element QL 2, and so on.
 
 - **Type:** List
 - **Items:** <a href="#ActivatableSkillEffectForEachQualityLevel/quality_levels[]">ActivatableSkillEffectForEachQualityLevel/quality_levels[]</a>
 
 #### <a name="ActivatableSkillEffectForEachQualityLevel/text_after"></a> `text_after?`
 
-The effect description after the list of effects for each quality
-level.
+The effect description after the list of effects for each quality level.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
@@ -138,24 +133,20 @@ Key | Description | Details
 
 #### <a name="ActivatableSkillEffectForEachTwoQualityLevels/text_before"></a> `text_before`
 
-The effect description before the list of effects for each quality
-level.
+The effect description before the list of effects for each quality level.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
 #### <a name="ActivatableSkillEffectForEachTwoQualityLevels/quality_levels"></a> `quality_levels`
 
-The list of effects for each two quality levels. The first element
-represents QL 1–2, the second element QL 3–4 and the third element QL
-5–6.
+The list of effects for each two quality levels. The first element represents QL 1–2, the second element QL 3–4 and the third element QL 5–6.
 
 - **Type:** List
 - **Items:** <a href="#ActivatableSkillEffectForEachTwoQualityLevels/quality_levels[]">ActivatableSkillEffectForEachTwoQualityLevels/quality_levels[]</a>
 
 #### <a name="ActivatableSkillEffectForEachTwoQualityLevels/text_after"></a> `text_after?`
 
-The effect description after the list of effects for each quality
-level.
+The effect description after the list of effects for each quality level.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 

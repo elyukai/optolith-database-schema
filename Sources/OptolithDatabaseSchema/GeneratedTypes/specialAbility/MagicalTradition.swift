@@ -18,8 +18,7 @@ public struct MagicalTradition: LocalizableEntity {
     
     public let skillUses: SkillUses?
     
-    /// The tradition's primary attribute. Leave empty if the tradition does not
-    /// have one.
+    /// The tradition's primary attribute. Leave empty if the tradition does not have one.
     public let primary: PrimaryAttribute?
     
     /// Can a member of the tradition learn cantrips?
@@ -34,23 +33,19 @@ public struct MagicalTradition: LocalizableEntity {
     /// Can this magical tradition bind familiars?
     public let canBindFamiliars: Bool
     
-    /// Does the tradition allow learning more traditions or having learned a
-    /// different tradition before learning this tradition?
+    /// Does the tradition allow learning more traditions or having learned a different tradition before learning this tradition?
     public let allowsMultipleTraditions: Bool
     
-    /// Is the maximum AP you're able to spent on magical advantages and able to
-    /// get by magical disadvantages different than the default of 50 AP?
+    /// Is the maximum AP you're able to spent on magical advantages and able to get by magical disadvantages different than the default of 50 AP?
     public let alternativeMagicalAdventurePointsMaximum: Int?
     
-    /// Are advantages/disadvantages required to not exclusively apply to arcane
-    /// spellworks, but also to the tradition's magical actions or applications?
+    /// Are advantages/disadvantages required to not exclusively apply to arcane spellworks, but also to the tradition's magical actions or applications?
     public let requireNonSpellworkExclusiveEffects: Bool
     
     /// Is this a magical dilettante tradition?
     public let isMagicalDilettante: Bool
     
-    /// If arcane spellworks from a different tradition count as arcane spellworks
-    /// of this tradition, this is the different tradition's reference.
+    /// If arcane spellworks from a different tradition count as arcane spellworks of this tradition, this is the different tradition's reference.
     public let useArcaneSpellworksFromTradition: MagicalTraditionReference?
     
     /// The Influences for the traditions. Influences are enabled by Focus Rules.
@@ -93,9 +88,7 @@ public struct PrimaryAttribute: EntitySubtype {
     /// The attribute's identifier.
     public let id: AttributeIdentifier
     
-    /// Typically, the value of the primary attribute (if one exists) is added
-    /// onto the base of 20 AE to get the actual AE. But sometimes, only half the
-    /// value is added.
+    /// Typically, the value of the primary attribute (if one exists) is added onto the base of 20 AE to get the actual AE. But sometimes, only half the value is added.
     public let useHalfForArcaneEnergy: Bool    
     
     private enum CodingKeys: String, CodingKey {
@@ -107,14 +100,12 @@ public struct PrimaryAttribute: EntitySubtype {
 public struct MagicalTraditionTranslation: EntitySubtype {
     public let name: Name
     
-    /// The name used for the traditions list of arcane spellworks if it is
-    /// different than the `name` of the special ability.
+    /// The name used for the traditions list of arcane spellworks if it is different than the `name` of the special ability.
     public let nameForArcaneSpellworks: String?
     
     public let nameInLibrary: NameInLibrary?
     
-    /// The special rules of the tradition. They should be sorted like they are
-    /// in the book.
+    /// The special rules of the tradition. They should be sorted like they are in the book.
     public let specialRules: [SpecialRule]
     
     public let errata: Errata?    

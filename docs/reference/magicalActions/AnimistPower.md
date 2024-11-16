@@ -46,11 +46,9 @@ The associated property.
 
 #### <a name="AnimistPower/tribe_tradition"></a> `tribe_tradition`
 
-The tribe traditions the animist power is available to. It may be available
-to all or only specific tribes.
+The tribe traditions the animist power is available to. It may be available to all or only specific tribes.
 
-If no tribe tradition is given, the animist power is generally available to
-all tribe traditions.
+If no tribe tradition is given, the animist power is generally available to all tribe traditions.
 
 - **Type:** List
 - **Items:** <a href="#AnimistPower/tribe_tradition[]">AnimistPower/tribe_tradition[]</a>
@@ -58,8 +56,7 @@ all tribe traditions.
 
 #### <a name="AnimistPower/improvement_cost"></a> `improvement_cost`
 
-States which column is used to improve the skill. It is a fixed value or
-depends on the primary patron.
+States which column is used to improve the skill. It is a fixed value or depends on the primary patron.
 
 - **Type:** <a href="#AnimistPowerImprovementCost">AnimistPowerImprovementCost</a>
 
@@ -69,11 +66,7 @@ depends on the primary patron.
 
 #### <a name="AnimistPower/levels"></a> `levels?`
 
-The animist power can have multiple levels. Each level is skilled
-separately. A previous level must be on at least 10 so that the next higher
-level can be activated and skilled. A higher level cannot be skilled higher
-than a lower level. Each level also adds an effect text to the text of the
-first level.
+The animist power can have multiple levels. Each level is skilled separately. A previous level must be on at least 10 so that the next higher level can be activated and skilled. A higher level cannot be skilled higher than a lower level. Each level also adds an effect text to the text of the first level.
 
 - **Type:** List
 - **Items:** <a href="#AnimistPower/levels[]">AnimistPower/levels[]</a>
@@ -133,9 +126,7 @@ purposes.
 
 #### <a name="AnimistPowerTranslation/effect"></a> `effect`
 
-The effect description may be either a plain text or a text that is
-divided by a list of effects for each quality level. It may also be a
-list for each two quality levels.
+The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
 
 - **Type:** <a href="../_ActivatableSkillEffect.md#ActivatableSkillEffect">ActivatableSkillEffect</a>
 
@@ -264,8 +255,7 @@ Key | Description | Details
 
 #### <a name="OneTimeAnimistPowerPerformanceParameters/cost"></a> `cost`
 
-The AE cost value, either a flat value or defined dynamically by the
-primary patron.
+The AE cost value, either a flat value or defined dynamically by the primary patron.
 
 - **Type:** <a href="#OneTimeAnimistPowerCost">OneTimeAnimistPowerCost</a>
 
@@ -449,8 +439,7 @@ Key | Description | Details
 
 #### <a name="SustainedAnimistPowerPerformanceParameters/cost"></a> `cost`
 
-The AE cost value, either a flat value or defined dynamically by the
-primary patron.
+The AE cost value, either a flat value or defined dynamically by the primary patron.
 
 - **Type:** <a href="#SustainedAnimistPowerCost">SustainedAnimistPowerCost</a>
 

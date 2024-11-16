@@ -21,7 +21,7 @@
           "type": "boolean"
         },
         "is_missing_implementation": {
-          "description": "If the publication is not (fully) implemented and thus needs to be excluded\nfrom * stable releases.",
+          "description": "If the publication is not (fully) implemented and thus needs to be excluded from * stable releases.",
           "type": "boolean"
         },
         "prerequisites": {
@@ -71,7 +71,7 @@
           "format": "date"
         },
         "is_missing_implementation": {
-          "description": "If this publication translation is not (fully) implemented and thus needs\nto be excluded from stable releases.",
+          "description": "If this publication translation is not (fully) implemented and thus needs to be excluded from stable releases.",
           "type": "boolean"
         }
       },

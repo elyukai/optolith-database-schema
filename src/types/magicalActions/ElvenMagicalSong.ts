@@ -81,9 +81,7 @@ export type ElvenMagicalSongTranslation = {
   name: NonEmptyString
 
   /**
-   * The effect description may be either a plain text or a text that is
-   * divided by a list of effects for each quality level. It may also be a
-   * list for each two quality levels.
+   * The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
    */
   effect: ActivatableSkillEffect
 
@@ -152,8 +150,7 @@ export type ElvenMagicalSongPermanentCostTranslation = {
 
 export type ElvenMagicalSongCostTranslation = {
   /**
-   * The cost have to be per a specific countable entity, e.g. `8 AE
-   * per person`.
+   * The cost have to be per a specific countable entity, e.g. `8 AE per person`.
    */
   per: ResponsiveText
 }

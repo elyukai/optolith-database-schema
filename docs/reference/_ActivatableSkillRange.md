@@ -315,16 +315,13 @@ Key | Description | Details
 
 #### <a name="RangeTranslation/note"></a> `note?`
 
-A note, appended to the generated string in parenthesis. If the
-generated is modified using `replacement`, the note is appended to
-the modifier string.
+A note, appended to the generated string in parenthesis. If the generated is modified using `replacement`, the note is appended to the modifier string.
 
 - **Type:** <a href="./_ResponsiveText.md#ResponsiveTextOptional">ResponsiveTextOptional</a>
 
 #### <a name="RangeTranslation/replacement"></a> `replacement?`
 
-A replacement string. If `note` is provided, it is appended to the
-replaced string.
+A replacement string. If `note` is provided, it is appended to the replaced string.
 
 - **Type:** <a href="./_ResponsiveText.md#ResponsiveTextReplace">ResponsiveTextReplace</a>
 

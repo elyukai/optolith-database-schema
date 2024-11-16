@@ -36,7 +36,6 @@ Region in which the language is spoken in it's language.
 
 #### <a name="Locale/is_missing_implementation"></a> `is_missing_implementation?`
 
-The language is not (fully) implemented and thus needs to be excluded from
-stable releases.
+The language is not (fully) implemented and thus needs to be excluded from stable releases.
 
 - **Constant:** `true`

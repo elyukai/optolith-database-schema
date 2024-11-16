@@ -17,8 +17,7 @@ public struct MusicalInstrument: LocalizableEntity {
     /// The complexity of crafting the item.
     public let complexity: Complexity?
     
-    /// The item can also be used either as an improvised weapon or as an armor,
-    /// although this is not the primary use case of the item.
+    /// The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.
     public let combatUse: CombatUse?
     
     public let src: PublicationRefs

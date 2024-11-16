@@ -51,9 +51,7 @@ public struct ZibiljaRitualTranslation: EntitySubtype {
     /// The name of the zibilja ritual.
     public let name: NonEmptyString
     
-    /// The effect description may be either a plain text or a text that is
-    /// divided by a list of effects for each quality level. It may also be a
-    /// list for each two quality levels.
+    /// The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
     public let effect: ActivatableSkillEffect
     
     @available(*, deprecated)

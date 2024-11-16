@@ -14,27 +14,20 @@ public struct AnimalDisease: LocalizableEntity {
     /// The animal disease's level.
     public let level: Int
     
-    /// Depending on the disease, apply Spirit or Toughness as a penalty to the
-    /// disease roll. It may also happen that the lower of both is applied as a
-    /// penalty.
+    /// Depending on the disease, apply Spirit or Toughness as a penalty to the disease roll. It may also happen that the lower of both is applied as a penalty.
     public let resistance: Resistance
     
-    /// What causes the disease? The GM rolls 1D20 to see if a character gets
-    /// infected. If the infection check succeeds, the GM makes a disease check to
-    /// determine the severity of the infection.
+    /// What causes the disease? The GM rolls 1D20 to see if a character gets infected. If the infection check succeeds, the GM makes a disease check to determine the severity of the infection.
     public let cause: [Cause]
     
     /// The animal types this disease applies to.
     /// 
-    /// If no animal types are given, the animal disease applies to all animal
-    /// types.
+    /// If no animal types are given, the animal disease applies to all animal types.
     public let animalTypes: [AnimalTypeReference]
     
-    /// If and at which chance the disease can be communicated to intelligent
-    /// creatures.
+    /// If and at which chance the disease can be communicated to intelligent creatures.
     /// 
-    /// If no causes are given, the disease is not communicable to intelligent
-    /// creatures.
+    /// If no causes are given, the disease is not communicable to intelligent creatures.
     public let communicabilityToIntelligentCreatures: [Cause]
     
     public let src: PublicationRefs

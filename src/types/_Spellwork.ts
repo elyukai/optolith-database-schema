@@ -1,9 +1,7 @@
 import { MagicalTraditionIdentifier } from "./_Identifier.js"
 
 /**
- * The tradition(s) the ritual is available for. It may be *generally*
- * available to all traditions or it may be only familiar in specific
- * traditions.
+ * The tradition(s) the ritual is available for. It may be *generally* available to all traditions or it may be only familiar in specific traditions.
  */
 export type Traditions =
   | { tag: "General"; general: {} }

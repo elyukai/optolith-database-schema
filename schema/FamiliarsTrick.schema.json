@@ -13,7 +13,7 @@
           "minimum": 1
         },
         "animal_types": {
-          "description": "The animal types this trick is available to. Either it is available to all\nor only a list of specific animal types.\n\nIf no animal types are given, the animal disease applies to all animal\ntypes.",
+          "description": "The animal types this trick is available to. Either it is available to all or only a list of specific animal types.\n\nIf no animal types are given, the animal disease applies to all animal types.",
           "type": "array",
           "items": {
             "$ref": "./_SimpleReferences.schema.json#/$defs/AnimalTypeReference"
@@ -28,7 +28,7 @@
           "$ref": "#/$defs/FamiliarsTrickProperty"
         },
         "ap_value": {
-          "description": "The AP value the familiar has to pay for. It may also be that a specific is\nknown by all familiar by default. In the latter case the field is not set.",
+          "description": "The AP value the familiar has to pay for. It may also be that a specific is known by all familiar by default. In the latter case the field is not set.",
           "type": "integer",
           "minimum": 1
         },
@@ -316,7 +316,7 @@
       "type": "object",
       "properties": {
         "per": {
-          "description": "The cost have to be per a specific countable entity, e.g. `8 KP\nper person`.",
+          "description": "The cost have to be per a specific countable entity, e.g. `8 KP per person`.",
           "$ref": "./_ResponsiveText.schema.json#/$defs/ResponsiveTextOptional"
         }
       },

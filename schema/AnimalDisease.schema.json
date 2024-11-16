@@ -18,11 +18,11 @@
           "minimum": 1
         },
         "resistance": {
-          "description": "Depending on the disease, apply Spirit or Toughness as a penalty to the\ndisease roll. It may also happen that the lower of both is applied as a\npenalty.",
+          "description": "Depending on the disease, apply Spirit or Toughness as a penalty to the disease roll. It may also happen that the lower of both is applied as a penalty.",
           "$ref": "./_DiseasePoison.schema.json#/$defs/Resistance"
         },
         "cause": {
-          "description": "What causes the disease? The GM rolls 1D20 to see if a character gets\ninfected. If the infection check succeeds, the GM makes a disease check to\ndetermine the severity of the infection.",
+          "description": "What causes the disease? The GM rolls 1D20 to see if a character gets infected. If the infection check succeeds, the GM makes a disease check to determine the severity of the infection.",
           "type": "array",
           "items": {
             "$ref": "./_DiseasePoison.schema.json#/$defs/Cause"
@@ -30,14 +30,14 @@
           "minItems": 1
         },
         "animal_types": {
-          "description": "The animal types this disease applies to.\n\nIf no animal types are given, the animal disease applies to all animal\ntypes.",
+          "description": "The animal types this disease applies to.\n\nIf no animal types are given, the animal disease applies to all animal types.",
           "type": "array",
           "items": {
             "$ref": "./_SimpleReferences.schema.json#/$defs/AnimalTypeReference"
           }
         },
         "communicability_to_intelligent_creatures": {
-          "description": "If and at which chance the disease can be communicated to intelligent\ncreatures.\n\nIf no causes are given, the disease is not communicable to intelligent\ncreatures.",
+          "description": "If and at which chance the disease can be communicated to intelligent creatures.\n\nIf no causes are given, the disease is not communicable to intelligent creatures.",
           "type": "array",
           "items": {
             "$ref": "./_DiseasePoison.schema.json#/$defs/Cause"

@@ -8,8 +8,7 @@
 import DiscriminatedEnum
 
 public struct BlessedTraditionPrerequisite: EntitySubtype {
-    /// The blessed tradition prerequisite may only be satified if the blessed
-    /// tradition is either church or shamanistic.
+    /// The blessed tradition prerequisite may only be satified if the blessed tradition is either church or shamanistic.
     public let restriction: BlessedTraditionPrerequisiteRestriction?
     
     public let displayOption: DisplayOption?    
@@ -20,16 +19,14 @@ public struct BlessedTraditionPrerequisite: EntitySubtype {
     }
 }
 
-/// The blessed tradition prerequisite may only be satified if the blessed
-/// tradition is either church or shamanistic.
+/// The blessed tradition prerequisite may only be satified if the blessed tradition is either church or shamanistic.
 public enum BlessedTraditionPrerequisiteRestriction: String, EntitySubtype {
     case church = "Church"
     case shamanistic = "Shamanistic"
 }
 
 public struct MagicalTraditionPrerequisite: EntitySubtype {
-    /// The magical tradition prerequisite may only be satified if the magical
-    /// tradition can learn rituals or can bind familiars.
+    /// The magical tradition prerequisite may only be satified if the magical tradition can learn rituals or can bind familiars.
     public let restriction: MagicalTraditionPrerequisiteRestriction?
     
     public let displayOption: DisplayOption?    
@@ -40,8 +37,7 @@ public struct MagicalTraditionPrerequisite: EntitySubtype {
     }
 }
 
-/// The magical tradition prerequisite may only be satified if the magical
-/// tradition can learn rituals or can bind familiars.
+/// The magical tradition prerequisite may only be satified if the magical tradition can learn rituals or can bind familiars.
 public enum MagicalTraditionPrerequisiteRestriction: String, EntitySubtype {
     case canLearnRituals = "CanLearnRituals"
     case canBindFamiliars = "CanBindFamiliars"

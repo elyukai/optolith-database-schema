@@ -7,9 +7,7 @@
 
 import DiscriminatedEnum
 
-/// Requires a specific enhancement from a skill. This should **not** be used
-/// for enhancements themselves; they can only require enhancements from the same
-/// skill they enhance.
+/// Requires a specific enhancement from a skill. This should **not** be used for enhancements themselves; they can only require enhancements from the same skill they enhance.
 public struct ExternalEnhancementPrerequisite: EntitySubtype {
     /// The required skill.
     public let skill: SkillWithEnhancementsReference
@@ -36,6 +34,5 @@ public struct EnhancementsReference: EntitySubtype {
     public let id: Int
 }
 
-/// Requires a specific enhancement from a skill. This can only be used by an
-/// enhancement to require another enhancement from the same skill.
+/// Requires a specific enhancement from a skill. This can only be used by an enhancement to require another enhancement from the same skill.
 public typealias InternalEnhancementPrerequisite = EnhancementsReference

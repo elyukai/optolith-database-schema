@@ -18,7 +18,7 @@
       "additionalProperties": false
     },
     "CastingTimeDuringLovemaking": {
-      "description": "The casting time during lovemaking. In Aventurian Intimacy, you may only use\nan activatable skill during lovemaking if it has a casting time used during\nlovemaking.",
+      "description": "The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking.",
       "type": "object",
       "properties": {
         "value": {
@@ -80,7 +80,7 @@
       "additionalProperties": false
     },
     "FastCastingTime": {
-      "description": "The casting time may have two different values: One for use in “normal” time,\ni. e. actions, combat rounds and others, and one for use during lovemaking,\nwhich is a rule set from Aventurian Intimacy.\n\nThere must always be at least one casting time value.",
+      "description": "The casting time may have two different values: One for use in “normal” time, i. e. actions, combat rounds and others, and one for use during lovemaking, which is a rule set from Aventurian Intimacy.\n\nThere must always be at least one casting time value.",
       "type": "object",
       "properties": {
         "default": {
@@ -120,7 +120,7 @@
           ]
         },
         "during_lovemaking": {
-          "description": "The casting time during lovemaking. In Aventurian Intimacy, you may only\nuse an activatable skill during lovemaking if it has a casting time used\nduring lovemaking.",
+          "description": "The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking.",
           "$ref": "#/$defs/CastingTimeDuringLovemaking"
         }
       },
@@ -129,7 +129,7 @@
       "additionalProperties": false
     },
     "SlowCastingTime": {
-      "description": "The casting time may have two different values: One for use in “normal” time,\ni. e. actions, combat rounds and others, and one for use during lovemaking,\nwhich is a rule set from Aventurian Intimacy.\n\nThere must always be at least one casting time value.",
+      "description": "The casting time may have two different values: One for use in “normal” time, i. e. actions, combat rounds and others, and one for use during lovemaking, which is a rule set from Aventurian Intimacy.\n\nThere must always be at least one casting time value.",
       "type": "object",
       "properties": {
         "default": {
@@ -169,7 +169,7 @@
           ]
         },
         "during_lovemaking": {
-          "description": "The casting time during lovemaking. In Aventurian Intimacy, you may only\nuse an activatable skill during lovemaking if it has a casting time used\nduring lovemaking.",
+          "description": "The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking.",
           "$ref": "#/$defs/CastingTimeDuringLovemaking"
         }
       },

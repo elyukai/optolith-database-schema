@@ -21,9 +21,7 @@ The armor type's identifier. An unique, increasing integer.
 
 #### <a name="ArmorType/sturdiness_rating"></a> `sturdiness_rating?`
 
-An armor type can have a *sturdiness rating*. The higher the rating, the
-more durable the armor. Rolling higher than this rating during a sturdiness
-check means the armor receives one level of the new condition *Wear*.
+An armor type can have a *sturdiness rating*. The higher the rating, the more durable the armor. Rolling higher than this rating during a sturdiness check means the armor receives one level of the new condition *Wear*.
 
 - **Type:** Integer
 - **Minimum:** `1`

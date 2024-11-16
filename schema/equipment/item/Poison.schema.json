@@ -34,7 +34,7 @@
           "$ref": "#/$defs/PoisonStart"
         },
         "duration": {
-          "description": "An effect or other parameter that may be reduced by a failed disease check\nfor lessening or a degraded poison.\n\nThis streamlines the wording for diseases and poison by using a unified\nwording for *lessened* (disease) and *degraded* (poison).",
+          "description": "An effect or other parameter that may be reduced by a failed disease check for lessening or a degraded poison.\n\nThis streamlines the wording for diseases and poison by using a unified wording for *lessened* (disease) and *degraded* (poison).",
           "type": "object",
           "properties": {
             "default": {
@@ -435,7 +435,7 @@
           "$ref": "./_Herbary.schema.json#/$defs/LaboratoryLevel"
         },
         "brewing_difficulty": {
-          "description": "The brewing difficulty, which represents the challenge of creating an\nelixir.",
+          "description": "The brewing difficulty, which represents the challenge of creating an elixir.",
           "type": "integer"
         },
         "trade_secret": {
@@ -607,11 +607,7 @@
       "additionalProperties": false
     },
     "QualityLevelDemonicPoisonLevelSource": {
-      "oneOf": [
-        {
-          "const": "Spellwork"
-        }
-      ]
+      "const": "Spellwork"
     },
     "ConstantDemonicPoisonLevel": {
       "type": "object",
@@ -644,11 +640,11 @@
       "type": "object",
       "properties": {
         "legality": {
-          "description": "Whether the use of the intoxicant is legal or not, usually from the\nperspective of most middle-Aventurian an northern-Aventurian nations.",
+          "description": "Whether the use of the intoxicant is legal or not, usually from the perspective of most middle-Aventurian an northern-Aventurian nations.",
           "$ref": "#/$defs/IntoxicantLegality"
         },
         "addiction": {
-          "description": "The chance of getting addicted after an ingestion in addition to the\nmaximum interval at which it, while addicted, must be ingested to not\nsuffer from withdrawal symptoms.",
+          "description": "The chance of getting addicted after an ingestion in addition to the maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.",
           "$ref": "#/$defs/IntoxicantAddiction"
         },
         "translations": {
@@ -670,7 +666,7 @@
       "additionalProperties": false
     },
     "IntoxicantLegality": {
-      "description": "Whether the use of the intoxicant is legal or not, usually from the\nperspective of most middle-Aventurian an northern-Aventurian nations.",
+      "description": "Whether the use of the intoxicant is legal or not, usually from the perspective of most middle-Aventurian an northern-Aventurian nations.",
       "type": "object",
       "properties": {
         "is_legal": {
@@ -683,7 +679,7 @@
       "additionalProperties": false
     },
     "IntoxicantAddiction": {
-      "description": "The chance of getting addicted after an ingestion in addition to the maximum\ninterval at which it, while addicted, must be ingested to not suffer from\nwithdrawal symptoms.",
+      "description": "The chance of getting addicted after an ingestion in addition to the maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.",
       "type": "object",
       "properties": {
         "chance": {
@@ -691,7 +687,7 @@
           "type": "number"
         },
         "interval": {
-          "description": "The maximum interval at which it, while addicted, must be ingested to not\nsuffer from withdrawal symptoms.",
+          "description": "The maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.",
           "$ref": "#/$defs/IntoxicantAddictionInterval"
         }
       },
@@ -702,7 +698,7 @@
       "additionalProperties": false
     },
     "IntoxicantAddictionInterval": {
-      "description": "The maximum interval at which it, while addicted, must be ingested to not\nsuffer from withdrawal symptoms.",
+      "description": "The maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.",
       "oneOf": [
         {
           "type": "object",
@@ -772,11 +768,11 @@
           "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "side_effect": {
-          "description": "The intoxicants side effects that always happen, no matter whether the\nintoxicant has the default or the reduced effect.",
+          "description": "The intoxicants side effects that always happen, no matter whether the intoxicant has the default or the reduced effect.",
           "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
         },
         "overdose": {
-          "description": "What happens if the intoxicant has been overdosed, that is, it has been\ningested another time within the duration.",
+          "description": "What happens if the intoxicant has been overdosed, that is, it has been ingested another time within the duration.",
           "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
         },
         "special": {
@@ -806,7 +802,7 @@
           "minItems": 1
         },
         "effect": {
-          "description": "An effect or other parameter that may be reduced by a failed disease check\nfor lessening or a degraded poison.\n\nThis streamlines the wording for diseases and poison by using a unified\nwording for *lessened* (disease) and *degraded* (poison).",
+          "description": "An effect or other parameter that may be reduced by a failed disease check for lessening or a degraded poison.\n\nThis streamlines the wording for diseases and poison by using a unified wording for *lessened* (disease) and *degraded* (poison).",
           "type": "object",
           "properties": {
             "default": {

@@ -11,11 +11,9 @@ public struct FamiliarsTrick: LocalizableEntity {
     /// The familiar's trick's identifier. An unique, increasing integer.
     public let id: Int
     
-    /// The animal types this trick is available to. Either it is available to all
-    /// or only a list of specific animal types.
+    /// The animal types this trick is available to. Either it is available to all or only a list of specific animal types.
     /// 
-    /// If no animal types are given, the animal disease applies to all animal
-    /// types.
+    /// If no animal types are given, the animal disease applies to all animal types.
     public let animalTypes: [AnimalTypeReference]
     
     /// Measurable parameters of a familiar's trick.
@@ -24,8 +22,7 @@ public struct FamiliarsTrick: LocalizableEntity {
     /// The property of the trick.
     public let property: FamiliarsTrickProperty
     
-    /// The AP value the familiar has to pay for. It may also be that a specific is
-    /// known by all familiar by default. In the latter case the field is not set.
+    /// The AP value the familiar has to pay for. It may also be that a specific is known by all familiar by default. In the latter case the field is not set.
     public let apValue: Int?
     
     public let src: PublicationRefs
@@ -120,8 +117,7 @@ public struct FamiliarsTrickFixedOneTimeCost: EntitySubtype {
 }
 
 public struct FamiliarsTrickFixedOneTimeCostTranslation: EntitySubtype {
-    /// The cost have to be per a specific countable entity, e.g. `8 KP
-    /// per person`.
+    /// The cost have to be per a specific countable entity, e.g. `8 KP per person`.
     public let per: ResponsiveTextOptional?
 }
 

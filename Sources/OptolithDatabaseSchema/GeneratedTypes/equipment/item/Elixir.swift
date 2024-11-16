@@ -17,8 +17,7 @@ public struct Elixir: LocalizableEntity {
     /// The laboratory level needed to brew the elixir.
     public let laboratory: LaboratoryLevel
     
-    /// The brewing difficulty, which represents the challenge of creating an
-    /// elixir.
+    /// The brewing difficulty, which represents the challenge of creating an elixir.
     public let brewingDifficulty: Int
     
     /// AP value and prerequisites of the elixir recipe’s trade secret.
@@ -53,8 +52,7 @@ public struct ElixirTranslation: EntitySubtype {
     /// Prerequsites for the brewing process, if any.
     public let brewingProcessPrerequisites: NonEmptyMarkdown?
     
-    /// The list of effects for each quality level. The first element
-    /// represents QL 1, the second element QL 2, and so on.
+    /// The list of effects for each quality level. The first element represents QL 1, the second element QL 2, and so on.
     public let qualityLevels: [NonEmptyMarkdown]
     
     public let errata: Errata?    

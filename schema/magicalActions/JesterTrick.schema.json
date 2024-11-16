@@ -71,7 +71,7 @@
           "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "effect": {
-          "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
+          "description": "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
           "$ref": "../_ActivatableSkillEffect.schema.json#/$defs/ActivatableSkillEffect"
         },
         "casting_time": {

@@ -56,8 +56,7 @@ public struct NonModifiableOneTimeCost: EntitySubtype {
     /// The part of the cost value that has to be spent permanently.
     public let permanentValue: Int?
     
-    /// The cost have to be per a specific countable entity, e.g. `8 KP per
-    /// person`.
+    /// The cost have to be per a specific countable entity, e.g. `8 KP per person`.
     public let per: NonModifiableOneTimeCostPerCountable?
     
     /// All translations for the entry, identified by IETF language tag
@@ -74,8 +73,7 @@ public struct NonModifiableOneTimeCost: EntitySubtype {
 }
 
 public struct NonModifiableOneTimeCostPerCountable: EntitySubtype {
-    /// If defined, the minimum total AE that have to be spent casting the
-    /// skill.
+    /// If defined, the minimum total AE that have to be spent casting the skill.
     public let minimumTotal: Double?
     
     /// All translations for the entry, identified by IETF language tag
@@ -108,8 +106,7 @@ public struct IndefiniteOneTimeCostTranslation: EntitySubtype {
     public let description: ResponsiveText
 }
 
-/// A content that is `2/4/8/16 AE for an item the size of a
-/// cup/chest/door/castle gate` may be respresented as the following map:
+/// A content that is `2/4/8/16 AE for an item the size of a cup/chest/door/castle gate` may be respresented as the following map:
 /// 
 /// ```yaml
 /// options:
@@ -124,8 +121,7 @@ public struct IndefiniteOneTimeCostTranslation: EntitySubtype {
 /// for_append: "an item the size of a"
 /// ```
 /// 
-/// This will generate the exact same string as seen above – given it is set
-/// for a spellwork and thus `AE` is used.
+/// This will generate the exact same string as seen above – given it is set for a spellwork and thus `AE` is used.
 public struct CostMap: EntitySubtype {
     /// The possible costs and associated labels.
     public let options: [CostMapOption]
@@ -155,8 +151,7 @@ public struct CostMapOptionTranslation: EntitySubtype {
     /// The description of the option for cost string generation.
     public let label: NonEmptyString
     
-    /// The description of the option if used standalone. Only used if
-    /// different from `label`.
+    /// The description of the option if used standalone. Only used if different from `label`.
     public let labelStandalone: NonEmptyString?    
     
     private enum CodingKeys: String, CodingKey {
@@ -172,10 +167,7 @@ public struct CostMapTranslation: EntitySubtype {
     /// Place a string after the grouped map option labels.
     public let listAppend: NonEmptyString?
     
-    /// If the string from the book cannot be generated using the default
-    /// generation technique, use this string. All options still need to be
-    /// inserted propertly, since it may be used by in-game tools to provide a
-    /// selection to players.
+    /// If the string from the book cannot be generated using the default generation technique, use this string. All options still need to be inserted propertly, since it may be used by in-game tools to provide a selection to players.
     public let replacement: NonEmptyString?    
     
     private enum CodingKeys: String, CodingKey {
@@ -211,8 +203,7 @@ public struct NonModifiableSustainedCost: EntitySubtype {
     /// The AE cost value.
     public let value: Int
     
-    /// The cost have to be per a specific countable entity, e.g. `8 KP per
-    /// person per 5 minutes`.
+    /// The cost have to be per a specific countable entity, e.g. `8 KP per person per 5 minutes`.
     public let per: NonModifiableSustainedCostPerCountable?
     
     /// The sustain interval.
@@ -227,8 +218,7 @@ public struct NonModifiableSustainedCost: EntitySubtype {
 }
 
 public struct NonModifiableSustainedCostPerCountable: EntitySubtype {
-    /// If defined, the minimum total AE that have to be spent casting the
-    /// skill.
+    /// If defined, the minimum total AE that have to be spent casting the skill.
     public let minimumTotal: Double?
     
     /// All translations for the entry, identified by IETF language tag (BCP47).

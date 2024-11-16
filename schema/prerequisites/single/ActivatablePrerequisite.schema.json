@@ -21,7 +21,7 @@
           "minimum": 1
         },
         "options": {
-          "description": "Required select options. Order is important. Typically, you only need the\nfirst array index, though.",
+          "description": "Required select options. Order is important. Typically, you only need the first array index, though.",
           "type": "array",
           "items": {
             "$ref": "../../_IdentifierGroup.schema.json#/$defs/RequirableSelectOptionIdentifier"

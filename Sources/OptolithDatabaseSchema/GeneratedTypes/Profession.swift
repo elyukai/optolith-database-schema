@@ -14,17 +14,9 @@ public struct Profession: Entity {
     /// The profession group.
     public let group: ProfessionGroup
     
-    /// A list of professions representing the same profession but with (slightly)
-    /// different stats. For example, there may be a profession in a regional
-    /// sourcebook or in the core rules and a profession in an extension rulebook
-    /// like Magic of Aventuria, where the profession is basically called the same
-    /// and almost has the same values, but the version from Magic of Aventuria
-    /// features a spell style special ability that does not exist in the core
-    /// rules or regional sourcebook.
+    /// A list of professions representing the same profession but with (slightly) different stats. For example, there may be a profession in a regional sourcebook or in the core rules and a profession in an extension rulebook like Magic of Aventuria, where the profession is basically called the same and almost has the same values, but the version from Magic of Aventuria features a spell style special ability that does not exist in the core rules or regional sourcebook.
     /// 
-    /// The profession representation may feature different values for different
-    /// explicitly mentioned experience levels. In most cases, there is only one
-    /// stats package, which targets the experience level *Experienced*.
+    /// The profession representation may feature different values for different explicitly mentioned experience levels. In most cases, there is only one stats package, which targets the experience level *Experienced*.
     public let versions: [ProfessionVersion]
 }
 
@@ -53,8 +45,7 @@ public enum ProfessionVersion: EntitySubtype {
 }
 
 public struct ExperiencedProfessionPackage: EntitySubtype {
-    /// The profession representation variant's identifier. An unique, increasing
-    /// integer.
+    /// The profession representation variant's identifier. An unique, increasing integer.
     public let id: Int
     
     public let package: ProfessionPackage
@@ -66,8 +57,7 @@ public struct ExperiencedProfessionPackage: EntitySubtype {
 }
 
 public struct ProfessionPackagesForDifferentExperienceLevels: EntitySubtype {
-    /// The profession representation variant's identifier. An unique, increasing
-    /// integer.
+    /// The profession representation variant's identifier. An unique, increasing integer.
     public let id: Int
     
     public let packagesMap: [ExperienceLevelDynamicProfessionPackage]
@@ -86,8 +76,7 @@ public struct ProfessionPackagesForDifferentExperienceLevels: EntitySubtype {
 }
 
 public struct ExperienceLevelDynamicProfessionPackage: EntitySubtype {
-    /// The experience level this profession targets. The experience level
-    /// must be unique for this representation.
+    /// The experience level this profession targets. The experience level must be unique for this representation.
     public let experienceLevelId: Int
     
     public let package: ProfessionPackage    
@@ -102,32 +91,25 @@ public struct ProfessionPackage: EntitySubtype {
     /// What does the professional package cost in adventure points?
     public let apValue: Int
     
-    /// Which prerequisites must be met to buy the stat block? For example, a
-    /// character might need the advantage Spellcaster or Blessed. Note: the AP
-    /// cost for a profession package does not include these prerequisites.
+    /// Which prerequisites must be met to buy the stat block? For example, a character might need the advantage Spellcaster or Blessed. Note: the AP cost for a profession package does not include these prerequisites.
     public let prerequisites: ProfessionPrerequisites?
     
-    /// In some areas, the profession package grants a loose set of stats where the
-    /// player must choose between different options for the profession package.
+    /// In some areas, the profession package grants a loose set of stats where the player must choose between different options for the profession package.
     public let options: ProfessionPackageOptions?
     
     /// Any special abilities the profession receives from the package.
     public let specialAbilities: [ProfessionSpecialAbility]?
     
-    /// Provides ratings for the combat techniques that the hero receives from the
-    /// package.
+    /// Provides ratings for the combat techniques that the hero receives from the package.
     public let combatTechniques: [CombatTechniqueRating]?
     
     /// The skill ratings the package grants to the hero.
     public let skills: [SkillRating]?
     
-    /// The skill ratings a magical profession receives for spells; these spells
-    /// are considered activated. Spells from an unfamiliar Tradition, if any, are
-    /// identified as such.
+    /// The skill ratings a magical profession receives for spells; these spells are considered activated. Spells from an unfamiliar Tradition, if any, are identified as such.
     public let spells: [SpellRating]?
     
-    /// Clerical professions receive these liturgical chants at the listed skill
-    /// ratings. These liturgical chants are considered activated.
+    /// Clerical professions receive these liturgical chants at the listed skill ratings. These liturgical chants are considered activated.
     public let liturgicalChants: [LiturgicalChantRating]?
     
     /// Typical advantages for the profession.
@@ -136,19 +118,13 @@ public struct ProfessionPackage: EntitySubtype {
     /// Typical disadvantages for the profession.
     public let suggestedDisadvantages: [CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>]?
     
-    /// These advantages do not fit well with this profession; to be checked with
-    /// the GM before taking any of them.
+    /// These advantages do not fit well with this profession; to be checked with the GM before taking any of them.
     public let unsuitableAdvantages: [CommonnessRatedAdvantageDisadvantage<AdvantageIdentifier>]?
     
-    /// These disadvantages do not fit well with this profession; to be checked
-    /// with the GM before taking any of them.
+    /// These disadvantages do not fit well with this profession; to be checked with the GM before taking any of them.
     public let unsuitableDisadvantages: [CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>]?
     
-    /// Provides examples of variants for the profession, which may include changes
-    /// to AP values and additional or modified skill ratings, special abilities,
-    /// or combat techniques, as compared to the basic profession. Usually picking
-    /// a variant is optional, but there are some rare exceptions where picking a
-    /// variant is required.
+    /// Provides examples of variants for the profession, which may include changes to AP values and additional or modified skill ratings, special abilities, or combat techniques, as compared to the basic profession. Usually picking a variant is optional, but there are some rare exceptions where picking a variant is required.
     public let variants: ProfessionVariants?    
     
     private enum CodingKeys: String, CodingKey {
@@ -172,9 +148,7 @@ public struct ProfessionTranslation: EntitySubtype {
     /// Name of the basic profession.
     public let name: ProfessionName
     
-    /// A name addition of the profession. This will contain texts like name of
-    /// the academy or the witch circle. It is enclosed in parenthesis, but the
-    /// database entry must not contain parenthesis.
+    /// A name addition of the profession. This will contain texts like name of the academy or the witch circle. It is enclosed in parenthesis, but the database entry must not contain parenthesis.
     public let specification: ProfessionName?
     
     /// Typical advantages for the profession.
@@ -183,12 +157,10 @@ public struct ProfessionTranslation: EntitySubtype {
     /// Typical disadvantages for the profession.
     public let suggestedDisadvantages: NonEmptyString?
     
-    /// These advantages do not fit well with this profession; to be checked with
-    /// the GM before taking any of them.
+    /// These advantages do not fit well with this profession; to be checked with the GM before taking any of them.
     public let unsuitableAdvantages: NonEmptyString?
     
-    /// These disadvantages do not fit well with this profession; to be checked
-    /// with the GM before taking any of them.
+    /// These disadvantages do not fit well with this profession; to be checked with the GM before taking any of them.
     public let unsuitableDisadvantages: NonEmptyString?
     
     public let errata: Errata?    
@@ -204,11 +176,7 @@ public struct ProfessionTranslation: EntitySubtype {
     }
 }
 
-/// Provides examples of variants for the profession, which may include changes
-/// to AP values and additional or modified skill ratings, special abilities, or
-/// combat techniques, as compared to the basic profession. Usually picking a
-/// variant is optional, but there are some rare exceptions where picking a
-/// variant is required.
+/// Provides examples of variants for the profession, which may include changes to AP values and additional or modified skill ratings, special abilities, or combat techniques, as compared to the basic profession. Usually picking a variant is optional, but there are some rare exceptions where picking a variant is required.
 public struct ProfessionVariants: EntitySubtype {
     /// If the selection of a profession variant is required.
     public let isSelectionRequired: Bool
@@ -229,9 +197,7 @@ public struct ProfessionVariant: EntitySubtype {
     /// The AP value you have to pay for the package variant.
     public let apValue: Int
     
-    /// Which prerequisites must be met to buy the stat block? For example, a
-    /// character might need the advantage Spellcaster or Blessed. Note: the AP
-    /// cost for a profession package does not include these prerequisites.
+    /// Which prerequisites must be met to buy the stat block? For example, a character might need the advantage Spellcaster or Blessed. Note: the AP cost for a profession package does not include these prerequisites.
     public let prerequisites: ProfessionPrerequisites?
     
     public let options: ProfessionVariantPackageOptions?
@@ -239,20 +205,16 @@ public struct ProfessionVariant: EntitySubtype {
     /// Any special abilities the profession receives from the package variant.
     public let specialAbilities: [VariantSpecialAbility]?
     
-    /// Provides ratings for the combat techniques that the hero receives from the
-    /// package variant.
+    /// Provides ratings for the combat techniques that the hero receives from the package variant.
     public let combatTechniques: [CombatTechniqueRating]?
     
     /// The skill ratings the package variant grants to the hero.
     public let skills: [SkillRating]?
     
-    /// The skill ratings a magical profession variant receives for spells; these
-    /// spells are considered activated. Spells from an unfamiliar Tradition, if
-    /// any, are identified as such.
+    /// The skill ratings a magical profession variant receives for spells; these spells are considered activated. Spells from an unfamiliar Tradition, if any, are identified as such.
     public let spells: [SpellRating]?
     
-    /// Clerical professions receive these liturgical chants at the listed skill
-    /// ratings. These liturgical chants are considered activated.
+    /// Clerical professions receive these liturgical chants at the listed skill ratings. These liturgical chants are considered activated.
     public let liturgicalChants: [LiturgicalChantRating]?
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
@@ -310,8 +272,7 @@ public struct SpecialAbilityDefinition: EntitySubtype {
     /// The level of the received special ability.
     public let level: Int?
     
-    /// Received select options. Order is important. Typically, you only need the
-    /// first array index, though.
+    /// Received select options. Order is important. Typically, you only need the first array index, though.
     public let options: [RequirableSelectOptionIdentifier]?
 }
 
@@ -325,21 +286,18 @@ public struct FixedVariantSpecialAbility: EntitySubtype {
     /// The identifier of the combat technique to provide the rating for.
     public let id: SpecialAbilityIdentifier
     
-    /// if set to `false`, if the selection is granted by the basic package, it
-    /// is removed.
+    /// if set to `false`, if the selection is granted by the basic package, it is removed.
     public let active: Bool?
     
     /// The level of the received special ability.
     public let level: Int?
     
-    /// Received select options. Order is important. Typically, you only need the
-    /// first array index, though.
+    /// Received select options. Order is important. Typically, you only need the first array index, though.
     public let options: [RequirableSelectOptionIdentifier]?
 }
 
 public struct VariantSpecialAbilitySelection: EntitySubtype {
-    /// if set to `false`, if the selection is granted by the basic package, it
-    /// is removed.
+    /// if set to `false`, if the selection is granted by the basic package, it is removed.
     public let active: Bool?
     
     public let options: [SpecialAbilityDefinition]
@@ -349,8 +307,7 @@ public struct CombatTechniqueRating: EntitySubtype {
     /// The identifier of the combat technique to provide the rating for.
     public let id: CombatTechniqueIdentifier
     
-    /// The rating bonus provided for the combat technique. If used in a profession
-    /// variant, it can also be used to lower the bonus of the base profession.
+    /// The rating bonus provided for the combat technique. If used in a profession variant, it can also be used to lower the bonus of the base profession.
     /// 
     /// **Note:** This is a rating *bonus*, so it will be *added* to the default
     /// value of 6.
@@ -361,19 +318,15 @@ public struct SkillRating: EntitySubtype {
     /// The identifier of the skill to provide the rating for.
     public let id: SkillIdentifier
     
-    /// The rating bonus provided for the skill. If used in a profession variant,
-    /// it can also be used to lower the bonus of the base profession
+    /// The rating bonus provided for the skill. If used in a profession variant, it can also be used to lower the bonus of the base profession
     public let rating: Int
 }
 
 public struct SpellRating: EntitySubtype {
-    /// The identifier(s) of the spell(s) to choose from to provide the rating for.
-    /// If multiple spells are provided, they must all have the same improvement
-    /// cost.
+    /// The identifier(s) of the spell(s) to choose from to provide the rating for. If multiple spells are provided, they must all have the same improvement cost.
     public let id: [ProfessionSpellIdentifier]
     
-    /// The rating bonus provided for the (selected) spell. If used in a profession
-    /// variant, it can also be used to lower the bonus of the base profession.
+    /// The rating bonus provided for the (selected) spell. If used in a profession variant, it can also be used to lower the bonus of the base profession.
     public let rating: Int
 }
 
@@ -387,11 +340,7 @@ public struct ProfessionSpellworkIdentifier: EntitySubtype {
     /// The identifier of the spell to provide the rating for.
     public let id: SpellworkIdentifier
     
-    /// If the spell is not part of the magical tradition required by the
-    /// package, this references the magical tradition it is part of. It can also
-    /// be used to define the target magical tradition of a spell if multiple
-    /// magical traditions are required and the spell is available to multiple
-    /// of them.
+    /// If the spell is not part of the magical tradition required by the package, this references the magical tradition it is part of. It can also be used to define the target magical tradition of a spell if multiple magical traditions are required and the spell is available to multiple of them.
     public let tradition: MagicalTraditionReference?
 }
 
@@ -401,19 +350,14 @@ public struct ProfessionMagicalActionIdentifier: EntitySubtype {
 }
 
 public struct LiturgicalChantRating: EntitySubtype {
-    /// The identifier(s) of the liturgical chant(s) to choose from to provide
-    /// the rating for. If multiple liturgical chants are provided, they must all
-    /// have the same improvement cost.
+    /// The identifier(s) of the liturgical chant(s) to choose from to provide the rating for. If multiple liturgical chants are provided, they must all have the same improvement cost.
     public let id: [LiturgyIdentifier]
     
-    /// The rating bonus provided for the selected liturgical chant. If used in a
-    /// profession variant, it can also be used to lower the bonus of the base
-    /// profession.
+    /// The rating bonus provided for the selected liturgical chant. If used in a profession variant, it can also be used to lower the bonus of the base profession.
     public let rating: Int
 }
 
-/// In some areas, the profession package grants a loose set of stats where the
-/// player must choose between different options for the profession package.
+/// In some areas, the profession package grants a loose set of stats where the player must choose between different options for the profession package.
 public struct ProfessionPackageOptions: EntitySubtype {
     public let skillSpecialization: SkillSpecializationOptions?
     
@@ -440,9 +384,7 @@ public struct ProfessionPackageOptions: EntitySubtype {
     }
 }
 
-/// In some areas, the profession package grants a loose set of stats where the
-/// player must choose between different options for the profession package. The
-/// variant may override or remove those options.
+/// In some areas, the profession package grants a loose set of stats where the player must choose between different options for the profession package. The variant may override or remove those options.
 public struct ProfessionVariantPackageOptions: EntitySubtype {
     public let skillSpecialization: VariantOptionAction<SkillSpecializationOptions>?
     
@@ -475,9 +417,7 @@ public enum VariantOptionAction<T: EntitySubtype>: EntitySubtype {
     case override(T)
 }
 
-/// Select an application from a skill or from one of a list of skills where you
-/// get a skill specialization for. You can also specify a skill groups from
-/// which you can choose a skill.
+/// Select an application from a skill or from one of a list of skills where you get a skill specialization for. You can also specify a skill groups from which you can choose a skill.
 @DiscriminatedEnum
 public enum SkillSpecializationOptions: EntitySubtype {
     case single(SingleSkillSpecializationOption)
@@ -503,13 +443,10 @@ public struct LanguagesScriptsOptions: EntitySubtype {
 
 /// Select one or more combat techniques you get a CtR bonus for.
 public struct CombatTechniquesOptions: EntitySubtype {
-    /// Specify the number of combat techniques that can be selected so that they
-    /// get increased to a specific CtR. There can be multiple selections with
-    /// different CtRs.
+    /// Specify the number of combat techniques that can be selected so that they get increased to a specific CtR. There can be multiple selections with different CtRs.
     public let fixed: [RatingForCombatTechniquesNumber]
     
-    /// Define if after the fixed selections the remaining unselected combat
-    /// techniques will receive a certain rating bonus as well.
+    /// Define if after the fixed selections the remaining unselected combat techniques will receive a certain rating bonus as well.
     public let restRating: Int?
     
     /// The list of combat techniques to choose from.

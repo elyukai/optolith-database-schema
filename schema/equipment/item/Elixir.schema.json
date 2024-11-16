@@ -20,7 +20,7 @@
           "$ref": "./_Herbary.schema.json#/$defs/LaboratoryLevel"
         },
         "brewing_difficulty": {
-          "description": "The brewing difficulty, which represents the challenge of creating an\nelixir.",
+          "description": "The brewing difficulty, which represents the challenge of creating an elixir.",
           "type": "integer"
         },
         "trade_secret": {
@@ -82,7 +82,7 @@
           "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
         },
         "quality_levels": {
-          "description": "The list of effects for each quality level. The first element\nrepresents QL 1, the second element QL 2, and so on.",
+          "description": "The list of effects for each quality level. The first element represents QL 1, the second element QL 2, and so on.",
           "type": "array",
           "items": {
             "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"

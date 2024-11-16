@@ -25,11 +25,9 @@ The familiar's trick's identifier. An unique, increasing integer.
 
 #### <a name="FamiliarsTrick/animal_types"></a> `animal_types`
 
-The animal types this trick is available to. Either it is available to all
-or only a list of specific animal types.
+The animal types this trick is available to. Either it is available to all or only a list of specific animal types.
 
-If no animal types are given, the animal disease applies to all animal
-types.
+If no animal types are given, the animal disease applies to all animal types.
 
 - **Type:** List
 - **Items:** <a href="#FamiliarsTrick/animal_types[]">FamiliarsTrick/animal_types[]</a>
@@ -48,8 +46,7 @@ The property of the trick.
 
 #### <a name="FamiliarsTrick/ap_value"></a> `ap_value?`
 
-The AP value the familiar has to pay for. It may also be that a specific is
-known by all familiar by default. In the latter case the field is not set.
+The AP value the familiar has to pay for. It may also be that a specific is known by all familiar by default. In the latter case the field is not set.
 
 - **Type:** Integer
 - **Minimum:** `1`
@@ -388,8 +385,7 @@ Key | Description | Details
 
 #### <a name="FamiliarsTrickFixedOneTimeCostTranslation/per"></a> `per?`
 
-The cost have to be per a specific countable entity, e.g. `8 KP
-per person`.
+The cost have to be per a specific countable entity, e.g. `8 KP per person`.
 
 - **Type:** <a href="./_ResponsiveText.md#ResponsiveTextOptional">ResponsiveTextOptional</a>
 

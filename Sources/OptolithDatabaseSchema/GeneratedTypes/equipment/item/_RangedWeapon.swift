@@ -7,10 +7,7 @@
 
 import DiscriminatedEnum
 
-/// The damage of a ranged weapon. It consists of a random part using dice and an
-/// optional flat part ny default. Some ranged weapons may work different so that
-/// damage is either not applicable at all or it is outlined as *Special* and
-/// further defined in a description.
+/// The damage of a ranged weapon. It consists of a random part using dice and an optional flat part ny default. Some ranged weapons may work different so that damage is either not applicable at all or it is outlined as *Special* and further defined in a description.
 @DiscriminatedEnum
 public enum RangedDamage: EntitySubtype {
     case `default`(DefaultRangedDamage)
@@ -18,8 +15,7 @@ public enum RangedDamage: EntitySubtype {
     case special
 }
 
-/// The damage of a weapon consists of a random part using dice and an optional
-/// flat part.
+/// The damage of a weapon consists of a random part using dice and an optional flat part.
 public struct DefaultRangedDamage: EntitySubtype {
     /// How many dice of which type are rolled to get the damage.
     public let dice: Dice
@@ -32,8 +28,7 @@ public struct RangedWeapon: EntitySubtype {
     /// The combat techniques and dependent values.
     public let combatTechnique: RangedCombatTechniqueReference
     
-    /// The damage of a weapon consists of a random part using dice and an optional
-    /// flat part.
+    /// The damage of a weapon consists of a random part using dice and an optional flat part.
     public let damage: RangedDamage
     
     /// One or multiple reload times.

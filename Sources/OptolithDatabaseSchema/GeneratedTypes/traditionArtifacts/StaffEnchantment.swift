@@ -65,8 +65,7 @@ public struct StaffEnchantmentTranslation: EntitySubtype {
     @available(*, deprecated)
     public let bindingCost: String?
     
-    /// The AP value. It is only used if the text cannot be generated from the
-    /// given information.
+    /// The AP value. It is only used if the text cannot be generated from the given information.
     public let apValue: AdventurePointsValueReplacement?
     
     public let errata: Errata?    

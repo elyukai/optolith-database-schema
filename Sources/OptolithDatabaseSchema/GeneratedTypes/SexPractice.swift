@@ -27,8 +27,7 @@ public struct SexPracticeTranslation: EntitySubtype {
     /// How long a round of this sex practice takes.
     public let duration: NonEmptyString
     
-    /// Prerequisites of participants and environment. Do not specify if the
-    /// sex practice has no prerequisites.
+    /// Prerequisites of participants and environment. Do not specify if the sex practice has no prerequisites.
     public let prerequisites: NonEmptyString?
     
     /// Effects of a failed *Seduction* check.

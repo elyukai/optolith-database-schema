@@ -14,8 +14,7 @@ public struct Culture: LocalizableEntity {
     /// A list of native languages (usually it is only one).
     public let language: [LanguageReference]
     
-    /// A list of native scripts (usually it is only one). If the culture does not
-    /// use any script, leave this field empty.
+    /// A list of native scripts (usually it is only one). If the culture does not use any script, leave this field empty.
     public let script: [ScriptReference]?
     
     /// If the area knowledge has a fixed value or can be adjusted.
@@ -24,10 +23,7 @@ public struct Culture: LocalizableEntity {
     /// A list of possible social status in the respective culture.
     public let socialStatus: [SocialStatusReference]
     
-    /// A list of professions that are typical for the culture, as well as
-    /// professions that are rarely practiced or encountered in the culture. The
-    /// list is either defined by group (as multiple lists) or plain (as a single
-    /// list).
+    /// A list of professions that are typical for the culture, as well as professions that are rarely practiced or encountered in the culture. The list is either defined by group (as multiple lists) or plain (as a single list).
     public let commonProfessions: CommonProfessions
     
     /// A list of common advantages.
@@ -86,46 +82,34 @@ public struct AreaKnowledge: EntitySubtype {
     }
 }
 
-/// The "weight" difference compared to other professions or profession variants.
-/// Some professions or profession variants are simply more common (Mostly), but
-/// sometimes only specific elements are used (Only).
+/// The "weight" difference compared to other professions or profession variants. Some professions or profession variants are simply more common (Mostly), but sometimes only specific elements are used (Only).
 public enum CommonnessWeight: String, EntitySubtype {
     case mostly = "Mostly"
     case only = "Only"
 }
 
-/// Some professions or profession variants are more common than others. There
-/// may be cultures where some professions or profession variants are not
-/// represented at all.
+/// Some professions or profession variants are more common than others. There may be cultures where some professions or profession variants are not represented at all.
 public struct Weighted<ProfessionOrVariant: EntitySubtype>: EntitySubtype {
     /// The list of more common professions or profession variants.
     public let elements: [ProfessionOrVariant]
     
-    /// The "weight" difference compared to other professions or profession
-    /// variants. Some professions or profession variants are simply more common
+    /// The "weight" difference compared to other professions or profession variants. Some professions or profession variants are simply more common
     /// (Mostly), but sometimes only specific elements are used (Only).
     public let weight: CommonnessWeight
 }
 
-/// This defines how the list of constraints should be offset against the
-/// list of all mundane professions: Either only the professions are kept
-/// that intersect with the constraints (include) or only the professions
-/// are kept that are different from the constraints (exclude).
+/// This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints (include) or only the professions are kept that are different from the constraints (exclude).
 public enum CommonProfessionConstraintsOperation: String, EntitySubtype {
     case intersection = "Intersection"
     case difference = "Difference"
 }
 
-/// A list of professions. The filter specifies how the list is applied to
-/// all mundane professions.
+/// A list of professions. The filter specifies how the list is applied to all mundane professions.
 public struct CommonProfessionConstraints<Constraint: EntitySubtype>: EntitySubtype {
     /// The list of constraints.
     public let constraints: [Constraint]
     
-    /// This defines how the list of constraints should be offset against the
-    /// list of all mundane professions: Either only the professions are kept
-    /// that intersect with the constraints (include) or only the professions
-    /// are kept that are different from the constraints (exclude).
+    /// This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints (include) or only the professions are kept that are different from the constraints (exclude).
     public let operation: CommonProfessionConstraintsOperation
 }
 
@@ -139,12 +123,10 @@ public struct ProfessionConstraint: EntitySubtype {
     /// The profession's identifier.
     public let id: ProfessionIdentifier
     
-    /// Some profession variants are more common than others. There may be
-    /// cultures where some variants are not represented at all.
+    /// Some profession variants are more common than others. There may be cultures where some variants are not represented at all.
     public let weightedVariants: Weighted<ProfessionVariantReference>?
     
-    /// Some professions may be found in a culture, but are not that
-    /// common.
+    /// Some professions may be found in a culture, but are not that common.
     public let rarity: Rarity?    
     
     private enum CodingKeys: String, CodingKey {
@@ -165,8 +147,7 @@ public struct MagicalTraditionConstraint: EntitySubtype {
     /// The magical tradition's identifier.
     public let id: MagicalTraditionIdentifier
     
-    /// Some professions are more common than others. There may be cultures
-    /// where some professions are not represented at all.
+    /// Some professions are more common than others. There may be cultures where some professions are not represented at all.
     public let weightedProfessions: Weighted<ProfessionReference>?
     
     /// Some traditions may be found in a culture, but are not that common.
@@ -183,8 +164,7 @@ public struct BlessedTraditionConstraint: EntitySubtype {
     /// The magical tradition's identifier.
     public let id: BlessedTraditionIdentifier
     
-    /// Some professions are more common than others. There may be cultures
-    /// where some professions are not represented at all.
+    /// Some professions are more common than others. There may be cultures where some professions are not represented at all.
     public let weightedProfessions: Weighted<ProfessionReference>?
     
     /// Some traditions may be found in a culture, but are not that common.
@@ -226,10 +206,7 @@ public struct GroupedCommonProfessions: EntitySubtype {
     public let blessed: CommonProfessionConstraints<BlessedCommonProfessionConstraint>?
 }
 
-/// A list of professions that are typical for the culture, as well as
-/// professions that are rarely practiced or encountered in the culture. The
-/// list is either defined by group (as multiple lists) or plain (as a single
-/// list).
+/// A list of professions that are typical for the culture, as well as professions that are rarely practiced or encountered in the culture. The list is either defined by group (as multiple lists) or plain (as a single list).
 @DiscriminatedEnum
 public enum CommonProfessions: EntitySubtype {
     case plain(PlainCommonProfessions)
@@ -242,8 +219,7 @@ public struct CulturalPackageItem: EntitySubtype {
     /// The skill's identifier.
     public let id: SkillIdentifier
     
-    /// The skill points for the respective skill you get for buying the cultural
-    /// package.
+    /// The skill points for the respective skill you get for buying the cultural package.
     public let points: Int
 }
 
@@ -288,8 +264,7 @@ public struct AreaKnowledgeTranslation: EntitySubtype {
     /// The full description without examples in parenthesis.
     public let description: String
     
-    /// A shorter version of the description, used in input fields and other UI
-    /// elements where the space might be to small to use the full description.
+    /// A shorter version of the description, used in input fields and other UI elements where the space might be to small to use the full description.
     public let abbreviated: String
     
     /// Examples of areas, if applicable.
@@ -302,12 +277,10 @@ public struct AreaKnowledgeExample: EntitySubtype {
 
 /// Structured description of common names.
 public struct CommonNames: EntitySubtype {
-    /// First names can be gender-neutral, but they can also be for a specific
-    /// binary sex. They are sorted into groups.
+    /// First names can be gender-neutral, but they can also be for a specific binary sex. They are sorted into groups.
     public let firstNameGroups: [CommonNameGroup]?
     
-    /// Last names can be gender-neutral, like family names, but they can also be
-    /// for a specific binary sex. They are sorted into groups.
+    /// Last names can be gender-neutral, like family names, but they can also be for a specific binary sex. They are sorted into groups.
     public let lastNameGroups: [CommonNameGroup]?
     
     /// Special naming rules.

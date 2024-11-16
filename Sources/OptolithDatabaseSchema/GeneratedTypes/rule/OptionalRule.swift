@@ -11,8 +11,7 @@ public struct OptionalRule: LocalizableEntity {
     /// The optional rule's identifier. An unique, increasing integer.
     public let id: Int
     
-    /// Has the focus rule not been implemented in Optolith yet? This is also true
-    /// if the focus rule does not (currently) apply to any Optolith feature.
+    /// Has the focus rule not been implemented in Optolith yet? This is also true if the focus rule does not (currently) apply to any Optolith feature.
     public let isMissingImplementation: Bool
     
     public let src: PublicationRefs

@@ -26,11 +26,11 @@
           "maxItems": 3
         },
         "culture": {
-          "description": "The patron is only available to a certain set of cultures. It may be\navailable to all, it may be available to only specific ones (intersection)\nand it may be available to all except specific ones to the listed cultures\n(difference).",
+          "description": "The patron is only available to a certain set of cultures. It may be available to all, it may be available to only specific ones (intersection) and it may be available to all except specific ones to the listed cultures\n(difference).",
           "$ref": "#/$defs/PatronCulture"
         },
         "primary_patron_cultures": {
-          "description": "The list of cultures where patrons from this category can be the primary\npatron of.",
+          "description": "The list of cultures where patrons from this category can be the primary patron of.",
           "type": "array",
           "items": {
             "$ref": "./_SimpleReferences.schema.json#/$defs/CultureReference"
@@ -38,28 +38,28 @@
           "uniqueItems": true
         },
         "powers": {
-          "description": "The patron-specific powers. Used by animist power Animal Powers I–III and\nshould only be present on animal patrons.",
+          "description": "The patron-specific powers. Used by animist power Animal Powers I–III and should only be present on animal patrons.",
           "$ref": "#/$defs/AnimalPowers"
         },
         "ae_cost": {
-          "description": "The patron-specific AE cost. Used by several animist forces for animal\npatrons.",
+          "description": "The patron-specific AE cost. Used by several animist forces for animal patrons.",
           "type": "integer",
           "minimum": 2,
           "multipleOf": 2
         },
         "improvement_cost": {
-          "description": "The patron-specific improvement cost. Used by several animist forces for\nanimal patrons.",
+          "description": "The patron-specific improvement cost. Used by several animist forces for animal patrons.",
           "$ref": "./_ImprovementCost.schema.json#/$defs/ImprovementCost"
         },
         "common_advantages": {
-          "description": "The patron may grant common advantages that are taken into account during\ncharacter creation.\n\n*Source:* Geisterwald & Knochenklippen, p. 6-7",
+          "description": "The patron may grant common advantages that are taken into account during character creation.\n\n*Source:* Geisterwald & Knochenklippen, p. 6-7",
           "type": "array",
           "items": {
             "$ref": "./_SimpleReferences.schema.json#/$defs/AdvantageReference"
           }
         },
         "common_disadvantages": {
-          "description": "The patron may grant common disadvantages that are taken into account\nduring character creation.\n\n*Source:* Geisterwald & Knochenklippen, p. 6-7",
+          "description": "The patron may grant common disadvantages that are taken into account during character creation.\n\n*Source:* Geisterwald & Knochenklippen, p. 6-7",
           "type": "array",
           "items": {
             "$ref": "./_SimpleReferences.schema.json#/$defs/DisadvantageReference"
@@ -107,7 +107,7 @@
       "additionalProperties": false
     },
     "PatronCulture": {
-      "description": "The patron cultures the patron is or is not part of. If the patron is part of\nall patron cultures, the set should be empty and the operation should be\ndifference.",
+      "description": "The patron cultures the patron is or is not part of. If the patron is part of all patron cultures, the set should be empty and the operation should be difference.",
       "type": "object",
       "properties": {
         "set": {
@@ -127,7 +127,7 @@
       "additionalProperties": false
     },
     "PatronCultureOperation": {
-      "description": "The set operation to combine the set of all patron cultures with the\nspecified set of patron cultures: If they should intersect, the patron is\nonly part of the given cultures. If they should differ, the patron is only\npart of the cultures that are not given.",
+      "description": "The set operation to combine the set of all patron cultures with the specified set of patron cultures: If they should intersect, the patron is only part of the given cultures. If they should differ, the patron is only part of the cultures that are not given.",
       "oneOf": [
         {
           "const": "Intersection"

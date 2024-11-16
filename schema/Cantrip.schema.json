@@ -25,7 +25,7 @@
           "$ref": "./_SimpleReferences.schema.json#/$defs/PropertyReference"
         },
         "note": {
-          "description": "A note specifying the dissemination of the cantrip in different traditions.\nSometimes a cantrip is exclusively available to one or more specific\ntraditions, but usually one the academies and traditions are listed the\ncantrip is most commonly teached in.",
+          "description": "A note specifying the dissemination of the cantrip in different traditions. Sometimes a cantrip is exclusively available to one or more specific traditions, but usually one the academies and traditions are listed the cantrip is most commonly teached in.",
           "$ref": "#/$defs/CantripNote"
         },
         "src": {

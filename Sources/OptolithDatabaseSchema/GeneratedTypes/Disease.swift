@@ -14,14 +14,10 @@ public struct Disease: LocalizableEntity {
     /// The disease's level.
     public let level: Int
     
-    /// Depending on the disease, apply Spirit or Toughness as a penalty to the
-    /// disease roll. It may also happen that the lower of both is applied as a
-    /// penalty.
+    /// Depending on the disease, apply Spirit or Toughness as a penalty to the disease roll. It may also happen that the lower of both is applied as a penalty.
     public let resistance: Resistance
     
-    /// What causes the disease? The GM rolls 1D20 to see if a character gets
-    /// infected. If the infection check succeeds, the GM makes a disease check to
-    /// determine the severity of the infection.
+    /// What causes the disease? The GM rolls 1D20 to see if a character gets infected. If the infection check succeeds, the GM makes a disease check to determine the severity of the infection.
     public let cause: [Cause]
     
     public let src: PublicationRefs

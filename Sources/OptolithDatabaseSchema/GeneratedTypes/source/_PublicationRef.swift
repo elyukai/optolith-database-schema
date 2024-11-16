@@ -10,9 +10,7 @@ import DiscriminatedEnum
 /// The publications where you can find the entry.
 public typealias PublicationRefs = [PublicationRef]
 
-/// A source reference. It contains the book's publisher identifier and the page
-/// where it occurs. If an entry spans multiple pages, provide the last page as
-/// well.
+/// A source reference. It contains the book's publisher identifier and the page where it occurs. If an entry spans multiple pages, provide the last page as well.
 public struct PublicationRef: EntitySubtype {
     /// The publication's identifier.
     public let id: PublicationIdentifier
@@ -44,12 +42,10 @@ public enum Occurrence: EntitySubtype {
 public typealias SimpleOccurrences = [SimpleOccurrence]
 
 public struct SimpleOccurrence: EntitySubtype {
-    /// The page where it occurs. If the entry spans multiple pages, use this as
-    /// the first page and `last_page` as the last page.
+    /// The page where it occurs. If the entry spans multiple pages, use this as the first page and `last_page` as the last page.
     public let firstPage: Int
     
-    /// The last page where it occurs. If there is only one page, set this to the
-    /// same as `first_page` oder remove it.
+    /// The last page where it occurs. If there is only one page, set this to the same as `first_page` oder remove it.
     public let lastPage: Int?    
     
     private enum CodingKeys: String, CodingKey {
@@ -62,22 +58,19 @@ public struct VersionedOccurrence: EntitySubtype {
     /// The initial occurrence of the entry.
     public let initial: InitialOccurrence
     
-    /// Revisions of the entry, resulting in either changed page references or
-    /// re-addition or removal of an entry.
+    /// Revisions of the entry, resulting in either changed page references or re-addition or removal of an entry.
     public let revisions: [Revision]?
 }
 
 public struct InitialOccurrence: EntitySubtype {
-    /// The publication's printing since which the entry is present. Leave
-    /// empty if present since the beginning.
+    /// The publication's printing since which the entry is present. Leave empty if present since the beginning.
     public let printing: Int?
     
     /// The initial page references.
     public let pages: [PageRange]
 }
 
-/// A revision of the entry, resulting in either changed page references or
-/// re-addition or removal of an entry.
+/// A revision of the entry, resulting in either changed page references or re-addition or removal of an entry.
 @DiscriminatedEnum
 public enum Revision: EntitySubtype {
     case since(Since)
@@ -85,8 +78,7 @@ public enum Revision: EntitySubtype {
 }
 
 public struct Since: EntitySubtype {
-    /// The publication's printing since which the entry is present again or has
-    /// changed page references.
+    /// The publication's printing since which the entry is present again or has changed page references.
     public let printing: Int
     
     /// The changed or new page references.
@@ -99,12 +91,10 @@ public struct Deprecation: EntitySubtype {
 }
 
 public struct PageRange: EntitySubtype {
-    /// The page where it occurs. If the entry spans multiple pages, use this as
-    /// the first page and `last_page` as the last page.
+    /// The page where it occurs. If the entry spans multiple pages, use this as the first page and `last_page` as the last page.
     public let firstPage: Page
     
-    /// The last page where it occurs. If there is only one page, set this to the
-    /// same as `first_page` oder remove it.
+    /// The last page where it occurs. If there is only one page, set this to the same as `first_page` oder remove it.
     public let lastPage: Page?    
     
     private enum CodingKeys: String, CodingKey {

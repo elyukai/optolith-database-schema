@@ -13,9 +13,7 @@ import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
- * Meta Conditions are rule elements that work like conditions in the sense that
- * they have four levels with different effects, but which are not explicitly
- * listed as conditions.
+ * Meta Conditions are rule elements that work like conditions in the sense that they have four levels with different effects, but which are not explicitly listed as conditions.
  * @title Meta Condition
  */
 export type MetaCondition = {

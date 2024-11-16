@@ -96,36 +96,35 @@ export type SlowSkillCastingTime = {
   unit: SlowSkillCastingTimeUnit
 }
 
-export type SlowSkillCastingTimeUnit =
-  | "Minutes"
-  | "Hours"
+export type SlowSkillCastingTimeUnit = "Minutes" | "Hours"
 
 /**
  * @minProperties 1
  */
 export type SkillModificationLevelTranslation = {
   /**
-   * Configuration for this level for fast skills (spells, liturgical chants).
-   * Values set here override the default generated text.
+   * Configuration for this level for fast skills (spells, liturgical chants). Values set here override the default generated text.
    */
   fast?: LevelTypeConfigTranslation
 
   /**
-   * Configuration for this level for slow skills (rituals, ceremonies). Values
-   * set here override the default generated text.
+   * Configuration for this level for slow skills (rituals, ceremonies). Values set here override the default generated text.
    */
   slow?: LevelTypeConfigTranslation
 }
 
 /**
- * Configuration translation of a type for a level. Values set here override the
- * default generated text.
+ * Configuration translation of a type for a level. Values set here override the default generated text.
  */
 export type LevelTypeConfigTranslation = {
   range: NonEmptyString
 }
 
-export const config: TypeConfig<SkillModificationLevel, SkillModificationLevel["id"], "SkillModificationLevel"> = {
+export const config: TypeConfig<
+  SkillModificationLevel,
+  SkillModificationLevel["id"],
+  "SkillModificationLevel"
+> = {
   name: "SkillModificationLevel",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("SkillModificationLevel"),

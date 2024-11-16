@@ -47,8 +47,7 @@ export type VampiricGiftTranslation = {
   rules: Activatable.Rules
 
   /**
-   * The AP value. It is only used if the text cannot be generated from the
-   * given information.
+   * The AP value. It is only used if the text cannot be generated from the given information.
    */
   ap_value?: Activatable.AdventurePointsValueReplacement
 

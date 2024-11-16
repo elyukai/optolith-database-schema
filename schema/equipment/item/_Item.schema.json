@@ -18,11 +18,11 @@
           "$ref": "#/$defs/Complexity"
         },
         "structure_points": {
-          "description": "The structure points of the item. Use an array if the item consists of\nmultiple components that have individual structure points.",
+          "description": "The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.",
           "$ref": "#/$defs/StructurePoints"
         },
         "combat_use": {
-          "description": "The item can also be used either as an improvised weapon or as an armor,\nalthough this is not the primary use case of the item.",
+          "description": "The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.",
           "$ref": "#/$defs/CombatUse"
         },
         "src": {
@@ -50,7 +50,7 @@
       "additionalProperties": false
     },
     "CombatUse": {
-      "description": "The item can also be used either as an improvised weapon or as an armor,\nalthough this is not the primary use case of the item.",
+      "description": "The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.",
       "oneOf": [
         {
           "type": "object",
@@ -116,7 +116,7 @@
     },
     "StructurePoints": {
       "title": "Structure Points",
-      "description": "The structure points of the item. Use an array if the item consists of\nmultiple components that have individual structure points.",
+      "description": "The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.",
       "type": "array",
       "items": {
         "$ref": "#/$defs/StructurePointsComponent"

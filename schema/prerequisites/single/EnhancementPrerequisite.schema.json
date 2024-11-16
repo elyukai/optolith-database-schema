@@ -4,7 +4,7 @@
   "$defs": {
     "ExternalEnhancementPrerequisite": {
       "title": "External Enhancement Prerequisite",
-      "description": "Requires a specific enhancement from a skill. This should **not** be used\nfor enhancements themselves; they can only require enhancements from the same\nskill they enhance.",
+      "description": "Requires a specific enhancement from a skill. This should **not** be used for enhancements themselves; they can only require enhancements from the same skill they enhance.",
       "type": "object",
       "properties": {
         "skill": {
@@ -54,7 +54,7 @@
     },
     "InternalEnhancementPrerequisite": {
       "title": "Internal Enhancement Prerequisite",
-      "description": "Requires a specific enhancement from a skill. This can only be used by an\nenhancement to require another enhancement from the same skill.",
+      "description": "Requires a specific enhancement from a skill. This can only be used by an enhancement to require another enhancement from the same skill.",
       "$ref": "#/$defs/EnhancementsReference"
     }
   }

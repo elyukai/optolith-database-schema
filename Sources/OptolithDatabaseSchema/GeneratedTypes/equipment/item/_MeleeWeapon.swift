@@ -13,8 +13,7 @@ public typealias AttackModifier = Int
 /// The PA modifier.
 public typealias ParryModifier = Int
 
-/// The damage of a weapon consists of a random part using dice and an optional
-/// flat part.
+/// The damage of a weapon consists of a random part using dice and an optional flat part.
 public struct MeleeDamage: EntitySubtype {
     /// How many dice of which type are rolled to get the damage.
     public let dice: Dice
@@ -44,8 +43,7 @@ public struct MeleeWeapon: EntitySubtype {
     /// The combat techniques and dependent values.
     public let combatTechnique: CloseCombatTechniqueReference
     
-    /// The damage of a weapon consists of a random part using dice and an optional
-    /// flat part.
+    /// The damage of a weapon consists of a random part using dice and an optional flat part.
     public let damage: MeleeDamage
     
     /// The primary attribute damage and threshold value.

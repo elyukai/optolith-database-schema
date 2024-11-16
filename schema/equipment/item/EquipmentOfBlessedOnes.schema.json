@@ -11,7 +11,7 @@
           "$ref": "./_Item.schema.json#/$defs/Cost"
         },
         "structure_points": {
-          "description": "The structure points of the item. Use an array if the item consists of\nmultiple components that have individual structure points.",
+          "description": "The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.",
           "$ref": "./_Item.schema.json#/$defs/StructurePoints"
         },
         "associated_tradition": {

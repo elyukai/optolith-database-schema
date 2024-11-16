@@ -134,8 +134,7 @@ public struct AlchemicalPoison: EntitySubtype {
     /// The laboratory level needed to brew the elixir.
     public let laboratory: LaboratoryLevel
     
-    /// The brewing difficulty, which represents the challenge of creating an
-    /// elixir.
+    /// The brewing difficulty, which represents the challenge of creating an elixir.
     public let brewingDifficulty: Int
     
     /// AP value and prerequisites of the elixir recipe’s trade secret.
@@ -226,13 +225,10 @@ public struct DemonicPoisonTranslation: EntitySubtype {
 }
 
 public struct Intoxicant: EntitySubtype {
-    /// Whether the use of the intoxicant is legal or not, usually from the
-    /// perspective of most middle-Aventurian an northern-Aventurian nations.
+    /// Whether the use of the intoxicant is legal or not, usually from the perspective of most middle-Aventurian an northern-Aventurian nations.
     public let legality: IntoxicantLegality
     
-    /// The chance of getting addicted after an ingestion in addition to the
-    /// maximum interval at which it, while addicted, must be ingested to not
-    /// suffer from withdrawal symptoms.
+    /// The chance of getting addicted after an ingestion in addition to the maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.
     public let addiction: IntoxicantAddiction?
     
     /// All translations for the entry, identified by IETF language tag
@@ -240,8 +236,7 @@ public struct Intoxicant: EntitySubtype {
     public let translations: LocaleMap<IntoxicantTranslation>
 }
 
-/// Whether the use of the intoxicant is legal or not, usually from the
-/// perspective of most middle-Aventurian an northern-Aventurian nations.
+/// Whether the use of the intoxicant is legal or not, usually from the perspective of most middle-Aventurian an northern-Aventurian nations.
 public struct IntoxicantLegality: EntitySubtype {
     public let isLegal: Bool    
     
@@ -250,20 +245,16 @@ public struct IntoxicantLegality: EntitySubtype {
     }
 }
 
-/// The chance of getting addicted after an ingestion in addition to the maximum
-/// interval at which it, while addicted, must be ingested to not suffer from
-/// withdrawal symptoms.
+/// The chance of getting addicted after an ingestion in addition to the maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.
 public struct IntoxicantAddiction: EntitySubtype {
     /// The chance of getting addicted after an ingestion.
     public let chance: Double
     
-    /// The maximum interval at which it, while addicted, must be ingested to not
-    /// suffer from withdrawal symptoms.
+    /// The maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.
     public let interval: IntoxicantAddictionInterval
 }
 
-/// The maximum interval at which it, while addicted, must be ingested to not
-/// suffer from withdrawal symptoms.
+/// The maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.
 @DiscriminatedEnum
 public enum IntoxicantAddictionInterval: EntitySubtype {
     case constant(ConstantIntoxicantAddictionInterval)
@@ -284,12 +275,10 @@ public struct IntoxicantTranslation: EntitySubtype {
     /// How to ingest the intoxicant.
     public let ingestion: NonEmptyString
     
-    /// The intoxicants side effects that always happen, no matter whether the
-    /// intoxicant has the default or the reduced effect.
+    /// The intoxicants side effects that always happen, no matter whether the intoxicant has the default or the reduced effect.
     public let sideEffect: NonEmptyMarkdown?
     
-    /// What happens if the intoxicant has been overdosed, that is, it has been
-    /// ingested another time within the duration.
+    /// What happens if the intoxicant has been overdosed, that is, it has been ingested another time within the duration.
     public let overdose: NonEmptyMarkdown
     
     /// Special information about the intoxicant.

@@ -23,16 +23,14 @@ public struct InfluenceTranslation: EntitySubtype {
     /// The influence name.
     public let name: NonEmptyString
     
-    /// The effects of the influence. They should be sorted like they are in
-    /// the book.
+    /// The effects of the influence. They should be sorted like they are in the book.
     public let effects: [InfluenceEffect]
     
     public let errata: Errata?
 }
 
 public struct InfluenceEffect: EntitySubtype {
-    /// An optional label that is displayed and placed before the actual
-    /// text.
+    /// An optional label that is displayed and placed before the actual text.
     public let label: NonEmptyString?
     
     /// The effect text.

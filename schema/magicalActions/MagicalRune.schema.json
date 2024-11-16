@@ -13,7 +13,7 @@
           "minimum": 1
         },
         "options": {
-          "description": "The options the magical rune has, if any.\n\nIf there are multiple options, the magical rune may be activated for each\noption, that is, multiple times.",
+          "description": "The options the magical rune has, if any.\n\nIf there are multiple options, the magical rune may be activated for each option, that is, multiple times.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/MagicalRuneOption"
@@ -69,11 +69,11 @@
       "type": "object",
       "properties": {
         "name": {
-          "description": "The name of the magical rune.\n\nIf the rune has an option, the option’s name will/should not be included in\nthe name as well as its surrounding parenthesis. It will/should be combined\non demand.",
+          "description": "The name of the magical rune.\n\nIf the rune has an option, the option’s name will/should not be included in the name as well as its surrounding parenthesis. It will/should be combined on demand.",
           "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "name_in_library": {
-          "description": "The full name of the entry as stated in the sources. Only use when `name`\nneeds to be different from full name for text generation purposes.",
+          "description": "The full name of the entry as stated in the sources. Only use when `name` needs to be different from full name for text generation purposes.",
           "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "native_name": {
@@ -81,7 +81,7 @@
           "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "effect": {
-          "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
+          "description": "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
           "$ref": "../_ActivatableSkillEffect.schema.json#/$defs/ActivatableSkillEffect"
         },
         "cost": {
@@ -388,7 +388,7 @@
       "type": "object",
       "properties": {
         "per": {
-          "description": "The crafting time has to be per a specific countable entity, e.g. `8\naction per person`.",
+          "description": "The crafting time has to be per a specific countable entity, e.g. `8 action per person`.",
           "$ref": "../_ResponsiveText.schema.json#/$defs/ResponsiveText"
         }
       },
@@ -560,7 +560,7 @@
       "type": "object",
       "properties": {
         "name": {
-          "description": "The name of the option.\n\nThe surrounding parenthesis will/should not be included, they will/should\nbe generated.",
+          "description": "The name of the option.\n\nThe surrounding parenthesis will/should not be included, they will/should be generated.",
           "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "native_name": {

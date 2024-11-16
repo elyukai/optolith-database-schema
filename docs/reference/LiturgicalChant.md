@@ -53,9 +53,7 @@ The target category – the kind of creature or object – the skill affects.
 
 #### <a name="LiturgicalChant/traditions"></a> `traditions`
 
-The tradition(s) the liturgical chant is available for. Note that general
-aspects do not have an associated tradition and thus need to be defined in
-a special way.
+The tradition(s) the liturgical chant is available for. Note that general aspects do not have an associated tradition and thus need to be defined in a special way.
 
 - **Type:** List
 - **Items:** <a href="#LiturgicalChant/traditions[]">LiturgicalChant/traditions[]</a>
@@ -117,17 +115,13 @@ The name of the liturgical chant.
 
 #### <a name="LiturgicalChantTranslation/name_compressed"></a> `name_compressed?`
 
-A compressed name of the liturgical chant for use in small areas (e.g.
-on character sheet). Should only be defined if the `name` does not fit
-on character sheet.
+A compressed name of the liturgical chant for use in small areas (e.g. on character sheet). Should only be defined if the `name` does not fit on character sheet.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="LiturgicalChantTranslation/effect"></a> `effect`
 
-The effect description may be either a plain text or a text that is
-divided by a list of effects for each quality level. It may also be a
-list for each two quality levels.
+The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
 
 - **Type:** <a href="./_ActivatableSkillEffect.md#ActivatableSkillEffect">ActivatableSkillEffect</a>
 
