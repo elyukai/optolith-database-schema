@@ -8,13 +8,13 @@ import DiscriminatedEnum
 public struct AnimalShape: LocalizableEntity {
     /// The animal shape's identifier. An unique, increasing integer.
     public let id: Int
-    
+
     /// The animal shape's path.
     public let path: AnimalShapePathReference
-    
+
     /// The animal shape's size.
     public let size: AnimalShapeSizeReference
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<AnimalShapeTranslation>
 

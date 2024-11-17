@@ -8,7 +8,7 @@ import DiscriminatedEnum
 public struct Dice: EntitySubtype {
     /// Number of dice of the same type. Example: 2 in 2D6.
     public let number: Int
-    
+
     /// Number of sides on every die. Example: 6 in 2D6.
     public let sides: DieType
 

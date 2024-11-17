@@ -8,9 +8,9 @@ import DiscriminatedEnum
 public struct AnimalCare: LocalizableEntity {
     /// Values depending on whether the animal care is feed.
     public let type: AnimalCareType
-    
+
     public let src: PublicationRefs
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<DefaultItemTranslation>
 
@@ -31,7 +31,7 @@ public enum AnimalCareType: EntitySubtype {
 public struct GeneralAnimalCare: EntitySubtype {
     /// The cost in silverthalers.
     public let cost: Cost
-    
+
     /// The weight in kg.
     public let weight: Weight
 

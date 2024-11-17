@@ -8,23 +8,23 @@ import DiscriminatedEnum
 public struct FamiliarsTrick: LocalizableEntity {
     /// The familiar's trick's identifier. An unique, increasing integer.
     public let id: Int
-    
+
     /// The animal types this trick is available to. Either it is available to all or only a list of specific animal types.
     /// 
     /// If no animal types are given, the animal disease applies to all animal types.
     public let animalTypes: [AnimalTypeReference]
-    
+
     /// Measurable parameters of a familiar's trick.
     public let parameters: FamiliarsTrickPerformanceParameters
-    
+
     /// The property of the trick.
     public let property: FamiliarsTrickProperty
-    
+
     /// The AP value the familiar has to pay for. It may also be that a specific is known by all familiar by default. In the latter case the field is not set.
     public let apValue: Int?
-    
+
     public let src: PublicationRefs
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<FamiliarsTrickTranslation>
 
@@ -36,8 +36,8 @@ public struct FamiliarsTrick: LocalizableEntity {
         self.apValue = apValue
         self.src = src
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case id = "id"
         case animalTypes = "animal_types"
@@ -76,16 +76,16 @@ public struct IndefiniteFamiliarsTrickPropertyTranslation: EntitySubtype {
 public struct FamiliarsTrickTranslation: EntitySubtype {
     /// The name of the familiar's trick.
     public let name: String
-    
+
     /// The effect description.
     public let effect: String
-    
+
     @available(*, deprecated)
     public let cost: OldParameter
-    
+
     @available(*, deprecated)
     public let duration: OldParameter
-    
+
     public let errata: Errata?
 
     public init(name: String, effect: String, cost: OldParameter, duration: OldParameter, errata: Errata? = nil) {
@@ -107,7 +107,7 @@ public enum FamiliarsTrickPerformanceParameters: EntitySubtype {
 
 public struct FamiliarsTrickOneTimePerformanceParameters: EntitySubtype {
     public let cost: FamiliarsTrickOneTimeCost
-    
+
     public let duration: FamiliarsTrickOneTimeDuration
 
     public init(cost: FamiliarsTrickOneTimeCost, duration: FamiliarsTrickOneTimeDuration) {
@@ -126,13 +126,13 @@ public enum FamiliarsTrickOneTimeCost: EntitySubtype {
 public struct FamiliarsTrickFixedOneTimeCost: EntitySubtype {
     /// The AE cost value.
     public let aeValue: Int
-    
+
     /// The LP cost value.
     public let lpValue: Int?
-    
+
     /// The interval in which you have to pay the AE cost again.
     public let interval: DurationUnitValue?
-    
+
     /// All translations for the entry, identified by IETF language tag
     /// (BCP47).
     public let translations: LocaleMap<FamiliarsTrickFixedOneTimeCostTranslation>?
@@ -142,8 +142,8 @@ public struct FamiliarsTrickFixedOneTimeCost: EntitySubtype {
         self.lpValue = lpValue
         self.interval = interval
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case aeValue = "ae_value"
         case lpValue = "lp_value"
@@ -199,13 +199,13 @@ public enum FamiliarsTrickOneTimeDuration: EntitySubtype {
 public struct FamiliarsTrickFixedOneTimeDuration: EntitySubtype {
     /// If the duration is the maximum duration, so it may end earlier.
     public let isMaximum: Bool?
-    
+
     /// The (unitless) duration.
     public let value: Int
-    
+
     /// The duration unit.
     public let unit: DurationUnit
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<FamiliarsTrickFixedOneTimeDurationTranslation>?
 
@@ -214,8 +214,8 @@ public struct FamiliarsTrickFixedOneTimeDuration: EntitySubtype {
         self.value = value
         self.unit = unit
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case isMaximum = "is_maximum"
         case value = "value"
@@ -263,10 +263,10 @@ public struct FamiliarsTrickOneTimeIntervalPerformanceParameters: EntitySubtype 
 public struct FamiliarsTrickOneTimeIntervalCost: EntitySubtype {
     /// The AE cost value.
     public let aeValue: Int
-    
+
     /// The LP cost value.
     public let lpValue: Int?
-    
+
     /// The duration granted/added by paying the given AE cost.
     public let interval: DurationUnitValue
 
@@ -274,8 +274,8 @@ public struct FamiliarsTrickOneTimeIntervalCost: EntitySubtype {
         self.aeValue = aeValue
         self.lpValue = lpValue
         self.interval = interval
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case aeValue = "ae_value"
         case lpValue = "lp_value"
@@ -294,10 +294,10 @@ public struct FamiliarsTrickSustainedPerformanceParameters: EntitySubtype {
 public struct FamiliarsTrickSustainedCost: EntitySubtype {
     /// The AE cost value.
     public let aeValue: Int
-    
+
     /// The LP cost value.
     public let lpValue: Int?
-    
+
     /// The interval in which you have to pay the AE cost again, if any.
     public let interval: DurationUnitValue?
 
@@ -305,8 +305,8 @@ public struct FamiliarsTrickSustainedCost: EntitySubtype {
         self.aeValue = aeValue
         self.lpValue = lpValue
         self.interval = interval
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case aeValue = "ae_value"
         case lpValue = "lp_value"

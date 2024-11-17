@@ -25,10 +25,10 @@ public typealias MultipleOneTimeCosts = [SingleOneTimeCost]
 public struct ModifiableOneTimeCost: EntitySubtype {
     /// The initial skill modification identifier/level.
     public let initialModificationLevel: Int
-    
+
     /// The part of the cost value that has to be spent permanently.
     public let permanentValue: Int?
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<ModifiableOneTimeCostTranslation>?
 
@@ -36,8 +36,8 @@ public struct ModifiableOneTimeCost: EntitySubtype {
         self.initialModificationLevel = initialModificationLevel
         self.permanentValue = permanentValue
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case initialModificationLevel = "initial_modification_level"
         case permanentValue = "permanent_value"
@@ -57,16 +57,16 @@ public struct ModifiableOneTimeCostTranslation: EntitySubtype {
 public struct NonModifiableOneTimeCost: EntitySubtype {
     /// If `true`, the non-modifiable value is a minimum value.
     public let isMinimum: Bool?
-    
+
     /// The AE cost value.
     public let value: Int
-    
+
     /// The part of the cost value that has to be spent permanently.
     public let permanentValue: Int?
-    
+
     /// The cost have to be per a specific countable entity, e.g. `8 KP per person`.
     public let per: NonModifiableOneTimeCostPerCountable?
-    
+
     /// All translations for the entry, identified by IETF language tag
     /// (BCP47).
     public let translations: LocaleMap<NonModifiableOneTimeCostTranslation>?
@@ -77,8 +77,8 @@ public struct NonModifiableOneTimeCost: EntitySubtype {
         self.permanentValue = permanentValue
         self.per = per
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case isMinimum = "is_minimum"
         case value = "value"
@@ -91,7 +91,7 @@ public struct NonModifiableOneTimeCost: EntitySubtype {
 public struct NonModifiableOneTimeCostPerCountable: EntitySubtype {
     /// If defined, the minimum total AE that have to be spent casting the skill.
     public let minimumTotal: Double?
-    
+
     /// All translations for the entry, identified by IETF language tag
     /// (BCP47).
     public let translations: LocaleMap<NonModifiableOneTimeCostPerCountableTranslation>
@@ -99,8 +99,8 @@ public struct NonModifiableOneTimeCostPerCountable: EntitySubtype {
     public init(minimumTotal: Double? = nil, translations: LocaleMap<NonModifiableOneTimeCostPerCountableTranslation>) {
         self.minimumTotal = minimumTotal
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case minimumTotal = "minimum_total"
         case translations = "translations"
@@ -162,7 +162,7 @@ public struct IndefiniteOneTimeCostTranslation: EntitySubtype {
 public struct CostMap: EntitySubtype {
     /// The possible costs and associated labels.
     public let options: [CostMapOption]
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<CostMapTranslation>?
 
@@ -175,10 +175,10 @@ public struct CostMap: EntitySubtype {
 public struct CostMapOption: EntitySubtype {
     /// The full cost value for this option.
     public let value: Int
-    
+
     /// The part of the `value` that has to be paid permanently.
     public let permanentValue: Int?
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<CostMapOptionTranslation>?
 
@@ -186,8 +186,8 @@ public struct CostMapOption: EntitySubtype {
         self.value = value
         self.permanentValue = permanentValue
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case value = "value"
         case permanentValue = "permanent_value"
@@ -198,15 +198,15 @@ public struct CostMapOption: EntitySubtype {
 public struct CostMapOptionTranslation: EntitySubtype {
     /// The description of the option for cost string generation.
     public let label: NonEmptyString
-    
+
     /// The description of the option if used standalone. Only used if different from `label`.
     public let labelStandalone: NonEmptyString?
 
     public init(label: NonEmptyString, labelStandalone: NonEmptyString? = nil) {
         self.label = label
         self.labelStandalone = labelStandalone
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case label = "label"
         case labelStandalone = "label_standalone"
@@ -216,10 +216,10 @@ public struct CostMapOptionTranslation: EntitySubtype {
 public struct CostMapTranslation: EntitySubtype {
     /// Place a string between the `for` and the grouped map option labels.
     public let listPrepend: NonEmptyString?
-    
+
     /// Place a string after the grouped map option labels.
     public let listAppend: NonEmptyString?
-    
+
     /// If the string from the book cannot be generated using the default generation technique, use this string. All options still need to be inserted propertly, since it may be used by in-game tools to provide a selection to players.
     public let replacement: NonEmptyString?
 
@@ -227,8 +227,8 @@ public struct CostMapTranslation: EntitySubtype {
         self.listPrepend = listPrepend
         self.listAppend = listAppend
         self.replacement = replacement
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case listPrepend = "list_prepend"
         case listAppend = "list_append"
@@ -245,15 +245,15 @@ public enum SustainedCost: EntitySubtype {
 public struct ModifiableSustainedCost: EntitySubtype {
     /// The initial skill modification identifier/level.
     public let initialModificationLevel: Int
-    
+
     /// The sustain interval.
     public let interval: DurationUnitValue
 
     public init(initialModificationLevel: Int, interval: DurationUnitValue) {
         self.initialModificationLevel = initialModificationLevel
         self.interval = interval
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case initialModificationLevel = "initial_modification_level"
         case interval = "interval"
@@ -263,13 +263,13 @@ public struct ModifiableSustainedCost: EntitySubtype {
 public struct NonModifiableSustainedCost: EntitySubtype {
     /// If `true`, the non-modifiable value is a minimum value.
     public let isMinimum: Bool?
-    
+
     /// The AE cost value.
     public let value: Int
-    
+
     /// The cost have to be per a specific countable entity, e.g. `8 KP per person per 5 minutes`.
     public let per: NonModifiableSustainedCostPerCountable?
-    
+
     /// The sustain interval.
     public let interval: DurationUnitValue
 
@@ -278,8 +278,8 @@ public struct NonModifiableSustainedCost: EntitySubtype {
         self.value = value
         self.per = per
         self.interval = interval
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case isMinimum = "is_minimum"
         case value = "value"
@@ -291,15 +291,15 @@ public struct NonModifiableSustainedCost: EntitySubtype {
 public struct NonModifiableSustainedCostPerCountable: EntitySubtype {
     /// If defined, the minimum total AE that have to be spent casting the skill.
     public let minimumTotal: Double?
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<NonModifiableSustainedCostPerCountableTranslation>
 
     public init(minimumTotal: Double? = nil, translations: LocaleMap<NonModifiableSustainedCostPerCountableTranslation>) {
         self.minimumTotal = minimumTotal
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case minimumTotal = "minimum_total"
         case translations = "translations"

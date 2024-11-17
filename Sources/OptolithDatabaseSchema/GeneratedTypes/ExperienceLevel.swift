@@ -9,28 +9,28 @@ import DiscriminatedEnum
 public struct ExperienceLevel: LocalizableEntity {
     /// An unique, increasing integer.
     public let id: Int
-    
+
     /// The AP value you get.
     public let adventurePoints: Int
-    
+
     /// The highest possible attribute value.
     public let maxAttributeValue: Int
-    
+
     /// The highest possible skill rating.
     public let maxSkillRating: Int
-    
+
     /// The highest possible combat technique rating.
     public let maxCombatTechniqueRating: Int
-    
+
     /// The limit for the sum of all attribute values.
     public let maxAttributeTotal: Int
-    
+
     /// The maximum of spells/chants you can activate.
     public let maxNumberOfSpellsLiturgicalChants: Int
-    
+
     /// The maximum of spells of an unfamiliar tradition you can activate.
     public let maxNumberOfUnfamiliarSpells: Int
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<ExperienceLevelTranslation>
 
@@ -44,8 +44,8 @@ public struct ExperienceLevel: LocalizableEntity {
         self.maxNumberOfSpellsLiturgicalChants = maxNumberOfSpellsLiturgicalChants
         self.maxNumberOfUnfamiliarSpells = maxNumberOfUnfamiliarSpells
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case id = "id"
         case adventurePoints = "adventure_points"

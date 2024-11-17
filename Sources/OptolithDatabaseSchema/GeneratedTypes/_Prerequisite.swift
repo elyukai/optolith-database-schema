@@ -8,7 +8,7 @@ import DiscriminatedEnum
 /// A prerequisite group has no influence on validation logic. It serves as a single unit for displaying purposes, where the source uses a prerequisites item that cannot be represented as a single prerequisite.
 public struct PrerequisiteGroup<T: EntitySubtype>: EntitySubtype {
     public let list: [T]
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<NonEmptyString>
 
@@ -20,14 +20,14 @@ public struct PrerequisiteGroup<T: EntitySubtype>: EntitySubtype {
 
 public struct PrerequisitesDisjunction<T: EntitySubtype>: EntitySubtype {
     public let list: [T]
-    
+
     public let displayOption: DisplayOption?
 
     public init(list: [T], displayOption: DisplayOption? = nil) {
         self.list = list
         self.displayOption = displayOption
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case list = "list"
         case displayOption = "display_option"
@@ -45,7 +45,7 @@ public typealias PlainPrerequisites<T: EntitySubtype> = [PrerequisitesElement<T>
 
 public struct PrerequisiteForLevel<T: EntitySubtype>: EntitySubtype {
     public let level: Int
-    
+
     public let prerequisite: PrerequisitesElement<T>
 
     public init(level: Int, prerequisite: PrerequisitesElement<T>) {

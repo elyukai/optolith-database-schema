@@ -25,10 +25,10 @@ public struct ActivatableSkillPlainEffect: EntitySubtype {
 public struct ActivatableSkillEffectForEachQualityLevel: EntitySubtype {
     /// The effect description before the list of effects for each quality level.
     public let textBefore: NonEmptyMarkdown
-    
+
     /// The list of effects for each quality level. The first element represents QL 1, the second element QL 2, and so on.
     public let qualityLevels: [NonEmptyMarkdown]
-    
+
     /// The effect description after the list of effects for each quality level.
     public let textAfter: NonEmptyMarkdown?
 
@@ -36,8 +36,8 @@ public struct ActivatableSkillEffectForEachQualityLevel: EntitySubtype {
         self.textBefore = textBefore
         self.qualityLevels = qualityLevels
         self.textAfter = textAfter
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case textBefore = "text_before"
         case qualityLevels = "quality_levels"
@@ -48,10 +48,10 @@ public struct ActivatableSkillEffectForEachQualityLevel: EntitySubtype {
 public struct ActivatableSkillEffectForEachTwoQualityLevels: EntitySubtype {
     /// The effect description before the list of effects for each quality level.
     public let textBefore: NonEmptyMarkdown
-    
+
     /// The list of effects for each two quality levels. The first element represents QL 1–2, the second element QL 3–4 and the third element QL 5–6.
     public let qualityLevels: [NonEmptyMarkdown]
-    
+
     /// The effect description after the list of effects for each quality level.
     public let textAfter: NonEmptyMarkdown?
 
@@ -59,8 +59,8 @@ public struct ActivatableSkillEffectForEachTwoQualityLevels: EntitySubtype {
         self.textBefore = textBefore
         self.qualityLevels = qualityLevels
         self.textAfter = textAfter
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case textBefore = "text_before"
         case qualityLevels = "quality_levels"

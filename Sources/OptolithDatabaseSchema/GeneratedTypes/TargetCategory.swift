@@ -8,10 +8,10 @@ import DiscriminatedEnum
 public struct TargetCategory: LocalizableEntity {
     /// The target category's identifier. An unique, increasing integer.
     public let id: Int
-    
+
     /// A superordinate target category, if present.
     public let parent: TargetCategoryParent?
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<TargetCategoryTranslation>
 

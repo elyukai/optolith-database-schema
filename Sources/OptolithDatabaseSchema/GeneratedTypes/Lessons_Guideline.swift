@@ -8,10 +8,10 @@ import DiscriminatedEnum
 public struct Guideline: LocalizableEntity {
     /// The guideline's identifier. An unique, increasing integer.
     public let id: Int
-    
+
     /// Maximum number of spells that can be exchanged.
     public let spellworkChangesAllowed: Int
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<GuidelineTranslation>
 
@@ -19,8 +19,8 @@ public struct Guideline: LocalizableEntity {
         self.id = id
         self.spellworkChangesAllowed = spellworkChangesAllowed
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case id = "id"
         case spellworkChangesAllowed = "spellwork_changes_allowed"

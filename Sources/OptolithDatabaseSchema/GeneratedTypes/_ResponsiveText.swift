@@ -9,7 +9,7 @@ import DiscriminatedEnum
 public struct ResponsiveText: EntitySubtype {
     /// The full text from the source.
     public let full: NonEmptyString
-    
+
     /// A compressed text for use in small areas (e.g. on character sheet).
     public let compressed: NonEmptyString
 
@@ -23,7 +23,7 @@ public struct ResponsiveText: EntitySubtype {
 public struct ResponsiveTextReplace: EntitySubtype {
     /// The full replacement string. It must contain `$1`, which is going to be replaced with the generated string, so additional information can be provided without duplicating concrete numeric values.
     public let full: String
-    
+
     /// A compressed replacement string for use in small areas (e.g. on character sheet). It must contain `$1`, which is going to be replaced with the generated string, so additional information can be provided without duplicating concrete numeric values.
     public let compressed: String
 
@@ -37,7 +37,7 @@ public struct ResponsiveTextReplace: EntitySubtype {
 public struct ResponsiveTextOptional: EntitySubtype {
     /// The full text from the source.
     public let full: NonEmptyString
-    
+
     /// A compressed text for use in small areas (e.g. on character sheet). If this is not present, it should not appear in those areas.
     public let compressed: NonEmptyString?
 

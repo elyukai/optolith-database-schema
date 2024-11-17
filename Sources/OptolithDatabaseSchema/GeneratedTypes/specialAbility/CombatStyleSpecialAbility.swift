@@ -7,32 +7,32 @@ import DiscriminatedEnum
 
 public struct CombatStyleSpecialAbility: LocalizableEntity {
     public let id: Id
-    
+
     public let levels: Levels?
-    
+
     public let usageType: CombatSpecialAbilityUsageType
-    
+
     /// Is this an armed or unarmed combat style?
     public let type: CombatSpecialAbilityType
-    
+
     public let selectOptions: SelectOptions?
-    
+
     public let skillApplications: SkillApplications?
-    
+
     public let skillUses: SkillUses?
-    
+
     public let maximum: Maximum?
-    
+
     public let advanced: AdvancedSpecialAbilities<AdvancedCombatSpecialAbilityIdentifier>
-    
+
     public let prerequisites: GeneralPrerequisites?
-    
+
     public let combatTechniques: ApplicableCombatTechniques
-    
+
     public let apValue: AdventurePointsValue
-    
+
     public let src: PublicationRefs
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<CombatStyleSpecialAbilityTransition>
 
@@ -51,8 +51,8 @@ public struct CombatStyleSpecialAbility: LocalizableEntity {
         self.apValue = apValue
         self.src = src
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case id = "id"
         case levels = "levels"
@@ -73,11 +73,11 @@ public struct CombatStyleSpecialAbility: LocalizableEntity {
 
 public struct CombatStyleSpecialAbilityTransition: EntitySubtype {
     public let name: Name
-    
+
     public let nameInLibrary: NameInLibrary?
-    
+
     public let rules: Rules
-    
+
     public let errata: Errata?
 
     public init(name: Name, nameInLibrary: NameInLibrary? = nil, rules: Rules, errata: Errata? = nil) {
@@ -85,8 +85,8 @@ public struct CombatStyleSpecialAbilityTransition: EntitySubtype {
         self.nameInLibrary = nameInLibrary
         self.rules = rules
         self.errata = errata
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case name = "name"
         case nameInLibrary = "name_in_library"

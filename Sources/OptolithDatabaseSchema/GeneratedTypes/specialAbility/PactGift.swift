@@ -7,24 +7,24 @@ import DiscriminatedEnum
 
 public struct PactGift: LocalizableEntity {
     public let id: Id
-    
+
     public let levels: Levels?
-    
+
     public let selectOptions: SelectOptions?
-    
+
     public let maximum: Maximum?
-    
+
     public let permanentDemonicConsumption: PactGiftPermanentDemonicConsumption?
-    
+
     /// This pact gift has direct influence on the existence of other entries. It may add or remove entries.
     public let automaticEntries: [AutomaticEntry]?
-    
+
     public let prerequisites: GeneralPrerequisites?
-    
+
     public let apValue: AdventurePointsValue
-    
+
     public let src: PublicationRefs
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<PactGiftTranslation>
 
@@ -39,8 +39,8 @@ public struct PactGift: LocalizableEntity {
         self.apValue = apValue
         self.src = src
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case id = "id"
         case levels = "levels"
@@ -82,10 +82,10 @@ public struct PactGiftPermanentDemonicConsumptionPerLevel: EntitySubtype {
 public struct AutomaticEntry: EntitySubtype {
     /// What type of action is applied to the target entry?
     public let action: AutomaticEntryAction
-    
+
     /// If an entry is added or removed, does is cost or grant adventure points or is it free of charge?
     public let applyApValue: Bool
-    
+
     /// The entry that is to be added or removed. It can be a fixed entry or a selection where the player must choose one entry.
     public let target: AutomaticEntryTarget
 
@@ -93,8 +93,8 @@ public struct AutomaticEntry: EntitySubtype {
         self.action = action
         self.applyApValue = applyApValue
         self.target = target
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case action = "action"
         case applyApValue = "apply_ap_value"
@@ -136,11 +136,11 @@ public struct FixedAutomaticEntryTarget: EntitySubtype {
 
 public struct PactGiftTranslation: EntitySubtype {
     public let name: Name
-    
+
     public let nameInLibrary: NameInLibrary?
-    
+
     public let effect: Effect
-    
+
     public let errata: Errata?
 
     public init(name: Name, nameInLibrary: NameInLibrary? = nil, effect: Effect, errata: Errata? = nil) {
@@ -148,8 +148,8 @@ public struct PactGiftTranslation: EntitySubtype {
         self.nameInLibrary = nameInLibrary
         self.effect = effect
         self.errata = errata
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case name = "name"
         case nameInLibrary = "name_in_library"

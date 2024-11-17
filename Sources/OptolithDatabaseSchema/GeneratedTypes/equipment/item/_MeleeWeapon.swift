@@ -15,7 +15,7 @@ public typealias ParryModifier = Int
 public struct MeleeDamage: EntitySubtype {
     /// How many dice of which type are rolled to get the damage.
     public let dice: Dice
-    
+
     /// Flat damage, if any. It gets added to the result of the dice rolls.
     public let flat: Int?
 
@@ -39,8 +39,8 @@ public struct LargeShieldSize: EntitySubtype {
 
     public init(attackPenalty: Int) {
         self.attackPenalty = attackPenalty
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case attackPenalty = "attack_penalty"
     }
@@ -49,34 +49,34 @@ public struct LargeShieldSize: EntitySubtype {
 public struct MeleeWeapon: EntitySubtype {
     /// The combat techniques and dependent values.
     public let combatTechnique: CloseCombatTechniqueReference
-    
+
     /// The damage of a weapon consists of a random part using dice and an optional flat part.
     public let damage: MeleeDamage
-    
+
     /// The primary attribute damage and threshold value.
     public let damageThreshold: PrimaryAttributeDamageThreshold?
-    
+
     /// The AT modifier.
     public let at: AttackModifier
-    
+
     /// The PA modifier.
     public let pa: ParryModifier?
-    
+
     /// The reach of the weapon.
     public let reach: ReachIdentifier?
-    
+
     /// The length of the weapon in cm/halffingers.
     public let length: Length?
-    
+
     /// The shield size and potential size-depending values.
     public let size: ShieldSize?
-    
+
     /// Is the weapon a parrying weapon?
     public let isParryingWeapon: Bool
-    
+
     /// Is the weapon a two-handed weapon?
     public let isTwoHandedWeapon: Bool
-    
+
     /// Is the weapon an improvised weapon?
     public let isImprovisedWeapon: Bool
 
@@ -92,8 +92,8 @@ public struct MeleeWeapon: EntitySubtype {
         self.isParryingWeapon = isParryingWeapon
         self.isTwoHandedWeapon = isTwoHandedWeapon
         self.isImprovisedWeapon = isImprovisedWeapon
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case combatTechnique = "combat_technique"
         case damage = "damage"

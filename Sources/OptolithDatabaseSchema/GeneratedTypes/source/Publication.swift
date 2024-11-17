@@ -8,19 +8,19 @@ import DiscriminatedEnum
 public struct Publication: LocalizableEntity {
     /// The publication's identifier. An unique, increasing integer.
     public let id: Int
-    
+
     /// The publication category.
     public let category: Category
-    
+
     /// If the publication may contain adult content.
     public let containsAdultContent: Bool
-    
+
     /// If the publication is not (fully) implemented and thus needs to be excluded from * stable releases.
     public let isMissingImplementation: Bool
-    
+
     /// The specific other publications this publication depends on data from.
     public let prerequisites: PublicationPrerequisites?
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<PublicationTranslation>
 
@@ -31,8 +31,8 @@ public struct Publication: LocalizableEntity {
         self.isMissingImplementation = isMissingImplementation
         self.prerequisites = prerequisites
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case id = "id"
         case category = "category"
@@ -46,16 +46,16 @@ public struct Publication: LocalizableEntity {
 public struct PublicationTranslation: EntitySubtype {
     /// The publisher's publication identifier.
     public let id: String?
-    
+
     /// The publication's name.
     public let name: NonEmptyString
-    
+
     /// The publication's abbreviation.
     public let abbreviation: NonEmptyString
-    
+
     /// The publication's release date.
     public let releaseDate: String?
-    
+
     /// If this publication translation is not (fully) implemented and thus needs to be excluded from stable releases.
     public let isMissingImplementation: Bool
 
@@ -65,8 +65,8 @@ public struct PublicationTranslation: EntitySubtype {
         self.abbreviation = abbreviation
         self.releaseDate = releaseDate
         self.isMissingImplementation = isMissingImplementation
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case id = "id"
         case name = "name"

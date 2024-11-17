@@ -16,7 +16,7 @@ public enum Resistance: String, EntitySubtype {
 public struct Cause: EntitySubtype {
     /// The chance to get infected by this cause, in percent.
     public let chance: Int?
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<CauseTranslation>
 
@@ -29,10 +29,10 @@ public struct Cause: EntitySubtype {
 public struct CauseTranslation: EntitySubtype {
     /// The name of the cause.
     public let name: String
-    
+
     /// The chance to get infected by this cause. If present for this language, this overrides the universal `chance` field; they cannot be used at the same time.
     public let chance: NonEmptyString?
-    
+
     /// An additional note about this cause.
     public let note: NonEmptyString?
 
@@ -46,31 +46,31 @@ public struct CauseTranslation: EntitySubtype {
 public struct DiseaseTranslation: EntitySubtype {
     /// The name of the disease.
     public let name: NonEmptyString
-    
+
     /// A list of alternative names.
     public let alternativeNames: [AlternativeName]?
-    
+
     /// The disease’s progress, in detail.
     public let progress: NonEmptyMarkdown
-    
+
     /// After infection, how much time passes before symptoms appear?
     public let incubationTime: NonEmptyString
-    
+
     /// The damage caused by the disease. If the disease check fails, apply the lessened effects.
     public let damage: Reduceable<NonEmptyMarkdown>
-    
+
     /// The duration of the disease. If the disease check fails, use the lessened duration.
     public let duration: Reduceable<NonEmptyMarkdown>
-    
+
     /// Special information about the disease.
     public let special: NonEmptyMarkdown?
-    
+
     /// Methods known to lessen the disease’s progress or relieve symptoms.
     public let treatment: NonEmptyMarkdown
-    
+
     /// Known remedies for the disease.
     public let cure: NonEmptyMarkdown
-    
+
     public let errata: Errata?
 
     public init(name: NonEmptyString, alternativeNames: [AlternativeName]? = nil, progress: NonEmptyMarkdown, incubationTime: NonEmptyString, damage: Reduceable<NonEmptyMarkdown>, duration: Reduceable<NonEmptyMarkdown>, special: NonEmptyMarkdown? = nil, treatment: NonEmptyMarkdown, cure: NonEmptyMarkdown, errata: Errata? = nil) {
@@ -84,8 +84,8 @@ public struct DiseaseTranslation: EntitySubtype {
         self.treatment = treatment
         self.cure = cure
         self.errata = errata
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case name = "name"
         case alternativeNames = "alternative_names"
@@ -106,7 +106,7 @@ public struct DiseaseTranslation: EntitySubtype {
 public struct Reduceable<Content: EntitySubtype>: EntitySubtype {
     /// The default value. In the source, it's the text before the slash.
     public let `default`: Content
-    
+
     /// The reduced value. In the source, it's the text after the slash. Some entries may not have a reduced value.
     public let reduced: Content?
 

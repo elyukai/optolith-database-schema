@@ -20,10 +20,10 @@ import { basename } from "path"
 const IGNORE_ENV = "swift"
 const ERROR_TYPE = "<<error type>>"
 
-const prefixLines = (prefix: string, text: string): string =>
+const prefixLines = (prefix: string, text: string, includeEmptyLines: boolean = false): string =>
   text
     .split("\n")
-    .map(line => prefix + line)
+    .map(line => (includeEmptyLines || line.length > 0 ? prefix + line : line))
     .join("\n")
 
 const applyIndentation = (indentLevel: number, text: string): string =>
@@ -33,7 +33,7 @@ const renderQualifiedName = (name: QualifiedName): string =>
   name.right === undefined ? name.segment : renderQualifiedName(name.right)
 
 const renderDocumentation = (jsDoc?: Doc): string =>
-  jsDoc?.comment === undefined ? "" : prefixLines("/// ", jsDoc.comment) + "\n"
+  jsDoc?.comment === undefined ? "" : prefixLines("/// ", jsDoc.comment, true) + "\n"
 
 const renderDeprecation = (jsDoc?: Doc): string => {
   const deprecated = jsDoc?.tags.deprecated

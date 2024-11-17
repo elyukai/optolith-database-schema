@@ -17,7 +17,7 @@ public enum DurationForOneTime: EntitySubtype {
 public struct Immediate: EntitySubtype {
     /// Specified if the duration has a maximum time span.
     public let maximum: DurationUnitValue?
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<ImmediateTranslation>?
 
@@ -57,13 +57,13 @@ public struct PermanentDurationTranslation: EntitySubtype {
 public struct FixedDuration: EntitySubtype {
     /// If the duration is the maximum duration, so it may end earlier.
     public let isMaximum: Bool?
-    
+
     /// The (unitless) duration.
     public let value: Int
-    
+
     /// The duration unit.
     public let unit: DurationUnit
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<FixedDurationTranslation>?
 
@@ -72,8 +72,8 @@ public struct FixedDuration: EntitySubtype {
         self.value = value
         self.unit = unit
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case isMaximum = "is_maximum"
         case value = "value"
@@ -95,16 +95,16 @@ public struct FixedDurationTranslation: EntitySubtype {
 public struct CheckResultBasedDuration: EntitySubtype {
     /// If the duration is the maximum duration, so it may end earlier.
     public let isMaximum: Bool?
-    
+
     /// The base value that is derived from the check result.
     public let base: CheckResultValue
-    
+
     /// If defined, it modifies the base value.
     public let modifier: CheckResultBasedModifier?
-    
+
     /// The duration unit.
     public let unit: DurationUnit
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<CheckResultBasedDurationTranslation>?
 
@@ -114,8 +114,8 @@ public struct CheckResultBasedDuration: EntitySubtype {
         self.modifier = modifier
         self.unit = unit
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case isMaximum = "is_maximum"
         case base = "base"
@@ -177,7 +177,7 @@ public enum DurationUnit: String, EntitySubtype {
 public struct DurationUnitValue: EntitySubtype {
     /// The (unitless) duration value.
     public let value: Int
-    
+
     /// The unit of the `value`.
     public let unit: DurationUnit
 

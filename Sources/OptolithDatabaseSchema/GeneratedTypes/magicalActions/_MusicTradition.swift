@@ -9,7 +9,7 @@ import DiscriminatedEnum
 public struct MusicTraditionReference: EntitySubtype {
     /// The music tradition's identifier.
     public let id: Int
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<MusicTraditionReferenceTranslation>
 
@@ -30,7 +30,7 @@ public struct MusicTraditionReferenceTranslation: EntitySubtype {
 
 public struct MusicDuration: EntitySubtype {
     public let length: MusicLength
-    
+
     public let reusability: MusicReusability
 
     public init(length: MusicLength, reusability: MusicReusability) {

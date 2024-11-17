@@ -8,18 +8,18 @@ import DiscriminatedEnum
 public struct Talisman: LocalizableEntity {
     /// The talisman's identifier. An unique, increasing integer.
     public let id: Int
-    
+
     /// The tradition(s) the talisman belongs to.
     public let tradition: [BlessedTraditionReference]
-    
+
     /// The talisman type, if any.
     public let type: TalismanType?
-    
+
     /// The AP value for the required trade secret, if possible.
     public let apValue: Int?
-    
+
     public let src: PublicationRefs
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<TalismanTranslation>
 
@@ -30,8 +30,8 @@ public struct Talisman: LocalizableEntity {
         self.apValue = apValue
         self.src = src
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case id = "id"
         case tradition = "tradition"
@@ -53,13 +53,13 @@ public enum TalismanType: String, EntitySubtype {
 public struct TalismanTranslation: EntitySubtype {
     /// The name of the talisman.
     public let name: NonEmptyString
-    
+
     /// The effect description.
     public let effect: NonEmptyMarkdown
-    
+
     /// The activation parameters.
     public let activation: TalismanActivationTranslation?
-    
+
     public let errata: Errata?
 
     public init(name: NonEmptyString, effect: NonEmptyMarkdown, activation: TalismanActivationTranslation? = nil, errata: Errata? = nil) {
@@ -73,7 +73,7 @@ public struct TalismanTranslation: EntitySubtype {
 public struct TalismanActivationTranslation: EntitySubtype {
     /// The KP cost.
     public let cost: Int
-    
+
     /// The duration.
     public let duration: NonEmptyString
 

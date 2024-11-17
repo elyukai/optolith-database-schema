@@ -8,13 +8,13 @@ import DiscriminatedEnum
 public struct RatedMinimumNumberPrerequisite: EntitySubtype {
     /// The minimum number of skills that need to be on the defined minimum skill rating.
     public let number: Int
-    
+
     /// The minimum skill rating the defined minimum number of skills need to be on.
     public let value: Int
-    
+
     /// The targets that contribute to satisfying the prerequisite.
     public let targets: RatedMinimumNumberPrerequisiteTarget
-    
+
     public let displayOption: DisplayOption?
 
     public init(number: Int, value: Int, targets: RatedMinimumNumberPrerequisiteTarget, displayOption: DisplayOption? = nil) {
@@ -22,8 +22,8 @@ public struct RatedMinimumNumberPrerequisite: EntitySubtype {
         self.value = value
         self.targets = targets
         self.displayOption = displayOption
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case number = "number"
         case value = "value"

@@ -12,7 +12,7 @@ public typealias AffectedTargetCategories = [SpecificAffectedTargetCategory]
 
 public struct SpecificAffectedTargetCategory: EntitySubtype {
     public let id: SpecificAffectedTargetCategoryIdentifier
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<SpecificAffectedTargetCategoryTranslation>?
 

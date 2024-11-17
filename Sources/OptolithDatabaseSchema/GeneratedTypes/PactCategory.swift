@@ -8,15 +8,15 @@ import DiscriminatedEnum
 public struct PactCategory: LocalizableEntity {
     /// The pact category's identifier. An unique, increasing integer.
     public let id: Int
-    
+
     /// Types of creatures in this category.
     public let types: [PactType]
-    
+
     /// Domains in this category.
     public let domains: [PactDomain]
-    
+
     public let src: PublicationRefs
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<PactCategoryTranslation>
 
@@ -32,7 +32,7 @@ public struct PactCategory: LocalizableEntity {
 public struct PactCategoryTranslation: EntitySubtype {
     /// The name of the pact category.
     public let name: NonEmptyString
-    
+
     public let errata: Errata?
 
     public init(name: NonEmptyString, errata: Errata? = nil) {
@@ -44,7 +44,7 @@ public struct PactCategoryTranslation: EntitySubtype {
 public struct PactType: EntitySubtype {
     /// The type's identifier. An unique, increasing integer.
     public let id: Int
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<PactTypeTranslation>
 
@@ -66,7 +66,7 @@ public struct PactTypeTranslation: EntitySubtype {
 public struct PactDomain: EntitySubtype {
     /// The domain's identifier. An unique, increasing integer.
     public let id: Int
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<PactDomainTranslation>
 

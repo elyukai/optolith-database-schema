@@ -7,19 +7,19 @@ import DiscriminatedEnum
 
 public struct FamiliarSpecialAbility: LocalizableEntity {
     public let id: Id
-    
+
     public let levels: Levels?
-    
+
     public let selectOptions: SelectOptions?
-    
+
     public let maximum: Maximum?
-    
+
     public let prerequisites: GeneralPrerequisites?
-    
+
     public let apValue: AdventurePointsValue
-    
+
     public let src: PublicationRefs
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<FamiliarSpecialAbilityTranslation>
 
@@ -32,8 +32,8 @@ public struct FamiliarSpecialAbility: LocalizableEntity {
         self.apValue = apValue
         self.src = src
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case id = "id"
         case levels = "levels"
@@ -48,11 +48,11 @@ public struct FamiliarSpecialAbility: LocalizableEntity {
 
 public struct FamiliarSpecialAbilityTranslation: EntitySubtype {
     public let name: Name
-    
+
     public let nameInLibrary: NameInLibrary?
-    
+
     public let effect: Effect
-    
+
     public let errata: Errata?
 
     public init(name: Name, nameInLibrary: NameInLibrary? = nil, effect: Effect, errata: Errata? = nil) {
@@ -60,8 +60,8 @@ public struct FamiliarSpecialAbilityTranslation: EntitySubtype {
         self.nameInLibrary = nameInLibrary
         self.effect = effect
         self.errata = errata
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case name = "name"
         case nameInLibrary = "name_in_library"

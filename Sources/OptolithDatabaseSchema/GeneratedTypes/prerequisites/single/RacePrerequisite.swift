@@ -9,17 +9,17 @@ import DiscriminatedEnum
 public struct RacePrerequisite: EntitySubtype {
     /// The race's identifier.
     public let id: RaceIdentifier
-    
+
     public let active: Bool
-    
+
     public let displayOption: DisplayOption?
 
     public init(id: RaceIdentifier, active: Bool, displayOption: DisplayOption? = nil) {
         self.id = id
         self.active = active
         self.displayOption = displayOption
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case id = "id"
         case active = "active"

@@ -8,11 +8,11 @@ import DiscriminatedEnum
 public struct CoreRule: LocalizableEntity {
     /// The core rule's identifier. An unique, increasing integer.
     public let id: Int
-    
+
     public let content: [ContentNode]
-    
+
     public let src: PublicationRefs
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<CoreRuleTranslation>
 
@@ -27,7 +27,7 @@ public struct CoreRule: LocalizableEntity {
 public struct CoreRuleTranslation: EntitySubtype {
     /// The name of the optional rule.
     public let name: NonEmptyString
-    
+
     public let errata: Errata?
 
     public init(name: NonEmptyString, errata: Errata? = nil) {
@@ -50,7 +50,7 @@ public enum ContentNode: EntitySubtype {
 public struct ChildNode: EntitySubtype {
     /// The nested core rule's identifier.
     public let id: CoreRuleIdentifier
-    
+
     /// If the nested core rule's content should be integrated into this core rule and a proper heading should be added. Otherwise create a link to a separate view of that core rule.
     public let include: Bool
 
@@ -82,7 +82,7 @@ public struct TextNodeTranslation: EntitySubtype {
 /// Generate a list or table from a specific entity type.
 public struct ReferenceListNode: EntitySubtype {
     public let source: ReferenceListNodeSource
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<ReferenceListNodeTranslation>
 
@@ -159,7 +159,7 @@ public enum ReferenceListNodeSource: EntitySubtype {
 public struct ReferenceListNodeImprovementCostSource: EntitySubtype {
     /// Define if the cost for attributes or skills should be defined. The cost for attributes start with value 9, while the cost for skills start with 1 in addition to possible activation cost.
     public let target: ReferenceListNodeImprovementCostSourceTarget
-    
+
     /// The highest value the improvement cost are displayed for.
     /// 
     /// The minimum maximum value should depend on what is the upper bound of the range of adventure point cost that are equal across multiple values (value increases for attributes are always 15 up to (and including) value 14, while value increases for skills are always 1 to 4, depending on the improvement cost, up to (and including) value 12), since those ranges should be combined into a single table row.
@@ -168,8 +168,8 @@ public struct ReferenceListNodeImprovementCostSource: EntitySubtype {
     public init(target: ReferenceListNodeImprovementCostSourceTarget, maximumRating: Int) {
         self.target = target
         self.maximumRating = maximumRating
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case target = "target"
         case maximumRating = "maximum_rating"

@@ -17,7 +17,7 @@ public enum RangedDamage: EntitySubtype {
 public struct DefaultRangedDamage: EntitySubtype {
     /// How many dice of which type are rolled to get the damage.
     public let dice: Dice
-    
+
     /// Flat damage, if any. It gets added to the result of the dice rolls.
     public let flat: Int?
 
@@ -30,22 +30,22 @@ public struct DefaultRangedDamage: EntitySubtype {
 public struct RangedWeapon: EntitySubtype {
     /// The combat techniques and dependent values.
     public let combatTechnique: RangedCombatTechniqueReference
-    
+
     /// The damage of a weapon consists of a random part using dice and an optional flat part.
     public let damage: RangedDamage
-    
+
     /// One or multiple reload times.
     public let reloadTime: [ReloadTime]
-    
+
     /// The range brackets for the weapon: close, medium, far. Distances in m.
     public let range: RangeBrackets
-    
+
     /// The needed ammunition.
     public let ammunition: AmmunitionReference?
-    
+
     /// The length of the weapon in cm/halffingers.
     public let length: Length
-    
+
     /// Is the weapon an improvised weapon?
     public let isImprovisedWeapon: Bool
 
@@ -57,8 +57,8 @@ public struct RangedWeapon: EntitySubtype {
         self.ammunition = ammunition
         self.length = length
         self.isImprovisedWeapon = isImprovisedWeapon
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case combatTechnique = "combat_technique"
         case damage = "damage"
@@ -82,10 +82,10 @@ public struct AmmunitionReference: EntitySubtype {
 public struct RangeBrackets: EntitySubtype {
     /// The close range bracket for the weapon. Distance in m.
     public let close: Int
-    
+
     /// The medium range bracket for the weapon. Distance in m.
     public let medium: Int
-    
+
     /// The far range bracket for the weapon. Distance in m.
     public let far: Int
 

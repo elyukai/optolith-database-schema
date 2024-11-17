@@ -8,21 +8,21 @@ import DiscriminatedEnum
 public struct DefaultItem: EntitySubtype {
     /// The cost in silverthalers.
     public let cost: Cost
-    
+
     /// The weight in kg.
     public let weight: Weight
-    
+
     /// The complexity of crafting the item.
     public let complexity: Complexity?
-    
+
     /// The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
     public let structurePoints: StructurePoints
-    
+
     /// The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.
     public let combatUse: CombatUse?
-    
+
     public let src: PublicationRefs
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<DefaultItemTranslation>
 
@@ -34,8 +34,8 @@ public struct DefaultItem: EntitySubtype {
         self.combatUse = combatUse
         self.src = src
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case cost = "cost"
         case weight = "weight"
@@ -57,16 +57,16 @@ public enum CombatUse: EntitySubtype {
 public struct DefaultItemTranslation: EntitySubtype {
     /// The name of the item.
     public let name: NonEmptyString
-    
+
     /// An auxiliary name or label of the item, if available.
     public let secondaryName: NonEmptyString?
-    
+
     /// Note text.
     public let note: NonEmptyMarkdown?
-    
+
     /// Special rules text.
     public let rules: NonEmptyMarkdown?
-    
+
     public let errata: Errata?
 
     public init(name: NonEmptyString, secondaryName: NonEmptyString? = nil, note: NonEmptyMarkdown? = nil, rules: NonEmptyMarkdown? = nil, errata: Errata? = nil) {
@@ -75,8 +75,8 @@ public struct DefaultItemTranslation: EntitySubtype {
         self.note = note
         self.rules = rules
         self.errata = errata
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case name = "name"
         case secondaryName = "secondary_name"
@@ -111,7 +111,7 @@ public enum Cost: EntitySubtype {
 public struct FixedCost: EntitySubtype {
     /// The cost in silverthalers.
     public let value: Double
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<CostTranslation>?
 
@@ -124,10 +124,10 @@ public struct FixedCost: EntitySubtype {
 public struct CostRange: EntitySubtype {
     /// The lower bound of the cost in silverthalers.
     public let from: Double
-    
+
     /// The upper bound of the cost in silverthalers.
     public let to: Double
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<CostTranslation>?
 
@@ -144,8 +144,8 @@ public struct CostTranslation: EntitySubtype {
 
     public init(wrapInText: String) {
         self.wrapInText = wrapInText
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case wrapInText = "wrap_in_text"
     }
@@ -168,8 +168,8 @@ public struct ComplexComplexity: EntitySubtype {
 
     public init(apValue: Int) {
         self.apValue = apValue
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case apValue = "ap_value"
     }

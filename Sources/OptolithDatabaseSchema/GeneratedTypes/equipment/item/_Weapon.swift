@@ -33,7 +33,7 @@ public struct PrimaryAttributeDamageThresholdList: EntitySubtype {
 public struct SinglePrimaryAttributeDamageThreshold: EntitySubtype {
     /// The primary attribute.
     public let attribute: AttributeReference
-    
+
     /// The attribute value representing the damage threshold.
     public let threshold: Int
 

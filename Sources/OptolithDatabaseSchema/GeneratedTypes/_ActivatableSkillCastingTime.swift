@@ -17,8 +17,8 @@ public struct ModifiableCastingTime: EntitySubtype {
 
     public init(initialModificationLevel: Int) {
         self.initialModificationLevel = initialModificationLevel
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case initialModificationLevel = "initial_modification_level"
     }
@@ -30,15 +30,15 @@ public struct ModifiableCastingTime: EntitySubtype {
 public struct CastingTimeIncludingLovemaking<NonModifiable: EntitySubtype>: EntitySubtype {
     /// The default casting time definition.
     public let `default`: CastingTime<NonModifiable>?
-    
+
     /// The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking.
     public let duringLovemaking: CastingTimeDuringLovemaking?
 
     public init(`default`: CastingTime<NonModifiable>? = nil, duringLovemaking: CastingTimeDuringLovemaking? = nil) {
         self.`default` = `default`
         self.duringLovemaking = duringLovemaking
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case `default` = "default"
         case duringLovemaking = "during_lovemaking"
@@ -49,7 +49,7 @@ public struct CastingTimeIncludingLovemaking<NonModifiable: EntitySubtype>: Enti
 public struct CastingTimeDuringLovemaking: EntitySubtype {
     /// The (unitless) casting time value.
     public let value: Int
-    
+
     /// The unit of the `value`.
     public let unit: CastingTimeDuringLovemakingUnit
 
@@ -76,7 +76,7 @@ public struct FastSkillNonModifiableCastingTime: EntitySubtype {
 public struct SlowSkillNonModifiableCastingTime: EntitySubtype {
     /// The (unitless) casting time value.
     public let value: Int
-    
+
     public let unit: SlowSkillCastingTimeUnit
 
     public init(value: Int, unit: SlowSkillCastingTimeUnit) {

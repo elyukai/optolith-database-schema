@@ -25,15 +25,15 @@ public enum LaboratoryLevel: String, EntitySubtype {
 public struct RecipeTradeSecret: EntitySubtype {
     /// The AP value of the trade secret.
     public let apValue: Double
-    
+
     /// The prerequisites of the trade secret, if any.
     public let prerequisites: PlainGeneralPrerequisites?
 
     public init(apValue: Double, prerequisites: PlainGeneralPrerequisites? = nil) {
         self.apValue = apValue
         self.prerequisites = prerequisites
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case apValue = "ap_value"
         case prerequisites = "prerequisites"

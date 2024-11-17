@@ -9,18 +9,18 @@ import DiscriminatedEnum
 public struct ExternalEnhancementPrerequisite: EntitySubtype {
     /// The required skill.
     public let skill: SkillWithEnhancementsReference
-    
+
     /// The required enhancement.
     public let enhancement: EnhancementsReference
-    
+
     public let displayOption: DisplayOption?
 
     public init(skill: SkillWithEnhancementsReference, enhancement: EnhancementsReference, displayOption: DisplayOption? = nil) {
         self.skill = skill
         self.enhancement = enhancement
         self.displayOption = displayOption
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case skill = "skill"
         case enhancement = "enhancement"

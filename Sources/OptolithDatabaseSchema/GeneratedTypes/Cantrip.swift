@@ -8,24 +8,24 @@ import DiscriminatedEnum
 public struct Cantrip: LocalizableEntity {
     /// The cantrip's identifier. An unique, increasing integer.
     public let id: Int
-    
+
     /// Measurable parameters of a cantrip.
     public let parameters: CantripPerformanceParameters
-    
+
     /// The target category – the kind of creature or object – the skill affects.
     public let target: AffectedTargetCategories
-    
+
     /// The associated property.
     public let property: PropertyReference
-    
+
     /// A note specifying the dissemination of the cantrip in different traditions. Sometimes a cantrip is exclusively available to one or more specific traditions, but usually one the academies and traditions are listed the cantrip is most commonly teached in.
     public let note: CantripNote?
-    
+
     public let src: PublicationRefs
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<CantripTranslation>
-    
+
     public let enhancements: Enhancements?
 
     public init(id: Int, parameters: CantripPerformanceParameters, target: AffectedTargetCategories, property: PropertyReference, note: CantripNote? = nil, src: PublicationRefs, translations: LocaleMap<CantripTranslation>, enhancements: Enhancements? = nil) {
@@ -73,7 +73,7 @@ public enum CommonCantripNote: EntitySubtype {
 public struct CommonCantripTraditionNote: EntitySubtype {
     /// The magical tradition's identifier.
     public let id: MagicalTraditionIdentifier
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<CommonCantripTraditionNoteTranslation>?
 
@@ -95,19 +95,19 @@ public struct CommonCantripTraditionNoteTranslation: EntitySubtype {
 public struct CantripTranslation: EntitySubtype {
     /// The name of the spell.
     public let name: String
-    
+
     /// The effect description.
     public let effect: String
-    
+
     @available(*, deprecated)
     public let range: String
-    
+
     @available(*, deprecated)
     public let duration: String
-    
+
     @available(*, deprecated)
     public let target: String
-    
+
     public let errata: Errata?
 
     public init(name: String, effect: String, range: String, duration: String, target: String, errata: Errata? = nil) {
@@ -123,7 +123,7 @@ public struct CantripTranslation: EntitySubtype {
 /// Measurable parameters of a blessing.
 public struct CantripPerformanceParameters: EntitySubtype {
     public let range: CantripRange
-    
+
     public let duration: CantripDuration
 
     public init(range: CantripRange, duration: CantripDuration) {
@@ -150,10 +150,10 @@ public enum CantripDuration: EntitySubtype {
 public struct FixedCantripDuration: EntitySubtype {
     /// If `true`, the duration is a maximum duration.
     public let isMaximum: Bool?
-    
+
     /// The (unitless) duration.
     public let value: Int
-    
+
     /// The duration unit.
     public let unit: DurationUnit
 
@@ -161,8 +161,8 @@ public struct FixedCantripDuration: EntitySubtype {
         self.isMaximum = isMaximum
         self.value = value
         self.unit = unit
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case isMaximum = "is_maximum"
         case value = "value"

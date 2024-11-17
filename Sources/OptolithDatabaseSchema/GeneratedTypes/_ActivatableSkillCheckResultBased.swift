@@ -20,7 +20,7 @@ public enum CheckResultArithmetic: String, EntitySubtype {
 public struct CheckResultBasedModifier: EntitySubtype {
     /// The arithmetic how to apply the `value` to the `base`.
     public let arithmetic: CheckResultArithmetic
-    
+
     /// The value that is applied to the `base` using the defined `arithmetic`.
     public let value: Int
 
@@ -34,7 +34,7 @@ public struct CheckResultBasedModifier: EntitySubtype {
 public struct CheckResultBased: EntitySubtype {
     /// The base value that is derived from the check result.
     public let base: CheckResultValue
-    
+
     /// If defined, it modifies the base value.
     public let modifier: CheckResultBasedModifier?
 

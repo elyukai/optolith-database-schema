@@ -8,30 +8,30 @@ import DiscriminatedEnum
 public struct Weapon: LocalizableEntity {
     /// The cost in silverthalers.
     public let cost: Cost
-    
+
     /// The weight in kg.
     public let weight: Weight
-    
+
     /// The complexity of crafting the item.
     public let complexity: Complexity
-    
+
     /// The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
     public let structurePoints: StructurePoints?
-    
+
     /// A list of stat blocks for each combat technique this weapon can be used with.
     public let uses: [WeaponUse]
-    
+
     /// If the weapon is sanctified by a god and thus restricted to it's Blessed Ones.
     public let sanctifiedBy: SanctifiedBy?
-    
+
     /// Define if during character creation this weapon can only be bought by characters of a specific race or culture.
     public let restrictedToCultures: RestrictedToCultures?
-    
+
     /// Define if during character creation this weapon can only be bought by characters of specific magical or blessed traditions.
     public let restrictedToTraditions: [MagicalTraditionReference]?
-    
+
     public let src: PublicationRefs
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<WeaponTranslation>
 
@@ -46,8 +46,8 @@ public struct Weapon: LocalizableEntity {
         self.restrictedToTraditions = restrictedToTraditions
         self.src = src
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case cost = "cost"
         case weight = "weight"
@@ -65,22 +65,22 @@ public struct Weapon: LocalizableEntity {
 public struct WeaponTranslation: EntitySubtype {
     /// The name of the item.
     public let name: NonEmptyString
-    
+
     /// An auxiliary name or label of the item, if available.
     public let secondaryName: NonEmptyString?
-    
+
     /// Note text.
     public let note: NonEmptyMarkdown?
-    
+
     /// Special rules text.
     public let rules: NonEmptyMarkdown?
-    
+
     /// The weapon advantage text.
     public let advantage: NonEmptyMarkdown?
-    
+
     /// The weapon disadvantage text.
     public let disadvantage: NonEmptyMarkdown?
-    
+
     public let errata: Errata?
 
     public init(name: NonEmptyString, secondaryName: NonEmptyString? = nil, note: NonEmptyMarkdown? = nil, rules: NonEmptyMarkdown? = nil, advantage: NonEmptyMarkdown? = nil, disadvantage: NonEmptyMarkdown? = nil, errata: Errata? = nil) {
@@ -91,8 +91,8 @@ public struct WeaponTranslation: EntitySubtype {
         self.advantage = advantage
         self.disadvantage = disadvantage
         self.errata = errata
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case name = "name"
         case secondaryName = "secondary_name"
@@ -107,16 +107,16 @@ public struct WeaponTranslation: EntitySubtype {
 public struct SecondaryWeapon: EntitySubtype {
     /// A list of stat blocks for each combat technique this weapon can be used with.
     public let uses: [WeaponUse]
-    
+
     /// If the weapon is sanctified by a god and thus restricted to it's Blessed Ones.
     public let sanctifiedBy: SanctifiedBy?
-    
+
     /// Define if during character creation this weapon can only be bought by characters of a specific race or culture.
     public let restrictedToCultures: RestrictedToCultures?
-    
+
     /// Define if during character creation this weapon can only be bought by characters of specific magical or blessed traditions.
     public let restrictedToTraditions: [MagicalTraditionReference]?
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<ImprovisedWeaponTranslation>?
 
@@ -126,8 +126,8 @@ public struct SecondaryWeapon: EntitySubtype {
         self.restrictedToCultures = restrictedToCultures
         self.restrictedToTraditions = restrictedToTraditions
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case uses = "uses"
         case sanctifiedBy = "sanctified_by"
@@ -140,7 +140,7 @@ public struct SecondaryWeapon: EntitySubtype {
 public struct ImprovisedWeaponTranslation: EntitySubtype {
     /// The weapon advantage text.
     public let advantage: NonEmptyMarkdown?
-    
+
     /// The weapon disadvantage text.
     public let disadvantage: NonEmptyMarkdown?
 
@@ -153,7 +153,7 @@ public struct ImprovisedWeaponTranslation: EntitySubtype {
 public struct WeaponUse: EntitySubtype {
     /// An increasing integer for use identification.
     public let id: Int
-    
+
     public let values: WeaponUseValues
 
     public init(id: Int, values: WeaponUseValues) {

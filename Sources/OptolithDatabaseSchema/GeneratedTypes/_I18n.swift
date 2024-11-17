@@ -23,15 +23,15 @@ import DiscriminatedEnum
 /// > — You have 0 friends online.
 public struct PluralizationCategories: EntitySubtype {
     public let zero: NonEmptyString?
-    
+
     public let one: NonEmptyString?
-    
+
     public let two: NonEmptyString?
-    
+
     public let few: NonEmptyString?
-    
+
     public let many: NonEmptyString?
-    
+
     public let other: NonEmptyString
 
     public init(zero: NonEmptyString? = nil, one: NonEmptyString? = nil, two: NonEmptyString? = nil, few: NonEmptyString? = nil, many: NonEmptyString? = nil, other: NonEmptyString) {
@@ -47,9 +47,9 @@ public struct PluralizationCategories: EntitySubtype {
 /// The item can be different for each operating system.
 public struct VaryBySystem: EntitySubtype {
     public let mac: NonEmptyString
-    
+
     public let windows: NonEmptyString
-    
+
     public let linux: NonEmptyString
 
     public init(mac: NonEmptyString, windows: NonEmptyString, linux: NonEmptyString) {

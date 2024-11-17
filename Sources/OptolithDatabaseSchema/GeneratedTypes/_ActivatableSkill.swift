@@ -7,11 +7,11 @@ import DiscriminatedEnum
 
 public struct OneTimePerformanceParameters<CastingTime: EntitySubtype>: EntitySubtype {
     public let castingTime: CastingTime
-    
+
     public let cost: OneTimeCost
-    
+
     public let range: Range
-    
+
     public let duration: DurationForOneTime
 
     public init(castingTime: CastingTime, cost: OneTimeCost, range: Range, duration: DurationForOneTime) {
@@ -19,8 +19,8 @@ public struct OneTimePerformanceParameters<CastingTime: EntitySubtype>: EntitySu
         self.cost = cost
         self.range = range
         self.duration = duration
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case castingTime = "casting_time"
         case cost = "cost"
@@ -31,11 +31,11 @@ public struct OneTimePerformanceParameters<CastingTime: EntitySubtype>: EntitySu
 
 public struct SustainedPerformanceParameters<CastingTime: EntitySubtype>: EntitySubtype {
     public let castingTime: CastingTime
-    
+
     public let cost: SustainedCost
-    
+
     public let range: Range
-    
+
     public let duration: DurationForSustained?
 
     public init(castingTime: CastingTime, cost: SustainedCost, range: Range, duration: DurationForSustained? = nil) {
@@ -43,8 +43,8 @@ public struct SustainedPerformanceParameters<CastingTime: EntitySubtype>: Entity
         self.cost = cost
         self.range = range
         self.duration = duration
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case castingTime = "casting_time"
         case cost = "cost"
@@ -75,7 +75,7 @@ public typealias SlowSustainedPerformanceParameters = SustainedPerformanceParame
 
 public struct OldParameter: EntitySubtype {
     public let full: String
-    
+
     public let abbr: String
 
     public init(full: String, abbr: String) {

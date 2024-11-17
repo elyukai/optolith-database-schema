@@ -7,19 +7,19 @@ import DiscriminatedEnum
 
 public struct SikaryanDrainSpecialAbility: LocalizableEntity {
     public let id: Id
-    
+
     public let levels: Levels?
-    
+
     public let selectOptions: SelectOptions?
-    
+
     public let maximum: Maximum?
-    
+
     public let prerequisites: GeneralPrerequisites?
-    
+
     public let apValue: AdventurePointsValue
-    
+
     public let src: PublicationRefs
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<SikaryanDrainSpecialAbilityTranslation>
 
@@ -32,8 +32,8 @@ public struct SikaryanDrainSpecialAbility: LocalizableEntity {
         self.apValue = apValue
         self.src = src
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case id = "id"
         case levels = "levels"
@@ -48,14 +48,14 @@ public struct SikaryanDrainSpecialAbility: LocalizableEntity {
 
 public struct SikaryanDrainSpecialAbilityTranslation: EntitySubtype {
     public let name: Name
-    
+
     public let nameInLibrary: NameInLibrary?
-    
+
     public let rules: Rules
-    
+
     /// The AP value. It is only used if the text cannot be generated from the given information.
     public let apValue: AdventurePointsValueReplacement?
-    
+
     public let errata: Errata?
 
     public init(name: Name, nameInLibrary: NameInLibrary? = nil, rules: Rules, apValue: AdventurePointsValueReplacement? = nil, errata: Errata? = nil) {
@@ -64,8 +64,8 @@ public struct SikaryanDrainSpecialAbilityTranslation: EntitySubtype {
         self.rules = rules
         self.apValue = apValue
         self.errata = errata
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case name = "name"
         case nameInLibrary = "name_in_library"

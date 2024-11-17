@@ -8,30 +8,30 @@ import DiscriminatedEnum
 public struct Poison: LocalizableEntity {
     /// The poison's identifier. An unique, increasing integer.
     public let id: Int
-    
+
     /// The poison's application type(s).
     public let applicationType: [PoisonApplicationType]
-    
+
     /// The poison's source type and dependent additional values.
     public let sourceType: PoisonSourceType
-    
+
     /// Use Spirit or Toughness as a modifier for the poison.
     public let resistance: Resistance
-    
+
     /// When the poison takes effect.
     public let start: PoisonStart
-    
+
     /// The normal and degraded poison's duration.
     public let duration: Reduceable<PoisonDuration>
-    
+
     /// The raw (ingredients) value, in silverthalers.
     public let value: Int
-    
+
     /// Price for one dose, in silverthalers.
     public let cost: Int
-    
+
     public let src: PublicationRefs
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<PoisonTranslation>
 
@@ -46,8 +46,8 @@ public struct Poison: LocalizableEntity {
         self.cost = cost
         self.src = src
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case id = "id"
         case applicationType = "application_type"
@@ -86,7 +86,7 @@ public enum PoisonDuration: EntitySubtype {
 
 public struct ConstantPoisonTime: EntitySubtype {
     public let value: Double
-    
+
     public let unit: PoisonTimeUnit
 
     public init(value: Double, unit: PoisonTimeUnit) {
@@ -97,7 +97,7 @@ public struct ConstantPoisonTime: EntitySubtype {
 
 public struct DiceBasedPoisonTime: EntitySubtype {
     public let dice: Dice
-    
+
     public let unit: PoisonTimeUnit
 
     public init(dice: Dice, unit: PoisonTimeUnit) {
@@ -143,15 +143,15 @@ public enum PoisonSourceType: EntitySubtype {
 public struct AnimalVenom: EntitySubtype {
     /// The poison’s level.
     public let level: Int
-    
+
     /// If `false`, the poison cannot be extracted.
     public let isExtractable: Bool?
 
     public init(level: Int, isExtractable: Bool? = nil) {
         self.level = level
         self.isExtractable = isExtractable
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case level = "level"
         case isExtractable = "is_extractable"
@@ -161,22 +161,22 @@ public struct AnimalVenom: EntitySubtype {
 public struct AlchemicalPoison: EntitySubtype {
     /// Effect type(s) of an alchemical poison.
     public let effectTypes: [EffectType]
-    
+
     /// The cost per ingredient level in silverthalers.
     public let costPerIngredientLevel: Double
-    
+
     /// The laboratory level needed to brew the elixir.
     public let laboratory: LaboratoryLevel
-    
+
     /// The brewing difficulty, which represents the challenge of creating an elixir.
     public let brewingDifficulty: Int
-    
+
     /// AP value and prerequisites of the elixir recipe’s trade secret.
     public let tradeSecret: RecipeTradeSecret
-    
+
     /// Additional information if the poison is an intoxicant.
     public let intoxicant: Intoxicant?
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<AlchemicalPoisonTranslation>
 
@@ -188,8 +188,8 @@ public struct AlchemicalPoison: EntitySubtype {
         self.tradeSecret = tradeSecret
         self.intoxicant = intoxicant
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case effectTypes = "effect_types"
         case costPerIngredientLevel = "cost_per_ingredient_level"
@@ -204,15 +204,15 @@ public struct AlchemicalPoison: EntitySubtype {
 public struct AlchemicalPoisonTranslation: EntitySubtype {
     /// A list of typical ingredients.
     public let typicalIngredients: [NonEmptyString]
-    
+
     /// Prerequsites for the brewing process, if any.
     public let brewingProcessPrerequisites: NonEmptyMarkdown?
 
     public init(typicalIngredients: [NonEmptyString], brewingProcessPrerequisites: NonEmptyMarkdown? = nil) {
         self.typicalIngredients = typicalIngredients
         self.brewingProcessPrerequisites = brewingProcessPrerequisites
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case typicalIngredients = "typical_ingredients"
         case brewingProcessPrerequisites = "brewing_process_prerequisites"
@@ -231,10 +231,10 @@ public struct MineralPoison: EntitySubtype {
 public struct PlantPoison: EntitySubtype {
     /// Effect type(s) of a plant poison.
     public let effectTypes: [EffectType]
-    
+
     /// The poison’s level.
     public let level: Int
-    
+
     /// Additional information if the poison is an intoxicant.
     public let intoxicant: Intoxicant?
 
@@ -242,8 +242,8 @@ public struct PlantPoison: EntitySubtype {
         self.effectTypes = effectTypes
         self.level = level
         self.intoxicant = intoxicant
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case effectTypes = "effect_types"
         case level = "level"
@@ -254,7 +254,7 @@ public struct PlantPoison: EntitySubtype {
 public struct DemonicPoison: EntitySubtype {
     /// The poison’s level.
     public let level: DemonicPoisonLevel
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<DemonicPoisonTranslation>?
 
@@ -303,10 +303,10 @@ public struct DemonicPoisonTranslation: EntitySubtype {
 public struct Intoxicant: EntitySubtype {
     /// Whether the use of the intoxicant is legal or not, usually from the perspective of most middle-Aventurian an northern-Aventurian nations.
     public let legality: IntoxicantLegality
-    
+
     /// The chance of getting addicted after an ingestion in addition to the maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.
     public let addiction: IntoxicantAddiction?
-    
+
     /// All translations for the entry, identified by IETF language tag
     /// (BCP47).
     public let translations: LocaleMap<IntoxicantTranslation>
@@ -324,8 +324,8 @@ public struct IntoxicantLegality: EntitySubtype {
 
     public init(isLegal: Bool) {
         self.isLegal = isLegal
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case isLegal = "is_legal"
     }
@@ -335,7 +335,7 @@ public struct IntoxicantLegality: EntitySubtype {
 public struct IntoxicantAddiction: EntitySubtype {
     /// The chance of getting addicted after an ingestion.
     public let chance: Double
-    
+
     /// The maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.
     public let interval: IntoxicantAddictionInterval
 
@@ -373,13 +373,13 @@ public struct DiceBasedIntoxicantAddictionInterval: EntitySubtype {
 public struct IntoxicantTranslation: EntitySubtype {
     /// How to ingest the intoxicant.
     public let ingestion: NonEmptyString
-    
+
     /// The intoxicants side effects that always happen, no matter whether the intoxicant has the default or the reduced effect.
     public let sideEffect: NonEmptyMarkdown?
-    
+
     /// What happens if the intoxicant has been overdosed, that is, it has been ingested another time within the duration.
     public let overdose: NonEmptyMarkdown
-    
+
     /// Special information about the intoxicant.
     public let special: NonEmptyMarkdown?
 
@@ -388,8 +388,8 @@ public struct IntoxicantTranslation: EntitySubtype {
         self.sideEffect = sideEffect
         self.overdose = overdose
         self.special = special
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case ingestion = "ingestion"
         case sideEffect = "side_effect"
@@ -401,16 +401,16 @@ public struct IntoxicantTranslation: EntitySubtype {
 public struct PoisonTranslation: EntitySubtype {
     /// The name of the poison.
     public let name: NonEmptyString
-    
+
     /// A list of alternative names.
     public let alternativeNames: [AlternativeName]?
-    
+
     /// The normal and degraded poison's effects.
     public let effect: Reduceable<NonEmptyMarkdown>
-    
+
     /// Notes on the poison's special features.
     public let notes: NonEmptyString?
-    
+
     public let errata: Errata?
 
     public init(name: NonEmptyString, alternativeNames: [AlternativeName]? = nil, effect: Reduceable<NonEmptyMarkdown>, notes: NonEmptyString? = nil, errata: Errata? = nil) {
@@ -419,8 +419,8 @@ public struct PoisonTranslation: EntitySubtype {
         self.effect = effect
         self.notes = notes
         self.errata = errata
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case name = "name"
         case alternativeNames = "alternative_names"

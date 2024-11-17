@@ -8,27 +8,27 @@ import DiscriminatedEnum
 public struct JesterTrick: LocalizableEntity {
     /// The jester trick's identifier. An unique, increasing integer.
     public let id: Int
-    
+
     /// Lists the linked three attributes used to make a skill check.
     public let check: SkillCheck
-    
+
     /// In some cases, the target's Spirit or Toughness is applied as a penalty.
     public let checkPenalty: SkillCheckPenalty?
-    
+
     /// Measurable parameters of a jester trick.
     public let parameters: JesterTrickPerformanceParameters
-    
+
     /// The target category – the kind of creature or object – the skill affects.
     public let target: AffectedTargetCategories
-    
+
     /// The associated property.
     public let property: PropertyReference
-    
+
     /// States which column is used to improve the skill.
     public let improvementCost: ImprovementCost
-    
+
     public let src: PublicationRefs
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<JesterTrickTranslation>
 
@@ -42,8 +42,8 @@ public struct JesterTrick: LocalizableEntity {
         self.improvementCost = improvementCost
         self.src = src
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case id = "id"
         case check = "check"
@@ -60,25 +60,25 @@ public struct JesterTrick: LocalizableEntity {
 public struct JesterTrickTranslation: EntitySubtype {
     /// The name of the jester trick.
     public let name: NonEmptyString
-    
+
     /// The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
     public let effect: ActivatableSkillEffect
-    
+
     @available(*, deprecated)
     public let castingTime: OldParameter
-    
+
     @available(*, deprecated)
     public let cost: OldParameter
-    
+
     @available(*, deprecated)
     public let range: OldParameter
-    
+
     @available(*, deprecated)
     public let duration: OldParameter
-    
+
     @available(*, deprecated)
     public let target: String
-    
+
     public let errata: Errata?
 
     public init(name: NonEmptyString, effect: ActivatableSkillEffect, castingTime: OldParameter, cost: OldParameter, range: OldParameter, duration: OldParameter, target: String, errata: Errata? = nil) {
@@ -90,8 +90,8 @@ public struct JesterTrickTranslation: EntitySubtype {
         self.duration = duration
         self.target = target
         self.errata = errata
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case name = "name"
         case effect = "effect"
@@ -108,13 +108,13 @@ public struct JesterTrickTranslation: EntitySubtype {
 public struct JesterTrickPerformanceParameters: EntitySubtype {
     /// The casting time.
     public let castingTime: JesterTrickCastingTime
-    
+
     /// The AE cost.
     public let cost: JesterTrickCost
-    
+
     /// The range.
     public let range: JesterTrickRange
-    
+
     /// The duration.
     public let duration: JesterTrickDuration
 
@@ -123,8 +123,8 @@ public struct JesterTrickPerformanceParameters: EntitySubtype {
         self.cost = cost
         self.range = range
         self.duration = duration
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case castingTime = "casting_time"
         case cost = "cost"
@@ -177,7 +177,7 @@ public enum JesterTrickDuration: EntitySubtype {
 public struct FixedJesterTrickDuration: EntitySubtype {
     /// The (unitless) duration.
     public let value: Int
-    
+
     /// The duration unit.
     public let unit: DurationUnit
 

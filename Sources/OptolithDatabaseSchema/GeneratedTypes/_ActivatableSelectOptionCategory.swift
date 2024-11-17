@@ -36,8 +36,8 @@ public struct BlessedTraditionsSelectOptionCategory: EntitySubtype {
 
     public init(requirePrinciples: Bool? = nil) {
         self.requirePrinciples = requirePrinciples
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case requirePrinciples = "require_principles"
     }
@@ -55,15 +55,15 @@ public struct ElementsSelectOptionCategory: EntitySubtype {
 public struct PropertiesSelectOptionCategory: EntitySubtype {
     /// Does each property require it's corresponding property knowledge?
     public let requireKnowledge: Bool?
-    
+
     /// Require a minimum number of spellworks of the respective property to be on a minimum skill rating.
     public let requireMinimumSpellworksOn: RequiredMinimumSkillsToBeOnSkillRating?
 
     public init(requireKnowledge: Bool? = nil, requireMinimumSpellworksOn: RequiredMinimumSkillsToBeOnSkillRating? = nil) {
         self.requireKnowledge = requireKnowledge
         self.requireMinimumSpellworksOn = requireMinimumSpellworksOn
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case requireKnowledge = "require_knowledge"
         case requireMinimumSpellworksOn = "require_minimum_spellworks_on"
@@ -73,10 +73,10 @@ public struct PropertiesSelectOptionCategory: EntitySubtype {
 public struct AspectSelectOptionCategory: EntitySubtype {
     /// Does each aspect require it's corresponding aspect knowledge?
     public let requireKnowledge: Bool?
-    
+
     /// The generated name should be the *Master of (Aspect)* suffix for this aspect instead of the aspect's name. If an aspect does not provide a suffix (such as the General aspect), it is automatically excluded from the list.
     public let useMasterOfSuffixAsName: Bool?
-    
+
     /// Require a minimum number of liturgies of the respective aspect to be on a minimum skill rating.
     public let requireMinimumLiturgiesOn: RequiredMinimumSkillsToBeOnSkillRating?
 
@@ -84,8 +84,8 @@ public struct AspectSelectOptionCategory: EntitySubtype {
         self.requireKnowledge = requireKnowledge
         self.useMasterOfSuffixAsName = useMasterOfSuffixAsName
         self.requireMinimumLiturgiesOn = requireMinimumLiturgiesOn
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case requireKnowledge = "require_knowledge"
         case useMasterOfSuffixAsName = "use_master_of_suffix_as_name"
@@ -97,7 +97,7 @@ public struct AspectSelectOptionCategory: EntitySubtype {
 public struct RequiredMinimumSkillsToBeOnSkillRating: EntitySubtype {
     /// The minimum number of liturgies that need to be on the defined minimum skill rating.
     public let number: Int
-    
+
     /// The minimum skill rating the defined minimum number of liturgies need to be on.
     public let rating: Int
 
@@ -113,8 +113,8 @@ public struct DiseasesPoisonsSelectOptionCategory: EntitySubtype {
 
     public init(useHalfLevelAsApValue: Bool? = nil) {
         self.useHalfLevelAsApValue = useHalfLevelAsApValue
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case useHalfLevelAsApValue = "use_half_level_as_ap_value"
     }
@@ -137,15 +137,15 @@ public enum LanguagesSelectOptionCategoryPrerequisite: EntitySubtype {
 public struct SkillsSelectOptionCategory: EntitySubtype {
     /// A list of skill categories.
     public let categories: [SkillsSelectOptionCategoryCategory]
-    
+
     /// Generate AP values for each entry.
     public let apValue: SelectOptionsAdventurePointsValue<SkillishIdentifier>?
 
     public init(categories: [SkillsSelectOptionCategoryCategory], apValue: SelectOptionsAdventurePointsValue<SkillishIdentifier>? = nil) {
         self.categories = categories
         self.apValue = apValue
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case categories = "categories"
         case apValue = "ap_value"
@@ -164,19 +164,19 @@ public enum SkillsSelectOptionCategoryCategory: EntitySubtype {
 public struct SkillSelectOptionCategoryCategory: EntitySubtype {
     /// Only include entries of the specified groups.
     public let groups: [SkillGroupReference]?
-    
+
     /// Only include (`Intersection`) or exclude (`Difference`) specific skills.
     public let specific: SpecificFromSkillSelectOptionCategoryCategory<SkillReference>?
-    
+
     /// Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry.
     public let skillApplications: [SkillApplicationOrUse]?
-    
+
     /// Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry.
     public let skillUses: [SkillApplicationOrUse]?
-    
+
     /// Generate prerequisites for each entry of the category.
     public let prerequisites: [SkillSelectOptionCategoryPrerequisite]?
-    
+
     /// Generate AP values for each entry.
     public let apValue: SelectOptionsAdventurePointsValue<SkillIdentifier>?
 
@@ -187,8 +187,8 @@ public struct SkillSelectOptionCategoryCategory: EntitySubtype {
         self.skillUses = skillUses
         self.prerequisites = prerequisites
         self.apValue = apValue
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case groups = "groups"
         case specific = "specific"
@@ -202,15 +202,15 @@ public struct SkillSelectOptionCategoryCategory: EntitySubtype {
 public struct CombatTechniquesSelectOptionCategory: EntitySubtype {
     /// A list of combat technique categories.
     public let categories: [CombatTechniquesSelectOptionCategoryCategory]
-    
+
     /// Generate AP values for each entry.
     public let apValue: SelectOptionsAdventurePointsValue<CombatTechniqueIdentifier>?
 
     public init(categories: [CombatTechniquesSelectOptionCategoryCategory], apValue: SelectOptionsAdventurePointsValue<CombatTechniqueIdentifier>? = nil) {
         self.categories = categories
         self.apValue = apValue
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case categories = "categories"
         case apValue = "ap_value"
@@ -226,7 +226,7 @@ public enum CombatTechniquesSelectOptionCategoryCategory: EntitySubtype {
 public struct SkillApplicationOrUse: EntitySubtype {
     /// The application's or use's identifier. An entry-unique, increasing integer.
     public let id: Int
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<SkillApplicationOrUseTranslation>?
 
@@ -248,7 +248,7 @@ public struct SkillApplicationOrUseTranslation: EntitySubtype {
 public struct GenericSkillsSelectOptionCategoryCategory<Ref: EntitySubtype>: EntitySubtype {
     /// Only include (`Intersection`) or exclude (`Difference`) specific entries.
     public let specific: SpecificFromSkillSelectOptionCategoryCategory<Ref>?
-    
+
     /// Generate prerequisites for each entry of the category.
     public let prerequisites: [SkillSelectOptionCategoryPrerequisite]?
 
@@ -260,7 +260,7 @@ public struct GenericSkillsSelectOptionCategoryCategory<Ref: EntitySubtype>: Ent
 
 public struct SpecificFromSkillSelectOptionCategoryCategory<Ref: EntitySubtype>: EntitySubtype {
     public let operation: SpecificFromSkillSelectOptionCategoryCategoryOperation
-    
+
     /// The list of specific entries.
     public let list: [Ref]
 
@@ -295,10 +295,10 @@ public struct SelfPrerequisite: EntitySubtype {
 public struct OptionPrerequisite: EntitySubtype {
     /// The target entry's identifier.
     public let id: ActivatableIdentifier
-    
+
     /// Is the select option required (`true`) or prohibited (`false`)?
     public let active: Bool
-    
+
     /// The required level, if any.
     public let level: Int?
 
@@ -323,7 +323,7 @@ public struct SelectOptionsDeriveAdventurePointsValueFromImprovementCost: Entity
     /// This number is multiplied with the improvement cost of the entry
     /// (A = 1 to D = 4).
     public let multiplier: Int?
-    
+
     /// This number is added to the multiplied improvement cost of the entry.
     public let offset: Int?
 
@@ -336,7 +336,7 @@ public struct SelectOptionsDeriveAdventurePointsValueFromImprovementCost: Entity
 public struct SelectOptionsFixedAdventurePointsValue<Identifier: EntitySubtype>: EntitySubtype {
     /// A mapping of skill identifiers to their specific AP values.
     public let map: [SelectOptionsFixedAdventurePointsValueMapping<Identifier>]
-    
+
     /// The default value of an entry. Used as a fallback if no value is found in `list`.
     public let `default`: Int
 
@@ -349,15 +349,15 @@ public struct SelectOptionsFixedAdventurePointsValue<Identifier: EntitySubtype>:
 public struct SelectOptionsFixedAdventurePointsValueMapping<Identifier: EntitySubtype>: EntitySubtype {
     /// The entry's identifier.
     public let id: Identifier
-    
+
     /// The AP value for the specified entry.
     public let apValue: Int
 
     public init(id: Identifier, apValue: Int) {
         self.id = id
         self.apValue = apValue
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case id = "id"
         case apValue = "ap_value"
@@ -376,7 +376,7 @@ public struct TargetCategoriesSelectOptionCategory: EntitySubtype {
 public struct SpecificTargetCategory: EntitySubtype {
     /// The target category’s identifier.
     public let id: TargetCategoryIdentifier
-    
+
     /// The volume for this specific selection.
     public let volume: Int?
 

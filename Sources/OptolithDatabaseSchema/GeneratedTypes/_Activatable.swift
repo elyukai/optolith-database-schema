@@ -33,7 +33,7 @@ public typealias Maximum = Int
 public struct SelectOptions: EntitySubtype {
     /// An entry category with optional further configuration. All available entries from the specified categories will be included as separate select options. You can also specify a set of groups that should only be included. Groups not mentioned will be excluded then.
     public let derived: SelectOptionCategory?
-    
+
     /// A list of explicit select options. If the identifier has a specific type, its entry is the base of this select option, where values defined here override values from the base. Define the `src` property if the options are not derived from the rules text of the advantage/disadvantage/special ability but instead are listed in a separate block and/or on a separate page.
     public let explicit: [ExplicitSelectOption]?
 
@@ -53,26 +53,26 @@ public enum ExplicitSelectOption: EntitySubtype {
 public struct ExplicitGeneralSelectOption: EntitySubtype {
     /// The option's identifier. An unique, increasing integer.
     public let id: Int
-    
+
     /// Sometimes, professions use specific text selections that are not contained in described lists. This ensures you can use them for professions only. They are not going to be displayed as options to the user.
     public let professionOnly: Bool?
-    
+
     /// Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option.
     public let skillApplications: SkillApplications?
-    
+
     /// Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option.
     public let skillUses: SkillUses?
-    
+
     public let prerequisites: GeneralPrerequisites?
-    
+
     /// Specific binding cost for the select option. Only has an effect if the associated entry supports binding costs.
     public let bindingCost: Int?
-    
+
     /// Specific AP cost for the select option.
     public let apValue: Int?
-    
+
     public let src: PublicationRefs?
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<ExplicitGeneralSelectOptionTranslation>
 
@@ -86,8 +86,8 @@ public struct ExplicitGeneralSelectOption: EntitySubtype {
         self.apValue = apValue
         self.src = src
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case id = "id"
         case professionOnly = "profession_only"
@@ -104,13 +104,13 @@ public struct ExplicitGeneralSelectOption: EntitySubtype {
 public struct ExplicitGeneralSelectOptionTranslation: EntitySubtype {
     /// The name of the select option.
     public let name: String
-    
+
     /// The name of the select option when displayed in a generated profession text.
     public let nameInProfession: String?
-    
+
     /// The description of the select option. Useful for Bad Habits, Trade Secrets and other entries where a description is available.
     public let description: String?
-    
+
     public let errata: Errata?
 
     public init(name: String, nameInProfession: String? = nil, description: String? = nil, errata: Errata? = nil) {
@@ -118,8 +118,8 @@ public struct ExplicitGeneralSelectOptionTranslation: EntitySubtype {
         self.nameInProfession = nameInProfession
         self.description = description
         self.errata = errata
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case name = "name"
         case nameInProfession = "name_in_profession"
@@ -131,23 +131,23 @@ public struct ExplicitGeneralSelectOptionTranslation: EntitySubtype {
 public struct ExplicitSkillSelectOption: EntitySubtype {
     /// The skill's identifier. An unique, increasing integer.
     public let id: SkillIdentifier
-    
+
     /// Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option.
     public let skillApplications: [SkillApplicationOrUse]?
-    
+
     /// Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option.
     public let skillUses: [SkillApplicationOrUse]?
-    
+
     public let prerequisites: GeneralPrerequisites?
-    
+
     /// Specific binding cost for the select option. Only has an effect if the associated entry supports binding costs.
     public let bindingCost: Int?
-    
+
     /// Specific AP cost for the select option.
     public let apValue: Int?
-    
+
     public let src: PublicationRefs?
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<ExplicitSkillSelectOptionTranslation>?
 
@@ -160,8 +160,8 @@ public struct ExplicitSkillSelectOption: EntitySubtype {
         self.apValue = apValue
         self.src = src
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case id = "id"
         case skillApplications = "skill_applications"
@@ -185,17 +185,17 @@ public struct ExplicitSkillSelectOptionTranslation: EntitySubtype {
 public struct ExplicitCombatTechniqueSelectOption: EntitySubtype {
     /// The combat technique's identifier.
     public let id: CombatTechniqueIdentifier
-    
+
     public let prerequisites: GeneralPrerequisites?
-    
+
     /// Specific binding cost for the select option. Only has an effect if the associated entry supports binding costs.
     public let bindingCost: Int?
-    
+
     /// Specific AP cost for the select option.
     public let apValue: Int?
-    
+
     public let src: PublicationRefs?
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<ExplicitCombatTechniqueSelectOptionTranslation>?
 
@@ -206,8 +206,8 @@ public struct ExplicitCombatTechniqueSelectOption: EntitySubtype {
         self.apValue = apValue
         self.src = src
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case id = "id"
         case prerequisites = "prerequisites"
@@ -251,10 +251,10 @@ public typealias SkillApplications = [SkillApplication]
 public struct SkillApplication: EntitySubtype {
     /// The application's identifier. An entry-unique, increasing integer.
     public let id: Int
-    
+
     /// The skill(s) this application belongs to.
     public let skill: SkillApplicationAssociatedSkill
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<SkillApplicationTranslation>?
 
@@ -274,15 +274,15 @@ public enum SkillApplicationAssociatedSkill: EntitySubtype {
 public struct SkillApplicationAssociatedSkills: EntitySubtype {
     /// The skills this application belongs to.
     public let list: [SkillReference]
-    
+
     /// If an application applies to multiple skills, it may need to ensure the respective skill is on a certain skill rating if the activatable entry cannot ensure this prerequisite.
     public let requiredSkillRating: Int?
 
     public init(list: [SkillReference], requiredSkillRating: Int? = nil) {
         self.list = list
         self.requiredSkillRating = requiredSkillRating
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case list = "list"
         case requiredSkillRating = "required_skill_rating"
@@ -304,10 +304,10 @@ public typealias SkillUses = [SkillUse]
 public struct SkillUse: EntitySubtype {
     /// The use's identifier. An entry-unique, increasing integer.
     public let id: Int
-    
+
     /// The skill(s) this use belongs to.
     public let skill: SkillUseAssociatedSkill
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<SkillUseTranslation>?
 
@@ -357,15 +357,15 @@ public enum Penalty: EntitySubtype {
 public struct SinglePenalty: EntitySubtype {
     /// The penalty value.
     public let value: Int
-    
+
     /// Set to `true` if the penalty applies to the parry instead of the attack.
     public let appliesToParry: Bool?
 
     public init(value: Int, appliesToParry: Bool? = nil) {
         self.value = value
         self.appliesToParry = appliesToParry
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case value = "value"
         case appliesToParry = "applies_to_parry"
@@ -375,10 +375,10 @@ public struct SinglePenalty: EntitySubtype {
 public struct PenaltyByHandedness: EntitySubtype {
     /// The penalty value for one-handed weapons.
     public let oneHanded: Int
-    
+
     /// The penalty value for two-handed weapons.
     public let twoHanded: Int
-    
+
     /// Set to `true` if the penalty applies to the parry instead of the attack.
     public let appliesToParry: Bool?
 
@@ -386,8 +386,8 @@ public struct PenaltyByHandedness: EntitySubtype {
         self.oneHanded = oneHanded
         self.twoHanded = twoHanded
         self.appliesToParry = appliesToParry
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case oneHanded = "one_handed"
         case twoHanded = "two_handed"
@@ -398,10 +398,10 @@ public struct PenaltyByHandedness: EntitySubtype {
 public struct PenaltyByActivation: EntitySubtype {
     /// The penalty value if the entry has been bought by the character.
     public let active: Int
-    
+
     /// The penalty value if the entry has not been bought by the character.
     public let inactive: Int
-    
+
     /// Set to `true` if the penalty applies to the parry instead of the attack.
     public let appliesToParry: Bool?
 
@@ -409,8 +409,8 @@ public struct PenaltyByActivation: EntitySubtype {
         self.active = active
         self.inactive = inactive
         self.appliesToParry = appliesToParry
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case active = "active"
         case inactive = "inactive"
@@ -453,7 +453,7 @@ public struct SpecificPenaltySelectionOption: EntitySubtype {
 public struct PenaltySelectionOptionsRange: EntitySubtype {
     /// The minimum penalty value.
     public let minimum: Int
-    
+
     /// The maximum penalty value.
     public let maximum: Int
 
@@ -466,7 +466,7 @@ public struct PenaltySelectionOptionsRange: EntitySubtype {
 public struct PenaltyByLevel: EntitySubtype {
     /// A continuous range of penalties for each level. The first element is the penalty for the first level, the second element is the penalty for the second level, and so on.
     public let levels: [PenaltyByLevelLevel]
-    
+
     /// The combat-related special ability of which the level defines the penalty instead.
     public let external: PenaltyByExternalLevel?
 
@@ -498,10 +498,10 @@ public struct PenaltyByExternalLevel: EntitySubtype {
 public struct PenaltyByAttack: EntitySubtype {
     /// A list of penalties for subsequent attacks. The first element is the penalty for the first attack, the second element is the penalty for the second attack, and so on. The order of the first element may be changed using `initial_order`, so that e.g. if set to `2`, the first element is the penalty for the second attack, the second element is the penalty for the third attack, and so on.
     public let list: [PenaltyByAttackOrderItem]
-    
+
     /// The order of the first element in the `list` of penalties.
     public let initialOrder: Double?
-    
+
     /// Set if a predefined different word should be used instead of the word
     /// `attack` for display purposes.
     public let attackReplacement: PenaltyByAttackReplacement?
@@ -510,8 +510,8 @@ public struct PenaltyByAttack: EntitySubtype {
         self.list = list
         self.initialOrder = initialOrder
         self.attackReplacement = attackReplacement
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case list = "list"
         case initialOrder = "initial_order"
@@ -555,16 +555,16 @@ public enum ArcaneEnergyCost: EntitySubtype {
 public struct FixedArcaneEnergyCost: EntitySubtype {
     /// The AE cost value.
     public let value: Int
-    
+
     /// Set to `true` if the AE costs are permanent.
     public let isPermanent: Bool?
-    
+
     /// Specified if the AE cost `value` has to be paid for each time interval.
     public let interval: DurationUnitValue?
-    
+
     /// The AE cost are per level of the enchantment. It may either be displayed in a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1 AE for level I; 2 AE for level II`).
     public let perLevel: FixedArcaneEnergyCostPerLevel?
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<FixedArcaneEnergyCostTranslation>?
 
@@ -574,8 +574,8 @@ public struct FixedArcaneEnergyCost: EntitySubtype {
         self.interval = interval
         self.perLevel = perLevel
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case value = "value"
         case isPermanent = "is_permanent"
@@ -603,10 +603,10 @@ public struct FixedArcaneEnergyCostTranslation: EntitySubtype {
 public struct ArcaneEnergyCostPerCountable: EntitySubtype {
     /// The AE cost value that has to be per a specific countable entity.
     public let value: Int
-    
+
     /// If defined, in addition to the cost per entity you have to pay a flat amount, regardless of the entity count.
     public let baseValue: Int?
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<ArcaneEnergyCostPerCountableTranslation>
 
@@ -614,8 +614,8 @@ public struct ArcaneEnergyCostPerCountable: EntitySubtype {
         self.value = value
         self.baseValue = baseValue
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case value = "value"
         case baseValue = "base_value"
@@ -626,7 +626,7 @@ public struct ArcaneEnergyCostPerCountable: EntitySubtype {
 public struct ArcaneEnergyCostPerCountableTranslation: EntitySubtype {
     /// The cost have to be per a specific countable entity, e.g. `8 AE per person`.
     public let per: ResponsiveText
-    
+
     /// A note, appended to the generated string in parenthesis.
     public let note: ResponsiveTextOptional?
 
@@ -639,7 +639,7 @@ public struct ArcaneEnergyCostPerCountableTranslation: EntitySubtype {
 public struct IntervalArcaneEnergyCost: EntitySubtype {
     /// The AE cost value that has to be payed each interval.
     public let value: Int
-    
+
     /// The time interval for which the AE cost `value` has to be paid.
     public let interval: DurationUnitValue
 
@@ -652,7 +652,7 @@ public struct IntervalArcaneEnergyCost: EntitySubtype {
 public struct ActivationAndHalfIntervalArcaneEnergyCost: EntitySubtype {
     /// The AE cost value that has to be payed for activation. Half of this value has to be payed each interval.
     public let value: Int
-    
+
     /// The time interval for which the AE cost `value` has to be paid.
     public let interval: DurationUnitValue
 
@@ -665,7 +665,7 @@ public struct ActivationAndHalfIntervalArcaneEnergyCost: EntitySubtype {
 public struct IndefiniteArcaneEnergyCost: EntitySubtype {
     /// Specified if the indefinite AP cost description needs to be modified by a certain value.
     public let modifier: IndefiniteArcaneEnergyCostModifier?
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<IndefiniteArcaneEnergyCostTranslation>
 
@@ -678,7 +678,7 @@ public struct IndefiniteArcaneEnergyCost: EntitySubtype {
 public struct IndefiniteArcaneEnergyCostModifier: EntitySubtype {
     /// The arithmetic how to apply the `value` to the `base`.
     public let arithmetic: IndefiniteArcaneEnergyCostModifierArithmetic
-    
+
     /// The value that is applied to the `base` using the defined `arithmetic`.
     public let value: Int
 
@@ -704,7 +704,7 @@ public struct IndefiniteArcaneEnergyCostTranslation: EntitySubtype {
 public struct ArcaneEnergyCostDisjunction: EntitySubtype {
     /// Specified if the selected AE cost option has to be paid for each time interval.
     public let interval: ArcaneEnergyCostDisjunctionInterval?
-    
+
     /// The possible AE cost values.
     public let options: [ArcaneEnergyCostDisjunctionOption]
 
@@ -717,10 +717,10 @@ public struct ArcaneEnergyCostDisjunction: EntitySubtype {
 public struct ArcaneEnergyCostDisjunctionInterval: EntitySubtype {
     /// The interval itself.
     public let value: DurationUnitValue
-    
+
     /// The AE cost value for activation.
     public let activationValue: Int
-    
+
     /// Set to `true` if the action where the enchantment is casted does
     /// **not** as a part of the first interval that has to be payed, so that
     /// the first interval payment needs to be done after the activation.
@@ -732,8 +732,8 @@ public struct ArcaneEnergyCostDisjunctionInterval: EntitySubtype {
         self.value = value
         self.activationValue = activationValue
         self.afterActivation = afterActivation
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case value = "value"
         case activationValue = "activation_value"
@@ -744,7 +744,7 @@ public struct ArcaneEnergyCostDisjunctionInterval: EntitySubtype {
 public struct ArcaneEnergyCostDisjunctionOption: EntitySubtype {
     /// A possible AE cost value.
     public let value: Int
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<ArcaneEnergyCostDisjunctionOptionTranslation>?
 
@@ -868,7 +868,7 @@ public struct VolumeByLevelItem: EntitySubtype {
 public struct VolumeMap: EntitySubtype {
     /// The possible costs and associated labels.
     public let options: [VolumeMapOption]
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<VolumeMapTranslation>?
 
@@ -881,10 +881,10 @@ public struct VolumeMap: EntitySubtype {
 public struct VolumeMapTranslation: EntitySubtype {
     /// Place a string between the `for` and the grouped map option labels.
     public let listPrepend: String?
-    
+
     /// Place a string after the grouped map option labels.
     public let listAppend: String?
-    
+
     /// If the string from the book cannot be generated using the default generation technique, use this string. All options still need to be inserted propertly, since it may be used by in-game tools to provide a selection to players.
     public let replacement: String?
 
@@ -892,8 +892,8 @@ public struct VolumeMapTranslation: EntitySubtype {
         self.listPrepend = listPrepend
         self.listAppend = listAppend
         self.replacement = replacement
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case listPrepend = "list_prepend"
         case listAppend = "list_append"
@@ -904,10 +904,10 @@ public struct VolumeMapTranslation: EntitySubtype {
 public struct VolumeMapOption: EntitySubtype {
     /// The full permanent AE cost value for this option.
     public let points: Int
-    
+
     /// Links to the options this volume specification is meant for.
     public let associatedOptions: [VolumeMapOptionAssociatedOption]
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<VolumeMapOptionTranslation>?
 
@@ -915,8 +915,8 @@ public struct VolumeMapOption: EntitySubtype {
         self.points = points
         self.associatedOptions = associatedOptions
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case points = "points"
         case associatedOptions = "associated_options"
@@ -936,15 +936,15 @@ public struct VolumeMapOptionAssociatedOption: EntitySubtype {
 public struct VolumeMapOptionTranslation: EntitySubtype {
     /// The description of the option for cost string generation.
     public let label: NonEmptyString
-    
+
     /// The description of the option if used standalone. Only used if different from `label`.
     public let labelStandalone: NonEmptyString?
 
     public init(label: NonEmptyString, labelStandalone: NonEmptyString? = nil) {
         self.label = label
         self.labelStandalone = labelStandalone
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case label = "label"
         case labelStandalone = "label_standalone"
@@ -977,8 +977,8 @@ public struct FixedBindingCost: EntitySubtype {
 
     public init(permanentValue: Int) {
         self.permanentValue = permanentValue
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case permanentValue = "permanent_value"
     }
@@ -990,8 +990,8 @@ public struct BindingCostPerLevel: EntitySubtype {
 
     public init(permanentValue: Int) {
         self.permanentValue = permanentValue
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case permanentValue = "permanent_value"
     }
@@ -1023,7 +1023,7 @@ public struct BindingCostPerLevel: EntitySubtype {
 public struct BindingCostMap: EntitySubtype {
     /// The possible costs and associated labels.
     public let options: [VolumeMapOption]
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<BindingCostMapTranslation>?
 
@@ -1036,10 +1036,10 @@ public struct BindingCostMap: EntitySubtype {
 public struct BindingCostMapTranslation: EntitySubtype {
     /// Place a string between the `for` and the grouped map option labels.
     public let listPrepend: NonEmptyString?
-    
+
     /// Place a string after the grouped map option labels.
     public let listAppend: NonEmptyString?
-    
+
     /// If the string from the book cannot be generated using the default generation technique, use this string. All options still need to be inserted propertly, since it may be used by in-game tools to provide a selection to players.
     public let replacement: NonEmptyString?
 
@@ -1047,8 +1047,8 @@ public struct BindingCostMapTranslation: EntitySubtype {
         self.listPrepend = listPrepend
         self.listAppend = listAppend
         self.replacement = replacement
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case listPrepend = "list_prepend"
         case listAppend = "list_append"
@@ -1059,15 +1059,15 @@ public struct BindingCostMapTranslation: EntitySubtype {
 public struct BindingCostMapOption: EntitySubtype {
     /// The full permanent AE cost value for this option.
     public let permanentValue: Int
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<BindingCostMapOptionTranslation>?
 
     public init(permanentValue: Int, translations: LocaleMap<BindingCostMapOptionTranslation>? = nil) {
         self.permanentValue = permanentValue
         self.translations = translations
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case permanentValue = "permanent_value"
         case translations = "translations"
@@ -1077,15 +1077,15 @@ public struct BindingCostMapOption: EntitySubtype {
 public struct BindingCostMapOptionTranslation: EntitySubtype {
     /// The description of the option for cost string generation.
     public let label: NonEmptyString
-    
+
     /// The description of the option if used standalone. Only used if different from `label`.
     public let labelStandalone: NonEmptyString?
 
     public init(label: NonEmptyString, labelStandalone: NonEmptyString? = nil) {
         self.label = label
         self.labelStandalone = labelStandalone
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case label = "label"
         case labelStandalone = "label_standalone"
@@ -1123,7 +1123,7 @@ public enum AdvancedSpecialAbility<Identifier: EntitySubtype>: EntitySubtype {
 public struct RestrictAdvancedSpecialAbilityOptions<Identifier: EntitySubtype>: EntitySubtype {
     /// The advanced special ability’s identifier.
     public let id: Identifier
-    
+
     /// Specify the select option(s) that only are allowed for the referenced advanced special ability; others are disallowed.
     public let option: [AdvancedSpecialAbilityRestrictedOptionIdentifier]
 
@@ -1136,18 +1136,18 @@ public struct RestrictAdvancedSpecialAbilityOptions<Identifier: EntitySubtype>: 
 public struct OneOfAdvancedSpecialAbilityOptions<Identifier: EntitySubtype>: EntitySubtype {
     /// The possible advanced special abilities.
     public let options: [AdvancedSpecialAbilityReference<Identifier>]
-    
+
     /// Do have to choose the advanced special ability when buying the style special ability? Otherwise the decision can be made later.
     public let isSelectionRequiredOnPurchase: Bool
-    
+
     public let displayOption: DisplayOption?
 
     public init(options: [AdvancedSpecialAbilityReference<Identifier>], isSelectionRequiredOnPurchase: Bool, displayOption: DisplayOption? = nil) {
         self.options = options
         self.isSelectionRequiredOnPurchase = isSelectionRequiredOnPurchase
         self.displayOption = displayOption
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case options = "options"
         case isSelectionRequiredOnPurchase = "is_selection_required_on_purchase"
@@ -1158,18 +1158,18 @@ public struct OneOfAdvancedSpecialAbilityOptions<Identifier: EntitySubtype>: Ent
 public struct AdvancedSpecialAbilityDerivedFromExternalOption<Identifier: EntitySubtype>: EntitySubtype {
     /// The possible advanced special abilities.
     public let externalEntry: MagicalTraditionIdentifier
-    
+
     /// Map options from the external entry to allowed advanced special abilities.
     public let map: [AdvancedSpecialAbilityDerivedFromExternalOptionMapping<Identifier>]
-    
+
     public let displayOption: DisplayOption?
 
     public init(externalEntry: MagicalTraditionIdentifier, map: [AdvancedSpecialAbilityDerivedFromExternalOptionMapping<Identifier>], displayOption: DisplayOption? = nil) {
         self.externalEntry = externalEntry
         self.map = map
         self.displayOption = displayOption
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case externalEntry = "external_entry"
         case map = "map"
@@ -1181,15 +1181,15 @@ public struct AdvancedSpecialAbilityDerivedFromExternalOption<Identifier: Entity
 public struct AdvancedSpecialAbilityDerivedFromExternalOptionMapping<Identifier: EntitySubtype>: EntitySubtype {
     /// The select option's identifier.
     public let fromOption: PatronIdentifier
-    
+
     /// The advanced special ability's identifier.
     public let toAdvanced: AdvancedSpecialAbilityReference<Identifier>
 
     public init(fromOption: PatronIdentifier, toAdvanced: AdvancedSpecialAbilityReference<Identifier>) {
         self.fromOption = fromOption
         self.toAdvanced = toAdvanced
-    }    
-    
+    }
+
     private enum CodingKeys: String, CodingKey {
         case fromOption = "from_option"
         case toAdvanced = "to_advanced"
@@ -1250,7 +1250,7 @@ public struct SpecificApplicableCombatTechniques: EntitySubtype {
 
 public struct SpecificApplicableCombatTechnique: EntitySubtype {
     public let id: CombatTechniqueIdentifier
-    
+
     public let restrictions: [ApplicableSpecificCombatTechniquesRestriction]?
 
     public init(id: CombatTechniqueIdentifier, restrictions: [ApplicableSpecificCombatTechniquesRestriction]? = nil) {

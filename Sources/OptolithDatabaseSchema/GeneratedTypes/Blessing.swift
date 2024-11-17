@@ -8,15 +8,15 @@ import DiscriminatedEnum
 public struct Blessing: LocalizableEntity {
     /// The blessing's identifier. An unique, increasing integer.
     public let id: Int
-    
+
     /// Measurable parameters of a blessing.
     public let parameters: BlessingPerformanceParameters
-    
+
     /// The target category – the kind of creature or object – the skill affects.
     public let target: AffectedTargetCategories
-    
+
     public let src: PublicationRefs
-    
+
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<BlessingTranslation>
 
@@ -32,19 +32,19 @@ public struct Blessing: LocalizableEntity {
 public struct BlessingTranslation: EntitySubtype {
     /// The name of the blessing.
     public let name: String
-    
+
     /// The effect description.
     public let effect: String
-    
+
     @available(*, deprecated)
     public let range: String
-    
+
     @available(*, deprecated)
     public let duration: String
-    
+
     @available(*, deprecated)
     public let target: String
-    
+
     public let errata: Errata?
 
     public init(name: String, effect: String, range: String, duration: String, target: String, errata: Errata? = nil) {
@@ -60,7 +60,7 @@ public struct BlessingTranslation: EntitySubtype {
 /// Measurable parameters of a blessing.
 public struct BlessingPerformanceParameters: EntitySubtype {
     public let range: BlessingRange
-    
+
     public let duration: BlessingDuration
 
     public init(range: BlessingRange, duration: BlessingDuration) {
@@ -86,7 +86,7 @@ public enum BlessingDuration: EntitySubtype {
 public struct FixedBlessingDuration: EntitySubtype {
     /// The (unitless) duration.
     public let value: Int
-    
+
     /// The duration unit.
     public let unit: DurationUnit
 
