@@ -21,9 +21,9 @@ public struct LocaleMap<T: EntitySubtype>: EntitySubtype {
 
     public init(from decoder: any Decoder) throws {
         let dict = try decoder.singleValueContainer().decode([String: T].self)
-        self.map = Dictionary(uniqueKeysWithValues: dict.map { (localeId, value) in
+        self.init(Dictionary(uniqueKeysWithValues: dict.map { (localeId, value) in
             (key: Foundation.Locale(identifier: localeId), value: value)
-        })
+        }))
     }
 
     /// Retrieves the value for a specific locale.
