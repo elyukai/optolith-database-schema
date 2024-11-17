@@ -27,7 +27,18 @@ public struct CeremonialItem: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<DefaultItemTranslation>    
+    public let translations: LocaleMap<DefaultItemTranslation>
+
+    public init(cost: Cost, weight: Weight, complexity: Complexity? = nil, structurePoints: StructurePoints, associatedTradition: BlessedTraditionReference, combatUse: CombatUse? = nil, src: PublicationRefs, translations: LocaleMap<DefaultItemTranslation>) {
+        self.cost = cost
+        self.weight = weight
+        self.complexity = complexity
+        self.structurePoints = structurePoints
+        self.associatedTradition = associatedTradition
+        self.combatUse = combatUse
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case cost = "cost"

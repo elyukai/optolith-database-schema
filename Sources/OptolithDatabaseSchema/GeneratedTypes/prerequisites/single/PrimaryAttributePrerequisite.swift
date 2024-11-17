@@ -12,7 +12,13 @@ public struct PrimaryAttributePrerequisite: EntitySubtype {
     /// Required value of the attribute
     public let value: Int
     
-    public let displayOption: DisplayOption?    
+    public let displayOption: DisplayOption?
+
+    public init(category: PrimaryAttributeCategory, value: Int, displayOption: DisplayOption? = nil) {
+        self.category = category
+        self.value = value
+        self.displayOption = displayOption
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case category = "category"

@@ -18,7 +18,12 @@ public struct ReplacementDisplayOption: EntitySubtype {
     public let sentenceType: SentenceType?
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<NonEmptyString>    
+    public let translations: LocaleMap<NonEmptyString>
+
+    public init(sentenceType: SentenceType? = nil, translations: LocaleMap<NonEmptyString>) {
+        self.sentenceType = sentenceType
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case sentenceType = "sentence_type"

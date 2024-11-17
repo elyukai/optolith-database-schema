@@ -24,7 +24,16 @@ public struct Enhancement: EntitySubtype {
     public let src: PublicationRefs?
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<EnhancementTranslation>    
+    public let translations: LocaleMap<EnhancementTranslation>
+
+    public init(id: Int, skillRating: Int, adventurePointsModifier: Int, prerequisites: EnhancementPrerequisites? = nil, src: PublicationRefs? = nil, translations: LocaleMap<EnhancementTranslation>) {
+        self.id = id
+        self.skillRating = skillRating
+        self.adventurePointsModifier = adventurePointsModifier
+        self.prerequisites = prerequisites
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -44,4 +53,10 @@ public struct EnhancementTranslation: EntitySubtype {
     public let effect: String
     
     public let errata: Errata?
+
+    public init(name: String, effect: String, errata: Errata? = nil) {
+        self.name = name
+        self.effect = effect
+        self.errata = errata
+    }
 }

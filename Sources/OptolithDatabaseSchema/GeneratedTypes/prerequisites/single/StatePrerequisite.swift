@@ -9,7 +9,12 @@ import DiscriminatedEnum
 public struct StatePrerequisite: EntitySubtype {
     public let id: StateIdentifier
     
-    public let displayOption: DisplayOption?    
+    public let displayOption: DisplayOption?
+
+    public init(id: StateIdentifier, displayOption: DisplayOption? = nil) {
+        self.id = id
+        self.displayOption = displayOption
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"

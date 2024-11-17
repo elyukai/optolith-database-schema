@@ -15,6 +15,11 @@ public struct PublicationRef: EntitySubtype {
     
     /// All occurrences of the entry, identified by IETF language tag (BCP47).
     public let occurrences: LocaleMap<Occurrence>
+
+    public init(id: PublicationIdentifier, occurrences: LocaleMap<Occurrence>) {
+        self.id = id
+        self.occurrences = occurrences
+    }
 }
 
 public enum Occurrence: EntitySubtype {
@@ -44,7 +49,12 @@ public struct SimpleOccurrence: EntitySubtype {
     public let firstPage: Int
     
     /// The last page where it occurs. If there is only one page, set this to the same as `first_page` oder remove it.
-    public let lastPage: Int?    
+    public let lastPage: Int?
+
+    public init(firstPage: Int, lastPage: Int? = nil) {
+        self.firstPage = firstPage
+        self.lastPage = lastPage
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case firstPage = "first_page"
@@ -58,6 +68,11 @@ public struct VersionedOccurrence: EntitySubtype {
     
     /// Revisions of the entry, resulting in either changed page references or re-addition or removal of an entry.
     public let revisions: [Revision]?
+
+    public init(initial: InitialOccurrence, revisions: [Revision]? = nil) {
+        self.initial = initial
+        self.revisions = revisions
+    }
 }
 
 public struct InitialOccurrence: EntitySubtype {
@@ -66,6 +81,11 @@ public struct InitialOccurrence: EntitySubtype {
     
     /// The initial page references.
     public let pages: [PageRange]
+
+    public init(printing: Int? = nil, pages: [PageRange]) {
+        self.printing = printing
+        self.pages = pages
+    }
 }
 
 /// A revision of the entry, resulting in either changed page references or re-addition or removal of an entry.
@@ -81,11 +101,20 @@ public struct Since: EntitySubtype {
     
     /// The changed or new page references.
     public let pages: [PageRange]
+
+    public init(printing: Int, pages: [PageRange]) {
+        self.printing = printing
+        self.pages = pages
+    }
 }
 
 public struct Deprecation: EntitySubtype {
     /// The publication's printing since which the entry has been removed.
     public let printing: Int
+
+    public init(printing: Int) {
+        self.printing = printing
+    }
 }
 
 public struct PageRange: EntitySubtype {
@@ -93,7 +122,12 @@ public struct PageRange: EntitySubtype {
     public let firstPage: Page
     
     /// The last page where it occurs. If there is only one page, set this to the same as `first_page` oder remove it.
-    public let lastPage: Page?    
+    public let lastPage: Page?
+
+    public init(firstPage: Page, lastPage: Page? = nil) {
+        self.firstPage = firstPage
+        self.lastPage = lastPage
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case firstPage = "first_page"

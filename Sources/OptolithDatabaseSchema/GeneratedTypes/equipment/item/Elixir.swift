@@ -24,7 +24,17 @@ public struct Elixir: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<ElixirTranslation>    
+    public let translations: LocaleMap<ElixirTranslation>
+
+    public init(id: Int, costPerIngredientLevel: Double, laboratory: LaboratoryLevel, brewingDifficulty: Int, tradeSecret: RecipeTradeSecret, src: PublicationRefs, translations: LocaleMap<ElixirTranslation>) {
+        self.id = id
+        self.costPerIngredientLevel = costPerIngredientLevel
+        self.laboratory = laboratory
+        self.brewingDifficulty = brewingDifficulty
+        self.tradeSecret = tradeSecret
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -53,7 +63,16 @@ public struct ElixirTranslation: EntitySubtype {
     /// The list of effects for each quality level. The first element represents QL 1, the second element QL 2, and so on.
     public let qualityLevels: [NonEmptyMarkdown]
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: NonEmptyString, alternativeNames: [AlternativeName]? = nil, typicalIngredients: [NonEmptyString], brewingProcessPrerequisites: NonEmptyMarkdown? = nil, qualityLevels: [NonEmptyMarkdown], errata: Errata? = nil) {
+        self.name = name
+        self.alternativeNames = alternativeNames
+        self.typicalIngredients = typicalIngredients
+        self.brewingProcessPrerequisites = brewingProcessPrerequisites
+        self.qualityLevels = qualityLevels
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"

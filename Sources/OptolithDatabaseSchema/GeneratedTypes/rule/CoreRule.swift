@@ -15,6 +15,13 @@ public struct CoreRule: LocalizableEntity {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<CoreRuleTranslation>
+
+    public init(id: Int, content: [ContentNode], src: PublicationRefs, translations: LocaleMap<CoreRuleTranslation>) {
+        self.id = id
+        self.content = content
+        self.src = src
+        self.translations = translations
+    }
 }
 
 public struct CoreRuleTranslation: EntitySubtype {
@@ -22,6 +29,11 @@ public struct CoreRuleTranslation: EntitySubtype {
     public let name: NonEmptyString
     
     public let errata: Errata?
+
+    public init(name: NonEmptyString, errata: Errata? = nil) {
+        self.name = name
+        self.errata = errata
+    }
 }
 
 @DiscriminatedEnum
@@ -41,17 +53,30 @@ public struct ChildNode: EntitySubtype {
     
     /// If the nested core rule's content should be integrated into this core rule and a proper heading should be added. Otherwise create a link to a separate view of that core rule.
     public let include: Bool
+
+    public init(id: CoreRuleIdentifier, include: Bool) {
+        self.id = id
+        self.include = include
+    }
 }
 
 /// A simple text block, containing one or multiple paragraphs. Headings are not allowed, they should be handled as nested core rules instead.
 public struct TextNode: EntitySubtype {
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<TextNodeTranslation>
+
+    public init(translations: LocaleMap<TextNodeTranslation>) {
+        self.translations = translations
+    }
 }
 
 public struct TextNodeTranslation: EntitySubtype {
     /// Markdown-formatted text.
     public let text: NonEmptyMarkdown
+
+    public init(text: NonEmptyMarkdown) {
+        self.text = text
+    }
 }
 
 /// Generate a list or table from a specific entity type.
@@ -60,6 +85,11 @@ public struct ReferenceListNode: EntitySubtype {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<ReferenceListNodeTranslation>
+
+    public init(source: ReferenceListNodeSource, translations: LocaleMap<ReferenceListNodeTranslation>) {
+        self.source = source
+        self.translations = translations
+    }
 }
 
 @DiscriminatedEnum
@@ -133,7 +163,12 @@ public struct ReferenceListNodeImprovementCostSource: EntitySubtype {
     /// The highest value the improvement cost are displayed for.
     /// 
     /// The minimum maximum value should depend on what is the upper bound of the range of adventure point cost that are equal across multiple values (value increases for attributes are always 15 up to (and including) value 14, while value increases for skills are always 1 to 4, depending on the improvement cost, up to (and including) value 12), since those ranges should be combined into a single table row.
-    public let maximumRating: Int    
+    public let maximumRating: Int
+
+    public init(target: ReferenceListNodeImprovementCostSourceTarget, maximumRating: Int) {
+        self.target = target
+        self.maximumRating = maximumRating
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case target = "target"
@@ -149,9 +184,17 @@ public enum ReferenceListNodeImprovementCostSourceTarget: String, EntitySubtype 
 public struct ReferenceListNodeTranslation: EntitySubtype {
     /// Markdown-formatted text.
     public let text: NonEmptyMarkdown
+
+    public init(text: NonEmptyMarkdown) {
+        self.text = text
+    }
 }
 
 /// Generate the full text for a single entry as part of this core rule's text.
 public struct ReferenceNode: EntitySubtype {
     public let id: CoreRuleDerivableContentIdentifier
+
+    public init(id: CoreRuleDerivableContentIdentifier) {
+        self.id = id
+    }
 }

@@ -21,7 +21,18 @@ public struct Sermon: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<SermonTranslation>    
+    public let translations: LocaleMap<SermonTranslation>
+
+    public init(id: Id, levels: Levels? = nil, selectOptions: SelectOptions? = nil, maximum: Maximum? = nil, prerequisites: GeneralPrerequisites? = nil, apValue: AdventurePointsValue, src: PublicationRefs, translations: LocaleMap<SermonTranslation>) {
+        self.id = id
+        self.levels = levels
+        self.selectOptions = selectOptions
+        self.maximum = maximum
+        self.prerequisites = prerequisites
+        self.apValue = apValue
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -42,7 +53,14 @@ public struct SermonTranslation: EntitySubtype {
     
     public let rules: Rules
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: Name, nameInLibrary: NameInLibrary? = nil, rules: Rules, errata: Errata? = nil) {
+        self.name = name
+        self.nameInLibrary = nameInLibrary
+        self.rules = rules
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"

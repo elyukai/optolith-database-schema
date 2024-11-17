@@ -32,7 +32,11 @@ public enum SelectOptionCategory: EntitySubtype {
 
 public struct BlessedTraditionsSelectOptionCategory: EntitySubtype {
     /// Should the principles (code) of the tradition be required to select the respective tradition?
-    public let requirePrinciples: Bool?    
+    public let requirePrinciples: Bool?
+
+    public init(requirePrinciples: Bool? = nil) {
+        self.requirePrinciples = requirePrinciples
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case requirePrinciples = "require_principles"
@@ -42,6 +46,10 @@ public struct BlessedTraditionsSelectOptionCategory: EntitySubtype {
 public struct ElementsSelectOptionCategory: EntitySubtype {
     /// Only include entries with the listed identifiers.
     public let specific: [ElementReference]?
+
+    public init(specific: [ElementReference]? = nil) {
+        self.specific = specific
+    }
 }
 
 public struct PropertiesSelectOptionCategory: EntitySubtype {
@@ -49,7 +57,12 @@ public struct PropertiesSelectOptionCategory: EntitySubtype {
     public let requireKnowledge: Bool?
     
     /// Require a minimum number of spellworks of the respective property to be on a minimum skill rating.
-    public let requireMinimumSpellworksOn: RequiredMinimumSkillsToBeOnSkillRating?    
+    public let requireMinimumSpellworksOn: RequiredMinimumSkillsToBeOnSkillRating?
+
+    public init(requireKnowledge: Bool? = nil, requireMinimumSpellworksOn: RequiredMinimumSkillsToBeOnSkillRating? = nil) {
+        self.requireKnowledge = requireKnowledge
+        self.requireMinimumSpellworksOn = requireMinimumSpellworksOn
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case requireKnowledge = "require_knowledge"
@@ -65,7 +78,13 @@ public struct AspectSelectOptionCategory: EntitySubtype {
     public let useMasterOfSuffixAsName: Bool?
     
     /// Require a minimum number of liturgies of the respective aspect to be on a minimum skill rating.
-    public let requireMinimumLiturgiesOn: RequiredMinimumSkillsToBeOnSkillRating?    
+    public let requireMinimumLiturgiesOn: RequiredMinimumSkillsToBeOnSkillRating?
+
+    public init(requireKnowledge: Bool? = nil, useMasterOfSuffixAsName: Bool? = nil, requireMinimumLiturgiesOn: RequiredMinimumSkillsToBeOnSkillRating? = nil) {
+        self.requireKnowledge = requireKnowledge
+        self.useMasterOfSuffixAsName = useMasterOfSuffixAsName
+        self.requireMinimumLiturgiesOn = requireMinimumLiturgiesOn
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case requireKnowledge = "require_knowledge"
@@ -81,11 +100,20 @@ public struct RequiredMinimumSkillsToBeOnSkillRating: EntitySubtype {
     
     /// The minimum skill rating the defined minimum number of liturgies need to be on.
     public let rating: Int
+
+    public init(number: Int, rating: Int) {
+        self.number = number
+        self.rating = rating
+    }
 }
 
 public struct DiseasesPoisonsSelectOptionCategory: EntitySubtype {
     /// Only convert half the disease/poison level into the AP value.
-    public let useHalfLevelAsApValue: Bool?    
+    public let useHalfLevelAsApValue: Bool?
+
+    public init(useHalfLevelAsApValue: Bool? = nil) {
+        self.useHalfLevelAsApValue = useHalfLevelAsApValue
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case useHalfLevelAsApValue = "use_half_level_as_ap_value"
@@ -95,6 +123,10 @@ public struct DiseasesPoisonsSelectOptionCategory: EntitySubtype {
 public struct LanguagesSelectOptionCategory: EntitySubtype {
     /// Generate prerequisites for each entry of the category.
     public let prerequisites: [LanguagesSelectOptionCategoryPrerequisite]?
+
+    public init(prerequisites: [LanguagesSelectOptionCategoryPrerequisite]? = nil) {
+        self.prerequisites = prerequisites
+    }
 }
 
 @DiscriminatedEnum
@@ -107,7 +139,12 @@ public struct SkillsSelectOptionCategory: EntitySubtype {
     public let categories: [SkillsSelectOptionCategoryCategory]
     
     /// Generate AP values for each entry.
-    public let apValue: SelectOptionsAdventurePointsValue<SkillishIdentifier>?    
+    public let apValue: SelectOptionsAdventurePointsValue<SkillishIdentifier>?
+
+    public init(categories: [SkillsSelectOptionCategoryCategory], apValue: SelectOptionsAdventurePointsValue<SkillishIdentifier>? = nil) {
+        self.categories = categories
+        self.apValue = apValue
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case categories = "categories"
@@ -141,7 +178,16 @@ public struct SkillSelectOptionCategoryCategory: EntitySubtype {
     public let prerequisites: [SkillSelectOptionCategoryPrerequisite]?
     
     /// Generate AP values for each entry.
-    public let apValue: SelectOptionsAdventurePointsValue<SkillIdentifier>?    
+    public let apValue: SelectOptionsAdventurePointsValue<SkillIdentifier>?
+
+    public init(groups: [SkillGroupReference]? = nil, specific: SpecificFromSkillSelectOptionCategoryCategory<SkillReference>? = nil, skillApplications: [SkillApplicationOrUse]? = nil, skillUses: [SkillApplicationOrUse]? = nil, prerequisites: [SkillSelectOptionCategoryPrerequisite]? = nil, apValue: SelectOptionsAdventurePointsValue<SkillIdentifier>? = nil) {
+        self.groups = groups
+        self.specific = specific
+        self.skillApplications = skillApplications
+        self.skillUses = skillUses
+        self.prerequisites = prerequisites
+        self.apValue = apValue
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case groups = "groups"
@@ -158,7 +204,12 @@ public struct CombatTechniquesSelectOptionCategory: EntitySubtype {
     public let categories: [CombatTechniquesSelectOptionCategoryCategory]
     
     /// Generate AP values for each entry.
-    public let apValue: SelectOptionsAdventurePointsValue<CombatTechniqueIdentifier>?    
+    public let apValue: SelectOptionsAdventurePointsValue<CombatTechniqueIdentifier>?
+
+    public init(categories: [CombatTechniquesSelectOptionCategoryCategory], apValue: SelectOptionsAdventurePointsValue<CombatTechniqueIdentifier>? = nil) {
+        self.categories = categories
+        self.apValue = apValue
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case categories = "categories"
@@ -178,11 +229,20 @@ public struct SkillApplicationOrUse: EntitySubtype {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<SkillApplicationOrUseTranslation>?
+
+    public init(id: Int, translations: LocaleMap<SkillApplicationOrUseTranslation>? = nil) {
+        self.id = id
+        self.translations = translations
+    }
 }
 
 public struct SkillApplicationOrUseTranslation: EntitySubtype {
     /// The name of the application or use if different from the activatable entry's name.
     public let name: String
+
+    public init(name: String) {
+        self.name = name
+    }
 }
 
 public struct GenericSkillsSelectOptionCategoryCategory<Ref: EntitySubtype>: EntitySubtype {
@@ -191,6 +251,11 @@ public struct GenericSkillsSelectOptionCategoryCategory<Ref: EntitySubtype>: Ent
     
     /// Generate prerequisites for each entry of the category.
     public let prerequisites: [SkillSelectOptionCategoryPrerequisite]?
+
+    public init(specific: SpecificFromSkillSelectOptionCategoryCategory<Ref>? = nil, prerequisites: [SkillSelectOptionCategoryPrerequisite]? = nil) {
+        self.specific = specific
+        self.prerequisites = prerequisites
+    }
 }
 
 public struct SpecificFromSkillSelectOptionCategoryCategory<Ref: EntitySubtype>: EntitySubtype {
@@ -198,6 +263,11 @@ public struct SpecificFromSkillSelectOptionCategoryCategory<Ref: EntitySubtype>:
     
     /// The list of specific entries.
     public let list: [Ref]
+
+    public init(operation: SpecificFromSkillSelectOptionCategoryCategoryOperation, list: [Ref]) {
+        self.operation = operation
+        self.list = list
+    }
 }
 
 /// Only include (`Intersection`) or exclude (`Difference`) specific entries.
@@ -215,6 +285,10 @@ public enum SkillSelectOptionCategoryPrerequisite: EntitySubtype {
 public struct SelfPrerequisite: EntitySubtype {
     /// The entry requires itself on a certain Skill Rating.
     public let value: Int
+
+    public init(value: Int) {
+        self.value = value
+    }
 }
 
 /// The entry requires or prohibits itself as a select option of another entry.
@@ -227,6 +301,12 @@ public struct OptionPrerequisite: EntitySubtype {
     
     /// The required level, if any.
     public let level: Int?
+
+    public init(id: ActivatableIdentifier, active: Bool, level: Int? = nil) {
+        self.id = id
+        self.active = active
+        self.level = level
+    }
 }
 
 /// Generate AP values for each entry.
@@ -246,6 +326,11 @@ public struct SelectOptionsDeriveAdventurePointsValueFromImprovementCost: Entity
     
     /// This number is added to the multiplied improvement cost of the entry.
     public let offset: Int?
+
+    public init(multiplier: Int? = nil, offset: Int? = nil) {
+        self.multiplier = multiplier
+        self.offset = offset
+    }
 }
 
 public struct SelectOptionsFixedAdventurePointsValue<Identifier: EntitySubtype>: EntitySubtype {
@@ -254,6 +339,11 @@ public struct SelectOptionsFixedAdventurePointsValue<Identifier: EntitySubtype>:
     
     /// The default value of an entry. Used as a fallback if no value is found in `list`.
     public let `default`: Int
+
+    public init(map: [SelectOptionsFixedAdventurePointsValueMapping<Identifier>], `default`: Int) {
+        self.map = map
+        self.`default` = `default`
+    }
 }
 
 public struct SelectOptionsFixedAdventurePointsValueMapping<Identifier: EntitySubtype>: EntitySubtype {
@@ -261,7 +351,12 @@ public struct SelectOptionsFixedAdventurePointsValueMapping<Identifier: EntitySu
     public let id: Identifier
     
     /// The AP value for the specified entry.
-    public let apValue: Int    
+    public let apValue: Int
+
+    public init(id: Identifier, apValue: Int) {
+        self.id = id
+        self.apValue = apValue
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -272,6 +367,10 @@ public struct SelectOptionsFixedAdventurePointsValueMapping<Identifier: EntitySu
 public struct TargetCategoriesSelectOptionCategory: EntitySubtype {
     /// A list of combat technique categories.
     public let list: [SpecificTargetCategory]
+
+    public init(list: [SpecificTargetCategory]) {
+        self.list = list
+    }
 }
 
 public struct SpecificTargetCategory: EntitySubtype {
@@ -280,4 +379,9 @@ public struct SpecificTargetCategory: EntitySubtype {
     
     /// The volume for this specific selection.
     public let volume: Int?
+
+    public init(id: TargetCategoryIdentifier, volume: Int? = nil) {
+        self.id = id
+        self.volume = volume
+    }
 }

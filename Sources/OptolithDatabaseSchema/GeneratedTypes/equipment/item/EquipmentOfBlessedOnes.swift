@@ -18,7 +18,15 @@ public struct EquipmentOfBlessedOnes: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<DefaultItemTranslation>    
+    public let translations: LocaleMap<DefaultItemTranslation>
+
+    public init(cost: Cost, structurePoints: StructurePoints, associatedTradition: [BlessedTraditionReference], src: PublicationRefs, translations: LocaleMap<DefaultItemTranslation>) {
+        self.cost = cost
+        self.structurePoints = structurePoints
+        self.associatedTradition = associatedTradition
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case cost = "cost"

@@ -15,6 +15,13 @@ public struct Influence: LocalizableEntity {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<InfluenceTranslation>
+
+    public init(id: Int, prerequisites: InfluencePrerequisites, src: PublicationRefs, translations: LocaleMap<InfluenceTranslation>) {
+        self.id = id
+        self.prerequisites = prerequisites
+        self.src = src
+        self.translations = translations
+    }
 }
 
 public struct InfluenceTranslation: EntitySubtype {
@@ -25,6 +32,12 @@ public struct InfluenceTranslation: EntitySubtype {
     public let effects: [InfluenceEffect]
     
     public let errata: Errata?
+
+    public init(name: NonEmptyString, effects: [InfluenceEffect], errata: Errata? = nil) {
+        self.name = name
+        self.effects = effects
+        self.errata = errata
+    }
 }
 
 public struct InfluenceEffect: EntitySubtype {
@@ -33,4 +46,9 @@ public struct InfluenceEffect: EntitySubtype {
     
     /// The effect text.
     public let text: NonEmptyString
+
+    public init(label: NonEmptyString? = nil, text: NonEmptyString) {
+        self.label = label
+        self.text = text
+    }
 }

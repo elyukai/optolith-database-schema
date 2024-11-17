@@ -27,7 +27,20 @@ public struct Disadvantage: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<DisadvantageTranslation>    
+    public let translations: LocaleMap<DisadvantageTranslation>
+
+    public init(id: Id, levels: Levels? = nil, selectOptions: SelectOptions? = nil, maximum: Maximum? = nil, prerequisites: AdvantageDisadvantagePrerequisites? = nil, apValue: AdventurePointsValue, hasMaximumSpentInfluence: Bool, isExclusiveToArcaneSpellworks: Bool, src: PublicationRefs, translations: LocaleMap<DisadvantageTranslation>) {
+        self.id = id
+        self.levels = levels
+        self.selectOptions = selectOptions
+        self.maximum = maximum
+        self.prerequisites = prerequisites
+        self.apValue = apValue
+        self.hasMaximumSpentInfluence = hasMaximumSpentInfluence
+        self.isExclusiveToArcaneSpellworks = isExclusiveToArcaneSpellworks
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -59,7 +72,17 @@ public struct DisadvantageTranslation: EntitySubtype {
     /// A string that gets appended to the default AP Value text with a preceding space. This always happens if present, even if the generated AP Value text is replaced.
     public let apValueAppend: AdventurePointsValueAppend?
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: Name, nameInLibrary: NameInLibrary? = nil, input: Input? = nil, rules: Rules, range: String? = nil, apValueAppend: AdventurePointsValueAppend? = nil, errata: Errata? = nil) {
+        self.name = name
+        self.nameInLibrary = nameInLibrary
+        self.input = input
+        self.rules = rules
+        self.range = range
+        self.apValueAppend = apValueAppend
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"

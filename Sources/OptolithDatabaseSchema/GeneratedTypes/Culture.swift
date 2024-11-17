@@ -48,7 +48,25 @@ public struct Culture: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<CultureTranslation>    
+    public let translations: LocaleMap<CultureTranslation>
+
+    public init(id: Int, language: [LanguageReference], script: [ScriptReference]? = nil, areaKnowledge: AreaKnowledge, socialStatus: [SocialStatusReference], commonProfessions: CommonProfessions, commonAdvantages: [CommonnessRatedAdvantageDisadvantage<AdvantageIdentifier>]? = nil, commonDisadvantages: [CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>]? = nil, uncommonAdvantages: [CommonnessRatedAdvantageDisadvantage<AdvantageIdentifier>]? = nil, uncommonDisadvantages: [CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>]? = nil, commonSkills: [CommonnessRatedSkill], uncommonSkills: [CommonnessRatedSkill]? = nil, culturalPackage: [CulturalPackageItem], src: PublicationRefs, translations: LocaleMap<CultureTranslation>) {
+        self.id = id
+        self.language = language
+        self.script = script
+        self.areaKnowledge = areaKnowledge
+        self.socialStatus = socialStatus
+        self.commonProfessions = commonProfessions
+        self.commonAdvantages = commonAdvantages
+        self.commonDisadvantages = commonDisadvantages
+        self.uncommonAdvantages = uncommonAdvantages
+        self.uncommonDisadvantages = uncommonDisadvantages
+        self.commonSkills = commonSkills
+        self.uncommonSkills = uncommonSkills
+        self.culturalPackage = culturalPackage
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -73,7 +91,11 @@ public struct Culture: LocalizableEntity {
 public struct AreaKnowledge: EntitySubtype {
     /// `true` if the area knowledge has a fixed value, `false` if it can be
     /// adjusted.
-    public let isFixed: Bool    
+    public let isFixed: Bool
+
+    public init(isFixed: Bool) {
+        self.isFixed = isFixed
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case isFixed = "is_fixed"
@@ -94,6 +116,11 @@ public struct Weighted<ProfessionOrVariant: EntitySubtype>: EntitySubtype {
     /// The "weight" difference compared to other professions or profession variants. Some professions or profession variants are simply more common
     /// (Mostly), but sometimes only specific elements are used (Only).
     public let weight: CommonnessWeight
+
+    public init(elements: [ProfessionOrVariant], weight: CommonnessWeight) {
+        self.elements = elements
+        self.weight = weight
+    }
 }
 
 /// This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints (include) or only the professions are kept that are different from the constraints (exclude).
@@ -109,6 +136,11 @@ public struct CommonProfessionConstraints<Constraint: EntitySubtype>: EntitySubt
     
     /// This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints (include) or only the professions are kept that are different from the constraints (exclude).
     public let operation: CommonProfessionConstraintsOperation
+
+    public init(constraints: [Constraint], operation: CommonProfessionConstraintsOperation) {
+        self.constraints = constraints
+        self.operation = operation
+    }
 }
 
 /// Some professions may be found in a culture, but are not that common.
@@ -125,7 +157,13 @@ public struct ProfessionConstraint: EntitySubtype {
     public let weightedVariants: Weighted<ProfessionVariantReference>?
     
     /// Some professions may be found in a culture, but are not that common.
-    public let rarity: Rarity?    
+    public let rarity: Rarity?
+
+    public init(id: ProfessionIdentifier, weightedVariants: Weighted<ProfessionVariantReference>? = nil, rarity: Rarity? = nil) {
+        self.id = id
+        self.weightedVariants = weightedVariants
+        self.rarity = rarity
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -149,7 +187,13 @@ public struct MagicalTraditionConstraint: EntitySubtype {
     public let weightedProfessions: Weighted<ProfessionReference>?
     
     /// Some traditions may be found in a culture, but are not that common.
-    public let rarity: Rarity?    
+    public let rarity: Rarity?
+
+    public init(id: MagicalTraditionIdentifier, weightedProfessions: Weighted<ProfessionReference>? = nil, rarity: Rarity? = nil) {
+        self.id = id
+        self.weightedProfessions = weightedProfessions
+        self.rarity = rarity
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -166,7 +210,13 @@ public struct BlessedTraditionConstraint: EntitySubtype {
     public let weightedProfessions: Weighted<ProfessionReference>?
     
     /// Some traditions may be found in a culture, but are not that common.
-    public let rarity: Rarity?    
+    public let rarity: Rarity?
+
+    public init(id: BlessedTraditionIdentifier, weightedProfessions: Weighted<ProfessionReference>? = nil, rarity: Rarity? = nil) {
+        self.id = id
+        self.weightedProfessions = weightedProfessions
+        self.rarity = rarity
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -202,6 +252,12 @@ public struct GroupedCommonProfessions: EntitySubtype {
     public let magic: CommonProfessionConstraints<MagicCommonProfessionConstraint>?
     
     public let blessed: CommonProfessionConstraints<BlessedCommonProfessionConstraint>?
+
+    public init(mundane: CommonProfessionConstraints<MundaneCommonProfessionConstraint>? = nil, magic: CommonProfessionConstraints<MagicCommonProfessionConstraint>? = nil, blessed: CommonProfessionConstraints<BlessedCommonProfessionConstraint>? = nil) {
+        self.mundane = mundane
+        self.magic = magic
+        self.blessed = blessed
+    }
 }
 
 /// A list of professions that are typical for the culture, as well as professions that are rarely practiced or encountered in the culture. The list is either defined by group (as multiple lists) or plain (as a single list).
@@ -219,6 +275,11 @@ public struct CulturalPackageItem: EntitySubtype {
     
     /// The skill points for the respective skill you get for buying the cultural package.
     public let points: Int
+
+    public init(id: SkillIdentifier, points: Int) {
+        self.id = id
+        self.points = points
+    }
 }
 
 public struct CultureTranslation: EntitySubtype {
@@ -243,7 +304,18 @@ public struct CultureTranslation: EntitySubtype {
     /// Structured description of common names.
     public let commonNames: CommonNames
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: String, areaKnowledge: AreaKnowledgeTranslation, commonAdvantages: NonEmptyString? = nil, commonDisadvantages: NonEmptyString? = nil, uncommonAdvantages: NonEmptyString? = nil, uncommonDisadvantages: NonEmptyString? = nil, commonNames: CommonNames, errata: Errata? = nil) {
+        self.name = name
+        self.areaKnowledge = areaKnowledge
+        self.commonAdvantages = commonAdvantages
+        self.commonDisadvantages = commonDisadvantages
+        self.uncommonAdvantages = uncommonAdvantages
+        self.uncommonDisadvantages = uncommonDisadvantages
+        self.commonNames = commonNames
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"
@@ -267,10 +339,20 @@ public struct AreaKnowledgeTranslation: EntitySubtype {
     
     /// Examples of areas, if applicable.
     public let examples: [AreaKnowledgeExample]?
+
+    public init(description: String, abbreviated: String, examples: [AreaKnowledgeExample]? = nil) {
+        self.description = description
+        self.abbreviated = abbreviated
+        self.examples = examples
+    }
 }
 
 public struct AreaKnowledgeExample: EntitySubtype {
     public let area: String
+
+    public init(area: String) {
+        self.area = area
+    }
 }
 
 /// Structured description of common names.
@@ -282,7 +364,13 @@ public struct CommonNames: EntitySubtype {
     public let lastNameGroups: [CommonNameGroup]?
     
     /// Special naming rules.
-    public let namingRules: NonEmptyString?    
+    public let namingRules: NonEmptyString?
+
+    public init(firstNameGroups: [CommonNameGroup]? = nil, lastNameGroups: [CommonNameGroup]? = nil, namingRules: NonEmptyString? = nil) {
+        self.firstNameGroups = firstNameGroups
+        self.lastNameGroups = lastNameGroups
+        self.namingRules = namingRules
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case firstNameGroups = "first_name_groups"
@@ -300,6 +388,12 @@ public struct CommonNameGroup: EntitySubtype {
     
     /// The names from the group.
     public let names: [CommonName]
+
+    public init(label: NonEmptyString, sex: BinarySex? = nil, names: [CommonName]) {
+        self.label = label
+        self.sex = sex
+        self.names = names
+    }
 }
 
 public struct CommonName: EntitySubtype {
@@ -307,4 +401,9 @@ public struct CommonName: EntitySubtype {
     
     /// Additional information about the name, appended in parenthesis.
     public let note: NonEmptyString?
+
+    public init(name: NonEmptyString, note: NonEmptyString? = nil) {
+        self.name = name
+        self.note = note
+    }
 }

@@ -10,6 +10,11 @@ public struct Range: EntitySubtype {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<RangeTranslation>?
+
+    public init(value: RangeValue, translations: LocaleMap<RangeTranslation>? = nil) {
+        self.value = value
+        self.translations = translations
+    }
 }
 
 @DiscriminatedEnum
@@ -31,7 +36,13 @@ public struct ModifiableRange: EntitySubtype {
     public let initialModificationLevel: Int
     
     /// If `true`, the range is a radius.
-    public let isRadius: Bool?    
+    public let isRadius: Bool?
+
+    public init(isMaximum: Bool? = nil, initialModificationLevel: Int, isRadius: Bool? = nil) {
+        self.isMaximum = isMaximum
+        self.initialModificationLevel = initialModificationLevel
+        self.isRadius = isRadius
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case isMaximum = "is_maximum"
@@ -51,7 +62,14 @@ public struct FixedRange: EntitySubtype {
     public let unit: RangeUnit
     
     /// If `true`, the range is a radius.
-    public let isRadius: Bool?    
+    public let isRadius: Bool?
+
+    public init(isMaximum: Bool? = nil, value: Int, unit: RangeUnit, isRadius: Bool? = nil) {
+        self.isMaximum = isMaximum
+        self.value = value
+        self.unit = unit
+        self.isRadius = isRadius
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case isMaximum = "is_maximum"
@@ -76,7 +94,15 @@ public struct CheckResultBasedRange: EntitySubtype {
     public let unit: RangeUnit
     
     /// If `true`, the range is a radius.
-    public let isRadius: Bool?    
+    public let isRadius: Bool?
+
+    public init(isMaximum: Bool? = nil, base: CheckResultValue, modifier: CheckResultBasedModifier? = nil, unit: RangeUnit, isRadius: Bool? = nil) {
+        self.isMaximum = isMaximum
+        self.base = base
+        self.modifier = modifier
+        self.unit = unit
+        self.isRadius = isRadius
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case isMaximum = "is_maximum"
@@ -93,6 +119,11 @@ public struct RangeTranslation: EntitySubtype {
     
     /// A replacement string. If `note` is provided, it is appended to the replaced string.
     public let replacement: ResponsiveTextReplace?
+
+    public init(note: ResponsiveTextOptional? = nil, replacement: ResponsiveTextReplace? = nil) {
+        self.note = note
+        self.replacement = replacement
+    }
 }
 
 public enum RangeUnit: String, EntitySubtype {

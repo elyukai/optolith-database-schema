@@ -27,7 +27,21 @@ public struct DaggerRitual: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<DaggerRitualTranslation>    
+    public let translations: LocaleMap<DaggerRitualTranslation>
+
+    public init(id: Id, levels: Levels? = nil, selectOptions: SelectOptions? = nil, maximum: Maximum? = nil, prerequisites: GeneralPrerequisites? = nil, volume: Volume, cost: DaggerRitualCost? = nil, property: PropertyDeclaration, apValue: AdventurePointsValue, src: PublicationRefs, translations: LocaleMap<DaggerRitualTranslation>) {
+        self.id = id
+        self.levels = levels
+        self.selectOptions = selectOptions
+        self.maximum = maximum
+        self.prerequisites = prerequisites
+        self.volume = volume
+        self.cost = cost
+        self.property = property
+        self.apValue = apValue
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -53,7 +67,12 @@ public enum DaggerRitualCost: EntitySubtype {
 public struct DaggerRitualArcaneEnergyCost: EntitySubtype {
     public let aeCost: ArcaneEnergyCost
     
-    public let lpCost: LifePointsCost?    
+    public let lpCost: LifePointsCost?
+
+    public init(aeCost: ArcaneEnergyCost, lpCost: LifePointsCost? = nil) {
+        self.aeCost = aeCost
+        self.lpCost = lpCost
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case aeCost = "ae_cost"
@@ -69,6 +88,10 @@ public enum LifePointsCost: EntitySubtype {
 public struct FixedLifePointsCost: EntitySubtype {
     /// The LP cost value.
     public let value: Int
+
+    public init(value: Int) {
+        self.value = value
+    }
 }
 
 public struct DaggerRitualTranslation: EntitySubtype {
@@ -87,7 +110,17 @@ public struct DaggerRitualTranslation: EntitySubtype {
     @available(*, deprecated)
     public let bindingCost: String?
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: Name, nameInLibrary: NameInLibrary? = nil, effect: Effect, volume: String, aeCost: String? = nil, bindingCost: String? = nil, errata: Errata? = nil) {
+        self.name = name
+        self.nameInLibrary = nameInLibrary
+        self.effect = effect
+        self.volume = volume
+        self.aeCost = aeCost
+        self.bindingCost = bindingCost
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"

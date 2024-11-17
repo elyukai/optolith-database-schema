@@ -11,6 +11,11 @@ public struct Dice: EntitySubtype {
     
     /// Number of sides on every die. Example: 6 in 2D6.
     public let sides: DieType
+
+    public init(number: Int, sides: DieType) {
+        self.number = number
+        self.sides = sides
+    }
 }
 
 /// Number of sides on every dice. Example: 6 in 2D6.

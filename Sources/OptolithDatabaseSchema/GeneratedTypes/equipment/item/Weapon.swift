@@ -33,7 +33,20 @@ public struct Weapon: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<WeaponTranslation>    
+    public let translations: LocaleMap<WeaponTranslation>
+
+    public init(cost: Cost, weight: Weight, complexity: Complexity, structurePoints: StructurePoints? = nil, uses: [WeaponUse], sanctifiedBy: SanctifiedBy? = nil, restrictedToCultures: RestrictedToCultures? = nil, restrictedToTraditions: [MagicalTraditionReference]? = nil, src: PublicationRefs, translations: LocaleMap<WeaponTranslation>) {
+        self.cost = cost
+        self.weight = weight
+        self.complexity = complexity
+        self.structurePoints = structurePoints
+        self.uses = uses
+        self.sanctifiedBy = sanctifiedBy
+        self.restrictedToCultures = restrictedToCultures
+        self.restrictedToTraditions = restrictedToTraditions
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case cost = "cost"
@@ -68,7 +81,17 @@ public struct WeaponTranslation: EntitySubtype {
     /// The weapon disadvantage text.
     public let disadvantage: NonEmptyMarkdown?
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: NonEmptyString, secondaryName: NonEmptyString? = nil, note: NonEmptyMarkdown? = nil, rules: NonEmptyMarkdown? = nil, advantage: NonEmptyMarkdown? = nil, disadvantage: NonEmptyMarkdown? = nil, errata: Errata? = nil) {
+        self.name = name
+        self.secondaryName = secondaryName
+        self.note = note
+        self.rules = rules
+        self.advantage = advantage
+        self.disadvantage = disadvantage
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"
@@ -95,7 +118,15 @@ public struct SecondaryWeapon: EntitySubtype {
     public let restrictedToTraditions: [MagicalTraditionReference]?
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<ImprovisedWeaponTranslation>?    
+    public let translations: LocaleMap<ImprovisedWeaponTranslation>?
+
+    public init(uses: [WeaponUse], sanctifiedBy: SanctifiedBy? = nil, restrictedToCultures: RestrictedToCultures? = nil, restrictedToTraditions: [MagicalTraditionReference]? = nil, translations: LocaleMap<ImprovisedWeaponTranslation>? = nil) {
+        self.uses = uses
+        self.sanctifiedBy = sanctifiedBy
+        self.restrictedToCultures = restrictedToCultures
+        self.restrictedToTraditions = restrictedToTraditions
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case uses = "uses"
@@ -112,6 +143,11 @@ public struct ImprovisedWeaponTranslation: EntitySubtype {
     
     /// The weapon disadvantage text.
     public let disadvantage: NonEmptyMarkdown?
+
+    public init(advantage: NonEmptyMarkdown? = nil, disadvantage: NonEmptyMarkdown? = nil) {
+        self.advantage = advantage
+        self.disadvantage = disadvantage
+    }
 }
 
 public struct WeaponUse: EntitySubtype {
@@ -119,6 +155,11 @@ public struct WeaponUse: EntitySubtype {
     public let id: Int
     
     public let values: WeaponUseValues
+
+    public init(id: Int, values: WeaponUseValues) {
+        self.id = id
+        self.values = values
+    }
 }
 
 @DiscriminatedEnum
@@ -139,4 +180,8 @@ public enum RestrictedToCultures: EntitySubtype {
 
 public struct RestrictedToSpecificCultures: EntitySubtype {
     public let list: [CultureReference]
+
+    public init(list: [CultureReference]) {
+        self.list = list
+    }
 }

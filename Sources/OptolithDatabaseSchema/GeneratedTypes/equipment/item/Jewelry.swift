@@ -21,7 +21,16 @@ public struct Jewelry: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<JewelryTranslation>    
+    public let translations: LocaleMap<JewelryTranslation>
+
+    public init(cost: JewelryMaterialDifference<Cost>, weight: JewelryMaterialDifference<Weight>, complexity: Complexity, structurePoints: StructurePoints, src: PublicationRefs, translations: LocaleMap<JewelryTranslation>) {
+        self.cost = cost
+        self.weight = weight
+        self.complexity = complexity
+        self.structurePoints = structurePoints
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case cost = "cost"
@@ -40,6 +49,12 @@ public struct JewelryMaterialDifference<T: EntitySubtype>: EntitySubtype {
     public let silver: T
     
     public let gold: T
+
+    public init(bronze: T, silver: T, gold: T) {
+        self.bronze = bronze
+        self.silver = silver
+        self.gold = gold
+    }
 }
 
 public struct JewelryTranslation: EntitySubtype {
@@ -55,7 +70,15 @@ public struct JewelryTranslation: EntitySubtype {
     /// Special rules text.
     public let rules: NonEmptyMarkdown?
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: NonEmptyString, secondaryName: NonEmptyString? = nil, note: NonEmptyMarkdown? = nil, rules: NonEmptyMarkdown? = nil, errata: Errata? = nil) {
+        self.name = name
+        self.secondaryName = secondaryName
+        self.note = note
+        self.rules = rules
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"

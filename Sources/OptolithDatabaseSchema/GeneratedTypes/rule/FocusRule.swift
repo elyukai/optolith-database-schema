@@ -21,7 +21,16 @@ public struct FocusRule: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<FocusRuleTranslation>    
+    public let translations: LocaleMap<FocusRuleTranslation>
+
+    public init(id: Int, subject: FocusRuleSubjectReference, level: Int, isMissingImplementation: Bool, src: PublicationRefs, translations: LocaleMap<FocusRuleTranslation>) {
+        self.id = id
+        self.subject = subject
+        self.level = level
+        self.isMissingImplementation = isMissingImplementation
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -41,4 +50,10 @@ public struct FocusRuleTranslation: EntitySubtype {
     public let description: NonEmptyMarkdown
     
     public let errata: Errata?
+
+    public init(name: NonEmptyString, description: NonEmptyMarkdown, errata: Errata? = nil) {
+        self.name = name
+        self.description = description
+        self.errata = errata
+    }
 }

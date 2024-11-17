@@ -33,7 +33,20 @@ public struct MagicalMelody: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<MagicalMelodyTranslation>    
+    public let translations: LocaleMap<MagicalMelodyTranslation>
+
+    public init(id: Int, check: SkillCheck, checkPenalty: SkillCheckPenalty? = nil, skill: [MusicalSkillReference], parameters: MagicalMelodyPerformanceParameters, property: PropertyReference, musicTradition: [MusicTraditionReference], improvementCost: ImprovementCost, src: PublicationRefs, translations: LocaleMap<MagicalMelodyTranslation>) {
+        self.id = id
+        self.check = check
+        self.checkPenalty = checkPenalty
+        self.skill = skill
+        self.parameters = parameters
+        self.property = property
+        self.musicTradition = musicTradition
+        self.improvementCost = improvementCost
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -63,6 +76,14 @@ public struct MagicalMelodyTranslation: EntitySubtype {
     public let cost: OldParameter
     
     public let errata: Errata?
+
+    public init(name: NonEmptyString, effect: ActivatableSkillEffect, duration: OldParameter, cost: OldParameter, errata: Errata? = nil) {
+        self.name = name
+        self.effect = effect
+        self.duration = duration
+        self.cost = cost
+        self.errata = errata
+    }
 }
 
 /// Measurable parameters of a magical melody.
@@ -70,6 +91,11 @@ public struct MagicalMelodyPerformanceParameters: EntitySubtype {
     public let duration: MusicDuration
     
     public let cost: MagicalMelodyCost
+
+    public init(duration: MusicDuration, cost: MagicalMelodyCost) {
+        self.duration = duration
+        self.cost = cost
+    }
 }
 
 @DiscriminatedEnum
@@ -81,9 +107,17 @@ public enum MagicalMelodyCost: EntitySubtype {
 public struct FixedMagicalMelodyCost: EntitySubtype {
     /// The (temporary) AE cost value.
     public let value: Int
+
+    public init(value: Int) {
+        self.value = value
+    }
 }
 
 public struct FirstPersonMagicalMelodyCost: EntitySubtype {
     /// The (temporary) AE cost value for the first targeted person. The AE cost for each additional person is half this value.
     public let value: Int
+
+    public init(value: Int) {
+        self.value = value
+    }
 }

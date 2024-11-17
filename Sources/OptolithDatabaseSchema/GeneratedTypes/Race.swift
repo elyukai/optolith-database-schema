@@ -40,7 +40,22 @@ public struct Race: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<RaceTranslation>    
+    public let translations: LocaleMap<RaceTranslation>
+
+    public init(id: Int, apValue: Int, baseValues: BaseValues, attributeAdjustments: AttributeAdjustments, automaticAdvantages: [AdvantageReference]? = nil, stronglyRecommendedAdvantages: [CommonnessRatedAdvantageDisadvantage<AdvantageIdentifier>]? = nil, stronglyRecommendedDisadvantages: [CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>]? = nil, weight: RandomWeightGeneration, startingAge: [StartingAgeConfigForExperienceLevel], variants: RaceVariants, src: PublicationRefs, translations: LocaleMap<RaceTranslation>) {
+        self.id = id
+        self.apValue = apValue
+        self.baseValues = baseValues
+        self.attributeAdjustments = attributeAdjustments
+        self.automaticAdvantages = automaticAdvantages
+        self.stronglyRecommendedAdvantages = stronglyRecommendedAdvantages
+        self.stronglyRecommendedDisadvantages = stronglyRecommendedDisadvantages
+        self.weight = weight
+        self.startingAge = startingAge
+        self.variants = variants
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -70,7 +85,14 @@ public struct BaseValues: EntitySubtype {
     public let toughness: Int
     
     /// The race’s tactical movement rate.
-    public let movement: Int    
+    public let movement: Int
+
+    public init(lifePoints: Int, spirit: Int, toughness: Int, movement: Int) {
+        self.lifePoints = lifePoints
+        self.spirit = spirit
+        self.toughness = toughness
+        self.movement = movement
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case lifePoints = "life_points"
@@ -89,6 +111,11 @@ public struct AttributeAdjustments: EntitySubtype {
     /// 
     /// The array only permits a single entry because no race specified more than one selectable attribute adjustment so far. But the schema allows for multiple entries to be future-proof.
     public let selectable: [SelectableAttributeAdjustment]?
+
+    public init(fixed: [FixedAttributeAdjustment]? = nil, selectable: [SelectableAttributeAdjustment]? = nil) {
+        self.fixed = fixed
+        self.selectable = selectable
+    }
 }
 
 /// A value by which the maximum of the respective attribute is modified.
@@ -99,6 +126,11 @@ public struct FixedAttributeAdjustment: EntitySubtype {
     /// The value by which the specified attribute's maximum is modified
     /// (negative values will lower the maximum).
     public let value: Int
+
+    public init(id: AttributeIdentifier, value: Int) {
+        self.id = id
+        self.value = value
+    }
 }
 
 /// A value that will be added to the current maximum of the selected attribute that has been chosen from the listed attributes (negative values will lower the maximum).
@@ -109,6 +141,11 @@ public struct SelectableAttributeAdjustment: EntitySubtype {
     /// The value by which the selected attribute's maximum is modified
     /// (negative values will lower the maximum).
     public let value: Int
+
+    public init(list: [AttributeReference], value: Int) {
+        self.list = list
+        self.value = value
+    }
 }
 
 /// Configuration for random weight generation.
@@ -119,6 +156,11 @@ public struct RandomWeightGeneration: EntitySubtype {
     
     /// The dice used for random weight.
     public let random: [WeightDice]
+
+    public init(base: Int, random: [WeightDice]) {
+        self.base = base
+        self.random = random
+    }
 }
 
 public struct WeightDice: EntitySubtype {
@@ -129,7 +171,13 @@ public struct WeightDice: EntitySubtype {
     public let sides: DieType
     
     /// The strategy how to offset the randomly generated values against the base value. Either they are all added or subtracted or even results are added and odd results are subtracted.
-    public let offsetStrategy: WeightDiceOffsetStrategy    
+    public let offsetStrategy: WeightDiceOffsetStrategy
+
+    public init(number: Int, sides: DieType, offsetStrategy: WeightDiceOffsetStrategy) {
+        self.number = number
+        self.sides = sides
+        self.offsetStrategy = offsetStrategy
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case number = "number"
@@ -154,6 +202,12 @@ public struct StartingAgeConfigForExperienceLevel: EntitySubtype {
     
     /// The random value for the selected experience level. It is going to be added to the base value.
     public let random: Dice
+
+    public init(id: ExperienceLevelIdentifier, base: Int, random: Dice) {
+        self.id = id
+        self.base = base
+        self.random = random
+    }
 }
 
 /// A list of available race variants where one has to be selected. If no variants are to be selected, a single variant with no name has to be provided which will be used as the missing values for the base race.
@@ -188,7 +242,20 @@ public struct RaceVariant: EntitySubtype {
     public let height: Height
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<RaceVariantTranslation>    
+    public let translations: LocaleMap<RaceVariantTranslation>
+
+    public init(id: Int, commonCultures: [CultureReference], commonAdvantages: [CommonnessRatedAdvantageDisadvantage<AdvantageIdentifier>]? = nil, commonDisadvantages: [CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>]? = nil, uncommonAdvantages: [CommonnessRatedAdvantageDisadvantage<AdvantageIdentifier>]? = nil, uncommonDisadvantages: [CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>]? = nil, hairColor: [HairColorReference], eyeColor: [EyeColorReference], height: Height, translations: LocaleMap<RaceVariantTranslation>) {
+        self.id = id
+        self.commonCultures = commonCultures
+        self.commonAdvantages = commonAdvantages
+        self.commonDisadvantages = commonDisadvantages
+        self.uncommonAdvantages = uncommonAdvantages
+        self.uncommonDisadvantages = uncommonDisadvantages
+        self.hairColor = hairColor
+        self.eyeColor = eyeColor
+        self.height = height
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -211,6 +278,11 @@ public struct Height: EntitySubtype {
     
     /// The dice used for random height.
     public let random: [Dice]
+
+    public init(base: Int, random: [Dice]) {
+        self.base = base
+        self.random = random
+    }
 }
 
 public struct RaceVariantTranslation: EntitySubtype {
@@ -227,7 +299,15 @@ public struct RaceVariantTranslation: EntitySubtype {
     public let uncommonAdvantages: NonEmptyString?
     
     /// The respective uncommon disadvantages text from the source book.
-    public let uncommonDisadvantages: NonEmptyString?    
+    public let uncommonDisadvantages: NonEmptyString?
+
+    public init(name: NonEmptyString? = nil, commonAdvantages: NonEmptyString? = nil, commonDisadvantages: NonEmptyString? = nil, uncommonAdvantages: NonEmptyString? = nil, uncommonDisadvantages: NonEmptyString? = nil) {
+        self.name = name
+        self.commonAdvantages = commonAdvantages
+        self.commonDisadvantages = commonDisadvantages
+        self.uncommonAdvantages = uncommonAdvantages
+        self.uncommonDisadvantages = uncommonDisadvantages
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"
@@ -254,7 +334,16 @@ public struct RaceTranslation: EntitySubtype {
     /// The respective strongly recommended disadvantages text from the source book.
     public let stronglyRecommendedDisadvantages: NonEmptyString?
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: NonEmptyString, attributeAdjustments: NonEmptyString, automaticAdvantages: NonEmptyString? = nil, stronglyRecommendedAdvantages: NonEmptyString? = nil, stronglyRecommendedDisadvantages: NonEmptyString? = nil, errata: Errata? = nil) {
+        self.name = name
+        self.attributeAdjustments = attributeAdjustments
+        self.automaticAdvantages = automaticAdvantages
+        self.stronglyRecommendedAdvantages = stronglyRecommendedAdvantages
+        self.stronglyRecommendedDisadvantages = stronglyRecommendedDisadvantages
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"

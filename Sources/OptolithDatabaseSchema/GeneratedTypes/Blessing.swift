@@ -19,6 +19,14 @@ public struct Blessing: LocalizableEntity {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<BlessingTranslation>
+
+    public init(id: Int, parameters: BlessingPerformanceParameters, target: AffectedTargetCategories, src: PublicationRefs, translations: LocaleMap<BlessingTranslation>) {
+        self.id = id
+        self.parameters = parameters
+        self.target = target
+        self.src = src
+        self.translations = translations
+    }
 }
 
 public struct BlessingTranslation: EntitySubtype {
@@ -38,6 +46,15 @@ public struct BlessingTranslation: EntitySubtype {
     public let target: String
     
     public let errata: Errata?
+
+    public init(name: String, effect: String, range: String, duration: String, target: String, errata: Errata? = nil) {
+        self.name = name
+        self.effect = effect
+        self.range = range
+        self.duration = duration
+        self.target = target
+        self.errata = errata
+    }
 }
 
 /// Measurable parameters of a blessing.
@@ -45,6 +62,11 @@ public struct BlessingPerformanceParameters: EntitySubtype {
     public let range: BlessingRange
     
     public let duration: BlessingDuration
+
+    public init(range: BlessingRange, duration: BlessingDuration) {
+        self.range = range
+        self.duration = duration
+    }
 }
 
 @DiscriminatedEnum
@@ -67,14 +89,27 @@ public struct FixedBlessingDuration: EntitySubtype {
     
     /// The duration unit.
     public let unit: DurationUnit
+
+    public init(value: Int, unit: DurationUnit) {
+        self.value = value
+        self.unit = unit
+    }
 }
 
 public struct IndefiniteBlessingDuration: EntitySubtype {
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<IndefiniteBlessingDurationTranslation>
+
+    public init(translations: LocaleMap<IndefiniteBlessingDurationTranslation>) {
+        self.translations = translations
+    }
 }
 
 public struct IndefiniteBlessingDurationTranslation: EntitySubtype {
     /// A description of the duration.
     public let description: ResponsiveText
+
+    public init(description: ResponsiveText) {
+        self.description = description
+    }
 }

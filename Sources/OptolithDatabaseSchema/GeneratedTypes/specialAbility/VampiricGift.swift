@@ -21,7 +21,18 @@ public struct VampiricGift: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<VampiricGiftTranslation>    
+    public let translations: LocaleMap<VampiricGiftTranslation>
+
+    public init(id: Id, levels: Levels? = nil, selectOptions: SelectOptions? = nil, maximum: Maximum? = nil, prerequisites: GeneralPrerequisites? = nil, apValue: AdventurePointsValue, src: PublicationRefs, translations: LocaleMap<VampiricGiftTranslation>) {
+        self.id = id
+        self.levels = levels
+        self.selectOptions = selectOptions
+        self.maximum = maximum
+        self.prerequisites = prerequisites
+        self.apValue = apValue
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -45,7 +56,15 @@ public struct VampiricGiftTranslation: EntitySubtype {
     /// The AP value. It is only used if the text cannot be generated from the given information.
     public let apValue: AdventurePointsValueReplacement?
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: Name, nameInLibrary: NameInLibrary? = nil, rules: Rules, apValue: AdventurePointsValueReplacement? = nil, errata: Errata? = nil) {
+        self.name = name
+        self.nameInLibrary = nameInLibrary
+        self.rules = rules
+        self.apValue = apValue
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"

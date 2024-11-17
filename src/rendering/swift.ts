@@ -35,6 +35,15 @@ const renderQualifiedName = (name: QualifiedName): string =>
 const renderDocumentation = (jsDoc?: Doc): string =>
   jsDoc?.comment === undefined ? "" : prefixLines("/// ", jsDoc.comment) + "\n"
 
+const renderDeprecation = (jsDoc?: Doc): string => {
+  const deprecated = jsDoc?.tags.deprecated
+  return deprecated !== undefined
+    ? deprecated.length === 0
+      ? `@available(*, deprecated)\n`
+      : `@available(*, deprecated, message: "${deprecated}")\n`
+    : ""
+}
+
 const snakeToCamel = (name: string): string =>
   name.replace(/_([a-z])/g, (_, letter) => letter.toUpperCase())
 
@@ -139,19 +148,33 @@ const renderDeclaration = (
 ${applyIndentation(
   1,
   child.members
-    .map(({ identifier: key, isRequired, value, jsDoc }) => {
-      const deprecated = jsDoc?.tags.deprecated
-      return `${renderDocumentation(jsDoc)}${
-        deprecated !== undefined
-          ? deprecated.length === 0
-            ? `@available(*, deprecated)\n`
-            : `@available(*, deprecated, message: "${deprecated}")\n`
-          : ""
-      }public let ${safeIdentifier(snakeToCamel(key))}: ${renderChild(value)}${
-        isRequired ? "" : "?"
-      }`
-    })
+    .map(
+      ({ identifier: key, isRequired, value, jsDoc }) =>
+        `${renderDocumentation(jsDoc)}${renderDeprecation(jsDoc)}public let ${safeIdentifier(
+          snakeToCamel(key)
+        )}: ${renderChild(value)}${isRequired ? "" : "?"}`
+    )
     .join("\n\n")
+)}
+
+${applyIndentation(
+  1,
+  `public init(${child.members
+    .map(
+      ({ identifier: key, value, isRequired }) =>
+        `${safeIdentifier(snakeToCamel(key))}: ${renderChild(value)}${isRequired ? "" : "? = nil"}`
+    )
+    .join(", ")}) {
+${applyIndentation(
+  1,
+  child.members
+    .map(
+      ({ identifier: key }) =>
+        `self.${safeIdentifier(snakeToCamel(key))} = ${safeIdentifier(snakeToCamel(key))}`
+    )
+    .join("\n")
+)}
+}`
 )}${
         child.members.some(({ identifier: key }) => key.includes("_"))
           ? applyIndentation(

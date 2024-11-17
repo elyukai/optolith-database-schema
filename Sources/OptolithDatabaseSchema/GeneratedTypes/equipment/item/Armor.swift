@@ -33,7 +33,20 @@ public struct Armor: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<ArmorTranslation>    
+    public let translations: LocaleMap<ArmorTranslation>
+
+    public init(cost: Cost, weight: Weight, complexity: Complexity, protection: Protection, encumbrance: Encumbrance, hasAdditionalPenalties: HasAdditionalPenalties, armorType: ArmorTypeReference, hitZone: HitZone? = nil, src: PublicationRefs, translations: LocaleMap<ArmorTranslation>) {
+        self.cost = cost
+        self.weight = weight
+        self.complexity = complexity
+        self.protection = protection
+        self.encumbrance = encumbrance
+        self.hasAdditionalPenalties = hasAdditionalPenalties
+        self.armorType = armorType
+        self.hitZone = hitZone
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case cost = "cost"
@@ -68,7 +81,17 @@ public struct ArmorTranslation: EntitySubtype {
     /// The armor disadvantage text.
     public let disadvantage: NonEmptyMarkdown?
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: NonEmptyString, secondaryName: NonEmptyString? = nil, note: NonEmptyMarkdown? = nil, rules: NonEmptyMarkdown? = nil, advantage: NonEmptyMarkdown? = nil, disadvantage: NonEmptyMarkdown? = nil, errata: Errata? = nil) {
+        self.name = name
+        self.secondaryName = secondaryName
+        self.note = note
+        self.rules = rules
+        self.advantage = advantage
+        self.disadvantage = disadvantage
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"
@@ -98,7 +121,16 @@ public struct SecondaryArmor: EntitySubtype {
     public let hitZone: HitZone?
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<SecondaryArmorTranslation>?    
+    public let translations: LocaleMap<SecondaryArmorTranslation>?
+
+    public init(protection: Protection, encumbrance: Encumbrance, hasAdditionalPenalties: HasAdditionalPenalties, armorType: ArmorTypeReference, hitZone: HitZone? = nil, translations: LocaleMap<SecondaryArmorTranslation>? = nil) {
+        self.protection = protection
+        self.encumbrance = encumbrance
+        self.hasAdditionalPenalties = hasAdditionalPenalties
+        self.armorType = armorType
+        self.hitZone = hitZone
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case protection = "protection"
@@ -116,6 +148,11 @@ public struct SecondaryArmorTranslation: EntitySubtype {
     
     /// The armor disadvantage text.
     public let disadvantage: NonEmptyMarkdown?
+
+    public init(advantage: NonEmptyMarkdown? = nil, disadvantage: NonEmptyMarkdown? = nil) {
+        self.advantage = advantage
+        self.disadvantage = disadvantage
+    }
 }
 
 /// The PRO value.
@@ -131,6 +168,10 @@ public typealias HasAdditionalPenalties = Bool
 public struct ArmorTypeReference: EntitySubtype {
     /// The armor type's identifier.
     public let id: Int
+
+    public init(id: Int) {
+        self.id = id
+    }
 }
 
 /// Specify if armor is only available for a specific hit zone.
@@ -144,7 +185,11 @@ public enum HitZone: EntitySubtype {
 
 public struct HeadHitZone: EntitySubtype {
     /// In some cases, multiple armors for the same hit zone can be combined. They're listed at the item that can be combined with others.
-    public let combinationPossibilities: HeadHitZoneCombinationPossibilities?    
+    public let combinationPossibilities: HeadHitZoneCombinationPossibilities?
+
+    public init(combinationPossibilities: HeadHitZoneCombinationPossibilities? = nil) {
+        self.combinationPossibilities = combinationPossibilities
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case combinationPossibilities = "combination_possibilities"
@@ -157,4 +202,9 @@ public struct HeadHitZoneCombinationPossibilities: EntitySubtype {
     
     /// The PRO value that is added to the PRO value of the other armor instead of adding the normale PRO value.
     public let protection: Int?
+
+    public init(armors: [ArmorReference], protection: Int? = nil) {
+        self.armors = armors
+        self.protection = protection
+    }
 }

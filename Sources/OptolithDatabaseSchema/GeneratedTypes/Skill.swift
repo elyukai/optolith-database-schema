@@ -27,7 +27,18 @@ public struct Skill: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<SkillTranslation>    
+    public let translations: LocaleMap<SkillTranslation>
+
+    public init(id: Int, check: SkillCheck, applications: Applications, encumbrance: EncumbranceInfluence, improvementCost: ImprovementCost, group: SkillGroupReference, src: PublicationRefs, translations: LocaleMap<SkillTranslation>) {
+        self.id = id
+        self.check = check
+        self.applications = applications
+        self.encumbrance = encumbrance
+        self.improvementCost = improvementCost
+        self.group = group
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -66,7 +77,19 @@ public struct SkillTranslation: EntitySubtype {
     /// Lists examples of results for botches.
     public let botch: NonEmptyMarkdown
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: NonEmptyString, applicationsInputLabel: NonEmptyString? = nil, encumbranceDescription: NonEmptyString? = nil, tools: NonEmptyMarkdown? = nil, quality: NonEmptyMarkdown, failed: NonEmptyMarkdown, critical: NonEmptyMarkdown, botch: NonEmptyMarkdown, errata: Errata? = nil) {
+        self.name = name
+        self.applicationsInputLabel = applicationsInputLabel
+        self.encumbranceDescription = encumbranceDescription
+        self.tools = tools
+        self.quality = quality
+        self.failed = failed
+        self.critical = critical
+        self.botch = botch
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"
@@ -105,11 +128,20 @@ public struct Application: EntitySubtype {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<ApplicationTranslation>
+
+    public init(id: Int, translations: LocaleMap<ApplicationTranslation>) {
+        self.id = id
+        self.translations = translations
+    }
 }
 
 public struct ApplicationTranslation: EntitySubtype {
     /// The skill application's name.
     public let name: NonEmptyString
+
+    public init(name: NonEmptyString) {
+        self.name = name
+    }
 }
 
 /// Indicates whether encumbrance gives a penalty for checks with the skill.

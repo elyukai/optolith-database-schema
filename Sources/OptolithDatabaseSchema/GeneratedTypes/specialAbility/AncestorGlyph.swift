@@ -24,7 +24,19 @@ public struct AncestorGlyph: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<AncestorGlyphTranslation>    
+    public let translations: LocaleMap<AncestorGlyphTranslation>
+
+    public init(id: Id, levels: Levels? = nil, selectOptions: SelectOptions? = nil, maximum: Maximum? = nil, prerequisites: GeneralPrerequisites? = nil, aeCost: Int, apValue: AdventurePointsValue, src: PublicationRefs, translations: LocaleMap<AncestorGlyphTranslation>) {
+        self.id = id
+        self.levels = levels
+        self.selectOptions = selectOptions
+        self.maximum = maximum
+        self.prerequisites = prerequisites
+        self.aeCost = aeCost
+        self.apValue = apValue
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -46,7 +58,14 @@ public struct AncestorGlyphTranslation: EntitySubtype {
     
     public let rules: Rules
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: Name, nameInLibrary: NameInLibrary? = nil, rules: Rules, errata: Errata? = nil) {
+        self.name = name
+        self.nameInLibrary = nameInLibrary
+        self.rules = rules
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"

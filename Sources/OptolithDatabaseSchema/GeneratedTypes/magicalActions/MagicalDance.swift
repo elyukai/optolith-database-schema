@@ -27,7 +27,18 @@ public struct MagicalDance: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<MagicalDanceTranslation>    
+    public let translations: LocaleMap<MagicalDanceTranslation>
+
+    public init(id: Int, check: SkillCheck, parameters: MagicalDancePerformanceParameters, property: PropertyReference, musicTradition: [MusicTraditionReference], improvementCost: ImprovementCost, src: PublicationRefs, translations: LocaleMap<MagicalDanceTranslation>) {
+        self.id = id
+        self.check = check
+        self.parameters = parameters
+        self.property = property
+        self.musicTradition = musicTradition
+        self.improvementCost = improvementCost
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -55,6 +66,14 @@ public struct MagicalDanceTranslation: EntitySubtype {
     public let cost: OldParameter
     
     public let errata: Errata?
+
+    public init(name: NonEmptyString, effect: ActivatableSkillEffect, duration: OldParameter, cost: OldParameter, errata: Errata? = nil) {
+        self.name = name
+        self.effect = effect
+        self.duration = duration
+        self.cost = cost
+        self.errata = errata
+    }
 }
 
 /// Measurable parameters of a magical dance.
@@ -62,6 +81,11 @@ public struct MagicalDancePerformanceParameters: EntitySubtype {
     public let duration: MusicDuration
     
     public let cost: MagicalDanceCost
+
+    public init(duration: MusicDuration, cost: MagicalDanceCost) {
+        self.duration = duration
+        self.cost = cost
+    }
 }
 
 @DiscriminatedEnum
@@ -76,6 +100,11 @@ public struct FixedMagicalDanceCost: EntitySubtype {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<FamiliarsTrickFixedOneTimeCostTranslation>?
+
+    public init(value: Int, translations: LocaleMap<FamiliarsTrickFixedOneTimeCostTranslation>? = nil) {
+        self.value = value
+        self.translations = translations
+    }
 }
 
 public struct IndefiniteMagicalDanceCost: EntitySubtype {
@@ -84,4 +113,9 @@ public struct IndefiniteMagicalDanceCost: EntitySubtype {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<IndefiniteOneTimeCostTranslation>
+
+    public init(modifier: CheckResultBasedModifier? = nil, translations: LocaleMap<IndefiniteOneTimeCostTranslation>) {
+        self.modifier = modifier
+        self.translations = translations
+    }
 }

@@ -14,6 +14,12 @@ public struct SkillGroup: LocalizableEntity {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<SkillGroupTranslation>
+
+    public init(id: Int, check: SkillCheck, translations: LocaleMap<SkillGroupTranslation>) {
+        self.id = id
+        self.check = check
+        self.translations = translations
+    }
 }
 
 public struct SkillGroupTranslation: EntitySubtype {
@@ -21,7 +27,12 @@ public struct SkillGroupTranslation: EntitySubtype {
     public let name: NonEmptyString
     
     /// The skill group's long name.
-    public let longName: NonEmptyString    
+    public let longName: NonEmptyString
+
+    public init(name: NonEmptyString, longName: NonEmptyString) {
+        self.name = name
+        self.longName = longName
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"

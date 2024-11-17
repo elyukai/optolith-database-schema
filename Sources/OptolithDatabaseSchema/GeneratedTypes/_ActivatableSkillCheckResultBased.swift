@@ -23,6 +23,11 @@ public struct CheckResultBasedModifier: EntitySubtype {
     
     /// The value that is applied to the `base` using the defined `arithmetic`.
     public let value: Int
+
+    public init(arithmetic: CheckResultArithmetic, value: Int) {
+        self.arithmetic = arithmetic
+        self.value = value
+    }
 }
 
 /// Defines a parameter being based on a check result.
@@ -32,4 +37,9 @@ public struct CheckResultBased: EntitySubtype {
     
     /// If defined, it modifies the base value.
     public let modifier: CheckResultBasedModifier?
+
+    public init(base: CheckResultValue, modifier: CheckResultBasedModifier? = nil) {
+        self.base = base
+        self.modifier = modifier
+    }
 }

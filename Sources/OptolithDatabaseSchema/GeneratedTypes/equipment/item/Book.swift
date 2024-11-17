@@ -21,7 +21,16 @@ public struct Book: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<BookTranslation>    
+    public let translations: LocaleMap<BookTranslation>
+
+    public init(cost: Cost, weight: Weight, complexity: Complexity, structurePoints: StructurePoints, src: PublicationRefs, translations: LocaleMap<BookTranslation>) {
+        self.cost = cost
+        self.weight = weight
+        self.complexity = complexity
+        self.structurePoints = structurePoints
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case cost = "cost"
@@ -52,7 +61,17 @@ public struct BookTranslation: EntitySubtype {
     /// Special rules text.
     public let rules: NonEmptyMarkdown?
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: NonEmptyString, secondaryName: NonEmptyString? = nil, language: NonEmptyString, script: NonEmptyString, note: NonEmptyMarkdown? = nil, rules: NonEmptyMarkdown? = nil, errata: Errata? = nil) {
+        self.name = name
+        self.secondaryName = secondaryName
+        self.language = language
+        self.script = script
+        self.note = note
+        self.rules = rules
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"

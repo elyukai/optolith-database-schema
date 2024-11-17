@@ -16,6 +16,12 @@ public struct Profession: Entity {
     /// 
     /// The profession representation may feature different values for different explicitly mentioned experience levels. In most cases, there is only one stats package, which targets the experience level *Experienced*.
     public let versions: [ProfessionVersion]
+
+    public init(id: Int, group: ProfessionGroup, versions: [ProfessionVersion]) {
+        self.id = id
+        self.group = group
+        self.versions = versions
+    }
 }
 
 @DiscriminatedEnum
@@ -34,6 +40,10 @@ public enum MundaneProfessionGroup: String, EntitySubtype {
 public struct MagicalProfessionGroup: EntitySubtype {
     /// The curriculum/academy associated with this magical profession, if any.
     public let curriculum: CurriculumReference?
+
+    public init(curriculum: CurriculumReference? = nil) {
+        self.curriculum = curriculum
+    }
 }
 
 @DiscriminatedEnum
@@ -52,6 +62,13 @@ public struct ExperiencedProfessionPackage: EntitySubtype {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<ProfessionTranslation>
+
+    public init(id: Int, package: ProfessionPackage, src: PublicationRefs, translations: LocaleMap<ProfessionTranslation>) {
+        self.id = id
+        self.package = package
+        self.src = src
+        self.translations = translations
+    }
 }
 
 public struct ProfessionPackagesForDifferentExperienceLevels: EntitySubtype {
@@ -63,7 +80,14 @@ public struct ProfessionPackagesForDifferentExperienceLevels: EntitySubtype {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<ProfessionTranslation>    
+    public let translations: LocaleMap<ProfessionTranslation>
+
+    public init(id: Int, packagesMap: [ExperienceLevelDynamicProfessionPackage], src: PublicationRefs, translations: LocaleMap<ProfessionTranslation>) {
+        self.id = id
+        self.packagesMap = packagesMap
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -77,7 +101,12 @@ public struct ExperienceLevelDynamicProfessionPackage: EntitySubtype {
     /// The experience level this profession targets. The experience level must be unique for this representation.
     public let experienceLevelId: Int
     
-    public let package: ProfessionPackage    
+    public let package: ProfessionPackage
+
+    public init(experienceLevelId: Int, package: ProfessionPackage) {
+        self.experienceLevelId = experienceLevelId
+        self.package = package
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case experienceLevelId = "experience_level_id"
@@ -123,7 +152,23 @@ public struct ProfessionPackage: EntitySubtype {
     public let unsuitableDisadvantages: [CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>]?
     
     /// Provides examples of variants for the profession, which may include changes to AP values and additional or modified skill ratings, special abilities, or combat techniques, as compared to the basic profession. Usually picking a variant is optional, but there are some rare exceptions where picking a variant is required.
-    public let variants: ProfessionVariants?    
+    public let variants: ProfessionVariants?
+
+    public init(apValue: Int, prerequisites: ProfessionPrerequisites? = nil, options: ProfessionPackageOptions? = nil, specialAbilities: [ProfessionSpecialAbility]? = nil, combatTechniques: [CombatTechniqueRating]? = nil, skills: [SkillRating]? = nil, spells: [SpellRating]? = nil, liturgicalChants: [LiturgicalChantRating]? = nil, suggestedAdvantages: [CommonnessRatedAdvantageDisadvantage<AdvantageIdentifier>]? = nil, suggestedDisadvantages: [CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>]? = nil, unsuitableAdvantages: [CommonnessRatedAdvantageDisadvantage<AdvantageIdentifier>]? = nil, unsuitableDisadvantages: [CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>]? = nil, variants: ProfessionVariants? = nil) {
+        self.apValue = apValue
+        self.prerequisites = prerequisites
+        self.options = options
+        self.specialAbilities = specialAbilities
+        self.combatTechniques = combatTechniques
+        self.skills = skills
+        self.spells = spells
+        self.liturgicalChants = liturgicalChants
+        self.suggestedAdvantages = suggestedAdvantages
+        self.suggestedDisadvantages = suggestedDisadvantages
+        self.unsuitableAdvantages = unsuitableAdvantages
+        self.unsuitableDisadvantages = unsuitableDisadvantages
+        self.variants = variants
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case apValue = "ap_value"
@@ -161,7 +206,17 @@ public struct ProfessionTranslation: EntitySubtype {
     /// These disadvantages do not fit well with this profession; to be checked with the GM before taking any of them.
     public let unsuitableDisadvantages: NonEmptyString?
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: ProfessionName, specification: ProfessionName? = nil, suggestedAdvantages: NonEmptyString? = nil, suggestedDisadvantages: NonEmptyString? = nil, unsuitableAdvantages: NonEmptyString? = nil, unsuitableDisadvantages: NonEmptyString? = nil, errata: Errata? = nil) {
+        self.name = name
+        self.specification = specification
+        self.suggestedAdvantages = suggestedAdvantages
+        self.suggestedDisadvantages = suggestedDisadvantages
+        self.unsuitableAdvantages = unsuitableAdvantages
+        self.unsuitableDisadvantages = unsuitableDisadvantages
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"
@@ -180,7 +235,12 @@ public struct ProfessionVariants: EntitySubtype {
     public let isSelectionRequired: Bool
     
     /// The list of profession variants.
-    public let list: [ProfessionVariant]    
+    public let list: [ProfessionVariant]
+
+    public init(isSelectionRequired: Bool, list: [ProfessionVariant]) {
+        self.isSelectionRequired = isSelectionRequired
+        self.list = list
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case isSelectionRequired = "is_selection_required"
@@ -216,7 +276,20 @@ public struct ProfessionVariant: EntitySubtype {
     public let liturgicalChants: [LiturgicalChantRating]?
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<ProfessionVariantTranslation>    
+    public let translations: LocaleMap<ProfessionVariantTranslation>
+
+    public init(id: Int, apValue: Int, prerequisites: ProfessionPrerequisites? = nil, options: ProfessionVariantPackageOptions? = nil, specialAbilities: [VariantSpecialAbility]? = nil, combatTechniques: [CombatTechniqueRating]? = nil, skills: [SkillRating]? = nil, spells: [SpellRating]? = nil, liturgicalChants: [LiturgicalChantRating]? = nil, translations: LocaleMap<ProfessionVariantTranslation>) {
+        self.id = id
+        self.apValue = apValue
+        self.prerequisites = prerequisites
+        self.options = options
+        self.specialAbilities = specialAbilities
+        self.combatTechniques = combatTechniques
+        self.skills = skills
+        self.spells = spells
+        self.liturgicalChants = liturgicalChants
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -242,7 +315,13 @@ public struct ProfessionVariantTranslation: EntitySubtype {
     /// A text that is appended to the generated text for the profession variant.
     /// 
     /// Has no effect when `full_text` is set.
-    public let concludingText: NonEmptyString?    
+    public let concludingText: NonEmptyString?
+
+    public init(name: ProfessionName, fullText: NonEmptyString? = nil, concludingText: NonEmptyString? = nil) {
+        self.name = name
+        self.fullText = fullText
+        self.concludingText = concludingText
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"
@@ -261,6 +340,10 @@ public typealias FixedSpecialAbility = SpecialAbilityDefinition
 
 public struct SpecialAbilitySelection: EntitySubtype {
     public let options: [SpecialAbilityDefinition]
+
+    public init(options: [SpecialAbilityDefinition]) {
+        self.options = options
+    }
 }
 
 public struct SpecialAbilityDefinition: EntitySubtype {
@@ -272,6 +355,12 @@ public struct SpecialAbilityDefinition: EntitySubtype {
     
     /// Received select options. Order is important. Typically, you only need the first array index, though.
     public let options: [RequirableSelectOptionIdentifier]?
+
+    public init(id: SpecialAbilityIdentifier, level: Int? = nil, options: [RequirableSelectOptionIdentifier]? = nil) {
+        self.id = id
+        self.level = level
+        self.options = options
+    }
 }
 
 @DiscriminatedEnum
@@ -292,6 +381,13 @@ public struct FixedVariantSpecialAbility: EntitySubtype {
     
     /// Received select options. Order is important. Typically, you only need the first array index, though.
     public let options: [RequirableSelectOptionIdentifier]?
+
+    public init(id: SpecialAbilityIdentifier, active: Bool? = nil, level: Int? = nil, options: [RequirableSelectOptionIdentifier]? = nil) {
+        self.id = id
+        self.active = active
+        self.level = level
+        self.options = options
+    }
 }
 
 public struct VariantSpecialAbilitySelection: EntitySubtype {
@@ -299,6 +395,11 @@ public struct VariantSpecialAbilitySelection: EntitySubtype {
     public let active: Bool?
     
     public let options: [SpecialAbilityDefinition]
+
+    public init(active: Bool? = nil, options: [SpecialAbilityDefinition]) {
+        self.active = active
+        self.options = options
+    }
 }
 
 public struct CombatTechniqueRating: EntitySubtype {
@@ -310,6 +411,11 @@ public struct CombatTechniqueRating: EntitySubtype {
     /// **Note:** This is a rating *bonus*, so it will be *added* to the default
     /// value of 6.
     public let rating: Int
+
+    public init(id: CombatTechniqueIdentifier, rating: Int) {
+        self.id = id
+        self.rating = rating
+    }
 }
 
 public struct SkillRating: EntitySubtype {
@@ -318,6 +424,11 @@ public struct SkillRating: EntitySubtype {
     
     /// The rating bonus provided for the skill. If used in a profession variant, it can also be used to lower the bonus of the base profession
     public let rating: Int
+
+    public init(id: SkillIdentifier, rating: Int) {
+        self.id = id
+        self.rating = rating
+    }
 }
 
 public struct SpellRating: EntitySubtype {
@@ -326,6 +437,11 @@ public struct SpellRating: EntitySubtype {
     
     /// The rating bonus provided for the (selected) spell. If used in a profession variant, it can also be used to lower the bonus of the base profession.
     public let rating: Int
+
+    public init(id: [ProfessionSpellIdentifier], rating: Int) {
+        self.id = id
+        self.rating = rating
+    }
 }
 
 @DiscriminatedEnum
@@ -340,11 +456,20 @@ public struct ProfessionSpellworkIdentifier: EntitySubtype {
     
     /// If the spell is not part of the magical tradition required by the package, this references the magical tradition it is part of. It can also be used to define the target magical tradition of a spell if multiple magical traditions are required and the spell is available to multiple of them.
     public let tradition: MagicalTraditionReference?
+
+    public init(id: SpellworkIdentifier, tradition: MagicalTraditionReference? = nil) {
+        self.id = id
+        self.tradition = tradition
+    }
 }
 
 public struct ProfessionMagicalActionIdentifier: EntitySubtype {
     /// The identifier of the magical action to provide the rating for.
     public let id: MagicalActionIdentifier
+
+    public init(id: MagicalActionIdentifier) {
+        self.id = id
+    }
 }
 
 public struct LiturgicalChantRating: EntitySubtype {
@@ -353,6 +478,11 @@ public struct LiturgicalChantRating: EntitySubtype {
     
     /// The rating bonus provided for the selected liturgical chant. If used in a profession variant, it can also be used to lower the bonus of the base profession.
     public let rating: Int
+
+    public init(id: [LiturgyIdentifier], rating: Int) {
+        self.id = id
+        self.rating = rating
+    }
 }
 
 /// In some areas, the profession package grants a loose set of stats where the player must choose between different options for the profession package.
@@ -369,7 +499,17 @@ public struct ProfessionPackageOptions: EntitySubtype {
     
     public let terrainKnowledge: TerrainKnowledgeOptions?
     
-    public let skills: SkillsOptions?    
+    public let skills: SkillsOptions?
+
+    public init(skillSpecialization: SkillSpecializationOptions? = nil, languagesScripts: LanguagesScriptsOptions? = nil, combatTechniques: CombatTechniquesOptions? = nil, cantrips: CantripsOptions? = nil, curses: CursesOptions? = nil, terrainKnowledge: TerrainKnowledgeOptions? = nil, skills: SkillsOptions? = nil) {
+        self.skillSpecialization = skillSpecialization
+        self.languagesScripts = languagesScripts
+        self.combatTechniques = combatTechniques
+        self.cantrips = cantrips
+        self.curses = curses
+        self.terrainKnowledge = terrainKnowledge
+        self.skills = skills
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case skillSpecialization = "skill_specialization"
@@ -396,7 +536,17 @@ public struct ProfessionVariantPackageOptions: EntitySubtype {
     
     public let terrainKnowledge: VariantOptionAction<TerrainKnowledgeOptions>?
     
-    public let skills: VariantOptionAction<SkillsOptions>?    
+    public let skills: VariantOptionAction<SkillsOptions>?
+
+    public init(skillSpecialization: VariantOptionAction<SkillSpecializationOptions>? = nil, languagesScripts: VariantOptionAction<LanguagesScriptsOptions>? = nil, combatTechniques: VariantOptionAction<CombatTechniquesOptions>? = nil, cantrips: VariantOptionAction<CantripsOptions>? = nil, curses: VariantOptionAction<CursesOptions>? = nil, terrainKnowledge: VariantOptionAction<TerrainKnowledgeOptions>? = nil, skills: VariantOptionAction<SkillsOptions>? = nil) {
+        self.skillSpecialization = skillSpecialization
+        self.languagesScripts = languagesScripts
+        self.combatTechniques = combatTechniques
+        self.cantrips = cantrips
+        self.curses = curses
+        self.terrainKnowledge = terrainKnowledge
+        self.skills = skills
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case skillSpecialization = "skill_specialization"
@@ -425,6 +575,10 @@ public enum SkillSpecializationOptions: EntitySubtype {
 public struct SingleSkillSpecializationOption: EntitySubtype {
     /// Possible skills to get a skill specialization for.
     public let options: [SkillReference]
+
+    public init(options: [SkillReference]) {
+        self.options = options
+    }
 }
 
 public typealias SkillGroupSkillSpecializationOption = SkillGroupReference
@@ -432,7 +586,11 @@ public typealias SkillGroupSkillSpecializationOption = SkillGroupReference
 /// Buy languages and scripts for a specific amount of AP.
 public struct LanguagesScriptsOptions: EntitySubtype {
     /// The AP value you can buy languages and scripts for.
-    public let apValue: Int    
+    public let apValue: Int
+
+    public init(apValue: Int) {
+        self.apValue = apValue
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case apValue = "ap_value"
@@ -448,7 +606,13 @@ public struct CombatTechniquesOptions: EntitySubtype {
     public let restRating: Int?
     
     /// The list of combat techniques to choose from.
-    public let options: [CombatTechniqueReference]    
+    public let options: [CombatTechniqueReference]
+
+    public init(fixed: [RatingForCombatTechniquesNumber], restRating: Int? = nil, options: [CombatTechniqueReference]) {
+        self.fixed = fixed
+        self.restRating = restRating
+        self.options = options
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case fixed = "fixed"
@@ -466,6 +630,11 @@ public struct RatingForCombatTechniquesNumber: EntitySubtype {
     /// **Note:** This is a rating *bonus*, so it will be *added* to the default
     /// value of 6.
     public let rating: Int
+
+    public init(number: Int, rating: Int) {
+        self.number = number
+        self.rating = rating
+    }
 }
 
 /// Select one or more cantrips you receive.
@@ -475,12 +644,21 @@ public struct CantripsOptions: EntitySubtype {
     
     /// The list of cantrips to choose from.
     public let options: [CantripReference]
+
+    public init(number: Int, options: [CantripReference]) {
+        self.number = number
+        self.options = options
+    }
 }
 
 /// Buy curses for a specific amount of AP.
 public struct CursesOptions: EntitySubtype {
     /// The AP value you can buy curses for.
-    public let apValue: Int    
+    public let apValue: Int
+
+    public init(apValue: Int) {
+        self.apValue = apValue
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case apValue = "ap_value"
@@ -491,11 +669,19 @@ public struct CursesOptions: EntitySubtype {
 public struct TerrainKnowledgeOptions: EntitySubtype {
     /// The list of possible terrain knowledges.
     public let options: [TerrainKnowledgeOptionReference]
+
+    public init(options: [TerrainKnowledgeOptionReference]) {
+        self.options = options
+    }
 }
 
 public struct TerrainKnowledgeOptionReference: EntitySubtype {
     /// The terrain knowledge option's identifier.
     public let id: Int
+
+    public init(id: Int) {
+        self.id = id
+    }
 }
 
 /// Buy skills for a specific amount of AP.
@@ -504,7 +690,12 @@ public struct SkillsOptions: EntitySubtype {
     public let group: SkillGroupReference?
     
     /// The AP value you can buy skills for.
-    public let apValue: Int    
+    public let apValue: Int
+
+    public init(group: SkillGroupReference? = nil, apValue: Int) {
+        self.group = group
+        self.apValue = apValue
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case group = "group"
@@ -541,4 +732,10 @@ public struct ProfessionNameBySex: EntitySubtype {
     
     /// The female name.
     public let female: NonEmptyString
+
+    public init(`default`: NonEmptyString, male: NonEmptyString, female: NonEmptyString) {
+        self.`default` = `default`
+        self.male = male
+        self.female = female
+    }
 }

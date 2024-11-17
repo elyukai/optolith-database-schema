@@ -22,4 +22,13 @@ public struct Disease: LocalizableEntity {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<DiseaseTranslation>
+
+    public init(id: Int, level: Int, resistance: Resistance, cause: [Cause], src: PublicationRefs, translations: LocaleMap<DiseaseTranslation>) {
+        self.id = id
+        self.level = level
+        self.resistance = resistance
+        self.cause = cause
+        self.src = src
+        self.translations = translations
+    }
 }

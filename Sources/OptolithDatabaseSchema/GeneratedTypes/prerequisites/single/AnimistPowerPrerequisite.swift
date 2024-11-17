@@ -16,7 +16,14 @@ public struct AnimistPowerPrerequisite: EntitySubtype {
     /// The required minimum value.
     public let value: Int
     
-    public let displayOption: DisplayOption?    
+    public let displayOption: DisplayOption?
+
+    public init(id: AnimistPowerIdentifier, level: Int? = nil, value: Int, displayOption: DisplayOption? = nil) {
+        self.id = id
+        self.level = level
+        self.value = value
+        self.displayOption = displayOption
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"

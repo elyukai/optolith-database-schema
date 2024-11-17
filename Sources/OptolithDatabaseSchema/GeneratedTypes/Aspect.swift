@@ -11,6 +11,11 @@ public struct Aspect: LocalizableEntity {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<AspectTranslation>
+
+    public init(id: Int, translations: LocaleMap<AspectTranslation>) {
+        self.id = id
+        self.translations = translations
+    }
 }
 
 public struct AspectTranslation: EntitySubtype {
@@ -18,7 +23,12 @@ public struct AspectTranslation: EntitySubtype {
     public let name: NonEmptyString
     
     /// The aspect's name appended to the simple name (not `name_in_library`) of the special ability *Master of (Aspect)*.
-    public let masterOfAspectSuffix: NonEmptyString?    
+    public let masterOfAspectSuffix: NonEmptyString?
+
+    public init(name: NonEmptyString, masterOfAspectSuffix: NonEmptyString? = nil) {
+        self.name = name
+        self.masterOfAspectSuffix = masterOfAspectSuffix
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"

@@ -21,7 +21,16 @@ public struct ActivatablePrerequisite: EntitySubtype {
     
     public let displayOption: DisplayOption?
     
-    public let when: Preconditions?    
+    public let when: Preconditions?
+
+    public init(id: ActivatableIdentifier, active: Bool, level: Int? = nil, options: [RequirableSelectOptionIdentifier]? = nil, displayOption: DisplayOption? = nil, when: Preconditions? = nil) {
+        self.id = id
+        self.active = active
+        self.level = level
+        self.options = options
+        self.displayOption = displayOption
+        self.when = when
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"

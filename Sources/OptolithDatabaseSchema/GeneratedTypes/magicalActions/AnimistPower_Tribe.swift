@@ -11,9 +11,18 @@ public struct Tribe: LocalizableEntity {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<TribeTranslation>
+
+    public init(id: Int, translations: LocaleMap<TribeTranslation>) {
+        self.id = id
+        self.translations = translations
+    }
 }
 
 public struct TribeTranslation: EntitySubtype {
     /// The tribe name.
     public let name: NonEmptyString
+
+    public init(name: NonEmptyString) {
+        self.name = name
+    }
 }

@@ -13,7 +13,11 @@ public enum CastingTime<NonModifiable: EntitySubtype>: EntitySubtype {
 
 public struct ModifiableCastingTime: EntitySubtype {
     /// The initial skill modification identifier/level.
-    public let initialModificationLevel: Int    
+    public let initialModificationLevel: Int
+
+    public init(initialModificationLevel: Int) {
+        self.initialModificationLevel = initialModificationLevel
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case initialModificationLevel = "initial_modification_level"
@@ -28,7 +32,12 @@ public struct CastingTimeIncludingLovemaking<NonModifiable: EntitySubtype>: Enti
     public let `default`: CastingTime<NonModifiable>?
     
     /// The casting time during lovemaking. In Aventurian Intimacy, you may only use an activatable skill during lovemaking if it has a casting time used during lovemaking.
-    public let duringLovemaking: CastingTimeDuringLovemaking?    
+    public let duringLovemaking: CastingTimeDuringLovemaking?
+
+    public init(`default`: CastingTime<NonModifiable>? = nil, duringLovemaking: CastingTimeDuringLovemaking? = nil) {
+        self.`default` = `default`
+        self.duringLovemaking = duringLovemaking
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case `default` = "default"
@@ -43,6 +52,11 @@ public struct CastingTimeDuringLovemaking: EntitySubtype {
     
     /// The unit of the `value`.
     public let unit: CastingTimeDuringLovemakingUnit
+
+    public init(value: Int, unit: CastingTimeDuringLovemakingUnit) {
+        self.value = value
+        self.unit = unit
+    }
 }
 
 public enum CastingTimeDuringLovemakingUnit: String, EntitySubtype {
@@ -53,6 +67,10 @@ public enum CastingTimeDuringLovemakingUnit: String, EntitySubtype {
 public struct FastSkillNonModifiableCastingTime: EntitySubtype {
     /// The casting time value in actions.
     public let actions: Int
+
+    public init(actions: Int) {
+        self.actions = actions
+    }
 }
 
 public struct SlowSkillNonModifiableCastingTime: EntitySubtype {
@@ -60,6 +78,11 @@ public struct SlowSkillNonModifiableCastingTime: EntitySubtype {
     public let value: Int
     
     public let unit: SlowSkillCastingTimeUnit
+
+    public init(value: Int, unit: SlowSkillCastingTimeUnit) {
+        self.value = value
+        self.unit = unit
+    }
 }
 
 public typealias FastCastingTime = CastingTimeIncludingLovemaking<FastSkillNonModifiableCastingTime>

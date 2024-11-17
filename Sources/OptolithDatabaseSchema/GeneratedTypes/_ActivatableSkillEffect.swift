@@ -16,6 +16,10 @@ public enum ActivatableSkillEffect: EntitySubtype {
 public struct ActivatableSkillPlainEffect: EntitySubtype {
     /// The effect description.
     public let text: NonEmptyMarkdown
+
+    public init(text: NonEmptyMarkdown) {
+        self.text = text
+    }
 }
 
 public struct ActivatableSkillEffectForEachQualityLevel: EntitySubtype {
@@ -26,7 +30,13 @@ public struct ActivatableSkillEffectForEachQualityLevel: EntitySubtype {
     public let qualityLevels: [NonEmptyMarkdown]
     
     /// The effect description after the list of effects for each quality level.
-    public let textAfter: NonEmptyMarkdown?    
+    public let textAfter: NonEmptyMarkdown?
+
+    public init(textBefore: NonEmptyMarkdown, qualityLevels: [NonEmptyMarkdown], textAfter: NonEmptyMarkdown? = nil) {
+        self.textBefore = textBefore
+        self.qualityLevels = qualityLevels
+        self.textAfter = textAfter
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case textBefore = "text_before"
@@ -43,7 +53,13 @@ public struct ActivatableSkillEffectForEachTwoQualityLevels: EntitySubtype {
     public let qualityLevels: [NonEmptyMarkdown]
     
     /// The effect description after the list of effects for each quality level.
-    public let textAfter: NonEmptyMarkdown?    
+    public let textAfter: NonEmptyMarkdown?
+
+    public init(textBefore: NonEmptyMarkdown, qualityLevels: [NonEmptyMarkdown], textAfter: NonEmptyMarkdown? = nil) {
+        self.textBefore = textBefore
+        self.qualityLevels = qualityLevels
+        self.textAfter = textAfter
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case textBefore = "text_before"

@@ -24,7 +24,17 @@ public struct DefaultItem: EntitySubtype {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<DefaultItemTranslation>    
+    public let translations: LocaleMap<DefaultItemTranslation>
+
+    public init(cost: Cost, weight: Weight, complexity: Complexity? = nil, structurePoints: StructurePoints, combatUse: CombatUse? = nil, src: PublicationRefs, translations: LocaleMap<DefaultItemTranslation>) {
+        self.cost = cost
+        self.weight = weight
+        self.complexity = complexity
+        self.structurePoints = structurePoints
+        self.combatUse = combatUse
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case cost = "cost"
@@ -57,7 +67,15 @@ public struct DefaultItemTranslation: EntitySubtype {
     /// Special rules text.
     public let rules: NonEmptyMarkdown?
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: NonEmptyString, secondaryName: NonEmptyString? = nil, note: NonEmptyMarkdown? = nil, rules: NonEmptyMarkdown? = nil, errata: Errata? = nil) {
+        self.name = name
+        self.secondaryName = secondaryName
+        self.note = note
+        self.rules = rules
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"
@@ -74,6 +92,10 @@ public typealias StructurePoints = [StructurePointsComponent]
 public struct StructurePointsComponent: EntitySubtype {
     /// The structure points.
     public let points: Int
+
+    public init(points: Int) {
+        self.points = points
+    }
 }
 
 /// The cost in silverthalers.
@@ -92,6 +114,11 @@ public struct FixedCost: EntitySubtype {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<CostTranslation>?
+
+    public init(value: Double, translations: LocaleMap<CostTranslation>? = nil) {
+        self.value = value
+        self.translations = translations
+    }
 }
 
 public struct CostRange: EntitySubtype {
@@ -103,11 +130,21 @@ public struct CostRange: EntitySubtype {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<CostTranslation>?
+
+    public init(from: Double, to: Double, translations: LocaleMap<CostTranslation>? = nil) {
+        self.from = from
+        self.to = to
+        self.translations = translations
+    }
 }
 
 public struct CostTranslation: EntitySubtype {
     /// The cost get wrapped by this text using a placeholder in the text.
-    public let wrapInText: String    
+    public let wrapInText: String
+
+    public init(wrapInText: String) {
+        self.wrapInText = wrapInText
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case wrapInText = "wrap_in_text"
@@ -127,7 +164,11 @@ public enum Complexity: EntitySubtype {
 
 public struct ComplexComplexity: EntitySubtype {
     /// The AP value for the trade secret.
-    public let apValue: Int    
+    public let apValue: Int
+
+    public init(apValue: Int) {
+        self.apValue = apValue
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case apValue = "ap_value"

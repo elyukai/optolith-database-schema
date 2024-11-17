@@ -12,7 +12,13 @@ public struct RatedSumPrerequisite: EntitySubtype {
     /// The targets that are included in calculating the sum.
     public let targets: [SkillIdentifier]
     
-    public let displayOption: DisplayOption?    
+    public let displayOption: DisplayOption?
+
+    public init(sum: Int, targets: [SkillIdentifier], displayOption: DisplayOption? = nil) {
+        self.sum = sum
+        self.targets = targets
+        self.displayOption = displayOption
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case sum = "sum"

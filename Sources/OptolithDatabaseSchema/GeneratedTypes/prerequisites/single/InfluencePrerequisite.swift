@@ -12,7 +12,13 @@ public struct InfluencePrerequisite: EntitySubtype {
     /// If the referenced influence must or must not be chosen.
     public let active: Bool
     
-    public let displayOption: DisplayOption?    
+    public let displayOption: DisplayOption?
+
+    public init(id: InfluenceIdentifier, active: Bool, displayOption: DisplayOption? = nil) {
+        self.id = id
+        self.active = active
+        self.displayOption = displayOption
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"

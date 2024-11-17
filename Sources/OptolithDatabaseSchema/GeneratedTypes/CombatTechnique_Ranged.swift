@@ -23,7 +23,17 @@ public struct RangedCombatTechnique: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<RangedCombatTechniqueTranslation>    
+    public let translations: LocaleMap<RangedCombatTechniqueTranslation>
+
+    public init(id: Int, special: RangedCombatTechniqueSpecialRules, primaryAttribute: [AttributeReference], breakingPointRating: Int, improvementCost: ImprovementCost, src: PublicationRefs, translations: LocaleMap<RangedCombatTechniqueTranslation>) {
+        self.id = id
+        self.special = special
+        self.primaryAttribute = primaryAttribute
+        self.breakingPointRating = breakingPointRating
+        self.improvementCost = improvementCost
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -38,7 +48,11 @@ public struct RangedCombatTechnique: LocalizableEntity {
 
 /// Special rules for the combat technique that apply to all weapons in this category.
 public struct RangedCombatTechniqueSpecialRules: EntitySubtype {
-    public let hasAmmunition: Bool    
+    public let hasAmmunition: Bool
+
+    public init(hasAmmunition: Bool) {
+        self.hasAmmunition = hasAmmunition
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case hasAmmunition = "has_ammunition"
@@ -53,4 +67,10 @@ public struct RangedCombatTechniqueTranslation: EntitySubtype {
     public let special: String?
     
     public let errata: Errata?
+
+    public init(name: String, special: String? = nil, errata: Errata? = nil) {
+        self.name = name
+        self.special = special
+        self.errata = errata
+    }
 }

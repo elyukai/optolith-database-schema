@@ -25,7 +25,20 @@ public struct GeneralSpecialAbility: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<GeneralSpecialAbilityTranslation>    
+    public let translations: LocaleMap<GeneralSpecialAbilityTranslation>
+
+    public init(id: Id, levels: Levels? = nil, selectOptions: SelectOptions? = nil, skillApplications: SkillApplications? = nil, skillUses: SkillUses? = nil, maximum: Maximum? = nil, prerequisites: GeneralPrerequisites? = nil, apValue: AdventurePointsValue, src: PublicationRefs, translations: LocaleMap<GeneralSpecialAbilityTranslation>) {
+        self.id = id
+        self.levels = levels
+        self.selectOptions = selectOptions
+        self.skillApplications = skillApplications
+        self.skillUses = skillUses
+        self.maximum = maximum
+        self.prerequisites = prerequisites
+        self.apValue = apValue
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -54,7 +67,16 @@ public struct GeneralSpecialAbilityTranslation: EntitySubtype {
     /// A string that gets appended to the default AP Value text with a preceding space. This always happens if present, even if the generated AP Value text is replaced.
     public let apValueAppend: AdventurePointsValueAppend?
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: Name, nameInLibrary: NameInLibrary? = nil, input: Input? = nil, rules: Rules, apValueAppend: AdventurePointsValueAppend? = nil, errata: Errata? = nil) {
+        self.name = name
+        self.nameInLibrary = nameInLibrary
+        self.input = input
+        self.rules = rules
+        self.apValueAppend = apValueAppend
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"

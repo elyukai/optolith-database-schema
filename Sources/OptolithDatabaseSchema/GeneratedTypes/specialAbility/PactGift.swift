@@ -26,7 +26,20 @@ public struct PactGift: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<PactGiftTranslation>    
+    public let translations: LocaleMap<PactGiftTranslation>
+
+    public init(id: Id, levels: Levels? = nil, selectOptions: SelectOptions? = nil, maximum: Maximum? = nil, permanentDemonicConsumption: PactGiftPermanentDemonicConsumption? = nil, automaticEntries: [AutomaticEntry]? = nil, prerequisites: GeneralPrerequisites? = nil, apValue: AdventurePointsValue, src: PublicationRefs, translations: LocaleMap<PactGiftTranslation>) {
+        self.id = id
+        self.levels = levels
+        self.selectOptions = selectOptions
+        self.maximum = maximum
+        self.permanentDemonicConsumption = permanentDemonicConsumption
+        self.automaticEntries = automaticEntries
+        self.prerequisites = prerequisites
+        self.apValue = apValue
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -51,11 +64,19 @@ public enum PactGiftPermanentDemonicConsumption: EntitySubtype {
 public struct FixedPactGiftPermanentDemonicConsumption: EntitySubtype {
     /// The levels of *Demonic Consumption* the pact gift causes.
     public let levels: Int
+
+    public init(levels: Int) {
+        self.levels = levels
+    }
 }
 
 public struct PactGiftPermanentDemonicConsumptionPerLevel: EntitySubtype {
     /// The levels of *Demonic Consumption* the pact gift causes per activated level of the pact gift.
     public let levels: Int
+
+    public init(levels: Int) {
+        self.levels = levels
+    }
 }
 
 public struct AutomaticEntry: EntitySubtype {
@@ -66,7 +87,13 @@ public struct AutomaticEntry: EntitySubtype {
     public let applyApValue: Bool
     
     /// The entry that is to be added or removed. It can be a fixed entry or a selection where the player must choose one entry.
-    public let target: AutomaticEntryTarget    
+    public let target: AutomaticEntryTarget
+
+    public init(action: AutomaticEntryAction, applyApValue: Bool, target: AutomaticEntryTarget) {
+        self.action = action
+        self.applyApValue = applyApValue
+        self.target = target
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case action = "action"
@@ -88,6 +115,10 @@ public enum AutomaticEntryTarget: EntitySubtype {
 
 public struct AutomaticEntryTargetSelection: EntitySubtype {
     public let list: AutomaticEntryTargetSelectionList
+
+    public init(list: AutomaticEntryTargetSelectionList) {
+        self.list = list
+    }
 }
 
 public enum AutomaticEntryTargetSelectionList: String, EntitySubtype {
@@ -97,6 +128,10 @@ public enum AutomaticEntryTargetSelectionList: String, EntitySubtype {
 
 public struct FixedAutomaticEntryTarget: EntitySubtype {
     public let id: ActivatableIdentifier
+
+    public init(id: ActivatableIdentifier) {
+        self.id = id
+    }
 }
 
 public struct PactGiftTranslation: EntitySubtype {
@@ -106,7 +141,14 @@ public struct PactGiftTranslation: EntitySubtype {
     
     public let effect: Effect
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: Name, nameInLibrary: NameInLibrary? = nil, effect: Effect, errata: Errata? = nil) {
+        self.name = name
+        self.nameInLibrary = nameInLibrary
+        self.effect = effect
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"

@@ -25,7 +25,17 @@ public struct Curriculum: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<CurriculumTranslation>    
+    public let translations: LocaleMap<CurriculumTranslation>
+
+    public init(id: Int, guideline: GuidelineReference, electiveSpellworks: ElectiveSpellworks? = nil, restrictedSpellworks: RestrictedSpellworks? = nil, lessonPackages: LessonPackages, src: PublicationRefs, translations: LocaleMap<CurriculumTranslation>) {
+        self.id = id
+        self.guideline = guideline
+        self.electiveSpellworks = electiveSpellworks
+        self.restrictedSpellworks = restrictedSpellworks
+        self.lessonPackages = lessonPackages
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -43,6 +53,11 @@ public struct CurriculumTranslation: EntitySubtype {
     public let name: NonEmptyString
     
     public let errata: Errata?
+
+    public init(name: NonEmptyString, errata: Errata? = nil) {
+        self.name = name
+        self.errata = errata
+    }
 }
 
 /// The academy's elective spellworks package.
@@ -54,6 +69,10 @@ public enum ElectiveSpellworks: EntitySubtype {
 
 public struct SpecificElectiveSpellworks: EntitySubtype {
     public let list: [ElectiveSpellwork]
+
+    public init(list: [ElectiveSpellwork]) {
+        self.list = list
+    }
 }
 
 public struct ElectiveSpellwork: EntitySubtype {
@@ -61,6 +80,11 @@ public struct ElectiveSpellwork: EntitySubtype {
     
     /// The elective spellwork may only take effect if a certain condition is met. The condition may be related to professions or profession variants, but it is designed so that it can work without a specific profession, as multiple may belong to an institute, but with referencing other entities instead.
     public let restriction: ElectiveSpellworkRestriction?
+
+    public init(id: SpellworkIdentifier, restriction: ElectiveSpellworkRestriction? = nil) {
+        self.id = id
+        self.restriction = restriction
+    }
 }
 
 /// The elective spellwork may only take effect if a certain condition is met. The condition may be related to professions or profession variants, but it is designed so that it can work without a specific profession, as multiple may belong to an institute, but with referencing other entities instead.
@@ -71,6 +95,10 @@ public enum ElectiveSpellworkRestriction: EntitySubtype {
 
 public struct ElectiveSpellworkElementRestriction: EntitySubtype {
     public let id: ElementIdentifier
+
+    public init(id: ElementIdentifier) {
+        self.id = id
+    }
 }
 
 /// The academy's restricted spellworks package.
@@ -95,6 +123,12 @@ public struct RestrictedProperty: EntitySubtype {
     
     /// Spellworks from this property up to a certain number are allowed. Spellworks excluded from this restriction definition using `exclude` do not contribute to the maximum.
     public let maximum: Double?
+
+    public init(id: PropertyIdentifier, exclude: [SpellworkIdentifier]? = nil, maximum: Double? = nil) {
+        self.id = id
+        self.exclude = exclude
+        self.maximum = maximum
+    }
 }
 
 /// A list of available lesson packages.
@@ -110,7 +144,14 @@ public struct LessonPackage: EntitySubtype {
     public let skills: [AbilityAdjustment]?
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<LessonPackageTranslation>    
+    public let translations: LocaleMap<LessonPackageTranslation>
+
+    public init(id: Int, spellworkChanges: [SpellworkChange]? = nil, skills: [AbilityAdjustment]? = nil, translations: LocaleMap<LessonPackageTranslation>) {
+        self.id = id
+        self.spellworkChanges = spellworkChanges
+        self.skills = skills
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -124,6 +165,11 @@ public struct SpellworkChange: EntitySubtype {
     public let base: SpellworkAdjustment
     
     public let replacement: SpellworkAdjustment
+
+    public init(base: SpellworkAdjustment, replacement: SpellworkAdjustment) {
+        self.base = base
+        self.replacement = replacement
+    }
 }
 
 public struct LessonPackageTranslation: EntitySubtype {
@@ -133,7 +179,12 @@ public struct LessonPackageTranslation: EntitySubtype {
     /// The spell values difference of the lesson package. Use this field to specify a text that is displayed instead of the generated
     /// `spellwork_changes` list. The field is displayed even if no list is
     /// present.
-    public let spellworkChanges: NonEmptyString?    
+    public let spellworkChanges: NonEmptyString?
+
+    public init(name: NonEmptyString, spellworkChanges: NonEmptyString? = nil) {
+        self.name = name
+        self.spellworkChanges = spellworkChanges
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"
@@ -153,6 +204,11 @@ public struct CombatTechniqueAdjustment: EntitySubtype {
     
     /// The combat technique points that will be added to the current combat technique rating.
     public let points: Int
+
+    public init(id: CombatTechniqueIdentifier, points: Int) {
+        self.id = id
+        self.points = points
+    }
 }
 
 public struct SkillAdjustment: EntitySubtype {
@@ -161,6 +217,11 @@ public struct SkillAdjustment: EntitySubtype {
     
     /// The skill points that will be added to the current skill rating.
     public let points: Int
+
+    public init(id: SkillIdentifier, points: Int) {
+        self.id = id
+        self.points = points
+    }
 }
 
 public struct SpellworkAdjustment: EntitySubtype {
@@ -171,4 +232,10 @@ public struct SpellworkAdjustment: EntitySubtype {
     
     /// The target tradition. If the target spell is not from the Guild Mage tradition, specify the tradition identifier here.
     public let tradition: MagicalTraditionIdentifier?
+
+    public init(id: SpellworkIdentifier, points: Int, tradition: MagicalTraditionIdentifier? = nil) {
+        self.id = id
+        self.points = points
+        self.tradition = tradition
+    }
 }

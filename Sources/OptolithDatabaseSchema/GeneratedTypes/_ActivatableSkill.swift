@@ -12,7 +12,14 @@ public struct OneTimePerformanceParameters<CastingTime: EntitySubtype>: EntitySu
     
     public let range: Range
     
-    public let duration: DurationForOneTime    
+    public let duration: DurationForOneTime
+
+    public init(castingTime: CastingTime, cost: OneTimeCost, range: Range, duration: DurationForOneTime) {
+        self.castingTime = castingTime
+        self.cost = cost
+        self.range = range
+        self.duration = duration
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case castingTime = "casting_time"
@@ -29,7 +36,14 @@ public struct SustainedPerformanceParameters<CastingTime: EntitySubtype>: Entity
     
     public let range: Range
     
-    public let duration: DurationForSustained?    
+    public let duration: DurationForSustained?
+
+    public init(castingTime: CastingTime, cost: SustainedCost, range: Range, duration: DurationForSustained? = nil) {
+        self.castingTime = castingTime
+        self.cost = cost
+        self.range = range
+        self.duration = duration
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case castingTime = "casting_time"
@@ -63,4 +77,9 @@ public struct OldParameter: EntitySubtype {
     public let full: String
     
     public let abbr: String
+
+    public init(full: String, abbr: String) {
+        self.full = full
+        self.abbr = abbr
+    }
 }

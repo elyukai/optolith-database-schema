@@ -15,11 +15,19 @@ public enum PrimaryAttributeDamageThreshold: EntitySubtype {
 public struct DefaultPrimaryAttributeDamageThreshold: EntitySubtype {
     /// The attribute value representing the damage threshold for the primary attribute of the item's combat technique.
     public let threshold: Int
+
+    public init(threshold: Int) {
+        self.threshold = threshold
+    }
 }
 
 public struct PrimaryAttributeDamageThresholdList: EntitySubtype {
     /// A list of primary attributes with their associated threshold.
     public let list: [SinglePrimaryAttributeDamageThreshold]
+
+    public init(list: [SinglePrimaryAttributeDamageThreshold]) {
+        self.list = list
+    }
 }
 
 public struct SinglePrimaryAttributeDamageThreshold: EntitySubtype {
@@ -28,6 +36,11 @@ public struct SinglePrimaryAttributeDamageThreshold: EntitySubtype {
     
     /// The attribute value representing the damage threshold.
     public let threshold: Int
+
+    public init(attribute: AttributeReference, threshold: Int) {
+        self.attribute = attribute
+        self.threshold = threshold
+    }
 }
 
 /// The length of the weapon in cm/halffingers.

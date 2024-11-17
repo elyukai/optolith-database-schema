@@ -11,6 +11,11 @@ public struct Attribute: LocalizableEntity {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<AttributeTranslation>
+
+    public init(id: Int, translations: LocaleMap<AttributeTranslation>) {
+        self.id = id
+        self.translations = translations
+    }
 }
 
 public struct AttributeTranslation: EntitySubtype {
@@ -22,4 +27,10 @@ public struct AttributeTranslation: EntitySubtype {
     
     /// The description of the attribute.
     public let description: NonEmptyString
+
+    public init(name: NonEmptyString, abbreviation: NonEmptyString, description: NonEmptyString) {
+        self.name = name
+        self.abbreviation = abbreviation
+        self.description = description
+    }
 }

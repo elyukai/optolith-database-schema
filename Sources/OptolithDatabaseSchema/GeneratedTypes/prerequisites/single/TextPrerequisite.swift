@@ -23,7 +23,14 @@ public struct TextPrerequisite: EntitySubtype {
     public let isMeta: Bool?
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<TextPrerequisiteTranslation>    
+    public let translations: LocaleMap<TextPrerequisiteTranslation>
+
+    public init(verification: TextVerificationRule, sentenceType: SentenceType? = nil, isMeta: Bool? = nil, translations: LocaleMap<TextPrerequisiteTranslation>) {
+        self.verification = verification
+        self.sentenceType = sentenceType
+        self.isMeta = isMeta
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case verification = "verification"

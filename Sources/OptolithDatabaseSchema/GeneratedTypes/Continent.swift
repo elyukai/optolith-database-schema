@@ -12,9 +12,18 @@ public struct Continent: LocalizableEntity {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<ContinentTranslation>
+
+    public init(id: Int, translations: LocaleMap<ContinentTranslation>) {
+        self.id = id
+        self.translations = translations
+    }
 }
 
 public struct ContinentTranslation: EntitySubtype {
     /// The continent name.
     public let name: String
+
+    public init(name: String) {
+        self.name = name
+    }
 }

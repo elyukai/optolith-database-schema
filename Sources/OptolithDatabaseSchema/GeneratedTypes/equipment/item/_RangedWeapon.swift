@@ -20,6 +20,11 @@ public struct DefaultRangedDamage: EntitySubtype {
     
     /// Flat damage, if any. It gets added to the result of the dice rolls.
     public let flat: Int?
+
+    public init(dice: Dice, flat: Int? = nil) {
+        self.dice = dice
+        self.flat = flat
+    }
 }
 
 public struct RangedWeapon: EntitySubtype {
@@ -42,7 +47,17 @@ public struct RangedWeapon: EntitySubtype {
     public let length: Length
     
     /// Is the weapon an improvised weapon?
-    public let isImprovisedWeapon: Bool    
+    public let isImprovisedWeapon: Bool
+
+    public init(combatTechnique: RangedCombatTechniqueReference, damage: RangedDamage, reloadTime: [ReloadTime], range: RangeBrackets, ammunition: AmmunitionReference? = nil, length: Length, isImprovisedWeapon: Bool) {
+        self.combatTechnique = combatTechnique
+        self.damage = damage
+        self.reloadTime = reloadTime
+        self.range = range
+        self.ammunition = ammunition
+        self.length = length
+        self.isImprovisedWeapon = isImprovisedWeapon
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case combatTechnique = "combat_technique"
@@ -58,6 +73,10 @@ public struct RangedWeapon: EntitySubtype {
 public struct AmmunitionReference: EntitySubtype {
     /// The item's identifier.
     public let id: AmmunitionIdentifier
+
+    public init(id: AmmunitionIdentifier) {
+        self.id = id
+    }
 }
 
 public struct RangeBrackets: EntitySubtype {
@@ -69,9 +88,19 @@ public struct RangeBrackets: EntitySubtype {
     
     /// The far range bracket for the weapon. Distance in m.
     public let far: Int
+
+    public init(close: Int, medium: Int, far: Int) {
+        self.close = close
+        self.medium = medium
+        self.far = far
+    }
 }
 
 public struct ReloadTime: EntitySubtype {
     /// A reload time value in actions.
     public let value: Int
+
+    public init(value: Int) {
+        self.value = value
+    }
 }

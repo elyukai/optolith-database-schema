@@ -23,7 +23,17 @@ public struct CloseCombatTechnique: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<CloseCombatTechniqueTranslation>    
+    public let translations: LocaleMap<CloseCombatTechniqueTranslation>
+
+    public init(id: Int, special: CloseCombatTechniqueSpecialRules, primaryAttribute: [AttributeReference], breakingPointRating: Int, improvementCost: ImprovementCost, src: PublicationRefs, translations: LocaleMap<CloseCombatTechniqueTranslation>) {
+        self.id = id
+        self.special = special
+        self.primaryAttribute = primaryAttribute
+        self.breakingPointRating = breakingPointRating
+        self.improvementCost = improvementCost
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -47,7 +57,15 @@ public struct CloseCombatTechniqueSpecialRules: EntitySubtype {
     
     public let hasLength: Bool
     
-    public let hasShieldSize: Bool    
+    public let hasShieldSize: Bool
+
+    public init(canParry: Bool, hasDamageThreshold: Bool, hasReach: Bool, hasLength: Bool, hasShieldSize: Bool) {
+        self.canParry = canParry
+        self.hasDamageThreshold = hasDamageThreshold
+        self.hasReach = hasReach
+        self.hasLength = hasLength
+        self.hasShieldSize = hasShieldSize
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case canParry = "can_parry"
@@ -66,4 +84,10 @@ public struct CloseCombatTechniqueTranslation: EntitySubtype {
     public let special: String?
     
     public let errata: Errata?
+
+    public init(name: String, special: String? = nil, errata: Errata? = nil) {
+        self.name = name
+        self.special = special
+        self.errata = errata
+    }
 }

@@ -11,4 +11,9 @@ public struct SpecialRule: EntitySubtype {
     
     /// The text of a special rule.
     public let text: NonEmptyString
+
+    public init(label: NonEmptyString? = nil, text: NonEmptyString) {
+        self.label = label
+        self.text = text
+    }
 }

@@ -24,7 +24,19 @@ public struct ProtectiveWardingCircleSpecialAbility: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<ProtectiveWardingCircleSpecialAbilityTranslation>    
+    public let translations: LocaleMap<ProtectiveWardingCircleSpecialAbilityTranslation>
+
+    public init(id: Id, levels: Levels? = nil, selectOptions: SelectOptions? = nil, maximum: Maximum? = nil, prerequisites: GeneralPrerequisites? = nil, cost: Int, apValue: AdventurePointsValue, src: PublicationRefs, translations: LocaleMap<ProtectiveWardingCircleSpecialAbilityTranslation>) {
+        self.id = id
+        self.levels = levels
+        self.selectOptions = selectOptions
+        self.maximum = maximum
+        self.prerequisites = prerequisites
+        self.cost = cost
+        self.apValue = apValue
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -50,7 +62,15 @@ public struct ProtectiveWardingCircleSpecialAbilityTranslation: EntitySubtype {
     /// The rules for the warding circle variant.
     public let wardingCircle: NonEmptyMarkdown
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: Name, nameInLibrary: NameInLibrary? = nil, protectiveCircle: NonEmptyMarkdown, wardingCircle: NonEmptyMarkdown, errata: Errata? = nil) {
+        self.name = name
+        self.nameInLibrary = nameInLibrary
+        self.protectiveCircle = protectiveCircle
+        self.wardingCircle = wardingCircle
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"

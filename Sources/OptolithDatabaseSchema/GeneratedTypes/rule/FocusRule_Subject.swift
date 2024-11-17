@@ -12,9 +12,18 @@ public struct Subject: LocalizableEntity {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<SubjectTranslation>
+
+    public init(id: Int, translations: LocaleMap<SubjectTranslation>) {
+        self.id = id
+        self.translations = translations
+    }
 }
 
 public struct SubjectTranslation: EntitySubtype {
     /// The subject.
     public let name: NonEmptyString
+
+    public init(name: NonEmptyString) {
+        self.name = name
+    }
 }

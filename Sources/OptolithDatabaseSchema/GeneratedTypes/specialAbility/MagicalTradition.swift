@@ -56,7 +56,30 @@ public struct MagicalTradition: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<MagicalTraditionTranslation>    
+    public let translations: LocaleMap<MagicalTraditionTranslation>
+
+    public init(id: Id, levels: Levels? = nil, selectOptions: SelectOptions? = nil, skillApplications: SkillApplications? = nil, skillUses: SkillUses? = nil, primary: PrimaryAttribute? = nil, canLearnCantrips: Bool, canLearnSpells: Bool, canLearnRituals: Bool, canBindFamiliars: Bool, allowsMultipleTraditions: Bool, alternativeMagicalAdventurePointsMaximum: Int? = nil, requireNonSpellworkExclusiveEffects: Bool, isMagicalDilettante: Bool, useArcaneSpellworksFromTradition: MagicalTraditionReference? = nil, influences: [Influence]? = nil, prerequisites: GeneralPrerequisites? = nil, apValue: AdventurePointsValue, src: PublicationRefs, translations: LocaleMap<MagicalTraditionTranslation>) {
+        self.id = id
+        self.levels = levels
+        self.selectOptions = selectOptions
+        self.skillApplications = skillApplications
+        self.skillUses = skillUses
+        self.primary = primary
+        self.canLearnCantrips = canLearnCantrips
+        self.canLearnSpells = canLearnSpells
+        self.canLearnRituals = canLearnRituals
+        self.canBindFamiliars = canBindFamiliars
+        self.allowsMultipleTraditions = allowsMultipleTraditions
+        self.alternativeMagicalAdventurePointsMaximum = alternativeMagicalAdventurePointsMaximum
+        self.requireNonSpellworkExclusiveEffects = requireNonSpellworkExclusiveEffects
+        self.isMagicalDilettante = isMagicalDilettante
+        self.useArcaneSpellworksFromTradition = useArcaneSpellworksFromTradition
+        self.influences = influences
+        self.prerequisites = prerequisites
+        self.apValue = apValue
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -87,7 +110,12 @@ public struct PrimaryAttribute: EntitySubtype {
     public let id: AttributeIdentifier
     
     /// Typically, the value of the primary attribute (if one exists) is added onto the base of 20 AE to get the actual AE. But sometimes, only half the value is added.
-    public let useHalfForArcaneEnergy: Bool    
+    public let useHalfForArcaneEnergy: Bool
+
+    public init(id: AttributeIdentifier, useHalfForArcaneEnergy: Bool) {
+        self.id = id
+        self.useHalfForArcaneEnergy = useHalfForArcaneEnergy
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -106,7 +134,15 @@ public struct MagicalTraditionTranslation: EntitySubtype {
     /// The special rules of the tradition. They should be sorted like they are in the book.
     public let specialRules: [SpecialRule]
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: Name, nameForArcaneSpellworks: String? = nil, nameInLibrary: NameInLibrary? = nil, specialRules: [SpecialRule], errata: Errata? = nil) {
+        self.name = name
+        self.nameForArcaneSpellworks = nameForArcaneSpellworks
+        self.nameInLibrary = nameInLibrary
+        self.specialRules = specialRules
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"

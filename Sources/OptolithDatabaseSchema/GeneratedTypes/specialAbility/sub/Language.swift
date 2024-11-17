@@ -23,7 +23,17 @@ public struct Language: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<LanguageTranslation>    
+    public let translations: LocaleMap<LanguageTranslation>
+
+    public init(id: Int, continent: [AssociatedContinent], specializations: Specializations? = nil, prerequisites: LanguagePrerequisites? = nil, maxLevel: Double? = nil, src: PublicationRefs, translations: LocaleMap<LanguageTranslation>) {
+        self.id = id
+        self.continent = continent
+        self.specializations = specializations
+        self.prerequisites = prerequisites
+        self.maxLevel = maxLevel
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -45,6 +55,10 @@ public enum Specializations: EntitySubtype {
 public struct SpecificSpecializations: EntitySubtype {
     /// A list of specific possible specializations.
     public let list: [SpecificSpecialization]
+
+    public init(list: [SpecificSpecialization]) {
+        self.list = list
+    }
 }
 
 public struct SpecificSpecialization: EntitySubtype {
@@ -53,6 +67,11 @@ public struct SpecificSpecialization: EntitySubtype {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<SpecificSpecializationTranslation>
+
+    public init(id: Int, translations: LocaleMap<SpecificSpecializationTranslation>) {
+        self.id = id
+        self.translations = translations
+    }
 }
 
 public struct SpecificSpecializationTranslation: EntitySubtype {
@@ -61,11 +80,20 @@ public struct SpecificSpecializationTranslation: EntitySubtype {
     
     /// The specialization description. It will be appended to the name in parenthesis.
     public let description: NonEmptyString?
+
+    public init(name: NonEmptyString, description: NonEmptyString? = nil) {
+        self.name = name
+        self.description = description
+    }
 }
 
 public struct IndefiniteSpecializations: EntitySubtype {
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<IndefiniteSpecializationsTranslation>
+
+    public init(translations: LocaleMap<IndefiniteSpecializationsTranslation>) {
+        self.translations = translations
+    }
 }
 
 public struct IndefiniteSpecializationsTranslation: EntitySubtype {
@@ -74,6 +102,11 @@ public struct IndefiniteSpecializationsTranslation: EntitySubtype {
     
     /// An input label or placeholder text for an UI element if it differs from the `description`.
     public let label: NonEmptyString?
+
+    public init(description: NonEmptyString, label: NonEmptyString? = nil) {
+        self.description = description
+        self.label = label
+    }
 }
 
 public struct LanguageTranslation: EntitySubtype {
@@ -86,7 +119,14 @@ public struct LanguageTranslation: EntitySubtype {
     /// The description of the language.
     public let description: NonEmptyString?
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: NonEmptyString, alternativeNames: [AlternativeName]? = nil, description: NonEmptyString? = nil, errata: Errata? = nil) {
+        self.name = name
+        self.alternativeNames = alternativeNames
+        self.description = description
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"

@@ -9,4 +9,8 @@ import DiscriminatedEnum
 public struct CommonnessRatedAdvantageDisadvantage<Identifier: EntitySubtype>: EntitySubtype {
     /// The advantage's or disadvantage's identifier.
     public let id: Identifier
+
+    public init(id: Identifier) {
+        self.id = id
+    }
 }

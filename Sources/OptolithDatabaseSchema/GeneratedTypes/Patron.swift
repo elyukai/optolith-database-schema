@@ -47,7 +47,22 @@ public struct Patron: LocalizableEntity {
     public let commonSpellworks: [SpellworkReference]?
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<PatronTranslation>    
+    public let translations: LocaleMap<PatronTranslation>
+
+    public init(id: Int, category: PatronCategoryReference, skills: [SkillReference], culture: PatronCulture, primaryPatronCultures: [CultureReference]? = nil, powers: AnimalPowers? = nil, aeCost: Int? = nil, improvementCost: ImprovementCost? = nil, commonAdvantages: [AdvantageReference]? = nil, commonDisadvantages: [DisadvantageReference]? = nil, commonSpellworks: [SpellworkReference]? = nil, translations: LocaleMap<PatronTranslation>) {
+        self.id = id
+        self.category = category
+        self.skills = skills
+        self.culture = culture
+        self.primaryPatronCultures = primaryPatronCultures
+        self.powers = powers
+        self.aeCost = aeCost
+        self.improvementCost = improvementCost
+        self.commonAdvantages = commonAdvantages
+        self.commonDisadvantages = commonDisadvantages
+        self.commonSpellworks = commonSpellworks
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -68,6 +83,10 @@ public struct Patron: LocalizableEntity {
 public struct PatronTranslation: EntitySubtype {
     /// The name of the patron.
     public let name: NonEmptyString
+
+    public init(name: NonEmptyString) {
+        self.name = name
+    }
 }
 
 /// The patron cultures the patron is or is not part of. If the patron is part of all patron cultures, the set should be empty and the operation should be difference.
@@ -75,6 +94,11 @@ public struct PatronCulture: EntitySubtype {
     public let set: [CultureReference]
     
     public let operation: PatronCultureOperation
+
+    public init(set: [CultureReference], operation: PatronCultureOperation) {
+        self.set = set
+        self.operation = operation
+    }
 }
 
 /// The set operation to combine the set of all patron cultures with the specified set of patron cultures: If they should intersect, the patron is only part of the given cultures. If they should differ, the patron is only part of the cultures that are not given.
@@ -89,6 +113,12 @@ public struct AnimalPowers: EntitySubtype {
     public let level2: AnimalPowersLevel2
     
     public let level3: AnimalPowersLevel3
+
+    public init(level1: AnimalPowersLevel1, level2: AnimalPowersLevel2, level3: AnimalPowersLevel3) {
+        self.level1 = level1
+        self.level2 = level2
+        self.level3 = level3
+    }
 }
 
 public struct AdvantageAnimalPower: EntitySubtype {
@@ -100,6 +130,12 @@ public struct AdvantageAnimalPower: EntitySubtype {
     
     /// It grants a specific general option of the advantage.
     public let option: Int?
+
+    public init(id: AdvantageIdentifier, level: Int? = nil, option: Int? = nil) {
+        self.id = id
+        self.level = level
+        self.option = option
+    }
 }
 
 public struct SkillAnimalPower: EntitySubtype {
@@ -108,6 +144,11 @@ public struct SkillAnimalPower: EntitySubtype {
     
     /// The points that gets added to the skill's rating.
     public let points: Int
+
+    public init(id: SkillIdentifier, points: Int) {
+        self.id = id
+        self.points = points
+    }
 }
 
 @DiscriminatedEnum
@@ -124,6 +165,11 @@ public struct CombatAnimalPower: EntitySubtype {
     
     /// The value that gets added to the combat value.
     public let value: Int
+
+    public init(id: CombatAnimalPowerType, value: Int) {
+        self.id = id
+        self.value = value
+    }
 }
 
 public enum CombatAnimalPowerType: String, EntitySubtype {
@@ -148,6 +194,11 @@ public struct AttributeAnimalPower: EntitySubtype {
     
     /// The value that gets added to the attribute.
     public let value: Int
+
+    public init(id: AttributeIdentifier, value: Int) {
+        self.id = id
+        self.value = value
+    }
 }
 
 @DiscriminatedEnum

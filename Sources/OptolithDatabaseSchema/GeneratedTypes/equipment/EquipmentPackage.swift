@@ -16,6 +16,13 @@ public struct EquipmentPackage: LocalizableEntity {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<EquipmentPackageTranslation>
+
+    public init(id: Int, items: [EquipmentPackageItem], src: PublicationRefs, translations: LocaleMap<EquipmentPackageTranslation>) {
+        self.id = id
+        self.items = items
+        self.src = src
+        self.translations = translations
+    }
 }
 
 public struct EquipmentPackageItem: EntitySubtype {
@@ -24,9 +31,18 @@ public struct EquipmentPackageItem: EntitySubtype {
     
     /// The number of how often the item is included in the package.
     public let number: Int?
+
+    public init(id: EquipmentIdentifier, number: Int? = nil) {
+        self.id = id
+        self.number = number
+    }
 }
 
 public struct EquipmentPackageTranslation: EntitySubtype {
     /// The name of the equipment package.
     public let name: NonEmptyString
+
+    public init(name: NonEmptyString) {
+        self.name = name
+    }
 }

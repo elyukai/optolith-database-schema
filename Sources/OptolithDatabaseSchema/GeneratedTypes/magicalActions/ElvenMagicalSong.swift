@@ -32,7 +32,19 @@ public struct ElvenMagicalSong: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<ElvenMagicalSongTranslation>    
+    public let translations: LocaleMap<ElvenMagicalSongTranslation>
+
+    public init(id: Int, check: SkillCheck, checkPenalty: SkillCheckPenalty? = nil, skill: [MusicalSkillReference], parameters: ElvenMagicalSongPerformanceParameters, property: PropertyReference, improvementCost: ImprovementCost, src: PublicationRefs, translations: LocaleMap<ElvenMagicalSongTranslation>) {
+        self.id = id
+        self.check = check
+        self.checkPenalty = checkPenalty
+        self.skill = skill
+        self.parameters = parameters
+        self.property = property
+        self.improvementCost = improvementCost
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -58,12 +70,23 @@ public struct ElvenMagicalSongTranslation: EntitySubtype {
     public let cost: OldParameter
     
     public let errata: Errata?
+
+    public init(name: NonEmptyString, effect: ActivatableSkillEffect, cost: OldParameter, errata: Errata? = nil) {
+        self.name = name
+        self.effect = effect
+        self.cost = cost
+        self.errata = errata
+    }
 }
 
 /// Measurable parameters of an elven magical song.
 public struct ElvenMagicalSongPerformanceParameters: EntitySubtype {
     /// The AE cost.
     public let cost: ElvenMagicalSongCost
+
+    public init(cost: ElvenMagicalSongCost) {
+        self.cost = cost
+    }
 }
 
 public struct ElvenMagicalSongCost: EntitySubtype {
@@ -78,6 +101,13 @@ public struct ElvenMagicalSongCost: EntitySubtype {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<ElvenMagicalSongCostTranslation>?
+
+    public init(value: Int, interval: DurationUnitValue? = nil, permanent: ElvenMagicalSongPermanentCost? = nil, translations: LocaleMap<ElvenMagicalSongCostTranslation>? = nil) {
+        self.value = value
+        self.interval = interval
+        self.permanent = permanent
+        self.translations = translations
+    }
 }
 
 public struct ElvenMagicalSongPermanentCost: EntitySubtype {
@@ -86,14 +116,27 @@ public struct ElvenMagicalSongPermanentCost: EntitySubtype {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<ElvenMagicalSongPermanentCostTranslation>?
+
+    public init(value: Int, translations: LocaleMap<ElvenMagicalSongPermanentCostTranslation>? = nil) {
+        self.value = value
+        self.translations = translations
+    }
 }
 
 public struct ElvenMagicalSongPermanentCostTranslation: EntitySubtype {
     /// A replacement string for the permanent cost.
     public let replacement: ResponsiveTextReplace
+
+    public init(replacement: ResponsiveTextReplace) {
+        self.replacement = replacement
+    }
 }
 
 public struct ElvenMagicalSongCostTranslation: EntitySubtype {
     /// The cost have to be per a specific countable entity, e.g. `8 AE per person`.
     public let per: ResponsiveText
+
+    public init(per: ResponsiveText) {
+        self.per = per
+    }
 }

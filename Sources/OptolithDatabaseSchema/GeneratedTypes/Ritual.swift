@@ -37,7 +37,22 @@ public struct Ritual: LocalizableEntity {
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<RitualTranslation>
     
-    public let enhancements: Enhancements?    
+    public let enhancements: Enhancements?
+
+    public init(id: Int, check: SkillCheck, checkPenalty: SkillCheckPenalty? = nil, parameters: SlowPerformanceParameters, target: AffectedTargetCategories, property: PropertyReference, traditions: Traditions, improvementCost: ImprovementCost, prerequisites: SpellworkPrerequisites? = nil, src: PublicationRefs, translations: LocaleMap<RitualTranslation>, enhancements: Enhancements? = nil) {
+        self.id = id
+        self.check = check
+        self.checkPenalty = checkPenalty
+        self.parameters = parameters
+        self.target = target
+        self.property = property
+        self.traditions = traditions
+        self.improvementCost = improvementCost
+        self.prerequisites = prerequisites
+        self.src = src
+        self.translations = translations
+        self.enhancements = enhancements
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -77,7 +92,18 @@ public struct RitualTranslation: EntitySubtype {
     @available(*, deprecated)
     public let target: String
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: String, effect: ActivatableSkillEffect, castingTime: OldParameter, cost: OldParameter, range: OldParameter, duration: OldParameter, target: String, errata: Errata? = nil) {
+        self.name = name
+        self.effect = effect
+        self.castingTime = castingTime
+        self.cost = cost
+        self.range = range
+        self.duration = duration
+        self.target = target
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"

@@ -32,7 +32,19 @@ public struct MagicalRune: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<MagicalRuneTranslation>    
+    public let translations: LocaleMap<MagicalRuneTranslation>
+
+    public init(id: Int, options: [MagicalRuneOption]? = nil, check: SkillCheck, checkPenalty: MagicalRuneCheckPenalty? = nil, parameters: MagicalRunePerformanceParameters, property: PropertyReference, improvementCost: MagicalRuneImprovementCost, src: PublicationRefs, translations: LocaleMap<MagicalRuneTranslation>) {
+        self.id = id
+        self.options = options
+        self.check = check
+        self.checkPenalty = checkPenalty
+        self.parameters = parameters
+        self.property = property
+        self.improvementCost = improvementCost
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -71,7 +83,18 @@ public struct MagicalRuneTranslation: EntitySubtype {
     @available(*, deprecated)
     public let duration: OldParameterBySpeed
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: NonEmptyString, nameInLibrary: NonEmptyString? = nil, nativeName: NonEmptyString? = nil, effect: ActivatableSkillEffect, cost: OldParameter, craftingTime: OldParameterBySpeed, duration: OldParameterBySpeed, errata: Errata? = nil) {
+        self.name = name
+        self.nameInLibrary = nameInLibrary
+        self.nativeName = nativeName
+        self.effect = effect
+        self.cost = cost
+        self.craftingTime = craftingTime
+        self.duration = duration
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"
@@ -89,6 +112,11 @@ public struct OldParameterBySpeed: EntitySubtype {
     public let slow: OldParameter
     
     public let fast: OldParameter
+
+    public init(slow: OldParameter, fast: OldParameter) {
+        self.slow = slow
+        self.fast = fast
+    }
 }
 
 @DiscriminatedEnum
@@ -101,6 +129,11 @@ public struct MagicalRuneCombatTechniqueCheckPenalty: EntitySubtype {
     public let map: [MagicalRuneCombatTechniqueCheckPenaltyMapping]
     
     public let rest: MagicalRuneCombatTechniqueCheckPenaltyRest
+
+    public init(map: [MagicalRuneCombatTechniqueCheckPenaltyMapping], rest: MagicalRuneCombatTechniqueCheckPenaltyRest) {
+        self.map = map
+        self.rest = rest
+    }
 }
 
 public struct MagicalRuneCombatTechniqueCheckPenaltyMapping: EntitySubtype {
@@ -109,11 +142,20 @@ public struct MagicalRuneCombatTechniqueCheckPenaltyMapping: EntitySubtype {
     
     /// The check modifier for the specified combat technique.
     public let modifier: Int
+
+    public init(id: CombatTechniqueIdentifier, modifier: Int) {
+        self.id = id
+        self.modifier = modifier
+    }
 }
 
 public struct MagicalRuneCombatTechniqueCheckPenaltyRest: EntitySubtype {
     /// The check modifier for combat techniques not specified in `map`.
     public let modifier: Int
+
+    public init(modifier: Int) {
+        self.modifier = modifier
+    }
 }
 
 /// Measurable parameters of a magical rune.
@@ -125,7 +167,13 @@ public struct MagicalRunePerformanceParameters: EntitySubtype {
     public let craftingTime: MagicalRuneCraftingTime
     
     /// The duration.
-    public let duration: MagicalRuneDuration    
+    public let duration: MagicalRuneDuration
+
+    public init(cost: MagicalRuneCost, craftingTime: MagicalRuneCraftingTime, duration: MagicalRuneDuration) {
+        self.cost = cost
+        self.craftingTime = craftingTime
+        self.duration = duration
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case cost = "cost"
@@ -153,16 +201,29 @@ public struct SingleMagicalRuneCost: EntitySubtype {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<SingleMagicalRuneCostTranslation>?
+
+    public init(value: Int, translations: LocaleMap<SingleMagicalRuneCostTranslation>? = nil) {
+        self.value = value
+        self.translations = translations
+    }
 }
 
 public struct SingleMagicalRuneCostTranslation: EntitySubtype {
     /// A note, appended to the generated string in parenthesis.
     public let note: ResponsiveTextOptional
+
+    public init(note: ResponsiveTextOptional) {
+        self.note = note
+    }
 }
 
 public struct MagicalRuneCostDisjunction: EntitySubtype {
     /// A set of possible AE cost values.
     public let list: [SingleMagicalRuneCost]
+
+    public init(list: [SingleMagicalRuneCost]) {
+        self.list = list
+    }
 }
 
 public struct MagicalRuneCraftingTime: EntitySubtype {
@@ -171,11 +232,20 @@ public struct MagicalRuneCraftingTime: EntitySubtype {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<MagicalRuneCraftingTimeTranslation>?
+
+    public init(value: Int, translations: LocaleMap<MagicalRuneCraftingTimeTranslation>? = nil) {
+        self.value = value
+        self.translations = translations
+    }
 }
 
 public struct MagicalRuneCraftingTimeTranslation: EntitySubtype {
     /// The crafting time has to be per a specific countable entity, e.g. `8 action per person`.
     public let per: ResponsiveText
+
+    public init(per: ResponsiveText) {
+        self.per = per
+    }
 }
 
 public struct MagicalRuneDuration: EntitySubtype {
@@ -184,6 +254,11 @@ public struct MagicalRuneDuration: EntitySubtype {
     
     /// The duration on fast rune application.
     public let fast: CheckResultBasedDuration
+
+    public init(slow: CheckResultBasedDuration, fast: CheckResultBasedDuration) {
+        self.slow = slow
+        self.fast = fast
+    }
 }
 
 @DiscriminatedEnum
@@ -194,6 +269,10 @@ public enum MagicalRuneImprovementCost: EntitySubtype {
 
 public struct ConstantMagicalRuneImprovementCost: EntitySubtype {
     public let value: ImprovementCost
+
+    public init(value: ImprovementCost) {
+        self.value = value
+    }
 }
 
 public struct MagicalRuneOption: EntitySubtype {
@@ -209,7 +288,15 @@ public struct MagicalRuneOption: EntitySubtype {
     public let suboption: MagicalRuneSuboption
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<MagicalRuneOptionTranslation>    
+    public let translations: LocaleMap<MagicalRuneOptionTranslation>
+
+    public init(id: Int, cost: MagicalRuneOptionCost, improvementCost: ImprovementCost, suboption: MagicalRuneSuboption, translations: LocaleMap<MagicalRuneOptionTranslation>) {
+        self.id = id
+        self.cost = cost
+        self.improvementCost = improvementCost
+        self.suboption = suboption
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -228,11 +315,19 @@ public enum MagicalRuneSuboption: EntitySubtype {
 public struct CustomMagicalRuneSuboption: EntitySubtype {
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<CustomMagicalRuneSuboptionTranslation>
+
+    public init(translations: LocaleMap<CustomMagicalRuneSuboptionTranslation>) {
+        self.translations = translations
+    }
 }
 
 public struct CustomMagicalRuneSuboptionTranslation: EntitySubtype {
     /// One or more examples for the suboption.
     public let examples: [NonEmptyString]?
+
+    public init(examples: [NonEmptyString]? = nil) {
+        self.examples = examples
+    }
 }
 
 public struct MagicalRuneOptionTranslation: EntitySubtype {
@@ -242,7 +337,12 @@ public struct MagicalRuneOptionTranslation: EntitySubtype {
     public let name: NonEmptyString
     
     /// The native name of the magical rune option.
-    public let nativeName: NonEmptyString    
+    public let nativeName: NonEmptyString
+
+    public init(name: NonEmptyString, nativeName: NonEmptyString) {
+        self.name = name
+        self.nativeName = nativeName
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"

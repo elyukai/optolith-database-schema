@@ -46,7 +46,26 @@ public struct BlessedTradition: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<BlessedTraditionTranslation>    
+    public let translations: LocaleMap<BlessedTraditionTranslation>
+
+    public init(id: Id, selectOptions: SelectOptions? = nil, skillApplications: SkillApplications? = nil, skillUses: SkillUses? = nil, primary: AttributeReference? = nil, aspects: [AspectReference]? = nil, restrictedBlessings: RestrictedBlessings? = nil, favoredCombatTechniques: FavoredCombatTechniques? = nil, favoredSkills: [SkillReference], favoredSkillsSelection: FavoredSkillsSelection? = nil, type: BlessedTraditionType, associatedPrinciplesId: Double? = nil, prerequisites: GeneralPrerequisites? = nil, apValue: AdventurePointsValue, src: PublicationRefs, translations: LocaleMap<BlessedTraditionTranslation>) {
+        self.id = id
+        self.selectOptions = selectOptions
+        self.skillApplications = skillApplications
+        self.skillUses = skillUses
+        self.primary = primary
+        self.aspects = aspects
+        self.restrictedBlessings = restrictedBlessings
+        self.favoredCombatTechniques = favoredCombatTechniques
+        self.favoredSkills = favoredSkills
+        self.favoredSkillsSelection = favoredSkillsSelection
+        self.type = type
+        self.associatedPrinciplesId = associatedPrinciplesId
+        self.prerequisites = prerequisites
+        self.apValue = apValue
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -91,6 +110,10 @@ public enum FavoredCombatTechniques: EntitySubtype {
 public struct SpecificFavoredCombatTechniques: EntitySubtype {
     /// A list of specific favored combat techniques.
     public let list: [CombatTechniqueReference]
+
+    public init(list: [CombatTechniqueReference]) {
+        self.list = list
+    }
 }
 
 public struct FavoredSkillsSelection: EntitySubtype {
@@ -99,6 +122,11 @@ public struct FavoredSkillsSelection: EntitySubtype {
     
     /// The possible set of skills.
     public let options: [SkillReference]
+
+    public init(number: Int, options: [SkillReference]) {
+        self.number = number
+        self.options = options
+    }
 }
 
 /// The type of the tradition. May be either church or shamanistic.
@@ -110,7 +138,11 @@ public enum BlessedTraditionType: EntitySubtype {
 
 /// Additional rules for shamanistic traditions.
 public struct ShamanisticBlessedTradition: EntitySubtype {
-    public let canUseBoneMaceAsCeremonialItem: Bool    
+    public let canUseBoneMaceAsCeremonialItem: Bool
+
+    public init(canUseBoneMaceAsCeremonialItem: Bool) {
+        self.canUseBoneMaceAsCeremonialItem = canUseBoneMaceAsCeremonialItem
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case canUseBoneMaceAsCeremonialItem = "can_use_bone_mace_as_ceremonial_item"
@@ -128,7 +160,15 @@ public struct BlessedTraditionTranslation: EntitySubtype {
     /// The special rules of the tradition. They should be sorted like they are in the book.
     public let specialRules: [SpecialRule]
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: Name, nameCompressed: String? = nil, nameInLibrary: NameInLibrary? = nil, specialRules: [SpecialRule], errata: Errata? = nil) {
+        self.name = name
+        self.nameCompressed = nameCompressed
+        self.nameInLibrary = nameInLibrary
+        self.specialRules = specialRules
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"

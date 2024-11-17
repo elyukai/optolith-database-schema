@@ -16,7 +16,14 @@ public struct PactPrerequisite: EntitySubtype {
     /// The required pact level.
     public let level: Int?
     
-    public let displayOption: DisplayOption?    
+    public let displayOption: DisplayOption?
+
+    public init(category: PactCategoryReference, domainId: [PactDomainReference]? = nil, level: Int? = nil, displayOption: DisplayOption? = nil) {
+        self.category = category
+        self.domainId = domainId
+        self.level = level
+        self.displayOption = displayOption
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case category = "category"

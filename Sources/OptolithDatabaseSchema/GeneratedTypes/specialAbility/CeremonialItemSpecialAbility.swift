@@ -27,7 +27,21 @@ public struct CeremonialItemSpecialAbility: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<CeremonialItemSpecialAbilityTranslation>    
+    public let translations: LocaleMap<CeremonialItemSpecialAbilityTranslation>
+
+    public init(id: Id, levels: Levels? = nil, selectOptions: SelectOptions? = nil, skillApplications: SkillApplications? = nil, skillUses: SkillUses? = nil, maximum: Maximum? = nil, aspect: AspectDeclaration? = nil, prerequisites: GeneralPrerequisites? = nil, apValue: AdventurePointsValue, src: PublicationRefs, translations: LocaleMap<CeremonialItemSpecialAbilityTranslation>) {
+        self.id = id
+        self.levels = levels
+        self.selectOptions = selectOptions
+        self.skillApplications = skillApplications
+        self.skillUses = skillUses
+        self.maximum = maximum
+        self.aspect = aspect
+        self.prerequisites = prerequisites
+        self.apValue = apValue
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -54,7 +68,15 @@ public struct CeremonialItemSpecialAbilityTranslation: EntitySubtype {
     /// The prerequisites text. It is only used if the text cannot be generated from the given information.
     public let prerequisites: PrerequisitesReplacement?
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: Name, nameInLibrary: NameInLibrary? = nil, effect: Effect, prerequisites: PrerequisitesReplacement? = nil, errata: Errata? = nil) {
+        self.name = name
+        self.nameInLibrary = nameInLibrary
+        self.effect = effect
+        self.prerequisites = prerequisites
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"

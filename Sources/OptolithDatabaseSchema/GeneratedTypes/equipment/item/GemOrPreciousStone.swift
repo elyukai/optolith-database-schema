@@ -13,6 +13,12 @@ public struct GemOrPreciousStone: LocalizableEntity {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<GemOrPreciousStoneTranslation>
+
+    public init(cost: Cost, src: PublicationRefs, translations: LocaleMap<GemOrPreciousStoneTranslation>) {
+        self.cost = cost
+        self.src = src
+        self.translations = translations
+    }
 }
 
 public struct GemOrPreciousStoneTranslation: EntitySubtype {
@@ -31,7 +37,16 @@ public struct GemOrPreciousStoneTranslation: EntitySubtype {
     /// Special rules text.
     public let rules: NonEmptyMarkdown?
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: NonEmptyString, secondaryName: NonEmptyString? = nil, color: NonEmptyString, note: NonEmptyMarkdown? = nil, rules: NonEmptyMarkdown? = nil, errata: Errata? = nil) {
+        self.name = name
+        self.secondaryName = secondaryName
+        self.color = color
+        self.note = note
+        self.rules = rules
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"

@@ -15,11 +15,20 @@ public struct SpecificAffectedTargetCategory: EntitySubtype {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<SpecificAffectedTargetCategoryTranslation>?
+
+    public init(id: SpecificAffectedTargetCategoryIdentifier, translations: LocaleMap<SpecificAffectedTargetCategoryTranslation>? = nil) {
+        self.id = id
+        self.translations = translations
+    }
 }
 
 public struct SpecificAffectedTargetCategoryTranslation: EntitySubtype {
     /// A note, appended to the generated string in parenthesis.
     public let note: NonEmptyString
+
+    public init(note: NonEmptyString) {
+        self.note = note
+    }
 }
 
 @DiscriminatedEnum

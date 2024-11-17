@@ -31,7 +31,23 @@ public struct AdvancedCombatSpecialAbility: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<AdvancedCombatSpecialAbilityTranslation>    
+    public let translations: LocaleMap<AdvancedCombatSpecialAbilityTranslation>
+
+    public init(id: Id, levels: Levels? = nil, usageType: CombatSpecialAbilityUsageType, selectOptions: SelectOptions? = nil, skillApplications: SkillApplications? = nil, skillUses: SkillUses? = nil, maximum: Maximum? = nil, penalty: Penalty? = nil, prerequisites: GeneralPrerequisites? = nil, combatTechniques: ApplicableCombatTechniques, apValue: AdventurePointsValue, src: PublicationRefs, translations: LocaleMap<AdvancedCombatSpecialAbilityTranslation>) {
+        self.id = id
+        self.levels = levels
+        self.usageType = usageType
+        self.selectOptions = selectOptions
+        self.skillApplications = skillApplications
+        self.skillUses = skillUses
+        self.maximum = maximum
+        self.penalty = penalty
+        self.prerequisites = prerequisites
+        self.combatTechniques = combatTechniques
+        self.apValue = apValue
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -66,7 +82,17 @@ public struct AdvancedCombatSpecialAbilityTranslation: EntitySubtype {
     /// A string that gets appended to the default AP Value text with a preceding space. This always happens if present, even if the generated AP Value text is replaced.
     public let apValueAppend: AdventurePointsValueAppend?
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: Name, nameInLibrary: NameInLibrary? = nil, rules: Rules, penalty: String? = nil, apValue: AdventurePointsValueReplacement? = nil, apValueAppend: AdventurePointsValueAppend? = nil, errata: Errata? = nil) {
+        self.name = name
+        self.nameInLibrary = nameInLibrary
+        self.rules = rules
+        self.penalty = penalty
+        self.apValue = apValue
+        self.apValueAppend = apValueAppend
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"

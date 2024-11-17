@@ -32,7 +32,19 @@ public struct ExperienceLevel: LocalizableEntity {
     public let maxNumberOfUnfamiliarSpells: Int
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<ExperienceLevelTranslation>    
+    public let translations: LocaleMap<ExperienceLevelTranslation>
+
+    public init(id: Int, adventurePoints: Int, maxAttributeValue: Int, maxSkillRating: Int, maxCombatTechniqueRating: Int, maxAttributeTotal: Int, maxNumberOfSpellsLiturgicalChants: Int, maxNumberOfUnfamiliarSpells: Int, translations: LocaleMap<ExperienceLevelTranslation>) {
+        self.id = id
+        self.adventurePoints = adventurePoints
+        self.maxAttributeValue = maxAttributeValue
+        self.maxSkillRating = maxSkillRating
+        self.maxCombatTechniqueRating = maxCombatTechniqueRating
+        self.maxAttributeTotal = maxAttributeTotal
+        self.maxNumberOfSpellsLiturgicalChants = maxNumberOfSpellsLiturgicalChants
+        self.maxNumberOfUnfamiliarSpells = maxNumberOfUnfamiliarSpells
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -50,4 +62,8 @@ public struct ExperienceLevel: LocalizableEntity {
 public struct ExperienceLevelTranslation: EntitySubtype {
     /// The name of the experience level.
     public let name: String
+
+    public init(name: String) {
+        self.name = name
+    }
 }

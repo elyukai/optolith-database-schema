@@ -13,7 +13,13 @@ public struct PatronCategory: LocalizableEntity {
     public let primaryPatronCultures: [CultureReference]
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<PatronCategoryTranslation>    
+    public let translations: LocaleMap<PatronCategoryTranslation>
+
+    public init(id: Int, primaryPatronCultures: [CultureReference], translations: LocaleMap<PatronCategoryTranslation>) {
+        self.id = id
+        self.primaryPatronCultures = primaryPatronCultures
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -25,4 +31,8 @@ public struct PatronCategory: LocalizableEntity {
 public struct PatronCategoryTranslation: EntitySubtype {
     /// The name of the patron category.
     public let name: NonEmptyString
+
+    public init(name: NonEmptyString) {
+        self.name = name
+    }
 }

@@ -18,6 +18,11 @@ public struct MeleeDamage: EntitySubtype {
     
     /// Flat damage, if any. It gets added to the result of the dice rolls.
     public let flat: Int?
+
+    public init(dice: Dice, flat: Int? = nil) {
+        self.dice = dice
+        self.flat = flat
+    }
 }
 
 /// The shield size and potential size-depending values.
@@ -30,7 +35,11 @@ public enum ShieldSize: EntitySubtype {
 
 public struct LargeShieldSize: EntitySubtype {
     /// The attack penalty from the shield.
-    public let attackPenalty: Int    
+    public let attackPenalty: Int
+
+    public init(attackPenalty: Int) {
+        self.attackPenalty = attackPenalty
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case attackPenalty = "attack_penalty"
@@ -69,7 +78,21 @@ public struct MeleeWeapon: EntitySubtype {
     public let isTwoHandedWeapon: Bool
     
     /// Is the weapon an improvised weapon?
-    public let isImprovisedWeapon: Bool    
+    public let isImprovisedWeapon: Bool
+
+    public init(combatTechnique: CloseCombatTechniqueReference, damage: MeleeDamage, damageThreshold: PrimaryAttributeDamageThreshold? = nil, at: AttackModifier, pa: ParryModifier? = nil, reach: ReachIdentifier? = nil, length: Length? = nil, size: ShieldSize? = nil, isParryingWeapon: Bool, isTwoHandedWeapon: Bool, isImprovisedWeapon: Bool) {
+        self.combatTechnique = combatTechnique
+        self.damage = damage
+        self.damageThreshold = damageThreshold
+        self.at = at
+        self.pa = pa
+        self.reach = reach
+        self.length = length
+        self.size = size
+        self.isParryingWeapon = isParryingWeapon
+        self.isTwoHandedWeapon = isTwoHandedWeapon
+        self.isImprovisedWeapon = isImprovisedWeapon
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case combatTechnique = "combat_technique"

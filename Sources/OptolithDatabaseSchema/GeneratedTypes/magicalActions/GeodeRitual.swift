@@ -27,6 +27,17 @@ public struct GeodeRitual: LocalizableEntity {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<GeodeRitualTranslation>
+
+    public init(id: Int, check: SkillCheck, parameters: GeodeRitualPerformanceParameters, target: AffectedTargetCategories, property: PropertyReference, prerequisites: GeodeRitualPrerequisites? = nil, src: PublicationRefs, translations: LocaleMap<GeodeRitualTranslation>) {
+        self.id = id
+        self.check = check
+        self.parameters = parameters
+        self.target = target
+        self.property = property
+        self.prerequisites = prerequisites
+        self.src = src
+        self.translations = translations
+    }
 }
 
 public struct GeodeRitualTranslation: EntitySubtype {
@@ -51,7 +62,18 @@ public struct GeodeRitualTranslation: EntitySubtype {
     @available(*, deprecated)
     public let target: String
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: NonEmptyString, effect: ActivatableSkillEffect, castingTime: OldParameter, cost: OldParameter, range: OldParameter, duration: OldParameter, target: String, errata: Errata? = nil) {
+        self.name = name
+        self.effect = effect
+        self.castingTime = castingTime
+        self.cost = cost
+        self.range = range
+        self.duration = duration
+        self.target = target
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"
@@ -77,7 +99,14 @@ public struct GeodeRitualPerformanceParameters: EntitySubtype {
     public let range: GeodeRitualRange
     
     /// The duration.
-    public let duration: GeodeRitualDuration    
+    public let duration: GeodeRitualDuration
+
+    public init(castingTime: GeodeRitualCastingTime, cost: GeodeRitualCost, range: GeodeRitualRange, duration: GeodeRitualDuration) {
+        self.castingTime = castingTime
+        self.cost = cost
+        self.range = range
+        self.duration = duration
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case castingTime = "casting_time"
@@ -93,6 +122,11 @@ public struct GeodeRitualCastingTime: EntitySubtype {
     
     /// The casting time unit.
     public let unit: SlowSkillCastingTimeUnit
+
+    public init(value: Int, unit: SlowSkillCastingTimeUnit) {
+        self.value = value
+        self.unit = unit
+    }
 }
 
 @DiscriminatedEnum
@@ -104,6 +138,10 @@ public enum GeodeRitualCost: EntitySubtype {
 public struct FixedGeodeRitualCost: EntitySubtype {
     /// The AE cost value.
     public let value: Int
+
+    public init(value: Int) {
+        self.value = value
+    }
 }
 
 @DiscriminatedEnum
@@ -115,6 +153,10 @@ public enum GeodeRitualRange: EntitySubtype {
 public struct FixedGeodeRitualRange: EntitySubtype {
     /// The range in steps/m.
     public let value: Int
+
+    public init(value: Int) {
+        self.value = value
+    }
 }
 
 @DiscriminatedEnum
@@ -130,4 +172,9 @@ public struct FixedGeodeRitualDuration: EntitySubtype {
     
     /// The duration unit.
     public let unit: DurationUnit
+
+    public init(value: Int, unit: DurationUnit) {
+        self.value = value
+        self.unit = unit
+    }
 }

@@ -13,7 +13,13 @@ public struct ArmorType: LocalizableEntity {
     public let sturdinessRating: Int?
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<ArmorTypeTranslation>    
+    public let translations: LocaleMap<ArmorTypeTranslation>
+
+    public init(id: Int, sturdinessRating: Int? = nil, translations: LocaleMap<ArmorTypeTranslation>) {
+        self.id = id
+        self.sturdinessRating = sturdinessRating
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -25,4 +31,8 @@ public struct ArmorType: LocalizableEntity {
 public struct ArmorTypeTranslation: EntitySubtype {
     /// The name of the armor type.
     public let name: NonEmptyString
+
+    public init(name: NonEmptyString) {
+        self.name = name
+    }
 }

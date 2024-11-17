@@ -24,7 +24,17 @@ public struct DominationRitual: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<DominationRitualTranslation>    
+    public let translations: LocaleMap<DominationRitualTranslation>
+
+    public init(id: Int, check: SkillCheck, checkPenalty: SkillCheckPenalty? = nil, parameters: DominationRitualPerformanceParameters, property: PropertyReference, src: PublicationRefs, translations: LocaleMap<DominationRitualTranslation>) {
+        self.id = id
+        self.check = check
+        self.checkPenalty = checkPenalty
+        self.parameters = parameters
+        self.property = property
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -51,6 +61,14 @@ public struct DominationRitualTranslation: EntitySubtype {
     public let duration: OldParameter
     
     public let errata: Errata?
+
+    public init(name: NonEmptyString, effect: ActivatableSkillEffect, cost: OldParameter, duration: OldParameter, errata: Errata? = nil) {
+        self.name = name
+        self.effect = effect
+        self.cost = cost
+        self.duration = duration
+        self.errata = errata
+    }
 }
 
 /// Measurable parameters of a curse.
@@ -60,6 +78,11 @@ public struct DominationRitualPerformanceParameters: EntitySubtype {
     
     /// The duration.
     public let duration: DominationRitualDuration
+
+    public init(cost: DominationRitualCost, duration: DominationRitualDuration) {
+        self.cost = cost
+        self.duration = duration
+    }
 }
 
 public struct DominationRitualCost: EntitySubtype {
@@ -67,7 +90,12 @@ public struct DominationRitualCost: EntitySubtype {
     public let initialModificationLevel: Int
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<DominationRitualCostTranslation>?    
+    public let translations: LocaleMap<DominationRitualCostTranslation>?
+
+    public init(initialModificationLevel: Int, translations: LocaleMap<DominationRitualCostTranslation>? = nil) {
+        self.initialModificationLevel = initialModificationLevel
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case initialModificationLevel = "initial_modification_level"
@@ -78,6 +106,10 @@ public struct DominationRitualCost: EntitySubtype {
 public struct DominationRitualCostTranslation: EntitySubtype {
     /// AE cost in addition to the normal AE cost.
     public let additional: ResponsiveText
+
+    public init(additional: ResponsiveText) {
+        self.additional = additional
+    }
 }
 
 @DiscriminatedEnum
@@ -93,6 +125,11 @@ public struct FixedDominationRitualDuration: EntitySubtype {
     
     /// The unit of the `value`.
     public let unit: DurationUnit
+
+    public init(value: Int, unit: DurationUnit) {
+        self.value = value
+        self.unit = unit
+    }
 }
 
 public struct IndefiniteDominationRitualDuration: EntitySubtype {
@@ -101,6 +138,11 @@ public struct IndefiniteDominationRitualDuration: EntitySubtype {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<IndefiniteDurationTranslation>
+
+    public init(maximum: MaximumIndefiniteDominationRitualDuration? = nil, translations: LocaleMap<IndefiniteDurationTranslation>) {
+        self.maximum = maximum
+        self.translations = translations
+    }
 }
 
 @DiscriminatedEnum

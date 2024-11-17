@@ -22,7 +22,16 @@ public struct Publication: LocalizableEntity {
     public let prerequisites: PublicationPrerequisites?
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<PublicationTranslation>    
+    public let translations: LocaleMap<PublicationTranslation>
+
+    public init(id: Int, category: Category, containsAdultContent: Bool, isMissingImplementation: Bool, prerequisites: PublicationPrerequisites? = nil, translations: LocaleMap<PublicationTranslation>) {
+        self.id = id
+        self.category = category
+        self.containsAdultContent = containsAdultContent
+        self.isMissingImplementation = isMissingImplementation
+        self.prerequisites = prerequisites
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -48,7 +57,15 @@ public struct PublicationTranslation: EntitySubtype {
     public let releaseDate: String?
     
     /// If this publication translation is not (fully) implemented and thus needs to be excluded from stable releases.
-    public let isMissingImplementation: Bool    
+    public let isMissingImplementation: Bool
+
+    public init(id: String? = nil, name: NonEmptyString, abbreviation: NonEmptyString, releaseDate: String? = nil, isMissingImplementation: Bool) {
+        self.id = id
+        self.name = name
+        self.abbreviation = abbreviation
+        self.releaseDate = releaseDate
+        self.isMissingImplementation = isMissingImplementation
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"

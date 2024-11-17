@@ -30,7 +30,19 @@ public struct JesterTrick: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<JesterTrickTranslation>    
+    public let translations: LocaleMap<JesterTrickTranslation>
+
+    public init(id: Int, check: SkillCheck, checkPenalty: SkillCheckPenalty? = nil, parameters: JesterTrickPerformanceParameters, target: AffectedTargetCategories, property: PropertyReference, improvementCost: ImprovementCost, src: PublicationRefs, translations: LocaleMap<JesterTrickTranslation>) {
+        self.id = id
+        self.check = check
+        self.checkPenalty = checkPenalty
+        self.parameters = parameters
+        self.target = target
+        self.property = property
+        self.improvementCost = improvementCost
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -67,7 +79,18 @@ public struct JesterTrickTranslation: EntitySubtype {
     @available(*, deprecated)
     public let target: String
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: NonEmptyString, effect: ActivatableSkillEffect, castingTime: OldParameter, cost: OldParameter, range: OldParameter, duration: OldParameter, target: String, errata: Errata? = nil) {
+        self.name = name
+        self.effect = effect
+        self.castingTime = castingTime
+        self.cost = cost
+        self.range = range
+        self.duration = duration
+        self.target = target
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"
@@ -93,7 +116,14 @@ public struct JesterTrickPerformanceParameters: EntitySubtype {
     public let range: JesterTrickRange
     
     /// The duration.
-    public let duration: JesterTrickDuration    
+    public let duration: JesterTrickDuration
+
+    public init(castingTime: JesterTrickCastingTime, cost: JesterTrickCost, range: JesterTrickRange, duration: JesterTrickDuration) {
+        self.castingTime = castingTime
+        self.cost = cost
+        self.range = range
+        self.duration = duration
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case castingTime = "casting_time"
@@ -106,11 +136,19 @@ public struct JesterTrickPerformanceParameters: EntitySubtype {
 public struct JesterTrickCastingTime: EntitySubtype {
     /// The casting time in actions.
     public let value: Int
+
+    public init(value: Int) {
+        self.value = value
+    }
 }
 
 public struct JesterTrickCost: EntitySubtype {
     /// The AE cost value.
     public let value: Int
+
+    public init(value: Int) {
+        self.value = value
+    }
 }
 
 @DiscriminatedEnum
@@ -123,6 +161,10 @@ public enum JesterTrickRange: EntitySubtype {
 public struct FixedJesterTrickRange: EntitySubtype {
     /// The range in steps/m.
     public let value: Int
+
+    public init(value: Int) {
+        self.value = value
+    }
 }
 
 @DiscriminatedEnum
@@ -138,4 +180,9 @@ public struct FixedJesterTrickDuration: EntitySubtype {
     
     /// The duration unit.
     public let unit: DurationUnit
+
+    public init(value: Int, unit: DurationUnit) {
+        self.value = value
+        self.unit = unit
+    }
 }

@@ -31,7 +31,23 @@ public struct CombatSpecialAbility: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<CombatSpecialAbilityTranslation>    
+    public let translations: LocaleMap<CombatSpecialAbilityTranslation>
+
+    public init(id: Id, levels: Levels? = nil, usageType: CombatSpecialAbilityUsageType, selectOptions: SelectOptions? = nil, skillApplications: SkillApplications? = nil, skillUses: SkillUses? = nil, maximum: Maximum? = nil, penalty: Penalty? = nil, prerequisites: GeneralPrerequisites? = nil, combatTechniques: ApplicableCombatTechniques, apValue: AdventurePointsValue, src: PublicationRefs, translations: LocaleMap<CombatSpecialAbilityTranslation>) {
+        self.id = id
+        self.levels = levels
+        self.usageType = usageType
+        self.selectOptions = selectOptions
+        self.skillApplications = skillApplications
+        self.skillUses = skillUses
+        self.maximum = maximum
+        self.penalty = penalty
+        self.prerequisites = prerequisites
+        self.combatTechniques = combatTechniques
+        self.apValue = apValue
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -63,7 +79,16 @@ public struct CombatSpecialAbilityTranslation: EntitySubtype {
     @available(*, deprecated)
     public let penalty: String?
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: Name, nameInLibrary: NameInLibrary? = nil, input: Input? = nil, rules: Rules, penalty: String? = nil, errata: Errata? = nil) {
+        self.name = name
+        self.nameInLibrary = nameInLibrary
+        self.input = input
+        self.rules = rules
+        self.penalty = penalty
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"

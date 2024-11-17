@@ -11,4 +11,9 @@ public struct AlternativeName: EntitySubtype {
     
     /// The region where this alternative name is used.
     public let region: NonEmptyString?
+
+    public init(name: NonEmptyString, region: NonEmptyString? = nil) {
+        self.name = name
+        self.region = region
+    }
 }

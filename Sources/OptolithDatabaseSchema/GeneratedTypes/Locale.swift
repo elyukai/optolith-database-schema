@@ -16,7 +16,14 @@ public struct Locale: Entity {
     public let region: String
     
     /// The language is not (fully) implemented and thus needs to be excluded from stable releases.
-    public let isMissingImplementation: Bool?    
+    public let isMissingImplementation: Bool?
+
+    public init(id: String, name: String, region: String, isMissingImplementation: Bool? = nil) {
+        self.id = id
+        self.name = name
+        self.region = region
+        self.isMissingImplementation = isMissingImplementation
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"

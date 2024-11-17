@@ -17,6 +17,13 @@ public struct SkillModificationLevel: Entity {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<SkillModificationLevelTranslation>?
+
+    public init(id: Int, fast: FastSkillModificationLevelConfig, slow: SlowSkillModificationLevelConfig, translations: LocaleMap<SkillModificationLevelTranslation>? = nil) {
+        self.id = id
+        self.fast = fast
+        self.slow = slow
+        self.translations = translations
+    }
 }
 
 public struct FastSkillModificationLevelConfig: EntitySubtype {
@@ -27,7 +34,13 @@ public struct FastSkillModificationLevelConfig: EntitySubtype {
     public let range: Int
     
     /// The cost in AE/KP.
-    public let cost: Int    
+    public let cost: Int
+
+    public init(castingTime: Int, range: Int, cost: Int) {
+        self.castingTime = castingTime
+        self.range = range
+        self.cost = cost
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case castingTime = "casting_time"
@@ -44,7 +57,13 @@ public struct SlowSkillModificationLevelConfig: EntitySubtype {
     public let range: Int
     
     /// The cost in AE/KP.
-    public let cost: Int    
+    public let cost: Int
+
+    public init(castingTime: SlowSkillCastingTime, range: Int, cost: Int) {
+        self.castingTime = castingTime
+        self.range = range
+        self.cost = cost
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case castingTime = "casting_time"
@@ -59,6 +78,11 @@ public struct SlowSkillCastingTime: EntitySubtype {
     
     /// The unit for the `value`.
     public let unit: SlowSkillCastingTimeUnit
+
+    public init(value: Int, unit: SlowSkillCastingTimeUnit) {
+        self.value = value
+        self.unit = unit
+    }
 }
 
 public enum SlowSkillCastingTimeUnit: String, EntitySubtype {
@@ -72,9 +96,18 @@ public struct SkillModificationLevelTranslation: EntitySubtype {
     
     /// Configuration for this level for slow skills (rituals, ceremonies). Values set here override the default generated text.
     public let slow: LevelTypeConfigTranslation?
+
+    public init(fast: LevelTypeConfigTranslation? = nil, slow: LevelTypeConfigTranslation? = nil) {
+        self.fast = fast
+        self.slow = slow
+    }
 }
 
 /// Configuration translation of a type for a level. Values set here override the default generated text.
 public struct LevelTypeConfigTranslation: EntitySubtype {
     public let range: NonEmptyString
+
+    public init(range: NonEmptyString) {
+        self.range = range
+    }
 }

@@ -13,6 +13,12 @@ public struct Condition: LocalizableEntity {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<ConditionTranslation>
+
+    public init(id: Int, src: PublicationRefs, translations: LocaleMap<ConditionTranslation>) {
+        self.id = id
+        self.src = src
+        self.translations = translations
+    }
 }
 
 public struct ConditionTranslation: EntitySubtype {
@@ -26,4 +32,11 @@ public struct ConditionTranslation: EntitySubtype {
     public let effects: [NonEmptyMarkdown]
     
     public let errata: Errata?
+
+    public init(name: NonEmptyString, rules: NonEmptyMarkdown? = nil, effects: [NonEmptyMarkdown], errata: Errata? = nil) {
+        self.name = name
+        self.rules = rules
+        self.effects = effects
+        self.errata = errata
+    }
 }

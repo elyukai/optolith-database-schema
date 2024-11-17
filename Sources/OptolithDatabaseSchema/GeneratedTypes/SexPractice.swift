@@ -13,6 +13,12 @@ public struct SexPractice: LocalizableEntity {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<SexPracticeTranslation>
+
+    public init(id: Int, src: PublicationRefs, translations: LocaleMap<SexPracticeTranslation>) {
+        self.id = id
+        self.src = src
+        self.translations = translations
+    }
 }
 
 public struct SexPracticeTranslation: EntitySubtype {
@@ -30,4 +36,12 @@ public struct SexPracticeTranslation: EntitySubtype {
     
     /// Effects of a failed *Seduction* check.
     public let failed: NonEmptyString
+
+    public init(name: NonEmptyString, rules: NonEmptyString, duration: NonEmptyString, prerequisites: NonEmptyString? = nil, failed: NonEmptyString) {
+        self.name = name
+        self.rules = rules
+        self.duration = duration
+        self.prerequisites = prerequisites
+        self.failed = failed
+    }
 }

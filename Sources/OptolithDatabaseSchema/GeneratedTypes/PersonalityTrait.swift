@@ -21,7 +21,16 @@ public struct PersonalityTrait: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<PersonalityTraitTranslation>    
+    public let translations: LocaleMap<PersonalityTraitTranslation>
+
+    public init(id: Int, level: Int, prerequisites: PersonalityTraitPrerequisites? = nil, combinationOptions: [PersonalityTraitReference]? = nil, src: PublicationRefs, translations: LocaleMap<PersonalityTraitTranslation>) {
+        self.id = id
+        self.level = level
+        self.prerequisites = prerequisites
+        self.combinationOptions = combinationOptions
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -41,6 +50,12 @@ public struct PersonalityTraitTranslation: EntitySubtype {
     public let effects: [PersonalityTraitEffect]
     
     public let errata: Errata?
+
+    public init(name: NonEmptyString, effects: [PersonalityTraitEffect], errata: Errata? = nil) {
+        self.name = name
+        self.effects = effects
+        self.errata = errata
+    }
 }
 
 public struct PersonalityTraitEffect: EntitySubtype {
@@ -49,4 +64,9 @@ public struct PersonalityTraitEffect: EntitySubtype {
     
     /// The effect text.
     public let text: NonEmptyString
+
+    public init(label: NonEmptyString? = nil, text: NonEmptyString) {
+        self.label = label
+        self.text = text
+    }
 }

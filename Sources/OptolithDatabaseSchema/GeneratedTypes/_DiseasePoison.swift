@@ -19,6 +19,11 @@ public struct Cause: EntitySubtype {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<CauseTranslation>
+
+    public init(chance: Int? = nil, translations: LocaleMap<CauseTranslation>) {
+        self.chance = chance
+        self.translations = translations
+    }
 }
 
 public struct CauseTranslation: EntitySubtype {
@@ -30,6 +35,12 @@ public struct CauseTranslation: EntitySubtype {
     
     /// An additional note about this cause.
     public let note: NonEmptyString?
+
+    public init(name: String, chance: NonEmptyString? = nil, note: NonEmptyString? = nil) {
+        self.name = name
+        self.chance = chance
+        self.note = note
+    }
 }
 
 public struct DiseaseTranslation: EntitySubtype {
@@ -60,7 +71,20 @@ public struct DiseaseTranslation: EntitySubtype {
     /// Known remedies for the disease.
     public let cure: NonEmptyMarkdown
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: NonEmptyString, alternativeNames: [AlternativeName]? = nil, progress: NonEmptyMarkdown, incubationTime: NonEmptyString, damage: Reduceable<NonEmptyMarkdown>, duration: Reduceable<NonEmptyMarkdown>, special: NonEmptyMarkdown? = nil, treatment: NonEmptyMarkdown, cure: NonEmptyMarkdown, errata: Errata? = nil) {
+        self.name = name
+        self.alternativeNames = alternativeNames
+        self.progress = progress
+        self.incubationTime = incubationTime
+        self.damage = damage
+        self.duration = duration
+        self.special = special
+        self.treatment = treatment
+        self.cure = cure
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"
@@ -85,4 +109,9 @@ public struct Reduceable<Content: EntitySubtype>: EntitySubtype {
     
     /// The reduced value. In the source, it's the text after the slash. Some entries may not have a reduced value.
     public let reduced: Content?
+
+    public init(`default`: Content, reduced: Content? = nil) {
+        self.`default` = `default`
+        self.reduced = reduced
+    }
 }

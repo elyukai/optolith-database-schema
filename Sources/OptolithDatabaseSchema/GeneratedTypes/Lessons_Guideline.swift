@@ -13,7 +13,13 @@ public struct Guideline: LocalizableEntity {
     public let spellworkChangesAllowed: Int
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<GuidelineTranslation>    
+    public let translations: LocaleMap<GuidelineTranslation>
+
+    public init(id: Int, spellworkChangesAllowed: Int, translations: LocaleMap<GuidelineTranslation>) {
+        self.id = id
+        self.spellworkChangesAllowed = spellworkChangesAllowed
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -25,4 +31,8 @@ public struct Guideline: LocalizableEntity {
 public struct GuidelineTranslation: EntitySubtype {
     /// The guideline name.
     public let name: NonEmptyString
+
+    public init(name: NonEmptyString) {
+        self.name = name
+    }
 }

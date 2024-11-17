@@ -21,7 +21,16 @@ public struct Script: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<ScriptTranslation>    
+    public let translations: LocaleMap<ScriptTranslation>
+
+    public init(id: Int, apValue: Int, associatedLanguages: [LanguageReference], continent: [AssociatedContinent], src: PublicationRefs, translations: LocaleMap<ScriptTranslation>) {
+        self.id = id
+        self.apValue = apValue
+        self.associatedLanguages = associatedLanguages
+        self.continent = continent
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -43,7 +52,14 @@ public struct ScriptTranslation: EntitySubtype {
     /// The description of the alphabet.
     public let alphabet: NonEmptyString?
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: NonEmptyString, alternativeNames: [AlternativeName]? = nil, alphabet: NonEmptyString? = nil, errata: Errata? = nil) {
+        self.name = name
+        self.alternativeNames = alternativeNames
+        self.alphabet = alphabet
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"

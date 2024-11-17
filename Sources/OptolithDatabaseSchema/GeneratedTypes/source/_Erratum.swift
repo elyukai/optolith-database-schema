@@ -14,4 +14,9 @@ public struct Erratum: EntitySubtype {
     
     /// A description of what changed.
     public let description: NonEmptyMarkdown
+
+    public init(date: String, description: NonEmptyMarkdown) {
+        self.date = date
+        self.description = description
+    }
 }

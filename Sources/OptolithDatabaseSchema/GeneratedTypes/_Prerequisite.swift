@@ -11,12 +11,22 @@ public struct PrerequisiteGroup<T: EntitySubtype>: EntitySubtype {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<NonEmptyString>
+
+    public init(list: [T], translations: LocaleMap<NonEmptyString>) {
+        self.list = list
+        self.translations = translations
+    }
 }
 
 public struct PrerequisitesDisjunction<T: EntitySubtype>: EntitySubtype {
     public let list: [T]
     
-    public let displayOption: DisplayOption?    
+    public let displayOption: DisplayOption?
+
+    public init(list: [T], displayOption: DisplayOption? = nil) {
+        self.list = list
+        self.displayOption = displayOption
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case list = "list"
@@ -37,6 +47,11 @@ public struct PrerequisiteForLevel<T: EntitySubtype>: EntitySubtype {
     public let level: Int
     
     public let prerequisite: PrerequisitesElement<T>
+
+    public init(level: Int, prerequisite: PrerequisitesElement<T>) {
+        self.level = level
+        self.prerequisite = prerequisite
+    }
 }
 
 public typealias PrerequisitesForLevels<T: EntitySubtype> = [PrerequisiteForLevel<T>]

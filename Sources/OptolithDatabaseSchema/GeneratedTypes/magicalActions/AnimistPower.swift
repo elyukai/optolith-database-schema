@@ -34,7 +34,20 @@ public struct AnimistPower: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<AnimistPowerTranslation>    
+    public let translations: LocaleMap<AnimistPowerTranslation>
+
+    public init(id: Int, check: SkillCheck, parameters: AnimistPowerPerformanceParameters, property: PropertyReference, tribeTradition: [AnimistTribeReference], improvementCost: AnimistPowerImprovementCost, prerequisites: AnimistPowerPrerequisites? = nil, levels: [AnimistPowerLevel]? = nil, src: PublicationRefs, translations: LocaleMap<AnimistPowerTranslation>) {
+        self.id = id
+        self.check = check
+        self.parameters = parameters
+        self.property = property
+        self.tribeTradition = tribeTradition
+        self.improvementCost = improvementCost
+        self.prerequisites = prerequisites
+        self.levels = levels
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -72,7 +85,17 @@ public struct AnimistPowerTranslation: EntitySubtype {
     @available(*, deprecated)
     public let prerequisites: String?
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: NonEmptyString, nameInLibrary: NonEmptyString? = nil, effect: ActivatableSkillEffect, cost: OldParameter, duration: OldParameter, prerequisites: String? = nil, errata: Errata? = nil) {
+        self.name = name
+        self.nameInLibrary = nameInLibrary
+        self.effect = effect
+        self.cost = cost
+        self.duration = duration
+        self.prerequisites = prerequisites
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"
@@ -94,11 +117,21 @@ public struct AnimistPowerLevel: EntitySubtype {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<AnimistPowerLevelTranslation>
+
+    public init(level: Int, src: PublicationRefs? = nil, translations: LocaleMap<AnimistPowerLevelTranslation>) {
+        self.level = level
+        self.src = src
+        self.translations = translations
+    }
 }
 
 public struct AnimistPowerLevelTranslation: EntitySubtype {
     /// An additional effect description for this level.
     public let effect: NonEmptyMarkdown
+
+    public init(effect: NonEmptyMarkdown) {
+        self.effect = effect
+    }
 }
 
 /// Measurable parameters of a animist power.
@@ -114,6 +147,11 @@ public struct OneTimeAnimistPowerPerformanceParameters: EntitySubtype {
     
     /// The duration.
     public let duration: OneTimeAnimistPowerDuration
+
+    public init(cost: OneTimeAnimistPowerCost, duration: OneTimeAnimistPowerDuration) {
+        self.cost = cost
+        self.duration = duration
+    }
 }
 
 @DiscriminatedEnum
@@ -128,6 +166,11 @@ public struct FixedOneTimeAnimistPowerCost: EntitySubtype {
     
     /// If defined, half of the AE cost `value` has to be paid each interval.
     public let interval: DurationUnitValue?
+
+    public init(value: Int, interval: DurationUnitValue? = nil) {
+        self.value = value
+        self.interval = interval
+    }
 }
 
 public struct OneTimeAnimistPowerCostByPrimaryPatron: EntitySubtype {
@@ -136,6 +179,11 @@ public struct OneTimeAnimistPowerCostByPrimaryPatron: EntitySubtype {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<AnimistPowerCostByPrimaryPatronTranslation>?
+
+    public init(interval: DurationUnitValue? = nil, translations: LocaleMap<AnimistPowerCostByPrimaryPatronTranslation>? = nil) {
+        self.interval = interval
+        self.translations = translations
+    }
 }
 
 @DiscriminatedEnum
@@ -148,6 +196,10 @@ public enum OneTimeAnimistPowerDuration: EntitySubtype {
 public struct SustainedAnimistPowerPerformanceParameters: EntitySubtype {
     /// The AE cost value, either a flat value or defined dynamically by the primary patron.
     public let cost: SustainedAnimistPowerCost
+
+    public init(cost: SustainedAnimistPowerCost) {
+        self.cost = cost
+    }
 }
 
 @DiscriminatedEnum
@@ -162,6 +214,11 @@ public struct FixedSustainedAnimistPowerCost: EntitySubtype {
     
     /// Half of the AE cost `value` has to be paid each interval.
     public let interval: DurationUnitValue
+
+    public init(value: Int, interval: DurationUnitValue) {
+        self.value = value
+        self.interval = interval
+    }
 }
 
 public struct SustainedAnimistPowerCostByPrimaryPatron: EntitySubtype {
@@ -170,11 +227,20 @@ public struct SustainedAnimistPowerCostByPrimaryPatron: EntitySubtype {
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<AnimistPowerCostByPrimaryPatronTranslation>?
+
+    public init(interval: DurationUnitValue, translations: LocaleMap<AnimistPowerCostByPrimaryPatronTranslation>? = nil) {
+        self.interval = interval
+        self.translations = translations
+    }
 }
 
 public struct AnimistPowerCostByPrimaryPatronTranslation: EntitySubtype {
     /// A note, appended to the generated string in parenthesis.
     public let note: ResponsiveTextOptional
+
+    public init(note: ResponsiveTextOptional) {
+        self.note = note
+    }
 }
 
 @DiscriminatedEnum

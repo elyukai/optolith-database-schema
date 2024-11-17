@@ -21,7 +21,16 @@ public struct Talisman: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<TalismanTranslation>    
+    public let translations: LocaleMap<TalismanTranslation>
+
+    public init(id: Int, tradition: [BlessedTraditionReference], type: TalismanType? = nil, apValue: Int? = nil, src: PublicationRefs, translations: LocaleMap<TalismanTranslation>) {
+        self.id = id
+        self.tradition = tradition
+        self.type = type
+        self.apValue = apValue
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -52,6 +61,13 @@ public struct TalismanTranslation: EntitySubtype {
     public let activation: TalismanActivationTranslation?
     
     public let errata: Errata?
+
+    public init(name: NonEmptyString, effect: NonEmptyMarkdown, activation: TalismanActivationTranslation? = nil, errata: Errata? = nil) {
+        self.name = name
+        self.effect = effect
+        self.activation = activation
+        self.errata = errata
+    }
 }
 
 public struct TalismanActivationTranslation: EntitySubtype {
@@ -60,4 +76,9 @@ public struct TalismanActivationTranslation: EntitySubtype {
     
     /// The duration.
     public let duration: NonEmptyString
+
+    public init(cost: Int, duration: NonEmptyString) {
+        self.cost = cost
+        self.duration = duration
+    }
 }

@@ -30,7 +30,19 @@ public struct ZibiljaRitual: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<ZibiljaRitualTranslation>    
+    public let translations: LocaleMap<ZibiljaRitualTranslation>
+
+    public init(id: Int, check: SkillCheck, checkPenalty: SkillCheckPenalty? = nil, parameters: ZibiljaRitualPerformanceParameters, target: AffectedTargetCategories, property: PropertyReference, improvementCost: ImprovementCost, src: PublicationRefs, translations: LocaleMap<ZibiljaRitualTranslation>) {
+        self.id = id
+        self.check = check
+        self.checkPenalty = checkPenalty
+        self.parameters = parameters
+        self.target = target
+        self.property = property
+        self.improvementCost = improvementCost
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -67,7 +79,18 @@ public struct ZibiljaRitualTranslation: EntitySubtype {
     @available(*, deprecated)
     public let target: String
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: NonEmptyString, effect: ActivatableSkillEffect, castingTime: OldParameter, cost: OldParameter, range: OldParameter, duration: OldParameter, target: String, errata: Errata? = nil) {
+        self.name = name
+        self.effect = effect
+        self.castingTime = castingTime
+        self.cost = cost
+        self.range = range
+        self.duration = duration
+        self.target = target
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"

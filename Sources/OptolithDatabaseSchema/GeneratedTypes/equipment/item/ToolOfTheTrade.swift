@@ -24,7 +24,17 @@ public struct ToolOfTheTrade: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<ToolOfTheTradeTranslation>    
+    public let translations: LocaleMap<ToolOfTheTradeTranslation>
+
+    public init(cost: Cost, weight: Weight, complexity: Complexity? = nil, structurePoints: StructurePoints? = nil, laboratory: Laboratory? = nil, src: PublicationRefs, translations: LocaleMap<ToolOfTheTradeTranslation>) {
+        self.cost = cost
+        self.weight = weight
+        self.complexity = complexity
+        self.structurePoints = structurePoints
+        self.laboratory = laboratory
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case cost = "cost"
@@ -39,6 +49,10 @@ public struct ToolOfTheTrade: LocalizableEntity {
 
 public struct Laboratory: EntitySubtype {
     public let level: LaboratoryLevel
+
+    public init(level: LaboratoryLevel) {
+        self.level = level
+    }
 }
 
 public struct ToolOfTheTradeTranslation: EntitySubtype {
@@ -54,7 +68,15 @@ public struct ToolOfTheTradeTranslation: EntitySubtype {
     /// Special rules text.
     public let rules: NonEmptyMarkdown?
     
-    public let errata: Errata?    
+    public let errata: Errata?
+
+    public init(name: NonEmptyString, secondaryName: NonEmptyString? = nil, note: NonEmptyMarkdown? = nil, rules: NonEmptyMarkdown? = nil, errata: Errata? = nil) {
+        self.name = name
+        self.secondaryName = secondaryName
+        self.note = note
+        self.rules = rules
+        self.errata = errata
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"

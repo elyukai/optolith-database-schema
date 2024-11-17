@@ -33,6 +33,15 @@ public struct PluralizationCategories: EntitySubtype {
     public let many: NonEmptyString?
     
     public let other: NonEmptyString
+
+    public init(zero: NonEmptyString? = nil, one: NonEmptyString? = nil, two: NonEmptyString? = nil, few: NonEmptyString? = nil, many: NonEmptyString? = nil, other: NonEmptyString) {
+        self.zero = zero
+        self.one = one
+        self.two = two
+        self.few = few
+        self.many = many
+        self.other = other
+    }
 }
 
 /// The item can be different for each operating system.
@@ -42,4 +51,10 @@ public struct VaryBySystem: EntitySubtype {
     public let windows: NonEmptyString
     
     public let linux: NonEmptyString
+
+    public init(mac: NonEmptyString, windows: NonEmptyString, linux: NonEmptyString) {
+        self.mac = mac
+        self.windows = windows
+        self.linux = linux
+    }
 }

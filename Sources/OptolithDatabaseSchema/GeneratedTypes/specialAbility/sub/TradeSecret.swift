@@ -20,7 +20,16 @@ public struct TradeSecret: LocalizableEntity {
     public let src: PublicationRefs
     
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    public let translations: LocaleMap<TradeSecretTranslation>    
+    public let translations: LocaleMap<TradeSecretTranslation>
+
+    public init(id: Int, apValue: Int, isSecretKnowledge: Bool, prerequisites: GeneralPrerequisites? = nil, src: PublicationRefs, translations: LocaleMap<TradeSecretTranslation>) {
+        self.id = id
+        self.apValue = apValue
+        self.isSecretKnowledge = isSecretKnowledge
+        self.prerequisites = prerequisites
+        self.src = src
+        self.translations = translations
+    }    
     
     private enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -40,4 +49,10 @@ public struct TradeSecretTranslation: EntitySubtype {
     public let description: NonEmptyMarkdown?
     
     public let errata: Errata?
+
+    public init(name: NonEmptyString, description: NonEmptyMarkdown? = nil, errata: Errata? = nil) {
+        self.name = name
+        self.description = description
+        self.errata = errata
+    }
 }
