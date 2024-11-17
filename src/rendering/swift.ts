@@ -365,20 +365,16 @@ const renderStatement = (
 }
 
 const transformer: AstTransformer = (ast, meta) => {
-  const date = new Date()
   const main = ast.jsDoc?.tags.main
-  const ignoreFile = ignoreNode(ast, IGNORE_ENV)
 
-  const fileHeader = `//
-//  ${basename(meta.absolutePath)}
-//  OptolithDatabaseSchema
-//`
-
-  if (ignoreFile) {
-    return fileHeader + "\n\n/* This file has been marked as ignored for generating Swift code. */"
+  if (ignoreNode(ast, IGNORE_ENV)) {
+    return undefined
   }
 
-  return `${fileHeader}
+  return `//
+//  ${basename(meta.absolutePath)}
+//  OptolithDatabaseSchema
+//
 
 import DiscriminatedEnum
 

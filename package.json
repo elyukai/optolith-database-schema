@@ -21,7 +21,7 @@
     "build:ts": "tsc",
     "watch:ts": "tsc -w",
     "build:gen": "otjsmd",
-    "watch:gen": "node --watch ./node_modules/optolith-tsjsonschemamd/lib/bin/cli.js -- -w",
+    "watch:gen": "otjsmd -w",
     "build": "npm run build:ts && npm run build:gen",
     "release": "standard-version",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.8.10",
-    "optolith-tsjsonschemamd": "^0.11.0",
+    "optolith-tsjsonschemamd": "^0.11.1",
     "standard-version": "^9.5.0",
     "typescript": "^5.2.2"
   },
