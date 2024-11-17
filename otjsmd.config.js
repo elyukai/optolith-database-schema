@@ -17,7 +17,7 @@ export default {
     },
     {
       targetDir: swiftDir,
-      renderer: swiftRenderer(),
+      renderer: swiftRenderer("OptolithDatabaseSchema"),
     }
   ],
   clean: true,

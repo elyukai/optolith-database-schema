@@ -364,16 +364,17 @@ const renderStatement = (
   }
 }
 
-const transformer: AstTransformer = (ast, meta) => {
-  const main = ast.jsDoc?.tags.main
+const createTransformer = (packageName: string): AstTransformer => {
+  const transformer: AstTransformer = (ast, meta) => {
+    const main = ast.jsDoc?.tags.main
 
-  if (ignoreNode(ast, IGNORE_ENV)) {
-    return undefined
-  }
+    if (ignoreNode(ast, IGNORE_ENV)) {
+      return undefined
+    }
 
-  return `//
+    return `//
 //  ${basename(meta.absolutePath)}
-//  OptolithDatabaseSchema
+//  ${packageName}
 //
 
 import DiscriminatedEnum
@@ -382,10 +383,13 @@ ${ast.children
   .map(stmt => renderStatement(stmt, 0, main))
   .filter(isNotNullish)
   .join("\n\n")}\n`
+  }
+
+  return transformer
 }
 
-export const swiftRenderer = (): Renderer => ({
+export const swiftRenderer = (packageName: string): Renderer => ({
   fileExtension: ".swift",
-  transformer: transformer,
+  transformer: createTransformer(packageName),
   resolveTypeParameters: false,
 })
