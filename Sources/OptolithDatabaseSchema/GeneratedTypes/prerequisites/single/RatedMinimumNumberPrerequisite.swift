@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct RatedMinimumNumberPrerequisite: EntitySubtype {
     /// The minimum number of skills that need to be on the defined minimum skill rating.
     public let number: Int
@@ -32,12 +30,41 @@ public struct RatedMinimumNumberPrerequisite: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum RatedMinimumNumberPrerequisiteTarget: EntitySubtype {
     case skills(RatedMinimumNumberPrerequisiteSkillsTarget)
     case combatTechniques(CombatTechniquesTarget)
     case spellworks(PropertyReference)
     case liturgies(AspectReference)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case skills = "skills"
+        case combatTechniques = "combat_techniques"
+        case spellworks = "spellworks"
+        case liturgies = "liturgies"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case skills = "Skills"
+        case combatTechniques = "CombatTechniques"
+        case spellworks = "Spellworks"
+        case liturgies = "Liturgies"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .skills:
+            self = .skills(try container.decode(RatedMinimumNumberPrerequisiteSkillsTarget.self, forKey: .skills))
+        case .combatTechniques:
+            self = .combatTechniques(try container.decode(CombatTechniquesTarget.self, forKey: .combatTechniques))
+        case .spellworks:
+            self = .spellworks(try container.decode(PropertyReference.self, forKey: .spellworks))
+        case .liturgies:
+            self = .liturgies(try container.decode(AspectReference.self, forKey: .liturgies))
+        }
+    }
 }
 
 public struct RatedMinimumNumberPrerequisiteSkillsTarget: EntitySubtype {

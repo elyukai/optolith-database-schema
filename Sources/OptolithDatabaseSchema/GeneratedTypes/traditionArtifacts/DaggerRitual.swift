@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct DaggerRitual: LocalizableEntity {
     public let id: Id
 
@@ -58,10 +56,31 @@ public struct DaggerRitual: LocalizableEntity {
     }
 }
 
-@DiscriminatedEnum
 public enum DaggerRitualCost: EntitySubtype {
     case arcaneEnergyCost(DaggerRitualArcaneEnergyCost)
     case bindingCost(BindingCost)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case arcaneEnergyCost = "arcane_energy_cost"
+        case bindingCost = "binding_cost"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case arcaneEnergyCost = "ArcaneEnergyCost"
+        case bindingCost = "BindingCost"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .arcaneEnergyCost:
+            self = .arcaneEnergyCost(try container.decode(DaggerRitualArcaneEnergyCost.self, forKey: .arcaneEnergyCost))
+        case .bindingCost:
+            self = .bindingCost(try container.decode(BindingCost.self, forKey: .bindingCost))
+        }
+    }
 }
 
 public struct DaggerRitualArcaneEnergyCost: EntitySubtype {
@@ -80,9 +99,15 @@ public struct DaggerRitualArcaneEnergyCost: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
-public enum LifePointsCost: EntitySubtype {
-    case fixed(FixedLifePointsCost)
+public struct LifePointsCost: EntitySubtype {
+    public let tag: String
+
+    public let fixed: FixedLifePointsCost
+
+    public init(tag: String, fixed: FixedLifePointsCost) {
+        self.tag = tag
+        self.fixed = fixed
+    }
 }
 
 public struct FixedLifePointsCost: EntitySubtype {

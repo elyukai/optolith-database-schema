@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 /// Requires a specific enhancement from a skill. This should **not** be used for enhancements themselves; they can only require enhancements from the same skill they enhance.
 public struct ExternalEnhancementPrerequisite: EntitySubtype {
     /// The required skill.

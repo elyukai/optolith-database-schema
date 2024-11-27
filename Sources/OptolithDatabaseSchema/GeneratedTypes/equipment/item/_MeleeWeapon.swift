@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 /// The AT modifier.
 public typealias AttackModifier = Int
 
@@ -26,11 +24,36 @@ public struct MeleeDamage: EntitySubtype {
 }
 
 /// The shield size and potential size-depending values.
-@DiscriminatedEnum
 public enum ShieldSize: EntitySubtype {
     case small
     case medium
     case large(LargeShieldSize)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case small = "small"
+        case medium = "medium"
+        case large = "large"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case small = "Small"
+        case medium = "Medium"
+        case large = "Large"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .small:
+            self = .small
+        case .medium:
+            self = .medium
+        case .large:
+            self = .large(try container.decode(LargeShieldSize.self, forKey: .large))
+        }
+    }
 }
 
 public struct LargeShieldSize: EntitySubtype {

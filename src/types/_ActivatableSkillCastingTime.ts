@@ -1,6 +1,6 @@
 import { SlowSkillCastingTimeUnit } from "./SkillModificationLevel.js"
 
-export type CastingTime<NonModifiable extends Object> =
+export type CastingTime<NonModifiable> =
   | {
       tag: "Modifiable"
       modifiable: ModifiableCastingTime
@@ -26,7 +26,7 @@ export type ModifiableCastingTime = {
  * There must always be at least one casting time value.
  * @minProperties 1
  */
-export type CastingTimeIncludingLovemaking<NonModifiable extends Object> = {
+export type CastingTimeIncludingLovemaking<NonModifiable> = {
   /**
    * The default casting time definition.
    */

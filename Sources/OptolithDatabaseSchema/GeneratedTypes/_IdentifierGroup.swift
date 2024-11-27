@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public enum ActivatableIdentifier: EntitySubtype {
     case advantageIdentifier(AdvantageIdentifier)
     case disadvantageIdentifier(DisadvantageIdentifier)
@@ -59,7 +57,6 @@ public enum ActivatableIdentifier: EntitySubtype {
 
     public init(from decoder: any Decoder) throws {
         let container = try decoder.singleValueContainer()
-
         if let advantageIdentifier = try? container.decode(AdvantageIdentifier.self) {
             self = .advantageIdentifier(advantageIdentifier)
         } else if let disadvantageIdentifier = try? container.decode(DisadvantageIdentifier.self) {
@@ -218,7 +215,6 @@ public enum SpecialAbilityIdentifier: EntitySubtype {
 
     public init(from decoder: any Decoder) throws {
         let container = try decoder.singleValueContainer()
-
         if let advancedCombatSpecialAbilityIdentifier = try? container.decode(AdvancedCombatSpecialAbilityIdentifier.self) {
             self = .advancedCombatSpecialAbilityIdentifier(advancedCombatSpecialAbilityIdentifier)
         } else if let advancedKarmaSpecialAbilityIdentifier = try? container.decode(AdvancedKarmaSpecialAbilityIdentifier.self) {
@@ -329,7 +325,6 @@ public enum CombatRelatedSpecialAbilityIdentifier: EntitySubtype {
 
     public init(from decoder: any Decoder) throws {
         let container = try decoder.singleValueContainer()
-
         if let combatSpecialAbilityIdentifier = try? container.decode(CombatSpecialAbilityIdentifier.self) {
             self = .combatSpecialAbilityIdentifier(combatSpecialAbilityIdentifier)
         } else if let combatStyleSpecialAbilityIdentifier = try? container.decode(CombatStyleSpecialAbilityIdentifier.self) {
@@ -350,7 +345,6 @@ public enum TraditionIdentifier: EntitySubtype {
 
     public init(from decoder: any Decoder) throws {
         let container = try decoder.singleValueContainer()
-
         if let magicalTraditionIdentifier = try? container.decode(MagicalTraditionIdentifier.self) {
             self = .magicalTraditionIdentifier(magicalTraditionIdentifier)
         } else if let blessedTraditionIdentifier = try? container.decode(BlessedTraditionIdentifier.self) {
@@ -373,7 +367,6 @@ public enum RatedIdentifier: EntitySubtype {
 
     public init(from decoder: any Decoder) throws {
         let container = try decoder.singleValueContainer()
-
         if let attributeIdentifier = try? container.decode(AttributeIdentifier.self) {
             self = .attributeIdentifier(attributeIdentifier)
         } else if let skillIdentifier = try? container.decode(SkillIdentifier.self) {
@@ -405,7 +398,6 @@ public enum SkillishIdentifier: EntitySubtype {
 
     public init(from decoder: any Decoder) throws {
         let container = try decoder.singleValueContainer()
-
         if let skillIdentifier = try? container.decode(SkillIdentifier.self) {
             self = .skillIdentifier(skillIdentifier)
         } else if let spellIdentifier = try? container.decode(SpellIdentifier.self) {
@@ -430,7 +422,6 @@ public enum AdvancedSpecialAbilityRestrictedOptionIdentifier: EntitySubtype {
 
     public init(from decoder: any Decoder) throws {
         let container = try decoder.singleValueContainer()
-
         if let generalIdentifier = try? container.decode(GeneralIdentifier.self) {
             self = .generalIdentifier(generalIdentifier)
         } else if let skillIdentifier = try? container.decode(SkillIdentifier.self) {
@@ -451,7 +442,6 @@ public enum VolumePointsOptionReferenceIdentifier: EntitySubtype {
 
     public init(from decoder: any Decoder) throws {
         let container = try decoder.singleValueContainer()
-
         if let generalIdentifier = try? container.decode(GeneralIdentifier.self) {
             self = .generalIdentifier(generalIdentifier)
         } else if let animalShapeSizeIdentifier = try? container.decode(AnimalShapeSizeIdentifier.self) {
@@ -468,7 +458,6 @@ public enum CombatTechniqueIdentifier: EntitySubtype {
 
     public init(from decoder: any Decoder) throws {
         let container = try decoder.singleValueContainer()
-
         if let closeCombatTechniqueIdentifier = try? container.decode(CloseCombatTechniqueIdentifier.self) {
             self = .closeCombatTechniqueIdentifier(closeCombatTechniqueIdentifier)
         } else if let rangedCombatTechniqueIdentifier = try? container.decode(RangedCombatTechniqueIdentifier.self) {
@@ -485,7 +474,6 @@ public enum ExtensionRuleIdentifier: EntitySubtype {
 
     public init(from decoder: any Decoder) throws {
         let container = try decoder.singleValueContainer()
-
         if let focusRuleIdentifier = try? container.decode(FocusRuleIdentifier.self) {
             self = .focusRuleIdentifier(focusRuleIdentifier)
         } else if let optionalRuleIdentifier = try? container.decode(OptionalRuleIdentifier.self) {
@@ -504,7 +492,6 @@ public enum SkillWithEnhancementsIdentifier: EntitySubtype {
 
     public init(from decoder: any Decoder) throws {
         let container = try decoder.singleValueContainer()
-
         if let spellIdentifier = try? container.decode(SpellIdentifier.self) {
             self = .spellIdentifier(spellIdentifier)
         } else if let ritualIdentifier = try? container.decode(RitualIdentifier.self) {
@@ -525,7 +512,6 @@ public enum SpellworkIdentifier: EntitySubtype {
 
     public init(from decoder: any Decoder) throws {
         let container = try decoder.singleValueContainer()
-
         if let spellIdentifier = try? container.decode(SpellIdentifier.self) {
             self = .spellIdentifier(spellIdentifier)
         } else if let ritualIdentifier = try? container.decode(RitualIdentifier.self) {
@@ -542,7 +528,6 @@ public enum LiturgyIdentifier: EntitySubtype {
 
     public init(from decoder: any Decoder) throws {
         let container = try decoder.singleValueContainer()
-
         if let liturgicalChantIdentifier = try? container.decode(LiturgicalChantIdentifier.self) {
             self = .liturgicalChantIdentifier(liturgicalChantIdentifier)
         } else if let ceremonyIdentifier = try? container.decode(CeremonyIdentifier.self) {
@@ -567,7 +552,6 @@ public enum MagicalActionIdentifier: EntitySubtype {
 
     public init(from decoder: any Decoder) throws {
         let container = try decoder.singleValueContainer()
-
         if let curseIdentifier = try? container.decode(CurseIdentifier.self) {
             self = .curseIdentifier(curseIdentifier)
         } else if let elvenMagicalSongIdentifier = try? container.decode(ElvenMagicalSongIdentifier.self) {
@@ -625,7 +609,6 @@ public enum SelectOptionIdentifier: EntitySubtype {
 
     public init(from decoder: any Decoder) throws {
         let container = try decoder.singleValueContainer()
-
         if let generalIdentifier = try? container.decode(GeneralIdentifier.self) {
             self = .generalIdentifier(generalIdentifier)
         } else if let blessingIdentifier = try? container.decode(BlessingIdentifier.self) {
@@ -702,7 +685,6 @@ public enum RequirableSelectOptionIdentifier: EntitySubtype {
 
     public init(from decoder: any Decoder) throws {
         let container = try decoder.singleValueContainer()
-
         if let generalIdentifier = try? container.decode(GeneralIdentifier.self) {
             self = .generalIdentifier(generalIdentifier)
         } else if let skillIdentifier = try? container.decode(SkillIdentifier.self) {
@@ -741,7 +723,6 @@ public enum CoreRuleDerivableContentIdentifier: EntitySubtype {
 
     public init(from decoder: any Decoder) throws {
         let container = try decoder.singleValueContainer()
-
         if let magicalTraditionIdentifier = try? container.decode(MagicalTraditionIdentifier.self) {
             self = .magicalTraditionIdentifier(magicalTraditionIdentifier)
         } else if let familiarSpecialAbilityIdentifier = try? container.decode(FamiliarSpecialAbilityIdentifier.self) {
@@ -789,7 +770,6 @@ public enum EquipmentIdentifier: EntitySubtype {
 
     public init(from decoder: any Decoder) throws {
         let container = try decoder.singleValueContainer()
-
         if let ammunitionIdentifier = try? container.decode(AmmunitionIdentifier.self) {
             self = .ammunitionIdentifier(ammunitionIdentifier)
         } else if let animalIdentifier = try? container.decode(AnimalIdentifier.self) {
@@ -860,7 +840,6 @@ public enum OneOrManyNumericIdentifiers: EntitySubtype {
 
     public init(from decoder: any Decoder) throws {
         let container = try decoder.singleValueContainer()
-
         if let oneNumericIdentifier = try? container.decode(OneNumericIdentifier.self) {
             self = .oneNumericIdentifier(oneNumericIdentifier)
         } else if let manyNumericIdentifiers = try? container.decode(ManyNumericIdentifiers.self) {

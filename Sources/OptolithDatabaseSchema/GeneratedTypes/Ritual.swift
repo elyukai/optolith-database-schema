@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct Ritual: LocalizableEntity {
     /// The ritual's identifier. An unique, increasing integer.
     public let id: Int
@@ -19,7 +17,7 @@ public struct Ritual: LocalizableEntity {
     public let parameters: SlowPerformanceParameters
 
     /// The target category – the kind of creature or object – the skill affects.
-    public let target: AffectedTargetCategories
+    public let `target`: AffectedTargetCategories
 
     /// The associated property.
     public let property: PropertyReference
@@ -39,12 +37,12 @@ public struct Ritual: LocalizableEntity {
 
     public let enhancements: Enhancements?
 
-    public init(id: Int, check: SkillCheck, checkPenalty: SkillCheckPenalty? = nil, parameters: SlowPerformanceParameters, target: AffectedTargetCategories, property: PropertyReference, traditions: Traditions, improvementCost: ImprovementCost, prerequisites: SpellworkPrerequisites? = nil, src: PublicationRefs, translations: LocaleMap<RitualTranslation>, enhancements: Enhancements? = nil) {
+    public init(id: Int, check: SkillCheck, checkPenalty: SkillCheckPenalty? = nil, parameters: SlowPerformanceParameters, `target`: AffectedTargetCategories, property: PropertyReference, traditions: Traditions, improvementCost: ImprovementCost, prerequisites: SpellworkPrerequisites? = nil, src: PublicationRefs, translations: LocaleMap<RitualTranslation>, enhancements: Enhancements? = nil) {
         self.id = id
         self.check = check
         self.checkPenalty = checkPenalty
         self.parameters = parameters
-        self.target = target
+        self.`target` = `target`
         self.property = property
         self.traditions = traditions
         self.improvementCost = improvementCost
@@ -59,7 +57,7 @@ public struct Ritual: LocalizableEntity {
         case check = "check"
         case checkPenalty = "check_penalty"
         case parameters = "parameters"
-        case target = "target"
+        case `target` = "target"
         case property = "property"
         case traditions = "traditions"
         case improvementCost = "improvement_cost"
@@ -90,18 +88,18 @@ public struct RitualTranslation: EntitySubtype {
     public let duration: OldParameter
 
     @available(*, deprecated)
-    public let target: String
+    public let `target`: String
 
     public let errata: Errata?
 
-    public init(name: String, effect: ActivatableSkillEffect, castingTime: OldParameter, cost: OldParameter, range: OldParameter, duration: OldParameter, target: String, errata: Errata? = nil) {
+    public init(name: String, effect: ActivatableSkillEffect, castingTime: OldParameter, cost: OldParameter, range: OldParameter, duration: OldParameter, `target`: String, errata: Errata? = nil) {
         self.name = name
         self.effect = effect
         self.castingTime = castingTime
         self.cost = cost
         self.range = range
         self.duration = duration
-        self.target = target
+        self.`target` = `target`
         self.errata = errata
     }
 
@@ -112,7 +110,7 @@ public struct RitualTranslation: EntitySubtype {
         case cost = "cost"
         case range = "range"
         case duration = "duration"
-        case target = "target"
+        case `target` = "target"
         case errata = "errata"
     }
 }

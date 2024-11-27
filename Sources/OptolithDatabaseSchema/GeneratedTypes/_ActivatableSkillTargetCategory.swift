@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 /// The target category – the kind of creature or object – the skill affects.
 /// 
 /// If no target categories are given, the skill applies to all target categories.
@@ -31,11 +29,44 @@ public struct SpecificAffectedTargetCategoryTranslation: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum SpecificAffectedTargetCategoryIdentifier: EntitySubtype {
     case `self`
     case zone
     case liturgicalChantsAndCeremonies
     case cantrips
     case predefined(TargetCategoryReference)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case `self` = "self"
+        case zone = "zone"
+        case liturgicalChantsAndCeremonies = "liturgical_chants_and_ceremonies"
+        case cantrips = "cantrips"
+        case predefined = "predefined"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case `self` = "Self"
+        case zone = "Zone"
+        case liturgicalChantsAndCeremonies = "LiturgicalChantsAndCeremonies"
+        case cantrips = "Cantrips"
+        case predefined = "Predefined"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .`self`:
+            self = .`self`
+        case .zone:
+            self = .zone
+        case .liturgicalChantsAndCeremonies:
+            self = .liturgicalChantsAndCeremonies
+        case .cantrips:
+            self = .cantrips
+        case .predefined:
+            self = .predefined(try container.decode(TargetCategoryReference.self, forKey: .predefined))
+        }
+    }
 }

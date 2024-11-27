@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct BlessedTraditionPrerequisite: EntitySubtype {
     /// The blessed tradition prerequisite may only be satified if the blessed tradition is either church or shamanistic.
     public let restriction: BlessedTraditionPrerequisiteRestriction?

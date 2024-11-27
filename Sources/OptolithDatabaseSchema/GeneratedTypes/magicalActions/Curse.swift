@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct Curse: LocalizableEntity {
     /// The curse's identifier. An unique, increasing integer.
     public let id: Int
@@ -85,10 +83,31 @@ public struct CursePerformanceParameters: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum CurseCost: EntitySubtype {
     case fixed(FixedCurseCost)
     case indefinite(IndefiniteOneTimeCost)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case fixed = "fixed"
+        case indefinite = "indefinite"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case fixed = "Fixed"
+        case indefinite = "Indefinite"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .fixed:
+            self = .fixed(try container.decode(FixedCurseCost.self, forKey: .fixed))
+        case .indefinite:
+            self = .indefinite(try container.decode(IndefiniteOneTimeCost.self, forKey: .indefinite))
+        }
+    }
 }
 
 public struct FixedCurseCost: EntitySubtype {
@@ -117,12 +136,41 @@ public struct FixedCurseCostTranslation: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum CurseDuration: EntitySubtype {
     case immediate
     case fixed(FixedCurseDuration)
     case checkResultBased(CheckResultBasedDuration)
     case indefinite(IndefiniteCurseDuration)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case immediate = "immediate"
+        case fixed = "fixed"
+        case checkResultBased = "check_result_based"
+        case indefinite = "indefinite"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case immediate = "Immediate"
+        case fixed = "Fixed"
+        case checkResultBased = "CheckResultBased"
+        case indefinite = "Indefinite"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .immediate:
+            self = .immediate
+        case .fixed:
+            self = .fixed(try container.decode(FixedCurseDuration.self, forKey: .fixed))
+        case .checkResultBased:
+            self = .checkResultBased(try container.decode(CheckResultBasedDuration.self, forKey: .checkResultBased))
+        case .indefinite:
+            self = .indefinite(try container.decode(IndefiniteCurseDuration.self, forKey: .indefinite))
+        }
+    }
 }
 
 public struct FixedCurseDuration: EntitySubtype {
@@ -151,8 +199,29 @@ public struct IndefiniteCurseDuration: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum MaximumIndefiniteCurseDuration: EntitySubtype {
     case fixed(FixedCurseDuration)
     case checkResultBased(CheckResultBasedDuration)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case fixed = "fixed"
+        case checkResultBased = "check_result_based"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case fixed = "Fixed"
+        case checkResultBased = "CheckResultBased"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .fixed:
+            self = .fixed(try container.decode(FixedCurseDuration.self, forKey: .fixed))
+        case .checkResultBased:
+            self = .checkResultBased(try container.decode(CheckResultBasedDuration.self, forKey: .checkResultBased))
+        }
+    }
 }

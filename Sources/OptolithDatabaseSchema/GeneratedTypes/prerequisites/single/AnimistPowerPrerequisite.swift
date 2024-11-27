@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 /// Requires a specific animist power to be on a minimum value.
 public struct AnimistPowerPrerequisite: EntitySubtype {
     /// The animist power's identifier.

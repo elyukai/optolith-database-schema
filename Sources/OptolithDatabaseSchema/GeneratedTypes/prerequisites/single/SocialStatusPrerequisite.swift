@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 /// Requires a minimum social status.
 public struct SocialStatusPrerequisite: EntitySubtype {
     /// The minimum social status' identifier.

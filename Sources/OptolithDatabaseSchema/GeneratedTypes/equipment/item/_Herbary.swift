@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 /// Effect type categories of a plant or recipe.
 public enum EffectType: String, EntitySubtype {
     case healing = "Healing"

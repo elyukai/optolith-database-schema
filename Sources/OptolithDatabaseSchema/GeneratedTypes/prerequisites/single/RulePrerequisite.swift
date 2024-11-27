@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct RulePrerequisite: EntitySubtype {
     public let id: ExtensionRuleIdentifier
 

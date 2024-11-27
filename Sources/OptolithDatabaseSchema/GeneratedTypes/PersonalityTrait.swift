@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 /// A personality trait describes character aspects of a person from a certain region. Higher trait levels only cover a part of the region covered by lower-level traits.
 public struct PersonalityTrait: LocalizableEntity {
     /// The personality trait's identifier. An unique, increasing integer.

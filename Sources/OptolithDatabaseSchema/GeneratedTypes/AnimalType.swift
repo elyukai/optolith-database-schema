@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct AnimalType: LocalizableEntity {
     /// The animal type's identifier. An unique, increasing integer.
     public let id: Int

@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct CoreRule: LocalizableEntity {
     /// The core rule's identifier. An unique, increasing integer.
     public let id: Int
@@ -36,12 +34,41 @@ public struct CoreRuleTranslation: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum ContentNode: EntitySubtype {
     case child(ChildNode)
     case text(TextNode)
     case reference(ReferenceNode)
     case referenceList(ReferenceListNode)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case child = "child"
+        case text = "text"
+        case reference = "reference"
+        case referenceList = "reference_list"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case child = "Child"
+        case text = "Text"
+        case reference = "Reference"
+        case referenceList = "ReferenceList"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .child:
+            self = .child(try container.decode(ChildNode.self, forKey: .child))
+        case .text:
+            self = .text(try container.decode(TextNode.self, forKey: .text))
+        case .reference:
+            self = .reference(try container.decode(ReferenceNode.self, forKey: .reference))
+        case .referenceList:
+            self = .referenceList(try container.decode(ReferenceListNode.self, forKey: .referenceList))
+        }
+    }
 }
 
 /// A core rule nested inside this core rule. It may be displayed as a separate page or its content may be included in this rule's text, which will automatically generate a proper heading. No content node of a type other than
@@ -92,7 +119,6 @@ public struct ReferenceListNode: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum ReferenceListNodeSource: EntitySubtype {
     case attributes
     case qualityLevels
@@ -154,24 +180,278 @@ public enum ReferenceListNodeSource: EntitySubtype {
     case items
     case optionalRules
     case improvementCost(ReferenceListNodeImprovementCostSource)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case attributes = "attributes"
+        case qualityLevels = "quality_levels"
+        case conditions = "conditions"
+        case states = "states"
+        case experienceLevels = "experience_levels"
+        case races = "races"
+        case cultures = "cultures"
+        case professions = "professions"
+        case advantages = "advantages"
+        case disadvantages = "disadvantages"
+        case combatTechniques = "combat_techniques"
+        case specialAbilities = "special_abilities"
+        case primaryAttributes = "primary_attributes"
+        case derivedCharacteristics = "derived_characteristics"
+        case startingAge = "starting_age"
+        case archetypes = "archetypes"
+        case requirementsForRoutineChecks = "requirements_for_routine_checks"
+        case generalSpecialAbilities = "general_special_abilities"
+        case fatePointSpecialAbilities = "fate_point_special_abilities"
+        case languagesAndScripts = "languages_and_scripts"
+        case closeCombatBotch = "close_combat_botch"
+        case defenseBotch = "defense_botch"
+        case meleeCombatTechniques = "melee_combat_techniques"
+        case rangedCombatBotch = "ranged_combat_botch"
+        case rangedCombatDefenseBotch = "ranged_combat_defense_botch"
+        case rangedCombatTechniques = "ranged_combat_techniques"
+        case combatSpecialAbilities = "combat_special_abilities"
+        case properties = "properties"
+        case spellBotch = "spell_botch"
+        case services = "services"
+        case protectiveAndWardingCircles = "protective_and_warding_circles"
+        case elixirs = "elixirs"
+        case staffEnchantments = "staff_enchantments"
+        case familiarsTricks = "familiars_tricks"
+        case curses = "curses"
+        case elvenMagicalSongs = "elven_magical_songs"
+        case magicalSpecialAbilities = "magical_special_abilities"
+        case cantrips = "cantrips"
+        case spells = "spells"
+        case rituals = "rituals"
+        case aspects = "aspects"
+        case liturgyBotch = "liturgy_botch"
+        case karmaSpecialAbilities = "karma_special_abilities"
+        case blessings = "blessings"
+        case liturgicalChants = "liturgical_chants"
+        case ceremonies = "ceremonies"
+        case socialStatuses = "social_statuses"
+        case poisons = "poisons"
+        case diseases = "diseases"
+        case healingHerbs = "healing_herbs"
+        case visibilityModifier = "visibility_modifier"
+        case demons = "demons"
+        case elementals = "elementals"
+        case animals = "animals"
+        case familiars = "familiars"
+        case animalSpecialAbilities = "animal_special_abilities"
+        case equipmentPackages = "equipment_packages"
+        case items = "items"
+        case optionalRules = "optional_rules"
+        case improvementCost = "improvement_cost"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case attributes = "Attributes"
+        case qualityLevels = "QualityLevels"
+        case conditions = "Conditions"
+        case states = "States"
+        case experienceLevels = "ExperienceLevels"
+        case races = "Races"
+        case cultures = "Cultures"
+        case professions = "Professions"
+        case advantages = "Advantages"
+        case disadvantages = "Disadvantages"
+        case combatTechniques = "CombatTechniques"
+        case specialAbilities = "SpecialAbilities"
+        case primaryAttributes = "PrimaryAttributes"
+        case derivedCharacteristics = "DerivedCharacteristics"
+        case startingAge = "StartingAge"
+        case archetypes = "Archetypes"
+        case requirementsForRoutineChecks = "RequirementsForRoutineChecks"
+        case generalSpecialAbilities = "GeneralSpecialAbilities"
+        case fatePointSpecialAbilities = "FatePointSpecialAbilities"
+        case languagesAndScripts = "LanguagesAndScripts"
+        case closeCombatBotch = "CloseCombatBotch"
+        case defenseBotch = "DefenseBotch"
+        case meleeCombatTechniques = "MeleeCombatTechniques"
+        case rangedCombatBotch = "RangedCombatBotch"
+        case rangedCombatDefenseBotch = "RangedCombatDefenseBotch"
+        case rangedCombatTechniques = "RangedCombatTechniques"
+        case combatSpecialAbilities = "CombatSpecialAbilities"
+        case properties = "Properties"
+        case spellBotch = "SpellBotch"
+        case services = "Services"
+        case protectiveAndWardingCircles = "ProtectiveAndWardingCircles"
+        case elixirs = "Elixirs"
+        case staffEnchantments = "StaffEnchantments"
+        case familiarsTricks = "FamiliarsTricks"
+        case curses = "Curses"
+        case elvenMagicalSongs = "ElvenMagicalSongs"
+        case magicalSpecialAbilities = "MagicalSpecialAbilities"
+        case cantrips = "Cantrips"
+        case spells = "Spells"
+        case rituals = "Rituals"
+        case aspects = "Aspects"
+        case liturgyBotch = "LiturgyBotch"
+        case karmaSpecialAbilities = "KarmaSpecialAbilities"
+        case blessings = "Blessings"
+        case liturgicalChants = "LiturgicalChants"
+        case ceremonies = "Ceremonies"
+        case socialStatuses = "SocialStatuses"
+        case poisons = "Poisons"
+        case diseases = "Diseases"
+        case healingHerbs = "HealingHerbs"
+        case visibilityModifier = "VisibilityModifier"
+        case demons = "Demons"
+        case elementals = "Elementals"
+        case animals = "Animals"
+        case familiars = "Familiars"
+        case animalSpecialAbilities = "AnimalSpecialAbilities"
+        case equipmentPackages = "EquipmentPackages"
+        case items = "Items"
+        case optionalRules = "OptionalRules"
+        case improvementCost = "ImprovementCost"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .attributes:
+            self = .attributes
+        case .qualityLevels:
+            self = .qualityLevels
+        case .conditions:
+            self = .conditions
+        case .states:
+            self = .states
+        case .experienceLevels:
+            self = .experienceLevels
+        case .races:
+            self = .races
+        case .cultures:
+            self = .cultures
+        case .professions:
+            self = .professions
+        case .advantages:
+            self = .advantages
+        case .disadvantages:
+            self = .disadvantages
+        case .combatTechniques:
+            self = .combatTechniques
+        case .specialAbilities:
+            self = .specialAbilities
+        case .primaryAttributes:
+            self = .primaryAttributes
+        case .derivedCharacteristics:
+            self = .derivedCharacteristics
+        case .startingAge:
+            self = .startingAge
+        case .archetypes:
+            self = .archetypes
+        case .requirementsForRoutineChecks:
+            self = .requirementsForRoutineChecks
+        case .generalSpecialAbilities:
+            self = .generalSpecialAbilities
+        case .fatePointSpecialAbilities:
+            self = .fatePointSpecialAbilities
+        case .languagesAndScripts:
+            self = .languagesAndScripts
+        case .closeCombatBotch:
+            self = .closeCombatBotch
+        case .defenseBotch:
+            self = .defenseBotch
+        case .meleeCombatTechniques:
+            self = .meleeCombatTechniques
+        case .rangedCombatBotch:
+            self = .rangedCombatBotch
+        case .rangedCombatDefenseBotch:
+            self = .rangedCombatDefenseBotch
+        case .rangedCombatTechniques:
+            self = .rangedCombatTechniques
+        case .combatSpecialAbilities:
+            self = .combatSpecialAbilities
+        case .properties:
+            self = .properties
+        case .spellBotch:
+            self = .spellBotch
+        case .services:
+            self = .services
+        case .protectiveAndWardingCircles:
+            self = .protectiveAndWardingCircles
+        case .elixirs:
+            self = .elixirs
+        case .staffEnchantments:
+            self = .staffEnchantments
+        case .familiarsTricks:
+            self = .familiarsTricks
+        case .curses:
+            self = .curses
+        case .elvenMagicalSongs:
+            self = .elvenMagicalSongs
+        case .magicalSpecialAbilities:
+            self = .magicalSpecialAbilities
+        case .cantrips:
+            self = .cantrips
+        case .spells:
+            self = .spells
+        case .rituals:
+            self = .rituals
+        case .aspects:
+            self = .aspects
+        case .liturgyBotch:
+            self = .liturgyBotch
+        case .karmaSpecialAbilities:
+            self = .karmaSpecialAbilities
+        case .blessings:
+            self = .blessings
+        case .liturgicalChants:
+            self = .liturgicalChants
+        case .ceremonies:
+            self = .ceremonies
+        case .socialStatuses:
+            self = .socialStatuses
+        case .poisons:
+            self = .poisons
+        case .diseases:
+            self = .diseases
+        case .healingHerbs:
+            self = .healingHerbs
+        case .visibilityModifier:
+            self = .visibilityModifier
+        case .demons:
+            self = .demons
+        case .elementals:
+            self = .elementals
+        case .animals:
+            self = .animals
+        case .familiars:
+            self = .familiars
+        case .animalSpecialAbilities:
+            self = .animalSpecialAbilities
+        case .equipmentPackages:
+            self = .equipmentPackages
+        case .items:
+            self = .items
+        case .optionalRules:
+            self = .optionalRules
+        case .improvementCost:
+            self = .improvementCost(try container.decode(ReferenceListNodeImprovementCostSource.self, forKey: .improvementCost))
+        }
+    }
 }
 
 public struct ReferenceListNodeImprovementCostSource: EntitySubtype {
     /// Define if the cost for attributes or skills should be defined. The cost for attributes start with value 9, while the cost for skills start with 1 in addition to possible activation cost.
-    public let target: ReferenceListNodeImprovementCostSourceTarget
+    public let `target`: ReferenceListNodeImprovementCostSourceTarget
 
     /// The highest value the improvement cost are displayed for.
     /// 
     /// The minimum maximum value should depend on what is the upper bound of the range of adventure point cost that are equal across multiple values (value increases for attributes are always 15 up to (and including) value 14, while value increases for skills are always 1 to 4, depending on the improvement cost, up to (and including) value 12), since those ranges should be combined into a single table row.
     public let maximumRating: Int
 
-    public init(target: ReferenceListNodeImprovementCostSourceTarget, maximumRating: Int) {
-        self.target = target
+    public init(`target`: ReferenceListNodeImprovementCostSourceTarget, maximumRating: Int) {
+        self.`target` = `target`
         self.maximumRating = maximumRating
     }
 
     private enum CodingKeys: String, CodingKey {
-        case target = "target"
+        case `target` = "target"
         case maximumRating = "maximum_rating"
     }
 }

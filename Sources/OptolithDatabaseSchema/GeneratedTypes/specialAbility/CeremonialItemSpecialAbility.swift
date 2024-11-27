@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct CeremonialItemSpecialAbility: LocalizableEntity {
     public let id: Id
 

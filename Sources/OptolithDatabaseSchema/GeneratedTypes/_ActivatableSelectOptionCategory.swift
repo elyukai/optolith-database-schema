@@ -3,9 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
-@DiscriminatedEnum
 public enum SelectOptionCategory: EntitySubtype {
     case blessings
     case cantrips
@@ -28,6 +25,104 @@ public enum SelectOptionCategory: EntitySubtype {
     case skills(SkillsSelectOptionCategory)
     case combatTechniques(CombatTechniquesSelectOptionCategory)
     case targetCategories(TargetCategoriesSelectOptionCategory)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case blessings = "blessings"
+        case cantrips = "cantrips"
+        case tradeSecrets = "trade_secrets"
+        case scripts = "scripts"
+        case animalShapes = "animal_shapes"
+        case arcaneBardTraditions = "arcane_bard_traditions"
+        case arcaneDancerTraditions = "arcane_dancer_traditions"
+        case sexPractices = "sex_practices"
+        case races = "races"
+        case cultures = "cultures"
+        case racesAndCultures = "races_and_cultures"
+        case blessedTraditions = "blessed_traditions"
+        case elements = "elements"
+        case properties = "properties"
+        case aspects = "aspects"
+        case diseases = "diseases"
+        case poisons = "poisons"
+        case languages = "languages"
+        case skills = "skills"
+        case combatTechniques = "combat_techniques"
+        case targetCategories = "target_categories"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case blessings = "Blessings"
+        case cantrips = "Cantrips"
+        case tradeSecrets = "TradeSecrets"
+        case scripts = "Scripts"
+        case animalShapes = "AnimalShapes"
+        case arcaneBardTraditions = "ArcaneBardTraditions"
+        case arcaneDancerTraditions = "ArcaneDancerTraditions"
+        case sexPractices = "SexPractices"
+        case races = "Races"
+        case cultures = "Cultures"
+        case racesAndCultures = "RacesAndCultures"
+        case blessedTraditions = "BlessedTraditions"
+        case elements = "Elements"
+        case properties = "Properties"
+        case aspects = "Aspects"
+        case diseases = "Diseases"
+        case poisons = "Poisons"
+        case languages = "Languages"
+        case skills = "Skills"
+        case combatTechniques = "CombatTechniques"
+        case targetCategories = "TargetCategories"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .blessings:
+            self = .blessings
+        case .cantrips:
+            self = .cantrips
+        case .tradeSecrets:
+            self = .tradeSecrets
+        case .scripts:
+            self = .scripts
+        case .animalShapes:
+            self = .animalShapes
+        case .arcaneBardTraditions:
+            self = .arcaneBardTraditions
+        case .arcaneDancerTraditions:
+            self = .arcaneDancerTraditions
+        case .sexPractices:
+            self = .sexPractices
+        case .races:
+            self = .races
+        case .cultures:
+            self = .cultures
+        case .racesAndCultures:
+            self = .racesAndCultures
+        case .blessedTraditions:
+            self = .blessedTraditions(try container.decode(BlessedTraditionsSelectOptionCategory.self, forKey: .blessedTraditions))
+        case .elements:
+            self = .elements(try container.decode(ElementsSelectOptionCategory.self, forKey: .elements))
+        case .properties:
+            self = .properties(try container.decode(PropertiesSelectOptionCategory.self, forKey: .properties))
+        case .aspects:
+            self = .aspects(try container.decode(AspectSelectOptionCategory.self, forKey: .aspects))
+        case .diseases:
+            self = .diseases(try container.decode(DiseasesPoisonsSelectOptionCategory.self, forKey: .diseases))
+        case .poisons:
+            self = .poisons(try container.decode(DiseasesPoisonsSelectOptionCategory.self, forKey: .poisons))
+        case .languages:
+            self = .languages(try container.decode(LanguagesSelectOptionCategory.self, forKey: .languages))
+        case .skills:
+            self = .skills(try container.decode(SkillsSelectOptionCategory.self, forKey: .skills))
+        case .combatTechniques:
+            self = .combatTechniques(try container.decode(CombatTechniquesSelectOptionCategory.self, forKey: .combatTechniques))
+        case .targetCategories:
+            self = .targetCategories(try container.decode(TargetCategoriesSelectOptionCategory.self, forKey: .targetCategories))
+        }
+    }
 }
 
 public struct BlessedTraditionsSelectOptionCategory: EntitySubtype {
@@ -129,9 +224,20 @@ public struct LanguagesSelectOptionCategory: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
-public enum LanguagesSelectOptionCategoryPrerequisite: EntitySubtype {
-    case selectOption(OptionPrerequisite)
+public struct LanguagesSelectOptionCategoryPrerequisite: EntitySubtype {
+    public let tag: String
+
+    public let selectOption: OptionPrerequisite
+
+    public init(tag: String, selectOption: OptionPrerequisite) {
+        self.tag = tag
+        self.selectOption = selectOption
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case selectOption = "select_option"
+    }
 }
 
 public struct SkillsSelectOptionCategory: EntitySubtype {
@@ -152,13 +258,46 @@ public struct SkillsSelectOptionCategory: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum SkillsSelectOptionCategoryCategory: EntitySubtype {
     case skills(SkillSelectOptionCategoryCategory)
     case spells(GenericSkillsSelectOptionCategoryCategory<SpellReference>)
     case rituals(GenericSkillsSelectOptionCategoryCategory<RitualReference>)
     case liturgicalChants(GenericSkillsSelectOptionCategoryCategory<LiturgicalChantReference>)
     case ceremonies(GenericSkillsSelectOptionCategoryCategory<CeremonyReference>)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case skills = "skills"
+        case spells = "spells"
+        case rituals = "rituals"
+        case liturgicalChants = "liturgical_chants"
+        case ceremonies = "ceremonies"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case skills = "Skills"
+        case spells = "Spells"
+        case rituals = "Rituals"
+        case liturgicalChants = "LiturgicalChants"
+        case ceremonies = "Ceremonies"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .skills:
+            self = .skills(try container.decode(SkillSelectOptionCategoryCategory.self, forKey: .skills))
+        case .spells:
+            self = .spells(try container.decode(GenericSkillsSelectOptionCategoryCategory<SpellReference>.self, forKey: .spells))
+        case .rituals:
+            self = .rituals(try container.decode(GenericSkillsSelectOptionCategoryCategory<RitualReference>.self, forKey: .rituals))
+        case .liturgicalChants:
+            self = .liturgicalChants(try container.decode(GenericSkillsSelectOptionCategoryCategory<LiturgicalChantReference>.self, forKey: .liturgicalChants))
+        case .ceremonies:
+            self = .ceremonies(try container.decode(GenericSkillsSelectOptionCategoryCategory<CeremonyReference>.self, forKey: .ceremonies))
+        }
+    }
 }
 
 public struct SkillSelectOptionCategoryCategory: EntitySubtype {
@@ -217,10 +356,31 @@ public struct CombatTechniquesSelectOptionCategory: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum CombatTechniquesSelectOptionCategoryCategory: EntitySubtype {
     case closeCombatTechniques(GenericSkillsSelectOptionCategoryCategory<CloseCombatTechniqueReference>)
     case rangedCombatTechniques(GenericSkillsSelectOptionCategoryCategory<RangedCombatTechniqueReference>)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case closeCombatTechniques = "close_combat_techniques"
+        case rangedCombatTechniques = "ranged_combat_techniques"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case closeCombatTechniques = "CloseCombatTechniques"
+        case rangedCombatTechniques = "RangedCombatTechniques"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .closeCombatTechniques:
+            self = .closeCombatTechniques(try container.decode(GenericSkillsSelectOptionCategoryCategory<CloseCombatTechniqueReference>.self, forKey: .closeCombatTechniques))
+        case .rangedCombatTechniques:
+            self = .rangedCombatTechniques(try container.decode(GenericSkillsSelectOptionCategoryCategory<RangedCombatTechniqueReference>.self, forKey: .rangedCombatTechniques))
+        }
+    }
 }
 
 public struct SkillApplicationOrUse: EntitySubtype {
@@ -276,10 +436,31 @@ public enum SpecificFromSkillSelectOptionCategoryCategoryOperation: String, Enti
     case difference = "Difference"
 }
 
-@DiscriminatedEnum
 public enum SkillSelectOptionCategoryPrerequisite: EntitySubtype {
     case `self`(SelfPrerequisite)
     case selectOption(OptionPrerequisite)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case `self` = "self"
+        case selectOption = "select_option"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case `self` = "Self"
+        case selectOption = "SelectOption"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .`self`:
+            self = .`self`(try container.decode(SelfPrerequisite.self, forKey: .`self`))
+        case .selectOption:
+            self = .selectOption(try container.decode(OptionPrerequisite.self, forKey: .selectOption))
+        }
+    }
 }
 
 public struct SelfPrerequisite: EntitySubtype {
@@ -310,10 +491,31 @@ public struct OptionPrerequisite: EntitySubtype {
 }
 
 /// Generate AP values for each entry.
-@DiscriminatedEnum
 public enum SelectOptionsAdventurePointsValue<Identifier: EntitySubtype>: EntitySubtype {
     case derivedFromImprovementCost(SelectOptionsDeriveAdventurePointsValueFromImprovementCost)
     case fixed(SelectOptionsFixedAdventurePointsValue<Identifier>)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case derivedFromImprovementCost = "derived_from_improvement_cost"
+        case fixed = "fixed"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case derivedFromImprovementCost = "DerivedFromImprovementCost"
+        case fixed = "Fixed"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .derivedFromImprovementCost:
+            self = .derivedFromImprovementCost(try container.decode(SelectOptionsDeriveAdventurePointsValueFromImprovementCost.self, forKey: .derivedFromImprovementCost))
+        case .fixed:
+            self = .fixed(try container.decode(SelectOptionsFixedAdventurePointsValue<Identifier>.self, forKey: .fixed))
+        }
+    }
 }
 
 /// Derive the cost from the improvement cost of each entry.
@@ -343,6 +545,11 @@ public struct SelectOptionsFixedAdventurePointsValue<Identifier: EntitySubtype>:
     public init(map: [SelectOptionsFixedAdventurePointsValueMapping<Identifier>], `default`: Int) {
         self.map = map
         self.`default` = `default`
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case map = "map"
+        case `default` = "default"
     }
 }
 

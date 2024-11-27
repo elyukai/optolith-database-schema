@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 /// Requires a specific pact.
 public struct PactPrerequisite: EntitySubtype {
     /// The required pact category.

@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 /// Requires a specific advantage, disadvantage or special ability.
 public struct ActivatablePrerequisite: EntitySubtype {
     /// The activatable entry's identifier.

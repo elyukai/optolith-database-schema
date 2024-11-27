@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct MagicalSign: LocalizableEntity {
     public let id: Id
 

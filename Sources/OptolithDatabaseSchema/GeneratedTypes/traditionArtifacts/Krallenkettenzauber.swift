@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct Krallenkettenzauber: LocalizableEntity {
     public let id: Id
 

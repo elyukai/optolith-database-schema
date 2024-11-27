@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct SikaryanDrainSpecialAbility: LocalizableEntity {
     public let id: Id
 

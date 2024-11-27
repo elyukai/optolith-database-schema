@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct ProtectiveWardingCircleSpecialAbility: LocalizableEntity {
     public let id: Id
 

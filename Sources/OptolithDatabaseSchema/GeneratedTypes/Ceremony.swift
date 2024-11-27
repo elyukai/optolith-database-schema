@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct Ceremony: LocalizableEntity {
     /// The ceremony's identifier. An unique, increasing integer.
     public let id: Int
@@ -19,7 +17,7 @@ public struct Ceremony: LocalizableEntity {
     public let parameters: SlowPerformanceParameters
 
     /// The target category – the kind of creature or object – the skill affects.
-    public let target: AffectedTargetCategories
+    public let `target`: AffectedTargetCategories
 
     /// The tradition(s) the ceremony is available for. Note that general aspects do not have an associated tradition and thus need to be defined in a special way.
     public let traditions: [SkillTradition]
@@ -36,12 +34,12 @@ public struct Ceremony: LocalizableEntity {
 
     public let enhancements: Enhancements?
 
-    public init(id: Int, check: SkillCheck, checkPenalty: SkillCheckPenalty? = nil, parameters: SlowPerformanceParameters, target: AffectedTargetCategories, traditions: [SkillTradition], improvementCost: ImprovementCost, prerequisites: LiturgyPrerequisites? = nil, src: PublicationRefs, translations: LocaleMap<CeremonyTranslation>, enhancements: Enhancements? = nil) {
+    public init(id: Int, check: SkillCheck, checkPenalty: SkillCheckPenalty? = nil, parameters: SlowPerformanceParameters, `target`: AffectedTargetCategories, traditions: [SkillTradition], improvementCost: ImprovementCost, prerequisites: LiturgyPrerequisites? = nil, src: PublicationRefs, translations: LocaleMap<CeremonyTranslation>, enhancements: Enhancements? = nil) {
         self.id = id
         self.check = check
         self.checkPenalty = checkPenalty
         self.parameters = parameters
-        self.target = target
+        self.`target` = `target`
         self.traditions = traditions
         self.improvementCost = improvementCost
         self.prerequisites = prerequisites
@@ -55,7 +53,7 @@ public struct Ceremony: LocalizableEntity {
         case check = "check"
         case checkPenalty = "check_penalty"
         case parameters = "parameters"
-        case target = "target"
+        case `target` = "target"
         case traditions = "traditions"
         case improvementCost = "improvement_cost"
         case prerequisites = "prerequisites"
@@ -88,11 +86,11 @@ public struct CeremonyTranslation: EntitySubtype {
     public let duration: OldParameter
 
     @available(*, deprecated)
-    public let target: String
+    public let `target`: String
 
     public let errata: Errata?
 
-    public init(name: NonEmptyString, nameCompressed: NonEmptyString? = nil, effect: ActivatableSkillEffect, castingTime: OldParameter, cost: OldParameter, range: OldParameter, duration: OldParameter, target: String, errata: Errata? = nil) {
+    public init(name: NonEmptyString, nameCompressed: NonEmptyString? = nil, effect: ActivatableSkillEffect, castingTime: OldParameter, cost: OldParameter, range: OldParameter, duration: OldParameter, `target`: String, errata: Errata? = nil) {
         self.name = name
         self.nameCompressed = nameCompressed
         self.effect = effect
@@ -100,7 +98,7 @@ public struct CeremonyTranslation: EntitySubtype {
         self.cost = cost
         self.range = range
         self.duration = duration
-        self.target = target
+        self.`target` = `target`
         self.errata = errata
     }
 
@@ -112,7 +110,7 @@ public struct CeremonyTranslation: EntitySubtype {
         case cost = "cost"
         case range = "range"
         case duration = "duration"
-        case target = "target"
+        case `target` = "target"
         case errata = "errata"
     }
 }

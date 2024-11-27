@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct ElvenMagicalSong: LocalizableEntity {
     /// The elven magical song's identifier. An unique, increasing integer.
     public let id: Int

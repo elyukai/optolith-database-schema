@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct KarmaSpecialAbility: LocalizableEntity {
     public let id: Id
 

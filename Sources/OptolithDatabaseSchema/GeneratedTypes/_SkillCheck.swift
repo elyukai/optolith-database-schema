@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 /// The attributes' identifiers of the skill check.
 public typealias SkillCheck = [AttributeReference]
 

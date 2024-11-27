@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct Language: LocalizableEntity {
     /// The language's identifier. An unique, increasing integer.
     public let id: Int
@@ -46,10 +44,31 @@ public struct Language: LocalizableEntity {
     }
 }
 
-@DiscriminatedEnum
 public enum Specializations: EntitySubtype {
     case specific(SpecificSpecializations)
     case indefinite(IndefiniteSpecializations)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case specific = "specific"
+        case indefinite = "indefinite"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case specific = "Specific"
+        case indefinite = "Indefinite"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .specific:
+            self = .specific(try container.decode(SpecificSpecializations.self, forKey: .specific))
+        case .indefinite:
+            self = .indefinite(try container.decode(IndefiniteSpecializations.self, forKey: .indefinite))
+        }
+    }
 }
 
 public struct SpecificSpecializations: EntitySubtype {

@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 /// The activatable entry's identifier. An unique, increasing integer.
 public typealias Id = Int
 
@@ -43,11 +41,36 @@ public struct SelectOptions: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum ExplicitSelectOption: EntitySubtype {
     case general(ExplicitGeneralSelectOption)
     case skill(ExplicitSkillSelectOption)
     case combatTechnique(ExplicitCombatTechniqueSelectOption)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case general = "general"
+        case skill = "skill"
+        case combatTechnique = "combat_technique"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case general = "General"
+        case skill = "Skill"
+        case combatTechnique = "CombatTechnique"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .general:
+            self = .general(try container.decode(ExplicitGeneralSelectOption.self, forKey: .general))
+        case .skill:
+            self = .skill(try container.decode(ExplicitSkillSelectOption.self, forKey: .skill))
+        case .combatTechnique:
+            self = .combatTechnique(try container.decode(ExplicitCombatTechniqueSelectOption.self, forKey: .combatTechnique))
+        }
+    }
 }
 
 public struct ExplicitGeneralSelectOption: EntitySubtype {
@@ -265,10 +288,31 @@ public struct SkillApplication: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum SkillApplicationAssociatedSkill: EntitySubtype {
     case single(SkillReference)
     case multiple(SkillApplicationAssociatedSkills)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case single = "single"
+        case multiple = "multiple"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case single = "Single"
+        case multiple = "Multiple"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .single:
+            self = .single(try container.decode(SkillReference.self, forKey: .single))
+        case .multiple:
+            self = .multiple(try container.decode(SkillApplicationAssociatedSkills.self, forKey: .multiple))
+        }
+    }
 }
 
 public struct SkillApplicationAssociatedSkills: EntitySubtype {
@@ -318,10 +362,31 @@ public struct SkillUse: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum SkillUseAssociatedSkill: EntitySubtype {
     case single(SkillReference)
     case multiple(SkillUseAssociatedSkills)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case single = "single"
+        case multiple = "multiple"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case single = "Single"
+        case multiple = "Multiple"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .single:
+            self = .single(try container.decode(SkillReference.self, forKey: .single))
+        case .multiple:
+            self = .multiple(try container.decode(SkillUseAssociatedSkills.self, forKey: .multiple))
+        }
+    }
 }
 
 public struct SkillUseAssociatedSkills: EntitySubtype {
@@ -343,7 +408,6 @@ public struct SkillUseTranslation: EntitySubtype {
 }
 
 /// The penalty the special ability gives when used.
-@DiscriminatedEnum
 public enum Penalty: EntitySubtype {
     case single(SinglePenalty)
     case byHandedness(PenaltyByHandedness)
@@ -352,6 +416,48 @@ public enum Penalty: EntitySubtype {
     case byLevel(PenaltyByLevel)
     case byAttack(PenaltyByAttack)
     case dependsOnHitZone
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case single = "single"
+        case byHandedness = "by_handedness"
+        case byActivation = "by_activation"
+        case selection = "selection"
+        case byLevel = "by_level"
+        case byAttack = "by_attack"
+        case dependsOnHitZone = "depends_on_hit_zone"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case single = "Single"
+        case byHandedness = "ByHandedness"
+        case byActivation = "ByActivation"
+        case selection = "Selection"
+        case byLevel = "ByLevel"
+        case byAttack = "ByAttack"
+        case dependsOnHitZone = "DependsOnHitZone"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .single:
+            self = .single(try container.decode(SinglePenalty.self, forKey: .single))
+        case .byHandedness:
+            self = .byHandedness(try container.decode(PenaltyByHandedness.self, forKey: .byHandedness))
+        case .byActivation:
+            self = .byActivation(try container.decode(PenaltyByActivation.self, forKey: .byActivation))
+        case .selection:
+            self = .selection(try container.decode(PenaltySelection.self, forKey: .selection))
+        case .byLevel:
+            self = .byLevel(try container.decode(PenaltyByLevel.self, forKey: .byLevel))
+        case .byAttack:
+            self = .byAttack(try container.decode(PenaltyByAttack.self, forKey: .byAttack))
+        case .dependsOnHitZone:
+            self = .dependsOnHitZone
+        }
+    }
 }
 
 public struct SinglePenalty: EntitySubtype {
@@ -426,10 +532,31 @@ public struct PenaltySelection: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum PenaltySelectionOptions: EntitySubtype {
     case specific(SpecificPenaltySelectionOptions)
     case range(PenaltySelectionOptionsRange)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case specific = "specific"
+        case range = "range"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case specific = "Specific"
+        case range = "Range"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .specific:
+            self = .specific(try container.decode(SpecificPenaltySelectionOptions.self, forKey: .specific))
+        case .range:
+            self = .range(try container.decode(PenaltySelectionOptionsRange.self, forKey: .range))
+        }
+    }
 }
 
 public struct SpecificPenaltySelectionOptions: EntitySubtype {
@@ -531,17 +658,39 @@ public struct PenaltyByAttackOrderItem: EntitySubtype {
 /// Set if a predefined different word should be used instead of the word
 /// `attack` for display purposes.
 public enum PenaltyByAttackReplacement: String, EntitySubtype {
+    /// Set if a predefined different word should be used instead of the word
+    /// `attack` for display purposes.
     case `throw` = "Throw"
 }
 
-@DiscriminatedEnum
 public enum EnchantmentCost: EntitySubtype {
     case arcaneEnergyCost(ArcaneEnergyCost)
     case bindingCost(BindingCost)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case arcaneEnergyCost = "arcane_energy_cost"
+        case bindingCost = "binding_cost"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case arcaneEnergyCost = "ArcaneEnergyCost"
+        case bindingCost = "BindingCost"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .arcaneEnergyCost:
+            self = .arcaneEnergyCost(try container.decode(ArcaneEnergyCost.self, forKey: .arcaneEnergyCost))
+        case .bindingCost:
+            self = .bindingCost(try container.decode(BindingCost.self, forKey: .bindingCost))
+        }
+    }
 }
 
 /// The AE Cost.
-@DiscriminatedEnum
 public enum ArcaneEnergyCost: EntitySubtype {
     case fixed(FixedArcaneEnergyCost)
     case perCountable(ArcaneEnergyCostPerCountable)
@@ -550,6 +699,48 @@ public enum ArcaneEnergyCost: EntitySubtype {
     case indefinite(IndefiniteArcaneEnergyCost)
     case disjunction(ArcaneEnergyCostDisjunction)
     case variable
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case fixed = "fixed"
+        case perCountable = "per_countable"
+        case interval = "interval"
+        case activationAndHalfInterval = "activation_and_half_interval"
+        case indefinite = "indefinite"
+        case disjunction = "disjunction"
+        case variable = "variable"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case fixed = "Fixed"
+        case perCountable = "PerCountable"
+        case interval = "Interval"
+        case activationAndHalfInterval = "ActivationAndHalfInterval"
+        case indefinite = "Indefinite"
+        case disjunction = "Disjunction"
+        case variable = "Variable"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .fixed:
+            self = .fixed(try container.decode(FixedArcaneEnergyCost.self, forKey: .fixed))
+        case .perCountable:
+            self = .perCountable(try container.decode(ArcaneEnergyCostPerCountable.self, forKey: .perCountable))
+        case .interval:
+            self = .interval(try container.decode(IntervalArcaneEnergyCost.self, forKey: .interval))
+        case .activationAndHalfInterval:
+            self = .activationAndHalfInterval(try container.decode(ActivationAndHalfIntervalArcaneEnergyCost.self, forKey: .activationAndHalfInterval))
+        case .indefinite:
+            self = .indefinite(try container.decode(IndefiniteArcaneEnergyCost.self, forKey: .indefinite))
+        case .disjunction:
+            self = .disjunction(try container.decode(ArcaneEnergyCostDisjunction.self, forKey: .disjunction))
+        case .variable:
+            self = .variable
+        }
+    }
 }
 
 public struct FixedArcaneEnergyCost: EntitySubtype {
@@ -783,13 +974,46 @@ public struct NoArcaneEnergyCostTranslation: EntitySubtype {
 }
 
 /// The volume points the enchantment needs.
-@DiscriminatedEnum
 public enum Volume: EntitySubtype {
     case fixed(FixedVolume)
     case perLevel(VolumePerLevel)
     case byLevel(VolumeByLevel)
     case map(VolumeMap)
     case derivedFromSelection(VolumeDerivedFromSelection)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case fixed = "fixed"
+        case perLevel = "per_level"
+        case byLevel = "by_level"
+        case map = "map"
+        case derivedFromSelection = "derived_from_selection"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case fixed = "Fixed"
+        case perLevel = "PerLevel"
+        case byLevel = "ByLevel"
+        case map = "Map"
+        case derivedFromSelection = "DerivedFromSelection"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .fixed:
+            self = .fixed(try container.decode(FixedVolume.self, forKey: .fixed))
+        case .perLevel:
+            self = .perLevel(try container.decode(VolumePerLevel.self, forKey: .perLevel))
+        case .byLevel:
+            self = .byLevel(try container.decode(VolumeByLevel.self, forKey: .byLevel))
+        case .map:
+            self = .map(try container.decode(VolumeMap.self, forKey: .map))
+        case .derivedFromSelection:
+            self = .derivedFromSelection(try container.decode(VolumeDerivedFromSelection.self, forKey: .derivedFromSelection))
+        }
+    }
 }
 
 public struct FixedVolume: EntitySubtype {
@@ -961,12 +1185,41 @@ public struct VolumeDerivedFromSelection: EntitySubtype {
 }
 
 /// The binding cost for an enchantment.
-@DiscriminatedEnum
 public enum BindingCost: EntitySubtype {
     case fixed(FixedBindingCost)
     case perLevel(BindingCostPerLevel)
     case map(BindingCostMap)
     case derivedFromSelection(BindingCostDerivedFromSelection)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case fixed = "fixed"
+        case perLevel = "per_level"
+        case map = "map"
+        case derivedFromSelection = "derived_from_selection"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case fixed = "Fixed"
+        case perLevel = "PerLevel"
+        case map = "Map"
+        case derivedFromSelection = "DerivedFromSelection"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .fixed:
+            self = .fixed(try container.decode(FixedBindingCost.self, forKey: .fixed))
+        case .perLevel:
+            self = .perLevel(try container.decode(BindingCostPerLevel.self, forKey: .perLevel))
+        case .map:
+            self = .map(try container.decode(BindingCostMap.self, forKey: .map))
+        case .derivedFromSelection:
+            self = .derivedFromSelection(try container.decode(BindingCostDerivedFromSelection.self, forKey: .derivedFromSelection))
+        }
+    }
 }
 
 public struct FixedBindingCost: EntitySubtype {
@@ -1102,22 +1355,72 @@ public struct BindingCostDerivedFromSelection: EntitySubtype {
 }
 
 /// The magic property's identifier. `DependingOnProperty` can only be used if the special ability has an option to select a property.
-@DiscriminatedEnum
 public enum PropertyDeclaration: EntitySubtype {
     case dependingOnSelection
     case fixed(PropertyReference)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case dependingOnSelection = "depending_on_selection"
+        case fixed = "fixed"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case dependingOnSelection = "DependingOnSelection"
+        case fixed = "Fixed"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .dependingOnSelection:
+            self = .dependingOnSelection
+        case .fixed:
+            self = .fixed(try container.decode(PropertyReference.self, forKey: .fixed))
+        }
+    }
 }
 
 /// The blessed aspect.
 public typealias AspectDeclaration = AspectReference
 
 /// A reference to an advanced special ability.
-@DiscriminatedEnum
 public enum AdvancedSpecialAbility<Identifier: EntitySubtype>: EntitySubtype {
     case general(AdvancedSpecialAbilityReference<Identifier>)
     case restrictOptions(RestrictAdvancedSpecialAbilityOptions<Identifier>)
     case oneOf(OneOfAdvancedSpecialAbilityOptions<Identifier>)
     case deriveFromExternalOption(AdvancedSpecialAbilityDerivedFromExternalOption<Identifier>)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case general = "general"
+        case restrictOptions = "restrict_options"
+        case oneOf = "one_of"
+        case deriveFromExternalOption = "derive_from_external_option"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case general = "General"
+        case restrictOptions = "RestrictOptions"
+        case oneOf = "OneOf"
+        case deriveFromExternalOption = "DeriveFromExternalOption"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .general:
+            self = .general(try container.decode(AdvancedSpecialAbilityReference<Identifier>.self, forKey: .general))
+        case .restrictOptions:
+            self = .restrictOptions(try container.decode(RestrictAdvancedSpecialAbilityOptions<Identifier>.self, forKey: .restrictOptions))
+        case .oneOf:
+            self = .oneOf(try container.decode(OneOfAdvancedSpecialAbilityOptions<Identifier>.self, forKey: .oneOf))
+        case .deriveFromExternalOption:
+            self = .deriveFromExternalOption(try container.decode(AdvancedSpecialAbilityDerivedFromExternalOption<Identifier>.self, forKey: .deriveFromExternalOption))
+        }
+    }
 }
 
 public struct RestrictAdvancedSpecialAbilityOptions<Identifier: EntitySubtype>: EntitySubtype {
@@ -1206,14 +1509,51 @@ public typealias AdvancedSpecialAbilities<Identifier: EntitySubtype> = [Advanced
 /// The prerequisites text. It is only used if the text cannot be generated from the given information.
 public typealias PrerequisitesReplacement = NonEmptyMarkdown
 
-@DiscriminatedEnum
 public enum ApplicableCombatTechniques: EntitySubtype {
-    case none
+    case `none`
     case dependingOnCombatStyle
     case all(AllApplicableCombatTechniques)
     case allClose(AllApplicableCloseCombatTechniques)
     case allRanged(AllApplicableRangedCombatTechniques)
     case specific(SpecificApplicableCombatTechniques)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case `none` = "none"
+        case dependingOnCombatStyle = "depending_on_combat_style"
+        case all = "all"
+        case allClose = "all_close"
+        case allRanged = "all_ranged"
+        case specific = "specific"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case `none` = "None"
+        case dependingOnCombatStyle = "DependingOnCombatStyle"
+        case all = "All"
+        case allClose = "AllClose"
+        case allRanged = "AllRanged"
+        case specific = "Specific"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .`none`:
+            self = .`none`
+        case .dependingOnCombatStyle:
+            self = .dependingOnCombatStyle
+        case .all:
+            self = .all(try container.decode(AllApplicableCombatTechniques.self, forKey: .all))
+        case .allClose:
+            self = .allClose(try container.decode(AllApplicableCloseCombatTechniques.self, forKey: .allClose))
+        case .allRanged:
+            self = .allRanged(try container.decode(AllApplicableRangedCombatTechniques.self, forKey: .allRanged))
+        case .specific:
+            self = .specific(try container.decode(SpecificApplicableCombatTechniques.self, forKey: .specific))
+        }
+    }
 }
 
 public struct AllApplicableCombatTechniques: EntitySubtype {
@@ -1259,16 +1599,48 @@ public struct SpecificApplicableCombatTechnique: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum ApplicableAllCombatTechniquesRestriction: EntitySubtype {
     case improvised
     case pointedBlade
     case mount
     case race(ApplicableCombatTechniquesRaceRestriction)
     case excludeCombatTechniques(ApplicableCombatTechniquesNegativeCombatTechniquesRestriction<CombatTechniqueReference>)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case improvised = "improvised"
+        case pointedBlade = "pointed_blade"
+        case mount = "mount"
+        case race = "race"
+        case excludeCombatTechniques = "exclude_combat_techniques"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case improvised = "Improvised"
+        case pointedBlade = "PointedBlade"
+        case mount = "Mount"
+        case race = "Race"
+        case excludeCombatTechniques = "ExcludeCombatTechniques"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .improvised:
+            self = .improvised
+        case .pointedBlade:
+            self = .pointedBlade
+        case .mount:
+            self = .mount
+        case .race:
+            self = .race(try container.decode(ApplicableCombatTechniquesRaceRestriction.self, forKey: .race))
+        case .excludeCombatTechniques:
+            self = .excludeCombatTechniques(try container.decode(ApplicableCombatTechniquesNegativeCombatTechniquesRestriction<CombatTechniqueReference>.self, forKey: .excludeCombatTechniques))
+        }
+    }
 }
 
-@DiscriminatedEnum
 public enum ApplicableCloseCombatTechniquesRestriction: EntitySubtype {
     case improvised
     case pointedBlade
@@ -1278,18 +1650,96 @@ public enum ApplicableCloseCombatTechniquesRestriction: EntitySubtype {
     case parryingWeapon
     case race(ApplicableCombatTechniquesRaceRestriction)
     case excludeCombatTechniques(ApplicableCombatTechniquesNegativeCombatTechniquesRestriction<CloseCombatTechniqueReference>)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case improvised = "improvised"
+        case pointedBlade = "pointed_blade"
+        case mount = "mount"
+        case hasParry = "has_parry"
+        case oneHanded = "one_handed"
+        case parryingWeapon = "parrying_weapon"
+        case race = "race"
+        case excludeCombatTechniques = "exclude_combat_techniques"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case improvised = "Improvised"
+        case pointedBlade = "PointedBlade"
+        case mount = "Mount"
+        case hasParry = "HasParry"
+        case oneHanded = "OneHanded"
+        case parryingWeapon = "ParryingWeapon"
+        case race = "Race"
+        case excludeCombatTechniques = "ExcludeCombatTechniques"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .improvised:
+            self = .improvised
+        case .pointedBlade:
+            self = .pointedBlade
+        case .mount:
+            self = .mount
+        case .hasParry:
+            self = .hasParry
+        case .oneHanded:
+            self = .oneHanded
+        case .parryingWeapon:
+            self = .parryingWeapon
+        case .race:
+            self = .race(try container.decode(ApplicableCombatTechniquesRaceRestriction.self, forKey: .race))
+        case .excludeCombatTechniques:
+            self = .excludeCombatTechniques(try container.decode(ApplicableCombatTechniquesNegativeCombatTechniquesRestriction<CloseCombatTechniqueReference>.self, forKey: .excludeCombatTechniques))
+        }
+    }
 }
 
-@DiscriminatedEnum
 public enum ApplicableRangedCombatTechniquesRestriction: EntitySubtype {
     case improvised
     case pointedBlade
     case mount
     case race(ApplicableCombatTechniquesRaceRestriction)
     case excludeCombatTechniques(ApplicableCombatTechniquesNegativeCombatTechniquesRestriction<RangedCombatTechniqueReference>)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case improvised = "improvised"
+        case pointedBlade = "pointed_blade"
+        case mount = "mount"
+        case race = "race"
+        case excludeCombatTechniques = "exclude_combat_techniques"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case improvised = "Improvised"
+        case pointedBlade = "PointedBlade"
+        case mount = "Mount"
+        case race = "Race"
+        case excludeCombatTechniques = "ExcludeCombatTechniques"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .improvised:
+            self = .improvised
+        case .pointedBlade:
+            self = .pointedBlade
+        case .mount:
+            self = .mount
+        case .race:
+            self = .race(try container.decode(ApplicableCombatTechniquesRaceRestriction.self, forKey: .race))
+        case .excludeCombatTechniques:
+            self = .excludeCombatTechniques(try container.decode(ApplicableCombatTechniquesNegativeCombatTechniquesRestriction<RangedCombatTechniqueReference>.self, forKey: .excludeCombatTechniques))
+        }
+    }
 }
 
-@DiscriminatedEnum
 public enum ApplicableSpecificCombatTechniquesRestriction: EntitySubtype {
     case improvised
     case pointedBlade
@@ -1297,6 +1747,44 @@ public enum ApplicableSpecificCombatTechniquesRestriction: EntitySubtype {
     case race(ApplicableCombatTechniquesRaceRestriction)
     case level(ApplicableCombatTechniquesLevelRestriction)
     case weapons(ApplicableCombatTechniquesWeaponRestriction)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case improvised = "improvised"
+        case pointedBlade = "pointed_blade"
+        case mount = "mount"
+        case race = "race"
+        case level = "level"
+        case weapons = "weapons"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case improvised = "Improvised"
+        case pointedBlade = "PointedBlade"
+        case mount = "Mount"
+        case race = "Race"
+        case level = "Level"
+        case weapons = "Weapons"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .improvised:
+            self = .improvised
+        case .pointedBlade:
+            self = .pointedBlade
+        case .mount:
+            self = .mount
+        case .race:
+            self = .race(try container.decode(ApplicableCombatTechniquesRaceRestriction.self, forKey: .race))
+        case .level:
+            self = .level(try container.decode(ApplicableCombatTechniquesLevelRestriction.self, forKey: .level))
+        case .weapons:
+            self = .weapons(try container.decode(ApplicableCombatTechniquesWeaponRestriction.self, forKey: .weapons))
+        }
+    }
 }
 
 public struct ApplicableCombatTechniquesNegativeCombatTechniquesRestriction<Ref: EntitySubtype>: EntitySubtype {
@@ -1328,12 +1816,41 @@ public struct ApplicableCombatTechniquesWeaponRestriction: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum AdventurePointsValue: EntitySubtype {
     case fixed(FixedAdventurePointsValue)
     case byLevel(AdventurePointsValueByLevel)
     case derivedFromSelection(AdventurePointsDerivedFromSelection)
     case indefinite
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case fixed = "fixed"
+        case byLevel = "by_level"
+        case derivedFromSelection = "derived_from_selection"
+        case indefinite = "indefinite"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case fixed = "Fixed"
+        case byLevel = "ByLevel"
+        case derivedFromSelection = "DerivedFromSelection"
+        case indefinite = "Indefinite"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .fixed:
+            self = .fixed(try container.decode(FixedAdventurePointsValue.self, forKey: .fixed))
+        case .byLevel:
+            self = .byLevel(try container.decode(AdventurePointsValueByLevel.self, forKey: .byLevel))
+        case .derivedFromSelection:
+            self = .derivedFromSelection(try container.decode(AdventurePointsDerivedFromSelection.self, forKey: .derivedFromSelection))
+        case .indefinite:
+            self = .indefinite
+        }
+    }
 }
 
 /// A fixed adventure points value. If the entry has levels, this is the cost per level as well.

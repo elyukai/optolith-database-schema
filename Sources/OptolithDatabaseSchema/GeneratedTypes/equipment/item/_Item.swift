@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct DefaultItem: EntitySubtype {
     /// The cost in silverthalers.
     public let cost: Cost
@@ -48,10 +46,31 @@ public struct DefaultItem: EntitySubtype {
 }
 
 /// The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.
-@DiscriminatedEnum
 public enum CombatUse: EntitySubtype {
     case weapon(SecondaryWeapon)
     case armor(SecondaryArmor)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case weapon = "weapon"
+        case armor = "armor"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case weapon = "Weapon"
+        case armor = "Armor"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .weapon:
+            self = .weapon(try container.decode(SecondaryWeapon.self, forKey: .weapon))
+        case .armor:
+            self = .armor(try container.decode(SecondaryArmor.self, forKey: .armor))
+        }
+    }
 }
 
 public struct DefaultItemTranslation: EntitySubtype {
@@ -99,13 +118,46 @@ public struct StructurePointsComponent: EntitySubtype {
 }
 
 /// The cost in silverthalers.
-@DiscriminatedEnum
 public enum Cost: EntitySubtype {
     case free
     case various
     case invaluable
     case fixed(FixedCost)
     case range(CostRange)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case free = "free"
+        case various = "various"
+        case invaluable = "invaluable"
+        case fixed = "fixed"
+        case range = "range"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case free = "Free"
+        case various = "Various"
+        case invaluable = "Invaluable"
+        case fixed = "Fixed"
+        case range = "Range"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .free:
+            self = .free
+        case .various:
+            self = .various
+        case .invaluable:
+            self = .invaluable
+        case .fixed:
+            self = .fixed(try container.decode(FixedCost.self, forKey: .fixed))
+        case .range:
+            self = .range(try container.decode(CostRange.self, forKey: .range))
+        }
+    }
 }
 
 public struct FixedCost: EntitySubtype {
@@ -155,11 +207,36 @@ public struct CostTranslation: EntitySubtype {
 public typealias Weight = Double
 
 /// The complexity of crafting the item.
-@DiscriminatedEnum
 public enum Complexity: EntitySubtype {
     case primitive
     case simple
     case complex(ComplexComplexity)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case primitive = "primitive"
+        case simple = "simple"
+        case complex = "complex"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case primitive = "Primitive"
+        case simple = "Simple"
+        case complex = "Complex"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .primitive:
+            self = .primitive
+        case .simple:
+            self = .simple
+        case .complex:
+            self = .complex(try container.decode(ComplexComplexity.self, forKey: .complex))
+        }
+    }
 }
 
 public struct ComplexComplexity: EntitySubtype {

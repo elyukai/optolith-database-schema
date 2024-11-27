@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 /// A text from the source that can be also displayed in small areas using a compressed version.
 public struct ResponsiveText: EntitySubtype {
     /// The full text from the source.

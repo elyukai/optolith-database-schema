@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct DerivedCharacteristic: LocalizableEntity {
     /// An unique, increasing integer.
     public let id: Int

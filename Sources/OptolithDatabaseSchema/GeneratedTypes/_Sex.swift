@@ -3,9 +3,7 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
-public enum BinarySex: String, EntitySubtype {
+public enum BinarySex: String, Entity {
     case male = "Male"
     case female = "Female"
 }

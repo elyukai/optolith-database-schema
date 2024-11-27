@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct Publication: LocalizableEntity {
     /// The publication's identifier. An unique, increasing integer.
     public let id: Int

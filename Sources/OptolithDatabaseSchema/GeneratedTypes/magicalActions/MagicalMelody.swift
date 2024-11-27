@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct MagicalMelody: LocalizableEntity {
     /// The magical melody's identifier. An unique, increasing integer.
     public let id: Int
@@ -98,10 +96,31 @@ public struct MagicalMelodyPerformanceParameters: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum MagicalMelodyCost: EntitySubtype {
     case fixed(FixedMagicalMelodyCost)
     case firstPerson(FirstPersonMagicalMelodyCost)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case fixed = "fixed"
+        case firstPerson = "first_person"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case fixed = "Fixed"
+        case firstPerson = "FirstPerson"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .fixed:
+            self = .fixed(try container.decode(FixedMagicalMelodyCost.self, forKey: .fixed))
+        case .firstPerson:
+            self = .firstPerson(try container.decode(FirstPersonMagicalMelodyCost.self, forKey: .firstPerson))
+        }
+    }
 }
 
 public struct FixedMagicalMelodyCost: EntitySubtype {

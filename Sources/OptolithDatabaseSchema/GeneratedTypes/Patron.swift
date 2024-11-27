@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct Patron: LocalizableEntity {
     /// The patron's identifier. An unique, increasing integer.
     public let id: Int
@@ -91,13 +89,18 @@ public struct PatronTranslation: EntitySubtype {
 
 /// The patron cultures the patron is or is not part of. If the patron is part of all patron cultures, the set should be empty and the operation should be difference.
 public struct PatronCulture: EntitySubtype {
-    public let set: [CultureReference]
+    public let `set`: [CultureReference]
 
     public let operation: PatronCultureOperation
 
-    public init(set: [CultureReference], operation: PatronCultureOperation) {
-        self.set = set
+    public init(`set`: [CultureReference], operation: PatronCultureOperation) {
+        self.`set` = `set`
         self.operation = operation
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case `set` = "set"
+        case operation = "operation"
     }
 }
 
@@ -151,10 +154,31 @@ public struct SkillAnimalPower: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum AnimalPowerLevel1: EntitySubtype {
     case advantage(AdvantageAnimalPower)
     case skill(SkillAnimalPower)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case advantage = "advantage"
+        case skill = "skill"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case advantage = "Advantage"
+        case skill = "Skill"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .advantage:
+            self = .advantage(try container.decode(AdvantageAnimalPower.self, forKey: .advantage))
+        case .skill:
+            self = .skill(try container.decode(SkillAnimalPower.self, forKey: .skill))
+        }
+    }
 }
 
 public typealias AnimalPowersLevel1 = [AnimalPowerLevel1]
@@ -181,9 +205,15 @@ public enum CombatAnimalPowerType: String, EntitySubtype {
     case protection = "Protection"
 }
 
-@DiscriminatedEnum
-public enum AnimalPowerLevel2: EntitySubtype {
-    case combat(CombatAnimalPower)
+public struct AnimalPowerLevel2: EntitySubtype {
+    public let tag: String
+
+    public let combat: CombatAnimalPower
+
+    public init(tag: String, combat: CombatAnimalPower) {
+        self.tag = tag
+        self.combat = combat
+    }
 }
 
 public typealias AnimalPowersLevel2 = [AnimalPowerLevel2]
@@ -201,9 +231,15 @@ public struct AttributeAnimalPower: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
-public enum AnimalPowerLevel3: EntitySubtype {
-    case attribute(AttributeAnimalPower)
+public struct AnimalPowerLevel3: EntitySubtype {
+    public let tag: String
+
+    public let attribute: AttributeAnimalPower
+
+    public init(tag: String, attribute: AttributeAnimalPower) {
+        self.tag = tag
+        self.attribute = attribute
+    }
 }
 
 public typealias AnimalPowersLevel3 = [AnimalPowerLevel3]

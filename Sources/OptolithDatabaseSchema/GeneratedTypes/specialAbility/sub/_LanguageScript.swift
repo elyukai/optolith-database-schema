@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct AssociatedContinent: EntitySubtype {
     /// The continent's identifier.
     public let id: ContinentIdentifier

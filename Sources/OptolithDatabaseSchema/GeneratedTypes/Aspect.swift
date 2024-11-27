@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct Aspect: LocalizableEntity {
     /// The aspect's identifier. An unique, increasing integer.
     public let id: Int

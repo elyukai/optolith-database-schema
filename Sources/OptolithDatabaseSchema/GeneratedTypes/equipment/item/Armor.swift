@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct Armor: LocalizableEntity {
     /// The cost in silverthalers.
     public let cost: Cost
@@ -175,12 +173,41 @@ public struct ArmorTypeReference: EntitySubtype {
 }
 
 /// Specify if armor is only available for a specific hit zone.
-@DiscriminatedEnum
 public enum HitZone: EntitySubtype {
     case head(HeadHitZone)
     case torso
     case arms
     case legs
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case head = "head"
+        case torso = "torso"
+        case arms = "arms"
+        case legs = "legs"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case head = "Head"
+        case torso = "Torso"
+        case arms = "Arms"
+        case legs = "Legs"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .head:
+            self = .head(try container.decode(HeadHitZone.self, forKey: .head))
+        case .torso:
+            self = .torso
+        case .arms:
+            self = .arms
+        case .legs:
+            self = .legs
+        }
+    }
 }
 
 public struct HeadHitZone: EntitySubtype {

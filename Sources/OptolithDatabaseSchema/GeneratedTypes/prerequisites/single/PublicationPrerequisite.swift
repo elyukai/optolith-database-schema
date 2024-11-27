@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct PublicationPrerequisite: EntitySubtype {
     public let id: Int
 

@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct AlternativeName: EntitySubtype {
     /// An alternative name of the disease.
     public let name: NonEmptyString

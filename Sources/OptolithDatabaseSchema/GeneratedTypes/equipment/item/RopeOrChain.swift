@@ -3,6 +3,4 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public typealias RopeOrChain = DefaultItem

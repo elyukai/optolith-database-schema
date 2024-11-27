@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct Condition: LocalizableEntity {
     /// The condition's identifier. An unique, increasing integer.
     public let id: Int

@@ -3,25 +3,30 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct Service: LocalizableEntity {
     /// The service's identifier. An unique, increasing integer.
     public let id: Int
 
     /// Defines for which creature type(s) the service is available.
-    public let availability: [ServiceAvailability]
+    public let `availability`: [ServiceAvailability]
 
     public let src: PublicationRefs
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<ServiceTranslation>
 
-    public init(id: Int, availability: [ServiceAvailability], src: PublicationRefs, translations: LocaleMap<ServiceTranslation>) {
+    public init(id: Int, `availability`: [ServiceAvailability], src: PublicationRefs, translations: LocaleMap<ServiceTranslation>) {
         self.id = id
-        self.availability = availability
+        self.`availability` = `availability`
         self.src = src
         self.translations = translations
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case `availability` = "availability"
+        case src = "src"
+        case translations = "translations"
     }
 }
 

@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct Locale: Entity {
     /// The locale's identifier. An IETF language tag (BCP47).
     public let id: String

@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct CloseCombatTechnique: LocalizableEntity {
     /// The close combat technique's identifier. An unique, increasing integer.
     public let id: Int

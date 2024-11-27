@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 /// A list of enhancements.
 public typealias Enhancements = [Enhancement]
 

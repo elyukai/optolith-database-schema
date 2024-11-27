@@ -3,14 +3,37 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 /// The damage of a ranged weapon. It consists of a random part using dice and an optional flat part ny default. Some ranged weapons may work different so that damage is either not applicable at all or it is outlined as *Special* and further defined in a description.
-@DiscriminatedEnum
 public enum RangedDamage: EntitySubtype {
     case `default`(DefaultRangedDamage)
     case notApplicable
     case special
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case `default` = "default"
+        case notApplicable = "not_applicable"
+        case special = "special"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case `default` = "Default"
+        case notApplicable = "NotApplicable"
+        case special = "Special"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .`default`:
+            self = .`default`(try container.decode(DefaultRangedDamage.self, forKey: .`default`))
+        case .notApplicable:
+            self = .notApplicable
+        case .special:
+            self = .special
+        }
+    }
 }
 
 /// The damage of a weapon consists of a random part using dice and an optional flat part.

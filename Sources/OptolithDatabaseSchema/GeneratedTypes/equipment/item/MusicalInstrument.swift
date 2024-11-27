@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct MusicalInstrument: LocalizableEntity {
     /// The cost in silverthalers.
     public let cost: Cost

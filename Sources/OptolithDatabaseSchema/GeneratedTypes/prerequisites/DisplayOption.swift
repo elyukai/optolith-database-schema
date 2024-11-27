@@ -3,12 +3,31 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
-@DiscriminatedEnum
 public enum DisplayOption: EntitySubtype {
     case hide
     case replaceWith(ReplacementDisplayOption)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case hide = "hide"
+        case replaceWith = "replace_with"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case hide = "Hide"
+        case replaceWith = "ReplaceWith"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .hide:
+            self = .hide
+        case .replaceWith:
+            self = .replaceWith(try container.decode(ReplacementDisplayOption.self, forKey: .replaceWith))
+        }
+    }
 }
 
 public struct ReplacementDisplayOption: EntitySubtype {

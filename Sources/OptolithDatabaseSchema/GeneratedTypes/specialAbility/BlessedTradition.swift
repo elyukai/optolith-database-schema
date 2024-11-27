@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct BlessedTradition: LocalizableEntity {
     public let id: Id
 
@@ -89,22 +87,72 @@ public struct BlessedTradition: LocalizableEntity {
 
 /// If a tradition restricts the possible blessings, the blessings that are
 /// **not** allowed.
-@DiscriminatedEnum
 public enum RestrictedBlessings: EntitySubtype {
     case three(ThreeRestrictedBlessings)
     case six(SixRestrictedBlessings)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case three = "three"
+        case six = "six"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case three = "Three"
+        case six = "Six"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .three:
+            self = .three(try container.decode(ThreeRestrictedBlessings.self, forKey: .three))
+        case .six:
+            self = .six(try container.decode(SixRestrictedBlessings.self, forKey: .six))
+        }
+    }
 }
 
 public typealias ThreeRestrictedBlessings = [BlessingReference]
 
 public typealias SixRestrictedBlessings = [BlessingReference]
 
-@DiscriminatedEnum
 public enum FavoredCombatTechniques: EntitySubtype {
     case all
     case allClose
     case allUsedInHunting
     case specific(SpecificFavoredCombatTechniques)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case all = "all"
+        case allClose = "all_close"
+        case allUsedInHunting = "all_used_in_hunting"
+        case specific = "specific"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case all = "All"
+        case allClose = "AllClose"
+        case allUsedInHunting = "AllUsedInHunting"
+        case specific = "Specific"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .all:
+            self = .all
+        case .allClose:
+            self = .allClose
+        case .allUsedInHunting:
+            self = .allUsedInHunting
+        case .specific:
+            self = .specific(try container.decode(SpecificFavoredCombatTechniques.self, forKey: .specific))
+        }
+    }
 }
 
 public struct SpecificFavoredCombatTechniques: EntitySubtype {
@@ -130,10 +178,31 @@ public struct FavoredSkillsSelection: EntitySubtype {
 }
 
 /// The type of the tradition. May be either church or shamanistic.
-@DiscriminatedEnum
 public enum BlessedTraditionType: EntitySubtype {
     case church
     case shamanistic(ShamanisticBlessedTradition)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case church = "church"
+        case shamanistic = "shamanistic"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case church = "Church"
+        case shamanistic = "Shamanistic"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .church:
+            self = .church
+        case .shamanistic:
+            self = .shamanistic(try container.decode(ShamanisticBlessedTradition.self, forKey: .shamanistic))
+        }
+    }
 }
 
 /// Additional rules for shamanistic traditions.

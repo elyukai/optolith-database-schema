@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct VampiricGift: LocalizableEntity {
     public let id: Id
 

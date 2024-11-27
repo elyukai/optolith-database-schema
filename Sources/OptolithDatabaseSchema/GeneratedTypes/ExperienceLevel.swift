@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 /// Adventure Points and maximum values at hero creation.
 public struct ExperienceLevel: LocalizableEntity {
     /// An unique, increasing integer.

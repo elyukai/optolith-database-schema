@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct Weapon: LocalizableEntity {
     /// The cost in silverthalers.
     public let cost: Cost
@@ -162,20 +160,62 @@ public struct WeaponUse: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum WeaponUseValues: EntitySubtype {
     case melee(MeleeWeapon)
     case ranged(RangedWeapon)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case melee = "melee"
+        case ranged = "ranged"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case melee = "Melee"
+        case ranged = "Ranged"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .melee:
+            self = .melee(try container.decode(MeleeWeapon.self, forKey: .melee))
+        case .ranged:
+            self = .ranged(try container.decode(RangedWeapon.self, forKey: .ranged))
+        }
+    }
 }
 
 /// If the weapon is sanctified by a god and thus restricted to it's Blessed Ones.
 public typealias SanctifiedBy = [BlessedTraditionReference]
 
 /// Define if during character creation this weapon can only be bought by characters of a specific race or culture.
-@DiscriminatedEnum
 public enum RestrictedToCultures: EntitySubtype {
     case culturesOfRace(RaceReference)
     case cultures(RestrictedToSpecificCultures)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case culturesOfRace = "cultures_of_race"
+        case cultures = "cultures"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case culturesOfRace = "CulturesOfRace"
+        case cultures = "Cultures"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .culturesOfRace:
+            self = .culturesOfRace(try container.decode(RaceReference.self, forKey: .culturesOfRace))
+        case .cultures:
+            self = .cultures(try container.decode(RestrictedToSpecificCultures.self, forKey: .cultures))
+        }
+    }
 }
 
 public struct RestrictedToSpecificCultures: EntitySubtype {

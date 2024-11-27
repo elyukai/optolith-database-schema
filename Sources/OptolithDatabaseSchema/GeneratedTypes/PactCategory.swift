@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct PactCategory: LocalizableEntity {
     /// The pact category's identifier. An unique, increasing integer.
     public let id: Int

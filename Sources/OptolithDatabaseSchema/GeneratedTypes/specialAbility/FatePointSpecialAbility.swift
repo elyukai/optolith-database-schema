@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct FatePointSpecialAbility: LocalizableEntity {
     public let id: Id
 

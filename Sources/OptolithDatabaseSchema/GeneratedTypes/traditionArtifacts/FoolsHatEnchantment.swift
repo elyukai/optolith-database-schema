@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct FoolsHatEnchantment: LocalizableEntity {
     public let id: Id
 

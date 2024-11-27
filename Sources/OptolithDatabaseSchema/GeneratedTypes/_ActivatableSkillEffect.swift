@@ -3,14 +3,37 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 /// The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
-@DiscriminatedEnum
 public enum ActivatableSkillEffect: EntitySubtype {
     case plain(ActivatableSkillPlainEffect)
     case forEachQualityLevel(ActivatableSkillEffectForEachQualityLevel)
     case forEachTwoQualityLevels(ActivatableSkillEffectForEachTwoQualityLevels)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case plain = "plain"
+        case forEachQualityLevel = "for_each_quality_level"
+        case forEachTwoQualityLevels = "for_each_two_quality_levels"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case plain = "Plain"
+        case forEachQualityLevel = "ForEachQualityLevel"
+        case forEachTwoQualityLevels = "ForEachTwoQualityLevels"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .plain:
+            self = .plain(try container.decode(ActivatableSkillPlainEffect.self, forKey: .plain))
+        case .forEachQualityLevel:
+            self = .forEachQualityLevel(try container.decode(ActivatableSkillEffectForEachQualityLevel.self, forKey: .forEachQualityLevel))
+        case .forEachTwoQualityLevels:
+            self = .forEachTwoQualityLevels(try container.decode(ActivatableSkillEffectForEachTwoQualityLevels.self, forKey: .forEachTwoQualityLevels))
+        }
+    }
 }
 
 public struct ActivatableSkillPlainEffect: EntitySubtype {

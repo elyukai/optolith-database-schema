@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct SkillGroup: LocalizableEntity {
     /// The skill group's identifier. An unique, increasing integer.
     public let id: Int

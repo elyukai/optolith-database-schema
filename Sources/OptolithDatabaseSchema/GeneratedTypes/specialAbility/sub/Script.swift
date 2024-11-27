@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct Script: LocalizableEntity {
     /// The script's identifier. An unique, increasing integer.
     public let id: Int

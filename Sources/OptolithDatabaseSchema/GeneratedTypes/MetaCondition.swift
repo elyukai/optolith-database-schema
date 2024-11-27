@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 /// Meta Conditions are rule elements that work like conditions in the sense that they have four levels with different effects, but which are not explicitly listed as conditions.
 public struct MetaCondition: LocalizableEntity {
     /// The meta condition's identifier. An unique, increasing integer.

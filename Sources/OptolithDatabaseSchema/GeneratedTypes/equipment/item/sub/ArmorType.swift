@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct ArmorType: LocalizableEntity {
     /// The armor type's identifier. An unique, increasing integer.
     public let id: Int

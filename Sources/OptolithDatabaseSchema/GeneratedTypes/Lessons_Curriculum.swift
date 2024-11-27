@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 /// This is a curriculum of a specified academy, containing the guideline, elective and restricted spellworks as well as the lesson packages of that academy.
 public struct Curriculum: LocalizableEntity {
     /// The curriculum's identifier. An unique, increasing integer.
@@ -61,10 +59,31 @@ public struct CurriculumTranslation: EntitySubtype {
 }
 
 /// The academy's elective spellworks package.
-@DiscriminatedEnum
 public enum ElectiveSpellworks: EntitySubtype {
     case definedByGameMaster
     case specific(SpecificElectiveSpellworks)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case definedByGameMaster = "defined_by_game_master"
+        case specific = "specific"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case definedByGameMaster = "DefinedByGameMaster"
+        case specific = "Specific"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .definedByGameMaster:
+            self = .definedByGameMaster
+        case .specific:
+            self = .specific(try container.decode(SpecificElectiveSpellworks.self, forKey: .specific))
+        }
+    }
 }
 
 public struct SpecificElectiveSpellworks: EntitySubtype {
@@ -88,9 +107,15 @@ public struct ElectiveSpellwork: EntitySubtype {
 }
 
 /// The elective spellwork may only take effect if a certain condition is met. The condition may be related to professions or profession variants, but it is designed so that it can work without a specific profession, as multiple may belong to an institute, but with referencing other entities instead.
-@DiscriminatedEnum
-public enum ElectiveSpellworkRestriction: EntitySubtype {
-    case element(ElectiveSpellworkElementRestriction)
+public struct ElectiveSpellworkRestriction: EntitySubtype {
+    public let tag: String
+
+    public let element: ElectiveSpellworkElementRestriction
+
+    public init(tag: String, element: ElectiveSpellworkElementRestriction) {
+        self.tag = tag
+        self.element = element
+    }
 }
 
 public struct ElectiveSpellworkElementRestriction: EntitySubtype {
@@ -105,13 +130,46 @@ public struct ElectiveSpellworkElementRestriction: EntitySubtype {
 public typealias RestrictedSpellworks = [RestrictedSpellwork]
 
 /// The academy's restricted spellworks package.
-@DiscriminatedEnum
 public enum RestrictedSpellwork: EntitySubtype {
     case property(RestrictedProperty)
     case spellwork(SpellworkIdentifier)
     case demonSummoning
     case borbaradian
     case damageIntelligent
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case property = "property"
+        case spellwork = "spellwork"
+        case demonSummoning = "demon_summoning"
+        case borbaradian = "borbaradian"
+        case damageIntelligent = "damage_intelligent"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case property = "Property"
+        case spellwork = "Spellwork"
+        case demonSummoning = "DemonSummoning"
+        case borbaradian = "Borbaradian"
+        case damageIntelligent = "DamageIntelligent"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .property:
+            self = .property(try container.decode(RestrictedProperty.self, forKey: .property))
+        case .spellwork:
+            self = .spellwork(try container.decode(SpellworkIdentifier.self, forKey: .spellwork))
+        case .demonSummoning:
+            self = .demonSummoning
+        case .borbaradian:
+            self = .borbaradian
+        case .damageIntelligent:
+            self = .damageIntelligent
+        }
+    }
 }
 
 public struct RestrictedProperty: EntitySubtype {
@@ -192,11 +250,36 @@ public struct LessonPackageTranslation: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum AbilityAdjustment: EntitySubtype {
     case combatTechnique(CombatTechniqueAdjustment)
     case skill(SkillAdjustment)
     case spellwork(SpellworkAdjustment)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case combatTechnique = "combat_technique"
+        case skill = "skill"
+        case spellwork = "spellwork"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case combatTechnique = "CombatTechnique"
+        case skill = "Skill"
+        case spellwork = "Spellwork"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .combatTechnique:
+            self = .combatTechnique(try container.decode(CombatTechniqueAdjustment.self, forKey: .combatTechnique))
+        case .skill:
+            self = .skill(try container.decode(SkillAdjustment.self, forKey: .skill))
+        case .spellwork:
+            self = .spellwork(try container.decode(SpellworkAdjustment.self, forKey: .spellwork))
+        }
+    }
 }
 
 public struct CombatTechniqueAdjustment: EntitySubtype {

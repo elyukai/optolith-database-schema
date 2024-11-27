@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct GeodeRitual: LocalizableEntity {
     /// The geode ritual's identifier. An unique, increasing integer.
     public let id: Int
@@ -16,7 +14,7 @@ public struct GeodeRitual: LocalizableEntity {
     public let parameters: GeodeRitualPerformanceParameters
 
     /// The target category – the kind of creature or object – the skill affects.
-    public let target: AffectedTargetCategories
+    public let `target`: AffectedTargetCategories
 
     /// The associated property.
     public let property: PropertyReference
@@ -28,15 +26,26 @@ public struct GeodeRitual: LocalizableEntity {
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<GeodeRitualTranslation>
 
-    public init(id: Int, check: SkillCheck, parameters: GeodeRitualPerformanceParameters, target: AffectedTargetCategories, property: PropertyReference, prerequisites: GeodeRitualPrerequisites? = nil, src: PublicationRefs, translations: LocaleMap<GeodeRitualTranslation>) {
+    public init(id: Int, check: SkillCheck, parameters: GeodeRitualPerformanceParameters, `target`: AffectedTargetCategories, property: PropertyReference, prerequisites: GeodeRitualPrerequisites? = nil, src: PublicationRefs, translations: LocaleMap<GeodeRitualTranslation>) {
         self.id = id
         self.check = check
         self.parameters = parameters
-        self.target = target
+        self.`target` = `target`
         self.property = property
         self.prerequisites = prerequisites
         self.src = src
         self.translations = translations
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case check = "check"
+        case parameters = "parameters"
+        case `target` = "target"
+        case property = "property"
+        case prerequisites = "prerequisites"
+        case src = "src"
+        case translations = "translations"
     }
 }
 
@@ -60,18 +69,18 @@ public struct GeodeRitualTranslation: EntitySubtype {
     public let duration: OldParameter
 
     @available(*, deprecated)
-    public let target: String
+    public let `target`: String
 
     public let errata: Errata?
 
-    public init(name: NonEmptyString, effect: ActivatableSkillEffect, castingTime: OldParameter, cost: OldParameter, range: OldParameter, duration: OldParameter, target: String, errata: Errata? = nil) {
+    public init(name: NonEmptyString, effect: ActivatableSkillEffect, castingTime: OldParameter, cost: OldParameter, range: OldParameter, duration: OldParameter, `target`: String, errata: Errata? = nil) {
         self.name = name
         self.effect = effect
         self.castingTime = castingTime
         self.cost = cost
         self.range = range
         self.duration = duration
-        self.target = target
+        self.`target` = `target`
         self.errata = errata
     }
 
@@ -82,7 +91,7 @@ public struct GeodeRitualTranslation: EntitySubtype {
         case cost = "cost"
         case range = "range"
         case duration = "duration"
-        case target = "target"
+        case `target` = "target"
         case errata = "errata"
     }
 }
@@ -129,10 +138,31 @@ public struct GeodeRitualCastingTime: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum GeodeRitualCost: EntitySubtype {
     case fixed(FixedGeodeRitualCost)
     case map(CostMap)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case fixed = "fixed"
+        case map = "map"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case fixed = "Fixed"
+        case map = "Map"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .fixed:
+            self = .fixed(try container.decode(FixedGeodeRitualCost.self, forKey: .fixed))
+        case .map:
+            self = .map(try container.decode(CostMap.self, forKey: .map))
+        }
+    }
 }
 
 public struct FixedGeodeRitualCost: EntitySubtype {
@@ -144,10 +174,31 @@ public struct FixedGeodeRitualCost: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum GeodeRitualRange: EntitySubtype {
     case `self`
     case fixed(FixedGeodeRitualRange)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case `self` = "self"
+        case fixed = "fixed"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case `self` = "Self"
+        case fixed = "Fixed"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .`self`:
+            self = .`self`
+        case .fixed:
+            self = .fixed(try container.decode(FixedGeodeRitualRange.self, forKey: .fixed))
+        }
+    }
 }
 
 public struct FixedGeodeRitualRange: EntitySubtype {
@@ -159,11 +210,36 @@ public struct FixedGeodeRitualRange: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum GeodeRitualDuration: EntitySubtype {
     case immediate
     case fixed(FixedGeodeRitualDuration)
     case checkResultBased(CheckResultBasedDuration)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case immediate = "immediate"
+        case fixed = "fixed"
+        case checkResultBased = "check_result_based"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case immediate = "Immediate"
+        case fixed = "Fixed"
+        case checkResultBased = "CheckResultBased"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .immediate:
+            self = .immediate
+        case .fixed:
+            self = .fixed(try container.decode(FixedGeodeRitualDuration.self, forKey: .fixed))
+        case .checkResultBased:
+            self = .checkResultBased(try container.decode(CheckResultBasedDuration.self, forKey: .checkResultBased))
+        }
+    }
 }
 
 public struct FixedGeodeRitualDuration: EntitySubtype {

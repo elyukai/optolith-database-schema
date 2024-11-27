@@ -2,7 +2,7 @@
 
 ## Definitions
 
-### <a name="CastingTime"></a> `CastingTime<NonModifiable extends Object>`
+### <a name="CastingTime"></a> `CastingTime<NonModifiable>`
 
 - **Type:** Union
 - **Cases:** <a href="#CastingTime'Modifiable">CastingTime'Modifiable</a> | <a href="#CastingTime'NonModifiable">CastingTime'NonModifiable</a>
@@ -65,7 +65,7 @@ The initial skill modification identifier/level.
 
 ---
 
-### <a name="CastingTimeIncludingLovemaking"></a> `CastingTimeIncludingLovemaking<NonModifiable extends Object>`
+### <a name="CastingTimeIncludingLovemaking"></a> `CastingTimeIncludingLovemaking<NonModifiable>`
 
 The casting time may have two different values: One for use in “normal” time, i. e. actions, combat rounds and others, and one for use during lovemaking, which is a rule set from Aventurian Intimacy.
 

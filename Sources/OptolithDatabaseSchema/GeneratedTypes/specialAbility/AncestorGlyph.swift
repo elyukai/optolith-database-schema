@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct AncestorGlyph: LocalizableEntity {
     public let id: Id
 

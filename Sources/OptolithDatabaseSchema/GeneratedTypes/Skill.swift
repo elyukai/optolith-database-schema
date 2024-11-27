@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct Skill: LocalizableEntity {
     /// The skill's identifier. An unique, increasing integer.
     public let id: Int
@@ -112,10 +110,31 @@ public enum ApplicationCategory: String, EntitySubtype {
 }
 
 /// The skill's applications.
-@DiscriminatedEnum
 public enum Applications: EntitySubtype {
     case derived(ApplicationCategory)
     case explicit(SpecificApplications)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case derived = "derived"
+        case explicit = "explicit"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case derived = "Derived"
+        case explicit = "Explicit"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .derived:
+            self = .derived(try container.decode(ApplicationCategory.self, forKey: .derived))
+        case .explicit:
+            self = .explicit(try container.decode(SpecificApplications.self, forKey: .explicit))
+        }
+    }
 }
 
 /// A list of explicit applications.

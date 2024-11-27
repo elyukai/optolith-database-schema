@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct SkillModificationLevel: Entity {
     /// The skill modification level's identifier.
     public let id: Int

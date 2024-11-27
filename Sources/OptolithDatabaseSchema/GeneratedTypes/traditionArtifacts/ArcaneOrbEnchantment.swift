@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct ArcaneOrbEnchantment: LocalizableEntity {
     public let id: Id
 

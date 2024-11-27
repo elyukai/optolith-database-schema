@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct RangedCombatTechnique: LocalizableEntity {
     /// The ranged combat technique's identifier. An unique, increasing integer.
     public let id: Int

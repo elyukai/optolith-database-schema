@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct TargetCategory: LocalizableEntity {
     /// The target category's identifier. An unique, increasing integer.
     public let id: Int

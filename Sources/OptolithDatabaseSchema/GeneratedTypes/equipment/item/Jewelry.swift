@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct Jewelry: LocalizableEntity {
     /// The cost in silverthalers.
     public let cost: JewelryMaterialDifference<Cost>

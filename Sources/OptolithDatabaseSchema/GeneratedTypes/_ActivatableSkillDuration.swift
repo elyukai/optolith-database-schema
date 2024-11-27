@@ -3,15 +3,46 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
-@DiscriminatedEnum
 public enum DurationForOneTime: EntitySubtype {
     case immediate(Immediate)
     case permanent(PermanentDuration)
     case fixed(FixedDuration)
     case checkResultBased(CheckResultBasedDuration)
     case indefinite(IndefiniteDuration)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case immediate = "immediate"
+        case permanent = "permanent"
+        case fixed = "fixed"
+        case checkResultBased = "check_result_based"
+        case indefinite = "indefinite"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case immediate = "Immediate"
+        case permanent = "Permanent"
+        case fixed = "Fixed"
+        case checkResultBased = "CheckResultBased"
+        case indefinite = "Indefinite"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .immediate:
+            self = .immediate(try container.decode(Immediate.self, forKey: .immediate))
+        case .permanent:
+            self = .permanent(try container.decode(PermanentDuration.self, forKey: .permanent))
+        case .fixed:
+            self = .fixed(try container.decode(FixedDuration.self, forKey: .fixed))
+        case .checkResultBased:
+            self = .checkResultBased(try container.decode(CheckResultBasedDuration.self, forKey: .checkResultBased))
+        case .indefinite:
+            self = .indefinite(try container.decode(IndefiniteDuration.self, forKey: .indefinite))
+        }
+    }
 }
 
 public struct Immediate: EntitySubtype {

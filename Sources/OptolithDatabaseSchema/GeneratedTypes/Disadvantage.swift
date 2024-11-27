@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct Disadvantage: LocalizableEntity {
     public let id: Id
 

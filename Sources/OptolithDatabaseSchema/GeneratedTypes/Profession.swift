@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct Profession: Entity {
     /// The profession's identifier. An unique, increasing integer.
     public let id: Int
@@ -24,11 +22,36 @@ public struct Profession: Entity {
     }
 }
 
-@DiscriminatedEnum
 public enum ProfessionGroup: EntitySubtype {
     case mundane(MundaneProfessionGroup)
     case magical(MagicalProfessionGroup)
     case blessed
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case mundane = "mundane"
+        case magical = "magical"
+        case blessed = "blessed"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case mundane = "Mundane"
+        case magical = "Magical"
+        case blessed = "Blessed"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .mundane:
+            self = .mundane(try container.decode(MundaneProfessionGroup.self, forKey: .mundane))
+        case .magical:
+            self = .magical(try container.decode(MagicalProfessionGroup.self, forKey: .magical))
+        case .blessed:
+            self = .blessed
+        }
+    }
 }
 
 public enum MundaneProfessionGroup: String, EntitySubtype {
@@ -46,28 +69,56 @@ public struct MagicalProfessionGroup: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum ProfessionVersion: EntitySubtype {
     case experienced(ExperiencedProfessionPackage)
     case byExperienceLevel(ProfessionPackagesForDifferentExperienceLevels)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case experienced = "experienced"
+        case byExperienceLevel = "by_experience_level"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case experienced = "Experienced"
+        case byExperienceLevel = "ByExperienceLevel"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .experienced:
+            self = .experienced(try container.decode(ExperiencedProfessionPackage.self, forKey: .experienced))
+        case .byExperienceLevel:
+            self = .byExperienceLevel(try container.decode(ProfessionPackagesForDifferentExperienceLevels.self, forKey: .byExperienceLevel))
+        }
+    }
 }
 
 public struct ExperiencedProfessionPackage: EntitySubtype {
     /// The profession representation variant's identifier. An unique, increasing integer.
     public let id: Int
 
-    public let package: ProfessionPackage
+    public let `package`: ProfessionPackage
 
     public let src: PublicationRefs
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<ProfessionTranslation>
 
-    public init(id: Int, package: ProfessionPackage, src: PublicationRefs, translations: LocaleMap<ProfessionTranslation>) {
+    public init(id: Int, `package`: ProfessionPackage, src: PublicationRefs, translations: LocaleMap<ProfessionTranslation>) {
         self.id = id
-        self.package = package
+        self.`package` = `package`
         self.src = src
         self.translations = translations
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case `package` = "package"
+        case src = "src"
+        case translations = "translations"
     }
 }
 
@@ -101,16 +152,16 @@ public struct ExperienceLevelDynamicProfessionPackage: EntitySubtype {
     /// The experience level this profession targets. The experience level must be unique for this representation.
     public let experienceLevelId: Int
 
-    public let package: ProfessionPackage
+    public let `package`: ProfessionPackage
 
-    public init(experienceLevelId: Int, package: ProfessionPackage) {
+    public init(experienceLevelId: Int, `package`: ProfessionPackage) {
         self.experienceLevelId = experienceLevelId
-        self.package = package
+        self.`package` = `package`
     }
 
     private enum CodingKeys: String, CodingKey {
         case experienceLevelId = "experience_level_id"
-        case package = "package"
+        case `package` = "package"
     }
 }
 
@@ -330,10 +381,31 @@ public struct ProfessionVariantTranslation: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum ProfessionSpecialAbility: EntitySubtype {
     case fixed(FixedSpecialAbility)
     case selection(SpecialAbilitySelection)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case fixed = "fixed"
+        case selection = "selection"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case fixed = "Fixed"
+        case selection = "Selection"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .fixed:
+            self = .fixed(try container.decode(FixedSpecialAbility.self, forKey: .fixed))
+        case .selection:
+            self = .selection(try container.decode(SpecialAbilitySelection.self, forKey: .selection))
+        }
+    }
 }
 
 public typealias FixedSpecialAbility = SpecialAbilityDefinition
@@ -363,10 +435,31 @@ public struct SpecialAbilityDefinition: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum VariantSpecialAbility: EntitySubtype {
     case fixed(FixedVariantSpecialAbility)
     case selection(VariantSpecialAbilitySelection)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case fixed = "fixed"
+        case selection = "selection"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case fixed = "Fixed"
+        case selection = "Selection"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .fixed:
+            self = .fixed(try container.decode(FixedVariantSpecialAbility.self, forKey: .fixed))
+        case .selection:
+            self = .selection(try container.decode(VariantSpecialAbilitySelection.self, forKey: .selection))
+        }
+    }
 }
 
 public struct FixedVariantSpecialAbility: EntitySubtype {
@@ -444,10 +537,31 @@ public struct SpellRating: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum ProfessionSpellIdentifier: EntitySubtype {
     case spellwork(ProfessionSpellworkIdentifier)
     case magicalAction(ProfessionMagicalActionIdentifier)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case spellwork = "spellwork"
+        case magicalAction = "magical_action"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case spellwork = "Spellwork"
+        case magicalAction = "MagicalAction"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .spellwork:
+            self = .spellwork(try container.decode(ProfessionSpellworkIdentifier.self, forKey: .spellwork))
+        case .magicalAction:
+            self = .magicalAction(try container.decode(ProfessionMagicalActionIdentifier.self, forKey: .magicalAction))
+        }
+    }
 }
 
 public struct ProfessionSpellworkIdentifier: EntitySubtype {
@@ -559,17 +673,59 @@ public struct ProfessionVariantPackageOptions: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum VariantOptionAction<T: EntitySubtype>: EntitySubtype {
     case remove
-    case override(T)
+    case `override`(T)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case remove = "remove"
+        case `override` = "override"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case remove = "Remove"
+        case `override` = "Override"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .remove:
+            self = .remove
+        case .`override`:
+            self = .`override`(try container.decode(T.self, forKey: .`override`))
+        }
+    }
 }
 
 /// Select an application from a skill or from one of a list of skills where you get a skill specialization for. You can also specify a skill groups from which you can choose a skill.
-@DiscriminatedEnum
 public enum SkillSpecializationOptions: EntitySubtype {
     case single(SingleSkillSpecializationOption)
     case group(SkillGroupSkillSpecializationOption)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case single = "single"
+        case group = "group"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case single = "Single"
+        case group = "Group"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .single:
+            self = .single(try container.decode(SingleSkillSpecializationOption.self, forKey: .single))
+        case .group:
+            self = .group(try container.decode(SkillGroupSkillSpecializationOption.self, forKey: .group))
+        }
+    }
 }
 
 public struct SingleSkillSpecializationOption: EntitySubtype {
@@ -710,7 +866,6 @@ public enum ProfessionName: EntitySubtype {
 
     public init(from decoder: any Decoder) throws {
         let container = try decoder.singleValueContainer()
-
         if let simpleProfessionName = try? container.decode(SimpleProfessionName.self) {
             self = .simpleProfessionName(simpleProfessionName)
         } else if let professionNameBySex = try? container.decode(ProfessionNameBySex.self) {
@@ -737,5 +892,11 @@ public struct ProfessionNameBySex: EntitySubtype {
         self.`default` = `default`
         self.male = male
         self.female = female
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case `default` = "default"
+        case male = "male"
+        case female = "female"
     }
 }

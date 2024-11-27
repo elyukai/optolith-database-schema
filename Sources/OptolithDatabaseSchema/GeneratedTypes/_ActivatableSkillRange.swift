@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct Range: EntitySubtype {
     public let value: RangeValue
 
@@ -17,7 +15,6 @@ public struct Range: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum RangeValue: EntitySubtype {
     case modifiable(ModifiableRange)
     case sight
@@ -26,6 +23,48 @@ public enum RangeValue: EntitySubtype {
     case touch
     case fixed(FixedRange)
     case checkResultBased(CheckResultBasedRange)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case modifiable = "modifiable"
+        case sight = "sight"
+        case `self` = "self"
+        case global = "global"
+        case touch = "touch"
+        case fixed = "fixed"
+        case checkResultBased = "check_result_based"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case modifiable = "Modifiable"
+        case sight = "Sight"
+        case `self` = "Self"
+        case global = "Global"
+        case touch = "Touch"
+        case fixed = "Fixed"
+        case checkResultBased = "CheckResultBased"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .modifiable:
+            self = .modifiable(try container.decode(ModifiableRange.self, forKey: .modifiable))
+        case .sight:
+            self = .sight
+        case .`self`:
+            self = .`self`
+        case .global:
+            self = .global
+        case .touch:
+            self = .touch
+        case .fixed:
+            self = .fixed(try container.decode(FixedRange.self, forKey: .fixed))
+        case .checkResultBased:
+            self = .checkResultBased(try container.decode(CheckResultBasedRange.self, forKey: .checkResultBased))
+        }
+    }
 }
 
 public struct ModifiableRange: EntitySubtype {

@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct JesterTrick: LocalizableEntity {
     /// The jester trick's identifier. An unique, increasing integer.
     public let id: Int
@@ -19,7 +17,7 @@ public struct JesterTrick: LocalizableEntity {
     public let parameters: JesterTrickPerformanceParameters
 
     /// The target category – the kind of creature or object – the skill affects.
-    public let target: AffectedTargetCategories
+    public let `target`: AffectedTargetCategories
 
     /// The associated property.
     public let property: PropertyReference
@@ -32,12 +30,12 @@ public struct JesterTrick: LocalizableEntity {
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<JesterTrickTranslation>
 
-    public init(id: Int, check: SkillCheck, checkPenalty: SkillCheckPenalty? = nil, parameters: JesterTrickPerformanceParameters, target: AffectedTargetCategories, property: PropertyReference, improvementCost: ImprovementCost, src: PublicationRefs, translations: LocaleMap<JesterTrickTranslation>) {
+    public init(id: Int, check: SkillCheck, checkPenalty: SkillCheckPenalty? = nil, parameters: JesterTrickPerformanceParameters, `target`: AffectedTargetCategories, property: PropertyReference, improvementCost: ImprovementCost, src: PublicationRefs, translations: LocaleMap<JesterTrickTranslation>) {
         self.id = id
         self.check = check
         self.checkPenalty = checkPenalty
         self.parameters = parameters
-        self.target = target
+        self.`target` = `target`
         self.property = property
         self.improvementCost = improvementCost
         self.src = src
@@ -49,7 +47,7 @@ public struct JesterTrick: LocalizableEntity {
         case check = "check"
         case checkPenalty = "check_penalty"
         case parameters = "parameters"
-        case target = "target"
+        case `target` = "target"
         case property = "property"
         case improvementCost = "improvement_cost"
         case src = "src"
@@ -77,18 +75,18 @@ public struct JesterTrickTranslation: EntitySubtype {
     public let duration: OldParameter
 
     @available(*, deprecated)
-    public let target: String
+    public let `target`: String
 
     public let errata: Errata?
 
-    public init(name: NonEmptyString, effect: ActivatableSkillEffect, castingTime: OldParameter, cost: OldParameter, range: OldParameter, duration: OldParameter, target: String, errata: Errata? = nil) {
+    public init(name: NonEmptyString, effect: ActivatableSkillEffect, castingTime: OldParameter, cost: OldParameter, range: OldParameter, duration: OldParameter, `target`: String, errata: Errata? = nil) {
         self.name = name
         self.effect = effect
         self.castingTime = castingTime
         self.cost = cost
         self.range = range
         self.duration = duration
-        self.target = target
+        self.`target` = `target`
         self.errata = errata
     }
 
@@ -99,7 +97,7 @@ public struct JesterTrickTranslation: EntitySubtype {
         case cost = "cost"
         case range = "range"
         case duration = "duration"
-        case target = "target"
+        case `target` = "target"
         case errata = "errata"
     }
 }
@@ -151,11 +149,36 @@ public struct JesterTrickCost: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum JesterTrickRange: EntitySubtype {
     case touch
     case `self`
     case fixed(FixedJesterTrickRange)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case touch = "touch"
+        case `self` = "self"
+        case fixed = "fixed"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case touch = "Touch"
+        case `self` = "Self"
+        case fixed = "Fixed"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .touch:
+            self = .touch
+        case .`self`:
+            self = .`self`
+        case .fixed:
+            self = .fixed(try container.decode(FixedJesterTrickRange.self, forKey: .fixed))
+        }
+    }
 }
 
 public struct FixedJesterTrickRange: EntitySubtype {
@@ -167,11 +190,36 @@ public struct FixedJesterTrickRange: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum JesterTrickDuration: EntitySubtype {
     case immediate
     case fixed(FixedJesterTrickDuration)
     case checkResultBased(CheckResultBasedDuration)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case immediate = "immediate"
+        case fixed = "fixed"
+        case checkResultBased = "check_result_based"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case immediate = "Immediate"
+        case fixed = "Fixed"
+        case checkResultBased = "CheckResultBased"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .immediate:
+            self = .immediate
+        case .fixed:
+            self = .fixed(try container.decode(FixedJesterTrickDuration.self, forKey: .fixed))
+        case .checkResultBased:
+            self = .checkResultBased(try container.decode(CheckResultBasedDuration.self, forKey: .checkResultBased))
+        }
+    }
 }
 
 public struct FixedJesterTrickDuration: EntitySubtype {

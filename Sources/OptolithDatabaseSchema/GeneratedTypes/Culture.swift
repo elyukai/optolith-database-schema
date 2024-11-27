@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct Culture: LocalizableEntity {
     /// An unique, increasing integer.
     public let id: Int
@@ -225,22 +223,74 @@ public struct BlessedTraditionConstraint: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum MundaneCommonProfessionConstraint: EntitySubtype {
     case profession(ProfessionConstraint)
     case professionSubgroup(MundaneProfessionSubgroupConstraint)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case profession = "profession"
+        case professionSubgroup = "profession_subgroup"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case profession = "Profession"
+        case professionSubgroup = "ProfessionSubgroup"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .profession:
+            self = .profession(try container.decode(ProfessionConstraint.self, forKey: .profession))
+        case .professionSubgroup:
+            self = .professionSubgroup(try container.decode(MundaneProfessionSubgroupConstraint.self, forKey: .professionSubgroup))
+        }
+    }
 }
 
-@DiscriminatedEnum
 public enum MagicCommonProfessionConstraint: EntitySubtype {
     case tradition(MagicalTraditionConstraint)
     case magicDilettante
     case profession(ProfessionConstraint)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case tradition = "tradition"
+        case magicDilettante = "magic_dilettante"
+        case profession = "profession"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case tradition = "Tradition"
+        case magicDilettante = "MagicDilettante"
+        case profession = "Profession"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .tradition:
+            self = .tradition(try container.decode(MagicalTraditionConstraint.self, forKey: .tradition))
+        case .magicDilettante:
+            self = .magicDilettante
+        case .profession:
+            self = .profession(try container.decode(ProfessionConstraint.self, forKey: .profession))
+        }
+    }
 }
 
-@DiscriminatedEnum
-public enum BlessedCommonProfessionConstraint: EntitySubtype {
-    case tradition(BlessedTraditionConstraint)
+public struct BlessedCommonProfessionConstraint: EntitySubtype {
+    public let tag: String
+
+    public let tradition: BlessedTraditionConstraint
+
+    public init(tag: String, tradition: BlessedTraditionConstraint) {
+        self.tag = tag
+        self.tradition = tradition
+    }
 }
 
 public typealias PlainCommonProfessions = CommonProfessionConstraints<ProfessionReference>
@@ -261,10 +311,31 @@ public struct GroupedCommonProfessions: EntitySubtype {
 }
 
 /// A list of professions that are typical for the culture, as well as professions that are rarely practiced or encountered in the culture. The list is either defined by group (as multiple lists) or plain (as a single list).
-@DiscriminatedEnum
 public enum CommonProfessions: EntitySubtype {
     case plain(PlainCommonProfessions)
     case grouped(GroupedCommonProfessions)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case plain = "plain"
+        case grouped = "grouped"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case plain = "Plain"
+        case grouped = "Grouped"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .plain:
+            self = .plain(try container.decode(PlainCommonProfessions.self, forKey: .plain))
+        case .grouped:
+            self = .grouped(try container.decode(GroupedCommonProfessions.self, forKey: .grouped))
+        }
+    }
 }
 
 public typealias CommonnessRatedSkill = SkillReference

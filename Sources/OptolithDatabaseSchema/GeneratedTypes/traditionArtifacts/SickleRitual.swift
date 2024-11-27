@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct SickleRitual: LocalizableEntity {
     public let id: Id
 

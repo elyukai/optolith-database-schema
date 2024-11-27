@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct RingEnchantment: LocalizableEntity {
     public let id: Id
 

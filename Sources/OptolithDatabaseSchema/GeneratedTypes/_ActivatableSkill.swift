@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct OneTimePerformanceParameters<CastingTime: EntitySubtype>: EntitySubtype {
     public let castingTime: CastingTime
 
@@ -53,20 +51,62 @@ public struct SustainedPerformanceParameters<CastingTime: EntitySubtype>: Entity
     }
 }
 
-@DiscriminatedEnum
 public enum FastPerformanceParameters: EntitySubtype {
     case oneTime(FastOneTimePerformanceParameters)
     case sustained(FastSustainedPerformanceParameters)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case oneTime = "one_time"
+        case sustained = "sustained"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case oneTime = "OneTime"
+        case sustained = "Sustained"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .oneTime:
+            self = .oneTime(try container.decode(FastOneTimePerformanceParameters.self, forKey: .oneTime))
+        case .sustained:
+            self = .sustained(try container.decode(FastSustainedPerformanceParameters.self, forKey: .sustained))
+        }
+    }
 }
 
 public typealias FastOneTimePerformanceParameters = OneTimePerformanceParameters<FastCastingTime>
 
 public typealias FastSustainedPerformanceParameters = SustainedPerformanceParameters<FastCastingTime>
 
-@DiscriminatedEnum
 public enum SlowPerformanceParameters: EntitySubtype {
     case oneTime(SlowOneTimePerformanceParameters)
     case sustained(SlowSustainedPerformanceParameters)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case oneTime = "one_time"
+        case sustained = "sustained"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case oneTime = "OneTime"
+        case sustained = "Sustained"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .oneTime:
+            self = .oneTime(try container.decode(SlowOneTimePerformanceParameters.self, forKey: .oneTime))
+        case .sustained:
+            self = .sustained(try container.decode(SlowSustainedPerformanceParameters.self, forKey: .sustained))
+        }
+    }
 }
 
 public typealias SlowOneTimePerformanceParameters = OneTimePerformanceParameters<SlowCastingTime>

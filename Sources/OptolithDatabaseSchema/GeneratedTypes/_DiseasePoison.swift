@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 /// Depending on the disease, apply Spirit or Toughness as a penalty to the disease roll. It may also happen that the lower of both is applied as a penalty.
 public enum Resistance: String, EntitySubtype {
     case spirit = "Spirit"
@@ -113,5 +111,10 @@ public struct Reduceable<Content: EntitySubtype>: EntitySubtype {
     public init(`default`: Content, reduced: Content? = nil) {
         self.`default` = `default`
         self.reduced = reduced
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case `default` = "default"
+        case reduced = "reduced"
     }
 }

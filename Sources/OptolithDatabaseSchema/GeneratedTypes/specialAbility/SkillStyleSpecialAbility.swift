@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct SkillStyleSpecialAbility: LocalizableEntity {
     public let id: Id
 

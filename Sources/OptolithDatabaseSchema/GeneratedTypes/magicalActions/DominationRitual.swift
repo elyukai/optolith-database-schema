@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct DominationRitual: LocalizableEntity {
     /// The domination ritual's identifier. An unique, increasing integer.
     public let id: Int
@@ -112,11 +110,36 @@ public struct DominationRitualCostTranslation: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum DominationRitualDuration: EntitySubtype {
     case fixed(FixedDominationRitualDuration)
     case checkResultBased(CheckResultBasedDuration)
     case indefinite(IndefiniteDominationRitualDuration)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case fixed = "fixed"
+        case checkResultBased = "check_result_based"
+        case indefinite = "indefinite"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case fixed = "Fixed"
+        case checkResultBased = "CheckResultBased"
+        case indefinite = "Indefinite"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .fixed:
+            self = .fixed(try container.decode(FixedDominationRitualDuration.self, forKey: .fixed))
+        case .checkResultBased:
+            self = .checkResultBased(try container.decode(CheckResultBasedDuration.self, forKey: .checkResultBased))
+        case .indefinite:
+            self = .indefinite(try container.decode(IndefiniteDominationRitualDuration.self, forKey: .indefinite))
+        }
+    }
 }
 
 public struct FixedDominationRitualDuration: EntitySubtype {
@@ -145,8 +168,29 @@ public struct IndefiniteDominationRitualDuration: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum MaximumIndefiniteDominationRitualDuration: EntitySubtype {
     case fixed(FixedDominationRitualDuration)
     case checkResultBased(CheckResultBasedDuration)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case fixed = "fixed"
+        case checkResultBased = "check_result_based"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case fixed = "Fixed"
+        case checkResultBased = "CheckResultBased"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .fixed:
+            self = .fixed(try container.decode(FixedDominationRitualDuration.self, forKey: .fixed))
+        case .checkResultBased:
+            self = .checkResultBased(try container.decode(CheckResultBasedDuration.self, forKey: .checkResultBased))
+        }
+    }
 }

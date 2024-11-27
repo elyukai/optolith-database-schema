@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct RatedSumPrerequisite: EntitySubtype {
     /// The minimum required sum of the targets’ ratings.
     public let sum: Int

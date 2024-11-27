@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 /// Requires a specific sexual characteristic.
 public struct SexualCharacteristicPrerequisite: EntitySubtype {
     public let id: SexualCharacteristic

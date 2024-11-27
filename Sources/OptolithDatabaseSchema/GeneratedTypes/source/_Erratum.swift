@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 /// A list of errata for the entry in the specific language.
 public typealias Errata = [Erratum]
 

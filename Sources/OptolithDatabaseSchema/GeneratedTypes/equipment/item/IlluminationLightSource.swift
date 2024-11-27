@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct IlluminationLightSource: LocalizableEntity {
     /// The cost in silverthalers.
     public let cost: Cost
@@ -52,10 +50,31 @@ public struct IlluminationLightSource: LocalizableEntity {
     }
 }
 
-@DiscriminatedEnum
 public enum BurningTime: EntitySubtype {
     case unlimited
     case limited(LimitedBurningTime)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case unlimited = "unlimited"
+        case limited = "limited"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case unlimited = "Unlimited"
+        case limited = "Limited"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .unlimited:
+            self = .unlimited
+        case .limited:
+            self = .limited(try container.decode(LimitedBurningTime.self, forKey: .limited))
+        }
+    }
 }
 
 public struct LimitedBurningTime: EntitySubtype {

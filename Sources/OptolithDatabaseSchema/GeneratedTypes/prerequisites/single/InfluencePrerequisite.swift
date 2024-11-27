@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct InfluencePrerequisite: EntitySubtype {
     /// The influence's identifier.
     public let id: InfluenceIdentifier

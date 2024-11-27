@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct Poison: LocalizableEntity {
     /// The poison's identifier. An unique, increasing integer.
     public let id: Int
@@ -69,19 +67,73 @@ public enum PoisonApplicationType: String, EntitySubtype {
     case contact = "Contact"
 }
 
-@DiscriminatedEnum
 public enum PoisonStart: EntitySubtype {
     case immediate
     case constant(ConstantPoisonTime)
     case diceBased(DiceBasedPoisonTime)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case immediate = "immediate"
+        case constant = "constant"
+        case diceBased = "dice_based"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case immediate = "Immediate"
+        case constant = "Constant"
+        case diceBased = "DiceBased"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .immediate:
+            self = .immediate
+        case .constant:
+            self = .constant(try container.decode(ConstantPoisonTime.self, forKey: .constant))
+        case .diceBased:
+            self = .diceBased(try container.decode(DiceBasedPoisonTime.self, forKey: .diceBased))
+        }
+    }
 }
 
-@DiscriminatedEnum
 public enum PoisonDuration: EntitySubtype {
     case instant
     case constant(ConstantPoisonTime)
     case diceBased(DiceBasedPoisonTime)
     case indefinite(IndefinitePoisonTime)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case instant = "instant"
+        case constant = "constant"
+        case diceBased = "dice_based"
+        case indefinite = "indefinite"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case instant = "Instant"
+        case constant = "Constant"
+        case diceBased = "DiceBased"
+        case indefinite = "Indefinite"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .instant:
+            self = .instant
+        case .constant:
+            self = .constant(try container.decode(ConstantPoisonTime.self, forKey: .constant))
+        case .diceBased:
+            self = .diceBased(try container.decode(DiceBasedPoisonTime.self, forKey: .diceBased))
+        case .indefinite:
+            self = .indefinite(try container.decode(IndefinitePoisonTime.self, forKey: .indefinite))
+        }
+    }
 }
 
 public struct ConstantPoisonTime: EntitySubtype {
@@ -131,13 +183,46 @@ public struct IndefinitePoisonTimeTranslation: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum PoisonSourceType: EntitySubtype {
     case animalVenom(AnimalVenom)
     case alchemicalPoison(AlchemicalPoison)
     case mineralPoison(MineralPoison)
     case plantPoison(PlantPoison)
     case demonicPoison(DemonicPoison)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case animalVenom = "animal_venom"
+        case alchemicalPoison = "alchemical_poison"
+        case mineralPoison = "mineral_poison"
+        case plantPoison = "plant_poison"
+        case demonicPoison = "demonic_poison"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case animalVenom = "AnimalVenom"
+        case alchemicalPoison = "AlchemicalPoison"
+        case mineralPoison = "MineralPoison"
+        case plantPoison = "PlantPoison"
+        case demonicPoison = "DemonicPoison"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .animalVenom:
+            self = .animalVenom(try container.decode(AnimalVenom.self, forKey: .animalVenom))
+        case .alchemicalPoison:
+            self = .alchemicalPoison(try container.decode(AlchemicalPoison.self, forKey: .alchemicalPoison))
+        case .mineralPoison:
+            self = .mineralPoison(try container.decode(MineralPoison.self, forKey: .mineralPoison))
+        case .plantPoison:
+            self = .plantPoison(try container.decode(PlantPoison.self, forKey: .plantPoison))
+        case .demonicPoison:
+            self = .demonicPoison(try container.decode(DemonicPoison.self, forKey: .demonicPoison))
+        }
+    }
 }
 
 public struct AnimalVenom: EntitySubtype {
@@ -264,10 +349,31 @@ public struct DemonicPoison: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum DemonicPoisonLevel: EntitySubtype {
     case qualityLevel(QualityLevelDemonicPoisonLevel)
     case constant(ConstantDemonicPoisonLevel)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case qualityLevel = "quality_level"
+        case constant = "constant"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case qualityLevel = "QualityLevel"
+        case constant = "Constant"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .qualityLevel:
+            self = .qualityLevel(try container.decode(QualityLevelDemonicPoisonLevel.self, forKey: .qualityLevel))
+        case .constant:
+            self = .constant(try container.decode(ConstantDemonicPoisonLevel.self, forKey: .constant))
+        }
+    }
 }
 
 public struct QualityLevelDemonicPoisonLevel: EntitySubtype {
@@ -346,10 +452,31 @@ public struct IntoxicantAddiction: EntitySubtype {
 }
 
 /// The maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.
-@DiscriminatedEnum
 public enum IntoxicantAddictionInterval: EntitySubtype {
     case constant(ConstantIntoxicantAddictionInterval)
     case diceBased(DiceBasedIntoxicantAddictionInterval)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case constant = "constant"
+        case diceBased = "dice_based"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case constant = "Constant"
+        case diceBased = "DiceBased"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .constant:
+            self = .constant(try container.decode(ConstantIntoxicantAddictionInterval.self, forKey: .constant))
+        case .diceBased:
+            self = .diceBased(try container.decode(DiceBasedIntoxicantAddictionInterval.self, forKey: .diceBased))
+        }
+    }
 }
 
 public struct ConstantIntoxicantAddictionInterval: EntitySubtype {

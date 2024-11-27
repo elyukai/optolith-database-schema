@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 /// Defines the derived (unitless) value.
 public enum CheckResultValue: String, EntitySubtype {
     case qualityLevels = "QualityLevels"

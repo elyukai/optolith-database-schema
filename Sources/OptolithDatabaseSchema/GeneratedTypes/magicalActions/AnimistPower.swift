@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct AnimistPower: LocalizableEntity {
     /// The animist power's identifier. An unique, increasing integer.
     public let id: Int
@@ -135,10 +133,31 @@ public struct AnimistPowerLevelTranslation: EntitySubtype {
 }
 
 /// Measurable parameters of a animist power.
-@DiscriminatedEnum
 public enum AnimistPowerPerformanceParameters: EntitySubtype {
     case oneTime(OneTimeAnimistPowerPerformanceParameters)
     case sustained(SustainedAnimistPowerPerformanceParameters)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case oneTime = "one_time"
+        case sustained = "sustained"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case oneTime = "OneTime"
+        case sustained = "Sustained"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .oneTime:
+            self = .oneTime(try container.decode(OneTimeAnimistPowerPerformanceParameters.self, forKey: .oneTime))
+        case .sustained:
+            self = .sustained(try container.decode(SustainedAnimistPowerPerformanceParameters.self, forKey: .sustained))
+        }
+    }
 }
 
 public struct OneTimeAnimistPowerPerformanceParameters: EntitySubtype {
@@ -154,10 +173,31 @@ public struct OneTimeAnimistPowerPerformanceParameters: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum OneTimeAnimistPowerCost: EntitySubtype {
     case fixed(FixedOneTimeAnimistPowerCost)
     case byPrimaryPatron(OneTimeAnimistPowerCostByPrimaryPatron)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case fixed = "fixed"
+        case byPrimaryPatron = "by_primary_patron"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case fixed = "Fixed"
+        case byPrimaryPatron = "ByPrimaryPatron"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .fixed:
+            self = .fixed(try container.decode(FixedOneTimeAnimistPowerCost.self, forKey: .fixed))
+        case .byPrimaryPatron:
+            self = .byPrimaryPatron(try container.decode(OneTimeAnimistPowerCostByPrimaryPatron.self, forKey: .byPrimaryPatron))
+        }
+    }
 }
 
 public struct FixedOneTimeAnimistPowerCost: EntitySubtype {
@@ -186,11 +226,36 @@ public struct OneTimeAnimistPowerCostByPrimaryPatron: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum OneTimeAnimistPowerDuration: EntitySubtype {
     case immediate
     case fixed(FamiliarsTrickFixedOneTimeCostTranslation)
     case checkResultBased(CheckResultBasedDuration)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case immediate = "immediate"
+        case fixed = "fixed"
+        case checkResultBased = "check_result_based"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case immediate = "Immediate"
+        case fixed = "Fixed"
+        case checkResultBased = "CheckResultBased"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .immediate:
+            self = .immediate
+        case .fixed:
+            self = .fixed(try container.decode(FamiliarsTrickFixedOneTimeCostTranslation.self, forKey: .fixed))
+        case .checkResultBased:
+            self = .checkResultBased(try container.decode(CheckResultBasedDuration.self, forKey: .checkResultBased))
+        }
+    }
 }
 
 public struct SustainedAnimistPowerPerformanceParameters: EntitySubtype {
@@ -202,10 +267,31 @@ public struct SustainedAnimistPowerPerformanceParameters: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum SustainedAnimistPowerCost: EntitySubtype {
     case fixed(FixedSustainedAnimistPowerCost)
     case byPrimaryPatron(SustainedAnimistPowerCostByPrimaryPatron)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case fixed = "fixed"
+        case byPrimaryPatron = "by_primary_patron"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case fixed = "Fixed"
+        case byPrimaryPatron = "ByPrimaryPatron"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .fixed:
+            self = .fixed(try container.decode(FixedSustainedAnimistPowerCost.self, forKey: .fixed))
+        case .byPrimaryPatron:
+            self = .byPrimaryPatron(try container.decode(SustainedAnimistPowerCostByPrimaryPatron.self, forKey: .byPrimaryPatron))
+        }
+    }
 }
 
 public struct FixedSustainedAnimistPowerCost: EntitySubtype {
@@ -243,8 +329,29 @@ public struct AnimistPowerCostByPrimaryPatronTranslation: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum AnimistPowerImprovementCost: EntitySubtype {
     case fixed(ImprovementCost)
     case byPrimaryPatron
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case fixed = "fixed"
+        case byPrimaryPatron = "by_primary_patron"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case fixed = "Fixed"
+        case byPrimaryPatron = "ByPrimaryPatron"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .fixed:
+            self = .fixed(try container.decode(ImprovementCost.self, forKey: .fixed))
+        case .byPrimaryPatron:
+            self = .byPrimaryPatron
+        }
+    }
 }

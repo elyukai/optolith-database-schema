@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct MagicalRune: LocalizableEntity {
     /// The magical rune's identifier. An unique, increasing integer.
     public let id: Int
@@ -119,9 +117,20 @@ public struct OldParameterBySpeed: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
-public enum MagicalRuneCheckPenalty: EntitySubtype {
-    case combatTechnique(MagicalRuneCombatTechniqueCheckPenalty)
+public struct MagicalRuneCheckPenalty: EntitySubtype {
+    public let tag: String
+
+    public let combatTechnique: MagicalRuneCombatTechniqueCheckPenalty
+
+    public init(tag: String, combatTechnique: MagicalRuneCombatTechniqueCheckPenalty) {
+        self.tag = tag
+        self.combatTechnique = combatTechnique
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case combatTechnique = "combat_technique"
+    }
 }
 
 public struct MagicalRuneCombatTechniqueCheckPenalty: EntitySubtype {
@@ -182,17 +191,63 @@ public struct MagicalRunePerformanceParameters: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum MagicalRuneCost: EntitySubtype {
     case single(SingleMagicalRuneCost)
     case disjunction(MagicalRuneCostDisjunction)
     case derivedFromOption
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case single = "single"
+        case disjunction = "disjunction"
+        case derivedFromOption = "derived_from_option"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case single = "Single"
+        case disjunction = "Disjunction"
+        case derivedFromOption = "DerivedFromOption"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .single:
+            self = .single(try container.decode(SingleMagicalRuneCost.self, forKey: .single))
+        case .disjunction:
+            self = .disjunction(try container.decode(MagicalRuneCostDisjunction.self, forKey: .disjunction))
+        case .derivedFromOption:
+            self = .derivedFromOption
+        }
+    }
 }
 
-@DiscriminatedEnum
 public enum MagicalRuneOptionCost: EntitySubtype {
     case single(SingleMagicalRuneCost)
     case disjunction(MagicalRuneCostDisjunction)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case single = "single"
+        case disjunction = "disjunction"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case single = "Single"
+        case disjunction = "Disjunction"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .single:
+            self = .single(try container.decode(SingleMagicalRuneCost.self, forKey: .single))
+        case .disjunction:
+            self = .disjunction(try container.decode(MagicalRuneCostDisjunction.self, forKey: .disjunction))
+        }
+    }
 }
 
 public struct SingleMagicalRuneCost: EntitySubtype {
@@ -261,10 +316,31 @@ public struct MagicalRuneDuration: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum MagicalRuneImprovementCost: EntitySubtype {
     case constant(ConstantMagicalRuneImprovementCost)
     case derivedFromOption
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case constant = "constant"
+        case derivedFromOption = "derived_from_option"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case constant = "Constant"
+        case derivedFromOption = "DerivedFromOption"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .constant:
+            self = .constant(try container.decode(ConstantMagicalRuneImprovementCost.self, forKey: .constant))
+        case .derivedFromOption:
+            self = .derivedFromOption
+        }
+    }
 }
 
 public struct ConstantMagicalRuneImprovementCost: EntitySubtype {
@@ -307,9 +383,15 @@ public struct MagicalRuneOption: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
-public enum MagicalRuneSuboption: EntitySubtype {
-    case custom(CustomMagicalRuneSuboption)
+public struct MagicalRuneSuboption: EntitySubtype {
+    public let tag: String
+
+    public let custom: CustomMagicalRuneSuboption
+
+    public init(tag: String, custom: CustomMagicalRuneSuboption) {
+        self.tag = tag
+        self.custom = custom
+    }
 }
 
 public struct CustomMagicalRuneSuboption: EntitySubtype {

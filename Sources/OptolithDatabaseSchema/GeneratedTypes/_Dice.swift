@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct Dice: EntitySubtype {
     /// Number of dice of the same type. Example: 2 in 2D6.
     public let number: Int

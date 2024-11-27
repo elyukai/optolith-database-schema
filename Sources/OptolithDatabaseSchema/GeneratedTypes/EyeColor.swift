@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct EyeColor: LocalizableEntity {
     /// The eye color's identifier. An unique, increasing integer.
     public let id: Int

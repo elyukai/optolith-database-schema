@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 /// A playable race with stats and skills.
 public struct Race: LocalizableEntity {
     /// The race's identifier. An unique, increasing integer.

@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct GeneralSpecialAbility: LocalizableEntity {
     public let id: Id
 

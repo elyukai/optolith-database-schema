@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct FamiliarsTrick: LocalizableEntity {
     /// The familiar's trick's identifier. An unique, increasing integer.
     public let id: Int
@@ -49,10 +47,31 @@ public struct FamiliarsTrick: LocalizableEntity {
     }
 }
 
-@DiscriminatedEnum
 public enum FamiliarsTrickProperty: EntitySubtype {
     case fixed(PropertyReference)
     case indefinite(IndefiniteFamiliarsTrickProperty)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case fixed = "fixed"
+        case indefinite = "indefinite"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case fixed = "Fixed"
+        case indefinite = "Indefinite"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .fixed:
+            self = .fixed(try container.decode(PropertyReference.self, forKey: .fixed))
+        case .indefinite:
+            self = .indefinite(try container.decode(IndefiniteFamiliarsTrickProperty.self, forKey: .indefinite))
+        }
+    }
 }
 
 public struct IndefiniteFamiliarsTrickProperty: EntitySubtype {
@@ -98,11 +117,36 @@ public struct FamiliarsTrickTranslation: EntitySubtype {
 }
 
 /// Measurable parameters of a familiar's trick.
-@DiscriminatedEnum
 public enum FamiliarsTrickPerformanceParameters: EntitySubtype {
     case oneTime(FamiliarsTrickOneTimePerformanceParameters)
     case oneTimeInterval(FamiliarsTrickOneTimeIntervalPerformanceParameters)
     case sustained(FamiliarsTrickSustainedPerformanceParameters)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case oneTime = "one_time"
+        case oneTimeInterval = "one_time_interval"
+        case sustained = "sustained"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case oneTime = "OneTime"
+        case oneTimeInterval = "OneTimeInterval"
+        case sustained = "Sustained"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .oneTime:
+            self = .oneTime(try container.decode(FamiliarsTrickOneTimePerformanceParameters.self, forKey: .oneTime))
+        case .oneTimeInterval:
+            self = .oneTimeInterval(try container.decode(FamiliarsTrickOneTimeIntervalPerformanceParameters.self, forKey: .oneTimeInterval))
+        case .sustained:
+            self = .sustained(try container.decode(FamiliarsTrickSustainedPerformanceParameters.self, forKey: .sustained))
+        }
+    }
 }
 
 public struct FamiliarsTrickOneTimePerformanceParameters: EntitySubtype {
@@ -116,11 +160,36 @@ public struct FamiliarsTrickOneTimePerformanceParameters: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum FamiliarsTrickOneTimeCost: EntitySubtype {
     case fixed(FamiliarsTrickFixedOneTimeCost)
     case all(FamiliarsTrickAllOneTimeCost)
     case indefinite(FamiliarsTrickIndefiniteOneTimeCost)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case fixed = "fixed"
+        case all = "all"
+        case indefinite = "indefinite"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case fixed = "Fixed"
+        case all = "All"
+        case indefinite = "Indefinite"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .fixed:
+            self = .fixed(try container.decode(FamiliarsTrickFixedOneTimeCost.self, forKey: .fixed))
+        case .all:
+            self = .all(try container.decode(FamiliarsTrickAllOneTimeCost.self, forKey: .all))
+        case .indefinite:
+            self = .indefinite(try container.decode(FamiliarsTrickIndefiniteOneTimeCost.self, forKey: .indefinite))
+        }
+    }
 }
 
 public struct FamiliarsTrickFixedOneTimeCost: EntitySubtype {
@@ -189,11 +258,36 @@ public struct FamiliarsTrickIndefiniteOneTimeCostTranslation: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum FamiliarsTrickOneTimeDuration: EntitySubtype {
     case immediate
     case fixed(FamiliarsTrickFixedOneTimeDuration)
     case indefinite(FamiliarsTrickIndefiniteOneTimeDuration)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case immediate = "immediate"
+        case fixed = "fixed"
+        case indefinite = "indefinite"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case immediate = "Immediate"
+        case fixed = "Fixed"
+        case indefinite = "Indefinite"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .immediate:
+            self = .immediate
+        case .fixed:
+            self = .fixed(try container.decode(FamiliarsTrickFixedOneTimeDuration.self, forKey: .fixed))
+        case .indefinite:
+            self = .indefinite(try container.decode(FamiliarsTrickIndefiniteOneTimeDuration.self, forKey: .indefinite))
+        }
+    }
 }
 
 public struct FamiliarsTrickFixedOneTimeDuration: EntitySubtype {

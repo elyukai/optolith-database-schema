@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct GemOrPreciousStone: LocalizableEntity {
     /// The cost in silverthalers per 10 karat.
     public let cost: Cost

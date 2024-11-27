@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct RatedPrerequisite: EntitySubtype {
     /// The rated entry's identifier.
     public let id: RatedIdentifier

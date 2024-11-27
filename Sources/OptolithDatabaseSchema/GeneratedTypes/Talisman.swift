@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct Talisman: LocalizableEntity {
     /// The talisman's identifier. An unique, increasing integer.
     public let id: Int

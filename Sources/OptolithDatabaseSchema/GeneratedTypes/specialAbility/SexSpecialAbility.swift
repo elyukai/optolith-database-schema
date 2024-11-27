@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct SexSpecialAbility: LocalizableEntity {
     public let id: Id
 

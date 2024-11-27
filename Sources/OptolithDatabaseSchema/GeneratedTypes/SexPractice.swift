@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct SexPractice: LocalizableEntity {
     /// The sex practice's identifier. An unique, increasing integer.
     public let id: Int

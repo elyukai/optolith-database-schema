@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct PactGift: LocalizableEntity {
     public let id: Id
 
@@ -55,10 +53,31 @@ public struct PactGift: LocalizableEntity {
     }
 }
 
-@DiscriminatedEnum
 public enum PactGiftPermanentDemonicConsumption: EntitySubtype {
     case fixed(FixedPactGiftPermanentDemonicConsumption)
     case perLevel(PactGiftPermanentDemonicConsumptionPerLevel)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case fixed = "fixed"
+        case perLevel = "per_level"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case fixed = "Fixed"
+        case perLevel = "PerLevel"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .fixed:
+            self = .fixed(try container.decode(FixedPactGiftPermanentDemonicConsumption.self, forKey: .fixed))
+        case .perLevel:
+            self = .perLevel(try container.decode(PactGiftPermanentDemonicConsumptionPerLevel.self, forKey: .perLevel))
+        }
+    }
 }
 
 public struct FixedPactGiftPermanentDemonicConsumption: EntitySubtype {
@@ -87,18 +106,18 @@ public struct AutomaticEntry: EntitySubtype {
     public let applyApValue: Bool
 
     /// The entry that is to be added or removed. It can be a fixed entry or a selection where the player must choose one entry.
-    public let target: AutomaticEntryTarget
+    public let `target`: AutomaticEntryTarget
 
-    public init(action: AutomaticEntryAction, applyApValue: Bool, target: AutomaticEntryTarget) {
+    public init(action: AutomaticEntryAction, applyApValue: Bool, `target`: AutomaticEntryTarget) {
         self.action = action
         self.applyApValue = applyApValue
-        self.target = target
+        self.`target` = `target`
     }
 
     private enum CodingKeys: String, CodingKey {
         case action = "action"
         case applyApValue = "apply_ap_value"
-        case target = "target"
+        case `target` = "target"
     }
 }
 
@@ -107,10 +126,31 @@ public enum AutomaticEntryAction: String, EntitySubtype {
     case remove = "Remove"
 }
 
-@DiscriminatedEnum
 public enum AutomaticEntryTarget: EntitySubtype {
     case selection(AutomaticEntryTargetSelection)
     case fixed(FixedAutomaticEntryTarget)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case selection = "selection"
+        case fixed = "fixed"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case selection = "Selection"
+        case fixed = "Fixed"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .selection:
+            self = .selection(try container.decode(AutomaticEntryTargetSelection.self, forKey: .selection))
+        case .fixed:
+            self = .fixed(try container.decode(FixedAutomaticEntryTarget.self, forKey: .fixed))
+        }
+    }
 }
 
 public struct AutomaticEntryTargetSelection: EntitySubtype {

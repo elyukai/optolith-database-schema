@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 /// The publications where you can find the entry.
 public typealias PublicationRefs = [PublicationRef]
 
@@ -29,7 +27,6 @@ public enum Occurrence: EntitySubtype {
 
     public init(from decoder: any Decoder) throws {
         let container = try decoder.singleValueContainer()
-
         if let simpleOccurrence = try? container.decode(SimpleOccurrence.self) {
             self = .simpleOccurrence(simpleOccurrence)
         } else if let simpleOccurrences = try? container.decode(SimpleOccurrences.self) {
@@ -89,10 +86,31 @@ public struct InitialOccurrence: EntitySubtype {
 }
 
 /// A revision of the entry, resulting in either changed page references or re-addition or removal of an entry.
-@DiscriminatedEnum
 public enum Revision: EntitySubtype {
     case since(Since)
-    case deprecated(Deprecation)
+    case `deprecated`(Deprecation)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case since = "since"
+        case `deprecated` = "deprecated"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case since = "Since"
+        case `deprecated` = "Deprecated"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .since:
+            self = .since(try container.decode(Since.self, forKey: .since))
+        case .`deprecated`:
+            self = .`deprecated`(try container.decode(Deprecation.self, forKey: .`deprecated`))
+        }
+    }
 }
 
 public struct Since: EntitySubtype {
@@ -135,11 +153,36 @@ public struct PageRange: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum Page: EntitySubtype {
     case insideCoverFront
     case insideCoverBack
     case numbered(NumberedPage)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case insideCoverFront = "inside_cover_front"
+        case insideCoverBack = "inside_cover_back"
+        case numbered = "numbered"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case insideCoverFront = "InsideCoverFront"
+        case insideCoverBack = "InsideCoverBack"
+        case numbered = "Numbered"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .insideCoverFront:
+            self = .insideCoverFront
+        case .insideCoverBack:
+            self = .insideCoverBack
+        case .numbered:
+            self = .numbered(try container.decode(NumberedPage.self, forKey: .numbered))
+        }
+    }
 }
 
 /// The page number.

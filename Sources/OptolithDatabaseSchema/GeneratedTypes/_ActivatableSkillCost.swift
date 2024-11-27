@@ -3,21 +3,73 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
-@DiscriminatedEnum
 public enum OneTimeCost: EntitySubtype {
     case single(SingleOneTimeCost)
     case conjunction(MultipleOneTimeCosts)
     case disjunction(MultipleOneTimeCosts)
     case map(CostMap)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case single = "single"
+        case conjunction = "conjunction"
+        case disjunction = "disjunction"
+        case map = "map"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case single = "Single"
+        case conjunction = "Conjunction"
+        case disjunction = "Disjunction"
+        case map = "Map"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .single:
+            self = .single(try container.decode(SingleOneTimeCost.self, forKey: .single))
+        case .conjunction:
+            self = .conjunction(try container.decode(MultipleOneTimeCosts.self, forKey: .conjunction))
+        case .disjunction:
+            self = .disjunction(try container.decode(MultipleOneTimeCosts.self, forKey: .disjunction))
+        case .map:
+            self = .map(try container.decode(CostMap.self, forKey: .map))
+        }
+    }
 }
 
-@DiscriminatedEnum
 public enum SingleOneTimeCost: EntitySubtype {
     case modifiable(ModifiableOneTimeCost)
     case nonModifiable(NonModifiableOneTimeCost)
     case indefinite(IndefiniteOneTimeCost)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case modifiable = "modifiable"
+        case nonModifiable = "non_modifiable"
+        case indefinite = "indefinite"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case modifiable = "Modifiable"
+        case nonModifiable = "NonModifiable"
+        case indefinite = "Indefinite"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .modifiable:
+            self = .modifiable(try container.decode(ModifiableOneTimeCost.self, forKey: .modifiable))
+        case .nonModifiable:
+            self = .nonModifiable(try container.decode(NonModifiableOneTimeCost.self, forKey: .nonModifiable))
+        case .indefinite:
+            self = .indefinite(try container.decode(IndefiniteOneTimeCost.self, forKey: .indefinite))
+        }
+    }
 }
 
 public typealias MultipleOneTimeCosts = [SingleOneTimeCost]
@@ -236,10 +288,31 @@ public struct CostMapTranslation: EntitySubtype {
     }
 }
 
-@DiscriminatedEnum
 public enum SustainedCost: EntitySubtype {
     case modifiable(ModifiableSustainedCost)
     case nonModifiable(NonModifiableSustainedCost)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case modifiable = "modifiable"
+        case nonModifiable = "non_modifiable"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case modifiable = "Modifiable"
+        case nonModifiable = "NonModifiable"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .modifiable:
+            self = .modifiable(try container.decode(ModifiableSustainedCost.self, forKey: .modifiable))
+        case .nonModifiable:
+            self = .nonModifiable(try container.decode(NonModifiableSustainedCost.self, forKey: .nonModifiable))
+        }
+    }
 }
 
 public struct ModifiableSustainedCost: EntitySubtype {

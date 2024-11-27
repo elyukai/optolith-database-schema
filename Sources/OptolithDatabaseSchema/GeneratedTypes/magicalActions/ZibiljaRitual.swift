@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct ZibiljaRitual: LocalizableEntity {
     /// The zibilja ritual's identifier. An unique, increasing integer.
     public let id: Int
@@ -19,7 +17,7 @@ public struct ZibiljaRitual: LocalizableEntity {
     public let parameters: ZibiljaRitualPerformanceParameters
 
     /// The target category – the kind of creature or object – the skill affects.
-    public let target: AffectedTargetCategories
+    public let `target`: AffectedTargetCategories
 
     /// The associated property.
     public let property: PropertyReference
@@ -32,12 +30,12 @@ public struct ZibiljaRitual: LocalizableEntity {
     /// All translations for the entry, identified by IETF language tag (BCP47).
     public let translations: LocaleMap<ZibiljaRitualTranslation>
 
-    public init(id: Int, check: SkillCheck, checkPenalty: SkillCheckPenalty? = nil, parameters: ZibiljaRitualPerformanceParameters, target: AffectedTargetCategories, property: PropertyReference, improvementCost: ImprovementCost, src: PublicationRefs, translations: LocaleMap<ZibiljaRitualTranslation>) {
+    public init(id: Int, check: SkillCheck, checkPenalty: SkillCheckPenalty? = nil, parameters: ZibiljaRitualPerformanceParameters, `target`: AffectedTargetCategories, property: PropertyReference, improvementCost: ImprovementCost, src: PublicationRefs, translations: LocaleMap<ZibiljaRitualTranslation>) {
         self.id = id
         self.check = check
         self.checkPenalty = checkPenalty
         self.parameters = parameters
-        self.target = target
+        self.`target` = `target`
         self.property = property
         self.improvementCost = improvementCost
         self.src = src
@@ -49,7 +47,7 @@ public struct ZibiljaRitual: LocalizableEntity {
         case check = "check"
         case checkPenalty = "check_penalty"
         case parameters = "parameters"
-        case target = "target"
+        case `target` = "target"
         case property = "property"
         case improvementCost = "improvement_cost"
         case src = "src"
@@ -77,18 +75,18 @@ public struct ZibiljaRitualTranslation: EntitySubtype {
     public let duration: OldParameter
 
     @available(*, deprecated)
-    public let target: String
+    public let `target`: String
 
     public let errata: Errata?
 
-    public init(name: NonEmptyString, effect: ActivatableSkillEffect, castingTime: OldParameter, cost: OldParameter, range: OldParameter, duration: OldParameter, target: String, errata: Errata? = nil) {
+    public init(name: NonEmptyString, effect: ActivatableSkillEffect, castingTime: OldParameter, cost: OldParameter, range: OldParameter, duration: OldParameter, `target`: String, errata: Errata? = nil) {
         self.name = name
         self.effect = effect
         self.castingTime = castingTime
         self.cost = cost
         self.range = range
         self.duration = duration
-        self.target = target
+        self.`target` = `target`
         self.errata = errata
     }
 
@@ -99,7 +97,7 @@ public struct ZibiljaRitualTranslation: EntitySubtype {
         case cost = "cost"
         case range = "range"
         case duration = "duration"
-        case target = "target"
+        case `target` = "target"
         case errata = "errata"
     }
 }

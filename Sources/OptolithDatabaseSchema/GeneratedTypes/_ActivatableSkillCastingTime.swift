@@ -3,12 +3,31 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
-@DiscriminatedEnum
 public enum CastingTime<NonModifiable: EntitySubtype>: EntitySubtype {
     case modifiable(ModifiableCastingTime)
     case nonModifiable(NonModifiable)
+
+    private enum CodingKeys: String, CodingKey {
+        case tag = "tag"
+        case modifiable = "modifiable"
+        case nonModifiable = "non_modifiable"
+    }
+
+    private enum Discriminator: String, Decodable {
+        case modifiable = "Modifiable"
+        case nonModifiable = "NonModifiable"
+    }
+
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let tag = try container.decode(Discriminator.self, forKey: .tag)
+        switch tag {
+        case .modifiable:
+            self = .modifiable(try container.decode(ModifiableCastingTime.self, forKey: .modifiable))
+        case .nonModifiable:
+            self = .nonModifiable(try container.decode(NonModifiable.self, forKey: .nonModifiable))
+        }
+    }
 }
 
 public struct ModifiableCastingTime: EntitySubtype {

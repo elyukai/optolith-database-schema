@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 /// A reference to a music tradition with the music-tradition-specific name of the entry
 public struct MusicTraditionReference: EntitySubtype {
     /// The music tradition's identifier.

@@ -3,8 +3,6 @@
 //  OptolithDatabaseSchema
 //
 
-import DiscriminatedEnum
-
 public struct Influence: LocalizableEntity {
     /// The influence's identifier. An unique, increasing integer.
     public let id: Int
