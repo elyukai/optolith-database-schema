@@ -8,6 +8,12 @@
     "dsa",
     "dasschwarzeauge"
   ],
+  "files": [
+    "lib",
+    "schema",
+    "AUTHORS",
+    "CHANGELOG.md"
+  ],
   "main": "./lib/main.js",
   "exports": {
     ".": "./lib/main.js",

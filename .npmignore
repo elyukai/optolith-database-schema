@@ -1,9 +1,0 @@
-.github
-.versionrc.json
-.vscode
-CODEOWNERS
-docs
-ideas
-otjsmd.config.js
-src
-tsconfig.json
