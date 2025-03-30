@@ -2,6 +2,8 @@
  * @ignore swift
  */
 
+import { ActivatableIdentifier } from "./_IdentifierGroup.js"
+
 /**
  *
  */
@@ -764,6 +766,32 @@ export type SkillIdentifier = {
    * @minimum 1
    */
   skill: number
+}
+
+export type SkillApplicationIdentifier = {
+  tag: "SkillApplication"
+
+  /**
+   * The skill’s identifier the application belongs to.
+   * @integer
+   * @minimum 1
+   */
+  skill: number
+
+  /**
+   * The skill application’s identifier.
+   * @integer
+   * @minimum 1
+   */
+  skill_application: number
+
+  /**
+   * The entry the application is granted by, if it’s not part of the skill by
+   * default.
+   * @integer
+   * @minimum 1
+   */
+  granted_by?: ActivatableIdentifier
 }
 
 export type SkillGroupIdentifier = {

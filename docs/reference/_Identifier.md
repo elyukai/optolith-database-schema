@@ -1522,6 +1522,44 @@ The skill’s identifier.
 
 ---
 
+### <a name="SkillApplicationIdentifier"></a> `SkillApplicationIdentifier`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#SkillApplicationIdentifier/tag">See details</a>
+`skill` | The skill’s identifier the application belongs to. | <a href="#SkillApplicationIdentifier/skill">See details</a>
+`skill_application` | The skill application’s identifier. | <a href="#SkillApplicationIdentifier/skill_application">See details</a>
+`granted_by?` | The entry the application is granted by, if it’s not part of the skill by default. | <a href="#SkillApplicationIdentifier/granted_by">See details</a>
+
+#### <a name="SkillApplicationIdentifier/tag"></a> `tag`
+
+- **Constant:** `"SkillApplication"`
+
+#### <a name="SkillApplicationIdentifier/skill"></a> `skill`
+
+The skill’s identifier the application belongs to.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="SkillApplicationIdentifier/skill_application"></a> `skill_application`
+
+The skill application’s identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+#### <a name="SkillApplicationIdentifier/granted_by"></a> `granted_by?`
+
+The entry the application is granted by, if it’s not part of the skill by
+default.
+
+- **Type:** <a href="./_IdentifierGroup.md#ActivatableIdentifier">ActivatableIdentifier</a>
+
+---
+
 ### <a name="SkillGroupIdentifier"></a> `SkillGroupIdentifier`
 
 - **Type:** Object

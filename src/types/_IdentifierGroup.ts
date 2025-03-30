@@ -189,6 +189,7 @@ export type SelectOptionIdentifier =
   | Identifier.PoisonIdentifier
   | Identifier.LanguageIdentifier
   | Identifier.SkillIdentifier
+  | Identifier.SkillApplicationIdentifier
   | Identifier.CloseCombatTechniqueIdentifier
   | Identifier.RangedCombatTechniqueIdentifier
   | Identifier.LiturgicalChantIdentifier
