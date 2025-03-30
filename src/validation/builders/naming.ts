@@ -1,5 +1,5 @@
+import { Result, error, ok } from "@optolith/helpers/result"
 import { basename } from "node:path"
-import { Result, error, ok } from "../../helpers/result.js"
 
 const ENTITY_FILENAME_PATTERN = /^(?:0|[1-9][0-9]*)_(?:[A-Z][a-zA-Z]*|[1-9][0-9]*)(?:-(?:[a-zA-Z]+|[1-9][0-9]*))*\.yml$/
 

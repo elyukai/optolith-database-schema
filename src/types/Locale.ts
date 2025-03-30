@@ -2,7 +2,6 @@
  * @main Locale
  */
 
-import { Result } from "../helpers/result.js"
 import { TypeConfig } from "../typeConfig.js"
 import { validateLanguageFileName } from "../validation/builders/naming.js"
 import { createSchemaValidator } from "../validation/builders/schema.js"
@@ -45,7 +44,7 @@ export type Locale = {
 export const config: TypeConfig<Locale, string, "Locale"> = {
   name: "Locale",
   id: getFilenameAsStringId,
-  integrityValidator: () => Result.ok(undefined),
+  integrityValidator: () => ({ tag: "Ok", value: undefined }),
   schemaValidator: createSchemaValidator(import.meta.url, { ignoreFileNamePattern: true }),
   fileNameValidator: validateLanguageFileName,
 }

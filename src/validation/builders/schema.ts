@@ -1,9 +1,9 @@
+import { Result, error, ok } from "@optolith/helpers/result"
 import type { default as AjvModule, DefinedError } from "ajv"
 import { basename, relative, sep } from "node:path"
 import { fileURLToPath } from "node:url"
 import { libDir } from "../../config/build.js"
 import { changeFileExtension } from "../../helpers/io.js"
-import { Result, error, ok } from "../../helpers/result.js"
 
 // import resolution fixes for TypeScript
 type Ajv = AjvModule.default
