@@ -17,7 +17,7 @@ export type SchemaError = DefinedError
 export type SchemaValidationResult<T> = Result<T, SchemaError[]>
 
 const schemaIdFromSourcePath = (sourcePath: string) => {
-  const relativePathOfType   = relative(libDir, fileURLToPath(sourcePath))
+  const relativePathOfType = relative(libDir, fileURLToPath(sourcePath))
   const relativePathOfSchema = changeFileExtension(relativePathOfType, ".schema.json")
 
   return "/" + relativePathOfSchema.split(sep).join("/")
@@ -27,7 +27,11 @@ const schemaIdFromSourcePath = (sourcePath: string) => {
  * A function that validates `data` at a specific `filePath` to be of type `T`
  * using a specified `validator`.
  */
-export type SchemaValidator<T> = (validator: Ajv, data: unknown, filePath: string) => SchemaValidationResult<T>
+export type SchemaValidator<T> = (
+  validator: Ajv,
+  data: unknown,
+  filePath: string
+) => SchemaValidationResult<T>
 
 /**
  * Options for creating a `TypeValidator`.
@@ -57,9 +61,8 @@ export const createSchemaValidator = <T>(
 
     if (validator.validate(schemaId, data)) {
       return ok(data as T)
-    }
-    else {
-      return error(validator.errors as SchemaError[] ?? [])
+    } else {
+      return error((validator.errors as SchemaError[]) ?? [])
     }
   }
 }
