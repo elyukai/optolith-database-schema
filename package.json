@@ -35,16 +35,16 @@
   "author": "Lukas Obermann",
   "license": "MPL-2.0",
   "dependencies": {
-    "@optolith/helpers": "^0.2.1",
-    "ajv": "^8.12.0",
-    "ajv-formats": "^2.1.1",
-    "yaml": "^2.3.3"
+    "@optolith/helpers": "^0.2.2",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "yaml": "^2.7.1"
   },
   "devDependencies": {
-    "@types/node": "^20.8.10",
+    "@types/node": "^22.13.14",
     "optolith-tsjsonschemamd": "^0.11.2",
     "standard-version": "^9.5.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.8.2"
   },
   "repository": "github:elyukai/optolith-database-schema",
   "bugs": {
