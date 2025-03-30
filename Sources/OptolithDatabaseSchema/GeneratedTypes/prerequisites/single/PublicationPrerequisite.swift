@@ -4,11 +4,11 @@
 //
 
 public struct PublicationPrerequisite: EntitySubtype {
-    public let id: Int
+    public let id: PublicationIdentifier
 
     public let displayOption: DisplayOption?
 
-    public init(id: Int, displayOption: DisplayOption? = nil) {
+    public init(id: PublicationIdentifier, displayOption: DisplayOption? = nil) {
         self.id = id
         self.displayOption = displayOption
     }

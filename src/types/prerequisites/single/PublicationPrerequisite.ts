@@ -1,14 +1,11 @@
+import { PublicationIdentifier } from "../../_Identifier.js"
 import { DisplayOption } from "../DisplayOption.js"
 
 /**
  * @title Publication Prerequisite
  */
 export type PublicationPrerequisite = {
-  /**
-   * @integer
-   * @minimum 1
-   */
-  id: number
+  id: PublicationIdentifier
 
   display_option?: DisplayOption
 }
