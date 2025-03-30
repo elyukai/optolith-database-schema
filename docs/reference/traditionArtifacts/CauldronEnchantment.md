@@ -47,8 +47,7 @@ Key | Description | Details
 
 #### <a name="CauldronEnchantment/brew"></a> `brew`
 
-Witches can learn to brew special things in their Witch's Cauldron. These
-brews can be categorized in different types.
+Witches can learn to brew special things in their Witch's Cauldron. These brews can be categorized in different types.
 
 - **Type:** <a href="#BrewReference">BrewReference</a>
 
@@ -58,7 +57,7 @@ brews can be categorized in different types.
 
 #### <a name="CauldronEnchantment/property"></a> `property`
 
-- **Type:** <a href="#Property">Property</a>
+- **Type:** <a href="#PropertyDeclaration">PropertyDeclaration</a>
 
 #### <a name="CauldronEnchantment/ap_value"></a> `ap_value`
 

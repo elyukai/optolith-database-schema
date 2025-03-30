@@ -13,8 +13,7 @@ Key | Description | Details
 
 #### <a name="PublicationPrerequisite/id"></a> `id`
 
-- **Type:** Integer
-- **Minimum:** `1`
+- **Type:** <a href="../../_Identifier.md#PublicationIdentifier">PublicationIdentifier</a>
 
 #### <a name="PublicationPrerequisite/display_option"></a> `display_option?`
 

@@ -191,7 +191,7 @@
           "minimum": 1
         },
         "per": {
-          "description": "The cost have to be per a specific countable entity, e.g. `8 KP per\nperson`.",
+          "description": "The cost have to be per a specific countable entity, e.g. `8 KP per person`.",
           "$ref": "#/$defs/NonModifiableOneTimeCostPerCountable"
         },
         "translations": {
@@ -215,7 +215,7 @@
       "type": "object",
       "properties": {
         "minimum_total": {
-          "description": "If defined, the minimum total AE that have to be spent casting the\nskill.",
+          "description": "If defined, the minimum total AE that have to be spent casting the skill.",
           "type": "number"
         },
         "translations": {
@@ -295,7 +295,7 @@
       "additionalProperties": false
     },
     "CostMap": {
-      "description": "A content that is `2/4/8/16 AE for an item the size of a\ncup/chest/door/castle gate` may be respresented as the following map:\n\n```yaml\noptions:\n  - value: 2\n    label: \"cup\"\n  - value: 4\n    label: \"chest\"\n  - value: 8\n    label: \"door\"\n  - value: 16\n    label: \"castle gate\"\nfor_append: \"an item the size of a\"\n```\n\nThis will generate the exact same string as seen above – given it is set\nfor a spellwork and thus `AE` is used.",
+      "description": "A content that is `2/4/8/16 AE for an item the size of a cup/chest/door/castle gate` may be respresented as the following map:\n\n```yaml\noptions:\n  - value: 2\n    label: \"cup\"\n  - value: 4\n    label: \"chest\"\n  - value: 8\n    label: \"door\"\n  - value: 16\n    label: \"castle gate\"\nfor_append: \"an item the size of a\"\n```\n\nThis will generate the exact same string as seen above – given it is set for a spellwork and thus `AE` is used.",
       "type": "object",
       "properties": {
         "options": {
@@ -361,7 +361,7 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "label_standalone": {
-          "description": "The description of the option if used standalone. Only used if\ndifferent from `label`.",
+          "description": "The description of the option if used standalone. Only used if different from `label`.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         }
       },
@@ -382,7 +382,7 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "replacement": {
-          "description": "If the string from the book cannot be generated using the default\ngeneration technique, use this string. All options still need to be\ninserted propertly, since it may be used by in-game tools to provide a\nselection to players.",
+          "description": "If the string from the book cannot be generated using the default generation technique, use this string. All options still need to be inserted propertly, since it may be used by in-game tools to provide a selection to players.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         }
       },
@@ -458,7 +458,7 @@
           "minimum": 1
         },
         "per": {
-          "description": "The cost have to be per a specific countable entity, e.g. `8 KP per\nperson per 5 minutes`.",
+          "description": "The cost have to be per a specific countable entity, e.g. `8 KP per person per 5 minutes`.",
           "$ref": "#/$defs/NonModifiableSustainedCostPerCountable"
         },
         "interval": {
@@ -476,7 +476,7 @@
       "type": "object",
       "properties": {
         "minimum_total": {
-          "description": "If defined, the minimum total AE that have to be spent casting the\nskill.",
+          "description": "If defined, the minimum total AE that have to be spent casting the skill.",
           "type": "number"
         },
         "translations": {

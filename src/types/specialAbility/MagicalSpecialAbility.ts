@@ -54,15 +54,18 @@ export type MagicalSpecialAbilityTranslation = {
   rules: Activatable.Rules
 
   /**
-   * The AP value. It is only used if the text cannot be generated from the
-   * given information.
+   * The AP value. It is only used if the text cannot be generated from the given information.
    */
   ap_value?: Activatable.AdventurePointsValueReplacement
 
   errata?: Errata
 }
 
-export const config: TypeConfig<MagicalSpecialAbility, MagicalSpecialAbility["id"], "MagicalSpecialAbility"> = {
+export const config: TypeConfig<
+  MagicalSpecialAbility,
+  MagicalSpecialAbility["id"],
+  "MagicalSpecialAbility"
+> = {
   name: "MagicalSpecialAbility",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("MagicalSpecialAbility"),

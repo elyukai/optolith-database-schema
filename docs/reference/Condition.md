@@ -58,8 +58,10 @@ Additional rules for the condition, if applicable.
 
 The effects for level 1 to 4.
 
-- **Type:** Tuple
-- **Items:** [<a href="ConditionTranslation/effects[0]">ConditionTranslation/effects[0]</a>, <a href="ConditionTranslation/effects[1]">ConditionTranslation/effects[1]</a>, <a href="ConditionTranslation/effects[2]">ConditionTranslation/effects[2]</a>, <a href="ConditionTranslation/effects[3]">ConditionTranslation/effects[3]</a>]
+- **Type:** List
+- **Items:** <a href="#ConditionTranslation/effects[]">ConditionTranslation/effects[]</a>
+- **Minimum Items:** `4`
+- **Maximum Items:** `4`
 
 #### <a name="ConditionTranslation/errata"></a> `errata?`
 
@@ -67,24 +69,6 @@ The effects for level 1 to 4.
 
 ---
 
-### <a name="ConditionTranslation/effects[0]"></a> `ConditionTranslation/effects[0]`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
-
----
-
-### <a name="ConditionTranslation/effects[1]"></a> `ConditionTranslation/effects[1]`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
-
----
-
-### <a name="ConditionTranslation/effects[2]"></a> `ConditionTranslation/effects[2]`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
-
----
-
-### <a name="ConditionTranslation/effects[3]"></a> `ConditionTranslation/effects[3]`
+### <a name="ConditionTranslation/effects[]"></a> `ConditionTranslation/effects[]`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>

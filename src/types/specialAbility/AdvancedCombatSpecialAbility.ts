@@ -62,22 +62,23 @@ export type AdvancedCombatSpecialAbilityTranslation = {
   penalty?: string
 
   /**
-   * The AP value. It is only used if the text cannot be generated from the
-   * given information.
+   * The AP value. It is only used if the text cannot be generated from the given information.
    */
   ap_value?: Activatable.AdventurePointsValueReplacement
 
   /**
-   * A string that gets appended to the default AP Value text with a preceding
-   * space. This always happens if present, even if the generated AP Value text
-   * is replaced.
+   * A string that gets appended to the default AP Value text with a preceding space. This always happens if present, even if the generated AP Value text is replaced.
    */
   ap_value_append?: Activatable.AdventurePointsValueAppend
 
   errata?: Errata
 }
 
-export const config: TypeConfig<AdvancedCombatSpecialAbility, AdvancedCombatSpecialAbility["id"], "AdvancedCombatSpecialAbility"> = {
+export const config: TypeConfig<
+  AdvancedCombatSpecialAbility,
+  AdvancedCombatSpecialAbility["id"],
+  "AdvancedCombatSpecialAbility"
+> = {
   name: "AdvancedCombatSpecialAbility",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("AdvancedCombatSpecialAbility"),

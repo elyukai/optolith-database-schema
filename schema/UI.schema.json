@@ -2575,6 +2575,210 @@
         "all": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
+        "none": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "State": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Social Status {0} or higher": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Person with {0}": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Penis": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Vagina": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "the SR for {0} combined must add up to at least {1}": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} on at least SR {1}: {2}": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} arcane works with the property {1} at SR {2} or higher": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} liturgical chants and ceremonies with the aspect {1} at SR {2} or higher": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "one of the following skills": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "two of the following skills": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "three of the following skills": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "four of the following skills": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "five of the following skills": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "six of the following skills": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "seven of the following skills": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "eight of the following skills": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "nine of the following skills": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} of the following skills": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "one combat technique": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "two combat techniques": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "three combat techniques": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "four combat techniques": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "five combat techniques": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "six combat techniques": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "seven combat techniques": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "eight combat techniques": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "nine combat techniques": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} combat techniques": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "one close combat technique": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "two close combat techniques": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "three close combat techniques": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "four close combat techniques": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "five close combat techniques": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "six close combat techniques": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "seven close combat techniques": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "eight close combat techniques": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "nine close combat techniques": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} close combat techniques": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "one ranged combat technique": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "two ranged combat techniques": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "three ranged combat techniques": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "four ranged combat techniques": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "five ranged combat techniques": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "six ranged combat techniques": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "seven ranged combat techniques": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "eight ranged combat techniques": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "nine ranged combat techniques": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} ranged combat techniques": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "special ability": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "no special ability": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Tradition": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Tradition ({0})": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Church": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Shaman": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Tradition must be able to use rituals": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Tradition must be able to bind familiars": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "spell enhancement": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "liturgical enhancement": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "for": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "no other ancestor blood advantage": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Race, culture, or profession must have {0} as an automatic or suggested {1}": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "advantage": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "disadvantage": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "domain {0}": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "{0} level {1}": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "Level {0}:": {
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
         "inlinewiki.castingtime": {
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
@@ -3976,6 +4180,74 @@
         "General",
         "Note",
         "all",
+        "none",
+        "State",
+        "Social Status {0} or higher",
+        "Person with {0}",
+        "Penis",
+        "Vagina",
+        "the SR for {0} combined must add up to at least {1}",
+        "{0} on at least SR {1}: {2}",
+        "{0} arcane works with the property {1} at SR {2} or higher",
+        "{0} liturgical chants and ceremonies with the aspect {1} at SR {2} or higher",
+        "one of the following skills",
+        "two of the following skills",
+        "three of the following skills",
+        "four of the following skills",
+        "five of the following skills",
+        "six of the following skills",
+        "seven of the following skills",
+        "eight of the following skills",
+        "nine of the following skills",
+        "{0} of the following skills",
+        "one combat technique",
+        "two combat techniques",
+        "three combat techniques",
+        "four combat techniques",
+        "five combat techniques",
+        "six combat techniques",
+        "seven combat techniques",
+        "eight combat techniques",
+        "nine combat techniques",
+        "{0} combat techniques",
+        "one close combat technique",
+        "two close combat techniques",
+        "three close combat techniques",
+        "four close combat techniques",
+        "five close combat techniques",
+        "six close combat techniques",
+        "seven close combat techniques",
+        "eight close combat techniques",
+        "nine close combat techniques",
+        "{0} close combat techniques",
+        "one ranged combat technique",
+        "two ranged combat techniques",
+        "three ranged combat techniques",
+        "four ranged combat techniques",
+        "five ranged combat techniques",
+        "six ranged combat techniques",
+        "seven ranged combat techniques",
+        "eight ranged combat techniques",
+        "nine ranged combat techniques",
+        "{0} ranged combat techniques",
+        "special ability",
+        "no special ability",
+        "Tradition",
+        "Tradition ({0})",
+        "Church",
+        "Shaman",
+        "Tradition must be able to use rituals",
+        "Tradition must be able to bind familiars",
+        "spell enhancement",
+        "liturgical enhancement",
+        "for",
+        "no other ancestor blood advantage",
+        "Race, culture, or profession must have {0} as an automatic or suggested {1}",
+        "advantage",
+        "disadvantage",
+        "domain {0}",
+        "{0} level {1}",
+        "Level {0}:",
         "inlinewiki.castingtime",
         "inlinewiki.ritualtime",
         "inlinewiki.aecost",

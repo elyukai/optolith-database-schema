@@ -33,16 +33,14 @@ export type Language = {
   continent: AssociatedContinent[]
 
   /**
-   * Language-specific specializations. Either a list of possible options or a
-   * indefinite description of what may be a specialization.
+   * Language-specific specializations. Either a list of possible options or a indefinite description of what may be a specialization.
    */
   specializations?: Specializations
 
   prerequisites?: LanguagePrerequisites
 
   /**
-   * The maximum possible level of the language. Only specified if lower than
-   * default of 3.
+   * The maximum possible level of the language. Only specified if lower than default of 3.
    * @minimum 1
    * @maximum 2
    * @default 3
@@ -90,8 +88,7 @@ export type SpecificSpecializationTranslation = {
   name: NonEmptyString
 
   /**
-   * The specialization description. It will be appended to the name in
-   * parenthesis.
+   * The specialization description. It will be appended to the name in parenthesis.
    */
   description?: NonEmptyString
 }
@@ -110,8 +107,7 @@ export type IndefiniteSpecializationsTranslation = {
   description: NonEmptyString
 
   /**
-   * An input label or placeholder text for an UI element if it differs
-   * from the `description`.
+   * An input label or placeholder text for an UI element if it differs from the `description`.
    */
   label?: NonEmptyString
 }

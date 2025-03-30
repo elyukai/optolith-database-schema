@@ -39,15 +39,13 @@ The complexity of crafting the item.
 
 #### <a name="Weapon/structure_points"></a> `structure_points?`
 
-The structure points of the item. Use an array if the item consists of
-multiple components that have individual structure points.
+The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
 
 - **Type:** <a href="./_Item.md#StructurePoints">StructurePoints</a>
 
 #### <a name="Weapon/uses"></a> `uses`
 
-A list of stat blocks for each combat technique this weapon can be used
-with.
+A list of stat blocks for each combat technique this weapon can be used with.
 
 - **Type:** List
 - **Items:** <a href="#Weapon/uses[]">Weapon/uses[]</a>
@@ -55,22 +53,19 @@ with.
 
 #### <a name="Weapon/sanctified_by"></a> `sanctified_by?`
 
-If the weapon is sanctified by a god and thus restricted to it's Blessed
-Ones.
+If the weapon is sanctified by a god and thus restricted to it's Blessed Ones.
 
 - **Type:** <a href="#SanctifiedBy">SanctifiedBy</a>
 
 #### <a name="Weapon/restricted_to_cultures"></a> `restricted_to_cultures?`
 
-Define if during character creation this weapon can only be bought by
-characters of a specific race or culture.
+Define if during character creation this weapon can only be bought by characters of a specific race or culture.
 
 - **Type:** <a href="#RestrictedToCultures">RestrictedToCultures</a>
 
 #### <a name="Weapon/restricted_to_traditions"></a> `restricted_to_traditions?`
 
-Define if during character creation this weapon can only be bought by
-characters of specific magical or blessed traditions.
+Define if during character creation this weapon can only be bought by characters of specific magical or blessed traditions.
 
 - **Type:** List
 - **Items:** <a href="#Weapon/restricted_to_traditions[]">Weapon/restricted_to_traditions[]</a>
@@ -170,8 +165,7 @@ Key | Description | Details
 
 #### <a name="SecondaryWeapon/uses"></a> `uses`
 
-A list of stat blocks for each combat technique this weapon can be used
-with.
+A list of stat blocks for each combat technique this weapon can be used with.
 
 - **Type:** List
 - **Items:** <a href="#SecondaryWeapon/uses[]">SecondaryWeapon/uses[]</a>
@@ -179,22 +173,19 @@ with.
 
 #### <a name="SecondaryWeapon/sanctified_by"></a> `sanctified_by?`
 
-If the weapon is sanctified by a god and thus restricted to it's Blessed
-Ones.
+If the weapon is sanctified by a god and thus restricted to it's Blessed Ones.
 
 - **Type:** <a href="#SanctifiedBy">SanctifiedBy</a>
 
 #### <a name="SecondaryWeapon/restricted_to_cultures"></a> `restricted_to_cultures?`
 
-Define if during character creation this weapon can only be bought by
-characters of a specific race or culture.
+Define if during character creation this weapon can only be bought by characters of a specific race or culture.
 
 - **Type:** <a href="#RestrictedToCultures">RestrictedToCultures</a>
 
 #### <a name="SecondaryWeapon/restricted_to_traditions"></a> `restricted_to_traditions?`
 
-Define if during character creation this weapon can only be bought by
-characters of specific magical or blessed traditions.
+Define if during character creation this weapon can only be bought by characters of specific magical or blessed traditions.
 
 - **Type:** List
 - **Items:** <a href="#SecondaryWeapon/restricted_to_traditions[]">SecondaryWeapon/restricted_to_traditions[]</a>
@@ -313,8 +304,7 @@ Key | Description | Details
 
 ### <a name="SanctifiedBy"></a> `SanctifiedBy`
 
-If the weapon is sanctified by a god and thus restricted to it's Blessed
-Ones.
+If the weapon is sanctified by a god and thus restricted to it's Blessed Ones.
 
 - **Type:** List
 - **Items:** <a href="#SanctifiedBy[]">SanctifiedBy[]</a>
@@ -330,8 +320,7 @@ Ones.
 
 ### <a name="RestrictedToCultures"></a> `RestrictedToCultures`
 
-Define if during character creation this weapon can only be bought by
-characters of a specific race or culture.
+Define if during character creation this weapon can only be bought by characters of a specific race or culture.
 
 - **Type:** Union
 - **Cases:** <a href="#RestrictedToCultures'CulturesOfRace">RestrictedToCultures'CulturesOfRace</a> | <a href="#RestrictedToCultures'Cultures">RestrictedToCultures'Cultures</a>

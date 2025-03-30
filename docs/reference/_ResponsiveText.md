@@ -4,8 +4,7 @@
 
 ### <a name="ResponsiveText"></a> `ResponsiveText`
 
-A text from the source that can be also displayed in small areas using a
-compressed version.
+A text from the source that can be also displayed in small areas using a compressed version.
 
 - **Type:** Object
 
@@ -30,9 +29,7 @@ A compressed text for use in small areas (e.g. on character sheet).
 
 ### <a name="ResponsiveTextReplace"></a> `ResponsiveTextReplace`
 
-A text from the source that can be also displayed in small areas using a
-compressed version. It is used as a replacement for a generated text while
-the generated text is still provided and should be used.
+A text from the source that can be also displayed in small areas using a compressed version. It is used as a replacement for a generated text while the generated text is still provided and should be used.
 
 - **Type:** Object
 
@@ -43,9 +40,7 @@ Key | Description | Details
 
 #### <a name="ResponsiveTextReplace/full"></a> `full`
 
-The full replacement string. It must contain `$1`, which is going to be
-replaced with the generated string, so additional information can be
-provided without duplicating concrete numeric values.
+The full replacement string. It must contain `$1`, which is going to be replaced with the generated string, so additional information can be provided without duplicating concrete numeric values.
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -53,10 +48,7 @@ provided without duplicating concrete numeric values.
 
 #### <a name="ResponsiveTextReplace/compressed"></a> `compressed`
 
-A compressed replacement string for use in small areas (e.g. on character
-sheet). It must contain `$1`, which is going to be replaced with the
-generated string, so additional information can be provided without
-duplicating concrete numeric values.
+A compressed replacement string for use in small areas (e.g. on character sheet). It must contain `$1`, which is going to be replaced with the generated string, so additional information can be provided without duplicating concrete numeric values.
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -66,8 +58,7 @@ duplicating concrete numeric values.
 
 ### <a name="ResponsiveTextOptional"></a> `ResponsiveTextOptional`
 
-A text from the source that can be also displayed in small areas using a
-compressed version, if available.
+A text from the source that can be also displayed in small areas using a compressed version, if available.
 
 - **Type:** Object
 
@@ -84,7 +75,6 @@ The full text from the source.
 
 #### <a name="ResponsiveTextOptional/compressed"></a> `compressed?`
 
-A compressed text for use in small areas (e.g. on character sheet). If this
-is not present, it should not appear in those areas.
+A compressed text for use in small areas (e.g. on character sheet). If this is not present, it should not appear in those areas.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>

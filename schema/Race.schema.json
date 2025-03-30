@@ -23,11 +23,11 @@
           "$ref": "#/$defs/BaseValues"
         },
         "attribute_adjustments": {
-          "description": "Describes how to raise or lower maximum attribute values during character\ncreation.",
+          "description": "Describes how to raise or lower maximum attribute values during character creation.",
           "$ref": "#/$defs/AttributeAdjustments"
         },
         "automatic_advantages": {
-          "description": "A list of automatically applied advantages. This does only work for\nadvantages with no further configuration such as level or special\nselection.",
+          "description": "A list of automatically applied advantages. This does only work for advantages with no further configuration such as level or special selection.",
           "type": "array",
           "items": {
             "$ref": "./_SimpleReferences.schema.json#/$defs/AdvantageReference"
@@ -74,10 +74,10 @@
         },
         "weight": {
           "description": "Configuration for random weight generation.",
-          "$ref": "#/$defs/Weight"
+          "$ref": "#/$defs/RandomWeightGeneration"
         },
         "starting_age": {
-          "description": "Defines the starting ages for the race. It depends on the selected\nexperience level.",
+          "description": "Defines the starting ages for the race. It depends on the selected experience level.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/StartingAgeConfigForExperienceLevel"
@@ -86,7 +86,7 @@
           "maxItems": 7
         },
         "variants": {
-          "description": "A list of available race variants where one has to be selected. If no\nvariants are to be selected, a single variant with no name has to be provided\nwhich will be used as the missing values for the base race.",
+          "description": "A list of available race variants where one has to be selected. If no variants are to be selected, a single variant with no name has to be provided which will be used as the missing values for the base race.",
           "$ref": "#/$defs/RaceVariants"
         },
         "src": {
@@ -148,7 +148,7 @@
       "additionalProperties": false
     },
     "AttributeAdjustments": {
-      "description": "Describes how to raise or lower maximum attribute values during character\ncreation.",
+      "description": "Describes how to raise or lower maximum attribute values during character creation.",
       "type": "object",
       "properties": {
         "fixed": {
@@ -160,7 +160,7 @@
           "minItems": 1
         },
         "selectable": {
-          "description": "An array of attribute maximum modifiers, where the attribute they apply to\nis selected from a list of options.\n\nThe array only permits a single entry because no race specified more than\none selectable attribute adjustment so far. But the schema allows for\nmultiple entries to be future-proof.",
+          "description": "An array of attribute maximum modifiers, where the attribute they apply to is selected from a list of options.\n\nThe array only permits a single entry because no race specified more than one selectable attribute adjustment so far. But the schema allows for multiple entries to be future-proof.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/SelectableAttributeAdjustment"
@@ -193,7 +193,7 @@
       "additionalProperties": false
     },
     "SelectableAttributeAdjustment": {
-      "description": "A value that will be added to the current maximum of the selected attribute\nthat has been chosen from the listed attributes (negative values will lower\nthe maximum).",
+      "description": "A value that will be added to the current maximum of the selected attribute that has been chosen from the listed attributes (negative values will lower the maximum).",
       "type": "object",
       "properties": {
         "list": {
@@ -215,7 +215,7 @@
       ],
       "additionalProperties": false
     },
-    "Weight": {
+    "RandomWeightGeneration": {
       "description": "Configuration for random weight generation.",
       "type": "object",
       "properties": {
@@ -252,7 +252,7 @@
           "$ref": "./_Dice.schema.json#/$defs/DieType"
         },
         "offset_strategy": {
-          "description": "The strategy how to offset the randomly generated values against the\nbase value. Either they are all added or subtracted or even results are\nadded and odd results are subtracted.",
+          "description": "The strategy how to offset the randomly generated values against the base value. Either they are all added or subtracted or even results are added and odd results are subtracted.",
           "$ref": "#/$defs/WeightDiceOffsetStrategy"
         }
       },
@@ -264,7 +264,7 @@
       "additionalProperties": false
     },
     "WeightDiceOffsetStrategy": {
-      "description": "The strategy how to offset the randomly generated values against the\nbase value. Either they are all added or subtracted or even results are\nadded and odd results are subtracted.",
+      "description": "The strategy how to offset the randomly generated values against the base value. Either they are all added or subtracted or even results are added and odd results are subtracted.",
       "oneOf": [
         {
           "const": "Add"
@@ -290,7 +290,7 @@
           "minimum": 1
         },
         "random": {
-          "description": "The random value for the selected experience level. It is going to be\nadded to the base value.",
+          "description": "The random value for the selected experience level. It is going to be added to the base value.",
           "$ref": "./_Dice.schema.json#/$defs/Dice"
         }
       },
@@ -302,7 +302,7 @@
       "additionalProperties": false
     },
     "RaceVariants": {
-      "description": "A list of available race variants where one has to be selected. If no\nvariants are to be selected, a single variant with no name has to be provided\nwhich will be used as the missing values for the base race.",
+      "description": "A list of available race variants where one has to be selected. If no variants are to be selected, a single variant with no name has to be provided which will be used as the missing values for the base race.",
       "type": "array",
       "items": {
         "$ref": "#/$defs/RaceVariant"
@@ -403,7 +403,7 @@
           "minItems": 1
         },
         "hair_color": {
-          "description": "An array containing 20 (numeric) hair color identifiers. The array also\nrepresents the 20-sided die for a random hair color.",
+          "description": "An array containing 20 (numeric) hair color identifiers. The array also represents the 20-sided die for a random hair color.",
           "type": "array",
           "items": {
             "$ref": "./_SimpleReferences.schema.json#/$defs/HairColorReference"
@@ -412,7 +412,7 @@
           "maxItems": 20
         },
         "eye_color": {
-          "description": "An array containing 20 (numeric) eye color identifiers. The array also\nrepresents the 20-sided die for a random eye color.",
+          "description": "An array containing 20 (numeric) eye color identifiers. The array also represents the 20-sided die for a random eye color.",
           "type": "array",
           "items": {
             "$ref": "./_SimpleReferences.schema.json#/$defs/EyeColorReference"
@@ -474,7 +474,7 @@
       "type": "object",
       "properties": {
         "name": {
-          "description": "The race variant's name. If left empty, it defaults to the base race name.\nThis can be used if the race has no (visible) variants so that a single\nvariant has to be provided.",
+          "description": "The race variant's name. If left empty, it defaults to the base race name. This can be used if the race has no (visible) variants so that a single variant has to be provided.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "common_advantages": {
@@ -517,7 +517,7 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "strongly_recommended_disadvantages": {
-          "description": "The respective strongly recommended disadvantages text from the source\nbook.",
+          "description": "The respective strongly recommended disadvantages text from the source book.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "errata": {

@@ -47,15 +47,18 @@ export type KarmaSpecialAbilityTranslation = {
   rules: Activatable.Rules
 
   /**
-   * The AP value. It is only used if the text cannot be generated from the
-   * given information.
+   * The AP value. It is only used if the text cannot be generated from the given information.
    */
   ap_value?: Activatable.AdventurePointsValueReplacement
 
   errata?: Errata
 }
 
-export const config: TypeConfig<KarmaSpecialAbility, KarmaSpecialAbility["id"], "KarmaSpecialAbility"> = {
+export const config: TypeConfig<
+  KarmaSpecialAbility,
+  KarmaSpecialAbility["id"],
+  "KarmaSpecialAbility"
+> = {
   name: "KarmaSpecialAbility",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("KarmaSpecialAbility"),

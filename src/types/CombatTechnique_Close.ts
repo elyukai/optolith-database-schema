@@ -25,8 +25,7 @@ export type CloseCombatTechnique = {
   id: number
 
   /**
-   * Special rules for the combat technique that apply to all weapons in this
-   * category.
+   * Special rules for the combat technique that apply to all weapons in this category.
    */
   special: CloseCombatTechniqueSpecialRules
 
@@ -56,8 +55,7 @@ export type CloseCombatTechnique = {
 }
 
 /**
- * Special rules for the combat technique that apply to all weapons in this
- * category.
+ * Special rules for the combat technique that apply to all weapons in this category.
  */
 export type CloseCombatTechniqueSpecialRules = {
   /**
@@ -91,7 +89,11 @@ export type CloseCombatTechniqueTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<CloseCombatTechnique, CloseCombatTechnique["id"], "CloseCombatTechnique"> = {
+export const config: TypeConfig<
+  CloseCombatTechnique,
+  CloseCombatTechnique["id"],
+  "CloseCombatTechnique"
+> = {
   name: "CloseCombatTechnique",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("CloseCombatTechnique"),

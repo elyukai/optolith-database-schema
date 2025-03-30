@@ -49,13 +49,11 @@ Measurable parameters of a liturgical chant.
 
 The target category – the kind of creature or object – the skill affects.
 
-- **Type:** <a href="./_ActivatableSkillTargetCategory.md#TargetCategory">TargetCategory</a>
+- **Type:** <a href="./_ActivatableSkillTargetCategory.md#AffectedTargetCategories">AffectedTargetCategories</a>
 
 #### <a name="LiturgicalChant/traditions"></a> `traditions`
 
-The tradition(s) the liturgical chant is available for. Note that general
-aspects do not have an associated tradition and thus need to be defined in
-a special way.
+The tradition(s) the liturgical chant is available for. Note that general aspects do not have an associated tradition and thus need to be defined in a special way.
 
 - **Type:** List
 - **Items:** <a href="#LiturgicalChant/traditions[]">LiturgicalChant/traditions[]</a>
@@ -117,35 +115,31 @@ The name of the liturgical chant.
 
 #### <a name="LiturgicalChantTranslation/name_compressed"></a> `name_compressed?`
 
-A compressed name of the liturgical chant for use in small areas (e.g.
-on character sheet). Should only be defined if the `name` does not fit
-on character sheet.
+A compressed name of the liturgical chant for use in small areas (e.g. on character sheet). Should only be defined if the `name` does not fit on character sheet.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="LiturgicalChantTranslation/effect"></a> `effect`
 
-The effect description may be either a plain text or a text that is
-divided by a list of effects for each quality level. It may also be a
-list for each two quality levels.
+The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
 
-- **Type:** <a href="./_ActivatableSkillEffect.md#Effect">Effect</a>
+- **Type:** <a href="./_ActivatableSkillEffect.md#ActivatableSkillEffect">ActivatableSkillEffect</a>
 
 #### <a name="LiturgicalChantTranslation/casting_time"></a> `casting_time`
 
-- **Type:** <a href="#LiturgicalChantTranslation/casting_time">Object</a>
+- **Type:** <a href="./_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="LiturgicalChantTranslation/cost"></a> `cost`
 
-- **Type:** <a href="#LiturgicalChantTranslation/cost">Object</a>
+- **Type:** <a href="./_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="LiturgicalChantTranslation/range"></a> `range`
 
-- **Type:** <a href="#LiturgicalChantTranslation/range">Object</a>
+- **Type:** <a href="./_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="LiturgicalChantTranslation/duration"></a> `duration`
 
-- **Type:** <a href="#LiturgicalChantTranslation/duration">Object</a>
+- **Type:** <a href="./_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="LiturgicalChantTranslation/target"></a> `target`
 
@@ -154,79 +148,3 @@ list for each two quality levels.
 #### <a name="LiturgicalChantTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
-
----
-
-### <a name="LiturgicalChantTranslation/casting_time"></a> `LiturgicalChantTranslation/casting_time`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#LiturgicalChantTranslation/casting_time/full">See details</a>
-`abbr` |  | <a href="#LiturgicalChantTranslation/casting_time/abbr">See details</a>
-
-#### <a name="LiturgicalChantTranslation/casting_time/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="LiturgicalChantTranslation/casting_time/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="LiturgicalChantTranslation/cost"></a> `LiturgicalChantTranslation/cost`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#LiturgicalChantTranslation/cost/full">See details</a>
-`abbr` |  | <a href="#LiturgicalChantTranslation/cost/abbr">See details</a>
-
-#### <a name="LiturgicalChantTranslation/cost/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="LiturgicalChantTranslation/cost/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="LiturgicalChantTranslation/range"></a> `LiturgicalChantTranslation/range`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#LiturgicalChantTranslation/range/full">See details</a>
-`abbr` |  | <a href="#LiturgicalChantTranslation/range/abbr">See details</a>
-
-#### <a name="LiturgicalChantTranslation/range/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="LiturgicalChantTranslation/range/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="LiturgicalChantTranslation/duration"></a> `LiturgicalChantTranslation/duration`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#LiturgicalChantTranslation/duration/full">See details</a>
-`abbr` |  | <a href="#LiturgicalChantTranslation/duration/abbr">See details</a>
-
-#### <a name="LiturgicalChantTranslation/duration/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="LiturgicalChantTranslation/duration/abbr"></a> `abbr`
-
-- **Type:** String

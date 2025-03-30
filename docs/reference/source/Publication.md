@@ -36,8 +36,7 @@ If the publication may contain adult content.
 
 #### <a name="Publication/is_missing_implementation"></a> `is_missing_implementation`
 
-If the publication is not (fully) implemented and thus needs to be excluded
-from * stable releases.
+If the publication is not (fully) implemented and thus needs to be excluded from * stable releases.
 
 - **Type:** Boolean
 
@@ -95,8 +94,7 @@ The publication's release date.
 
 #### <a name="PublicationTranslation/is_missing_implementation"></a> `is_missing_implementation`
 
-If this publication translation is not (fully) implemented and thus needs
-to be excluded from stable releases.
+If this publication translation is not (fully) implemented and thus needs to be excluded from stable releases.
 
 - **Type:** Boolean
 

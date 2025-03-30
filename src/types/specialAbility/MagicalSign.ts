@@ -39,10 +39,10 @@ export type MagicalSign = {
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
    */
-  translations: LocaleMap<ProtectiveWardingCircleSpecialAbilityTranslation>
+  translations: LocaleMap<MagicalSignTranslation>
 }
 
-export type ProtectiveWardingCircleSpecialAbilityTranslation = {
+export type MagicalSignTranslation = {
   name: Activatable.Name
 
   name_in_library?: Activatable.NameInLibrary

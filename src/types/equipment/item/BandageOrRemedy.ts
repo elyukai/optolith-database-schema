@@ -9,7 +9,14 @@ import { createSchemaValidator } from "../../../validation/builders/schema.js"
 import { getFilenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { LocaleMap } from "../../_LocaleMap.js"
 import { PublicationRefs } from "../../source/_PublicationRef.js"
-import { CombatUse, Complexity, Cost, DefaultItemTranslation, StructurePoints, Weight } from "./_Item.js"
+import {
+  CombatUse,
+  Complexity,
+  Cost,
+  DefaultItemTranslation,
+  StructurePoints,
+  Weight,
+} from "./_Item.js"
 
 export type BandageOrRemedy = {
   /**
@@ -28,14 +35,12 @@ export type BandageOrRemedy = {
   complexity?: Complexity
 
   /**
-   * The structure points of the item. Use an array if the item consists of
-   * multiple components that have individual structure points.
+   * The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
    */
   structure_points?: StructurePoints
 
   /**
-   * The item can also be used either as an improvised weapon or as an armor,
-   * although this is not the primary use case of the item.
+   * The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.
    */
   combat_use?: CombatUse
 

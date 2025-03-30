@@ -13,7 +13,7 @@
           "minimum": 1
         },
         "sturdiness_rating": {
-          "description": "An armor type can have a *sturdiness rating*. The higher the rating, the\nmore durable the armor. Rolling higher than this rating during a sturdiness\ncheck means the armor receives one level of the new condition *Wear*.",
+          "description": "An armor type can have a *sturdiness rating*. The higher the rating, the more durable the armor. Rolling higher than this rating during a sturdiness check means the armor receives one level of the new condition *Wear*.",
           "type": "integer",
           "minimum": 1
         },

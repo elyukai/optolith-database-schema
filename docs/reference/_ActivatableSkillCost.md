@@ -246,8 +246,7 @@ The part of the cost value that has to be spent permanently.
 
 #### <a name="NonModifiableOneTimeCost/per"></a> `per?`
 
-The cost have to be per a specific countable entity, e.g. `8 KP per
-person`.
+The cost have to be per a specific countable entity, e.g. `8 KP per person`.
 
 - **Type:** <a href="#NonModifiableOneTimeCostPerCountable">NonModifiableOneTimeCostPerCountable</a>
 
@@ -271,8 +270,7 @@ Key | Description | Details
 
 #### <a name="NonModifiableOneTimeCostPerCountable/minimum_total"></a> `minimum_total?`
 
-If defined, the minimum total AE that have to be spent casting the
-skill.
+If defined, the minimum total AE that have to be spent casting the skill.
 
 - **Type:** Number
 
@@ -351,8 +349,7 @@ A description of where the cost come from.
 
 ### <a name="CostMap"></a> `CostMap`
 
-A content that is `2/4/8/16 AE for an item the size of a
-cup/chest/door/castle gate` may be respresented as the following map:
+A content that is `2/4/8/16 AE for an item the size of a cup/chest/door/castle gate` may be respresented as the following map:
 
 ```yaml
 options:
@@ -367,8 +364,7 @@ options:
 for_append: "an item the size of a"
 ```
 
-This will generate the exact same string as seen above – given it is set
-for a spellwork and thus `AE` is used.
+This will generate the exact same string as seen above – given it is set for a spellwork and thus `AE` is used.
 
 - **Type:** Object
 
@@ -448,8 +444,7 @@ The description of the option for cost string generation.
 
 #### <a name="CostMapOptionTranslation/label_standalone"></a> `label_standalone?`
 
-The description of the option if used standalone. Only used if
-different from `label`.
+The description of the option if used standalone. Only used if different from `label`.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -479,10 +474,7 @@ Place a string after the grouped map option labels.
 
 #### <a name="CostMapTranslation/replacement"></a> `replacement?`
 
-If the string from the book cannot be generated using the default
-generation technique, use this string. All options still need to be
-inserted propertly, since it may be used by in-game tools to provide a
-selection to players.
+If the string from the book cannot be generated using the default generation technique, use this string. All options still need to be inserted propertly, since it may be used by in-game tools to provide a selection to players.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -584,8 +576,7 @@ The AE cost value.
 
 #### <a name="NonModifiableSustainedCost/per"></a> `per?`
 
-The cost have to be per a specific countable entity, e.g. `8 KP per
-person per 5 minutes`.
+The cost have to be per a specific countable entity, e.g. `8 KP per person per 5 minutes`.
 
 - **Type:** <a href="#NonModifiableSustainedCostPerCountable">NonModifiableSustainedCostPerCountable</a>
 
@@ -608,8 +599,7 @@ Key | Description | Details
 
 #### <a name="NonModifiableSustainedCostPerCountable/minimum_total"></a> `minimum_total?`
 
-If defined, the minimum total AE that have to be spent casting the
-skill.
+If defined, the minimum total AE that have to be spent casting the skill.
 
 - **Type:** Number
 

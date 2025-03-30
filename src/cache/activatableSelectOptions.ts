@@ -17,8 +17,8 @@ import {
   SkillUses,
 } from "../types/_Activatable.js"
 import {
-  AdventurePointsValue,
   SelectOptionCategory,
+  SelectOptionsAdventurePointsValue,
   SkillApplicationOrUse,
   SkillSelectOptionCategoryPrerequisite,
   SpecificFromSkillSelectOptionCategoryCategory,
@@ -37,7 +37,7 @@ import {
   ActivatableIdentifier,
   CombatTechniqueIdentifier,
   SelectOptionIdentifier,
-  SkillIdentifier as SkillIdentifierGroup,
+  SkillishIdentifier as SkillIdentifierGroup,
 } from "../types/_IdentifierGroup.js"
 import { ImprovementCost } from "../types/_ImprovementCost.js"
 import { LocaleMap } from "../types/_LocaleMap.js"
@@ -217,7 +217,9 @@ const equalsSkillishIdGroup = (
 }
 
 const getApValueForSkillish = (
-  config: AdventurePointsValue<SkillIdentifierGroup | CombatTechniqueIdentifier> | undefined,
+  config:
+    | SelectOptionsAdventurePointsValue<SkillIdentifierGroup | CombatTechniqueIdentifier>
+    | undefined,
   id: SkillIdentifierGroup | CombatTechniqueIdentifier,
   ic: ImprovementCost
 ): number | undefined => {

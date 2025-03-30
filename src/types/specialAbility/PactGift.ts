@@ -29,8 +29,7 @@ export type PactGift = {
   permanent_demonic_consumption?: PactGiftPermanentDemonicConsumption
 
   /**
-   * This pact gift has direct influence on the existence of other entries. It
-   * may add or remove entries.
+   * This pact gift has direct influence on the existence of other entries. It may add or remove entries.
    * @minItems 1
    */
   automatic_entries?: AutomaticEntry[]
@@ -63,8 +62,7 @@ export type FixedPactGiftPermanentDemonicConsumption = {
 
 export type PactGiftPermanentDemonicConsumptionPerLevel = {
   /**
-   * The levels of *Demonic Consumption* the pact gift causes per activated
-   * level of the pact gift.
+   * The levels of *Demonic Consumption* the pact gift causes per activated level of the pact gift.
    * @integer
    * @minimum 1
    * @maximum 4
@@ -79,21 +77,17 @@ export type AutomaticEntry = {
   action: AutomaticEntryAction
 
   /**
-   * If an entry is added or removed, does is cost or grant adventure points
-   * or is it free of charge?
+   * If an entry is added or removed, does is cost or grant adventure points or is it free of charge?
    */
   apply_ap_value: boolean
 
   /**
-   * The entry that is to be added or removed. It can be a fixed entry or a
-   * selection where the player must choose one entry.
+   * The entry that is to be added or removed. It can be a fixed entry or a selection where the player must choose one entry.
    */
   target: AutomaticEntryTarget
 }
 
-export type AutomaticEntryAction =
-  | "Add"
-  | "Remove"
+export type AutomaticEntryAction = "Add" | "Remove"
 
 export type AutomaticEntryTarget =
   | { tag: "Selection"; selection: AutomaticEntryTargetSelection }
@@ -103,9 +97,7 @@ export type AutomaticEntryTargetSelection = {
   list: AutomaticEntryTargetSelectionList
 }
 
-export type AutomaticEntryTargetSelectionList =
-  | "MagicalTraditions"
-  | "MagicalDilettanteTraditions"
+export type AutomaticEntryTargetSelectionList = "MagicalTraditions" | "MagicalDilettanteTraditions"
 
 export type FixedAutomaticEntryTarget = {
   id: ActivatableIdentifier

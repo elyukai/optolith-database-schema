@@ -10,12 +10,8 @@
       "description": "The PA modifier.",
       "type": "integer"
     },
-    "Reach": {
-      "description": "The reach of the weapon.",
-      "$ref": "../../_Identifier.schema.json#/$defs/ReachIdentifier"
-    },
     "MeleeDamage": {
-      "description": "The damage of a weapon consists of a random part using dice and an optional\nflat part.",
+      "description": "The damage of a weapon consists of a random part using dice and an optional flat part.",
       "type": "object",
       "properties": {
         "dice": {
@@ -114,7 +110,7 @@
           "$ref": "../../_SimpleReferences.schema.json#/$defs/CloseCombatTechniqueReference"
         },
         "damage": {
-          "description": "The damage of a weapon consists of a random part using dice and an optional\nflat part.",
+          "description": "The damage of a weapon consists of a random part using dice and an optional flat part.",
           "$ref": "#/$defs/MeleeDamage"
         },
         "damage_threshold": {
@@ -131,7 +127,7 @@
         },
         "reach": {
           "description": "The reach of the weapon.",
-          "$ref": "#/$defs/Reach"
+          "$ref": "../../_Identifier.schema.json#/$defs/ReachIdentifier"
         },
         "length": {
           "description": "The length of the weapon in cm/halffingers.",

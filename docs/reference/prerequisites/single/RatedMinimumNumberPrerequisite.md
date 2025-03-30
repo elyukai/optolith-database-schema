@@ -15,16 +15,14 @@ Key | Description | Details
 
 #### <a name="RatedMinimumNumberPrerequisite/number"></a> `number`
 
-The minimum number of skills that need to be on the defined minimum skill
-rating.
+The minimum number of skills that need to be on the defined minimum skill rating.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
 #### <a name="RatedMinimumNumberPrerequisite/value"></a> `value`
 
-The minimum skill rating the defined minimum number of skills need to be
-on.
+The minimum skill rating the defined minimum number of skills need to be on.
 
 - **Type:** Integer
 - **Minimum:** `1`

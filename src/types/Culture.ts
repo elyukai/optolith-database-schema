@@ -8,11 +8,25 @@ import { validateEntityFileName } from "../validation/builders/naming.js"
 import { createSchemaValidator } from "../validation/builders/schema.js"
 import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
-import { AdvantageIdentifier, BlessedTraditionIdentifier, DisadvantageIdentifier, MagicalTraditionIdentifier, ProfessionIdentifier, SkillIdentifier } from "./_Identifier.js"
+import {
+  AdvantageIdentifier,
+  BlessedTraditionIdentifier,
+  DisadvantageIdentifier,
+  MagicalTraditionIdentifier,
+  ProfessionIdentifier,
+  SkillIdentifier,
+} from "./_Identifier.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
 import { BinarySex } from "./_Sex.js"
-import { LanguageReference, ProfessionReference, ProfessionVariantReference, ScriptReference, SkillReference, SocialStatusReference } from "./_SimpleReferences.js"
+import {
+  LanguageReference,
+  ProfessionReference,
+  ProfessionVariantReference,
+  ScriptReference,
+  SkillReference,
+  SocialStatusReference,
+} from "./_SimpleReferences.js"
 import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 
@@ -34,8 +48,7 @@ export type Culture = {
   language: LanguageReference[]
 
   /**
-   * A list of native scripts (usually it is only one). If the culture does not
-   * use any script, leave this field empty.
+   * A list of native scripts (usually it is only one). If the culture does not use any script, leave this field empty.
    * @minItems 1
    */
   script?: ScriptReference[]
@@ -52,10 +65,7 @@ export type Culture = {
   social_status: SocialStatusReference[]
 
   /**
-   * A list of professions that are typical for the culture, as well as
-   * professions that are rarely practiced or encountered in the culture. The
-   * list is either defined by group (as multiple lists) or plain (as a single
-   * list).
+   * A list of professions that are typical for the culture, as well as professions that are rarely practiced or encountered in the culture. The list is either defined by group (as multiple lists) or plain (as a single list).
    */
   common_professions: CommonProfessions
 
@@ -121,18 +131,12 @@ export type AreaKnowledge = {
 }
 
 /**
- * The "weight" difference compared to other professions or profession variants.
- * Some professions or profession variants are simply more common (Mostly), but
- * sometimes only specific elements are used (Only).
+ * The "weight" difference compared to other professions or profession variants. Some professions or profession variants are simply more common (Mostly), but sometimes only specific elements are used (Only).
  */
-export type Weight =
-  | "Mostly"
-  | "Only"
+export type CommonnessWeight = "Mostly" | "Only"
 
 /**
- * Some professions or profession variants are more common than others. There
- * may be cultures where some professions or profession variants are not
- * represented at all.
+ * Some professions or profession variants are more common than others. There may be cultures where some professions or profession variants are not represented at all.
  */
 export type Weighted<ProfessionOrVariant> = {
   /**
@@ -142,26 +146,19 @@ export type Weighted<ProfessionOrVariant> = {
   elements: ProfessionOrVariant[]
 
   /**
-   * The "weight" difference compared to other professions or profession
-   * variants. Some professions or profession variants are simply more common
+   * The "weight" difference compared to other professions or profession variants. Some professions or profession variants are simply more common
    * (Mostly), but sometimes only specific elements are used (Only).
    */
-  weight: Weight
+  weight: CommonnessWeight
 }
 
 /**
- * This defines how the list of constraints should be offset against the
- * list of all mundane professions: Either only the professions are kept
- * that intersect with the constraints (include) or only the professions
- * are kept that are different from the constraints (exclude).
+ * This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints (include) or only the professions are kept that are different from the constraints (exclude).
  */
-export type CommonProfessionConstraintsOperation =
-  | "Intersection"
-  | "Difference"
+export type CommonProfessionConstraintsOperation = "Intersection" | "Difference"
 
 /**
- * A list of professions. The filter specifies how the list is applied to
- * all mundane professions.
+ * A list of professions. The filter specifies how the list is applied to all mundane professions.
  */
 export type CommonProfessionConstraints<Constraint> = {
   /**
@@ -171,10 +168,7 @@ export type CommonProfessionConstraints<Constraint> = {
   constraints: Constraint[]
 
   /**
-   * This defines how the list of constraints should be offset against the
-   * list of all mundane professions: Either only the professions are kept
-   * that intersect with the constraints (include) or only the professions
-   * are kept that are different from the constraints (exclude).
+   * This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints (include) or only the professions are kept that are different from the constraints (exclude).
    */
   operation: CommonProfessionConstraintsOperation
 }
@@ -182,9 +176,7 @@ export type CommonProfessionConstraints<Constraint> = {
 /**
  * Some professions may be found in a culture, but are not that common.
  */
-export type Rarity =
-  | "Rare"
-  | "VeryRare"
+export type Rarity = "Rare" | "VeryRare"
 
 export type ProfessionConstraint = {
   /**
@@ -193,14 +185,12 @@ export type ProfessionConstraint = {
   id: ProfessionIdentifier
 
   /**
-   * Some profession variants are more common than others. There may be
-   * cultures where some variants are not represented at all.
+   * Some profession variants are more common than others. There may be cultures where some variants are not represented at all.
    */
   weighted_variants?: Weighted<ProfessionVariantReference>
 
   /**
-   * Some professions may be found in a culture, but are not that
-   * common.
+   * Some professions may be found in a culture, but are not that common.
    */
   rarity?: Rarity
 }
@@ -208,10 +198,7 @@ export type ProfessionConstraint = {
 /**
  * Some professions may be found in a culture, but are not that common.
  */
-export type MundaneProfessionSubgroupConstraint =
-  | "Profane"
-  | "Fighter"
-  | "Religious"
+export type MundaneProfessionSubgroupConstraint = "Profane" | "Fighter" | "Religious"
 
 export type MagicalTraditionConstraint = {
   /**
@@ -220,8 +207,7 @@ export type MagicalTraditionConstraint = {
   id: MagicalTraditionIdentifier
 
   /**
-   * Some professions are more common than others. There may be cultures
-   * where some professions are not represented at all.
+   * Some professions are more common than others. There may be cultures where some professions are not represented at all.
    */
   weighted_professions?: Weighted<ProfessionReference>
 
@@ -238,8 +224,7 @@ export type BlessedTraditionConstraint = {
   id: BlessedTraditionIdentifier
 
   /**
-   * Some professions are more common than others. There may be cultures
-   * where some professions are not represented at all.
+   * Some professions are more common than others. There may be cultures where some professions are not represented at all.
    */
   weighted_professions?: Weighted<ProfessionReference>
 
@@ -258,8 +243,10 @@ export type MagicCommonProfessionConstraint =
   | { tag: "MagicDilettante"; magic_dilettante: {} }
   | { tag: "Profession"; profession: ProfessionConstraint }
 
-export type BlessedCommonProfessionConstraint =
-  | { tag: "Tradition"; tradition: BlessedTraditionConstraint }
+export type BlessedCommonProfessionConstraint = {
+  tag: "Tradition"
+  tradition: BlessedTraditionConstraint
+}
 
 export type PlainCommonProfessions = CommonProfessionConstraints<ProfessionReference>
 
@@ -274,10 +261,7 @@ export type GroupedCommonProfessions = {
 }
 
 /**
- * A list of professions that are typical for the culture, as well as
- * professions that are rarely practiced or encountered in the culture. The
- * list is either defined by group (as multiple lists) or plain (as a single
- * list).
+ * A list of professions that are typical for the culture, as well as professions that are rarely practiced or encountered in the culture. The list is either defined by group (as multiple lists) or plain (as a single list).
  */
 export type CommonProfessions =
   | { tag: "Plain"; plain: PlainCommonProfessions }
@@ -294,8 +278,7 @@ export type CulturalPackageItem = {
   id: SkillIdentifier
 
   /**
-   * The skill points for the respective skill you get for buying the cultural
-   * package.
+   * The skill points for the respective skill you get for buying the cultural package.
    * @integer
    * @minimum 1
    * @maximum 2
@@ -354,8 +337,7 @@ type AreaKnowledgeTranslation = {
   description: string
 
   /**
-   * A shorter version of the description, used in input fields and other UI
-   * elements where the space might be to small to use the full description.
+   * A shorter version of the description, used in input fields and other UI elements where the space might be to small to use the full description.
    * @minLength 1
    */
   abbreviated: string
@@ -380,18 +362,16 @@ export type AreaKnowledgeExample = {
  */
 export type CommonNames = {
   /**
-   * First names can be gender-neutral, but they can also be for a specific
-   * binary sex. They are sorted into groups.
+   * First names can be gender-neutral, but they can also be for a specific binary sex. They are sorted into groups.
    * @minItems 1
    */
-  first_name_groups?: NameGroup[]
+  first_name_groups?: CommonNameGroup[]
 
   /**
-   * Last names can be gender-neutral, like family names, but they can also be
-   * for a specific binary sex. They are sorted into groups.
+   * Last names can be gender-neutral, like family names, but they can also be for a specific binary sex. They are sorted into groups.
    * @minItems 1
    */
-  last_name_groups?: NameGroup[]
+  last_name_groups?: CommonNameGroup[]
 
   /**
    * Special naming rules.
@@ -399,7 +379,7 @@ export type CommonNames = {
   naming_rules?: NonEmptyString
 }
 
-export type NameGroup = {
+export type CommonNameGroup = {
   /**
    * The group label.
    */
@@ -414,10 +394,10 @@ export type NameGroup = {
    * The names from the group.
    * @minItems 1
    */
-  names: Name[]
+  names: CommonName[]
 }
 
-export type Name = {
+export type CommonName = {
   name: NonEmptyString
 
   /**

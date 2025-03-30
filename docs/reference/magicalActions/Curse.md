@@ -79,61 +79,21 @@ The name of the curse.
 
 #### <a name="CurseTranslation/effect"></a> `effect`
 
-The effect description may be either a plain text or a text that is
-divided by a list of effects for each quality level. It may also be a
-list for each two quality levels.
+The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
 
-- **Type:** <a href="../_ActivatableSkillEffect.md#Effect">Effect</a>
+- **Type:** <a href="../_ActivatableSkillEffect.md#ActivatableSkillEffect">ActivatableSkillEffect</a>
 
 #### <a name="CurseTranslation/cost"></a> `cost`
 
-- **Type:** <a href="#CurseTranslation/cost">Object</a>
+- **Type:** <a href="../_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="CurseTranslation/duration"></a> `duration`
 
-- **Type:** <a href="#CurseTranslation/duration">Object</a>
+- **Type:** <a href="../_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="CurseTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>
-
----
-
-### <a name="CurseTranslation/cost"></a> `CurseTranslation/cost`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#CurseTranslation/cost/full">See details</a>
-`abbr` |  | <a href="#CurseTranslation/cost/abbr">See details</a>
-
-#### <a name="CurseTranslation/cost/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="CurseTranslation/cost/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="CurseTranslation/duration"></a> `CurseTranslation/duration`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#CurseTranslation/duration/full">See details</a>
-`abbr` |  | <a href="#CurseTranslation/duration/abbr">See details</a>
-
-#### <a name="CurseTranslation/duration/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="CurseTranslation/duration/abbr"></a> `abbr`
-
-- **Type:** String
 
 ---
 
@@ -243,8 +203,7 @@ Key | Description | Details
 
 #### <a name="FixedCurseCostTranslation/per"></a> `per?`
 
-The cost have to be per a specific countable entity, e.g. `8 KP
-per person`.
+The cost have to be per a specific countable entity, e.g. `8 KP per person`.
 
 - **Type:** <a href="../_ResponsiveText.md#ResponsiveText">ResponsiveText</a>
 

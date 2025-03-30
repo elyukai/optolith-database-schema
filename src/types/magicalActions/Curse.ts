@@ -7,9 +7,14 @@ import { todo } from "../../validation/builders/integrity.js"
 import { validateEntityFileName } from "../../validation/builders/naming.js"
 import { createSchemaValidator } from "../../validation/builders/schema.js"
 import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
+import { OldParameter } from "../_ActivatableSkill.js"
 import { IndefiniteOneTimeCost } from "../_ActivatableSkillCost.js"
-import { CheckResultBasedDuration, DurationUnit, IndefiniteDurationTranslation } from "../_ActivatableSkillDuration.js"
-import { Effect } from "../_ActivatableSkillEffect.js"
+import {
+  CheckResultBasedDuration,
+  DurationUnit,
+  IndefiniteDurationTranslation,
+} from "../_ActivatableSkillDuration.js"
+import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { NonEmptyString } from "../_NonEmptyString.js"
 import { ResponsiveText, ResponsiveTextOptional } from "../_ResponsiveText.js"
@@ -64,21 +69,19 @@ export type CurseTranslation = {
   name: NonEmptyString
 
   /**
-   * The effect description may be either a plain text or a text that is
-   * divided by a list of effects for each quality level. It may also be a
-   * list for each two quality levels.
+   * The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
    */
-  effect: Effect
+  effect: ActivatableSkillEffect
 
   /**
    * @deprecated
    */
-  cost: { full: string; abbr: string }
+  cost: OldParameter
 
   /**
    * @deprecated
    */
-  duration: { full: string; abbr: string }
+  duration: OldParameter
 
   errata?: Errata
 }
@@ -121,8 +124,7 @@ export type FixedCurseCost = {
  */
 export type FixedCurseCostTranslation = {
   /**
-   * The cost have to be per a specific countable entity, e.g. `8 KP
-   * per person`.
+   * The cost have to be per a specific countable entity, e.g. `8 KP per person`.
    */
   per?: ResponsiveText
 

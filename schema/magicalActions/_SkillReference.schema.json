@@ -7,36 +7,14 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "object",
-          "properties": {
-            "tag": {
-              "const": "Skill"
-            },
-            "skill": {
-              "$ref": "#/$defs/SkillIdentifierValue"
-            }
-          },
-          "required": [
-            "tag",
-            "skill"
-          ],
-          "additionalProperties": false
+          "description": "The skill's identifier.",
+          "$ref": "../_Identifier.schema.json#/$defs/SkillIdentifier"
         }
       },
       "required": [
         "id"
       ],
       "additionalProperties": false
-    },
-    "SkillIdentifierValue": {
-      "oneOf": [
-        {
-          "const": 9
-        },
-        {
-          "const": 56
-        }
-      ]
     }
   }
 }

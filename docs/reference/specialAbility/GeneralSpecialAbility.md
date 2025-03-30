@@ -96,9 +96,7 @@ A string that is used as a label for an input field.
 
 #### <a name="GeneralSpecialAbilityTranslation/ap_value_append"></a> `ap_value_append?`
 
-A string that gets appended to the default AP Value text with a preceding
-space. This always happens if present, even if the generated AP Value text
-is replaced.
+A string that gets appended to the default AP Value text with a preceding space. This always happens if present, even if the generated AP Value text is replaced.
 
 - **Type:** <a href="#AdventurePointsValueAppend">AdventurePointsValueAppend</a>
 

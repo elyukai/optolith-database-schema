@@ -122,7 +122,7 @@ export type RatedIdentifier =
   | Identifier.LiturgicalChantIdentifier
   | Identifier.CeremonyIdentifier
 
-export type SkillIdentifier =
+export type SkillishIdentifier =
   | Identifier.SkillIdentifier
   | Identifier.SpellIdentifier
   | Identifier.RitualIdentifier
@@ -189,6 +189,7 @@ export type SelectOptionIdentifier =
   | Identifier.PoisonIdentifier
   | Identifier.LanguageIdentifier
   | Identifier.SkillIdentifier
+  | Identifier.SkillApplicationIdentifier
   | Identifier.CloseCombatTechniqueIdentifier
   | Identifier.RangedCombatTechniqueIdentifier
   | Identifier.LiturgicalChantIdentifier

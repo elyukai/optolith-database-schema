@@ -61,7 +61,7 @@
                 "const": "Group"
               },
               "group": {
-                "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                "description": "A prerequisite group has no influence on validation logic. It serves as a single unit for displaying purposes, where the source uses a prerequisites item that cannot be represented as a single prerequisite.",
                 "type": "object",
                 "properties": {
                   "list": {
@@ -159,7 +159,7 @@
                 "const": "Group"
               },
               "group": {
-                "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                "description": "A prerequisite group has no influence on validation logic. It serves as a single unit for displaying purposes, where the source uses a prerequisites item that cannot be represented as a single prerequisite.",
                 "type": "object",
                 "properties": {
                   "list": {
@@ -257,7 +257,7 @@
                 "const": "Group"
               },
               "group": {
-                "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                "description": "A prerequisite group has no influence on validation logic. It serves as a single unit for displaying purposes, where the source uses a prerequisites item that cannot be represented as a single prerequisite.",
                 "type": "object",
                 "properties": {
                   "list": {
@@ -362,7 +362,7 @@
                     "const": "Group"
                   },
                   "group": {
-                    "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                    "description": "A prerequisite group has no influence on validation logic. It serves as a single unit for displaying purposes, where the source uses a prerequisites item that cannot be represented as a single prerequisite.",
                     "type": "object",
                     "properties": {
                       "list": {
@@ -467,7 +467,7 @@
                 "const": "Group"
               },
               "group": {
-                "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                "description": "A prerequisite group has no influence on validation logic. It serves as a single unit for displaying purposes, where the source uses a prerequisites item that cannot be represented as a single prerequisite.",
                 "type": "object",
                 "properties": {
                   "list": {
@@ -572,7 +572,7 @@
                     "const": "Group"
                   },
                   "group": {
-                    "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                    "description": "A prerequisite group has no influence on validation logic. It serves as a single unit for displaying purposes, where the source uses a prerequisites item that cannot be represented as a single prerequisite.",
                     "type": "object",
                     "properties": {
                       "list": {
@@ -677,7 +677,7 @@
                 "const": "Group"
               },
               "group": {
-                "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                "description": "A prerequisite group has no influence on validation logic. It serves as a single unit for displaying purposes, where the source uses a prerequisites item that cannot be represented as a single prerequisite.",
                 "type": "object",
                 "properties": {
                   "list": {
@@ -775,7 +775,7 @@
                 "const": "Group"
               },
               "group": {
-                "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                "description": "A prerequisite group has no influence on validation logic. It serves as a single unit for displaying purposes, where the source uses a prerequisites item that cannot be represented as a single prerequisite.",
                 "type": "object",
                 "properties": {
                   "list": {
@@ -873,7 +873,7 @@
                 "const": "Group"
               },
               "group": {
-                "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                "description": "A prerequisite group has no influence on validation logic. It serves as a single unit for displaying purposes, where the source uses a prerequisites item that cannot be represented as a single prerequisite.",
                 "type": "object",
                 "properties": {
                   "list": {
@@ -971,7 +971,7 @@
                 "const": "Group"
               },
               "group": {
-                "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                "description": "A prerequisite group has no influence on validation logic. It serves as a single unit for displaying purposes, where the source uses a prerequisites item that cannot be represented as a single prerequisite.",
                 "type": "object",
                 "properties": {
                   "list": {
@@ -1069,7 +1069,7 @@
                 "const": "Group"
               },
               "group": {
-                "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                "description": "A prerequisite group has no influence on validation logic. It serves as a single unit for displaying purposes, where the source uses a prerequisites item that cannot be represented as a single prerequisite.",
                 "type": "object",
                 "properties": {
                   "list": {
@@ -1174,7 +1174,7 @@
                     "const": "Group"
                   },
                   "group": {
-                    "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                    "description": "A prerequisite group has no influence on validation logic. It serves as a single unit for displaying purposes, where the source uses a prerequisites item that cannot be represented as a single prerequisite.",
                     "type": "object",
                     "properties": {
                       "list": {
@@ -1279,7 +1279,7 @@
                 "const": "Group"
               },
               "group": {
-                "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                "description": "A prerequisite group has no influence on validation logic. It serves as a single unit for displaying purposes, where the source uses a prerequisites item that cannot be represented as a single prerequisite.",
                 "type": "object",
                 "properties": {
                   "list": {
@@ -1377,7 +1377,7 @@
                 "const": "Group"
               },
               "group": {
-                "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                "description": "A prerequisite group has no influence on validation logic. It serves as a single unit for displaying purposes, where the source uses a prerequisites item that cannot be represented as a single prerequisite.",
                 "type": "object",
                 "properties": {
                   "list": {
@@ -1475,7 +1475,7 @@
                 "const": "Group"
               },
               "group": {
-                "description": "A prerequisite group has no influence on validation logic. It serves as a\nsingle unit for displaying purposes, where the source uses a prerequisites\nitem that cannot be represented as a single prerequisite.",
+                "description": "A prerequisite group has no influence on validation logic. It serves as a single unit for displaying purposes, where the source uses a prerequisites item that cannot be represented as a single prerequisite.",
                 "type": "object",
                 "properties": {
                   "list": {

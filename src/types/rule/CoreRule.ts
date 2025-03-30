@@ -53,9 +53,7 @@ export type ContentNode =
   | { tag: "ReferenceList"; reference_list: ReferenceListNode }
 
 /**
- * A core rule nested inside this core rule. It may be displayed as a separate
- * page or its content may be included in this rule's text, which will
- * automatically generate a proper heading. No content node of a type other than
+ * A core rule nested inside this core rule. It may be displayed as a separate page or its content may be included in this rule's text, which will automatically generate a proper heading. No content node of a type other than
  * `Child` should follow a child node, since then it may look like the the text
  * may be part of the child node.
  */
@@ -66,16 +64,13 @@ export type ChildNode = {
   id: CoreRuleIdentifier
 
   /**
-   * If the nested core rule's content should be integrated into this core rule
-   * and a proper heading should be added. Otherwise create a link to a separate
-   * view of that core rule.
+   * If the nested core rule's content should be integrated into this core rule and a proper heading should be added. Otherwise create a link to a separate view of that core rule.
    */
   include: boolean
 }
 
 /**
- * A simple text block, containing one or multiple paragraphs. Headings are not
- * allowed, they should be handled as nested core rules instead.
+ * A simple text block, containing one or multiple paragraphs. Headings are not allowed, they should be handled as nested core rules instead.
  */
 export type TextNode = {
   /**
@@ -167,30 +162,21 @@ export type ReferenceListNodeSource =
 
 export type ReferenceListNodeImprovementCostSource = {
   /**
-   * Define if the cost for attributes or skills should be defined. The
-   * cost for attributes start with value 9, while the cost for skills
-   * start with 1 in addition to possible activation cost.
+   * Define if the cost for attributes or skills should be defined. The cost for attributes start with value 9, while the cost for skills start with 1 in addition to possible activation cost.
    */
   target: ReferenceListNodeImprovementCostSourceTarget
 
   /**
    * The highest value the improvement cost are displayed for.
    *
-   * The minimum maximum value should depend on what is the upper bound of
-   * the range of adventure point cost that are equal across multiple
-   * values (value increases for attributes are always 15 up to (and
-   * including) value 14, while value increases for skills are always 1 to
-   * 4, depending on the improvement cost, up to (and including) value
-   * 12), since those ranges should be combined into a single table row.
+   * The minimum maximum value should depend on what is the upper bound of the range of adventure point cost that are equal across multiple values (value increases for attributes are always 15 up to (and including) value 14, while value increases for skills are always 1 to 4, depending on the improvement cost, up to (and including) value 12), since those ranges should be combined into a single table row.
    * @integer
    * @minimum 12
    */
   maximum_rating: number
 }
 
-export type ReferenceListNodeImprovementCostSourceTarget =
-  | "Attributes"
-  | "Skills"
+export type ReferenceListNodeImprovementCostSourceTarget = "Attributes" | "Skills"
 
 export type ReferenceListNodeTranslation = {
   /**

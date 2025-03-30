@@ -25,8 +25,7 @@ The ranged combat technique's identifier. An unique, increasing integer.
 
 #### <a name="RangedCombatTechnique/special"></a> `special`
 
-Special rules for the combat technique that apply to all weapons in this
-category.
+Special rules for the combat technique that apply to all weapons in this category.
 
 - **Type:** <a href="#RangedCombatTechniqueSpecialRules">RangedCombatTechniqueSpecialRules</a>
 
@@ -71,8 +70,7 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ### <a name="RangedCombatTechniqueSpecialRules"></a> `RangedCombatTechniqueSpecialRules`
 
-Special rules for the combat technique that apply to all weapons in this
-category.
+Special rules for the combat technique that apply to all weapons in this category.
 
 - **Type:** Object
 

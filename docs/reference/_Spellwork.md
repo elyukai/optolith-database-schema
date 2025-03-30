@@ -4,9 +4,7 @@
 
 ### <a name="Traditions"></a> `Traditions`
 
-The tradition(s) the ritual is available for. It may be *generally*
-available to all traditions or it may be only familiar in specific
-traditions.
+The tradition(s) the ritual is available for. It may be *generally* available to all traditions or it may be only familiar in specific traditions.
 
 - **Type:** Union
 - **Cases:** <a href="#Traditions'General">Traditions'General</a> | <a href="#Traditions'Specific">Traditions'Specific</a>

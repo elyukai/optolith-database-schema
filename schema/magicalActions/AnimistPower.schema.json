@@ -25,7 +25,7 @@
           "$ref": "../_SimpleReferences.schema.json#/$defs/PropertyReference"
         },
         "tribe_tradition": {
-          "description": "The tribe traditions the animist power is available to. It may be available\nto all or only specific tribes.\n\nIf no tribe tradition is given, the animist power is generally available to\nall tribe traditions.",
+          "description": "The tribe traditions the animist power is available to. It may be available to all or only specific tribes.\n\nIf no tribe tradition is given, the animist power is generally available to all tribe traditions.",
           "type": "array",
           "items": {
             "$ref": "../_SimpleReferences.schema.json#/$defs/AnimistTribeReference"
@@ -33,14 +33,14 @@
           "uniqueItems": true
         },
         "improvement_cost": {
-          "description": "States which column is used to improve the skill. It is a fixed value or\ndepends on the primary patron.",
+          "description": "States which column is used to improve the skill. It is a fixed value or depends on the primary patron.",
           "$ref": "#/$defs/AnimistPowerImprovementCost"
         },
         "prerequisites": {
           "$ref": "../_Prerequisite.schema.json#/$defs/AnimistPowerPrerequisites"
         },
         "levels": {
-          "description": "The animist power can have multiple levels. Each level is skilled\nseparately. A previous level must be on at least 10 so that the next higher\nlevel can be activated and skilled. A higher level cannot be skilled higher\nthan a lower level. Each level also adds an effect text to the text of the\nfirst level.",
+          "description": "The animist power can have multiple levels. Each level is skilled separately. A previous level must be on at least 10 so that the next higher level can be activated and skilled. A higher level cannot be skilled higher than a lower level. Each level also adds an effect text to the text of the first level.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/AnimistPowerLevel"
@@ -86,40 +86,14 @@
           "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "effect": {
-          "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
-          "$ref": "../_ActivatableSkillEffect.schema.json#/$defs/Effect"
+          "description": "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
+          "$ref": "../_ActivatableSkillEffect.schema.json#/$defs/ActivatableSkillEffect"
         },
         "cost": {
-          "type": "object",
-          "properties": {
-            "full": {
-              "type": "string"
-            },
-            "abbr": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "full",
-            "abbr"
-          ],
-          "additionalProperties": false
+          "$ref": "../_ActivatableSkill.schema.json#/$defs/OldParameter"
         },
         "duration": {
-          "type": "object",
-          "properties": {
-            "full": {
-              "type": "string"
-            },
-            "abbr": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "full",
-            "abbr"
-          ],
-          "additionalProperties": false
+          "$ref": "../_ActivatableSkill.schema.json#/$defs/OldParameter"
         },
         "prerequisites": {
           "description": "A prerequisites text.",
@@ -221,7 +195,7 @@
       "type": "object",
       "properties": {
         "cost": {
-          "description": "The AE cost value, either a flat value or defined dynamically by the\nprimary patron.",
+          "description": "The AE cost value, either a flat value or defined dynamically by the primary patron.",
           "$ref": "#/$defs/OneTimeAnimistPowerCost"
         },
         "duration": {
@@ -339,7 +313,7 @@
               "const": "Fixed"
             },
             "fixed": {
-              "$ref": "../FamiliarsTrick.schema.json#/$defs/FixedOneTimeDuration"
+              "$ref": "../FamiliarsTrick.schema.json#/$defs/FamiliarsTrickFixedOneTimeCostTranslation"
             }
           },
           "required": [
@@ -370,7 +344,7 @@
       "type": "object",
       "properties": {
         "cost": {
-          "description": "The AE cost value, either a flat value or defined dynamically by the\nprimary patron.",
+          "description": "The AE cost value, either a flat value or defined dynamically by the primary patron.",
           "$ref": "#/$defs/SustainedAnimistPowerCost"
         }
       },

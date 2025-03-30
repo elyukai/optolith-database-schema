@@ -21,8 +21,7 @@ The patron category's identifier. An unique, increasing integer.
 
 #### <a name="PatronCategory/primary_patron_cultures"></a> `primary_patron_cultures`
 
-The list of cultures where patrons from this category can be the primary
-patron of.
+The list of cultures where patrons from this category can be the primary patron of.
 
 - **Type:** List
 - **Items:** <a href="#PatronCategory/primary_patron_cultures[]">PatronCategory/primary_patron_cultures[]</a>

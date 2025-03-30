@@ -34,8 +34,7 @@ export type AspectTranslation = {
   name: NonEmptyString
 
   /**
-   * The aspect's name appended to the simple name (not `name_in_library`)
-   * of the special ability *Master of (Aspect)*.
+   * The aspect's name appended to the simple name (not `name_in_library`) of the special ability *Master of (Aspect)*.
    */
   master_of_aspect_suffix?: NonEmptyString
 }

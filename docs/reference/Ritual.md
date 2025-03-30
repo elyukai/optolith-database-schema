@@ -50,7 +50,7 @@ Measurable parameters of a ritual.
 
 The target category – the kind of creature or object – the skill affects.
 
-- **Type:** <a href="./_ActivatableSkillTargetCategory.md#TargetCategory">TargetCategory</a>
+- **Type:** <a href="./_ActivatableSkillTargetCategory.md#AffectedTargetCategories">AffectedTargetCategories</a>
 
 #### <a name="Ritual/property"></a> `property`
 
@@ -60,9 +60,7 @@ The associated property.
 
 #### <a name="Ritual/traditions"></a> `traditions`
 
-The tradition(s) the ritual is available for. It may be *generally*
-available to all traditions or it may be only familiar in specific
-traditions.
+The tradition(s) the ritual is available for. It may be *generally* available to all traditions or it may be only familiar in specific traditions.
 
 - **Type:** <a href="./_Spellwork.md#Traditions">Traditions</a>
 
@@ -116,27 +114,25 @@ The name of the ritual.
 
 #### <a name="RitualTranslation/effect"></a> `effect`
 
-The effect description may be either a plain text or a text that is
-divided by a list of effects for each quality level. It may also be a
-list for each two quality levels.
+The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
 
-- **Type:** <a href="./_ActivatableSkillEffect.md#Effect">Effect</a>
+- **Type:** <a href="./_ActivatableSkillEffect.md#ActivatableSkillEffect">ActivatableSkillEffect</a>
 
 #### <a name="RitualTranslation/casting_time"></a> `casting_time`
 
-- **Type:** <a href="#RitualTranslation/casting_time">Object</a>
+- **Type:** <a href="./_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="RitualTranslation/cost"></a> `cost`
 
-- **Type:** <a href="#RitualTranslation/cost">Object</a>
+- **Type:** <a href="./_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="RitualTranslation/range"></a> `range`
 
-- **Type:** <a href="#RitualTranslation/range">Object</a>
+- **Type:** <a href="./_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="RitualTranslation/duration"></a> `duration`
 
-- **Type:** <a href="#RitualTranslation/duration">Object</a>
+- **Type:** <a href="./_ActivatableSkill.md#OldParameter">OldParameter</a>
 
 #### <a name="RitualTranslation/target"></a> `target`
 
@@ -145,79 +141,3 @@ list for each two quality levels.
 #### <a name="RitualTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="./source/_Erratum.md#Errata">Errata</a>
-
----
-
-### <a name="RitualTranslation/casting_time"></a> `RitualTranslation/casting_time`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#RitualTranslation/casting_time/full">See details</a>
-`abbr` |  | <a href="#RitualTranslation/casting_time/abbr">See details</a>
-
-#### <a name="RitualTranslation/casting_time/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="RitualTranslation/casting_time/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="RitualTranslation/cost"></a> `RitualTranslation/cost`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#RitualTranslation/cost/full">See details</a>
-`abbr` |  | <a href="#RitualTranslation/cost/abbr">See details</a>
-
-#### <a name="RitualTranslation/cost/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="RitualTranslation/cost/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="RitualTranslation/range"></a> `RitualTranslation/range`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#RitualTranslation/range/full">See details</a>
-`abbr` |  | <a href="#RitualTranslation/range/abbr">See details</a>
-
-#### <a name="RitualTranslation/range/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="RitualTranslation/range/abbr"></a> `abbr`
-
-- **Type:** String
-
----
-
-### <a name="RitualTranslation/duration"></a> `RitualTranslation/duration`
-
-- **Type:** Object
-
-Key | Description | Details
-:-- | :-- | :--
-`full` |  | <a href="#RitualTranslation/duration/full">See details</a>
-`abbr` |  | <a href="#RitualTranslation/duration/abbr">See details</a>
-
-#### <a name="RitualTranslation/duration/full"></a> `full`
-
-- **Type:** String
-
-#### <a name="RitualTranslation/duration/abbr"></a> `abbr`
-
-- **Type:** String

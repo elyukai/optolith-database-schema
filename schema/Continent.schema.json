@@ -5,7 +5,7 @@
   "$defs": {
     "Continent": {
       "title": "Continent",
-      "description": "Continents are mostly referenced to in languages and scripts that occur on a\nspecific continent.",
+      "description": "Continents are mostly referenced to in languages and scripts that occur on a specific continent.",
       "type": "object",
       "properties": {
         "id": {

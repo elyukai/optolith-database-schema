@@ -71,7 +71,7 @@
           "$ref": "../_Activatable.schema.json#/$defs/Rules"
         },
         "ap_value_append": {
-          "description": "A string that gets appended to the default AP Value text with a preceding\nspace. This always happens if present, even if the generated AP Value text\nis replaced.",
+          "description": "A string that gets appended to the default AP Value text with a preceding space. This always happens if present, even if the generated AP Value text is replaced.",
           "$ref": "../_Activatable.schema.json#/$defs/AdventurePointsValueAppend"
         },
         "errata": {

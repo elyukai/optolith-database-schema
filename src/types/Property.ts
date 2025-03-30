@@ -23,8 +23,7 @@ export type Property = {
   id: number
 
   /**
-   * The property check's attributes. Only the properties from the Core Rules
-   * have defined property checks.
+   * The property check's attributes. Only the properties from the Core Rules have defined property checks.
    */
   check?: SkillCheck
 

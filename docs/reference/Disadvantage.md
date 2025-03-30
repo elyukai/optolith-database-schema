@@ -45,15 +45,13 @@ Key | Description | Details
 
 #### <a name="Disadvantage/has_maximum_spent_influence"></a> `has_maximum_spent_influence`
 
-Does this disadvantage count towards the maximum of AP to be spent on
-disadvantages?
+Does this disadvantage count towards the maximum of AP to be spent on disadvantages?
 
 - **Type:** Boolean
 
 #### <a name="Disadvantage/is_exclusive_to_arcane_spellworks"></a> `is_exclusive_to_arcane_spellworks`
 
-Does this disadvantage exclusively applies to arcane spellworks and not
-to magical actions and magical applications?
+Does this disadvantage exclusively applies to arcane spellworks and not to magical actions and magical applications?
 
 - **Type:** Boolean
 
@@ -110,9 +108,7 @@ The range.
 
 #### <a name="DisadvantageTranslation/ap_value_append"></a> `ap_value_append?`
 
-A string that gets appended to the default AP Value text with a preceding
-space. This always happens if present, even if the generated AP Value text
-is replaced.
+A string that gets appended to the default AP Value text with a preceding space. This always happens if present, even if the generated AP Value text is replaced.
 
 - **Type:** <a href="#AdventurePointsValueAppend">AdventurePointsValueAppend</a>
 

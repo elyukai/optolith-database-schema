@@ -20,18 +20,9 @@ The PA modifier.
 
 ---
 
-### <a name="Reach"></a> `Reach`
-
-The reach of the weapon.
-
-- **Type:** <a href="../../_Identifier.md#ReachIdentifier">ReachIdentifier</a>
-
----
-
 ### <a name="MeleeDamage"></a> `MeleeDamage`
 
-The damage of a weapon consists of a random part using dice and an optional
-flat part.
+The damage of a weapon consists of a random part using dice and an optional flat part.
 
 - **Type:** Object
 
@@ -176,8 +167,7 @@ The combat techniques and dependent values.
 
 #### <a name="MeleeWeapon/damage"></a> `damage`
 
-The damage of a weapon consists of a random part using dice and an optional
-flat part.
+The damage of a weapon consists of a random part using dice and an optional flat part.
 
 - **Type:** <a href="#MeleeDamage">MeleeDamage</a>
 
@@ -203,7 +193,7 @@ The PA modifier.
 
 The reach of the weapon.
 
-- **Type:** <a href="#Reach">Reach</a>
+- **Type:** <a href="../../_Identifier.md#ReachIdentifier">ReachIdentifier</a>
 
 #### <a name="MeleeWeapon/length"></a> `length?`
 

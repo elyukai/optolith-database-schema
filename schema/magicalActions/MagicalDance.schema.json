@@ -25,7 +25,7 @@
           "$ref": "../_SimpleReferences.schema.json#/$defs/PropertyReference"
         },
         "music_tradition": {
-          "description": "The music tradition(s) the magical dance is available for. This also\ndefines the different names in each music tradition.",
+          "description": "The music tradition(s) the magical dance is available for. This also defines the different names in each music tradition.",
           "type": "array",
           "items": {
             "$ref": "./_MusicTradition.schema.json#/$defs/MusicTraditionReference"
@@ -71,40 +71,14 @@
           "$ref": "../_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "effect": {
-          "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
-          "$ref": "../_ActivatableSkillEffect.schema.json#/$defs/Effect"
+          "description": "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
+          "$ref": "../_ActivatableSkillEffect.schema.json#/$defs/ActivatableSkillEffect"
         },
         "duration": {
-          "type": "object",
-          "properties": {
-            "full": {
-              "type": "string"
-            },
-            "abbr": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "full",
-            "abbr"
-          ],
-          "additionalProperties": false
+          "$ref": "../_ActivatableSkill.schema.json#/$defs/OldParameter"
         },
         "cost": {
-          "type": "object",
-          "properties": {
-            "full": {
-              "type": "string"
-            },
-            "abbr": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "full",
-            "abbr"
-          ],
-          "additionalProperties": false
+          "$ref": "../_ActivatableSkill.schema.json#/$defs/OldParameter"
         },
         "errata": {
           "$ref": "../source/_Erratum.schema.json#/$defs/Errata"
@@ -184,7 +158,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "$ref": "../FamiliarsTrick.schema.json#/$defs/FixedOneTimeCostTranslation"
+              "$ref": "../FamiliarsTrick.schema.json#/$defs/FamiliarsTrickFixedOneTimeCostTranslation"
             }
           },
           "minProperties": 1,
@@ -200,7 +174,7 @@
       "type": "object",
       "properties": {
         "modifier": {
-          "description": "Specified if the indefinite description's result value is to be\nmodified by a certain number.",
+          "description": "Specified if the indefinite description's result value is to be modified by a certain number.",
           "$ref": "../_ActivatableSkillCheckResultBased.schema.json#/$defs/CheckResultBasedModifier"
         },
         "translations": {

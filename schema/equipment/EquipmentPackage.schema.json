@@ -13,7 +13,7 @@
           "minimum": 1
         },
         "items": {
-          "description": "All items in the package. You have to provide the item (template)\nidentifier and you can optionally provide the number of how often an item\nis included in the package.",
+          "description": "All items in the package. You have to provide the item (template) identifier and you can optionally provide the number of how often an item is included in the package.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/EquipmentPackageItem"

@@ -41,8 +41,7 @@ Key | Description | Details
 
 #### <a name="PactGift/automatic_entries"></a> `automatic_entries?`
 
-This pact gift has direct influence on the existence of other entries. It
-may add or remove entries.
+This pact gift has direct influence on the existence of other entries. It may add or remove entries.
 
 - **Type:** List
 - **Items:** <a href="#PactGift/automatic_entries[]">PactGift/automatic_entries[]</a>
@@ -147,8 +146,7 @@ Key | Description | Details
 
 #### <a name="PactGiftPermanentDemonicConsumptionPerLevel/levels"></a> `levels`
 
-The levels of *Demonic Consumption* the pact gift causes per activated
-level of the pact gift.
+The levels of *Demonic Consumption* the pact gift causes per activated level of the pact gift.
 
 - **Type:** Integer
 - **Minimum:** `1`
@@ -174,15 +172,13 @@ What type of action is applied to the target entry?
 
 #### <a name="AutomaticEntry/apply_ap_value"></a> `apply_ap_value`
 
-If an entry is added or removed, does is cost or grant adventure points
-or is it free of charge?
+If an entry is added or removed, does is cost or grant adventure points or is it free of charge?
 
 - **Type:** Boolean
 
 #### <a name="AutomaticEntry/target"></a> `target`
 
-The entry that is to be added or removed. It can be a fixed entry or a
-selection where the player must choose one entry.
+The entry that is to be added or removed. It can be a fixed entry or a selection where the player must choose one entry.
 
 - **Type:** <a href="#AutomaticEntryTarget">AutomaticEntryTarget</a>
 

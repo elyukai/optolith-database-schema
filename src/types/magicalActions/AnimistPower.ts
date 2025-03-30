@@ -7,9 +7,10 @@ import { todo } from "../../validation/builders/integrity.js"
 import { validateEntityFileName } from "../../validation/builders/naming.js"
 import { createSchemaValidator } from "../../validation/builders/schema.js"
 import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
-import { FixedOneTimeDuration } from "../FamiliarsTrick.js"
+import { FamiliarsTrickFixedOneTimeCostTranslation } from "../FamiliarsTrick.js"
+import { OldParameter } from "../_ActivatableSkill.js"
 import { CheckResultBasedDuration, DurationUnitValue } from "../_ActivatableSkillDuration.js"
-import { Effect } from "../_ActivatableSkillEffect.js"
+import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
 import { LocaleMap } from "../_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "../_NonEmptyString.js"
@@ -47,29 +48,22 @@ export type AnimistPower = {
   property: PropertyReference
 
   /**
-   * The tribe traditions the animist power is available to. It may be available
-   * to all or only specific tribes.
+   * The tribe traditions the animist power is available to. It may be available to all or only specific tribes.
    *
-   * If no tribe tradition is given, the animist power is generally available to
-   * all tribe traditions.
+   * If no tribe tradition is given, the animist power is generally available to all tribe traditions.
    * @uniqueItems
    */
   tribe_tradition: AnimistTribeReference[]
 
   /**
-   * States which column is used to improve the skill. It is a fixed value or
-   * depends on the primary patron.
+   * States which column is used to improve the skill. It is a fixed value or depends on the primary patron.
    */
   improvement_cost: AnimistPowerImprovementCost
 
   prerequisites?: AnimistPowerPrerequisites
 
   /**
-   * The animist power can have multiple levels. Each level is skilled
-   * separately. A previous level must be on at least 10 so that the next higher
-   * level can be activated and skilled. A higher level cannot be skilled higher
-   * than a lower level. Each level also adds an effect text to the text of the
-   * first level.
+   * The animist power can have multiple levels. Each level is skilled separately. A previous level must be on at least 10 so that the next higher level can be activated and skilled. A higher level cannot be skilled higher than a lower level. Each level also adds an effect text to the text of the first level.
    * @minItems 1
    */
   levels?: AnimistPowerLevel[]
@@ -96,21 +90,19 @@ export type AnimistPowerTranslation = {
   name_in_library?: NonEmptyString
 
   /**
-   * The effect description may be either a plain text or a text that is
-   * divided by a list of effects for each quality level. It may also be a
-   * list for each two quality levels.
+   * The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
    */
-  effect: Effect
+  effect: ActivatableSkillEffect
 
   /**
    * @deprecated
    */
-  cost: { full: string; abbr: string }
+  cost: OldParameter
 
   /**
    * @deprecated
    */
-  duration: { full: string; abbr: string }
+  duration: OldParameter
 
   /**
    * A prerequisites text.
@@ -156,8 +148,7 @@ export type AnimistPowerPerformanceParameters =
 
 export type OneTimeAnimistPowerPerformanceParameters = {
   /**
-   * The AE cost value, either a flat value or defined dynamically by the
-   * primary patron.
+   * The AE cost value, either a flat value or defined dynamically by the primary patron.
    */
   cost: OneTimeAnimistPowerCost
 
@@ -199,13 +190,12 @@ export type OneTimeAnimistPowerCostByPrimaryPatron = {
 
 export type OneTimeAnimistPowerDuration =
   | { tag: "Immediate"; immediate: {} }
-  | { tag: "Fixed"; fixed: FixedOneTimeDuration }
+  | { tag: "Fixed"; fixed: FamiliarsTrickFixedOneTimeCostTranslation }
   | { tag: "CheckResultBased"; check_result_based: CheckResultBasedDuration }
 
 export type SustainedAnimistPowerPerformanceParameters = {
   /**
-   * The AE cost value, either a flat value or defined dynamically by the
-   * primary patron.
+   * The AE cost value, either a flat value or defined dynamically by the primary patron.
    */
   cost: SustainedAnimistPowerCost
 }

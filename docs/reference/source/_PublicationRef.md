@@ -22,9 +22,7 @@ The publications where you can find the entry.
 
 ### <a name="PublicationRef"></a> Publication Reference (`PublicationRef`)
 
-A source reference. It contains the book's publisher identifier and the page
-where it occurs. If an entry spans multiple pages, provide the last page as
-well.
+A source reference. It contains the book's publisher identifier and the page where it occurs. If an entry spans multiple pages, provide the last page as well.
 
 - **Type:** Object
 
@@ -97,16 +95,14 @@ Key | Description | Details
 
 #### <a name="SimpleOccurrence/first_page"></a> `first_page`
 
-The page where it occurs. If the entry spans multiple pages, use this as
-the first page and `last_page` as the last page.
+The page where it occurs. If the entry spans multiple pages, use this as the first page and `last_page` as the last page.
 
 - **Type:** Integer
 - **Minimum:** `1`
 
 #### <a name="SimpleOccurrence/last_page"></a> `last_page?`
 
-The last page where it occurs. If there is only one page, set this to the
-same as `first_page` oder remove it.
+The last page where it occurs. If there is only one page, set this to the same as `first_page` oder remove it.
 
 - **Type:** Integer
 - **Minimum:** `2`
@@ -130,8 +126,7 @@ The initial occurrence of the entry.
 
 #### <a name="VersionedOccurrence/revisions"></a> `revisions?`
 
-Revisions of the entry, resulting in either changed page references or
-re-addition or removal of an entry.
+Revisions of the entry, resulting in either changed page references or re-addition or removal of an entry.
 
 - **Type:** List
 - **Items:** <a href="#VersionedOccurrence/revisions[]">VersionedOccurrence/revisions[]</a>
@@ -156,8 +151,7 @@ Key | Description | Details
 
 #### <a name="InitialOccurrence/printing"></a> `printing?`
 
-The publication's printing since which the entry is present. Leave
-empty if present since the beginning.
+The publication's printing since which the entry is present. Leave empty if present since the beginning.
 
 - **Type:** Integer
 - **Minimum:** `2`
@@ -180,8 +174,7 @@ The initial page references.
 
 ### <a name="Revision"></a> Revision (`Revision`)
 
-A revision of the entry, resulting in either changed page references or
-re-addition or removal of an entry.
+A revision of the entry, resulting in either changed page references or re-addition or removal of an entry.
 
 - **Type:** Union
 - **Cases:** <a href="#Revision'Since">Revision'Since</a> | <a href="#Revision'Deprecated">Revision'Deprecated</a>
@@ -237,8 +230,7 @@ Key | Description | Details
 
 #### <a name="Since/printing"></a> `printing`
 
-The publication's printing since which the entry is present again or has
-changed page references.
+The publication's printing since which the entry is present again or has changed page references.
 
 - **Type:** Integer
 - **Minimum:** `2`
@@ -287,15 +279,13 @@ Key | Description | Details
 
 #### <a name="PageRange/first_page"></a> `first_page`
 
-The page where it occurs. If the entry spans multiple pages, use this as
-the first page and `last_page` as the last page.
+The page where it occurs. If the entry spans multiple pages, use this as the first page and `last_page` as the last page.
 
 - **Type:** <a href="#Page">Page</a>
 
 #### <a name="PageRange/last_page"></a> `last_page?`
 
-The last page where it occurs. If there is only one page, set this to the
-same as `first_page` oder remove it.
+The last page where it occurs. If there is only one page, set this to the same as `first_page` oder remove it.
 
 - **Type:** <a href="#Page">Page</a>
 

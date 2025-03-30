@@ -31,7 +31,7 @@ export type Krallenkettenzauber = {
 
   cost?: Activatable.EnchantmentCost
 
-  property: Activatable.Property
+  property: Activatable.PropertyDeclaration
 
   ap_value: Activatable.AdventurePointsValue
 
@@ -68,7 +68,11 @@ export type KrallenkettenzauberTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<Krallenkettenzauber, Krallenkettenzauber["id"], "Krallenkettenzauber"> = {
+export const config: TypeConfig<
+  Krallenkettenzauber,
+  Krallenkettenzauber["id"],
+  "Krallenkettenzauber"
+> = {
   name: "Krallenkettenzauber",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("Krallenkettenzauber"),

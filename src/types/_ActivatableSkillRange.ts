@@ -102,15 +102,12 @@ export type CheckResultBasedRange = {
  */
 export type RangeTranslation = {
   /**
-   * A note, appended to the generated string in parenthesis. If the
-   * generated is modified using `replacement`, the note is appended to
-   * the modifier string.
+   * A note, appended to the generated string in parenthesis. If the generated is modified using `replacement`, the note is appended to the modifier string.
    */
   note?: ResponsiveTextOptional
 
   /**
-   * A replacement string. If `note` is provided, it is appended to the
-   * replaced string.
+   * A replacement string. If `note` is provided, it is appended to the replaced string.
    */
   replacement?: ResponsiveTextReplace
 }

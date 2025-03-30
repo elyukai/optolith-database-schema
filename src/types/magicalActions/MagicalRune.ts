@@ -7,8 +7,9 @@ import { todo } from "../../validation/builders/integrity.js"
 import { validateEntityFileName } from "../../validation/builders/naming.js"
 import { createSchemaValidator } from "../../validation/builders/schema.js"
 import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
+import { OldParameter } from "../_ActivatableSkill.js"
 import { CheckResultBasedDuration } from "../_ActivatableSkillDuration.js"
-import { Effect } from "../_ActivatableSkillEffect.js"
+import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"
 import { CombatTechniqueIdentifier } from "../_IdentifierGroup.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
 import { LocaleMap } from "../_LocaleMap.js"
@@ -33,8 +34,7 @@ export type MagicalRune = {
   /**
    * The options the magical rune has, if any.
    *
-   * If there are multiple options, the magical rune may be activated for each
-   * option, that is, multiple times.
+   * If there are multiple options, the magical rune may be activated for each option, that is, multiple times.
    */
   options?: MagicalRuneOption[]
 
@@ -75,15 +75,12 @@ export type MagicalRuneTranslation = {
   /**
    * The name of the magical rune.
    *
-   * If the rune has an option, the option’s name will/should not be included in
-   * the name as well as its surrounding parenthesis. It will/should be combined
-   * on demand.
+   * If the rune has an option, the option’s name will/should not be included in the name as well as its surrounding parenthesis. It will/should be combined on demand.
    */
   name: NonEmptyString
 
   /**
-   * The full name of the entry as stated in the sources. Only use when `name`
-   * needs to be different from full name for text generation purposes.
+   * The full name of the entry as stated in the sources. Only use when `name` needs to be different from full name for text generation purposes.
    */
   name_in_library?: NonEmptyString
 
@@ -93,38 +90,37 @@ export type MagicalRuneTranslation = {
   native_name?: NonEmptyString
 
   /**
-   * The effect description may be either a plain text or a text that is
-   * divided by a list of effects for each quality level. It may also be a
-   * list for each two quality levels.
+   * The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
    */
-  effect: Effect
+  effect: ActivatableSkillEffect
 
   /**
    * @deprecated
    */
-  cost: { full: string; abbr: string }
+  cost: OldParameter
 
   /**
    * @deprecated
    */
-  crafting_time: {
-    slow: { full: string; abbr: string }
-    fast: { full: string; abbr: string }
-  }
+  crafting_time: OldParameterBySpeed
 
   /**
    * @deprecated
    */
-  duration: {
-    slow: { full: string; abbr: string }
-    fast: { full: string; abbr: string }
-  }
+  duration: OldParameterBySpeed
 
   errata?: Errata
 }
 
-export type MagicalRuneCheckPenalty =
-  | { tag: "CombatTechnique"; combat_technique: MagicalRuneCombatTechniqueCheckPenalty }
+export type OldParameterBySpeed = {
+  slow: OldParameter
+  fast: OldParameter
+}
+
+export type MagicalRuneCheckPenalty = {
+  tag: "CombatTechnique"
+  combat_technique: MagicalRuneCombatTechniqueCheckPenalty
+}
 
 export type MagicalRuneCombatTechniqueCheckPenalty = {
   /**
@@ -218,8 +214,9 @@ export type MagicalRuneCostDisjunction = {
 export type MagicalRuneCraftingTime = {
   /**
    * The (unitless) crafting time.
+   * @integer
    */
-  value: 1 | 2 | 4
+  value: number
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
@@ -229,8 +226,7 @@ export type MagicalRuneCraftingTime = {
 
 export type MagicalRuneCraftingTimeTranslation = {
   /**
-   * The crafting time has to be per a specific countable entity, e.g. `8
-   * action per person`.
+   * The crafting time has to be per a specific countable entity, e.g. `8 action per person`.
    */
   per: ResponsiveText
 }
@@ -281,8 +277,7 @@ export type MagicalRuneOption = {
   translations: LocaleMap<MagicalRuneOptionTranslation>
 }
 
-export type MagicalRuneSuboption =
-  | { tag: "Custom"; custom: CustomMagicalRuneSuboption }
+export type MagicalRuneSuboption = { tag: "Custom"; custom: CustomMagicalRuneSuboption }
 
 export type CustomMagicalRuneSuboption = {
   /**
@@ -302,8 +297,7 @@ export type MagicalRuneOptionTranslation = {
   /**
    * The name of the option.
    *
-   * The surrounding parenthesis will/should not be included, they will/should
-   * be generated.
+   * The surrounding parenthesis will/should not be included, they will/should be generated.
    */
   name: NonEmptyString
 

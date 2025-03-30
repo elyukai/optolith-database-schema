@@ -846,6 +846,74 @@ Key | Description | Details
 `General` |  | <a href="#UI/General">See details</a>
 `Note` |  | <a href="#UI/Note">See details</a>
 `all` |  | <a href="#UI/all">See details</a>
+`none` |  | <a href="#UI/none">See details</a>
+`State` |  | <a href="#UI/State">See details</a>
+`Social Status {0} or higher` |  | <a href="#UI/Social Status {0} or higher">See details</a>
+`Person with {0}` |  | <a href="#UI/Person with {0}">See details</a>
+`Penis` |  | <a href="#UI/Penis">See details</a>
+`Vagina` |  | <a href="#UI/Vagina">See details</a>
+`the SR for {0} combined must add up to at least {1}` |  | <a href="#UI/the SR for {0} combined must add up to at least {1}">See details</a>
+`{0} on at least SR {1}: {2}` |  | <a href="#UI/{0} on at least SR {1}: {2}">See details</a>
+`{0} arcane works with the property {1} at SR {2} or higher` |  | <a href="#UI/{0} arcane works with the property {1} at SR {2} or higher">See details</a>
+`{0} liturgical chants and ceremonies with the aspect {1} at SR {2} or higher` |  | <a href="#UI/{0} liturgical chants and ceremonies with the aspect {1} at SR {2} or higher">See details</a>
+`one of the following skills` |  | <a href="#UI/one of the following skills">See details</a>
+`two of the following skills` |  | <a href="#UI/two of the following skills">See details</a>
+`three of the following skills` |  | <a href="#UI/three of the following skills">See details</a>
+`four of the following skills` |  | <a href="#UI/four of the following skills">See details</a>
+`five of the following skills` |  | <a href="#UI/five of the following skills">See details</a>
+`six of the following skills` |  | <a href="#UI/six of the following skills">See details</a>
+`seven of the following skills` |  | <a href="#UI/seven of the following skills">See details</a>
+`eight of the following skills` |  | <a href="#UI/eight of the following skills">See details</a>
+`nine of the following skills` |  | <a href="#UI/nine of the following skills">See details</a>
+`{0} of the following skills` |  | <a href="#UI/{0} of the following skills">See details</a>
+`one combat technique` |  | <a href="#UI/one combat technique">See details</a>
+`two combat techniques` |  | <a href="#UI/two combat techniques">See details</a>
+`three combat techniques` |  | <a href="#UI/three combat techniques">See details</a>
+`four combat techniques` |  | <a href="#UI/four combat techniques">See details</a>
+`five combat techniques` |  | <a href="#UI/five combat techniques">See details</a>
+`six combat techniques` |  | <a href="#UI/six combat techniques">See details</a>
+`seven combat techniques` |  | <a href="#UI/seven combat techniques">See details</a>
+`eight combat techniques` |  | <a href="#UI/eight combat techniques">See details</a>
+`nine combat techniques` |  | <a href="#UI/nine combat techniques">See details</a>
+`{0} combat techniques` |  | <a href="#UI/{0} combat techniques">See details</a>
+`one close combat technique` |  | <a href="#UI/one close combat technique">See details</a>
+`two close combat techniques` |  | <a href="#UI/two close combat techniques">See details</a>
+`three close combat techniques` |  | <a href="#UI/three close combat techniques">See details</a>
+`four close combat techniques` |  | <a href="#UI/four close combat techniques">See details</a>
+`five close combat techniques` |  | <a href="#UI/five close combat techniques">See details</a>
+`six close combat techniques` |  | <a href="#UI/six close combat techniques">See details</a>
+`seven close combat techniques` |  | <a href="#UI/seven close combat techniques">See details</a>
+`eight close combat techniques` |  | <a href="#UI/eight close combat techniques">See details</a>
+`nine close combat techniques` |  | <a href="#UI/nine close combat techniques">See details</a>
+`{0} close combat techniques` |  | <a href="#UI/{0} close combat techniques">See details</a>
+`one ranged combat technique` |  | <a href="#UI/one ranged combat technique">See details</a>
+`two ranged combat techniques` |  | <a href="#UI/two ranged combat techniques">See details</a>
+`three ranged combat techniques` |  | <a href="#UI/three ranged combat techniques">See details</a>
+`four ranged combat techniques` |  | <a href="#UI/four ranged combat techniques">See details</a>
+`five ranged combat techniques` |  | <a href="#UI/five ranged combat techniques">See details</a>
+`six ranged combat techniques` |  | <a href="#UI/six ranged combat techniques">See details</a>
+`seven ranged combat techniques` |  | <a href="#UI/seven ranged combat techniques">See details</a>
+`eight ranged combat techniques` |  | <a href="#UI/eight ranged combat techniques">See details</a>
+`nine ranged combat techniques` |  | <a href="#UI/nine ranged combat techniques">See details</a>
+`{0} ranged combat techniques` |  | <a href="#UI/{0} ranged combat techniques">See details</a>
+`special ability` |  | <a href="#UI/special ability">See details</a>
+`no special ability` |  | <a href="#UI/no special ability">See details</a>
+`Tradition` |  | <a href="#UI/Tradition">See details</a>
+`Tradition ({0})` |  | <a href="#UI/Tradition ({0})">See details</a>
+`Church` |  | <a href="#UI/Church">See details</a>
+`Shaman` |  | <a href="#UI/Shaman">See details</a>
+`Tradition must be able to use rituals` |  | <a href="#UI/Tradition must be able to use rituals">See details</a>
+`Tradition must be able to bind familiars` |  | <a href="#UI/Tradition must be able to bind familiars">See details</a>
+`spell enhancement` |  | <a href="#UI/spell enhancement">See details</a>
+`liturgical enhancement` |  | <a href="#UI/liturgical enhancement">See details</a>
+`for` |  | <a href="#UI/for">See details</a>
+`no other ancestor blood advantage` |  | <a href="#UI/no other ancestor blood advantage">See details</a>
+`Race, culture, or profession must have {0} as an automatic or suggested {1}` |  | <a href="#UI/Race, culture, or profession must have {0} as an automatic or suggested {1}">See details</a>
+`advantage` |  | <a href="#UI/advantage">See details</a>
+`disadvantage` |  | <a href="#UI/disadvantage">See details</a>
+`domain {0}` |  | <a href="#UI/domain {0}">See details</a>
+`{0} level {1}` |  | <a href="#UI/{0} level {1}">See details</a>
+`Level {0}:` |  | <a href="#UI/Level {0}:">See details</a>
 `inlinewiki.castingtime` |  | <a href="#UI/inlinewiki.castingtime">See details</a>
 `inlinewiki.ritualtime` |  | <a href="#UI/inlinewiki.ritualtime">See details</a>
 `inlinewiki.aecost` |  | <a href="#UI/inlinewiki.aecost">See details</a>
@@ -4501,6 +4569,278 @@ As in *2D6*.
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="UI/all"></a> `all`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/none"></a> `none`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/State"></a> `State`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Social Status {0} or higher"></a> `Social Status {0} or higher`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Person with {0}"></a> `Person with {0}`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Penis"></a> `Penis`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Vagina"></a> `Vagina`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/the SR for {0} combined must add up to at least {1}"></a> `the SR for {0} combined must add up to at least {1}`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} on at least SR {1}: {2}"></a> `{0} on at least SR {1}: {2}`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} arcane works with the property {1} at SR {2} or higher"></a> `{0} arcane works with the property {1} at SR {2} or higher`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} liturgical chants and ceremonies with the aspect {1} at SR {2} or higher"></a> `{0} liturgical chants and ceremonies with the aspect {1} at SR {2} or higher`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/one of the following skills"></a> `one of the following skills`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/two of the following skills"></a> `two of the following skills`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/three of the following skills"></a> `three of the following skills`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/four of the following skills"></a> `four of the following skills`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/five of the following skills"></a> `five of the following skills`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/six of the following skills"></a> `six of the following skills`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/seven of the following skills"></a> `seven of the following skills`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/eight of the following skills"></a> `eight of the following skills`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/nine of the following skills"></a> `nine of the following skills`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} of the following skills"></a> `{0} of the following skills`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/one combat technique"></a> `one combat technique`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/two combat techniques"></a> `two combat techniques`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/three combat techniques"></a> `three combat techniques`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/four combat techniques"></a> `four combat techniques`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/five combat techniques"></a> `five combat techniques`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/six combat techniques"></a> `six combat techniques`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/seven combat techniques"></a> `seven combat techniques`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/eight combat techniques"></a> `eight combat techniques`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/nine combat techniques"></a> `nine combat techniques`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} combat techniques"></a> `{0} combat techniques`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/one close combat technique"></a> `one close combat technique`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/two close combat techniques"></a> `two close combat techniques`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/three close combat techniques"></a> `three close combat techniques`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/four close combat techniques"></a> `four close combat techniques`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/five close combat techniques"></a> `five close combat techniques`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/six close combat techniques"></a> `six close combat techniques`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/seven close combat techniques"></a> `seven close combat techniques`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/eight close combat techniques"></a> `eight close combat techniques`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/nine close combat techniques"></a> `nine close combat techniques`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} close combat techniques"></a> `{0} close combat techniques`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/one ranged combat technique"></a> `one ranged combat technique`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/two ranged combat techniques"></a> `two ranged combat techniques`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/three ranged combat techniques"></a> `three ranged combat techniques`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/four ranged combat techniques"></a> `four ranged combat techniques`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/five ranged combat techniques"></a> `five ranged combat techniques`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/six ranged combat techniques"></a> `six ranged combat techniques`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/seven ranged combat techniques"></a> `seven ranged combat techniques`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/eight ranged combat techniques"></a> `eight ranged combat techniques`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/nine ranged combat techniques"></a> `nine ranged combat techniques`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} ranged combat techniques"></a> `{0} ranged combat techniques`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/special ability"></a> `special ability`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/no special ability"></a> `no special ability`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Tradition"></a> `Tradition`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Tradition ({0})"></a> `Tradition ({0})`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Church"></a> `Church`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Shaman"></a> `Shaman`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Tradition must be able to use rituals"></a> `Tradition must be able to use rituals`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Tradition must be able to bind familiars"></a> `Tradition must be able to bind familiars`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/spell enhancement"></a> `spell enhancement`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/liturgical enhancement"></a> `liturgical enhancement`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/for"></a> `for`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/no other ancestor blood advantage"></a> `no other ancestor blood advantage`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Race, culture, or profession must have {0} as an automatic or suggested {1}"></a> `Race, culture, or profession must have {0} as an automatic or suggested {1}`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/advantage"></a> `advantage`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/disadvantage"></a> `disadvantage`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/domain {0}"></a> `domain {0}`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/{0} level {1}"></a> `{0} level {1}`
+
+- **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
+
+#### <a name="UI/Level {0}:"></a> `Level {0}:`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 

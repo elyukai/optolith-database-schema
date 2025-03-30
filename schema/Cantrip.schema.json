@@ -18,14 +18,14 @@
         },
         "target": {
           "description": "The target category – the kind of creature or object – the skill affects.",
-          "$ref": "./_ActivatableSkillTargetCategory.schema.json#/$defs/TargetCategory"
+          "$ref": "./_ActivatableSkillTargetCategory.schema.json#/$defs/AffectedTargetCategories"
         },
         "property": {
           "description": "The associated property.",
           "$ref": "./_SimpleReferences.schema.json#/$defs/PropertyReference"
         },
         "note": {
-          "description": "A note specifying the dissemination of the cantrip in different traditions.\nSometimes a cantrip is exclusively available to one or more specific\ntraditions, but usually one the academies and traditions are listed the\ncantrip is most commonly teached in.",
+          "description": "A note specifying the dissemination of the cantrip in different traditions. Sometimes a cantrip is exclusively available to one or more specific traditions, but usually one the academies and traditions are listed the cantrip is most commonly teached in.",
           "$ref": "#/$defs/CantripNote"
         },
         "src": {
@@ -414,7 +414,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "$ref": "#/$defs/IndefiniteDurationTranslation"
+              "$ref": "#/$defs/IndefiniteCantripDurationTranslation"
             }
           },
           "minProperties": 1,
@@ -426,7 +426,7 @@
       ],
       "additionalProperties": false
     },
-    "IndefiniteDurationTranslation": {
+    "IndefiniteCantripDurationTranslation": {
       "type": "object",
       "properties": {
         "description": {

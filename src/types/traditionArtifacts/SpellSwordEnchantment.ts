@@ -31,7 +31,7 @@ export type SpellSwordEnchantment = {
 
   cost?: Activatable.EnchantmentCost
 
-  property: Activatable.Property
+  property: Activatable.PropertyDeclaration
 
   ap_value: Activatable.AdventurePointsValue
 
@@ -66,15 +66,18 @@ export type SpellSwordEnchantmentTranslation = {
   bindingCost?: string
 
   /**
-   * The AP value. It is only used if the text cannot be generated from the
-   * given information.
+   * The AP value. It is only used if the text cannot be generated from the given information.
    */
   ap_value?: Activatable.AdventurePointsValueReplacement
 
   errata?: Errata
 }
 
-export const config: TypeConfig<SpellSwordEnchantment, SpellSwordEnchantment["id"], "SpellSwordEnchantment"> = {
+export const config: TypeConfig<
+  SpellSwordEnchantment,
+  SpellSwordEnchantment["id"],
+  "SpellSwordEnchantment"
+> = {
   name: "SpellSwordEnchantment",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("SpellSwordEnchantment"),

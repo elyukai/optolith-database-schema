@@ -35,8 +35,7 @@ The complexity of crafting the item.
 
 #### <a name="MusicalInstrument/combat_use"></a> `combat_use?`
 
-The item can also be used either as an improvised weapon or as an armor,
-although this is not the primary use case of the item.
+The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.
 
 - **Type:** <a href="./_Item.md#CombatUse">CombatUse</a>
 

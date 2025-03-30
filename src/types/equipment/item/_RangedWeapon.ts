@@ -8,10 +8,7 @@ import { RangedCombatTechniqueReference } from "../../_SimpleReferences.js"
 import { Length } from "./_Weapon.js"
 
 /**
- * The damage of a ranged weapon. It consists of a random part using dice and an
- * optional flat part ny default. Some ranged weapons may work different so that
- * damage is either not applicable at all or it is outlined as *Special* and
- * further defined in a description.
+ * The damage of a ranged weapon. It consists of a random part using dice and an optional flat part ny default. Some ranged weapons may work different so that damage is either not applicable at all or it is outlined as *Special* and further defined in a description.
  */
 export type RangedDamage =
   | { tag: "Default"; default: DefaultRangedDamage }
@@ -19,8 +16,7 @@ export type RangedDamage =
   | { tag: "Special"; special: {} }
 
 /**
- * The damage of a weapon consists of a random part using dice and an optional
- * flat part.
+ * The damage of a weapon consists of a random part using dice and an optional flat part.
  */
 export type DefaultRangedDamage = {
   /**
@@ -46,8 +42,7 @@ export type RangedWeapon = {
   combat_technique: RangedCombatTechniqueReference
 
   /**
-   * The damage of a weapon consists of a random part using dice and an optional
-   * flat part.
+   * The damage of a weapon consists of a random part using dice and an optional flat part.
    */
   damage: RangedDamage
 
@@ -61,7 +56,7 @@ export type RangedWeapon = {
   /**
    * The range brackets for the weapon: close, medium, far. Distances in m.
    */
-  range: Range
+  range: RangeBrackets
 
   /**
    * The needed ammunition.
@@ -86,7 +81,7 @@ export type AmmunitionReference = {
   id: AmmunitionIdentifier
 }
 
-export type Range = {
+export type RangeBrackets = {
   /**
    * The close range bracket for the weapon. Distance in m.
    * @integer

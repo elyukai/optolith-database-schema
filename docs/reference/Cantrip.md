@@ -34,7 +34,7 @@ Measurable parameters of a cantrip.
 
 The target category – the kind of creature or object – the skill affects.
 
-- **Type:** <a href="./_ActivatableSkillTargetCategory.md#TargetCategory">TargetCategory</a>
+- **Type:** <a href="./_ActivatableSkillTargetCategory.md#AffectedTargetCategories">AffectedTargetCategories</a>
 
 #### <a name="Cantrip/property"></a> `property`
 
@@ -44,10 +44,7 @@ The associated property.
 
 #### <a name="Cantrip/note"></a> `note?`
 
-A note specifying the dissemination of the cantrip in different traditions.
-Sometimes a cantrip is exclusively available to one or more specific
-traditions, but usually one the academies and traditions are listed the
-cantrip is most commonly teached in.
+A note specifying the dissemination of the cantrip in different traditions. Sometimes a cantrip is exclusively available to one or more specific traditions, but usually one the academies and traditions are listed the cantrip is most commonly teached in.
 
 - **Type:** <a href="#CantripNote">CantripNote</a>
 
@@ -521,19 +518,19 @@ Key | Description | Details
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#IndefiniteDurationTranslation">IndefiniteDurationTranslation</a>&gt;
+- **Type:** <a href="./_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#IndefiniteCantripDurationTranslation">IndefiniteCantripDurationTranslation</a>&gt;
 
 ---
 
-### <a name="IndefiniteDurationTranslation"></a> `IndefiniteDurationTranslation`
+### <a name="IndefiniteCantripDurationTranslation"></a> `IndefiniteCantripDurationTranslation`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`description` | A description of the duration. | <a href="#IndefiniteDurationTranslation/description">See details</a>
+`description` | A description of the duration. | <a href="#IndefiniteCantripDurationTranslation/description">See details</a>
 
-#### <a name="IndefiniteDurationTranslation/description"></a> `description`
+#### <a name="IndefiniteCantripDurationTranslation/description"></a> `description`
 
 A description of the duration.
 

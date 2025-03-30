@@ -47,8 +47,7 @@ export type SexPracticeTranslation = {
   duration: NonEmptyString
 
   /**
-   * Prerequisites of participants and environment. Do not specify if the
-   * sex practice has no prerequisites.
+   * Prerequisites of participants and environment. Do not specify if the sex practice has no prerequisites.
    */
   prerequisites?: NonEmptyString
 

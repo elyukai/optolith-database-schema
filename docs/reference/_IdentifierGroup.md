@@ -709,38 +709,38 @@
 
 ---
 
-### <a name="SkillIdentifier"></a> `SkillIdentifier`
+### <a name="SkillishIdentifier"></a> `SkillishIdentifier`
 
 - **Type:** Union
-- **Cases:** <a href="#SkillIdentifier'SkillIdentifier">SkillIdentifier'SkillIdentifier</a> | <a href="#SkillIdentifier'SpellIdentifier">SkillIdentifier'SpellIdentifier</a> | <a href="#SkillIdentifier'RitualIdentifier">SkillIdentifier'RitualIdentifier</a> | <a href="#SkillIdentifier'LiturgicalChantIdentifier">SkillIdentifier'LiturgicalChantIdentifier</a> | <a href="#SkillIdentifier'CeremonyIdentifier">SkillIdentifier'CeremonyIdentifier</a>
+- **Cases:** <a href="#SkillishIdentifier'SkillIdentifier">SkillishIdentifier'SkillIdentifier</a> | <a href="#SkillishIdentifier'SpellIdentifier">SkillishIdentifier'SpellIdentifier</a> | <a href="#SkillishIdentifier'RitualIdentifier">SkillishIdentifier'RitualIdentifier</a> | <a href="#SkillishIdentifier'LiturgicalChantIdentifier">SkillishIdentifier'LiturgicalChantIdentifier</a> | <a href="#SkillishIdentifier'CeremonyIdentifier">SkillishIdentifier'CeremonyIdentifier</a>
 
 ---
 
-### <a name="SkillIdentifier'SkillIdentifier"></a> `SkillIdentifier'SkillIdentifier`
+### <a name="SkillishIdentifier'SkillIdentifier"></a> `SkillishIdentifier'SkillIdentifier`
 
 - **Type:** <a href="#SkillIdentifier">SkillIdentifier</a>
 
 ---
 
-### <a name="SkillIdentifier'SpellIdentifier"></a> `SkillIdentifier'SpellIdentifier`
+### <a name="SkillishIdentifier'SpellIdentifier"></a> `SkillishIdentifier'SpellIdentifier`
 
 - **Type:** <a href="#SpellIdentifier">SpellIdentifier</a>
 
 ---
 
-### <a name="SkillIdentifier'RitualIdentifier"></a> `SkillIdentifier'RitualIdentifier`
+### <a name="SkillishIdentifier'RitualIdentifier"></a> `SkillishIdentifier'RitualIdentifier`
 
 - **Type:** <a href="#RitualIdentifier">RitualIdentifier</a>
 
 ---
 
-### <a name="SkillIdentifier'LiturgicalChantIdentifier"></a> `SkillIdentifier'LiturgicalChantIdentifier`
+### <a name="SkillishIdentifier'LiturgicalChantIdentifier"></a> `SkillishIdentifier'LiturgicalChantIdentifier`
 
 - **Type:** <a href="#LiturgicalChantIdentifier">LiturgicalChantIdentifier</a>
 
 ---
 
-### <a name="SkillIdentifier'CeremonyIdentifier"></a> `SkillIdentifier'CeremonyIdentifier`
+### <a name="SkillishIdentifier'CeremonyIdentifier"></a> `SkillishIdentifier'CeremonyIdentifier`
 
 - **Type:** <a href="#CeremonyIdentifier">CeremonyIdentifier</a>
 
@@ -973,7 +973,7 @@
 ### <a name="SelectOptionIdentifier"></a> `SelectOptionIdentifier`
 
 - **Type:** Union
-- **Cases:** <a href="#SelectOptionIdentifier'GeneralIdentifier">SelectOptionIdentifier'GeneralIdentifier</a> | <a href="#SelectOptionIdentifier'BlessingIdentifier">SelectOptionIdentifier'BlessingIdentifier</a> | <a href="#SelectOptionIdentifier'CantripIdentifier">SelectOptionIdentifier'CantripIdentifier</a> | <a href="#SelectOptionIdentifier'TradeSecretIdentifier">SelectOptionIdentifier'TradeSecretIdentifier</a> | <a href="#SelectOptionIdentifier'ScriptIdentifier">SelectOptionIdentifier'ScriptIdentifier</a> | <a href="#SelectOptionIdentifier'AnimalShapeIdentifier">SelectOptionIdentifier'AnimalShapeIdentifier</a> | <a href="#SelectOptionIdentifier'ArcaneBardTraditionIdentifier">SelectOptionIdentifier'ArcaneBardTraditionIdentifier</a> | <a href="#SelectOptionIdentifier'ArcaneDancerTraditionIdentifier">SelectOptionIdentifier'ArcaneDancerTraditionIdentifier</a> | <a href="#SelectOptionIdentifier'SexPracticeIdentifier">SelectOptionIdentifier'SexPracticeIdentifier</a> | <a href="#SelectOptionIdentifier'RaceIdentifier">SelectOptionIdentifier'RaceIdentifier</a> | <a href="#SelectOptionIdentifier'CultureIdentifier">SelectOptionIdentifier'CultureIdentifier</a> | <a href="#SelectOptionIdentifier'BlessedTraditionIdentifier">SelectOptionIdentifier'BlessedTraditionIdentifier</a> | <a href="#SelectOptionIdentifier'ElementIdentifier">SelectOptionIdentifier'ElementIdentifier</a> | <a href="#SelectOptionIdentifier'PropertyIdentifier">SelectOptionIdentifier'PropertyIdentifier</a> | <a href="#SelectOptionIdentifier'AspectIdentifier">SelectOptionIdentifier'AspectIdentifier</a> | <a href="#SelectOptionIdentifier'DiseaseIdentifier">SelectOptionIdentifier'DiseaseIdentifier</a> | <a href="#SelectOptionIdentifier'PoisonIdentifier">SelectOptionIdentifier'PoisonIdentifier</a> | <a href="#SelectOptionIdentifier'LanguageIdentifier">SelectOptionIdentifier'LanguageIdentifier</a> | <a href="#SelectOptionIdentifier'SkillIdentifier">SelectOptionIdentifier'SkillIdentifier</a> | <a href="#SelectOptionIdentifier'CloseCombatTechniqueIdentifier">SelectOptionIdentifier'CloseCombatTechniqueIdentifier</a> | <a href="#SelectOptionIdentifier'RangedCombatTechniqueIdentifier">SelectOptionIdentifier'RangedCombatTechniqueIdentifier</a> | <a href="#SelectOptionIdentifier'LiturgicalChantIdentifier">SelectOptionIdentifier'LiturgicalChantIdentifier</a> | <a href="#SelectOptionIdentifier'CeremonyIdentifier">SelectOptionIdentifier'CeremonyIdentifier</a> | <a href="#SelectOptionIdentifier'SpellIdentifier">SelectOptionIdentifier'SpellIdentifier</a> | <a href="#SelectOptionIdentifier'RitualIdentifier">SelectOptionIdentifier'RitualIdentifier</a> | <a href="#SelectOptionIdentifier'TargetCategoryIdentifier">SelectOptionIdentifier'TargetCategoryIdentifier</a> | <a href="#SelectOptionIdentifier'PatronIdentifier">SelectOptionIdentifier'PatronIdentifier</a>
+- **Cases:** <a href="#SelectOptionIdentifier'GeneralIdentifier">SelectOptionIdentifier'GeneralIdentifier</a> | <a href="#SelectOptionIdentifier'BlessingIdentifier">SelectOptionIdentifier'BlessingIdentifier</a> | <a href="#SelectOptionIdentifier'CantripIdentifier">SelectOptionIdentifier'CantripIdentifier</a> | <a href="#SelectOptionIdentifier'TradeSecretIdentifier">SelectOptionIdentifier'TradeSecretIdentifier</a> | <a href="#SelectOptionIdentifier'ScriptIdentifier">SelectOptionIdentifier'ScriptIdentifier</a> | <a href="#SelectOptionIdentifier'AnimalShapeIdentifier">SelectOptionIdentifier'AnimalShapeIdentifier</a> | <a href="#SelectOptionIdentifier'ArcaneBardTraditionIdentifier">SelectOptionIdentifier'ArcaneBardTraditionIdentifier</a> | <a href="#SelectOptionIdentifier'ArcaneDancerTraditionIdentifier">SelectOptionIdentifier'ArcaneDancerTraditionIdentifier</a> | <a href="#SelectOptionIdentifier'SexPracticeIdentifier">SelectOptionIdentifier'SexPracticeIdentifier</a> | <a href="#SelectOptionIdentifier'RaceIdentifier">SelectOptionIdentifier'RaceIdentifier</a> | <a href="#SelectOptionIdentifier'CultureIdentifier">SelectOptionIdentifier'CultureIdentifier</a> | <a href="#SelectOptionIdentifier'BlessedTraditionIdentifier">SelectOptionIdentifier'BlessedTraditionIdentifier</a> | <a href="#SelectOptionIdentifier'ElementIdentifier">SelectOptionIdentifier'ElementIdentifier</a> | <a href="#SelectOptionIdentifier'PropertyIdentifier">SelectOptionIdentifier'PropertyIdentifier</a> | <a href="#SelectOptionIdentifier'AspectIdentifier">SelectOptionIdentifier'AspectIdentifier</a> | <a href="#SelectOptionIdentifier'DiseaseIdentifier">SelectOptionIdentifier'DiseaseIdentifier</a> | <a href="#SelectOptionIdentifier'PoisonIdentifier">SelectOptionIdentifier'PoisonIdentifier</a> | <a href="#SelectOptionIdentifier'LanguageIdentifier">SelectOptionIdentifier'LanguageIdentifier</a> | <a href="#SelectOptionIdentifier'SkillIdentifier">SelectOptionIdentifier'SkillIdentifier</a> | <a href="#SelectOptionIdentifier'SkillApplicationIdentifier">SelectOptionIdentifier'SkillApplicationIdentifier</a> | <a href="#SelectOptionIdentifier'CloseCombatTechniqueIdentifier">SelectOptionIdentifier'CloseCombatTechniqueIdentifier</a> | <a href="#SelectOptionIdentifier'RangedCombatTechniqueIdentifier">SelectOptionIdentifier'RangedCombatTechniqueIdentifier</a> | <a href="#SelectOptionIdentifier'LiturgicalChantIdentifier">SelectOptionIdentifier'LiturgicalChantIdentifier</a> | <a href="#SelectOptionIdentifier'CeremonyIdentifier">SelectOptionIdentifier'CeremonyIdentifier</a> | <a href="#SelectOptionIdentifier'SpellIdentifier">SelectOptionIdentifier'SpellIdentifier</a> | <a href="#SelectOptionIdentifier'RitualIdentifier">SelectOptionIdentifier'RitualIdentifier</a> | <a href="#SelectOptionIdentifier'TargetCategoryIdentifier">SelectOptionIdentifier'TargetCategoryIdentifier</a> | <a href="#SelectOptionIdentifier'PatronIdentifier">SelectOptionIdentifier'PatronIdentifier</a>
 
 ---
 
@@ -1088,6 +1088,12 @@
 ### <a name="SelectOptionIdentifier'SkillIdentifier"></a> `SelectOptionIdentifier'SkillIdentifier`
 
 - **Type:** <a href="#SkillIdentifier">SkillIdentifier</a>
+
+---
+
+### <a name="SelectOptionIdentifier'SkillApplicationIdentifier"></a> `SelectOptionIdentifier'SkillApplicationIdentifier`
+
+- **Type:** <a href="#SkillApplicationIdentifier">SkillApplicationIdentifier</a>
 
 ---
 

@@ -161,15 +161,13 @@ Key | Description | Details
 
 #### <a name="SkillModificationLevelTranslation/fast"></a> `fast?`
 
-Configuration for this level for fast skills (spells, liturgical chants).
-Values set here override the default generated text.
+Configuration for this level for fast skills (spells, liturgical chants). Values set here override the default generated text.
 
 - **Type:** <a href="#LevelTypeConfigTranslation">LevelTypeConfigTranslation</a>
 
 #### <a name="SkillModificationLevelTranslation/slow"></a> `slow?`
 
-Configuration for this level for slow skills (rituals, ceremonies). Values
-set here override the default generated text.
+Configuration for this level for slow skills (rituals, ceremonies). Values set here override the default generated text.
 
 - **Type:** <a href="#LevelTypeConfigTranslation">LevelTypeConfigTranslation</a>
 
@@ -177,8 +175,7 @@ set here override the default generated text.
 
 ### <a name="LevelTypeConfigTranslation"></a> `LevelTypeConfigTranslation`
 
-Configuration translation of a type for a level. Values set here override the
-default generated text.
+Configuration translation of a type for a level. Values set here override the default generated text.
 
 - **Type:** Object
 

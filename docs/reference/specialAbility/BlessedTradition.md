@@ -18,7 +18,7 @@ Key | Description | Details
 `favored_combat_techniques?` | A list of favored combat techniques. | <a href="#BlessedTradition/favored_combat_techniques">See details</a>
 `favored_skills` | A list of favored skills. | <a href="#BlessedTradition/favored_skills">See details</a>
 `favored_skills_selection?` | On activation of the tradition, a specific number of skills from a list of skills must be selected as being favored. | <a href="#BlessedTradition/favored_skills_selection">See details</a>
-`is_shamanistic` | Is this a schamanistic tradition? | <a href="#BlessedTradition/is_shamanistic">See details</a>
+`type` | The type of the tradition. May be either church or shamanistic. | <a href="#BlessedTradition/type">See details</a>
 `associated_principles_id?` | The select option's identifier of the disadvantage *Principles* that represent this tradition's code, if any. | <a href="#BlessedTradition/associated_principles_id">See details</a>
 `prerequisites?` |  | <a href="#BlessedTradition/prerequisites">See details</a>
 `ap_value` |  | <a href="#BlessedTradition/ap_value">See details</a>
@@ -43,8 +43,7 @@ Key | Description | Details
 
 #### <a name="BlessedTradition/primary"></a> `primary?`
 
-The tradition's primary attribute. Leave empty if the tradition does not
-have one.
+The tradition's primary attribute. Leave empty if the tradition does not have one.
 
 - **Type:** <a href="../_SimpleReferences.md#AttributeReference">AttributeReference</a>
 
@@ -52,8 +51,10 @@ have one.
 
 The tradition's aspects, if any.
 
-- **Type:** Tuple
-- **Items:** [<a href="BlessedTradition/aspects[0]">BlessedTradition/aspects[0]</a>, <a href="BlessedTradition/aspects[1]">BlessedTradition/aspects[1]</a>]
+- **Type:** List
+- **Items:** <a href="#BlessedTradition/aspects[]">BlessedTradition/aspects[]</a>
+- **Minimum Items:** `2`
+- **Maximum Items:** `2`
 
 #### <a name="BlessedTradition/restricted_blessings"></a> `restricted_blessings?`
 
@@ -78,21 +79,19 @@ A list of favored skills.
 
 #### <a name="BlessedTradition/favored_skills_selection"></a> `favored_skills_selection?`
 
-On activation of the tradition, a specific number of skills from a list of
-skills must be selected as being favored.
+On activation of the tradition, a specific number of skills from a list of skills must be selected as being favored.
 
 - **Type:** <a href="#FavoredSkillsSelection">FavoredSkillsSelection</a>
 
-#### <a name="BlessedTradition/is_shamanistic"></a> `is_shamanistic`
+#### <a name="BlessedTradition/type"></a> `type`
 
-Is this a schamanistic tradition?
+The type of the tradition. May be either church or shamanistic.
 
-- **Type:** Boolean
+- **Type:** <a href="#BlessedTraditionType">BlessedTraditionType</a>
 
 #### <a name="BlessedTradition/associated_principles_id"></a> `associated_principles_id?`
 
-The select option's identifier of the disadvantage *Principles* that
-represent this tradition's code, if any.
+The select option's identifier of the disadvantage *Principles* that represent this tradition's code, if any.
 
 - **Type:** Number
 
@@ -116,13 +115,7 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="BlessedTradition/aspects[0]"></a> `BlessedTradition/aspects[0]`
-
-- **Type:** <a href="../_SimpleReferences.md#AspectReference">AspectReference</a>
-
----
-
-### <a name="BlessedTradition/aspects[1]"></a> `BlessedTradition/aspects[1]`
+### <a name="BlessedTradition/aspects[]"></a> `BlessedTradition/aspects[]`
 
 - **Type:** <a href="../_SimpleReferences.md#AspectReference">AspectReference</a>
 
@@ -184,24 +177,15 @@ Key | Description | Details
 
 ### <a name="ThreeRestrictedBlessings"></a> `ThreeRestrictedBlessings`
 
-- **Type:** Tuple
-- **Items:** [<a href="ThreeRestrictedBlessings[0]">ThreeRestrictedBlessings[0]</a>, <a href="ThreeRestrictedBlessings[1]">ThreeRestrictedBlessings[1]</a>, <a href="ThreeRestrictedBlessings[2]">ThreeRestrictedBlessings[2]</a>]
+- **Type:** List
+- **Items:** <a href="#ThreeRestrictedBlessings[]">ThreeRestrictedBlessings[]</a>
+- **Minimum Items:** `3`
+- **Maximum Items:** `3`
+- **Unique Items:** Yes
 
 ---
 
-### <a name="ThreeRestrictedBlessings[0]"></a> `ThreeRestrictedBlessings[0]`
-
-- **Type:** <a href="../_SimpleReferences.md#BlessingReference">BlessingReference</a>
-
----
-
-### <a name="ThreeRestrictedBlessings[1]"></a> `ThreeRestrictedBlessings[1]`
-
-- **Type:** <a href="../_SimpleReferences.md#BlessingReference">BlessingReference</a>
-
----
-
-### <a name="ThreeRestrictedBlessings[2]"></a> `ThreeRestrictedBlessings[2]`
+### <a name="ThreeRestrictedBlessings[]"></a> `ThreeRestrictedBlessings[]`
 
 - **Type:** <a href="../_SimpleReferences.md#BlessingReference">BlessingReference</a>
 
@@ -209,42 +193,15 @@ Key | Description | Details
 
 ### <a name="SixRestrictedBlessings"></a> `SixRestrictedBlessings`
 
-- **Type:** Tuple
-- **Items:** [<a href="SixRestrictedBlessings[0]">SixRestrictedBlessings[0]</a>, <a href="SixRestrictedBlessings[1]">SixRestrictedBlessings[1]</a>, <a href="SixRestrictedBlessings[2]">SixRestrictedBlessings[2]</a>, <a href="SixRestrictedBlessings[3]">SixRestrictedBlessings[3]</a>, <a href="SixRestrictedBlessings[4]">SixRestrictedBlessings[4]</a>, <a href="SixRestrictedBlessings[5]">SixRestrictedBlessings[5]</a>]
+- **Type:** List
+- **Items:** <a href="#SixRestrictedBlessings[]">SixRestrictedBlessings[]</a>
+- **Minimum Items:** `6`
+- **Maximum Items:** `6`
+- **Unique Items:** Yes
 
 ---
 
-### <a name="SixRestrictedBlessings[0]"></a> `SixRestrictedBlessings[0]`
-
-- **Type:** <a href="../_SimpleReferences.md#BlessingReference">BlessingReference</a>
-
----
-
-### <a name="SixRestrictedBlessings[1]"></a> `SixRestrictedBlessings[1]`
-
-- **Type:** <a href="../_SimpleReferences.md#BlessingReference">BlessingReference</a>
-
----
-
-### <a name="SixRestrictedBlessings[2]"></a> `SixRestrictedBlessings[2]`
-
-- **Type:** <a href="../_SimpleReferences.md#BlessingReference">BlessingReference</a>
-
----
-
-### <a name="SixRestrictedBlessings[3]"></a> `SixRestrictedBlessings[3]`
-
-- **Type:** <a href="../_SimpleReferences.md#BlessingReference">BlessingReference</a>
-
----
-
-### <a name="SixRestrictedBlessings[4]"></a> `SixRestrictedBlessings[4]`
-
-- **Type:** <a href="../_SimpleReferences.md#BlessingReference">BlessingReference</a>
-
----
-
-### <a name="SixRestrictedBlessings[5]"></a> `SixRestrictedBlessings[5]`
+### <a name="SixRestrictedBlessings[]"></a> `SixRestrictedBlessings[]`
 
 - **Type:** <a href="../_SimpleReferences.md#BlessingReference">BlessingReference</a>
 
@@ -409,6 +366,75 @@ The possible set of skills.
 
 ---
 
+### <a name="BlessedTraditionType"></a> `BlessedTraditionType`
+
+The type of the tradition. May be either church or shamanistic.
+
+- **Type:** Union
+- **Cases:** <a href="#BlessedTraditionType'Church">BlessedTraditionType'Church</a> | <a href="#BlessedTraditionType'Shamanistic">BlessedTraditionType'Shamanistic</a>
+
+---
+
+### <a name="BlessedTraditionType'Church"></a> `BlessedTraditionType'Church`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#BlessedTraditionType'Church/tag">See details</a>
+`church` |  | <a href="#BlessedTraditionType'Church/church">See details</a>
+
+#### <a name="BlessedTraditionType'Church/tag"></a> `tag`
+
+- **Constant:** `"Church"`
+
+#### <a name="BlessedTraditionType'Church/church"></a> `church`
+
+- **Type:** <a href="#BlessedTraditionType'Church/church">Object</a>
+
+---
+
+### <a name="BlessedTraditionType'Church/church"></a> `BlessedTraditionType'Church/church`
+
+- **Type:** Empty Object
+
+---
+
+### <a name="BlessedTraditionType'Shamanistic"></a> `BlessedTraditionType'Shamanistic`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#BlessedTraditionType'Shamanistic/tag">See details</a>
+`shamanistic` |  | <a href="#BlessedTraditionType'Shamanistic/shamanistic">See details</a>
+
+#### <a name="BlessedTraditionType'Shamanistic/tag"></a> `tag`
+
+- **Constant:** `"Shamanistic"`
+
+#### <a name="BlessedTraditionType'Shamanistic/shamanistic"></a> `shamanistic`
+
+- **Type:** <a href="#ShamanisticBlessedTradition">ShamanisticBlessedTradition</a>
+
+---
+
+### <a name="ShamanisticBlessedTradition"></a> `ShamanisticBlessedTradition`
+
+Additional rules for shamanistic traditions.
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`can_use_bone_mace_as_ceremonial_item` |  | <a href="#ShamanisticBlessedTradition/can_use_bone_mace_as_ceremonial_item">See details</a>
+
+#### <a name="ShamanisticBlessedTradition/can_use_bone_mace_as_ceremonial_item"></a> `can_use_bone_mace_as_ceremonial_item`
+
+- **Type:** Boolean
+
+---
+
 ### <a name="BlessedTraditionTranslation"></a> `BlessedTraditionTranslation`
 
 - **Type:** Object
@@ -427,8 +453,7 @@ Key | Description | Details
 
 #### <a name="BlessedTraditionTranslation/name_compressed"></a> `name_compressed?`
 
-A shorter name of the tradition's name, used in liturgical chant
-descriptions.
+A shorter name of the tradition's name, used in liturgical chant descriptions.
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -439,8 +464,7 @@ descriptions.
 
 #### <a name="BlessedTraditionTranslation/special_rules"></a> `special_rules`
 
-The special rules of the tradition. They should be sorted like they are
-in the book.
+The special rules of the tradition. They should be sorted like they are in the book.
 
 - **Type:** List
 - **Items:** <a href="#BlessedTraditionTranslation/special_rules[]">BlessedTraditionTranslation/special_rules[]</a>

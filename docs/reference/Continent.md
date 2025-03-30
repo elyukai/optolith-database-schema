@@ -1,14 +1,12 @@
 # Continent
 
-Continents are mostly referenced to in languages and scripts that occur on a
-specific continent.
+Continents are mostly referenced to in languages and scripts that occur on a specific continent.
 
 ## Definitions
 
 ### <a name="Continent"></a> Continent (`Continent`)
 
-Continents are mostly referenced to in languages and scripts that occur on a
-specific continent.
+Continents are mostly referenced to in languages and scripts that occur on a specific continent.
 
 - **Type:** Object
 

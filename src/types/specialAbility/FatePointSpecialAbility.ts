@@ -51,15 +51,18 @@ export type FatePointSpecialAbilityTranslation = {
   rules: Activatable.Rules
 
   /**
-   * The AP value. It is only used if the text cannot be generated from the
-   * given information.
+   * The AP value. It is only used if the text cannot be generated from the given information.
    */
   ap_value?: Activatable.AdventurePointsValueReplacement
 
   errata?: Errata
 }
 
-export const config: TypeConfig<FatePointSpecialAbility, FatePointSpecialAbility["id"], "FatePointSpecialAbility"> = {
+export const config: TypeConfig<
+  FatePointSpecialAbility,
+  FatePointSpecialAbility["id"],
+  "FatePointSpecialAbility"
+> = {
   name: "FatePointSpecialAbility",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("FatePointSpecialAbility"),

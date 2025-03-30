@@ -30,14 +30,13 @@ export type CauldronEnchantment = {
   volume: Activatable.Volume
 
   /**
-   * Witches can learn to brew special things in their Witch's Cauldron. These
-   * brews can be categorized in different types.
+   * Witches can learn to brew special things in their Witch's Cauldron. These brews can be categorized in different types.
    */
   brew: BrewReference
 
   cost?: Activatable.EnchantmentCost
 
-  property: Activatable.Property
+  property: Activatable.PropertyDeclaration
 
   ap_value: Activatable.AdventurePointsValue
 
@@ -84,7 +83,11 @@ export type CauldronEnchantmentTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<CauldronEnchantment, CauldronEnchantment["id"], "CauldronEnchantment"> = {
+export const config: TypeConfig<
+  CauldronEnchantment,
+  CauldronEnchantment["id"],
+  "CauldronEnchantment"
+> = {
   name: "CauldronEnchantment",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("CauldronEnchantment"),

@@ -34,15 +34,13 @@ export type Advantage = {
   ap_value: Activatable.AdventurePointsValue
 
   /**
-   * Does this advantage count towards the maximum of AP to be spent on
-   * advantages?
+   * Does this advantage count towards the maximum of AP to be spent on advantages?
    * @default true
    */
   has_maximum_spent_influence: boolean
 
   /**
-   * Does this advantage exclusively applies to arcane spellworks and not
-   * to magical actions and magical applications?
+   * Does this advantage exclusively applies to arcane spellworks and not to magical actions and magical applications?
    * @default false
    */
   is_exclusive_to_arcane_spellworks: boolean
@@ -83,9 +81,7 @@ export type AdvantageTranslation = {
   ap_value?: Activatable.AdventurePointsValueReplacement
 
   /**
-   * A string that gets appended to the default AP Value text with a preceding
-   * space. This always happens if present, even if the generated AP Value text
-   * is replaced.
+   * A string that gets appended to the default AP Value text with a preceding space. This always happens if present, even if the generated AP Value text is replaced.
    */
   ap_value_append?: Activatable.AdventurePointsValueAppend
 

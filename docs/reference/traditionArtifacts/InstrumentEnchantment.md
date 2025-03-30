@@ -50,7 +50,7 @@ Key | Description | Details
 
 #### <a name="InstrumentEnchantment/property"></a> `property`
 
-- **Type:** <a href="#Property">Property</a>
+- **Type:** <a href="#PropertyDeclaration">PropertyDeclaration</a>
 
 #### <a name="InstrumentEnchantment/ap_value"></a> `ap_value`
 

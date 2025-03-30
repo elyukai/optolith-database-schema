@@ -59,7 +59,7 @@ Does the armor have additional penalties (MOV -1, INI -1)?
 
 The armor type.
 
-- **Type:** <a href="#ArmorType">ArmorType</a>
+- **Type:** <a href="#ArmorTypeReference">ArmorTypeReference</a>
 
 #### <a name="Armor/hit_zone"></a> `hit_zone?`
 
@@ -171,7 +171,7 @@ Does the armor have additional penalties (MOV -1, INI -1)?
 
 The armor type.
 
-- **Type:** <a href="#ArmorType">ArmorType</a>
+- **Type:** <a href="#ArmorTypeReference">ArmorTypeReference</a>
 
 #### <a name="SecondaryArmor/hit_zone"></a> `hit_zone?`
 
@@ -237,7 +237,7 @@ Does the armor have additional penalties (MOV -1, INI -1)?
 
 ---
 
-### <a name="ArmorType"></a> Armor Type (`ArmorType`)
+### <a name="ArmorTypeReference"></a> Armor Type (`ArmorTypeReference`)
 
 The armor type.
 
@@ -245,9 +245,9 @@ The armor type.
 
 Key | Description | Details
 :-- | :-- | :--
-`id` | The armor type's identifier. | <a href="#ArmorType/id">See details</a>
+`id` | The armor type's identifier. | <a href="#ArmorTypeReference/id">See details</a>
 
-#### <a name="ArmorType/id"></a> `id`
+#### <a name="ArmorTypeReference/id"></a> `id`
 
 The armor type's identifier.
 
@@ -370,8 +370,7 @@ Key | Description | Details
 
 #### <a name="HeadHitZone/combination_possibilities"></a> `combination_possibilities?`
 
-In some cases, multiple armors for the same hit zone can be combined.
-They're listed at the item that can be combined with others.
+In some cases, multiple armors for the same hit zone can be combined. They're listed at the item that can be combined with others.
 
 - **Type:** <a href="#HeadHitZoneCombinationPossibilities">HeadHitZoneCombinationPossibilities</a>
 
@@ -396,8 +395,7 @@ A list of armors that can be combined with this armor.
 
 #### <a name="HeadHitZoneCombinationPossibilities/protection"></a> `protection?`
 
-The PRO value that is added to the PRO value of the other armor instead
-of adding the normale PRO value.
+The PRO value that is added to the PRO value of the other armor instead of adding the normale PRO value.
 
 - **Type:** Integer
 - **Minimum:** `0`

@@ -41,8 +41,7 @@ A list of native languages (usually it is only one).
 
 #### <a name="Culture/script"></a> `script?`
 
-A list of native scripts (usually it is only one). If the culture does not
-use any script, leave this field empty.
+A list of native scripts (usually it is only one). If the culture does not use any script, leave this field empty.
 
 - **Type:** List
 - **Items:** <a href="#Culture/script[]">Culture/script[]</a>
@@ -64,10 +63,7 @@ A list of possible social status in the respective culture.
 
 #### <a name="Culture/common_professions"></a> `common_professions`
 
-A list of professions that are typical for the culture, as well as
-professions that are rarely practiced or encountered in the culture. The
-list is either defined by group (as multiple lists) or plain (as a single
-list).
+A list of professions that are typical for the culture, as well as professions that are rarely practiced or encountered in the culture. The list is either defined by group (as multiple lists) or plain (as a single list).
 
 - **Type:** <a href="#CommonProfessions">CommonProfessions</a>
 
@@ -218,24 +214,22 @@ adjusted.
 
 ---
 
-### <a name="Weight"></a> `Weight`
+### <a name="CommonnessWeight"></a> `CommonnessWeight`
 
-The "weight" difference compared to other professions or profession variants.
-Some professions or profession variants are simply more common (Mostly), but
-sometimes only specific elements are used (Only).
+The "weight" difference compared to other professions or profession variants. Some professions or profession variants are simply more common (Mostly), but sometimes only specific elements are used (Only).
 
 - **Type:** Union
-- **Cases:** <a href="#Weight'0">Weight'0</a> | <a href="#Weight'1">Weight'1</a>
+- **Cases:** <a href="#CommonnessWeight'0">CommonnessWeight'0</a> | <a href="#CommonnessWeight'1">CommonnessWeight'1</a>
 
 ---
 
-### <a name="Weight'0"></a> `Weight'0`
+### <a name="CommonnessWeight'0"></a> `CommonnessWeight'0`
 
 - **Constant:** `"Mostly"`
 
 ---
 
-### <a name="Weight'1"></a> `Weight'1`
+### <a name="CommonnessWeight'1"></a> `CommonnessWeight'1`
 
 - **Constant:** `"Only"`
 
@@ -243,9 +237,7 @@ sometimes only specific elements are used (Only).
 
 ### <a name="Weighted"></a> `Weighted<ProfessionOrVariant>`
 
-Some professions or profession variants are more common than others. There
-may be cultures where some professions or profession variants are not
-represented at all.
+Some professions or profession variants are more common than others. There may be cultures where some professions or profession variants are not represented at all.
 
 - **Type:** Object
 
@@ -264,11 +256,10 @@ The list of more common professions or profession variants.
 
 #### <a name="Weighted/weight"></a> `weight`
 
-The "weight" difference compared to other professions or profession
-variants. Some professions or profession variants are simply more common
+The "weight" difference compared to other professions or profession variants. Some professions or profession variants are simply more common
 (Mostly), but sometimes only specific elements are used (Only).
 
-- **Type:** <a href="#Weight">Weight</a>
+- **Type:** <a href="#CommonnessWeight">CommonnessWeight</a>
 
 ---
 
@@ -280,10 +271,7 @@ variants. Some professions or profession variants are simply more common
 
 ### <a name="CommonProfessionConstraintsOperation"></a> `CommonProfessionConstraintsOperation`
 
-This defines how the list of constraints should be offset against the
-list of all mundane professions: Either only the professions are kept
-that intersect with the constraints (include) or only the professions
-are kept that are different from the constraints (exclude).
+This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints (include) or only the professions are kept that are different from the constraints (exclude).
 
 - **Type:** Union
 - **Cases:** <a href="#CommonProfessionConstraintsOperation'0">CommonProfessionConstraintsOperation'0</a> | <a href="#CommonProfessionConstraintsOperation'1">CommonProfessionConstraintsOperation'1</a>
@@ -304,8 +292,7 @@ are kept that are different from the constraints (exclude).
 
 ### <a name="CommonProfessionConstraints"></a> `CommonProfessionConstraints<Constraint>`
 
-A list of professions. The filter specifies how the list is applied to
-all mundane professions.
+A list of professions. The filter specifies how the list is applied to all mundane professions.
 
 - **Type:** Object
 
@@ -324,10 +311,7 @@ The list of constraints.
 
 #### <a name="CommonProfessionConstraints/operation"></a> `operation`
 
-This defines how the list of constraints should be offset against the
-list of all mundane professions: Either only the professions are kept
-that intersect with the constraints (include) or only the professions
-are kept that are different from the constraints (exclude).
+This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints (include) or only the professions are kept that are different from the constraints (exclude).
 
 - **Type:** <a href="#CommonProfessionConstraintsOperation">CommonProfessionConstraintsOperation</a>
 
@@ -378,15 +362,13 @@ The profession's identifier.
 
 #### <a name="ProfessionConstraint/weighted_variants"></a> `weighted_variants?`
 
-Some profession variants are more common than others. There may be
-cultures where some variants are not represented at all.
+Some profession variants are more common than others. There may be cultures where some variants are not represented at all.
 
 - **Type:** <a href="#Weighted">Weighted</a>&lt;<a href="./_SimpleReferences.md#ProfessionVariantReference">ProfessionVariantReference</a>&gt;
 
 #### <a name="ProfessionConstraint/rarity"></a> `rarity?`
 
-Some professions may be found in a culture, but are not that
-common.
+Some professions may be found in a culture, but are not that common.
 
 - **Type:** <a href="#Rarity">Rarity</a>
 
@@ -437,8 +419,7 @@ The magical tradition's identifier.
 
 #### <a name="MagicalTraditionConstraint/weighted_professions"></a> `weighted_professions?`
 
-Some professions are more common than others. There may be cultures
-where some professions are not represented at all.
+Some professions are more common than others. There may be cultures where some professions are not represented at all.
 
 - **Type:** <a href="#Weighted">Weighted</a>&lt;<a href="./_SimpleReferences.md#ProfessionReference">ProfessionReference</a>&gt;
 
@@ -468,8 +449,7 @@ The magical tradition's identifier.
 
 #### <a name="BlessedTraditionConstraint/weighted_professions"></a> `weighted_professions?`
 
-Some professions are more common than others. There may be cultures
-where some professions are not represented at all.
+Some professions are more common than others. There may be cultures where some professions are not represented at all.
 
 - **Type:** <a href="#Weighted">Weighted</a>&lt;<a href="./_SimpleReferences.md#ProfessionReference">ProfessionReference</a>&gt;
 
@@ -598,25 +578,18 @@ Key | Description | Details
 
 ### <a name="BlessedCommonProfessionConstraint"></a> `BlessedCommonProfessionConstraint`
 
-- **Type:** Union
-- **Cases:** <a href="#BlessedCommonProfessionConstraint'Tradition">BlessedCommonProfessionConstraint'Tradition</a>
-
----
-
-### <a name="BlessedCommonProfessionConstraint'Tradition"></a> `BlessedCommonProfessionConstraint'Tradition`
-
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#BlessedCommonProfessionConstraint'Tradition/tag">See details</a>
-`tradition` |  | <a href="#BlessedCommonProfessionConstraint'Tradition/tradition">See details</a>
+`tag` |  | <a href="#BlessedCommonProfessionConstraint/tag">See details</a>
+`tradition` |  | <a href="#BlessedCommonProfessionConstraint/tradition">See details</a>
 
-#### <a name="BlessedCommonProfessionConstraint'Tradition/tag"></a> `tag`
+#### <a name="BlessedCommonProfessionConstraint/tag"></a> `tag`
 
 - **Constant:** `"Tradition"`
 
-#### <a name="BlessedCommonProfessionConstraint'Tradition/tradition"></a> `tradition`
+#### <a name="BlessedCommonProfessionConstraint/tradition"></a> `tradition`
 
 - **Type:** <a href="#BlessedTraditionConstraint">BlessedTraditionConstraint</a>
 
@@ -657,10 +630,7 @@ Key | Description | Details
 
 ### <a name="CommonProfessions"></a> `CommonProfessions`
 
-A list of professions that are typical for the culture, as well as
-professions that are rarely practiced or encountered in the culture. The
-list is either defined by group (as multiple lists) or plain (as a single
-list).
+A list of professions that are typical for the culture, as well as professions that are rarely practiced or encountered in the culture. The list is either defined by group (as multiple lists) or plain (as a single list).
 
 - **Type:** Union
 - **Cases:** <a href="#CommonProfessions'Plain">CommonProfessions'Plain</a> | <a href="#CommonProfessions'Grouped">CommonProfessions'Grouped</a>
@@ -728,8 +698,7 @@ The skill's identifier.
 
 #### <a name="CulturalPackageItem/points"></a> `points`
 
-The skill points for the respective skill you get for buying the cultural
-package.
+The skill points for the respective skill you get for buying the cultural package.
 
 - **Type:** Integer
 - **Minimum:** `1`
@@ -822,8 +791,7 @@ The full description without examples in parenthesis.
 
 #### <a name="AreaKnowledgeTranslation/abbreviated"></a> `abbreviated`
 
-A shorter version of the description, used in input fields and other UI
-elements where the space might be to small to use the full description.
+A shorter version of the description, used in input fields and other UI elements where the space might be to small to use the full description.
 
 - **Type:** String
 - **Minimum Length:** `1`
@@ -874,8 +842,7 @@ Key | Description | Details
 
 #### <a name="CommonNames/first_name_groups"></a> `first_name_groups?`
 
-First names can be gender-neutral, but they can also be for a specific
-binary sex. They are sorted into groups.
+First names can be gender-neutral, but they can also be for a specific binary sex. They are sorted into groups.
 
 - **Type:** List
 - **Items:** <a href="#CommonNames/first_name_groups[]">CommonNames/first_name_groups[]</a>
@@ -883,8 +850,7 @@ binary sex. They are sorted into groups.
 
 #### <a name="CommonNames/last_name_groups"></a> `last_name_groups?`
 
-Last names can be gender-neutral, like family names, but they can also be
-for a specific binary sex. They are sorted into groups.
+Last names can be gender-neutral, like family names, but they can also be for a specific binary sex. They are sorted into groups.
 
 - **Type:** List
 - **Items:** <a href="#CommonNames/last_name_groups[]">CommonNames/last_name_groups[]</a>
@@ -900,68 +866,68 @@ Special naming rules.
 
 ### <a name="CommonNames/first_name_groups[]"></a> `CommonNames/first_name_groups[]`
 
-- **Type:** <a href="#NameGroup">NameGroup</a>
+- **Type:** <a href="#CommonNameGroup">CommonNameGroup</a>
 
 ---
 
 ### <a name="CommonNames/last_name_groups[]"></a> `CommonNames/last_name_groups[]`
 
-- **Type:** <a href="#NameGroup">NameGroup</a>
+- **Type:** <a href="#CommonNameGroup">CommonNameGroup</a>
 
 ---
 
-### <a name="NameGroup"></a> `NameGroup`
+### <a name="CommonNameGroup"></a> `CommonNameGroup`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`label` | The group label. | <a href="#NameGroup/label">See details</a>
-`sex?` | The binary sex if the group is only for a certain binary sex. | <a href="#NameGroup/sex">See details</a>
-`names` | The names from the group. | <a href="#NameGroup/names">See details</a>
+`label` | The group label. | <a href="#CommonNameGroup/label">See details</a>
+`sex?` | The binary sex if the group is only for a certain binary sex. | <a href="#CommonNameGroup/sex">See details</a>
+`names` | The names from the group. | <a href="#CommonNameGroup/names">See details</a>
 
-#### <a name="NameGroup/label"></a> `label`
+#### <a name="CommonNameGroup/label"></a> `label`
 
 The group label.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="NameGroup/sex"></a> `sex?`
+#### <a name="CommonNameGroup/sex"></a> `sex?`
 
 The binary sex if the group is only for a certain binary sex.
 
 - **Type:** <a href="./_Sex.md#BinarySex">BinarySex</a>
 
-#### <a name="NameGroup/names"></a> `names`
+#### <a name="CommonNameGroup/names"></a> `names`
 
 The names from the group.
 
 - **Type:** List
-- **Items:** <a href="#NameGroup/names[]">NameGroup/names[]</a>
+- **Items:** <a href="#CommonNameGroup/names[]">CommonNameGroup/names[]</a>
 - **Minimum Items:** `1`
 
 ---
 
-### <a name="NameGroup/names[]"></a> `NameGroup/names[]`
+### <a name="CommonNameGroup/names[]"></a> `CommonNameGroup/names[]`
 
-- **Type:** <a href="#Name">Name</a>
+- **Type:** <a href="#CommonName">CommonName</a>
 
 ---
 
-### <a name="Name"></a> `Name`
+### <a name="CommonName"></a> `CommonName`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#Name/name">See details</a>
-`note?` | Additional information about the name, appended in parenthesis. | <a href="#Name/note">See details</a>
+`name` |  | <a href="#CommonName/name">See details</a>
+`note?` | Additional information about the name, appended in parenthesis. | <a href="#CommonName/note">See details</a>
 
-#### <a name="Name/name"></a> `name`
+#### <a name="CommonName/name"></a> `name`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
-#### <a name="Name/note"></a> `note?`
+#### <a name="CommonName/note"></a> `note?`
 
 Additional information about the name, appended in parenthesis.
 

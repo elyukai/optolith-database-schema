@@ -13,7 +13,7 @@
           "minimum": 1
         },
         "animal_types": {
-          "description": "The animal types this trick is available to. Either it is available to all\nor only a list of specific animal types.\n\nIf no animal types are given, the animal disease applies to all animal\ntypes.",
+          "description": "The animal types this trick is available to. Either it is available to all or only a list of specific animal types.\n\nIf no animal types are given, the animal disease applies to all animal types.",
           "type": "array",
           "items": {
             "$ref": "./_SimpleReferences.schema.json#/$defs/AnimalTypeReference"
@@ -21,14 +21,14 @@
         },
         "parameters": {
           "description": "Measurable parameters of a familiar's trick.",
-          "$ref": "#/$defs/PerformanceParameters"
+          "$ref": "#/$defs/FamiliarsTrickPerformanceParameters"
         },
         "property": {
           "description": "The property of the trick.",
-          "$ref": "#/$defs/Property"
+          "$ref": "#/$defs/FamiliarsTrickProperty"
         },
         "ap_value": {
-          "description": "The AP value the familiar has to pay for. It may also be that a specific is\nknown by all familiar by default. In the latter case the field is not set.",
+          "description": "The AP value the familiar has to pay for. It may also be that a specific is known by all familiar by default. In the latter case the field is not set.",
           "type": "integer",
           "minimum": 1
         },
@@ -57,7 +57,7 @@
       ],
       "additionalProperties": false
     },
-    "Property": {
+    "FamiliarsTrickProperty": {
       "oneOf": [
         {
           "type": "object",
@@ -82,7 +82,7 @@
               "const": "Indefinite"
             },
             "indefinite": {
-              "$ref": "#/$defs/IndefiniteProperty"
+              "$ref": "#/$defs/IndefiniteFamiliarsTrickProperty"
             }
           },
           "required": [
@@ -93,7 +93,7 @@
         }
       ]
     },
-    "IndefiniteProperty": {
+    "IndefiniteFamiliarsTrickProperty": {
       "type": "object",
       "properties": {
         "translations": {
@@ -101,7 +101,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "$ref": "#/$defs/IndefinitePropertyTranslation"
+              "$ref": "#/$defs/IndefiniteFamiliarsTrickPropertyTranslation"
             }
           },
           "minProperties": 1,
@@ -113,7 +113,7 @@
       ],
       "additionalProperties": false
     },
-    "IndefinitePropertyTranslation": {
+    "IndefiniteFamiliarsTrickPropertyTranslation": {
       "type": "object",
       "properties": {
         "description": {
@@ -140,36 +140,10 @@
           "minLength": 1
         },
         "cost": {
-          "type": "object",
-          "properties": {
-            "full": {
-              "type": "string"
-            },
-            "abbr": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "full",
-            "abbr"
-          ],
-          "additionalProperties": false
+          "$ref": "./_ActivatableSkill.schema.json#/$defs/OldParameter"
         },
         "duration": {
-          "type": "object",
-          "properties": {
-            "full": {
-              "type": "string"
-            },
-            "abbr": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "full",
-            "abbr"
-          ],
-          "additionalProperties": false
+          "$ref": "./_ActivatableSkill.schema.json#/$defs/OldParameter"
         },
         "errata": {
           "$ref": "./source/_Erratum.schema.json#/$defs/Errata"
@@ -183,7 +157,7 @@
       ],
       "additionalProperties": false
     },
-    "PerformanceParameters": {
+    "FamiliarsTrickPerformanceParameters": {
       "description": "Measurable parameters of a familiar's trick.",
       "oneOf": [
         {
@@ -193,7 +167,7 @@
               "const": "OneTime"
             },
             "one_time": {
-              "$ref": "#/$defs/OneTimePerformanceParameters"
+              "$ref": "#/$defs/FamiliarsTrickOneTimePerformanceParameters"
             }
           },
           "required": [
@@ -209,7 +183,7 @@
               "const": "OneTimeInterval"
             },
             "one_time_interval": {
-              "$ref": "#/$defs/OneTimeIntervalPerformanceParameters"
+              "$ref": "#/$defs/FamiliarsTrickOneTimeIntervalPerformanceParameters"
             }
           },
           "required": [
@@ -225,7 +199,7 @@
               "const": "Sustained"
             },
             "sustained": {
-              "$ref": "#/$defs/SustainedPerformanceParameters"
+              "$ref": "#/$defs/FamiliarsTrickSustainedPerformanceParameters"
             }
           },
           "required": [
@@ -236,14 +210,14 @@
         }
       ]
     },
-    "OneTimePerformanceParameters": {
+    "FamiliarsTrickOneTimePerformanceParameters": {
       "type": "object",
       "properties": {
         "cost": {
-          "$ref": "#/$defs/OneTimeCost"
+          "$ref": "#/$defs/FamiliarsTrickOneTimeCost"
         },
         "duration": {
-          "$ref": "#/$defs/OneTimeDuration"
+          "$ref": "#/$defs/FamiliarsTrickOneTimeDuration"
         }
       },
       "required": [
@@ -252,7 +226,7 @@
       ],
       "additionalProperties": false
     },
-    "OneTimeCost": {
+    "FamiliarsTrickOneTimeCost": {
       "oneOf": [
         {
           "type": "object",
@@ -261,7 +235,7 @@
               "const": "Fixed"
             },
             "fixed": {
-              "$ref": "#/$defs/FixedOneTimeCost"
+              "$ref": "#/$defs/FamiliarsTrickFixedOneTimeCost"
             }
           },
           "required": [
@@ -277,7 +251,7 @@
               "const": "All"
             },
             "all": {
-              "$ref": "#/$defs/AllOneTimeCost"
+              "$ref": "#/$defs/FamiliarsTrickAllOneTimeCost"
             }
           },
           "required": [
@@ -293,7 +267,7 @@
               "const": "Indefinite"
             },
             "indefinite": {
-              "$ref": "#/$defs/IndefiniteOneTimeCost"
+              "$ref": "#/$defs/FamiliarsTrickIndefiniteOneTimeCost"
             }
           },
           "required": [
@@ -304,7 +278,7 @@
         }
       ]
     },
-    "FixedOneTimeCost": {
+    "FamiliarsTrickFixedOneTimeCost": {
       "type": "object",
       "properties": {
         "ae_value": {
@@ -326,7 +300,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "$ref": "#/$defs/FixedOneTimeCostTranslation"
+              "$ref": "#/$defs/FamiliarsTrickFixedOneTimeCostTranslation"
             }
           },
           "minProperties": 1,
@@ -338,18 +312,18 @@
       ],
       "additionalProperties": false
     },
-    "FixedOneTimeCostTranslation": {
+    "FamiliarsTrickFixedOneTimeCostTranslation": {
       "type": "object",
       "properties": {
         "per": {
-          "description": "The cost have to be per a specific countable entity, e.g. `8 KP\nper person`.",
+          "description": "The cost have to be per a specific countable entity, e.g. `8 KP per person`.",
           "$ref": "./_ResponsiveText.schema.json#/$defs/ResponsiveTextOptional"
         }
       },
       "required": [],
       "additionalProperties": false
     },
-    "AllOneTimeCost": {
+    "FamiliarsTrickAllOneTimeCost": {
       "type": "object",
       "properties": {
         "minimum": {
@@ -361,7 +335,7 @@
       "required": [],
       "additionalProperties": false
     },
-    "IndefiniteOneTimeCost": {
+    "FamiliarsTrickIndefiniteOneTimeCost": {
       "type": "object",
       "properties": {
         "translations": {
@@ -369,7 +343,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "$ref": "#/$defs/IndefiniteOneTimeCostTranslation"
+              "$ref": "#/$defs/FamiliarsTrickIndefiniteOneTimeCostTranslation"
             }
           },
           "minProperties": 1,
@@ -381,7 +355,7 @@
       ],
       "additionalProperties": false
     },
-    "IndefiniteOneTimeCostTranslation": {
+    "FamiliarsTrickIndefiniteOneTimeCostTranslation": {
       "type": "object",
       "properties": {
         "description": {
@@ -394,7 +368,7 @@
       ],
       "additionalProperties": false
     },
-    "OneTimeDuration": {
+    "FamiliarsTrickOneTimeDuration": {
       "oneOf": [
         {
           "type": "object",
@@ -422,7 +396,7 @@
               "const": "Fixed"
             },
             "fixed": {
-              "$ref": "#/$defs/FixedOneTimeDuration"
+              "$ref": "#/$defs/FamiliarsTrickFixedOneTimeDuration"
             }
           },
           "required": [
@@ -438,7 +412,7 @@
               "const": "Indefinite"
             },
             "indefinite": {
-              "$ref": "#/$defs/IndefiniteOneTimeDuration"
+              "$ref": "#/$defs/FamiliarsTrickIndefiniteOneTimeDuration"
             }
           },
           "required": [
@@ -449,7 +423,7 @@
         }
       ]
     },
-    "FixedOneTimeDuration": {
+    "FamiliarsTrickFixedOneTimeDuration": {
       "type": "object",
       "properties": {
         "is_maximum": {
@@ -470,7 +444,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "$ref": "#/$defs/FixedOneTimeDurationTranslation"
+              "$ref": "#/$defs/FamiliarsTrickFixedOneTimeDurationTranslation"
             }
           },
           "minProperties": 1,
@@ -483,7 +457,7 @@
       ],
       "additionalProperties": false
     },
-    "FixedOneTimeDurationTranslation": {
+    "FamiliarsTrickFixedOneTimeDurationTranslation": {
       "type": "object",
       "properties": {
         "replacement": {
@@ -494,7 +468,7 @@
       "required": [],
       "additionalProperties": false
     },
-    "IndefiniteOneTimeDuration": {
+    "FamiliarsTrickIndefiniteOneTimeDuration": {
       "type": "object",
       "properties": {
         "translations": {
@@ -502,7 +476,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "$ref": "#/$defs/IndefiniteOneTimeDurationTranslation"
+              "$ref": "#/$defs/FamiliarsTrickIndefiniteOneTimeDurationTranslation"
             }
           },
           "minProperties": 1,
@@ -514,7 +488,7 @@
       ],
       "additionalProperties": false
     },
-    "IndefiniteOneTimeDurationTranslation": {
+    "FamiliarsTrickIndefiniteOneTimeDurationTranslation": {
       "type": "object",
       "properties": {
         "description": {
@@ -527,11 +501,11 @@
       ],
       "additionalProperties": false
     },
-    "OneTimeIntervalPerformanceParameters": {
+    "FamiliarsTrickOneTimeIntervalPerformanceParameters": {
       "type": "object",
       "properties": {
         "cost": {
-          "$ref": "#/$defs/OneTimeIntervalCost"
+          "$ref": "#/$defs/FamiliarsTrickOneTimeIntervalCost"
         }
       },
       "required": [
@@ -539,7 +513,7 @@
       ],
       "additionalProperties": false
     },
-    "OneTimeIntervalCost": {
+    "FamiliarsTrickOneTimeIntervalCost": {
       "type": "object",
       "properties": {
         "ae_value": {
@@ -563,11 +537,11 @@
       ],
       "additionalProperties": false
     },
-    "SustainedPerformanceParameters": {
+    "FamiliarsTrickSustainedPerformanceParameters": {
       "type": "object",
       "properties": {
         "cost": {
-          "$ref": "#/$defs/SustainedCost"
+          "$ref": "#/$defs/FamiliarsTrickSustainedCost"
         }
       },
       "required": [
@@ -575,7 +549,7 @@
       ],
       "additionalProperties": false
     },
-    "SustainedCost": {
+    "FamiliarsTrickSustainedCost": {
       "type": "object",
       "properties": {
         "ae_value": {

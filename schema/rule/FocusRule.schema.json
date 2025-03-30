@@ -23,7 +23,7 @@
           "minimum": 1
         },
         "is_missing_implementation": {
-          "description": "Has the focus rule not been implemented in Optolith yet? This is also true\nif the focus rule does not (currently) apply to any Optolith feature.",
+          "description": "Has the focus rule not been implemented in Optolith yet? This is also true if the focus rule does not (currently) apply to any Optolith feature.",
           "type": "boolean"
         },
         "src": {

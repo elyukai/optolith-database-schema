@@ -25,8 +25,7 @@ export type ActivatablePrerequisite = {
   level?: number
 
   /**
-   * Required select options. Order is important. Typically, you only need the
-   * first array index, though.
+   * Required select options. Order is important. Typically, you only need the first array index, though.
    * @minItems 1
    */
   options?: RequirableSelectOptionIdentifier[]

@@ -50,7 +50,7 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "prerequisites": {
-          "description": "Prerequisites of participants and environment. Do not specify if the\nsex practice has no prerequisites.",
+          "description": "Prerequisites of participants and environment. Do not specify if the sex practice has no prerequisites.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "failed": {

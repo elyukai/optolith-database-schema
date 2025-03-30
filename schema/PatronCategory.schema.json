@@ -13,7 +13,7 @@
           "minimum": 1
         },
         "primary_patron_cultures": {
-          "description": "The list of cultures where patrons from this category can be the primary\npatron of.",
+          "description": "The list of cultures where patrons from this category can be the primary patron of.",
           "type": "array",
           "items": {
             "$ref": "./_SimpleReferences.schema.json#/$defs/CultureReference"

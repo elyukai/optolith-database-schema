@@ -21,14 +21,14 @@
           "minItems": 1
         },
         "specializations": {
-          "description": "Language-specific specializations. Either a list of possible options or a\nindefinite description of what may be a specialization.",
+          "description": "Language-specific specializations. Either a list of possible options or a indefinite description of what may be a specialization.",
           "$ref": "#/$defs/Specializations"
         },
         "prerequisites": {
           "$ref": "../../_Prerequisite.schema.json#/$defs/LanguagePrerequisites"
         },
         "max_level": {
-          "description": "The maximum possible level of the language. Only specified if lower than\ndefault of 3.",
+          "description": "The maximum possible level of the language. Only specified if lower than default of 3.",
           "type": "number",
           "default": 3,
           "maximum": 2,
@@ -144,7 +144,7 @@
           "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "description": {
-          "description": "The specialization description. It will be appended to the name in\nparenthesis.",
+          "description": "The specialization description. It will be appended to the name in parenthesis.",
           "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
         }
       },
@@ -181,7 +181,7 @@
           "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "label": {
-          "description": "An input label or placeholder text for an UI element if it differs\nfrom the `description`.",
+          "description": "An input label or placeholder text for an UI element if it differs from the `description`.",
           "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
         }
       },

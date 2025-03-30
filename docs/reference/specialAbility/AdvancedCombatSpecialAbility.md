@@ -110,16 +110,13 @@ Key | Description | Details
 
 #### <a name="AdvancedCombatSpecialAbilityTranslation/ap_value"></a> `ap_value?`
 
-The AP value. It is only used if the text cannot be generated from the
-given information.
+The AP value. It is only used if the text cannot be generated from the given information.
 
 - **Type:** <a href="#AdventurePointsValueReplacement">AdventurePointsValueReplacement</a>
 
 #### <a name="AdvancedCombatSpecialAbilityTranslation/ap_value_append"></a> `ap_value_append?`
 
-A string that gets appended to the default AP Value text with a preceding
-space. This always happens if present, even if the generated AP Value text
-is replaced.
+A string that gets appended to the default AP Value text with a preceding space. This always happens if present, even if the generated AP Value text is replaced.
 
 - **Type:** <a href="#AdventurePointsValueAppend">AdventurePointsValueAppend</a>
 

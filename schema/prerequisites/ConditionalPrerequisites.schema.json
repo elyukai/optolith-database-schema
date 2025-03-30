@@ -4,7 +4,7 @@
   "$defs": {
     "Preconditions": {
       "title": "Preconditions (`when`)",
-      "description": "A list of preconditions for the prerequisite it is defined on, so that it\nonly takes effect if the prerequisites in this list are matched.\n\nUsually appears at the `when` property of the parent prerequisite.",
+      "description": "A list of preconditions for the prerequisite it is defined on, so that it only takes effect if the prerequisites in this list are matched.\n\nUsually appears at the `when` property of the parent prerequisite.",
       "type": "array",
       "items": {
         "$ref": "./PrerequisiteGroups.schema.json#/$defs/PreconditionGroup"

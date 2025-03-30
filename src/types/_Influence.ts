@@ -2,11 +2,11 @@
  * @main Influence
  */
 
-import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
 import { InfluencePrerequisites } from "./_Prerequisite.js"
+import { Errata } from "./source/_Erratum.js"
+import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
  * @title Influence
@@ -36,8 +36,7 @@ export type InfluenceTranslation = {
   name: NonEmptyString
 
   /**
-   * The effects of the influence. They should be sorted like they are in
-   * the book.
+   * The effects of the influence. They should be sorted like they are in the book.
    * @minItems 1
    */
   effects: InfluenceEffect[]
@@ -47,8 +46,7 @@ export type InfluenceTranslation = {
 
 export type InfluenceEffect = {
   /**
-   * An optional label that is displayed and placed before the actual
-   * text.
+   * An optional label that is displayed and placed before the actual text.
    */
   label?: NonEmptyString
 

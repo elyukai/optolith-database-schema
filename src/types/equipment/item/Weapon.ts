@@ -9,7 +9,12 @@ import { createSchemaValidator } from "../../../validation/builders/schema.js"
 import { getFilenamePrefixAsNumericId } from "../../../validation/filename.js"
 import { LocaleMap } from "../../_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "../../_NonEmptyString.js"
-import { BlessedTraditionReference, CultureReference, MagicalTraditionReference, RaceReference } from "../../_SimpleReferences.js"
+import {
+  BlessedTraditionReference,
+  CultureReference,
+  MagicalTraditionReference,
+  RaceReference,
+} from "../../_SimpleReferences.js"
 import { Errata } from "../../source/_Erratum.js"
 import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { Complexity, Cost, StructurePoints, Weight } from "./_Item.js"
@@ -33,33 +38,28 @@ export type Weapon = {
   complexity: Complexity
 
   /**
-   * The structure points of the item. Use an array if the item consists of
-   * multiple components that have individual structure points.
+   * The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
    */
   structure_points?: StructurePoints
 
   /**
-   * A list of stat blocks for each combat technique this weapon can be used
-   * with.
+   * A list of stat blocks for each combat technique this weapon can be used with.
    * @minItems 1
    */
   uses: WeaponUse[]
 
   /**
-   * If the weapon is sanctified by a god and thus restricted to it's Blessed
-   * Ones.
+   * If the weapon is sanctified by a god and thus restricted to it's Blessed Ones.
    */
   sanctified_by?: SanctifiedBy
 
   /**
-   * Define if during character creation this weapon can only be bought by
-   * characters of a specific race or culture.
+   * Define if during character creation this weapon can only be bought by characters of a specific race or culture.
    */
   restricted_to_cultures?: RestrictedToCultures
 
   /**
-   * Define if during character creation this weapon can only be bought by
-   * characters of specific magical or blessed traditions.
+   * Define if during character creation this weapon can only be bought by characters of specific magical or blessed traditions.
    * @minItems 1
    */
   restricted_to_traditions?: MagicalTraditionReference[]
@@ -108,27 +108,23 @@ export type WeaponTranslation = {
 
 export type SecondaryWeapon = {
   /**
-   * A list of stat blocks for each combat technique this weapon can be used
-   * with.
+   * A list of stat blocks for each combat technique this weapon can be used with.
    * @minItems 1
    */
   uses: WeaponUse[]
 
   /**
-   * If the weapon is sanctified by a god and thus restricted to it's Blessed
-   * Ones.
+   * If the weapon is sanctified by a god and thus restricted to it's Blessed Ones.
    */
   sanctified_by?: SanctifiedBy
 
   /**
-   * Define if during character creation this weapon can only be bought by
-   * characters of a specific race or culture.
+   * Define if during character creation this weapon can only be bought by characters of a specific race or culture.
    */
   restricted_to_cultures?: RestrictedToCultures
 
   /**
-   * Define if during character creation this weapon can only be bought by
-   * characters of specific magical or blessed traditions.
+   * Define if during character creation this weapon can only be bought by characters of specific magical or blessed traditions.
    * @minItems 1
    */
   restricted_to_traditions?: MagicalTraditionReference[]
@@ -170,15 +166,13 @@ export type WeaponUseValues =
   | { tag: "Ranged"; ranged: RangedWeapon }
 
 /**
- * If the weapon is sanctified by a god and thus restricted to it's Blessed
- * Ones.
+ * If the weapon is sanctified by a god and thus restricted to it's Blessed Ones.
  * @minItems 1
  */
 export type SanctifiedBy = BlessedTraditionReference[]
 
 /**
- * Define if during character creation this weapon can only be bought by
- * characters of a specific race or culture.
+ * Define if during character creation this weapon can only be bought by characters of a specific race or culture.
  */
 export type RestrictedToCultures =
   | { tag: "CulturesOfRace"; cultures_of_race: RaceReference }

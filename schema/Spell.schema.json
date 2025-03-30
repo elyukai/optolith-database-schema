@@ -26,14 +26,14 @@
         },
         "target": {
           "description": "The target category – the kind of creature or object – the skill affects.",
-          "$ref": "./_ActivatableSkillTargetCategory.schema.json#/$defs/TargetCategory"
+          "$ref": "./_ActivatableSkillTargetCategory.schema.json#/$defs/AffectedTargetCategories"
         },
         "property": {
           "description": "The associated property.",
           "$ref": "./_SimpleReferences.schema.json#/$defs/PropertyReference"
         },
         "traditions": {
-          "description": "The tradition(s) the spell is available for. It may be *generally*\navailable to all traditions or it may be only familiar in specific\ntraditions.",
+          "description": "The tradition(s) the spell is available for. It may be *generally* available to all traditions or it may be only familiar in specific traditions.",
           "$ref": "./_Spellwork.schema.json#/$defs/Traditions"
         },
         "improvement_cost": {
@@ -82,72 +82,20 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "effect": {
-          "description": "The effect description may be either a plain text or a text that is\ndivided by a list of effects for each quality level. It may also be a\nlist for each two quality levels.",
-          "$ref": "./_ActivatableSkillEffect.schema.json#/$defs/Effect"
+          "description": "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
+          "$ref": "./_ActivatableSkillEffect.schema.json#/$defs/ActivatableSkillEffect"
         },
         "casting_time": {
-          "type": "object",
-          "properties": {
-            "full": {
-              "type": "string"
-            },
-            "abbr": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "full",
-            "abbr"
-          ],
-          "additionalProperties": false
+          "$ref": "./_ActivatableSkill.schema.json#/$defs/OldParameter"
         },
         "cost": {
-          "type": "object",
-          "properties": {
-            "full": {
-              "type": "string"
-            },
-            "abbr": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "full",
-            "abbr"
-          ],
-          "additionalProperties": false
+          "$ref": "./_ActivatableSkill.schema.json#/$defs/OldParameter"
         },
         "range": {
-          "type": "object",
-          "properties": {
-            "full": {
-              "type": "string"
-            },
-            "abbr": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "full",
-            "abbr"
-          ],
-          "additionalProperties": false
+          "$ref": "./_ActivatableSkill.schema.json#/$defs/OldParameter"
         },
         "duration": {
-          "type": "object",
-          "properties": {
-            "full": {
-              "type": "string"
-            },
-            "abbr": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "full",
-            "abbr"
-          ],
-          "additionalProperties": false
+          "$ref": "./_ActivatableSkill.schema.json#/$defs/OldParameter"
         },
         "target": {
           "type": "string"

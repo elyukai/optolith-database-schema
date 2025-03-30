@@ -7,8 +7,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "integer",
-          "minimum": 1
+          "$ref": "../../_Identifier.schema.json#/$defs/PublicationIdentifier"
         },
         "display_option": {
           "$ref": "../DisplayOption.schema.json#/$defs/DisplayOption"

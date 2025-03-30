@@ -32,12 +32,12 @@
           "$ref": "./_Activatable.schema.json#/$defs/AdventurePointsValue"
         },
         "has_maximum_spent_influence": {
-          "description": "Does this advantage count towards the maximum of AP to be spent on\nadvantages?",
+          "description": "Does this advantage count towards the maximum of AP to be spent on advantages?",
           "type": "boolean",
           "default": true
         },
         "is_exclusive_to_arcane_spellworks": {
-          "description": "Does this advantage exclusively applies to arcane spellworks and not\nto magical actions and magical applications?",
+          "description": "Does this advantage exclusively applies to arcane spellworks and not to magical actions and magical applications?",
           "type": "boolean",
           "default": false
         },
@@ -91,7 +91,7 @@
           "$ref": "./_Activatable.schema.json#/$defs/AdventurePointsValueReplacement"
         },
         "ap_value_append": {
-          "description": "A string that gets appended to the default AP Value text with a preceding\nspace. This always happens if present, even if the generated AP Value text\nis replaced.",
+          "description": "A string that gets appended to the default AP Value text with a preceding space. This always happens if present, even if the generated AP Value text is replaced.",
           "$ref": "./_Activatable.schema.json#/$defs/AdventurePointsValueAppend"
         },
         "errata": {

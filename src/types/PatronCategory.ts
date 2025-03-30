@@ -23,8 +23,7 @@ export type PatronCategory = {
   id: number
 
   /**
-   * The list of cultures where patrons from this category can be the primary
-   * patron of.
+   * The list of cultures where patrons from this category can be the primary patron of.
    * @minItems 1
    * @uniqueItems
    */

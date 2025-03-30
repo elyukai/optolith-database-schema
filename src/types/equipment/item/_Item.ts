@@ -1,7 +1,7 @@
-import { Errata } from "../../source/_Erratum.js"
-import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { LocaleMap } from "../../_LocaleMap.js"
 import { NonEmptyMarkdown, NonEmptyString } from "../../_NonEmptyString.js"
+import { Errata } from "../../source/_Erratum.js"
+import { PublicationRefs } from "../../source/_PublicationRef.js"
 import { SecondaryArmor } from "./Armor.js"
 import { SecondaryWeapon } from "./Weapon.js"
 
@@ -22,14 +22,12 @@ export type DefaultItem = {
   complexity?: Complexity
 
   /**
-   * The structure points of the item. Use an array if the item consists of
-   * multiple components that have individual structure points.
+   * The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
    */
   structure_points: StructurePoints
 
   /**
-   * The item can also be used either as an improvised weapon or as an armor,
-   * although this is not the primary use case of the item.
+   * The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.
    */
   combat_use?: CombatUse
 
@@ -42,8 +40,7 @@ export type DefaultItem = {
 }
 
 /**
- * The item can also be used either as an improvised weapon or as an armor,
- * although this is not the primary use case of the item.
+ * The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.
  */
 export type CombatUse =
   | { tag: "Weapon"; weapon: SecondaryWeapon }
@@ -74,8 +71,7 @@ export type DefaultItemTranslation = {
 }
 
 /**
- * The structure points of the item. Use an array if the item consists of
- * multiple components that have individual structure points.
+ * The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
  * @title Structure Points
  * @minItems 1
  */
@@ -96,7 +92,7 @@ export type StructurePointsComponent = {
 export type Cost =
   | { tag: "Free"; free: {} }
   | { tag: "Various"; various: {} }
-  | { tag: "Invaluable", invaluable: {} }
+  | { tag: "Invaluable"; invaluable: {} }
   | { tag: "Fixed"; fixed: FixedCost }
   | { tag: "Range"; range: CostRange }
 

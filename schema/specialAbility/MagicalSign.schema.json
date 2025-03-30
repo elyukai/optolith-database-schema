@@ -30,7 +30,7 @@
           "type": "object",
           "patternProperties": {
             "^[a-z]{2}-[A-Z]{2}$": {
-              "$ref": "#/$defs/ProtectiveWardingCircleSpecialAbilityTranslation"
+              "$ref": "#/$defs/MagicalSignTranslation"
             }
           },
           "minProperties": 1,
@@ -46,7 +46,7 @@
       ],
       "additionalProperties": false
     },
-    "ProtectiveWardingCircleSpecialAbilityTranslation": {
+    "MagicalSignTranslation": {
       "type": "object",
       "properties": {
         "name": {

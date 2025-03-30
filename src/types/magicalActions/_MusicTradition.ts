@@ -2,8 +2,7 @@ import { LocaleMap } from "../_LocaleMap.js"
 import { NonEmptyString } from "../_NonEmptyString.js"
 
 /**
- * A reference to a music tradition with the music-tradition-specific name of
- * the entry
+ * A reference to a music tradition with the music-tradition-specific name of the entry
  */
 export type MusicTraditionReference = {
   /**
@@ -31,10 +30,6 @@ export type MusicDuration = {
   reusability: MusicReusability
 }
 
-export type MusicLength =
-  | "Long"
-  | "Short"
+export type MusicLength = "Long" | "Short"
 
-export type MusicReusability =
-  | "OneTime"
-  | "Sustainable"
+export type MusicReusability = "OneTime" | "Sustainable"

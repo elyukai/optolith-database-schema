@@ -358,7 +358,7 @@
         }
       ]
     },
-    "SkillIdentifier": {
+    "SkillishIdentifier": {
       "oneOf": [
         {
           "$ref": "./_Identifier.schema.json#/$defs/SkillIdentifier"
@@ -551,6 +551,9 @@
         },
         {
           "$ref": "./_Identifier.schema.json#/$defs/SkillIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/SkillApplicationIdentifier"
         },
         {
           "$ref": "./_Identifier.schema.json#/$defs/CloseCombatTechniqueIdentifier"

@@ -76,22 +76,18 @@ export type Poison = {
   translations: LocaleMap<PoisonTranslation>
 }
 
-export type PoisonApplicationType =
-  | "Weapon"
-  | "Ingestion"
-  | "Inhalation"
-  | "Contact"
+export type PoisonApplicationType = "Weapon" | "Ingestion" | "Inhalation" | "Contact"
 
 export type PoisonStart =
-  | { tag: "Immediate", immediate: {} }
-  | { tag: "Constant", constant: ConstantPoisonTime }
-  | { tag: "DiceBased", dice_based: DiceBasedPoisonTime }
+  | { tag: "Immediate"; immediate: {} }
+  | { tag: "Constant"; constant: ConstantPoisonTime }
+  | { tag: "DiceBased"; dice_based: DiceBasedPoisonTime }
 
 export type PoisonDuration =
-  | { tag: "Instant", instant: {} }
-  | { tag: "Constant", constant: ConstantPoisonTime }
-  | { tag: "DiceBased", dice_based: DiceBasedPoisonTime }
-  | { tag: "Indefinite", indefinite: IndefinitePoisonTime }
+  | { tag: "Instant"; instant: {} }
+  | { tag: "Constant"; constant: ConstantPoisonTime }
+  | { tag: "DiceBased"; dice_based: DiceBasedPoisonTime }
+  | { tag: "Indefinite"; indefinite: IndefinitePoisonTime }
 
 export type ConstantPoisonTime = {
   value: number
@@ -158,8 +154,7 @@ export type AlchemicalPoison = {
   laboratory: LaboratoryLevel
 
   /**
-   * The brewing difficulty, which represents the challenge of creating an
-   * elixir.
+   * The brewing difficulty, which represents the challenge of creating an elixir.
    * @integer
    */
   brewing_difficulty: number
@@ -246,9 +241,7 @@ export type QualityLevelDemonicPoisonLevel = {
   source: QualityLevelDemonicPoisonLevelSource
 }
 
-export type QualityLevelDemonicPoisonLevelSource =
-  | "Spellwork"
-
+export type QualityLevelDemonicPoisonLevelSource = "Spellwork"
 
 export type ConstantDemonicPoisonLevel = {
   /**
@@ -272,15 +265,12 @@ export type DemonicPoisonTranslation = {
 
 export type Intoxicant = {
   /**
-   * Whether the use of the intoxicant is legal or not, usually from the
-   * perspective of most middle-Aventurian an northern-Aventurian nations.
+   * Whether the use of the intoxicant is legal or not, usually from the perspective of most middle-Aventurian an northern-Aventurian nations.
    */
   legality: IntoxicantLegality
 
   /**
-   * The chance of getting addicted after an ingestion in addition to the
-   * maximum interval at which it, while addicted, must be ingested to not
-   * suffer from withdrawal symptoms.
+   * The chance of getting addicted after an ingestion in addition to the maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.
    */
   addiction?: IntoxicantAddiction
 
@@ -292,17 +282,14 @@ export type Intoxicant = {
 }
 
 /**
- * Whether the use of the intoxicant is legal or not, usually from the
- * perspective of most middle-Aventurian an northern-Aventurian nations.
+ * Whether the use of the intoxicant is legal or not, usually from the perspective of most middle-Aventurian an northern-Aventurian nations.
  */
 export type IntoxicantLegality = {
   is_legal: boolean
 }
 
 /**
- * The chance of getting addicted after an ingestion in addition to the maximum
- * interval at which it, while addicted, must be ingested to not suffer from
- * withdrawal symptoms.
+ * The chance of getting addicted after an ingestion in addition to the maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.
  */
 export type IntoxicantAddiction = {
   /**
@@ -311,19 +298,17 @@ export type IntoxicantAddiction = {
   chance: number
 
   /**
-   * The maximum interval at which it, while addicted, must be ingested to not
-   * suffer from withdrawal symptoms.
+   * The maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.
    */
   interval: IntoxicantAddictionInterval
 }
 
 /**
- * The maximum interval at which it, while addicted, must be ingested to not
- * suffer from withdrawal symptoms.
+ * The maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.
  */
 export type IntoxicantAddictionInterval =
-  | { tag: "Constant", constant: ConstantIntoxicantAddictionInterval }
-  | { tag: "DiceBased", dice_based: DiceBasedIntoxicantAddictionInterval }
+  | { tag: "Constant"; constant: ConstantIntoxicantAddictionInterval }
+  | { tag: "DiceBased"; dice_based: DiceBasedIntoxicantAddictionInterval }
 
 export type ConstantIntoxicantAddictionInterval = {
   /**
@@ -346,14 +331,12 @@ export type IntoxicantTranslation = {
   ingestion: NonEmptyString
 
   /**
-   * The intoxicants side effects that always happen, no matter whether the
-   * intoxicant has the default or the reduced effect.
+   * The intoxicants side effects that always happen, no matter whether the intoxicant has the default or the reduced effect.
    */
   side_effect?: NonEmptyMarkdown
 
   /**
-   * What happens if the intoxicant has been overdosed, that is, it has been
-   * ingested another time within the duration.
+   * What happens if the intoxicant has been overdosed, that is, it has been ingested another time within the duration.
    */
   overdose: NonEmptyMarkdown
 
@@ -378,7 +361,7 @@ export type PoisonTranslation = {
   /**
    * The normal and degraded poison's effects.
    */
-  effect: Reduceable
+  effect: Reduceable<NonEmptyMarkdown>
 
   /**
    * Notes on the poison's special features.

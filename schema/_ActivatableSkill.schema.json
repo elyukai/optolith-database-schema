@@ -167,6 +167,22 @@
         "range"
       ],
       "additionalProperties": false
+    },
+    "OldParameter": {
+      "type": "object",
+      "properties": {
+        "full": {
+          "type": "string"
+        },
+        "abbr": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "full",
+        "abbr"
+      ],
+      "additionalProperties": false
     }
   }
 }

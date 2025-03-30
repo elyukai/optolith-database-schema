@@ -9,19 +9,12 @@ import { NonEmptyMarkdown, NonEmptyString } from "./_NonEmptyString.js"
 import { Errata } from "./source/_Erratum.js"
 
 /**
- * Depending on the disease, apply Spirit or Toughness as a penalty to the
- * disease roll. It may also happen that the lower of both is applied as a
- * penalty.
+ * Depending on the disease, apply Spirit or Toughness as a penalty to the disease roll. It may also happen that the lower of both is applied as a penalty.
  */
-export type Resistance =
-  | "Spirit"
-  | "Toughness"
-  | "LowerOfSpiritAndToughness"
+export type Resistance = "Spirit" | "Toughness" | "LowerOfSpiritAndToughness"
 
 /**
- * What causes the disease? The GM rolls 1D20 to see if a character gets
- * infected. If the infection check succeeds, the GM makes a disease check to
- * determine the severity of the infection.
+ * What causes the disease? The GM rolls 1D20 to see if a character gets infected. If the infection check succeeds, the GM makes a disease check to determine the severity of the infection.
  */
 export type Cause = {
   /**
@@ -47,9 +40,7 @@ export type CauseTranslation = {
   name: string
 
   /**
-   * The chance to get infected by this cause. If present for this
-   * language, this overrides the universal `chance` field; they cannot be
-   * used at the same time.
+   * The chance to get infected by this cause. If present for this language, this overrides the universal `chance` field; they cannot be used at the same time.
    */
   chance?: NonEmptyString
 
@@ -82,16 +73,14 @@ export type DiseaseTranslation = {
   incubation_time: NonEmptyString
 
   /**
-   * The damage caused by the disease. If the disease check fails, apply the
-   * lessened effects.
+   * The damage caused by the disease. If the disease check fails, apply the lessened effects.
    */
-  damage: Reduceable
+  damage: Reduceable<NonEmptyMarkdown>
 
   /**
-   * The duration of the disease. If the disease check fails, use the
-   * lessened duration.
+   * The duration of the disease. If the disease check fails, use the lessened duration.
    */
-  duration: Reduceable
+  duration: Reduceable<NonEmptyMarkdown>
 
   /**
    * Special information about the disease.
@@ -112,21 +101,18 @@ export type DiseaseTranslation = {
 }
 
 /**
- * An effect or other parameter that may be reduced by a failed disease check
- * for lessening or a degraded poison.
+ * An effect or other parameter that may be reduced by a failed disease check for lessening or a degraded poison.
  *
- * This streamlines the wording for diseases and poison by using a unified
- * wording for *lessened* (disease) and *degraded* (poison).
+ * This streamlines the wording for diseases and poison by using a unified wording for *lessened* (disease) and *degraded* (poison).
  */
-export type Reduceable<Content = NonEmptyMarkdown> = {
+export type Reduceable<Content> = {
   /**
    * The default value. In the source, it's the text before the slash.
    */
   default: Content
 
   /**
-   * The reduced value. In the source, it's the text after the slash. Some
-   * entries may not have a reduced value.
+   * The reduced value. In the source, it's the text after the slash. Some entries may not have a reduced value.
    */
   reduced?: Content
 }

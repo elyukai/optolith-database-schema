@@ -22,9 +22,7 @@ The equipment package's identifier. An unique, increasing integer.
 
 #### <a name="EquipmentPackage/items"></a> `items`
 
-All items in the package. You have to provide the item (template)
-identifier and you can optionally provide the number of how often an item
-is included in the package.
+All items in the package. You have to provide the item (template) identifier and you can optionally provide the number of how often an item is included in the package.
 
 - **Type:** List
 - **Items:** <a href="#EquipmentPackage/items[]">EquipmentPackage/items[]</a>

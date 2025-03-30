@@ -48,23 +48,11 @@
         "effects": {
           "description": "The effects for level 1 to 4.",
           "type": "array",
-          "items": [
-            {
-              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
-            },
-            {
-              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
-            },
-            {
-              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
-            },
-            {
-              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
-            }
-          ],
+          "items": {
+            "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+          },
           "minItems": 4,
-          "maxItems": 4,
-          "additionalItems": false
+          "maxItems": 4
         },
         "errata": {
           "$ref": "./source/_Erratum.schema.json#/$defs/Errata"

@@ -44,33 +44,33 @@ The adventure points value.
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#ProtectiveWardingCircleSpecialAbilityTranslation">ProtectiveWardingCircleSpecialAbilityTranslation</a>&gt;
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#MagicalSignTranslation">MagicalSignTranslation</a>&gt;
 
 ---
 
-### <a name="ProtectiveWardingCircleSpecialAbilityTranslation"></a> `ProtectiveWardingCircleSpecialAbilityTranslation`
+### <a name="MagicalSignTranslation"></a> `MagicalSignTranslation`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#ProtectiveWardingCircleSpecialAbilityTranslation/name">See details</a>
-`name_in_library?` |  | <a href="#ProtectiveWardingCircleSpecialAbilityTranslation/name_in_library">See details</a>
-`effect` |  | <a href="#ProtectiveWardingCircleSpecialAbilityTranslation/effect">See details</a>
-`errata?` |  | <a href="#ProtectiveWardingCircleSpecialAbilityTranslation/errata">See details</a>
+`name` |  | <a href="#MagicalSignTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#MagicalSignTranslation/name_in_library">See details</a>
+`effect` |  | <a href="#MagicalSignTranslation/effect">See details</a>
+`errata?` |  | <a href="#MagicalSignTranslation/errata">See details</a>
 
-#### <a name="ProtectiveWardingCircleSpecialAbilityTranslation/name"></a> `name`
+#### <a name="MagicalSignTranslation/name"></a> `name`
 
 - **Type:** <a href="#Name">Name</a>
 
-#### <a name="ProtectiveWardingCircleSpecialAbilityTranslation/name_in_library"></a> `name_in_library?`
+#### <a name="MagicalSignTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="#NameInLibrary">NameInLibrary</a>
 
-#### <a name="ProtectiveWardingCircleSpecialAbilityTranslation/effect"></a> `effect`
+#### <a name="MagicalSignTranslation/effect"></a> `effect`
 
 - **Type:** <a href="#Effect">Effect</a>
 
-#### <a name="ProtectiveWardingCircleSpecialAbilityTranslation/errata"></a> `errata?`
+#### <a name="MagicalSignTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

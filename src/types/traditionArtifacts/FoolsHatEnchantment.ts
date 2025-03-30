@@ -31,7 +31,7 @@ export type FoolsHatEnchantment = {
 
   cost?: Activatable.EnchantmentCost
 
-  property: Activatable.Property
+  property: Activatable.PropertyDeclaration
 
   ap_value: Activatable.AdventurePointsValue
 
@@ -68,7 +68,11 @@ export type FoolsHatEnchantmentTranslation = {
   errata?: Errata
 }
 
-export const config: TypeConfig<FoolsHatEnchantment, FoolsHatEnchantment["id"], "FoolsHatEnchantment"> = {
+export const config: TypeConfig<
+  FoolsHatEnchantment,
+  FoolsHatEnchantment["id"],
+  "FoolsHatEnchantment"
+> = {
   name: "FoolsHatEnchantment",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("FoolsHatEnchantment"),

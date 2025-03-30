@@ -3,7 +3,7 @@
   "$id": "/_DiseasePoison.schema.json",
   "$defs": {
     "Resistance": {
-      "description": "Depending on the disease, apply Spirit or Toughness as a penalty to the\ndisease roll. It may also happen that the lower of both is applied as a\npenalty.",
+      "description": "Depending on the disease, apply Spirit or Toughness as a penalty to the disease roll. It may also happen that the lower of both is applied as a penalty.",
       "oneOf": [
         {
           "const": "Spirit"
@@ -17,7 +17,7 @@
       ]
     },
     "Cause": {
-      "description": "What causes the disease? The GM rolls 1D20 to see if a character gets\ninfected. If the infection check succeeds, the GM makes a disease check to\ndetermine the severity of the infection.",
+      "description": "What causes the disease? The GM rolls 1D20 to see if a character gets infected. If the infection check succeeds, the GM makes a disease check to determine the severity of the infection.",
       "type": "object",
       "properties": {
         "chance": {
@@ -53,7 +53,7 @@
           "minLength": 1
         },
         "chance": {
-          "description": "The chance to get infected by this cause. If present for this\nlanguage, this overrides the universal `chance` field; they cannot be\nused at the same time.",
+          "description": "The chance to get infected by this cause. If present for this language, this overrides the universal `chance` field; they cannot be used at the same time.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "note": {
@@ -90,12 +90,36 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "damage": {
-          "description": "The damage caused by the disease. If the disease check fails, apply the\nlessened effects.",
-          "$ref": "#/$defs/Reduceable"
+          "description": "An effect or other parameter that may be reduced by a failed disease check for lessening or a degraded poison.\n\nThis streamlines the wording for diseases and poison by using a unified wording for *lessened* (disease) and *degraded* (poison).",
+          "type": "object",
+          "properties": {
+            "default": {
+              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+            },
+            "reduced": {
+              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+            }
+          },
+          "required": [
+            "default"
+          ],
+          "additionalProperties": false
         },
         "duration": {
-          "description": "The duration of the disease. If the disease check fails, use the\nlessened duration.",
-          "$ref": "#/$defs/Reduceable"
+          "description": "An effect or other parameter that may be reduced by a failed disease check for lessening or a degraded poison.\n\nThis streamlines the wording for diseases and poison by using a unified wording for *lessened* (disease) and *degraded* (poison).",
+          "type": "object",
+          "properties": {
+            "default": {
+              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+            },
+            "reduced": {
+              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
+            }
+          },
+          "required": [
+            "default"
+          ],
+          "additionalProperties": false
         },
         "special": {
           "description": "Special information about the disease.",
@@ -121,22 +145,6 @@
         "duration",
         "treatment",
         "cure"
-      ],
-      "additionalProperties": false
-    },
-    "Reduceable": {
-      "description": "An effect or other parameter that may be reduced by a failed disease check\nfor lessening or a degraded poison.\n\nThis streamlines the wording for diseases and poison by using a unified\nwording for *lessened* (disease) and *degraded* (poison).",
-      "type": "object",
-      "properties": {
-        "default": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
-        },
-        "reduced": {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyMarkdown"
-        }
-      },
-      "required": [
-        "default"
       ],
       "additionalProperties": false
     }

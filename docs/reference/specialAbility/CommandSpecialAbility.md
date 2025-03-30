@@ -59,36 +59,33 @@ Key | Description | Details
 
 All translations for the entry, identified by IETF language tag (BCP47).
 
-- **Type:** Dictionary
-- **Property Values:** <a href="#CommandSpecialAbility/translations[key]">CommandSpecialAbility/translations[key]</a>
-- **Pattern:** `^[a-z]{2}-[A-Z]{2}$`
-- **Minimum Properties:** `1`
+- **Type:** <a href="../_LocaleMap.md#LocaleMap">LocaleMap</a>&lt;<a href="#CommandSpecialAbilityTranslation">CommandSpecialAbilityTranslation</a>&gt;
 
 ---
 
-### <a name="CommandSpecialAbility/translations[key]"></a> `CommandSpecialAbility/translations[key]`
+### <a name="CommandSpecialAbilityTranslation"></a> `CommandSpecialAbilityTranslation`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`name` |  | <a href="#CommandSpecialAbility/translations[key]/name">See details</a>
-`name_in_library?` |  | <a href="#CommandSpecialAbility/translations[key]/name_in_library">See details</a>
-`rules` |  | <a href="#CommandSpecialAbility/translations[key]/rules">See details</a>
-`errata?` |  | <a href="#CommandSpecialAbility/translations[key]/errata">See details</a>
+`name` |  | <a href="#CommandSpecialAbilityTranslation/name">See details</a>
+`name_in_library?` |  | <a href="#CommandSpecialAbilityTranslation/name_in_library">See details</a>
+`rules` |  | <a href="#CommandSpecialAbilityTranslation/rules">See details</a>
+`errata?` |  | <a href="#CommandSpecialAbilityTranslation/errata">See details</a>
 
-#### <a name="CommandSpecialAbility/translations[key]/name"></a> `name`
+#### <a name="CommandSpecialAbilityTranslation/name"></a> `name`
 
 - **Type:** <a href="#Name">Name</a>
 
-#### <a name="CommandSpecialAbility/translations[key]/name_in_library"></a> `name_in_library?`
+#### <a name="CommandSpecialAbilityTranslation/name_in_library"></a> `name_in_library?`
 
 - **Type:** <a href="#NameInLibrary">NameInLibrary</a>
 
-#### <a name="CommandSpecialAbility/translations[key]/rules"></a> `rules`
+#### <a name="CommandSpecialAbilityTranslation/rules"></a> `rules`
 
 - **Type:** <a href="#Rules">Rules</a>
 
-#### <a name="CommandSpecialAbility/translations[key]/errata"></a> `errata?`
+#### <a name="CommandSpecialAbilityTranslation/errata"></a> `errata?`
 
 - **Type:** <a href="../source/_Erratum.md#Errata">Errata</a>

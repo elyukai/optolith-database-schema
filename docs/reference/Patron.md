@@ -38,22 +38,21 @@ The patron's category.
 
 The patron-specific skills.
 
-- **Type:** Tuple
-- **Items:** [<a href="Patron/skills[0]">Patron/skills[0]</a>, <a href="Patron/skills[1]">Patron/skills[1]</a>, <a href="Patron/skills[2]">Patron/skills[2]</a>]
+- **Type:** List
+- **Items:** <a href="#Patron/skills[]">Patron/skills[]</a>
+- **Minimum Items:** `3`
+- **Maximum Items:** `3`
 
 #### <a name="Patron/culture"></a> `culture`
 
-The patron is only available to a certain set of cultures. It may be
-available to all, it may be available to only specific ones (intersection)
-and it may be available to all except specific ones to the listed cultures
+The patron is only available to a certain set of cultures. It may be available to all, it may be available to only specific ones (intersection) and it may be available to all except specific ones to the listed cultures
 (difference).
 
 - **Type:** <a href="#PatronCulture">PatronCulture</a>
 
 #### <a name="Patron/primary_patron_cultures"></a> `primary_patron_cultures?`
 
-The list of cultures where patrons from this category can be the primary
-patron of.
+The list of cultures where patrons from this category can be the primary patron of.
 
 - **Type:** List
 - **Items:** <a href="#Patron/primary_patron_cultures[]">Patron/primary_patron_cultures[]</a>
@@ -61,16 +60,13 @@ patron of.
 
 #### <a name="Patron/powers"></a> `powers?`
 
-The patron-specific powers. Used by animist power Animal Powers I–III and
-should only be present on animal patrons.
+The patron-specific powers. Used by animist power Animal Powers I–III and should only be present on animal patrons.
 
-- **Type:** Tuple
-- **Items:** [<a href="Patron/powers[0]">Patron/powers[0]</a>, <a href="Patron/powers[1]">Patron/powers[1]</a>, <a href="Patron/powers[2]">Patron/powers[2]</a>]
+- **Type:** <a href="#AnimalPowers">AnimalPowers</a>
 
 #### <a name="Patron/ae_cost"></a> `ae_cost?`
 
-The patron-specific AE cost. Used by several animist forces for animal
-patrons.
+The patron-specific AE cost. Used by several animist forces for animal patrons.
 
 - **Type:** Integer
 - **Minimum:** `2`
@@ -78,15 +74,13 @@ patrons.
 
 #### <a name="Patron/improvement_cost"></a> `improvement_cost?`
 
-The patron-specific improvement cost. Used by several animist forces for
-animal patrons.
+The patron-specific improvement cost. Used by several animist forces for animal patrons.
 
 - **Type:** <a href="./_ImprovementCost.md#ImprovementCost">ImprovementCost</a>
 
 #### <a name="Patron/common_advantages"></a> `common_advantages?`
 
-The patron may grant common advantages that are taken into account during
-character creation.
+The patron may grant common advantages that are taken into account during character creation.
 
 *Source:* Geisterwald & Knochenklippen, p. 6-7
 
@@ -95,8 +89,7 @@ character creation.
 
 #### <a name="Patron/common_disadvantages"></a> `common_disadvantages?`
 
-The patron may grant common disadvantages that are taken into account
-during character creation.
+The patron may grant common disadvantages that are taken into account during character creation.
 
 *Source:* Geisterwald & Knochenklippen, p. 6-7
 
@@ -120,19 +113,7 @@ All translations for the entry, identified by IETF language tag (BCP47).
 
 ---
 
-### <a name="Patron/skills[0]"></a> `Patron/skills[0]`
-
-- **Type:** <a href="./_SimpleReferences.md#SkillReference">SkillReference</a>
-
----
-
-### <a name="Patron/skills[1]"></a> `Patron/skills[1]`
-
-- **Type:** <a href="./_SimpleReferences.md#SkillReference">SkillReference</a>
-
----
-
-### <a name="Patron/skills[2]"></a> `Patron/skills[2]`
+### <a name="Patron/skills[]"></a> `Patron/skills[]`
 
 - **Type:** <a href="./_SimpleReferences.md#SkillReference">SkillReference</a>
 
@@ -141,24 +122,6 @@ All translations for the entry, identified by IETF language tag (BCP47).
 ### <a name="Patron/primary_patron_cultures[]"></a> `Patron/primary_patron_cultures[]`
 
 - **Type:** <a href="./_SimpleReferences.md#CultureReference">CultureReference</a>
-
----
-
-### <a name="Patron/powers[0]"></a> `Patron/powers[0]`
-
-- **Type:** <a href="#AnimalPowersLevel1">AnimalPowersLevel1</a>
-
----
-
-### <a name="Patron/powers[1]"></a> `Patron/powers[1]`
-
-- **Type:** <a href="#AnimalPowersLevel2">AnimalPowersLevel2</a>
-
----
-
-### <a name="Patron/powers[2]"></a> `Patron/powers[2]`
-
-- **Type:** <a href="#AnimalPowersLevel3">AnimalPowersLevel3</a>
 
 ---
 
@@ -198,9 +161,7 @@ The name of the patron.
 
 ### <a name="PatronCulture"></a> `PatronCulture`
 
-The patron cultures the patron is or is not part of. If the patron is part of
-all patron cultures, the set should be empty and the operation should be
-difference.
+The patron cultures the patron is or is not part of. If the patron is part of all patron cultures, the set should be empty and the operation should be difference.
 
 - **Type:** Object
 
@@ -228,10 +189,7 @@ Key | Description | Details
 
 ### <a name="PatronCultureOperation"></a> `PatronCultureOperation`
 
-The set operation to combine the set of all patron cultures with the
-specified set of patron cultures: If they should intersect, the patron is
-only part of the given cultures. If they should differ, the patron is only
-part of the cultures that are not given.
+The set operation to combine the set of all patron cultures with the specified set of patron cultures: If they should intersect, the patron is only part of the given cultures. If they should differ, the patron is only part of the cultures that are not given.
 
 - **Type:** Union
 - **Cases:** <a href="#PatronCultureOperation'0">PatronCultureOperation'0</a> | <a href="#PatronCultureOperation'1">PatronCultureOperation'1</a>
@@ -247,6 +205,30 @@ part of the cultures that are not given.
 ### <a name="PatronCultureOperation'1"></a> `PatronCultureOperation'1`
 
 - **Constant:** `"Difference"`
+
+---
+
+### <a name="AnimalPowers"></a> `AnimalPowers`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`level1` |  | <a href="#AnimalPowers/level1">See details</a>
+`level2` |  | <a href="#AnimalPowers/level2">See details</a>
+`level3` |  | <a href="#AnimalPowers/level3">See details</a>
+
+#### <a name="AnimalPowers/level1"></a> `level1`
+
+- **Type:** <a href="#AnimalPowersLevel1">AnimalPowersLevel1</a>
+
+#### <a name="AnimalPowers/level2"></a> `level2`
+
+- **Type:** <a href="#AnimalPowersLevel2">AnimalPowersLevel2</a>
+
+#### <a name="AnimalPowers/level3"></a> `level3`
+
+- **Type:** <a href="#AnimalPowersLevel3">AnimalPowersLevel3</a>
 
 ---
 
@@ -434,25 +416,18 @@ The value that gets added to the combat value.
 
 ### <a name="AnimalPowerLevel2"></a> `AnimalPowerLevel2`
 
-- **Type:** Union
-- **Cases:** <a href="#AnimalPowerLevel2'Combat">AnimalPowerLevel2'Combat</a>
-
----
-
-### <a name="AnimalPowerLevel2'Combat"></a> `AnimalPowerLevel2'Combat`
-
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#AnimalPowerLevel2'Combat/tag">See details</a>
-`combat` |  | <a href="#AnimalPowerLevel2'Combat/combat">See details</a>
+`tag` |  | <a href="#AnimalPowerLevel2/tag">See details</a>
+`combat` |  | <a href="#AnimalPowerLevel2/combat">See details</a>
 
-#### <a name="AnimalPowerLevel2'Combat/tag"></a> `tag`
+#### <a name="AnimalPowerLevel2/tag"></a> `tag`
 
 - **Constant:** `"Combat"`
 
-#### <a name="AnimalPowerLevel2'Combat/combat"></a> `combat`
+#### <a name="AnimalPowerLevel2/combat"></a> `combat`
 
 - **Type:** <a href="#CombatAnimalPower">CombatAnimalPower</a>
 
@@ -498,25 +473,18 @@ The value that gets added to the attribute.
 
 ### <a name="AnimalPowerLevel3"></a> `AnimalPowerLevel3`
 
-- **Type:** Union
-- **Cases:** <a href="#AnimalPowerLevel3'Attribute">AnimalPowerLevel3'Attribute</a>
-
----
-
-### <a name="AnimalPowerLevel3'Attribute"></a> `AnimalPowerLevel3'Attribute`
-
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#AnimalPowerLevel3'Attribute/tag">See details</a>
-`attribute` |  | <a href="#AnimalPowerLevel3'Attribute/attribute">See details</a>
+`tag` |  | <a href="#AnimalPowerLevel3/tag">See details</a>
+`attribute` |  | <a href="#AnimalPowerLevel3/attribute">See details</a>
 
-#### <a name="AnimalPowerLevel3'Attribute/tag"></a> `tag`
+#### <a name="AnimalPowerLevel3/tag"></a> `tag`
 
 - **Constant:** `"Attribute"`
 
-#### <a name="AnimalPowerLevel3'Attribute/attribute"></a> `attribute`
+#### <a name="AnimalPowerLevel3/attribute"></a> `attribute`
 
 - **Type:** <a href="#AttributeAnimalPower">AttributeAnimalPower</a>
 

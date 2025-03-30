@@ -33,8 +33,7 @@ The continents this language is present on.
 
 #### <a name="Language/specializations"></a> `specializations?`
 
-Language-specific specializations. Either a list of possible options or a
-indefinite description of what may be a specialization.
+Language-specific specializations. Either a list of possible options or a indefinite description of what may be a specialization.
 
 - **Type:** <a href="#Specializations">Specializations</a>
 
@@ -44,8 +43,7 @@ indefinite description of what may be a specialization.
 
 #### <a name="Language/max_level"></a> `max_level?`
 
-The maximum possible level of the language. Only specified if lower than
-default of 3.
+The maximum possible level of the language. Only specified if lower than default of 3.
 
 - **Type:** Number
 - **Default:** `3`
@@ -180,8 +178,7 @@ The name of the specialization.
 
 #### <a name="SpecificSpecializationTranslation/description"></a> `description?`
 
-The specialization description. It will be appended to the name in
-parenthesis.
+The specialization description. It will be appended to the name in parenthesis.
 
 - **Type:** <a href="../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
@@ -220,8 +217,7 @@ The specializations description.
 
 #### <a name="IndefiniteSpecializationsTranslation/label"></a> `label?`
 
-An input label or placeholder text for an UI element if it differs
-from the `description`.
+An input label or placeholder text for an UI element if it differs from the `description`.
 
 - **Type:** <a href="../../_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 

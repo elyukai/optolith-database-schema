@@ -8,6 +8,7 @@ import { validateEntityFileName } from "../../validation/builders/naming.js"
 import { createSchemaValidator } from "../../validation/builders/schema.js"
 import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
 import * as Activatable from "../_Activatable.js"
+import { LocaleMap } from "../_LocaleMap.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 import { Errata } from "../source/_Erratum.js"
 import { PublicationRefs } from "../source/_PublicationRef.js"
@@ -36,27 +37,27 @@ export type CommandSpecialAbility = {
 
   /**
    * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
    */
-  translations: {
-    /**
-     * @patternProperties ^[a-z]{2}-[A-Z]{2}$
-     */
-    [localeId: string]: {
-      name: Activatable.Name
-
-      name_in_library?: Activatable.NameInLibrary
-
-      // input?: Activatable.Input
-
-      rules: Activatable.Rules
-
-      errata?: Errata
-    }
-  }
+  translations: LocaleMap<CommandSpecialAbilityTranslation>
 }
 
-export const config: TypeConfig<CommandSpecialAbility, CommandSpecialAbility["id"], "CommandSpecialAbility"> = {
+export type CommandSpecialAbilityTranslation = {
+  name: Activatable.Name
+
+  name_in_library?: Activatable.NameInLibrary
+
+  // input?: Activatable.Input
+
+  rules: Activatable.Rules
+
+  errata?: Errata
+}
+
+export const config: TypeConfig<
+  CommandSpecialAbility,
+  CommandSpecialAbility["id"],
+  "CommandSpecialAbility"
+> = {
   name: "CommandSpecialAbility",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("CommandSpecialAbility"),

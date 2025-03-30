@@ -32,16 +32,14 @@ export type Skill = {
   check: SkillCheck
 
   /**
-   * Lists applications for the skill, if any. This does not necessarily include
-   * all possible applications. There may also be new applications that could be
-   * purchased via certain advantages or special abilities.
+   * Lists applications for the skill, if any. This does not necessarily include all possible applications. There may also be new applications that could be purchased via certain advantages or special abilities.
    */
   applications: Applications
 
   /**
    * Indicates whether encumbrance gives a penalty for checks with the skill.
    */
-  encumbrance: Encumbrance
+  encumbrance: EncumbranceInfluence
 
   /**
    * States which column is used to improve the skill.
@@ -68,22 +66,17 @@ export type SkillTranslation = {
   name: NonEmptyString
 
   /**
-   * If there are options available that can not be put into a selection
-   * list (like different cults), provide the label text for the input
-   * element here. Otherwise leave empty.
+   * If there are options available that can not be put into a selection list (like different cults), provide the label text for the input element here. Otherwise leave empty.
    */
   applications_input_label?: NonEmptyString
 
   /**
-   * The text listing the certain circumstances in which the encumbrance may
-   * count. This text must be used if `encumbrance` is set to `"Maybe"`,
-   * otherwise it is ignored if defined.
+   * The text listing the certain circumstances in which the encumbrance may count. This text must be used if `encumbrance` is set to `"Maybe"`, otherwise it is ignored if defined.
    */
   encumbrance_description?: NonEmptyString
 
   /**
-   * Mentions any tools from the equipment list that are necessary to employ
-   * the skill.
+   * Mentions any tools from the equipment list that are necessary to employ the skill.
    */
   tools?: NonEmptyMarkdown
 
@@ -111,13 +104,9 @@ export type SkillTranslation = {
 }
 
 /**
- * A category. All available entries from the specified category will be
- * included as separate applications.
+ * A category. All available entries from the specified category will be included as separate applications.
  */
-export type ApplicationCategory =
-  | "BlessedTraditions"
-  | "Diseases"
-  | "Regions"
+export type ApplicationCategory = "BlessedTraditions" | "Diseases" | "Regions"
 
 /**
  * The skill's applications.
@@ -158,10 +147,7 @@ export type ApplicationTranslation = {
 /**
  * Indicates whether encumbrance gives a penalty for checks with the skill.
  */
-export type Encumbrance =
-  | "True"
-  | "False"
-  | "Maybe"
+export type EncumbranceInfluence = "True" | "False" | "Maybe"
 
 export const config: TypeConfig<Skill, Skill["id"], "Skill"> = {
   name: "Skill",

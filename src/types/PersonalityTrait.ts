@@ -15,9 +15,7 @@ import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
- * A personality trait describes character aspects of a person from a certain
- * region. Higher trait levels only cover a part of the region covered by
- * lower-level traits.
+ * A personality trait describes character aspects of a person from a certain region. Higher trait levels only cover a part of the region covered by lower-level traits.
  * @title Personality Trait
  */
 export type PersonalityTrait = {
@@ -60,8 +58,7 @@ export type PersonalityTraitTranslation = {
   name: NonEmptyString
 
   /**
-   * The effects of the personality trait. They should be sorted like they
-   * are in the book.
+   * The effects of the personality trait. They should be sorted like they are in the book.
    * @minItems 1
    */
   effects: PersonalityTraitEffect[]

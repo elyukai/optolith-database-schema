@@ -3,7 +3,7 @@
   "$id": "/equipment/item/_RangedWeapon.schema.json",
   "$defs": {
     "RangedDamage": {
-      "description": "The damage of a ranged weapon. It consists of a random part using dice and an\noptional flat part ny default. Some ranged weapons may work different so that\ndamage is either not applicable at all or it is outlined as *Special* and\nfurther defined in a description.",
+      "description": "The damage of a ranged weapon. It consists of a random part using dice and an optional flat part ny default. Some ranged weapons may work different so that damage is either not applicable at all or it is outlined as *Special* and further defined in a description.",
       "oneOf": [
         {
           "type": "object",
@@ -62,7 +62,7 @@
       ]
     },
     "DefaultRangedDamage": {
-      "description": "The damage of a weapon consists of a random part using dice and an optional\nflat part.",
+      "description": "The damage of a weapon consists of a random part using dice and an optional flat part.",
       "type": "object",
       "properties": {
         "dice": {
@@ -89,7 +89,7 @@
           "$ref": "../../_SimpleReferences.schema.json#/$defs/RangedCombatTechniqueReference"
         },
         "damage": {
-          "description": "The damage of a weapon consists of a random part using dice and an optional\nflat part.",
+          "description": "The damage of a weapon consists of a random part using dice and an optional flat part.",
           "$ref": "#/$defs/RangedDamage"
         },
         "reload_time": {
@@ -103,7 +103,7 @@
         },
         "range": {
           "description": "The range brackets for the weapon: close, medium, far. Distances in m.",
-          "$ref": "#/$defs/Range"
+          "$ref": "#/$defs/RangeBrackets"
         },
         "ammunition": {
           "description": "The needed ammunition.",
@@ -141,7 +141,7 @@
       ],
       "additionalProperties": false
     },
-    "Range": {
+    "RangeBrackets": {
       "type": "object",
       "properties": {
         "close": {

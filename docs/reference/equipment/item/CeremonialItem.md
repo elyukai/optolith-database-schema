@@ -37,8 +37,7 @@ The complexity of crafting the item.
 
 #### <a name="CeremonialItem/structure_points"></a> `structure_points`
 
-The structure points of the item. Use an array if the item consists of
-multiple components that have individual structure points.
+The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
 
 - **Type:** <a href="./_Item.md#StructurePoints">StructurePoints</a>
 
@@ -50,8 +49,7 @@ The deity associated with the equipment item.
 
 #### <a name="CeremonialItem/combat_use"></a> `combat_use?`
 
-The item can also be used either as an improvised weapon or as an armor,
-although this is not the primary use case of the item.
+The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.
 
 - **Type:** <a href="./_Item.md#CombatUse">CombatUse</a>
 

@@ -37,22 +37,19 @@ The complexity of crafting the item.
 
 #### <a name="IlluminationLightSource/structure_points"></a> `structure_points`
 
-The structure points of the item. Use an array if the item consists of
-multiple components that have individual structure points.
+The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
 
 - **Type:** <a href="./_Item.md#StructurePoints">StructurePoints</a>
 
 #### <a name="IlluminationLightSource/burning_time"></a> `burning_time`
 
-The burning time is the time how long the light source can be lit. After
-that time you have to use a new light source.
+The burning time is the time how long the light source can be lit. After that time you have to use a new light source.
 
 - **Type:** <a href="#BurningTime">BurningTime</a>
 
 #### <a name="IlluminationLightSource/combat_use"></a> `combat_use?`
 
-The item can also be used either as an improvised weapon or as an armor,
-although this is not the primary use case of the item.
+The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.
 
 - **Type:** <a href="./_Item.md#CombatUse">CombatUse</a>
 
@@ -144,12 +141,5 @@ The time unit.
 ---
 
 ### <a name="LimitedBurningTimeUnit"></a> `LimitedBurningTimeUnit`
-
-- **Type:** Union
-- **Cases:** <a href="#LimitedBurningTimeUnit'0">LimitedBurningTimeUnit'0</a>
-
----
-
-### <a name="LimitedBurningTimeUnit'0"></a> `LimitedBurningTimeUnit'0`
 
 - **Constant:** `"Hours"`

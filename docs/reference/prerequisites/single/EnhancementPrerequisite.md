@@ -4,9 +4,7 @@
 
 ### <a name="ExternalEnhancementPrerequisite"></a> External Enhancement Prerequisite (`ExternalEnhancementPrerequisite`)
 
-Requires a specific enhancement from a skill. This should **not** be used
-for enhancements themselves; they can only require enhancements from the same
-skill they enhance.
+Requires a specific enhancement from a skill. This should **not** be used for enhancements themselves; they can only require enhancements from the same skill they enhance.
 
 - **Type:** Object
 
@@ -69,7 +67,6 @@ The enhancement's identifier.
 
 ### <a name="InternalEnhancementPrerequisite"></a> Internal Enhancement Prerequisite (`InternalEnhancementPrerequisite`)
 
-Requires a specific enhancement from a skill. This can only be used by an
-enhancement to require another enhancement from the same skill.
+Requires a specific enhancement from a skill. This can only be used by an enhancement to require another enhancement from the same skill.
 
 - **Type:** <a href="#EnhancementsReference">EnhancementsReference</a>

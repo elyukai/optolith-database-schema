@@ -20,13 +20,7 @@ export type AttackModifier = number
 export type ParryModifier = number
 
 /**
- * The reach of the weapon.
- */
-export type Reach = ReachIdentifier
-
-/**
- * The damage of a weapon consists of a random part using dice and an optional
- * flat part.
+ * The damage of a weapon consists of a random part using dice and an optional flat part.
  */
 export type MeleeDamage = {
   /**
@@ -69,8 +63,7 @@ export type MeleeWeapon = {
   combat_technique: CloseCombatTechniqueReference
 
   /**
-   * The damage of a weapon consists of a random part using dice and an optional
-   * flat part.
+   * The damage of a weapon consists of a random part using dice and an optional flat part.
    */
   damage: MeleeDamage
 
@@ -92,7 +85,7 @@ export type MeleeWeapon = {
   /**
    * The reach of the weapon.
    */
-  reach?: Reach
+  reach?: ReachIdentifier
 
   /**
    * The length of the weapon in cm/halffingers.

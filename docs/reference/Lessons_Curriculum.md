@@ -1,16 +1,12 @@
 # Curriculum
 
-This is a curriculum of a specified academy, containing the guideline,
-elective and restricted spellworks as well as the lesson packages of that
-academy.
+This is a curriculum of a specified academy, containing the guideline, elective and restricted spellworks as well as the lesson packages of that academy.
 
 ## Definitions
 
 ### <a name="Curriculum"></a> Curriculum (`Curriculum`)
 
-This is a curriculum of a specified academy, containing the guideline,
-elective and restricted spellworks as well as the lesson packages of that
-academy.
+This is a curriculum of a specified academy, containing the guideline, elective and restricted spellworks as well as the lesson packages of that academy.
 
 - **Type:** Object
 
@@ -178,10 +174,7 @@ Key | Description | Details
 
 #### <a name="ElectiveSpellwork/restriction"></a> `restriction?`
 
-The elective spellwork may only take effect if a certain condition is met.
-The condition may be related to professions or profession variants, but it
-is designed so that it can work without a specific profession, as multiple
-may belong to an institute, but with referencing other entities instead.
+The elective spellwork may only take effect if a certain condition is met. The condition may be related to professions or profession variants, but it is designed so that it can work without a specific profession, as multiple may belong to an institute, but with referencing other entities instead.
 
 - **Type:** <a href="#ElectiveSpellworkRestriction">ElectiveSpellworkRestriction</a>
 
@@ -189,30 +182,20 @@ may belong to an institute, but with referencing other entities instead.
 
 ### <a name="ElectiveSpellworkRestriction"></a> `ElectiveSpellworkRestriction`
 
-The elective spellwork may only take effect if a certain condition is met.
-The condition may be related to professions or profession variants, but it is
-designed so that it can work without a specific profession, as multiple may
-belong to an institute, but with referencing other entities instead.
-
-- **Type:** Union
-- **Cases:** <a href="#ElectiveSpellworkRestriction'Element">ElectiveSpellworkRestriction'Element</a>
-
----
-
-### <a name="ElectiveSpellworkRestriction'Element"></a> `ElectiveSpellworkRestriction'Element`
+The elective spellwork may only take effect if a certain condition is met. The condition may be related to professions or profession variants, but it is designed so that it can work without a specific profession, as multiple may belong to an institute, but with referencing other entities instead.
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#ElectiveSpellworkRestriction'Element/tag">See details</a>
-`element` |  | <a href="#ElectiveSpellworkRestriction'Element/element">See details</a>
+`tag` |  | <a href="#ElectiveSpellworkRestriction/tag">See details</a>
+`element` |  | <a href="#ElectiveSpellworkRestriction/element">See details</a>
 
-#### <a name="ElectiveSpellworkRestriction'Element/tag"></a> `tag`
+#### <a name="ElectiveSpellworkRestriction/tag"></a> `tag`
 
 - **Constant:** `"Element"`
 
-#### <a name="ElectiveSpellworkRestriction'Element/element"></a> `element`
+#### <a name="ElectiveSpellworkRestriction/element"></a> `element`
 
 - **Type:** <a href="#ElectiveSpellworkElementRestriction">ElectiveSpellworkElementRestriction</a>
 
@@ -396,9 +379,7 @@ Exclude specific spellworks from the restriction.
 
 #### <a name="RestrictedProperty/maximum"></a> `maximum?`
 
-Spellworks from this property up to a certain number are allowed.
-Spellworks excluded from this restriction definition using `exclude` do
-not contribute to the maximum.
+Spellworks from this property up to a certain number are allowed. Spellworks excluded from this restriction definition using `exclude` do not contribute to the maximum.
 
 - **Type:** Number
 
@@ -414,18 +395,14 @@ not contribute to the maximum.
 
 A list of available lesson packages.
 
-- **Type:** Tuple
-- **Items:** [<a href="LessonPackages[0]">LessonPackages[0]</a>, <a href="LessonPackages[1]">LessonPackages[1]</a>]
+- **Type:** List
+- **Items:** <a href="#LessonPackages[]">LessonPackages[]</a>
+- **Minimum Items:** `2`
+- **Maximum Items:** `2`
 
 ---
 
-### <a name="LessonPackages[0]"></a> `LessonPackages[0]`
-
-- **Type:** <a href="#LessonPackage">LessonPackage</a>
-
----
-
-### <a name="LessonPackages[1]"></a> `LessonPackages[1]`
+### <a name="LessonPackages[]"></a> `LessonPackages[]`
 
 - **Type:** <a href="#LessonPackage">LessonPackage</a>
 
@@ -452,10 +429,7 @@ The lesson package's identifier. An unique, increasing integer.
 
 #### <a name="LessonPackage/spellwork_changes"></a> `spellwork_changes?`
 
-The spell values difference of the lesson package. This field reflects the
-changes (difference) to the field of the same name in the profession
-package. If a spell gets to SR 0 because of this, it will be removed
-completely.
+The spell values difference of the lesson package. This field reflects the changes (difference) to the field of the same name in the profession package. If a spell gets to SR 0 because of this, it will be removed completely.
 
 - **Type:** List
 - **Items:** <a href="#LessonPackage/spellwork_changes[]">LessonPackage/spellwork_changes[]</a>
@@ -522,8 +496,7 @@ The name of the lesson package.
 
 #### <a name="LessonPackageTranslation/spellwork_changes"></a> `spellwork_changes?`
 
-The spell values difference of the lesson package. Use this field to
-specify a text that is displayed instead of the generated
+The spell values difference of the lesson package. Use this field to specify a text that is displayed instead of the generated
 `spellwork_changes` list. The field is displayed even if no list is
 present.
 
@@ -610,8 +583,7 @@ Key | Description | Details
 
 #### <a name="CombatTechniqueAdjustment/points"></a> `points`
 
-The combat technique points that will be added to the current combat
-technique rating.
+The combat technique points that will be added to the current combat technique rating.
 
 - **Type:** Integer
 - **Minimum:** `-6`
@@ -660,9 +632,7 @@ Key | Description | Details
 
 #### <a name="SpellworkAdjustment/points"></a> `points`
 
-The skill points that will be added to the current skill rating. If a
-spell gets to a skill rating of 0 because of this, it will be removed
-completely.
+The skill points that will be added to the current skill rating. If a spell gets to a skill rating of 0 because of this, it will be removed completely.
 
 - **Type:** Integer
 - **Minimum:** `-10`
@@ -670,7 +640,6 @@ completely.
 
 #### <a name="SpellworkAdjustment/tradition"></a> `tradition?`
 
-The target tradition. If the target spell is not from the Guild Mage
-tradition, specify the tradition identifier here.
+The target tradition. If the target spell is not from the Guild Mage tradition, specify the tradition identifier here.
 
 - **Type:** <a href="./_Identifier.md#MagicalTraditionIdentifier">MagicalTraditionIdentifier</a>

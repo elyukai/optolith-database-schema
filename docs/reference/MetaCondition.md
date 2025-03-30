@@ -1,16 +1,12 @@
 # Meta Condition
 
-Meta Conditions are rule elements that work like conditions in the sense that
-they have four levels with different effects, but which are not explicitly
-listed as conditions.
+Meta Conditions are rule elements that work like conditions in the sense that they have four levels with different effects, but which are not explicitly listed as conditions.
 
 ## Definitions
 
 ### <a name="MetaCondition"></a> Meta Condition (`MetaCondition`)
 
-Meta Conditions are rule elements that work like conditions in the sense that
-they have four levels with different effects, but which are not explicitly
-listed as conditions.
+Meta Conditions are rule elements that work like conditions in the sense that they have four levels with different effects, but which are not explicitly listed as conditions.
 
 - **Type:** Object
 
@@ -66,8 +62,10 @@ Additional rules for the meta condition, if applicable.
 
 The effects for level 1 to 4.
 
-- **Type:** Tuple
-- **Items:** [<a href="MetaConditionTranslation/effects[0]">MetaConditionTranslation/effects[0]</a>, <a href="MetaConditionTranslation/effects[1]">MetaConditionTranslation/effects[1]</a>, <a href="MetaConditionTranslation/effects[2]">MetaConditionTranslation/effects[2]</a>, <a href="MetaConditionTranslation/effects[3]">MetaConditionTranslation/effects[3]</a>]
+- **Type:** List
+- **Items:** <a href="#MetaConditionTranslation/effects[]">MetaConditionTranslation/effects[]</a>
+- **Minimum Items:** `4`
+- **Maximum Items:** `4`
 
 #### <a name="MetaConditionTranslation/errata"></a> `errata?`
 
@@ -75,24 +73,6 @@ The effects for level 1 to 4.
 
 ---
 
-### <a name="MetaConditionTranslation/effects[0]"></a> `MetaConditionTranslation/effects[0]`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
-
----
-
-### <a name="MetaConditionTranslation/effects[1]"></a> `MetaConditionTranslation/effects[1]`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
-
----
-
-### <a name="MetaConditionTranslation/effects[2]"></a> `MetaConditionTranslation/effects[2]`
-
-- **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
-
----
-
-### <a name="MetaConditionTranslation/effects[3]"></a> `MetaConditionTranslation/effects[3]`
+### <a name="MetaConditionTranslation/effects[]"></a> `MetaConditionTranslation/effects[]`
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>

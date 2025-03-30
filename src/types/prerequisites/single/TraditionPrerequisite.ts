@@ -5,8 +5,7 @@ import { DisplayOption } from "../DisplayOption.js"
  */
 export type BlessedTraditionPrerequisite = {
   /**
-   * The blessed tradition prerequisite may only be satified if the blessed
-   * tradition is either church or shamanistic.
+   * The blessed tradition prerequisite may only be satified if the blessed tradition is either church or shamanistic.
    */
   restriction?: BlessedTraditionPrerequisiteRestriction
 
@@ -14,20 +13,16 @@ export type BlessedTraditionPrerequisite = {
 }
 
 /**
- * The blessed tradition prerequisite may only be satified if the blessed
- * tradition is either church or shamanistic.
+ * The blessed tradition prerequisite may only be satified if the blessed tradition is either church or shamanistic.
  */
-export type BlessedTraditionPrerequisiteRestriction =
-  | "Church"
-  | "Shamanistic"
+export type BlessedTraditionPrerequisiteRestriction = "Church" | "Shamanistic"
 
 /**
  * @title Magical Tradition Prerequisite
  */
 export type MagicalTraditionPrerequisite = {
   /**
-   * The magical tradition prerequisite may only be satified if the magical
-   * tradition can learn rituals or can bind familiars.
+   * The magical tradition prerequisite may only be satified if the magical tradition can learn rituals or can bind familiars.
    */
   restriction?: MagicalTraditionPrerequisiteRestriction
 
@@ -35,9 +30,6 @@ export type MagicalTraditionPrerequisite = {
 }
 
 /**
- * The magical tradition prerequisite may only be satified if the magical
- * tradition can learn rituals or can bind familiars.
+ * The magical tradition prerequisite may only be satified if the magical tradition can learn rituals or can bind familiars.
  */
-export type MagicalTraditionPrerequisiteRestriction =
-  | "CanLearnRituals"
-  | "CanBindFamiliars"
+export type MagicalTraditionPrerequisiteRestriction = "CanLearnRituals" | "CanBindFamiliars"

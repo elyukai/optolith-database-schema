@@ -38,8 +38,7 @@ The required minimum level of the entry.
 
 #### <a name="ActivatablePrerequisite/options"></a> `options?`
 
-Required select options. Order is important. Typically, you only need the
-first array index, though.
+Required select options. Order is important. Typically, you only need the first array index, though.
 
 - **Type:** List
 - **Items:** <a href="#ActivatablePrerequisite/options[]">ActivatablePrerequisite/options[]</a>

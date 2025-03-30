@@ -1,7 +1,21 @@
 import { SkillIdentifier, TargetCategoryIdentifier } from "./_Identifier.js"
-import { ActivatableIdentifier, CombatTechniqueIdentifier, SkillIdentifier as SkillIdentifierGroup } from "./_IdentifierGroup.js"
+import {
+  ActivatableIdentifier,
+  CombatTechniqueIdentifier,
+  SkillishIdentifier,
+} from "./_IdentifierGroup.js"
 import { LocaleMap } from "./_LocaleMap.js"
-import { CeremonyReference, CloseCombatTechniqueReference, ElementReference, LiturgicalChantReference, RangedCombatTechniqueReference, RitualReference, SkillGroupReference, SkillReference, SpellReference } from "./_SimpleReferences.js"
+import {
+  CeremonyReference,
+  CloseCombatTechniqueReference,
+  ElementReference,
+  LiturgicalChantReference,
+  RangedCombatTechniqueReference,
+  RitualReference,
+  SkillGroupReference,
+  SkillReference,
+  SpellReference,
+} from "./_SimpleReferences.js"
 
 export type SelectOptionCategory =
   | { tag: "Blessings"; blessings: {} }
@@ -28,8 +42,7 @@ export type SelectOptionCategory =
 
 export type BlessedTraditionsSelectOptionCategory = {
   /**
-   * Should the principles (code) of the tradition be required to select the
-   * respective tradition?
+   * Should the principles (code) of the tradition be required to select the respective tradition?
    */
   require_principles?: true
 }
@@ -50,8 +63,7 @@ export type PropertiesSelectOptionCategory = {
   require_knowledge?: true
 
   /**
-   * Require a minimum number of spellworks of the respective property to be
-   * on a minimum skill rating.
+   * Require a minimum number of spellworks of the respective property to be on a minimum skill rating.
    */
   require_minimum_spellworks_on?: RequiredMinimumSkillsToBeOnSkillRating
 }
@@ -63,36 +75,29 @@ export type AspectSelectOptionCategory = {
   require_knowledge?: true
 
   /**
-   * The generated name should be the *Master of (Aspect)* suffix for this
-   * aspect instead of the aspect's name. If an aspect does not provide a
-   * suffix (such as the General aspect), it is automatically excluded from
-   * the list.
+   * The generated name should be the *Master of (Aspect)* suffix for this aspect instead of the aspect's name. If an aspect does not provide a suffix (such as the General aspect), it is automatically excluded from the list.
    */
   use_master_of_suffix_as_name?: true
 
   /**
-   * Require a minimum number of liturgies of the respective aspect to be on a
-   * minimum skill rating.
+   * Require a minimum number of liturgies of the respective aspect to be on a minimum skill rating.
    */
   require_minimum_liturgies_on?: RequiredMinimumSkillsToBeOnSkillRating
 }
 
 /**
- * Require a minimum number of spellworks/liturgies of the respective
- * property/aspect to be on a minimum skill rating.
+ * Require a minimum number of spellworks/liturgies of the respective property/aspect to be on a minimum skill rating.
  */
 export type RequiredMinimumSkillsToBeOnSkillRating = {
   /**
-   * The minimum number of liturgies that need to be on the defined minimum
-   * skill rating.
+   * The minimum number of liturgies that need to be on the defined minimum skill rating.
    * @integer
    * @minimum 1
    */
   number: number
 
   /**
-   * The minimum skill rating the defined minimum number of liturgies need
-   * to be on.
+   * The minimum skill rating the defined minimum number of liturgies need to be on.
    * @integer
    * @minimum 1
    */
@@ -114,8 +119,10 @@ export type LanguagesSelectOptionCategory = {
   prerequisites?: LanguagesSelectOptionCategoryPrerequisite[]
 }
 
-export type LanguagesSelectOptionCategoryPrerequisite =
-  | { tag: "SelectOption"; select_option: OptionPrerequisite }
+export type LanguagesSelectOptionCategoryPrerequisite = {
+  tag: "SelectOption"
+  select_option: OptionPrerequisite
+}
 
 export type SkillsSelectOptionCategory = {
   /**
@@ -127,14 +134,17 @@ export type SkillsSelectOptionCategory = {
   /**
    * Generate AP values for each entry.
    */
-  ap_value?: AdventurePointsValue<SkillIdentifierGroup>
+  ap_value?: SelectOptionsAdventurePointsValue<SkillishIdentifier>
 }
 
 export type SkillsSelectOptionCategoryCategory =
   | { tag: "Skills"; skills: SkillSelectOptionCategoryCategory }
   | { tag: "Spells"; spells: GenericSkillsSelectOptionCategoryCategory<SpellReference> }
   | { tag: "Rituals"; rituals: GenericSkillsSelectOptionCategoryCategory<RitualReference> }
-  | { tag: "LiturgicalChants"; liturgical_chants: GenericSkillsSelectOptionCategoryCategory<LiturgicalChantReference> }
+  | {
+      tag: "LiturgicalChants"
+      liturgical_chants: GenericSkillsSelectOptionCategoryCategory<LiturgicalChantReference>
+    }
   | { tag: "Ceremonies"; ceremonies: GenericSkillsSelectOptionCategoryCategory<CeremonyReference> }
 
 export type SkillSelectOptionCategoryCategory = {
@@ -145,27 +155,18 @@ export type SkillSelectOptionCategoryCategory = {
   groups?: SkillGroupReference[]
 
   /**
-   * Only include (`Intersection`) or exclude (`Difference`) specific
-   * skills.
+   * Only include (`Intersection`) or exclude (`Difference`) specific skills.
    */
   specific?: SpecificFromSkillSelectOptionCategoryCategory<SkillReference>
 
   /**
-   * Registers new applications, which get enabled once this entry is
-   * activated with its respective select option. It specifies an
-   * entry-unique identifier, the skill it belongs to is derived from the
-   * select option automatically. A translation can be left out if its
-   * name equals the name of the origin entry.
+   * Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry.
    * @minItems 1
    */
   skill_applications?: SkillApplicationOrUse[]
 
   /**
-   * Registers uses, which get enabled once this entry is activated with
-   * its respective select option. It specifies an entry-unique
-   * identifier, the skill it belongs to is derived from the select option
-   * automatically. A translation can be left out if its name equals the
-   * name of the origin entry.
+   * Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry.
    * @minItems 1
    */
   skill_uses?: SkillApplicationOrUse[]
@@ -179,7 +180,7 @@ export type SkillSelectOptionCategoryCategory = {
   /**
    * Generate AP values for each entry.
    */
-  ap_value?: AdventurePointsValue<SkillIdentifier>
+  ap_value?: SelectOptionsAdventurePointsValue<SkillIdentifier>
 }
 
 export type CombatTechniquesSelectOptionCategory = {
@@ -192,12 +193,18 @@ export type CombatTechniquesSelectOptionCategory = {
   /**
    * Generate AP values for each entry.
    */
-  ap_value?: AdventurePointsValue<CombatTechniqueIdentifier>
+  ap_value?: SelectOptionsAdventurePointsValue<CombatTechniqueIdentifier>
 }
 
 export type CombatTechniquesSelectOptionCategoryCategory =
-  | { tag: "CloseCombatTechniques"; close_combat_techniques: GenericSkillsSelectOptionCategoryCategory<CloseCombatTechniqueReference> }
-  | { tag: "RangedCombatTechniques"; ranged_combat_techniques: GenericSkillsSelectOptionCategoryCategory<RangedCombatTechniqueReference> }
+  | {
+      tag: "CloseCombatTechniques"
+      close_combat_techniques: GenericSkillsSelectOptionCategoryCategory<CloseCombatTechniqueReference>
+    }
+  | {
+      tag: "RangedCombatTechniques"
+      ranged_combat_techniques: GenericSkillsSelectOptionCategoryCategory<RangedCombatTechniqueReference>
+    }
 
 export type SkillApplicationOrUse = {
   /**
@@ -215,8 +222,7 @@ export type SkillApplicationOrUse = {
 
 export type SkillApplicationOrUseTranslation = {
   /**
-   * The name of the application or use if different from the activatable
-   * entry's name.
+   * The name of the application or use if different from the activatable entry's name.
    * @minLength 1
    */
   name: string
@@ -249,9 +255,7 @@ export type SpecificFromSkillSelectOptionCategoryCategory<Ref> = {
 /**
  * Only include (`Intersection`) or exclude (`Difference`) specific entries.
  */
-export type SpecificFromSkillSelectOptionCategoryCategoryOperation =
-  | "Intersection"
-  | "Difference"
+export type SpecificFromSkillSelectOptionCategoryCategoryOperation = "Intersection" | "Difference"
 
 export type SkillSelectOptionCategoryPrerequisite =
   | { tag: "Self"; self: SelfPrerequisite }
@@ -291,16 +295,19 @@ export type OptionPrerequisite = {
 /**
  * Generate AP values for each entry.
  */
-export type AdventurePointsValue<Identifier> =
-  | { tag: "DerivedFromImprovementCost"; derived_from_improvement_cost: DeriveAdventurePointsValueFromImprovementCost }
-  | { tag: "Fixed"; fixed: FixedAdventurePointsValue<Identifier> }
+export type SelectOptionsAdventurePointsValue<Identifier> =
+  | {
+      tag: "DerivedFromImprovementCost"
+      derived_from_improvement_cost: SelectOptionsDeriveAdventurePointsValueFromImprovementCost
+    }
+  | { tag: "Fixed"; fixed: SelectOptionsFixedAdventurePointsValue<Identifier> }
 
 /**
  * Derive the cost from the improvement cost of each entry.
  *
  * **Calculation:** AP Value = Improvement Cost × `multiplier` + `offset`
  */
-export type DeriveAdventurePointsValueFromImprovementCost = {
+export type SelectOptionsDeriveAdventurePointsValueFromImprovementCost = {
   /**
    * This number is multiplied with the improvement cost of the entry
    * (A = 1 to D = 4).
@@ -318,22 +325,21 @@ export type DeriveAdventurePointsValueFromImprovementCost = {
   offset?: number
 }
 
-export type FixedAdventurePointsValue<Identifier> = {
+export type SelectOptionsFixedAdventurePointsValue<Identifier> = {
   /**
    * A mapping of skill identifiers to their specific AP values.
    */
-  map: FixedAdventurePointsValueMapping<Identifier>[]
+  map: SelectOptionsFixedAdventurePointsValueMapping<Identifier>[]
 
   /**
-   * The default value of an entry. Used as a fallback if no value is
-   * found in `list`.
+   * The default value of an entry. Used as a fallback if no value is found in `list`.
    * @integer
    * @minimum 1
    */
   default: number
 }
 
-export type FixedAdventurePointsValueMapping<Identifier> = {
+export type SelectOptionsFixedAdventurePointsValueMapping<Identifier> = {
   /**
    * The entry's identifier.
    */

@@ -50,7 +50,7 @@ Key | Description | Details
 
 #### <a name="DaggerRitual/property"></a> `property`
 
-- **Type:** <a href="#Property">Property</a>
+- **Type:** <a href="#PropertyDeclaration">PropertyDeclaration</a>
 
 #### <a name="DaggerRitual/ap_value"></a> `ap_value`
 
@@ -134,25 +134,18 @@ Key | Description | Details
 
 ### <a name="LifePointsCost"></a> `LifePointsCost`
 
-- **Type:** Union
-- **Cases:** <a href="#LifePointsCost'Fixed">LifePointsCost'Fixed</a>
-
----
-
-### <a name="LifePointsCost'Fixed"></a> `LifePointsCost'Fixed`
-
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#LifePointsCost'Fixed/tag">See details</a>
-`fixed` |  | <a href="#LifePointsCost'Fixed/fixed">See details</a>
+`tag` |  | <a href="#LifePointsCost/tag">See details</a>
+`fixed` |  | <a href="#LifePointsCost/fixed">See details</a>
 
-#### <a name="LifePointsCost'Fixed/tag"></a> `tag`
+#### <a name="LifePointsCost/tag"></a> `tag`
 
 - **Constant:** `"Fixed"`
 
-#### <a name="LifePointsCost'Fixed/fixed"></a> `fixed`
+#### <a name="LifePointsCost/fixed"></a> `fixed`
 
 - **Type:** <a href="#FixedLifePointsCost">FixedLifePointsCost</a>
 

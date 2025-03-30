@@ -17,7 +17,7 @@
           "$ref": "#/$defs/ProfessionGroup"
         },
         "versions": {
-          "description": "A list of professions representing the same profession but with (slightly)\ndifferent stats. For example, there may be a profession in a regional\nsourcebook or in the core rules and a profession in an extension rulebook\nlike Magic of Aventuria, where the profession is basically called the same\nand almost has the same values, but the version from Magic of Aventuria\nfeatures a spell style special ability that does not exist in the core\nrules or regional sourcebook.\n\nThe profession representation may feature different values for different\nexplicitly mentioned experience levels. In most cases, there is only one\nstats package, which targets the experience level *Experienced*.",
+          "description": "A list of professions representing the same profession but with (slightly) different stats. For example, there may be a profession in a regional sourcebook or in the core rules and a profession in an extension rulebook like Magic of Aventuria, where the profession is basically called the same and almost has the same values, but the version from Magic of Aventuria features a spell style special ability that does not exist in the core rules or regional sourcebook.\n\nThe profession representation may feature different values for different explicitly mentioned experience levels. In most cases, there is only one stats package, which targets the experience level *Experienced*.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/ProfessionVersion"
@@ -151,7 +151,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The profession representation variant's identifier. An unique, increasing\ninteger.",
+          "description": "The profession representation variant's identifier. An unique, increasing integer.",
           "type": "integer",
           "minimum": 1
         },
@@ -185,7 +185,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The profession representation variant's identifier. An unique, increasing\ninteger.",
+          "description": "The profession representation variant's identifier. An unique, increasing integer.",
           "type": "integer",
           "minimum": 1
         },
@@ -222,7 +222,7 @@
       "type": "object",
       "properties": {
         "experience_level_id": {
-          "description": "The experience level this profession targets. The experience level\nmust be unique for this representation.",
+          "description": "The experience level this profession targets. The experience level must be unique for this representation.",
           "type": "integer",
           "default": 3,
           "maximum": 7,
@@ -248,22 +248,22 @@
           "minimum": 0
         },
         "prerequisites": {
-          "description": "Which prerequisites must be met to buy the stat block? For example, a\ncharacter might need the advantage Spellcaster or Blessed. Note: the AP\ncost for a profession package does not include these prerequisites.",
+          "description": "Which prerequisites must be met to buy the stat block? For example, a character might need the advantage Spellcaster or Blessed. Note: the AP cost for a profession package does not include these prerequisites.",
           "$ref": "./_Prerequisite.schema.json#/$defs/ProfessionPrerequisites"
         },
         "options": {
-          "description": "In some areas, the profession package grants a loose set of stats where the\nplayer must choose between different options for the profession package.",
+          "description": "In some areas, the profession package grants a loose set of stats where the player must choose between different options for the profession package.",
           "$ref": "#/$defs/ProfessionPackageOptions"
         },
         "special_abilities": {
           "description": "Any special abilities the profession receives from the package.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/SpecialAbility"
+            "$ref": "#/$defs/ProfessionSpecialAbility"
           }
         },
         "combat_techniques": {
-          "description": "Provides ratings for the combat techniques that the hero receives from the\npackage.",
+          "description": "Provides ratings for the combat techniques that the hero receives from the package.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/CombatTechniqueRating"
@@ -277,14 +277,14 @@
           }
         },
         "spells": {
-          "description": "The skill ratings a magical profession receives for spells; these spells\nare considered activated. Spells from an unfamiliar Tradition, if any, are\nidentified as such.",
+          "description": "The skill ratings a magical profession receives for spells; these spells are considered activated. Spells from an unfamiliar Tradition, if any, are identified as such.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/SpellRating"
           }
         },
         "liturgical_chants": {
-          "description": "Clerical professions receive these liturgical chants at the listed skill\nratings. These liturgical chants are considered activated.",
+          "description": "Clerical professions receive these liturgical chants at the listed skill ratings. These liturgical chants are considered activated.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/LiturgicalChantRating"
@@ -329,7 +329,7 @@
           "minItems": 1
         },
         "unsuitable_advantages": {
-          "description": "These advantages do not fit well with this profession; to be checked with\nthe GM before taking any of them.",
+          "description": "These advantages do not fit well with this profession; to be checked with the GM before taking any of them.",
           "type": "array",
           "items": {
             "title": "Commonness-rated Advantage/Disadvantage",
@@ -348,7 +348,7 @@
           "minItems": 1
         },
         "unsuitable_disadvantages": {
-          "description": "These disadvantages do not fit well with this profession; to be checked\nwith the GM before taking any of them.",
+          "description": "These disadvantages do not fit well with this profession; to be checked with the GM before taking any of them.",
           "type": "array",
           "items": {
             "title": "Commonness-rated Advantage/Disadvantage",
@@ -367,7 +367,7 @@
           "minItems": 1
         },
         "variants": {
-          "description": "Provides examples of variants for the profession, which may include changes\nto AP values and additional or modified skill ratings, special abilities,\nor combat techniques, as compared to the basic profession. Usually picking\na variant is optional, but there are some rare exceptions where picking a\nvariant is required.",
+          "description": "Provides examples of variants for the profession, which may include changes to AP values and additional or modified skill ratings, special abilities, or combat techniques, as compared to the basic profession. Usually picking a variant is optional, but there are some rare exceptions where picking a variant is required.",
           "$ref": "#/$defs/ProfessionVariants"
         }
       },
@@ -384,7 +384,7 @@
           "$ref": "#/$defs/ProfessionName"
         },
         "specification": {
-          "description": "A name addition of the profession. This will contain texts like name of\nthe academy or the witch circle. It is enclosed in parenthesis, but the\ndatabase entry must not contain parenthesis.",
+          "description": "A name addition of the profession. This will contain texts like name of the academy or the witch circle. It is enclosed in parenthesis, but the database entry must not contain parenthesis.",
           "$ref": "#/$defs/ProfessionName"
         },
         "suggested_advantages": {
@@ -396,11 +396,11 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "unsuitable_advantages": {
-          "description": "These advantages do not fit well with this profession; to be checked with\nthe GM before taking any of them.",
+          "description": "These advantages do not fit well with this profession; to be checked with the GM before taking any of them.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "unsuitable_disadvantages": {
-          "description": "These disadvantages do not fit well with this profession; to be checked\nwith the GM before taking any of them.",
+          "description": "These disadvantages do not fit well with this profession; to be checked with the GM before taking any of them.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "errata": {
@@ -413,7 +413,7 @@
       "additionalProperties": false
     },
     "ProfessionVariants": {
-      "description": "Provides examples of variants for the profession, which may include changes\nto AP values and additional or modified skill ratings, special abilities, or\ncombat techniques, as compared to the basic profession. Usually picking a\nvariant is optional, but there are some rare exceptions where picking a\nvariant is required.",
+      "description": "Provides examples of variants for the profession, which may include changes to AP values and additional or modified skill ratings, special abilities, or combat techniques, as compared to the basic profession. Usually picking a variant is optional, but there are some rare exceptions where picking a variant is required.",
       "type": "object",
       "properties": {
         "is_selection_required": {
@@ -449,7 +449,7 @@
           "type": "integer"
         },
         "prerequisites": {
-          "description": "Which prerequisites must be met to buy the stat block? For example, a\ncharacter might need the advantage Spellcaster or Blessed. Note: the AP\ncost for a profession package does not include these prerequisites.",
+          "description": "Which prerequisites must be met to buy the stat block? For example, a character might need the advantage Spellcaster or Blessed. Note: the AP cost for a profession package does not include these prerequisites.",
           "$ref": "./_Prerequisite.schema.json#/$defs/ProfessionPrerequisites"
         },
         "options": {
@@ -463,7 +463,7 @@
           }
         },
         "combat_techniques": {
-          "description": "Provides ratings for the combat techniques that the hero receives from the\npackage variant.",
+          "description": "Provides ratings for the combat techniques that the hero receives from the package variant.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/CombatTechniqueRating"
@@ -477,14 +477,14 @@
           }
         },
         "spells": {
-          "description": "The skill ratings a magical profession variant receives for spells; these\nspells are considered activated. Spells from an unfamiliar Tradition, if\nany, are identified as such.",
+          "description": "The skill ratings a magical profession variant receives for spells; these spells are considered activated. Spells from an unfamiliar Tradition, if any, are identified as such.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/SpellRating"
           }
         },
         "liturgical_chants": {
-          "description": "Clerical professions receive these liturgical chants at the listed skill\nratings. These liturgical chants are considered activated.",
+          "description": "Clerical professions receive these liturgical chants at the listed skill ratings. These liturgical chants are considered activated.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/LiturgicalChantRating"
@@ -530,7 +530,7 @@
       ],
       "additionalProperties": false
     },
-    "SpecialAbility": {
+    "ProfessionSpecialAbility": {
       "oneOf": [
         {
           "type": "object",
@@ -598,7 +598,7 @@
           "minimum": 1
         },
         "options": {
-          "description": "Received select options. Order is important. Typically, you only need the\nfirst array index, though.",
+          "description": "Received select options. Order is important. Typically, you only need the first array index, though.",
           "type": "array",
           "items": {
             "$ref": "./_IdentifierGroup.schema.json#/$defs/RequirableSelectOptionIdentifier"
@@ -655,7 +655,7 @@
           "$ref": "./_IdentifierGroup.schema.json#/$defs/SpecialAbilityIdentifier"
         },
         "active": {
-          "description": "if set to `false`, if the selection is granted by the basic package, it\nis removed.",
+          "description": "if set to `false`, if the selection is granted by the basic package, it is removed.",
           "const": false
         },
         "level": {
@@ -664,7 +664,7 @@
           "minimum": 1
         },
         "options": {
-          "description": "Received select options. Order is important. Typically, you only need the\nfirst array index, though.",
+          "description": "Received select options. Order is important. Typically, you only need the first array index, though.",
           "type": "array",
           "items": {
             "$ref": "./_IdentifierGroup.schema.json#/$defs/RequirableSelectOptionIdentifier"
@@ -681,7 +681,7 @@
       "type": "object",
       "properties": {
         "active": {
-          "description": "if set to `false`, if the selection is granted by the basic package, it\nis removed.",
+          "description": "if set to `false`, if the selection is granted by the basic package, it is removed.",
           "const": false
         },
         "options": {
@@ -705,7 +705,7 @@
           "$ref": "./_IdentifierGroup.schema.json#/$defs/CombatTechniqueIdentifier"
         },
         "rating": {
-          "description": "The rating bonus provided for the combat technique. If used in a profession\nvariant, it can also be used to lower the bonus of the base profession.\n\n**Note:** This is a rating *bonus*, so it will be *added* to the default\nvalue of 6.",
+          "description": "The rating bonus provided for the combat technique. If used in a profession variant, it can also be used to lower the bonus of the base profession.\n\n**Note:** This is a rating *bonus*, so it will be *added* to the default\nvalue of 6.",
           "type": "integer",
           "maximum": 6,
           "minimum": -6
@@ -725,7 +725,7 @@
           "$ref": "./_Identifier.schema.json#/$defs/SkillIdentifier"
         },
         "rating": {
-          "description": "The rating bonus provided for the skill. If used in a profession variant,\nit can also be used to lower the bonus of the base profession",
+          "description": "The rating bonus provided for the skill. If used in a profession variant, it can also be used to lower the bonus of the base profession",
           "type": "integer",
           "maximum": 8,
           "minimum": -8
@@ -741,15 +741,15 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The identifier(s) of the spell(s) to choose from to provide the rating for.\nIf multiple spells are provided, they must all have the same improvement\ncost.",
+          "description": "The identifier(s) of the spell(s) to choose from to provide the rating for. If multiple spells are provided, they must all have the same improvement cost.",
           "type": "array",
           "items": {
-            "$ref": "#/$defs/SpellIdentifier"
+            "$ref": "#/$defs/ProfessionSpellIdentifier"
           },
           "minItems": 1
         },
         "rating": {
-          "description": "The rating bonus provided for the (selected) spell. If used in a profession\nvariant, it can also be used to lower the bonus of the base profession.",
+          "description": "The rating bonus provided for the (selected) spell. If used in a profession variant, it can also be used to lower the bonus of the base profession.",
           "type": "integer",
           "maximum": 10,
           "minimum": -10
@@ -761,7 +761,7 @@
       ],
       "additionalProperties": false
     },
-    "SpellIdentifier": {
+    "ProfessionSpellIdentifier": {
       "oneOf": [
         {
           "type": "object",
@@ -805,7 +805,7 @@
           "$ref": "./_IdentifierGroup.schema.json#/$defs/SpellworkIdentifier"
         },
         "tradition": {
-          "description": "If the spell is not part of the magical tradition required by the\npackage, this references the magical tradition it is part of. It can also\nbe used to define the target magical tradition of a spell if multiple\nmagical traditions are required and the spell is available to multiple\nof them.",
+          "description": "If the spell is not part of the magical tradition required by the package, this references the magical tradition it is part of. It can also be used to define the target magical tradition of a spell if multiple magical traditions are required and the spell is available to multiple of them.",
           "$ref": "./_SimpleReferences.schema.json#/$defs/MagicalTraditionReference"
         }
       },
@@ -831,7 +831,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "description": "The identifier(s) of the liturgical chant(s) to choose from to provide\nthe rating for. If multiple liturgical chants are provided, they must all\nhave the same improvement cost.",
+          "description": "The identifier(s) of the liturgical chant(s) to choose from to provide the rating for. If multiple liturgical chants are provided, they must all have the same improvement cost.",
           "type": "array",
           "items": {
             "$ref": "./_IdentifierGroup.schema.json#/$defs/LiturgyIdentifier"
@@ -839,7 +839,7 @@
           "minItems": 1
         },
         "rating": {
-          "description": "The rating bonus provided for the selected liturgical chant. If used in a\nprofession variant, it can also be used to lower the bonus of the base\nprofession.",
+          "description": "The rating bonus provided for the selected liturgical chant. If used in a profession variant, it can also be used to lower the bonus of the base profession.",
           "type": "integer",
           "maximum": 10,
           "minimum": -10
@@ -852,7 +852,7 @@
       "additionalProperties": false
     },
     "ProfessionPackageOptions": {
-      "description": "In some areas, the profession package grants a loose set of stats where the\nplayer must choose between different options for the profession package.",
+      "description": "In some areas, the profession package grants a loose set of stats where the player must choose between different options for the profession package.",
       "type": "object",
       "properties": {
         "skill_specialization": {
@@ -882,7 +882,7 @@
       "additionalProperties": false
     },
     "ProfessionVariantPackageOptions": {
-      "description": "In some areas, the profession package grants a loose set of stats where the\nplayer must choose between different options for the profession package. The\nvariant may override or remove those options.",
+      "description": "In some areas, the profession package grants a loose set of stats where the player must choose between different options for the profession package. The variant may override or remove those options.",
       "type": "object",
       "properties": {
         "skill_specialization": {
@@ -1164,7 +1164,7 @@
       "additionalProperties": false
     },
     "SkillSpecializationOptions": {
-      "description": "Select an application from a skill or from one of a list of skills where you\nget a skill specialization for. You can also specify a skill groups from\nwhich you can choose a skill.",
+      "description": "Select an application from a skill or from one of a list of skills where you get a skill specialization for. You can also specify a skill groups from which you can choose a skill.",
       "oneOf": [
         {
           "type": "object",
@@ -1242,7 +1242,7 @@
       "type": "object",
       "properties": {
         "fixed": {
-          "description": "Specify the number of combat techniques that can be selected so that they\nget increased to a specific CtR. There can be multiple selections with\ndifferent CtRs.",
+          "description": "Specify the number of combat techniques that can be selected so that they get increased to a specific CtR. There can be multiple selections with different CtRs.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/RatingForCombatTechniquesNumber"
@@ -1250,7 +1250,7 @@
           "minItems": 1
         },
         "rest_rating": {
-          "description": "Define if after the fixed selections the remaining unselected combat\ntechniques will receive a certain rating bonus as well.",
+          "description": "Define if after the fixed selections the remaining unselected combat techniques will receive a certain rating bonus as well.",
           "type": "integer",
           "maximum": 6,
           "minimum": 1
@@ -1387,32 +1387,38 @@
       "description": "The name of the profession that may have sex-specific names.",
       "oneOf": [
         {
-          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+          "$ref": "#/$defs/SimpleProfessionName"
         },
         {
-          "type": "object",
-          "properties": {
-            "default": {
-              "description": "The name from the source publication.",
-              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-            },
-            "male": {
-              "description": "The male name.",
-              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-            },
-            "female": {
-              "description": "The female name.",
-              "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
-            }
-          },
-          "required": [
-            "default",
-            "male",
-            "female"
-          ],
-          "additionalProperties": false
+          "$ref": "#/$defs/ProfessionNameBySex"
         }
       ]
+    },
+    "SimpleProfessionName": {
+      "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+    },
+    "ProfessionNameBySex": {
+      "type": "object",
+      "properties": {
+        "default": {
+          "description": "The name from the source publication.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "male": {
+          "description": "The male name.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "female": {
+          "description": "The female name.",
+          "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        }
+      },
+      "required": [
+        "default",
+        "male",
+        "female"
+      ],
+      "additionalProperties": false
     }
   }
 }

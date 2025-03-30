@@ -2,15 +2,28 @@
  * @title Prerequisites
  */
 
-import { DisplayOption } from "./prerequisites/DisplayOption.js"
-import { AdvantageDisadvantagePrerequisiteGroup, AnimistPowerPrerequisiteGroup, ArcaneTraditionPrerequisiteGroup, DerivedCharacteristicPrerequisiteGroup, EnhancementPrerequisiteGroup, GeneralPrerequisiteGroup, GeodeRitualPrerequisiteGroup, InfluencePrerequisiteGroup, LanguagePrerequisiteGroup, LiturgyPrerequisiteGroup, PersonalityTraitPrerequisiteGroup, ProfessionPrerequisiteGroup, PublicationPrerequisiteGroup, SpellworkPrerequisiteGroup } from "./prerequisites/PrerequisiteGroups.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
+import { DisplayOption } from "./prerequisites/DisplayOption.js"
+import {
+  AdvantageDisadvantagePrerequisiteGroup,
+  AnimistPowerPrerequisiteGroup,
+  ArcaneTraditionPrerequisiteGroup,
+  DerivedCharacteristicPrerequisiteGroup,
+  EnhancementPrerequisiteGroup,
+  GeneralPrerequisiteGroup,
+  GeodeRitualPrerequisiteGroup,
+  InfluencePrerequisiteGroup,
+  LanguagePrerequisiteGroup,
+  LiturgyPrerequisiteGroup,
+  PersonalityTraitPrerequisiteGroup,
+  ProfessionPrerequisiteGroup,
+  PublicationPrerequisiteGroup,
+  SpellworkPrerequisiteGroup,
+} from "./prerequisites/PrerequisiteGroups.js"
 
 /**
- * A prerequisite group has no influence on validation logic. It serves as a
- * single unit for displaying purposes, where the source uses a prerequisites
- * item that cannot be represented as a single prerequisite.
+ * A prerequisite group has no influence on validation logic. It serves as a single unit for displaying purposes, where the source uses a prerequisites item that cannot be represented as a single prerequisite.
  */
 export type PrerequisiteGroup<T> = {
   /**
@@ -58,7 +71,8 @@ export type PrerequisiteForLevel<T> = {
  */
 export type PrerequisitesForLevels<T> = PrerequisiteForLevel<T>[]
 
-export type DerivedCharacteristicPrerequisites = PlainPrerequisites<DerivedCharacteristicPrerequisiteGroup>
+export type DerivedCharacteristicPrerequisites =
+  PlainPrerequisites<DerivedCharacteristicPrerequisiteGroup>
 
 export type PublicationPrerequisites = PlainPrerequisites<PublicationPrerequisiteGroup>
 
@@ -80,7 +94,8 @@ export type ProfessionPrerequisites = PlainPrerequisites<ProfessionPrerequisiteG
 /**
  * @title Advantage/Disadvantage Prerequisites
  */
-export type AdvantageDisadvantagePrerequisites = PrerequisitesForLevels<AdvantageDisadvantagePrerequisiteGroup>
+export type AdvantageDisadvantagePrerequisites =
+  PrerequisitesForLevels<AdvantageDisadvantagePrerequisiteGroup>
 
 /**
  * @title Arcane Tradition Prerequisites

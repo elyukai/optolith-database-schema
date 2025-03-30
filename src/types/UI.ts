@@ -1,8 +1,8 @@
 /**
  * @main UI
+ * @ignore swift
  */
 
-import { Result } from "../helpers/result.js"
 import { TypeConfig } from "../typeConfig.js"
 import { validateLanguageFileName } from "../validation/builders/naming.js"
 import { createSchemaValidator } from "../validation/builders/schema.js"
@@ -1066,6 +1066,75 @@ export type UI = {
   "Note": NonEmptyString
   "all": NonEmptyString
 
+  "none": NonEmptyString
+  "State": NonEmptyString
+  "Social Status {0} or higher": NonEmptyString
+  "Person with {0}": NonEmptyString
+  "Penis": NonEmptyString
+  "Vagina": NonEmptyString
+  "the SR for {0} combined must add up to at least {1}": NonEmptyString
+  "{0} on at least SR {1}: {2}": NonEmptyString
+  "{0} arcane works with the property {1} at SR {2} or higher": NonEmptyString
+  "{0} liturgical chants and ceremonies with the aspect {1} at SR {2} or higher": NonEmptyString
+  "one of the following skills": NonEmptyString
+  "two of the following skills": NonEmptyString
+  "three of the following skills": NonEmptyString
+  "four of the following skills": NonEmptyString
+  "five of the following skills": NonEmptyString
+  "six of the following skills": NonEmptyString
+  "seven of the following skills": NonEmptyString
+  "eight of the following skills": NonEmptyString
+  "nine of the following skills": NonEmptyString
+  "{0} of the following skills": NonEmptyString
+  "one combat technique": NonEmptyString
+  "two combat techniques": NonEmptyString
+  "three combat techniques": NonEmptyString
+  "four combat techniques": NonEmptyString
+  "five combat techniques": NonEmptyString
+  "six combat techniques": NonEmptyString
+  "seven combat techniques": NonEmptyString
+  "eight combat techniques": NonEmptyString
+  "nine combat techniques": NonEmptyString
+  "{0} combat techniques": NonEmptyString
+  "one close combat technique": NonEmptyString
+  "two close combat techniques": NonEmptyString
+  "three close combat techniques": NonEmptyString
+  "four close combat techniques": NonEmptyString
+  "five close combat techniques": NonEmptyString
+  "six close combat techniques": NonEmptyString
+  "seven close combat techniques": NonEmptyString
+  "eight close combat techniques": NonEmptyString
+  "nine close combat techniques": NonEmptyString
+  "{0} close combat techniques": NonEmptyString
+  "one ranged combat technique": NonEmptyString
+  "two ranged combat techniques": NonEmptyString
+  "three ranged combat techniques": NonEmptyString
+  "four ranged combat techniques": NonEmptyString
+  "five ranged combat techniques": NonEmptyString
+  "six ranged combat techniques": NonEmptyString
+  "seven ranged combat techniques": NonEmptyString
+  "eight ranged combat techniques": NonEmptyString
+  "nine ranged combat techniques": NonEmptyString
+  "{0} ranged combat techniques": NonEmptyString
+  "special ability": NonEmptyString
+  "no special ability": NonEmptyString
+  "Tradition": NonEmptyString
+  "Tradition ({0})": NonEmptyString
+  "Church": NonEmptyString
+  "Shaman": NonEmptyString
+  "Tradition must be able to use rituals": NonEmptyString
+  "Tradition must be able to bind familiars": NonEmptyString
+  "spell enhancement": NonEmptyString
+  "liturgical enhancement": NonEmptyString
+  "for": NonEmptyString
+  "no other ancestor blood advantage": NonEmptyString
+  "Race, culture, or profession must have {0} as an automatic or suggested {1}": NonEmptyString
+  "advantage": NonEmptyString
+  "disadvantage": NonEmptyString
+  "domain {0}": NonEmptyString
+  "{0} level {1}": NonEmptyString
+  "Level {0}:": NonEmptyString
+
   "inlinewiki.castingtime": NonEmptyString
   "inlinewiki.ritualtime": NonEmptyString
   "inlinewiki.aecost": NonEmptyString
@@ -1287,7 +1356,7 @@ export type UI = {
 export const config: TypeConfig<UI, string, "UI"> = {
   name: "UI",
   id: getFilenameAsStringId,
-  integrityValidator: () => Result.ok(undefined),
+  integrityValidator: () => ({ tag: "Ok", value: undefined }),
   schemaValidator: createSchemaValidator(import.meta.url),
   fileNameValidator: validateLanguageFileName,
 }

@@ -13,8 +13,7 @@ Key | Description | Details
 
 #### <a name="BlessedTraditionPrerequisite/restriction"></a> `restriction?`
 
-The blessed tradition prerequisite may only be satified if the blessed
-tradition is either church or shamanistic.
+The blessed tradition prerequisite may only be satified if the blessed tradition is either church or shamanistic.
 
 - **Type:** <a href="#BlessedTraditionPrerequisiteRestriction">BlessedTraditionPrerequisiteRestriction</a>
 
@@ -26,8 +25,7 @@ tradition is either church or shamanistic.
 
 ### <a name="BlessedTraditionPrerequisiteRestriction"></a> `BlessedTraditionPrerequisiteRestriction`
 
-The blessed tradition prerequisite may only be satified if the blessed
-tradition is either church or shamanistic.
+The blessed tradition prerequisite may only be satified if the blessed tradition is either church or shamanistic.
 
 - **Type:** Union
 - **Cases:** <a href="#BlessedTraditionPrerequisiteRestriction'0">BlessedTraditionPrerequisiteRestriction'0</a> | <a href="#BlessedTraditionPrerequisiteRestriction'1">BlessedTraditionPrerequisiteRestriction'1</a>
@@ -57,8 +55,7 @@ Key | Description | Details
 
 #### <a name="MagicalTraditionPrerequisite/restriction"></a> `restriction?`
 
-The magical tradition prerequisite may only be satified if the magical
-tradition can learn rituals or can bind familiars.
+The magical tradition prerequisite may only be satified if the magical tradition can learn rituals or can bind familiars.
 
 - **Type:** <a href="#MagicalTraditionPrerequisiteRestriction">MagicalTraditionPrerequisiteRestriction</a>
 
@@ -70,8 +67,7 @@ tradition can learn rituals or can bind familiars.
 
 ### <a name="MagicalTraditionPrerequisiteRestriction"></a> `MagicalTraditionPrerequisiteRestriction`
 
-The magical tradition prerequisite may only be satified if the magical
-tradition can learn rituals or can bind familiars.
+The magical tradition prerequisite may only be satified if the magical tradition can learn rituals or can bind familiars.
 
 - **Type:** Union
 - **Cases:** <a href="#MagicalTraditionPrerequisiteRestriction'0">MagicalTraditionPrerequisiteRestriction'0</a> | <a href="#MagicalTraditionPrerequisiteRestriction'1">MagicalTraditionPrerequisiteRestriction'1</a>

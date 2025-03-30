@@ -50,7 +50,7 @@ Key | Description | Details
 
 #### <a name="StaffEnchantment/property"></a> `property`
 
-- **Type:** <a href="#Property">Property</a>
+- **Type:** <a href="#PropertyDeclaration">PropertyDeclaration</a>
 
 #### <a name="StaffEnchantment/ap_value"></a> `ap_value`
 
@@ -116,8 +116,7 @@ A note, appended to the generated cost string in parenthesis.
 
 #### <a name="StaffEnchantmentTranslation/ap_value"></a> `ap_value?`
 
-The AP value. It is only used if the text cannot be generated from the
-given information.
+The AP value. It is only used if the text cannot be generated from the given information.
 
 - **Type:** <a href="#AdventurePointsValueReplacement">AdventurePointsValueReplacement</a>
 

@@ -46,7 +46,7 @@
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "effects": {
-          "description": "The effects of the influence. They should be sorted like they are in\nthe book.",
+          "description": "The effects of the influence. They should be sorted like they are in the book.",
           "type": "array",
           "items": {
             "$ref": "#/$defs/InfluenceEffect"
@@ -67,7 +67,7 @@
       "type": "object",
       "properties": {
         "label": {
-          "description": "An optional label that is displayed and placed before the actual\ntext.",
+          "description": "An optional label that is displayed and placed before the actual text.",
           "$ref": "./_NonEmptyString.schema.json#/$defs/NonEmptyString"
         },
         "text": {

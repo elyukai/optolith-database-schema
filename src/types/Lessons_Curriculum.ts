@@ -7,7 +7,12 @@ import { todo } from "../validation/builders/integrity.js"
 import { validateEntityFileName } from "../validation/builders/naming.js"
 import { createSchemaValidator } from "../validation/builders/schema.js"
 import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
-import { ElementIdentifier, MagicalTraditionIdentifier, PropertyIdentifier, SkillIdentifier } from "./_Identifier.js"
+import {
+  ElementIdentifier,
+  MagicalTraditionIdentifier,
+  PropertyIdentifier,
+  SkillIdentifier,
+} from "./_Identifier.js"
 import { CombatTechniqueIdentifier, SpellworkIdentifier } from "./_IdentifierGroup.js"
 import { LocaleMap } from "./_LocaleMap.js"
 import { NonEmptyString } from "./_NonEmptyString.js"
@@ -16,9 +21,7 @@ import { Errata } from "./source/_Erratum.js"
 import { PublicationRefs } from "./source/_PublicationRef.js"
 
 /**
- * This is a curriculum of a specified academy, containing the guideline,
- * elective and restricted spellworks as well as the lesson packages of that
- * academy.
+ * This is a curriculum of a specified academy, containing the guideline, elective and restricted spellworks as well as the lesson packages of that academy.
  * @title Curriculum
  */
 export type Curriculum = {
@@ -84,22 +87,18 @@ export type ElectiveSpellwork = {
   id: SpellworkIdentifier
 
   /**
-   * The elective spellwork may only take effect if a certain condition is met.
-   * The condition may be related to professions or profession variants, but it
-   * is designed so that it can work without a specific profession, as multiple
-   * may belong to an institute, but with referencing other entities instead.
+   * The elective spellwork may only take effect if a certain condition is met. The condition may be related to professions or profession variants, but it is designed so that it can work without a specific profession, as multiple may belong to an institute, but with referencing other entities instead.
    */
   restriction?: ElectiveSpellworkRestriction
 }
 
 /**
- * The elective spellwork may only take effect if a certain condition is met.
- * The condition may be related to professions or profession variants, but it is
- * designed so that it can work without a specific profession, as multiple may
- * belong to an institute, but with referencing other entities instead.
+ * The elective spellwork may only take effect if a certain condition is met. The condition may be related to professions or profession variants, but it is designed so that it can work without a specific profession, as multiple may belong to an institute, but with referencing other entities instead.
  */
-export type ElectiveSpellworkRestriction =
-  | { tag: "Element"; element: ElectiveSpellworkElementRestriction }
+export type ElectiveSpellworkRestriction = {
+  tag: "Element"
+  element: ElectiveSpellworkElementRestriction
+}
 
 export type ElectiveSpellworkElementRestriction = {
   id: ElementIdentifier
@@ -136,17 +135,17 @@ export type RestrictedProperty = {
   exclude?: SpellworkIdentifier[]
 
   /**
-   * Spellworks from this property up to a certain number are allowed.
-   * Spellworks excluded from this restriction definition using `exclude` do
-   * not contribute to the maximum.
+   * Spellworks from this property up to a certain number are allowed. Spellworks excluded from this restriction definition using `exclude` do not contribute to the maximum.
    */
   maximum?: number
 }
 
 /**
  * A list of available lesson packages.
+ * @minItems 2
+ * @maxItems 2
  */
-export type LessonPackages = [LessonPackage, LessonPackage]
+export type LessonPackages = LessonPackage[]
 
 /**
  * @title Lesson Package
@@ -161,10 +160,7 @@ export type LessonPackage = {
   id: number
 
   /**
-   * The spell values difference of the lesson package. This field reflects the
-   * changes (difference) to the field of the same name in the profession
-   * package. If a spell gets to SR 0 because of this, it will be removed
-   * completely.
+   * The spell values difference of the lesson package. This field reflects the changes (difference) to the field of the same name in the profession package. If a spell gets to SR 0 because of this, it will be removed completely.
    * @minItems 1
    */
   spellwork_changes?: SpellworkChange[]
@@ -189,8 +185,7 @@ export type LessonPackageTranslation = {
   name: NonEmptyString
 
   /**
-   * The spell values difference of the lesson package. Use this field to
-   * specify a text that is displayed instead of the generated
+   * The spell values difference of the lesson package. Use this field to specify a text that is displayed instead of the generated
    * `spellwork_changes` list. The field is displayed even if no list is
    * present.
    */
@@ -206,8 +201,7 @@ export type CombatTechniqueAdjustment = {
   id: CombatTechniqueIdentifier
 
   /**
-   * The combat technique points that will be added to the current combat
-   * technique rating.
+   * The combat technique points that will be added to the current combat technique rating.
    * @integer
    * @minimum -6
    * @maximum 6
@@ -236,9 +230,7 @@ export type SpellworkAdjustment = {
   id: SpellworkIdentifier
 
   /**
-   * The skill points that will be added to the current skill rating. If a
-   * spell gets to a skill rating of 0 because of this, it will be removed
-   * completely.
+   * The skill points that will be added to the current skill rating. If a spell gets to a skill rating of 0 because of this, it will be removed completely.
    * @integer
    * @minimum -10
    * @maximum 10
@@ -246,8 +238,7 @@ export type SpellworkAdjustment = {
   points: number
 
   /**
-   * The target tradition. If the target spell is not from the Guild Mage
-   * tradition, specify the tradition identifier here.
+   * The target tradition. If the target spell is not from the Guild Mage tradition, specify the tradition identifier here.
    */
   tradition?: MagicalTraditionIdentifier
 }

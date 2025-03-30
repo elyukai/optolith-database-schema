@@ -5,35 +5,35 @@ import { ResponsiveText, ResponsiveTextOptional, ResponsiveTextReplace } from ".
 
 export type OneTimeCost =
   | {
-    tag: "Single"
-    single: SingleOneTimeCost
-  }
+      tag: "Single"
+      single: SingleOneTimeCost
+    }
   | {
-    tag: "Conjunction"
-    conjunction: MultipleOneTimeCosts
-  }
+      tag: "Conjunction"
+      conjunction: MultipleOneTimeCosts
+    }
   | {
-    tag: "Disjunction"
-    disjunction: MultipleOneTimeCosts
-  }
+      tag: "Disjunction"
+      disjunction: MultipleOneTimeCosts
+    }
   | {
-    tag: "Map"
-    map: CostMap
-  }
+      tag: "Map"
+      map: CostMap
+    }
 
 export type SingleOneTimeCost =
   | {
-    tag: "Modifiable"
-    modifiable: ModifiableOneTimeCost
-  }
+      tag: "Modifiable"
+      modifiable: ModifiableOneTimeCost
+    }
   | {
-    tag: "NonModifiable"
-    non_modifiable: NonModifiableOneTimeCost
-  }
+      tag: "NonModifiable"
+      non_modifiable: NonModifiableOneTimeCost
+    }
   | {
-    tag: "Indefinite"
-    indefinite: IndefiniteOneTimeCost
-  }
+      tag: "Indefinite"
+      indefinite: IndefiniteOneTimeCost
+    }
 
 /**
  * @minItems 2
@@ -90,8 +90,7 @@ export type NonModifiableOneTimeCost = {
   permanent_value?: number
 
   /**
-   * The cost have to be per a specific countable entity, e.g. `8 KP per
-   * person`.
+   * The cost have to be per a specific countable entity, e.g. `8 KP per person`.
    */
   per?: NonModifiableOneTimeCostPerCountable
 
@@ -104,8 +103,7 @@ export type NonModifiableOneTimeCost = {
 
 export type NonModifiableOneTimeCostPerCountable = {
   /**
-   * If defined, the minimum total AE that have to be spent casting the
-   * skill.
+   * If defined, the minimum total AE that have to be spent casting the skill.
    */
   minimum_total?: number
 
@@ -145,8 +143,7 @@ export type IndefiniteOneTimeCostTranslation = {
 }
 
 /**
- * A content that is `2/4/8/16 AE for an item the size of a
- * cup/chest/door/castle gate` may be respresented as the following map:
+ * A content that is `2/4/8/16 AE for an item the size of a cup/chest/door/castle gate` may be respresented as the following map:
  *
  * ```yaml
  * options:
@@ -161,8 +158,7 @@ export type IndefiniteOneTimeCostTranslation = {
  * for_append: "an item the size of a"
  * ```
  *
- * This will generate the exact same string as seen above – given it is set
- * for a spellwork and thus `AE` is used.
+ * This will generate the exact same string as seen above – given it is set for a spellwork and thus `AE` is used.
  */
 export type CostMap = {
   /**
@@ -205,8 +201,7 @@ export type CostMapOptionTranslation = {
   label: NonEmptyString
 
   /**
-   * The description of the option if used standalone. Only used if
-   * different from `label`.
+   * The description of the option if used standalone. Only used if different from `label`.
    */
   label_standalone?: NonEmptyString
 }
@@ -223,23 +218,20 @@ export type CostMapTranslation = {
   list_append?: NonEmptyString
 
   /**
-   * If the string from the book cannot be generated using the default
-   * generation technique, use this string. All options still need to be
-   * inserted propertly, since it may be used by in-game tools to provide a
-   * selection to players.
+   * If the string from the book cannot be generated using the default generation technique, use this string. All options still need to be inserted propertly, since it may be used by in-game tools to provide a selection to players.
    */
   replacement?: NonEmptyString
 }
 
 export type SustainedCost =
   | {
-    tag: "Modifiable"
-    modifiable: ModifiableSustainedCost
-  }
+      tag: "Modifiable"
+      modifiable: ModifiableSustainedCost
+    }
   | {
-    tag: "NonModifiable"
-    non_modifiable: NonModifiableSustainedCost
-  }
+      tag: "NonModifiable"
+      non_modifiable: NonModifiableSustainedCost
+    }
 
 export type ModifiableSustainedCost = {
   /**
@@ -270,8 +262,7 @@ export type NonModifiableSustainedCost = {
   value: number
 
   /**
-   * The cost have to be per a specific countable entity, e.g. `8 KP per
-   * person per 5 minutes`.
+   * The cost have to be per a specific countable entity, e.g. `8 KP per person per 5 minutes`.
    */
   per?: NonModifiableSustainedCostPerCountable
 
@@ -283,8 +274,7 @@ export type NonModifiableSustainedCost = {
 
 export type NonModifiableSustainedCostPerCountable = {
   /**
-   * If defined, the minimum total AE that have to be spent casting the
-   * skill.
+   * If defined, the minimum total AE that have to be spent casting the skill.
    */
   minimum_total?: number
 

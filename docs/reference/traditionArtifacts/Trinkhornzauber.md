@@ -50,7 +50,7 @@ Key | Description | Details
 
 #### <a name="Trinkhornzauber/property"></a> `property`
 
-- **Type:** <a href="#Property">Property</a>
+- **Type:** <a href="#PropertyDeclaration">PropertyDeclaration</a>
 
 #### <a name="Trinkhornzauber/ap_value"></a> `ap_value`
 

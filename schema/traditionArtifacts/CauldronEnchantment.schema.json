@@ -26,14 +26,14 @@
           "$ref": "../_Activatable.schema.json#/$defs/Volume"
         },
         "brew": {
-          "description": "Witches can learn to brew special things in their Witch's Cauldron. These\nbrews can be categorized in different types.",
+          "description": "Witches can learn to brew special things in their Witch's Cauldron. These brews can be categorized in different types.",
           "$ref": "#/$defs/BrewReference"
         },
         "cost": {
           "$ref": "../_Activatable.schema.json#/$defs/EnchantmentCost"
         },
         "property": {
-          "$ref": "../_Activatable.schema.json#/$defs/Property"
+          "$ref": "../_Activatable.schema.json#/$defs/PropertyDeclaration"
         },
         "ap_value": {
           "$ref": "../_Activatable.schema.json#/$defs/AdventurePointsValue"

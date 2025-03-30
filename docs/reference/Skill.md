@@ -32,9 +32,7 @@ Lists the linked three attributes used to make a skill check.
 
 #### <a name="Skill/applications"></a> `applications`
 
-Lists applications for the skill, if any. This does not necessarily include
-all possible applications. There may also be new applications that could be
-purchased via certain advantages or special abilities.
+Lists applications for the skill, if any. This does not necessarily include all possible applications. There may also be new applications that could be purchased via certain advantages or special abilities.
 
 - **Type:** <a href="#Applications">Applications</a>
 
@@ -42,7 +40,7 @@ purchased via certain advantages or special abilities.
 
 Indicates whether encumbrance gives a penalty for checks with the skill.
 
-- **Type:** <a href="#Encumbrance">Encumbrance</a>
+- **Type:** <a href="#EncumbranceInfluence">EncumbranceInfluence</a>
 
 #### <a name="Skill/improvement_cost"></a> `improvement_cost`
 
@@ -92,24 +90,19 @@ The name of the skill.
 
 #### <a name="SkillTranslation/applications_input_label"></a> `applications_input_label?`
 
-If there are options available that can not be put into a selection
-list (like different cults), provide the label text for the input
-element here. Otherwise leave empty.
+If there are options available that can not be put into a selection list (like different cults), provide the label text for the input element here. Otherwise leave empty.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="SkillTranslation/encumbrance_description"></a> `encumbrance_description?`
 
-The text listing the certain circumstances in which the encumbrance may
-count. This text must be used if `encumbrance` is set to `"Maybe"`,
-otherwise it is ignored if defined.
+The text listing the certain circumstances in which the encumbrance may count. This text must be used if `encumbrance` is set to `"Maybe"`, otherwise it is ignored if defined.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyString">NonEmptyString</a>
 
 #### <a name="SkillTranslation/tools"></a> `tools?`
 
-Mentions any tools from the equipment list that are necessary to employ
-the skill.
+Mentions any tools from the equipment list that are necessary to employ the skill.
 
 - **Type:** <a href="./_NonEmptyString.md#NonEmptyMarkdown">NonEmptyMarkdown</a>
 
@@ -145,8 +138,7 @@ Lists examples of results for botches.
 
 ### <a name="ApplicationCategory"></a> `ApplicationCategory`
 
-A category. All available entries from the specified category will be
-included as separate applications.
+A category. All available entries from the specified category will be included as separate applications.
 
 - **Type:** Union
 - **Cases:** <a href="#ApplicationCategory'0">ApplicationCategory'0</a> | <a href="#ApplicationCategory'1">ApplicationCategory'1</a> | <a href="#ApplicationCategory'2">ApplicationCategory'2</a>
@@ -275,27 +267,27 @@ The skill application's name.
 
 ---
 
-### <a name="Encumbrance"></a> `Encumbrance`
+### <a name="EncumbranceInfluence"></a> `EncumbranceInfluence`
 
 Indicates whether encumbrance gives a penalty for checks with the skill.
 
 - **Type:** Union
-- **Cases:** <a href="#Encumbrance'0">Encumbrance'0</a> | <a href="#Encumbrance'1">Encumbrance'1</a> | <a href="#Encumbrance'2">Encumbrance'2</a>
+- **Cases:** <a href="#EncumbranceInfluence'0">EncumbranceInfluence'0</a> | <a href="#EncumbranceInfluence'1">EncumbranceInfluence'1</a> | <a href="#EncumbranceInfluence'2">EncumbranceInfluence'2</a>
 
 ---
 
-### <a name="Encumbrance'0"></a> `Encumbrance'0`
+### <a name="EncumbranceInfluence'0"></a> `EncumbranceInfluence'0`
 
 - **Constant:** `"True"`
 
 ---
 
-### <a name="Encumbrance'1"></a> `Encumbrance'1`
+### <a name="EncumbranceInfluence'1"></a> `EncumbranceInfluence'1`
 
 - **Constant:** `"False"`
 
 ---
 
-### <a name="Encumbrance'2"></a> `Encumbrance'2`
+### <a name="EncumbranceInfluence'2"></a> `EncumbranceInfluence'2`
 
 - **Constant:** `"Maybe"`

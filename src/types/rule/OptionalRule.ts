@@ -24,8 +24,7 @@ export type OptionalRule = {
   id: number
 
   /**
-   * Has the focus rule not been implemented in Optolith yet? This is also true
-   * if the focus rule does not (currently) apply to any Optolith feature.
+   * Has the focus rule not been implemented in Optolith yet? This is also true if the focus rule does not (currently) apply to any Optolith feature.
    */
   is_missing_implementation: boolean
 

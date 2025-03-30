@@ -29,7 +29,7 @@ export type CeremonialItemSpecialAbility = {
 
   maximum?: Activatable.Maximum
 
-  aspect?: Activatable.Aspect
+  aspect?: Activatable.AspectDeclaration
 
   prerequisites?: GeneralPrerequisites
 
@@ -53,15 +53,18 @@ export type CeremonialItemSpecialAbilityTranslation = {
   effect: Activatable.Effect
 
   /**
-   * The prerequisites text. It is only used if the text cannot be generated
-   * from the given information.
+   * The prerequisites text. It is only used if the text cannot be generated from the given information.
    */
   prerequisites?: Activatable.PrerequisitesReplacement
 
   errata?: Errata
 }
 
-export const config: TypeConfig<CeremonialItemSpecialAbility, CeremonialItemSpecialAbility["id"], "CeremonialItemSpecialAbility"> = {
+export const config: TypeConfig<
+  CeremonialItemSpecialAbility,
+  CeremonialItemSpecialAbility["id"],
+  "CeremonialItemSpecialAbility"
+> = {
   name: "CeremonialItemSpecialAbility",
   id: getFilenamePrefixAsNumericId,
   integrityValidator: todo("CeremonialItemSpecialAbility"),
