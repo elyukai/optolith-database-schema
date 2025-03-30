@@ -1258,7 +1258,7 @@
 ### <a name="EquipmentIdentifier"></a> `EquipmentIdentifier`
 
 - **Type:** Union
-- **Cases:** <a href="#EquipmentIdentifier'AmmunitionIdentifier">EquipmentIdentifier'AmmunitionIdentifier</a> | <a href="#EquipmentIdentifier'AnimalIdentifier">EquipmentIdentifier'AnimalIdentifier</a> | <a href="#EquipmentIdentifier'AnimalCareIdentifier">EquipmentIdentifier'AnimalCareIdentifier</a> | <a href="#EquipmentIdentifier'ArmorIdentifier">EquipmentIdentifier'ArmorIdentifier</a> | <a href="#EquipmentIdentifier'BandageOrRemedyIdentifier">EquipmentIdentifier'BandageOrRemedyIdentifier</a> | <a href="#EquipmentIdentifier'BookIdentifier">EquipmentIdentifier'BookIdentifier</a> | <a href="#EquipmentIdentifier'CeremonialItemIdentifier">EquipmentIdentifier'CeremonialItemIdentifier</a> | <a href="#EquipmentIdentifier'ClothesIdentifier">EquipmentIdentifier'ClothesIdentifier</a> | <a href="#EquipmentIdentifier'ContainerIdentifier">EquipmentIdentifier'ContainerIdentifier</a> | <a href="#EquipmentIdentifier'ElixirIdentifier">EquipmentIdentifier'ElixirIdentifier</a> | <a href="#EquipmentIdentifier'EquipmentOfBlessedOnesIdentifier">EquipmentIdentifier'EquipmentOfBlessedOnesIdentifier</a> | <a href="#EquipmentIdentifier'GemOrPreciousStoneIdentifier">EquipmentIdentifier'GemOrPreciousStoneIdentifier</a> | <a href="#EquipmentIdentifier'IlluminationLightSourceIdentifier">EquipmentIdentifier'IlluminationLightSourceIdentifier</a> | <a href="#EquipmentIdentifier'IlluminationRefillsOrSuppliesIdentifier">EquipmentIdentifier'IlluminationRefillsOrSuppliesIdentifier</a> | <a href="#EquipmentIdentifier'JewelryIdentifier">EquipmentIdentifier'JewelryIdentifier</a> | <a href="#EquipmentIdentifier'LiebesspielzeugIdentifier">EquipmentIdentifier'LiebesspielzeugIdentifier</a> | <a href="#EquipmentIdentifier'LuxuryGoodIdentifier">EquipmentIdentifier'LuxuryGoodIdentifier</a> | <a href="#EquipmentIdentifier'MagicalArtifactIdentifier">EquipmentIdentifier'MagicalArtifactIdentifier</a> | <a href="#EquipmentIdentifier'MusicalInstrumentIdentifier">EquipmentIdentifier'MusicalInstrumentIdentifier</a> | <a href="#EquipmentIdentifier'OrienteeringAidIdentifier">EquipmentIdentifier'OrienteeringAidIdentifier</a> | <a href="#EquipmentIdentifier'PoisonIdentifier">EquipmentIdentifier'PoisonIdentifier</a> | <a href="#EquipmentIdentifier'RopeOrChainIdentifier">EquipmentIdentifier'RopeOrChainIdentifier</a> | <a href="#EquipmentIdentifier'StationaryIdentifier">EquipmentIdentifier'StationaryIdentifier</a> | <a href="#EquipmentIdentifier'ThievesToolIdentifier">EquipmentIdentifier'ThievesToolIdentifier</a> | <a href="#EquipmentIdentifier'ToolOfTheTradeIdentifier">EquipmentIdentifier'ToolOfTheTradeIdentifier</a> | <a href="#EquipmentIdentifier'TravelGearOrToolIdentifier">EquipmentIdentifier'TravelGearOrToolIdentifier</a> | <a href="#EquipmentIdentifier'VehicleIdentifier">EquipmentIdentifier'VehicleIdentifier</a> | <a href="#EquipmentIdentifier'WeaponIdentifier">EquipmentIdentifier'WeaponIdentifier</a> | <a href="#EquipmentIdentifier'WeaponAccessoryIdentifier">EquipmentIdentifier'WeaponAccessoryIdentifier</a>
+- **Cases:** <a href="#EquipmentIdentifier'AmmunitionIdentifier">EquipmentIdentifier'AmmunitionIdentifier</a> | <a href="#EquipmentIdentifier'AnimalIdentifier">EquipmentIdentifier'AnimalIdentifier</a> | <a href="#EquipmentIdentifier'AnimalCareIdentifier">EquipmentIdentifier'AnimalCareIdentifier</a> | <a href="#EquipmentIdentifier'ArmorIdentifier">EquipmentIdentifier'ArmorIdentifier</a> | <a href="#EquipmentIdentifier'BandageOrRemedyIdentifier">EquipmentIdentifier'BandageOrRemedyIdentifier</a> | <a href="#EquipmentIdentifier'BookIdentifier">EquipmentIdentifier'BookIdentifier</a> | <a href="#EquipmentIdentifier'CeremonialItemIdentifier">EquipmentIdentifier'CeremonialItemIdentifier</a> | <a href="#EquipmentIdentifier'ClothesIdentifier">EquipmentIdentifier'ClothesIdentifier</a> | <a href="#EquipmentIdentifier'ContainerIdentifier">EquipmentIdentifier'ContainerIdentifier</a> | <a href="#EquipmentIdentifier'ElixirIdentifier">EquipmentIdentifier'ElixirIdentifier</a> | <a href="#EquipmentIdentifier'EquipmentOfBlessedOnesIdentifier">EquipmentIdentifier'EquipmentOfBlessedOnesIdentifier</a> | <a href="#EquipmentIdentifier'GemOrPreciousStoneIdentifier">EquipmentIdentifier'GemOrPreciousStoneIdentifier</a> | <a href="#EquipmentIdentifier'IlluminationLightSourceIdentifier">EquipmentIdentifier'IlluminationLightSourceIdentifier</a> | <a href="#EquipmentIdentifier'IlluminationRefillsOrSuppliesIdentifier">EquipmentIdentifier'IlluminationRefillsOrSuppliesIdentifier</a> | <a href="#EquipmentIdentifier'JewelryIdentifier">EquipmentIdentifier'JewelryIdentifier</a> | <a href="#EquipmentIdentifier'LiebesspielzeugIdentifier">EquipmentIdentifier'LiebesspielzeugIdentifier</a> | <a href="#EquipmentIdentifier'LuxuryGoodIdentifier">EquipmentIdentifier'LuxuryGoodIdentifier</a> | <a href="#EquipmentIdentifier'MagicalArtifactIdentifier">EquipmentIdentifier'MagicalArtifactIdentifier</a> | <a href="#EquipmentIdentifier'MusicalInstrumentIdentifier">EquipmentIdentifier'MusicalInstrumentIdentifier</a> | <a href="#EquipmentIdentifier'OrienteeringAidIdentifier">EquipmentIdentifier'OrienteeringAidIdentifier</a> | <a href="#EquipmentIdentifier'PoisonIdentifier">EquipmentIdentifier'PoisonIdentifier</a> | <a href="#EquipmentIdentifier'RopeOrChainIdentifier">EquipmentIdentifier'RopeOrChainIdentifier</a> | <a href="#EquipmentIdentifier'StationeryIdentifier">EquipmentIdentifier'StationeryIdentifier</a> | <a href="#EquipmentIdentifier'ThievesToolIdentifier">EquipmentIdentifier'ThievesToolIdentifier</a> | <a href="#EquipmentIdentifier'ToolOfTheTradeIdentifier">EquipmentIdentifier'ToolOfTheTradeIdentifier</a> | <a href="#EquipmentIdentifier'TravelGearOrToolIdentifier">EquipmentIdentifier'TravelGearOrToolIdentifier</a> | <a href="#EquipmentIdentifier'VehicleIdentifier">EquipmentIdentifier'VehicleIdentifier</a> | <a href="#EquipmentIdentifier'WeaponIdentifier">EquipmentIdentifier'WeaponIdentifier</a> | <a href="#EquipmentIdentifier'WeaponAccessoryIdentifier">EquipmentIdentifier'WeaponAccessoryIdentifier</a>
 
 ---
 
@@ -1394,9 +1394,9 @@
 
 ---
 
-### <a name="EquipmentIdentifier'StationaryIdentifier"></a> `EquipmentIdentifier'StationaryIdentifier`
+### <a name="EquipmentIdentifier'StationeryIdentifier"></a> `EquipmentIdentifier'StationeryIdentifier`
 
-- **Type:** <a href="#StationaryIdentifier">StationaryIdentifier</a>
+- **Type:** <a href="#StationeryIdentifier">StationeryIdentifier</a>
 
 ---
 
@@ -1473,3 +1473,53 @@
 ### <a name="ManyNumericIdentifiers[]"></a> `ManyNumericIdentifiers[]`
 
 - **Type:** <a href="#OneNumericIdentifier">OneNumericIdentifier</a>
+
+---
+
+### <a name="RecipeIdentifier"></a> `RecipeIdentifier`
+
+- **Type:** Union
+- **Cases:** <a href="#RecipeIdentifier'ElixirIdentifier">RecipeIdentifier'ElixirIdentifier</a> | <a href="#RecipeIdentifier'PoisonIdentifier">RecipeIdentifier'PoisonIdentifier</a> | <a href="#RecipeIdentifier'HerbalAidIdentifier">RecipeIdentifier'HerbalAidIdentifier</a> | <a href="#RecipeIdentifier'HerbalPreserveIdentifier">RecipeIdentifier'HerbalPreserveIdentifier</a>
+
+---
+
+### <a name="RecipeIdentifier'ElixirIdentifier"></a> `RecipeIdentifier'ElixirIdentifier`
+
+- **Type:** <a href="#ElixirIdentifier">ElixirIdentifier</a>
+
+---
+
+### <a name="RecipeIdentifier'PoisonIdentifier"></a> `RecipeIdentifier'PoisonIdentifier`
+
+- **Type:** <a href="#PoisonIdentifier">PoisonIdentifier</a>
+
+---
+
+### <a name="RecipeIdentifier'HerbalAidIdentifier"></a> `RecipeIdentifier'HerbalAidIdentifier`
+
+- **Type:** <a href="#HerbalAidIdentifier">HerbalAidIdentifier</a>
+
+---
+
+### <a name="RecipeIdentifier'HerbalPreserveIdentifier"></a> `RecipeIdentifier'HerbalPreserveIdentifier`
+
+- **Type:** <a href="#HerbalPreserveIdentifier">HerbalPreserveIdentifier</a>
+
+---
+
+### <a name="HerbalAidOrPreserveIdentifier"></a> `HerbalAidOrPreserveIdentifier`
+
+- **Type:** Union
+- **Cases:** <a href="#HerbalAidOrPreserveIdentifier'HerbalAidIdentifier">HerbalAidOrPreserveIdentifier'HerbalAidIdentifier</a> | <a href="#HerbalAidOrPreserveIdentifier'HerbalPreserveIdentifier">HerbalAidOrPreserveIdentifier'HerbalPreserveIdentifier</a>
+
+---
+
+### <a name="HerbalAidOrPreserveIdentifier'HerbalAidIdentifier"></a> `HerbalAidOrPreserveIdentifier'HerbalAidIdentifier`
+
+- **Type:** <a href="#HerbalAidIdentifier">HerbalAidIdentifier</a>
+
+---
+
+### <a name="HerbalAidOrPreserveIdentifier'HerbalPreserveIdentifier"></a> `HerbalAidOrPreserveIdentifier'HerbalPreserveIdentifier`
+
+- **Type:** <a href="#HerbalPreserveIdentifier">HerbalPreserveIdentifier</a>

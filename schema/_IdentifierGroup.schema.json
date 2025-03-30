@@ -706,7 +706,7 @@
           "$ref": "./_Identifier.schema.json#/$defs/RopeOrChainIdentifier"
         },
         {
-          "$ref": "./_Identifier.schema.json#/$defs/StationaryIdentifier"
+          "$ref": "./_Identifier.schema.json#/$defs/StationeryIdentifier"
         },
         {
           "$ref": "./_Identifier.schema.json#/$defs/ThievesToolIdentifier"
@@ -748,6 +748,32 @@
         "$ref": "#/$defs/OneNumericIdentifier"
       },
       "minItems": 2
+    },
+    "RecipeIdentifier": {
+      "oneOf": [
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/ElixirIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/PoisonIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/HerbalAidIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/HerbalPreserveIdentifier"
+        }
+      ]
+    },
+    "HerbalAidOrPreserveIdentifier": {
+      "oneOf": [
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/HerbalAidIdentifier"
+        },
+        {
+          "$ref": "./_Identifier.schema.json#/$defs/HerbalPreserveIdentifier"
+        }
+      ]
     }
   }
 }

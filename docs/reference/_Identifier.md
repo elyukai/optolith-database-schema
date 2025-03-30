@@ -2398,6 +2398,72 @@ The gem or precious stone’s identifier.
 
 ---
 
+### <a name="HerbIdentifier"></a> `HerbIdentifier`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#HerbIdentifier/tag">See details</a>
+`herb` | The herb’s identifier. | <a href="#HerbIdentifier/herb">See details</a>
+
+#### <a name="HerbIdentifier/tag"></a> `tag`
+
+- **Constant:** `"Herb"`
+
+#### <a name="HerbIdentifier/herb"></a> `herb`
+
+The herb’s identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="HerbalAidIdentifier"></a> `HerbalAidIdentifier`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#HerbalAidIdentifier/tag">See details</a>
+`herbal_aid` | The herbal aid’s identifier. | <a href="#HerbalAidIdentifier/herbal_aid">See details</a>
+
+#### <a name="HerbalAidIdentifier/tag"></a> `tag`
+
+- **Constant:** `"HerbalAid"`
+
+#### <a name="HerbalAidIdentifier/herbal_aid"></a> `herbal_aid`
+
+The herbal aid’s identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
+### <a name="HerbalPreserveIdentifier"></a> `HerbalPreserveIdentifier`
+
+- **Type:** Object
+
+Key | Description | Details
+:-- | :-- | :--
+`tag` |  | <a href="#HerbalPreserveIdentifier/tag">See details</a>
+`herbal_preserve` | The herbal preserve’s identifier. | <a href="#HerbalPreserveIdentifier/herbal_preserve">See details</a>
+
+#### <a name="HerbalPreserveIdentifier/tag"></a> `tag`
+
+- **Constant:** `"HerbalPreserve"`
+
+#### <a name="HerbalPreserveIdentifier/herbal_preserve"></a> `herbal_preserve`
+
+The herbal preserve’s identifier.
+
+- **Type:** Integer
+- **Minimum:** `1`
+
+---
+
 ### <a name="IlluminationLightSourceIdentifier"></a> `IlluminationLightSourceIdentifier`
 
 - **Type:** Object
@@ -2618,22 +2684,22 @@ The rope or chain’s identifier.
 
 ---
 
-### <a name="StationaryIdentifier"></a> `StationaryIdentifier`
+### <a name="StationeryIdentifier"></a> `StationeryIdentifier`
 
 - **Type:** Object
 
 Key | Description | Details
 :-- | :-- | :--
-`tag` |  | <a href="#StationaryIdentifier/tag">See details</a>
-`stationary` | The stationary’s identifier. | <a href="#StationaryIdentifier/stationary">See details</a>
+`tag` |  | <a href="#StationeryIdentifier/tag">See details</a>
+`stationery` | The stationery’s identifier. | <a href="#StationeryIdentifier/stationery">See details</a>
 
-#### <a name="StationaryIdentifier/tag"></a> `tag`
+#### <a name="StationeryIdentifier/tag"></a> `tag`
 
-- **Constant:** `"Stationary"`
+- **Constant:** `"Stationery"`
 
-#### <a name="StationaryIdentifier/stationary"></a> `stationary`
+#### <a name="StationeryIdentifier/stationery"></a> `stationery`
 
-The stationary’s identifier.
+The stationery’s identifier.
 
 - **Type:** Integer
 - **Minimum:** `1`

@@ -70,7 +70,7 @@ import * as MusicalInstrument from "../types/equipment/item/MusicalInstrument.js
 import * as OrienteeringAid from "../types/equipment/item/OrienteeringAid.js"
 import * as Poison from "../types/equipment/item/Poison.js"
 import * as RopeOrChain from "../types/equipment/item/RopeOrChain.js"
-import * as Stationary from "../types/equipment/item/Stationary.js"
+import * as Stationery from "../types/equipment/item/Stationery.js"
 import * as ThievesTool from "../types/equipment/item/ThievesTool.js"
 import * as ToolOfTheTrade from "../types/equipment/item/ToolOfTheTrade.js"
 import * as TravelGearOrTool from "../types/equipment/item/TravelGearOrTool.js"
@@ -286,7 +286,7 @@ export type TypeMap = {
   spellSwordEnchantments: SpellSwordEnchantment.SpellSwordEnchantment
   staffEnchantments: StaffEnchantment.StaffEnchantment
   states: State.State
-  stationary: Stationary.Stationary
+  stationery: Stationery.Stationery
   talismans: Talisman.Talisman
   targetCategories: TargetCategory.TargetCategory
   thievesTools: ThievesTool.ThievesTool
@@ -441,7 +441,7 @@ export const configMap = {
   spellSwordEnchantments: SpellSwordEnchantment.config,
   staffEnchantments: StaffEnchantment.config,
   states: State.config,
-  stationary: Stationary.config,
+  stationery: Stationery.config,
   talismans: Talisman.config,
   targetCategories: TargetCategory.config,
   thievesTools: ThievesTool.config,

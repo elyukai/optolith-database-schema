@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "/equipment/item/HerbalAid.schema.json",
+  "$ref": "#/$defs/HerbalAid",
+  "$defs": {
+    "HerbalAid": {
+      "title": "HerbalAid",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The aid's identifier. An unique, increasing integer.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "main_ingredient": {
+          "description": "The main ingredient, a herb.",
+          "$ref": "../../_SimpleReferences.schema.json#/$defs/HerbReference"
+        },
+        "alternative_main_ingredient": {
+          "description": "An alternative main ingredient, a herb.",
+          "$ref": "../../_SimpleReferences.schema.json#/$defs/HerbReference"
+        },
+        "production_difficulty": {
+          "description": "Modifier for plant lore check when making the aid.",
+          "type": "integer"
+        },
+        "translation": {
+          "description": "All translations for the entry, identified by IETF language tag (BCP47).",
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]{2}-[A-Z]{2}$": {
+              "$ref": "#/$defs/HerbalAidTranslation"
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        },
+        "src": {
+          "$ref": "../../source/_PublicationRef.schema.json#/$defs/PublicationRefs"
+        }
+      },
+      "required": [
+        "id",
+        "main_ingredient",
+        "production_difficulty",
+        "translation",
+        "src"
+      ],
+      "additionalProperties": false
+    },
+    "HerbalAidTranslation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Name of the preservation method.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "description": {
+          "description": "Description of the production method and/or effect.",
+          "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+        },
+        "additional_ingredients": {
+          "description": "Ingredients beside the main ingredient.",
+          "type": "array",
+          "items": {
+            "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+          },
+          "minItems": 1
+        },
+        "typical_tools": {
+          "description": "Tools and aids used in the production process.",
+          "type": "array",
+          "items": {
+            "$ref": "../../_NonEmptyString.schema.json#/$defs/NonEmptyString"
+          }
+        },
+        "errata": {
+          "$ref": "../../source/_Erratum.schema.json#/$defs/Errata"
+        }
+      },
+      "required": [
+        "name",
+        "description",
+        "typical_tools"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

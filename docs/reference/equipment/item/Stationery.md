@@ -2,6 +2,6 @@
 
 ## Definitions
 
-### <a name="Stationary"></a> `Stationary`
+### <a name="Stationery"></a> `Stationery`
 
 - **Type:** <a href="./_Item.md#DefaultItem">DefaultItem</a>

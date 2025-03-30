@@ -32,3 +32,24 @@ export type RecipeTradeSecret = {
    */
   prerequisites?: PlainGeneralPrerequisites
 }
+
+export type StorageLife = {
+  /**
+   * The storage life of a (processed) herb.
+   * @integer
+   * @minmum 1
+   */
+  value: number
+  unit: TimeUnit
+}
+
+export type TimeUnit =
+  | "CombatRounds"
+  | "Minutes"
+  | "Hours"
+  | "Days"
+  | "Weeks"
+  | "Months"
+  | "Years"
+
+
