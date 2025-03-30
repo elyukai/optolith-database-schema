@@ -1,16 +1,12 @@
 import { assertExhaustive } from "@optolith/helpers/typeSafety"
-import AjvModule, { AnySchemaObject, Options } from "ajv"
+import { Ajv, AnySchemaObject, Options } from "ajv"
 import addFormatsModule from "ajv-formats"
-import Ajv2019Module from "ajv/dist/2019.js"
-import Ajv2020Module from "ajv/dist/2020.js"
+import { Ajv2019 } from "ajv/dist/2019.js"
+import { Ajv2020 } from "ajv/dist/2020.js"
 import { JsonSchemaSpec } from "optolith-tsjsonschemamd/renderers/jsonSchema"
 import "../helpers/array.js"
 import { isHiddenFileName, readDirectoryRec, readJsonFile } from "../helpers/io.js"
 
-// import resolution fixes for TypeScript
-type Ajv = AjvModule.default
-const Ajv2019 = Ajv2019Module.default
-const Ajv2020 = Ajv2020Module.default
 const addFormats = addFormatsModule.default
 
 const createSchemaValidator = (jsonSchemaSpec: JsonSchemaSpec, validatorOptions: Options = {}) => {
