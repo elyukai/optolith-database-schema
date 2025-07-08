@@ -1,292 +1,249 @@
-/**
- * @main FamiliarsTrick
- */
-
-import { TypeConfig } from "../typeConfig.js"
-import { todo } from "../validation/builders/integrity.js"
-import { validateEntityFileName } from "../validation/builders/naming.js"
-import { createSchemaValidator } from "../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
+import {
+  Array,
+  Entity,
+  Enum,
+  EnumCase,
+  IncludeIdentifier,
+  Integer,
+  Object,
+  Optional,
+  Required,
+  String,
+  TypeAlias,
+} from "tsondb/schema/def"
 import { OldParameter } from "./_ActivatableSkill.js"
-import { DurationUnit, DurationUnitValue } from "./_ActivatableSkillDuration.js"
-import { LocaleMap } from "./_LocaleMap.js"
-import { ResponsiveText, ResponsiveTextOptional, ResponsiveTextReplace } from "./_ResponsiveText.js"
-import { AnimalTypeReference, PropertyReference } from "./_SimpleReferences.js"
+import { IndefiniteOneTimeCost } from "./_ActivatableSkillCost.js"
+import {
+  DurationUnitValue,
+  FixedDuration,
+  IndefiniteDuration,
+} from "./_ActivatableSkillDuration.js"
+import { AnimalTypeIdentifier, PropertyIdentifier } from "./_Identifier.js"
+import { ResponsiveText, ResponsiveTextOptional } from "./_ResponsiveText.js"
+import { NestedLocaleMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
+import { src } from "./source/_PublicationRef.js"
 
-/**
- * @title Familiar's Trick
- */
-export type FamiliarsTrick = {
-  /**
-   * The familiar's trick's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  /**
-   * The animal types this trick is available to. Either it is available to all or only a list of specific animal types.
-   *
-   * If no animal types are given, the animal disease applies to all animal types.
-   */
-  animal_types: AnimalTypeReference[]
-
-  /**
-   * Measurable parameters of a familiar's trick.
-   */
-  parameters: FamiliarsTrickPerformanceParameters
-
-  /**
-   * The property of the trick.
-   */
-  property: FamiliarsTrickProperty
-
-  /**
-   * The AP value the familiar has to pay for. It may also be that a specific is known by all familiar by default. In the latter case the field is not set.
-   * @integer
-   * @minimum 1
-   */
-  ap_value?: number
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<FamiliarsTrickTranslation>
-}
-
-export type FamiliarsTrickProperty =
-  | { tag: "Fixed"; fixed: PropertyReference }
-  | { tag: "Indefinite"; indefinite: IndefiniteFamiliarsTrickProperty }
-
-export type IndefiniteFamiliarsTrickProperty = {
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<IndefiniteFamiliarsTrickPropertyTranslation>
-}
-
-export type IndefiniteFamiliarsTrickPropertyTranslation = {
-  /**
-   * A description of the property.
-   */
-  description: ResponsiveText
-}
-
-export type FamiliarsTrickTranslation = {
-  /**
-   * The name of the familiar's trick.
-   * @minLength 1
-   */
-  name: string
-
-  /**
-   * The effect description.
-   * @markdown
-   * @minLength 1
-   */
-  effect: string
-
-  /**
-   * @deprecated
-   */
-  cost: OldParameter
-
-  /**
-   * @deprecated
-   */
-  duration: OldParameter
-
-  errata?: Errata
-}
-
-/**
- * Measurable parameters of a familiar's trick.
- */
-export type FamiliarsTrickPerformanceParameters =
-  | { tag: "OneTime"; one_time: FamiliarsTrickOneTimePerformanceParameters }
-  | {
-      tag: "OneTimeInterval"
-      one_time_interval: FamiliarsTrickOneTimeIntervalPerformanceParameters
-    }
-  | { tag: "Sustained"; sustained: FamiliarsTrickSustainedPerformanceParameters }
-
-export type FamiliarsTrickOneTimePerformanceParameters = {
-  cost: FamiliarsTrickOneTimeCost
-  duration: FamiliarsTrickOneTimeDuration
-}
-
-export type FamiliarsTrickOneTimeCost =
-  | { tag: "Fixed"; fixed: FamiliarsTrickFixedOneTimeCost }
-  | { tag: "All"; all: FamiliarsTrickAllOneTimeCost }
-  | { tag: "Indefinite"; indefinite: FamiliarsTrickIndefiniteOneTimeCost }
-
-export type FamiliarsTrickFixedOneTimeCost = {
-  /**
-   * The AE cost value.
-   * @integer
-   * @minimum 1
-   */
-  ae_value: number
-
-  /**
-   * The LP cost value.
-   * @integer
-   * @minimum 1
-   */
-  lp_value?: number
-
-  /**
-   * The interval in which you have to pay the AE cost again.
-   */
-  interval?: DurationUnitValue
-
-  /**
-   * All translations for the entry, identified by IETF language tag
-   * (BCP47).
-   */
-  translations?: LocaleMap<FamiliarsTrickFixedOneTimeCostTranslation>
-}
-
-export type FamiliarsTrickFixedOneTimeCostTranslation = {
-  /**
-   * The cost have to be per a specific countable entity, e.g. `8 KP per person`.
-   */
-  per?: ResponsiveTextOptional
-}
-
-export type FamiliarsTrickAllOneTimeCost = {
-  /**
-   * The minimum AE the familiar has to have.
-   * @integer
-   * @minimum 1
-   */
-  minimum?: number
-}
-
-export type FamiliarsTrickIndefiniteOneTimeCost = {
-  /**
-   * All translations for the entry, identified by IETF language tag
-   * (BCP47).
-   */
-  translations: LocaleMap<FamiliarsTrickIndefiniteOneTimeCostTranslation>
-}
-
-export type FamiliarsTrickIndefiniteOneTimeCostTranslation = {
-  /**
-   * A description of the AE cost.
-   */
-  description: ResponsiveText
-}
-
-export type FamiliarsTrickOneTimeDuration =
-  | { tag: "Immediate"; immediate: {} }
-  | { tag: "Fixed"; fixed: FamiliarsTrickFixedOneTimeDuration }
-  | { tag: "Indefinite"; indefinite: FamiliarsTrickIndefiniteOneTimeDuration }
-
-export type FamiliarsTrickFixedOneTimeDuration = {
-  /**
-   * If the duration is the maximum duration, so it may end earlier.
-   */
-  is_maximum?: boolean
-
-  /**
-   * The (unitless) duration.
-   * @integer
-   * @minimum 1
-   */
-  value: number
-
-  /**
-   * The duration unit.
-   */
-  unit: DurationUnit
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations?: LocaleMap<FamiliarsTrickFixedOneTimeDurationTranslation>
-}
-
-export type FamiliarsTrickFixedOneTimeDurationTranslation = {
-  /**
-   * A replacement string.
-   */
-  replacement?: ResponsiveTextReplace
-}
-
-export type FamiliarsTrickIndefiniteOneTimeDuration = {
-  /**
-   * All translations for the entry, identified by IETF language tag
-   * (BCP47).
-   */
-  translations: LocaleMap<FamiliarsTrickIndefiniteOneTimeDurationTranslation>
-}
-
-export type FamiliarsTrickIndefiniteOneTimeDurationTranslation = {
-  /**
-   * A description of the duration.
-   */
-  description: ResponsiveText
-}
-
-export type FamiliarsTrickOneTimeIntervalPerformanceParameters = {
-  cost: FamiliarsTrickOneTimeIntervalCost
-}
-
-export type FamiliarsTrickOneTimeIntervalCost = {
-  /**
-   * The AE cost value.
-   * @integer
-   * @minimum 1
-   */
-  ae_value: number
-
-  /**
-   * The LP cost value.
-   * @integer
-   * @minimum 1
-   */
-  lp_value?: number
-
-  /**
-   * The duration granted/added by paying the given AE cost.
-   */
-  interval: DurationUnitValue
-}
-
-export type FamiliarsTrickSustainedPerformanceParameters = {
-  cost: FamiliarsTrickSustainedCost
-}
-
-export type FamiliarsTrickSustainedCost = {
-  /**
-   * The AE cost value.
-   * @integer
-   * @minimum 1
-   */
-  ae_value: number
-
-  /**
-   * The LP cost value.
-   * @integer
-   * @minimum 1
-   */
-  lp_value?: number
-
-  /**
-   * The interval in which you have to pay the AE cost again, if any.
-   */
-  interval?: DurationUnitValue
-}
-
-export const config: TypeConfig<FamiliarsTrick, FamiliarsTrick["id"], "FamiliarsTrick"> = {
+export const FamiliarsTrick = Entity(import.meta.url, {
   name: "FamiliarsTrick",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("FamiliarsTrick"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "FamiliarsTricks",
+  type: () =>
+    Object({
+      animal_types: Required({
+        comment: `The animal types this trick is available to. Either it is available to all or only a list of specific animal types.
+
+If no animal types are given, the animal disease applies to all animal types.`,
+        type: Array(AnimalTypeIdentifier, { uniqueItems: true }),
+      }),
+      parameters: Required({
+        comment: "Measurable parameters of a familiar’s trick.",
+        type: IncludeIdentifier(FamiliarsTrickPerformanceParameters),
+      }),
+      property: Required({
+        comment: "The associated property.",
+        type: IncludeIdentifier(FamiliarsTrickProperty),
+      }),
+      ap_value: Optional({
+        comment:
+          "The AP value the familiar has to pay for. It may also be that a specific is known by all familiar by default. In the latter case the field is not set.",
+        type: Integer({ minimum: 1 }),
+      }),
+      src,
+      translations: NestedLocaleMap(
+        Required,
+        "FamiliarsTrickTranslation",
+        Object({
+          name: Required({
+            comment: "The familiar’s trick’s name.",
+            type: String({ minLength: 1 }),
+          }),
+          effect: Required({
+            comment: "The effect description.",
+            type: String({ minLength: 1, isMarkdown: true }),
+          }),
+          cost: Optional({
+            isDeprecated: true,
+            type: IncludeIdentifier(OldParameter),
+          }),
+          duration: Optional({
+            isDeprecated: true,
+            type: IncludeIdentifier(OldParameter),
+          }),
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})
+
+const FamiliarsTrickProperty = Enum(import.meta.url, {
+  name: "FamiliarsTrickProperty",
+  values: () => ({
+    Fixed: EnumCase({ type: PropertyIdentifier }),
+    Indefinite: EnumCase({ type: IncludeIdentifier(IndefiniteFamiliarsTrickProperty) }),
+  }),
+})
+
+const IndefiniteFamiliarsTrickProperty = TypeAlias(import.meta.url, {
+  name: "IndefiniteFamiliarsTrickProperty",
+  type: () =>
+    Object({
+      translations: NestedLocaleMap(
+        Optional,
+        "IndefiniteFamiliarsTrickPropertyTranslation",
+        Object({
+          description: Required({
+            comment: "A description of the property.",
+            type: IncludeIdentifier(ResponsiveText),
+          }),
+        })
+      ),
+    }),
+})
+
+const FamiliarsTrickPerformanceParameters = Enum(import.meta.url, {
+  name: "FamiliarsTrickPerformanceParameters",
+  comment: "Measurable parameters of a familiar’s trick.",
+  values: () => ({
+    OneTime: EnumCase({ type: IncludeIdentifier(FamiliarsTrickOneTimePerformanceParameters) }),
+    OneTimeInterval: EnumCase({
+      type: IncludeIdentifier(FamiliarsTrickOneTimeIntervalPerformanceParameters),
+    }),
+    Sustained: EnumCase({ type: IncludeIdentifier(FamiliarsTrickSustainedPerformanceParameters) }),
+  }),
+})
+
+const FamiliarsTrickOneTimePerformanceParameters = TypeAlias(import.meta.url, {
+  name: "FamiliarsTrickOneTimePerformanceParameters",
+  type: () =>
+    Object({
+      cost: Required({
+        type: IncludeIdentifier(FamiliarsTrickOneTimeCost),
+      }),
+      duration: Required({
+        type: IncludeIdentifier(FamiliarsTrickOneTimeDuration),
+      }),
+    }),
+})
+
+const FamiliarsTrickOneTimeCost = Enum(import.meta.url, {
+  name: "FamiliarsTrickOneTimeCost",
+  values: () => ({
+    Fixed: EnumCase({ type: IncludeIdentifier(FamiliarsTrickFixedOneTimeCost) }),
+    All: EnumCase({ type: IncludeIdentifier(FamiliarsTrickAllOneTimeCost) }),
+    Indefinite: EnumCase({ type: IncludeIdentifier(IndefiniteOneTimeCost) }),
+  }),
+})
+
+const FamiliarsTrickFixedOneTimeCost = TypeAlias(import.meta.url, {
+  name: "FamiliarsTrickFixedOneTimeCost",
+  type: () =>
+    Object({
+      ae_value: Required({
+        comment: "The AE cost value.",
+        type: Integer({ minimum: 1 }),
+      }),
+      lp_value: Optional({
+        comment: "The LP cost value.",
+        type: Integer({ minimum: 1 }),
+      }),
+      interval: Optional({
+        comment: "The interval in which you have to pay the AE cost again.",
+        type: IncludeIdentifier(DurationUnitValue),
+      }),
+      translations: NestedLocaleMap(
+        Optional,
+        "FamiliarsTrickFixedOneTimeCostTranslation",
+        Object(
+          {
+            per: Optional({
+              comment:
+                "The cost have to be per a specific countable entity, e.g. `8 KP per person`.",
+              type: IncludeIdentifier(ResponsiveTextOptional),
+            }),
+          },
+          { minProperties: 1 }
+        )
+      ),
+    }),
+})
+
+const FamiliarsTrickAllOneTimeCost = TypeAlias(import.meta.url, {
+  name: "FamiliarsTrickAllOneTimeCost",
+  type: () =>
+    Object({
+      minimum: Optional({
+        comment: "The minimum AE the familiar has to have/spend.",
+        type: Integer({ minimum: 1 }),
+      }),
+    }),
+})
+
+const FamiliarsTrickOneTimeDuration = Enum(import.meta.url, {
+  name: "DurationForOneTime",
+  values: () => ({
+    Immediate: EnumCase({ type: null }),
+    Fixed: EnumCase({ type: IncludeIdentifier(FixedDuration) }),
+    Indefinite: EnumCase({ type: IncludeIdentifier(IndefiniteDuration) }),
+  }),
+})
+
+const FamiliarsTrickOneTimeIntervalPerformanceParameters = TypeAlias(import.meta.url, {
+  name: "FamiliarsTrickOneTimeIntervalPerformanceParameters",
+  type: () =>
+    Object({
+      cost: Required({
+        type: IncludeIdentifier(FamiliarsTrickOneTimeIntervalCost),
+      }),
+    }),
+})
+
+const FamiliarsTrickOneTimeIntervalCost = TypeAlias(import.meta.url, {
+  name: "FamiliarsTrickOneTimeIntervalCost",
+  type: () =>
+    Object({
+      ae_value: Required({
+        comment: "The AE cost value.",
+        type: Integer({ minimum: 1 }),
+      }),
+      lp_value: Optional({
+        comment: "The LP cost value.",
+        type: Integer({ minimum: 1 }),
+      }),
+      interval: Required({
+        comment: "The duration granted/added by paying the given AE cost.",
+        type: IncludeIdentifier(DurationUnitValue),
+      }),
+    }),
+})
+
+const FamiliarsTrickSustainedPerformanceParameters = TypeAlias(import.meta.url, {
+  name: "FamiliarsTrickSustainedPerformanceParameters",
+  type: () =>
+    Object({
+      cost: Required({
+        type: IncludeIdentifier(FamiliarsTrickSustainedCost),
+      }),
+    }),
+})
+
+const FamiliarsTrickSustainedCost = TypeAlias(import.meta.url, {
+  name: "FamiliarsTrickSustainedCost",
+  type: () =>
+    Object({
+      ae_value: Required({
+        comment: "The AE cost value.",
+        type: Integer({ minimum: 1 }),
+      }),
+      lp_value: Optional({
+        comment: "The LP cost value.",
+        type: Integer({ minimum: 1 }),
+      }),
+      interval: Optional({
+        comment: "The interval in which you have to pay the AE cost again.",
+        type: IncludeIdentifier(DurationUnitValue),
+      }),
+    }),
+})

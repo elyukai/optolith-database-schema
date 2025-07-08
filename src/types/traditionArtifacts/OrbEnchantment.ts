@@ -1,77 +1,48 @@
-/**
- * @main OrbEnchantment
- */
-
-import { TypeConfig } from "../../typeConfig.js"
-import { todo } from "../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
-import * as Activatable from "../_Activatable.js"
-import { LocaleMap } from "../_LocaleMap.js"
+import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/def"
+import {
+  ap_value,
+  cost,
+  effect,
+  levels,
+  maximum,
+  name,
+  name_in_library,
+  property,
+  select_options,
+  volume,
+} from "../_Activatable.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
+import { NestedLocaleMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { src } from "../source/_PublicationRef.js"
 
-/**
- * @title Orb Enchantment
- */
-export type OrbEnchantment = {
-  id: Activatable.Id
-
-  levels?: Activatable.Levels
-
-  select_options?: Activatable.SelectOptions
-
-  maximum?: Activatable.Maximum
-
-  prerequisites?: GeneralPrerequisites
-
-  volume: Activatable.Volume
-
-  cost?: Activatable.EnchantmentCost
-
-  property: Activatable.PropertyDeclaration
-
-  ap_value: Activatable.AdventurePointsValue
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<OrbEnchantmentTranslation>
-}
-
-export type OrbEnchantmentTranslation = {
-  name: Activatable.Name
-
-  name_in_library?: Activatable.NameInLibrary
-
-  effect: Activatable.Effect
-
-  /**
-   * @deprecated
-   */
-  volume: string
-
-  /**
-   * @deprecated
-   */
-  aeCost?: string
-
-  /**
-   * @deprecated
-   */
-  bindingCost?: string
-
-  errata?: Errata
-}
-
-export const config: TypeConfig<OrbEnchantment, OrbEnchantment["id"], "OrbEnchantment"> = {
+export const OrbEnchantment = Entity(import.meta.url, {
   name: "OrbEnchantment",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("OrbEnchantment"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "OrbEnchantments",
+  type: () =>
+    Object({
+      levels,
+      select_options,
+      maximum,
+      prerequisites: Optional({
+        type: IncludeIdentifier(GeneralPrerequisites),
+      }),
+      volume,
+      cost,
+      property,
+      ap_value,
+      src,
+      translation: NestedLocaleMap(
+        Required,
+        "OrbEnchantmentTranslation",
+        Object({
+          name,
+          name_in_library,
+          effect,
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+})

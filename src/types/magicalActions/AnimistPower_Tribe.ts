@@ -1,43 +1,21 @@
-/**
- * @main Tribe
- */
+import { Entity, Object, Required, String } from "tsondb/schema/def"
+import { NestedLocaleMap } from "../Locale.js"
 
-import { TypeConfig } from "../../typeConfig.js"
-import { todo } from "../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
-import { LocaleMap } from "../_LocaleMap.js"
-import { NonEmptyString } from "../_NonEmptyString.js"
-
-/**
- * @title Tribe
- */
-export type Tribe = {
-  /**
-   * The tribe's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<TribeTranslation>
-}
-
-export type TribeTranslation = {
-  /**
-   * The tribe name.
-   */
-  name: NonEmptyString
-}
-
-export const config: TypeConfig<Tribe, Tribe["id"], "Tribe"> = {
+export const Tribe = Entity(import.meta.url, {
   name: "Tribe",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("Tribe"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "Tribes",
+  type: () =>
+    Object({
+      translations: NestedLocaleMap(
+        Required,
+        "TribeTranslation",
+        Object({
+          name: Required({
+            comment: "The tribe’s name.",
+            type: String({ minLength: 1 }),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})

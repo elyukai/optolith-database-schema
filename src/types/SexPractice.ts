@@ -1,66 +1,40 @@
-/**
- * @main SexPractice
- */
+import { Entity, Object, Optional, Required, String } from "tsondb/schema/def"
+import { NestedLocaleMap } from "./Locale.js"
+import { src } from "./source/_PublicationRef.js"
 
-import { TypeConfig } from "../typeConfig.js"
-import { todo } from "../validation/builders/integrity.js"
-import { validateEntityFileName } from "../validation/builders/naming.js"
-import { createSchemaValidator } from "../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
-import { LocaleMap } from "./_LocaleMap.js"
-import { NonEmptyString } from "./_NonEmptyString.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
-
-/**
- * @title Sex Practice
- */
-export type SexPractice = {
-  /**
-   * The sex practice's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<SexPracticeTranslation>
-}
-
-export type SexPracticeTranslation = {
-  /**
-   * The sex practice's name.
-   */
-  name: NonEmptyString
-
-  /**
-   * The rules of the sex practice.
-   */
-  rules: NonEmptyString
-
-  /**
-   * How long a round of this sex practice takes.
-   */
-  duration: NonEmptyString
-
-  /**
-   * Prerequisites of participants and environment. Do not specify if the sex practice has no prerequisites.
-   */
-  prerequisites?: NonEmptyString
-
-  /**
-   * Effects of a failed *Seduction* check.
-   */
-  failed: NonEmptyString
-}
-
-export const config: TypeConfig<SexPractice, SexPractice["id"], "SexPractice"> = {
+export const SexPractice = Entity(import.meta.url, {
   name: "SexPractice",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("SexPractice"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "SexPractices",
+  type: () =>
+    Object({
+      src,
+      translations: NestedLocaleMap(
+        Required,
+        "StateTranslation",
+        Object({
+          name: Required({
+            comment: "The sex practice’s name.",
+            type: String({ minLength: 1 }),
+          }),
+          rules: Required({
+            comment: "The rules of the sex practice.",
+            type: String({ minLength: 1 }),
+          }),
+          duration: Required({
+            comment: "How long a round of this sex practice takes.",
+            type: String({ minLength: 1 }),
+          }),
+          prerequisites: Optional({
+            comment:
+              "Prerequisites of participants and environment. Do not specify if the sex practice has no prerequisites.",
+            type: String({ minLength: 1 }),
+          }),
+          failed: Required({
+            comment: "Effects of a failed *Seduction* check.",
+            type: String({ minLength: 1 }),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})

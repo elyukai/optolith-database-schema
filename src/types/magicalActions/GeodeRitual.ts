@@ -1,194 +1,163 @@
-/**
- * @main GeodeRitual
- */
-
-import { TypeConfig } from "../../typeConfig.js"
-import { todo } from "../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
-import { SlowSkillCastingTimeUnit } from "../SkillModificationLevel.js"
+import {
+  Entity,
+  Enum,
+  EnumCase,
+  IncludeIdentifier,
+  Integer,
+  Object,
+  Optional,
+  Required,
+  String,
+  TypeAlias,
+} from "tsondb/schema/def"
 import { OldParameter } from "../_ActivatableSkill.js"
+import { SlowSkillNonModifiableCastingTime } from "../_ActivatableSkillCastingTime.js"
 import { CostMap } from "../_ActivatableSkillCost.js"
-import { CheckResultBasedDuration, DurationUnit } from "../_ActivatableSkillDuration.js"
+import { CheckResultBasedDuration, DurationUnitValue } from "../_ActivatableSkillDuration.js"
 import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"
 import { AffectedTargetCategories } from "../_ActivatableSkillTargetCategory.js"
-import { LocaleMap } from "../_LocaleMap.js"
-import { NonEmptyString } from "../_NonEmptyString.js"
+import { PropertyIdentifier } from "../_Identifier.js"
 import { GeodeRitualPrerequisites } from "../_Prerequisite.js"
-import { PropertyReference } from "../_SimpleReferences.js"
 import { SkillCheck } from "../_SkillCheck.js"
+import { NestedLocaleMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { src } from "../source/_PublicationRef.js"
 
-/**
- * @title Geode Ritual
- */
-export type GeodeRitual = {
-  /**
-   * The geode ritual's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  /**
-   * Lists the linked three attributes used to make a skill check.
-   */
-  check: SkillCheck
-
-  /**
-   * Measurable parameters of a geode ritual.
-   */
-  parameters: GeodeRitualPerformanceParameters
-
-  /**
-   * The target category – the kind of creature or object – the skill affects.
-   */
-  target: AffectedTargetCategories
-
-  /**
-   * The associated property.
-   */
-  property: PropertyReference
-
-  prerequisites?: GeodeRitualPrerequisites
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<GeodeRitualTranslation>
-}
-
-export type GeodeRitualTranslation = {
-  /**
-   * The name of the geode ritual.
-   */
-  name: NonEmptyString
-
-  /**
-   * The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
-   */
-  effect: ActivatableSkillEffect
-
-  /**
-   * @deprecated
-   */
-  casting_time: OldParameter
-
-  /**
-   * @deprecated
-   */
-  cost: OldParameter
-
-  /**
-   * @deprecated
-   */
-  range: OldParameter
-
-  /**
-   * @deprecated
-   */
-  duration: OldParameter
-
-  /**
-   * @deprecated
-   */
-  target: string
-
-  errata?: Errata
-}
-
-/**
- * Measurable parameters of a geode ritual.
- */
-export type GeodeRitualPerformanceParameters = {
-  /**
-   * The casting time.
-   */
-  casting_time: GeodeRitualCastingTime
-
-  /**
-   * The AE cost.
-   */
-  cost: GeodeRitualCost
-
-  /**
-   * The range.
-   */
-  range: GeodeRitualRange
-
-  /**
-   * The duration.
-   */
-  duration: GeodeRitualDuration
-}
-
-export type GeodeRitualCastingTime = {
-  /**
-   * The (unitless) casting time.
-   * @integer
-   * @minimum 1
-   */
-  value: number
-
-  /**
-   * The casting time unit.
-   */
-  unit: SlowSkillCastingTimeUnit
-}
-
-export type GeodeRitualCost =
-  | { tag: "Fixed"; fixed: FixedGeodeRitualCost }
-  | { tag: "Map"; map: CostMap }
-
-export type FixedGeodeRitualCost = {
-  /**
-   * The AE cost value.
-   * @integer
-   * @minimum 1
-   */
-  value: number
-}
-
-export type GeodeRitualRange =
-  | { tag: "Self"; self: {} }
-  | { tag: "Fixed"; fixed: FixedGeodeRitualRange }
-
-export type FixedGeodeRitualRange = {
-  /**
-   * The range in steps/m.
-   * @integer
-   * @minimum 1
-   */
-  value: number
-}
-
-export type GeodeRitualDuration =
-  | { tag: "Immediate"; immediate: {} }
-  | { tag: "Fixed"; fixed: FixedGeodeRitualDuration }
-  | { tag: "CheckResultBased"; check_result_based: CheckResultBasedDuration }
-
-export type FixedGeodeRitualDuration = {
-  /**
-   * The (unitless) duration.
-   * @integer
-   * @minimum 2
-   */
-  value: number
-
-  /**
-   * The duration unit.
-   */
-  unit: DurationUnit
-}
-
-export const config: TypeConfig<GeodeRitual, GeodeRitual["id"], "GeodeRitual"> = {
+export const GeodeRitual = Entity(import.meta.url, {
   name: "GeodeRitual",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("GeodeRitual"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "GeodeRituals",
+  type: () =>
+    Object({
+      check: Required({
+        comment: "Lists the linked three attributes used to make a skill check.",
+        type: IncludeIdentifier(SkillCheck),
+      }),
+      parameters: Required({
+        comment: "Measurable parameters of a geode ritual.",
+        type: IncludeIdentifier(GeodeRitualPerformanceParameters),
+      }),
+      target: Required({
+        comment: "The target category – the kind of creature or object – the skill affects.",
+        type: IncludeIdentifier(AffectedTargetCategories),
+      }),
+      property: Required({
+        comment: "The associated property.",
+        type: PropertyIdentifier,
+      }),
+      prerequisites: Optional({
+        comment: "The prerequisites for the geode ritual.",
+        type: IncludeIdentifier(GeodeRitualPrerequisites),
+      }),
+      src,
+      translations: NestedLocaleMap(
+        Required,
+        "GeodeRitualTranslation",
+        Object({
+          name: Required({
+            comment: "The geode ritual’s name.",
+            type: String({ minLength: 1 }),
+          }),
+          effect: Required({
+            comment:
+              "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
+            type: IncludeIdentifier(ActivatableSkillEffect),
+          }),
+          casting_time: Optional({
+            isDeprecated: true,
+            type: IncludeIdentifier(OldParameter),
+          }),
+          cost: Optional({
+            isDeprecated: true,
+            type: IncludeIdentifier(OldParameter),
+          }),
+          range: Optional({
+            isDeprecated: true,
+            type: IncludeIdentifier(OldParameter),
+          }),
+          duration: Optional({
+            isDeprecated: true,
+            type: IncludeIdentifier(OldParameter),
+          }),
+          target: Optional({
+            isDeprecated: true,
+            type: String({ minLength: 1 }),
+          }),
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})
+
+const GeodeRitualPerformanceParameters = TypeAlias(import.meta.url, {
+  name: "GeodeRitualPerformanceParameters",
+  comment: "Measurable parameters of a geode ritual.",
+  type: () =>
+    Object({
+      casting_time: Required({
+        comment: "The casting time.",
+        type: IncludeIdentifier(SlowSkillNonModifiableCastingTime),
+      }),
+      cost: Required({
+        comment: "The AE cost.",
+        type: IncludeIdentifier(GeodeRitualCost),
+      }),
+      range: Required({
+        comment: "The range.",
+        type: IncludeIdentifier(GeodeRitualRange),
+      }),
+      duration: Required({
+        comment: "The duration.",
+        type: IncludeIdentifier(GeodeRitualDuration),
+      }),
+    }),
+})
+
+const GeodeRitualCost = Enum(import.meta.url, {
+  name: "GeodeRitualCost",
+  values: () => ({
+    Fixed: EnumCase({ type: IncludeIdentifier(FixedGeodeRitualCost) }),
+    Map: EnumCase({ type: IncludeIdentifier(CostMap) }),
+  }),
+})
+
+const FixedGeodeRitualCost = TypeAlias(import.meta.url, {
+  name: "FixedGeodeRitualCost",
+  type: () =>
+    Object({
+      value: Required({
+        comment: "The AE cost value.",
+        type: Integer({ minimum: 1 }),
+      }),
+    }),
+})
+
+const GeodeRitualRange = Enum(import.meta.url, {
+  name: "GeodeRitualRange",
+  values: () => ({
+    Self: EnumCase({ type: null }),
+    Fixed: EnumCase({ type: IncludeIdentifier(FixedGeodeRitualRange) }),
+  }),
+})
+
+const FixedGeodeRitualRange = TypeAlias(import.meta.url, {
+  name: "FixedGeodeRitualRange",
+  type: () =>
+    Object({
+      value: Required({
+        comment: "The range in steps/m.",
+        type: Integer({ minimum: 1 }),
+      }),
+    }),
+})
+
+const GeodeRitualDuration = Enum(import.meta.url, {
+  name: "GeodeRitualDuration",
+  values: () => ({
+    Immediate: EnumCase({ type: null }),
+    Fixed: EnumCase({ type: IncludeIdentifier(DurationUnitValue) }),
+    CheckResultBased: EnumCase({ type: IncludeIdentifier(CheckResultBasedDuration) }),
+  }),
+})

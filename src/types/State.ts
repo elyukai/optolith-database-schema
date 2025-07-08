@@ -1,54 +1,31 @@
-/**
- * @main State
- */
-
-import { TypeConfig } from "../typeConfig.js"
-import { todo } from "../validation/builders/integrity.js"
-import { validateEntityFileName } from "../validation/builders/naming.js"
-import { createSchemaValidator } from "../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
-import { LocaleMap } from "./_LocaleMap.js"
-import { NonEmptyMarkdown, NonEmptyString } from "./_NonEmptyString.js"
+import { Entity, IncludeIdentifier, Object, Optional, Required, String } from "tsondb/schema/def"
+import { NestedLocaleMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
+import { src } from "./source/_PublicationRef.js"
 
-/**
- * @title State
- */
-export type State = {
-  /**
-   * The state's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<StateTranslation>
-}
-
-export type StateTranslation = {
-  /**
-   * The name of the state.
-   */
-  name: NonEmptyString
-
-  /**
-   * The description of the state.
-   */
-  description: NonEmptyMarkdown
-
-  errata?: Errata
-}
-
-export const config: TypeConfig<State, State["id"], "State"> = {
+export const State = Entity(import.meta.url, {
   name: "State",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("State"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "States",
+  type: () =>
+    Object({
+      src,
+      translations: NestedLocaleMap(
+        Required,
+        "StateTranslation",
+        Object({
+          name: Required({
+            comment: "The state’s name.",
+            type: String({ minLength: 1 }),
+          }),
+          rules: Required({
+            comment: "The description of the state.",
+            type: String({ minLength: 1, isMarkdown: true }),
+          }),
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})

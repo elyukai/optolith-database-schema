@@ -1,61 +1,35 @@
-/**
- * @main MagicalSign
- */
-
-import { TypeConfig } from "../../typeConfig.js"
-import { todo } from "../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
-import * as Activatable from "../_Activatable.js"
-import { LocaleMap } from "../_LocaleMap.js"
+import { Entity, IncludeIdentifier, Integer, Object, Optional, Required } from "tsondb/schema/def"
+import { effect, name, name_in_library, property } from "../_Activatable.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
-import { PropertyReference } from "../_SimpleReferences.js"
+import { NestedLocaleMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { src } from "../source/_PublicationRef.js"
 
-/**
- * @title Magical Sign
- */
-export type MagicalSign = {
-  id: Activatable.Id
-
-  prerequisites?: GeneralPrerequisites
-
-  /**
-   * The associated magic property.
-   */
-  property: PropertyReference
-
-  /**
-   * The adventure points value.
-   * @integer
-   * @minimum 0
-   */
-  ap_value: number
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<MagicalSignTranslation>
-}
-
-export type MagicalSignTranslation = {
-  name: Activatable.Name
-
-  name_in_library?: Activatable.NameInLibrary
-
-  effect: Activatable.Effect
-
-  errata?: Errata
-}
-
-export const config: TypeConfig<MagicalSign, MagicalSign["id"], "MagicalSign"> = {
+export const MagicalSign = Entity(import.meta.url, {
   name: "MagicalSign",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("MagicalSign"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "MagicalSigns",
+  type: () =>
+    Object({
+      prerequisites: Optional({
+        type: IncludeIdentifier(GeneralPrerequisites),
+      }),
+      property,
+      ap_value: Required({
+        comment: "The adventure points value.",
+        type: Integer({ minimum: 0 }),
+      }),
+      src,
+      translation: NestedLocaleMap(
+        Required,
+        "MagicalSignTranslation",
+        Object({
+          name,
+          name_in_library,
+          effect,
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+})

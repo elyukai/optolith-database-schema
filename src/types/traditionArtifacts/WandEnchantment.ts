@@ -1,70 +1,46 @@
-/**
- * @main WandEnchantment
- */
-
-import { TypeConfig } from "../../typeConfig.js"
-import { todo } from "../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
-import * as Activatable from "../_Activatable.js"
-import { LocaleMap } from "../_LocaleMap.js"
+import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/def"
+import {
+  ap_value,
+  cost,
+  effect,
+  levels,
+  maximum,
+  name,
+  name_in_library,
+  property,
+  select_options,
+} from "../_Activatable.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
+import { NestedLocaleMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { src } from "../source/_PublicationRef.js"
 
-/**
- * @title Wand Enchantment
- */
-export type WandEnchantment = {
-  id: Activatable.Id
-
-  levels?: Activatable.Levels
-
-  select_options?: Activatable.SelectOptions
-
-  maximum?: Activatable.Maximum
-
-  prerequisites?: GeneralPrerequisites
-
-  cost?: Activatable.EnchantmentCost
-
-  property: Activatable.PropertyDeclaration
-
-  ap_value: Activatable.AdventurePointsValue
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<WandEnchantmentTranslation>
-}
-
-export type WandEnchantmentTranslation = {
-  name: Activatable.Name
-
-  name_in_library?: Activatable.NameInLibrary
-
-  effect: Activatable.Effect
-
-  /**
-   * @deprecated
-   */
-  aeCost?: string
-
-  /**
-   * @deprecated
-   */
-  bindingCost?: string
-
-  errata?: Errata
-}
-
-export const config: TypeConfig<WandEnchantment, WandEnchantment["id"], "WandEnchantment"> = {
+export const WandEnchantment = Entity(import.meta.url, {
   name: "WandEnchantment",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("WandEnchantment"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "WandEnchantments",
+  type: () =>
+    Object({
+      levels,
+      select_options,
+      maximum,
+      prerequisites: Optional({
+        type: IncludeIdentifier(GeneralPrerequisites),
+      }),
+      cost,
+      property,
+      ap_value,
+      src,
+      translation: NestedLocaleMap(
+        Required,
+        "WandEnchantmentTranslation",
+        Object({
+          name,
+          name_in_library,
+          effect,
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+})

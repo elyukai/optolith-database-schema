@@ -1,33 +1,47 @@
-import { LocaleMap } from "./_LocaleMap.js"
-import { NonEmptyString } from "./_NonEmptyString.js"
-import { TargetCategoryReference } from "./_SimpleReferences.js"
+import {
+  Array,
+  Enum,
+  EnumCase,
+  IncludeIdentifier,
+  Object,
+  Optional,
+  Required,
+  String,
+  TypeAlias,
+} from "tsondb/schema/def"
+import { NestedLocaleMap } from "./Locale.js"
+import { TargetCategoryIdentifier } from "./_Identifier.js"
 
-/**
- * The target category – the kind of creature or object – the skill affects.
- *
- * If no target categories are given, the skill applies to all target categories.
- */
-export type AffectedTargetCategories = SpecificAffectedTargetCategory[]
+export const AffectedTargetCategories = TypeAlias(import.meta.url, {
+  name: "AffectedTargetCategories",
+  comment: `The target category – the kind of creature or object – the skill affects.
 
-export type SpecificAffectedTargetCategory = {
-  id: SpecificAffectedTargetCategoryIdentifier
+If no target categories are given, the skill applies to all target categories.`,
+  type: () => Array(IncludeIdentifier(SpecificAffectedTargetCategory)),
+})
 
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations?: LocaleMap<SpecificAffectedTargetCategoryTranslation>
-}
+const SpecificAffectedTargetCategory = TypeAlias(import.meta.url, {
+  name: "SpecificAffectedTargetCategory",
+  type: () =>
+    Object({
+      id: Required({ type: IncludeIdentifier(SpecificAffectedTargetCategoryIdentifier) }),
+      translations: NestedLocaleMap(
+        Optional,
+        "SpecificAffectedTargetCategoryTranslation",
+        Object({
+          note: Required({ type: String({ minLength: 1 }) }),
+        })
+      ),
+    }),
+})
 
-export type SpecificAffectedTargetCategoryTranslation = {
-  /**
-   * A note, appended to the generated string in parenthesis.
-   */
-  note: NonEmptyString
-}
-
-export type SpecificAffectedTargetCategoryIdentifier =
-  | { tag: "Self"; self: {} }
-  | { tag: "Zone"; zone: {} }
-  | { tag: "LiturgicalChantsAndCeremonies"; liturgical_chants_and_ceremonies: {} }
-  | { tag: "Cantrips"; cantrips: {} }
-  | { tag: "Predefined"; predefined: TargetCategoryReference }
+const SpecificAffectedTargetCategoryIdentifier = Enum(import.meta.url, {
+  name: "SpecificAffectedTargetCategoryIdentifier",
+  values: () => ({
+    Self: EnumCase({ type: null }),
+    Zone: EnumCase({ type: null }),
+    LiturgicalChantsAndCeremonies: EnumCase({ type: null }),
+    Cantrips: EnumCase({ type: null }),
+    Predefined: EnumCase({ type: TargetCategoryIdentifier }),
+  }),
+})

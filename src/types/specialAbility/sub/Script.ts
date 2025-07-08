@@ -1,82 +1,59 @@
-/**
- * @main Script
- */
-
-import { TypeConfig } from "../../../typeConfig.js"
-import { todo } from "../../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../../validation/filename.js"
+import {
+  Array,
+  Entity,
+  IncludeIdentifier,
+  Integer,
+  Object,
+  Optional,
+  Required,
+  String,
+} from "tsondb/schema/def"
 import { AlternativeName } from "../../_AlternativeNames.js"
-import { LocaleMap } from "../../_LocaleMap.js"
-import { NonEmptyString } from "../../_NonEmptyString.js"
-import { LanguageReference } from "../../_SimpleReferences.js"
+import { LanguageIdentifier } from "../../_Identifier.js"
+import { NestedLocaleMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
-import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { src } from "../../source/_PublicationRef.js"
 import { AssociatedContinent } from "./_LanguageScript.js"
 
-/**
- * @title Script
- */
-export type Script = {
-  /**
-   * The script's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  /**
-   * The script's adventure point value.
-   * @integer
-   * @minimum 2
-   * @multipleOf 2
-   */
-  ap_value: number
-
-  /**
-   * A list of languages that use this script.
-   */
-  associated_languages: LanguageReference[]
-
-  /**
-   * The continents this script is present on.
-   * @minItems 1
-   */
-  continent: AssociatedContinent[]
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<ScriptTranslation>
-}
-
-export type ScriptTranslation = {
-  /**
-   * The name of the language.
-   */
-  name: NonEmptyString
-
-  /**
-   * A list of alternative names.
-   * @minItems 1
-   */
-  alternative_names?: AlternativeName[]
-
-  /**
-   * The description of the alphabet.
-   */
-  alphabet?: NonEmptyString
-
-  errata?: Errata
-}
-
-export const config: TypeConfig<Script, Script["id"], "Script"> = {
+export const Script = Entity(import.meta.url, {
   name: "Script",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("Script"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "Scripts",
+  type: () =>
+    Object({
+      ap_value: Optional({
+        comment: "The script’s adventure point value",
+        type: Integer({ minimum: 2, multipleOf: 2 }),
+      }),
+      associated_languages: Required({
+        comment: "A list of languages that use this script.",
+        type: Array(LanguageIdentifier),
+      }),
+      continent: Required({
+        comment: "The continents this language is present on.",
+        type: Array(IncludeIdentifier(AssociatedContinent), { minItems: 1 }),
+      }),
+      src,
+      translations: NestedLocaleMap(
+        Required,
+        "ScriptTranslation",
+        Object({
+          name: Required({
+            comment: "The script’s name.",
+            type: String({ minLength: 1 }),
+          }),
+          alternative_names: Optional({
+            comment: "A list of alternative names.",
+            type: Array(IncludeIdentifier(AlternativeName), { minItems: 1 }),
+          }),
+          alphabet: Optional({
+            comment: "The description of the alphabet.",
+            type: String({ minLength: 1 }),
+          }),
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})

@@ -1,100 +1,86 @@
-/**
- * @main Talisman
- */
-
-import { TypeConfig } from "../typeConfig.js"
-import { todo } from "../validation/builders/integrity.js"
-import { validateEntityFileName } from "../validation/builders/naming.js"
-import { createSchemaValidator } from "../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
-import { LocaleMap } from "./_LocaleMap.js"
-import { NonEmptyMarkdown, NonEmptyString } from "./_NonEmptyString.js"
-import { BlessedTraditionReference } from "./_SimpleReferences.js"
+import {
+  Array,
+  Entity,
+  Enum,
+  EnumCase,
+  IncludeIdentifier,
+  Integer,
+  Object,
+  Optional,
+  Required,
+  String,
+  TypeAlias,
+} from "tsondb/schema/def"
+import { BlessedTraditionIdentifier } from "./_Identifier.js"
+import { NestedLocaleMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
+import { src } from "./source/_PublicationRef.js"
 
-/**
- * @title Talisman
- */
-export type Talisman = {
-  /**
-   * The talisman's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  /**
-   * The tradition(s) the talisman belongs to.
-   * @minItems 1
-   */
-  tradition: BlessedTraditionReference[]
-
-  /**
-   * The talisman type, if any.
-   */
-  type?: TalismanType
-
-  /**
-   * The AP value for the required trade secret, if possible.
-   * @integer
-   * @minimum 5
-   * @multipleOf 5
-   */
-  ap_value?: number
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<TalismanTranslation>
-}
-
-export type TalismanType =
-  | "MainTalisman"
-  | "Talisman"
-  | "MinorTalisman"
-  | "Regalia"
-  | "PowerfulTalisman"
-
-export type TalismanTranslation = {
-  /**
-   * The name of the talisman.
-   */
-  name: NonEmptyString
-
-  /**
-   * The effect description.
-   */
-  effect: NonEmptyMarkdown
-
-  /**
-   * The activation parameters.
-   */
-  activation?: TalismanActivationTranslation
-
-  errata?: Errata
-}
-
-export type TalismanActivationTranslation = {
-  /**
-   * The KP cost.
-   * @integer
-   * @minimum 0
-   */
-  cost: number
-
-  /**
-   * The duration.
-   */
-  duration: NonEmptyString
-}
-
-export const config: TypeConfig<Talisman, Talisman["id"], "Talisman"> = {
+export const Talisman = Entity(import.meta.url, {
   name: "Talisman",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("Talisman"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "Talismans",
+  type: () =>
+    Object({
+      tradition: Required({
+        comment: "The tradition(s) the talisman belongs to.",
+        type: Array(BlessedTraditionIdentifier, { minItems: 1 }),
+      }),
+      type: Optional({
+        comment: "The talisman type, if any.",
+        type: IncludeIdentifier(TalismanType),
+      }),
+      ap_value: Optional({
+        comment: "The AP value for the required trade secret, if possible.",
+        type: Integer({ minimum: 5, multipleOf: 5 }),
+      }),
+      src,
+      translations: NestedLocaleMap(
+        Required,
+        "TalismanTranslation",
+        Object({
+          name: Required({
+            comment: "The talisman’s name.",
+            type: String({ minLength: 1 }),
+          }),
+          rules: Required({
+            comment: "The effect description.",
+            type: String({ minLength: 1, isMarkdown: true }),
+          }),
+          activation: Optional({
+            comment: "The activation parameters.",
+            type: IncludeIdentifier(TalismanActivationTranslation),
+          }),
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})
+
+const TalismanType = Enum(import.meta.url, {
+  name: "TalismanType",
+  values: () => ({
+    MainTalisman: EnumCase({ type: null }),
+    Talisman: EnumCase({ type: null }),
+    MinorTalisman: EnumCase({ type: null }),
+    Regalia: EnumCase({ type: null }),
+    PowerfulTalisman: EnumCase({ type: null }),
+  }),
+})
+
+const TalismanActivationTranslation = TypeAlias(import.meta.url, {
+  name: "TalismanActivationTranslation",
+  type: () =>
+    Object({
+      cost: Required({
+        comment: "The KP cost.",
+        type: Integer({ minimum: 0 }),
+      }),
+      duration: Required({
+        comment: "The duration.",
+        type: String({ minLength: 1 }),
+      }),
+    }),
+})

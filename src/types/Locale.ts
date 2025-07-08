@@ -1,50 +1,56 @@
-/**
- * @main Locale
- */
+import {
+  Boolean,
+  Entity,
+  MemberDecl,
+  NestedEntityMap,
+  Object,
+  ObjectType,
+  Required,
+  String,
+  Type,
+} from "tsondb/schema/def"
 
-import { TypeConfig } from "../typeConfig.js"
-import { validateLanguageFileName } from "../validation/builders/naming.js"
-import { createSchemaValidator } from "../validation/builders/schema.js"
-import { getFilenameAsStringId } from "../validation/filename.js"
-
-/**
- * @title Supported locale
- */
-export type Locale = {
-  /**
-   * The locale's identifier. An IETF language tag (BCP47).
-   * @pattern ^[a-z]{2}-[A-Z]{2}$
-   */
-  id: string
-
-  /**
-   * Name of the language in it's language.
-   * @minLength 1
-   * @example "Deutsch"
-   * @example "English"
-   * @example "Nederlands"
-   */
-  name: string
-
-  /**
-   * Region in which the language is spoken in it's language.
-   * @minLength 1
-   * @example "Deutschland"
-   * @example "United States"
-   * @example "België"
-   */
-  region: string
-
-  /**
-   * The language is not (fully) implemented and thus needs to be excluded from stable releases.
-   */
-  is_missing_implementation?: true
-}
-
-export const config: TypeConfig<Locale, string, "Locale"> = {
+export const Locale = Entity(import.meta.url, {
   name: "Locale",
-  id: getFilenameAsStringId,
-  integrityValidator: () => ({ tag: "Ok", value: undefined }),
-  schemaValidator: createSchemaValidator(import.meta.url, { ignoreFileNamePattern: true }),
-  fileNameValidator: validateLanguageFileName,
-}
+  namePlural: "Locales",
+  comment:
+    "A supported locale. The locale is used to identify the language and region of the content.",
+  type: () =>
+    Object({
+      name: Required({
+        comment: "Name of the language in its language.",
+        type: String({ minLength: 1 }),
+      }),
+      region: Required({
+        comment: "Region in which the language is spoken in its language.",
+        type: String({ minLength: 1 }),
+      }),
+      is_missing_implementation: Required({
+        comment:
+          "The language is not (fully) implemented and thus needs to be excluded from stable releases.",
+        type: Boolean(),
+      }),
+    }),
+})
+
+export const NestedLocaleMap = <
+  Name extends string,
+  T extends Record<string, MemberDecl<Type, boolean>>,
+  R extends boolean
+>(
+  MemberDeclCreator: <T extends Type>(options: {
+    comment?: string
+    isDeprecated?: boolean
+    type: T
+  }) => MemberDecl<T, R>,
+  name: Name,
+  type: ObjectType<T>
+) =>
+  MemberDeclCreator({
+    comment: "All translations for the entry, identified by IETF language tag (BCP47).",
+    type: NestedEntityMap({
+      name,
+      secondaryEntity: Locale,
+      type,
+    }),
+  })

@@ -1,74 +1,48 @@
-/**
- * @main MagicalSpecialAbility
- */
-
-import { TypeConfig } from "../../typeConfig.js"
-import { todo } from "../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
-import * as Activatable from "../_Activatable.js"
-import { LocaleMap } from "../_LocaleMap.js"
+import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/def"
+import {
+  ap_value,
+  input,
+  levels,
+  maximum,
+  name,
+  name_in_library,
+  rules,
+  select_options,
+  skill_applications,
+  skill_uses,
+} from "../_Activatable.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
+import { NestedLocaleMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { src } from "../source/_PublicationRef.js"
 
-/**
- * @title Magical Special Ability
- */
-export type MagicalSpecialAbility = {
-  id: Activatable.Id
-
-  levels?: Activatable.Levels
-
-  select_options?: Activatable.SelectOptions
-
-  skill_applications?: Activatable.SkillApplications
-
-  skill_uses?: Activatable.SkillUses
-
-  maximum?: Activatable.Maximum
-
-  prerequisites?: GeneralPrerequisites
-
-  ap_value: Activatable.AdventurePointsValue
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<MagicalSpecialAbilityTranslation>
-}
-
-export type MagicalSpecialAbilityTranslation = {
-  name: Activatable.Name
-
-  name_in_library?: Activatable.NameInLibrary
-
-  /**
-   * A string that is used as a label for an input field.
-   */
-  input?: Activatable.Input
-
-  rules: Activatable.Rules
-
-  /**
-   * The AP value. It is only used if the text cannot be generated from the given information.
-   */
-  ap_value?: Activatable.AdventurePointsValueReplacement
-
-  errata?: Errata
-}
-
-export const config: TypeConfig<
-  MagicalSpecialAbility,
-  MagicalSpecialAbility["id"],
-  "MagicalSpecialAbility"
-> = {
+export const MagicalSpecialAbility = Entity(import.meta.url, {
   name: "MagicalSpecialAbility",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("MagicalSpecialAbility"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "MagicalSpecialAbilities",
+  type: () =>
+    Object({
+      levels,
+      select_options,
+      skill_applications,
+      skill_uses,
+      maximum,
+      prerequisites: Optional({
+        type: IncludeIdentifier(GeneralPrerequisites),
+      }),
+      ap_value,
+      src,
+      translation: NestedLocaleMap(
+        Required,
+        "MagicalSpecialAbilityTranslation",
+        Object({
+          name,
+          name_in_library,
+          input,
+          rules,
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+})

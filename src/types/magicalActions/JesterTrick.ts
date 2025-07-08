@@ -1,192 +1,184 @@
-/**
- * @main JesterTrick
- */
-
-import { TypeConfig } from "../../typeConfig.js"
-import { todo } from "../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
+import {
+  Entity,
+  Enum,
+  EnumCase,
+  IncludeIdentifier,
+  Integer,
+  Object,
+  Optional,
+  Required,
+  String,
+  TypeAlias,
+} from "tsondb/schema/def"
 import { OldParameter } from "../_ActivatableSkill.js"
 import { CheckResultBasedDuration, DurationUnit } from "../_ActivatableSkillDuration.js"
 import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"
 import { AffectedTargetCategories } from "../_ActivatableSkillTargetCategory.js"
+import { PropertyIdentifier } from "../_Identifier.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
-import { LocaleMap } from "../_LocaleMap.js"
-import { NonEmptyString } from "../_NonEmptyString.js"
-import { PropertyReference } from "../_SimpleReferences.js"
 import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
+import { NestedLocaleMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { src } from "../source/_PublicationRef.js"
 
-/**
- * @title Jester Trick
- */
-export type JesterTrick = {
-  /**
-   * The jester trick's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  /**
-   * Lists the linked three attributes used to make a skill check.
-   */
-  check: SkillCheck
-
-  /**
-   * In some cases, the target's Spirit or Toughness is applied as a penalty.
-   */
-  check_penalty?: SkillCheckPenalty
-
-  /**
-   * Measurable parameters of a jester trick.
-   */
-  parameters: JesterTrickPerformanceParameters
-
-  /**
-   * The target category – the kind of creature or object – the skill affects.
-   */
-  target: AffectedTargetCategories
-
-  /**
-   * The associated property.
-   */
-  property: PropertyReference
-
-  /**
-   * States which column is used to improve the skill.
-   */
-  improvement_cost: ImprovementCost
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<JesterTrickTranslation>
-}
-
-export type JesterTrickTranslation = {
-  /**
-   * The name of the jester trick.
-   */
-  name: NonEmptyString
-
-  /**
-   * The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
-   */
-  effect: ActivatableSkillEffect
-
-  /**
-   * @deprecated
-   */
-  casting_time: OldParameter
-
-  /**
-   * @deprecated
-   */
-  cost: OldParameter
-
-  /**
-   * @deprecated
-   */
-  range: OldParameter
-
-  /**
-   * @deprecated
-   */
-  duration: OldParameter
-
-  /**
-   * @deprecated
-   */
-  target: string
-
-  errata?: Errata
-}
-
-/**
- * Measurable parameters of a geode ritual.
- */
-export type JesterTrickPerformanceParameters = {
-  /**
-   * The casting time.
-   */
-  casting_time: JesterTrickCastingTime
-
-  /**
-   * The AE cost.
-   */
-  cost: JesterTrickCost
-
-  /**
-   * The range.
-   */
-  range: JesterTrickRange
-
-  /**
-   * The duration.
-   */
-  duration: JesterTrickDuration
-}
-
-export type JesterTrickCastingTime = {
-  /**
-   * The casting time in actions.
-   * @integer
-   * @minimum 1
-   */
-  value: number
-}
-
-export type JesterTrickCost = {
-  /**
-   * The AE cost value.
-   * @integer
-   * @minimum 1
-   */
-  value: number
-}
-
-export type JesterTrickRange =
-  | { tag: "Touch"; touch: {} }
-  | { tag: "Self"; self: {} }
-  | { tag: "Fixed"; fixed: FixedJesterTrickRange }
-
-export type FixedJesterTrickRange = {
-  /**
-   * The range in steps/m.
-   * @integer
-   * @minimum 1
-   */
-  value: number
-}
-
-export type JesterTrickDuration =
-  | { tag: "Immediate"; immediate: {} }
-  | { tag: "Fixed"; fixed: FixedJesterTrickDuration }
-  | { tag: "CheckResultBased"; check_result_based: CheckResultBasedDuration }
-
-export type FixedJesterTrickDuration = {
-  /**
-   * The (unitless) duration.
-   * @integer
-   * @minimum 2
-   */
-  value: number
-
-  /**
-   * The duration unit.
-   */
-  unit: DurationUnit
-}
-
-export const config: TypeConfig<JesterTrick, JesterTrick["id"], "JesterTrick"> = {
+export const JesterTrick = Entity(import.meta.url, {
   name: "JesterTrick",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("JesterTrick"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "JesterTricks",
+  type: () =>
+    Object({
+      check: Required({
+        comment: "Lists the linked three attributes used to make a skill check.",
+        type: IncludeIdentifier(SkillCheck),
+      }),
+      check_penalty: Optional({
+        comment: "In some cases, the target's Spirit or Toughness is applied as a penalty.",
+        type: IncludeIdentifier(SkillCheckPenalty),
+      }),
+      parameters: Required({
+        comment: "Measurable parameters of a jester trick.",
+        type: IncludeIdentifier(JesterTrickPerformanceParameters),
+      }),
+      target: Required({
+        comment: "The target category – the kind of creature or object – the skill affects.",
+        type: IncludeIdentifier(AffectedTargetCategories),
+      }),
+      property: Required({
+        comment: "The associated property.",
+        type: PropertyIdentifier,
+      }),
+      improvement_cost: Required({
+        comment: "States which column is used to improve the skill.",
+        type: IncludeIdentifier(ImprovementCost),
+      }),
+      src,
+      translations: NestedLocaleMap(
+        Required,
+        "JesterTrickTranslation",
+        Object({
+          name: Required({
+            comment: "The jester trick’s name.",
+            type: String({ minLength: 1 }),
+          }),
+          effect: Required({
+            comment:
+              "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
+            type: IncludeIdentifier(ActivatableSkillEffect),
+          }),
+          casting_time: Optional({
+            isDeprecated: true,
+            type: IncludeIdentifier(OldParameter),
+          }),
+          cost: Optional({
+            isDeprecated: true,
+            type: IncludeIdentifier(OldParameter),
+          }),
+          range: Optional({
+            isDeprecated: true,
+            type: IncludeIdentifier(OldParameter),
+          }),
+          duration: Optional({
+            isDeprecated: true,
+            type: IncludeIdentifier(OldParameter),
+          }),
+          target: Optional({
+            isDeprecated: true,
+            type: String({ minLength: 1 }),
+          }),
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})
+
+export const JesterTrickPerformanceParameters = TypeAlias(import.meta.url, {
+  name: "JesterTrickPerformanceParameters",
+  comment: "Measurable parameters of a jester trick.",
+  type: () =>
+    Object({
+      casting_time: Required({
+        comment: "The casting time.",
+        type: IncludeIdentifier(JesterTrickCastingTime),
+      }),
+      cost: Required({
+        comment: "The AE cost.",
+        type: IncludeIdentifier(JesterTrickCost),
+      }),
+      range: Required({
+        comment: "The range.",
+        type: IncludeIdentifier(JesterTrickRange),
+      }),
+      duration: Required({
+        comment: "The duration.",
+        type: IncludeIdentifier(JesterTrickDuration),
+      }),
+    }),
+})
+
+export const JesterTrickCastingTime = TypeAlias(import.meta.url, {
+  name: "JesterTrickCastingTime",
+  type: () =>
+    Object({
+      value: Required({
+        comment: "The casting time in actions.",
+        type: Integer({ minimum: 1 }),
+      }),
+    }),
+})
+
+export const JesterTrickCost = TypeAlias(import.meta.url, {
+  name: "JesterTrickCost",
+  type: () =>
+    Object({
+      value: Required({
+        comment: "The AE cost value.",
+        type: Integer({ minimum: 1 }),
+      }),
+    }),
+})
+
+const JesterTrickRange = Enum(import.meta.url, {
+  name: "JesterTrickRange",
+  values: () => ({
+    Touch: EnumCase({ type: null }),
+    Self: EnumCase({ type: null }),
+    Fixed: EnumCase({ type: IncludeIdentifier(FixedJesterTrickRange) }),
+  }),
+})
+
+export const FixedJesterTrickRange = TypeAlias(import.meta.url, {
+  name: "FixedJesterTrickRange",
+  type: () =>
+    Object({
+      value: Required({
+        comment: "The range in steps/m.",
+        type: Integer({ minimum: 1 }),
+      }),
+    }),
+})
+
+export const JesterTrickDuration = Enum(import.meta.url, {
+  name: "JesterTrickDuration",
+  values: () => ({
+    Immediate: EnumCase({ type: null }),
+    Fixed: EnumCase({ type: IncludeIdentifier(FixedJesterTrickDuration) }),
+    CheckResultBased: EnumCase({ type: IncludeIdentifier(CheckResultBasedDuration) }),
+  }),
+})
+
+const FixedJesterTrickDuration = TypeAlias(import.meta.url, {
+  name: "FixedJesterTrickDuration",
+  type: () =>
+    Object({
+      value: Required({
+        comment: "The (unitless) duration.",
+        type: Integer({ minimum: 2 }),
+      }),
+      unit: Required({
+        comment: "The duration unit.",
+        type: IncludeIdentifier(DurationUnit),
+      }),
+    }),
+})

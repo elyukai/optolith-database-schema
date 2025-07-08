@@ -1,10 +1,9 @@
-/**
- * @main BinarySex
- */
+import { Enum, EnumCase } from "tsondb/schema/def"
 
-/**
- * @title Binary Sex
- */
-export type BinarySex =
-  | "Male"
-  | "Female"
+export const BinarySex = Enum(import.meta.url, {
+  name: "BinarySex",
+  values: () => ({
+    Male: EnumCase({ type: null }),
+    Female: EnumCase({ type: null }),
+  }),
+})

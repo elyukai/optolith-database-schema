@@ -1,141 +1,134 @@
-/**
- * @main Language
- */
-
-import { TypeConfig } from "../../../typeConfig.js"
-import { todo } from "../../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../../validation/filename.js"
+import {
+  Array,
+  Entity,
+  Enum,
+  EnumCase,
+  IncludeIdentifier,
+  Integer,
+  Object,
+  Optional,
+  Required,
+  String,
+  TypeAlias,
+} from "tsondb/schema/def"
 import { AlternativeName } from "../../_AlternativeNames.js"
-import { LocaleMap } from "../../_LocaleMap.js"
-import { NonEmptyString } from "../../_NonEmptyString.js"
 import { LanguagePrerequisites } from "../../_Prerequisite.js"
+import { NestedLocaleMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
-import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { src } from "../../source/_PublicationRef.js"
 import { AssociatedContinent } from "./_LanguageScript.js"
 
-/**
- * @title Language
- */
-export type Language = {
-  /**
-   * The language's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  /**
-   * The continents this language is present on.
-   * @minItems 1
-   */
-  continent: AssociatedContinent[]
-
-  /**
-   * Language-specific specializations. Either a list of possible options or a indefinite description of what may be a specialization.
-   */
-  specializations?: Specializations
-
-  prerequisites?: LanguagePrerequisites
-
-  /**
-   * The maximum possible level of the language. Only specified if lower than default of 3.
-   * @minimum 1
-   * @maximum 2
-   * @default 3
-   */
-  max_level?: number
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<LanguageTranslation>
-}
-
-export type Specializations =
-  | { tag: "Specific"; specific: SpecificSpecializations }
-  | { tag: "Indefinite"; indefinite: IndefiniteSpecializations }
-
-export type SpecificSpecializations = {
-  /**
-   * A list of specific possible specializations.
-   * @minItems 1
-   */
-  list: SpecificSpecialization[]
-}
-
-export type SpecificSpecialization = {
-  /**
-   * The specialization's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<SpecificSpecializationTranslation>
-}
-
-export type SpecificSpecializationTranslation = {
-  /**
-   * The name of the specialization.
-   */
-  name: NonEmptyString
-
-  /**
-   * The specialization description. It will be appended to the name in parenthesis.
-   */
-  description?: NonEmptyString
-}
-
-export type IndefiniteSpecializations = {
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<IndefiniteSpecializationsTranslation>
-}
-
-export type IndefiniteSpecializationsTranslation = {
-  /**
-   * The specializations description.
-   */
-  description: NonEmptyString
-
-  /**
-   * An input label or placeholder text for an UI element if it differs from the `description`.
-   */
-  label?: NonEmptyString
-}
-
-export type LanguageTranslation = {
-  /**
-   * The name of the language.
-   */
-  name: NonEmptyString
-
-  /**
-   * A list of alternative names.
-   * @minItems 1
-   */
-  alternative_names?: AlternativeName[]
-
-  /**
-   * The description of the language.
-   */
-  description?: NonEmptyString
-
-  errata?: Errata
-}
-
-export const config: TypeConfig<Language, Language["id"], "Language"> = {
+export const Language = Entity(import.meta.url, {
   name: "Language",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("Language"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "Languages",
+  type: () =>
+    Object({
+      continent: Required({
+        comment: "The continents this language is present on.",
+        type: Array(IncludeIdentifier(AssociatedContinent), { minItems: 1 }),
+      }),
+      specializations: Optional({
+        comment:
+          "Language-specific specializations. Either a list of possible options or a indefinite description of what may be a specialization.",
+        type: IncludeIdentifier(Specializations),
+      }),
+      prerequisites: Optional({
+        type: IncludeIdentifier(LanguagePrerequisites),
+      }),
+      max_level: Optional({
+        comment:
+          "The maximum possible level of the language. Only specified if lower than default of 3.",
+        type: Integer({ minimum: 1, maximum: 2 }),
+      }),
+      src,
+      translations: NestedLocaleMap(
+        Required,
+        "LanguageTranslation",
+        Object({
+          name: Required({
+            comment: "The language’s name.",
+            type: String({ minLength: 1 }),
+          }),
+          alternative_names: Optional({
+            comment: "A list of alternative names.",
+            type: Array(IncludeIdentifier(AlternativeName), { minItems: 1 }),
+          }),
+          description: Required({
+            comment: "The description of the language.",
+            type: String({ minLength: 1 }),
+          }),
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})
+
+const Specializations = Enum(import.meta.url, {
+  name: "Specializations",
+  values: () => ({
+    Specific: EnumCase({ type: IncludeIdentifier(SpecificSpecializations) }),
+    Indefinite: EnumCase({ type: IncludeIdentifier(IndefiniteSpecializations) }),
+  }),
+})
+
+const SpecificSpecializations = TypeAlias(import.meta.url, {
+  name: "SpecificSpecializations",
+  type: () =>
+    Object({
+      list: Required({
+        comment: "A list of specific possible specializations.",
+        type: Array(IncludeIdentifier(SpecificSpecialization), { minItems: 1 }),
+      }),
+    }),
+})
+
+const SpecificSpecialization = TypeAlias(import.meta.url, {
+  name: "SpecificSpecialization",
+  type: () =>
+    Object({
+      id: Required({
+        comment: "The specialization’s identifier.",
+        type: Integer({ minimum: 1 }),
+      }),
+      translations: NestedLocaleMap(
+        Required,
+        "SpecificSpecializationTranslation",
+        Object({
+          name: Required({
+            comment: "The specialization’s name.",
+            type: String({ minLength: 1 }),
+          }),
+          description: Optional({
+            comment:
+              "The specialization description. It will be appended to the name in parenthesis.",
+            type: String({ minLength: 1 }),
+          }),
+        })
+      ),
+    }),
+})
+
+const IndefiniteSpecializations = TypeAlias(import.meta.url, {
+  name: "IndefiniteSpecializations",
+  type: () =>
+    Object({
+      translations: NestedLocaleMap(
+        Required,
+        "IndefiniteSpecializationsTranslation",
+        Object({
+          description: Required({
+            comment: "The specializations description.",
+            type: String({ minLength: 1 }),
+          }),
+          label: Optional({
+            comment:
+              "An input label or placeholder text for an UI element if it differs from the `description`.",
+            type: String({ minLength: 1 }),
+          }),
+        })
+      ),
+    }),
+})

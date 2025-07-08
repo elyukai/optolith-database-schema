@@ -1,57 +1,60 @@
-/**
- * @main Influence
- */
-
-import { LocaleMap } from "./_LocaleMap.js"
-import { NonEmptyString } from "./_NonEmptyString.js"
+import {
+  Array,
+  Entity,
+  IncludeIdentifier,
+  Object,
+  Optional,
+  Required,
+  String,
+  TypeAlias,
+} from "tsondb/schema/def"
 import { InfluencePrerequisites } from "./_Prerequisite.js"
+import { NestedLocaleMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
+import { src } from "./source/_PublicationRef.js"
 
-/**
- * @title Influence
- */
-export type Influence = {
-  /**
-   * The influence's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+export const Influence = Entity(import.meta.url, {
+  name: "Influence",
+  namePlural: "Influences",
+  type: () =>
+    Object({
+      prerequisites: Optional({
+        type: IncludeIdentifier(InfluencePrerequisites),
+      }),
+      src,
+      translations: NestedLocaleMap(
+        Required,
+        "InfluenceTranslation",
+        Object({
+          name: Required({
+            comment: "The influence’s name.",
+            type: String({ minLength: 1 }),
+          }),
+          effects: Optional({
+            comment:
+              "The effects of the influence. They should be sorted like they are in the book.",
+            type: Array(IncludeIdentifier(InfluenceEffect), { minItems: 1 }),
+          }),
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})
 
-  prerequisites: InfluencePrerequisites
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<InfluenceTranslation>
-}
-
-export type InfluenceTranslation = {
-  /**
-   * The influence name.
-   */
-  name: NonEmptyString
-
-  /**
-   * The effects of the influence. They should be sorted like they are in the book.
-   * @minItems 1
-   */
-  effects: InfluenceEffect[]
-
-  errata?: Errata
-}
-
-export type InfluenceEffect = {
-  /**
-   * An optional label that is displayed and placed before the actual text.
-   */
-  label?: NonEmptyString
-
-  /**
-   * The effect text.
-   */
-  text: NonEmptyString
-}
+const InfluenceEffect = TypeAlias(import.meta.url, {
+  name: "InfluenceEffect",
+  type: () =>
+    Object({
+      label: Optional({
+        comment: "An optional label that is displayed and placed before the actual text.",
+        type: String({ minLength: 1 }),
+      }),
+      text: Required({
+        comment: "The effect text.",
+        type: String({ minLength: 1 }),
+      }),
+    }),
+})

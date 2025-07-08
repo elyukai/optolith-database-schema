@@ -1,73 +1,50 @@
-/**
- * @main CeremonialItemSpecialAbility
- */
-
-import { TypeConfig } from "../../typeConfig.js"
-import { todo } from "../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
-import * as Activatable from "../_Activatable.js"
-import { LocaleMap } from "../_LocaleMap.js"
+import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/def"
+import {
+  ap_value,
+  aspect,
+  effect,
+  levels,
+  maximum,
+  name,
+  name_in_library,
+  select_options,
+  skill_applications,
+  skill_uses,
+  usage_type,
+} from "../_Activatable.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
+import { NestedLocaleMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { src } from "../source/_PublicationRef.js"
 
-/**
- * @title Ceremonial Item Special Ability
- */
-export type CeremonialItemSpecialAbility = {
-  id: Activatable.Id
-
-  levels?: Activatable.Levels
-
-  select_options?: Activatable.SelectOptions
-
-  skill_applications?: Activatable.SkillApplications
-
-  skill_uses?: Activatable.SkillUses
-
-  maximum?: Activatable.Maximum
-
-  aspect?: Activatable.AspectDeclaration
-
-  prerequisites?: GeneralPrerequisites
-
-  ap_value: Activatable.AdventurePointsValue
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<CeremonialItemSpecialAbilityTranslation>
-}
-
-export type CeremonialItemSpecialAbilityTranslation = {
-  name: Activatable.Name
-
-  name_in_library?: Activatable.NameInLibrary
-
-  // input?: Activatable.Input
-
-  effect: Activatable.Effect
-
-  /**
-   * The prerequisites text. It is only used if the text cannot be generated from the given information.
-   */
-  prerequisites?: Activatable.PrerequisitesReplacement
-
-  errata?: Errata
-}
-
-export const config: TypeConfig<
-  CeremonialItemSpecialAbility,
-  CeremonialItemSpecialAbility["id"],
-  "CeremonialItemSpecialAbility"
-> = {
+export const CeremonialItemSpecialAbility = Entity(import.meta.url, {
   name: "CeremonialItemSpecialAbility",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("CeremonialItemSpecialAbility"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "CeremonialItemSpecialAbilities",
+  type: () =>
+    Object({
+      levels,
+      usage_type,
+      select_options,
+      skill_applications,
+      skill_uses,
+      maximum,
+      aspect,
+      prerequisites: Optional({
+        type: IncludeIdentifier(GeneralPrerequisites),
+      }),
+      ap_value,
+      src,
+      translation: NestedLocaleMap(
+        Required,
+        "CeremonialItemSpecialAbilityTranslation",
+        Object({
+          name,
+          name_in_library,
+          effect,
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+})

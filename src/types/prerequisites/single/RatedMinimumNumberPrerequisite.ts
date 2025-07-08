@@ -1,63 +1,103 @@
-import { AspectReference, PropertyReference, SkillReference } from "../../_SimpleReferences.js"
+import {
+  Array,
+  Enum,
+  EnumCase,
+  IncludeIdentifier,
+  Integer,
+  Object,
+  Optional,
+  Required,
+  TypeAlias,
+} from "tsondb/schema/def"
+import { AspectIdentifier, PropertyIdentifier, SkillIdentifier } from "../../_Identifier.js"
 import { DisplayOption } from "../DisplayOption.js"
 
-/**
- * @title Rated Minimum Number Prerequisite
- */
-export type RatedMinimumNumberPrerequisite = {
-  /**
-   * The minimum number of skills that need to be on the defined minimum skill rating.
-   * @integer
-   * @minimum 1
-   */
-  number: number
+export const RatedMinimumNumberPrerequisite = TypeAlias(import.meta.url, {
+  name: "RatedMinimumNumberPrerequisite",
+  type: () =>
+    Object({
+      number: Required({
+        comment:
+          "The minimum number of skills that need to be on the defined minimum skill rating.",
+        type: Integer({ minimum: 1 }),
+      }),
+      value: Required({
+        comment: "The minimum skill rating the defined minimum number of skills need to be on.",
+        type: Integer({ minimum: 1 }),
+      }),
+      targets: Required({
+        comment: "The targets that contribute to satisfying the prerequisite.",
+        type: IncludeIdentifier(RatedMinimumNumberPrerequisiteTarget),
+      }),
+      display_option: Optional({
+        type: IncludeIdentifier(DisplayOption),
+      }),
+    }),
+})
 
-  /**
-   * The minimum skill rating the defined minimum number of skills need to be on.
-   * @integer
-   * @minimum 1
-   */
-  value: number
+const RatedMinimumNumberPrerequisiteTarget = Enum(import.meta.url, {
+  name: "RatedMinimumNumberPrerequisiteTarget",
+  values: () => ({
+    Skills: EnumCase({ type: IncludeIdentifier(RatedMinimumNumberPrerequisiteSkillsTarget) }),
+    CombatTechniques: EnumCase({
+      type: IncludeIdentifier(RatedMinimumNumberPrerequisiteCombatTechniquesTarget),
+    }),
+    Spellworks: EnumCase({
+      type: IncludeIdentifier(RatedMinimumNumberPrerequisiteSpellworksTarget),
+    }),
+    Liturgies: EnumCase({ type: IncludeIdentifier(RatedMinimumNumberPrerequisiteLiturgiesTarget) }),
+  }),
+})
 
-  /**
-   * The targets that contribute to satisfying the prerequisite.
-   */
-  targets: RatedMinimumNumberPrerequisiteTarget
+export const RatedMinimumNumberPrerequisiteSkillsTarget = TypeAlias(import.meta.url, {
+  name: "RatedMinimumNumberPrerequisiteSkillsTarget",
+  type: () =>
+    Object({
+      targets: Required({
+        comment: "The skills that are taken into account for satisfying the prerequisite.",
+        type: Array(SkillIdentifier, { minItems: 2, uniqueItems: true }),
+      }),
+    }),
+})
 
-  display_option?: DisplayOption
-}
+export const RatedMinimumNumberPrerequisiteCombatTechniquesTarget = TypeAlias(import.meta.url, {
+  name: "RatedMinimumNumberPrerequisiteCombatTechniquesTarget",
+  type: () =>
+    Object({
+      group: Required({
+        comment: "The skills that are taken into account for satisfying the prerequisite.",
+        type: IncludeIdentifier(RatedMinimumNumberPrerequisiteCombatTechniquesTargetGroup),
+      }),
+    }),
+})
 
-export type RatedMinimumNumberPrerequisiteTarget =
-  | { tag: "Skills"; skills: RatedMinimumNumberPrerequisiteSkillsTarget }
-  | { tag: "CombatTechniques"; combat_techniques: CombatTechniquesTarget }
-  | { tag: "Spellworks"; spellworks: PropertyReference }
-  | { tag: "Liturgies"; liturgies: AspectReference }
+const RatedMinimumNumberPrerequisiteCombatTechniquesTargetGroup = Enum(import.meta.url, {
+  name: "RatedMinimumNumberPrerequisiteCombatTechniquesTargetGroup",
+  values: () => ({
+    All: EnumCase({ type: null }),
+    Close: EnumCase({ type: null }),
+    Ranged: EnumCase({ type: null }),
+  }),
+})
 
-export type RatedMinimumNumberPrerequisiteSkillsTarget = {
-  /**
-   * The skills that are taken into account for satisfying the prerequisite.
-   * @minItems 2
-   * @uniqueItems
-   */
-  list: SkillReference[]
-}
+export const RatedMinimumNumberPrerequisiteSpellworksTarget = TypeAlias(import.meta.url, {
+  name: "RatedMinimumNumberPrerequisiteSpellworksTarget",
+  type: () =>
+    Object({
+      property: Required({
+        comment: "The skills that are taken into account for satisfying the prerequisite.",
+        type: PropertyIdentifier,
+      }),
+    }),
+})
 
-export type CombatTechniquesTarget = {
-  group: CombatTechniquesTargetGroup
-}
-
-export type CombatTechniquesTargetGroup = "All" | "Close" | "Ranged"
-
-export type RatedMinimumNumberPrerequisiteSpellworksTarget = {
-  /**
-   * The skills that are taken into account for satisfying the prerequisite.
-   */
-  property: PropertyReference
-}
-
-export type RatedMinimumNumberPrerequisiteLiturgiesTarget = {
-  /**
-   * The skills that are taken into account for satisfying the prerequisite.
-   */
-  aspect: AspectReference
-}
+export const RatedMinimumNumberPrerequisiteLiturgiesTarget = TypeAlias(import.meta.url, {
+  name: "RatedMinimumNumberPrerequisiteLiturgiesTarget",
+  type: () =>
+    Object({
+      aspect: Required({
+        comment: "The skills that are taken into account for satisfying the prerequisite.",
+        type: AspectIdentifier,
+      }),
+    }),
+})

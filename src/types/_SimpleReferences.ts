@@ -1,5 +1,16 @@
-import { AdvantageIdentifier, AnimalTypeIdentifier, AnimistTribeIdentifier, ArmorIdentifier, AspectIdentifier, AttributeIdentifier, BlessedTraditionIdentifier, BlessingIdentifier, CantripIdentifier, CeremonyIdentifier, CloseCombatTechniqueIdentifier, CultureIdentifier, CurriculumIdentifier, DisadvantageIdentifier, ElementIdentifier, EyeColorIdentifier, GuidelineIdentifier, HairColorIdentifier, LanguageIdentifier, LiturgicalChantIdentifier, MagicalTraditionIdentifier, PactCategoryIdentifier, PactDomainIdentifier, PatronCategoryIdentifier, PatronIdentifier, PersonalityTraitIdentifier, ProfessionIdentifier, ProfessionVariantIdentifier, PropertyIdentifier, RaceIdentifier, RangedCombatTechniqueIdentifier, RitualIdentifier, ScriptIdentifier, SkillGroupIdentifier, SkillIdentifier, SocialStatusIdentifier, SpellIdentifier, SubjectIdentifier, TargetCategoryIdentifier, WeaponIdentifier } from "./_Identifier.js"
-import { CombatTechniqueIdentifier, SpellworkIdentifier, TraditionIdentifier } from "./_IdentifierGroup.js"
+import { Entity, Object, Required } from "tsondb/schema/def"
+import {
+  CombatTechniqueIdentifier,
+  SpellworkIdentifier,
+  TraditionIdentifier,
+} from "./_IdentifierGroup.js"
+
+export const SimpleIdentifierObject = (entity: Entity) =>
+  Object({
+    id: Required({
+      type: entityIdentifier,
+    }),
+  })
 
 export type FocusRuleSubjectReference = {
   id: SubjectIdentifier

@@ -1,127 +1,97 @@
-/**
- * @main Spell
- */
-
-import { TypeConfig } from "../typeConfig.js"
-import { todo } from "../validation/builders/integrity.js"
-import { validateEntityFileName } from "../validation/builders/naming.js"
-import { createSchemaValidator } from "../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
+import { Entity, IncludeIdentifier, Object, Optional, Required, String } from "tsondb/schema/def"
 import { FastPerformanceParameters, OldParameter } from "./_ActivatableSkill.js"
 import { ActivatableSkillEffect } from "./_ActivatableSkillEffect.js"
 import { AffectedTargetCategories } from "./_ActivatableSkillTargetCategory.js"
 import { Enhancements } from "./_Enhancements.js"
+import { PropertyIdentifier } from "./_Identifier.js"
 import { ImprovementCost } from "./_ImprovementCost.js"
-import { LocaleMap } from "./_LocaleMap.js"
-import { NonEmptyString } from "./_NonEmptyString.js"
 import { SpellworkPrerequisites } from "./_Prerequisite.js"
-import { PropertyReference } from "./_SimpleReferences.js"
 import { SkillCheck, SkillCheckPenalty } from "./_SkillCheck.js"
-import { Traditions } from "./_Spellwork.js"
+import { SpellworkTraditions } from "./_Spellwork.js"
+import { NestedLocaleMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
+import { src } from "./source/_PublicationRef.js"
 
-/**
- * @title Spell
- */
-export type Spell = {
-  /**
-   * The spell's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  /**
-   * Lists the linked three attributes used to make a skill check.
-   */
-  check: SkillCheck
-
-  /**
-   * In some cases, the target's Spirit or Toughness is applied as a penalty.
-   */
-  check_penalty?: SkillCheckPenalty
-
-  /**
-   * Measurable parameters of a spell.
-   */
-  parameters: FastPerformanceParameters
-
-  /**
-   * The target category – the kind of creature or object – the skill affects.
-   */
-  target: AffectedTargetCategories
-
-  /**
-   * The associated property.
-   */
-  property: PropertyReference
-
-  /**
-   * The tradition(s) the spell is available for. It may be *generally* available to all traditions or it may be only familiar in specific traditions.
-   */
-  traditions: Traditions
-
-  /**
-   * States which column is used to improve the skill.
-   */
-  improvement_cost: ImprovementCost
-
-  prerequisites?: SpellworkPrerequisites
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<SpellTranslation>
-
-  enhancements?: Enhancements
-}
-
-export type SpellTranslation = {
-  /**
-   * The name of the spell.
-   */
-  name: NonEmptyString
-
-  /**
-   * The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
-   */
-  effect: ActivatableSkillEffect
-
-  /**
-   * @deprecated
-   */
-  casting_time: OldParameter
-
-  /**
-   * @deprecated
-   */
-  cost: OldParameter
-
-  /**
-   * @deprecated
-   */
-  range: OldParameter
-
-  /**
-   * @deprecated
-   */
-  duration: OldParameter
-
-  /**
-   * @deprecated
-   */
-  target: string
-
-  errata?: Errata
-}
-
-export const config: TypeConfig<Spell, Spell["id"], "Spell"> = {
+export const Spell = Entity(import.meta.url, {
   name: "Spell",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("Spell"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "Spells",
+  type: () =>
+    Object({
+      check: Required({
+        comment: "Lists the linked three attributes used to make a skill check.",
+        type: IncludeIdentifier(SkillCheck),
+      }),
+      check_penalty: Optional({
+        comment: "In some cases, the target's Spirit or Toughness is applied as a penalty.",
+        type: IncludeIdentifier(SkillCheckPenalty),
+      }),
+      parameters: Required({
+        comment: "Measurable parameters of a spell.",
+        type: IncludeIdentifier(FastPerformanceParameters),
+      }),
+      target: Required({
+        comment: "The target category – the kind of creature or object – the skill affects.",
+        type: IncludeIdentifier(AffectedTargetCategories),
+      }),
+      property: Required({
+        comment: "The associated property.",
+        type: PropertyIdentifier,
+      }),
+      traditions: Required({
+        comment:
+          "The tradition(s) the spell is available for. It may be *generally* available to all traditions or it may be only familiar in specific traditions.",
+        type: IncludeIdentifier(SpellworkTraditions),
+      }),
+      improvement_cost: Required({
+        comment: "States which column is used to improve the skill.",
+        type: IncludeIdentifier(ImprovementCost),
+      }),
+      prerequisites: Optional({
+        comment: "The prerequisites for the spell.",
+        type: IncludeIdentifier(SpellworkPrerequisites),
+      }),
+      src,
+      translations: NestedLocaleMap(
+        Required,
+        "SpellTranslation",
+        Object({
+          name: Required({
+            comment: "The spell’s name.",
+            type: String({ minLength: 1 }),
+          }),
+          effect: Required({
+            comment:
+              "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
+            type: IncludeIdentifier(ActivatableSkillEffect),
+          }),
+          casting_time: Optional({
+            isDeprecated: true,
+            type: IncludeIdentifier(OldParameter),
+          }),
+          cost: Optional({
+            isDeprecated: true,
+            type: IncludeIdentifier(OldParameter),
+          }),
+          range: Optional({
+            isDeprecated: true,
+            type: IncludeIdentifier(OldParameter),
+          }),
+          duration: Optional({
+            isDeprecated: true,
+            type: IncludeIdentifier(OldParameter),
+          }),
+          target: Optional({
+            isDeprecated: true,
+            type: String({ minLength: 1 }),
+          }),
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+      enhancements: Optional({
+        type: IncludeIdentifier(Enhancements),
+      }),
+    }),
+  displayName: {},
+})

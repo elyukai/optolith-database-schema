@@ -1,103 +1,74 @@
-/**
- * @main PactCategory
- */
-
-import { TypeConfig } from "../typeConfig.js"
-import { todo } from "../validation/builders/integrity.js"
-import { validateEntityFileName } from "../validation/builders/naming.js"
-import { createSchemaValidator } from "../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
-import { LocaleMap } from "./_LocaleMap.js"
-import { NonEmptyString } from "./_NonEmptyString.js"
+import { Array, Entity, IncludeIdentifier, Object, Required, String } from "tsondb/schema/def"
+import { PactDomainIdentifier, PactTypeIdentifier } from "./_Identifier.js"
+import { NestedLocaleMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
+import { src } from "./source/_PublicationRef.js"
 
-/**
- * @title Pact Category
- */
-export type PactCategory = {
-  /**
-   * The pact category's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  /**
-   * Types of creatures in this category.
-   * @minItems 1
-   */
-  types: PactType[]
-
-  /**
-   * Domains in this category.
-   * @minItems 1
-   */
-  domains: PactDomain[]
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<PactCategoryTranslation>
-}
-
-export type PactCategoryTranslation = {
-  /**
-   * The name of the pact category.
-   */
-  name: NonEmptyString
-
-  errata?: Errata
-}
-
-export type PactType = {
-  /**
-   * The type's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<PactTypeTranslation>
-}
-
-export type PactTypeTranslation = {
-  /**
-   * The name of the type.
-   */
-  name: NonEmptyString
-}
-
-export type PactDomain = {
-  /**
-   * The domain's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<PactDomainTranslation>
-}
-
-export type PactDomainTranslation = {
-  /**
-   * The name of the domain.
-   */
-  name: NonEmptyString
-}
-
-export const config: TypeConfig<PactCategory, PactCategory["id"], "PactCategory"> = {
+export const PactCategory = Entity(import.meta.url, {
   name: "PactCategory",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("PactCategory"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "PactCategories",
+  type: () =>
+    Object({
+      types: Required({
+        comment: "Types of creatures in this category.",
+        type: Array(PactTypeIdentifier, { minItems: 1 }),
+      }),
+      domains: Required({
+        comment: "Domains in this category.",
+        type: Array(PactDomainIdentifier, { minItems: 1 }),
+      }),
+      src,
+      translations: NestedLocaleMap(
+        Required,
+        "PactCategoryTranslation",
+        Object({
+          name: Required({
+            comment: "The pact category’s name.",
+            type: String({ minLength: 1 }),
+          }),
+          errata: Required({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})
+
+export const PactType = Entity(import.meta.url, {
+  name: "PactType",
+  namePlural: "PactTypes",
+  type: () =>
+    Object({
+      translations: NestedLocaleMap(
+        Required,
+        "PactTypeTranslation",
+        Object({
+          name: Required({
+            comment: "The type’s name.",
+            type: String({ minLength: 1 }),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})
+
+export const PactDomain = Entity(import.meta.url, {
+  name: "PactDomain",
+  namePlural: "PactDomains",
+  type: () =>
+    Object({
+      translations: NestedLocaleMap(
+        Required,
+        "PactDomainTranslation",
+        Object({
+          name: Required({
+            comment: "The domain’s name.",
+            type: String({ minLength: 1 }),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})

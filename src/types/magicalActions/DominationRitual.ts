@@ -1,167 +1,163 @@
-/**
- * @main DominationRitual
- */
-
-import { TypeConfig } from "../../typeConfig.js"
-import { todo } from "../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
-import { OldParameter } from "../_ActivatableSkill.js"
 import {
-  CheckResultBasedDuration,
-  DurationUnit,
-  IndefiniteDurationTranslation,
-} from "../_ActivatableSkillDuration.js"
+  Entity,
+  Enum,
+  EnumCase,
+  IncludeIdentifier,
+  Integer,
+  Object,
+  Optional,
+  Required,
+  String,
+  TypeAlias,
+} from "tsondb/schema/def"
+import { OldParameter } from "../_ActivatableSkill.js"
+import { CheckResultBasedDuration, DurationUnit } from "../_ActivatableSkillDuration.js"
 import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"
-import { LocaleMap } from "../_LocaleMap.js"
-import { NonEmptyString } from "../_NonEmptyString.js"
+import { PropertyIdentifier, SkillModificationLevelIdentifier } from "../_Identifier.js"
 import { ResponsiveText } from "../_ResponsiveText.js"
-import { PropertyReference } from "../_SimpleReferences.js"
 import { SkillCheck, SkillCheckPenalty } from "../_SkillCheck.js"
+import { NestedLocaleMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { src } from "../source/_PublicationRef.js"
 
-/**
- * @title Domination Ritual
- */
-export type DominationRitual = {
-  /**
-   * The domination ritual's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  /**
-   * Lists the linked three attributes used to make a skill check.
-   */
-  check: SkillCheck
-
-  /**
-   * In some cases, the target's Spirit or Toughness is applied as a penalty.
-   */
-  check_penalty?: SkillCheckPenalty
-
-  /**
-   * Measurable parameters of a curse.
-   */
-  parameters: DominationRitualPerformanceParameters
-
-  /**
-   * The associated property.
-   */
-  property: PropertyReference
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<DominationRitualTranslation>
-}
-
-export type DominationRitualTranslation = {
-  /**
-   * The name of the domination ritual.
-   */
-  name: NonEmptyString
-
-  /**
-   * The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
-   */
-  effect: ActivatableSkillEffect
-
-  /**
-   * @deprecated
-   */
-  cost: OldParameter
-
-  /**
-   * @deprecated
-   */
-  duration: OldParameter
-
-  errata?: Errata
-}
-
-/**
- * Measurable parameters of a curse.
- */
-export type DominationRitualPerformanceParameters = {
-  /**
-   * The AE cost.
-   */
-  cost: DominationRitualCost
-
-  /**
-   * The duration.
-   */
-  duration: DominationRitualDuration
-}
-
-export type DominationRitualCost = {
-  /**
-   * The initial skill modification identifier/level.
-   * @integer
-   * @minimum 1
-   * @maximum 6
-   */
-  initial_modification_level: number
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   * @minProperties 1
-   */
-  translations?: LocaleMap<DominationRitualCostTranslation>
-}
-
-export type DominationRitualCostTranslation = {
-  /**
-   * AE cost in addition to the normal AE cost.
-   */
-  additional: ResponsiveText
-}
-
-export type DominationRitualDuration =
-  | { tag: "Fixed"; fixed: FixedDominationRitualDuration }
-  | { tag: "CheckResultBased"; check_result_based: CheckResultBasedDuration }
-  | { tag: "Indefinite"; indefinite: IndefiniteDominationRitualDuration }
-
-export type FixedDominationRitualDuration = {
-  /**
-   * The (unitless) duration value.
-   * @integer
-   * @minimum 1
-   */
-  value: number
-
-  /**
-   * The unit of the `value`.
-   */
-  unit: DurationUnit
-}
-
-export type IndefiniteDominationRitualDuration = {
-  /**
-   * Specified if the duration has a maximum time span.
-   */
-  maximum?: MaximumIndefiniteDominationRitualDuration
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<IndefiniteDurationTranslation>
-}
-
-export type MaximumIndefiniteDominationRitualDuration =
-  | { tag: "Fixed"; fixed: FixedDominationRitualDuration }
-  | { tag: "CheckResultBased"; check_result_based: CheckResultBasedDuration }
-
-export const config: TypeConfig<DominationRitual, DominationRitual["id"], "DominationRitual"> = {
+export const DominationRitual = Entity(import.meta.url, {
   name: "DominationRitual",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("DominationRitual"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "DominationRituals",
+  type: () =>
+    Object({
+      check: Required({
+        comment: "Lists the linked three attributes used to make a skill check.",
+        type: IncludeIdentifier(SkillCheck),
+      }),
+      check_penalty: Optional({
+        comment: "In some cases, the target's Spirit or Toughness is applied as a penalty.",
+        type: IncludeIdentifier(SkillCheckPenalty),
+      }),
+      parameters: Required({
+        comment: "Measurable parameters of a domination ritual.",
+        type: IncludeIdentifier(DominationRitualPerformanceParameters),
+      }),
+      property: Required({
+        comment: "The associated property.",
+        type: PropertyIdentifier,
+      }),
+      src,
+      translations: NestedLocaleMap(
+        Required,
+        "DominationRitualTranslation",
+        Object({
+          name: Required({
+            comment: "The domination ritual’s name.",
+            type: String({ minLength: 1 }),
+          }),
+          effect: Required({
+            comment:
+              "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
+            type: IncludeIdentifier(ActivatableSkillEffect),
+          }),
+          cost: Optional({
+            isDeprecated: true,
+            type: IncludeIdentifier(OldParameter),
+          }),
+          duration: Optional({
+            isDeprecated: true,
+            type: IncludeIdentifier(OldParameter),
+          }),
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})
+
+const DominationRitualPerformanceParameters = TypeAlias(import.meta.url, {
+  name: "DominationRitualPerformanceParameters",
+  comment: "Measurable parameters of a domination ritual.",
+  type: () =>
+    Object({
+      cost: Required({
+        comment: "The AE cost.",
+        type: IncludeIdentifier(DominationRitualCost),
+      }),
+      duration: Required({
+        comment: "The duration.",
+        type: IncludeIdentifier(DominationRitualDuration),
+      }),
+    }),
+})
+
+const DominationRitualCost = TypeAlias(import.meta.url, {
+  name: "DominationRitualCost",
+  type: () =>
+    Object({
+      initial_modification_level: Required({
+        comment: "The initial skill modification identifier/level.",
+        type: SkillModificationLevelIdentifier,
+      }),
+      translations: NestedLocaleMap(
+        Optional,
+        "DominationRitualCostTranslation",
+        Object({
+          additional: Required({
+            comment: "AE cost in addition to the normal AE cost.",
+            type: IncludeIdentifier(ResponsiveText),
+          }),
+        })
+      ),
+    }),
+})
+
+const DominationRitualDuration = Enum(import.meta.url, {
+  name: "DominationRitualDuration",
+  values: () => ({
+    Fixed: EnumCase({ type: IncludeIdentifier(FixedDominationRitualDuration) }),
+    CheckResultBased: EnumCase({ type: IncludeIdentifier(CheckResultBasedDuration) }),
+    Indefinite: EnumCase({ type: IncludeIdentifier(IndefiniteDominationRitualDuration) }),
+  }),
+})
+
+const FixedDominationRitualDuration = TypeAlias(import.meta.url, {
+  name: "FixedDominationRitualDuration",
+  type: () =>
+    Object({
+      value: Required({
+        comment: "The (unitless) duration.",
+        type: Integer({ minimum: 1 }),
+      }),
+      unit: Required({
+        comment: "The duration unit.",
+        type: IncludeIdentifier(DurationUnit),
+      }),
+    }),
+})
+
+const IndefiniteDominationRitualDuration = TypeAlias(import.meta.url, {
+  name: "IndefiniteDominationRitualDuration",
+  type: () =>
+    Object({
+      maximum: Optional({
+        comment: "Specified if the duration has a maximum time span.",
+        type: IncludeIdentifier(MaximumIndefiniteDominationRitualDuration),
+      }),
+      translations: NestedLocaleMap(
+        Required,
+        "IndefiniteDominationRitualDurationTranslation",
+        Object({
+          description: Required({
+            comment: "A description of the duration.",
+            type: IncludeIdentifier(ResponsiveText),
+          }),
+        })
+      ),
+    }),
+})
+
+const MaximumIndefiniteDominationRitualDuration = Enum(import.meta.url, {
+  name: "MaximumIndefiniteDominationRitualDuration",
+  values: () => ({
+    Fixed: EnumCase({ type: IncludeIdentifier(FixedDominationRitualDuration) }),
+    CheckResultBased: EnumCase({ type: IncludeIdentifier(CheckResultBasedDuration) }),
+  }),
+})

@@ -1,240 +1,226 @@
-/**
- * @main Profession
- */
-
-import { TypeConfig } from "../typeConfig.js"
-import { todo } from "../validation/builders/integrity.js"
-import { validateEntityFileName } from "../validation/builders/naming.js"
-import { createSchemaValidator } from "../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
+import {
+  Array,
+  Entity,
+  Enum,
+  EnumCase,
+  GenIncludeIdentifier,
+  IncludeIdentifier,
+  Integer,
+  Object,
+  Optional,
+  Required,
+  String,
+  TypeAlias,
+} from "tsondb/schema/def"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
-import { AdvantageIdentifier, DisadvantageIdentifier, SkillIdentifier } from "./_Identifier.js"
 import {
-  CombatTechniqueIdentifier,
-  LiturgyIdentifier,
-  MagicalActionIdentifier,
-  RequirableSelectOptionIdentifier,
-  SpecialAbilityIdentifier,
-  SpellworkIdentifier,
-} from "./_IdentifierGroup.js"
-import { LocaleMap } from "./_LocaleMap.js"
-import { NonEmptyString } from "./_NonEmptyString.js"
+  AdvantageIdentifier,
+  CurriculumIdentifier,
+  DisadvantageIdentifier,
+  ProfessionIdentifier,
+  ProfessionPackageIdentifier,
+  ProfessionVersionIdentifier,
+} from "./_Identifier.js"
 import { ProfessionPrerequisites } from "./_Prerequisite.js"
-import {
-  CantripReference,
-  CombatTechniqueReference,
-  CurriculumReference,
-  MagicalTraditionReference,
-  SkillGroupReference,
-  SkillReference,
-} from "./_SimpleReferences.js"
+import { NestedLocaleMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
-import { PublicationRefs } from "./source/_PublicationRef.js"
+import { src } from "./source/_PublicationRef.js"
 
-/**
- * @title Profession
- */
-export type Profession = {
-  /**
-   * The profession's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+export const Profession = Entity(import.meta.url, {
+  name: "Profession",
+  namePlural: "Professions",
+  type: () =>
+    Object({
+      group: Required({
+        comment: "The profession group.",
+        type: IncludeIdentifier(ProfessionGroup),
+      }),
+      versions: Required({
+        comment: `A list of professions representing the same profession but with (slightly) different stats. For example, there may be a profession in a regional sourcebook or in the core rules and a profession in an extension rulebook like Magic of Aventuria, where the profession is basically called the same and almost has the same values, but the version from Magic of Aventuria features a spell style special ability that does not exist in the core rules or regional sourcebook.
 
-  /**
-   * The profession group.
-   */
-  group: ProfessionGroup
+The profession representation may feature different values for different explicitly mentioned experience levels. In most cases, there is only one stats package, which targets the experience level *Experienced*.`,
+        type: Array(ProfessionVersionIdentifier, { minItems: 1 }),
+        isTransient: true,
+      }),
+    }),
+  displayName: {},
+})
 
-  /**
-   * A list of professions representing the same profession but with (slightly) different stats. For example, there may be a profession in a regional sourcebook or in the core rules and a profession in an extension rulebook like Magic of Aventuria, where the profession is basically called the same and almost has the same values, but the version from Magic of Aventuria features a spell style special ability that does not exist in the core rules or regional sourcebook.
-   *
-   * The profession representation may feature different values for different explicitly mentioned experience levels. In most cases, there is only one stats package, which targets the experience level *Experienced*.
-   * @minItems 1
-   */
-  versions: ProfessionVersion[]
-}
+const ProfessionGroup = Enum(import.meta.url, {
+  name: "ProfessionGroup",
+  values: () => ({
+    Mundane: EnumCase({ type: IncludeIdentifier(MundaneProfessionGroup) }),
+    Magical: EnumCase({ type: IncludeIdentifier(MagicalProfessionGroup) }),
+    Blessed: EnumCase({ type: null }),
+  }),
+})
 
-export type ProfessionGroup =
-  | { tag: "Mundane"; mundane: MundaneProfessionGroup }
-  | { tag: "Magical"; magical: MagicalProfessionGroup }
-  | { tag: "Blessed"; blessed: {} }
+export const MundaneProfessionGroup = Enum(import.meta.url, {
+  name: "MundaneProfessionGroup",
+  values: () => ({
+    Profane: EnumCase({ type: null }),
+    Fighter: EnumCase({ type: null }),
+    Religious: EnumCase({ type: null }),
+  }),
+})
 
-export type MundaneProfessionGroup = "Profane" | "Fighter" | "Religious"
+const MagicalProfessionGroup = TypeAlias(import.meta.url, {
+  name: "MagicalProfessionGroup",
+  type: () =>
+    Object({
+      curriculum: Optional({
+        comment: "The curriculum/academy associated with this magical profession, if any.",
+        type: CurriculumIdentifier,
+      }),
+    }),
+})
 
-export type MagicalProfessionGroup = {
-  /**
-   * The curriculum/academy associated with this magical profession, if any.
-   */
-  curriculum?: CurriculumReference
-}
+export const ProfessionVersion = Entity(import.meta.url, {
+  name: "ProfessionVersion",
+  namePlural: "ProfessionVersions",
+  type: () =>
+    Object({
+      profession: Required({
+        comment: "The associated profession.",
+        type: ProfessionIdentifier,
+      }),
+      prerequisites: Optional({
+        comment:
+          "Which prerequisites must be met to buy the stat block? For example, a character might need the advantage Spellcaster or Blessed. Note: the AP cost for a profession package does not include these prerequisites.",
+        type: IncludeIdentifier(ProfessionPrerequisites),
+      }),
+      package: Required({
+        comment:
+          "A list of available race variants where one has to be selected. If no variants are to be selected, a single variant with no name has to be provided which will be used as the missing values for the base race.",
+        type: Array(ProfessionPackageIdentifier, { minItems: 1 }),
+        isTransient: true,
+      }),
+      suggested_advantages: Optional({
+        comment: "A list of typical advantages.",
+        type: Array(
+          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier]),
+          { minItems: 1 }
+        ),
+      }),
+      suggested_disadvantages: Optional({
+        comment: "A list of typical disadvantages.",
+        type: Array(
+          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier]),
+          { minItems: 1 }
+        ),
+      }),
+      unsuitable_advantages: Optional({
+        comment:
+          "A list of advantages that do not fit well with this profession; to be checked with the GM before taking any of them.",
+        type: Array(
+          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier]),
+          { minItems: 1 }
+        ),
+      }),
+      unsuitable_disadvantages: Optional({
+        comment:
+          "A list of disadvantages that do not fit well with this profession; to be checked with the GM before taking any of them.",
+        type: Array(
+          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier]),
+          { minItems: 1 }
+        ),
+      }),
+      src,
+      translations: NestedLocaleMap(
+        Required,
+        "ProfessionVersionTranslation",
+        Object({
+          name: Required({
+            comment: "The basic profession’s name.",
+            type: String({ minLength: 1 }),
+          }),
+          specification: Required({
+            comment:
+              "A name addition of the profession. This will contain texts like name of the academy or the witch circle. It is enclosed in parenthesis, but the database entry must not contain parenthesis.",
+            type: IncludeIdentifier(ProfessionName),
+          }),
+          suggested_advantages: Optional({
+            comment: "A list of typical advantages.",
+            type: String({ minLength: 1 }),
+          }),
+          suggested_disadvantages: Optional({
+            comment: "A list of typical disadvantages.",
+            type: String({ minLength: 1 }),
+          }),
+          unsuitable_advantages: Optional({
+            comment:
+              "A list of advantages that do not fit well with this profession; to be checked with the GM before taking any of them.",
+            type: String({ minLength: 1 }),
+          }),
+          unsuitable_disadvantages: Optional({
+            comment:
+              "A list of disadvantages that do not fit well with this profession; to be checked with the GM before taking any of them.",
+            type: String({ minLength: 1 }),
+          }),
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})
 
-export type ProfessionVersion =
-  | { tag: "Experienced"; experienced: ExperiencedProfessionPackage }
-  | {
-      tag: "ByExperienceLevel"
-      by_experience_level: ProfessionPackagesForDifferentExperienceLevels
-    }
-
-export type ExperiencedProfessionPackage = {
-  /**
-   * The profession representation variant's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  package: ProfessionPackage
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<ProfessionTranslation>
-}
-
-export type ProfessionPackagesForDifferentExperienceLevels = {
-  /**
-   * The profession representation variant's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  packages_map: ExperienceLevelDynamicProfessionPackage[]
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<ProfessionTranslation>
-}
-
-export type ExperienceLevelDynamicProfessionPackage = {
-  /**
-   * The experience level this profession targets. The experience level must be unique for this representation.
-   * @integer
-   * @minimum 1
-   * @maximum 7
-   * @default 3
-   */
-  experience_level_id: number
-
-  package: ProfessionPackage
-}
-
-/**
- * @title Profession Representation Variant
- */
-export type ProfessionPackage = {
-  /**
-   * What does the professional package cost in adventure points?
-   * @integer
-   * @minimum 0
-   */
-  ap_value: number
-
-  /**
-   * Which prerequisites must be met to buy the stat block? For example, a character might need the advantage Spellcaster or Blessed. Note: the AP cost for a profession package does not include these prerequisites.
-   */
-  prerequisites?: ProfessionPrerequisites
-
-  /**
-   * In some areas, the profession package grants a loose set of stats where the player must choose between different options for the profession package.
-   */
-  options?: ProfessionPackageOptions
-
-  /**
-   * Any special abilities the profession receives from the package.
-   */
-  special_abilities?: ProfessionSpecialAbility[]
-
-  /**
-   * Provides ratings for the combat techniques that the hero receives from the package.
-   */
-  combat_techniques?: CombatTechniqueRating[]
-
-  /**
-   * The skill ratings the package grants to the hero.
-   */
-  skills?: SkillRating[]
-
-  /**
-   * The skill ratings a magical profession receives for spells; these spells are considered activated. Spells from an unfamiliar Tradition, if any, are identified as such.
-   */
-  spells?: SpellRating[]
-
-  /**
-   * Clerical professions receive these liturgical chants at the listed skill ratings. These liturgical chants are considered activated.
-   */
-  liturgical_chants?: LiturgicalChantRating[]
-
-  /**
-   * Typical advantages for the profession.
-   * @minItems 1
-   */
-  suggested_advantages?: CommonnessRatedAdvantageDisadvantage<AdvantageIdentifier>[]
-
-  /**
-   * Typical disadvantages for the profession.
-   * @minItems 1
-   */
-  suggested_disadvantages?: CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>[]
-
-  /**
-   * These advantages do not fit well with this profession; to be checked with the GM before taking any of them.
-   * @minItems 1
-   */
-  unsuitable_advantages?: CommonnessRatedAdvantageDisadvantage<AdvantageIdentifier>[]
-
-  /**
-   * These disadvantages do not fit well with this profession; to be checked with the GM before taking any of them.
-   * @minItems 1
-   */
-  unsuitable_disadvantages?: CommonnessRatedAdvantageDisadvantage<DisadvantageIdentifier>[]
-
-  /**
-   * Provides examples of variants for the profession, which may include changes to AP values and additional or modified skill ratings, special abilities, or combat techniques, as compared to the basic profession. Usually picking a variant is optional, but there are some rare exceptions where picking a variant is required.
-   */
-  variants?: ProfessionVariants
-}
-
-export type ProfessionTranslation = {
-  /**
-   * Name of the basic profession.
-   */
-  name: ProfessionName
-
-  /**
-   * A name addition of the profession. This will contain texts like name of the academy or the witch circle. It is enclosed in parenthesis, but the database entry must not contain parenthesis.
-   */
-  specification?: ProfessionName
-
-  /**
-   * Typical advantages for the profession.
-   */
-  suggested_advantages?: NonEmptyString
-
-  /**
-   * Typical disadvantages for the profession.
-   */
-  suggested_disadvantages?: NonEmptyString
-
-  /**
-   * These advantages do not fit well with this profession; to be checked with the GM before taking any of them.
-   */
-  unsuitable_advantages?: NonEmptyString
-
-  /**
-   * These disadvantages do not fit well with this profession; to be checked with the GM before taking any of them.
-   */
-  unsuitable_disadvantages?: NonEmptyString
-
-  errata?: Errata
-}
+export const ProfessionPackage = Entity(import.meta.url, {
+  name: "ProfessionPackage",
+  namePlural: "ProfessionPackages",
+  type: () =>
+    Object({
+      profession_version: Required({
+        comment: "The associated profession version.",
+        type: ProfessionVersionIdentifier,
+      }),
+      experience_level: Optional({
+        comment:
+          "The associated experience level. By default, profession packages are associated with the experience level *Experienced*.",
+        type: ProfessionVersionIdentifier,
+      }),
+      ap_value: Required({
+        comment: "What does the professional package cost in adventure points?",
+        type: Integer({ minimum: 0 }),
+      }),
+      options: Optional({
+        comment:
+          "In some areas, the profession package grants a loose set of stats where the player must choose between different options for the profession package.",
+        type: IncludeIdentifier(ProfessionPackageOptions),
+      }),
+      special_abilities: Optional({
+        comment: "Any special abilities the profession receives from the package.",
+        type: Array(ProfessionSpecialAbility, { minItems: 1 }),
+      }),
+      combat_techniques: Optional({
+        comment:
+          "Provides ratings for the combat techniques that the hero receives from the package.",
+        type: Array(CombatTechniqueRating, { minItems: 1 }),
+      }),
+      skills: Optional({
+        comment: "The skill ratings the package grants to the hero.",
+        type: Array(SkillRating, { minItems: 1 }),
+      }),
+      spells: Optional({
+        comment:
+          "The skill ratings a magical profession receives for spells; these spells are considered activated. Spells from an unfamiliar Tradition, if any, are identified as such.",
+        type: Array(SpellRating, { minItems: 1 }),
+      }),
+      liturgical_chants: Optional({
+        comment:
+          "Clerical professions receive these liturgical chants at the listed skill ratings. These liturgical chants are considered activated.",
+        type: Array(LiturgicalChantRating, { minItems: 1 }),
+      }),
+      variants: Optional({
+        comment:
+          "Provides examples of variants for the profession, which may include changes to AP values and additional or modified skill ratings, special abilities, or combat techniques, as compared to the basic profession. Usually picking a variant is optional, but there are some rare exceptions where picking a variant is required.",
+        type: IncludeIdentifier(ProfessionVariants),
+        isTransient: true,
+      }),
+    }),
+  displayName: {},
+})
 
 /**
  * Provides examples of variants for the profession, which may include changes to AP values and additional or modified skill ratings, special abilities, or combat techniques, as compared to the basic profession. Usually picking a variant is optional, but there are some rare exceptions where picking a variant is required.
@@ -252,82 +238,75 @@ export type ProfessionVariants = {
   list: ProfessionVariant[]
 }
 
-/**
- * @title Profession Variant
- */
-export type ProfessionVariant = {
-  /**
-   * The profession variant's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+export const ProfessionVariant = Entity(import.meta.url, {
+  name: "ProfessionVariant",
+  namePlural: "ProfessionVariants",
+  type: () =>
+    Object({
+      profession_package: Required({
+        comment: "The associated profession package.",
+        type: ProfessionPackageIdentifier,
+      }),
+      ap_value: Optional({
+        comment: "The AP value you have to pay for the package variant.",
+        type: IncludeIdentifier(ProfessionPrerequisites),
+      }),
+      prerequisites: Optional({
+        comment:
+          "Which prerequisites must be met to buy the stat block? For example, a character might need the advantage Spellcaster or Blessed. Note: the AP cost for a profession package does not include these prerequisites.",
+        type: IncludeIdentifier(ProfessionPrerequisites),
+      }),
+      options: Optional({
+        comment:
+          "In some areas, the profession package grants a loose set of stats where the player must choose between different options for the profession package. The variant may override or remove those options.",
+        type: IncludeIdentifier(ProfessionVariantPackageOptions),
+      }),
+      special_abilities: Optional({
+        comment: "Any special abilities the profession receives from the package variant.",
+        type: Array(ProfessionVariantSpecialAbility, { minItems: 1 }),
+      }),
+      combat_techniques: Optional({
+        comment:
+          "Provides ratings for the combat techniques that the hero receives from the package variant.",
+        type: Array(CombatTechniqueRating, { minItems: 1 }),
+      }),
+      skills: Optional({
+        comment: "The skill ratings the package variant grants to the hero.",
+        type: Array(SkillRating, { minItems: 1 }),
+      }),
+      spells: Optional({
+        comment:
+          "The skill ratings a magical profession variant receives for spells; these spells are considered activated. Spells from an unfamiliar Tradition, if any, are identified as such.",
+        type: Array(SpellRating, { minItems: 1 }),
+      }),
+      liturgical_chants: Optional({
+        comment:
+          "Clerical profession variants receive these liturgical chants at the listed skill ratings. These liturgical chants are considered activated.",
+        type: Array(LiturgicalChantRating, { minItems: 1 }),
+      }),
+      translations: NestedLocaleMap(
+        Required,
+        "ProfessionVariantTranslation",
+        Object({
+          name: Required({
+            comment: "The profession variant’s name.",
+            type: String({ minLength: 1 }),
+          }),
+          full_text: Optional({
+            comment: "A text that replaces the generated text for the profession variant.",
+            type: String({ minLength: 1 }),
+          }),
+          concluding_text: Optional({
+            comment: `A text that is appended to the generated text for the profession variant.
 
-  /**
-   * The AP value you have to pay for the package variant.
-   * @integer
-   */
-  ap_value: number
-
-  /**
-   * Which prerequisites must be met to buy the stat block? For example, a character might need the advantage Spellcaster or Blessed. Note: the AP cost for a profession package does not include these prerequisites.
-   */
-  prerequisites?: ProfessionPrerequisites
-
-  /**
-   *
-   */
-  options?: ProfessionVariantPackageOptions
-
-  /**
-   * Any special abilities the profession receives from the package variant.
-   */
-  special_abilities?: VariantSpecialAbility[]
-
-  /**
-   * Provides ratings for the combat techniques that the hero receives from the package variant.
-   */
-  combat_techniques?: CombatTechniqueRating[]
-
-  /**
-   * The skill ratings the package variant grants to the hero.
-   */
-  skills?: SkillRating[]
-
-  /**
-   * The skill ratings a magical profession variant receives for spells; these spells are considered activated. Spells from an unfamiliar Tradition, if any, are identified as such.
-   */
-  spells?: SpellRating[]
-
-  /**
-   * Clerical professions receive these liturgical chants at the listed skill ratings. These liturgical chants are considered activated.
-   */
-  liturgical_chants?: LiturgicalChantRating[]
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<ProfessionVariantTranslation>
-}
-
-export type ProfessionVariantTranslation = {
-  /**
-   * Name of the profession variant.
-   */
-  name: ProfessionName
-
-  /**
-   * A text that replaces the generated text for the profession variant.
-   */
-  full_text?: NonEmptyString
-
-  /**
-   * A text that is appended to the generated text for the profession variant.
-   *
-   * Has no effect when `full_text` is set.
-   */
-  concluding_text?: NonEmptyString
-}
+Has no effect when \`full_text\` is set.`,
+            type: String({ minLength: 1 }),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})
 
 export type ProfessionSpecialAbility =
   | { tag: "Fixed"; fixed: FixedSpecialAbility }

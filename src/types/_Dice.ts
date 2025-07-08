@@ -1,24 +1,27 @@
-/**
- * @title Dice
- */
-export type Dice = {
-  /**
-   * Number of dice of the same type. Example: 2 in 2D6.
-   * @integer
-   * @minimum 1
-   */
-  number: number
+import { IncludeIdentifier, Integer, Object, Required, TypeAlias } from "tsondb/schema/def"
 
-  /**
-   * Number of sides on every die. Example: 6 in 2D6.
-   */
-  sides: DieType
-}
+export const Dice = TypeAlias(import.meta.url, {
+  name: "Dice",
+  type: () =>
+    Object({
+      number: Required({
+        comment: "Number of dice of the same type. Example: 2 in 2D6.",
+        type: Integer({
+          minimum: 1,
+        }),
+      }),
+      sides: Required({
+        comment: "Number of sides on every die. Example: 6 in 2D6.",
+        type: IncludeIdentifier(DieType),
+      }),
+    }),
+})
 
-/**
- * Number of sides on every dice. Example: 6 in 2D6.
- */
-export type DieType =
-  | 3
-  | 6
-  | 20
+export const DieType = TypeAlias(import.meta.url, {
+  name: "DieType",
+  comment: "Number of sides on every die. Example: 6 in 2D6.",
+  type: () =>
+    Integer({
+      minimum: 2,
+    }),
+})

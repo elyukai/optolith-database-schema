@@ -1,49 +1,27 @@
-/**
- * @main Property
- */
-
-import { TypeConfig } from "../typeConfig.js"
-import { todo } from "../validation/builders/integrity.js"
-import { validateEntityFileName } from "../validation/builders/naming.js"
-import { createSchemaValidator } from "../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../validation/filename.js"
-import { LocaleMap } from "./_LocaleMap.js"
-import { NonEmptyString } from "./_NonEmptyString.js"
+import { Entity, IncludeIdentifier, Object, Optional, Required, String } from "tsondb/schema/def"
 import { SkillCheck } from "./_SkillCheck.js"
+import { NestedLocaleMap } from "./Locale.js"
 
-/**
- * @title Property
- */
-export type Property = {
-  /**
-   * The property's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  /**
-   * The property check's attributes. Only the properties from the Core Rules have defined property checks.
-   */
-  check?: SkillCheck
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<PropertyTranslation>
-}
-
-export type PropertyTranslation = {
-  /**
-   * The property's name.
-   */
-  name: NonEmptyString
-}
-
-export const config: TypeConfig<Property, Property["id"], "Property"> = {
+export const Property = Entity(import.meta.url, {
   name: "Property",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("Property"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "Properties",
+  type: () =>
+    Object({
+      check: Optional({
+        comment:
+          "The property check’s attributes. Only the properties from the Core Rules have defined property checks.",
+        type: IncludeIdentifier(SkillCheck),
+      }),
+      translations: NestedLocaleMap(
+        Required,
+        "PropertyTranslation",
+        Object({
+          name: Required({
+            comment: "The property’s name.",
+            type: String({ minLength: 1 }),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})

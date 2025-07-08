@@ -1,87 +1,52 @@
-/**
- * @main AdvancedCombatSpecialAbility
- */
-
-import { TypeConfig } from "../../typeConfig.js"
-import { todo } from "../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../validation/filename.js"
-import * as Activatable from "../_Activatable.js"
-import { LocaleMap } from "../_LocaleMap.js"
+import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/def"
+import {
+  ap_value,
+  combat_techniques,
+  levels,
+  maximum,
+  name,
+  name_in_library,
+  penalty,
+  rules,
+  select_options,
+  skill_applications,
+  skill_uses,
+  usage_type,
+} from "../_Activatable.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
+import { NestedLocaleMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
-import { PublicationRefs } from "../source/_PublicationRef.js"
+import { src } from "../source/_PublicationRef.js"
 
-/**
- * @title Advanced Combat Special Ability
- */
-export type AdvancedCombatSpecialAbility = {
-  id: Activatable.Id
-
-  levels?: Activatable.Levels
-
-  usage_type: Activatable.CombatSpecialAbilityUsageType
-
-  select_options?: Activatable.SelectOptions
-
-  skill_applications?: Activatable.SkillApplications
-
-  skill_uses?: Activatable.SkillUses
-
-  maximum?: Activatable.Maximum
-
-  penalty?: Activatable.Penalty
-
-  prerequisites?: GeneralPrerequisites
-
-  combat_techniques: Activatable.ApplicableCombatTechniques
-
-  ap_value: Activatable.AdventurePointsValue
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<AdvancedCombatSpecialAbilityTranslation>
-}
-
-export type AdvancedCombatSpecialAbilityTranslation = {
-  name: Activatable.Name
-
-  name_in_library?: Activatable.NameInLibrary
-
-  // input?: Activatable.Input
-
-  rules: Activatable.Rules
-
-  /**
-   * @deprecated
-   */
-  penalty?: string
-
-  /**
-   * The AP value. It is only used if the text cannot be generated from the given information.
-   */
-  ap_value?: Activatable.AdventurePointsValueReplacement
-
-  /**
-   * A string that gets appended to the default AP Value text with a preceding space. This always happens if present, even if the generated AP Value text is replaced.
-   */
-  ap_value_append?: Activatable.AdventurePointsValueAppend
-
-  errata?: Errata
-}
-
-export const config: TypeConfig<
-  AdvancedCombatSpecialAbility,
-  AdvancedCombatSpecialAbility["id"],
-  "AdvancedCombatSpecialAbility"
-> = {
+export const AdvancedCombatSpecialAbility = Entity(import.meta.url, {
   name: "AdvancedCombatSpecialAbility",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("AdvancedCombatSpecialAbility"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "AdvancedCombatSpecialAbilities",
+  type: () =>
+    Object({
+      levels,
+      usage_type,
+      select_options,
+      skill_applications,
+      skill_uses,
+      maximum,
+      penalty,
+      prerequisites: Optional({
+        type: IncludeIdentifier(GeneralPrerequisites),
+      }),
+      combat_techniques,
+      ap_value,
+      src,
+      translation: NestedLocaleMap(
+        Required,
+        "AdvancedCombatSpecialAbilityTranslation",
+        Object({
+          name,
+          name_in_library,
+          rules,
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+})

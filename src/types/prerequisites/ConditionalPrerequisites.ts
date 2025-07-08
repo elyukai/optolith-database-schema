@@ -1,10 +1,10 @@
+import { Array, IncludeIdentifier, TypeAlias } from "tsondb/schema/def"
 import { PreconditionGroup } from "./PrerequisiteGroups.js"
 
-/**
- * A list of preconditions for the prerequisite it is defined on, so that it only takes effect if the prerequisites in this list are matched.
- *
- * Usually appears at the `when` property of the parent prerequisite.
- * @title Preconditions (`when`)
- * @minItems 1
- */
-export type Preconditions = PreconditionGroup[]
+export const Preconditions = TypeAlias(import.meta.url, {
+  name: "Preconditions",
+  comment: `A list of preconditions for the prerequisite it is defined on, so that it only takes effect if the prerequisites in this list are matched.
+
+Usually appears at the \`when\` property of the parent prerequisite.`,
+  type: () => Array(IncludeIdentifier(PreconditionGroup), { minItems: 1 }),
+})

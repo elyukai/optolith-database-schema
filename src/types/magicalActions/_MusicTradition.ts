@@ -1,35 +1,64 @@
-import { LocaleMap } from "../_LocaleMap.js"
-import { NonEmptyString } from "../_NonEmptyString.js"
+import {
+  Enum,
+  EnumCase,
+  IncludeIdentifier,
+  Object,
+  ReferenceIdentifier,
+  Required,
+  String,
+  TypeAlias,
+} from "tsondb/schema/def"
+import { NestedLocaleMap } from "../Locale.js"
 
-/**
- * A reference to a music tradition with the music-tradition-specific name of the entry
- */
-export type MusicTraditionReference = {
-  /**
-   * The music tradition's identifier.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+export const MusicTraditionReference = (traditionIdentifier: ReferenceIdentifier) =>
+  TypeAlias(import.meta.url, {
+    name: traditionIdentifier.entity.name + "Reference",
+    comment:
+      "A reference to a music tradition with the music-tradition-specific name of the entry.",
+    type: () =>
+      Object({
+        id: Required({
+          comment: "The music tradition’s identifier.",
+          type: traditionIdentifier,
+        }),
+        translations: NestedLocaleMap(
+          Required,
+          traditionIdentifier.entity.name + "ReferenceTranslation",
+          Object({
+            name: Required({
+              comment: "The music-tradition-specific name of the entry.",
+              type: String({ minLength: 1 }),
+            }),
+          })
+        ),
+      }),
+  })
 
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<MusicTraditionReferenceTranslation>
-}
+export const MusicDuration = TypeAlias(import.meta.url, {
+  name: "MusicDuration",
+  type: () =>
+    Object({
+      length: Required({
+        type: IncludeIdentifier(MusicLength),
+      }),
+      reusability: Required({
+        type: IncludeIdentifier(MusicReusability),
+      }),
+    }),
+})
 
-export type MusicTraditionReferenceTranslation = {
-  /**
-   * The music-tradition-specific name of the entry.
-   */
-  name: NonEmptyString
-}
+const MusicLength = Enum(import.meta.url, {
+  name: "MusicLength",
+  values: () => ({
+    Long: EnumCase({ type: null }),
+    Short: EnumCase({ type: null }),
+  }),
+})
 
-export type MusicDuration = {
-  length: MusicLength
-  reusability: MusicReusability
-}
-
-export type MusicLength = "Long" | "Short"
-
-export type MusicReusability = "OneTime" | "Sustainable"
+const MusicReusability = Enum(import.meta.url, {
+  name: "MusicReusability",
+  values: () => ({
+    OneTime: EnumCase({ type: null }),
+    Sustainable: EnumCase({ type: null }),
+  }),
+})

@@ -1,71 +1,30 @@
-/**
- * @main AnimalShape
- */
+import { Entity, Object, Required, String } from "tsondb/schema/def"
+import { AnimalShapeSizeIdentifier } from "../../_Identifier.js"
+import { NestedLocaleMap } from "../../Locale.js"
 
-import { TypeConfig } from "../../../typeConfig.js"
-import { todo } from "../../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../../validation/filename.js"
-import { LocaleMap } from "../../_LocaleMap.js"
-import { NonEmptyString } from "../../_NonEmptyString.js"
-
-/**
- * @title Animal Shape
- */
-export type AnimalShape = {
-  /**
-   * The animal shape's identifier. An unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-
-  /**
-   * The animal shape's path.
-   */
-  path: AnimalShapePathReference
-
-  /**
-   * The animal shape's size.
-   */
-  size: AnimalShapeSizeReference
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<AnimalShapeTranslation>
-}
-
-export type AnimalShapePathReference = {
-  /**
-   * The identifier of the animal shape's path.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-}
-
-export type AnimalShapeSizeReference = {
-  /**
-   * The identifier of the animal shape's size.
-   * @integer
-   * @minimum 1
-   */
-  id: number
-}
-
-export type AnimalShapeTranslation = {
-  /**
-   * The animal shape name.
-   */
-  name: NonEmptyString
-}
-
-export const config: TypeConfig<AnimalShape, AnimalShape["id"], "AnimalShape"> = {
+export const AnimalShape = Entity(import.meta.url, {
   name: "AnimalShape",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("AnimalShape"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "AnimalShapes",
+  type: () =>
+    Object({
+      path: Required({
+        comment: "The animal shape’s path.",
+        type: AnimalShapeSizeIdentifier,
+      }),
+      size: Required({
+        comment: "The animal shape’s size.",
+        type: AnimalShapeSizeIdentifier,
+      }),
+      translations: NestedLocaleMap(
+        Required,
+        "AnimalShapeTranslation",
+        Object({
+          name: Required({
+            comment: "The animal shape’s name.",
+            type: String({ minLength: 1 }),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})

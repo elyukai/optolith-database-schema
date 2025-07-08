@@ -1,21 +1,28 @@
+import {
+  IncludeIdentifier,
+  Integer,
+  Object,
+  Optional,
+  Required,
+  TypeAlias,
+} from "tsondb/schema/def"
 import { RatedIdentifier } from "../../_IdentifierGroup.js"
 import { DisplayOption } from "../DisplayOption.js"
 
-/**
- * @title Rated Prerequisite
- */
-export type RatedPrerequisite = {
-  /**
-   * The rated entry's identifier.
-   */
-  id: RatedIdentifier
-
-  /**
-   * The required minimum value.
-   * @integer
-   * @minimum 0
-   */
-  value: number
-
-  display_option?: DisplayOption
-}
+export const RatedPrerequisite = TypeAlias(import.meta.url, {
+  name: "RatedPrerequisite",
+  type: () =>
+    Object({
+      id: Required({
+        comment: "The rated entry’s identifier.",
+        type: IncludeIdentifier(RatedIdentifier),
+      }),
+      value: Required({
+        comment: "The required minimum value.",
+        type: Integer({ minimum: 0 }),
+      }),
+      display_option: Optional({
+        type: IncludeIdentifier(DisplayOption),
+      }),
+    }),
+})

@@ -1,376 +1,478 @@
-import { SkillIdentifier, TargetCategoryIdentifier } from "./_Identifier.js"
+import {
+  Array,
+  Boolean,
+  Enum,
+  EnumCase,
+  GenEnum,
+  GenericArgumentIdentifier,
+  GenIncludeIdentifier,
+  GenTypeAlias,
+  IncludeIdentifier,
+  Integer,
+  Object,
+  Optional,
+  Param,
+  Required,
+  String,
+  TypeAlias,
+} from "tsondb/schema/def"
+import { NestedLocaleMap } from "./Locale.js"
+import {
+  CeremonyIdentifier,
+  CloseCombatTechniqueIdentifier,
+  ElementIdentifier,
+  LiturgicalChantIdentifier,
+  RangedCombatTechniqueIdentifier,
+  RitualIdentifier,
+  SkillGroupIdentifier,
+  SkillIdentifier,
+  SpellIdentifier,
+  TargetCategoryIdentifier,
+} from "./_Identifier.js"
 import {
   ActivatableIdentifier,
   CombatTechniqueIdentifier,
   SkillishIdentifier,
 } from "./_IdentifierGroup.js"
-import { LocaleMap } from "./_LocaleMap.js"
-import {
-  CeremonyReference,
-  CloseCombatTechniqueReference,
-  ElementReference,
-  LiturgicalChantReference,
-  RangedCombatTechniqueReference,
-  RitualReference,
-  SkillGroupReference,
-  SkillReference,
-  SpellReference,
-} from "./_SimpleReferences.js"
 
-export type SelectOptionCategory =
-  | { tag: "Blessings"; blessings: {} }
-  | { tag: "Cantrips"; cantrips: {} }
-  | { tag: "TradeSecrets"; trade_secrets: {} }
-  | { tag: "Scripts"; scripts: {} }
-  | { tag: "AnimalShapes"; animal_shapes: {} }
-  | { tag: "ArcaneBardTraditions"; arcane_bard_traditions: {} }
-  | { tag: "ArcaneDancerTraditions"; arcane_dancer_traditions: {} }
-  | { tag: "SexPractices"; sex_practices: {} }
-  | { tag: "Races"; races: {} }
-  | { tag: "Cultures"; cultures: {} }
-  | { tag: "RacesAndCultures"; races_and_cultures: {} }
-  | { tag: "BlessedTraditions"; blessed_traditions: BlessedTraditionsSelectOptionCategory }
-  | { tag: "Elements"; elements: ElementsSelectOptionCategory }
-  | { tag: "Properties"; properties: PropertiesSelectOptionCategory }
-  | { tag: "Aspects"; aspects: AspectSelectOptionCategory }
-  | { tag: "Diseases"; diseases: DiseasesPoisonsSelectOptionCategory }
-  | { tag: "Poisons"; poisons: DiseasesPoisonsSelectOptionCategory }
-  | { tag: "Languages"; languages: LanguagesSelectOptionCategory }
-  | { tag: "Skills"; skills: SkillsSelectOptionCategory }
-  | { tag: "CombatTechniques"; combat_techniques: CombatTechniquesSelectOptionCategory }
-  | { tag: "TargetCategories"; target_categories: TargetCategoriesSelectOptionCategory }
+export const SelectOptionCategory = Enum(import.meta.url, {
+  name: "SelectOptionCategory",
+  values: () => ({
+    Blessings: EnumCase({ type: null }),
+    Cantrips: EnumCase({ type: null }),
+    TradeSecrets: EnumCase({ type: null }),
+    Scripts: EnumCase({ type: null }),
+    AnimalShapes: EnumCase({ type: null }),
+    ArcaneBardTraditions: EnumCase({ type: null }),
+    ArcaneDancerTraditions: EnumCase({ type: null }),
+    SexPractices: EnumCase({ type: null }),
+    Races: EnumCase({ type: null }),
+    Cultures: EnumCase({ type: null }),
+    RacesAndCultures: EnumCase({ type: null }),
+    BlessedTraditions: EnumCase({ type: IncludeIdentifier(BlessedTraditionsSelectOptionCategory) }),
+    Elements: EnumCase({ type: IncludeIdentifier(ElementsSelectOptionCategory) }),
+    Properties: EnumCase({ type: IncludeIdentifier(PropertiesSelectOptionCategory) }),
+    Aspects: EnumCase({ type: IncludeIdentifier(AspectSelectOptionCategory) }),
+    Diseases: EnumCase({ type: IncludeIdentifier(DiseasesPoisonsSelectOptionCategory) }),
+    Poisons: EnumCase({ type: IncludeIdentifier(DiseasesPoisonsSelectOptionCategory) }),
+    Languages: EnumCase({ type: IncludeIdentifier(LanguagesSelectOptionCategory) }),
+    Skills: EnumCase({ type: IncludeIdentifier(SkillsSelectOptionCategory) }),
+    CombatTechniques: EnumCase({ type: IncludeIdentifier(CombatTechniquesSelectOptionCategory) }),
+    TargetCategories: EnumCase({ type: IncludeIdentifier(TargetCategoriesSelectOptionCategory) }),
+  }),
+})
 
-export type BlessedTraditionsSelectOptionCategory = {
-  /**
-   * Should the principles (code) of the tradition be required to select the respective tradition?
-   */
-  require_principles?: true
-}
+const BlessedTraditionsSelectOptionCategory = TypeAlias(import.meta.url, {
+  name: "BlessedTraditionsSelectOptionCategory",
+  type: () =>
+    Object({
+      require_principles: Optional({
+        comment:
+          "Should the principles (code) of the tradition be required to select the respective tradition?",
+        type: Boolean(),
+      }),
+    }),
+})
 
-export type ElementsSelectOptionCategory = {
-  /**
-   * Only include entries with the listed identifiers.
-   * @minItems 1
-   * @uniqueItems
-   */
-  specific?: ElementReference[]
-}
+const ElementsSelectOptionCategory = TypeAlias(import.meta.url, {
+  name: "ElementsSelectOptionCategory",
+  type: () =>
+    Object({
+      specific: Optional({
+        comment: "Only include entries with the listed identifiers.",
+        type: Array(ElementIdentifier, { minItems: 1, uniqueItems: true }),
+      }),
+    }),
+})
 
-export type PropertiesSelectOptionCategory = {
-  /**
-   * Does each property require it's corresponding property knowledge?
-   */
-  require_knowledge?: true
+const PropertiesSelectOptionCategory = TypeAlias(import.meta.url, {
+  name: "PropertiesSelectOptionCategory",
+  type: () =>
+    Object({
+      require_principles: Optional({
+        comment: "Does each property require it's corresponding property knowledge?",
+        type: Boolean(),
+      }),
+      require_minimum_spellworks_on: Optional({
+        comment:
+          "Require a minimum number of spellworks of the respective property to be on a minimum skill rating.",
+        type: IncludeIdentifier(RequiredMinimumSkillsToBeOnSkillRating),
+      }),
+    }),
+})
 
-  /**
-   * Require a minimum number of spellworks of the respective property to be on a minimum skill rating.
-   */
-  require_minimum_spellworks_on?: RequiredMinimumSkillsToBeOnSkillRating
-}
+const AspectSelectOptionCategory = TypeAlias(import.meta.url, {
+  name: "AspectSelectOptionCategory",
+  type: () =>
+    Object({
+      require_knowledge: Optional({
+        comment: "Does each aspect require it's corresponding aspect knowledge?",
+        type: Boolean(),
+      }),
+      use_master_of_suffix_as_name: Optional({
+        comment:
+          "The generated name should be the *Master of (Aspect)* suffix for this aspect instead of the aspect's name. If an aspect does not provide a suffix (such as the General aspect), it is automatically excluded from the list.",
+        type: Boolean(),
+      }),
+      require_minimum_liturgies_on: Optional({
+        comment:
+          "Require a minimum number of liturgies of the respective aspect to be on a minimum skill rating.",
+        type: IncludeIdentifier(RequiredMinimumSkillsToBeOnSkillRating),
+      }),
+    }),
+})
 
-export type AspectSelectOptionCategory = {
-  /**
-   * Does each aspect require it's corresponding aspect knowledge?
-   */
-  require_knowledge?: true
+const RequiredMinimumSkillsToBeOnSkillRating = TypeAlias(import.meta.url, {
+  name: "RequiredMinimumSkillsToBeOnSkillRating",
+  comment:
+    "Require a minimum number of spellworks/liturgies of the respective property/aspect to be on a minimum skill rating.",
+  type: () =>
+    Object({
+      number: Required({
+        comment:
+          "The minimum number of liturgies that need to be on the defined minimum skill rating.",
+        type: Integer({ minimum: 1 }),
+      }),
+      rating: Required({
+        comment: "The minimum skill rating the defined minimum number of liturgies need to be on.",
+        type: Integer({ minimum: 1 }),
+      }),
+    }),
+})
 
-  /**
-   * The generated name should be the *Master of (Aspect)* suffix for this aspect instead of the aspect's name. If an aspect does not provide a suffix (such as the General aspect), it is automatically excluded from the list.
-   */
-  use_master_of_suffix_as_name?: true
+const DiseasesPoisonsSelectOptionCategory = TypeAlias(import.meta.url, {
+  name: "DiseasesPoisonsSelectOptionCategory",
+  type: () =>
+    Object({
+      use_half_level_as_ap_value: Optional({
+        comment: "Only convert half the disease/poison level into the AP value.",
+        type: Boolean(),
+      }),
+    }),
+})
 
-  /**
-   * Require a minimum number of liturgies of the respective aspect to be on a minimum skill rating.
-   */
-  require_minimum_liturgies_on?: RequiredMinimumSkillsToBeOnSkillRating
-}
+const LanguagesSelectOptionCategory = TypeAlias(import.meta.url, {
+  name: "LanguagesSelectOptionCategory",
+  type: () =>
+    Object({
+      prerequisites: Optional({
+        comment: "Generate prerequisites for each entry of the category.",
+        type: Array(IncludeIdentifier(LanguagesSelectOptionCategoryPrerequisite), { minItems: 1 }),
+      }),
+    }),
+})
 
-/**
- * Require a minimum number of spellworks/liturgies of the respective property/aspect to be on a minimum skill rating.
- */
-export type RequiredMinimumSkillsToBeOnSkillRating = {
-  /**
-   * The minimum number of liturgies that need to be on the defined minimum skill rating.
-   * @integer
-   * @minimum 1
-   */
-  number: number
+const LanguagesSelectOptionCategoryPrerequisite = Enum(import.meta.url, {
+  name: "LanguagesSelectOptionCategoryPrerequisite",
+  values: () => ({
+    SelectOption: EnumCase({ type: IncludeIdentifier(OptionPrerequisite) }),
+  }),
+})
 
-  /**
-   * The minimum skill rating the defined minimum number of liturgies need to be on.
-   * @integer
-   * @minimum 1
-   */
-  rating: number
-}
+const SkillsSelectOptionCategory = TypeAlias(import.meta.url, {
+  name: "SkillsSelectOptionCategory",
+  type: () =>
+    Object({
+      categories: Required({
+        comment: "A list of skill categories.",
+        type: Array(IncludeIdentifier(SkillsSelectOptionCategoryCategory), { minItems: 1 }),
+      }),
+      ap_value: Optional({
+        comment: "Generate AP values for each entry.",
+        type: GenIncludeIdentifier(SelectOptionsAdventurePointsValue, [
+          IncludeIdentifier(SkillishIdentifier),
+        ]),
+      }),
+    }),
+})
 
-export type DiseasesPoisonsSelectOptionCategory = {
-  /**
-   * Only convert half the disease/poison level into the AP value.
-   */
-  use_half_level_as_ap_value?: true
-}
+const SkillsSelectOptionCategoryCategory = Enum(import.meta.url, {
+  name: "SkillsSelectOptionCategoryCategory",
+  values: () => ({
+    Skills: EnumCase({ type: IncludeIdentifier(SkillSelectOptionCategoryCategory) }),
+    Spells: EnumCase({
+      type: GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [SpellIdentifier]),
+    }),
+    Rituals: EnumCase({
+      type: GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [RitualIdentifier]),
+    }),
+    LiturgicalChants: EnumCase({
+      type: GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [
+        LiturgicalChantIdentifier,
+      ]),
+    }),
+    Ceremonies: EnumCase({
+      type: GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [CeremonyIdentifier]),
+    }),
+  }),
+})
 
-export type LanguagesSelectOptionCategory = {
-  /**
-   * Generate prerequisites for each entry of the category.
-   * @minItems 1
-   */
-  prerequisites?: LanguagesSelectOptionCategoryPrerequisite[]
-}
+const SkillSelectOptionCategoryCategory = TypeAlias(import.meta.url, {
+  name: "SkillSelectOptionCategoryCategory",
+  type: () =>
+    Object({
+      groups: Optional({
+        comment: "Only include entries of the specified groups.",
+        type: Array(SkillGroupIdentifier, { minItems: 1 }),
+      }),
+      specific: Optional({
+        comment: "Only include or exclude specific skills.",
+        type: GenIncludeIdentifier(SpecificFromSkillSelectOptionCategoryCategory, [
+          SkillIdentifier,
+        ]),
+      }),
+      skill_applications: Optional({
+        comment:
+          "Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry.",
+        type: Array(IncludeIdentifier(SkillApplicationOrUse), { minItems: 1 }),
+      }),
+      skill_uses: Optional({
+        comment:
+          "Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry.",
+        type: Array(IncludeIdentifier(SkillApplicationOrUse), { minItems: 1 }),
+      }),
+      prerequisites: Optional({
+        comment: "Generate prerequisites for each entry of the category.",
+        type: Array(IncludeIdentifier(SkillSelectOptionCategoryPrerequisite), { minItems: 1 }),
+      }),
+      ap_value: Optional({
+        comment: "Generate AP values for each entry.",
+        type: GenIncludeIdentifier(SelectOptionsAdventurePointsValue, [SkillIdentifier]),
+      }),
+    }),
+})
 
-export type LanguagesSelectOptionCategoryPrerequisite = {
-  tag: "SelectOption"
-  select_option: OptionPrerequisite
-}
+const CombatTechniquesSelectOptionCategory = TypeAlias(import.meta.url, {
+  name: "CombatTechniquesSelectOptionCategory",
+  type: () =>
+    Object({
+      categories: Required({
+        comment: "A list of combat technique categories.",
+        type: Array(IncludeIdentifier(CombatTechniquesSelectOptionCategoryCategory), {
+          minItems: 1,
+        }),
+      }),
+      ap_value: Optional({
+        comment: "Generate AP values for each entry.",
+        type: GenIncludeIdentifier(SelectOptionsAdventurePointsValue, [
+          IncludeIdentifier(CombatTechniqueIdentifier),
+        ]),
+      }),
+    }),
+})
 
-export type SkillsSelectOptionCategory = {
-  /**
-   * A list of skill categories.
-   * @minItems 1
-   */
-  categories: SkillsSelectOptionCategoryCategory[]
+const CombatTechniquesSelectOptionCategoryCategory = Enum(import.meta.url, {
+  name: "CombatTechniquesSelectOptionCategoryCategory",
+  values: () => ({
+    CloseCombatTechniques: EnumCase({
+      type: GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [
+        CloseCombatTechniqueIdentifier,
+      ]),
+    }),
+    RangedCombatTechniques: EnumCase({
+      type: GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [
+        RangedCombatTechniqueIdentifier,
+      ]),
+    }),
+  }),
+})
 
-  /**
-   * Generate AP values for each entry.
-   */
-  ap_value?: SelectOptionsAdventurePointsValue<SkillishIdentifier>
-}
+const SkillApplicationOrUse = TypeAlias(import.meta.url, {
+  name: "SkillApplicationOrUse",
+  type: () =>
+    Object({
+      id: Required({
+        comment: "The application’s or use’s identifier. An entry-unique, increasing integer.",
+        type: Integer({ minimum: 1 }),
+      }),
+      translations: NestedLocaleMap(
+        Required,
+        "SkillApplicationOrUseTranslation",
+        Object({
+          name: Required({
+            comment:
+              "The name of the application or use if different from the activatable entry’s name.",
+            type: String({ minLength: 1 }),
+          }),
+        })
+      ),
+    }),
+})
 
-export type SkillsSelectOptionCategoryCategory =
-  | { tag: "Skills"; skills: SkillSelectOptionCategoryCategory }
-  | { tag: "Spells"; spells: GenericSkillsSelectOptionCategoryCategory<SpellReference> }
-  | { tag: "Rituals"; rituals: GenericSkillsSelectOptionCategoryCategory<RitualReference> }
-  | {
-      tag: "LiturgicalChants"
-      liturgical_chants: GenericSkillsSelectOptionCategoryCategory<LiturgicalChantReference>
-    }
-  | { tag: "Ceremonies"; ceremonies: GenericSkillsSelectOptionCategoryCategory<CeremonyReference> }
+const GenericSkillsSelectOptionCategoryCategory = GenTypeAlias(import.meta.url, {
+  name: "GenericSkillsSelectOptionCategoryCategory",
+  parameters: [Param("Ref")],
+  type: Ref =>
+    Object({
+      specific: Optional({
+        comment: "Only include (`Intersection`) or exclude (`Difference`) specific entries.",
+        type: GenIncludeIdentifier(SpecificFromSkillSelectOptionCategoryCategory, [
+          GenericArgumentIdentifier(Ref),
+        ]),
+      }),
+      prerequisites: Optional({
+        comment: "Generate prerequisites for each entry of the category.",
+        type: Array(IncludeIdentifier(SkillSelectOptionCategoryPrerequisite), { minItems: 1 }),
+      }),
+    }),
+})
 
-export type SkillSelectOptionCategoryCategory = {
-  /**
-   * Only include entries of the specified groups.
-   * @minItems 1
-   */
-  groups?: SkillGroupReference[]
+const SpecificFromSkillSelectOptionCategoryCategory = GenTypeAlias(import.meta.url, {
+  name: "SpecificFromSkillSelectOptionCategoryCategory",
+  parameters: [Param("Ref")],
+  type: Ref =>
+    Object({
+      operation: Required({
+        type: IncludeIdentifier(SpecificFromSkillSelectOptionCategoryCategoryOperation),
+      }),
+      list: Required({
+        comment: "The list of specific entries.",
+        type: Array(GenericArgumentIdentifier(Ref), { minItems: 1, uniqueItems: true }),
+      }),
+    }),
+})
 
-  /**
-   * Only include (`Intersection`) or exclude (`Difference`) specific skills.
-   */
-  specific?: SpecificFromSkillSelectOptionCategoryCategory<SkillReference>
+const SpecificFromSkillSelectOptionCategoryCategoryOperation = Enum(import.meta.url, {
+  name: "SpecificFromSkillSelectOptionCategoryCategoryOperation",
+  comment: "Only include (`Intersection`) or exclude (`Difference`) specific entries.",
+  values: () => ({
+    Intersection: EnumCase({ type: null }),
+    Difference: EnumCase({ type: null }),
+  }),
+})
 
-  /**
-   * Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry.
-   * @minItems 1
-   */
-  skill_applications?: SkillApplicationOrUse[]
+const SkillSelectOptionCategoryPrerequisite = Enum(import.meta.url, {
+  name: "SkillSelectOptionCategoryPrerequisite",
+  values: () => ({
+    Self: EnumCase({ type: IncludeIdentifier(SelfPrerequisite) }),
+    SelectOption: EnumCase({ type: IncludeIdentifier(OptionPrerequisite) }),
+  }),
+})
 
-  /**
-   * Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry.
-   * @minItems 1
-   */
-  skill_uses?: SkillApplicationOrUse[]
+const SelfPrerequisite = TypeAlias(import.meta.url, {
+  name: "SelfPrerequisite",
+  type: () =>
+    Object({
+      value: Required({
+        comment: "The entry requires itself on a certain Skill Rating.",
+        type: Integer({ minimum: 1 }),
+      }),
+    }),
+})
 
-  /**
-   * Generate prerequisites for each entry of the category.
-   * @minItems 1
-   */
-  prerequisites?: SkillSelectOptionCategoryPrerequisite[]
+const OptionPrerequisite = TypeAlias(import.meta.url, {
+  name: "OptionPrerequisite",
+  comment: "The entry requires or prohibits itself as a select option of another entry.",
+  type: () =>
+    Object({
+      id: Required({
+        comment: "The target entry's identifier.",
+        type: IncludeIdentifier(ActivatableIdentifier),
+      }),
+      active: Required({
+        comment: "Is the select option required (`true`) or prohibited (`false`)?",
+        type: Boolean(),
+      }),
+      level: Optional({
+        comment: "The required level, if any.",
+        type: Integer({ minimum: 2 }),
+      }),
+    }),
+})
 
-  /**
-   * Generate AP values for each entry.
-   */
-  ap_value?: SelectOptionsAdventurePointsValue<SkillIdentifier>
-}
+const SelectOptionsAdventurePointsValue = GenEnum(import.meta.url, {
+  name: "SelectOptionsAdventurePointsValue",
+  comment: "Generate AP values for each entry.",
+  parameters: [Param("Identifier")],
+  values: Identifier => ({
+    DerivedFromImprovementCost: EnumCase({
+      type: IncludeIdentifier(SelectOptionsDeriveAdventurePointsValueFromImprovementCost),
+    }),
+    Fixed: EnumCase({
+      type: GenIncludeIdentifier(SelectOptionsFixedAdventurePointsValue, [
+        GenericArgumentIdentifier(Identifier),
+      ]),
+    }),
+  }),
+})
 
-export type CombatTechniquesSelectOptionCategory = {
-  /**
-   * A list of combat technique categories.
-   * @minItems 1
-   */
-  categories: CombatTechniquesSelectOptionCategoryCategory[]
+const SelectOptionsDeriveAdventurePointsValueFromImprovementCost = TypeAlias(import.meta.url, {
+  name: "SelectOptionsDeriveAdventurePointsValueFromImprovementCost",
+  comment:
+    "Derive the cost from the improvement cost of each entry. The AP value is calculated by multiplying the improvement cost with `multiplier` and then adding `offset`.",
+  type: () =>
+    Object({
+      multiplier: Optional({
+        comment:
+          "This number is multiplied with the improvement cost of the entry (A = 1 to D = 4).",
+        type: Integer({ minimum: 2 }),
+      }),
+      offset: Optional({
+        comment: "This number is added to the multiplied improvement cost of the entry.",
+        type: Integer(),
+      }),
+    }),
+})
 
-  /**
-   * Generate AP values for each entry.
-   */
-  ap_value?: SelectOptionsAdventurePointsValue<CombatTechniqueIdentifier>
-}
+const SelectOptionsFixedAdventurePointsValue = GenTypeAlias(import.meta.url, {
+  name: "SelectOptionsFixedAdventurePointsValue",
+  parameters: [Param("Identifier")],
+  type: Identifier =>
+    Object({
+      map: Required({
+        comment: "A mapping of skill identifiers to their specific AP values.",
+        type: Array(
+          GenIncludeIdentifier(SelectOptionsFixedAdventurePointsValueMapping, [
+            GenericArgumentIdentifier(Identifier),
+          ])
+        ),
+      }),
+      default: Required({
+        comment:
+          "The default value of an entry. Used as a fallback if no value is found in `list`.",
+        type: Integer({ minimum: 1 }),
+      }),
+    }),
+})
 
-export type CombatTechniquesSelectOptionCategoryCategory =
-  | {
-      tag: "CloseCombatTechniques"
-      close_combat_techniques: GenericSkillsSelectOptionCategoryCategory<CloseCombatTechniqueReference>
-    }
-  | {
-      tag: "RangedCombatTechniques"
-      ranged_combat_techniques: GenericSkillsSelectOptionCategoryCategory<RangedCombatTechniqueReference>
-    }
+const SelectOptionsFixedAdventurePointsValueMapping = GenTypeAlias(import.meta.url, {
+  name: "SelectOptionsFixedAdventurePointsValueMapping",
+  parameters: [Param("Identifier")],
+  type: Identifier =>
+    Object({
+      id: Required({
+        comment: "The entry’s identifier.",
+        type: GenericArgumentIdentifier(Identifier),
+      }),
+      ap_value: Required({
+        comment: "The AP value for the specified entry.",
+        type: Integer({ minimum: 1 }),
+      }),
+    }),
+})
 
-export type SkillApplicationOrUse = {
-  /**
-   * The application's or use's identifier. An entry-unique, increasing integer.
-   * @integer
-   * @minimum 1
-   */
-  id: number
+const TargetCategoriesSelectOptionCategory = TypeAlias(import.meta.url, {
+  name: "TargetCategoriesSelectOptionCategory",
+  type: () =>
+    Object({
+      list: Required({
+        comment: "A list of target categories.",
+        type: Array(IncludeIdentifier(SpecificTargetCategory), { minItems: 1 }),
+      }),
+    }),
+})
 
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations?: LocaleMap<SkillApplicationOrUseTranslation>
-}
-
-export type SkillApplicationOrUseTranslation = {
-  /**
-   * The name of the application or use if different from the activatable entry's name.
-   * @minLength 1
-   */
-  name: string
-}
-
-export type GenericSkillsSelectOptionCategoryCategory<Ref> = {
-  /**
-   * Only include (`Intersection`) or exclude (`Difference`) specific entries.
-   */
-  specific?: SpecificFromSkillSelectOptionCategoryCategory<Ref>
-
-  /**
-   * Generate prerequisites for each entry of the category.
-   * @minItems 1
-   */
-  prerequisites?: SkillSelectOptionCategoryPrerequisite[]
-}
-
-export type SpecificFromSkillSelectOptionCategoryCategory<Ref> = {
-  operation: SpecificFromSkillSelectOptionCategoryCategoryOperation
-
-  /**
-   * The list of specific entries.
-   * @minItems 1
-   * @uniqueItems
-   */
-  list: Ref[]
-}
-
-/**
- * Only include (`Intersection`) or exclude (`Difference`) specific entries.
- */
-export type SpecificFromSkillSelectOptionCategoryCategoryOperation = "Intersection" | "Difference"
-
-export type SkillSelectOptionCategoryPrerequisite =
-  | { tag: "Self"; self: SelfPrerequisite }
-  | { tag: "SelectOption"; select_option: OptionPrerequisite }
-
-export type SelfPrerequisite = {
-  /**
-   * The entry requires itself on a certain Skill Rating.
-   * @integer
-   * @minimum 1
-   */
-  value: number
-}
-
-/**
- * The entry requires or prohibits itself as a select option of another entry.
- */
-export type OptionPrerequisite = {
-  /**
-   * The target entry's identifier.
-   */
-  id: ActivatableIdentifier
-
-  /**
-   * Is the select option required (`true`) or prohibited (`false`)?
-   */
-  active: boolean
-
-  /**
-   * The required level, if any.
-   * @integer
-   * @minimum 2
-   */
-  level?: number
-}
-
-/**
- * Generate AP values for each entry.
- */
-export type SelectOptionsAdventurePointsValue<Identifier> =
-  | {
-      tag: "DerivedFromImprovementCost"
-      derived_from_improvement_cost: SelectOptionsDeriveAdventurePointsValueFromImprovementCost
-    }
-  | { tag: "Fixed"; fixed: SelectOptionsFixedAdventurePointsValue<Identifier> }
-
-/**
- * Derive the cost from the improvement cost of each entry.
- *
- * **Calculation:** AP Value = Improvement Cost × `multiplier` + `offset`
- */
-export type SelectOptionsDeriveAdventurePointsValueFromImprovementCost = {
-  /**
-   * This number is multiplied with the improvement cost of the entry
-   * (A = 1 to D = 4).
-   * @integer
-   * @minimum 2
-   * @default 1
-   */
-  multiplier?: number
-
-  /**
-   * This number is added to the multiplied improvement cost of the entry.
-   * @integer
-   * @default 0
-   */
-  offset?: number
-}
-
-export type SelectOptionsFixedAdventurePointsValue<Identifier> = {
-  /**
-   * A mapping of skill identifiers to their specific AP values.
-   */
-  map: SelectOptionsFixedAdventurePointsValueMapping<Identifier>[]
-
-  /**
-   * The default value of an entry. Used as a fallback if no value is found in `list`.
-   * @integer
-   * @minimum 1
-   */
-  default: number
-}
-
-export type SelectOptionsFixedAdventurePointsValueMapping<Identifier> = {
-  /**
-   * The entry's identifier.
-   */
-  id: Identifier
-
-  /**
-   * The AP value for the specified entry.
-   * @integer
-   * @minimum 1
-   */
-  ap_value: number
-}
-
-export type TargetCategoriesSelectOptionCategory = {
-  /**
-   * A list of combat technique categories.
-   * @minItems 1
-   */
-  list: SpecificTargetCategory[]
-}
-
-export type SpecificTargetCategory = {
-  /**
-   * The target category’s identifier.
-   */
-  id: TargetCategoryIdentifier
-
-  /**
-   * The volume for this specific selection.
-   * @integer
-   * @minimum 0
-   */
-  volume?: number
-}
+const SpecificTargetCategory = TypeAlias(import.meta.url, {
+  name: "SpecificTargetCategory",
+  type: () =>
+    Object({
+      id: Required({
+        comment: "The target category’s identifier.",
+        type: TargetCategoryIdentifier,
+      }),
+      volume: Optional({
+        comment: "The volume for this specific selection.",
+        type: Integer({ minimum: 0 }),
+      }),
+    }),
+})

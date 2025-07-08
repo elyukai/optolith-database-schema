@@ -1,27 +1,34 @@
-import { PactCategoryReference, PactDomainReference } from "../../_SimpleReferences.js"
+import {
+  Array,
+  IncludeIdentifier,
+  Integer,
+  Object,
+  Optional,
+  Required,
+  TypeAlias,
+} from "tsondb/schema/def"
+import { PactCategoryIdentifier, PactDomainIdentifier } from "../../_Identifier.js"
 import { DisplayOption } from "../DisplayOption.js"
 
-/**
- * Requires a specific pact.
- * @title Pact Prerequisite
- */
-export type PactPrerequisite = {
-  /**
-   * The required pact category.
-   */
-  category: PactCategoryReference
-
-  /**
-   * The required domain(s).
-   */
-  domain_id?: PactDomainReference[]
-
-  /**
-   * The required pact level.
-   * @integer
-   * @minimum 1
-   */
-  level?: number
-
-  display_option?: DisplayOption
-}
+export const PactPrerequisite = TypeAlias(import.meta.url, {
+  name: "PactPrerequisitePactPrerequisite",
+  comment: "Requires a specific pact.",
+  type: () =>
+    Object({
+      category: Required({
+        comment: "The required pact category.",
+        type: PactCategoryIdentifier,
+      }),
+      domain: Optional({
+        comment: "The required domain(s).",
+        type: Array(PactDomainIdentifier, { minItems: 1 }),
+      }),
+      level: Optional({
+        comment: "The level to which the minimum value applies.",
+        type: Integer({ minimum: 1 }),
+      }),
+      display_option: Optional({
+        type: IncludeIdentifier(DisplayOption),
+      }),
+    }),
+})
