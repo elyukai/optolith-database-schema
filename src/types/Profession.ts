@@ -673,11 +673,3 @@ export type ProfessionNameBySex = {
    */
   female: NonEmptyString
 }
-
-export const config: TypeConfig<Profession, Profession["id"], "Profession"> = {
-  name: "Profession",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("Profession"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}

@@ -12,6 +12,7 @@
     "target": "ESNext",
   },
   "include": [
-    "src/types/**/*"
+    "src/types/**/*",
+    "src/config.ts"
   ]
 }

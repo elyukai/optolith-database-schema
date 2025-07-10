@@ -26,8 +26,7 @@
   "scripts": {
     "build:ts": "tsc",
     "watch:ts": "tsc -w",
-    "build:gen": "otjsmd",
-    "watch:gen": "otjsmd -w",
+    "build:gen": "tsondb generate",
     "build": "npm run build:ts && npm run build:gen",
     "release": "standard-version",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -44,7 +43,7 @@
     "@types/node": "^22.13.14",
     "optolith-tsjsonschemamd": "^0.11.2",
     "standard-version": "^9.5.0",
-    "tsondb": "^0.3.0",
+    "tsondb": "file:../tsondb",
     "typescript": "^5.8.2"
   },
   "repository": "github:elyukai/optolith-database-schema",

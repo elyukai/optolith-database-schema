@@ -13,7 +13,7 @@ export const MagicalSign = Entity(import.meta.url, {
       prerequisites: Optional({
         type: IncludeIdentifier(GeneralPrerequisites),
       }),
-      property,
+      property: property(),
       ap_value: Required({
         comment: "The adventure points value.",
         type: Integer({ minimum: 0 }),

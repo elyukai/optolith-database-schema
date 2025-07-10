@@ -2,7 +2,6 @@ import {
   Enum,
   EnumCase,
   GenEnum,
-  GenericArgumentIdentifier,
   GenIncludeIdentifier,
   GenTypeAlias,
   IncludeIdentifier,
@@ -12,6 +11,7 @@ import {
   Param,
   Required,
   TypeAlias,
+  TypeArgument,
 } from "tsondb/schema/def"
 import { SlowSkillCastingTimeUnit } from "./SkillModificationLevel.js"
 import { SkillModificationLevelIdentifier } from "./_Identifier.js"
@@ -21,7 +21,7 @@ export const CastingTime = GenEnum(import.meta.url, {
   parameters: [Param("NonModifiable")],
   values: NonModifiable => ({
     Modifiable: EnumCase({ type: IncludeIdentifier(ModifiableCastingRange) }),
-    NonModifiable: EnumCase({ type: GenericArgumentIdentifier(NonModifiable) }),
+    NonModifiable: EnumCase({ type: TypeArgument(NonModifiable) }),
   }),
 })
 
@@ -47,7 +47,7 @@ There must always be at least one casting time value.`,
       {
         default: Optional({
           comment: "The default casting time definition.",
-          type: GenIncludeIdentifier(CastingTime, [GenericArgumentIdentifier(NonModifiable)]),
+          type: GenIncludeIdentifier(CastingTime, [TypeArgument(NonModifiable)]),
         }),
         during_lovemaking: Optional({
           comment:

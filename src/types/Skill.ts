@@ -15,7 +15,6 @@ import {
 } from "tsondb/schema/def"
 import { SkillApplicationIdentifier, SkillGroupIdentifier } from "./_Identifier.js"
 import { ImprovementCost } from "./_ImprovementCost.js"
-import { NonEmptyMarkdown, NonEmptyString } from "./_NonEmptyString.js"
 import { SkillCheck } from "./_SkillCheck.js"
 import { NestedLocaleMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
@@ -95,50 +94,6 @@ export const Skill = Entity(import.meta.url, {
   displayName: {},
 })
 
-export type SkillTranslation = {
-  /**
-   * The name of the skill.
-   */
-  name: NonEmptyString
-
-  /**
-   * If there are options available that can not be put into a selection list (like different cults), provide the label text for the input element here. Otherwise leave empty.
-   */
-  applications_input_label?: NonEmptyString
-
-  /**
-   * The text listing the certain circumstances in which the encumbrance may count. This text must be used if `encumbrance` is set to `"Maybe"`, otherwise it is ignored if defined.
-   */
-  encumbrance_description?: NonEmptyString
-
-  /**
-   * Mentions any tools from the equipment list that are necessary to employ the skill.
-   */
-  tools?: NonEmptyMarkdown
-
-  /**
-   * Gives examples of the effects that various QL might provide.
-   */
-  quality: NonEmptyMarkdown
-
-  /**
-   * Lists examples of results for a failed check.
-   */
-  failed: NonEmptyMarkdown
-
-  /**
-   * Lists examples of results for a critical success.
-   */
-  critical: NonEmptyMarkdown
-
-  /**
-   * Lists examples of results for botches.
-   */
-  botch: NonEmptyMarkdown
-
-  errata?: Errata
-}
-
 export const Applications = Enum(import.meta.url, {
   name: "Applications",
   comment: "The skill’s applications",
@@ -162,14 +117,14 @@ export const ApplicationCategory = Enum(import.meta.url, {
   }),
 })
 
-export const Application = Entity(import.meta.url, {
-  name: "Application",
-  namePlural: "Applications",
+export const SkillApplication = Entity(import.meta.url, {
+  name: "SkillApplication",
+  namePlural: "SkillApplications",
   type: () =>
     Object({
       translations: NestedLocaleMap(
         Required,
-        "ApplicationTranslation",
+        "SkillApplicationTranslation",
         Object({
           name: Required({
             comment: "The skill application’s name.",

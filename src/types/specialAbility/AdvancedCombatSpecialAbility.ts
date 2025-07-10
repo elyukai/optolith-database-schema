@@ -24,17 +24,17 @@ export const AdvancedCombatSpecialAbility = Entity(import.meta.url, {
   type: () =>
     Object({
       levels,
-      usage_type,
-      select_options,
-      skill_applications,
-      skill_uses,
+      usage_type: usage_type(),
+      select_options: select_options(),
+      skill_applications: skill_applications(),
+      skill_uses: skill_uses(),
       maximum,
-      penalty,
+      penalty: penalty(),
       prerequisites: Optional({
         type: IncludeIdentifier(GeneralPrerequisites),
       }),
-      combat_techniques,
-      ap_value,
+      combat_techniques: combat_techniques(),
+      ap_value: ap_value(),
       src,
       translation: NestedLocaleMap(
         Required,

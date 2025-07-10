@@ -450,15 +450,3 @@ export const EquipmentIdentifier = Enum(import.meta.url, {
     WeaponAccessory: EnumCase({ type: WeaponAccessoryIdentifier }),
   }),
 })
-
-export type OneOrManyNumericsIdentifier = OneNumericIdentifier | ManyNumericsIdentifier
-
-/**
- * @minimum 1
- */
-type OneNumericIdentifier = number
-
-/**
- * @minItems 2
- */
-type ManyNumericsIdentifier = OneNumericIdentifier[]

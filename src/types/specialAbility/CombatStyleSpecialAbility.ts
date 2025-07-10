@@ -26,18 +26,18 @@ export const CombatStyleSpecialAbility = Entity(import.meta.url, {
   type: () =>
     Object({
       levels,
-      usage_type,
-      type,
-      select_options,
-      skill_applications,
-      skill_uses,
+      usage_type: usage_type(),
+      type: type(),
+      select_options: select_options(),
+      skill_applications: skill_applications(),
+      skill_uses: skill_uses(),
       maximum,
       advanced: advanced(AdvancedCombatSpecialAbilityIdentifier),
       prerequisites: Optional({
         type: IncludeIdentifier(GeneralPrerequisites),
       }),
-      combat_techniques,
-      ap_value,
+      combat_techniques: combat_techniques(),
+      ap_value: ap_value(),
       src,
       translation: NestedLocaleMap(
         Required,

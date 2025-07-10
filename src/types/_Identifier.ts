@@ -1,4 +1,5 @@
 import { ReferenceIdentifier as R } from "tsondb/schema/def"
+import { GeneralSelectOption } from "./_Activatable.js"
 import { Enhancement } from "./_Enhancements.js"
 import { Influence } from "./_Influence.js"
 import { Advantage } from "./Advantage.js"
@@ -17,6 +18,37 @@ import { Culture } from "./Culture.js"
 import { Disadvantage } from "./Disadvantage.js"
 import { Disease } from "./Disease.js"
 import { Element } from "./Element.js"
+import { Ammunition } from "./equipment/item/Ammunition.js"
+import { Animal } from "./equipment/item/Animal.js"
+import { AnimalCare } from "./equipment/item/AnimalCare.js"
+import { Armor } from "./equipment/item/Armor.js"
+import { BandageOrRemedy } from "./equipment/item/BandageOrRemedy.js"
+import { Book } from "./equipment/item/Book.js"
+import { CeremonialItem } from "./equipment/item/CeremonialItem.js"
+import { Clothes } from "./equipment/item/Clothes.js"
+import { Container } from "./equipment/item/Container.js"
+import { Elixir } from "./equipment/item/Elixir.js"
+import { EquipmentOfBlessedOnes } from "./equipment/item/EquipmentOfBlessedOnes.js"
+import { GemOrPreciousStone } from "./equipment/item/GemOrPreciousStone.js"
+import { IlluminationLightSource } from "./equipment/item/IlluminationLightSource.js"
+import { IlluminationRefillsOrSupplies } from "./equipment/item/IlluminationRefillsOrSupplies.js"
+import { Jewelry } from "./equipment/item/Jewelry.js"
+import { Liebesspielzeug } from "./equipment/item/Liebesspielzeug.js"
+import { LuxuryGood } from "./equipment/item/LuxuryGood.js"
+import { MagicalArtifact } from "./equipment/item/MagicalArtifact.js"
+import { MusicalInstrument } from "./equipment/item/MusicalInstrument.js"
+import { OrienteeringAid } from "./equipment/item/OrienteeringAid.js"
+import { Poison } from "./equipment/item/Poison.js"
+import { RopeOrChain } from "./equipment/item/RopeOrChain.js"
+import { Stationary } from "./equipment/item/Stationary.js"
+import { ArmorType } from "./equipment/item/sub/ArmorType.js"
+import { Reach } from "./equipment/item/sub/Reach.js"
+import { ThievesTool } from "./equipment/item/ThievesTool.js"
+import { ToolOfTheTrade } from "./equipment/item/ToolOfTheTrade.js"
+import { TravelGearOrTool } from "./equipment/item/TravelGearOrTool.js"
+import { Vehicle } from "./equipment/item/Vehicle.js"
+import { Weapon, WeaponUse } from "./equipment/item/Weapon.js"
+import { WeaponAccessory } from "./equipment/item/WeaponAccessory.js"
 import { ExperienceLevel } from "./ExperienceLevel.js"
 import { EyeColor } from "./EyeColor.js"
 import { HairColor } from "./HairColor.js"
@@ -34,17 +66,24 @@ import { MagicalMelody } from "./magicalActions/MagicalMelody.js"
 import { MagicalRune } from "./magicalActions/MagicalRune.js"
 import { ZibiljaRitual } from "./magicalActions/ZibiljaRitual.js"
 import { PactCategory, PactDomain, PactType } from "./PactCategory.js"
+import { Patron } from "./Patron.js"
 import { PatronCategory } from "./PatronCategory.js"
 import { PersonalityTrait } from "./PersonalityTrait.js"
-import { Profession, ProfessionPackage, ProfessionVersion } from "./Profession.js"
+import {
+  Profession,
+  ProfessionPackage,
+  ProfessionVariant,
+  ProfessionVersion,
+} from "./Profession.js"
 import { Property } from "./Property.js"
 import { Race, RaceVariant } from "./Race.js"
 import { Ritual } from "./Ritual.js"
+import { CoreRule } from "./rule/CoreRule.js"
 import { FocusRule } from "./rule/FocusRule.js"
 import { Subject } from "./rule/FocusRule_Subject.js"
 import { OptionalRule } from "./rule/OptionalRule.js"
 import { SexPractice } from "./SexPractice.js"
-import { Skill } from "./Skill.js"
+import { Skill, SkillApplication } from "./Skill.js"
 import { SkillGroup } from "./SkillGroup.js"
 import { SkillModificationLevel } from "./SkillModificationLevel.js"
 import { SocialStatus } from "./SocialStatus.js"
@@ -126,6 +165,7 @@ export const ArcaneBardTraditionIdentifier = R(ArcaneBardTradition)
 export const ArcaneDancerTraditionIdentifier = R(ArcaneDancerTradition)
 export const ArcaneOrbEnchantmentIdentifier = R(ArcaneOrbEnchantment)
 export const ArmorIdentifier = R(Armor)
+export const ArmorTypeIdentifier = R(ArmorType)
 export const AspectIdentifier = R(Aspect)
 export const AttireEnchantmentIdentifier = R(AttireEnchantment)
 export const AttributeIdentifier = R(Attribute)
@@ -171,7 +211,7 @@ export const FatePointSpecialAbilityIdentifier = R(FatePointSpecialAbility)
 export const FocusRuleIdentifier = R(FocusRule)
 export const FoolsHatEnchantmentIdentifier = R(FoolsHatEnchantment)
 export const GemOrPreciousStoneIdentifier = R(GemOrPreciousStone)
-export const GeneralIdentifier = R(General)
+export const GeneralIdentifier = R(GeneralSelectOption)
 export const GeneralSpecialAbilityIdentifier = R(GeneralSpecialAbility)
 export const GeodeRitualIdentifier = R(GeodeRitual)
 export const GuidelineIdentifier = R(Guideline)
@@ -258,4 +298,5 @@ export const WandEnchantmentIdentifier = R(WandEnchantment)
 export const WeaponAccessoryIdentifier = R(WeaponAccessory)
 export const WeaponEnchantmentIdentifier = R(WeaponEnchantment)
 export const WeaponIdentifier = R(Weapon)
+export const WeaponUseIdentifier = R(WeaponUse)
 export const ZibiljaRitualIdentifier = R(ZibiljaRitual)

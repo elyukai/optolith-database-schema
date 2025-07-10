@@ -38,9 +38,9 @@ export const BlessedTradition = Entity(import.meta.url, {
   namePlural: "BlessedTraditions",
   type: () =>
     Object({
-      select_options,
-      skill_applications,
-      skill_uses,
+      select_options: select_options(),
+      skill_applications: skill_applications(),
+      skill_uses: skill_uses(),
       primary: Optional({
         comment:
           "The tradition’s primary attribute. Leave empty if the tradition does not have one.",
@@ -80,7 +80,7 @@ export const BlessedTradition = Entity(import.meta.url, {
       prerequisites: Optional({
         type: IncludeIdentifier(GeneralPrerequisites),
       }),
-      ap_value,
+      ap_value: ap_value(),
       src,
       translation: NestedLocaleMap(
         Required,

@@ -1,63 +1,68 @@
-/**
- * @main AnimalCare
- */
+import {
+  Entity,
+  Enum,
+  EnumCase,
+  IncludeIdentifier,
+  Object,
+  Required,
+  TypeAlias,
+} from "tsondb/schema/def"
+import { src } from "../../source/_PublicationRef.js"
+import { Cost, DefaultItemTranslations, FixedCost, Weight } from "./_Item.js"
 
-import { TypeConfig } from "../../../typeConfig.js"
-import { todo } from "../../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../../validation/filename.js"
-import { LocaleMap } from "../../_LocaleMap.js"
-import { PublicationRefs } from "../../source/_PublicationRef.js"
-import { Cost, DefaultItemTranslation, FixedCost, Weight } from "./_Item.js"
-
-export type AnimalCare = {
-  /**
-   * Values depending on whether the animal care is feed.
-   */
-  type: AnimalCareType
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<DefaultItemTranslation>
-}
-
-/**
- * Values depending on whether the animal care is feed.
- */
-export type AnimalCareType =
-  | { tag: "General"; general: GeneralAnimalCare }
-  | { tag: "Feed"; feed: AnimalFeed }
-
-export type GeneralAnimalCare = {
-  /**
-   * The cost in silverthalers.
-   */
-  cost: Cost
-
-  /**
-   * The weight in kg.
-   */
-  weight: Weight
-}
-
-export type AnimalFeed = {
-  /**
-   * The cost in silverthalers.
-   */
-  cost: AnimalFeedCost
-}
-
-export type AnimalFeedCost =
-  | { tag: "PerWeek"; per_week: FixedCost }
-
-export const config: TypeConfig<AnimalCare, number, "AnimalCare"> = {
+export const AnimalCare = Entity(import.meta.url, {
   name: "AnimalCare",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("AnimalCare"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "AnimalCare",
+  type: () =>
+    Object({
+      type: Required({
+        comment: "Values depending on whether the animal care is feed.",
+        type: IncludeIdentifier(AnimalCareType),
+      }),
+      src,
+      translations: DefaultItemTranslations("AnimalCare"),
+    }),
+  displayName: {},
+})
+
+const AnimalCareType = Enum(import.meta.url, {
+  name: "AnimalCareType",
+  comment: "Values depending on whether the animal care is feed.",
+  values: () => ({
+    General: EnumCase({ type: IncludeIdentifier(GeneralAnimalCare) }),
+    Feed: EnumCase({ type: IncludeIdentifier(AnimalFeed) }),
+  }),
+})
+
+const GeneralAnimalCare = TypeAlias(import.meta.url, {
+  name: "GeneralAnimalCare",
+  type: () =>
+    Object({
+      cost: Required({
+        comment: "The cost in silverthalers.",
+        type: IncludeIdentifier(Cost),
+      }),
+      weight: Required({
+        comment: "The weight in kg.",
+        type: IncludeIdentifier(Weight),
+      }),
+    }),
+})
+
+const AnimalFeed = TypeAlias(import.meta.url, {
+  name: "AnimalFeed",
+  type: () =>
+    Object({
+      cost: Required({
+        comment: "The cost in silverthalers.",
+        type: IncludeIdentifier(AnimalFeedCost),
+      }),
+    }),
+})
+
+const AnimalFeedCost = Enum(import.meta.url, {
+  name: "AnimalFeedCost",
+  values: () => ({
+    PerWeek: EnumCase({ type: IncludeIdentifier(FixedCost) }),
+  }),
+})

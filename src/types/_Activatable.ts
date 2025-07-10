@@ -5,10 +5,10 @@
 import {
   Array,
   Boolean,
+  Entity,
   Enum,
   EnumCase,
   GenEnum,
-  GenericArgumentIdentifier,
   GenIncludeIdentifier,
   GenTypeAlias,
   IncludeIdentifier,
@@ -20,6 +20,7 @@ import {
   String,
   Type,
   TypeAlias,
+  TypeArgument,
 } from "tsondb/schema/def"
 import { NestedLocaleMap } from "./Locale.js"
 import { SelectOptionCategory } from "./_ActivatableSelectOptionCategory.js"
@@ -27,6 +28,7 @@ import { DurationUnitValue } from "./_ActivatableSkillDuration.js"
 import {
   AspectIdentifier,
   CloseCombatTechniqueIdentifier,
+  GeneralIdentifier,
   MagicalTraditionIdentifier,
   PatronIdentifier,
   PropertyIdentifier,
@@ -95,30 +97,28 @@ Note that this is only a full definition of options for simple logic that can be
     ),
 })
 
-export const select_options = Optional({
-  comment: `Definitions for possible options for the activatable entry. They can either be derived from entry categories or be defined explicitly. Both can happen as well, but if there is an explicitly defined select option and a derived select option has the same identifier (which may only happen if skill or combat technique identifiers are used for explicit select options), the explicit definition overwrites the derived option.
+export const select_options = () =>
+  Optional({
+    comment: `Definitions for possible options for the activatable entry. They can either be derived from entry categories or be defined explicitly. Both can happen as well, but if there is an explicitly defined select option and a derived select option has the same identifier (which may only happen if skill or combat technique identifiers are used for explicit select options), the explicit definition overwrites the derived option.
 
 Note that this is only a full definition of options for simple logic that can be made explicit using the more detailed configuration for both derived categories and explicit options. There are quite a few entries whose option logic cannot be fully represented here, so that it needs to be implemented manually.`,
-  type: IncludeIdentifier(SelectOptions),
-})
+    type: IncludeIdentifier(SelectOptions),
+  })
 
 const ExplicitSelectOption = Enum(import.meta.url, {
   name: "ExplicitSelectOption",
   values: () => ({
-    General: EnumCase({ type: IncludeIdentifier(ExplicitGeneralSelectOption) }),
+    General: EnumCase({ type: GeneralIdentifier }),
     Skill: EnumCase({ type: IncludeIdentifier(ExplicitSkillSelectOption) }),
     CombatTechnique: EnumCase({ type: IncludeIdentifier(ExplicitCombatTechniqueSelectOption) }),
   }),
 })
 
-const ExplicitGeneralSelectOption = TypeAlias(import.meta.url, {
-  name: "ExplicitGeneralSelectOption",
+export const GeneralSelectOption = Entity(import.meta.url, {
+  name: "GeneralSelectOption",
+  namePlural: "GeneralSelectOptions",
   type: () =>
     Object({
-      id: Required({
-        comment: "The option’s identifier. An unique, increasing integer.",
-        type: Integer({ minimum: 1 }),
-      }),
       profession_only: Optional({
         comment:
           "Sometimes, professions use specific text selections that are not contained in described lists. This ensures you can use them for professions only. They are not going to be displayed as options to the user.",
@@ -150,7 +150,7 @@ const ExplicitGeneralSelectOption = TypeAlias(import.meta.url, {
       src: optionalSrc,
       translations: NestedLocaleMap(
         Required,
-        "ExplicitGeneralSelectOptionTranslation",
+        "GeneralSelectOptionTranslation",
         Object({
           name: Required({
             comment: "The name of the select option.",
@@ -395,10 +395,11 @@ const CombatSpecialAbilityUsageType = Enum(import.meta.url, {
   }),
 })
 
-export const usage_type = Required({
-  comment: "The definition of how the combat special ability can be used in combat.",
-  type: IncludeIdentifier(CombatSpecialAbilityUsageType),
-})
+export const usage_type = () =>
+  Required({
+    comment: "The definition of how the combat special ability can be used in combat.",
+    type: IncludeIdentifier(CombatSpecialAbilityUsageType),
+  })
 
 const CombatSpecialAbilityType = Enum(import.meta.url, {
   name: "CombatSpecialAbilityType",
@@ -410,11 +411,12 @@ const CombatSpecialAbilityType = Enum(import.meta.url, {
   }),
 })
 
-export const type = Required({
-  comment:
-    "The definition of if the combat special ability can be used when armed or when unarmed.",
-  type: IncludeIdentifier(CombatSpecialAbilityType),
-})
+export const type = () =>
+  Required({
+    comment:
+      "The definition of if the combat special ability can be used when armed or when unarmed.",
+    type: IncludeIdentifier(CombatSpecialAbilityType),
+  })
 
 const SkillApplications = TypeAlias(import.meta.url, {
   name: "SkillApplications",
@@ -423,11 +425,12 @@ const SkillApplications = TypeAlias(import.meta.url, {
   type: () => Array(IncludeIdentifier(SkillApplication), { minItems: 1 }),
 })
 
-export const skill_applications = Optional({
-  comment:
-    "Registers new skill applications, which get enabled once this entry is activated. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin activatable entry.",
-  type: IncludeIdentifier(SkillApplications),
-})
+export const skill_applications = () =>
+  Optional({
+    comment:
+      "Registers new skill applications, which get enabled once this entry is activated. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin activatable entry.",
+    type: IncludeIdentifier(SkillApplications),
+  })
 
 const SkillApplication = TypeAlias(import.meta.url, {
   name: "SkillApplication",
@@ -485,11 +488,12 @@ const SkillUses = TypeAlias(import.meta.url, {
   type: () => Array(IncludeIdentifier(SkillUse), { minItems: 1 }),
 })
 
-export const skill_uses = Optional({
-  comment:
-    "Registers uses, which get enabled once this entry is activated. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin activatable entry.",
-  type: IncludeIdentifier(SkillUses),
-})
+export const skill_uses = () =>
+  Optional({
+    comment:
+      "Registers uses, which get enabled once this entry is activated. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin activatable entry.",
+    type: IncludeIdentifier(SkillUses),
+  })
 
 const SkillUse = TypeAlias(import.meta.url, {
   name: "SkillUse",
@@ -549,10 +553,11 @@ const Penalty = Enum(import.meta.url, {
   }),
 })
 
-export const penalty = Required({
-  comment: "The penalty the special ability gives when used.",
-  type: IncludeIdentifier(Penalty),
-})
+export const penalty = () =>
+  Required({
+    comment: "The penalty the special ability gives when used.",
+    type: IncludeIdentifier(Penalty),
+  })
 
 const SinglePenalty = TypeAlias(import.meta.url, {
   name: "SinglePenalty",
@@ -752,10 +757,11 @@ const EnchantmentCost = Enum(import.meta.url, {
   }),
 })
 
-export const cost = Optional({
-  comment: "The cost when casting the entry.",
-  type: IncludeIdentifier(EnchantmentCost),
-})
+export const cost = () =>
+  Optional({
+    comment: "The cost when casting the entry.",
+    type: IncludeIdentifier(EnchantmentCost),
+  })
 
 export const ArcaneEnergyCost = Enum(import.meta.url, {
   name: "ArcaneEnergyCost",
@@ -1017,10 +1023,11 @@ const Volume = Enum(import.meta.url, {
   }),
 })
 
-export const volume = Required({
-  comment: "The volume points the enchantment needs.",
-  type: IncludeIdentifier(Volume),
-})
+export const volume = () =>
+  Required({
+    comment: "The volume points the enchantment needs.",
+    type: IncludeIdentifier(Volume),
+  })
 
 const FixedVolume = TypeAlias(import.meta.url, {
   name: "FixedVolume",
@@ -1330,36 +1337,34 @@ const PropertyDeclaration = Enum(import.meta.url, {
   }),
 })
 
-export const property = Required({
-  comment:
-    "The magic property’s identifier. `DependingOnProperty` can only be used if the special ability has an option to select a property.",
-  type: IncludeIdentifier(PropertyDeclaration),
-})
+export const property = () =>
+  Required({
+    comment:
+      "The magic property’s identifier. `DependingOnProperty` can only be used if the special ability has an option to select a property.",
+    type: IncludeIdentifier(PropertyDeclaration),
+  })
 
-export const aspect = Required({
-  comment: "The blessed aspect.",
-  type: AspectIdentifier,
-})
+export const aspect = () =>
+  Required({
+    comment: "The blessed aspect.",
+    type: AspectIdentifier,
+  })
 
 const AdvancedSpecialAbility = GenEnum(import.meta.url, {
   name: "AdvancedSpecialAbility",
   comment: "A reference to an advanced special ability.",
   parameters: [Param("Identifier")],
   values: Identifier => ({
-    General: EnumCase({ type: GenericArgumentIdentifier(Identifier) }),
+    General: EnumCase({ type: TypeArgument(Identifier) }),
     RestrictOptions: EnumCase({
-      type: GenIncludeIdentifier(RestrictAdvancedSpecialAbilityOptions, [
-        GenericArgumentIdentifier(Identifier),
-      ]),
+      type: GenIncludeIdentifier(RestrictAdvancedSpecialAbilityOptions, [TypeArgument(Identifier)]),
     }),
     OneOf: EnumCase({
-      type: GenIncludeIdentifier(OneOfAdvancedSpecialAbilityOptions, [
-        GenericArgumentIdentifier(Identifier),
-      ]),
+      type: GenIncludeIdentifier(OneOfAdvancedSpecialAbilityOptions, [TypeArgument(Identifier)]),
     }),
     DeriveFromExternalOption: EnumCase({
       type: GenIncludeIdentifier(AdvancedSpecialAbilityDerivedFromExternalOption, [
-        GenericArgumentIdentifier(Identifier),
+        TypeArgument(Identifier),
       ]),
     }),
   }),
@@ -1372,7 +1377,7 @@ const RestrictAdvancedSpecialAbilityOptions = GenTypeAlias(import.meta.url, {
     Object({
       id: Required({
         comment: "The advanced special ability’s identifier.",
-        type: GenericArgumentIdentifier(Identifier),
+        type: TypeArgument(Identifier),
       }),
       option: Required({
         comment:
@@ -1391,7 +1396,7 @@ const OneOfAdvancedSpecialAbilityOptions = GenTypeAlias(import.meta.url, {
     Object({
       options: Required({
         comment: "The possible advanced special abilities.",
-        type: Array(GenericArgumentIdentifier(Identifier), { minItems: 2 }),
+        type: Array(TypeArgument(Identifier), { minItems: 2 }),
       }),
       is_selection_required_on_purchase: Required({
         comment:
@@ -1417,7 +1422,7 @@ const AdvancedSpecialAbilityDerivedFromExternalOption = GenTypeAlias(import.meta
         comment: "Map options from the external entry to allowed advanced special abilities.",
         type: Array(
           GenIncludeIdentifier(AdvancedSpecialAbilityDerivedFromExternalOptionMapping, [
-            GenericArgumentIdentifier(Identifier),
+            TypeArgument(Identifier),
           ]),
           { minItems: 1 }
         ),
@@ -1440,7 +1445,7 @@ const AdvancedSpecialAbilityDerivedFromExternalOptionMapping = GenTypeAlias(impo
       }),
       to_advanced: Required({
         comment: "The advanced special ability’s identifier.",
-        type: GenericArgumentIdentifier(Identifier),
+        type: TypeArgument(Identifier),
       }),
     }),
 })
@@ -1467,10 +1472,11 @@ const ApplicableCombatTechniques = Enum(import.meta.url, {
   }),
 })
 
-export const combat_techniques = Required({
-  comment: "The combat techniques the special ability is applicable to.",
-  type: IncludeIdentifier(ApplicableCombatTechniques),
-})
+export const combat_techniques = () =>
+  Required({
+    comment: "The combat techniques the special ability is applicable to.",
+    type: IncludeIdentifier(ApplicableCombatTechniques),
+  })
 
 const AllApplicableCombatTechniques = TypeAlias(import.meta.url, {
   name: "AllApplicableCombatTechniques",
@@ -1598,7 +1604,7 @@ const ApplicableCombatTechniquesNegativeCombatTechniquesRestriction = GenTypeAli
       Object({
         list: Required({
           comment: "The combat techniques this combat special ability is **not** applicable to.",
-          type: Array(GenericArgumentIdentifier(Ref), { minItems: 1 }),
+          type: Array(TypeArgument(Ref), { minItems: 1 }),
         }),
       }),
   }
@@ -1643,10 +1649,11 @@ const AdventurePointsValue = Enum(import.meta.url, {
   }),
 })
 
-export const ap_value = Required({
-  comment: "The adventure points value.",
-  type: IncludeIdentifier(AdventurePointsValue),
-})
+export const ap_value = () =>
+  Required({
+    comment: "The adventure points value.",
+    type: IncludeIdentifier(AdventurePointsValue),
+  })
 
 const FixedAdventurePointsValue = TypeAlias(import.meta.url, {
   name: "FixedAdventurePointsValue",
@@ -1691,7 +1698,8 @@ const AdventurePointsSingleValue = TypeAlias(import.meta.url, {
   type: () => Integer({ minimum: 0 }),
 })
 
-export const input = Optional({
-  comment: "A string that is used as a label for an input field.",
-  type: String({ minLength: 1 }),
-})
+export const input = () =>
+  Optional({
+    comment: "A string that is used as a label for an input field.",
+    type: String({ minLength: 1 }),
+  })

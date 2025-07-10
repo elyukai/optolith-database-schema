@@ -21,14 +21,14 @@ export const BrawlingSpecialAbility = Entity(import.meta.url, {
   type: () =>
     Object({
       levels,
-      usage_type,
-      select_options,
+      usage_type: usage_type(),
+      select_options: select_options(),
       maximum,
       prerequisites: Optional({
         type: IncludeIdentifier(GeneralPrerequisites),
       }),
-      combat_techniques,
-      ap_value,
+      combat_techniques: combat_techniques(),
+      ap_value: ap_value(),
       src,
       translation: NestedLocaleMap(
         Required,

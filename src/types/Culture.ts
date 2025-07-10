@@ -4,7 +4,6 @@ import {
   Entity,
   Enum,
   EnumCase,
-  GenericArgumentIdentifier,
   GenIncludeIdentifier,
   GenTypeAlias,
   IncludeIdentifier,
@@ -15,6 +14,7 @@ import {
   Required,
   String,
   TypeAlias,
+  TypeArgument,
 } from "tsondb/schema/def"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
 import {
@@ -175,7 +175,7 @@ const Weighted = GenTypeAlias(import.meta.url, {
     Object({
       elements: Required({
         comment: "The list of more common professions or profession variants.",
-        type: Array(GenericArgumentIdentifier(ProfessionOrVariant), { minItems: 1 }),
+        type: Array(TypeArgument(ProfessionOrVariant), { minItems: 1 }),
       }),
       weight: Required({
         comment: "The list of more common professions or profession variants.",
@@ -203,7 +203,7 @@ const CommonProfessionConstraints = GenTypeAlias(import.meta.url, {
     Object({
       constraints: Required({
         comment: "The list of constraints.",
-        type: Array(GenericArgumentIdentifier(Constraint), { minItems: 1 }),
+        type: Array(TypeArgument(Constraint), { minItems: 1 }),
       }),
       operation: Required({
         comment:

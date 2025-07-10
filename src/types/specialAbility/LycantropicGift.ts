@@ -19,12 +19,12 @@ export const LycantropicGift = Entity(import.meta.url, {
   type: () =>
     Object({
       levels,
-      select_options,
+      select_options: select_options(),
       maximum,
       prerequisites: Optional({
         type: IncludeIdentifier(GeneralPrerequisites),
       }),
-      ap_value,
+      ap_value: ap_value(),
       src,
       translation: NestedLocaleMap(
         Required,

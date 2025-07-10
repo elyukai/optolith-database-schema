@@ -6,7 +6,6 @@ import {
   Array,
   Enum,
   EnumCase,
-  GenericArgumentIdentifier,
   GenIncludeIdentifier,
   GenTypeAlias,
   IncludeIdentifier,
@@ -17,6 +16,7 @@ import {
   Required,
   String,
   TypeAlias,
+  TypeArgument,
 } from "tsondb/schema/def"
 import { NestedLocaleMap } from "./Locale.js"
 import { AlternativeName } from "./_AlternativeNames.js"
@@ -92,12 +92,12 @@ This streamlines the wording for diseases and poison by using a unified wording 
     Object({
       default: Required({
         comment: "The default value. In the source, it's the text before the slash.",
-        type: GenericArgumentIdentifier(Content),
+        type: TypeArgument(Content),
       }),
       reduced: Optional({
         comment:
           "The reduced value. In the source, it's the text after the slash. Some entries may not have a reduced value.",
-        type: GenericArgumentIdentifier(Content),
+        type: TypeArgument(Content),
       }),
     }),
 })

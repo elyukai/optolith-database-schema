@@ -4,7 +4,6 @@ import {
   Enum,
   EnumCase,
   GenEnum,
-  GenericArgumentIdentifier,
   GenIncludeIdentifier,
   GenTypeAlias,
   IncludeIdentifier,
@@ -15,6 +14,7 @@ import {
   Required,
   String,
   TypeAlias,
+  TypeArgument,
 } from "tsondb/schema/def"
 import { NestedLocaleMap } from "./Locale.js"
 import {
@@ -307,7 +307,7 @@ const GenericSkillsSelectOptionCategoryCategory = GenTypeAlias(import.meta.url, 
       specific: Optional({
         comment: "Only include (`Intersection`) or exclude (`Difference`) specific entries.",
         type: GenIncludeIdentifier(SpecificFromSkillSelectOptionCategoryCategory, [
-          GenericArgumentIdentifier(Ref),
+          TypeArgument(Ref),
         ]),
       }),
       prerequisites: Optional({
@@ -327,7 +327,7 @@ const SpecificFromSkillSelectOptionCategoryCategory = GenTypeAlias(import.meta.u
       }),
       list: Required({
         comment: "The list of specific entries.",
-        type: Array(GenericArgumentIdentifier(Ref), { minItems: 1, uniqueItems: true }),
+        type: Array(TypeArgument(Ref), { minItems: 1, uniqueItems: true }),
       }),
     }),
 })
@@ -390,7 +390,7 @@ const SelectOptionsAdventurePointsValue = GenEnum(import.meta.url, {
     }),
     Fixed: EnumCase({
       type: GenIncludeIdentifier(SelectOptionsFixedAdventurePointsValue, [
-        GenericArgumentIdentifier(Identifier),
+        TypeArgument(Identifier),
       ]),
     }),
   }),
@@ -423,7 +423,7 @@ const SelectOptionsFixedAdventurePointsValue = GenTypeAlias(import.meta.url, {
         comment: "A mapping of skill identifiers to their specific AP values.",
         type: Array(
           GenIncludeIdentifier(SelectOptionsFixedAdventurePointsValueMapping, [
-            GenericArgumentIdentifier(Identifier),
+            TypeArgument(Identifier),
           ])
         ),
       }),
@@ -442,7 +442,7 @@ const SelectOptionsFixedAdventurePointsValueMapping = GenTypeAlias(import.meta.u
     Object({
       id: Required({
         comment: "The entry’s identifier.",
-        type: GenericArgumentIdentifier(Identifier),
+        type: TypeArgument(Identifier),
       }),
       ap_value: Required({
         comment: "The AP value for the specified entry.",

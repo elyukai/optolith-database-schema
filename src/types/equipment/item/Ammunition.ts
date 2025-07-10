@@ -1,50 +1,36 @@
-/**
- * @main Ammunition
- */
-
-import { TypeConfig } from "../../../typeConfig.js"
-import { todo } from "../../../validation/builders/integrity.js"
-import { validateEntityFileName } from "../../../validation/builders/naming.js"
-import { createSchemaValidator } from "../../../validation/builders/schema.js"
-import { getFilenamePrefixAsNumericId } from "../../../validation/filename.js"
-import { LocaleMap } from "../../_LocaleMap.js"
-import { NonEmptyString } from "../../_NonEmptyString.js"
+import { Entity, IncludeIdentifier, Object, Optional, Required, String } from "tsondb/schema/def"
+import { NestedLocaleMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
-import { PublicationRefs } from "../../source/_PublicationRef.js"
+import { src } from "../../source/_PublicationRef.js"
 import { Cost } from "./_Item.js"
 
-export type Ammunition = {
-  /**
-   * The cost in silverthalers.
-   */
-  cost: Cost
-
-  src: PublicationRefs
-
-  /**
-   * All translations for the entry, identified by IETF language tag (BCP47).
-   */
-  translations: LocaleMap<AmmunitionTranslation>
-}
-
-export type AmmunitionTranslation = {
-  /**
-   * The name of the item.
-   */
-  name: NonEmptyString
-
-  /**
-   * An auxiliary name or label of the item, if available.
-   */
-  secondary_name?: NonEmptyString
-
-  errata?: Errata
-}
-
-export const config: TypeConfig<Ammunition, number, "Ammunition"> = {
+export const Ammunition = Entity(import.meta.url, {
   name: "Ammunition",
-  id: getFilenamePrefixAsNumericId,
-  integrityValidator: todo("Ammunition"),
-  schemaValidator: createSchemaValidator(import.meta.url),
-  fileNameValidator: validateEntityFileName,
-}
+  namePlural: "Ammunitions",
+  type: () =>
+    Object({
+      cost: Required({
+        comment: "The cost in silverthalers.",
+        type: IncludeIdentifier(Cost),
+      }),
+      src,
+      translations: NestedLocaleMap(
+        Required,
+        "AmmunitionTranslation",
+        Object({
+          name: Required({
+            comment: "The item’s name.",
+            type: String({ minLength: 1 }),
+          }),
+          secondary_name: Optional({
+            comment: "An auxiliary name or label of the item, if available.",
+            type: String({ minLength: 1 }),
+          }),
+          errata: Optional({
+            type: IncludeIdentifier(Errata),
+          }),
+        })
+      ),
+    }),
+  displayName: {},
+})

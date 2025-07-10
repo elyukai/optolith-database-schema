@@ -5,7 +5,6 @@
 import {
   Enum,
   EnumCase,
-  GenericArgumentIdentifier,
   GenIncludeIdentifier,
   GenTypeAlias,
   IncludeIdentifier,
@@ -15,6 +14,7 @@ import {
   Required,
   String,
   TypeAlias,
+  TypeArgument,
 } from "tsondb/schema/def"
 import { FastCastingTime, SlowCastingTime } from "./_ActivatableSkillCastingTime.js"
 import { OneTimeCost, SustainedCost } from "./_ActivatableSkillCost.js"
@@ -27,7 +27,7 @@ export const OneTimePerformanceParameters = GenTypeAlias(import.meta.url, {
   type: CastingTime =>
     Object({
       casting_time: Required({
-        type: GenericArgumentIdentifier(CastingTime),
+        type: TypeArgument(CastingTime),
       }),
       cost: Required({
         type: IncludeIdentifier(OneTimeCost),
@@ -47,7 +47,7 @@ const SustainedPerformanceParameters = GenTypeAlias(import.meta.url, {
   type: CastingTime =>
     Object({
       casting_time: Required({
-        type: GenericArgumentIdentifier(CastingTime),
+        type: TypeArgument(CastingTime),
       }),
       cost: Required({
         type: IncludeIdentifier(SustainedCost),

@@ -21,13 +21,13 @@ export const SkillStyleSpecialAbility = Entity(import.meta.url, {
   type: () =>
     Object({
       levels,
-      select_options,
+      select_options: select_options(),
       maximum,
       advanced: advanced(AdvancedSkillSpecialAbilityIdentifier),
       prerequisites: Optional({
         type: IncludeIdentifier(GeneralPrerequisites),
       }),
-      ap_value,
+      ap_value: ap_value(),
       src,
       translation: NestedLocaleMap(
         Required,

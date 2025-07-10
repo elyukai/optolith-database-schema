@@ -1,14 +1,5 @@
 import { Array, Enum, EnumCase, TypeAlias } from "tsondb/schema/def"
 import { AttributeIdentifier } from "./_Identifier.js"
-import { AttributeReference } from "./_SimpleReferences.js"
-
-/**
- * The attributes' identifiers of the skill check.
- * @title Skill Check
- * @minLength 3
- * @maxLength 3
- */
-export type SkillCheck = AttributeReference[]
 
 export const SkillCheck = TypeAlias(import.meta.url, {
   name: "SkillCheck",

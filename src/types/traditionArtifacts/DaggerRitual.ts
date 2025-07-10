@@ -33,17 +33,17 @@ export const DaggerRitual = Entity(import.meta.url, {
   type: () =>
     Object({
       levels,
-      select_options,
+      select_options: select_options(),
       maximum,
       prerequisites: Optional({
         type: IncludeIdentifier(GeneralPrerequisites),
       }),
-      volume,
+      volume: volume(),
       cost: Optional({
         type: IncludeIdentifier(DaggerRitualCost),
       }),
-      property,
-      ap_value,
+      property: property(),
+      ap_value: ap_value(),
       src,
       translation: NestedLocaleMap(
         Required,

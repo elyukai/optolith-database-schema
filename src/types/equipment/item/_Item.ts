@@ -15,6 +15,8 @@ import {
 import { NestedLocaleMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
+import { SecondaryArmor } from "./Armor.js"
+import { ImprovisedWeapon } from "./Weapon.js"
 
 export const DefaultItem = (singularName: string, pluralName?: string) =>
   Entity(import.meta.url, {
@@ -45,46 +47,49 @@ export const DefaultItem = (singularName: string, pluralName?: string) =>
           type: IncludeIdentifier(CombatUse),
         }),
         src,
-        translations: NestedLocaleMap(
-          Required,
-          "CultureTranslation",
-          Object({
-            name: Required({
-              comment: "The item’s name.",
-              type: String({ minLength: 1 }),
-            }),
-            secondary_name: Optional({
-              comment: "An auxiliary name or label of the item, if available.",
-              type: String({ minLength: 1 }),
-            }),
-            note: Optional({
-              comment: "Note text.",
-              type: String({ minLength: 1, isMarkdown: true }),
-            }),
-            rules: Optional({
-              comment: "Special rules text.",
-              type: String({ minLength: 1, isMarkdown: true }),
-            }),
-            errata: Optional({
-              type: IncludeIdentifier(Errata),
-            }),
-          })
-        ),
+        translations: DefaultItemTranslations(singularName),
       }),
     displayName: {},
   })
 
-const CombatUse = Enum(import.meta.url, {
+export const DefaultItemTranslations = (singularName: string) =>
+  NestedLocaleMap(
+    Required,
+    `${singularName}Translation`,
+    Object({
+      name: Required({
+        comment: "The item’s name.",
+        type: String({ minLength: 1 }),
+      }),
+      secondary_name: Optional({
+        comment: "An auxiliary name or label of the item, if available.",
+        type: String({ minLength: 1 }),
+      }),
+      note: Optional({
+        comment: "Note text.",
+        type: String({ minLength: 1, isMarkdown: true }),
+      }),
+      rules: Optional({
+        comment: "Special rules text.",
+        type: String({ minLength: 1, isMarkdown: true }),
+      }),
+      errata: Optional({
+        type: IncludeIdentifier(Errata),
+      }),
+    })
+  )
+
+export const CombatUse = Enum(import.meta.url, {
   name: "CombatUse",
   comment:
     "The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.",
   values: () => ({
-    Weapon: EnumCase({ type: IncludeIdentifier(SecondaryWeapon) }),
+    Weapon: EnumCase({ type: IncludeIdentifier(ImprovisedWeapon) }),
     Armor: EnumCase({ type: IncludeIdentifier(SecondaryArmor) }),
   }),
 })
 
-const StructurePoints = TypeAlias(import.meta.url, {
+export const StructurePoints = TypeAlias(import.meta.url, {
   name: "StructurePoints",
   comment:
     "The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.",
@@ -102,7 +107,7 @@ const StructurePointsComponent = TypeAlias(import.meta.url, {
     }),
 })
 
-const Cost = Enum(import.meta.url, {
+export const Cost = Enum(import.meta.url, {
   name: "Cost",
   comment: "The cost in silverthalers.",
   values: () => ({
@@ -119,7 +124,7 @@ const wrap_in_text = Required({
   type: String({ minLength: 1, pattern: /\{0\}/ }),
 })
 
-const FixedCost = TypeAlias(import.meta.url, {
+export const FixedCost = TypeAlias(import.meta.url, {
   name: "FixedCost",
   type: () =>
     Object({
@@ -159,13 +164,13 @@ const CostRange = TypeAlias(import.meta.url, {
     }),
 })
 
-const Weight = TypeAlias(import.meta.url, {
+export const Weight = TypeAlias(import.meta.url, {
   name: "Weight",
   comment: "The weight in kg.",
   type: () => Float({ minimum: { value: 0, isExclusive: true } }),
 })
 
-const Complexity = Enum(import.meta.url, {
+export const Complexity = Enum(import.meta.url, {
   name: "Complexity",
   comment: "The complexity of crafting the item.",
   values: () => ({

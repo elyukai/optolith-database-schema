@@ -75,8 +75,3 @@ export const PublicationCategory = Enum(import.meta.url, {
     RegionalSourcebook: EnumCase({ type: null }),
   }),
 })
-
-/**
- * The publication category.
- */
-export type Category = "CoreRules" | "ExpansionRules" | "Sourcebook" | "RegionalSourcebook"

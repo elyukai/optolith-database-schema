@@ -26,7 +26,7 @@ export const ProtectiveWardingCircleSpecialAbility = Entity(import.meta.url, {
   type: () =>
     Object({
       levels,
-      select_options,
+      select_options: select_options(),
       maximum,
       prerequisites: Optional({
         type: IncludeIdentifier(GeneralPrerequisites),
@@ -35,7 +35,7 @@ export const ProtectiveWardingCircleSpecialAbility = Entity(import.meta.url, {
         comment: "The cost in AE.",
         type: Integer({ minimum: 0 }),
       }),
-      ap_value,
+      ap_value: ap_value(),
       src,
       translation: NestedLocaleMap(
         Required,

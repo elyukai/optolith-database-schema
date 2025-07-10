@@ -21,14 +21,14 @@ export const AdvancedMagicalSpecialAbility = Entity(import.meta.url, {
   type: () =>
     Object({
       levels,
-      select_options,
-      skill_applications,
-      skill_uses,
+      select_options: select_options(),
+      skill_applications: skill_applications(),
+      skill_uses: skill_uses(),
       maximum,
       prerequisites: Optional({
         type: IncludeIdentifier(GeneralPrerequisites),
       }),
-      ap_value,
+      ap_value: ap_value(),
       src,
       translation: NestedLocaleMap(
         Required,

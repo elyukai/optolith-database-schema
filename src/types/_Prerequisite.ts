@@ -6,7 +6,6 @@ import {
   Array,
   EnumCase,
   GenEnum,
-  GenericArgumentIdentifier,
   GenIncludeIdentifier,
   GenTypeAlias,
   IncludeIdentifier,
@@ -16,6 +15,7 @@ import {
   Required,
   String,
   TypeAlias,
+  TypeArgument,
 } from "tsondb/schema/def"
 import { NestedLocaleMap } from "./Locale.js"
 import { DisplayOption } from "./prerequisites/DisplayOption.js"
@@ -44,7 +44,7 @@ const PrerequisiteGroup = GenTypeAlias(import.meta.url, {
   type: T =>
     Object({
       list: Required({
-        type: Array(GenericArgumentIdentifier(T), { minItems: 2 }),
+        type: Array(TypeArgument(T), { minItems: 2 }),
       }),
       translations: NestedLocaleMap(
         Required,
@@ -64,7 +64,7 @@ const PrerequisitesDisjunction = GenTypeAlias(import.meta.url, {
   type: T =>
     Object({
       list: Required({
-        type: Array(GenericArgumentIdentifier(T), { minItems: 2 }),
+        type: Array(TypeArgument(T), { minItems: 2 }),
       }),
       display_option: Optional({
         type: IncludeIdentifier(DisplayOption),
@@ -76,12 +76,12 @@ const PrerequisitesElement = GenEnum(import.meta.url, {
   name: "PrerequisitesElement",
   parameters: [Param("T")],
   values: T => ({
-    Single: EnumCase({ type: GenericArgumentIdentifier(T) }),
+    Single: EnumCase({ type: TypeArgument(T) }),
     Disjunction: EnumCase({
-      type: GenIncludeIdentifier(PrerequisitesDisjunction, [GenericArgumentIdentifier(T)]),
+      type: GenIncludeIdentifier(PrerequisitesDisjunction, [TypeArgument(T)]),
     }),
     Group: EnumCase({
-      type: GenIncludeIdentifier(PrerequisiteGroup, [GenericArgumentIdentifier(T)]),
+      type: GenIncludeIdentifier(PrerequisiteGroup, [TypeArgument(T)]),
     }),
   }),
 })
@@ -89,7 +89,7 @@ const PrerequisitesElement = GenEnum(import.meta.url, {
 const PlainPrerequisites = GenTypeAlias(import.meta.url, {
   name: "PlainPrerequisites",
   parameters: [Param("T")],
-  type: T => Array(GenericArgumentIdentifier(T), { minItems: 1 }),
+  type: T => Array(TypeArgument(T), { minItems: 1 }),
 })
 
 const PrerequisiteForLevel = GenTypeAlias(import.meta.url, {
@@ -103,7 +103,7 @@ const PrerequisiteForLevel = GenTypeAlias(import.meta.url, {
       }),
       prerequisite: Required({
         comment: "The prerequisite.",
-        type: GenIncludeIdentifier(PrerequisitesElement, [GenericArgumentIdentifier(T)]),
+        type: GenIncludeIdentifier(PrerequisitesElement, [TypeArgument(T)]),
       }),
     }),
 })
@@ -112,7 +112,7 @@ const PrerequisitesForLevels = GenTypeAlias(import.meta.url, {
   name: "PrerequisitesForLevels",
   parameters: [Param("T")],
   type: T =>
-    Array(GenIncludeIdentifier(PrerequisiteForLevel, [GenericArgumentIdentifier(T)]), {
+    Array(GenIncludeIdentifier(PrerequisiteForLevel, [TypeArgument(T)]), {
       minItems: 1,
     }),
 })
