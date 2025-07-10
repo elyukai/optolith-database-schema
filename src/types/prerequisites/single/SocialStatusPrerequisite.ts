@@ -9,7 +9,7 @@ export const SocialStatusPrerequisite = TypeAlias(import.meta.url, {
     Object({
       id: Required({
         comment: "The minimum social status’s identifier.",
-        type: SocialStatusIdentifier,
+        type: SocialStatusIdentifier(),
       }),
       display_option: Optional({
         type: IncludeIdentifier(DisplayOption),

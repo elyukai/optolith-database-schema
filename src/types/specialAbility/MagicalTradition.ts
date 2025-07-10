@@ -82,11 +82,11 @@ export const MagicalTradition = Entity(import.meta.url, {
       use_arcane_spellworks_from_tradition: Optional({
         comment:
           "If arcane spellworks from a different tradition count as arcane spellworks of this tradition, this is the different tradition’s reference.",
-        type: MagicalTraditionIdentifier,
+        type: MagicalTraditionIdentifier(),
       }),
       influences: Optional({
         comment: "The influences for the traditions. Influences are enabled by Focus Rules.",
-        type: Array(InfluenceIdentifier, { minItems: 2 }),
+        type: Array(InfluenceIdentifier(), { minItems: 2 }),
       }),
       prerequisites: Optional({
         type: IncludeIdentifier(GeneralPrerequisites),
@@ -123,7 +123,7 @@ export const PrimaryAttribute = TypeAlias(import.meta.url, {
     Object({
       id: Optional({
         comment: "The attribute’s identifier.",
-        type: AttributeIdentifier,
+        type: AttributeIdentifier(),
       }),
       use_half_for_arcane_energy: Required({
         comment:

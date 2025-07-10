@@ -35,7 +35,7 @@ export const Ritual = Entity(import.meta.url, {
       }),
       property: Required({
         comment: "The associated property.",
-        type: PropertyIdentifier,
+        type: PropertyIdentifier(),
       }),
       traditions: Required({
         comment:

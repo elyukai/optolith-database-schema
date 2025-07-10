@@ -67,7 +67,7 @@ const ModifiableRange = TypeAlias(import.meta.url, {
       }),
       initial_modification_level: Required({
         comment: "The initial skill modification identifier/level.",
-        type: SkillModificationLevelIdentifier,
+        type: SkillModificationLevelIdentifier(),
       }),
       is_radius: Optional({
         comment: "If `true`, the range is a radius.",

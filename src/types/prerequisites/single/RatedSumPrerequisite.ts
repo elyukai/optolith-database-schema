@@ -20,7 +20,7 @@ export const RatedSumPrerequisite = TypeAlias(import.meta.url, {
       }),
       targets: Required({
         comment: "The targets that are included in calculating the sum.",
-        type: Array(SkillIdentifier, { minItems: 2 }),
+        type: Array(SkillIdentifier(), { minItems: 2 }),
       }),
       display_option: Optional({
         type: IncludeIdentifier(DisplayOption),

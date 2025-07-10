@@ -26,7 +26,7 @@ export const Script = Entity(import.meta.url, {
       }),
       associated_languages: Required({
         comment: "A list of languages that use this script.",
-        type: Array(LanguageIdentifier),
+        type: Array(LanguageIdentifier()),
       }),
       continent: Required({
         comment: "The continents this language is present on.",

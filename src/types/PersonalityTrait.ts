@@ -31,7 +31,7 @@ export const PersonalityTrait = Entity(import.meta.url, {
       }),
       combination_options: Optional({
         comment: "The lower-level personality trait(s) this trait can be combined with.",
-        type: Array(PersonalityTraitIdentifier, { minItems: 1, uniqueItems: true }),
+        type: Array(PersonalityTraitIdentifier(), { minItems: 1, uniqueItems: true }),
       }),
       src,
       translations: NestedLocaleMap(

@@ -44,11 +44,11 @@ export const BlessedTradition = Entity(import.meta.url, {
       primary: Optional({
         comment:
           "The tradition’s primary attribute. Leave empty if the tradition does not have one.",
-        type: AttributeIdentifier,
+        type: AttributeIdentifier(),
       }),
       aspects: Optional({
         comment: "The tradition’s aspects, if any.",
-        type: Array(AspectIdentifier, { minItems: 2, maxItems: 2 }),
+        type: Array(AspectIdentifier(), { minItems: 2, maxItems: 2 }),
       }),
       restricted_blessings: Optional({
         comment:
@@ -61,7 +61,7 @@ export const BlessedTradition = Entity(import.meta.url, {
       }),
       favored_skills: Required({
         comment: "A list of favored skills.",
-        type: Array(SkillIdentifier, { minItems: 1 }),
+        type: Array(SkillIdentifier(), { minItems: 1 }),
       }),
       favored_skills_selection: Optional({
         comment:
@@ -111,8 +111,8 @@ const RestrictedBlessings = Enum(import.meta.url, {
   comment:
     "If a tradition restricts the possible blessings, the blessings that are **not** allowed.",
   values: () => ({
-    Three: EnumCase({ type: Array(BlessingIdentifier, { minItems: 3, maxItems: 3 }) }),
-    Six: EnumCase({ type: Array(BlessingIdentifier, { minItems: 6, maxItems: 6 }) }),
+    Three: EnumCase({ type: Array(BlessingIdentifier(), { minItems: 3, maxItems: 3 }) }),
+    Six: EnumCase({ type: Array(BlessingIdentifier(), { minItems: 6, maxItems: 6 }) }),
   }),
 })
 
@@ -150,7 +150,7 @@ const FavoredSkillsSelection = TypeAlias(import.meta.url, {
       }),
       options: Required({
         comment: "The possible set of skills.",
-        type: Array(SkillIdentifier, { minItems: 2, uniqueItems: true }),
+        type: Array(SkillIdentifier(), { minItems: 2, uniqueItems: true }),
       }),
     }),
 })

@@ -51,7 +51,7 @@ If there are multiple options, the magical rune may be activated for each option
       }),
       property: Required({
         comment: "The associated property.",
-        type: PropertyIdentifier,
+        type: PropertyIdentifier(),
       }),
       improvement_cost: Required({
         comment: "States which column is used to improve the skill.",

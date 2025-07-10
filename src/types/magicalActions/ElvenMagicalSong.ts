@@ -40,7 +40,7 @@ export const ElvenMagicalSong = Entity(import.meta.url, {
       skill: Required({
         comment:
           "To enhance their songs, elves can make a check on either *Singing (Two-Voiced Singing)* or *Music (appropriate application)* (or both) before making the check for the song.",
-        type: Array(SkillIdentifier, {
+        type: Array(SkillIdentifier(), {
           minItems: 1,
           maxItems: 2,
           uniqueItems: true,
@@ -48,7 +48,7 @@ export const ElvenMagicalSong = Entity(import.meta.url, {
       }),
       property: Required({
         comment: "The associated property.",
-        type: PropertyIdentifier,
+        type: PropertyIdentifier(),
       }),
       improvement_cost: Required({
         comment: "States which column is used to improve the skill.",

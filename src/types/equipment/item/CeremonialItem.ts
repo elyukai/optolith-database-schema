@@ -34,7 +34,7 @@ export const CeremonialItem = Entity(import.meta.url, {
       }),
       associated_tradition: Required({
         comment: "The deity associated with the equipment item.",
-        type: BlessedTraditionIdentifier,
+        type: BlessedTraditionIdentifier(),
       }),
       combat_use: Optional({
         comment:

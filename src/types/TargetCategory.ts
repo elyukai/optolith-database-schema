@@ -9,7 +9,7 @@ export const TargetCategory = Entity(import.meta.url, {
     ObjectType({
       parent: Optional({
         comment: "A superordinate target category, if present.",
-        type: TargetCategoryIdentifier,
+        type: TargetCategoryIdentifier(),
       }),
       translations: NestedLocaleMap(
         Required,

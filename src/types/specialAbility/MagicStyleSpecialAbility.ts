@@ -27,7 +27,7 @@ export const MagicStyleSpecialAbility = Entity(import.meta.url, {
       skill_applications: skill_applications(),
       skill_uses: skill_uses(),
       maximum,
-      advanced: advanced(AdvancedMagicalSpecialAbilityIdentifier),
+      advanced: advanced(AdvancedMagicalSpecialAbilityIdentifier()),
       prerequisites: Optional({
         type: IncludeIdentifier(GeneralPrerequisites),
       }),

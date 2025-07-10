@@ -38,7 +38,7 @@ export const PublicationRef = TypeAlias(import.meta.url, {
     Object({
       id: Required({
         comment: "The publication’s identifier.",
-        type: PublicationIdentifier,
+        type: PublicationIdentifier(),
       }),
       occurrences: NestedLocaleMap(
         Required,

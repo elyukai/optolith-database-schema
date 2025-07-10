@@ -9,7 +9,7 @@ export const CulturePrerequisite = TypeAlias(import.meta.url, {
     Object({
       id: Required({
         comment: "The culture’s identifier.",
-        type: CultureIdentifier,
+        type: CultureIdentifier(),
       }),
       display_option: Optional({
         type: IncludeIdentifier(DisplayOption),

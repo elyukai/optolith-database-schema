@@ -30,11 +30,11 @@ export const Patron = Entity(import.meta.url, {
     Object({
       category: Required({
         comment: "The patron’s category.",
-        type: PatronCategoryIdentifier,
+        type: PatronCategoryIdentifier(),
       }),
       skills: Required({
         comment: "The patron-specific skills.",
-        type: Array(SkillIdentifier, { minItems: 3, maxItems: 3 }),
+        type: Array(SkillIdentifier(), { minItems: 3, maxItems: 3 }),
       }),
       culture: Required({
         comment:
@@ -44,7 +44,7 @@ export const Patron = Entity(import.meta.url, {
       primary_patron_cultures: Required({
         comment:
           "The list of cultures where patrons from this category can be the primary patron of.",
-        type: Array(CultureIdentifier, { uniqueItems: true }),
+        type: Array(CultureIdentifier(), { uniqueItems: true }),
       }),
       powers: Optional({
         comment:
@@ -64,19 +64,19 @@ export const Patron = Entity(import.meta.url, {
         comment: `The patron may grant common advantages that are taken into account during character creation.
 
 *Source:* Geisterwald & Knochenklippen, p. 6-7`,
-        type: Array(AdvantageIdentifier, { minItems: 1, uniqueItems: true }),
+        type: Array(AdvantageIdentifier(), { minItems: 1, uniqueItems: true }),
       }),
       common_disadvantages: Required({
         comment: `The patron may grant common disadvantages that are taken into account during character creation.
 
 *Source:* Geisterwald & Knochenklippen, p. 6-7`,
-        type: Array(DisadvantageIdentifier, { minItems: 1, uniqueItems: true }),
+        type: Array(DisadvantageIdentifier(), { minItems: 1, uniqueItems: true }),
       }),
       common_spellworks: Required({
         comment: `The animist may learn spellworks common for this patron.
 
 *Source:* Geisterwald & Knochenklippen, p. 6-7`,
-        type: Array(DisadvantageIdentifier, { minItems: 1, uniqueItems: true }),
+        type: Array(DisadvantageIdentifier(), { minItems: 1, uniqueItems: true }),
       }),
       src,
       translations: NestedLocaleMap(
@@ -101,7 +101,7 @@ const PatronCulture = TypeAlias(import.meta.url, {
     Object({
       set: Required({
         comment: "The AE cost value.",
-        type: Array(CultureIdentifier, { uniqueItems: true }),
+        type: Array(CultureIdentifier(), { uniqueItems: true }),
       }),
       operation: Optional({
         comment: "The interval in which you have to pay the AE cost again.",
@@ -142,7 +142,7 @@ const AdvantageAnimalPower = TypeAlias(import.meta.url, {
     Object({
       id: Required({
         comment: "The advantage’s identifier.",
-        type: AdvantageIdentifier,
+        type: AdvantageIdentifier(),
       }),
       level: Optional({
         comment: "It grants a higher level of the advantage.",
@@ -161,7 +161,7 @@ const SkillAnimalPower = TypeAlias(import.meta.url, {
     Object({
       id: Required({
         comment: "The skill’s identifier.",
-        type: SkillIdentifier,
+        type: SkillIdentifier(),
       }),
       points: Required({
         comment: "The points that gets added to the skill’s rating.",
@@ -228,7 +228,7 @@ const AttributeAnimalPower = TypeAlias(import.meta.url, {
     Object({
       id: Required({
         comment: "The attribute’s identifier.",
-        type: AttributeIdentifier,
+        type: AttributeIdentifier(),
       }),
       value: Required({
         comment: "The value that gets added to the attribute.",

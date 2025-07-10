@@ -44,7 +44,7 @@ export const Skill = Entity(import.meta.url, {
       }),
       group: Required({
         comment: "The skill group this skill belongs to.",
-        type: SkillGroupIdentifier,
+        type: SkillGroupIdentifier(),
       }),
       src,
       translations: NestedLocaleMap(
@@ -101,7 +101,7 @@ export const Applications = Enum(import.meta.url, {
     Derived: EnumCase({ type: IncludeIdentifier(ApplicationCategory) }),
     Explicit: EnumCase({
       comment: "A list of explicit applications.",
-      type: Array(SkillApplicationIdentifier),
+      type: Array(SkillApplicationIdentifier()),
     }),
   }),
 })

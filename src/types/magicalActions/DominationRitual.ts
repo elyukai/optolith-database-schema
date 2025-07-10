@@ -39,7 +39,7 @@ export const DominationRitual = Entity(import.meta.url, {
       }),
       property: Required({
         comment: "The associated property.",
-        type: PropertyIdentifier,
+        type: PropertyIdentifier(),
       }),
       src,
       translations: NestedLocaleMap(
@@ -94,7 +94,7 @@ const DominationRitualCost = TypeAlias(import.meta.url, {
     Object({
       initial_modification_level: Required({
         comment: "The initial skill modification identifier/level.",
-        type: SkillModificationLevelIdentifier,
+        type: SkillModificationLevelIdentifier(),
       }),
       translations: NestedLocaleMap(
         Optional,

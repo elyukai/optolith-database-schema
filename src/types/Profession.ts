@@ -39,7 +39,7 @@ export const Profession = Entity(import.meta.url, {
         comment: `A list of professions representing the same profession but with (slightly) different stats. For example, there may be a profession in a regional sourcebook or in the core rules and a profession in an extension rulebook like Magic of Aventuria, where the profession is basically called the same and almost has the same values, but the version from Magic of Aventuria features a spell style special ability that does not exist in the core rules or regional sourcebook.
 
 The profession representation may feature different values for different explicitly mentioned experience levels. In most cases, there is only one stats package, which targets the experience level *Experienced*.`,
-        type: Array(ProfessionVersionIdentifier, { minItems: 1 }),
+        type: Array(ProfessionVersionIdentifier(), { minItems: 1 }),
         isTransient: true,
       }),
     }),
@@ -70,7 +70,7 @@ const MagicalProfessionGroup = TypeAlias(import.meta.url, {
     Object({
       curriculum: Optional({
         comment: "The curriculum/academy associated with this magical profession, if any.",
-        type: CurriculumIdentifier,
+        type: CurriculumIdentifier(),
       }),
     }),
 })
@@ -82,7 +82,7 @@ export const ProfessionVersion = Entity(import.meta.url, {
     Object({
       profession: Required({
         comment: "The associated profession.",
-        type: ProfessionIdentifier,
+        type: ProfessionIdentifier(),
       }),
       prerequisites: Optional({
         comment:
@@ -92,20 +92,20 @@ export const ProfessionVersion = Entity(import.meta.url, {
       package: Required({
         comment:
           "A list of available race variants where one has to be selected. If no variants are to be selected, a single variant with no name has to be provided which will be used as the missing values for the base race.",
-        type: Array(ProfessionPackageIdentifier, { minItems: 1 }),
+        type: Array(ProfessionPackageIdentifier(), { minItems: 1 }),
         isTransient: true,
       }),
       suggested_advantages: Optional({
         comment: "A list of typical advantages.",
         type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier]),
+          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
           { minItems: 1 }
         ),
       }),
       suggested_disadvantages: Optional({
         comment: "A list of typical disadvantages.",
         type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier]),
+          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
           { minItems: 1 }
         ),
       }),
@@ -113,7 +113,7 @@ export const ProfessionVersion = Entity(import.meta.url, {
         comment:
           "A list of advantages that do not fit well with this profession; to be checked with the GM before taking any of them.",
         type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier]),
+          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
           { minItems: 1 }
         ),
       }),
@@ -121,7 +121,7 @@ export const ProfessionVersion = Entity(import.meta.url, {
         comment:
           "A list of disadvantages that do not fit well with this profession; to be checked with the GM before taking any of them.",
         type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier]),
+          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
           { minItems: 1 }
         ),
       }),
@@ -173,12 +173,12 @@ export const ProfessionPackage = Entity(import.meta.url, {
     Object({
       profession_version: Required({
         comment: "The associated profession version.",
-        type: ProfessionVersionIdentifier,
+        type: ProfessionVersionIdentifier(),
       }),
       experience_level: Optional({
         comment:
           "The associated experience level. By default, profession packages are associated with the experience level *Experienced*.",
-        type: ProfessionVersionIdentifier,
+        type: ProfessionVersionIdentifier(),
       }),
       ap_value: Required({
         comment: "What does the professional package cost in adventure points?",
@@ -245,7 +245,7 @@ export const ProfessionVariant = Entity(import.meta.url, {
     Object({
       profession_package: Required({
         comment: "The associated profession package.",
-        type: ProfessionPackageIdentifier,
+        type: ProfessionPackageIdentifier(),
       }),
       ap_value: Optional({
         comment: "The AP value you have to pay for the package variant.",

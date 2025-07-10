@@ -41,7 +41,7 @@ export const Cantrip = Entity(import.meta.url, {
       }),
       property: Required({
         comment: "The associated property.",
-        type: PropertyIdentifier,
+        type: PropertyIdentifier(),
       }),
       note: Optional({
         comment:
@@ -98,7 +98,7 @@ const ExclusiveCantripNote = TypeAlias(import.meta.url, {
     Object({
       traditions: Required({
         comment: "The traditions the cantrip is exclusively available to.",
-        type: Array(MagicalTraditionIdentifier, { minItems: 1, uniqueItems: true }),
+        type: Array(MagicalTraditionIdentifier(), { minItems: 1, uniqueItems: true }),
       }),
     }),
 })
@@ -117,7 +117,7 @@ const CommonCantripNotes = TypeAlias(import.meta.url, {
 const CommonCantripNote = Enum(import.meta.url, {
   name: "CommonCantripNote",
   values: () => ({
-    Academy: EnumCase({ type: CurriculumIdentifier }),
+    Academy: EnumCase({ type: CurriculumIdentifier() }),
     Tradition: EnumCase({ type: IncludeIdentifier(CommonCantripTraditionNote) }),
   }),
 })
@@ -128,7 +128,7 @@ const CommonCantripTraditionNote = TypeAlias(import.meta.url, {
     Object({
       id: Required({
         comment: "The magical tradition’s identifier.",
-        type: MagicalTraditionIdentifier,
+        type: MagicalTraditionIdentifier(),
       }),
       translations: NestedLocaleMap(
         Required,

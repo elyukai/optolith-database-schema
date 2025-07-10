@@ -49,7 +49,7 @@ const ModifiableOneTimeCost = TypeAlias(import.meta.url, {
     Object({
       initial_modification_level: Required({
         comment: "The initial skill modification identifier/level.",
-        type: SkillModificationLevelIdentifier,
+        type: SkillModificationLevelIdentifier(),
       }),
       permanent_value: Optional({
         comment: "The part of the cost value that has to be spent permanently.",
@@ -238,7 +238,7 @@ const ModifiableSustainedCost = TypeAlias(import.meta.url, {
     Object({
       initial_modification_level: Required({
         comment: "The initial skill modification identifier/level.",
-        type: SkillModificationLevelIdentifier,
+        type: SkillModificationLevelIdentifier(),
       }),
       interval: Required({
         comment: "The sustain interval.",

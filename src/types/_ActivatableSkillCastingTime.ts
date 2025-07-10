@@ -31,7 +31,7 @@ const ModifiableCastingRange = TypeAlias(import.meta.url, {
     Object({
       initial_modification_level: Required({
         comment: "The initial skill modification identifier/level.",
-        type: SkillModificationLevelIdentifier,
+        type: SkillModificationLevelIdentifier(),
       }),
     }),
 })

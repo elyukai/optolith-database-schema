@@ -7,7 +7,7 @@ export const AssociatedContinent = TypeAlias(import.meta.url, {
     Object({
       id: Required({
         comment: "The continent’s identifier.",
-        type: ContinentIdentifier,
+        type: ContinentIdentifier(),
       }),
       is_extinct: Required({
         comment: "Is the language considered virtually extinct in this continent?",

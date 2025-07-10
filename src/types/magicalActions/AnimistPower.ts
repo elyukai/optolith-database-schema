@@ -44,13 +44,13 @@ export const AnimistPower = Entity(import.meta.url, {
       }),
       property: Required({
         comment: "The associated property.",
-        type: PropertyIdentifier,
+        type: PropertyIdentifier(),
       }),
       tribe_tradition: Required({
         comment: `The tribe traditions the animist power is available to. It may be available to all or only specific tribes.
 
 If no tribe tradition is given, the animist power is generally available to all tribe traditions.`,
-        type: Array(TribeIdentifier, { uniqueItems: true }),
+        type: Array(TribeIdentifier(), { uniqueItems: true }),
       }),
       improvement_cost: Required({
         comment: "States which column is used to improve the skill.",

@@ -55,7 +55,7 @@ export const RatedMinimumNumberPrerequisiteSkillsTarget = TypeAlias(import.meta.
     Object({
       targets: Required({
         comment: "The skills that are taken into account for satisfying the prerequisite.",
-        type: Array(SkillIdentifier, { minItems: 2, uniqueItems: true }),
+        type: Array(SkillIdentifier(), { minItems: 2, uniqueItems: true }),
       }),
     }),
 })
@@ -86,7 +86,7 @@ export const RatedMinimumNumberPrerequisiteSpellworksTarget = TypeAlias(import.m
     Object({
       property: Required({
         comment: "The skills that are taken into account for satisfying the prerequisite.",
-        type: PropertyIdentifier,
+        type: PropertyIdentifier(),
       }),
     }),
 })
@@ -97,7 +97,7 @@ export const RatedMinimumNumberPrerequisiteLiturgiesTarget = TypeAlias(import.me
     Object({
       aspect: Required({
         comment: "The skills that are taken into account for satisfying the prerequisite.",
-        type: AspectIdentifier,
+        type: AspectIdentifier(),
       }),
     }),
 })

@@ -15,7 +15,7 @@ export const InfluencePrerequisite = TypeAlias(import.meta.url, {
     Object({
       id: Required({
         comment: "The influence’s identifier.",
-        type: InfluenceIdentifier,
+        type: InfluenceIdentifier(),
       }),
       active: Required({
         comment: "If the referenced influence must or must not be chosen.",

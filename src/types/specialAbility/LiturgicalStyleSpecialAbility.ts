@@ -27,7 +27,7 @@ export const LiturgicalStyleSpecialAbility = Entity(import.meta.url, {
       skill_applications: skill_applications(),
       skill_uses: skill_uses(),
       maximum,
-      advanced: advanced(AdvancedKarmaSpecialAbilityIdentifier),
+      advanced: advanced(AdvancedKarmaSpecialAbilityIdentifier()),
       prerequisites: Optional({
         type: IncludeIdentifier(GeneralPrerequisites),
       }),

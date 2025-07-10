@@ -33,7 +33,7 @@ export const FamiliarsTrick = Entity(import.meta.url, {
         comment: `The animal types this trick is available to. Either it is available to all or only a list of specific animal types.
 
 If no animal types are given, the animal disease applies to all animal types.`,
-        type: Array(AnimalTypeIdentifier, { uniqueItems: true }),
+        type: Array(AnimalTypeIdentifier(), { uniqueItems: true }),
       }),
       parameters: Required({
         comment: "Measurable parameters of a familiar’s trick.",
@@ -81,7 +81,7 @@ If no animal types are given, the animal disease applies to all animal types.`,
 const FamiliarsTrickProperty = Enum(import.meta.url, {
   name: "FamiliarsTrickProperty",
   values: () => ({
-    Fixed: EnumCase({ type: PropertyIdentifier }),
+    Fixed: EnumCase({ type: PropertyIdentifier() }),
     Indefinite: EnumCase({ type: IncludeIdentifier(IndefiniteFamiliarsTrickProperty) }),
   }),
 })

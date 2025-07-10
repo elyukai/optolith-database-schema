@@ -11,11 +11,11 @@ export const PactCategory = Entity(import.meta.url, {
     Object({
       types: Required({
         comment: "Types of creatures in this category.",
-        type: Array(PactTypeIdentifier, { minItems: 1 }),
+        type: Array(PactTypeIdentifier(), { minItems: 1 }),
       }),
       domains: Required({
         comment: "Domains in this category.",
-        type: Array(PactDomainIdentifier, { minItems: 1 }),
+        type: Array(PactDomainIdentifier(), { minItems: 1 }),
       }),
       src,
       translations: NestedLocaleMap(

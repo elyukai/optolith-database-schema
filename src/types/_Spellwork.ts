@@ -9,7 +9,7 @@ export const SpellworkTraditions = Enum(import.meta.url, {
     General: EnumCase({ type: null }),
     Specific: EnumCase({
       comment: "A list of specific traditions.",
-      type: Array(MagicalTraditionIdentifier, { minItems: 1 }),
+      type: Array(MagicalTraditionIdentifier(), { minItems: 1 }),
     }),
   }),
 })

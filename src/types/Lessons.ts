@@ -57,7 +57,7 @@ export const Curriculum = Entity(import.meta.url, {
     Object({
       guideline: Required({
         comment: "The institution’s guideline.",
-        type: GuidelineIdentifier,
+        type: GuidelineIdentifier(),
       }),
       elective_spellworks: Required({
         comment: "The institution’s elective spellworks package.",
@@ -129,7 +129,7 @@ const ElectiveSpellworkRestriction = Enum(import.meta.url, {
   comment:
     "The elective spellwork may only take effect if a certain condition is met. The condition may be related to professions or profession variants, but it is designed so that it can work without a specific profession, as multiple may belong to an institute, but with referencing other entities instead.",
   values: () => ({
-    Element: EnumCase({ type: ElementIdentifier }),
+    Element: EnumCase({ type: ElementIdentifier() }),
   }),
 })
 
@@ -156,7 +156,7 @@ const RestrictedProperty = TypeAlias(import.meta.url, {
     Object({
       id: Required({
         comment: "The identifier of the property that spellworks are disallowed from.",
-        type: PropertyIdentifier,
+        type: PropertyIdentifier(),
       }),
       exclude: Optional({
         comment: "Exclude specific spellworks from the restriction.",
@@ -173,7 +173,7 @@ const RestrictedProperty = TypeAlias(import.meta.url, {
 const LessonPackages = TypeAlias(import.meta.url, {
   name: "LessonPackages",
   comment: "A list of available lesson packages.",
-  type: () => Array(LessonPackageIdentifier, { minItems: 2, maxItems: 2 }),
+  type: () => Array(LessonPackageIdentifier(), { minItems: 2, maxItems: 2 }),
 })
 
 export const LessonPackage = Entity(import.meta.url, {
@@ -184,7 +184,7 @@ export const LessonPackage = Entity(import.meta.url, {
       {
         curriculum: Required({
           comment: "The associated curriculum.",
-          type: CurriculumIdentifier,
+          type: CurriculumIdentifier(),
         }),
         spellwork_changes: Required({
           comment:
@@ -258,7 +258,7 @@ const SkillAdjustment = TypeAlias(import.meta.url, {
   type: () =>
     Object({
       id: Required({
-        type: SkillIdentifier,
+        type: SkillIdentifier(),
       }),
       points: Required({
         comment: "The skill points that will be added to the current skill rating.",
@@ -282,7 +282,7 @@ const SpellworkAdjustment = TypeAlias(import.meta.url, {
       tradition: Optional({
         comment:
           "The target tradition. If the target spell is not from the Guild Mage tradition, specify the tradition identifier here.",
-        type: MagicalTraditionIdentifier,
+        type: MagicalTraditionIdentifier(),
       }),
     }),
 })

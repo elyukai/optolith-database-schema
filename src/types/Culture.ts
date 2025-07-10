@@ -42,12 +42,12 @@ export const Culture = Entity(import.meta.url, {
     Object({
       language: Required({
         comment: "A list of native languages (usually it is only one).",
-        type: Array(LanguageIdentifier, { minItems: 1, uniqueItems: true }),
+        type: Array(LanguageIdentifier(), { minItems: 1, uniqueItems: true }),
       }),
       script: Optional({
         comment:
           "A list of native scripts (usually it is only one). If the culture does not use any script, leave this array empty.",
-        type: Array(ScriptIdentifier, { minItems: 1, uniqueItems: true }),
+        type: Array(ScriptIdentifier(), { minItems: 1, uniqueItems: true }),
       }),
       area_knowledge: Required({
         comment: "If the area knowledge has a fixed value or can be adjusted.",
@@ -55,7 +55,7 @@ export const Culture = Entity(import.meta.url, {
       }),
       social_status: Required({
         comment: "A list of possible social status in the respective culture.",
-        type: Array(SocialStatusIdentifier, { minItems: 1, uniqueItems: true }),
+        type: Array(SocialStatusIdentifier(), { minItems: 1, uniqueItems: true }),
       }),
       common_professions: Required({
         comment:
@@ -65,28 +65,28 @@ export const Culture = Entity(import.meta.url, {
       common_advantages: Optional({
         comment: "A list of common advantages.",
         type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier]),
+          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
           { minItems: 1 }
         ),
       }),
       common_disadvantages: Optional({
         comment: "A list of common disadvantages.",
         type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier]),
+          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
           { minItems: 1 }
         ),
       }),
       uncommon_advantages: Optional({
         comment: "A list of uncommon advantages.",
         type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier]),
+          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
           { minItems: 1 }
         ),
       }),
       uncommon_disadvantages: Optional({
         comment: "A list of uncommon disadvantages.",
         type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier]),
+          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
           { minItems: 1 }
         ),
       }),
@@ -228,12 +228,12 @@ const ProfessionConstraint = TypeAlias(import.meta.url, {
     Object({
       id: Required({
         comment: "The profession’s identifier.",
-        type: ProfessionIdentifier,
+        type: ProfessionIdentifier(),
       }),
       weighted_variants: Optional({
         comment:
           "Some profession variants are more common than others. There may be cultures where some variants are not represented at all.",
-        type: GenIncludeIdentifier(Weighted, [ProfessionVariantIdentifier]),
+        type: GenIncludeIdentifier(Weighted, [ProfessionVariantIdentifier()]),
       }),
       rarity: Optional({
         comment: "Some professions may be found in a culture, but are not that common.",
@@ -248,12 +248,12 @@ const MagicalTraditionConstraint = TypeAlias(import.meta.url, {
     Object({
       id: Required({
         comment: "The magical tradition’s identifier.",
-        type: MagicalTraditionIdentifier,
+        type: MagicalTraditionIdentifier(),
       }),
       weighted_professions: Optional({
         comment:
           "Some professions are more common than others. There may be cultures where some professions are not represented at all.",
-        type: GenIncludeIdentifier(Weighted, [ProfessionIdentifier]),
+        type: GenIncludeIdentifier(Weighted, [ProfessionIdentifier()]),
       }),
       rarity: Optional({
         comment: "Some traditions may be found in a culture, but are not that common.",
@@ -268,12 +268,12 @@ const BlessedTraditionConstraint = TypeAlias(import.meta.url, {
     Object({
       id: Required({
         comment: "The blessed tradition’s identifier.",
-        type: BlessedTraditionIdentifier,
+        type: BlessedTraditionIdentifier(),
       }),
       weighted_professions: Optional({
         comment:
           "Some professions are more common than others. There may be cultures where some professions are not represented at all.",
-        type: GenIncludeIdentifier(Weighted, [ProfessionIdentifier]),
+        type: GenIncludeIdentifier(Weighted, [ProfessionIdentifier()]),
       }),
       rarity: Optional({
         comment: "Some traditions may be found in a culture, but are not that common.",
@@ -308,7 +308,7 @@ const BlessedCommonProfessionConstraint = Enum(import.meta.url, {
 
 const PlainCommonProfessions = TypeAlias(import.meta.url, {
   name: "PlainCommonProfessions",
-  type: () => GenIncludeIdentifier(CommonProfessionConstraints, [ProfessionIdentifier]),
+  type: () => GenIncludeIdentifier(CommonProfessionConstraints, [ProfessionIdentifier()]),
 })
 
 const GroupedCommonProfessions = TypeAlias(import.meta.url, {
@@ -349,7 +349,7 @@ const CommonProfessions = Enum(import.meta.url, {
 
 const CommonnessRatedSkill = TypeAlias(import.meta.url, {
   name: "CommonnessRatedSkill",
-  type: () => SkillIdentifier,
+  type: () => SkillIdentifier(),
 })
 
 const CulturalPackageItem = TypeAlias(import.meta.url, {
@@ -358,7 +358,7 @@ const CulturalPackageItem = TypeAlias(import.meta.url, {
     Object({
       id: Required({
         comment: "The skill’s identifier.",
-        type: SkillIdentifier,
+        type: SkillIdentifier(),
       }),
       points: Required({
         comment:

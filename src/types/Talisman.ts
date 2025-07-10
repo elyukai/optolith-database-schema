@@ -23,7 +23,7 @@ export const Talisman = Entity(import.meta.url, {
     Object({
       tradition: Required({
         comment: "The tradition(s) the talisman belongs to.",
-        type: Array(BlessedTraditionIdentifier, { minItems: 1 }),
+        type: Array(BlessedTraditionIdentifier(), { minItems: 1 }),
       }),
       type: Optional({
         comment: "The talisman type, if any.",

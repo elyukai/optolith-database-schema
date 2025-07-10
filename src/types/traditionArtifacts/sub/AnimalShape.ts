@@ -9,11 +9,11 @@ export const AnimalShape = Entity(import.meta.url, {
     Object({
       path: Required({
         comment: "The animal shape’s path.",
-        type: AnimalShapeSizeIdentifier,
+        type: AnimalShapeSizeIdentifier(),
       }),
       size: Required({
         comment: "The animal shape’s size.",
-        type: AnimalShapeSizeIdentifier,
+        type: AnimalShapeSizeIdentifier(),
       }),
       translations: NestedLocaleMap(
         Required,

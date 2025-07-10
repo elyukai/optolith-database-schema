@@ -41,7 +41,7 @@ export const MagicalMelody = Entity(import.meta.url, {
       skill: Required({
         comment:
           "To enhance their songs, elves can make a check on either *Singing (Two-Voiced Singing)* or *Music (appropriate application)* (or both) before making the check for the song.",
-        type: Array(SkillIdentifier, {
+        type: Array(SkillIdentifier(), {
           minItems: 1,
           maxItems: 2,
           uniqueItems: true,
@@ -53,12 +53,12 @@ export const MagicalMelody = Entity(import.meta.url, {
       }),
       property: Required({
         comment: "The associated property.",
-        type: PropertyIdentifier,
+        type: PropertyIdentifier(),
       }),
       music_tradition: Required({
         comment:
           "The music tradition(s) the magical melody is available for. This also defines the different names in each music tradition.",
-        type: Array(IncludeIdentifier(MusicTraditionReference(ArcaneBardTraditionIdentifier)), {
+        type: Array(IncludeIdentifier(MusicTraditionReference(ArcaneBardTraditionIdentifier())), {
           minItems: 1,
         }),
       }),

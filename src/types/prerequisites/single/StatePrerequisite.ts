@@ -8,7 +8,7 @@ export const StatePrerequisite = TypeAlias(import.meta.url, {
   type: () =>
     Object({
       id: Required({
-        type: StateIdentifier,
+        type: StateIdentifier(),
       }),
       display_option: Optional({
         type: IncludeIdentifier(DisplayOption),

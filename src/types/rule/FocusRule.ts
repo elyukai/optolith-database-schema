@@ -19,7 +19,7 @@ export const FocusRule = Entity(import.meta.url, {
     Object({
       subject: Required({
         comment: "The associated subject.",
-        type: SubjectIdentifier,
+        type: SubjectIdentifier(),
       }),
       level: Required({
         comment: "The focus rule’s level.",

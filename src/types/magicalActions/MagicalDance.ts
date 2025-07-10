@@ -38,12 +38,12 @@ export const MagicalDance = Entity(import.meta.url, {
       }),
       property: Required({
         comment: "The associated property.",
-        type: PropertyIdentifier,
+        type: PropertyIdentifier(),
       }),
       music_tradition: Required({
         comment:
           "The music tradition(s) the magical dance is available for. This also defines the different names in each music tradition.",
-        type: Array(IncludeIdentifier(MusicTraditionReference(ArcaneDancerTraditionIdentifier)), {
+        type: Array(IncludeIdentifier(MusicTraditionReference(ArcaneDancerTraditionIdentifier())), {
           minItems: 1,
         }),
       }),

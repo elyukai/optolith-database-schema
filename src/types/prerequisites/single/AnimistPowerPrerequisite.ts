@@ -16,7 +16,7 @@ export const AnimistPowerPrerequisite = TypeAlias(import.meta.url, {
     Object({
       id: Required({
         comment: "The animist power’s identifier.",
-        type: AnimistPowerIdentifier,
+        type: AnimistPowerIdentifier(),
       }),
       level: Optional({
         comment: "The level to which the minimum value applies.",

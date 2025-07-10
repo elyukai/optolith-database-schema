@@ -23,7 +23,7 @@ export const Enhancements = TypeAlias(import.meta.url, {
   name: "Enhancements",
   comment: "A list of enhancements.",
   type: () =>
-    Array(EnhancementIdentifier, {
+    Array(EnhancementIdentifier(), {
       minItems: 3,
       maxItems: 5,
     }),

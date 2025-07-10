@@ -28,7 +28,7 @@ export const CloseCombatTechnique = Entity(import.meta.url, {
       }),
       primary_attribute: Required({
         comment: "The primary attribute(s).",
-        type: Array(AttributeIdentifier, { minItems: 1, maxItems: 2, uniqueItems: true }),
+        type: Array(AttributeIdentifier(), { minItems: 1, maxItems: 2, uniqueItems: true }),
       }),
       breaking_point_rating: Required({
         comment: "The *Breaking Point Rating* of the respective combat technique.",
@@ -88,7 +88,7 @@ export const RangedCombatTechnique = Entity(import.meta.url, {
       }),
       primary_attribute: Required({
         comment: "The primary attribute(s).",
-        type: Array(AttributeIdentifier, { minItems: 1, maxItems: 2, uniqueItems: true }),
+        type: Array(AttributeIdentifier(), { minItems: 1, maxItems: 2, uniqueItems: true }),
       }),
       breaking_point_rating: Required({
         comment: "The *Breaking Point Rating* of the respective combat technique.",

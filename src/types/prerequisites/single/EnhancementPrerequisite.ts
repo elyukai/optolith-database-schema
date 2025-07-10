@@ -8,7 +8,7 @@ export const EnhancementPrerequisite = TypeAlias(import.meta.url, {
     Object({
       id: Required({
         comment: "The required enhancement.",
-        type: EnhancementIdentifier,
+        type: EnhancementIdentifier(),
       }),
     }),
 })

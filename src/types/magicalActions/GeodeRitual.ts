@@ -42,7 +42,7 @@ export const GeodeRitual = Entity(import.meta.url, {
       }),
       property: Required({
         comment: "The associated property.",
-        type: PropertyIdentifier,
+        type: PropertyIdentifier(),
       }),
       prerequisites: Optional({
         comment: "The prerequisites for the geode ritual.",

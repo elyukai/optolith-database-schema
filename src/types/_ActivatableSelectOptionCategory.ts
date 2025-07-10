@@ -80,7 +80,7 @@ const ElementsSelectOptionCategory = TypeAlias(import.meta.url, {
     Object({
       specific: Optional({
         comment: "Only include entries with the listed identifiers.",
-        type: Array(ElementIdentifier, { minItems: 1, uniqueItems: true }),
+        type: Array(ElementIdentifier(), { minItems: 1, uniqueItems: true }),
       }),
     }),
 })
@@ -191,18 +191,18 @@ const SkillsSelectOptionCategoryCategory = Enum(import.meta.url, {
   values: () => ({
     Skills: EnumCase({ type: IncludeIdentifier(SkillSelectOptionCategoryCategory) }),
     Spells: EnumCase({
-      type: GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [SpellIdentifier]),
+      type: GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [SpellIdentifier()]),
     }),
     Rituals: EnumCase({
-      type: GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [RitualIdentifier]),
+      type: GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [RitualIdentifier()]),
     }),
     LiturgicalChants: EnumCase({
       type: GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [
-        LiturgicalChantIdentifier,
+        LiturgicalChantIdentifier(),
       ]),
     }),
     Ceremonies: EnumCase({
-      type: GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [CeremonyIdentifier]),
+      type: GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [CeremonyIdentifier()]),
     }),
   }),
 })
@@ -213,12 +213,12 @@ const SkillSelectOptionCategoryCategory = TypeAlias(import.meta.url, {
     Object({
       groups: Optional({
         comment: "Only include entries of the specified groups.",
-        type: Array(SkillGroupIdentifier, { minItems: 1 }),
+        type: Array(SkillGroupIdentifier(), { minItems: 1 }),
       }),
       specific: Optional({
         comment: "Only include or exclude specific skills.",
         type: GenIncludeIdentifier(SpecificFromSkillSelectOptionCategoryCategory, [
-          SkillIdentifier,
+          SkillIdentifier(),
         ]),
       }),
       skill_applications: Optional({
@@ -237,7 +237,7 @@ const SkillSelectOptionCategoryCategory = TypeAlias(import.meta.url, {
       }),
       ap_value: Optional({
         comment: "Generate AP values for each entry.",
-        type: GenIncludeIdentifier(SelectOptionsAdventurePointsValue, [SkillIdentifier]),
+        type: GenIncludeIdentifier(SelectOptionsAdventurePointsValue, [SkillIdentifier()]),
       }),
     }),
 })
@@ -266,12 +266,12 @@ const CombatTechniquesSelectOptionCategoryCategory = Enum(import.meta.url, {
   values: () => ({
     CloseCombatTechniques: EnumCase({
       type: GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [
-        CloseCombatTechniqueIdentifier,
+        CloseCombatTechniqueIdentifier(),
       ]),
     }),
     RangedCombatTechniques: EnumCase({
       type: GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [
-        RangedCombatTechniqueIdentifier,
+        RangedCombatTechniqueIdentifier(),
       ]),
     }),
   }),
@@ -468,7 +468,7 @@ const SpecificTargetCategory = TypeAlias(import.meta.url, {
     Object({
       id: Required({
         comment: "The target category’s identifier.",
-        type: TargetCategoryIdentifier,
+        type: TargetCategoryIdentifier(),
       }),
       volume: Optional({
         comment: "The volume for this specific selection.",

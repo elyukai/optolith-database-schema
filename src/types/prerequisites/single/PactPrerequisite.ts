@@ -17,11 +17,11 @@ export const PactPrerequisite = TypeAlias(import.meta.url, {
     Object({
       category: Required({
         comment: "The required pact category.",
-        type: PactCategoryIdentifier,
+        type: PactCategoryIdentifier(),
       }),
       domain: Optional({
         comment: "The required domain(s).",
-        type: Array(PactDomainIdentifier, { minItems: 1 }),
+        type: Array(PactDomainIdentifier(), { minItems: 1 }),
       }),
       level: Optional({
         comment: "The level to which the minimum value applies.",

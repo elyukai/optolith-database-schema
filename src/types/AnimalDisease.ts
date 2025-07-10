@@ -16,7 +16,7 @@ export const AnimalDisease = Entity(import.meta.url, {
         comment: `The animal types this disease applies to.
 
 If no animal types are given, the animal disease applies to all animal types.`,
-        type: Array(AnimalTypeIdentifier),
+        type: Array(AnimalTypeIdentifier()),
       }),
       communicability_to_intelligent_creatures: Required({
         comment: `If and at which chance the disease can be communicated to intelligent creatures.

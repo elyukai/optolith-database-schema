@@ -19,7 +19,7 @@ export const EquipmentOfBlessedOnes = Entity(import.meta.url, {
       }),
       associated_tradition: Required({
         comment: "The deity/deities associated with the equipment item.",
-        type: Array(BlessedTraditionIdentifier, { minItems: 1, uniqueItems: true }),
+        type: Array(BlessedTraditionIdentifier(), { minItems: 1, uniqueItems: true }),
       }),
       combat_use: Optional({
         comment:

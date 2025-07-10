@@ -44,7 +44,7 @@ export const JesterTrick = Entity(import.meta.url, {
       }),
       property: Required({
         comment: "The associated property.",
-        type: PropertyIdentifier,
+        type: PropertyIdentifier(),
       }),
       improvement_cost: Required({
         comment: "States which column is used to improve the skill.",

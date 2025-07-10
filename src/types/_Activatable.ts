@@ -108,7 +108,7 @@ Note that this is only a full definition of options for simple logic that can be
 const ExplicitSelectOption = Enum(import.meta.url, {
   name: "ExplicitSelectOption",
   values: () => ({
-    General: EnumCase({ type: GeneralIdentifier }),
+    General: EnumCase({ type: GeneralIdentifier() }),
     Skill: EnumCase({ type: IncludeIdentifier(ExplicitSkillSelectOption) }),
     CombatTechnique: EnumCase({ type: IncludeIdentifier(ExplicitCombatTechniqueSelectOption) }),
   }),
@@ -179,7 +179,7 @@ const ExplicitSkillSelectOption = TypeAlias(import.meta.url, {
     Object({
       id: Required({
         comment: "The skill’s identifier.",
-        type: SkillIdentifier,
+        type: SkillIdentifier(),
       }),
       skill_applications: Optional({
         comment:
@@ -460,7 +460,7 @@ const SkillApplication = TypeAlias(import.meta.url, {
 const SkillApplicationAssociatedSkill = Enum(import.meta.url, {
   name: "SkillApplicationAssociatedSkill",
   values: () => ({
-    Single: EnumCase({ type: SkillIdentifier }),
+    Single: EnumCase({ type: SkillIdentifier() }),
     Multiple: EnumCase({ type: IncludeIdentifier(SkillApplicationAssociatedSkills) }),
   }),
 })
@@ -471,7 +471,7 @@ const SkillApplicationAssociatedSkills = TypeAlias(import.meta.url, {
     Object({
       list: Required({
         comment: "The skills this application belongs to.",
-        type: Array(SkillIdentifier, { minItems: 2 }),
+        type: Array(SkillIdentifier(), { minItems: 2 }),
       }),
       required_skill_rating: Optional({
         comment:
@@ -523,7 +523,7 @@ const SkillUse = TypeAlias(import.meta.url, {
 const SkillUseAssociatedSkill = Enum(import.meta.url, {
   name: "SkillUseAssociatedSkill",
   values: () => ({
-    Single: EnumCase({ type: SkillIdentifier }),
+    Single: EnumCase({ type: SkillIdentifier() }),
     Multiple: EnumCase({ type: IncludeIdentifier(SkillUseAssociatedSkills) }),
   }),
 })
@@ -534,7 +534,7 @@ const SkillUseAssociatedSkills = TypeAlias(import.meta.url, {
     Object({
       list: Required({
         comment: "The skills this use belongs to.",
-        type: Array(SkillIdentifier, { minItems: 2 }),
+        type: Array(SkillIdentifier(), { minItems: 2 }),
       }),
     }),
 })
@@ -1333,7 +1333,7 @@ const PropertyDeclaration = Enum(import.meta.url, {
     "The magic property’s identifier. `DependingOnProperty` can only be used if the special ability has an option to select a property.",
   values: () => ({
     DependingOnSelection: EnumCase({ type: null }),
-    Fixed: EnumCase({ type: PropertyIdentifier }),
+    Fixed: EnumCase({ type: PropertyIdentifier() }),
   }),
 })
 
@@ -1347,7 +1347,7 @@ export const property = () =>
 export const aspect = () =>
   Required({
     comment: "The blessed aspect.",
-    type: AspectIdentifier,
+    type: AspectIdentifier(),
   })
 
 const AdvancedSpecialAbility = GenEnum(import.meta.url, {
@@ -1416,7 +1416,7 @@ const AdvancedSpecialAbilityDerivedFromExternalOption = GenTypeAlias(import.meta
     Object({
       external_entry: Required({
         comment: "The possible advanced special abilities.",
-        type: MagicalTraditionIdentifier,
+        type: MagicalTraditionIdentifier(),
       }),
       map: Required({
         comment: "Map options from the external entry to allowed advanced special abilities.",
@@ -1441,7 +1441,7 @@ const AdvancedSpecialAbilityDerivedFromExternalOptionMapping = GenTypeAlias(impo
     Object({
       from_option: Required({
         comment: "The select option’s identifier.",
-        type: PatronIdentifier,
+        type: PatronIdentifier(),
       }),
       to_advanced: Required({
         comment: "The advanced special ability’s identifier.",
@@ -1562,7 +1562,7 @@ const ApplicableCloseCombatTechniquesRestriction = Enum(import.meta.url, {
     Race: EnumCase({ type: IncludeIdentifier(ApplicableCombatTechniquesRaceRestriction) }),
     ExcludeCombatTechniques: EnumCase({
       type: GenIncludeIdentifier(ApplicableCombatTechniquesNegativeCombatTechniquesRestriction, [
-        CloseCombatTechniqueIdentifier,
+        CloseCombatTechniqueIdentifier(),
       ]),
     }),
   }),
@@ -1577,7 +1577,7 @@ const ApplicableRangedCombatTechniquesRestriction = Enum(import.meta.url, {
     Race: EnumCase({ type: IncludeIdentifier(ApplicableCombatTechniquesRaceRestriction) }),
     ExcludeCombatTechniques: EnumCase({
       type: GenIncludeIdentifier(ApplicableCombatTechniquesNegativeCombatTechniquesRestriction, [
-        RangedCombatTechniqueIdentifier,
+        RangedCombatTechniqueIdentifier(),
       ]),
     }),
   }),
@@ -1612,7 +1612,7 @@ const ApplicableCombatTechniquesNegativeCombatTechniquesRestriction = GenTypeAli
 
 const ApplicableCombatTechniquesRaceRestriction = TypeAlias(import.meta.url, {
   name: "ApplicableCombatTechniquesRaceRestriction",
-  type: () => RaceIdentifier,
+  type: () => RaceIdentifier(),
 })
 
 const ApplicableCombatTechniquesLevelRestriction = TypeAlias(import.meta.url, {
@@ -1632,7 +1632,7 @@ const ApplicableCombatTechniquesWeaponRestriction = TypeAlias(import.meta.url, {
     Object({
       list: Required({
         comment: "The specific weapons this combat special ability is only applicable to.",
-        type: Array(WeaponIdentifier, { minItems: 1 }),
+        type: Array(WeaponIdentifier(), { minItems: 1 }),
       }),
     }),
 })

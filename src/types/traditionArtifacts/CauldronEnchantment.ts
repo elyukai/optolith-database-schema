@@ -32,7 +32,7 @@ export const CauldronEnchantment = Entity(import.meta.url, {
       brew: Required({
         comment:
           "Witches can learn to brew special things in their Witch's Cauldron. These brews can be categorized in different types.",
-        type: BrewIdentifier,
+        type: BrewIdentifier(),
       }),
       cost: cost(),
       property: property(),

@@ -52,7 +52,7 @@ const SinglePrimaryAttributeDamageThreshold = TypeAlias(import.meta.url, {
     Object({
       attribute: Required({
         comment: "The primary attribute.",
-        type: AttributeIdentifier,
+        type: AttributeIdentifier(),
       }),
       threshold: Required({
         comment: "The attribute value representing the damage threshold.",

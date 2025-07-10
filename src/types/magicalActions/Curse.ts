@@ -40,7 +40,7 @@ export const Curse = Entity(import.meta.url, {
       }),
       property: Required({
         comment: "The associated property.",
-        type: PropertyIdentifier,
+        type: PropertyIdentifier(),
       }),
       src,
       translations: NestedLocaleMap(

@@ -51,19 +51,19 @@ export const Race = Entity(import.meta.url, {
       automatic_advantages: Optional({
         comment:
           "A list of automatically applied advantages. This does only work for advantages with no further configuration such as level or special selection.",
-        type: Array(AdvantageIdentifier, { minItems: 1 }),
+        type: Array(AdvantageIdentifier(), { minItems: 1 }),
       }),
       strongly_recommended_advantages: Optional({
         comment: "A list of strongly recommended advantages.",
         type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier]),
+          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
           { minItems: 1 }
         ),
       }),
       strongly_recommended_disadvantages: Optional({
         comment: "A list of strongly recommended disadvantages.",
         type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier]),
+          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
           { minItems: 1 }
         ),
       }),
@@ -184,7 +184,7 @@ const FixedAttributeAdjustment = TypeAlias(import.meta.url, {
     Object({
       id: Required({
         comment: "The attribute the modifier applies to.",
-        type: AttributeIdentifier,
+        type: AttributeIdentifier(),
       }),
       value: Required({
         comment:
@@ -202,7 +202,7 @@ const SelectableAttributeAdjustment = TypeAlias(import.meta.url, {
     Object({
       list: Required({
         comment: "A list of attributes the player has to choose from.",
-        type: Array(AttributeIdentifier, { minItems: 2 }),
+        type: Array(AttributeIdentifier(), { minItems: 2 }),
       }),
       value: Required({
         comment:
@@ -264,7 +264,7 @@ const RaceVariants = TypeAlias(import.meta.url, {
   name: "RaceVariants",
   comment:
     "A list of available race variants where one has to be selected. If no variants are to be selected, a single variant with no name has to be provided which will be used as the missing values for the base race.",
-  type: () => Array(RaceVariantIdentifier, { minItems: 1 }),
+  type: () => Array(RaceVariantIdentifier(), { minItems: 1 }),
 })
 
 export const RaceVariant = Entity(import.meta.url, {
@@ -274,49 +274,49 @@ export const RaceVariant = Entity(import.meta.url, {
     Object({
       race: Required({
         comment: "The associated race.",
-        type: RaceIdentifier,
+        type: RaceIdentifier(),
       }),
       common_cultures: Optional({
         comment: "The list of common cultures.",
-        type: Array(CultureIdentifier, { minItems: 1 }),
+        type: Array(CultureIdentifier(), { minItems: 1 }),
       }),
       common_advantages: Optional({
         comment: "A list of common advantages.",
         type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier]),
+          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
           { minItems: 1 }
         ),
       }),
       common_disadvantages: Optional({
         comment: "A list of common disadvantages.",
         type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier]),
+          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
           { minItems: 1 }
         ),
       }),
       uncommon_advantages: Optional({
         comment: "A list of uncommon advantages.",
         type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier]),
+          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
           { minItems: 1 }
         ),
       }),
       uncommon_disadvantages: Optional({
         comment: "A list of uncommon disadvantages.",
         type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier]),
+          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
           { minItems: 1 }
         ),
       }),
       hair_color: Optional({
         comment:
           "An array containing 20 (numeric) hair color identifiers. The array also represents the 20-sided die for a random hair color.",
-        type: Array(HairColorIdentifier, { minItems: 20, maxItems: 20 }),
+        type: Array(HairColorIdentifier(), { minItems: 20, maxItems: 20 }),
       }),
       eye_color: Optional({
         comment:
           "An array containing 20 (numeric) eye color identifiers. The array also represents the 20-sided die for a random eye color.",
-        type: Array(EyeColorIdentifier, { minItems: 20, maxItems: 20 }),
+        type: Array(EyeColorIdentifier(), { minItems: 20, maxItems: 20 }),
       }),
       height: Required({
         comment: "Configuration for random height generation.",

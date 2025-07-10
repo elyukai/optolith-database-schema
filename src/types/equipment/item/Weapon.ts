@@ -6,7 +6,6 @@ import {
   IncludeIdentifier,
   Object,
   Optional,
-  ReferenceIdentifier,
   Required,
   String,
   TypeAlias,
@@ -49,7 +48,7 @@ export const Weapon = Entity(import.meta.url, {
       }),
       uses: Required({
         comment: "A list of stat blocks for each combat technique this weapon can be used with.",
-        type: Array(ReferenceIdentifier(WeaponUse), { minItems: 1 }),
+        type: Array(WeaponUseIdentifier(), { minItems: 1 }),
       }),
       sanctified_by: Optional({
         comment: "If the weapon is sanctified by a god and thus restricted to it's Blessed Ones.",
@@ -63,7 +62,7 @@ export const Weapon = Entity(import.meta.url, {
       restricted_to_traditions: Optional({
         comment:
           "Define if during character creation this weapon can only be bought by characters of specific magical or blessed traditions.",
-        type: Array(MagicalTraditionIdentifier, { minItems: 1 }),
+        type: Array(MagicalTraditionIdentifier(), { minItems: 1 }),
       }),
       src,
       translations: NestedLocaleMap(
@@ -109,7 +108,7 @@ export const ImprovisedWeapon = TypeAlias(import.meta.url, {
     Object({
       uses: Required({
         comment: "A list of stat blocks for each combat technique this weapon can be used with.",
-        type: Array(WeaponUseIdentifier, { minItems: 1 }),
+        type: Array(WeaponUseIdentifier(), { minItems: 1 }),
       }),
       sanctified_by: Optional({
         comment: "If the weapon is sanctified by a god and thus restricted to it's Blessed Ones.",
@@ -123,7 +122,7 @@ export const ImprovisedWeapon = TypeAlias(import.meta.url, {
       restricted_to_traditions: Optional({
         comment:
           "Define if during character creation this weapon can only be bought by characters of specific magical or blessed traditions.",
-        type: Array(MagicalTraditionIdentifier, { minItems: 1 }),
+        type: Array(MagicalTraditionIdentifier(), { minItems: 1 }),
       }),
       translations: NestedLocaleMap(
         Optional,
@@ -169,7 +168,7 @@ const WeaponUseValues = Enum(import.meta.url, {
 export const SanctifiedBy = TypeAlias(import.meta.url, {
   name: "SanctifiedBy",
   comment: "If the weapon is sanctified by a god and thus restricted to it's Blessed Ones.",
-  type: () => Array(BlessedTraditionIdentifier, { minItems: 1 }),
+  type: () => Array(BlessedTraditionIdentifier(), { minItems: 1 }),
 })
 
 const RestrictedToCultures = Enum(import.meta.url, {
@@ -177,7 +176,7 @@ const RestrictedToCultures = Enum(import.meta.url, {
   comment:
     "Define if during character creation this weapon can only be bought by characters of a specific race or culture.",
   values: () => ({
-    CulturesOfRace: EnumCase({ type: RaceIdentifier }),
+    CulturesOfRace: EnumCase({ type: RaceIdentifier() }),
     Cultures: EnumCase({ type: IncludeIdentifier(RestrictedToSpecificCultures) }),
   }),
 })
@@ -187,7 +186,7 @@ const RestrictedToSpecificCultures = TypeAlias(import.meta.url, {
   type: () =>
     Object({
       list: Required({
-        type: Array(CultureIdentifier, { minItems: 1 }),
+        type: Array(CultureIdentifier(), { minItems: 1 }),
       }),
     }),
 })

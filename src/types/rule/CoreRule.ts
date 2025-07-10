@@ -62,7 +62,7 @@ const ChildNode = TypeAlias(import.meta.url, {
     Object({
       id: Required({
         comment: "The nested core rule’s identifier.",
-        type: CoreRuleIdentifier,
+        type: CoreRuleIdentifier(),
       }),
       include: Required({
         comment:

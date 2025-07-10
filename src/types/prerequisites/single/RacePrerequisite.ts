@@ -17,7 +17,7 @@ export const RacePrerequisite = TypeAlias(import.meta.url, {
     Object({
       id: Required({
         comment: "The race’s identifier.",
-        type: RaceIdentifier,
+        type: RaceIdentifier(),
       }),
       active: Required({
         type: Boolean(),

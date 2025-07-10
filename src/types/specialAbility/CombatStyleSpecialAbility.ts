@@ -32,7 +32,7 @@ export const CombatStyleSpecialAbility = Entity(import.meta.url, {
       skill_applications: skill_applications(),
       skill_uses: skill_uses(),
       maximum,
-      advanced: advanced(AdvancedCombatSpecialAbilityIdentifier),
+      advanced: advanced(AdvancedCombatSpecialAbilityIdentifier()),
       prerequisites: Optional({
         type: IncludeIdentifier(GeneralPrerequisites),
       }),

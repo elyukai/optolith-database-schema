@@ -51,7 +51,7 @@ export const RangedWeapon = TypeAlias(import.meta.url, {
     Object({
       combat_technique: Required({
         comment: "The combat techniques and dependent values.",
-        type: RangedCombatTechniqueIdentifier,
+        type: RangedCombatTechniqueIdentifier(),
       }),
       damage: Required({
         comment:
@@ -71,7 +71,7 @@ export const RangedWeapon = TypeAlias(import.meta.url, {
       }),
       ammunition: Optional({
         comment: "The needed ammunition.",
-        type: AmmunitionIdentifier,
+        type: AmmunitionIdentifier(),
       }),
       length: Required({
         comment: "The length of the weapon in cm/halffingers.",

@@ -49,7 +49,7 @@ export const Armor = Entity(import.meta.url, {
       }),
       armor_type: Required({
         comment: "The armor type..",
-        type: ArmorTypeIdentifier,
+        type: ArmorTypeIdentifier(),
       }),
       hit_zone: Optional({
         comment: "Specify if armor is only available for a specific hit zone.",
@@ -111,7 +111,7 @@ export const SecondaryArmor = TypeAlias(import.meta.url, {
       }),
       armor_type: Required({
         comment: "The armor type..",
-        type: ArmorTypeIdentifier,
+        type: ArmorTypeIdentifier(),
       }),
       hit_zone: Optional({
         comment: "Specify if armor is only available for a specific hit zone.",
@@ -184,7 +184,7 @@ const HeadHitZoneCombinationPossibilities = TypeAlias(import.meta.url, {
     Object({
       armors: Required({
         comment: "A list of armors that can be combined with this armor.",
-        type: Array(ArmorIdentifier, { minItems: 1, uniqueItems: true }),
+        type: Array(ArmorIdentifier(), { minItems: 1, uniqueItems: true }),
       }),
       protection: Optional({
         comment:

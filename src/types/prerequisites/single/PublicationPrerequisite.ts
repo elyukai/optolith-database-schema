@@ -8,7 +8,7 @@ export const PublicationPrerequisite = TypeAlias(import.meta.url, {
     Object({
       id: Required({
         comment: "The publication’s identifier.",
-        type: PublicationIdentifier,
+        type: PublicationIdentifier(),
       }),
       display_option: Optional({
         type: IncludeIdentifier(DisplayOption),
