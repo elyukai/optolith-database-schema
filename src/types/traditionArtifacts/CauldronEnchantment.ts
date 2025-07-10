@@ -23,20 +23,20 @@ export const CauldronEnchantment = Entity(import.meta.url, {
   type: () =>
     Object({
       levels,
-      select_options: select_options(),
+      select_options,
       maximum,
       prerequisites: Optional({
         type: IncludeIdentifier(GeneralPrerequisites),
       }),
-      volume: volume(),
+      volume,
       brew: Required({
         comment:
           "Witches can learn to brew special things in their Witch's Cauldron. These brews can be categorized in different types.",
         type: BrewIdentifier(),
       }),
-      cost: cost(),
-      property: property(),
-      ap_value: ap_value(),
+      cost,
+      property,
+      ap_value,
       src,
       translation: NestedLocaleMap(
         Required,

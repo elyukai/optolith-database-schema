@@ -23,16 +23,16 @@ export const CeremonialItemSpecialAbility = Entity(import.meta.url, {
   type: () =>
     Object({
       levels,
-      usage_type: usage_type(),
-      select_options: select_options(),
-      skill_applications: skill_applications(),
-      skill_uses: skill_uses(),
+      usage_type,
+      select_options,
+      skill_applications,
+      skill_uses,
       maximum,
-      aspect: aspect(),
+      aspect,
       prerequisites: Optional({
         type: IncludeIdentifier(GeneralPrerequisites),
       }),
-      ap_value: ap_value(),
+      ap_value,
       src,
       translation: NestedLocaleMap(
         Required,

@@ -32,7 +32,7 @@ export const PactGift = Entity(import.meta.url, {
   type: () =>
     Object({
       levels,
-      select_options: select_options(),
+      select_options,
       maximum,
       permanent_demonic_consumption: Optional({
         comment: "This pact gift gives permanent levels of the condition *Demonic Consumption*.",
@@ -46,7 +46,7 @@ export const PactGift = Entity(import.meta.url, {
       prerequisites: Optional({
         type: IncludeIdentifier(GeneralPrerequisites),
       }),
-      ap_value: ap_value(),
+      ap_value,
       src,
       translation: NestedLocaleMap(
         Required,

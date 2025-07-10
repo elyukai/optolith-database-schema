@@ -21,14 +21,14 @@ export const WandEnchantment = Entity(import.meta.url, {
   type: () =>
     Object({
       levels,
-      select_options: select_options(),
+      select_options,
       maximum,
       prerequisites: Optional({
         type: IncludeIdentifier(GeneralPrerequisites),
       }),
-      cost: cost(),
-      property: property(),
-      ap_value: ap_value(),
+      cost,
+      property,
+      ap_value,
       src,
       translation: NestedLocaleMap(
         Required,

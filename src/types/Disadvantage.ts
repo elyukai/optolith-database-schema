@@ -30,14 +30,14 @@ export const Disadvantage = Entity(import.meta.url, {
   type: () =>
     Object({
       levels,
-      select_options: select_options(),
-      skill_applications: skill_applications(),
-      skill_uses: skill_uses(),
+      select_options,
+      skill_applications,
+      skill_uses,
       maximum,
       prerequisites: Optional({
         type: IncludeIdentifier(AdvantageDisadvantagePrerequisites),
       }),
-      ap_value: ap_value(),
+      ap_value,
       has_maximum_spent_influence: Required({
         comment: "Does this advantage count towards the maximum of AP to be spent on advantages?",
         type: Boolean(),
@@ -54,7 +54,7 @@ export const Disadvantage = Entity(import.meta.url, {
         Object({
           name,
           name_in_library,
-          input: input(),
+          input,
           rules,
           range: Optional({
             comment: "The range.",

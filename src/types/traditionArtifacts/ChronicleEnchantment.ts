@@ -22,15 +22,15 @@ export const ChronicleEnchantment = Entity(import.meta.url, {
   type: () =>
     Object({
       levels,
-      select_options: select_options(),
+      select_options,
       maximum,
       prerequisites: Optional({
         type: IncludeIdentifier(GeneralPrerequisites),
       }),
-      volume: volume(),
-      cost: cost(),
-      property: property(),
-      ap_value: ap_value(),
+      volume,
+      cost,
+      property,
+      ap_value,
       src,
       translation: NestedLocaleMap(
         Required,
