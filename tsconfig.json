@@ -13,6 +13,6 @@
   },
   "include": [
     "src/types/**/*",
-    "src/config.ts"
+    "src/main.ts",
   ]
 }
