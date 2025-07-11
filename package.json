@@ -29,7 +29,8 @@
     "build:gen": "tsondb generate",
     "build": "npm run build:ts && npm run build:gen",
     "release": "standard-version",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "npm run build:ts"
   },
   "author": "Lukas Obermann",
   "license": "MPL-2.0",
