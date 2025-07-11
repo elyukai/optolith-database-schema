@@ -70,7 +70,7 @@ export const Curriculum = Entity(import.meta.url, {
       lesson_packages: Required({
         comment: "A list of available lesson packages.",
         type: IncludeIdentifier(LessonPackages),
-        isTransient: true,
+        // isTransient: true,
       }),
       src,
       translations: NestedLocaleMap(

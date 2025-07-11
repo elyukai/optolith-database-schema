@@ -94,7 +94,7 @@ export const Race = Entity(import.meta.url, {
         comment:
           "A list of available race variants where one has to be selected. If no variants are to be selected, a single variant with no name has to be provided which will be used as the missing values for the base race.",
         type: IncludeIdentifier(RaceVariants),
-        isTransient: true,
+        // isTransient: true,
       }),
       src,
       translations: NestedLocaleMap(
