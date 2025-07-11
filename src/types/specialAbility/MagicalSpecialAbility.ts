@@ -31,7 +31,7 @@ export const MagicalSpecialAbility = Entity(import.meta.url, {
       }),
       ap_value,
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "MagicalSpecialAbilityTranslation",
         Object({
@@ -45,4 +45,5 @@ export const MagicalSpecialAbility = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })

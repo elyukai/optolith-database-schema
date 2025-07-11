@@ -82,7 +82,7 @@ export const BlessedTradition = Entity(import.meta.url, {
       }),
       ap_value,
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "BlessedTraditionTranslation",
         Object({
@@ -104,6 +104,7 @@ export const BlessedTradition = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })
 
 const RestrictedBlessings = Enum(import.meta.url, {

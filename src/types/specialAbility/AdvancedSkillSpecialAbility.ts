@@ -30,7 +30,7 @@ export const AdvancedSkillSpecialAbility = Entity(import.meta.url, {
       }),
       ap_value,
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "AdvancedSkillSpecialAbilityTranslation",
         Object({
@@ -43,4 +43,5 @@ export const AdvancedSkillSpecialAbility = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })

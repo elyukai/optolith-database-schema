@@ -5,4 +5,5 @@ export const ArcaneBardTradition = Entity(import.meta.url, {
   name: "ArcaneBardTradition",
   namePlural: "ArcaneBardTraditions",
   type: ArcaneTraditionType("ArcaneBardTraditionTranslation"),
+  displayName: {},
 })

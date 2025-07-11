@@ -37,7 +37,7 @@ export const ProtectiveWardingCircleSpecialAbility = Entity(import.meta.url, {
       }),
       ap_value,
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "ProtectiveWardingCircleSpecialAbilityTranslation",
         Object({
@@ -57,4 +57,5 @@ export const ProtectiveWardingCircleSpecialAbility = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })

@@ -19,7 +19,7 @@ export const MagicalSign = Entity(import.meta.url, {
         type: Integer({ minimum: 0 }),
       }),
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "MagicalSignTranslation",
         Object({
@@ -32,4 +32,5 @@ export const MagicalSign = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })

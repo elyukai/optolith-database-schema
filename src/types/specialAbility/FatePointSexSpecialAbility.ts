@@ -26,7 +26,7 @@ export const FatePointSexSpecialAbility = Entity(import.meta.url, {
       }),
       ap_value,
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "FatePointSexSpecialAbilityTranslation",
         Object({
@@ -39,4 +39,5 @@ export const FatePointSexSpecialAbility = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })

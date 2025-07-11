@@ -182,7 +182,7 @@ const FamiliarsTrickAllOneTimeCost = TypeAlias(import.meta.url, {
 })
 
 const FamiliarsTrickOneTimeDuration = Enum(import.meta.url, {
-  name: "DurationForOneTime",
+  name: "FamiliarsTrickOneTimeDuration",
   values: () => ({
     Immediate: EnumCase({ type: null }),
     Fixed: EnumCase({ type: IncludeIdentifier(FixedDuration) }),

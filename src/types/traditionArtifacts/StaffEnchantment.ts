@@ -33,7 +33,7 @@ export const StaffEnchantment = Entity(import.meta.url, {
       property,
       ap_value,
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "StaffEnchantmentTranslation",
         Object({
@@ -50,4 +50,5 @@ export const StaffEnchantment = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })

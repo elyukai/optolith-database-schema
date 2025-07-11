@@ -31,7 +31,7 @@ export const GeneralSpecialAbility = Entity(import.meta.url, {
       }),
       ap_value,
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "GeneralSpecialAbilityTranslation",
         Object({
@@ -45,4 +45,5 @@ export const GeneralSpecialAbility = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })

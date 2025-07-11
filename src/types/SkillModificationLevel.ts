@@ -49,7 +49,7 @@ export const SkillModificationLevel = Entity(import.meta.url, {
         )
       ),
     }),
-  displayName: {},
+  displayName: null,
 })
 
 const FastSkillModificationLevelConfig = TypeAlias(import.meta.url, {

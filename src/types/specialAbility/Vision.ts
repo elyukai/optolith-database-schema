@@ -26,7 +26,7 @@ export const Vision = Entity(import.meta.url, {
       }),
       ap_value,
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "VisionTranslation",
         Object({
@@ -39,4 +39,5 @@ export const Vision = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })

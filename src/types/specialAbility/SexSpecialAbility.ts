@@ -30,7 +30,7 @@ export const SexSpecialAbility = Entity(import.meta.url, {
       }),
       ap_value,
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "SexSpecialAbilityTranslation",
         Object({
@@ -43,4 +43,5 @@ export const SexSpecialAbility = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })

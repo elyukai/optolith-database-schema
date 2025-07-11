@@ -45,7 +45,7 @@ export const DaggerRitual = Entity(import.meta.url, {
       property,
       ap_value,
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "DaggerRitualTranslation",
         Object({
@@ -58,6 +58,7 @@ export const DaggerRitual = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })
 
 const DaggerRitualCost = Enum(import.meta.url, {

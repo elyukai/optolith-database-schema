@@ -38,7 +38,7 @@ export const CauldronEnchantment = Entity(import.meta.url, {
       property,
       ap_value,
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "CauldronEnchantmentTranslation",
         Object({
@@ -51,4 +51,5 @@ export const CauldronEnchantment = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })

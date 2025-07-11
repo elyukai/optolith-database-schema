@@ -30,7 +30,7 @@ export const AdvancedKarmaSpecialAbility = Entity(import.meta.url, {
       }),
       ap_value,
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "AdvancedKarmaSpecialAbilityTranslation",
         Object({
@@ -43,4 +43,5 @@ export const AdvancedKarmaSpecialAbility = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })

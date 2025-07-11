@@ -30,7 +30,7 @@ export const WandEnchantment = Entity(import.meta.url, {
       property,
       ap_value,
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "WandEnchantmentTranslation",
         Object({
@@ -43,4 +43,5 @@ export const WandEnchantment = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })

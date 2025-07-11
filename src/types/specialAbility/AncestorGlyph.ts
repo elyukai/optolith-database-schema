@@ -30,7 +30,7 @@ export const AncestorGlyph = Entity(import.meta.url, {
       }),
       ap_value,
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "AncestorGlyphTranslation",
         Object({
@@ -43,4 +43,5 @@ export const AncestorGlyph = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })

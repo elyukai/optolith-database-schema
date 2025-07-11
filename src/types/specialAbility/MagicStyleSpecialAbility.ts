@@ -33,7 +33,7 @@ export const MagicStyleSpecialAbility = Entity(import.meta.url, {
       }),
       ap_value,
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "MagicStyleSpecialAbilityTranslation",
         Object({
@@ -46,4 +46,5 @@ export const MagicStyleSpecialAbility = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })

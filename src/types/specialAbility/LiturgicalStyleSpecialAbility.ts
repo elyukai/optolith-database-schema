@@ -33,7 +33,7 @@ export const LiturgicalStyleSpecialAbility = Entity(import.meta.url, {
       }),
       ap_value,
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "LiturgicalStyleSpecialAbilityTranslation",
         Object({
@@ -46,4 +46,5 @@ export const LiturgicalStyleSpecialAbility = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })

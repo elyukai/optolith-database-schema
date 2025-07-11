@@ -34,7 +34,7 @@ export const CeremonialItemSpecialAbility = Entity(import.meta.url, {
       }),
       ap_value,
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "CeremonialItemSpecialAbilityTranslation",
         Object({
@@ -47,4 +47,5 @@ export const CeremonialItemSpecialAbility = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })

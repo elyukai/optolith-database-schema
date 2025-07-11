@@ -153,6 +153,7 @@ export const WeaponUse = Entity(import.meta.url, {
         type: IncludeIdentifier(WeaponUseValues),
       }),
     }),
+  displayName: null,
 })
 
 const WeaponUseValues = Enum(import.meta.url, {

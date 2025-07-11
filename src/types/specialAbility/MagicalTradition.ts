@@ -93,7 +93,7 @@ export const MagicalTradition = Entity(import.meta.url, {
       }),
       ap_value,
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "MagicalTraditionTranslation",
         Object({
@@ -115,6 +115,7 @@ export const MagicalTradition = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })
 
 export const PrimaryAttribute = TypeAlias(import.meta.url, {

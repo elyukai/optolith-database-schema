@@ -32,7 +32,7 @@ export const WeaponEnchantment = Entity(import.meta.url, {
       property,
       ap_value,
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "WeaponEnchantmentTranslation",
         Object({
@@ -45,4 +45,5 @@ export const WeaponEnchantment = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })

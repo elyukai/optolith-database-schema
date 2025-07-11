@@ -48,7 +48,7 @@ export const PactGift = Entity(import.meta.url, {
       }),
       ap_value,
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "PactGiftTranslation",
         Object({
@@ -61,6 +61,7 @@ export const PactGift = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })
 
 const PactGiftPermanentDemonicConsumption = Enum(import.meta.url, {

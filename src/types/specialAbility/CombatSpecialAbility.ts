@@ -37,7 +37,7 @@ export const CombatSpecialAbility = Entity(import.meta.url, {
       combat_techniques,
       ap_value,
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "CombatSpecialAbilityTranslation",
         Object({
@@ -51,4 +51,5 @@ export const CombatSpecialAbility = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })

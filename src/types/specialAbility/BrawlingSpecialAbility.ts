@@ -30,7 +30,7 @@ export const BrawlingSpecialAbility = Entity(import.meta.url, {
       combat_techniques,
       ap_value,
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "BrawlingSpecialAbilityTranslation",
         Object({
@@ -43,4 +43,5 @@ export const BrawlingSpecialAbility = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })

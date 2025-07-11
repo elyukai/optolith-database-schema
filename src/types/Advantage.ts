@@ -40,7 +40,7 @@ export const Advantage = Entity(import.meta.url, {
         type: Boolean(),
       }),
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "AdvantageTranslation",
         Object({
@@ -54,4 +54,5 @@ export const Advantage = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })

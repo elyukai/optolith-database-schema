@@ -32,7 +32,7 @@ export const OrbEnchantment = Entity(import.meta.url, {
       property,
       ap_value,
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "OrbEnchantmentTranslation",
         Object({
@@ -45,4 +45,5 @@ export const OrbEnchantment = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })

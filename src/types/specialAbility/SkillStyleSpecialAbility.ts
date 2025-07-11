@@ -29,7 +29,7 @@ export const SkillStyleSpecialAbility = Entity(import.meta.url, {
       }),
       ap_value,
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "SkillStyleSpecialAbilityTranslation",
         Object({
@@ -42,4 +42,5 @@ export const SkillStyleSpecialAbility = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })

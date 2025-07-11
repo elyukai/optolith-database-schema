@@ -48,7 +48,7 @@ export const Disadvantage = Entity(import.meta.url, {
         type: Boolean(),
       }),
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "DisadvantageTranslation",
         Object({
@@ -66,4 +66,5 @@ export const Disadvantage = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })

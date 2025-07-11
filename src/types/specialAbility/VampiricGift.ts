@@ -26,7 +26,7 @@ export const VampiricGift = Entity(import.meta.url, {
       }),
       ap_value,
       src,
-      translation: NestedLocaleMap(
+      translations: NestedLocaleMap(
         Required,
         "VampiricGiftTranslation",
         Object({
@@ -39,4 +39,5 @@ export const VampiricGift = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })
