@@ -89,7 +89,7 @@ const PrerequisitesElement = GenEnum(import.meta.url, {
 const PlainPrerequisites = GenTypeAlias(import.meta.url, {
   name: "PlainPrerequisites",
   parameters: [Param("T")],
-  type: T => Array(TypeArgument(T), { minItems: 1 }),
+  type: T => Array(GenIncludeIdentifier(PrerequisitesElement, [TypeArgument(T)]), { minItems: 1 }),
 })
 
 const PrerequisiteForLevel = GenTypeAlias(import.meta.url, {
