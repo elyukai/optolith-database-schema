@@ -219,7 +219,7 @@ export const ProfessionPackage = Entity(import.meta.url, {
       //   isTransient: true,
       // }),
     }),
-  displayName: {},
+  displayName: null,
 })
 
 // /**
