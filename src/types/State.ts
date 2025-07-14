@@ -17,7 +17,7 @@ export const State = Entity(import.meta.url, {
             comment: "The state’s name.",
             type: String({ minLength: 1 }),
           }),
-          rules: Required({
+          description: Required({
             comment: "The description of the state.",
             type: String({ minLength: 1, isMarkdown: true }),
           }),
