@@ -4,6 +4,7 @@ import {
   IncludeIdentifier,
   Integer,
   Object,
+  Optional,
   Required,
   String,
 } from "tsondb/schema/def"
@@ -43,7 +44,7 @@ export const FocusRule = Entity(import.meta.url, {
             comment: "The description of the focus rule.",
             type: String({ minLength: 1 }),
           }),
-          errata: Required({
+          errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
         })
