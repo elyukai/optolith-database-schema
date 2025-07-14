@@ -28,7 +28,7 @@ export const Service = Entity(import.meta.url, {
       src,
       translations: NestedLocaleMap(
         Required,
-        "GuidelineTranslation",
+        "ServiceTranslation",
         Object({
           name: Required({
             comment: "The service’s name.",
