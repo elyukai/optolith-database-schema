@@ -30,7 +30,7 @@ export const SkillModificationLevel = Entity(import.meta.url, {
         type: IncludeIdentifier(SlowSkillModificationLevelConfig),
       }),
       translations: NestedLocaleMap(
-        Required,
+        Optional,
         "SkillModificationLevelTranslation",
         Object(
           {
