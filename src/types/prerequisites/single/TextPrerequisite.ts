@@ -40,7 +40,7 @@ This is the only use case for this property.`,
         Required,
         "TextPrerequisiteTranslation",
         Object({
-          verification: Required({
+          text: Required({
             comment: "The displayed text.",
             type: String({ minLength: 1, isMarkdown: true }),
           }),
