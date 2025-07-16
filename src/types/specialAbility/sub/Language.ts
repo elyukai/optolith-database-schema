@@ -53,7 +53,7 @@ export const Language = Entity(import.meta.url, {
             comment: "A list of alternative names.",
             type: Array(IncludeIdentifier(AlternativeName), { minItems: 1 }),
           }),
-          description: Required({
+          description: Optional({
             comment: "The description of the language.",
             type: String({ minLength: 1 }),
           }),
