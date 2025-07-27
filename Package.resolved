@@ -1,22 +1,13 @@
 {
-  "originHash" : "8136f4350c7b746f8a6bfb9ad7b6473b656e39e2c5bf8fed118646234dbac7b0",
+  "originHash" : "7557c08b74f603b420c75dbb2564e145cfc12d0ec32a28a7d2eb904e4f0500ba",
   "pins" : [
-    {
-      "identity" : "discriminatedenum",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/elyukai/DiscriminatedEnum.git",
-      "state" : {
-        "branch" : "main",
-        "revision" : "0043d48d48f9880cb18198e173c479f27040b901"
-      }
-    },
     {
       "identity" : "swift-syntax",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/swiftlang/swift-syntax.git",
+      "location" : "https://github.com/swiftlang/swift-syntax",
       "state" : {
-        "revision" : "0687f71944021d616d34d922343dcef086855920",
-        "version" : "600.0.1"
+        "revision" : "f99ae8aa18f0cf0d53481901f88a0991dc3bd4a2",
+        "version" : "601.0.1"
       }
     }
   ],
