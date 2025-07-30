@@ -1,18 +1,20 @@
 import FileDB
 
-export const PactPrerequisite = TypeAlias(import.meta.url, {
-  name: "PactPrerequisitePactPrerequisite",
-  comment: "Requires a specific pact.",
-  type: () =>
-    Object({
-
+/// Requires a specific pact.
+@Embedded
+public struct PactPrerequisite {
   /// The required pact category.
-  let category: PactCategoryIdentifier()
+  @Relationship(PactCategory.self)
+  let category: PactCategory.ID
+
   /// The required domain(s).
-  let domain: Array(PactDomainIdentifier(), { minItems: 1 })?
+  @MinItems(1)
+  @Relationship(PactDomain.self)
+  let domain: [PactDomain.ID]?
+
   /// The level to which the minimum value applies.
-  let level: Integer({ minimum: 1 })?
-      display_option: Optional({
-        type: IncludeIdentifier(DisplayOption),
-      }),
+  @Minimum(1)
+  let level: Int?
+
+      let display_option: DisplayOption?
   }

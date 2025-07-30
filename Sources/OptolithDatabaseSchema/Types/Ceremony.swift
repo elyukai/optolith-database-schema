@@ -4,77 +4,68 @@ import FileDB
 public struct Ceremony {
 
   /// Lists the linked three attributes used to make a skill check.
-  @Relationship(SkillCheck)
-  let check: SkillCheck.ID
+  let check: SkillCheck
+
   /// In some cases, the target's Spirit or Toughness is applied as a penalty.
-  @Relationship(SkillCheckPenalty)
-  let check_penalty: SkillCheckPenalty.ID?
+  let check_penalty: SkillCheckPenalty?
 
   /// Measurable parameters of a ceremony.
-  @Relationship(FastPerformanceParameters)
-  let parameters: FastPerformanceParameters.ID
+  let parameters: FastPerformanceParameters
 
   /// The target category – the kind of creature or object – the skill affects.
-  @Relationship(AffectedTargetCategories)
-  let target: AffectedTargetCategories.ID
+  let target: AffectedTargetCategories
 
   /// The tradition(s) the ceremony is available for. Note that general aspects do not have an associated tradition and thus need to be defined in a special way.
-  let traditions: Array(IncludeIdentifier(LiturgyTradition), { minItems: 1 })
+  @MinItems(1)
+  let traditions: [LiturgyTradition]
 
   /// States which column is used to improve the skill.
-  @Relationship(ImprovementCost)
-  let improvement_cost: ImprovementCost.ID
+  let improvement_cost: ImprovementCost
+
   /// The prerequisites for the ceremony.
-  @Relationship(LiturgyPrerequisites)
-  let prerequisites: LiturgyPrerequisites.ID?
+  let prerequisites: LiturgyPrerequisites?
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
+    @MinItems(1)
+    let src: [PublicationRef]
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // LiturgicalChantTranslation
 
         /// The ceremony’s name.
-        let name: String({ minLength: 1 })
-          name_compressed: Optional({
-            comment:
-              "A compressed name of the ceremony for use in small areas (e.g. on character sheet). Should only be defined if the `name` does not fit on character sheet.",
-            type: String({ minLength: 1 }),
-          }),
-          effect: Required({
-            comment:
-              "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
-            type: IncludeIdentifier(ActivatableSkillEffect),
-          }),
-          casting_time: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
-          }),
-          cost: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
-          }),
-          range: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
-          }),
-          duration: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
-          }),
-          target: Optional({
-            isDeprecated: true,
-            type: String({ minLength: 1 }),
-          }),
+        @MinLength(1)
+        let name: String
+          /// A compressed name of the ceremony for use in small areas (e.g. on character sheet). Should only be defined if the `name` does not fit on character sheet.
+          @MinLength(1)
+          let name_compressed: String?
 
-        let errata: Errata?
-        })
-      ),
-      enhancements: Optional({
-        type: IncludeIdentifier(Enhancements),
-      }),
-    }),
+          /// The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
+          let effect: ActivatableSkillEffect
+
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let casting_time: OldParameter
+
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let cost: OldParameter
+
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let range: OldParameter
+
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let duration: OldParameter
+
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        @MinLength(1)
+        let target: String
+
+        /// A list of errata for the entry in the specific language.
+        @MinItems(1)
+        let errata: [Erratum]?
+      }
+
+      let enhancements: Enhancements?
 }

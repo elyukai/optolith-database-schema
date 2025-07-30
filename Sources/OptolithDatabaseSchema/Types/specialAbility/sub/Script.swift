@@ -3,32 +3,43 @@ import FileDB
 @Model
 public struct Script {
   /// The script’s adventure point value
-  let ap_value: Integer({ minimum: 2, multipleOf: 2 })?
+  @Minimum(2)
+  @MultipleOf(2)
+  let ap_value: Int?
 
   /// A list of languages that use this script.
-  let associated_languages: Array(LanguageIdentifier())
+  @Relationship(Language.self)
+  let associated_languages: [Language.ID]
 
   /// The continents this language is present on.
-  let continent: Array(IncludeIdentifier(AssociatedContinent), { minItems: 1 })
+  @MinItems(1)
+  let continent: [AssociatedContinent]
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
+    @MinItems(1)
+    let src: [PublicationRef]
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // ScriptTranslation
 
         /// The script’s name.
-        let name: String({ minLength: 1 })
+        @MinLength(1)
+        let name: String
 
         /// A list of alternative names.
-        let alternative_names: Array(IncludeIdentifier(AlternativeName), { minItems: 1 })?
+        @MinItems(1)
+        let alternative_names: [AlternativeName]?
 
         /// The description of the alphabet.
-        let alphabet: String({ minLength: 1 })?
+        @MinLength(1)
+        let alphabet: String?
 
-        let errata: Errata?
+        /// A list of errata for the entry in the specific language.
+        @MinItems(1)
+        let errata: [Erratum]?
     }
 }

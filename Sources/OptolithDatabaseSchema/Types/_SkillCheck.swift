@@ -1,21 +1,20 @@
 import FileDB
 
-export const SkillCheck = TypeAlias(import.meta.url, {
-  name: "SkillCheck",
-  comment: "The attributes’ identifiers of the skill check.",
-  type: () =>
-    Array(AttributeIdentifier(), {
-      minItems: 3,
-      maxItems: 3,
+/// The attributes’ identifiers of the skill check.
+@Embedded
+public struct SkillCheck {
+  @MinItems(3)
+  @MaxItems(3)
+  let list: [Attribute.ID]
   }
 
 /// A specific value that represents a penalty for the associated skill check.
 @ModelEnum
 public enum SkillCheckPenalty {
-    case Spirit(null)
-    case HalfOfSpirit(null)
-    case Toughness(null)
-    case HigherOfSpiritAndToughness(null)
-    case SummoningDifficulty(null)
-    case CreationDifficulty(null)
+    case Spirit
+    case HalfOfSpirit
+    case Toughness
+    case HigherOfSpiritAndToughness
+    case SummoningDifficulty
+    case CreationDifficulty
 }

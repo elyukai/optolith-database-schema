@@ -4,18 +4,22 @@ import FileDB
 public struct AnimalShapeSize {
 
   /// The animal shape size’s volume points
-  let volume: Integer({ minimum: 1 })
+  @Minimum(1)
+  let volume: Int
 
   /// The animal shape size’s adventure point value
-  let ap_value: Integer({ minimum: 1 })
+  @Minimum(1)
+  let ap_value: Int
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // AnimalShapeSizeTranslation
 
         /// The animal shape size’s name.
-        let name: String({ minLength: 1 })
+        @MinLength(1)
+        let name: String
     }
 }

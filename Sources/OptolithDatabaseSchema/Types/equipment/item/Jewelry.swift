@@ -4,32 +4,55 @@ import FileDB
 public struct Jewelry {
 
   /// The cost in silverthalers.
-  let cost: GenIncludeIdentifier(JewelryMaterialDifference, [IncludeIdentifier(Cost)])
+  let cost: JewelryMaterialDifference<Cost>
 
   /// The weight in kg.
-  let weight: GenIncludeIdentifier(JewelryMaterialDifference, [IncludeIdentifier(Weight)])
+  let weight: JewelryMaterialDifference<Weight>
 
   /// The complexity of crafting the item.
-  @Relationship(Complexity)
-  let complexity: Complexity.ID
+  let complexity: Complexity
 
   /// The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
-  @Relationship(StructurePoints)
-  let structure_points: StructurePoints.ID
+  let structure_points: StructurePoints
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
-      translations: DefaultItemTranslations("Jewelry"),
-    }),
+    @MinItems(1)
+    let src: [PublicationRef]
+
+    /// All translations for the entry, identified by IETF language tag (BCP47).
+    @Relationship(Locale.self)
+    let translations: [String: Translation]
+
+    @Embedded
+    public struct Translation { // JewelryTranslation
+        /// The item’s name.
+        @MinLength(1)
+        let name: String
+
+        /// An auxiliary name or label of the item, if available.
+        @MinLength(1)
+        let secondary_name: String?
+
+        /// Note text.
+        @MinLength(1)
+        @Markdown
+        let note: String?
+
+        /// Special rules text.
+        @MinLength(1)
+        @Markdown
+        let rules: String?
+
+        /// A list of errata for the entry in the specific language.
+        @MinItems(1)
+        let errata: [Erratum]?
+    }
 }
 
-const JewelryMaterialDifference = GenTypeAlias(import.meta.url, {
-  name: "JewelryMaterialDifference",
-  comment: "Jewelry can have different values for a property based on the material.",
-  parameters: [Param("T")],
-  type: T =>
-    Object({
-      bronze: Required({ type: TypeArgument(T) }),
-      silver: Required({ type: TypeArgument(T) }),
-      gold: Required({ type: TypeArgument(T) }),
+/// Jewelry can have different values for a property based on the material.
+@Embedded
+public struct JewelryMaterialDifference<T> {
+    let bronze: T
+    let silver: T
+    let gold: T
   }

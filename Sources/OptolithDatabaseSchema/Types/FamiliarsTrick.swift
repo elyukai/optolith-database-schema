@@ -5,163 +5,172 @@ public struct FamiliarsTrick {
     /// The animal types this trick is available to. Either it is available to all or only a list of specific animal types.
     ///
     /// If no animal types are given, the animal disease applies to all animal types.
-    let animal_types: Array(AnimalTypeIdentifier(), { uniqueItems: true })
+    @UniqueItems
+    @Relationship(AnimalType.self)
+    let animal_types: [AnimalType.ID]
 
   /// Measurable parameters of a familiar’s trick.
-  @Relationship(FamiliarsTrickPerformanceParameters)
-  let parameters: FamiliarsTrickPerformanceParameters.ID
+  let parameters: FamiliarsTrickPerformanceParameters
 
   /// The associated property.
-  @Relationship(FamiliarsTrickProperty)
-  let property: FamiliarsTrickProperty.ID
+  let property: FamiliarsTrickProperty
+
   /// The AP value the familiar has to pay for. It may also be that a specific is known by all familiar by default. In the latter case the field is not set.
-  let ap_value: Integer({ minimum: 1 })?
+  @Minimum(1)
+  let ap_value: Int?
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
+    @MinItems(1)
+    let src: [PublicationRef]
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // FamiliarsTrickTranslation
 
         /// The familiar’s trick’s name.
-        let name: String({ minLength: 1 })
+        @MinLength(1)
+        let name: String
 
         /// The effect description.
-        let effect: String({ minLength: 1, isMarkdown: true })
-          cost: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
-          }),
-          duration: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
-          }),
+        @MinLength(1)
+        @Markdown
+        let effect: String
 
-        let errata: Errata?
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let cost: OldParameter
+
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let duration: OldParameter
+
+        /// A list of errata for the entry in the specific language.
+        @MinItems(1)
+        let errata: [Erratum]?
     }
 }
 
 @ModelEnum
 public enum FamiliarsTrickProperty {
-    case Fixed(PropertyIdentifier())
-    case Indefinite(IncludeIdentifier(IndefiniteFamiliarsTrickProperty))
+    case Fixed(PropertyIdentifierObject)
+    case Indefinite(IndefiniteFamiliarsTrickProperty)
 }
 
 @Embedded
 public struct IndefiniteFamiliarsTrickProperty {
-      translations: NestedLocaleMap(
-        Optional,
-        "IndefiniteFamiliarsTrickPropertyTranslation",
-        Object({
+      /// All translations for the entry, identified by IETF language tag (BCP47).
+      @Relationship(Locale.self)
+      let translations: [String: Translation]?
+
+      struct Translation { // IndefiniteFamiliarsTrickPropertyTranslation
 
         /// A description of the property.
-        let description: IncludeIdentifier(ResponsiveText)
-        })
-      ),
+        let description: ResponsiveText
+      }
   }
 
 /// Measurable parameters of a familiar’s trick.
 @ModelEnum
 public enum FamiliarsTrickPerformanceParameters {
-    case OneTime(IncludeIdentifier(FamiliarsTrickOneTimePerformanceParameters))
-    case OneTimeInterval(IncludeIdentifier(FamiliarsTrickOneTimeIntervalPerformanceParameters))
-    case Sustained(IncludeIdentifier(FamiliarsTrickSustainedPerformanceParameters))
+    case OneTime(FamiliarsTrickOneTimePerformanceParameters)
+    case OneTimeInterval(FamiliarsTrickOneTimeIntervalPerformanceParameters)
+    case Sustained(FamiliarsTrickSustainedPerformanceParameters)
 }
 
 @Embedded
 public struct FamiliarsTrickOneTimePerformanceParameters {
-      cost: Required({
-        type: IncludeIdentifier(FamiliarsTrickOneTimeCost),
-      }),
-      duration: Required({
-        type: IncludeIdentifier(FamiliarsTrickOneTimeDuration),
-      }),
+
+      let cost: FamiliarsTrickOneTimeCost
+
+      let duration: FamiliarsTrickOneTimeDuration
   }
 
 @ModelEnum
 public enum FamiliarsTrickOneTimeCost {
-    case Fixed(IncludeIdentifier(FamiliarsTrickFixedOneTimeCost))
-    case All(IncludeIdentifier(FamiliarsTrickAllOneTimeCost))
-    case Indefinite(IncludeIdentifier(IndefiniteOneTimeCost))
+    case Fixed(FamiliarsTrickFixedOneTimeCost)
+    case All(FamiliarsTrickAllOneTimeCost)
+    case Indefinite(IndefiniteOneTimeCost)
 }
 
 @Embedded
 public struct FamiliarsTrickFixedOneTimeCost {
 
   /// The AE cost value.
-  let ae_value: Integer({ minimum: 1 })
+  @Minimum(1)
+  let ae_value: Int
+
   /// The LP cost value.
-  let lp_value: Integer({ minimum: 1 })?
+  @Minimum(1)
+  let lp_value: Int?
+
   /// The interval in which you have to pay the AE cost again.
-  @Relationship(DurationUnitValue)
-  let interval: DurationUnitValue.ID?
-      translations: NestedLocaleMap(
-        Optional,
-        "FamiliarsTrickFixedOneTimeCostTranslation",
-        Object(
-          {
-            per: Optional({
-              comment:
-                "The cost have to be per a specific countable entity, e.g. `8 KP per person`.",
-              type: IncludeIdentifier(ResponsiveTextOptional),
-            }),
-          },
-          { minProperties: 1 }
-        )
-      ),
+  let interval: DurationUnitValue?
+
+    /// All translations for the entry, identified by IETF language tag (BCP47).
+    @Relationship(Locale.self)
+    let translations: [String: Translation]?
+
+    @Embedded
+    @MinProperties(1)
+    struct Translation { // FamiliarsTrickFixedOneTimeCostTranslation
+            /// The cost have to be per a specific countable entity, e.g. `8 KP per person`.
+            let per: ResponsiveTextOptional?
+          }
   }
 
 @Embedded
 public struct FamiliarsTrickAllOneTimeCost {
   /// The minimum AE the familiar has to have/spend.
-  let minimum: Integer({ minimum: 1 })?
+  @Minimum(1)
+  let minimum: Int?
   }
 
 @ModelEnum
 public enum FamiliarsTrickOneTimeDuration {
     case Immediate
-    case Fixed(IncludeIdentifier(FixedDuration))
-    case Indefinite(IncludeIdentifier(IndefiniteDuration))
+    case Fixed(FixedDuration)
+    case Indefinite(IndefiniteDuration)
 }
 
 @Embedded
 public struct FamiliarsTrickOneTimeIntervalPerformanceParameters {
-      cost: Required({
-        type: IncludeIdentifier(FamiliarsTrickOneTimeIntervalCost),
-      }),
+
+      let cost: FamiliarsTrickOneTimeIntervalCost
   }
 
 @Embedded
 public struct FamiliarsTrickOneTimeIntervalCost {
 
   /// The AE cost value.
-  let ae_value: Integer({ minimum: 1 })
+  @Minimum(1)
+  let ae_value: Int
+
   /// The LP cost value.
-  let lp_value: Integer({ minimum: 1 })?
+  @Minimum(1)
+  let lp_value: Int?
 
   /// The duration granted/added by paying the given AE cost.
-  @Relationship(DurationUnitValue)
-  let interval: DurationUnitValue.ID
+  let interval: DurationUnitValue
   }
 
 @Embedded
 public struct FamiliarsTrickSustainedPerformanceParameters {
-      cost: Required({
-        type: IncludeIdentifier(FamiliarsTrickSustainedCost),
-      }),
+
+      let cost: FamiliarsTrickSustainedCost
   }
 
 @Embedded
 public struct FamiliarsTrickSustainedCost {
 
   /// The AE cost value.
-  let ae_value: Integer({ minimum: 1 })
+  @Minimum(1)
+  let ae_value: Int
+
   /// The LP cost value.
-  let lp_value: Integer({ minimum: 1 })?
+  @Minimum(1)
+  let lp_value: Int?
+
   /// The interval in which you have to pay the AE cost again.
-  @Relationship(DurationUnitValue)
-  let interval: DurationUnitValue.ID?
+  let interval: DurationUnitValue?
   }

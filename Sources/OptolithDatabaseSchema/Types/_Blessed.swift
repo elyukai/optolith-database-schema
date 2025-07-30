@@ -2,15 +2,20 @@ import FileDB
 
 @ModelEnum
 public enum LiturgyTradition {
-    case GeneralAspect(AspectIdentifier())
-    case Tradition(IncludeIdentifier(LiturgyTraditionWithAspects))
+    case GeneralAspect(AspectIdentifierObject)
+    case Tradition(LiturgyTraditionWithAspects)
 }
 
 @Embedded
 public struct LiturgyTraditionWithAspects {
 
   /// The blessed tradition.
-  let tradition: BlessedTraditionIdentifier()
+  @Relationship(BlessedTradition.self)
+  let tradition: BlessedTradition.ID
+
   /// The aspect(s) from the tradition the ceremony belongs to. Note that not all traditions have aspects. Traditions with aspects must have at least one aspect specified.
-  let aspects: Array(AspectIdentifier(), { minItems: 1, maxItems: 2 })?
+  @MinItems(1)
+  @MaxItems(2)
+  @Relationship(Aspect.self)
+  let aspects: [Aspect.ID]?
   }

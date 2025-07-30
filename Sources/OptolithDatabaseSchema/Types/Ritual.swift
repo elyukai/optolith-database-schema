@@ -4,76 +4,67 @@ import FileDB
 public struct Ritual {
 
   /// Lists the linked three attributes used to make a skill check.
-  @Relationship(SkillCheck)
-  let check: SkillCheck.ID
+  let check: SkillCheck
+
   /// In some cases, the target's Spirit or Toughness is applied as a penalty.
-  @Relationship(SkillCheckPenalty)
-  let check_penalty: SkillCheckPenalty.ID?
+  let check_penalty: SkillCheckPenalty?
 
   /// Measurable parameters of a ritual.
-  @Relationship(SlowPerformanceParameters)
-  let parameters: SlowPerformanceParameters.ID
+  let parameters: SlowPerformanceParameters
 
   /// The target category – the kind of creature or object – the skill affects.
-  @Relationship(AffectedTargetCategories)
-  let target: AffectedTargetCategories.ID
+  let target: AffectedTargetCategories
 
   /// The associated property.
-  let property: PropertyIdentifier()
+  @Relationship(Property.self)
+  let property: Property.ID
 
   /// The tradition(s) the ritual is available for. It may be *generally* available to all traditions or it may be only familiar in specific traditions.
-  @Relationship(SpellworkTraditions)
-  let traditions: SpellworkTraditions.ID
+  let traditions: SpellworkTraditions
 
   /// States which column is used to improve the skill.
-  @Relationship(ImprovementCost)
-  let improvement_cost: ImprovementCost.ID
+  let improvement_cost: ImprovementCost
+
   /// The prerequisites for the ritual.
-  @Relationship(SpellworkPrerequisites)
-  let prerequisites: SpellworkPrerequisites.ID?
+  let prerequisites: SpellworkPrerequisites?
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
+    @MinItems(1)
+    let src: [PublicationRef]
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // RitualTranslation
 
         /// The ritual’s name.
-        let name: String({ minLength: 1 })
-          effect: Required({
-            comment:
-              "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
-            type: IncludeIdentifier(ActivatableSkillEffect),
-          }),
-          casting_time: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
-          }),
-          cost: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
-          }),
-          range: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
-          }),
-          duration: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
-          }),
-          target: Optional({
-            isDeprecated: true,
-            type: String({ minLength: 1 }),
-          }),
+        @MinLength(1)
+        let name: String
+          /// The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
+          let effect: ActivatableSkillEffect
 
-        let errata: Errata?
-        })
-      ),
-      enhancements: Optional({
-        type: IncludeIdentifier(Enhancements),
-      }),
-    }),
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let casting_time: OldParameter
+
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let cost: OldParameter
+
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let range: OldParameter
+
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let duration: OldParameter
+
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        @MinLength(1)
+        let target: String
+
+        /// A list of errata for the entry in the specific language.
+        @MinItems(1)
+        let errata: [Erratum]?
+        }
+
+      let enhancements: Enhancements?
 }

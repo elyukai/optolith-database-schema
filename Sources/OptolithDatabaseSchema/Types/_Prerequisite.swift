@@ -1,168 +1,83 @@
 import FileDB
 
-const PrerequisiteGroup = GenTypeAlias(import.meta.url, {
-  name: "PrerequisiteGroup",
-  comment:
-    "A prerequisite group has no influence on validation logic. It serves as a single unit for displaying purposes, where the source uses a prerequisites item that cannot be represented as a single prerequisite.",
-  parameters: [Param("T")],
-  type: T =>
-    Object({
-      list: Required({
-        type: Array(TypeArgument(T), { minItems: 2 }),
-      }),
+/// A prerequisite group has no influence on validation logic. It serves as a single unit for displaying purposes, where the source uses a prerequisites item that cannot be represented as a single prerequisite.
+public struct PrerequisiteGroup<T> {
+      @MinItems(2)
+      let list: [T]
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // PrerequisiteGroupTranslation
 
-        let text: String({ minLength: 1 })
-        })
-      ),
+        @MinLength(1)
+        let text: String
+        }
   }
 
-const PrerequisitesDisjunction = GenTypeAlias(import.meta.url, {
-  name: "PrerequisitesDisjunction",
-  parameters: [Param("T")],
-  type: T =>
-    Object({
-      list: Required({
-        type: Array(TypeArgument(T), { minItems: 2 }),
-      }),
-      display_option: Optional({
-        type: IncludeIdentifier(DisplayOption),
-      }),
+public struct PrerequisitesDisjunction<T> {
+      @MinItems(2)
+      let list: [T]
+
+      let display_option: DisplayOption?
   }
 
-const PrerequisitesElement = GenEnum(import.meta.url, {
-  name: "PrerequisitesElement",
-  parameters: [Param("T")],
-  values: T => ({
-    case Single(TypeArgument(T))
-    case Disjunction(GenIncludeIdentifier(PrerequisitesDisjunction, [TypeArgument(T)]))
-    case Group(GenIncludeIdentifier(PrerequisiteGroup, [TypeArgument(T)]))
+@ModelEnum
+public enum PrerequisitesElement<T> {
+    case Single(T)
+    case Disjunction(PrerequisitesDisjunction<T>)
+    case Group(PrerequisiteGroup<T>)
 }
 
-const PlainPrerequisites = GenTypeAlias(import.meta.url, {
-  name: "PlainPrerequisites",
-  parameters: [Param("T")],
-  type: T => Array(GenIncludeIdentifier(PrerequisitesElement, [TypeArgument(T)]), { minItems: 1 }),
-})
+@TypeAlias
+public struct PlainPrerequisites<T> {
+  @MinItems(1)
+  let list: [PrerequisitesElement<T>]
+}
 
-const PrerequisiteForLevel = GenTypeAlias(import.meta.url, {
-  name: "PrerequisiteForLevel",
-  parameters: [Param("T")],
-  type: T =>
-    Object({
-
+public struct PrerequisiteForLevel<T> {
   /// The level to which the prerequisite applies.
-  let level: String({ minLength: 1 })
+  @MinLength(1)
+  let level: String
 
   /// The prerequisite.
-  let prerequisite: GenIncludeIdentifier(PrerequisitesElement, [TypeArgument(T)])
+  let prerequisite: PrerequisitesElement<T>
   }
 
-const PrerequisitesForLevels = GenTypeAlias(import.meta.url, {
-  name: "PrerequisitesForLevels",
-  parameters: [Param("T")],
-  type: T =>
-    Array(GenIncludeIdentifier(PrerequisiteForLevel, [TypeArgument(T)]), {
-      minItems: 1,
-  }
+@TypeAlias
+public struct PrerequisitesForLevels<T> {
+  @MinItems(1)
+  let list: [PrerequisiteForLevel<T>]
+}
 
-export const DerivedCharacteristicPrerequisites = TypeAlias(import.meta.url, {
-  name: "DerivedCharacteristicPrerequisites",
-  type: () =>
-    GenIncludeIdentifier(PlainPrerequisites, [
-      IncludeIdentifier(DerivedCharacteristicPrerequisiteGroup),
-    ]),
-})
+typealias DerivedCharacteristicPrerequisites = PlainPrerequisites<DerivedCharacteristicPrerequisiteGroup>
 
-export const PublicationPrerequisites = TypeAlias(import.meta.url, {
-  name: "PublicationPrerequisites",
-  type: () =>
-    GenIncludeIdentifier(PlainPrerequisites, [IncludeIdentifier(PublicationPrerequisiteGroup)]),
-})
+typealias PublicationPrerequisites = PlainPrerequisites<PublicationPrerequisiteGroup>
 
-export const PlainGeneralPrerequisites = TypeAlias(import.meta.url, {
-  name: "PlainGeneralPrerequisites",
-  type: () =>
-    GenIncludeIdentifier(PlainPrerequisites, [IncludeIdentifier(GeneralPrerequisiteGroup)]),
-})
+typealias PlainGeneralPrerequisites = PlainPrerequisites<GeneralPrerequisiteGroup>
 
-export const GeneralPrerequisites = TypeAlias(import.meta.url, {
-  name: "GeneralPrerequisites",
-  type: () =>
-    GenIncludeIdentifier(PrerequisitesForLevels, [IncludeIdentifier(GeneralPrerequisiteGroup)]),
-})
+typealias GeneralPrerequisites = PrerequisitesForLevels<GeneralPrerequisiteGroup>
 
-export const ProfessionPrerequisites = TypeAlias(import.meta.url, {
-  name: "ProfessionPrerequisites",
-  type: () =>
-    GenIncludeIdentifier(PlainPrerequisites, [IncludeIdentifier(ProfessionPrerequisiteGroup)]),
-})
+typealias ProfessionPrerequisites = PlainPrerequisites<ProfessionPrerequisiteGroup>
 
-export const AdvantageDisadvantagePrerequisites = TypeAlias(import.meta.url, {
-  name: "AdvantageDisadvantagePrerequisites",
-  type: () =>
-    GenIncludeIdentifier(PrerequisitesForLevels, [
-      IncludeIdentifier(AdvantageDisadvantagePrerequisiteGroup),
-    ]),
-})
+typealias AdvantageDisadvantagePrerequisites = PrerequisitesForLevels<AdvantageDisadvantagePrerequisiteGroup>
 
-export const ArcaneTraditionPrerequisites = TypeAlias(import.meta.url, {
-  name: "ArcaneTraditionPrerequisites",
-  type: () =>
-    GenIncludeIdentifier(PlainPrerequisites, [IncludeIdentifier(ArcaneTraditionPrerequisiteGroup)]),
-})
+typealias ArcaneTraditionPrerequisites = PlainPrerequisites<ArcaneTraditionPrerequisiteGroup>
 
-export const PersonalityTraitPrerequisites = TypeAlias(import.meta.url, {
-  name: "PersonalityTraitPrerequisites",
-  type: () =>
-    GenIncludeIdentifier(PlainPrerequisites, [
-      IncludeIdentifier(PersonalityTraitPrerequisiteGroup),
-    ]),
-})
+typealias PersonalityTraitPrerequisites = PlainPrerequisites<PersonalityTraitPrerequisiteGroup>
 
-export const SpellworkPrerequisites = TypeAlias(import.meta.url, {
-  name: "SpellworkPrerequisites",
-  type: () =>
-    GenIncludeIdentifier(PlainPrerequisites, [IncludeIdentifier(SpellworkPrerequisiteGroup)]),
-})
+typealias SpellworkPrerequisites = PlainPrerequisites<SpellworkPrerequisiteGroup>
 
-export const LiturgyPrerequisites = TypeAlias(import.meta.url, {
-  name: "LiturgyPrerequisites",
-  type: () =>
-    GenIncludeIdentifier(PlainPrerequisites, [IncludeIdentifier(LiturgyPrerequisiteGroup)]),
-})
+typealias LiturgyPrerequisites = PlainPrerequisites<LiturgyPrerequisiteGroup>
 
-export const InfluencePrerequisites = TypeAlias(import.meta.url, {
-  name: "InfluencePrerequisites",
-  type: () =>
-    GenIncludeIdentifier(PlainPrerequisites, [IncludeIdentifier(InfluencePrerequisiteGroup)]),
-})
+typealias InfluencePrerequisites = PlainPrerequisites<InfluencePrerequisiteGroup>
 
-export const LanguagePrerequisites = TypeAlias(import.meta.url, {
-  name: "LanguagePrerequisites",
-  type: () =>
-    GenIncludeIdentifier(PrerequisitesForLevels, [IncludeIdentifier(LanguagePrerequisiteGroup)]),
-})
+typealias LanguagePrerequisites = PrerequisitesForLevels<LanguagePrerequisiteGroup>
 
-export const AnimistPowerPrerequisites = TypeAlias(import.meta.url, {
-  name: "AnimistPowerPrerequisites",
-  type: () =>
-    GenIncludeIdentifier(PlainPrerequisites, [IncludeIdentifier(AnimistPowerPrerequisiteGroup)]),
-})
+typealias AnimistPowerPrerequisites = PlainPrerequisites<AnimistPowerPrerequisiteGroup>
 
-export const GeodeRitualPrerequisites = TypeAlias(import.meta.url, {
-  name: "GeodeRitualPrerequisites",
-  type: () =>
-    GenIncludeIdentifier(PlainPrerequisites, [IncludeIdentifier(GeodeRitualPrerequisiteGroup)]),
-})
+typealias GeodeRitualPrerequisites = PlainPrerequisites<GeodeRitualPrerequisiteGroup>
 
-export const EnhancementPrerequisites = TypeAlias(import.meta.url, {
-  name: "EnhancementPrerequisites",
-  type: () =>
-    GenIncludeIdentifier(PlainPrerequisites, [IncludeIdentifier(EnhancementPrerequisiteGroup)]),
-})
+typealias EnhancementPrerequisites = PlainPrerequisites<EnhancementPrerequisiteGroup>

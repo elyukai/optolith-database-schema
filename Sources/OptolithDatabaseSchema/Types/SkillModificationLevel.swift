@@ -4,71 +4,68 @@ import FileDB
 public struct SkillModificationLevel {
 
   /// Configuration for this level for fast skills (spells, liturgical chants).
-  @Relationship(FastSkillModificationLevelConfig)
-  let fast: FastSkillModificationLevelConfig.ID
+  let fast: FastSkillModificationLevelConfig
 
   /// Configuration for this level for slow skills (rituals, ceremonies).
-  @Relationship(SlowSkillModificationLevelConfig)
-  let slow: SlowSkillModificationLevelConfig.ID
-      translations: NestedLocaleMap(
-        Optional,
-        "SkillModificationLevelTranslation",
-        Object(
-          {
-            fast: Optional({
-              comment:
-                "Configuration for this level for fast skills (spells, liturgical chants). Values set here override the default generated text.",
-              type: IncludeIdentifier(LevelTypeConfigTranslation),
-            }),
-            slow: Optional({
-              comment:
-                "Configuration for this level for slow skills (rituals, ceremonies). Values set here override the default generated text.",
-              type: IncludeIdentifier(LevelTypeConfigTranslation),
-            }),
-          },
-          { minProperties: 1 }
-        )
-      ),
-    }),
-  displayName: null,
-})
+  let slow: SlowSkillModificationLevelConfig
+
+    /// All translations for the entry, identified by IETF language tag (BCP47).
+    @Relationship(Locale.self)
+    let translations: [String: Translation]
+
+    @Embedded
+    @MinProperties(1)
+    struct Translation { // SkillModificationLevelTranslation
+            /// Configuration for this level for fast skills (spells, liturgical chants). Values set here override the default generated text.
+            let fast: LevelTypeConfigTranslation?
+
+            /// Configuration for this level for slow skills (rituals, ceremonies). Values set here override the default generated text.
+            let slow: LevelTypeConfigTranslation?
+          }
+  //   }),
+  // displayName: null,
+}
 
 @Embedded
 public struct FastSkillModificationLevelConfig {
 
   /// The casting time in actions.
-  let casting_time: Integer({ minimum: 1 })
+  @Minimum(1)
+  let casting_time: Int
 
   /// The range in meters.
-  let range: Integer({ minimum: 1 })
+  @Minimum(1)
+  let range: Int
 
   /// The cost in AE/KP.
-  let cost: Integer({ minimum: 1 })
+  @Minimum(1)
+  let cost: Int
   }
 
 @Embedded
 public struct SlowSkillModificationLevelConfig {
 
   /// The casting time.
-  @Relationship(SlowSkillCastingTime)
-  let casting_time: SlowSkillCastingTime.ID
+  let casting_time: SlowSkillCastingTime
 
   /// The range in meters.
-  let range: Integer({ minimum: 1 })
+  @Minimum(1)
+  let range: Int
 
   /// The cost in AE/KP.
-  let cost: Integer({ minimum: 1 })
+  @Minimum(1)
+  let cost: Int
   }
 
 @Embedded
 public struct SlowSkillCastingTime {
 
   /// The (unitless) casting time.
-  let value: Integer({ minimum: 1 })
+  @Minimum(1)
+  let value: Int
 
   /// The unit for the `value`.
-  @Relationship(SlowSkillCastingTimeUnit)
-  let unit: SlowSkillCastingTimeUnit.ID
+  let unit: SlowSkillCastingTimeUnit
   }
 
 @ModelEnum
@@ -80,7 +77,7 @@ public enum SlowSkillCastingTimeUnit {
 /// Configuration translation of a type for a level. Values set here override the default generated text.
 @Embedded
 public struct LevelTypeConfigTranslation {
-      range: Required({
-        type: String({ minLength: 1 }),
-      }),
+
+      @MinLength(1)
+      let range: String
   }

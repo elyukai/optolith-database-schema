@@ -2,133 +2,140 @@ import FileDB
 
 @Model
 public struct Armor {
-  name: "Armor",
-  namePlural: "Armor",
-  type: () =>
-    Object({
-
   /// The cost in silverthalers.
-  @Relationship(Cost)
-  let cost: Cost.ID
+  let cost: Cost
 
   /// The weight in kg.
-  @Relationship(Weight)
-  let weight: Weight.ID
+  let weight: Weight
 
   /// The complexity of crafting the item.
-  @Relationship(Complexity)
-  let complexity: Complexity.ID
+  let complexity: Complexity
 
   /// The PRO value.
-  @Relationship(Protection)
-  let protection: Protection.ID
+  let protection: Protection
 
   /// The ENC value.
-  @Relationship(Encumbrance)
-  let encumbrance: Encumbrance.ID
+  let encumbrance: Encumbrance
 
   /// Does the armor have additional penalties (MOV -1, INI -1)?
-  @Relationship(HasAdditionalPenalties)
-  let has_additional_penalties: HasAdditionalPenalties.ID
+  let has_additional_penalties: HasAdditionalPenalties
 
   /// The armor type..
-  let armor_type: ArmorTypeIdentifier()
+  @Relationship(ArmorType.self)
+  let armor_type: ArmorType.ID
+
   /// Specify if armor is only available for a specific hit zone.
-  @Relationship(HitZone)
-  let hit_zone: HitZone.ID?
+  let hit_zone: HitZone?
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
+    @MinItems(1)
+    let src: [PublicationRef]
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // ArmorTranslation
 
         /// The item’s name.
-        let name: String({ minLength: 1 })
+        @MinLength(1)
+        let name: String
 
         /// An auxiliary name or label of the item, if available.
-        let secondary_name: String({ minLength: 1 })?
+        @MinLength(1)
+        let secondary_name: String?
 
         /// Note text.
-        let note: String({ minLength: 1, isMarkdown: true })?
+        @MinLength(1)
+        @Markdown
+        let note: String?
 
         /// Special rules text.
-        let rules: String({ minLength: 1, isMarkdown: true })?
+        @MinLength(1)
+        @Markdown
+        let rules: String?
 
         /// The armor advantage text.
-        let advantage: String({ minLength: 1, isMarkdown: true })?
+        @MinLength(1)
+        @Markdown
+        let advantage: String?
 
         /// The armor disadvantage text.
-        let disadvantage: String({ minLength: 1, isMarkdown: true })?
+        @MinLength(1)
+        @Markdown
+        let disadvantage: String?
 
-        let errata: Errata?
+        /// A list of errata for the entry in the specific language.
+        @MinItems(1)
+        let errata: [Erratum]?
     }
+
+    public static let namePlural = "Armor"
 }
 
 @Embedded
 public struct SecondaryArmor {
 
   /// The PRO value.
-  @Relationship(Protection)
-  let protection: Protection.ID
+  let protection: Protection
 
   /// The ENC value.
-  @Relationship(Encumbrance)
-  let encumbrance: Encumbrance.ID
+  let encumbrance: Encumbrance
 
   /// Does the armor have additional penalties (MOV -1, INI -1)?
-  @Relationship(HasAdditionalPenalties)
-  let has_additional_penalties: HasAdditionalPenalties.ID
+  let has_additional_penalties: HasAdditionalPenalties
 
   /// The armor type..
-  let armor_type: ArmorTypeIdentifier()
+  @Relationship(ArmorType.self)
+  let armor_type: ArmorType.ID
+
   /// Specify if armor is only available for a specific hit zone.
-  @Relationship(HitZone)
-  let hit_zone: HitZone.ID?
-      translations: NestedLocaleMap(
-        Optional,
-        "SecondaryArmorTranslation",
-        Object(
-          {
-            advantage: Optional({
-              comment: "The armor advantage text.",
-              type: String({ minLength: 1, isMarkdown: true }),
-            }),
-            disadvantage: Optional({
-              comment: "The armor disadvantage text.",
-              type: String({ minLength: 1, isMarkdown: true }),
-            }),
-          },
-          { minProperties: 1 }
-        )
-      ),
+  let hit_zone: HitZone?
+
+    /// All translations for the entry, identified by IETF language tag (BCP47).
+    @Relationship(Locale.self)
+    let translations: [String: Translation]?
+
+    @Embedded
+    @MinProperties(1)
+    struct Translation { // SecondaryArmorTranslation
+            /// The armor advantage text.
+            @MinLength(1)
+            @Markdown
+            let advantage: String?
+
+            /// The armor disadvantage text.
+            @MinLength(1)
+            @Markdown
+            let disadvantage: String?
+          }
   }
 
-export const Protection = TypeAlias(import.meta.url, {
-  name: "Protection",
-  comment: "The PRO value.",
-  type: () => Integer({ minimum: 0 }),
-})
+/// The PRO value.
+@TypeAlias
+public struct Protection {
+  @Minimum(0)
+  let type: Int
+}
 
-export const Encumbrance = TypeAlias(import.meta.url, {
-  name: "Encumbrance",
-  comment: "The ENC value.",
-  type: () => Integer({ minimum: 0 }),
-})
+/// The ENC value.
+@TypeAlias
+public struct Encumbrance {
+  @Minimum(0)
+  let type: Int
+}
 
-export const HasAdditionalPenalties = TypeAlias(import.meta.url, {
-  name: "HasAdditionalPenalties",
-  comment: "Does the armor have additional penalties (MOV -1, INI -1)?",
-  type: () => Boolean(),
-})
+/// Does the armor have additional penalties (MOV -1, INI -1)?
+@TypeAlias
+public struct HasAdditionalPenalties {
+  let type: Bool
+}
 
 /// Specify if armor is only available for a specific hit zone.
 @ModelEnum
 public enum HitZone {
-    case Head(IncludeIdentifier(HeadHitZone))
+    case Head(HeadHitZone)
     case Torso
     case Arms
     case Legs
@@ -137,15 +144,19 @@ public enum HitZone {
 @Embedded
 public struct HeadHitZone {
   /// In some cases, multiple armors for the same hit zone can be combined. They're listed at the item that can be combined with others.
-  @Relationship(HeadHitZoneCombinationPossibilities)
-  let combination_possibilities: HeadHitZoneCombinationPossibilities.ID?
+  let combination_possibilities: HeadHitZoneCombinationPossibilities?
   }
 
 @Embedded
 public struct HeadHitZoneCombinationPossibilities {
 
   /// A list of armors that can be combined with this armor.
-  let armors: Array(ArmorIdentifier(), { minItems: 1, uniqueItems: true })
+  @MinItems(1)
+  @UniqueItems
+  @Relationship(Armor.self)
+  let armors: [Armor.ID]
+
   /// The PRO value that is added to the PRO value of the other armor instead of adding the normale PRO value.
-  let protection: Integer({ minimum: 0 })?
+  @Minimum(0)
+  let protection: Int?
   }

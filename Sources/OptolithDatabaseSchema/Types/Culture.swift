@@ -4,88 +4,103 @@ import FileDB
 public struct Culture {
 
   /// A list of native languages (usually it is only one).
-  let language: Array(LanguageIdentifier(), { minItems: 1, uniqueItems: true })
+  @MinItems(1)
+  @UniqueItems
+  @Relationship(Language.self)
+  let language: [Language.ID]
+
   /// A list of native scripts (usually it is only one). If the culture does not use any script, leave this array empty.
-  let script: Array(ScriptIdentifier(), { minItems: 1, uniqueItems: true })?
+  @MinItems(1)
+  @UniqueItems
+  @Relationship(Script.self)
+  let script: [Script.ID]?
 
   /// If the area knowledge has a fixed value or can be adjusted.
-  @Relationship(AreaKnowledge)
-  let area_knowledge: AreaKnowledge.ID
+  let area_knowledge: AreaKnowledge
 
   /// A list of possible social status in the respective culture.
-  let social_status: Array(SocialStatusIdentifier(), { minItems: 1, uniqueItems: true })
+  @MinItems(1)
+  @UniqueItems
+  @Relationship(SocialStatus.self)
+  let social_status: [SocialStatus.ID]
 
   /// A list of professions that are typical for the culture, as well as professions that are rarely practiced or encountered in the culture. The list is either defined by group (as multiple lists) or plain (as a single list).
-  @Relationship(CommonProfessions)
-  let common_professions: CommonProfessions.ID
-      common_advantages: Optional({
-        comment: "A list of common advantages.",
-        type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
-          { minItems: 1 }
-        ),
-      }),
-      common_disadvantages: Optional({
-        comment: "A list of common disadvantages.",
-        type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
-          { minItems: 1 }
-        ),
-      }),
-      uncommon_advantages: Optional({
-        comment: "A list of uncommon advantages.",
-        type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
-          { minItems: 1 }
-        ),
-      }),
-      uncommon_disadvantages: Optional({
-        comment: "A list of uncommon disadvantages.",
-        type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
-          { minItems: 1 }
-        ),
-      }),
+  let common_professions: CommonProfessions
+
+      /// A list of common advantages.
+      @MinItems(1)
+      @Relationship(Advantage.self)
+      let common_advantages: [CommonnessRatedAdvantageDisadvantage<Advantage.ID>]?
+
+      /// A list of common disadvantages.
+      @MinItems(1)
+      @Relationship(Disadvantage.self)
+      let common_disadvantages: [CommonnessRatedAdvantageDisadvantage<Disadvantage.ID>]?
+
+      /// A list of uncommon advantages.
+      @MinItems(1)
+      @Relationship(Advantage.self)
+      let uncommon_advantages: [CommonnessRatedAdvantageDisadvantage<Advantage.ID>]?
+
+      /// A list of uncommon disadvantages.
+      @MinItems(1)
+      @Relationship(Disadvantage.self)
+      let uncommon_disadvantages: [CommonnessRatedAdvantageDisadvantage<Disadvantage.ID>]?
 
   /// A list of common skills.
-  let common_skills: Array(IncludeIdentifier(CommonnessRatedSkill), { minItems: 1 })
+  @Relationship(Skill.self)
+  @MinItems(1)
+  let common_skills: [Skill.ID]
+
   /// A list of uncommon skills.
-  let uncommon_skills: Array(IncludeIdentifier(CommonnessRatedSkill), { minItems: 1 })?
+  @Relationship(Skill.self)
+  @MinItems(1)
+  let uncommon_skills: [Skill.ID]?
 
   /// The skill points you get for buying the culture package.
-  let cultural_package: Array(IncludeIdentifier(CulturalPackageItem), { minItems: 1 })
+  @MinItems(1)
+  let cultural_package: [CulturalPackageItem]
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
+    @MinItems(1)
+    let src: [PublicationRef]
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // CultureTranslation
 
         /// The race’s name.
-        let name: String({ minLength: 1 })
+        @MinLength(1)
+        let name: String
 
         /// The description of the area knowledge.
-        let area_knowledge: IncludeIdentifier(AreaKnowledgeTranslation)
+        let area_knowledge: AreaKnowledgeTranslation
 
         /// The respective common advantages text from the source book.
-        let common_advantages: String({ minLength: 1 })?
+        @MinLength(1)
+        let common_advantages: String?
 
         /// The respective common disadvantages text from the source book.
-        let common_disadvantages: String({ minLength: 1 })?
+        @MinLength(1)
+        let common_disadvantages: String?
 
         /// The respective uncommon advantages text from the source book.
-        let uncommon_advantages: String({ minLength: 1 })?
+        @MinLength(1)
+        let uncommon_advantages: String?
 
         /// The respective uncommon disadvantages text from the source book.
-        let uncommon_disadvantages: String({ minLength: 1 })?
+        @MinLength(1)
+        let uncommon_disadvantages: String?
 
         /// Structured description of common names.
-        let common_names: IncludeIdentifier(CommonNames)
+        let common_names: CommonNames
 
-        let errata: Errata?
+        /// A list of errata for the entry in the specific language.
+        @MinItems(1)
+        let errata: [Erratum]?
     }
 }
 
@@ -94,7 +109,7 @@ public struct Culture {
 public struct AreaKnowledge {
 
   /// `true` if the area knowledge has a fixed value, `false` if it can be adjusted.
-  let is_fixed: Boolean()
+  let is_fixed: Bool
   }
 
 /// The “weight” difference compared to other professions or profession variants. Some professions or profession variants are simply more common (`Mostly`), but sometimes only specific elements are used (`Only`).
@@ -104,20 +119,15 @@ public enum CommonnessWeight {
     case Only
 }
 
-const Weighted = GenTypeAlias(import.meta.url, {
-  name: "Weighted",
-  comment:
-    "Some professions or profession variants are more common than others. There may be cultures where some professions or profession variants are not represented at all.",
-  parameters: [Param("ProfessionOrVariant")],
-  type: ProfessionOrVariant =>
-    Object({
+/// Some professions or profession variants are more common than others. There may be cultures where some professions or profession variants are not represented at all.
+@Embedded
+public struct Weighted<ProfessionOrVariant> {
+  /// The list of more common professions or profession variants.
+  @MinItems(1)
+  let elements: [ProfessionOrVariant]
 
   /// The list of more common professions or profession variants.
-  let elements: Array(TypeArgument(ProfessionOrVariant), { minItems: 1 })
-
-  /// The list of more common professions or profession variants.
-  @Relationship(CommonnessWeight)
-  let weight: CommonnessWeight.ID
+  let weight: CommonnessWeight
   }
 
 /// This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints or only the professions are kept that are different from the constraints.
@@ -127,20 +137,15 @@ public enum CommonProfessionConstraintsOperation {
     case Difference
 }
 
-const CommonProfessionConstraints = GenTypeAlias(import.meta.url, {
-  name: "CommonProfessionConstraints",
-  comment:
-    "A list of professions. The filter specifies how the list is applied to all mundane professions.",
-  parameters: [Param("Constraint")],
-  type: Constraint =>
-    Object({
-
+/// A list of professions. The filter specifies how the list is applied to all mundane professions.
+@Embedded
+public struct CommonProfessionConstraints<Constraint> {
   /// The list of constraints.
-  let constraints: Array(TypeArgument(Constraint), { minItems: 1 })
+  @MinItems(1)
+  let constraints: [Constraint]
 
   /// This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints or only the professions are kept that are different from the constraints.
-  @Relationship(CommonProfessionConstraintsOperation)
-  let operation: CommonProfessionConstraintsOperation.ID
+  let operation: CommonProfessionConstraintsOperation
   }
 
 /// Some professions may be found in a culture, but are not that common.
@@ -154,107 +159,100 @@ public enum Rarity {
 public struct ProfessionConstraint {
 
   /// The profession’s identifier.
-  let id: ProfessionIdentifier()
+  @Relationship(Profession.self)
+  let id: Profession.ID
+
   /// Some profession variants are more common than others. There may be cultures where some variants are not represented at all.
-  let weighted_variants: GenIncludeIdentifier(Weighted, [ProfessionVariantIdentifier()])?
+  @Relationship(ProfessionVariant.self)
+  let weighted_variants: Weighted<ProfessionVariant.ID>?
+
   /// Some professions may be found in a culture, but are not that common.
-  @Relationship(Rarity)
-  let rarity: Rarity.ID?
+  let rarity: Rarity?
   }
 
 @Embedded
 public struct MagicalTraditionConstraint {
 
   /// The magical tradition’s identifier.
-  let id: MagicalTraditionIdentifier()
+  @Relationship(MagicalTradition.self)
+  let id: MagicalTradition.ID
+
   /// Some professions are more common than others. There may be cultures where some professions are not represented at all.
-  let weighted_professions: GenIncludeIdentifier(Weighted, [ProfessionIdentifier()])?
+  @Relationship(Profession.self)
+  let weighted_professions: Weighted<Profession.ID>?
+
   /// Some traditions may be found in a culture, but are not that common.
-  @Relationship(Rarity)
-  let rarity: Rarity.ID?
+  let rarity: Rarity?
   }
 
 @Embedded
 public struct BlessedTraditionConstraint {
 
   /// The blessed tradition’s identifier.
-  let id: BlessedTraditionIdentifier()
+  @Relationship(BlessedTradition.self)
+  let id: BlessedTradition.ID
+
   /// Some professions are more common than others. There may be cultures where some professions are not represented at all.
-  let weighted_professions: GenIncludeIdentifier(Weighted, [ProfessionIdentifier()])?
+  @Relationship(Profession.self)
+  let weighted_professions: Weighted<Profession.ID>?
+
   /// Some traditions may be found in a culture, but are not that common.
-  @Relationship(Rarity)
-  let rarity: Rarity.ID?
+  let rarity: Rarity?
   }
 
 @ModelEnum
 public enum MundaneCommonProfessionConstraint {
-    case Profession(IncludeIdentifier(ProfessionConstraint))
-    case ProfessionSubgroup(IncludeIdentifier(MundaneProfessionGroup))
+    case Profession(ProfessionConstraint)
+    case ProfessionSubgroup(MundaneProfessionGroup)
 }
 
 @ModelEnum
 public enum MagicCommonProfessionConstraint {
-    case Tradition(IncludeIdentifier(MagicalTraditionConstraint))
+    case Tradition(MagicalTraditionConstraint)
     case MagicDilettante
-    case Profession(IncludeIdentifier(ProfessionConstraint))
+    case Profession(ProfessionConstraint)
 }
 
 @ModelEnum
 public enum BlessedCommonProfessionConstraint {
-    case Tradition(IncludeIdentifier(BlessedTraditionConstraint))
+    case Tradition(BlessedTraditionConstraint)
 }
 
-const PlainCommonProfessions = TypeAlias(import.meta.url, {
-  name: "PlainCommonProfessions",
-  type: () => GenIncludeIdentifier(CommonProfessionConstraints, [ProfessionIdentifier()]),
-})
+@TypeAlias
+public struct PlainCommonProfessions {
+  @Relationship(Profession.self)
+  let list: CommonProfessionConstraints<Profession.ID>
+}
 
-const GroupedCommonProfessions = TypeAlias(import.meta.url, {
-  name: "GroupedCommonProfessions",
-  comment: "Lists of professions by group.",
-  type: () =>
-    Object(
-      {
-        mundane: Optional({
-          type: GenIncludeIdentifier(CommonProfessionConstraints, [
-            IncludeIdentifier(MundaneCommonProfessionConstraint),
-          ]),
-        }),
-        magic: Optional({
-          type: GenIncludeIdentifier(CommonProfessionConstraints, [
-            IncludeIdentifier(MagicCommonProfessionConstraint),
-          ]),
-        }),
-        blessed: Optional({
-          type: GenIncludeIdentifier(CommonProfessionConstraints, [
-            IncludeIdentifier(BlessedCommonProfessionConstraint),
-          ]),
-        }),
-      },
-      { minProperties: 1 }
-    ),
-})
+/// Lists of professions by group.
+@Embedded
+@MinProperties(1)
+public struct GroupedCommonProfessions {
+    let mundane: CommonProfessionConstraints<MundaneCommonProfessionConstraint>?
+
+    let magic: CommonProfessionConstraints<MagicCommonProfessionConstraint>?
+
+    let blessed: CommonProfessionConstraints<BlessedCommonProfessionConstraint>?
+}
 
 /// A list of professions that are typical for the culture, as well as professions that are rarely practiced or encountered in the culture. The list is either defined by group (as multiple lists) or plain (as a single list).
 @ModelEnum
 public enum CommonProfessions {
-    case Plain(IncludeIdentifier(PlainCommonProfessions))
-    case Grouped(IncludeIdentifier(GroupedCommonProfessions))
+    case Plain(PlainCommonProfessions)
+    case Grouped(GroupedCommonProfessions)
 }
-
-const CommonnessRatedSkill = TypeAlias(import.meta.url, {
-  name: "CommonnessRatedSkill",
-  type: () => SkillIdentifier(),
-})
 
 @Embedded
 public struct CulturalPackageItem {
 
   /// The skill’s identifier.
-  let id: SkillIdentifier()
+  @Relationship(Skill.self)
+  let id: Skill.ID
 
   /// The skill points for the respective skill you get for buying the cultural package.
-  let points: Integer({ minimum: 1, maximum: 2 })
+  @Minimum(1)
+  @Maximum(2)
+  let points: Int
   }
 
 /// Description and examples of the area knowledge.
@@ -262,81 +260,64 @@ public struct CulturalPackageItem {
 public struct AreaKnowledgeTranslation {
 
   /// The full description without examples in parenthesis.
-  let description: String({ minLength: 1 })
+  @MinLength(1)
+  let description: String
 
   /// A shorter version of the description, used in input fields and other UI elements where the space might be to small to use the full description.
-  let abbreviated: String({ minLength: 1 })
+  @MinLength(1)
+  let abbreviated: String
+
   /// Examples of areas, if applicable.
-  let examples: Array(IncludeIdentifier(AreaKnowledgeExample), { minItems: 1 })?
+  @MinItems(1)
+  let examples: [AreaKnowledgeExample]?
   }
 
 @Embedded
 public struct AreaKnowledgeExample {
-      area: Required({
-        type: String({ minLength: 1 }),
-      }),
+
+      @MinLength(1)
+      let area: String
   }
 
-const CommonNames = TypeAlias(import.meta.url, {
-  name: "CommonNames",
-  comment: "Structured description of common names.",
-  type: () =>
-    Object(
-      {
-        first_name_groups: Optional({
-          comment:
-            "First names can be gender-neutral, but they can also be for a specific binary sex. They are sorted into groups.",
-          type: Array(IncludeIdentifier(CommonNameGroup), { minItems: 1 }),
-        }),
-        last_name_groups: Optional({
-          comment:
-            "Last names can be gender-neutral, like family names, but they can also be for a specific binary sex. They are sorted into groups.",
-          type: Array(IncludeIdentifier(CommonNameGroup), { minItems: 1 }),
-        }),
-        naming_rules: Optional({
-          comment: "Special naming rules.",
-          type: String({ minLength: 1 }),
-        }),
-      },
-      { minProperties: 1 }
-    ),
-})
+/// Structured description of common names.
+@Embedded
+@MinProperties(1)
+public struct CommonNames {
+    /// First names can be gender-neutral, but they can also be for a specific binary sex. They are sorted into groups.
+    @MinItems(1)
+    let first_name_groups: [CommonNameGroup]?
 
-const CommonNameGroup = TypeAlias(import.meta.url, {
-  name: "CommonNameGroup",
-  type: () =>
-    Object(
-      {
-        label: Required({
-          comment: "The group label.",
-          type: String({ minLength: 1 }),
-        }),
-        sex: Optional({
-          comment: "The binary sex if the group is only for a certain binary sex.",
-          type: IncludeIdentifier(BinarySex),
-        }),
-        names: Required({
-          comment: "The names from the group.",
-          type: Array(IncludeIdentifier(CommonName), { minItems: 1 }),
-        }),
-      },
-      { minProperties: 1 }
-    ),
-})
+    /// Last names can be gender-neutral, like family names, but they can also be for a specific binary sex. They are sorted into groups.
+    @MinItems(1)
+    let last_name_groups: [CommonNameGroup]?
 
-const CommonName = TypeAlias(import.meta.url, {
-  name: "CommonName",
-  type: () =>
-    Object(
-      {
-        name: Required({
-          type: String({ minLength: 1 }),
-        }),
-        names: Optional({
-          comment: "Additional information about the name, appended in parenthesis.",
-          type: String({ minLength: 1 }),
-        }),
-      },
-      { minProperties: 1 }
-    ),
-})
+    /// Special naming rules.
+    @MinLength(1)
+    let naming_rules: String?
+}
+
+@Embedded
+@MinProperties(1)
+public struct CommonNameGroup {
+    /// The group label.
+    @MinLength(1)
+    let label: String
+
+    /// The binary sex if the group is only for a certain binary sex.
+    let sex: BinarySex?
+
+    /// The names from the group.
+    @MinItems(1)
+    let names: [CommonName]
+}
+
+@Embedded
+@MinProperties(1)
+public struct CommonName {
+    @MinLength(1)
+    let name: String
+
+    /// Additional information about the name, appended in parenthesis.
+    @MinLength(1)
+    let names: String?
+}

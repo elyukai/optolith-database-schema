@@ -2,22 +2,15 @@ import FileDB
 
 @Embedded
 public struct Dice {
-      number: Required({
-        comment: "Number of dice of the same type. Example: 2 in 2D6.",
-        type: Integer({
-          minimum: 1,
-        }),
-      }),
+      /// Number of dice of the same type. Example: 2 in 2D6.
+      @Minimum(1)
+      let number: Int
 
   /// Number of sides on every die. Example: 6 in 2D6.
-  @Relationship(DieType)
-  let sides: DieType.ID
+  let sides: DieType
   }
 
-export const DieType = TypeAlias(import.meta.url, {
-  name: "DieType",
-  comment: "Number of sides on every die. Example: 6 in 2D6.",
-  type: () =>
-    Integer({
-      minimum: 2,
-  }
+@ModelEnum
+public enum DieType: Int {
+  case d3 = 3, d6 = 6, d8 = 8, d10 = 10, d12 = 12, d20 = 20, d100 = 100
+}

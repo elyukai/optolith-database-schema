@@ -4,12 +4,11 @@ import FileDB
 public struct RatedPrerequisite {
 
   /// The rated entry’s identifier.
-  @Relationship(RatedIdentifier)
-  let id: RatedIdentifier.ID
+  let id: RatedIdentifier
 
   /// The required minimum value.
-  let value: Integer({ minimum: 0 })
-      display_option: Optional({
-        type: IncludeIdentifier(DisplayOption),
-      }),
+  @Minimum(0)
+  let value: Int
+
+      let display_option: DisplayOption?
   }

@@ -4,65 +4,60 @@ import FileDB
 public struct JesterTrick {
 
   /// Lists the linked three attributes used to make a skill check.
-  @Relationship(SkillCheck)
-  let check: SkillCheck.ID
+  let check: SkillCheck
+
   /// In some cases, the target's Spirit or Toughness is applied as a penalty.
-  @Relationship(SkillCheckPenalty)
-  let check_penalty: SkillCheckPenalty.ID?
+  let check_penalty: SkillCheckPenalty?
 
   /// Measurable parameters of a jester trick.
-  @Relationship(JesterTrickPerformanceParameters)
-  let parameters: JesterTrickPerformanceParameters.ID
+  let parameters: JesterTrickPerformanceParameters
 
   /// The target category – the kind of creature or object – the skill affects.
-  @Relationship(AffectedTargetCategories)
-  let target: AffectedTargetCategories.ID
+  let target: AffectedTargetCategories
 
   /// The associated property.
-  let property: PropertyIdentifier()
+  @Relationship(Property.self)
+  let property: Property.ID
 
   /// States which column is used to improve the skill.
-  @Relationship(ImprovementCost)
-  let improvement_cost: ImprovementCost.ID
+  let improvement_cost: ImprovementCost
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
+    @MinItems(1)
+    let src: [PublicationRef]
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // JesterTrickTranslation
 
         /// The jester trick’s name.
-        let name: String({ minLength: 1 })
-          effect: Required({
-            comment:
-              "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
-            type: IncludeIdentifier(ActivatableSkillEffect),
-          }),
-          casting_time: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
-          }),
-          cost: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
-          }),
-          range: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
-          }),
-          duration: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
-          }),
-          target: Optional({
-            isDeprecated: true,
-            type: String({ minLength: 1 }),
-          }),
+        @MinLength(1)
+        let name: String
+          /// The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
+          let effect: ActivatableSkillEffect
 
-        let errata: Errata?
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let casting_time: OldParameter
+
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let cost: OldParameter
+
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let range: OldParameter
+
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let duration: OldParameter
+
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        @MinLength(1)
+        let target: String
+
+        /// A list of errata for the entry in the specific language.
+        @MinItems(1)
+        let errata: [Erratum]?
     }
 }
 
@@ -71,64 +66,63 @@ public struct JesterTrick {
 public struct JesterTrickPerformanceParameters {
 
   /// The casting time.
-  @Relationship(JesterTrickCastingTime)
-  let casting_time: JesterTrickCastingTime.ID
+  let casting_time: JesterTrickCastingTime
 
   /// The AE cost.
-  @Relationship(JesterTrickCost)
-  let cost: JesterTrickCost.ID
+  let cost: JesterTrickCost
 
   /// The range.
-  @Relationship(JesterTrickRange)
-  let range: JesterTrickRange.ID
+  let range: JesterTrickRange
 
   /// The duration.
-  @Relationship(JesterTrickDuration)
-  let duration: JesterTrickDuration.ID
+  let duration: JesterTrickDuration
   }
 
 @Embedded
 public struct JesterTrickCastingTime {
 
   /// The casting time in actions.
-  let value: Integer({ minimum: 1 })
+  @Minimum(1)
+  let value: Int
   }
 
 @Embedded
 public struct JesterTrickCost {
 
   /// The AE cost value.
-  let value: Integer({ minimum: 1 })
+  @Minimum(1)
+  let value: Int
   }
 
 @ModelEnum
 public enum JesterTrickRange {
     case Touch
-    case Self
-    case Fixed(IncludeIdentifier(FixedJesterTrickRange))
+    case `Self`
+    case Fixed(FixedJesterTrickRange)
 }
 
 @Embedded
 public struct FixedJesterTrickRange {
 
   /// The range in steps/m.
-  let value: Integer({ minimum: 1 })
+  @Minimum(1)
+  let value: Int
   }
 
 @ModelEnum
 public enum JesterTrickDuration {
     case Immediate
-    case Fixed(IncludeIdentifier(FixedJesterTrickDuration))
-    case CheckResultBased(IncludeIdentifier(CheckResultBasedDuration))
+    case Fixed(FixedJesterTrickDuration)
+    case CheckResultBased(CheckResultBasedDuration)
 }
 
 @Embedded
 public struct FixedJesterTrickDuration {
 
   /// The (unitless) duration.
-  let value: Integer({ minimum: 2 })
+  @Minimum(2)
+  let value: Int
 
   /// The duration unit.
-  @Relationship(DurationUnit)
-  let unit: DurationUnit.ID
+  let unit: DurationUnit
   }

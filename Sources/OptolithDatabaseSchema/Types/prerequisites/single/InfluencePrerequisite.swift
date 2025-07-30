@@ -4,11 +4,11 @@ import FileDB
 public struct InfluencePrerequisite {
 
   /// The influence’s identifier.
-  let id: InfluenceIdentifier()
+  @Relationship(Influence.self)
+  let id: Influence.ID
 
   /// If the referenced influence must or must not be chosen.
-  let active: Boolean()
-      display_option: Optional({
-        type: IncludeIdentifier(DisplayOption),
-      }),
+  let active: Bool
+
+      let display_option: DisplayOption?
   }

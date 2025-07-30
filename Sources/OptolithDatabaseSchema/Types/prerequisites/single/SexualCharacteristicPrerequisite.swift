@@ -3,9 +3,8 @@ import FileDB
 /// Requires a specific sexual characteristic.
 @Embedded
 public struct SexualCharacteristicPrerequisite {
-      id: Required({
-        type: IncludeIdentifier(SexualCharacteristic),
-      }),
+
+      let id: SexualCharacteristic
   }
 
 @ModelEnum

@@ -4,27 +4,39 @@ import FileDB
 public struct Condition {
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
+    @MinItems(1)
+    let src: [PublicationRef]
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // ConditionTranslation
 
         /// The condition’s name.
-        let name: String({ minLength: 1 })
+        @MinLength(1)
+        let name: String
 
         /// Additional rules for the condition, if applicable.
-        let rules: String({ minLength: 1, isMarkdown: true })?
-          effects: Required({
-            comment: "The effects for level 1 to 4.",
-            type: Array(String({ minLength: 1, isMarkdown: true }), {
-              minItems: 4,
-              maxItems: 4,
-            }),
-          }),
+        @MinLength(1)
+        @Markdown
+        let rules: String?
 
-        let errata: Errata?
+          /// The effects for level 1 to 4.
+          @MinItems(4)
+          @MaxItems(4)
+          let effects: [ConditionLevelEffect]
+
+        /// A list of errata for the entry in the specific language.
+        @MinItems(1)
+        let errata: [Erratum]?
     }
+}
+
+@TypeAlias
+public struct ConditionLevelEffect {
+  @MinLength(1)
+  @Markdown
+  let text: String
 }

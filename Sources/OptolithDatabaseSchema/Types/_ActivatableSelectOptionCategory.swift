@@ -13,48 +13,52 @@ public enum SelectOptionCategory {
     case Races
     case Cultures
     case RacesAndCultures
-    case BlessedTraditions(IncludeIdentifier(BlessedTraditionsSelectOptionCategory))
-    case Elements(IncludeIdentifier(ElementsSelectOptionCategory))
-    case Properties(IncludeIdentifier(PropertiesSelectOptionCategory))
-    case Aspects(IncludeIdentifier(AspectSelectOptionCategory))
-    case Diseases(IncludeIdentifier(DiseasesPoisonsSelectOptionCategory))
-    case Poisons(IncludeIdentifier(DiseasesPoisonsSelectOptionCategory))
-    case Languages(IncludeIdentifier(LanguagesSelectOptionCategory))
-    case Skills(IncludeIdentifier(SkillsSelectOptionCategory))
-    case CombatTechniques(IncludeIdentifier(CombatTechniquesSelectOptionCategory))
-    case TargetCategories(IncludeIdentifier(TargetCategoriesSelectOptionCategory))
+    case BlessedTraditions(BlessedTraditionsSelectOptionCategory)
+    case Elements(ElementsSelectOptionCategory)
+    case Properties(PropertiesSelectOptionCategory)
+    case Aspects(AspectSelectOptionCategory)
+    case Diseases(DiseasesPoisonsSelectOptionCategory)
+    case Poisons(DiseasesPoisonsSelectOptionCategory)
+    case Languages(LanguagesSelectOptionCategory)
+    case Skills(SkillsSelectOptionCategory)
+    case CombatTechniques(CombatTechniquesSelectOptionCategory)
+    case TargetCategories(TargetCategoriesSelectOptionCategory)
 }
 
 @Embedded
 public struct BlessedTraditionsSelectOptionCategory {
   /// Should the principles (code) of the tradition be required to select the respective tradition?
-  let require_principles: Boolean()?
+  let require_principles: Bool?
   }
 
 @Embedded
 public struct ElementsSelectOptionCategory {
   /// Only include entries with the listed identifiers.
-  let specific: Array(ElementIdentifier(), { minItems: 1, uniqueItems: true })?
+  @MinItems(1)
+  @UniqueItems
+  @Relationship(Element.self)
+  let specific: [Element.ID]?
   }
 
 @Embedded
 public struct PropertiesSelectOptionCategory {
   /// Does each property require it's corresponding property knowledge?
-  let require_principles: Boolean()?
+  let require_principles: Bool?
+
   /// Require a minimum number of spellworks of the respective property to be on a minimum skill rating.
-  @Relationship(RequiredMinimumSkillsToBeOnSkillRating)
-  let require_minimum_spellworks_on: RequiredMinimumSkillsToBeOnSkillRating.ID?
+  let require_minimum_spellworks_on: RequiredMinimumSkillsToBeOnSkillRating?
   }
 
 @Embedded
 public struct AspectSelectOptionCategory {
   /// Does each aspect require it's corresponding aspect knowledge?
-  let require_knowledge: Boolean()?
+  let require_knowledge: Bool?
+
   /// The generated name should be the *Master of (Aspect)* suffix for this aspect instead of the aspect's name. If an aspect does not provide a suffix (such as the General aspect), it is automatically excluded from the list.
-  let use_master_of_suffix_as_name: Boolean()?
+  let use_master_of_suffix_as_name: Bool?
+
   /// Require a minimum number of liturgies of the respective aspect to be on a minimum skill rating.
-  @Relationship(RequiredMinimumSkillsToBeOnSkillRating)
-  let require_minimum_liturgies_on: RequiredMinimumSkillsToBeOnSkillRating.ID?
+  let require_minimum_liturgies_on: RequiredMinimumSkillsToBeOnSkillRating?
   }
 
 /// Require a minimum number of spellworks/liturgies of the respective property/aspect to be on a minimum skill rating.
@@ -62,171 +66,233 @@ public struct AspectSelectOptionCategory {
 public struct RequiredMinimumSkillsToBeOnSkillRating {
 
   /// The minimum number of liturgies that need to be on the defined minimum skill rating.
-  let number: Integer({ minimum: 1 })
+  @Minimum(1)
+  let number: Int
 
   /// The minimum skill rating the defined minimum number of liturgies need to be on.
-  let rating: Integer({ minimum: 1 })
+  @Minimum(1)
+  let rating: Int
   }
 
 @Embedded
 public struct DiseasesPoisonsSelectOptionCategory {
   /// Only convert half the disease/poison level into the AP value.
-  let use_half_level_as_ap_value: Boolean()?
+  let use_half_level_as_ap_value: Bool?
   }
 
 @Embedded
 public struct LanguagesSelectOptionCategory {
   /// Generate prerequisites for each entry of the category.
-  let prerequisites: Array(IncludeIdentifier(LanguagesSelectOptionCategoryPrerequisite), { minItems: 1 })?
+  @MinItems(1)
+  let prerequisites: [LanguagesSelectOptionCategoryPrerequisite]?
   }
 
 @ModelEnum
 public enum LanguagesSelectOptionCategoryPrerequisite {
-    case SelectOption(IncludeIdentifier(OptionPrerequisite))
+    case SelectOption(OptionPrerequisite)
 }
 
 @Embedded
 public struct SkillsSelectOptionCategory {
 
   /// A list of skill categories.
-  let categories: Array(IncludeIdentifier(SkillsSelectOptionCategoryCategory), { minItems: 1 })
-      ap_value: Optional({
-        comment: "Generate AP values for each entry.",
-        type: GenIncludeIdentifier(SelectOptionsAdventurePointsValue, [
-          IncludeIdentifier(SkillishIdentifier),
-        ]),
-      }),
+  @MinItems(1)
+  let categories: [SkillsSelectOptionCategoryCategory]
+      /// Generate AP values for each entry.
+      let ap_value: SelectOptionsAdventurePointsValue<SkillishIdentifier>?
   }
 
 @ModelEnum
 public enum SkillsSelectOptionCategoryCategory {
-    case Skills(IncludeIdentifier(SkillSelectOptionCategoryCategory))
-    case Spells(GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [SpellIdentifier()]))
-    case Rituals(GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [RitualIdentifier()]))
-    LiturgicalChants: EnumCase({
-      type: GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [
-        LiturgicalChantIdentifier(),
-      ]),
-    }),
-    case Ceremonies(GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [CeremonyIdentifier()]))
+    case Skills(SkillSelectOptionCategoryCategory)
+    case Spells(SpellsSelectOptionCategoryCategory)
+    case Rituals(RitualsSelectOptionCategoryCategory)
+    case LiturgicalChants(LiturgicalChantsSelectOptionCategoryCategory)
+    case Ceremonies(CeremoniesSelectOptionCategoryCategory)
 }
 
 @Embedded
 public struct SkillSelectOptionCategoryCategory {
   /// Only include entries of the specified groups.
-  let groups: Array(SkillGroupIdentifier(), { minItems: 1 })?
-      specific: Optional({
-        comment: "Only include or exclude specific skills.",
-        type: GenIncludeIdentifier(SpecificFromSkillSelectOptionCategoryCategory, [
-          SkillIdentifier(),
-        ]),
-      }),
+  @MinItems(1)
+  @Relationship(SkillGroup.self)
+  let groups: [SkillGroup.ID]?
+
+    /// The list of skills to include or exclude.
+    @MinItems(1)
+    @UniqueItems
+    @Relationship(Skill.self)
+    let list: [Skill.ID]
+
+    /// Whether to include or exclude the list of skills.
+    let operation: SkillsSelectOptionCategoryCategoryOperation
+
   /// Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry.
-  let skill_applications: Array(IncludeIdentifier(SkillApplicationOrUse), { minItems: 1 })?
+  @MinItems(1)
+  let skill_applications: [SkillApplicationOrUse]?
+
   /// Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier, the skill it belongs to is derived from the select option automatically. A translation can be left out if its name equals the name of the origin entry.
-  let skill_uses: Array(IncludeIdentifier(SkillApplicationOrUse), { minItems: 1 })?
+  @MinItems(1)
+  let skill_uses: [SkillApplicationOrUse]?
+
   /// Generate prerequisites for each entry of the category.
-  let prerequisites: Array(IncludeIdentifier(SkillSelectOptionCategoryPrerequisite), { minItems: 1 })?
+  @MinItems(1)
+  let prerequisites: [SkillSelectOptionCategoryPrerequisite]?
+
   /// Generate AP values for each entry.
-  let ap_value: GenIncludeIdentifier(SelectOptionsAdventurePointsValue, [SkillIdentifier()])?
+  @Relationship(Skill.self)
+  let ap_value: SelectOptionsAdventurePointsValue<Skill.ID>?
   }
 
 @Embedded
 public struct CombatTechniquesSelectOptionCategory {
-      categories: Required({
-        comment: "A list of combat technique categories.",
-        type: Array(IncludeIdentifier(CombatTechniquesSelectOptionCategoryCategory), {
-          minItems: 1,
-        }),
-      }),
-      ap_value: Optional({
-        comment: "Generate AP values for each entry.",
-        type: GenIncludeIdentifier(SelectOptionsAdventurePointsValue, [
-          IncludeIdentifier(CombatTechniqueIdentifier),
-        ]),
-      }),
+      /// A list of combat technique categories.
+      @MinItems(1)
+      let categories: [CombatTechniquesSelectOptionCategoryCategory]
+      /// Generate AP values for each entry.
+      let ap_value: SelectOptionsAdventurePointsValue<CombatTechniqueIdentifier>?
   }
 
 @ModelEnum
 public enum CombatTechniquesSelectOptionCategoryCategory {
-    CloseCombatTechniques: EnumCase({
-      type: GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [
-        CloseCombatTechniqueIdentifier(),
-      ]),
-    }),
-    RangedCombatTechniques: EnumCase({
-      type: GenIncludeIdentifier(GenericSkillsSelectOptionCategoryCategory, [
-        RangedCombatTechniqueIdentifier(),
-      ]),
-    }),
+    case CloseCombatTechniques(CloseCombatTechniquesSelectOptionCategoryCategory)
+    case RangedCombatTechniques(RangedCombatTechniquesSelectOptionCategoryCategory)
 }
 
 @Embedded
 public struct SkillApplicationOrUse {
 
   /// The application’s or use’s identifier. An entry-unique, increasing integer.
-  let id: Integer({ minimum: 1 })
+  @Minimum(1)
+  let id: Int
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // SkillApplicationOrUseTranslation
-          name: Required({
-            comment:
-              "The name of the application or use if different from the activatable entry’s name.",
-            type: String({ minLength: 1 }),
-          }),
-        })
-      ),
+          /// The name of the application or use if different from the activatable entry’s name.
+          @MinLength(1)
+          let name: String
+      }
   }
 
-const GenericSkillsSelectOptionCategoryCategory = GenTypeAlias(import.meta.url, {
-  name: "GenericSkillsSelectOptionCategoryCategory",
-  parameters: [Param("Ref")],
-  type: Ref =>
-    Object({
-      specific: Optional({
-        comment: "Only include (`Intersection`) or exclude (`Difference`) specific entries.",
-        type: GenIncludeIdentifier(SpecificFromSkillSelectOptionCategoryCategory, [
-          TypeArgument(Ref),
-        ]),
-      }),
-  /// Generate prerequisites for each entry of the category.
-  let prerequisites: Array(IncludeIdentifier(SkillSelectOptionCategoryPrerequisite), { minItems: 1 })?
-  }
+@Embedded
+public struct SpellsSelectOptionCategoryCategory {
+    /// The list of skills to include or exclude.
+    @MinItems(1)
+    @UniqueItems
+    @Relationship(Spell.self)
+    let list: [Spell.ID]
 
-const SpecificFromSkillSelectOptionCategoryCategory = GenTypeAlias(import.meta.url, {
-  name: "SpecificFromSkillSelectOptionCategoryCategory",
-  parameters: [Param("Ref")],
-  type: Ref =>
-    Object({
-      operation: Required({
-        type: IncludeIdentifier(SpecificFromSkillSelectOptionCategoryCategoryOperation),
-      }),
+    /// Whether to include or exclude the list of skills.
+    let operation: SkillsSelectOptionCategoryCategoryOperation
 
-  /// The list of specific entries.
-  let list: Array(TypeArgument(Ref), { minItems: 1, uniqueItems: true })
-  }
+    /// Generate prerequisites for each entry of the category.
+    @MinItems(1)
+    let prerequisites: [SkillSelectOptionCategoryPrerequisite]?
+}
+
+@Embedded
+public struct RitualsSelectOptionCategoryCategory {
+    /// The list of skills to include or exclude.
+    @MinItems(1)
+    @UniqueItems
+    @Relationship(Ritual.self)
+    let list: [Ritual.ID]
+
+    /// Whether to include or exclude the list of skills.
+    let operation: SkillsSelectOptionCategoryCategoryOperation
+
+    /// Generate prerequisites for each entry of the category.
+    @MinItems(1)
+    let prerequisites: [SkillSelectOptionCategoryPrerequisite]?
+}
+
+@Embedded
+public struct LiturgicalChantsSelectOptionCategoryCategory {
+    /// The list of skills to include or exclude.
+    @MinItems(1)
+    @UniqueItems
+    @Relationship(LiturgicalChant.self)
+    let list: [LiturgicalChant.ID]
+
+    /// Whether to include or exclude the list of skills.
+    let operation: SkillsSelectOptionCategoryCategoryOperation
+
+    /// Generate prerequisites for each entry of the category.
+    @MinItems(1)
+    let prerequisites: [SkillSelectOptionCategoryPrerequisite]?
+}
+
+@Embedded
+public struct CeremoniesSelectOptionCategoryCategory {
+    /// The list of skills to include or exclude.
+    @MinItems(1)
+    @UniqueItems
+    @Relationship(Ceremony.self)
+    let list: [Ceremony.ID]
+
+    /// Whether to include or exclude the list of skills.
+    let operation: SkillsSelectOptionCategoryCategoryOperation
+
+    /// Generate prerequisites for each entry of the category.
+    @MinItems(1)
+    let prerequisites: [SkillSelectOptionCategoryPrerequisite]?
+}
+
+@Embedded
+public struct CloseCombatTechniquesSelectOptionCategoryCategory {
+    /// The list of skills to include or exclude.
+    @MinItems(1)
+    @UniqueItems
+    @Relationship(CloseCombatTechnique.self)
+    let list: [CloseCombatTechnique.ID]
+
+    /// Whether to include or exclude the list of skills.
+    let operation: SkillsSelectOptionCategoryCategoryOperation
+
+    /// Generate prerequisites for each entry of the category.
+    @MinItems(1)
+    let prerequisites: [SkillSelectOptionCategoryPrerequisite]?
+}
+
+@Embedded
+public struct RangedCombatTechniquesSelectOptionCategoryCategory {
+    /// The list of skills to include or exclude.
+    @MinItems(1)
+    @UniqueItems
+    @Relationship(RangedCombatTechnique.self)
+    let list: [RangedCombatTechnique.ID]
+
+    /// Whether to include or exclude the list of skills.
+    let operation: SkillsSelectOptionCategoryCategoryOperation
+
+    /// Generate prerequisites for each entry of the category.
+    @MinItems(1)
+    let prerequisites: [SkillSelectOptionCategoryPrerequisite]?
+}
 
 /// Only include (`Intersection`) or exclude (`Difference`) specific entries.
 @ModelEnum
-public enum SpecificFromSkillSelectOptionCategoryCategoryOperation {
+public enum SkillsSelectOptionCategoryCategoryOperation {
     case Intersection
     case Difference
 }
 
 @ModelEnum
 public enum SkillSelectOptionCategoryPrerequisite {
-    case Self(IncludeIdentifier(SelfPrerequisite))
-    case SelectOption(IncludeIdentifier(OptionPrerequisite))
+    case `Self`(SelfPrerequisite)
+    case SelectOption(OptionPrerequisite)
 }
 
 @Embedded
 public struct SelfPrerequisite {
 
   /// The entry requires itself on a certain Skill Rating.
-  let value: Integer({ minimum: 1 })
+  @Minimum(1)
+  let value: Int
   }
 
 /// The entry requires or prohibits itself as a select option of another entry.
@@ -234,80 +300,71 @@ public struct SelfPrerequisite {
 public struct OptionPrerequisite {
 
   /// The target entry's identifier.
-  @Relationship(ActivatableIdentifier)
-  let id: ActivatableIdentifier.ID
+  let id: ActivatableIdentifier
 
   /// Is the select option required (`true`) or prohibited (`false`)?
-  let active: Boolean()
+  let active: Bool
+
   /// The required level, if any.
-  let level: Integer({ minimum: 2 })?
+  @Minimum(2)
+  let level: Int?
   }
 
-const SelectOptionsAdventurePointsValue = GenEnum(import.meta.url, {
-  name: "SelectOptionsAdventurePointsValue",
-  comment: "Generate AP values for each entry.",
-  parameters: [Param("Identifier")],
-  values: Identifier => ({
-    case DerivedFromImprovementCost(IncludeIdentifier(SelectOptionsDeriveAdventurePointsValueFromImprovementCost))
-    Fixed: EnumCase({
-      type: GenIncludeIdentifier(SelectOptionsFixedAdventurePointsValue, [
-        TypeArgument(Identifier),
-      ]),
-    }),
+@ModelEnum
+public enum SelectOptionsAdventurePointsValue<Identifier> {
+    case DerivedFromImprovementCost(SelectOptionsDeriveAdventurePointsValueFromImprovementCost)
+    case Fixed(SelectOptionsFixedAdventurePointsValue<Identifier>)
 }
 
 /// Derive the cost from the improvement cost of each entry. The AP value is calculated by multiplying the improvement cost with `multiplier` and then adding `offset`.
 @Embedded
 public struct SelectOptionsDeriveAdventurePointsValueFromImprovementCost {
   /// This number is multiplied with the improvement cost of the entry (A = 1 to D = 4).
-  let multiplier: Integer({ minimum: 2 })?
+  @Minimum(2)
+  let multiplier: Int?
+
   /// This number is added to the multiplied improvement cost of the entry.
-  let offset: Integer()?
+  let offset: Int?
   }
 
-const SelectOptionsFixedAdventurePointsValue = GenTypeAlias(import.meta.url, {
-  name: "SelectOptionsFixedAdventurePointsValue",
-  parameters: [Param("Identifier")],
-  type: Identifier =>
-    Object({
-      map: Required({
-        comment: "A mapping of skill identifiers to their specific AP values.",
-        type: Array(
-          GenIncludeIdentifier(SelectOptionsFixedAdventurePointsValueMapping, [
-            TypeArgument(Identifier),
-          ])
-        ),
-      }),
+@Embedded
+public struct SelectOptionsFixedAdventurePointsValue<Identifier> {
+
+      /// A mapping of skill identifiers to their specific AP values.
+      let map: [SelectOptionsFixedAdventurePointsValueMapping<Identifier>]
 
   /// The default value of an entry. Used as a fallback if no value is found in `list`.
-  let default: Integer({ minimum: 1 })
+  @Minimum(1)
+  let `default`: Int
   }
 
-const SelectOptionsFixedAdventurePointsValueMapping = GenTypeAlias(import.meta.url, {
-  name: "SelectOptionsFixedAdventurePointsValueMapping",
-  parameters: [Param("Identifier")],
-  type: Identifier =>
-    Object({
+@Embedded
+public struct SelectOptionsFixedAdventurePointsValueMapping<Identifier> {
 
   /// The entry’s identifier.
-  let id: TypeArgument(Identifier)
+  let id: Identifier
 
   /// The AP value for the specified entry.
-  let ap_value: Integer({ minimum: 1 })
+  @Minimum(1)
+  let ap_value: Int
   }
 
 @Embedded
 public struct TargetCategoriesSelectOptionCategory {
 
   /// A list of target categories.
-  let list: Array(IncludeIdentifier(SpecificTargetCategory), { minItems: 1 })
+  @MinItems(1)
+  let list: [SpecificTargetCategory]
   }
 
 @Embedded
 public struct SpecificTargetCategory {
 
   /// The target category’s identifier.
-  let id: TargetCategoryIdentifier()
+  @Relationship(TargetCategory.self)
+  let id: TargetCategory.ID
+
   /// The volume for this specific selection.
-  let volume: Integer({ minimum: 0 })?
+  @Minimum(0)
+  let volume: Int?
   }

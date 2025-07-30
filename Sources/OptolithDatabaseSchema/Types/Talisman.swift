@@ -2,34 +2,44 @@ import FileDB
 
 @Model
 public struct Talisman {
+    /// The tradition(s) the talisman belongs to.
+    @MinItems(1)
+    @Relationship(BlessedTradition.self)
+    let tradition: [BlessedTradition.ID]
 
-  /// The tradition(s) the talisman belongs to.
-  let tradition: Array(BlessedTraditionIdentifier(), { minItems: 1 })
-  /// The talisman type, if any.
-  @Relationship(TalismanType)
-  let type: TalismanType.ID?
-  /// The AP value for the required trade secret, if possible.
-  let ap_value: Integer({ minimum: 5, multipleOf: 5 })?
+    /// The talisman type, if any.
+    let type: TalismanType?
+
+    /// The AP value for the required trade secret, if possible.
+    @Minimum(5)
+    @MultipleOf(5)
+    let ap_value: Int?
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
+    @MinItems(1)
+    let src: [PublicationRef]
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // TalismanTranslation
-
         /// The talisman’s name.
-        let name: String({ minLength: 1 })
+        @MinLength(1)
+        let name: String
 
         /// The effect description.
-        let rules: String({ minLength: 1, isMarkdown: true })
+        @MinLength(1)
+        @Markdown
+        let rules: String
 
         /// The activation parameters.
-        let activation: IncludeIdentifier(TalismanActivationTranslation)?
+        let activation: TalismanActivationTranslation?
 
-        let errata: Errata?
+        /// A list of errata for the entry in the specific language.
+        @MinItems(1)
+        let errata: [Erratum]?
     }
 }
 
@@ -44,10 +54,11 @@ public enum TalismanType {
 
 @Embedded
 public struct TalismanActivationTranslation {
+    /// The KP cost.
+    @Minimum(0)
+    let cost: Int
 
-  /// The KP cost.
-  let cost: Integer({ minimum: 0 })
-
-  /// The duration.
-  let duration: String({ minLength: 1 })
-  }
+    /// The duration.
+    @MinLength(1)
+    let duration: String
+}

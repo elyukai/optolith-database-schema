@@ -2,66 +2,104 @@ import FileDB
 
 @Model
 public struct BlessedTradition {
-      select_options,
-      skill_applications,
-      skill_uses,
+
+      /// Definitions for possible options for the activatable entry. They can either be derived from entry categories or be defined explicitly. Both can happen as well, but if there is an explicitly defined select option and a derived select option has the same identifier (which may only happen if skill or combat technique identifiers are used for explicit select options), the explicit definition overwrites the derived option.
+      ///
+      /// Note that this is only a full definition of options for simple logic that can be made explicit using the more detailed configuration for both derived categories and explicit options. There are quite a few entries whose option logic cannot be fully represented here, so that it needs to be implemented manually.
+      let select_options: SelectOptions?
+
+      /// Registers new skill applications, which get enabled once this entry is activated. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin activatable entry.
+      let skill_applications: NewSkillApplications?
+
+      /// Registers uses, which get enabled once this entry is activated. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin activatable entry.
+      let skill_uses: SkillUses?
   /// The tradition’s primary attribute. Leave empty if the tradition does not have one.
-  let primary: AttributeIdentifier()?
+  @Relationship(Attribute.self)
+  let primary: Attribute.ID?
+
   /// The tradition’s aspects, if any.
-  let aspects: Array(AspectIdentifier(), { minItems: 2, maxItems: 2 })?
+  @MinItems(2)
+  @MaxItems(2)
+  @Relationship(Aspect.self)
+  let aspects: [Aspect.ID]?
+
   /// If a tradition restricts the possible blessings, the blessings that are **not** allowed.
-  @Relationship(RestrictedBlessings)
-  let restricted_blessings: RestrictedBlessings.ID?
+  let restricted_blessings: RestrictedBlessings?
+
   /// A list of favored combat techniques.
-  @Relationship(FavoredCombatTechniques)
-  let favored_combat_techniques: FavoredCombatTechniques.ID?
+  let favored_combat_techniques: FavoredCombatTechniques?
 
   /// A list of favored skills.
-  let favored_skills: Array(SkillIdentifier(), { minItems: 1 })
+  @MinItems(1)
+  @Relationship(Skill.self)
+  let favored_skills: [Skill.ID]
+
   /// On activation of the tradition, a specific number of skills from a list of skills must be selected as being favored.
-  @Relationship(FavoredSkillsSelection)
-  let favored_skills_selection: FavoredSkillsSelection.ID?
+  let favored_skills_selection: FavoredSkillsSelection?
 
   /// The type of the tradition. May be either church or shamanistic.
-  @Relationship(BlessedTraditionType)
-  let type: BlessedTraditionType.ID
+  let type: BlessedTraditionType
+
   /// The select option’s identifier of the disadvantage *Principles* that represent this tradition’s code, if any.
-  let associated_principles_id: Integer()?
-      prerequisites: Optional({
-        type: IncludeIdentifier(GeneralPrerequisites),
-      }),
-      ap_value,
+  let associated_principles_id: Int?
+
+      let prerequisites: GeneralPrerequisites?
+
+      /// The adventure points value.
+      let ap_value: AdventurePointsValue
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
+    @MinItems(1)
+    let src: [PublicationRef]
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // BlessedTraditionTranslation
-          name,
-          name_compressed: Optional({
-            comment:
-              "A shorter name of the tradition’s name, used in liturgical chant descriptions. This is not the same as the name in the library.",
-            type: String({ minLength: 1 }),
-          }),
-          name_in_library,
-          special_rules: Required({
-            comment:
-              "The special rules of the tradition. They should be sorted like they are in the book.",
-            type: Array(IncludeIdentifier(SpecialRule), { minItems: 1 }),
-          }),
 
-        let errata: Errata?
+          /// Name of the activatable entry.
+          @MinLength(1)
+          let name: String
+          /// A shorter name of the tradition’s name, used in liturgical chant descriptions. This is not the same as the name in the library.
+          @MinLength(1)
+          let name_compressed: String?
+
+          /// The full name of the entry as stated in the sources. Only use when `name` needs to be different from full name for text generation purposes.
+          @MinLength(1)
+          let name_in_library: String?
+          /// The special rules of the tradition. They should be sorted like they are in the book.
+          @MinItems(1)
+          let special_rules: [SpecialRule]
+
+        /// A list of errata for the entry in the specific language.
+        @MinItems(1)
+        let errata: [Erratum]?
     }
 }
 
 /// If a tradition restricts the possible blessings, the blessings that are **not** allowed.
 @ModelEnum
 public enum RestrictedBlessings {
-    case Three(Array(BlessingIdentifier(), { minItems: 3, maxItems: 3 }))
-    case Six(Array(BlessingIdentifier(), { minItems: 6, maxItems: 6 }))
+    case Three(ThreeRestrictedBlessings)
+    case Six(SixRestrictedBlessings)
+}
+
+@TypeAlias
+public struct ThreeRestrictedBlessings {
+    @MinItems(3)
+    @MaxItems(3)
+    @Relationship(Blessing.self)
+    let list: [Blessing.ID]
+}
+
+@TypeAlias
+public struct SixRestrictedBlessings {
+    @MinItems(6)
+    @MaxItems(6)
+    @Relationship(Blessing.self)
+    let list: [Blessing.ID]
 }
 
 @ModelEnum
@@ -69,41 +107,42 @@ public enum FavoredCombatTechniques {
     case All
     case AllClose
     case AllUsedInHunting
-    case Specific(IncludeIdentifier(SpecificFavoredCombatTechniques))
+    case Specific(SpecificFavoredCombatTechniques)
 }
 
 @Embedded
 public struct SpecificFavoredCombatTechniques {
-      list: Required({
-        comment: "A list of specific favored combat techniques.",
-        type: Array(IncludeIdentifier(CombatTechniqueIdentifier), {
-          minItems: 1,
-          uniqueItems: true,
-        }),
-      }),
+
+      /// A list of specific favored combat techniques.
+      @MinItems(1)
+      @UniqueItems
+      let list: [CombatTechniqueIdentifier]
   }
 
 @Embedded
 public struct FavoredSkillsSelection {
 
   /// The number of skills that can be selected.
-  let number: Integer({ minimum: 1 })
+  @Minimum(1)
+  let number: Int
 
   /// The possible set of skills.
-  let options: Array(SkillIdentifier(), { minItems: 2, uniqueItems: true })
+  @MinItems(2)
+  @UniqueItems
+  @Relationship(Skill.self)
+  let options: [Skill.ID]
   }
 
 /// The type of the tradition. May be either church or shamanistic.
 @ModelEnum
 public enum BlessedTraditionType {
     case Church
-    case Shamanistic(IncludeIdentifier(ShamanisticBlessedTradition))
+    case Shamanistic(ShamanisticBlessedTradition)
 }
 
 /// Additional rules for shamanistic traditions.
 @Embedded
 public struct ShamanisticBlessedTradition {
-      can_use_bone_mace_as_ceremonial_item: Required({
-        type: Boolean(),
-      }),
+
+      let can_use_bone_mace_as_ceremonial_item: Bool
   }

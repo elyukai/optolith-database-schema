@@ -4,49 +4,72 @@ import FileDB
 public struct IlluminationLightSource {
 
   /// The cost in silverthalers.
-  @Relationship(Cost)
-  let cost: Cost.ID
+  let cost: Cost
 
   /// The weight in kg.
-  @Relationship(Weight)
-  let weight: Weight.ID
+  let weight: Weight
 
   /// The complexity of crafting the item.
-  @Relationship(Complexity)
-  let complexity: Complexity.ID
+  let complexity: Complexity
 
   /// The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
-  @Relationship(StructurePoints)
-  let structure_points: StructurePoints.ID
+  let structure_points: StructurePoints
 
   /// The burning time is the time how long the light source can be lit. After that time you have to use a new light source.
-  @Relationship(BurningTime)
-  let burning_time: BurningTime.ID
+  let burning_time: BurningTime
+
   /// The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.
-  @Relationship(CombatUse)
-  let combat_use: CombatUse.ID?
+  let combat_use: CombatUse?
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
-      translations: DefaultItemTranslations("IlluminationLightSource"),
-    }),
+    @MinItems(1)
+    let src: [PublicationRef]
+
+    /// All translations for the entry, identified by IETF language tag (BCP47).
+    @Relationship(Locale.self)
+    let translations: [String: Translation]
+
+    @Embedded
+    public struct Translation { // IlluminationLightSourceTranslation
+        /// The item’s name.
+        @MinLength(1)
+        let name: String
+
+        /// An auxiliary name or label of the item, if available.
+        @MinLength(1)
+        let secondary_name: String?
+
+        /// Note text.
+        @MinLength(1)
+        @Markdown
+        let note: String?
+
+        /// Special rules text.
+        @MinLength(1)
+        @Markdown
+        let rules: String?
+
+        /// A list of errata for the entry in the specific language.
+        @MinItems(1)
+        let errata: [Erratum]?
+    }
 }
 
 @ModelEnum
 public enum BurningTime {
     case Unlimited
-    case Limited(IncludeIdentifier(LimitedBurningTime))
+    case Limited(LimitedBurningTime)
 }
 
 @Embedded
 public struct LimitedBurningTime {
 
   /// The (unitless) time value.
-  let value: Integer({ minimum: { value: 0, isExclusive: true } })
+  @Minimum(0, isExclusive: true)
+  let value: Int
 
   /// The time unit.
-  @Relationship(LimitedBurningTimeUnit)
-  let unit: LimitedBurningTimeUnit.ID
+  let unit: LimitedBurningTimeUnit
   }
 
 @ModelEnum

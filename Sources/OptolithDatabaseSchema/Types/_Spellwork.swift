@@ -5,5 +5,12 @@ import FileDB
 public enum SpellworkTraditions {
     case General
     /// A list of specific traditions.
-    case Specific(Array(MagicalTraditionIdentifier(), { minItems: 1 }))
+    case Specific(SpecificSpellworkTraditions)
+}
+
+@TypeAlias
+public struct SpecificSpellworkTraditions {
+    @Relationship(MagicalTradition.self)
+    @MinItems(1)
+    let list: [MagicalTradition.ID]
 }

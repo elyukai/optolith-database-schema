@@ -4,11 +4,13 @@ import FileDB
 public struct RatedSumPrerequisite {
 
   /// The minimum required sum of the targets’ ratings.
-  let sum: Integer({ minimum: 0 })
+  @Minimum(0)
+  let sum: Int
 
   /// The targets that are included in calculating the sum.
-  let targets: Array(SkillIdentifier(), { minItems: 2 })
-      display_option: Optional({
-        type: IncludeIdentifier(DisplayOption),
-      }),
+  @MinItems(2)
+  @Relationship(Skill.self)
+  let targets: [Skill.ID]
+
+      let display_option: DisplayOption?
   }

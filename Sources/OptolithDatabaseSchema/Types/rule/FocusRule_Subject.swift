@@ -5,12 +5,14 @@ import FileDB
 public struct Subject {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // SubjectTranslation
 
         /// The subject.
-        let name: String({ minLength: 1 })
+        @MinLength(1)
+        let name: String
     }
 }

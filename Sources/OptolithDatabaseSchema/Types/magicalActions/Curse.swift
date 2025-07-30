@@ -4,45 +4,44 @@ import FileDB
 public struct Curse {
 
   /// Lists the linked three attributes used to make a skill check.
-  @Relationship(SkillCheck)
-  let check: SkillCheck.ID
+  let check: SkillCheck
+
   /// In some cases, the target's Spirit or Toughness is applied as a penalty.
-  @Relationship(SkillCheckPenalty)
-  let check_penalty: SkillCheckPenalty.ID?
+  let check_penalty: SkillCheckPenalty?
 
   /// Measurable parameters of a curse.
-  @Relationship(CursePerformanceParameters)
-  let parameters: CursePerformanceParameters.ID
+  let parameters: CursePerformanceParameters
 
   /// The associated property.
-  let property: PropertyIdentifier()
+  @Relationship(Property.self)
+  let property: Property.ID
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
+    @MinItems(1)
+    let src: [PublicationRef]
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // CurseTranslation
 
         /// The curse’s name.
-        let name: String({ minLength: 1 })
-          effect: Required({
-            comment:
-              "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
-            type: IncludeIdentifier(ActivatableSkillEffect),
-          }),
-          cost: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
-          }),
-          duration: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
-          }),
+        @MinLength(1)
+        let name: String
+          /// The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
+          let effect: ActivatableSkillEffect
 
-        let errata: Errata?
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let cost: OldParameter
+
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let duration: OldParameter
+
+        /// A list of errata for the entry in the specific language.
+        @MinItems(1)
+        let errata: [Erratum]?
     }
 }
 
@@ -51,73 +50,67 @@ public struct Curse {
 public struct CursePerformanceParameters {
 
   /// The AE cost.
-  @Relationship(CurseCost)
-  let cost: CurseCost.ID
+  let cost: CurseCost
 
   /// The duration.
-  @Relationship(CurseDuration)
-  let duration: CurseDuration.ID
+  let duration: CurseDuration
   }
 
 @ModelEnum
 public enum CurseCost {
-    case Fixed(IncludeIdentifier(FixedCurseCost))
-    case Indefinite(IncludeIdentifier(IndefiniteOneTimeCost))
+    case Fixed(FixedCurseCost)
+    case Indefinite(IndefiniteOneTimeCost)
 }
 
 @Embedded
 public struct FixedCurseCost {
 
   /// The (temporary) AE cost value.
-  let value: Integer({ minimum: 1 })
-      translations: NestedLocaleMap(
-        Optional,
-        "FixedCurseCostTranslation",
-        Object(
-          {
-            per: Optional({
-              comment:
-                "The cost have to be per a specific countable entity, e.g. `8 KP per person`.",
-              type: IncludeIdentifier(ResponsiveText),
-            }),
-            note: Optional({
-              comment: "A note, appended to the generated string in parenthesis.",
-              type: IncludeIdentifier(ResponsiveTextOptional),
-            }),
-          },
-          { minProperties: 1 }
-        )
-      ),
+  @Minimum(1)
+  let value: Int
+
+    /// All translations for the entry, identified by IETF language tag (BCP47).
+    @Relationship(Locale.self)
+    let translations: [String: Translation]?
+
+    @Embedded
+    @MinProperties(1)
+    struct Translation { // FixedCurseCostTranslation
+            /// The cost have to be per a specific countable entity, e.g. `8 KP per person`.
+            let per: ResponsiveText?
+
+            /// A note, appended to the generated string in parenthesis.
+            let note: ResponsiveTextOptional?
+          }
   }
 
 @ModelEnum
 public enum CurseDuration {
     case Immediate
-    case Fixed(IncludeIdentifier(DurationUnitValue))
-    case CheckResultBased(IncludeIdentifier(CheckResultBasedDuration))
-    case Indefinite(IncludeIdentifier(IndefiniteCurseDuration))
+    case Fixed(DurationUnitValue)
+    case CheckResultBased(CheckResultBasedDuration)
+    case Indefinite(IndefiniteCurseDuration)
 }
 
 @Embedded
 public struct IndefiniteCurseDuration {
   /// Specified if the duration has a maximum time span.
-  @Relationship(MaximumIndefiniteCurseDuration)
-  let maximum: MaximumIndefiniteCurseDuration.ID?
+  let maximum: MaximumIndefiniteCurseDuration?
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // IndefiniteCurseDurationTranslation
 
         /// A description of the duration.
-        let description: IncludeIdentifier(ResponsiveText)
-        })
-      ),
+        let description: ResponsiveText
+      }
   }
 
 @ModelEnum
 public enum MaximumIndefiniteCurseDuration {
-    case Fixed(IncludeIdentifier(DurationUnitValue))
-    case CheckResultBased(IncludeIdentifier(CheckResultBasedDuration))
+    case Fixed(DurationUnitValue)
+    case CheckResultBased(CheckResultBasedDuration)
 }

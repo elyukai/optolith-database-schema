@@ -5,13 +5,16 @@ import FileDB
 public struct AnimistPowerPrerequisite {
 
   /// The animist power’s identifier.
-  let id: AnimistPowerIdentifier()
+  @Relationship(AnimistPower.self)
+  let id: AnimistPower.ID
+
   /// The level to which the minimum value applies.
-  let level: Integer({ minimum: 2 })?
+  @Minimum(2)
+  let level: Int?
 
   /// The required minimum value.
-  let value: Integer({ minimum: 0 })
-      display_option: Optional({
-        type: IncludeIdentifier(DisplayOption),
-      }),
+  @Minimum(0)
+  let value: Int
+
+      let display_option: DisplayOption?
   }

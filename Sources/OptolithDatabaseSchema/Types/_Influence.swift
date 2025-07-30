@@ -2,36 +2,40 @@ import FileDB
 
 @Model
 public struct Influence {
-      prerequisites: Optional({
-        type: IncludeIdentifier(InfluencePrerequisites),
-      }),
+
+      let prerequisites: InfluencePrerequisites?
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
+    @MinItems(1)
+    let src: [PublicationRef]
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // InfluenceTranslation
 
         /// The influence’s name.
-        let name: String({ minLength: 1 })
-          effects: Optional({
-            comment:
-              "The effects of the influence. They should be sorted like they are in the book.",
-            type: Array(IncludeIdentifier(InfluenceEffect), { minItems: 1 }),
-          }),
+        @MinLength(1)
+        let name: String
+          /// The effects of the influence. They should be sorted like they are in the book.
+          @MinItems(1)
+          let effects: [InfluenceEffect]?
 
-        let errata: Errata?
+        /// A list of errata for the entry in the specific language.
+        @MinItems(1)
+        let errata: [Erratum]?
     }
 }
 
 @Embedded
 public struct InfluenceEffect {
   /// An optional label that is displayed and placed before the actual text.
-  let label: String({ minLength: 1 })?
+  @MinLength(1)
+  let label: String?
 
   /// The effect text.
-  let text: String({ minLength: 1 })
+  @MinLength(1)
+  let text: String
   }

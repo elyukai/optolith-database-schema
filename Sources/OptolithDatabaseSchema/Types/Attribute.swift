@@ -5,18 +5,22 @@ import FileDB
 public struct Attribute {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // AttributeTranslation
 
         /// The attribute’s name.
-        let name: String({ minLength: 1 })
+        @MinLength(1)
+        let name: String
 
         /// The abbreviation of the attribute’s name.
-        let abbreviation: String({ minLength: 1 })
+        @MinLength(1)
+        let abbreviation: String
 
         /// The description of the attribute.
-        let description: String({ minLength: 1 })
+        @MinLength(1)
+        let description: String
     }
 }

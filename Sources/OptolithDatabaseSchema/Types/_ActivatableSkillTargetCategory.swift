@@ -1,30 +1,28 @@
 import FileDB
 
-export const AffectedTargetCategories = TypeAlias(import.meta.url, {
-  name: "AffectedTargetCategories",
-  comment: `The target category – the kind of creature or object – the skill affects.
-
-If no target categories are given, the skill applies to all target categories.`,
-  type: () => Array(IncludeIdentifier(SpecificAffectedTargetCategory)),
-})
+/// The target category – the kind of creature or object – the skill affects.
+///
+/// If no target categories are given, the skill applies to all target categories.
+typealias AffectedTargetCategories = [SpecificAffectedTargetCategory]
 
 @Embedded
 public struct SpecificAffectedTargetCategory {
-      id: Required({ type: IncludeIdentifier(SpecificAffectedTargetCategoryIdentifier) }),
-      translations: NestedLocaleMap(
-        Optional,
-        "SpecificAffectedTargetCategoryTranslation",
-        Object({
-          note: Required({ type: String({ minLength: 1 }) }),
-        })
-      ),
+      let id: SpecificAffectedTargetCategoryIdentifier
+      /// All translations for the entry, identified by IETF language tag (BCP47).
+      @Relationship(Locale.self)
+      let translations: [String: Translation]?
+
+      struct Translation { // SpecificAffectedTargetCategoryTranslation
+          @MinLength(1)
+          let note: String
+      }
   }
 
 @ModelEnum
 public enum SpecificAffectedTargetCategoryIdentifier {
-    case Self
+    case `Self`
     case Zone
     case LiturgicalChantsAndCeremonies
     case Cantrips
-    case Predefined(TargetCategoryIdentifier())
+    case Predefined(TargetCategoryIdentifierObject)
 }

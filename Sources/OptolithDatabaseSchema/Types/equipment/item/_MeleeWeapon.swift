@@ -4,27 +4,15 @@
 
 import FileDB
 
-export const AttackModifier = TypeAlias(import.meta.url, {
-  name: "AttackModifier",
-  comment: "The AT modifier.",
-  type: () => Integer(),
-})
-
-export const ParryModifier = TypeAlias(import.meta.url, {
-  name: "ParryModifier",
-  comment: "The PA modifier.",
-  type: () => Integer(),
-})
-
 /// The damage of a weapon consists of a random part using dice and an optional flat part.
 @Embedded
 public struct MeleeDamage {
 
   /// How many dice of which type are rolled to get the damage.
-  @Relationship(Dice)
-  let dice: Dice.ID
+  let dice: Dice
+
   /// Flat damage, if any. It gets added to the result of the dice rolls.
-  let flat: Integer()?
+  let flat: Int?
   }
 
 /// The shield size and potential size-depending values.
@@ -32,51 +20,51 @@ public struct MeleeDamage {
 public enum ShieldSize {
     case Small
     case Medium
-    case Large(IncludeIdentifier(LargeShieldSize))
+    case Large(LargeShieldSize)
 }
 
 /// The damage of a weapon consists of a random part using dice and an optional flat part.
 @Embedded
 public struct LargeShieldSize {
   /// The attack penalty from the shield, if any.
-  let attack_penalty: Integer()?
+  let attack_penalty: Int?
   }
 
 @Embedded
 public struct MeleeWeapon {
 
   /// The combat techniques and dependent values.
-  let combat_technique: CloseCombatTechniqueIdentifier()
+  @Relationship(CloseCombatTechnique.self)
+  let combat_technique: CloseCombatTechnique.ID
 
   /// The damage of a weapon consists of a random part using dice and an optional flat part.
-  @Relationship(MeleeDamage)
-  let damage: MeleeDamage.ID
+  let damage: MeleeDamage
 
   /// The primary attribute damage and threshold value.
-  @Relationship(PrimaryAttributeDamageThreshold)
-  let damage_threshold: PrimaryAttributeDamageThreshold.ID
+  let damage_threshold: PrimaryAttributeDamageThreshold
 
   /// The AT modifier.
-  @Relationship(AttackModifier)
-  let attackModifier: AttackModifier.ID
+  let attackModifier: Int
+
   /// The PA modifier.
-  @Relationship(ParryModifier)
-  let parryModifier: ParryModifier.ID?
+  let parryModifier: Int?
+
   /// The reach of the weapon.
-  let reach: ReachIdentifier()?
+  @Relationship(Reach.self)
+  let reach: Reach.ID?
+
   /// The length of the weapon in cm/halffingers.
-  @Relationship(Length)
-  let length: Length.ID?
+  let length: Length?
+
   /// The shield size and potential size-depending values.
-  @Relationship(ShieldSize)
-  let size: ShieldSize.ID?
+  let size: ShieldSize?
 
   /// Is the weapon a parrying weapon?
-  let is_parrying_weapon: Boolean()
+  let is_parrying_weapon: Bool
 
   /// Is the weapon a two-handed weapon?
-  let is_two_handed_weapon: Boolean()
+  let is_two_handed_weapon: Bool
 
   /// Is the weapon an improvised weapon?
-  let is_improvised_weapon: Boolean()
+  let is_improvised_weapon: Bool
   }

@@ -5,19 +5,20 @@ import FileDB
 public struct ActivatablePrerequisite {
 
   /// The activatable entry’s identifier.
-  @Relationship(ActivatableIdentifier)
-  let id: ActivatableIdentifier.ID
+  let id: ActivatableIdentifier
 
   /// If the required entry should be required to be active or inactive.
-  let active: Boolean()
+  let active: Bool
+
   /// The required minimum level of the entry.
-  let level: Integer({ minimum: 1 })?
+  @Minimum(1)
+  let level: Int?
+
   /// Required select options. Order is important. Typically, you only need the first array index, though.
-  let options: Array(IncludeIdentifier(RequirableSelectOptionIdentifier), { minItems: 1 })?
-      display_option: Optional({
-        type: IncludeIdentifier(DisplayOption),
-      }),
-      when: Optional({
-        type: IncludeIdentifier(Preconditions),
-      }),
+  @MinItems(1)
+  let options: [RequirableSelectOptionIdentifier]?
+
+      let display_option: DisplayOption?
+
+      let when: Preconditions?
   }

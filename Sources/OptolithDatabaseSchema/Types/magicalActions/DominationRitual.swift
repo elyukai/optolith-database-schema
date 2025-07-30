@@ -4,45 +4,44 @@ import FileDB
 public struct DominationRitual {
 
   /// Lists the linked three attributes used to make a skill check.
-  @Relationship(SkillCheck)
-  let check: SkillCheck.ID
+  let check: SkillCheck
+
   /// In some cases, the target's Spirit or Toughness is applied as a penalty.
-  @Relationship(SkillCheckPenalty)
-  let check_penalty: SkillCheckPenalty.ID?
+  let check_penalty: SkillCheckPenalty?
 
   /// Measurable parameters of a domination ritual.
-  @Relationship(DominationRitualPerformanceParameters)
-  let parameters: DominationRitualPerformanceParameters.ID
+  let parameters: DominationRitualPerformanceParameters
 
   /// The associated property.
-  let property: PropertyIdentifier()
+  @Relationship(Property.self)
+  let property: Property.ID
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
+    @MinItems(1)
+    let src: [PublicationRef]
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // DominationRitualTranslation
 
         /// The domination ritual’s name.
-        let name: String({ minLength: 1 })
-          effect: Required({
-            comment:
-              "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
-            type: IncludeIdentifier(ActivatableSkillEffect),
-          }),
-          cost: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
-          }),
-          duration: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
-          }),
+        @MinLength(1)
+        let name: String
+          /// The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
+          let effect: ActivatableSkillEffect
 
-        let errata: Errata?
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let cost: OldParameter
+
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let duration: OldParameter
+
+        /// A list of errata for the entry in the specific language.
+        @MinItems(1)
+        let errata: [Erratum]?
     }
 }
 
@@ -51,68 +50,66 @@ public struct DominationRitual {
 public struct DominationRitualPerformanceParameters {
 
   /// The AE cost.
-  @Relationship(DominationRitualCost)
-  let cost: DominationRitualCost.ID
+  let cost: DominationRitualCost
 
   /// The duration.
-  @Relationship(DominationRitualDuration)
-  let duration: DominationRitualDuration.ID
+  let duration: DominationRitualDuration
   }
 
 @Embedded
 public struct DominationRitualCost {
 
   /// The initial skill modification identifier/level.
-  let initial_modification_level: SkillModificationLevelIdentifier()
-      translations: NestedLocaleMap(
-        Optional,
-        "DominationRitualCostTranslation",
-        Object({
+  @Relationship(SkillModificationLevel.self)
+  let initial_modification_level: SkillModificationLevel.ID
+      /// All translations for the entry, identified by IETF language tag (BCP47).
+      @Relationship(Locale.self)
+      let translations: [String: Translation]?
+
+      struct Translation { // DominationRitualCostTranslation
 
         /// AE cost in addition to the normal AE cost.
-        let additional: IncludeIdentifier(ResponsiveText)
-        })
-      ),
+        let additional: ResponsiveText
+      }
   }
 
 @ModelEnum
 public enum DominationRitualDuration {
-    case Fixed(IncludeIdentifier(FixedDominationRitualDuration))
-    case CheckResultBased(IncludeIdentifier(CheckResultBasedDuration))
-    case Indefinite(IncludeIdentifier(IndefiniteDominationRitualDuration))
+    case Fixed(FixedDominationRitualDuration)
+    case CheckResultBased(CheckResultBasedDuration)
+    case Indefinite(IndefiniteDominationRitualDuration)
 }
 
 @Embedded
 public struct FixedDominationRitualDuration {
 
   /// The (unitless) duration.
-  let value: Integer({ minimum: 1 })
+  @Minimum(1)
+  let value: Int
 
   /// The duration unit.
-  @Relationship(DurationUnit)
-  let unit: DurationUnit.ID
+  let unit: DurationUnit
   }
 
 @Embedded
 public struct IndefiniteDominationRitualDuration {
   /// Specified if the duration has a maximum time span.
-  @Relationship(MaximumIndefiniteDominationRitualDuration)
-  let maximum: MaximumIndefiniteDominationRitualDuration.ID?
+  let maximum: MaximumIndefiniteDominationRitualDuration?
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // IndefiniteDominationRitualDurationTranslation
 
         /// A description of the duration.
-        let description: IncludeIdentifier(ResponsiveText)
-        })
-      ),
+        let description: ResponsiveText
+      }
   }
 
 @ModelEnum
 public enum MaximumIndefiniteDominationRitualDuration {
-    case Fixed(IncludeIdentifier(FixedDominationRitualDuration))
-    case CheckResultBased(IncludeIdentifier(CheckResultBasedDuration))
+    case Fixed(FixedDominationRitualDuration)
+    case CheckResultBased(CheckResultBasedDuration)
 }

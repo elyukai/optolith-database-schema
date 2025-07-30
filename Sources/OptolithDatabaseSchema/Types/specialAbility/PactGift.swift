@@ -2,68 +2,102 @@ import FileDB
 
 @Model
 public struct PactGift {
-      levels,
-      select_options,
-      maximum,
+
+      /// Number of available levels.
+      @Minimum(2)
+      let levels: Int?
+
+      /// Definitions for possible options for the activatable entry. They can either be derived from entry categories or be defined explicitly. Both can happen as well, but if there is an explicitly defined select option and a derived select option has the same identifier (which may only happen if skill or combat technique identifiers are used for explicit select options), the explicit definition overwrites the derived option.
+      ///
+      /// Note that this is only a full definition of options for simple logic that can be made explicit using the more detailed configuration for both derived categories and explicit options. There are quite a few entries whose option logic cannot be fully represented here, so that it needs to be implemented manually.
+      let select_options: SelectOptions?
+
+      /// The number stating how often you can buy the entry. The **default** depends on the entry type:
+      ///
+      /// - **Advantage:** \`1\` in all cases (as specified in the **Core Rules**)
+      /// - **Disadvantage:** \`1\` in all cases (as specified in the **Core Rules**)
+      /// - **Special Abilities:** \`1\` if no options can be selected, otherwise the number of possible options
+      ///
+      /// The maximum is only set if it differs from the defaults specified above.
+      @Minimum(1)
+      let maximum: Int?
   /// This pact gift gives permanent levels of the condition *Demonic Consumption*.
-  @Relationship(PactGiftPermanentDemonicConsumption)
-  let permanent_demonic_consumption: PactGiftPermanentDemonicConsumption.ID?
+  let permanent_demonic_consumption: PactGiftPermanentDemonicConsumption?
+
   /// This pact gift has direct influence on the existence of other entries. It may add or remove entries.
-  let automatic_entries: Array(IncludeIdentifier(AutomaticEntry), { minItems: 1 })?
-      prerequisites: Optional({
-        type: IncludeIdentifier(GeneralPrerequisites),
-      }),
-      ap_value,
+  @MinItems(1)
+  let automatic_entries: [AutomaticEntry]?
+
+      let prerequisites: GeneralPrerequisites?
+
+      /// The adventure points value.
+      let ap_value: AdventurePointsValue
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
+    @MinItems(1)
+    let src: [PublicationRef]
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // PactGiftTranslation
-          name,
-          name_in_library,
-          rules,
 
-        let errata: Errata?
+          /// Name of the activatable entry.
+          @MinLength(1)
+          let name: String
+
+          /// The full name of the entry as stated in the sources. Only use when `name` needs to be different from full name for text generation purposes.
+          @MinLength(1)
+          let name_in_library: String?
+
+          /// The rule text.
+          @MinLength(1)
+          @Markdown
+          let rules: String
+
+        /// A list of errata for the entry in the specific language.
+        @MinItems(1)
+        let errata: [Erratum]?
     }
 }
 
 @ModelEnum
 public enum PactGiftPermanentDemonicConsumption {
-    case Fixed(IncludeIdentifier(FixedPactGiftPermanentDemonicConsumption))
-    case PerLevel(IncludeIdentifier(PactGiftPermanentDemonicConsumptionPerLevel))
+    case Fixed(FixedPactGiftPermanentDemonicConsumption)
+    case PerLevel(PactGiftPermanentDemonicConsumptionPerLevel)
 }
 
 @Embedded
 public struct FixedPactGiftPermanentDemonicConsumption {
 
   /// The levels of *Demonic Consumption* the pact gift causes.
-  let levels: Integer({ minimum: 1, maximum: 4 })
+  @Minimum(1)
+  @Maximum(4)
+  let levels: Int
   }
 
 @Embedded
 public struct PactGiftPermanentDemonicConsumptionPerLevel {
 
   /// The levels of *Demonic Consumption* the pact gift causes per activated level of the pact gift.
-  let levels: Integer({ minimum: 1, maximum: 4 })
+  @Minimum(1)
+  @Maximum(4)
+  let levels: Int
   }
 
 @Embedded
 public struct AutomaticEntry {
 
   /// What type of action is applied to the target entry?
-  @Relationship(AutomaticEntryAction)
-  let action: AutomaticEntryAction.ID
+  let action: AutomaticEntryAction
 
   /// If an entry is added or removed, does is cost or grant adventure points or is it free of charge?
-  let apply_ap_value: Boolean()
+  let apply_ap_value: Bool
 
   /// The entry that is to be added or removed. It can be a fixed entry or a selection where the player must choose one entry.
-  @Relationship(AutomaticEntryTarget)
-  let target: AutomaticEntryTarget.ID
+  let target: AutomaticEntryTarget
   }
 
 @ModelEnum
@@ -74,15 +108,14 @@ public enum AutomaticEntryAction {
 
 @ModelEnum
 public enum AutomaticEntryTarget {
-    case Selection(IncludeIdentifier(AutomaticEntryTargetSelection))
-    case Fixed(IncludeIdentifier(FixedAutomaticEntryTarget))
+    case Selection(AutomaticEntryTargetSelection)
+    case Fixed(FixedAutomaticEntryTarget)
 }
 
 @Embedded
 public struct AutomaticEntryTargetSelection {
-      list: Required({
-        type: IncludeIdentifier(AutomaticEntryTargetSelectionList),
-      }),
+
+      let list: AutomaticEntryTargetSelectionList
   }
 
 @ModelEnum
@@ -93,7 +126,6 @@ public enum AutomaticEntryTargetSelectionList {
 
 @Embedded
 public struct FixedAutomaticEntryTarget {
-      is: Required({
-        type: IncludeIdentifier(ActivatableIdentifier),
-      }),
+
+      let id: ActivatableIdentifier
   }

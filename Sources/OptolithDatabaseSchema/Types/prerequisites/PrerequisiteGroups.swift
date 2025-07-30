@@ -2,126 +2,121 @@ import FileDB
 
 @ModelEnum
 public enum DerivedCharacteristicPrerequisiteGroup {
-    case Rule(IncludeIdentifier(RulePrerequisite))
+    case Rule(RulePrerequisite)
 }
 
 @ModelEnum
 public enum PublicationPrerequisiteGroup {
-    case Publication(IncludeIdentifier(PublicationPrerequisite))
+    case Publication(PublicationPrerequisite)
 }
 
 @ModelEnum
 public enum GeneralPrerequisiteGroup {
-    case Sex(IncludeIdentifier(SexPrerequisite))
-    case Race(IncludeIdentifier(RacePrerequisite))
-    case Culture(IncludeIdentifier(CulturePrerequisite))
-    case Pact(IncludeIdentifier(PactPrerequisite))
-    case SocialStatus(IncludeIdentifier(SocialStatusPrerequisite))
-    case State(IncludeIdentifier(StatePrerequisite))
-    case Rule(IncludeIdentifier(RulePrerequisite))
-    case PrimaryAttribute(IncludeIdentifier(PrimaryAttributePrerequisite))
-    case Activatable(IncludeIdentifier(ActivatablePrerequisite))
-    case BlessedTradition(IncludeIdentifier(BlessedTraditionPrerequisite))
-    case MagicalTradition(IncludeIdentifier(MagicalTraditionPrerequisite))
-    case Rated(IncludeIdentifier(RatedPrerequisite))
-    case RatedMinimumNumber(IncludeIdentifier(RatedMinimumNumberPrerequisite))
-    case RatedSum(IncludeIdentifier(RatedSumPrerequisite))
-    case Enhancement(IncludeIdentifier(EnhancementPrerequisite))
-    case Text(IncludeIdentifier(TextPrerequisite))
-    case SexualCharacteristic(IncludeIdentifier(SexualCharacteristicPrerequisite))
+    case Sex(SexPrerequisite)
+    case Race(RacePrerequisite)
+    case Culture(CulturePrerequisite)
+    case Pact(PactPrerequisite)
+    case SocialStatus(SocialStatusPrerequisite)
+    case State(StatePrerequisite)
+    case Rule(RulePrerequisite)
+    case PrimaryAttribute(PrimaryAttributePrerequisite)
+    case Activatable(ActivatablePrerequisite)
+    case BlessedTradition(BlessedTraditionPrerequisite)
+    case MagicalTradition(MagicalTraditionPrerequisite)
+    case Rated(RatedPrerequisite)
+    case RatedMinimumNumber(RatedMinimumNumberPrerequisite)
+    case RatedSum(RatedSumPrerequisite)
+    case Enhancement(EnhancementPrerequisite)
+    case Text(TextPrerequisite)
+    case SexualCharacteristic(SexualCharacteristicPrerequisite)
 }
 
 @ModelEnum
 public enum ProfessionPrerequisiteGroup {
-    case Sex(IncludeIdentifier(SexPrerequisite))
-    case Race(IncludeIdentifier(RacePrerequisite))
-    case Culture(IncludeIdentifier(CulturePrerequisite))
-    case Activatable(IncludeIdentifier(ActivatablePrerequisite))
-    case Rated(IncludeIdentifier(RatedPrerequisite))
+    case Sex(SexPrerequisite)
+    case Race(RacePrerequisite)
+    case Culture(CulturePrerequisite)
+    case Activatable(ActivatablePrerequisite)
+    case Rated(RatedPrerequisite)
 }
 
-export const AdvantageDisadvantagePrerequisiteGroup = Enum(import.meta.url, {
-  name: "AdvantageDisadvantagePrerequisiteGroup",
-  values: () => {
-    return {
-      case CommonSuggestedByRCP
-      case Sex(IncludeIdentifier(SexPrerequisite))
-      case Race(IncludeIdentifier(RacePrerequisite))
-      case Culture(IncludeIdentifier(CulturePrerequisite))
-      case Pact(IncludeIdentifier(PactPrerequisite))
-      case SocialStatus(IncludeIdentifier(SocialStatusPrerequisite))
-      case State(IncludeIdentifier(StatePrerequisite))
-      case Rule(IncludeIdentifier(RulePrerequisite))
-      case PrimaryAttribute(IncludeIdentifier(PrimaryAttributePrerequisite))
-      case Activatable(IncludeIdentifier(ActivatablePrerequisite))
-      case BlessedTradition(IncludeIdentifier(BlessedTraditionPrerequisite))
-      case MagicalTradition(IncludeIdentifier(MagicalTraditionPrerequisite))
-      case Rated(IncludeIdentifier(RatedPrerequisite))
-      case RatedMinimumNumber(IncludeIdentifier(RatedMinimumNumberPrerequisite))
-      case RatedSum(IncludeIdentifier(RatedSumPrerequisite))
-      case Enhancement(IncludeIdentifier(EnhancementPrerequisite))
-      case Text(IncludeIdentifier(TextPrerequisite))
-      NoOtherAncestorBloodAdvantage: EnumCase({
-        type: AncestorBloodPrerequisite,
-      }),
-      case SexualCharacteristic(IncludeIdentifier(SexualCharacteristicPrerequisite))
-    }
-  },
-})
+@ModelEnum
+public enum AdvantageDisadvantagePrerequisiteGroup {
+    case CommonSuggestedByRCP
+    case Sex(SexPrerequisite)
+    case Race(RacePrerequisite)
+    case Culture(CulturePrerequisite)
+    case Pact(PactPrerequisite)
+    case SocialStatus(SocialStatusPrerequisite)
+    case State(StatePrerequisite)
+    case Rule(RulePrerequisite)
+    case PrimaryAttribute(PrimaryAttributePrerequisite)
+    case Activatable(ActivatablePrerequisite)
+    case BlessedTradition(BlessedTraditionPrerequisite)
+    case MagicalTradition(MagicalTraditionPrerequisite)
+    case Rated(RatedPrerequisite)
+    case RatedMinimumNumber(RatedMinimumNumberPrerequisite)
+    case RatedSum(RatedSumPrerequisite)
+    case Enhancement(EnhancementPrerequisite)
+    case Text(TextPrerequisite)
+    /// Requires that no other Ancestor Blood advantage is active.
+    case NoOtherAncestorBloodAdvantage
+    case SexualCharacteristic(SexualCharacteristicPrerequisite)
+}
 
 @ModelEnum
 public enum ArcaneTraditionPrerequisiteGroup {
-    case Sex(IncludeIdentifier(SexPrerequisite))
-    case Culture(IncludeIdentifier(CulturePrerequisite))
+    case Sex(SexPrerequisite)
+    case Culture(CulturePrerequisite)
 }
 
 @ModelEnum
 public enum PersonalityTraitPrerequisiteGroup {
-    case Culture(IncludeIdentifier(CulturePrerequisite))
-    case Text(IncludeIdentifier(TextPrerequisite))
+    case Culture(CulturePrerequisite)
+    case Text(TextPrerequisite)
 }
 
 @ModelEnum
 public enum SpellworkPrerequisiteGroup {
-    case Rule(IncludeIdentifier(RulePrerequisite))
-    case Rated(IncludeIdentifier(RatedPrerequisite))
+    case Rule(RulePrerequisite)
+    case Rated(RatedPrerequisite)
 }
 
 @ModelEnum
 public enum LiturgyPrerequisiteGroup {
-    case Rule(IncludeIdentifier(RulePrerequisite))
+    case Rule(RulePrerequisite)
 }
 
 @ModelEnum
 public enum InfluencePrerequisiteGroup {
-    case Influence(IncludeIdentifier(InfluencePrerequisite))
-    case Text(IncludeIdentifier(TextPrerequisite))
+    case Influence(InfluencePrerequisite)
+    case Text(TextPrerequisite)
 }
 
 @ModelEnum
 public enum LanguagePrerequisiteGroup {
-    case Race(IncludeIdentifier(RacePrerequisite))
-    case Activatable(IncludeIdentifier(ActivatablePrerequisite))
-    case Text(IncludeIdentifier(TextPrerequisite))
+    case Race(RacePrerequisite)
+    case Activatable(ActivatablePrerequisite)
+    case Text(TextPrerequisite)
 }
 
 @ModelEnum
 public enum AnimistPowerPrerequisiteGroup {
-    case AnimistPower(IncludeIdentifier(AnimistPowerPrerequisite))
+    case AnimistPower(AnimistPowerPrerequisite)
 }
 
 @ModelEnum
 public enum GeodeRitualPrerequisiteGroup {
-    case Influence(IncludeIdentifier(InfluencePrerequisite))
+    case Influence(InfluencePrerequisite)
 }
 
 @ModelEnum
 public enum EnhancementPrerequisiteGroup {
-    case Enhancement(IncludeIdentifier(EnhancementPrerequisite))
+    case Enhancement(EnhancementPrerequisite)
 }
 
 @ModelEnum
 public enum PreconditionGroup {
-    case Publication(IncludeIdentifier(PublicationPrerequisite))
-    case SexualCharacteristic(IncludeIdentifier(SexualCharacteristicPrerequisite))
+    case Publication(PublicationPrerequisite)
+    case SexualCharacteristic(SexualCharacteristicPrerequisite)
 }

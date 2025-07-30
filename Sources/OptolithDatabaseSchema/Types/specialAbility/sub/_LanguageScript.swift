@@ -4,8 +4,9 @@ import FileDB
 public struct AssociatedContinent {
 
   /// The continent’s identifier.
-  let id: ContinentIdentifier()
+  @Relationship(Continent.self)
+  let id: Continent.ID
 
   /// Is the language considered virtually extinct in this continent?
-  let is_extinct: Boolean()
+  let is_extinct: Bool
   }

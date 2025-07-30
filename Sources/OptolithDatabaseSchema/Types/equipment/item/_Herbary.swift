@@ -27,8 +27,9 @@ public enum LaboratoryLevel {
 public struct RecipeTradeSecret {
 
   /// The AP value of the trade secret.
-  let ap_value: Integer({ minimum: 0 })
+  @Minimum(0)
+  let ap_value: Int
+
   /// The prerequisites of the trade secret, if any.
-  @Relationship(PlainGeneralPrerequisites)
-  let prerequisites: PlainGeneralPrerequisites.ID?
+  let prerequisites: PlainGeneralPrerequisites?
   }

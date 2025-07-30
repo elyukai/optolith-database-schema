@@ -5,5 +5,6 @@ import FileDB
 public struct EnhancementPrerequisite {
 
   /// The required enhancement.
-  let id: EnhancementIdentifier()
+  @Relationship(Enhancement.self)
+  let id: Enhancement.ID
   }

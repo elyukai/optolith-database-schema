@@ -4,48 +4,58 @@ import FileDB
 public struct Book {
 
   /// The cost in silverthalers.
-  @Relationship(Cost)
-  let cost: Cost.ID
+  let cost: Cost
 
   /// The weight in kg.
-  @Relationship(Weight)
-  let weight: Weight.ID
+  let weight: Weight
 
   /// The complexity of crafting the item.
-  @Relationship(Complexity)
-  let complexity: Complexity.ID
+  let complexity: Complexity
 
   /// The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
-  @Relationship(StructurePoints)
-  let structure_points: StructurePoints.ID
+  let structure_points: StructurePoints
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
+    @MinItems(1)
+    let src: [PublicationRef]
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // BookTranslation
 
         /// The item’s name.
-        let name: String({ minLength: 1 })
+        @MinLength(1)
+        let name: String
 
         /// An auxiliary name or label of the item, if available.
-        let secondary_name: String({ minLength: 1 })?
+        @MinLength(1)
+        let secondary_name: String?
 
         /// The language the book is written in.
-        let language: String({ minLength: 1, isMarkdown: true })
+        @MinLength(1)
+        @Markdown
+        let language: String
 
         /// The script that was used for the book.
-        let script: String({ minLength: 1, isMarkdown: true })
+        @MinLength(1)
+        @Markdown
+        let script: String
 
         /// Note text.
-        let note: String({ minLength: 1, isMarkdown: true })?
+        @MinLength(1)
+        @Markdown
+        let note: String?
 
         /// Special rules text.
-        let rules: String({ minLength: 1, isMarkdown: true })?
+        @MinLength(1)
+        @Markdown
+        let rules: String?
 
-        let errata: Errata?
+        /// A list of errata for the entry in the specific language.
+        @MinItems(1)
+        let errata: [Erratum]?
     }
 }

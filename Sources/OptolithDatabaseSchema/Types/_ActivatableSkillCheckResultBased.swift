@@ -18,11 +18,11 @@ public enum CheckResultArithmetic {
 public struct CheckResultBasedModifier {
 
   /// The arithmetic how to apply the `value` to the `base`.
-  @Relationship(CheckResultArithmetic)
-  let arithmetic: CheckResultArithmetic.ID
+  let arithmetic: CheckResultArithmetic
 
   /// The value that is applied to the `base` using the defined `arithmetic`.
-  let value: Integer({ minimum: 2 })
+  @Minimum(2)
+  let value: Int
   }
 
 /// Defines a parameter being based on a check result.
@@ -30,9 +30,8 @@ public struct CheckResultBasedModifier {
 public struct CheckResultBased {
 
   /// The base value that is derived from the check result.
-  @Relationship(CheckResultValue)
-  let base: CheckResultValue.ID
+  let base: CheckResultValue
+
   /// If defined, it modifies the base value.
-  @Relationship(CheckResultBasedModifier)
-  let modifier: CheckResultBasedModifier.ID?
+  let modifier: CheckResultBasedModifier?
   }

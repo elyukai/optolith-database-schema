@@ -2,27 +2,30 @@ import FileDB
 
 @Model
 public struct DerivedCharacteristic {
-      prerequisites: Optional({
-        type: IncludeIdentifier(DerivedCharacteristicPrerequisites),
-      }),
+
+      let prerequisites: DerivedCharacteristicPrerequisites?
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
+    @MinItems(1)
+    let src: [PublicationRef]
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // DerivedCharacteristicTranslation
 
         /// The derived characteristic’s name.
-        let name: String({ minLength: 1 })
+        @MinLength(1)
+        let name: String
 
         /// The derived characteristic’s abbreviation.
-        let abbreviation: String({ minLength: 1 })
+        @MinLength(1)
+        let abbreviation: String
 
         /// Possible calculation strings for the final value.
-        let calculation: IncludeIdentifier(CalculationTranslation)?
+        let calculation: CalculationTranslation?
     }
 }
 
@@ -30,9 +33,14 @@ public struct DerivedCharacteristic {
 public struct CalculationTranslation {
 
   /// The default calculation string.
-  let default: String({ minLength: 1 })
+  @MinLength(1)
+  let `default`: String
+
   /// The calculation string if only half of the primary attribute is used.
-  let half_primary: String({ minLength: 1 })?
+  @MinLength(1)
+  let half_primary: String?
+
   /// The calculation string if no primary attribute is used.
-  let no_primary: String({ minLength: 1 })?
+  @MinLength(1)
+  let no_primary: String?
   }

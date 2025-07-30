@@ -4,14 +4,13 @@ import FileDB
 public struct PrimaryAttributePrerequisite {
 
   /// Is the required primary attribute for spellcasters or blessed ones?
-  @Relationship(PrimaryAttributeCategory)
-  let category: PrimaryAttributeCategory.ID
+  let category: PrimaryAttributeCategory
 
   /// Required value of the attribute.
-  let value: Integer({ minimum: 9 })
-      display_option: Optional({
-        type: IncludeIdentifier(DisplayOption),
-      }),
+  @Minimum(9)
+  let value: Int
+
+      let display_option: DisplayOption?
   }
 
 @ModelEnum

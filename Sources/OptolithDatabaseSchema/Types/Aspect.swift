@@ -4,19 +4,18 @@ import FileDB
 public struct Aspect {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // AspectTranslation
 
         /// The aspect’s name.
-        let name: String({ minLength: 1 })
-          master_of_aspect_suffix: Optional({
-            comment:
-              "The aspect’s name appended to the simple name (not `name_in_library`) of the special ability *Master of (Aspect)*.",
-            type: String({
-              minLength: 1,
-            }),
-          }),
+        @MinLength(1)
+        let name: String
+
+        /// The aspect’s name appended to the simple name (not `name_in_library`) of the special ability *Master of (Aspect)*.
+        @MinLength(1)
+        let master_of_aspect_suffix: String?
     }
 }

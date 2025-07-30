@@ -2,115 +2,109 @@ import FileDB
 
 @ModelEnum
 public enum DurationForOneTime {
-    case Immediate(IncludeIdentifier(Immediate))
-    case Permanent(IncludeIdentifier(PermanentDuration))
-    case Fixed(IncludeIdentifier(FixedDuration))
-    case CheckResultBased(IncludeIdentifier(CheckResultBasedDuration))
-    case Indefinite(IncludeIdentifier(IndefiniteDuration))
+    case Immediate(Immediate)
+    case Permanent(PermanentDuration)
+    case Fixed(FixedDuration)
+    case CheckResultBased(CheckResultBasedDuration)
+    case Indefinite(IndefiniteDuration)
 }
 
 @Embedded
 public struct Immediate {
   /// Specified if the duration has a maximum time span.
-  @Relationship(DurationUnitValue)
-  let maximum: DurationUnitValue.ID?
-      translations: NestedLocaleMap(
-        Optional,
-        "ImmediateTranslation",
-        Object({
+  let maximum: DurationUnitValue?
+      /// All translations for the entry, identified by IETF language tag (BCP47).
+      @Relationship(Locale.self)
+      let translations: [String: Translation]?
+
+      struct Translation { // ImmediateTranslation
 
         /// A replacement string.
-        let replacement: IncludeIdentifier(ResponsiveTextReplace)?
-        })
-      ),
+        let replacement: ResponsiveTextReplace?
+      }
   }
 
 @Embedded
 public struct PermanentDuration {
-      translations: NestedLocaleMap(
-        Optional,
-        "PermanentDurationTranslation",
-        Object({
+      /// All translations for the entry, identified by IETF language tag (BCP47).
+      @Relationship(Locale.self)
+      let translations: [String: Translation]?
+
+      struct Translation { // PermanentDurationTranslation
 
         /// A replacement string.
-        let replacement: IncludeIdentifier(ResponsiveTextReplace)?
-        })
-      ),
+        let replacement: ResponsiveTextReplace?
+      }
   }
 
 @Embedded
 public struct FixedDuration {
   /// If the duration is the maximum duration, so it may end earlier.
-  let is_maximum: Boolean()?
+  let is_maximum: Bool?
 
   /// The (unitless) duration.
-  let value: Integer({ minimum: 1 })
+  @Minimum(1)
+  let value: Int
 
   /// The duration unit.
-  @Relationship(DurationUnit)
-  let unit: DurationUnit.ID
-      translations: NestedLocaleMap(
-        Optional,
-        "FixedDurationTranslation",
-        Object(
-          {
-            replacement: Optional({
-              comment: "A replacement string.",
-              type: IncludeIdentifier(ResponsiveTextReplace),
-            }),
-          },
-          { minProperties: 1 }
-        )
-      ),
+  let unit: DurationUnit
+
+    /// All translations for the entry, identified by IETF language tag (BCP47).
+    @Relationship(Locale.self)
+    let translations: [String: Translation]?
+
+    @Embedded
+    @MinProperties(1)
+    struct Translation { // FixedDurationTranslation
+            /// A replacement string.
+            let replacement: ResponsiveTextReplace?
+          }
   }
 
 @Embedded
 public struct CheckResultBasedDuration {
   /// If the duration is the maximum duration, so it may end earlier.
-  let is_maximum: Boolean()?
+  let is_maximum: Bool?
 
   /// The base value that is derived from the check result.
-  @Relationship(CheckResultValue)
-  let base: CheckResultValue.ID
+  let base: CheckResultValue
+
   /// If defined, it modifies the base value.
-  @Relationship(CheckResultBasedModifier)
-  let modifier: CheckResultBasedModifier.ID?
+  let modifier: CheckResultBasedModifier?
 
   /// The duration unit.
-  @Relationship(DurationUnit)
-  let unit: DurationUnit.ID
-      translations: NestedLocaleMap(
-        Optional,
-        "CheckResultBasedDurationTranslation",
-        Object({
+  let unit: DurationUnit
+      /// All translations for the entry, identified by IETF language tag (BCP47).
+      @Relationship(Locale.self)
+      let translations: [String: Translation]?
+
+      struct Translation { // CheckResultBasedDurationTranslation
 
         /// A replacement string.
-        let replacement: IncludeIdentifier(ResponsiveTextReplace)?
-        })
-      ),
+        let replacement: ResponsiveTextReplace?
+      }
   }
 
 @Embedded
 public struct IndefiniteDuration {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // IndefiniteDurationTranslation
 
         /// A description of the duration.
-        let description: IncludeIdentifier(ResponsiveText)
-        })
-      ),
+        let description: ResponsiveText
+      }
   }
 
 @Embedded
 public struct DurationForSustained {
 
   /// The sustained skill can be active a maximum amount of time.
-  @Relationship(DurationUnitValue)
-  let maximum: DurationUnitValue.ID
+  let maximum: DurationUnitValue
   }
 
 @ModelEnum
@@ -131,9 +125,9 @@ public enum DurationUnit {
 public struct DurationUnitValue {
 
   /// The (unitless) duration value.
-  let value: Integer({ minimum: 1 })
+  @Minimum(1)
+  let value: Int
 
   /// The unit of the `value`.
-  @Relationship(DurationUnit)
-  let unit: DurationUnit.ID
+  let unit: DurationUnit
   }

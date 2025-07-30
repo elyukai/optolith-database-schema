@@ -4,12 +4,14 @@ import FileDB
 public struct Reach {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // ReachTranslation
 
         /// The reach’s name.
-        let name: String({ minLength: 1 })
+        @MinLength(1)
+        let name: String
     }
 }

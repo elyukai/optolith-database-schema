@@ -4,45 +4,66 @@ import FileDB
 public struct Elixir {
 
   /// The cost per ingredient level in silverthalers.
-  let cost_per_ingredient_level: Integer({ minimum: 1 })
+  @Minimum(1)
+  let cost_per_ingredient_level: Int
 
   /// The laboratory level needed to brew the elixir.
-  @Relationship(LaboratoryLevel)
-  let laboratory: LaboratoryLevel.ID
+  let laboratory: LaboratoryLevel
 
   /// The brewing difficulty, which represents the challenge of creating an elixir.
-  let brewing_difficulty: Integer()
+  let brewing_difficulty: Int
 
   /// AP value and prerequisites of the elixir recipe’s trade secret.
-  @Relationship(RecipeTradeSecret)
-  let trade_secret: RecipeTradeSecret.ID
+  let trade_secret: RecipeTradeSecret
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
+    @MinItems(1)
+    let src: [PublicationRef]
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // ElixirTranslationTranslation
 
         /// The item’s name.
-        let name: String({ minLength: 1 })
+        @MinLength(1)
+        let name: String
 
         /// A list of alternative names.
-        let alternative_names: Array(IncludeIdentifier(AlternativeName), { minItems: 1 })?
+        @MinItems(1)
+        let alternative_names: [AlternativeName]?
 
         /// A list of typical ingredients.
-        let typical_ingredients: Array(String({ minLength: 1 }), { minItems: 1, uniqueItems: true })
+        @MinItems(1)
+        @UniqueItems
+        let typical_ingredients: [TypicalIngredientDescriptionForElixir]
 
         /// Prerequsites for the brewing process, if any.
-        let brewing_process_prerequisites: String({ minLength: 1, isMarkdown: true })?
-          quality_levels: Required({
-            comment:
-              "The list of effects for each quality level. The first element represents QL 1, the second element QL 2, and so on.",
-            type: Array(String({ minLength: 1, isMarkdown: true }), { minItems: 6, maxItems: 6 }),
-          }),
+        @MinLength(1)
+        @Markdown
+        let brewing_process_prerequisites: String?
+          /// The list of effects for each quality level. The first element represents QL 1, the second element QL 2, and so on.
+          @MinItems(6)
+          @MaxItems(6)
+          let quality_levels: [ElixirEffectTranslationForQualityLevel]
 
-        let errata: Errata?
+        /// A list of errata for the entry in the specific language.
+        @MinItems(1)
+        let errata: [Erratum]?
     }
+}
+
+@TypeAlias
+public struct TypicalIngredientDescriptionForElixir {
+  @MinLength(1)
+  let text: String
+}
+
+@TypeAlias
+public struct ElixirEffectTranslationForQualityLevel {
+  @MinLength(1)
+  @Markdown
+  let text: String
 }

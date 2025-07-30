@@ -16,7 +16,7 @@ let package = Package(
             targets: ["OptolithDatabaseSchema"]),
     ],
     dependencies: [
-        .package(name: "FileDB", path: "../tsondb-swift"),
+        .package(name: "FileDB", path: "../filedb"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.

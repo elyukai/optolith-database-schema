@@ -3,8 +3,10 @@ import FileDB
 @Embedded
 public struct SpecialRule {
   /// An optional label that is displayed and placed before the actual text.
-  let label: String({ minLength: 1 })?
+  @MinLength(1)
+  let label: String?
 
   /// The text of a special rule.
-  let text: String({ minLength: 1 })
+  @MinLength(1)
+  let text: String
   }

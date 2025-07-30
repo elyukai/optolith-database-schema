@@ -4,8 +4,8 @@ import FileDB
 public struct PublicationPrerequisite {
 
   /// The publication’s identifier.
-  let id: PublicationIdentifier()
-      display_option: Optional({
-        type: IncludeIdentifier(DisplayOption),
-      }),
+  @Relationship(Publication.self)
+  let id: Publication.ID
+
+      let display_option: DisplayOption?
   }

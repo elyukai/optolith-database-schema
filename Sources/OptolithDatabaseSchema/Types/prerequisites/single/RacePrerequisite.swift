@@ -5,11 +5,10 @@ import FileDB
 public struct RacePrerequisite {
 
   /// The race’s identifier.
-  let id: RaceIdentifier()
-      active: Required({
-        type: Boolean(),
-      }),
-      display_option: Optional({
-        type: IncludeIdentifier(DisplayOption),
-      }),
+  @Relationship(Race.self)
+  let id: Race.ID
+
+      let active: Bool
+
+      let display_option: DisplayOption?
   }

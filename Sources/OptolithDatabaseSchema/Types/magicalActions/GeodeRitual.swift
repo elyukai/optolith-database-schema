@@ -4,61 +4,57 @@ import FileDB
 public struct GeodeRitual {
 
   /// Lists the linked three attributes used to make a skill check.
-  @Relationship(SkillCheck)
-  let check: SkillCheck.ID
+  let check: SkillCheck
 
   /// Measurable parameters of a geode ritual.
-  @Relationship(GeodeRitualPerformanceParameters)
-  let parameters: GeodeRitualPerformanceParameters.ID
+  let parameters: GeodeRitualPerformanceParameters
 
   /// The target category – the kind of creature or object – the skill affects.
-  @Relationship(AffectedTargetCategories)
-  let target: AffectedTargetCategories.ID
+  let target: AffectedTargetCategories
 
   /// The associated property.
-  let property: PropertyIdentifier()
+  @Relationship(Property.self)
+  let property: Property.ID
+
   /// The prerequisites for the geode ritual.
-  @Relationship(GeodeRitualPrerequisites)
-  let prerequisites: GeodeRitualPrerequisites.ID?
+  let prerequisites: GeodeRitualPrerequisites?
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
+    @MinItems(1)
+    let src: [PublicationRef]
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // GeodeRitualTranslation
 
         /// The geode ritual’s name.
-        let name: String({ minLength: 1 })
-          effect: Required({
-            comment:
-              "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
-            type: IncludeIdentifier(ActivatableSkillEffect),
-          }),
-          casting_time: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
-          }),
-          cost: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
-          }),
-          range: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
-          }),
-          duration: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
-          }),
-          target: Optional({
-            isDeprecated: true,
-            type: String({ minLength: 1 }),
-          }),
+        @MinLength(1)
+        let name: String
+          /// The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
+          let effect: ActivatableSkillEffect
 
-        let errata: Errata?
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let casting_time: OldParameter
+
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let cost: OldParameter
+
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let range: OldParameter
+
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let duration: OldParameter
+
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        @MinLength(1)
+        let target: String
+
+        /// A list of errata for the entry in the specific language.
+        @MinItems(1)
+        let errata: [Erratum]?
     }
 }
 
@@ -67,51 +63,49 @@ public struct GeodeRitual {
 public struct GeodeRitualPerformanceParameters {
 
   /// The casting time.
-  @Relationship(SlowSkillNonModifiableCastingTime)
-  let casting_time: SlowSkillNonModifiableCastingTime.ID
+  let casting_time: SlowSkillNonModifiableCastingTime
 
   /// The AE cost.
-  @Relationship(GeodeRitualCost)
-  let cost: GeodeRitualCost.ID
+  let cost: GeodeRitualCost
 
   /// The range.
-  @Relationship(GeodeRitualRange)
-  let range: GeodeRitualRange.ID
+  let range: GeodeRitualRange
 
   /// The duration.
-  @Relationship(GeodeRitualDuration)
-  let duration: GeodeRitualDuration.ID
+  let duration: GeodeRitualDuration
   }
 
 @ModelEnum
 public enum GeodeRitualCost {
-    case Fixed(IncludeIdentifier(FixedGeodeRitualCost))
-    case Map(IncludeIdentifier(CostMap))
+    case Fixed(FixedGeodeRitualCost)
+    case Map(CostMap)
 }
 
 @Embedded
 public struct FixedGeodeRitualCost {
 
   /// The AE cost value.
-  let value: Integer({ minimum: 1 })
+  @Minimum(1)
+  let value: Int
   }
 
 @ModelEnum
 public enum GeodeRitualRange {
-    case Self
-    case Fixed(IncludeIdentifier(FixedGeodeRitualRange))
+    case `Self`
+    case Fixed(FixedGeodeRitualRange)
 }
 
 @Embedded
 public struct FixedGeodeRitualRange {
 
   /// The range in steps/m.
-  let value: Integer({ minimum: 1 })
+  @Minimum(1)
+  let value: Int
   }
 
 @ModelEnum
 public enum GeodeRitualDuration {
     case Immediate
-    case Fixed(IncludeIdentifier(DurationUnitValue))
-    case CheckResultBased(IncludeIdentifier(CheckResultBasedDuration))
+    case Fixed(DurationUnitValue)
+    case CheckResultBased(CheckResultBasedDuration)
 }

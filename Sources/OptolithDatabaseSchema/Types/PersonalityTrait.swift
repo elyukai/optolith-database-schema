@@ -1,48 +1,52 @@
 import FileDB
 
+/// A personality trait describes character aspects of a person from a certain region. Higher trait levels only cover a part of the region covered by lower-level traits.
 @Model
 public struct PersonalityTrait {
-  name: "PersonalityTrait",
-  namePlural: "PersonalityTraits",
-  comment:
-    "A personality trait describes character aspects of a person from a certain region. Higher trait levels only cover a part of the region covered by lower-level traits.",
-  type: () =>
-    Object({
-
   /// The personality trait’s level.
-  let level: Integer({ minimum: 1, maximum: 3 })
-      prerequisites: Optional({
-        type: IncludeIdentifier(PersonalityTraitPrerequisites),
-      }),
+  @Minimum(1)
+  @Maximum(3)
+  let level: Int
+
+      let prerequisites: PersonalityTraitPrerequisites?
+
   /// The lower-level personality trait(s) this trait can be combined with.
-  let combination_options: Array(PersonalityTraitIdentifier(), { minItems: 1, uniqueItems: true })?
+  @MinItems(1)
+  @UniqueItems
+  @Relationship(PersonalityTrait.self)
+  let combination_options: [PersonalityTrait.ID]?
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
+    @MinItems(1)
+    let src: [PublicationRef]
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // PersonalityTraitTranslation
 
         /// The personality trait’s name.
-        let name: String({ minLength: 1 })
-          effects: Required({
-            comment:
-              "The effects of the personality trait. They should be sorted like they are in the book.",
-            type: Array(IncludeIdentifier(PersonalityTraitEffect), { minItems: 1 }),
-          }),
+        @MinLength(1)
+        let name: String
+          /// The effects of the personality trait. They should be sorted like they are in the book.
+          @MinItems(1)
+          let effects: [PersonalityTraitEffect]
 
-        let errata: Errata?
+        /// A list of errata for the entry in the specific language.
+        @MinItems(1)
+        let errata: [Erratum]?
     }
 }
 
 @Embedded
 public struct PersonalityTraitEffect {
   /// A label that is displayed and placed before the actual text.
-  let label: String({ minLength: 1 })?
+  @MinLength(1)
+  let label: String?
 
   /// The effect text.
-  let text: String({ minLength: 1 })
+  @MinLength(1)
+  let text: String
   }

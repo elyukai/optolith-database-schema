@@ -2,38 +2,59 @@ import FileDB
 
 @Model
 public struct ToolOfTheTrade {
-  name: "ToolOfTheTrade",
-  namePlural: "ToolsOfTheTrade",
-  type: () =>
-    Object({
-
   /// The cost in silverthalers.
-  @Relationship(Cost)
-  let cost: Cost.ID
+  let cost: Cost
 
   /// The weight in kg.
-  @Relationship(Weight)
-  let weight: Weight.ID
+  let weight: Weight
+
   /// The complexity of crafting the item.
-  @Relationship(Complexity)
-  let complexity: Complexity.ID?
+  let complexity: Complexity?
 
   /// The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
-  @Relationship(StructurePoints)
-  let structure_points: StructurePoints.ID
+  let structure_points: StructurePoints
+
   /// Additional information if the item is a laboratory.
-  @Relationship(Laboratory)
-  let laboratory: Laboratory.ID?
+  let laboratory: Laboratory?
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
-      translations: DefaultItemTranslations("ToolOfTheTrade"),
-    }),
+    @MinItems(1)
+    let src: [PublicationRef]
+
+    /// All translations for the entry, identified by IETF language tag (BCP47).
+    @Relationship(Locale.self)
+    let translations: [String: Translation]
+
+    @Embedded
+    public struct Translation { // ToolOfTheTradeTranslation
+        /// The item’s name.
+        @MinLength(1)
+        let name: String
+
+        /// An auxiliary name or label of the item, if available.
+        @MinLength(1)
+        let secondary_name: String?
+
+        /// Note text.
+        @MinLength(1)
+        @Markdown
+        let note: String?
+
+        /// Special rules text.
+        @MinLength(1)
+        @Markdown
+        let rules: String?
+
+        /// A list of errata for the entry in the specific language.
+        @MinItems(1)
+        let errata: [Erratum]?
+    }
+
+    public static let namePlural = "ToolsOfTheTrade"
 }
 
 @Embedded
 public struct Laboratory {
-      level: Required({
-        type: IncludeIdentifier(LaboratoryLevel),
-      }),
+
+      let level: LaboratoryLevel
   }

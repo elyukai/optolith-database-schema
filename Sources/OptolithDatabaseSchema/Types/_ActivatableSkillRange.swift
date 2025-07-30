@@ -4,83 +4,80 @@ import FileDB
 public struct Range {
 
   /// The range value.
-  @Relationship(RangeValue)
-  let value: RangeValue.ID
-      translations: NestedLocaleMap(
-        Optional,
-        "RangeTranslation",
-        Object(
-          {
-            note: Optional({
-              comment:
-                "A note, appended to the generated string in parenthesis. If the generated is modified using `replacement`, the note is appended to the modifier string.",
-              type: IncludeIdentifier(ResponsiveTextOptional),
-            }),
-            replacement: Optional({
-              comment:
-                "A replacement string. If `note` is provided, it is appended to the replaced string.",
-              type: IncludeIdentifier(ResponsiveTextReplace),
-            }),
-          },
-          { minProperties: 1 }
-        )
-      ),
+  let value: RangeValue
+
+    /// All translations for the entry, identified by IETF language tag (BCP47).
+    @Relationship(Locale.self)
+    let translations: [String: Translation]?
+
+    @Embedded
+    @MinProperties(1)
+    struct Translation { // RangeTranslation
+            /// A note, appended to the generated string in parenthesis. If the generated is modified using `replacement`, the note is appended to the modifier string.
+            let note: ResponsiveTextOptional?
+
+            /// A replacement string. If `note` is provided, it is appended to the replaced string.
+            let replacement: ResponsiveTextReplace?
+          }
   }
 
 @ModelEnum
 public enum RangeValue {
-    case Modifiable(IncludeIdentifier(ModifiableRange))
+    case Modifiable(ModifiableRange)
     case Sight
-    case Self
-    Global: EnumCase({ comment: "German: *dereumfassend*", type: null }),
+    case `Self`
+    /// German: *dereumfassend*
+    case Global
     case Touch
-    case Fixed(IncludeIdentifier(FixedRange))
-    case CheckResultBased(IncludeIdentifier(CheckResultBasedRange))
+    case Fixed(FixedRange)
+    case CheckResultBased(CheckResultBasedRange)
 }
 
 @Embedded
 public struct ModifiableRange {
   /// If `true`, the range is a maximum range.
-  let is_maximum: Boolean()?
+  let is_maximum: Bool?
 
   /// The initial skill modification identifier/level.
-  let initial_modification_level: SkillModificationLevelIdentifier()
+  @Relationship(SkillModificationLevel.self)
+  let initial_modification_level: SkillModificationLevel.ID
+
   /// If `true`, the range is a radius.
-  let is_radius: Boolean()?
+  let is_radius: Bool?
   }
 
 @Embedded
 public struct FixedRange {
   /// If `true`, the range is a maximum range.
-  let is_maximum: Boolean()?
+  let is_maximum: Bool?
 
   /// The (unitless) range value.
-  let value: Integer({ minimum: 1 })
+  @Minimum(1)
+  let value: Int
 
   /// The unit of the `value`.
-  @Relationship(RangeUnit)
-  let unit: RangeUnit.ID
+  let unit: RangeUnit
+
   /// If `true`, the range is a radius.
-  let is_radius: Boolean()?
+  let is_radius: Bool?
   }
 
 @Embedded
 public struct CheckResultBasedRange {
   /// If the range is the maximum range.
-  let is_maximum: Boolean()?
+  let is_maximum: Bool?
 
   /// The base value that is derived from the check result.
-  @Relationship(CheckResultValue)
-  let base: CheckResultValue.ID
+  let base: CheckResultValue
+
   /// If defined, it modifies the base value.
-  @Relationship(CheckResultBasedModifier)
-  let modifier: CheckResultBasedModifier.ID?
+  let modifier: CheckResultBasedModifier?
 
   /// The duration unit.
-  @Relationship(RangeUnit)
-  let unit: RangeUnit.ID
+  let unit: RangeUnit
+
   /// If `true`, the range is a radius.
-  let is_radius: Boolean()?
+  let is_radius: Bool?
   }
 
 @ModelEnum

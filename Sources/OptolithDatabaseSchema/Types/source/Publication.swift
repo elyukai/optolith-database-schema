@@ -1,44 +1,44 @@
 import FileDB
+import Foundation
 
 /// A publication.
 @Model
 public struct Publication {
 
   /// The publication category.
-  @Relationship(PublicationCategory)
-  let category: PublicationCategory.ID
+  let category: PublicationCategory
 
   /// If the publication may contain adult content.
-  let containsAdultContent: Boolean()
+  let containsAdultContent: Bool
 
   /// If the publication is not (fully) implemented and thus needs to be excluded from stable releases.
-  let isMissingImplementation: Boolean()
-      prerequisites: Optional({
-        type: IncludeIdentifier(PublicationPrerequisites),
-      }),
+  let isMissingImplementation: Bool
+
+      let prerequisites: PublicationPrerequisites?
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // PublicationTranslation
 
         /// The publisher’s publication identifier.
-        let publisherId: String({ minLength: 1 })?
+        @MinLength(1)
+        let publisherId: String?
 
         /// The publication’s name.
-        let name: String({ minLength: 1 })
+        @MinLength(1)
+        let name: String
 
         /// The publication’s abbreviation.
-        let abbreviation: String({ minLength: 1 })
+        @MinLength(1)
+        let abbreviation: String
 
         /// The publication’s release date.
-        let release_date: Date()?
-          isMissingImplementation: Required({
-            comment:
-              "If this publication translation is not (fully) implemented and thus needs to be excluded from stable releases.",
-            type: Boolean(),
-          }),
+        let release_date: Date?
+          /// If this publication translation is not (fully) implemented and thus needs to be excluded from stable releases.
+          let isMissingImplementation: Bool
     }
 }
 

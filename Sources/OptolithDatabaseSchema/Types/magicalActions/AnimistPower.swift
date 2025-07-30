@@ -4,66 +4,69 @@ import FileDB
 public struct AnimistPower {
 
   /// Lists the linked three attributes used to make a skill check.
-  @Relationship(SkillCheck)
-  let check: SkillCheck.ID
+  let check: SkillCheck
 
   /// Measurable parameters of an animist power.
-  @Relationship(AnimistPowerPerformanceParameters)
-  let parameters: AnimistPowerPerformanceParameters.ID
+  let parameters: AnimistPowerPerformanceParameters
 
   /// The target category – the kind of creature or object – the skill affects.
-  @Relationship(AffectedTargetCategories)
-  let target: AffectedTargetCategories.ID
+  let target: AffectedTargetCategories
 
   /// The associated property.
-  let property: PropertyIdentifier()
-      tribe_tradition: Required({
-        comment: `The tribe traditions the animist power is available to. It may be available to all or only specific tribes.
+  @Relationship(Property.self)
+  let property: Property.ID
 
-If no tribe tradition is given, the animist power is generally available to all tribe traditions.`,
-        type: Array(TribeIdentifier(), { uniqueItems: true }),
-      }),
+  /// The tribe traditions the animist power is available to. It may be available to all or only specific tribes.
+  ///
+  /// If no tribe tradition is given, the animist power is generally available to all tribe traditions.
+  @Relationship(Tribe.self)
+  @UniqueItems
+  let tribe_tradition: [Tribe.ID]
 
   /// States which column is used to improve the skill.
-  @Relationship(AnimistPowerImprovementCost)
-  let improvement_cost: AnimistPowerImprovementCost.ID
+  let improvement_cost: AnimistPowerImprovementCost
+
   /// The prerequisites for the animist power.
-  @Relationship(AnimistPowerPrerequisites)
-  let prerequisites: AnimistPowerPrerequisites.ID?
+  let prerequisites: AnimistPowerPrerequisites?
+
   /// The animist power can have multiple levels. Each level is skilled separately. A previous level must be on at least 10 so that the next higher level can be activated and skilled. A higher level cannot be skilled higher than a lower level. Each level also adds an effect text to the text of the first level.
-  let levels: Array(IncludeIdentifier(AnimistPowerLevel), { minItems: 1 })?
+  @MinItems(1)
+  let levels: [AnimistPowerLevel]?
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
+    @MinItems(1)
+    let src: [PublicationRef]
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // AnimistPowerTranslation
 
         /// The animist power’s name.
-        let name: String({ minLength: 1 })
-          name_in_library,
-          effect: Required({
-            comment:
-              "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
-            type: IncludeIdentifier(ActivatableSkillEffect),
-          }),
-          cost: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
-          }),
-          duration: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
-          }),
-          prerequisites: Optional({
-            isDeprecated: true,
-            type: String({ minLength: 1 }),
-          }),
+        @MinLength(1)
+        let name: String
 
-        let errata: Errata?
+          /// The full name of the entry as stated in the sources. Only use when `name` needs to be different from full name for text generation purposes.
+          @MinLength(1)
+          let name_in_library: String?
+          /// The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
+          let effect: ActivatableSkillEffect
+
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let cost: OldParameter
+
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let duration: OldParameter
+
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        @MinLength(1)
+        let prerequisites: String
+
+        /// A list of errata for the entry in the specific language.
+        @MinItems(1)
+        let errata: [Erratum]?
     }
 }
 
@@ -71,97 +74,98 @@ If no tribe tradition is given, the animist power is generally available to all 
 public struct AnimistPowerLevel {
 
   /// The level number.
-  let level: Integer({ minimum: 2 })
+  @Minimum(2)
+  let level: Int
+
   /// The source references, if different than the references for level 1.
-  @Relationship(PublicationRefs)
-  let src: PublicationRefs.ID?
+  @MinItems(1)
+  let src: [PublicationRef]?
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // AnimistPowerLevelTranslation
 
         /// An additional effect description for this level.
-        let effect: String({ minLength: 1, isMarkdown: true })
-        })
-      ),
+        @MinLength(1)
+        @Markdown
+        let effect: String
+      }
   }
 
 /// Measurable parameters of an animist power.
 @ModelEnum
 public enum AnimistPowerPerformanceParameters {
-    case OneTime(IncludeIdentifier(OneTimeAnimistPowerPerformanceParameters))
-    case Sustained(IncludeIdentifier(SustainedAnimistPowerPerformanceParameters))
+    case OneTime(OneTimeAnimistPowerPerformanceParameters)
+    case Sustained(SustainedAnimistPowerPerformanceParameters)
 }
 
 @Embedded
 public struct OneTimeAnimistPowerPerformanceParameters {
 
   /// The AE cost value, either a flat value or defined dynamically by the primary patron.
-  @Relationship(OneTimeAnimistPowerCost)
-  let cost: OneTimeAnimistPowerCost.ID
+  let cost: OneTimeAnimistPowerCost
 
   /// The duration.
-  @Relationship(OneTimeAnimistPowerDuration)
-  let duration: OneTimeAnimistPowerDuration.ID
+  let duration: OneTimeAnimistPowerDuration
   }
 
 @ModelEnum
 public enum OneTimeAnimistPowerCost {
-    case Fixed(IncludeIdentifier(FixedAnimistPowerCost))
-    case ByPrimaryPatron(IncludeIdentifier(AnimistPowerCostByPrimaryPatron))
+    case Fixed(FixedAnimistPowerCost)
+    case ByPrimaryPatron(AnimistPowerCostByPrimaryPatron)
 }
 
 @Embedded
 public struct FixedAnimistPowerCost {
 
   /// The (temporary) AE cost value.
-  let value: Integer({ minimum: 1 })
+  @Minimum(1)
+  let value: Int
+
   /// If defined, half of the AE cost `value` has to be paid each interval.
-  @Relationship(DurationUnitValue)
-  let interval: DurationUnitValue.ID?
+  let interval: DurationUnitValue?
   }
 
 @Embedded
 public struct AnimistPowerCostByPrimaryPatron {
   /// If defined, half of the AE cost `value` has to be paid each interval.
-  @Relationship(DurationUnitValue)
-  let interval: DurationUnitValue.ID?
-      translations: NestedLocaleMap(
-        Optional,
-        "AnimistPowerCostByPrimaryPatronTranslation",
-        Object({
+  let interval: DurationUnitValue?
+      /// All translations for the entry, identified by IETF language tag (BCP47).
+      @Relationship(Locale.self)
+      let translations: [String: Translation]?
+
+      struct Translation { // AnimistPowerCostByPrimaryPatronTranslation
 
         /// A note, appended to the generated string in parenthesis.
-        let note: IncludeIdentifier(ResponsiveTextOptional)
-        })
-      ),
+        let note: ResponsiveTextOptional
+      }
   }
 
 @ModelEnum
 public enum OneTimeAnimistPowerDuration {
     case Immediate
-    case Fixed(IncludeIdentifier(DurationUnitValue))
-    case CheckResultBased(IncludeIdentifier(CheckResultBasedDuration))
+    case Fixed(DurationUnitValue)
+    case CheckResultBased(CheckResultBasedDuration)
 }
 
 @Embedded
 public struct SustainedAnimistPowerPerformanceParameters {
 
   /// The AE cost value, either a flat value or defined dynamically by the primary patron.
-  @Relationship(SustainedAnimistPowerCost)
-  let cost: SustainedAnimistPowerCost.ID
+  let cost: SustainedAnimistPowerCost
   }
 
 @ModelEnum
 public enum SustainedAnimistPowerCost {
-    case Fixed(IncludeIdentifier(FixedAnimistPowerCost))
-    case ByPrimaryPatron(IncludeIdentifier(AnimistPowerCostByPrimaryPatron))
+    case Fixed(FixedAnimistPowerCost)
+    case ByPrimaryPatron(AnimistPowerCostByPrimaryPatron)
 }
 
 @ModelEnum
 public enum AnimistPowerImprovementCost {
-    case Fixed(IncludeIdentifier(ImprovementCost))
+    case Fixed(ImprovementCost)
     case ByPrimaryPatron
 }

@@ -2,49 +2,70 @@ import FileDB
 
 @Model
 public struct AnimalCare {
-  name: "AnimalCare",
-  namePlural: "AnimalCare",
-  type: () =>
-    Object({
-
   /// Values depending on whether the animal care is feed.
-  @Relationship(AnimalCareType)
-  let type: AnimalCareType.ID
+  let type: AnimalCareType
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
-      translations: DefaultItemTranslations("AnimalCare"),
-    }),
+    @MinItems(1)
+    let src: [PublicationRef]
+
+    /// All translations for the entry, identified by IETF language tag (BCP47).
+    @Relationship(Locale.self)
+    let translations: [String: Translation]
+
+    @Embedded
+    public struct Translation { // AnimalCareTranslation
+        /// The item’s name.
+        @MinLength(1)
+        let name: String
+
+        /// An auxiliary name or label of the item, if available.
+        @MinLength(1)
+        let secondary_name: String?
+
+        /// Note text.
+        @MinLength(1)
+        @Markdown
+        let note: String?
+
+        /// Special rules text.
+        @MinLength(1)
+        @Markdown
+        let rules: String?
+
+        /// A list of errata for the entry in the specific language.
+        @MinItems(1)
+        let errata: [Erratum]?
+    }
+
+    public static let namePlural = "AnimalCare"
 }
 
 /// Values depending on whether the animal care is feed.
 @ModelEnum
 public enum AnimalCareType {
-    case General(IncludeIdentifier(GeneralAnimalCare))
-    case Feed(IncludeIdentifier(AnimalFeed))
+    case General(GeneralAnimalCare)
+    case Feed(AnimalFeed)
 }
 
 @Embedded
 public struct GeneralAnimalCare {
 
   /// The cost in silverthalers.
-  @Relationship(Cost)
-  let cost: Cost.ID
+  let cost: Cost
 
   /// The weight in kg.
-  @Relationship(Weight)
-  let weight: Weight.ID
+  let weight: Weight
   }
 
 @Embedded
 public struct AnimalFeed {
 
   /// The cost in silverthalers.
-  @Relationship(AnimalFeedCost)
-  let cost: AnimalFeedCost.ID
+  let cost: AnimalFeedCost
   }
 
 @ModelEnum
 public enum AnimalFeedCost {
-    case PerWeek(IncludeIdentifier(FixedCost))
+    case PerWeek(FixedCost)
 }

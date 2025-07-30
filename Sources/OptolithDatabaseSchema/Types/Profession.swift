@@ -4,8 +4,7 @@ import FileDB
 public struct Profession {
 
   /// The profession group.
-  @Relationship(ProfessionGroup)
-  let group: ProfessionGroup.ID
+  let group: ProfessionGroup
       //       versions: Required({
       //         comment: `A list of professions representing the same profession but with (slightly) different stats. For example, there may be a profession in a regional sourcebook or in the core rules and a profession in an extension rulebook like Magic of Aventuria, where the profession is basically called the same and almost has the same values, but the version from Magic of Aventuria features a spell style special ability that does not exist in the core rules or regional sourcebook.
 
@@ -13,14 +12,14 @@ public struct Profession {
       //         type: Array(ProfessionVersionIdentifier(), { minItems: 1 }),
       //         isTransient: true,
       //       }),
-    }),
-  displayName: null,
-})
+  //   }),
+  // displayName: null,
+}
 
 @ModelEnum
 public enum ProfessionGroup {
-    case Mundane(IncludeIdentifier(MundaneProfessionGroup))
-    case Magical(IncludeIdentifier(MagicalProfessionGroup))
+    case Mundane(MundaneProfessionGroup)
+    case Magical(MagicalProfessionGroup)
     case Blessed
 }
 
@@ -34,88 +33,84 @@ public enum MundaneProfessionGroup {
 @Embedded
 public struct MagicalProfessionGroup {
   /// The curriculum/academy associated with this magical profession, if any.
-  let curriculum: CurriculumIdentifier()?
+  @Relationship(Curriculum.self)
+  let curriculum: Curriculum.ID?
   }
 
 @Model
 public struct ProfessionVersion {
 
   /// The associated profession.
-  let profession: ProfessionIdentifier()
+  @Relationship(Profession.self)
+  let profession: Profession.ID
+
   /// Which prerequisites must be met to buy the stat block? For example, a character might need the advantage Spellcaster or Blessed. Note: the AP cost for a profession package does not include these prerequisites.
-  @Relationship(ProfessionPrerequisites)
-  let prerequisites: ProfessionPrerequisites.ID?
+  let prerequisites: ProfessionPrerequisites?
       // package: Required({
       //   comment:
       //     "A list of available race variants where one has to be selected. If no variants are to be selected, a single variant with no name has to be provided which will be used as the missing values for the base race.",
       //   type: Array(ProfessionPackageIdentifier(), { minItems: 1 }),
       //   isTransient: true,
       // }),
-      suggested_advantages: Optional({
-        comment: "A list of typical advantages.",
-        type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
-          { minItems: 1 }
-        ),
-      }),
-      suggested_disadvantages: Optional({
-        comment: "A list of typical disadvantages.",
-        type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
-          { minItems: 1 }
-        ),
-      }),
-      unsuitable_advantages: Optional({
-        comment:
-          "A list of advantages that do not fit well with this profession; to be checked with the GM before taking any of them.",
-        type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [AdvantageIdentifier()]),
-          { minItems: 1 }
-        ),
-      }),
-      unsuitable_disadvantages: Optional({
-        comment:
-          "A list of disadvantages that do not fit well with this profession; to be checked with the GM before taking any of them.",
-        type: Array(
-          GenIncludeIdentifier(CommonnessRatedAdvantageDisadvantage, [DisadvantageIdentifier()]),
-          { minItems: 1 }
-        ),
-      }),
+
+      /// A list of typical advantages.
+      @MinItems(1)
+      @Relationship(Advantage.self)
+      let suggested_advantages: [CommonnessRatedAdvantageDisadvantage<Advantage.ID>]?
+
+      /// A list of typical disadvantages.
+      @MinItems(1)
+      @Relationship(Disadvantage.self)
+      let suggested_disadvantages: [CommonnessRatedAdvantageDisadvantage<Disadvantage.ID>]?
+
+      /// A list of advantages that do not fit well with this profession; to be checked with the GM before taking any of them.
+      @MinItems(1)
+      @Relationship(Advantage.self)
+      let unsuitable_advantages: [CommonnessRatedAdvantageDisadvantage<Advantage.ID>]?
+
+      /// A list of disadvantages that do not fit well with this profession; to be checked with the GM before taking any of them.
+      @MinItems(1)
+      @Relationship(Disadvantage.self)
+      let unsuitable_disadvantages: [CommonnessRatedAdvantageDisadvantage<Disadvantage.ID>]?
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
+    @MinItems(1)
+    let src: [PublicationRef]
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // ProfessionVersionTranslation
 
         /// The basic profession’s name.
-        let name: String({ minLength: 1 })
+        @MinLength(1)
+        let name: String
           // specification: Required({
           //   comment:
           //     "A name addition of the profession. This will contain texts like name of the academy or the witch circle. It is enclosed in parenthesis, but the database entry must not contain parenthesis.",
-          //   type: IncludeIdentifier(ProfessionName),
+          //   type: ProfessionName,
           // }),
 
         /// A list of typical advantages.
-        let suggested_advantages: String({ minLength: 1 })?
+        @MinLength(1)
+        let suggested_advantages: String?
 
         /// A list of typical disadvantages.
-        let suggested_disadvantages: String({ minLength: 1 })?
-          unsuitable_advantages: Optional({
-            comment:
-              "A list of advantages that do not fit well with this profession; to be checked with the GM before taking any of them.",
-            type: String({ minLength: 1 }),
-          }),
-          unsuitable_disadvantages: Optional({
-            comment:
-              "A list of disadvantages that do not fit well with this profession; to be checked with the GM before taking any of them.",
-            type: String({ minLength: 1 }),
-          }),
+        @MinLength(1)
+        let suggested_disadvantages: String?
+          /// A list of advantages that do not fit well with this profession; to be checked with the GM before taking any of them.
+          @MinLength(1)
+          let unsuitable_advantages: String?
 
-        let errata: Errata?
+          /// A list of disadvantages that do not fit well with this profession; to be checked with the GM before taking any of them.
+          @MinLength(1)
+          let unsuitable_disadvantages: String?
+
+        /// A list of errata for the entry in the specific language.
+        @MinItems(1)
+        let errata: [Erratum]?
     }
 }
 
@@ -123,16 +118,20 @@ public struct ProfessionVersion {
 public struct ProfessionPackage {
 
   /// The associated profession version.
-  let profession_version: ProfessionVersionIdentifier()
+  @Relationship(ProfessionVersion.self)
+  let profession_version: ProfessionVersion.ID
+
   /// The associated experience level. By default, profession packages are associated with the experience level *Experienced*.
-  let experience_level: ProfessionVersionIdentifier()?
+  @Relationship(ProfessionVersion.self)
+  let experience_level: ProfessionVersion.ID?
 
   /// What does the professional package cost in adventure points?
-  let ap_value: Integer({ minimum: 0 })
+  @Minimum(0)
+  let ap_value: Int
       // options: Optional({
       //   comment:
       //     "In some areas, the profession package grants a loose set of stats where the player must choose between different options for the profession package.",
-      //   type: IncludeIdentifier(ProfessionPackageOptions),
+      //   type: ProfessionPackageOptions,
       // }),
       // special_abilities: Optional({
       //   comment: "Any special abilities the profession receives from the package.",
@@ -160,12 +159,12 @@ public struct ProfessionPackage {
       // variants: Optional({
       //   comment:
       //     "Provides examples of variants for the profession, which may include changes to AP values and additional or modified skill ratings, special abilities, or combat techniques, as compared to the basic profession. Usually picking a variant is optional, but there are some rare exceptions where picking a variant is required.",
-      //   type: IncludeIdentifier(ProfessionVariants),
+      //   type: ProfessionVariants,
       //   isTransient: true,
       // }),
-    }),
-  displayName: null,
-})
+  //   }),
+  // displayName: null,
+}
 
 // /**
 //  * Provides examples of variants for the profession, which may include changes to AP values and additional or modified skill ratings, special abilities, or combat techniques, as compared to the basic profession. Usually picking a variant is optional, but there are some rare exceptions where picking a variant is required.
@@ -186,17 +185,18 @@ public struct ProfessionPackage {
 public struct ProfessionVariant {
 
   /// The associated profession package.
-  let profession_package: ProfessionPackageIdentifier()
+  @Relationship(ProfessionPackage.self)
+  let profession_package: ProfessionPackage.ID
+
   /// The AP value you have to pay for the package variant.
-  @Relationship(ProfessionPrerequisites)
-  let ap_value: ProfessionPrerequisites.ID?
+  let ap_value: ProfessionPrerequisites?
+
   /// Which prerequisites must be met to buy the stat block? For example, a character might need the advantage Spellcaster or Blessed. Note: the AP cost for a profession package does not include these prerequisites.
-  @Relationship(ProfessionPrerequisites)
-  let prerequisites: ProfessionPrerequisites.ID?
+  let prerequisites: ProfessionPrerequisites?
       // options: Optional({
       //   comment:
       //     "In some areas, the profession package grants a loose set of stats where the player must choose between different options for the profession package. The variant may override or remove those options.",
-      //   type: IncludeIdentifier(ProfessionVariantPackageOptions),
+      //   type: ProfessionVariantPackageOptions,
       // }),
       // special_abilities: Optional({
       //   comment: "Any special abilities the profession receives from the package variant.",
@@ -223,22 +223,25 @@ public struct ProfessionVariant {
       // }),
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // ProfessionVariantTranslation
 
         /// The profession variant’s name.
-        let name: String({ minLength: 1 })
+        @MinLength(1)
+        let name: String
 
         /// A text that replaces the generated text for the profession variant.
-        let full_text: String({ minLength: 1 })?
-          concluding_text: Optional({
-            comment: `A text that is appended to the generated text for the profession variant.
+        @MinLength(1)
+        let full_text: String?
 
-Has no effect when \`full_text\` is set.`,
-            type: String({ minLength: 1 }),
-          }),
+        /// A text that is appended to the generated text for the profession variant.
+        ///
+        /// Has no effect when `full_text` is set.
+        @MinLength(1)
+        let concluding_text: String?
     }
 }
 

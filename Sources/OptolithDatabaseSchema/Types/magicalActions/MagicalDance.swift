@@ -4,53 +4,48 @@ import FileDB
 public struct MagicalDance {
 
   /// Lists the linked three attributes used to make a skill check.
-  @Relationship(SkillCheck)
-  let check: SkillCheck.ID
+  let check: SkillCheck
 
   /// Measurable parameters of a magical dance.
-  @Relationship(MagicalDancePerformanceParameters)
-  let parameters: MagicalDancePerformanceParameters.ID
+  let parameters: MagicalDancePerformanceParameters
 
   /// The associated property.
-  let property: PropertyIdentifier()
-      music_tradition: Required({
-        comment:
-          "The music tradition(s) the magical dance is available for. This also defines the different names in each music tradition.",
-        type: Array(IncludeIdentifier(MusicTraditionReference(ArcaneDancerTraditionIdentifier())), {
-          minItems: 1,
-        }),
-      }),
+  @Relationship(Property.self)
+  let property: Property.ID
+
+      /// The music tradition(s) the magical dance is available for. This also defines the different names in each music tradition.
+      @MinItems(1)
+      let music_tradition: [ArcaneDancerTraditionReference]?
 
   /// States which column is used to improve the skill.
-  @Relationship(ImprovementCost)
-  let improvement_cost: ImprovementCost.ID
+  let improvement_cost: ImprovementCost
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
+    @MinItems(1)
+    let src: [PublicationRef]
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // MagicalDanceTranslation
 
         /// The magical dance’s name.
-        let name: String({ minLength: 1 })
-          effect: Required({
-            comment:
-              "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
-            type: IncludeIdentifier(ActivatableSkillEffect),
-          }),
-          duration: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
-          }),
-          cost: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
-          }),
+        @MinLength(1)
+        let name: String
+          /// The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
+          let effect: ActivatableSkillEffect
 
-        let errata: Errata?
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let duration: OldParameter
+
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let cost: OldParameter
+
+        /// A list of errata for the entry in the specific language.
+        @MinItems(1)
+        let errata: [Erratum]?
     }
 }
 
@@ -59,55 +54,69 @@ public struct MagicalDance {
 public struct MagicalDancePerformanceParameters {
 
   /// The duration.
-  @Relationship(MusicDuration)
-  let duration: MusicDuration.ID
+  let duration: MusicDuration
 
   /// The AE cost.
-  @Relationship(MagicalDanceCost)
-  let cost: MagicalDanceCost.ID
+  let cost: MagicalDanceCost
   }
 
 @ModelEnum
 public enum MagicalDanceCost {
-    case Fixed(IncludeIdentifier(FixedMagicalDanceCost))
-    case Indefinite(IncludeIdentifier(IndefiniteMagicalDanceCost))
+    case Fixed(FixedMagicalDanceCost)
+    case Indefinite(IndefiniteMagicalDanceCost)
 }
 
 @Embedded
 public struct FixedMagicalDanceCost {
 
   /// The (temporary) AE cost value.
-  let value: Integer({ minimum: 1 })
-      translations: NestedLocaleMap(
-        Optional,
-        "FixedMagicalDanceCostTranslation",
-        Object(
-          {
-            per: Optional({
-              comment:
-                "The cost have to be per a specific countable entity, e.g. `8 KP per person`.",
-              type: IncludeIdentifier(ResponsiveTextOptional),
-            }),
-          },
-          { minProperties: 1 }
-        )
-      ),
+  @Minimum(1)
+  let value: Int
+
+    /// All translations for the entry, identified by IETF language tag (BCP47).
+    @Relationship(Locale.self)
+    let translations: [String: Translation]?
+
+    @Embedded
+    @MinProperties(1)
+    struct Translation { // FixedMagicalDanceCostTranslation
+            /// The cost have to be per a specific countable entity, e.g. `8 KP per person`.
+            let per: ResponsiveTextOptional?
+          }
   }
 
 @Embedded
 public struct IndefiniteMagicalDanceCost {
   /// Specified if the indefinite description's result value is to be modified by a certain number.
-  @Relationship(CheckResultBasedModifier)
-  let maximum: CheckResultBasedModifier.ID?
+  let maximum: CheckResultBasedModifier?
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // IndefiniteMagicalDanceCostTranslation
 
         /// A description of where the cost come from.
-        let description: IncludeIdentifier(ResponsiveText)
-        })
-      ),
+        let description: ResponsiveText
+      }
   }
+
+/// A reference to an arcane dancer tradition with the music-tradition-specific name of the entry.
+@Embedded
+public struct ArcaneDancerTraditionReference {
+        /// The music tradition’s identifier.
+        @Relationship(ArcaneDancerTradition.self)
+        let id: ArcaneDancerTradition.ID
+
+    /// All translations for the entry, identified by IETF language tag (BCP47).
+    @Relationship(Locale.self)
+    let translations: [String: Translation]
+
+    @Embedded
+    struct Translation { // ArcaneDancerTraditionReferenceTranslation
+            /// The music-tradition-specific name of the entry.
+            @MinLength(1)
+            let name: String
+          }
+}

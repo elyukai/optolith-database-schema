@@ -4,18 +4,22 @@ import FileDB
 public struct AnimalShape {
 
   /// The animal shape’s path.
-  let path: AnimalShapePathIdentifier()
+  @Relationship(AnimalShapePath.self)
+  let path: AnimalShapePath.ID
 
   /// The animal shape’s size.
-  let size: AnimalShapeSizeIdentifier()
+  @Relationship(AnimalShapeSize.self)
+  let size: AnimalShapeSize.ID
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // AnimalShapeTranslation
 
         /// The animal shape’s name.
-        let name: String({ minLength: 1 })
+        @MinLength(1)
+        let name: String
     }
 }

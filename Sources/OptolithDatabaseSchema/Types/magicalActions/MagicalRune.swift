@@ -2,117 +2,106 @@ import FileDB
 
 @Model
 public struct MagicalRune {
-      music_tradition: Optional({
-        comment: `The options the magical rune has, if any.
-
-If there are multiple options, the magical rune may be activated for each option, that is, multiple times.`,
-        type: Array(IncludeIdentifier(MagicalRuneOption), {
-          minItems: 1,
-        }),
-      }),
+  /// The options the magical rune has, if any.
+  ///
+  /// If there are multiple options, the magical rune may be activated for each option, that is, multiple times.
+  @MinItems(1)
+  let music_tradition: [MagicalRuneOption]?
 
   /// Lists the linked three attributes used to make a skill check.
-  @Relationship(SkillCheck)
-  let check: SkillCheck.ID
+  let check: SkillCheck
+
   /// In some cases, the target's Spirit or Toughness is applied as a penalty.
-  @Relationship(MagicalRuneCheckPenalty)
-  let check_penalty: MagicalRuneCheckPenalty.ID?
+  let check_penalty: MagicalRuneCheckPenalty?
 
   /// Measurable parameters of a magical rune.
-  @Relationship(MagicalRunePerformanceParameters)
-  let parameters: MagicalRunePerformanceParameters.ID
+  let parameters: MagicalRunePerformanceParameters
 
   /// The associated property.
-  let property: PropertyIdentifier()
+  @Relationship(Property.self)
+  let property: Property.ID
 
   /// States which column is used to improve the skill.
-  @Relationship(MagicalRuneImprovementCost)
-  let improvement_cost: MagicalRuneImprovementCost.ID
+  let improvement_cost: MagicalRuneImprovementCost
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
+    @MinItems(1)
+    let src: [PublicationRef]
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // MagicalRuneTranslation
-          name: Required({
-            comment: `The magical rune’s name.
+          /// The magical rune’s name.
+          ///
+          /// If the rune has an option, the option’s name will/should not be included in the name as well as its surrounding parenthesis. It will/should be combined on demand.
+          @MinLength(1)
+          let name: String
 
-If the rune has an option, the option’s name will/should not be included in the name as well as its surrounding parenthesis. It will/should be combined on demand.`,
-            type: String({ minLength: 1 }),
-          }),
-          name_in_library,
+          /// The full name of the entry as stated in the sources. Only use when `name` needs to be different from full name for text generation purposes.
+          @MinLength(1)
+          let name_in_library: String?
 
         /// The native name of the magical rune.
-        let native_name: String({ minLength: 1 })
-          effect: Required({
-            comment:
-              "The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.",
-            type: IncludeIdentifier(ActivatableSkillEffect),
-          }),
-          cost: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameter),
-          }),
-          crafting_time: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameterBySpeed),
-          }),
-          duration: Optional({
-            isDeprecated: true,
-            type: IncludeIdentifier(OldParameterBySpeed),
-          }),
+        @MinLength(1)
+        let native_name: String
+          /// The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
+          let effect: ActivatableSkillEffect
 
-        let errata: Errata?
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let cost: OldParameter
+
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let crafting_time: OldParameterBySpeed
+
+        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        let duration: OldParameterBySpeed
+
+        /// A list of errata for the entry in the specific language.
+        @MinItems(1)
+        let errata: [Erratum]?
     }
 }
 
 @Embedded
 public struct OldParameterBySpeed {
-      slow: Required({
-        type: IncludeIdentifier(OldParameter),
-      }),
-      fast: Required({
-        type: IncludeIdentifier(OldParameter),
-      }),
+
+      let slow: OldParameter
+
+      let fast: OldParameter
   }
 
 @ModelEnum
 public enum MagicalRuneCheckPenalty {
-    case CombatTechnique(IncludeIdentifier(MagicalRuneCombatTechniqueCheckPenalty))
+    case CombatTechnique(MagicalRuneCombatTechniqueCheckPenalty)
 }
 
 @Embedded
 public struct MagicalRuneCombatTechniqueCheckPenalty {
-      map: Required({
-        comment: "A map from combat techniques to their modifiers.",
-        type: Array(IncludeIdentifier(MagicalRuneCombatTechniqueCheckPenaltyMapping), {
-          minItems: 1,
-        }),
-      }),
-      rest: Required({
-        type: IncludeIdentifier(MagicalRuneCombatTechniqueCheckPenaltyRest),
-      }),
+      /// A map from combat techniques to their modifiers.
+      @MinItems(1)
+      let map: [MagicalRuneCombatTechniqueCheckPenaltyMapping]
+
+      let rest: MagicalRuneCombatTechniqueCheckPenaltyRest
   }
 
 @Embedded
 public struct MagicalRuneCombatTechniqueCheckPenaltyMapping {
 
   /// The combat technique’s identifier.
-  @Relationship(CombatTechniqueIdentifier)
-  let id: CombatTechniqueIdentifier.ID
+  let id: CombatTechniqueIdentifier
 
   /// The check modifier for the specified combat technique.
-  let modifier: Integer()
+  let modifier: Int
   }
 
 @Embedded
 public struct MagicalRuneCombatTechniqueCheckPenaltyRest {
 
   /// The check modifier for combat techniques not specified in `map`.
-  let modifier: Integer()
+  let modifier: Int
   }
 
 /// Measurable parameters of a magical rune.
@@ -120,87 +109,83 @@ public struct MagicalRuneCombatTechniqueCheckPenaltyRest {
 public struct MagicalRunePerformanceParameters {
 
   /// The AE cost.
-  @Relationship(MagicalRuneCost)
-  let cost: MagicalRuneCost.ID
+  let cost: MagicalRuneCost
 
   /// The crafting time.
-  @Relationship(MagicalRuneCraftingTime)
-  let crafting_time: MagicalRuneCraftingTime.ID
+  let crafting_time: MagicalRuneCraftingTime
 
   /// The duration.
-  @Relationship(MagicalRuneDuration)
-  let duration: MagicalRuneDuration.ID
+  let duration: MagicalRuneDuration
   }
 
 @ModelEnum
 public enum MagicalRuneCost {
-    case Single(IncludeIdentifier(SingleMagicalRuneCost))
-    case Disjunction(IncludeIdentifier(MagicalRuneCostDisjunction))
+    case Single(SingleMagicalRuneCost)
+    case Disjunction(MagicalRuneCostDisjunction)
     case DerivedFromOption
 }
 
 @ModelEnum
 public enum MagicalRuneOptionCost {
-    case Single(IncludeIdentifier(SingleMagicalRuneCost))
-    case Disjunction(IncludeIdentifier(MagicalRuneCostDisjunction))
+    case Single(SingleMagicalRuneCost)
+    case Disjunction(MagicalRuneCostDisjunction)
 }
 
 @Embedded
 public struct SingleMagicalRuneCost {
 
   /// The AE cost value.
-  let value: Integer({ minimum: 1 })
-      translations: NestedLocaleMap(
-        Optional,
-        "SingleMagicalRuneCostTranslation",
-        Object({
+  @Minimum(1)
+  let value: Int
+      /// All translations for the entry, identified by IETF language tag (BCP47).
+      @Relationship(Locale.self)
+      let translations: [String: Translation]?
+
+      struct Translation { // SingleMagicalRuneCostTranslation
 
         /// A note, appended to the generated string in parenthesis.
-        let note: IncludeIdentifier(ResponsiveTextOptional)
-        })
-      ),
+        let note: ResponsiveTextOptional
+      }
   }
 
 @Embedded
 public struct MagicalRuneCostDisjunction {
 
   /// A set of possible AE cost values.
-  let list: Array(IncludeIdentifier(SingleMagicalRuneCost), { minItems: 2, uniqueItems: true })
+  @MinItems(2)
+  @UniqueItems
+  let list: [SingleMagicalRuneCost]
   }
 
 @Embedded
 public struct MagicalRuneCraftingTime {
 
   /// The crafting time in actions.
-  let value: Integer({ minimum: 1 })
-      translations: NestedLocaleMap(
-        Optional,
-        "MagicalRuneCraftingTimeTranslation",
-        Object({
-          per: Required({
-            comment:
-              "The crafting time has to be per a specific countable entity, e.g. `8 actions per person`.",
-            type: IncludeIdentifier(ResponsiveText),
-          }),
-        })
-      ),
+  @Minimum(1)
+  let value: Int
+      /// All translations for the entry, identified by IETF language tag (BCP47).
+      @Relationship(Locale.self)
+      let translations: [String: Translation]?
+
+      struct Translation { // MagicalRuneCraftingTimeTranslation
+          /// The crafting time has to be per a specific countable entity, e.g. `8 actions per person`.
+          let per: ResponsiveText
+      }
   }
 
 @Embedded
 public struct MagicalRuneDuration {
 
   /// The duration on slow rune application.
-  @Relationship(CheckResultBasedDuration)
-  let slow: CheckResultBasedDuration.ID
+  let slow: CheckResultBasedDuration
 
   /// The duration on fast rune application.
-  @Relationship(CheckResultBasedDuration)
-  let fast: CheckResultBasedDuration.ID
+  let fast: CheckResultBasedDuration
   }
 
 @ModelEnum
 public enum MagicalRuneImprovementCost {
-    case Constant(IncludeIdentifier(ImprovementCost))
+    case Constant(ImprovementCost)
     case DerivedFromOption
 }
 
@@ -208,54 +193,58 @@ public enum MagicalRuneImprovementCost {
 public struct MagicalRuneOption {
 
   /// The magical rune option’s identifier. An unique, increasing integer.
-  let id: Integer({ minimum: 1 })
+  @Minimum(1)
+  let id: Int
+
   /// The option-specific AE cost.
-  @Relationship(MagicalRuneOptionCost)
-  let cost: MagicalRuneOptionCost.ID?
+  let cost: MagicalRuneOptionCost?
+
   /// The option-specific improvement cost.
-  @Relationship(ImprovementCost)
-  let improvement_cost: ImprovementCost.ID?
-      suboption: Optional({
-        type: IncludeIdentifier(MagicalRuneSuboption),
-      }),
+  let improvement_cost: ImprovementCost?
+
+      let suboption: MagicalRuneSuboption?
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // MagicalRuneOptionTranslation
-          name: Required({
-            comment: `The magical rune option’s name.
-
-The surrounding parenthesis will/should not be included, they will/should be generated.`,
-            type: String({ minLength: 1 }),
-          }),
+          /// The magical rune’s name.
+          ///
+          /// The surrounding parenthesis will/should not be included, they will/should be generated.
+          @MinLength(1)
+          let name: String
 
         /// The native name of the magical rune option.
-        let native_name: String({ minLength: 1 })
-        })
-      ),
+        @MinLength(1)
+        let native_name: String
+      }
   }
 
 @ModelEnum
 public enum MagicalRuneSuboption {
     /// The sub-option may be defined by the user (as a arbitrary text).
-    case Custom(IncludeIdentifier(CustomMagicalRuneSuboption))
+    case Custom(CustomMagicalRuneSuboption)
 }
 
 @Embedded
 public struct CustomMagicalRuneSuboption {
-      translations: NestedLocaleMap(
-        Required,
-        "CustomMagicalRuneSuboptionTranslation",
-        Object(
-          {
-            examples: Optional({
-              comment: "One or more examples for the suboption.",
-              type: Array(String({ minLength: 1 }), { minItems: 1, uniqueItems: true }),
-            }),
-          },
-          { minProperties: 1 }
-        )
-      ),
+      /// All translations for the entry, identified by IETF language tag (BCP47).
+      @Relationship(Locale.self)
+      let translations: [String: Translation]?
+
+      @MinProperties(1)
+      struct Translation { // CustomMagicalRuneSuboptionTranslation
+            /// One or more examples for the suboption.
+            @MinItems(1)
+            @UniqueItems
+            let examples: [CustomMagicalRuneSuboptionExample]?
+        }
   }
+
+@TypeAlias
+public struct CustomMagicalRuneSuboptionExample {
+  @MinLength(1)
+  let text: String
+}

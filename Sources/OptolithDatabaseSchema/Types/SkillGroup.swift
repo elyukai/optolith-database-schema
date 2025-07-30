@@ -4,19 +4,21 @@ import FileDB
 public struct SkillGroup {
 
   /// The skill group’s skill check attributes
-  @Relationship(SkillCheck)
-  let check: SkillCheck.ID
+  let check: SkillCheck
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // SkillGroupTranslation
 
         /// The skill group’s name.
-        let name: String({ minLength: 1 })
+        @MinLength(1)
+        let name: String
 
         /// The skill group’s long name.
-        let longName: String({ minLength: 1 })
+        @MinLength(1)
+        let longName: String
     }
 }

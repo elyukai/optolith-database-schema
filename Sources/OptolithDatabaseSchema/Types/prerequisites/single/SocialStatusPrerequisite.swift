@@ -5,8 +5,8 @@ import FileDB
 public struct SocialStatusPrerequisite {
 
   /// The minimum social status’s identifier.
-  let id: SocialStatusIdentifier()
-      display_option: Optional({
-        type: IncludeIdentifier(DisplayOption),
-      }),
+  @Relationship(SocialStatus.self)
+  let id: SocialStatus.ID
+
+      let display_option: DisplayOption?
   }

@@ -4,86 +4,54 @@
 
 import FileDB
 
-export const OneTimePerformanceParameters = GenTypeAlias(import.meta.url, {
-  name: "OneTimePerformanceParameters",
-  parameters: [Param("CastingTime")],
-  type: CastingTime =>
-    Object({
-      casting_time: Required({
-        type: TypeArgument(CastingTime),
-      }),
-      cost: Required({
-        type: IncludeIdentifier(OneTimeCost),
-      }),
-      range: Required({
-        type: IncludeIdentifier(Range),
-      }),
-      duration: Required({
-        type: IncludeIdentifier(DurationForOneTime),
-      }),
+@Embedded
+public struct OneTimePerformanceParameters<CastingTime> {
+
+      let casting_time: CastingTime
+
+      let cost: OneTimeCost
+
+      let range: Range
+
+      let duration: DurationForOneTime
   }
 
-const SustainedPerformanceParameters = GenTypeAlias(import.meta.url, {
-  name: "SustainedPerformanceParameters",
-  parameters: [Param("CastingTime")],
-  type: CastingTime =>
-    Object({
-      casting_time: Required({
-        type: TypeArgument(CastingTime),
-      }),
-      cost: Required({
-        type: IncludeIdentifier(SustainedCost),
-      }),
-      range: Required({
-        type: IncludeIdentifier(Range),
-      }),
-      duration: Optional({
-        type: IncludeIdentifier(DurationForSustained),
-      }),
+@Embedded
+public struct SustainedPerformanceParameters<CastingTime> {
+
+      let casting_time: CastingTime
+
+      let cost: SustainedCost
+
+      let range: Range
+
+      let duration: DurationForSustained?
   }
 
 @ModelEnum
 public enum FastPerformanceParameters {
-    case OneTime(IncludeIdentifier(FastOneTimePerformanceParameters))
-    case Sustained(IncludeIdentifier(FastSustainedPerformanceParameters))
+    case OneTime(FastOneTimePerformanceParameters)
+    case Sustained(FastSustainedPerformanceParameters)
 }
 
-const FastOneTimePerformanceParameters = TypeAlias(import.meta.url, {
-  name: "FastOneTimePerformanceParameters",
-  type: () =>
-    GenIncludeIdentifier(OneTimePerformanceParameters, [IncludeIdentifier(FastCastingTime)]),
-})
+public typealias FastOneTimePerformanceParameters = OneTimePerformanceParameters<FastCastingTime>
 
-const FastSustainedPerformanceParameters = TypeAlias(import.meta.url, {
-  name: "FastSustainedPerformanceParameters",
-  type: () =>
-    GenIncludeIdentifier(SustainedPerformanceParameters, [IncludeIdentifier(FastCastingTime)]),
-})
+public typealias FastSustainedPerformanceParameters = SustainedPerformanceParameters<FastCastingTime>
 
 @ModelEnum
 public enum SlowPerformanceParameters {
-    case OneTime(IncludeIdentifier(SlowOneTimePerformanceParameters))
-    case Sustained(IncludeIdentifier(SlowSustainedPerformanceParameters))
+    case OneTime(SlowOneTimePerformanceParameters)
+    case Sustained(SlowSustainedPerformanceParameters)
 }
 
-const SlowOneTimePerformanceParameters = TypeAlias(import.meta.url, {
-  name: "SlowOneTimePerformanceParameters",
-  type: () =>
-    GenIncludeIdentifier(OneTimePerformanceParameters, [IncludeIdentifier(SlowCastingTime)]),
-})
+public typealias SlowOneTimePerformanceParameters = OneTimePerformanceParameters<SlowCastingTime>
 
-const SlowSustainedPerformanceParameters = TypeAlias(import.meta.url, {
-  name: "SlowSustainedPerformanceParameters",
-  type: () =>
-    GenIncludeIdentifier(SustainedPerformanceParameters, [IncludeIdentifier(SlowCastingTime)]),
-})
+public typealias SlowSustainedPerformanceParameters = SustainedPerformanceParameters<SlowCastingTime>
 
 @Embedded
 public struct OldParameter {
-      full: Required({
-        type: String(),
-      }),
-      abbr: Required({
-        type: String(),
-      }),
+
+      let full: String
+
+      let abbr: String
   }

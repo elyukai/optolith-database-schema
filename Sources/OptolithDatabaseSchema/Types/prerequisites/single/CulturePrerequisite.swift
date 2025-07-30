@@ -5,8 +5,8 @@ import FileDB
 public struct CulturePrerequisite {
 
   /// The culture’s identifier.
-  let id: CultureIdentifier()
-      display_option: Optional({
-        type: IncludeIdentifier(DisplayOption),
-      }),
+  @Relationship(Culture.self)
+  let id: Culture.ID
+
+      let display_option: DisplayOption?
   }

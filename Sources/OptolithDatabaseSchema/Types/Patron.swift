@@ -4,55 +4,72 @@ import FileDB
 public struct Patron {
 
   /// The patron’s category.
-  let category: PatronCategoryIdentifier()
+  @Relationship(PatronCategory.self)
+  let category: PatronCategory.ID
 
   /// The patron-specific skills.
-  let skills: Array(SkillIdentifier(), { minItems: 3, maxItems: 3 })
+  @MinItems(3)
+  @MaxItems(3)
+  @Relationship(Skill.self)
+  let skills: [Skill.ID]
 
   /// The patron is only available to a certain set of cultures. It may be available to all, it may be available to only specific ones (intersection) and it may be available to all except specific ones to the listed cultures (difference).
-  @Relationship(PatronCulture)
-  let culture: PatronCulture.ID
+  let culture: PatronCulture
 
   /// The list of cultures where patrons from this category can be the primary patron of.
-  let primary_patron_cultures: Array(CultureIdentifier(), { uniqueItems: true })
+  @UniqueItems
+  @Relationship(Culture.self)
+  let primary_patron_cultures: [Culture.ID]
+
   /// The patron-specific powers. Used by animist power Animal Powers I–III and should only be present on animal patrons.
-  @Relationship(AnimalPowers)
-  let powers: AnimalPowers.ID?
+  let powers: AnimalPowers?
+
   /// The patron-specific AE cost. Used by several animist forces for animal patrons.
-  let ae_cost: Integer({ minimum: 2, multipleOf: 2 })?
+  @Minimum(2)
+  @MultipleOf(2)
+  let ae_cost: Int?
+
   /// The patron-specific improvement cost. Used by several animist forces for animal patrons.
-  @Relationship(ImprovementCost)
-  let improvement_cost: ImprovementCost.ID?
-      common_advantages: Required({
-        comment: `The patron may grant common advantages that are taken into account during character creation.
+  let improvement_cost: ImprovementCost?
 
-*Source:* Geisterwald & Knochenklippen, p. 6-7`,
-        type: Array(AdvantageIdentifier(), { minItems: 1, uniqueItems: true }),
-      }),
-      common_disadvantages: Required({
-        comment: `The patron may grant common disadvantages that are taken into account during character creation.
+  /// The patron may grant common advantages that are taken into account during character creation.
+  ///
+  /// *Source:* Geisterwald & Knochenklippen, p. 6-7
+  @MinItems(1)
+  @UniqueItems
+  @Relationship(Advantage.self)
+  let common_advantages: [Advantage.ID]
 
-*Source:* Geisterwald & Knochenklippen, p. 6-7`,
-        type: Array(DisadvantageIdentifier(), { minItems: 1, uniqueItems: true }),
-      }),
-      common_spellworks: Required({
-        comment: `The animist may learn spellworks common for this patron.
+  /// The patron may grant common disadvantages that are taken into account during character creation.
+  ///
+  /// *Source:* Geisterwald & Knochenklippen, p. 6-7
+  @MinItems(1)
+  @UniqueItems
+  @Relationship(Disadvantage.self)
+  let common_disadvantages: [Disadvantage.ID]
 
-*Source:* Geisterwald & Knochenklippen, p. 6-7`,
-        type: Array(DisadvantageIdentifier(), { minItems: 1, uniqueItems: true }),
-      }),
+  /// The animist may learn spellworks common for this patron.
+  ///
+  /// *Source:* Geisterwald & Knochenklippen, p. 6-7
+  @MinItems(1)
+  @UniqueItems
+  @Relationship(Disadvantage.self)
+  let common_spellworks: [Disadvantage.ID]
 
     /// The publications where you can find the entry.
-    let src: PublicationRefs
+    @MinItems(1)
+    let src: [PublicationRef]
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
-    @Relationship
+    @Relationship(Locale.self)
     let translations: [String: Translation]
 
+    @Embedded
     struct Translation { // PatronTranslation
 
         /// The patron’s name.
-        let name: String({ minLength: 1 })
+        @MinLength(1)
+        let name: String
     }
 }
 
@@ -61,10 +78,12 @@ public struct Patron {
 public struct PatronCulture {
 
   /// The AE cost value.
-  let set: Array(CultureIdentifier(), { uniqueItems: true })
+  @UniqueItems
+  @Relationship(Culture.self)
+  let set: [Culture.ID]
+
   /// The interval in which you have to pay the AE cost again.
-  @Relationship(PatronCultureOperation)
-  let operation: PatronCultureOperation.ID?
+  let operation: PatronCultureOperation?
   }
 
 /// The set operation to combine the set of all patron cultures with the specified set of patron cultures: If they should intersect, the patron is only part of the given cultures. If they should differ, the patron is only part of the cultures that are not given.
@@ -76,57 +95,62 @@ public enum PatronCultureOperation {
 
 @Embedded
 public struct AnimalPowers {
-      level1: Required({
-        type: IncludeIdentifier(AnimalPowersLevel1),
-      }),
-      level2: Required({
-        type: IncludeIdentifier(AnimalPowersLevel2),
-      }),
-      level3: Required({
-        type: IncludeIdentifier(AnimalPowersLevel3),
-      }),
-  }
+    @MinItems(1)
+    @UniqueItems
+    let level1: [AnimalPowerLevel1]
+
+    @MinItems(1)
+    @UniqueItems
+    let level2: [AnimalPowerLevel2]
+
+    @MinItems(1)
+    @UniqueItems
+    let level3: [AnimalPowerLevel3]
+}
 
 @Embedded
 public struct AdvantageAnimalPower {
 
   /// The advantage’s identifier.
-  let id: AdvantageIdentifier()
+  @Relationship(Advantage.self)
+  let id: Advantage.ID
+
   /// It grants a higher level of the advantage.
-  let level: Integer({ minimum: 2 })?
+  @Minimum(2)
+  let level: Int?
+
   /// It grants a specific general option of the advantage.
-  let option: Integer({ minimum: 1 })?
+  @Minimum(1)
+  let option: Int?
   }
 
 @Embedded
 public struct SkillAnimalPower {
 
   /// The skill’s identifier.
-  let id: SkillIdentifier()
+  @Relationship(Skill.self)
+  let id: Skill.ID
 
   /// The points that gets added to the skill’s rating.
-  let points: Integer({ minimum: 1 })
+  @Minimum(1)
+  let points: Int
   }
 
 @ModelEnum
 public enum AnimalPowerLevel1 {
-    case Advantage(IncludeIdentifier(AdvantageAnimalPower))
-    case Skill(IncludeIdentifier(SkillAnimalPower))
+    case Advantage(AdvantageAnimalPower)
+    case Skill(SkillAnimalPower)
 }
-
-const AnimalPowersLevel1 = TypeAlias(import.meta.url, {
-  name: "AnimalPowersLevel1",
-  type: () => Array(IncludeIdentifier(AnimalPowerLevel1), { minItems: 1, uniqueItems: true }),
-})
 
 @Embedded
 public struct CombatAnimalPower {
 
   /// The combat value.
-  @Relationship(CombatAnimalPowerType)
-  let id: CombatAnimalPowerType.ID
+  let id: CombatAnimalPowerType
+
   /// The value that gets added to the combat value.
-  let value: Integer({ minimum: 1 })?
+  @Minimum(1)
+  let value: Int?
   }
 
 @ModelEnum
@@ -141,30 +165,22 @@ public enum CombatAnimalPowerType {
 
 @ModelEnum
 public enum AnimalPowerLevel2 {
-    case Combat(IncludeIdentifier(CombatAnimalPower))
+    case Combat(CombatAnimalPower)
 }
-
-const AnimalPowersLevel2 = TypeAlias(import.meta.url, {
-  name: "AnimalPowersLevel2",
-  type: () => Array(IncludeIdentifier(AnimalPowerLevel2), { minItems: 1, uniqueItems: true }),
-})
 
 @Embedded
 public struct AttributeAnimalPower {
 
   /// The attribute’s identifier.
-  let id: AttributeIdentifier()
+  @Relationship(Attribute.self)
+  let id: Attribute.ID
 
   /// The value that gets added to the attribute.
-  let value: Integer({ minimum: 1 })
+  @Minimum(1)
+  let value: Int
   }
 
 @ModelEnum
 public enum AnimalPowerLevel3 {
-    case Attribute(IncludeIdentifier(AttributeAnimalPower))
+    case Attribute(AttributeAnimalPower)
 }
-
-const AnimalPowersLevel3 = TypeAlias(import.meta.url, {
-  name: "AnimalPowersLevel3",
-  type: () => Array(IncludeIdentifier(AnimalPowerLevel3), { minItems: 1, uniqueItems: true }),
-})
