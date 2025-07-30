@@ -7,16 +7,16 @@ typealias AffectedTargetCategories = [SpecificAffectedTargetCategory]
 
 @Embedded
 public struct SpecificAffectedTargetCategory {
-      let id: SpecificAffectedTargetCategoryIdentifier
-      /// All translations for the entry, identified by IETF language tag (BCP47).
-      @Relationship(Locale.self)
-      let translations: [String: Translation]?
+    let id: SpecificAffectedTargetCategoryIdentifier
+    /// All translations for the entry, identified by IETF language tag (BCP47).
+    @Relationship(Locale.self)
+    let translations: [String: Translation]?
 
-      struct Translation { // SpecificAffectedTargetCategoryTranslation
-          @MinLength(1)
-          let note: String
-      }
-  }
+    struct Translation {  // SpecificAffectedTargetCategoryTranslation
+        @MinLength(1)
+        let note: String
+    }
+}
 
 @ModelEnum
 public enum SpecificAffectedTargetCategoryIdentifier {

@@ -2,25 +2,24 @@ import FileDB
 
 @Model
 public struct CeremonialItem {
+    /// The cost in silverthalers.
+    let cost: Cost
 
-  /// The cost in silverthalers.
-  let cost: Cost
+    /// The weight in kg.
+    let weight: Weight
 
-  /// The weight in kg.
-  let weight: Weight
+    /// The complexity of crafting the item.
+    let complexity: Complexity?
 
-  /// The complexity of crafting the item.
-  let complexity: Complexity?
+    /// The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
+    let structure_points: StructurePoints
 
-  /// The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
-  let structure_points: StructurePoints
+    /// The deity associated with the equipment item.
+    @Relationship(BlessedTradition.self)
+    let associated_tradition: BlessedTradition.ID
 
-  /// The deity associated with the equipment item.
-  @Relationship(BlessedTradition.self)
-  let associated_tradition: BlessedTradition.ID
-
-  /// The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.
-  let combat_use: CombatUse?
+    /// The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.
+    let combat_use: CombatUse?
 
     /// The publications where you can find the entry.
     @MinItems(1)
@@ -31,7 +30,7 @@ public struct CeremonialItem {
     let translations: [String: Translation]
 
     @Embedded
-    public struct Translation { // CeremonialItemTranslation
+    public struct Translation {  // CeremonialItemTranslation
         /// The item’s name.
         @MinLength(1)
         let name: String

@@ -9,15 +9,15 @@ public struct FamiliarsTrick {
     @Relationship(AnimalType.self)
     let animal_types: [AnimalType.ID]
 
-  /// Measurable parameters of a familiar’s trick.
-  let parameters: FamiliarsTrickPerformanceParameters
+    /// Measurable parameters of a familiar’s trick.
+    let parameters: FamiliarsTrickPerformanceParameters
 
-  /// The associated property.
-  let property: FamiliarsTrickProperty
+    /// The associated property.
+    let property: FamiliarsTrickProperty
 
-  /// The AP value the familiar has to pay for. It may also be that a specific is known by all familiar by default. In the latter case the field is not set.
-  @Minimum(1)
-  let ap_value: Int?
+    /// The AP value the familiar has to pay for. It may also be that a specific is known by all familiar by default. In the latter case the field is not set.
+    @Minimum(1)
+    let ap_value: Int?
 
     /// The publications where you can find the entry.
     @MinItems(1)
@@ -28,8 +28,7 @@ public struct FamiliarsTrick {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // FamiliarsTrickTranslation
-
+    struct Translation {  // FamiliarsTrickTranslation
         /// The familiar’s trick’s name.
         @MinLength(1)
         let name: String
@@ -59,16 +58,15 @@ public enum FamiliarsTrickProperty {
 
 @Embedded
 public struct IndefiniteFamiliarsTrickProperty {
-      /// All translations for the entry, identified by IETF language tag (BCP47).
-      @Relationship(Locale.self)
-      let translations: [String: Translation]?
+    /// All translations for the entry, identified by IETF language tag (BCP47).
+    @Relationship(Locale.self)
+    let translations: [String: Translation]?
 
-      struct Translation { // IndefiniteFamiliarsTrickPropertyTranslation
-
+    struct Translation {  // IndefiniteFamiliarsTrickPropertyTranslation
         /// A description of the property.
         let description: ResponsiveText
-      }
-  }
+    }
+}
 
 /// Measurable parameters of a familiar’s trick.
 @ModelEnum
@@ -80,11 +78,10 @@ public enum FamiliarsTrickPerformanceParameters {
 
 @Embedded
 public struct FamiliarsTrickOneTimePerformanceParameters {
+    let cost: FamiliarsTrickOneTimeCost
 
-      let cost: FamiliarsTrickOneTimeCost
-
-      let duration: FamiliarsTrickOneTimeDuration
-  }
+    let duration: FamiliarsTrickOneTimeDuration
+}
 
 @ModelEnum
 public enum FamiliarsTrickOneTimeCost {
@@ -95,17 +92,16 @@ public enum FamiliarsTrickOneTimeCost {
 
 @Embedded
 public struct FamiliarsTrickFixedOneTimeCost {
+    /// The AE cost value.
+    @Minimum(1)
+    let ae_value: Int
 
-  /// The AE cost value.
-  @Minimum(1)
-  let ae_value: Int
+    /// The LP cost value.
+    @Minimum(1)
+    let lp_value: Int?
 
-  /// The LP cost value.
-  @Minimum(1)
-  let lp_value: Int?
-
-  /// The interval in which you have to pay the AE cost again.
-  let interval: DurationUnitValue?
+    /// The interval in which you have to pay the AE cost again.
+    let interval: DurationUnitValue?
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
@@ -113,18 +109,18 @@ public struct FamiliarsTrickFixedOneTimeCost {
 
     @Embedded
     @MinProperties(1)
-    struct Translation { // FamiliarsTrickFixedOneTimeCostTranslation
-            /// The cost have to be per a specific countable entity, e.g. `8 KP per person`.
-            let per: ResponsiveTextOptional?
-          }
-  }
+    struct Translation {  // FamiliarsTrickFixedOneTimeCostTranslation
+        /// The cost have to be per a specific countable entity, e.g. `8 KP per person`.
+        let per: ResponsiveTextOptional?
+    }
+}
 
 @Embedded
 public struct FamiliarsTrickAllOneTimeCost {
-  /// The minimum AE the familiar has to have/spend.
-  @Minimum(1)
-  let minimum: Int?
-  }
+    /// The minimum AE the familiar has to have/spend.
+    @Minimum(1)
+    let minimum: Int?
+}
 
 @ModelEnum
 public enum FamiliarsTrickOneTimeDuration {
@@ -135,42 +131,38 @@ public enum FamiliarsTrickOneTimeDuration {
 
 @Embedded
 public struct FamiliarsTrickOneTimeIntervalPerformanceParameters {
-
-      let cost: FamiliarsTrickOneTimeIntervalCost
-  }
+    let cost: FamiliarsTrickOneTimeIntervalCost
+}
 
 @Embedded
 public struct FamiliarsTrickOneTimeIntervalCost {
+    /// The AE cost value.
+    @Minimum(1)
+    let ae_value: Int
 
-  /// The AE cost value.
-  @Minimum(1)
-  let ae_value: Int
+    /// The LP cost value.
+    @Minimum(1)
+    let lp_value: Int?
 
-  /// The LP cost value.
-  @Minimum(1)
-  let lp_value: Int?
-
-  /// The duration granted/added by paying the given AE cost.
-  let interval: DurationUnitValue
-  }
+    /// The duration granted/added by paying the given AE cost.
+    let interval: DurationUnitValue
+}
 
 @Embedded
 public struct FamiliarsTrickSustainedPerformanceParameters {
-
-      let cost: FamiliarsTrickSustainedCost
-  }
+    let cost: FamiliarsTrickSustainedCost
+}
 
 @Embedded
 public struct FamiliarsTrickSustainedCost {
+    /// The AE cost value.
+    @Minimum(1)
+    let ae_value: Int
 
-  /// The AE cost value.
-  @Minimum(1)
-  let ae_value: Int
+    /// The LP cost value.
+    @Minimum(1)
+    let lp_value: Int?
 
-  /// The LP cost value.
-  @Minimum(1)
-  let lp_value: Int?
-
-  /// The interval in which you have to pay the AE cost again.
-  let interval: DurationUnitValue?
-  }
+    /// The interval in which you have to pay the AE cost again.
+    let interval: DurationUnitValue?
+}

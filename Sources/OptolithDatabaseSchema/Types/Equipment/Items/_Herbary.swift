@@ -1,6 +1,4 @@
-/**
- * Herbary-related types.
- */
+/// Herbary-related types.
 
 import FileDB
 
@@ -25,11 +23,10 @@ public enum LaboratoryLevel {
 
 @Embedded
 public struct RecipeTradeSecret {
+    /// The AP value of the trade secret.
+    @Minimum(0)
+    let ap_value: Int
 
-  /// The AP value of the trade secret.
-  @Minimum(0)
-  let ap_value: Int
-
-  /// The prerequisites of the trade secret, if any.
-  let prerequisites: PlainGeneralPrerequisites?
-  }
+    /// The prerequisites of the trade secret, if any.
+    let prerequisites: PlainGeneralPrerequisites?
+}

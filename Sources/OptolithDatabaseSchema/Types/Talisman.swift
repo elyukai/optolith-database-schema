@@ -24,7 +24,7 @@ public struct Talisman {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // TalismanTranslation
+    struct Translation {  // TalismanTranslation
         /// The talisman’s name.
         @MinLength(1)
         let name: String

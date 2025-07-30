@@ -2,8 +2,8 @@ import FileDB
 
 @Model
 public struct AnimalCare {
-  /// Values depending on whether the animal care is feed.
-  let type: AnimalCareType
+    /// Values depending on whether the animal care is feed.
+    let type: AnimalCareType
 
     /// The publications where you can find the entry.
     @MinItems(1)
@@ -14,7 +14,7 @@ public struct AnimalCare {
     let translations: [String: Translation]
 
     @Embedded
-    public struct Translation { // AnimalCareTranslation
+    public struct Translation {  // AnimalCareTranslation
         /// The item’s name.
         @MinLength(1)
         let name: String
@@ -50,20 +50,18 @@ public enum AnimalCareType {
 
 @Embedded
 public struct GeneralAnimalCare {
+    /// The cost in silverthalers.
+    let cost: Cost
 
-  /// The cost in silverthalers.
-  let cost: Cost
-
-  /// The weight in kg.
-  let weight: Weight
-  }
+    /// The weight in kg.
+    let weight: Weight
+}
 
 @Embedded
 public struct AnimalFeed {
-
-  /// The cost in silverthalers.
-  let cost: AnimalFeedCost
-  }
+    /// The cost in silverthalers.
+    let cost: AnimalFeedCost
+}
 
 @ModelEnum
 public enum AnimalFeedCost {

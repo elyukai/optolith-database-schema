@@ -8,8 +8,7 @@ public struct Continent {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // ContinentTranslation
-
+    struct Translation {  // ContinentTranslation
         /// The continent name.
         @MinLength(1)
         let name: String

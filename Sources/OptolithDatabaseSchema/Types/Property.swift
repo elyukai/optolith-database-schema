@@ -10,8 +10,7 @@ public struct Property {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // PropertyTranslation
-
+    struct Translation {  // PropertyTranslation
         /// The property’s name.
         @MinLength(1)
         let name: String

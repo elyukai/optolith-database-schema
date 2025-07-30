@@ -26,7 +26,7 @@ public struct Stationary {
     let translations: [String: Translation]
 
     @Embedded
-    public struct Translation { // StationaryTranslation
+    public struct Translation {  // StationaryTranslation
         /// The item’s name.
         @MinLength(1)
         let name: String

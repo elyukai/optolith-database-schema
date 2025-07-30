@@ -2,12 +2,11 @@ import FileDB
 
 @Model
 public struct Blessing {
+    /// Measurable parameters of a blessing.
+    let parameters: BlessingPerformanceParameters
 
-  /// Measurable parameters of a blessing.
-  let parameters: BlessingPerformanceParameters
-
-  /// The target category – the kind of creature or object – the skill affects.
-  let target: AffectedTargetCategories
+    /// The target category – the kind of creature or object – the skill affects.
+    let target: AffectedTargetCategories
 
     /// The publications where you can find the entry.
     @MinItems(1)
@@ -18,8 +17,7 @@ public struct Blessing {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // BlessingTranslation
-
+    struct Translation {  // BlessingTranslation
         /// The blessing’s name.
         @MinLength(1)
         let name: String
@@ -50,9 +48,9 @@ public struct Blessing {
 /// Measurable parameters of a blessing.
 @Embedded
 public struct BlessingPerformanceParameters {
-      let range: BlessingRange
-      let duration: BlessingDuration
-  }
+    let range: BlessingRange
+    let duration: BlessingDuration
+}
 
 @ModelEnum
 public enum BlessingRange {
@@ -70,27 +68,24 @@ public enum BlessingDuration {
 
 @Embedded
 public struct FixedBlessingDuration {
+    /// The (unitless) duration.
+    @Minimum(1)
+    let value: Int
 
-  /// The (unitless) duration.
-  @Minimum(1)
-  let value: Int
-
-  /// The duration unit.
-  let unit: DurationUnit
-  }
+    /// The duration unit.
+    let unit: DurationUnit
+}
 
 @Embedded
 public struct IndefiniteBlessingDuration {
-
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // IndefiniteBlessingDurationTranslation
-
+    struct Translation {  // IndefiniteBlessingDurationTranslation
         /// A description of the duration.
         @MinLength(1)
         let description: String
-      }
-  }
+    }
+}

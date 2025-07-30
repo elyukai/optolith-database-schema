@@ -11,43 +11,42 @@ public enum DurationForOneTime {
 
 @Embedded
 public struct Immediate {
-  /// Specified if the duration has a maximum time span.
-  let maximum: DurationUnitValue?
-      /// All translations for the entry, identified by IETF language tag (BCP47).
-      @Relationship(Locale.self)
-      let translations: [String: Translation]?
+    /// Specified if the duration has a maximum time span.
+    let maximum: DurationUnitValue?
 
-      struct Translation { // ImmediateTranslation
+    /// All translations for the entry, identified by IETF language tag (BCP47).
+    @Relationship(Locale.self)
+    let translations: [String: Translation]?
 
+    struct Translation {  // ImmediateTranslation
         /// A replacement string.
         let replacement: ResponsiveTextReplace?
-      }
-  }
+    }
+}
 
 @Embedded
 public struct PermanentDuration {
-      /// All translations for the entry, identified by IETF language tag (BCP47).
-      @Relationship(Locale.self)
-      let translations: [String: Translation]?
+    /// All translations for the entry, identified by IETF language tag (BCP47).
+    @Relationship(Locale.self)
+    let translations: [String: Translation]?
 
-      struct Translation { // PermanentDurationTranslation
-
+    struct Translation {  // PermanentDurationTranslation
         /// A replacement string.
         let replacement: ResponsiveTextReplace?
-      }
-  }
+    }
+}
 
 @Embedded
 public struct FixedDuration {
-  /// If the duration is the maximum duration, so it may end earlier.
-  let is_maximum: Bool?
+    /// If the duration is the maximum duration, so it may end earlier.
+    let is_maximum: Bool?
 
-  /// The (unitless) duration.
-  @Minimum(1)
-  let value: Int
+    /// The (unitless) duration.
+    @Minimum(1)
+    let value: Int
 
-  /// The duration unit.
-  let unit: DurationUnit
+    /// The duration unit.
+    let unit: DurationUnit
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
@@ -55,57 +54,54 @@ public struct FixedDuration {
 
     @Embedded
     @MinProperties(1)
-    struct Translation { // FixedDurationTranslation
-            /// A replacement string.
-            let replacement: ResponsiveTextReplace?
-          }
-  }
+    struct Translation {  // FixedDurationTranslation
+        /// A replacement string.
+        let replacement: ResponsiveTextReplace?
+    }
+}
 
 @Embedded
 public struct CheckResultBasedDuration {
-  /// If the duration is the maximum duration, so it may end earlier.
-  let is_maximum: Bool?
+    /// If the duration is the maximum duration, so it may end earlier.
+    let is_maximum: Bool?
 
-  /// The base value that is derived from the check result.
-  let base: CheckResultValue
+    /// The base value that is derived from the check result.
+    let base: CheckResultValue
 
-  /// If defined, it modifies the base value.
-  let modifier: CheckResultBasedModifier?
+    /// If defined, it modifies the base value.
+    let modifier: CheckResultBasedModifier?
 
-  /// The duration unit.
-  let unit: DurationUnit
-      /// All translations for the entry, identified by IETF language tag (BCP47).
-      @Relationship(Locale.self)
-      let translations: [String: Translation]?
+    /// The duration unit.
+    let unit: DurationUnit
 
-      struct Translation { // CheckResultBasedDurationTranslation
+    /// All translations for the entry, identified by IETF language tag (BCP47).
+    @Relationship(Locale.self)
+    let translations: [String: Translation]?
 
+    struct Translation {  // CheckResultBasedDurationTranslation
         /// A replacement string.
         let replacement: ResponsiveTextReplace?
-      }
-  }
+    }
+}
 
 @Embedded
 public struct IndefiniteDuration {
-
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // IndefiniteDurationTranslation
-
+    struct Translation {  // IndefiniteDurationTranslation
         /// A description of the duration.
         let description: ResponsiveText
-      }
-  }
+    }
+}
 
 @Embedded
 public struct DurationForSustained {
-
-  /// The sustained skill can be active a maximum amount of time.
-  let maximum: DurationUnitValue
-  }
+    /// The sustained skill can be active a maximum amount of time.
+    let maximum: DurationUnitValue
+}
 
 @ModelEnum
 public enum DurationUnit {
@@ -123,11 +119,10 @@ public enum DurationUnit {
 
 @Embedded
 public struct DurationUnitValue {
+    /// The (unitless) duration value.
+    @Minimum(1)
+    let value: Int
 
-  /// The (unitless) duration value.
-  @Minimum(1)
-  let value: Int
-
-  /// The unit of the `value`.
-  let unit: DurationUnit
-  }
+    /// The unit of the `value`.
+    let unit: DurationUnit
+}

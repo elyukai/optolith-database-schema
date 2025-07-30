@@ -2,11 +2,10 @@ import FileDB
 
 @Model
 public struct Service {
-
-      /// Defines for which creature type(s) the service is available.
-      @MinItems(1)
-      @UniqueItems
-      let availability: [ServiceAvailability]
+    /// Defines for which creature type(s) the service is available.
+    @MinItems(1)
+    @UniqueItems
+    let availability: [ServiceAvailability]
 
     /// The publications where you can find the entry.
     @MinItems(1)
@@ -17,8 +16,7 @@ public struct Service {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // ServiceTranslation
-
+    struct Translation {  // ServiceTranslation
         /// The service’s name.
         @MinLength(1)
         let name: String

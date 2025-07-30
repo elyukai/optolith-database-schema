@@ -11,8 +11,7 @@ public struct State {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // StateTranslation
-
+    struct Translation {  // StateTranslation
         /// The state’s name.
         @MinLength(1)
         let name: String

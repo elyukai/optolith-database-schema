@@ -18,10 +18,9 @@ public struct ReplacementDisplayOption {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // ReplacementDisplayOptionTranslation
-
+    struct Translation {  // ReplacementDisplayOptionTranslation
         /// The replacement text.
         @MinLength(1)
         let replacement: String
-      }
-  }
+    }
+}

@@ -1,32 +1,20 @@
-/**
- * @title Activatable Skill
- */
-
 import FileDB
 
 @Embedded
 public struct OneTimePerformanceParameters<CastingTime> {
-
-      let casting_time: CastingTime
-
-      let cost: OneTimeCost
-
-      let range: Range
-
-      let duration: DurationForOneTime
-  }
+    let casting_time: CastingTime
+    let cost: OneTimeCost
+    let range: Range
+    let duration: DurationForOneTime
+}
 
 @Embedded
 public struct SustainedPerformanceParameters<CastingTime> {
-
-      let casting_time: CastingTime
-
-      let cost: SustainedCost
-
-      let range: Range
-
-      let duration: DurationForSustained?
-  }
+    let casting_time: CastingTime
+    let cost: SustainedCost
+    let range: Range
+    let duration: DurationForSustained?
+}
 
 @ModelEnum
 public enum FastPerformanceParameters {
@@ -50,8 +38,6 @@ public typealias SlowSustainedPerformanceParameters = SustainedPerformanceParame
 
 @Embedded
 public struct OldParameter {
-
-      let full: String
-
-      let abbr: String
-  }
+    let full: String
+    let abbr: String
+}

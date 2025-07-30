@@ -2,18 +2,17 @@ import FileDB
 
 @Model
 public struct Jewelry {
+    /// The cost in silverthalers.
+    let cost: JewelryMaterialDifference<Cost>
 
-  /// The cost in silverthalers.
-  let cost: JewelryMaterialDifference<Cost>
+    /// The weight in kg.
+    let weight: JewelryMaterialDifference<Weight>
 
-  /// The weight in kg.
-  let weight: JewelryMaterialDifference<Weight>
+    /// The complexity of crafting the item.
+    let complexity: Complexity
 
-  /// The complexity of crafting the item.
-  let complexity: Complexity
-
-  /// The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
-  let structure_points: StructurePoints
+    /// The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
+    let structure_points: StructurePoints
 
     /// The publications where you can find the entry.
     @MinItems(1)
@@ -24,7 +23,7 @@ public struct Jewelry {
     let translations: [String: Translation]
 
     @Embedded
-    public struct Translation { // JewelryTranslation
+    public struct Translation {  // JewelryTranslation
         /// The item’s name.
         @MinLength(1)
         let name: String
@@ -55,4 +54,4 @@ public struct JewelryMaterialDifference<T> {
     let bronze: T
     let silver: T
     let gold: T
-  }
+}

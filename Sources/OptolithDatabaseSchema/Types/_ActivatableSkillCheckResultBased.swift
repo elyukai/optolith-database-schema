@@ -16,22 +16,20 @@ public enum CheckResultArithmetic {
 
 @Embedded
 public struct CheckResultBasedModifier {
+    /// The arithmetic how to apply the `value` to the `base`.
+    let arithmetic: CheckResultArithmetic
 
-  /// The arithmetic how to apply the `value` to the `base`.
-  let arithmetic: CheckResultArithmetic
-
-  /// The value that is applied to the `base` using the defined `arithmetic`.
-  @Minimum(2)
-  let value: Int
-  }
+    /// The value that is applied to the `base` using the defined `arithmetic`.
+    @Minimum(2)
+    let value: Int
+}
 
 /// Defines a parameter being based on a check result.
 @Embedded
 public struct CheckResultBased {
+    /// The base value that is derived from the check result.
+    let base: CheckResultValue
 
-  /// The base value that is derived from the check result.
-  let base: CheckResultValue
-
-  /// If defined, it modifies the base value.
-  let modifier: CheckResultBasedModifier?
-  }
+    /// If defined, it modifies the base value.
+    let modifier: CheckResultBasedModifier?
+}

@@ -26,7 +26,7 @@ public struct BandageOrRemedy {
     let translations: [String: Translation]
 
     @Embedded
-    public struct Translation { // BandageOrRemedyTranslation
+    public struct Translation {  // BandageOrRemedyTranslation
         /// The item’s name.
         @MinLength(1)
         let name: String

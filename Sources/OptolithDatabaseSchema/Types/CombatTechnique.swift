@@ -2,23 +2,22 @@ import FileDB
 
 @Model
 public struct CloseCombatTechnique {
+    /// Special rules for the combat technique that apply to all weapons in this category.
+    let special: CloseCombatTechniqueSpecialRules
 
-  /// Special rules for the combat technique that apply to all weapons in this category.
-  let special: CloseCombatTechniqueSpecialRules
+    /// The primary attribute(s).
+    @MinItems(1)
+    @MaxItems(2)
+    @UniqueItems
+    @Relationship(Attribute.self)
+    let primary_attribute: [Attribute.ID]
 
-  /// The primary attribute(s).
-  @MinItems(1)
-  @MaxItems(2)
-  @UniqueItems
-  @Relationship(Attribute.self)
-  let primary_attribute: [Attribute.ID]
+    /// The *Breaking Point Rating* of the respective combat technique.
+    @Minimum(1)
+    let breaking_point_rating: Int
 
-  /// The *Breaking Point Rating* of the respective combat technique.
-  @Minimum(1)
-  let breaking_point_rating: Int
-
-  /// States which column is used to improve the combat technique.
-  let improvement_cost: ImprovementCost
+    /// States which column is used to improve the combat technique.
+    let improvement_cost: ImprovementCost
 
     /// The publications where you can find the entry.
     @MinItems(1)
@@ -29,8 +28,7 @@ public struct CloseCombatTechnique {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // CloseCombatTechniqueTranslation
-
+    struct Translation {  // CloseCombatTechniqueTranslation
         /// The combat technique’s name.
         @MinLength(1)
         let name: String
@@ -49,34 +47,32 @@ public struct CloseCombatTechnique {
 /// Special rules for the combat technique that apply to all weapons in this category.
 @Embedded
 public struct CloseCombatTechniqueSpecialRules {
-
-  /// Is parrying possible with this combat technique?
-  let can_parry: Bool
-      let has_damage_threshold: Bool
-      let has_reach: Bool
-      let has_length: Bool
-      let has_shield_size: Bool
-  }
+    /// Is parrying possible with this combat technique?
+    let can_parry: Bool
+    let has_damage_threshold: Bool
+    let has_reach: Bool
+    let has_length: Bool
+    let has_shield_size: Bool
+}
 
 @Model
 public struct RangedCombatTechnique {
+    /// Special rules for the combat technique that apply to all weapons in this category.
+    let special: RangedCombatTechniqueSpecialRules
 
-  /// Special rules for the combat technique that apply to all weapons in this category.
-  let special: RangedCombatTechniqueSpecialRules
+    /// The primary attribute(s).
+    @MinItems(1)
+    @MaxItems(2)
+    @UniqueItems
+    @Relationship(Attribute.self)
+    let primary_attribute: [Attribute.ID]
 
-  /// The primary attribute(s).
-  @MinItems(1)
-  @MaxItems(2)
-  @UniqueItems
-  @Relationship(Attribute.self)
-  let primary_attribute: [Attribute.ID]
+    /// The *Breaking Point Rating* of the respective combat technique.
+    @Minimum(1)
+    let breaking_point_rating: Int
 
-  /// The *Breaking Point Rating* of the respective combat technique.
-  @Minimum(1)
-  let breaking_point_rating: Int
-
-  /// States which column is used to improve the combat technique.
-  let improvement_cost: ImprovementCost
+    /// States which column is used to improve the combat technique.
+    let improvement_cost: ImprovementCost
 
     /// The publications where you can find the entry.
     @MinItems(1)
@@ -87,8 +83,7 @@ public struct RangedCombatTechnique {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // RangedCombatTechniqueTranslation
-
+    struct Translation {  // RangedCombatTechniqueTranslation
         /// The combat technique’s name.
         @MinLength(1)
         let name: String
@@ -107,5 +102,5 @@ public struct RangedCombatTechnique {
 /// Special rules for the combat technique that apply to all weapons in this category.
 @Embedded
 public struct RangedCombatTechniqueSpecialRules {
-      let has_ammunition: Bool
-  }
+    let has_ammunition: Bool
+}

@@ -2,18 +2,18 @@ import FileDB
 
 @Model
 public struct Script {
-  /// The script’s adventure point value
-  @Minimum(2)
-  @MultipleOf(2)
-  let ap_value: Int?
+    /// The script’s adventure point value
+    @Minimum(2)
+    @MultipleOf(2)
+    let ap_value: Int?
 
-  /// A list of languages that use this script.
-  @Relationship(Language.self)
-  let associated_languages: [Language.ID]
+    /// A list of languages that use this script.
+    @Relationship(Language.self)
+    let associated_languages: [Language.ID]
 
-  /// The continents this language is present on.
-  @MinItems(1)
-  let continent: [AssociatedContinent]
+    /// The continents this language is present on.
+    @MinItems(1)
+    let continent: [AssociatedContinent]
 
     /// The publications where you can find the entry.
     @MinItems(1)
@@ -24,8 +24,7 @@ public struct Script {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // ScriptTranslation
-
+    struct Translation {  // ScriptTranslation
         /// The script’s name.
         @MinLength(1)
         let name: String

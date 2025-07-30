@@ -2,31 +2,30 @@ import FileDB
 
 @Model
 public struct Spell {
+    /// Lists the linked three attributes used to make a skill check.
+    let check: SkillCheck
 
-  /// Lists the linked three attributes used to make a skill check.
-  let check: SkillCheck
+    /// In some cases, the target's Spirit or Toughness is applied as a penalty.
+    let check_penalty: SkillCheckPenalty?
 
-  /// In some cases, the target's Spirit or Toughness is applied as a penalty.
-  let check_penalty: SkillCheckPenalty?
+    /// Measurable parameters of a spell.
+    let parameters: FastPerformanceParameters
 
-  /// Measurable parameters of a spell.
-  let parameters: FastPerformanceParameters
+    /// The target category – the kind of creature or object – the skill affects.
+    let target: AffectedTargetCategories
 
-  /// The target category – the kind of creature or object – the skill affects.
-  let target: AffectedTargetCategories
+    /// The associated property.
+    @Relationship(Property.self)
+    let property: Property.ID
 
-  /// The associated property.
-  @Relationship(Property.self)
-  let property: Property.ID
+    /// The tradition(s) the spell is available for. It may be *generally* available to all traditions or it may be only familiar in specific traditions.
+    let traditions: SpellworkTraditions
 
-  /// The tradition(s) the spell is available for. It may be *generally* available to all traditions or it may be only familiar in specific traditions.
-  let traditions: SpellworkTraditions
+    /// States which column is used to improve the skill.
+    let improvement_cost: ImprovementCost
 
-  /// States which column is used to improve the skill.
-  let improvement_cost: ImprovementCost
-
-  /// The prerequisites for the spell.
-  let prerequisites: SpellworkPrerequisites?
+    /// The prerequisites for the spell.
+    let prerequisites: SpellworkPrerequisites?
 
     /// The publications where you can find the entry.
     @MinItems(1)
@@ -37,14 +36,13 @@ public struct Spell {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // SpellTranslation
-
+    struct Translation {  // SpellTranslation
         /// The spell’s name.
         @MinLength(1)
         let name: String
 
-          /// The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
-          let effect: ActivatableSkillEffect
+        /// The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
+        let effect: ActivatableSkillEffect
 
         @available(*, deprecated, message: "Use language-independent performance parameters instead")
         let casting_time: OldParameter
@@ -55,17 +53,21 @@ public struct Spell {
         @available(*, deprecated, message: "Use language-independent performance parameters instead")
         let range: OldParameter
 
-        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        @available(
+            *, deprecated, message: "Use language-independent performance parameters instead"
+        )
         let duration: OldParameter
 
-        @available(*, deprecated, message: "Use language-independent performance parameters instead")
+        @available(
+            *, deprecated, message: "Use language-independent performance parameters instead"
+        )
         @MinLength(1)
         let target: String
 
         /// A list of errata for the entry in the specific language.
         @MinItems(1)
         let errata: [Erratum]?
-        }
+    }
 
-      let enhancements: Enhancements?
+    let enhancements: Enhancements?
 }

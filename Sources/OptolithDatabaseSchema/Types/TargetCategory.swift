@@ -10,7 +10,7 @@ public struct TargetCategory {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // TargetCategoryTranslation
+    struct Translation {  // TargetCategoryTranslation
         /// The target category’s name.
         @MinLength(1)
         let name: String

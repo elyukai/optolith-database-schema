@@ -2,7 +2,6 @@ import FileDB
 
 @Model
 public struct Condition {
-
     /// The publications where you can find the entry.
     @MinItems(1)
     let src: [PublicationRef]
@@ -12,8 +11,7 @@ public struct Condition {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // ConditionTranslation
-
+    struct Translation {  // ConditionTranslation
         /// The condition’s name.
         @MinLength(1)
         let name: String
@@ -23,10 +21,10 @@ public struct Condition {
         @Markdown
         let rules: String?
 
-          /// The effects for level 1 to 4.
-          @MinItems(4)
-          @MaxItems(4)
-          let effects: [ConditionLevelEffect]
+        /// The effects for level 1 to 4.
+        @MinItems(4)
+        @MaxItems(4)
+        let effects: [ConditionLevelEffect]
 
         /// A list of errata for the entry in the specific language.
         @MinItems(1)
@@ -36,7 +34,7 @@ public struct Condition {
 
 @TypeAlias
 public struct ConditionLevelEffect {
-  @MinLength(1)
-  @Markdown
-  let text: String
+    @MinLength(1)
+    @Markdown
+    let text: String
 }

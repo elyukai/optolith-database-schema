@@ -2,20 +2,20 @@ import FileDB
 
 @Model
 public struct EquipmentOfBlessedOnes {
-  /// The cost in silverthalers.
-  let cost: Cost
+    /// The cost in silverthalers.
+    let cost: Cost
 
-  /// The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
-  let structure_points: StructurePoints
+    /// The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
+    let structure_points: StructurePoints
 
-  /// The deity/deities associated with the equipment item.
-  @MinItems(1)
-  @UniqueItems
-  @Relationship(BlessedTradition.self)
-  let associated_tradition: [BlessedTradition.ID]
+    /// The deity/deities associated with the equipment item.
+    @MinItems(1)
+    @UniqueItems
+    @Relationship(BlessedTradition.self)
+    let associated_tradition: [BlessedTradition.ID]
 
-  /// The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.
-  let combat_use: CombatUse?
+    /// The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.
+    let combat_use: CombatUse?
 
     /// The publications where you can find the entry.
     @MinItems(1)
@@ -26,7 +26,7 @@ public struct EquipmentOfBlessedOnes {
     let translations: [String: Translation]
 
     @Embedded
-    public struct Translation { // EquipmentOfBlessedOnesTranslation
+    public struct Translation {  // EquipmentOfBlessedOnesTranslation
         /// The item’s name.
         @MinLength(1)
         let name: String

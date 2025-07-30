@@ -2,8 +2,7 @@ import FileDB
 
 @Model
 public struct DerivedCharacteristic {
-
-      let prerequisites: DerivedCharacteristicPrerequisites?
+    let prerequisites: DerivedCharacteristicPrerequisites?
 
     /// The publications where you can find the entry.
     @MinItems(1)
@@ -14,8 +13,7 @@ public struct DerivedCharacteristic {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // DerivedCharacteristicTranslation
-
+    struct Translation {  // DerivedCharacteristicTranslation
         /// The derived characteristic’s name.
         @MinLength(1)
         let name: String
@@ -31,16 +29,15 @@ public struct DerivedCharacteristic {
 
 @Embedded
 public struct CalculationTranslation {
+    /// The default calculation string.
+    @MinLength(1)
+    let `default`: String
 
-  /// The default calculation string.
-  @MinLength(1)
-  let `default`: String
+    /// The calculation string if only half of the primary attribute is used.
+    @MinLength(1)
+    let half_primary: String?
 
-  /// The calculation string if only half of the primary attribute is used.
-  @MinLength(1)
-  let half_primary: String?
-
-  /// The calculation string if no primary attribute is used.
-  @MinLength(1)
-  let no_primary: String?
-  }
+    /// The calculation string if no primary attribute is used.
+    @MinLength(1)
+    let no_primary: String?
+}

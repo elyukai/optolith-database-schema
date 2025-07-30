@@ -26,7 +26,7 @@ public struct Container {
     let translations: [String: Translation]
 
     @Embedded
-    public struct Translation { // ContainerTranslation
+    public struct Translation {  // ContainerTranslation
         /// The item’s name.
         @MinLength(1)
         let name: String

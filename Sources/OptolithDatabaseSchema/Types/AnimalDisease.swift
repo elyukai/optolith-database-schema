@@ -2,7 +2,6 @@ import FileDB
 
 @Model
 public struct AnimalDisease {
-
     /// The disease’s level.
     @Minimum(1)
     let level: Int
@@ -34,7 +33,7 @@ public struct AnimalDisease {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // AnimalDiseaseTranslation
+    struct Translation {  // AnimalDiseaseTranslation
         /// The disease’s name.
         @MinLength(1)
         let name: String

@@ -2,18 +2,17 @@ import FileDB
 
 @Model
 public struct Book {
+    /// The cost in silverthalers.
+    let cost: Cost
 
-  /// The cost in silverthalers.
-  let cost: Cost
+    /// The weight in kg.
+    let weight: Weight
 
-  /// The weight in kg.
-  let weight: Weight
+    /// The complexity of crafting the item.
+    let complexity: Complexity
 
-  /// The complexity of crafting the item.
-  let complexity: Complexity
-
-  /// The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
-  let structure_points: StructurePoints
+    /// The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
+    let structure_points: StructurePoints
 
     /// The publications where you can find the entry.
     @MinItems(1)
@@ -24,8 +23,7 @@ public struct Book {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // BookTranslation
-
+    struct Translation {  // BookTranslation
         /// The item’s name.
         @MinLength(1)
         let name: String

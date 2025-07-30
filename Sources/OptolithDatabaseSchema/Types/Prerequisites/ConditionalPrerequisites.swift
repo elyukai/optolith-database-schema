@@ -5,6 +5,6 @@ import FileDB
 /// Usually appears at the \`when\` property of the parent prerequisite.
 @TypeAlias
 public struct Preconditions {
-  @MinItems(1)
-  let list: [PreconditionGroup]
+    @MinItems(1)
+    let list: [PreconditionGroup]
 }

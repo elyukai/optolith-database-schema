@@ -3,14 +3,12 @@ import FileDB
 /// A base attribute of a character.
 @Model
 public struct Attribute {
-
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // AttributeTranslation
-
+    struct Translation {  // AttributeTranslation
         /// The attribute’s name.
         @MinLength(1)
         let name: String

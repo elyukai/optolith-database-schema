@@ -9,36 +9,33 @@ public enum PrimaryAttributeDamageThreshold {
 
 @Embedded
 public struct DefaultPrimaryAttributeDamageThreshold {
-
-  /// The attribute value representing the damage threshold for the primary attribute of the item's combat technique.
-  @Minimum(1)
-  let threshold: Int
-  }
+    /// The attribute value representing the damage threshold for the primary attribute of the item's combat technique.
+    @Minimum(1)
+    let threshold: Int
+}
 
 @Embedded
 public struct PrimaryAttributeDamageThresholdList {
-
-      /// A list of primary attributes with their associated threshold.
-      @MinItems(1)
-      @UniqueItems
-      let list: [SinglePrimaryAttributeDamageThreshold]
-  }
+    /// A list of primary attributes with their associated threshold.
+    @MinItems(1)
+    @UniqueItems
+    let list: [SinglePrimaryAttributeDamageThreshold]
+}
 
 @Embedded
 public struct SinglePrimaryAttributeDamageThreshold {
+    /// The primary attribute.
+    @Relationship(Attribute.self)
+    let attribute: Attribute.ID
 
-  /// The primary attribute.
-  @Relationship(Attribute.self)
-  let attribute: Attribute.ID
-
-  /// The attribute value representing the damage threshold.
-  @Minimum(1)
-  let threshold: Int
-  }
+    /// The attribute value representing the damage threshold.
+    @Minimum(1)
+    let threshold: Int
+}
 
 /// The length of the weapon in cm/halffingers.
 @TypeAlias
 public struct Length {
-  @Minimum(1)
-  let value: Int
+    @Minimum(1)
+    let value: Int
 }

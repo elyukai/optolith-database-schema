@@ -2,18 +2,17 @@ import FileDB
 
 @Model
 public struct MusicalInstrument {
+    /// The cost in silverthalers.
+    let cost: Cost
 
-  /// The cost in silverthalers.
-  let cost: Cost
+    /// The weight in kg.
+    let weight: Weight
 
-  /// The weight in kg.
-  let weight: Weight
+    /// The complexity of crafting the item.
+    let complexity: Complexity?
 
-  /// The complexity of crafting the item.
-  let complexity: Complexity?
-
-  /// The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.
-  let combat_use: CombatUse?
+    /// The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.
+    let combat_use: CombatUse?
 
     /// The publications where you can find the entry.
     @MinItems(1)
@@ -24,7 +23,7 @@ public struct MusicalInstrument {
     let translations: [String: Translation]
 
     @Embedded
-    public struct Translation { // MusicalInstrumentTranslation
+    public struct Translation {  // MusicalInstrumentTranslation
         /// The item’s name.
         @MinLength(1)
         let name: String

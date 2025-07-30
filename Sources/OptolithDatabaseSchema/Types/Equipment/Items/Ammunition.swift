@@ -2,9 +2,8 @@ import FileDB
 
 @Model
 public struct Ammunition {
-
-  /// The cost in silverthalers.
-  let cost: Cost
+    /// The cost in silverthalers.
+    let cost: Cost
 
     /// The publications where you can find the entry.
     @MinItems(1)
@@ -15,8 +14,7 @@ public struct Ammunition {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // AmmunitionTranslation
-
+    struct Translation {  // AmmunitionTranslation
         /// The item’s name.
         @MinLength(1)
         let name: String

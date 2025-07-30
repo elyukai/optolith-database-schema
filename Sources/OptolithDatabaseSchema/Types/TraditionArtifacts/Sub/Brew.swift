@@ -7,8 +7,7 @@ public struct Brew {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // BrewTranslation
-
+    struct Translation {  // BrewTranslation
         /// The brew’s name.
         @MinLength(1)
         let name: String

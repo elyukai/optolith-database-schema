@@ -26,7 +26,7 @@ public struct ThievesTool {
     let translations: [String: Translation]
 
     @Embedded
-    public struct Translation { // ThievesToolTranslation
+    public struct Translation {  // ThievesToolTranslation
         /// The item’s name.
         @MinLength(1)
         let name: String

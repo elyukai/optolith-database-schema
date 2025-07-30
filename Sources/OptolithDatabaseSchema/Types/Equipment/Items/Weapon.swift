@@ -2,36 +2,35 @@ import FileDB
 
 @Model
 public struct Weapon {
+    /// The cost in silverthalers.
+    let cost: Cost
 
-  /// The cost in silverthalers.
-  let cost: Cost
+    /// The weight in kg.
+    let weight: Weight
 
-  /// The weight in kg.
-  let weight: Weight
+    /// The complexity of crafting the item.
+    let complexity: Complexity
 
-  /// The complexity of crafting the item.
-  let complexity: Complexity
+    /// The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
+    let structure_points: StructurePoints?
 
-  /// The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
-  let structure_points: StructurePoints?
+    /// A list of stat blocks for each combat technique this weapon can be used with.
+    @MinItems(1)
+    @Relationship(WeaponUse.self)
+    let uses: [WeaponUse.ID]
 
-  /// A list of stat blocks for each combat technique this weapon can be used with.
-  @MinItems(1)
-  @Relationship(WeaponUse.self)
-  let uses: [WeaponUse.ID]
+    /// If the weapon is sanctified by a god and thus restricted to its Blessed Ones.
+    @Relationship(BlessedTradition.self)
+    @MinItems(1)
+    let sanctified_by: [BlessedTradition.ID]?
 
-  /// If the weapon is sanctified by a god and thus restricted to its Blessed Ones.
-  @Relationship(BlessedTradition.self)
-  @MinItems(1)
-  let sanctified_by: [BlessedTradition.ID]?
+    /// Define if during character creation this weapon can only be bought by characters of a specific race or culture.
+    let restricted_to_cultures: RestrictedToCultures?
 
-  /// Define if during character creation this weapon can only be bought by characters of a specific race or culture.
-  let restricted_to_cultures: RestrictedToCultures?
-
-  /// Define if during character creation this weapon can only be bought by characters of specific magical or blessed traditions.
-  @MinItems(1)
-  @Relationship(MagicalTradition.self)
-  let restricted_to_traditions: [MagicalTradition.ID]?
+    /// Define if during character creation this weapon can only be bought by characters of specific magical or blessed traditions.
+    @MinItems(1)
+    @Relationship(MagicalTradition.self)
+    let restricted_to_traditions: [MagicalTradition.ID]?
 
     /// The publications where you can find the entry.
     @MinItems(1)
@@ -42,8 +41,7 @@ public struct Weapon {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // WeaponTranslation
-
+    struct Translation {  // WeaponTranslation
         /// The item’s name.
         @MinLength(1)
         let name: String
@@ -80,24 +78,23 @@ public struct Weapon {
 
 @Embedded
 public struct ImprovisedWeapon {
+    /// A list of stat blocks for each combat technique this weapon can be used with.
+    @MinItems(1)
+    @Relationship(WeaponUse.self)
+    let uses: [WeaponUse.ID]
 
-  /// A list of stat blocks for each combat technique this weapon can be used with.
-  @MinItems(1)
-  @Relationship(WeaponUse.self)
-  let uses: [WeaponUse.ID]
+    /// If the weapon is sanctified by a god and thus restricted to its Blessed Ones.
+    @Relationship(BlessedTradition.self)
+    @MinItems(1)
+    let sanctified_by: [BlessedTradition.ID]?
 
-  /// If the weapon is sanctified by a god and thus restricted to its Blessed Ones.
-  @Relationship(BlessedTradition.self)
-  @MinItems(1)
-  let sanctified_by: [BlessedTradition.ID]?
+    /// Define if during character creation this weapon can only be bought by characters of a specific race or culture.
+    let restricted_to_cultures: RestrictedToCultures?
 
-  /// Define if during character creation this weapon can only be bought by characters of a specific race or culture.
-  let restricted_to_cultures: RestrictedToCultures?
-
-  /// Define if during character creation this weapon can only be bought by characters of specific magical or blessed traditions.
-  @MinItems(1)
-  @Relationship(MagicalTradition.self)
-  let restricted_to_traditions: [MagicalTradition.ID]?
+    /// Define if during character creation this weapon can only be bought by characters of specific magical or blessed traditions.
+    @MinItems(1)
+    @Relationship(MagicalTradition.self)
+    let restricted_to_traditions: [MagicalTradition.ID]?
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
@@ -105,23 +102,22 @@ public struct ImprovisedWeapon {
 
     @Embedded
     @MinProperties(1)
-    struct Translation { // ImprovisedWeaponTranslation
-            /// The weapon advantage text.
-            @MinLength(1)
-            @Markdown
-            let advantage: String?
+    struct Translation {  // ImprovisedWeaponTranslation
+        /// The weapon advantage text.
+        @MinLength(1)
+        @Markdown
+        let advantage: String?
 
-            /// The weapon disadvantage text.
-            @MinLength(1)
-            @Markdown
-            let disadvantage: String?
-          }
-  }
+        /// The weapon disadvantage text.
+        @MinLength(1)
+        @Markdown
+        let disadvantage: String?
+    }
+}
 
 @Model
 public struct WeaponUse {
-
-      let values: WeaponUseValues
+    let values: WeaponUseValues
 }
 
 /// The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.
@@ -140,8 +136,7 @@ public enum RestrictedToCultures {
 
 @Embedded
 public struct RestrictedToSpecificCultures {
-
-      @MinItems(1)
-      @Relationship(Culture.self)
-      let list: [Culture.ID]
-  }
+    @MinItems(1)
+    @Relationship(Culture.self)
+    let list: [Culture.ID]
+}

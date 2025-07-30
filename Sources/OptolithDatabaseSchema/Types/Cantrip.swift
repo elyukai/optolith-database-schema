@@ -2,19 +2,18 @@ import FileDB
 
 @Model
 public struct Cantrip {
+    /// Measurable parameters of a cantrip.
+    let parameters: CantripPerformanceParameters
 
-  /// Measurable parameters of a cantrip.
-  let parameters: CantripPerformanceParameters
+    /// The target category – the kind of creature or object – the skill affects.
+    let target: AffectedTargetCategories
 
-  /// The target category – the kind of creature or object – the skill affects.
-  let target: AffectedTargetCategories
+    /// The associated property.
+    @Relationship(Property.self)
+    let property: Property.ID
 
-  /// The associated property.
-  @Relationship(Property.self)
-  let property: Property.ID
-
-  /// A note specifying the dissemination of the cantrip in different traditions. Sometimes a cantrip is exclusively available to one or more specific traditions, but usually one the academies and traditions are listed the cantrip is most commonly teached in.
-  let note: CantripNote?
+    /// A note specifying the dissemination of the cantrip in different traditions. Sometimes a cantrip is exclusively available to one or more specific traditions, but usually one the academies and traditions are listed the cantrip is most commonly teached in.
+    let note: CantripNote?
 
     /// The publications where you can find the entry.
     @MinItems(1)
@@ -25,8 +24,7 @@ public struct Cantrip {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // CantripTranslation
-
+    struct Translation {  // CantripTranslation
         /// The cantrip’s name.
         @MinLength(1)
         let name: String
@@ -63,22 +61,20 @@ public enum CantripNote {
 
 @Embedded
 public struct ExclusiveCantripNote {
-
-  /// The traditions the cantrip is exclusively available to.
-  @MinItems(1)
-  @UniqueItems
-  @Relationship(MagicalTradition.self)
-  let traditions: [MagicalTradition.ID]
-  }
+    /// The traditions the cantrip is exclusively available to.
+    @MinItems(1)
+    @UniqueItems
+    @Relationship(MagicalTradition.self)
+    let traditions: [MagicalTradition.ID]
+}
 
 @Embedded
 public struct CommonCantripNotes {
-
-  /// The academies and traditions the cantrip is commonly teached in.
-  @MinItems(1)
-  @UniqueItems
-  let list: [CommonCantripNote]
-  }
+    /// The academies and traditions the cantrip is commonly teached in.
+    @MinItems(1)
+    @UniqueItems
+    let list: [CommonCantripNote]
+}
 
 @ModelEnum
 public enum CommonCantripNote {
@@ -88,30 +84,28 @@ public enum CommonCantripNote {
 
 @Embedded
 public struct CommonCantripTraditionNote {
-
-  /// The magical tradition’s identifier.
-  @Relationship(MagicalTradition.self)
-  let id: MagicalTradition.ID
+    /// The magical tradition’s identifier.
+    @Relationship(MagicalTradition.self)
+    let id: MagicalTradition.ID
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // CommonCantripTraditionNoteTranslation
-
+    struct Translation {  // CommonCantripTraditionNoteTranslation
         /// A note, appended to the generated string in parenthesis.
         @MinLength(1)
         let note: String
-      }
-  }
+    }
+}
 
 /// Measurable parameters of a cantrip.
 @Embedded
 public struct CantripPerformanceParameters {
-      let range: CantripRange
-      let duration: CantripDuration
-  }
+    let range: CantripRange
+    let duration: CantripDuration
+}
 
 @ModelEnum
 public enum CantripRange {
@@ -130,28 +124,26 @@ public enum CantripDuration {
 
 @Embedded
 public struct FixedCantripDuration {
-  /// If the duration is the maximum duration, so it may end earlier.
-  let is_maximum: Bool?
+    /// If the duration is the maximum duration, so it may end earlier.
+    let is_maximum: Bool?
 
-  /// The (unitless) duration.
-  @Minimum(1)
-  let value: Int
+    /// The (unitless) duration.
+    @Minimum(1)
+    let value: Int
 
-  /// The duration unit.
-  let unit: DurationUnit
-  }
+    /// The duration unit.
+    let unit: DurationUnit
+}
 
 @Embedded
 public struct IndefiniteCantripDuration {
-
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // IndefiniteCantripDurationTranslation
-
+    struct Translation {  // IndefiniteCantripDurationTranslation
         /// A description of the duration.
         let description: ResponsiveText
-      }
-  }
+    }
+}

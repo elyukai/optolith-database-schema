@@ -2,9 +2,8 @@ import FileDB
 
 @Model
 public struct OptionalRule {
-
-  /// Has the optional rule not been implemented in Optolith yet? This is also true if the optional rule does not (currently) apply to any Optolith feature.
-  let isMissingImplementation: Bool
+    /// Has the optional rule not been implemented in Optolith yet? This is also true if the optional rule does not (currently) apply to any Optolith feature.
+    let isMissingImplementation: Bool
 
     /// The publications where you can find the entry.
     @MinItems(1)
@@ -15,8 +14,7 @@ public struct OptionalRule {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // OptionalRuleTranslation
-
+    struct Translation {  // OptionalRuleTranslation
         /// The optional rule’s name.
         @MinLength(1)
         let name: String

@@ -2,11 +2,10 @@ import FileDB
 
 @Embedded
 public struct MusicDuration {
+    let length: MusicLength
 
-      let length: MusicLength
-
-      let reusability: MusicReusability
-  }
+    let reusability: MusicReusability
+}
 
 @ModelEnum
 public enum MusicLength {

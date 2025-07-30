@@ -2,9 +2,9 @@ import FileDB
 
 @Model
 public struct EquipmentPackage {
-  /// All items in the package. You have to provide the item (template) identifier and you can optionally provide the number of how often an item is included in the package.
-  @MinItems(2)
-  let items: [EquipmentPackageItem]?
+    /// All items in the package. You have to provide the item (template) identifier and you can optionally provide the number of how often an item is included in the package.
+    @MinItems(2)
+    let items: [EquipmentPackageItem]?
 
     /// The publications where you can find the entry.
     @MinItems(1)
@@ -15,8 +15,7 @@ public struct EquipmentPackage {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // EquipmentPackageTranslation
-
+    struct Translation {  // EquipmentPackageTranslation
         /// The equipment package’s name.
         @MinLength(1)
         let name: String
@@ -25,11 +24,10 @@ public struct EquipmentPackage {
 
 @Embedded
 public struct EquipmentPackageItem {
+    /// The item’s identifier.
+    let id: EquipmentIdentifier
 
-  /// The item’s identifier.
-  let id: EquipmentIdentifier
-
-  /// The number of how often the item is included in the package.
-  @Minimum(2)
-  let number: Int?
-  }
+    /// The number of how often the item is included in the package.
+    @Minimum(2)
+    let number: Int?
+}

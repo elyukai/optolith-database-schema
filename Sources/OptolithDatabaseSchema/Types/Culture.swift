@@ -2,64 +2,63 @@ import FileDB
 
 @Model
 public struct Culture {
+    /// A list of native languages (usually it is only one).
+    @MinItems(1)
+    @UniqueItems
+    @Relationship(Language.self)
+    let language: [Language.ID]
 
-  /// A list of native languages (usually it is only one).
-  @MinItems(1)
-  @UniqueItems
-  @Relationship(Language.self)
-  let language: [Language.ID]
+    /// A list of native scripts (usually it is only one). If the culture does not use any script, leave this array empty.
+    @MinItems(1)
+    @UniqueItems
+    @Relationship(Script.self)
+    let script: [Script.ID]?
 
-  /// A list of native scripts (usually it is only one). If the culture does not use any script, leave this array empty.
-  @MinItems(1)
-  @UniqueItems
-  @Relationship(Script.self)
-  let script: [Script.ID]?
+    /// If the area knowledge has a fixed value or can be adjusted.
+    let area_knowledge: AreaKnowledge
 
-  /// If the area knowledge has a fixed value or can be adjusted.
-  let area_knowledge: AreaKnowledge
+    /// A list of possible social status in the respective culture.
+    @MinItems(1)
+    @UniqueItems
+    @Relationship(SocialStatus.self)
+    let social_status: [SocialStatus.ID]
 
-  /// A list of possible social status in the respective culture.
-  @MinItems(1)
-  @UniqueItems
-  @Relationship(SocialStatus.self)
-  let social_status: [SocialStatus.ID]
+    /// A list of professions that are typical for the culture, as well as professions that are rarely practiced or encountered in the culture. The list is either defined by group (as multiple lists) or plain (as a single list).
+    let common_professions: CommonProfessions
 
-  /// A list of professions that are typical for the culture, as well as professions that are rarely practiced or encountered in the culture. The list is either defined by group (as multiple lists) or plain (as a single list).
-  let common_professions: CommonProfessions
+    /// A list of common advantages.
+    @MinItems(1)
+    @Relationship(Advantage.self)
+    let common_advantages: [CommonnessRatedAdvantageDisadvantage<Advantage.ID>]?
 
-      /// A list of common advantages.
-      @MinItems(1)
-      @Relationship(Advantage.self)
-      let common_advantages: [CommonnessRatedAdvantageDisadvantage<Advantage.ID>]?
+    /// A list of common disadvantages.
+    @MinItems(1)
+    @Relationship(Disadvantage.self)
+    let common_disadvantages: [CommonnessRatedAdvantageDisadvantage<Disadvantage.ID>]?
 
-      /// A list of common disadvantages.
-      @MinItems(1)
-      @Relationship(Disadvantage.self)
-      let common_disadvantages: [CommonnessRatedAdvantageDisadvantage<Disadvantage.ID>]?
+    /// A list of uncommon advantages.
+    @MinItems(1)
+    @Relationship(Advantage.self)
+    let uncommon_advantages: [CommonnessRatedAdvantageDisadvantage<Advantage.ID>]?
 
-      /// A list of uncommon advantages.
-      @MinItems(1)
-      @Relationship(Advantage.self)
-      let uncommon_advantages: [CommonnessRatedAdvantageDisadvantage<Advantage.ID>]?
+    /// A list of uncommon disadvantages.
+    @MinItems(1)
+    @Relationship(Disadvantage.self)
+    let uncommon_disadvantages: [CommonnessRatedAdvantageDisadvantage<Disadvantage.ID>]?
 
-      /// A list of uncommon disadvantages.
-      @MinItems(1)
-      @Relationship(Disadvantage.self)
-      let uncommon_disadvantages: [CommonnessRatedAdvantageDisadvantage<Disadvantage.ID>]?
+    /// A list of common skills.
+    @Relationship(Skill.self)
+    @MinItems(1)
+    let common_skills: [Skill.ID]
 
-  /// A list of common skills.
-  @Relationship(Skill.self)
-  @MinItems(1)
-  let common_skills: [Skill.ID]
+    /// A list of uncommon skills.
+    @Relationship(Skill.self)
+    @MinItems(1)
+    let uncommon_skills: [Skill.ID]?
 
-  /// A list of uncommon skills.
-  @Relationship(Skill.self)
-  @MinItems(1)
-  let uncommon_skills: [Skill.ID]?
-
-  /// The skill points you get for buying the culture package.
-  @MinItems(1)
-  let cultural_package: [CulturalPackageItem]
+    /// The skill points you get for buying the culture package.
+    @MinItems(1)
+    let cultural_package: [CulturalPackageItem]
 
     /// The publications where you can find the entry.
     @MinItems(1)
@@ -70,8 +69,7 @@ public struct Culture {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // CultureTranslation
-
+    struct Translation {  // CultureTranslation
         /// The race’s name.
         @MinLength(1)
         let name: String
@@ -107,10 +105,9 @@ public struct Culture {
 /// If the area knowledge has a fixed value or can be adjusted.
 @Embedded
 public struct AreaKnowledge {
-
-  /// `true` if the area knowledge has a fixed value, `false` if it can be adjusted.
-  let is_fixed: Bool
-  }
+    /// `true` if the area knowledge has a fixed value, `false` if it can be adjusted.
+    let is_fixed: Bool
+}
 
 /// The “weight” difference compared to other professions or profession variants. Some professions or profession variants are simply more common (`Mostly`), but sometimes only specific elements are used (`Only`).
 @ModelEnum
@@ -122,13 +119,13 @@ public enum CommonnessWeight {
 /// Some professions or profession variants are more common than others. There may be cultures where some professions or profession variants are not represented at all.
 @Embedded
 public struct Weighted<ProfessionOrVariant> {
-  /// The list of more common professions or profession variants.
-  @MinItems(1)
-  let elements: [ProfessionOrVariant]
+    /// The list of more common professions or profession variants.
+    @MinItems(1)
+    let elements: [ProfessionOrVariant]
 
-  /// The list of more common professions or profession variants.
-  let weight: CommonnessWeight
-  }
+    /// The list of more common professions or profession variants.
+    let weight: CommonnessWeight
+}
 
 /// This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints or only the professions are kept that are different from the constraints.
 @ModelEnum
@@ -140,13 +137,13 @@ public enum CommonProfessionConstraintsOperation {
 /// A list of professions. The filter specifies how the list is applied to all mundane professions.
 @Embedded
 public struct CommonProfessionConstraints<Constraint> {
-  /// The list of constraints.
-  @MinItems(1)
-  let constraints: [Constraint]
+    /// The list of constraints.
+    @MinItems(1)
+    let constraints: [Constraint]
 
-  /// This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints or only the professions are kept that are different from the constraints.
-  let operation: CommonProfessionConstraintsOperation
-  }
+    /// This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints or only the professions are kept that are different from the constraints.
+    let operation: CommonProfessionConstraintsOperation
+}
 
 /// Some professions may be found in a culture, but are not that common.
 @ModelEnum
@@ -157,48 +154,45 @@ public enum Rarity {
 
 @Embedded
 public struct ProfessionConstraint {
+    /// The profession’s identifier.
+    @Relationship(Profession.self)
+    let id: Profession.ID
 
-  /// The profession’s identifier.
-  @Relationship(Profession.self)
-  let id: Profession.ID
+    /// Some profession variants are more common than others. There may be cultures where some variants are not represented at all.
+    @Relationship(ProfessionVariant.self)
+    let weighted_variants: Weighted<ProfessionVariant.ID>?
 
-  /// Some profession variants are more common than others. There may be cultures where some variants are not represented at all.
-  @Relationship(ProfessionVariant.self)
-  let weighted_variants: Weighted<ProfessionVariant.ID>?
-
-  /// Some professions may be found in a culture, but are not that common.
-  let rarity: Rarity?
-  }
+    /// Some professions may be found in a culture, but are not that common.
+    let rarity: Rarity?
+}
 
 @Embedded
 public struct MagicalTraditionConstraint {
+    /// The magical tradition’s identifier.
+    @Relationship(MagicalTradition.self)
+    let id: MagicalTradition.ID
 
-  /// The magical tradition’s identifier.
-  @Relationship(MagicalTradition.self)
-  let id: MagicalTradition.ID
+    /// Some professions are more common than others. There may be cultures where some professions are not represented at all.
+    @Relationship(Profession.self)
+    let weighted_professions: Weighted<Profession.ID>?
 
-  /// Some professions are more common than others. There may be cultures where some professions are not represented at all.
-  @Relationship(Profession.self)
-  let weighted_professions: Weighted<Profession.ID>?
-
-  /// Some traditions may be found in a culture, but are not that common.
-  let rarity: Rarity?
-  }
+    /// Some traditions may be found in a culture, but are not that common.
+    let rarity: Rarity?
+}
 
 @Embedded
 public struct BlessedTraditionConstraint {
+    /// The blessed tradition’s identifier.
+    @Relationship(BlessedTradition.self)
+    let id: BlessedTradition.ID
 
-  /// The blessed tradition’s identifier.
-  @Relationship(BlessedTradition.self)
-  let id: BlessedTradition.ID
+    /// Some professions are more common than others. There may be cultures where some professions are not represented at all.
+    @Relationship(Profession.self)
+    let weighted_professions: Weighted<Profession.ID>?
 
-  /// Some professions are more common than others. There may be cultures where some professions are not represented at all.
-  @Relationship(Profession.self)
-  let weighted_professions: Weighted<Profession.ID>?
-
-  /// Some traditions may be found in a culture, but are not that common.
-  let rarity: Rarity?
-  }
+    /// Some traditions may be found in a culture, but are not that common.
+    let rarity: Rarity?
+}
 
 @ModelEnum
 public enum MundaneCommonProfessionConstraint {
@@ -220,8 +214,8 @@ public enum BlessedCommonProfessionConstraint {
 
 @TypeAlias
 public struct PlainCommonProfessions {
-  @Relationship(Profession.self)
-  let list: CommonProfessionConstraints<Profession.ID>
+    @Relationship(Profession.self)
+    let list: CommonProfessionConstraints<Profession.ID>
 }
 
 /// Lists of professions by group.
@@ -244,40 +238,37 @@ public enum CommonProfessions {
 
 @Embedded
 public struct CulturalPackageItem {
+    /// The skill’s identifier.
+    @Relationship(Skill.self)
+    let id: Skill.ID
 
-  /// The skill’s identifier.
-  @Relationship(Skill.self)
-  let id: Skill.ID
-
-  /// The skill points for the respective skill you get for buying the cultural package.
-  @Minimum(1)
-  @Maximum(2)
-  let points: Int
-  }
+    /// The skill points for the respective skill you get for buying the cultural package.
+    @Minimum(1)
+    @Maximum(2)
+    let points: Int
+}
 
 /// Description and examples of the area knowledge.
 @Embedded
 public struct AreaKnowledgeTranslation {
+    /// The full description without examples in parenthesis.
+    @MinLength(1)
+    let description: String
 
-  /// The full description without examples in parenthesis.
-  @MinLength(1)
-  let description: String
+    /// A shorter version of the description, used in input fields and other UI elements where the space might be to small to use the full description.
+    @MinLength(1)
+    let abbreviated: String
 
-  /// A shorter version of the description, used in input fields and other UI elements where the space might be to small to use the full description.
-  @MinLength(1)
-  let abbreviated: String
-
-  /// Examples of areas, if applicable.
-  @MinItems(1)
-  let examples: [AreaKnowledgeExample]?
-  }
+    /// Examples of areas, if applicable.
+    @MinItems(1)
+    let examples: [AreaKnowledgeExample]?
+}
 
 @Embedded
 public struct AreaKnowledgeExample {
-
-      @MinLength(1)
-      let area: String
-  }
+    @MinLength(1)
+    let area: String
+}
 
 /// Structured description of common names.
 @Embedded

@@ -2,22 +2,21 @@ import FileDB
 
 @Model
 public struct Skill {
+    /// Lists the linked three attributes used to make a skill check.
+    let check: SkillCheck
 
-  /// Lists the linked three attributes used to make a skill check.
-  let check: SkillCheck
+    /// Lists applications for the skill, if any. This does not necessarily include all possible applications. There may also be new applications that could be purchased via certain advantages or special abilities.
+    let applications: Applications
 
-  /// Lists applications for the skill, if any. This does not necessarily include all possible applications. There may also be new applications that could be purchased via certain advantages or special abilities.
-  let applications: Applications
+    /// Indicates whether encumbrance gives a penalty for checks with the skill.
+    let encumbrance: EncumbranceInfluence
 
-  /// Indicates whether encumbrance gives a penalty for checks with the skill.
-  let encumbrance: EncumbranceInfluence
+    /// States which column is used to improve the skill.
+    let improvement_cost: ImprovementCost
 
-  /// States which column is used to improve the skill.
-  let improvement_cost: ImprovementCost
-
-  /// The skill group this skill belongs to.
-  @Relationship(SkillGroup.self)
-  let group: SkillGroup.ID
+    /// The skill group this skill belongs to.
+    @Relationship(SkillGroup.self)
+    let group: SkillGroup.ID
 
     /// The publications where you can find the entry.
     @MinItems(1)
@@ -28,23 +27,22 @@ public struct Skill {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // SkillTranslation
-
+    struct Translation {  // SkillTranslation
         /// The skill’s name.
         @MinLength(1)
         let name: String
 
-          /// If there are options available that can not be put into a selection list (like different cults), provide the label text for the input element here. Otherwise leave empty.
-          @MinLength(1)
-          let applications_input_label: String?
+        /// If there are options available that can not be put into a selection list (like different cults), provide the label text for the input element here. Otherwise leave empty.
+        @MinLength(1)
+        let applications_input_label: String?
 
-          /// The text listing the certain circumstances in which the encumbrance may count. This text must be used if `encumbrance` is set to `"Maybe"`, otherwise it is ignored if defined.
-          @MinLength(1)
-          let encumbrance_description: String?
+        /// The text listing the certain circumstances in which the encumbrance may count. This text must be used if `encumbrance` is set to `"Maybe"`, otherwise it is ignored if defined.
+        @MinLength(1)
+        let encumbrance_description: String?
 
-          /// Mentions any tools from the equipment list that are necessary to employ the skill.
-          @MinLength(1)
-          let tools: String?
+        /// Mentions any tools from the equipment list that are necessary to employ the skill.
+        @MinLength(1)
+        let tools: String?
 
         /// Gives examples of the effects that various QL might provide.
         @MinLength(1)
@@ -93,14 +91,12 @@ public enum ApplicationCategory {
 
 @Model
 public struct SkillApplication {
-
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // SkillApplicationTranslation
-
+    struct Translation {  // SkillApplicationTranslation
         /// The skill application’s name.
         @MinLength(1)
         let name: String

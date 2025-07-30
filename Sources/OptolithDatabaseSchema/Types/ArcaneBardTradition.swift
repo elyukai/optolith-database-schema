@@ -9,8 +9,7 @@ public struct ArcaneBardTradition {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // ArcaneBardTraditionTranslation
-
+    struct Translation {  // ArcaneBardTraditionTranslation
         /// The arcane tradition’s name.
         @MinLength(1)
         let name: String

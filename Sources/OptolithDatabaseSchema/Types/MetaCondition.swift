@@ -12,8 +12,7 @@ public struct MetaCondition {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // MetaConditionTranslation
-
+    struct Translation {  // MetaConditionTranslation
         /// The meta condition’s name.
         @MinLength(1)
         let name: String
@@ -23,10 +22,10 @@ public struct MetaCondition {
         @Markdown
         let rules: String?
 
-          /// The effects for level 1 to 4.
-          @MinItems(4)
-          @MaxItems(4)
-          let effects: [MetaConditionLevelEffect]
+        /// The effects for level 1 to 4.
+        @MinItems(4)
+        @MaxItems(4)
+        let effects: [MetaConditionLevelEffect]
 
         /// A list of errata for the entry in the specific language.
         @MinItems(1)
@@ -36,7 +35,7 @@ public struct MetaCondition {
 
 @TypeAlias
 public struct MetaConditionLevelEffect {
-  @MinLength(1)
-  @Markdown
-  let text: String
+    @MinLength(1)
+    @Markdown
+    let text: String
 }

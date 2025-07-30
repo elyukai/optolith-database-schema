@@ -2,18 +2,17 @@ import FileDB
 
 @Model
 public struct FocusRule {
+    /// The associated subject.
+    @Relationship(Subject.self)
+    let subject: Subject.ID
 
-  /// The associated subject.
-  @Relationship(Subject.self)
-  let subject: Subject.ID
+    /// The focus rule’s level.
+    @Minimum(1)
+    @Maximum(4)
+    let level: Int
 
-  /// The focus rule’s level.
-  @Minimum(1)
-  @Maximum(4)
-  let level: Int
-
-  /// Has the focus rule not been implemented in Optolith yet? This is also true if the focus rule does not (currently) apply to any Optolith feature.
-  let isMissingImplementation: Bool
+    /// Has the focus rule not been implemented in Optolith yet? This is also true if the focus rule does not (currently) apply to any Optolith feature.
+    let isMissingImplementation: Bool
 
     /// The publications where you can find the entry.
     @MinItems(1)
@@ -24,8 +23,7 @@ public struct FocusRule {
     let translations: [String: Translation]
 
     @Embedded
-    struct Translation { // FocusRuleTranslation
-
+    struct Translation {  // FocusRuleTranslation
         /// The focus rule’s name.
         @MinLength(1)
         let name: String

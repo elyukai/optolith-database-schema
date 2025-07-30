@@ -18,35 +18,34 @@ import FileDB
 /// > — You have 0 friends online.
 @Embedded
 public struct PluralizationCategories {
-      @MinLength(1)
-      let zero: String?
+    @MinLength(1)
+    let zero: String?
 
-      @MinLength(1)
-      let one: String?
+    @MinLength(1)
+    let one: String?
 
-      @MinLength(1)
-      let two: String?
+    @MinLength(1)
+    let two: String?
 
-      @MinLength(1)
-      let few: String?
+    @MinLength(1)
+    let few: String?
 
-      @MinLength(1)
-      let many: String?
+    @MinLength(1)
+    let many: String?
 
-      @MinLength(1)
-      let other: String
-  }
+    @MinLength(1)
+    let other: String
+}
 
 /// The item can be different for each operating system.
 @Embedded
 public struct VaryBySystem {
+    @MinLength(1)
+    let mac: String
 
-      @MinLength(1)
-      let mac: String
+    @MinLength(1)
+    let windows: String
 
-      @MinLength(1)
-      let windows: String
-
-      @MinLength(1)
-      let linux: String
-  }
+    @MinLength(1)
+    let linux: String
+}

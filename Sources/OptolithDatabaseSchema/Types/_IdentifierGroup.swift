@@ -37,7 +37,8 @@ public enum ActivatableIdentifier {
     case MagicStyleSpecialAbility(MagicStyleSpecialAbilityIdentifierObject)
     case OrbEnchantment(OrbEnchantmentIdentifierObject)
     case PactGift(PactGiftIdentifierObject)
-    case ProtectiveWardingCircleSpecialAbility(ProtectiveWardingCircleSpecialAbilityIdentifierObject)
+    case ProtectiveWardingCircleSpecialAbility(
+        ProtectiveWardingCircleSpecialAbilityIdentifierObject)
     case RingEnchantment(RingEnchantmentIdentifierObject)
     case Sermon(SermonIdentifierObject)
     case SexSpecialAbility(SexSpecialAbilityIdentifierObject)
@@ -89,7 +90,8 @@ public enum SpecialAbilityIdentifier {
     case MagicStyleSpecialAbility(MagicStyleSpecialAbilityIdentifierObject)
     case OrbEnchantment(OrbEnchantmentIdentifierObject)
     case PactGift(PactGiftIdentifierObject)
-    case ProtectiveWardingCircleSpecialAbility(ProtectiveWardingCircleSpecialAbilityIdentifierObject)
+    case ProtectiveWardingCircleSpecialAbility(
+        ProtectiveWardingCircleSpecialAbilityIdentifierObject)
     case RingEnchantment(RingEnchantmentIdentifierObject)
     case Sermon(SermonIdentifierObject)
     case SexSpecialAbility(SexSpecialAbilityIdentifierObject)
