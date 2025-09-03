@@ -60,8 +60,8 @@ public struct MagicalDancePerformanceParameters {
 
 @ModelEnum
 public enum MagicalDanceCost {
-    case Fixed(FixedMagicalDanceCost)
-    case Indefinite(IndefiniteMagicalDanceCost)
+    case fixed(FixedMagicalDanceCost)
+    case indefinite(IndefiniteMagicalDanceCost)
 }
 
 @Embedded

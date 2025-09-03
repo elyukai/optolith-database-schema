@@ -44,8 +44,8 @@ public struct AnimalCare {
 /// Values depending on whether the animal care is feed.
 @ModelEnum
 public enum AnimalCareType {
-    case General(GeneralAnimalCare)
-    case Feed(AnimalFeed)
+    case general(GeneralAnimalCare)
+    case feed(AnimalFeed)
 }
 
 @Embedded
@@ -65,5 +65,5 @@ public struct AnimalFeed {
 
 @ModelEnum
 public enum AnimalFeedCost {
-    case PerWeek(FixedCost)
+    case perWeek(FixedCost)
 }

@@ -54,16 +54,16 @@ public struct BlessingPerformanceParameters {
 
 @ModelEnum
 public enum BlessingRange {
-    case `Self`
-    case Touch
-    case Fixed
+    case `self`
+    case touch
+    case fixed
 }
 
 @ModelEnum
 public enum BlessingDuration {
-    case Immediate
-    case Fixed(FixedBlessingDuration)
-    case Indefinite(IndefiniteBlessingDuration)
+    case immediate
+    case fixed(FixedBlessingDuration)
+    case indefinite(IndefiniteBlessingDuration)
 }
 
 @Embedded

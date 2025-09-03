@@ -86,8 +86,8 @@ public struct PatronCulture {
 /// The set operation to combine the set of all patron cultures with the specified set of patron cultures: If they should intersect, the patron is only part of the given cultures. If they should differ, the patron is only part of the cultures that are not given.
 @ModelEnum
 public enum PatronCultureOperation {
-    case Intersection
-    case Difference
+    case intersection
+    case difference
 }
 
 @Embedded
@@ -133,8 +133,8 @@ public struct SkillAnimalPower {
 
 @ModelEnum
 public enum AnimalPowerLevel1 {
-    case Advantage(AdvantageAnimalPower)
-    case Skill(SkillAnimalPower)
+    case advantage(AdvantageAnimalPower)
+    case skill(SkillAnimalPower)
 }
 
 @Embedded
@@ -149,17 +149,17 @@ public struct CombatAnimalPower {
 
 @ModelEnum
 public enum CombatAnimalPowerType {
-    case Attack
-    case Parry
-    case RangedCombat
-    case Dodge
-    case DamagePoints
-    case Protection
+    case attack
+    case parry
+    case rangedCombat
+    case dodge
+    case damagePoints
+    case protection
 }
 
 @ModelEnum
 public enum AnimalPowerLevel2 {
-    case Combat(CombatAnimalPower)
+    case combat(CombatAnimalPower)
 }
 
 @Embedded
@@ -175,5 +175,5 @@ public struct AttributeAnimalPower {
 
 @ModelEnum
 public enum AnimalPowerLevel3 {
-    case Attribute(AttributeAnimalPower)
+    case attribute(AttributeAnimalPower)
 }

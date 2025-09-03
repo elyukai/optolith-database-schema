@@ -5,9 +5,9 @@ import FileDB
 /// The damage of a ranged weapon. It consists of a random part using dice and an optional flat part ny default. Some ranged weapons may work different so that damage is either not applicable at all or it is outlined as *Special* and further defined in a description.
 @ModelEnum
 public enum RangedDamage {
-    case Default(DefaultRangedDamage)
-    case NotApplicable
-    case Special
+    case `default`(DefaultRangedDamage)
+    case notApplicable
+    case special
 }
 
 /// The damage of a weapon consists of a random part using dice and an optional flat part.

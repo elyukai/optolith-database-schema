@@ -14,6 +14,6 @@ public struct PrimaryAttributePrerequisite {
 
 @ModelEnum
 public enum PrimaryAttributeCategory {
-    case Blessed
-    case Magical
+    case blessed
+    case magical
 }

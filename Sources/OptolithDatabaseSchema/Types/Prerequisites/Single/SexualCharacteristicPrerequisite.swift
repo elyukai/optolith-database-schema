@@ -8,6 +8,6 @@ public struct SexualCharacteristicPrerequisite {
 
 @ModelEnum
 public enum SexualCharacteristic {
-    case Penis
-    case Vagina
+    case penis
+    case vagina
 }

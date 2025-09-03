@@ -36,8 +36,8 @@ public struct InitialOccurrence {
 /// A revision of the entry, resulting in either changed page references or re-addition or removal of an entry.
 @ModelEnum
 public enum Revision {
-    case Since(Since)
-    case Deprecated(Deprecation)
+    case since(Since)
+    case deprecated(Deprecation)
 }
 
 @Embedded
@@ -69,7 +69,7 @@ public struct PageRange {
 
 @ModelEnum
 public enum Page {
-    case InsideCoverFront
-    case InsideCoverBack
-    case Numbered(Int)
+    case insideCoverFront
+    case insideCoverBack
+    case numbered(Int)
 }

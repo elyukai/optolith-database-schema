@@ -3,9 +3,9 @@ import FileDB
 /// The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
 @ModelEnum
 public enum ActivatableSkillEffect {
-    case Plain(ActivatableSkillPlainEffect)
-    case ForEachQualityLevel(ActivatableSkillEffectForEachQualityLevel)
-    case ForEachTwoQualityLevels(ActivatableSkillEffectForEachTwoQualityLevels)
+    case plain(ActivatableSkillPlainEffect)
+    case forEachQualityLevel(ActivatableSkillEffectForEachQualityLevel)
+    case forEachTwoQualityLevels(ActivatableSkillEffectForEachTwoQualityLevels)
 }
 
 @Embedded

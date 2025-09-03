@@ -106,9 +106,9 @@ public struct FixedJesterTrickRange {
 
 @ModelEnum
 public enum JesterTrickDuration {
-    case Immediate
-    case Fixed(FixedJesterTrickDuration)
-    case CheckResultBased(CheckResultBasedDuration)
+    case immediate
+    case fixed(FixedJesterTrickDuration)
+    case checkResultBased(CheckResultBasedDuration)
 }
 
 @Embedded

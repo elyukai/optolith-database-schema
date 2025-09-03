@@ -56,8 +56,8 @@ public struct CursePerformanceParameters {
 
 @ModelEnum
 public enum CurseCost {
-    case Fixed(FixedCurseCost)
-    case Indefinite(IndefiniteOneTimeCost)
+    case fixed(FixedCurseCost)
+    case indefinite(IndefiniteOneTimeCost)
 }
 
 @Embedded
@@ -83,10 +83,10 @@ public struct FixedCurseCost {
 
 @ModelEnum
 public enum CurseDuration {
-    case Immediate
-    case Fixed(DurationUnitValue)
-    case CheckResultBased(CheckResultBasedDuration)
-    case Indefinite(IndefiniteCurseDuration)
+    case immediate
+    case fixed(DurationUnitValue)
+    case checkResultBased(CheckResultBasedDuration)
+    case indefinite(IndefiniteCurseDuration)
 }
 
 @Embedded
@@ -107,6 +107,6 @@ public struct IndefiniteCurseDuration {
 
 @ModelEnum
 public enum MaximumIndefiniteCurseDuration {
-    case Fixed(DurationUnitValue)
-    case CheckResultBased(CheckResultBasedDuration)
+    case fixed(DurationUnitValue)
+    case checkResultBased(CheckResultBasedDuration)
 }

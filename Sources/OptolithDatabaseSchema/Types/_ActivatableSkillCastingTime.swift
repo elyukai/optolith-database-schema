@@ -2,8 +2,8 @@ import FileDB
 
 @ModelEnum
 public enum CastingTime<NonModifiable> {
-    case Modifiable(ModifiableCastingRange)
-    case NonModifiable(NonModifiable)
+    case modifiable(ModifiableCastingRange)
+    case nonModifiable(NonModifiable)
 }
 
 @Embedded
@@ -39,8 +39,8 @@ public struct CastingTimeDuringLovemaking {
 
 @ModelEnum
 public enum CastingTimeDuringLovemakingUnit {
-    case SeductionActions
-    case Rounds
+    case seductionActions
+    case rounds
 }
 
 @Embedded

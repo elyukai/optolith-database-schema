@@ -9,12 +9,12 @@ public struct MusicDuration {
 
 @ModelEnum
 public enum MusicLength {
-    case Long
-    case Short
+    case long
+    case short
 }
 
 @ModelEnum
 public enum MusicReusability {
-    case OneTime
-    case Sustainable
+    case oneTime
+    case sustainable
 }

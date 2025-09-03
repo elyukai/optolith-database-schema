@@ -3,8 +3,8 @@ import FileDB
 /// The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.
 @ModelEnum
 public enum CombatUse {
-    case Weapon(ImprovisedWeapon)
-    case Armor(SecondaryArmor)
+    case weapon(ImprovisedWeapon)
+    case armor(SecondaryArmor)
 }
 
 /// The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.
@@ -24,11 +24,11 @@ public struct StructurePointsComponent {
 /// The cost in silverthalers.
 @ModelEnum
 public enum Cost {
-    case Free
-    case Various
-    case Invaluable
-    case Fixed(FixedCost)
-    case Range(CostRange)
+    case free
+    case various
+    case invaluable
+    case fixed(FixedCost)
+    case range(CostRange)
 }
 
 @Embedded
@@ -81,9 +81,9 @@ public struct Weight {
 /// The complexity of crafting the item.
 @ModelEnum
 public enum Complexity {
-    case Primitive
-    case Simple
-    case Complex(ComplexComplexity)
+    case primitive
+    case simple
+    case complex(ComplexComplexity)
 }
 
 @Embedded

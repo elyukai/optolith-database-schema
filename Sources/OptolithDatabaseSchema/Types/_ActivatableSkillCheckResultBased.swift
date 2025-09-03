@@ -3,15 +3,15 @@ import FileDB
 /// Defines the derived (unitless) value.
 @ModelEnum
 public enum CheckResultValue {
-    case QualityLevels
-    case SkillPoints
+    case qualityLevels
+    case skillPoints
 }
 
 /// Defines how the the `value` is set off against the check result.
 @ModelEnum
 public enum CheckResultArithmetic {
-    case Multiply
-    case Divide
+    case multiply
+    case divide
 }
 
 @Embedded

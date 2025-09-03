@@ -18,10 +18,10 @@ public struct RatedMinimumNumberPrerequisite {
 
 @ModelEnum
 public enum RatedMinimumNumberPrerequisiteTarget {
-    case Skills(RatedMinimumNumberPrerequisiteSkillsTarget)
-    case CombatTechniques(RatedMinimumNumberPrerequisiteCombatTechniquesTarget)
-    case Spellworks(RatedMinimumNumberPrerequisiteSpellworksTarget)
-    case Liturgies(RatedMinimumNumberPrerequisiteLiturgiesTarget)
+    case skills(RatedMinimumNumberPrerequisiteSkillsTarget)
+    case combatTechniques(RatedMinimumNumberPrerequisiteCombatTechniquesTarget)
+    case spellworks(RatedMinimumNumberPrerequisiteSpellworksTarget)
+    case liturgies(RatedMinimumNumberPrerequisiteLiturgiesTarget)
 }
 
 @Embedded
@@ -41,9 +41,9 @@ public struct RatedMinimumNumberPrerequisiteCombatTechniquesTarget {
 
 @ModelEnum
 public enum RatedMinimumNumberPrerequisiteCombatTechniquesTargetGroup {
-    case All
-    case Close
-    case Ranged
+    case all
+    case close
+    case ranged
 }
 
 @Embedded

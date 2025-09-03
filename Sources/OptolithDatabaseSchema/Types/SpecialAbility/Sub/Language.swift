@@ -46,8 +46,8 @@ public struct Language {
 
 @ModelEnum
 public enum Specializations {
-    case Specific(SpecificSpecializations)
-    case Indefinite(IndefiniteSpecializations)
+    case specific(SpecificSpecializations)
+    case indefinite(IndefiniteSpecializations)
 }
 
 @Embedded

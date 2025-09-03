@@ -2,11 +2,11 @@ import FileDB
 
 @ModelEnum
 public enum DurationForOneTime {
-    case Immediate(Immediate)
-    case Permanent(PermanentDuration)
-    case Fixed(FixedDuration)
-    case CheckResultBased(CheckResultBasedDuration)
-    case Indefinite(IndefiniteDuration)
+    case immediate(Immediate)
+    case permanent(PermanentDuration)
+    case fixed(FixedDuration)
+    case checkResultBased(CheckResultBasedDuration)
+    case indefinite(IndefiniteDuration)
 }
 
 @Embedded
@@ -105,16 +105,16 @@ public struct DurationForSustained {
 
 @ModelEnum
 public enum DurationUnit {
-    case Seconds
-    case Minutes
-    case Hours
-    case Days
-    case Weeks
-    case Months
-    case Years
-    case Centuries
-    case Actions
-    case CombatRounds
+    case seconds
+    case minutes
+    case hours
+    case days
+    case weeks
+    case months
+    case years
+    case centuries
+    case actions
+    case combatRounds
 }
 
 @Embedded

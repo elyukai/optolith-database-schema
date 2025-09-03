@@ -60,25 +60,25 @@ public struct Poison {
 
 @ModelEnum
 public enum PoisonApplicationType {
-    case Weapon
-    case Ingestion
-    case Inhalation
-    case Contact
+    case weapon
+    case ingestion
+    case inhalation
+    case contact
 }
 
 @ModelEnum
 public enum PoisonStart {
-    case Immediate
-    case Constant(ConstantPoisonTime)
-    case DiceBased(DiceBasedPoisonTime)
+    case immediate
+    case constant(ConstantPoisonTime)
+    case diceBased(DiceBasedPoisonTime)
 }
 
 @ModelEnum
 public enum PoisonDuration {
-    case Instant
-    case Constant(ConstantPoisonTime)
-    case DiceBased(DiceBasedPoisonTime)
-    case Indefinite(IndefinitePoisonTime)
+    case instant
+    case constant(ConstantPoisonTime)
+    case diceBased(DiceBasedPoisonTime)
+    case indefinite(IndefinitePoisonTime)
 }
 
 @Embedded
@@ -98,10 +98,10 @@ public struct DiceBasedPoisonTime {
 
 @ModelEnum
 public enum PoisonTimeUnit {
-    case CombatRounds
-    case Minutes
-    case Hours
-    case Days
+    case combatRounds
+    case minutes
+    case hours
+    case days
 }
 
 @Embedded
@@ -121,11 +121,11 @@ public struct IndefinitePoisonTime {
 
 @ModelEnum
 public enum PoisonSourceType {
-    case AnimalVenom(AnimalVenom)
-    case AlchemicalPoison(AlchemicalPoison)
-    case MineralPoison(MineralPoison)
-    case PlantPoison(PlantPoison)
-    case DemonicPoison(DemonicPoison)
+    case animalVenom(AnimalVenom)
+    case alchemicalPoison(AlchemicalPoison)
+    case mineralPoison(MineralPoison)
+    case plantPoison(PlantPoison)
+    case demonicPoison(DemonicPoison)
 }
 
 @Embedded
@@ -231,8 +231,8 @@ public struct DemonicPoison {
 
 @ModelEnum
 public enum DemonicPoisonLevel {
-    case QualityLevel(QualityLevelDemonicPoisonLevel)
-    case Constant(ConstantDemonicPoisonLevel)
+    case qualityLevel(QualityLevelDemonicPoisonLevel)
+    case constant(ConstantDemonicPoisonLevel)
 }
 
 @Embedded
@@ -242,7 +242,7 @@ public struct QualityLevelDemonicPoisonLevel {
 
 @ModelEnum
 public enum QualityLevelDemonicPoisonLevelSource {
-    case Spellwork
+    case spellwork
 }
 
 @Embedded
@@ -307,8 +307,8 @@ public struct IntoxicantAddiction {
 /// The maximum interval at which it, while addicted, must be ingested to not suffer from withdrawal symptoms.
 @ModelEnum
 public enum IntoxicantAddictionInterval {
-    case Constant(ConstantIntoxicantAddictionInterval)
-    case DiceBased(DiceBasedIntoxicantAddictionInterval)
+    case constant(ConstantIntoxicantAddictionInterval)
+    case diceBased(DiceBasedIntoxicantAddictionInterval)
 }
 
 @Embedded

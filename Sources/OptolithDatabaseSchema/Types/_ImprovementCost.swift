@@ -2,8 +2,8 @@ import FileDB
 
 @ModelEnum
 public enum ImprovementCost {
-    case A
-    case B
-    case C
-    case D
+    case a
+    case b
+    case c
+    case d
 }

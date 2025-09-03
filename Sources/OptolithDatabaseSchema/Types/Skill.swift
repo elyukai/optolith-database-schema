@@ -69,9 +69,9 @@ public struct Skill {
 /// The skill’s applications
 @ModelEnum
 public enum Applications {
-    case Derived(ApplicationCategory)
+    case derived(ApplicationCategory)
     /// A list of explicit applications.
-    case Explicit(SpecificApplications)
+    case explicit(SpecificApplications)
 }
 
 @TypeAlias
@@ -84,9 +84,9 @@ public struct SpecificApplications {
 /// A category. All available entries from the specified category will be included as separate applications.
 @ModelEnum
 public enum ApplicationCategory {
-    case BlessedTraditions
-    case Diseases
-    case Regions
+    case blessedTraditions
+    case diseases
+    case regions
 }
 
 @Model
@@ -106,7 +106,7 @@ public struct SkillApplication {
 /// Indicates whether encumbrance gives a penalty for checks with the skill.
 @ModelEnum
 public enum EncumbranceInfluence {
-    case Yes
-    case No
-    case Maybe
+    case yes
+    case no
+    case maybe
 }

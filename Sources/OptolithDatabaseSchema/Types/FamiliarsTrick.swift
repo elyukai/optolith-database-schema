@@ -52,8 +52,8 @@ public struct FamiliarsTrick {
 
 @ModelEnum
 public enum FamiliarsTrickProperty {
-    case Fixed(PropertyIdentifierObject)
-    case Indefinite(IndefiniteFamiliarsTrickProperty)
+    case fixed(PropertyIdentifierObject)
+    case indefinite(IndefiniteFamiliarsTrickProperty)
 }
 
 @Embedded
@@ -71,9 +71,9 @@ public struct IndefiniteFamiliarsTrickProperty {
 /// Measurable parameters of a familiar’s trick.
 @ModelEnum
 public enum FamiliarsTrickPerformanceParameters {
-    case OneTime(FamiliarsTrickOneTimePerformanceParameters)
-    case OneTimeInterval(FamiliarsTrickOneTimeIntervalPerformanceParameters)
-    case Sustained(FamiliarsTrickSustainedPerformanceParameters)
+    case oneTime(FamiliarsTrickOneTimePerformanceParameters)
+    case oneTimeInterval(FamiliarsTrickOneTimeIntervalPerformanceParameters)
+    case sustained(FamiliarsTrickSustainedPerformanceParameters)
 }
 
 @Embedded
@@ -85,9 +85,9 @@ public struct FamiliarsTrickOneTimePerformanceParameters {
 
 @ModelEnum
 public enum FamiliarsTrickOneTimeCost {
-    case Fixed(FamiliarsTrickFixedOneTimeCost)
-    case All(FamiliarsTrickAllOneTimeCost)
-    case Indefinite(IndefiniteOneTimeCost)
+    case fixed(FamiliarsTrickFixedOneTimeCost)
+    case all(FamiliarsTrickAllOneTimeCost)
+    case indefinite(IndefiniteOneTimeCost)
 }
 
 @Embedded
@@ -124,9 +124,9 @@ public struct FamiliarsTrickAllOneTimeCost {
 
 @ModelEnum
 public enum FamiliarsTrickOneTimeDuration {
-    case Immediate
-    case Fixed(FixedDuration)
-    case Indefinite(IndefiniteDuration)
+    case immediate
+    case fixed(FixedDuration)
+    case indefinite(IndefiniteDuration)
 }
 
 @Embedded

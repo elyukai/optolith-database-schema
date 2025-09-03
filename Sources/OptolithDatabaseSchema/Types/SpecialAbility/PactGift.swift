@@ -64,8 +64,8 @@ public struct PactGift {
 
 @ModelEnum
 public enum PactGiftPermanentDemonicConsumption {
-    case Fixed(FixedPactGiftPermanentDemonicConsumption)
-    case PerLevel(PactGiftPermanentDemonicConsumptionPerLevel)
+    case fixed(FixedPactGiftPermanentDemonicConsumption)
+    case perLevel(PactGiftPermanentDemonicConsumptionPerLevel)
 }
 
 @Embedded
@@ -98,14 +98,14 @@ public struct AutomaticEntry {
 
 @ModelEnum
 public enum AutomaticEntryAction {
-    case Add
-    case Remove
+    case add
+    case remove
 }
 
 @ModelEnum
 public enum AutomaticEntryTarget {
-    case Selection(AutomaticEntryTargetSelection)
-    case Fixed(FixedAutomaticEntryTarget)
+    case selection(AutomaticEntryTargetSelection)
+    case fixed(FixedAutomaticEntryTarget)
 }
 
 @Embedded
@@ -115,8 +115,8 @@ public struct AutomaticEntryTargetSelection {
 
 @ModelEnum
 public enum AutomaticEntryTargetSelectionList {
-    case MagicalTraditions
-    case MagicalDilettanteTraditions
+    case magicalTraditions
+    case magicalDilettanteTraditions
 }
 
 @Embedded

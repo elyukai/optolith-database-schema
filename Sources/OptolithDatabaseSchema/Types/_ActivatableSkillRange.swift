@@ -22,14 +22,14 @@ public struct Range {
 
 @ModelEnum
 public enum RangeValue {
-    case Modifiable(ModifiableRange)
-    case Sight
-    case `Self`
+    case modifiable(ModifiableRange)
+    case sight
+    case `self`
     /// German: *dereumfassend*
-    case Global
-    case Touch
-    case Fixed(FixedRange)
-    case CheckResultBased(CheckResultBasedRange)
+    case global
+    case touch
+    case fixed(FixedRange)
+    case checkResultBased(CheckResultBasedRange)
 }
 
 @Embedded
@@ -81,6 +81,6 @@ public struct CheckResultBasedRange {
 
 @ModelEnum
 public enum RangeUnit {
-    case Steps
-    case Miles
+    case steps
+    case miles
 }

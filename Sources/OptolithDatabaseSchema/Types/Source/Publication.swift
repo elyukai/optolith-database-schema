@@ -43,8 +43,8 @@ public struct Publication {
 
 @ModelEnum
 public enum PublicationCategory {
-    case CoreRules
-    case ExpansionRules
-    case Sourcebook
-    case RegionalSourcebook
+    case coreRules
+    case expansionRules
+    case sourcebook
+    case regionalSourcebook
 }

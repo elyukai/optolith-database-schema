@@ -18,8 +18,8 @@ public struct SustainedPerformanceParameters<CastingTime> {
 
 @ModelEnum
 public enum FastPerformanceParameters {
-    case OneTime(FastOneTimePerformanceParameters)
-    case Sustained(FastSustainedPerformanceParameters)
+    case oneTime(FastOneTimePerformanceParameters)
+    case sustained(FastSustainedPerformanceParameters)
 }
 
 public typealias FastOneTimePerformanceParameters = OneTimePerformanceParameters<FastCastingTime>
@@ -28,8 +28,8 @@ public typealias FastSustainedPerformanceParameters = SustainedPerformanceParame
 
 @ModelEnum
 public enum SlowPerformanceParameters {
-    case OneTime(SlowOneTimePerformanceParameters)
-    case Sustained(SlowSustainedPerformanceParameters)
+    case oneTime(SlowOneTimePerformanceParameters)
+    case sustained(SlowSustainedPerformanceParameters)
 }
 
 public typealias SlowOneTimePerformanceParameters = OneTimePerformanceParameters<SlowCastingTime>

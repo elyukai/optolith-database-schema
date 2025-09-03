@@ -65,8 +65,8 @@ public struct DaggerRitual {
 
 @ModelEnum
 public enum DaggerRitualCost {
-    case ArcaneEnergyCost(DaggerRitualArcaneEnergyCost)
-    case BindingCost(BindingCost)
+    case arcaneEnergyCost(DaggerRitualArcaneEnergyCost)
+    case bindingCost(BindingCost)
 }
 
 @Embedded
@@ -78,7 +78,7 @@ public struct DaggerRitualArcaneEnergyCost {
 
 @ModelEnum
 public enum LifePointsCost {
-    case Fixed(FixedLifePointsCost)
+    case fixed(FixedLifePointsCost)
 }
 
 @Embedded

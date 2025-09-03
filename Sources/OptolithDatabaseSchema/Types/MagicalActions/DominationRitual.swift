@@ -72,9 +72,9 @@ public struct DominationRitualCost {
 
 @ModelEnum
 public enum DominationRitualDuration {
-    case Fixed(FixedDominationRitualDuration)
-    case CheckResultBased(CheckResultBasedDuration)
-    case Indefinite(IndefiniteDominationRitualDuration)
+    case fixed(FixedDominationRitualDuration)
+    case checkResultBased(CheckResultBasedDuration)
+    case indefinite(IndefiniteDominationRitualDuration)
 }
 
 @Embedded
@@ -105,6 +105,6 @@ public struct IndefiniteDominationRitualDuration {
 
 @ModelEnum
 public enum MaximumIndefiniteDominationRitualDuration {
-    case Fixed(FixedDominationRitualDuration)
-    case CheckResultBased(CheckResultBasedDuration)
+    case fixed(FixedDominationRitualDuration)
+    case checkResultBased(CheckResultBasedDuration)
 }

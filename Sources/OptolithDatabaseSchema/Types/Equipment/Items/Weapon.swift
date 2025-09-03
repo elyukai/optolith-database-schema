@@ -123,15 +123,15 @@ public struct WeaponUse {
 /// The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.
 @ModelEnum
 public enum WeaponUseValues {
-    case Melee(MeleeWeapon)
-    case Ranged(RangedWeapon)
+    case melee(MeleeWeapon)
+    case ranged(RangedWeapon)
 }
 
 /// Define if during character creation this weapon can only be bought by characters of a specific race or culture.
 @ModelEnum
 public enum RestrictedToCultures {
-    case CulturesOfRace(RaceIdentifierObject)
-    case Cultures(RestrictedToSpecificCultures)
+    case culturesOfRace(RaceIdentifierObject)
+    case cultures(RestrictedToSpecificCultures)
 }
 
 @Embedded

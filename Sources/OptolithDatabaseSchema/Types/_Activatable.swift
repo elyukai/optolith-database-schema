@@ -18,9 +18,9 @@ public struct SelectOptions {
 
 @ModelEnum
 public enum ExplicitSelectOption {
-    case General(GeneralSelectOptionIdentifierObject)
-    case Skill(ExplicitSkillSelectOption)
-    case CombatTechnique(ExplicitCombatTechniqueSelectOption)
+    case general(GeneralSelectOptionIdentifierObject)
+    case skill(ExplicitSkillSelectOption)
+    case combatTechnique(ExplicitCombatTechniqueSelectOption)
 }
 
 @Model
@@ -272,16 +272,16 @@ public struct ExplicitCombatTechniqueSelectOption {
 /// The definition of how the combat special ability can be used in combat.
 @ModelEnum
 public enum CombatSpecialAbilityUsageType {
-    case Passive
-    case BasicManeuver
-    case SpecialManeuver
+    case passive
+    case basicManeuver
+    case specialManeuver
 }
 
 /// The definition of if the combat special ability can be used when armed or when unarmed.
 @ModelEnum
 public enum CombatSpecialAbilityType {
-    case Armed
-    case Unarmed
+    case armed
+    case unarmed
 }
 
 /// Registers new skill applications, which get enabled once this entry is activated. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin activatable entry.
@@ -313,8 +313,8 @@ public struct NewSkillApplication {
 
 @ModelEnum
 public enum NewSkillApplicationAssociatedSkill {
-    case Single(SkillIdentifierObject)
-    case Multiple(NewSkillApplicationAssociatedSkills)
+    case single(SkillIdentifierObject)
+    case multiple(NewSkillApplicationAssociatedSkills)
 }
 
 @Embedded
@@ -357,8 +357,8 @@ public struct SkillUse {
 
 @ModelEnum
 public enum SkillUseAssociatedSkill {
-    case Single(SkillIdentifierObject)
-    case Multiple(SkillUseAssociatedSkills)
+    case single(SkillIdentifierObject)
+    case multiple(SkillUseAssociatedSkills)
 }
 
 @Embedded
@@ -372,13 +372,13 @@ public struct SkillUseAssociatedSkills {
 /// The penalty the special ability gives when used.
 @ModelEnum
 public enum Penalty {
-    case Single(SinglePenalty)
-    case ByHandedness(PenaltyByHandedness)
-    case ByActivation(PenaltyByActivation)
-    case Selection(PenaltySelection)
-    case ByLevel(PenaltyByLevel)
-    case ByAttack(PenaltyByAttack)
-    case DependsOnHitZone
+    case single(SinglePenalty)
+    case byHandedness(PenaltyByHandedness)
+    case byActivation(PenaltyByActivation)
+    case selection(PenaltySelection)
+    case byLevel(PenaltyByLevel)
+    case byAttack(PenaltyByAttack)
+    case dependsOnHitZone
 }
 
 @Embedded
@@ -421,8 +421,8 @@ public struct PenaltySelection {
 
 @ModelEnum
 public enum PenaltySelectionOptions {
-    case Specific(SpecificPenaltySelectionOptions)
-    case Range(PenaltySelectionOptionsRange)
+    case specific(SpecificPenaltySelectionOptions)
+    case range(PenaltySelectionOptionsRange)
 }
 
 @Embedded
@@ -492,25 +492,25 @@ public struct PenaltyByAttackOrderItem {
 /// Set if a predefined different word should be used instead of the word `attack` for display purposes.
 @ModelEnum
 public enum PenaltyByAttackReplacement {
-    case Throw
+    case `throw`
 }
 
 @ModelEnum
 public enum EnchantmentCost {
-    case ArcaneEnergyCost(ArcaneEnergyCost)
-    case BindingCost(BindingCost)
+    case arcaneEnergyCost(ArcaneEnergyCost)
+    case bindingCost(BindingCost)
 }
 
 /// The AE cost.
 @ModelEnum
 public enum ArcaneEnergyCost {
-    case Fixed(FixedArcaneEnergyCost)
-    case PerCountable(ArcaneEnergyCostPerCountable)
-    case Interval(IntervalArcaneEnergyCost)
-    case ActivationAndHalfInterval(ActivationAndHalfIntervalArcaneEnergyCost)
-    case Indefinite(IndefiniteArcaneEnergyCost)
-    case Disjunction(ArcaneEnergyCostDisjunction)
-    case Variable
+    case fixed(FixedArcaneEnergyCost)
+    case perCountable(ArcaneEnergyCostPerCountable)
+    case interval(IntervalArcaneEnergyCost)
+    case activationAndHalfInterval(ActivationAndHalfIntervalArcaneEnergyCost)
+    case indefinite(IndefiniteArcaneEnergyCost)
+    case disjunction(ArcaneEnergyCostDisjunction)
+    case variable
 }
 
 @Embedded
@@ -543,8 +543,8 @@ public struct FixedArcaneEnergyCost {
 /// The AE cost are per level of the enchantment. It may either be displayed in a compressed way (e.g. `1 AE per level`) or in a verbose way (e.g. `1 AE for level I; 2 AE for level II`).
 @ModelEnum
 public enum FixedArcaneEnergyCostPerLevel {
-    case Compressed
-    case Verbose
+    case compressed
+    case verbose
 }
 
 @Embedded
@@ -620,7 +620,7 @@ public struct IndefiniteArcaneEnergyCostModifier {
 
 @ModelEnum
 public enum IndefiniteArcaneEnergyCostModifierArithmetic {
-    case Add
+    case add
 }
 
 @Embedded
@@ -683,11 +683,11 @@ public struct NoArcaneEnergyCost {
 /// The volume points the enchantment needs.
 @ModelEnum
 public enum Volume {
-    case Fixed(FixedVolume)
-    case PerLevel(VolumePerLevel)
-    case ByLevel(VolumeByLevel)
-    case Map(VolumeMap)
-    case DerivedFromSelection(VolumeDerivedFromSelection)
+    case fixed(FixedVolume)
+    case perLevel(VolumePerLevel)
+    case byLevel(VolumeByLevel)
+    case map(VolumeMap)
+    case derivedFromSelection(VolumeDerivedFromSelection)
 }
 
 @Embedded
@@ -818,10 +818,10 @@ public struct VolumeDerivedFromSelection {
 /// The binding cost for an enchantment.
 @ModelEnum
 public enum BindingCost {
-    case Fixed(FixedBindingCost)
-    case PerLevel(BindingCostPerLevel)
-    case Map(BindingCostMap)
-    case DerivedFromSelection(BindingCostDerivedFromSelection)
+    case fixed(FixedBindingCost)
+    case perLevel(BindingCostPerLevel)
+    case map(BindingCostMap)
+    case derivedFromSelection(BindingCostDerivedFromSelection)
 }
 
 @Embedded
@@ -914,16 +914,16 @@ public struct BindingCostDerivedFromSelection {
 /// The magic property’s identifier. `DependingOnProperty` can only be used if the special ability has an option to select a property.
 @ModelEnum
 public enum PropertyDeclaration {
-    case DependingOnSelection
-    case Fixed(PropertyIdentifierObject)
+    case dependingOnSelection
+    case fixed(PropertyIdentifierObject)
 }
 
 @ModelEnum
 public enum AdvancedSpecialAbility<Identifier> {
-    case General(Identifier)
-    case RestrictOptions(RestrictAdvancedSpecialAbilityOptions<Identifier>)
-    case OneOf(OneOfAdvancedSpecialAbilityOptions<Identifier>)
-    case DeriveFromExternalOption(AdvancedSpecialAbilityDerivedFromExternalOption<Identifier>)
+    case general(Identifier)
+    case restrictOptions(RestrictAdvancedSpecialAbilityOptions<Identifier>)
+    case oneOf(OneOfAdvancedSpecialAbilityOptions<Identifier>)
+    case deriveFromExternalOption(AdvancedSpecialAbilityDerivedFromExternalOption<Identifier>)
 }
 
 @Embedded
@@ -974,12 +974,12 @@ public struct AdvancedSpecialAbilityDerivedFromExternalOptionMapping<Identifier>
 
 @ModelEnum
 public enum ApplicableCombatTechniques {
-    case None
-    case DependingOnCombatStyle
-    case All(AllApplicableCombatTechniques)
-    case AllClose(AllApplicableCloseCombatTechniques)
-    case AllRanged(AllApplicableRangedCombatTechniques)
-    case Specific(SpecificApplicableCombatTechniques)
+    case none
+    case dependingOnCombatStyle
+    case all(AllApplicableCombatTechniques)
+    case allClose(AllApplicableCloseCombatTechniques)
+    case allRanged(AllApplicableRangedCombatTechniques)
+    case specific(SpecificApplicableCombatTechniques)
 }
 
 @Embedded
@@ -1016,42 +1016,42 @@ public struct SpecificApplicableCombatTechnique {
 
 @ModelEnum
 public enum ApplicableAllCombatTechniquesRestriction {
-    case Improvised
-    case PointedBlade
-    case Mount
-    case Race(ApplicableCombatTechniquesRaceRestriction)
-    case ExcludeCombatTechniques(ApplicableCombatTechniquesNegativeCombatTechniquesRestriction<CombatTechniqueIdentifier>)
+    case improvised
+    case pointedBlade
+    case mount
+    case race(ApplicableCombatTechniquesRaceRestriction)
+    case excludeCombatTechniques(ApplicableCombatTechniquesNegativeCombatTechniquesRestriction<CombatTechniqueIdentifier>)
 }
 
 @ModelEnum
 public enum ApplicableCloseCombatTechniquesRestriction {
-    case Improvised
-    case PointedBlade
-    case Mount
-    case HasParry
-    case OneHanded
-    case ParryingWeapon
-    case Race(ApplicableCombatTechniquesRaceRestriction)
-    case ExcludeCombatTechniques(ApplicableCombatTechniquesNegativeCombatTechniquesRestriction<CloseCombatTechniqueIdentifierObject>)
+    case improvised
+    case pointedBlade
+    case mount
+    case hasParry
+    case oneHanded
+    case parryingWeapon
+    case race(ApplicableCombatTechniquesRaceRestriction)
+    case excludeCombatTechniques(ApplicableCombatTechniquesNegativeCombatTechniquesRestriction<CloseCombatTechniqueIdentifierObject>)
 }
 
 @ModelEnum
 public enum ApplicableRangedCombatTechniquesRestriction {
-    case Improvised
-    case PointedBlade
-    case Mount
-    case Race(ApplicableCombatTechniquesRaceRestriction)
-    case ExcludeCombatTechniques(ApplicableCombatTechniquesNegativeCombatTechniquesRestriction<RangedCombatTechniqueIdentifierObject>)
+    case improvised
+    case pointedBlade
+    case mount
+    case race(ApplicableCombatTechniquesRaceRestriction)
+    case excludeCombatTechniques(ApplicableCombatTechniquesNegativeCombatTechniquesRestriction<RangedCombatTechniqueIdentifierObject>)
 }
 
 @ModelEnum
 public enum ApplicableSpecificCombatTechniquesRestriction {
-    case Improvised
-    case PointedBlade
-    case Mount
-    case Race(ApplicableCombatTechniquesRaceRestriction)
-    case Level(ApplicableCombatTechniquesLevelRestriction)
-    case Weapons(ApplicableCombatTechniquesWeaponRestriction)
+    case improvised
+    case pointedBlade
+    case mount
+    case race(ApplicableCombatTechniquesRaceRestriction)
+    case level(ApplicableCombatTechniquesLevelRestriction)
+    case weapons(ApplicableCombatTechniquesWeaponRestriction)
 }
 
 @Embedded
@@ -1085,15 +1085,15 @@ public struct ApplicableCombatTechniquesWeaponRestriction {
 @ModelEnum
 public enum AdventurePointsValue {
     /// A fixed adventure points value. If the entry has levels, this is the cost per level as well.
-    case Fixed(FixedAdventurePointsValue)
+    case fixed(FixedAdventurePointsValue)
 
     /// An entry with levels may have different costs for each level. The length of the list must match the amount of levels the special ability has.
-    case ByLevel(AdventurePointsValueByLevel)
+    case byLevel(AdventurePointsValueByLevel)
 
     /// The adventure points value is derived from the selection of the special ability. Its display value may be able to be derived from the given information for the select options. If that is not the case or the generated text would not match the original one, a replacement text can be provided.
-    case DerivedFromSelection(AdventurePointsDerivedFromSelection)
+    case derivedFromSelection(AdventurePointsDerivedFromSelection)
 
-    case Indefinite
+    case indefinite
 }
 
 @Embedded

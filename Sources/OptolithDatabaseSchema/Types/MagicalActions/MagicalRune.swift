@@ -75,7 +75,7 @@ public struct OldParameterBySpeed {
 
 @ModelEnum
 public enum MagicalRuneCheckPenalty {
-    case CombatTechnique(MagicalRuneCombatTechniqueCheckPenalty)
+    case combatTechnique(MagicalRuneCombatTechniqueCheckPenalty)
 }
 
 @Embedded
@@ -117,15 +117,15 @@ public struct MagicalRunePerformanceParameters {
 
 @ModelEnum
 public enum MagicalRuneCost {
-    case Single(SingleMagicalRuneCost)
-    case Disjunction(MagicalRuneCostDisjunction)
-    case DerivedFromOption
+    case single(SingleMagicalRuneCost)
+    case disjunction(MagicalRuneCostDisjunction)
+    case derivedFromOption
 }
 
 @ModelEnum
 public enum MagicalRuneOptionCost {
-    case Single(SingleMagicalRuneCost)
-    case Disjunction(MagicalRuneCostDisjunction)
+    case single(SingleMagicalRuneCost)
+    case disjunction(MagicalRuneCostDisjunction)
 }
 
 @Embedded
@@ -179,8 +179,8 @@ public struct MagicalRuneDuration {
 
 @ModelEnum
 public enum MagicalRuneImprovementCost {
-    case Constant(ImprovementCost)
-    case DerivedFromOption
+    case constant(ImprovementCost)
+    case derivedFromOption
 }
 
 @Embedded
@@ -218,7 +218,7 @@ public struct MagicalRuneOption {
 @ModelEnum
 public enum MagicalRuneSuboption {
     /// The sub-option may be defined by the user (as a arbitrary text).
-    case Custom(CustomMagicalRuneSuboption)
+    case custom(CustomMagicalRuneSuboption)
 }
 
 @Embedded

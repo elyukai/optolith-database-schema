@@ -55,8 +55,8 @@ public struct Cantrip {
 /// A note specifying the dissemination of the cantrip in different traditions. Sometimes a cantrip is exclusively available to one or more specific traditions, but usually one the academies and traditions are listed the cantrip is most commonly teached in.
 @ModelEnum
 public enum CantripNote {
-    case Exclusive(ExclusiveCantripNote)
-    case Common(CommonCantripNotes)
+    case exclusive(ExclusiveCantripNote)
+    case common(CommonCantripNotes)
 }
 
 @Embedded
@@ -78,8 +78,8 @@ public struct CommonCantripNotes {
 
 @ModelEnum
 public enum CommonCantripNote {
-    case Academy(CurriculumIdentifierObject)
-    case Tradition(CommonCantripTraditionNote)
+    case academy(CurriculumIdentifierObject)
+    case tradition(CommonCantripTraditionNote)
 }
 
 @Embedded
@@ -109,17 +109,17 @@ public struct CantripPerformanceParameters {
 
 @ModelEnum
 public enum CantripRange {
-    case `Self`
-    case Touch
-    case Fixed(FixedRange)
+    case `self`
+    case touch
+    case fixed(FixedRange)
 }
 
 @ModelEnum
 public enum CantripDuration {
-    case Immediate
-    case Fixed(FixedCantripDuration)
-    case DuringLovemaking(CastingTimeDuringLovemaking)
-    case Indefinite(IndefiniteCantripDuration)
+    case immediate
+    case fixed(FixedCantripDuration)
+    case duringLovemaking(CastingTimeDuringLovemaking)
+    case indefinite(IndefiniteCantripDuration)
 }
 
 @Embedded

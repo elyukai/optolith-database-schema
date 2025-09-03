@@ -2,8 +2,8 @@ import FileDB
 
 @ModelEnum
 public enum DisplayOption {
-    case Hide
-    case ReplaceWith(ReplacementDisplayOption)
+    case hide
+    case replaceWith(ReplacementDisplayOption)
 }
 
 @Embedded

@@ -25,9 +25,9 @@ public struct PrerequisitesDisjunction<T> {
 
 @ModelEnum
 public enum PrerequisitesElement<T> {
-    case Single(T)
-    case Disjunction(PrerequisitesDisjunction<T>)
-    case Group(PrerequisiteGroup<T>)
+    case single(T)
+    case disjunction(PrerequisitesDisjunction<T>)
+    case group(PrerequisiteGroup<T>)
 }
 
 @TypeAlias

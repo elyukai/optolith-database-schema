@@ -5,20 +5,20 @@ import FileDB
 /// Effect type categories of a plant or recipe.
 @ModelEnum
 public enum EffectType {
-    case Healing
-    case Poison
-    case PhysicalEffect
-    case PsychicEffect
-    case Beneficial
-    case Defensive
-    case Supernatural
+    case healing
+    case poison
+    case physicalEffect
+    case psychicEffect
+    case beneficial
+    case defensive
+    case supernatural
 }
 
 @ModelEnum
 public enum LaboratoryLevel {
-    case ArchaicLaboratory
-    case WitchKitchen
-    case AlchemistsLaboratory
+    case archaicLaboratory
+    case witchKitchen
+    case alchemistsLaboratory
 }
 
 @Embedded

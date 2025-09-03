@@ -2,8 +2,8 @@ import FileDB
 
 @ModelEnum
 public enum LiturgyTradition {
-    case GeneralAspect(AspectIdentifierObject)
-    case Tradition(LiturgyTraditionWithAspects)
+    case generalAspect(AspectIdentifierObject)
+    case tradition(LiturgyTraditionWithAspects)
 }
 
 @Embedded

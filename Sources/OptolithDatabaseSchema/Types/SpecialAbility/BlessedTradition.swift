@@ -83,8 +83,8 @@ public struct BlessedTradition {
 /// If a tradition restricts the possible blessings, the blessings that are **not** allowed.
 @ModelEnum
 public enum RestrictedBlessings {
-    case Three(ThreeRestrictedBlessings)
-    case Six(SixRestrictedBlessings)
+    case three(ThreeRestrictedBlessings)
+    case six(SixRestrictedBlessings)
 }
 
 @TypeAlias
@@ -105,10 +105,10 @@ public struct SixRestrictedBlessings {
 
 @ModelEnum
 public enum FavoredCombatTechniques {
-    case All
-    case AllClose
-    case AllUsedInHunting
-    case Specific(SpecificFavoredCombatTechniques)
+    case all
+    case allClose
+    case allUsedInHunting
+    case specific(SpecificFavoredCombatTechniques)
 }
 
 @Embedded
@@ -135,8 +135,8 @@ public struct FavoredSkillsSelection {
 /// The type of the tradition. May be either church or shamanistic.
 @ModelEnum
 public enum BlessedTraditionType {
-    case Church
-    case Shamanistic(ShamanisticBlessedTradition)
+    case church
+    case shamanistic(ShamanisticBlessedTradition)
 }
 
 /// Additional rules for shamanistic traditions.

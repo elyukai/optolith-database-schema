@@ -2,17 +2,17 @@ import FileDB
 
 @ModelEnum
 public enum OneTimeCost {
-    case Single(SingleOneTimeCost)
-    case Conjunction(MultipleOneTimeCosts)
-    case Disjunction(MultipleOneTimeCosts)
-    case Map(CostMap)
+    case single(SingleOneTimeCost)
+    case conjunction(MultipleOneTimeCosts)
+    case disjunction(MultipleOneTimeCosts)
+    case map(CostMap)
 }
 
 @ModelEnum
 public enum SingleOneTimeCost {
-    case Modifiable(ModifiableOneTimeCost)
-    case NonModifiable(NonModifiableOneTimeCost)
-    case Indefinite(IndefiniteOneTimeCost)
+    case modifiable(ModifiableOneTimeCost)
+    case nonModifiable(NonModifiableOneTimeCost)
+    case indefinite(IndefiniteOneTimeCost)
 }
 
 @TypeAlias
@@ -165,8 +165,8 @@ public struct CostMapOption {
 
 @ModelEnum
 public enum SustainedCost {
-    case Modifiable(ModifiableSustainedCost)
-    case NonModifiable(NonModifiableSustainedCost)
+    case modifiable(ModifiableSustainedCost)
+    case nonModifiable(NonModifiableSustainedCost)
 }
 
 @Embedded

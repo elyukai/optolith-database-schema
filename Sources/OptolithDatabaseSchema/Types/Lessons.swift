@@ -65,8 +65,8 @@ public struct Curriculum {
 /// The institution’s elective spellworks package.
 @ModelEnum
 public enum ElectiveSpellworks {
-    case DefinedByGameMaster
-    case Specific(SpecificElectiveSpellworks)
+    case definedByGameMaster
+    case specific(SpecificElectiveSpellworks)
 }
 
 @Embedded
@@ -87,16 +87,16 @@ public struct ElectiveSpellwork {
 /// The elective spellwork may only take effect if a certain condition is met. The condition may be related to professions or profession variants, but it is designed so that it can work without a specific profession, as multiple may belong to an institute, but with referencing other entities instead.
 @ModelEnum
 public enum ElectiveSpellworkRestriction {
-    case Element(ElementIdentifierObject)
+    case element(ElementIdentifierObject)
 }
 
 @ModelEnum
 public enum RestrictedSpellwork {
-    case Property(RestrictedProperty)
-    case Spellwork(SpellworkIdentifier)
-    case DemonSummoning
-    case Borbaradian
-    case DamageIntelligent
+    case property(RestrictedProperty)
+    case spellwork(SpellworkIdentifier)
+    case demonSummoning
+    case borbaradian
+    case damageIntelligent
 }
 
 @Embedded
@@ -159,9 +159,9 @@ public struct SpellworkChange {
 
 @ModelEnum
 public enum AbilityAdjustment {
-    case CombatTechnique(CombatTechniqueAdjustment)
-    case Skill(SkillAdjustment)
-    case Spellwork(SpellworkAdjustment)
+    case combatTechnique(CombatTechniqueAdjustment)
+    case skill(SkillAdjustment)
+    case spellwork(SpellworkAdjustment)
 }
 
 @Embedded

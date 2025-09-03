@@ -20,9 +20,9 @@ public struct SpecificAffectedTargetCategory {
 
 @ModelEnum
 public enum SpecificAffectedTargetCategoryIdentifier {
-    case `Self`
-    case Zone
-    case LiturgicalChantsAndCeremonies
-    case Cantrips
-    case Predefined(TargetCategoryIdentifierObject)
+    case `self`
+    case zone
+    case liturgicalChantsAndCeremonies
+    case cantrips
+    case predefined(TargetCategoryIdentifierObject)
 }

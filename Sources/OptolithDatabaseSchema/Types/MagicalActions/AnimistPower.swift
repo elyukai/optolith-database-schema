@@ -95,8 +95,8 @@ public struct AnimistPowerLevel {
 /// Measurable parameters of an animist power.
 @ModelEnum
 public enum AnimistPowerPerformanceParameters {
-    case OneTime(OneTimeAnimistPowerPerformanceParameters)
-    case Sustained(SustainedAnimistPowerPerformanceParameters)
+    case oneTime(OneTimeAnimistPowerPerformanceParameters)
+    case sustained(SustainedAnimistPowerPerformanceParameters)
 }
 
 @Embedded
@@ -110,8 +110,8 @@ public struct OneTimeAnimistPowerPerformanceParameters {
 
 @ModelEnum
 public enum OneTimeAnimistPowerCost {
-    case Fixed(FixedAnimistPowerCost)
-    case ByPrimaryPatron(AnimistPowerCostByPrimaryPatron)
+    case fixed(FixedAnimistPowerCost)
+    case byPrimaryPatron(AnimistPowerCostByPrimaryPatron)
 }
 
 @Embedded
@@ -141,9 +141,9 @@ public struct AnimistPowerCostByPrimaryPatron {
 
 @ModelEnum
 public enum OneTimeAnimistPowerDuration {
-    case Immediate
-    case Fixed(DurationUnitValue)
-    case CheckResultBased(CheckResultBasedDuration)
+    case immediate
+    case fixed(DurationUnitValue)
+    case checkResultBased(CheckResultBasedDuration)
 }
 
 @Embedded
@@ -154,12 +154,12 @@ public struct SustainedAnimistPowerPerformanceParameters {
 
 @ModelEnum
 public enum SustainedAnimistPowerCost {
-    case Fixed(FixedAnimistPowerCost)
-    case ByPrimaryPatron(AnimistPowerCostByPrimaryPatron)
+    case fixed(FixedAnimistPowerCost)
+    case byPrimaryPatron(AnimistPowerCostByPrimaryPatron)
 }
 
 @ModelEnum
 public enum AnimistPowerImprovementCost {
-    case Fixed(ImprovementCost)
-    case ByPrimaryPatron
+    case fixed(ImprovementCost)
+    case byPrimaryPatron
 }

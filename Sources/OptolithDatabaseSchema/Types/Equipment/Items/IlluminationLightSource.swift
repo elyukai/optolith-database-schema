@@ -56,8 +56,8 @@ public struct IlluminationLightSource {
 
 @ModelEnum
 public enum BurningTime {
-    case Unlimited
-    case Limited(LimitedBurningTime)
+    case unlimited
+    case limited(LimitedBurningTime)
 }
 
 @Embedded
@@ -72,5 +72,5 @@ public struct LimitedBurningTime {
 
 @ModelEnum
 public enum LimitedBurningTimeUnit {
-    case Hours
+    case hours
 }

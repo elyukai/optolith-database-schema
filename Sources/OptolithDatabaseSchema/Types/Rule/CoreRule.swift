@@ -27,10 +27,10 @@ public struct CoreRule {
 
 @ModelEnum
 public enum ContentNode {
-    case Child(ChildNode)
-    case Text(TextNode)
-    case Reference(ReferenceNode)
-    case ReferenceList(ReferenceListNode)
+    case child(ChildNode)
+    case text(TextNode)
+    case reference(ReferenceNode)
+    case referenceList(ReferenceListNode)
 }
 
 /// A core rule nested inside this core rule. It may be displayed as a separate page or its content may be included in this rule's text, which will automatically generate a proper heading. No content node of a type other than `Child` should follow a child node, since then it may look like the the text may be part of the child node.
@@ -80,66 +80,66 @@ public struct ReferenceListNode {
 
 @ModelEnum
 public enum ReferenceListNodeSource {
-    case Attributes
-    case QualityLevels
-    case Conditions
-    case States
-    case ExperienceLevels
-    case Races
-    case Cultures
-    case Professions
-    case Advantages
-    case Disadvantages
-    case CombatTechniques
-    case SpecialAbilities
-    case PrimaryAttributes
-    case DerivedCharacteristics
-    case StartingAge
-    case Archetypes
-    case RequirementsForRoutineChecks
-    case GeneralSpecialAbilities
-    case FatePointSpecialAbilities
-    case LanguagesAndScripts
-    case CloseCombatBotch
-    case DefenseBotch
-    case MeleeCombatTechniques
-    case RangedCombatBotch
-    case RangedCombatDefenseBotch
-    case RangedCombatTechniques
-    case CombatSpecialAbilities
-    case Properties
-    case SpellBotch
-    case Services
-    case ProtectiveAndWardingCircles
-    case Elixirs
-    case StaffEnchantments
-    case FamiliarsTricks
-    case Curses
-    case ElvenMagicalSongs
-    case MagicalSpecialAbilities
-    case Cantrips
-    case Spells
-    case Rituals
-    case Aspects
-    case LiturgyBotch
-    case KarmaSpecialAbilities
-    case Blessings
-    case LiturgicalChants
-    case Ceremonies
-    case SocialStatuses
-    case Poisons
-    case Diseases
-    case HealingHerbs
-    case VisibilityModifier
-    case Demons
-    case Elementals
-    case Animals
-    case Familiars
-    case AnimalSpecialAbilities
-    case EquipmentPackages
-    case Items
-    case OptionalRules
-    case ImprovementCost(ReferenceListNodeImprovementCostSource)
+    case attributes
+    case qualityLevels
+    case conditions
+    case states
+    case experienceLevels
+    case races
+    case cultures
+    case professions
+    case advantages
+    case disadvantages
+    case combatTechniques
+    case specialAbilities
+    case primaryAttributes
+    case derivedCharacteristics
+    case startingAge
+    case archetypes
+    case requirementsForRoutineChecks
+    case generalSpecialAbilities
+    case fatePointSpecialAbilities
+    case languagesAndScripts
+    case closeCombatBotch
+    case defenseBotch
+    case meleeCombatTechniques
+    case rangedCombatBotch
+    case rangedCombatDefenseBotch
+    case rangedCombatTechniques
+    case combatSpecialAbilities
+    case properties
+    case spellBotch
+    case services
+    case protectiveAndWardingCircles
+    case elixirs
+    case staffEnchantments
+    case familiarsTricks
+    case curses
+    case elvenMagicalSongs
+    case magicalSpecialAbilities
+    case cantrips
+    case spells
+    case rituals
+    case aspects
+    case liturgyBotch
+    case karmaSpecialAbilities
+    case blessings
+    case liturgicalChants
+    case ceremonies
+    case socialStatuses
+    case poisons
+    case diseases
+    case healingHerbs
+    case visibilityModifier
+    case demons
+    case elementals
+    case animals
+    case familiars
+    case animalSpecialAbilities
+    case equipmentPackages
+    case items
+    case optionalRules
+    case improvementCost(ReferenceListNodeImprovementCostSource)
 }
 
 @Embedded
@@ -156,8 +156,8 @@ public struct ReferenceListNodeImprovementCostSource {
 
 @ModelEnum
 public enum ReferenceListNodeImprovementCostSourceTarget {
-    case Attributes
-    case Skills
+    case attributes
+    case skills
 }
 
 /// Generate the full text for a single entry as part of this core rule's text.

@@ -11,10 +11,10 @@ public struct SkillCheck {
 /// A specific value that represents a penalty for the associated skill check.
 @ModelEnum
 public enum SkillCheckPenalty {
-    case Spirit
-    case HalfOfSpirit
-    case Toughness
-    case HigherOfSpiritAndToughness
-    case SummoningDifficulty
-    case CreationDifficulty
+    case spirit
+    case halfOfSpirit
+    case toughness
+    case higherOfSpiritAndToughness
+    case summoningDifficulty
+    case creationDifficulty
 }

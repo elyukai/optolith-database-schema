@@ -75,8 +75,8 @@ public struct GeodeRitualPerformanceParameters {
 
 @ModelEnum
 public enum GeodeRitualCost {
-    case Fixed(FixedGeodeRitualCost)
-    case Map(CostMap)
+    case fixed(FixedGeodeRitualCost)
+    case map(CostMap)
 }
 
 @Embedded
@@ -88,8 +88,8 @@ public struct FixedGeodeRitualCost {
 
 @ModelEnum
 public enum GeodeRitualRange {
-    case `Self`
-    case Fixed(FixedGeodeRitualRange)
+    case `self`
+    case fixed(FixedGeodeRitualRange)
 }
 
 @Embedded
@@ -101,7 +101,7 @@ public struct FixedGeodeRitualRange {
 
 @ModelEnum
 public enum GeodeRitualDuration {
-    case Immediate
-    case Fixed(DurationUnitValue)
-    case CheckResultBased(CheckResultBasedDuration)
+    case immediate
+    case fixed(DurationUnitValue)
+    case checkResultBased(CheckResultBasedDuration)
 }

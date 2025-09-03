@@ -34,6 +34,6 @@ public struct Service {
 
 @ModelEnum
 public enum ServiceAvailability {
-    case SummonedCreatures
-    case Monstrosities
+    case summonedCreatures
+    case monstrosities
 }

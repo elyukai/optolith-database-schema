@@ -158,9 +158,9 @@ public struct WeightDice {
 /// The strategy how to offset the randomly generated values against the base value. Either they are all added or subtracted or even results are added and odd results are subtracted.
 @ModelEnum
 public enum WeightDiceOffsetStrategy {
-    case Add
-    case Subtract
-    case AddEvenSubtractOdd
+    case add
+    case subtract
+    case addEvenSubtractOdd
 }
 
 @Model

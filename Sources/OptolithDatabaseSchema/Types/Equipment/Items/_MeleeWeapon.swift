@@ -15,9 +15,9 @@ public struct MeleeDamage {
 /// The shield size and potential size-depending values.
 @ModelEnum
 public enum ShieldSize {
-    case Small
-    case Medium
-    case Large(LargeShieldSize)
+    case small
+    case medium
+    case large(LargeShieldSize)
 }
 
 /// The damage of a weapon consists of a random part using dice and an optional flat part.

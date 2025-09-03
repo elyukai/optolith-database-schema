@@ -2,27 +2,27 @@ import FileDB
 
 @ModelEnum
 public enum SelectOptionCategory {
-    case Blessings
-    case Cantrips
-    case TradeSecrets
-    case Scripts
-    case AnimalShapes
-    case ArcaneBardTraditions
-    case ArcaneDancerTraditions
-    case SexPractices
-    case Races
-    case Cultures
-    case RacesAndCultures
-    case BlessedTraditions(BlessedTraditionsSelectOptionCategory)
-    case Elements(ElementsSelectOptionCategory)
-    case Properties(PropertiesSelectOptionCategory)
-    case Aspects(AspectSelectOptionCategory)
-    case Diseases(DiseasesPoisonsSelectOptionCategory)
-    case Poisons(DiseasesPoisonsSelectOptionCategory)
-    case Languages(LanguagesSelectOptionCategory)
-    case Skills(SkillsSelectOptionCategory)
-    case CombatTechniques(CombatTechniquesSelectOptionCategory)
-    case TargetCategories(TargetCategoriesSelectOptionCategory)
+    case blessings
+    case cantrips
+    case tradeSecrets
+    case scripts
+    case animalShapes
+    case arcaneBardTraditions
+    case arcaneDancerTraditions
+    case sexPractices
+    case races
+    case cultures
+    case racesAndCultures
+    case blessedTraditions(BlessedTraditionsSelectOptionCategory)
+    case elements(ElementsSelectOptionCategory)
+    case properties(PropertiesSelectOptionCategory)
+    case aspects(AspectSelectOptionCategory)
+    case diseases(DiseasesPoisonsSelectOptionCategory)
+    case poisons(DiseasesPoisonsSelectOptionCategory)
+    case languages(LanguagesSelectOptionCategory)
+    case skills(SkillsSelectOptionCategory)
+    case combatTechniques(CombatTechniquesSelectOptionCategory)
+    case targetCategories(TargetCategoriesSelectOptionCategory)
 }
 
 @Embedded
@@ -88,7 +88,7 @@ public struct LanguagesSelectOptionCategory {
 
 @ModelEnum
 public enum LanguagesSelectOptionCategoryPrerequisite {
-    case SelectOption(OptionPrerequisite)
+    case selectOption(OptionPrerequisite)
 }
 
 @Embedded
@@ -102,11 +102,11 @@ public struct SkillsSelectOptionCategory {
 
 @ModelEnum
 public enum SkillsSelectOptionCategoryCategory {
-    case Skills(SkillSelectOptionCategoryCategory)
-    case Spells(SpellsSelectOptionCategoryCategory)
-    case Rituals(RitualsSelectOptionCategoryCategory)
-    case LiturgicalChants(LiturgicalChantsSelectOptionCategoryCategory)
-    case Ceremonies(CeremoniesSelectOptionCategoryCategory)
+    case skills(SkillSelectOptionCategoryCategory)
+    case spells(SpellsSelectOptionCategoryCategory)
+    case rituals(RitualsSelectOptionCategoryCategory)
+    case liturgicalChants(LiturgicalChantsSelectOptionCategoryCategory)
+    case ceremonies(CeremoniesSelectOptionCategoryCategory)
 }
 
 @Embedded
@@ -154,8 +154,8 @@ public struct CombatTechniquesSelectOptionCategory {
 
 @ModelEnum
 public enum CombatTechniquesSelectOptionCategoryCategory {
-    case CloseCombatTechniques(CloseCombatTechniquesSelectOptionCategoryCategory)
-    case RangedCombatTechniques(RangedCombatTechniquesSelectOptionCategoryCategory)
+    case closeCombatTechniques(CloseCombatTechniquesSelectOptionCategoryCategory)
+    case rangedCombatTechniques(RangedCombatTechniquesSelectOptionCategoryCategory)
 }
 
 @Embedded
@@ -166,7 +166,7 @@ public struct SkillApplicationOrUse {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // SkillApplicationOrUseTranslation
@@ -275,14 +275,14 @@ public struct RangedCombatTechniquesSelectOptionCategoryCategory {
 /// Only include (`Intersection`) or exclude (`Difference`) specific entries.
 @ModelEnum
 public enum SkillsSelectOptionCategoryCategoryOperation {
-    case Intersection
-    case Difference
+    case intersection
+    case difference
 }
 
 @ModelEnum
 public enum SkillSelectOptionCategoryPrerequisite {
-    case `Self`(SelfPrerequisite)
-    case SelectOption(OptionPrerequisite)
+    case `self`(SelfPrerequisite)
+    case selectOption(OptionPrerequisite)
 }
 
 @Embedded
@@ -308,8 +308,8 @@ public struct OptionPrerequisite {
 
 @ModelEnum
 public enum SelectOptionsAdventurePointsValue<Identifier> {
-    case DerivedFromImprovementCost(SelectOptionsDeriveAdventurePointsValueFromImprovementCost)
-    case Fixed(SelectOptionsFixedAdventurePointsValue<Identifier>)
+    case derivedFromImprovementCost(SelectOptionsDeriveAdventurePointsValueFromImprovementCost)
+    case fixed(SelectOptionsFixedAdventurePointsValue<Identifier>)
 }
 
 /// Derive the cost from the improvement cost of each entry. The AP value is calculated by multiplying the improvement cost with `multiplier` and then adding `offset`.

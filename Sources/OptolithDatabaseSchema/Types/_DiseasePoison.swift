@@ -5,9 +5,9 @@ import FileDB
 /// Depending on the disease, apply Spirit or Toughness as a penalty to the disease roll. It may also happen that the lower of both is applied as a penalty.
 @ModelEnum
 public enum Resistance {
-    case Spirit
-    case Toughness
-    case LowerOfSpiritAndToughness
+    case spirit
+    case toughness
+    case lowerOfSpiritAndToughness
 }
 
 /// What causes the disease? The GM rolls 1D20 to see if a character gets infected. If the infection check succeeds, the GM makes a disease check to determine the severity of the infection.

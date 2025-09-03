@@ -133,10 +133,10 @@ public struct HasAdditionalPenalties {
 /// Specify if armor is only available for a specific hit zone.
 @ModelEnum
 public enum HitZone {
-    case Head(HeadHitZone)
-    case Torso
-    case Arms
-    case Legs
+    case head(HeadHitZone)
+    case torso
+    case arms
+    case legs
 }
 
 @Embedded

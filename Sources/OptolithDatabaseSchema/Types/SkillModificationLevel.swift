@@ -66,8 +66,8 @@ public struct SlowSkillCastingTime {
 
 @ModelEnum
 public enum SlowSkillCastingTimeUnit {
-    case Minutes
-    case Hours
+    case minutes
+    case hours
 }
 
 /// Configuration translation of a type for a level. Values set here override the default generated text.

@@ -45,11 +45,11 @@ public struct Talisman {
 
 @ModelEnum
 public enum TalismanType {
-    case MainTalisman
-    case Talisman
-    case MinorTalisman
-    case Regalia
-    case PowerfulTalisman
+    case mainTalisman
+    case talisman
+    case minorTalisman
+    case regalia
+    case powerfulTalisman
 }
 
 @Embedded

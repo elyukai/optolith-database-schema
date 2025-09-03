@@ -112,8 +112,8 @@ public struct AreaKnowledge {
 /// The “weight” difference compared to other professions or profession variants. Some professions or profession variants are simply more common (`Mostly`), but sometimes only specific elements are used (`Only`).
 @ModelEnum
 public enum CommonnessWeight {
-    case Mostly
-    case Only
+    case mostly
+    case only
 }
 
 /// Some professions or profession variants are more common than others. There may be cultures where some professions or profession variants are not represented at all.
@@ -130,8 +130,8 @@ public struct Weighted<ProfessionOrVariant> {
 /// This defines how the list of constraints should be offset against the list of all mundane professions: Either only the professions are kept that intersect with the constraints or only the professions are kept that are different from the constraints.
 @ModelEnum
 public enum CommonProfessionConstraintsOperation {
-    case Intersection
-    case Difference
+    case intersection
+    case difference
 }
 
 /// A list of professions. The filter specifies how the list is applied to all mundane professions.
@@ -148,8 +148,8 @@ public struct CommonProfessionConstraints<Constraint> {
 /// Some professions may be found in a culture, but are not that common.
 @ModelEnum
 public enum Rarity {
-    case Rare
-    case VeryRare
+    case rare
+    case veryRare
 }
 
 @Embedded
@@ -196,20 +196,20 @@ public struct BlessedTraditionConstraint {
 
 @ModelEnum
 public enum MundaneCommonProfessionConstraint {
-    case Profession(ProfessionConstraint)
-    case ProfessionSubgroup(MundaneProfessionGroup)
+    case profession(ProfessionConstraint)
+    case professionSubgroup(MundaneProfessionGroup)
 }
 
 @ModelEnum
 public enum MagicCommonProfessionConstraint {
-    case Tradition(MagicalTraditionConstraint)
-    case MagicDilettante
-    case Profession(ProfessionConstraint)
+    case tradition(MagicalTraditionConstraint)
+    case magicDilettante
+    case profession(ProfessionConstraint)
 }
 
 @ModelEnum
 public enum BlessedCommonProfessionConstraint {
-    case Tradition(BlessedTraditionConstraint)
+    case tradition(BlessedTraditionConstraint)
 }
 
 @TypeAlias
@@ -232,8 +232,8 @@ public struct GroupedCommonProfessions {
 /// A list of professions that are typical for the culture, as well as professions that are rarely practiced or encountered in the culture. The list is either defined by group (as multiple lists) or plain (as a single list).
 @ModelEnum
 public enum CommonProfessions {
-    case Plain(PlainCommonProfessions)
-    case Grouped(GroupedCommonProfessions)
+    case plain(PlainCommonProfessions)
+    case grouped(GroupedCommonProfessions)
 }
 
 @Embedded

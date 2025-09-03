@@ -70,8 +70,8 @@ public struct MagicalMelodyPerformanceParameters {
 
 @ModelEnum
 public enum MagicalMelodyCost {
-    case Fixed(FixedMagicalMelodyCost)
-    case FirstPerson(FirstPersonMagicalMelodyCost)
+    case fixed(FixedMagicalMelodyCost)
+    case firstPerson(FirstPersonMagicalMelodyCost)
 }
 
 @Embedded
