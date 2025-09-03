@@ -33,7 +33,7 @@ public struct ModifiableOneTimeCost {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     struct Translation {  // ModifiableOneTimeCostTranslation
         /// A replacement string.
@@ -59,7 +59,7 @@ public struct NonModifiableOneTimeCost {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     struct Translation {  // NonModifiableOneTimeCostTranslation
         /// A note, appended to the generated string in parenthesis.
@@ -75,7 +75,7 @@ public struct NonModifiableOneTimeCostPerCountable {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     struct Translation {  // NonModifiableOneTimeCostPerCountableTranslation
         /// The countable entity name.
@@ -87,7 +87,7 @@ public struct NonModifiableOneTimeCostPerCountable {
 public struct IndefiniteOneTimeCost {
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // IndefiniteOneTimeCostTranslation
@@ -120,7 +120,7 @@ public struct CostMap {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     @Embedded
     @MinProperties(1)
@@ -151,7 +151,7 @@ public struct CostMapOption {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     struct Translation {  // CostMapOptionTranslation
         /// The description of the option for cost string generation.
@@ -203,7 +203,7 @@ public struct NonModifiableSustainedCostPerCountable {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // NonModifiableSustainedCostPerCountableTranslation

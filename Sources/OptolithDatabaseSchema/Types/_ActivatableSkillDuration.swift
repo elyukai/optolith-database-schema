@@ -16,7 +16,7 @@ public struct Immediate {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     struct Translation {  // ImmediateTranslation
         /// A replacement string.
@@ -28,7 +28,7 @@ public struct Immediate {
 public struct PermanentDuration {
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     struct Translation {  // PermanentDurationTranslation
         /// A replacement string.
@@ -50,7 +50,7 @@ public struct FixedDuration {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     @Embedded
     @MinProperties(1)
@@ -76,7 +76,7 @@ public struct CheckResultBasedDuration {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     struct Translation {  // CheckResultBasedDurationTranslation
         /// A replacement string.
@@ -88,7 +88,7 @@ public struct CheckResultBasedDuration {
 public struct IndefiniteDuration {
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // IndefiniteDurationTranslation

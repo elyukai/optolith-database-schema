@@ -25,7 +25,7 @@ public struct MagicalDance {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // MagicalDanceTranslation
@@ -72,7 +72,7 @@ public struct FixedMagicalDanceCost {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     @Embedded
     @MinProperties(1)
@@ -89,7 +89,7 @@ public struct IndefiniteMagicalDanceCost {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // IndefiniteMagicalDanceCostTranslation
@@ -107,7 +107,7 @@ public struct ArcaneDancerTraditionReference {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // ArcaneDancerTraditionReferenceTranslation

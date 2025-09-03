@@ -27,7 +27,7 @@ public struct JesterTrick {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // JesterTrickTranslation
@@ -92,9 +92,9 @@ public struct JesterTrickCost {
 
 @ModelEnum
 public enum JesterTrickRange {
-    case Touch
-    case `Self`
-    case Fixed(FixedJesterTrickRange)
+    case touch
+    case `self`
+    case fixed(FixedJesterTrickRange)
 }
 
 @Embedded

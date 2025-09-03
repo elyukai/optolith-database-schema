@@ -21,7 +21,7 @@ public struct Curse {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // CurseTranslation
@@ -68,7 +68,7 @@ public struct FixedCurseCost {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     @Embedded
     @MinProperties(1)
@@ -96,7 +96,7 @@ public struct IndefiniteCurseDuration {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation { // IndefiniteCurseDurationTranslation

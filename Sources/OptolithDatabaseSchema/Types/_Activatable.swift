@@ -53,7 +53,7 @@ public struct GeneralSelectOption {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // GeneralSelectOptionTranslation
@@ -107,7 +107,7 @@ public struct ExplicitSkillSelectOption {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     @Embedded
     @MinProperties(1)
@@ -140,7 +140,7 @@ public struct ExplicitCombatTechniqueSelectOption {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     @Embedded
     @MinProperties(1)
@@ -302,7 +302,7 @@ public struct NewSkillApplication {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     struct Translation {  // SkillApplicationTranslation
         /// The name of the application if different from the activatable entry’s name.
@@ -346,7 +346,7 @@ public struct SkillUse {
     let skill: SkillUseAssociatedSkill
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     struct Translation {  // SkillUseTranslation
         /// The name of the use if different from the activatable entry’s name.
@@ -530,7 +530,7 @@ public struct FixedArcaneEnergyCost {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     @Embedded
     @MinProperties(1)
@@ -559,7 +559,7 @@ public struct ArcaneEnergyCostPerCountable {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // ArcaneEnergyCostPerCountableTranslation
@@ -599,7 +599,7 @@ public struct IndefiniteArcaneEnergyCost {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // IndefiniteArcaneEnergyCostTranslation
@@ -656,7 +656,7 @@ public struct ArcaneEnergyCostDisjunctionOption {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     @Embedded
     @MinProperties(1)
@@ -670,7 +670,7 @@ public struct ArcaneEnergyCostDisjunctionOption {
 public struct NoArcaneEnergyCost {
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     @Embedded
     @MinProperties(1)
@@ -763,7 +763,7 @@ public struct VolumeMap {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     @MinProperties(1)
     struct Translation {  // VolumeMapTranslation
@@ -790,7 +790,7 @@ public struct VolumeMapOption {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     @MinProperties(1)
     struct Translation {  // VolumeMapOptionTranslation
@@ -870,7 +870,7 @@ public struct BindingCostMap {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     @MinProperties(1)
     struct Translation {  // BindingCostMapTranslation
@@ -892,7 +892,7 @@ public struct BindingCostMapOption {
     let permanent_value: Int
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     struct Translation {  // BindingCostMapOptionTranslation
         /// The description of the option for cost string generation.
@@ -1114,7 +1114,7 @@ public struct AdventurePointsValueByLevel {
 public struct AdventurePointsDerivedFromSelection {
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     @Embedded
     @MinProperties(1)

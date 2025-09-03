@@ -30,7 +30,7 @@ public struct MagicalRune {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation { // MagicalRuneTranslation
@@ -136,7 +136,7 @@ public struct SingleMagicalRuneCost {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     struct Translation { // SingleMagicalRuneCostTranslation
       /// A note, appended to the generated string in parenthesis.
@@ -160,7 +160,7 @@ public struct MagicalRuneCraftingTime {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     struct Translation { // MagicalRuneCraftingTimeTranslation
         /// The crafting time has to be per a specific countable entity, e.g. `8 actions per person`.
@@ -199,7 +199,7 @@ public struct MagicalRuneOption {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // MagicalRuneOptionTranslation
@@ -225,7 +225,7 @@ public enum MagicalRuneSuboption {
 public struct CustomMagicalRuneSuboption {
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     @MinProperties(1)
     struct Translation {  // CustomMagicalRuneSuboptionTranslation

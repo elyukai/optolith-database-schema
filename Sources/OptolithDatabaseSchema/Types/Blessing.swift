@@ -14,7 +14,7 @@ public struct Blessing {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // BlessingTranslation
@@ -80,7 +80,7 @@ public struct FixedBlessingDuration {
 public struct IndefiniteBlessingDuration {
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // IndefiniteBlessingDurationTranslation

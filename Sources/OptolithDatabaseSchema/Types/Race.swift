@@ -32,7 +32,7 @@ public struct Race {
 
     /// Defines the starting ages for the race. It depends on the selected experience level.
     @Relationship(ExperienceLevel.self)
-    let starting_age: [String: StartingAge]
+    let starting_age: [Locale.ID: StartingAge]
 
     /// A list of available race variants where one has to be selected. If no variants are to be selected, a single variant with no name has to be provided which will be used as the missing values for the base race.
     @Relationship(RaceVariant.self)
@@ -46,7 +46,7 @@ public struct Race {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // RaceTranslation
@@ -215,7 +215,7 @@ public struct RaceVariant {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // RaceVariantTranslation

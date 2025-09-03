@@ -38,7 +38,7 @@ public struct AnimistPower {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // AnimistPowerTranslation
@@ -81,7 +81,7 @@ public struct AnimistPowerLevel {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // AnimistPowerLevelTranslation
@@ -131,7 +131,7 @@ public struct AnimistPowerCostByPrimaryPatron {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     struct Translation {  // AnimistPowerCostByPrimaryPatronTranslation
         /// A note, appended to the generated string in parenthesis.

@@ -22,7 +22,7 @@ public struct Language {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // LanguageTranslation
@@ -65,7 +65,7 @@ public struct SpecificSpecialization {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // SpecificSpecializationTranslation
@@ -82,7 +82,7 @@ public struct SpecificSpecialization {
 public struct IndefiniteSpecializations {
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // IndefiniteSpecializationsTranslation

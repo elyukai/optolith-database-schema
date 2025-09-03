@@ -21,7 +21,7 @@ public struct Cantrip {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // CantripTranslation
@@ -90,7 +90,7 @@ public struct CommonCantripTraditionNote {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // CommonCantripTraditionNoteTranslation
@@ -139,7 +139,7 @@ public struct FixedCantripDuration {
 public struct IndefiniteCantripDuration {
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // IndefiniteCantripDurationTranslation

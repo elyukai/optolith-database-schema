@@ -21,7 +21,7 @@ public struct DominationRitual {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // DominationRitualTranslation
@@ -62,7 +62,7 @@ public struct DominationRitualCost {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     struct Translation {  // DominationRitualCostTranslation
         /// AE cost in addition to the normal AE cost.
@@ -94,7 +94,7 @@ public struct IndefiniteDominationRitualDuration {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // IndefiniteDominationRitualDurationTranslation

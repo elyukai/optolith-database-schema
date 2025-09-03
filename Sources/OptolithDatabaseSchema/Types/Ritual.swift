@@ -33,13 +33,14 @@ public struct Ritual {
 
 	/// All translations for the entry, identified by IETF language tag (BCP47).
 	@Relationship(Locale.self)
-	let translations: [String: Translation]
+	let translations: [Locale.ID: Translation]
 
 	@Embedded
 	struct Translation {  // RitualTranslation
 		/// The ritual’s name.
 		@MinLength(1)
 		let name: String
+
 		/// The effect description may be either a plain text or a text that is divided by a list of effects for each quality level. It may also be a list for each two quality levels.
 		let effect: ActivatableSkillEffect
 

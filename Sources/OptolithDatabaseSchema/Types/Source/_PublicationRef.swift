@@ -9,7 +9,7 @@ public struct PublicationRef {
 
     /// All occurrences of the entry in the publication, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let occurrences: [String: Occurrence]
+    let occurrences: [Locale.ID: Occurrence]
 
     @Embedded
     struct Occurrence {

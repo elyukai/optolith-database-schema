@@ -31,7 +31,7 @@ public struct ElvenMagicalSong {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]
+    let translations: [Locale.ID: Translation]
 
     @Embedded
     struct Translation {  // ElvenMagicalSongTranslation
@@ -72,7 +72,7 @@ public struct ElvenMagicalSongCost {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     struct Translation { // ElvenMagicalSongCostTranslation
         /// The cost have to be per a specific countable entity, e.g. `8 AE per person`.
@@ -88,7 +88,7 @@ public struct ElvenMagicalSongPermanentCost {
 
     /// All translations for the entry, identified by IETF language tag (BCP47).
     @Relationship(Locale.self)
-    let translations: [String: Translation]?
+    let translations: [Locale.ID: Translation]?
 
     struct Translation { // ElvenMagicalSongPermanentCostTranslation
         /// A replacement string for the permanent cost.
