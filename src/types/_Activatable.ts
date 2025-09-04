@@ -549,7 +549,7 @@ const Penalty = Enum(import.meta.url, {
   }),
 })
 
-export const penalty = Required({
+export const penalty = Optional({
   comment: "The penalty the special ability gives when used.",
   type: IncludeIdentifier(Penalty),
 })
