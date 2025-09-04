@@ -9,6 +9,7 @@ import {
   GenIncludeIdentifier,
   GenTypeAlias,
   IncludeIdentifier,
+  Integer,
   Object,
   Optional,
   Param,
@@ -99,7 +100,7 @@ const PrerequisiteForLevel = GenTypeAlias(import.meta.url, {
     Object({
       level: Required({
         comment: "The level to which the prerequisite applies.",
-        type: String({ minLength: 1 }),
+        type: Integer({ minimum: 1 }),
       }),
       prerequisite: Required({
         comment: "The prerequisite.",
