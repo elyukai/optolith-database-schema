@@ -36,16 +36,13 @@
   "license": "MPL-2.0",
   "dependencies": {
     "@optolith/helpers": "^0.2.2",
-    "ajv": "^8.17.1",
-    "ajv-formats": "^3.0.1",
-    "tsondb": "^0.5.2",
+    "tsondb": "^0.5.7",
     "yaml": "^2.7.1"
   },
   "devDependencies": {
-    "@types/node": "^22.13.14",
-    "optolith-tsjsonschemamd": "^0.11.2",
+    "@types/node": "^24.3.1",
     "standard-version": "^9.5.0",
-    "typescript": "^5.8.2"
+    "typescript": "^5.9.2"
   },
   "repository": "github:elyukai/optolith-database-schema",
   "bugs": {
