@@ -40,10 +40,10 @@ import {
   WeaponIdentifier,
 } from "./_Identifier.js"
 import {
-  ActivatableIdentifier,
   AdvancedSpecialAbilityRestrictedOptionIdentifier,
   CombatRelatedSpecialAbilityIdentifier,
   CombatTechniqueIdentifier,
+  NewSkillApplicationOrUseParentIdentifier,
   VolumePointsOptionReferenceIdentifier,
 } from "./_IdentifierGroup.js"
 import { GeneralPrerequisites } from "./_Prerequisite.js"
@@ -441,7 +441,7 @@ export const NewSkillApplication = Entity(import.meta.url, {
     Object({
       parent: Required({
         comment: "The entry that enables the new skill application.",
-        type: IncludeIdentifier(ActivatableIdentifier),
+        type: IncludeIdentifier(NewSkillApplicationOrUseParentIdentifier),
       }),
       skills: Required({
         comment: "The skill(s) this application belongs to.",
@@ -475,7 +475,7 @@ export const SkillUse = Entity(import.meta.url, {
     Object({
       parent: Required({
         comment: "The entry that enables the use.",
-        type: IncludeIdentifier(ActivatableIdentifier),
+        type: IncludeIdentifier(NewSkillApplicationOrUseParentIdentifier),
       }),
       skills: Required({
         comment: "The skill(s) this use belongs to.",

@@ -179,6 +179,30 @@ export const ActivatableIdentifier = Enum(import.meta.url, {
   }),
 })
 
+export const NewSkillApplicationOrUseParentIdentifier = Enum(import.meta.url, {
+  name: "NewSkillApplicationOrUseParentIdentifier",
+  values: () => ({
+    GeneralSelectOption: EnumCase({ type: GeneralIdentifier() }),
+    Advantage: EnumCase({ type: AdvantageIdentifier() }),
+    Disadvantage: EnumCase({ type: DisadvantageIdentifier() }),
+    AdvancedCombatSpecialAbility: EnumCase({ type: AdvancedCombatSpecialAbilityIdentifier() }),
+    AdvancedKarmaSpecialAbility: EnumCase({ type: AdvancedKarmaSpecialAbilityIdentifier() }),
+    AdvancedMagicalSpecialAbility: EnumCase({ type: AdvancedMagicalSpecialAbilityIdentifier() }),
+    AdvancedSkillSpecialAbility: EnumCase({ type: AdvancedSkillSpecialAbilityIdentifier() }),
+    BlessedTradition: EnumCase({ type: BlessedTraditionIdentifier() }),
+    CeremonialItemSpecialAbility: EnumCase({ type: CeremonialItemSpecialAbilityIdentifier() }),
+    CombatSpecialAbility: EnumCase({ type: CombatSpecialAbilityIdentifier() }),
+    CombatStyleSpecialAbility: EnumCase({ type: CombatStyleSpecialAbilityIdentifier() }),
+    FatePointSpecialAbility: EnumCase({ type: FatePointSpecialAbilityIdentifier() }),
+    GeneralSpecialAbility: EnumCase({ type: GeneralSpecialAbilityIdentifier() }),
+    LiturgicalStyleSpecialAbility: EnumCase({ type: LiturgicalStyleSpecialAbilityIdentifier() }),
+    MagicalSpecialAbility: EnumCase({ type: MagicalSpecialAbilityIdentifier() }),
+    MagicalTradition: EnumCase({ type: MagicalTraditionIdentifier() }),
+    MagicStyleSpecialAbility: EnumCase({ type: MagicStyleSpecialAbilityIdentifier() }),
+    SexSpecialAbility: EnumCase({ type: SexSpecialAbilityIdentifier() }),
+  }),
+})
+
 export const SpecialAbilityIdentifier = Enum(import.meta.url, {
   name: "SpecialAbilityIdentifier",
   values: () => ({
