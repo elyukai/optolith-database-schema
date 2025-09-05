@@ -111,6 +111,7 @@ export const LanguageSpecialization = Entity(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })
 
 const IndefiniteSpecializations = TypeAlias(import.meta.url, {
