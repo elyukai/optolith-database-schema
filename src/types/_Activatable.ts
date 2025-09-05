@@ -40,6 +40,7 @@ import {
   WeaponIdentifier,
 } from "./_Identifier.js"
 import {
+  ActivatableIdentifier,
   AdvancedSpecialAbilityRestrictedOptionIdentifier,
   CombatRelatedSpecialAbilityIdentifier,
   CombatTechniqueIdentifier,
@@ -121,6 +122,10 @@ export const GeneralSelectOption = Entity(import.meta.url, {
   namePlural: "GeneralSelectOptions",
   type: () =>
     Object({
+      parent: Required({
+        comment: "The entry that contains select option.",
+        type: IncludeIdentifier(ActivatableIdentifier),
+      }),
       profession_only: Optional({
         comment:
           "Sometimes, professions use specific text selections that are not contained in described lists. This ensures you can use them for professions only. They are not going to be displayed as options to the user.",
