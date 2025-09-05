@@ -12,6 +12,7 @@ import {
   TypeAlias,
 } from "tsondb/schema/def"
 import { AlternativeName } from "../../_AlternativeNames.js"
+import { LanguageIdentifier, LanguageSpecializationIdentifier } from "../../_Identifier.js"
 import { LanguagePrerequisites } from "../../_Prerequisite.js"
 import { NestedLocaleMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
@@ -80,22 +81,23 @@ const SpecificSpecializations = TypeAlias(import.meta.url, {
     Object({
       list: Required({
         comment: "A list of specific possible specializations.",
-        type: Array(IncludeIdentifier(SpecificSpecialization), { minItems: 1 }),
+        type: Array(LanguageSpecializationIdentifier(), { minItems: 1 }),
       }),
     }),
 })
 
-const SpecificSpecialization = TypeAlias(import.meta.url, {
-  name: "SpecificSpecialization",
+export const LanguageSpecialization = Entity(import.meta.url, {
+  name: "LanguageSpecialization",
+  namePlural: "LanguageSpecializations",
   type: () =>
     Object({
-      id: Required({
-        comment: "The specialization’s identifier.",
-        type: Integer({ minimum: 1 }),
+      parent: Required({
+        comment: "The language this specialization belongs to.",
+        type: LanguageIdentifier(),
       }),
       translations: NestedLocaleMap(
         Required,
-        "SpecificSpecializationTranslation",
+        "LanguageSpecializationTranslation",
         Object({
           name: Required({
             comment: "The specialization’s name.",

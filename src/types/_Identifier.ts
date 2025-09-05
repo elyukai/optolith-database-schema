@@ -116,7 +116,7 @@ import { Sermon } from "./specialAbility/Sermon.js"
 import { SexSpecialAbility } from "./specialAbility/SexSpecialAbility.js"
 import { SikaryanDrainSpecialAbility } from "./specialAbility/SikaryanDrainSpecialAbility.js"
 import { SkillStyleSpecialAbility } from "./specialAbility/SkillStyleSpecialAbility.js"
-import { Language } from "./specialAbility/sub/Language.js"
+import { Language, LanguageSpecialization } from "./specialAbility/sub/Language.js"
 import { Script } from "./specialAbility/sub/Script.js"
 import { TradeSecret } from "./specialAbility/sub/TradeSecret.js"
 import { VampiricGift } from "./specialAbility/VampiricGift.js"
@@ -227,6 +227,7 @@ export const JewelryIdentifier: () => R = () => R(Jewelry)
 export const KarmaSpecialAbilityIdentifier: () => R = () => R(KarmaSpecialAbility)
 export const KrallenkettenzauberIdentifier: () => R = () => R(Krallenkettenzauber)
 export const LanguageIdentifier: () => R = () => R(Language)
+export const LanguageSpecializationIdentifier: () => R = () => R(LanguageSpecialization)
 export const LessonPackageIdentifier: () => R = () => R(LessonPackage)
 export const LiebesspielzeugIdentifier: () => R = () => R(Liebesspielzeug)
 export const LiturgicalChantIdentifier: () => R = () => R(LiturgicalChant)
