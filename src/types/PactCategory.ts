@@ -1,4 +1,12 @@
-import { Array, Entity, IncludeIdentifier, Object, Required, String } from "tsondb/schema/def"
+import {
+  Array,
+  Entity,
+  IncludeIdentifier,
+  Object,
+  Optional,
+  Required,
+  String,
+} from "tsondb/schema/def"
 import { PactCategoryIdentifier, PactDomainIdentifier, PactTypeIdentifier } from "./_Identifier.js"
 import { NestedLocaleMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
@@ -26,7 +34,7 @@ export const PactCategory = Entity(import.meta.url, {
             comment: "The pact category’s name.",
             type: String({ minLength: 1 }),
           }),
-          errata: Required({
+          errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
         })
