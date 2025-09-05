@@ -1,5 +1,5 @@
 import { ReferenceIdentifier as R } from "tsondb/schema/def"
-import { GeneralSelectOption } from "./_Activatable.js"
+import { GeneralSelectOption, NewSkillApplication, SkillUse } from "./_Activatable.js"
 import { Enhancement } from "./_Enhancements.js"
 import { Influence } from "./_Influence.js"
 import { Advantage } from "./Advantage.js"
@@ -275,6 +275,8 @@ export const SexSpecialAbilityIdentifier: () => R = () => R(SexSpecialAbility)
 export const SickleRitualIdentifier: () => R = () => R(SickleRitual)
 export const SikaryanDrainSpecialAbilityIdentifier: () => R = () => R(SikaryanDrainSpecialAbility)
 export const SkillApplicationIdentifier: () => R = () => R(SkillApplication)
+export const NewSkillApplicationIdentifier: () => R = () => R(NewSkillApplication)
+export const SkillUseIdentifier: () => R = () => R(SkillUse)
 export const SkillGroupIdentifier: () => R = () => R(SkillGroup)
 export const SkillIdentifier: () => R = () => R(Skill)
 export const SkillModificationLevelIdentifier: () => R = () => R(SkillModificationLevel)

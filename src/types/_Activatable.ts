@@ -30,14 +30,17 @@ import {
   CloseCombatTechniqueIdentifier,
   GeneralIdentifier,
   MagicalTraditionIdentifier,
+  NewSkillApplicationIdentifier,
   PatronIdentifier,
   PropertyIdentifier,
   RaceIdentifier,
   RangedCombatTechniqueIdentifier,
   SkillIdentifier,
+  SkillUseIdentifier,
   WeaponIdentifier,
 } from "./_Identifier.js"
 import {
+  ActivatableIdentifier,
   AdvancedSpecialAbilityRestrictedOptionIdentifier,
   CombatRelatedSpecialAbilityIdentifier,
   CombatTechniqueIdentifier,
@@ -420,7 +423,7 @@ const NewSkillApplications = TypeAlias(import.meta.url, {
   name: "NewSkillApplications",
   comment:
     "Registers new skill applications, which get enabled once this entry is activated. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin activatable entry.",
-  type: () => Array(IncludeIdentifier(NewSkillApplication), { minItems: 1 }),
+  type: () => Array(NewSkillApplicationIdentifier(), { minItems: 1 }),
 })
 
 export const skill_applications = Optional({
@@ -429,21 +432,29 @@ export const skill_applications = Optional({
   type: IncludeIdentifier(NewSkillApplications),
 })
 
-const NewSkillApplication = TypeAlias(import.meta.url, {
+export const NewSkillApplication = Entity(import.meta.url, {
   name: "NewSkillApplication",
+  namePlural: "NewSkillApplications",
+  comment:
+    "Registers new skill applications, which get enabled once the referenced entry is activated. It specifies the skill(s) it belongs to. A translation can be left out if its name equals the name of the origin activatable entry.",
   type: () =>
     Object({
-      id: Required({
-        comment: "The application’s identifier. An entry-unique, increasing integer.",
-        type: Integer({ minimum: 1 }),
+      parent: Required({
+        comment: "The entry that enables the new skill application.",
+        type: IncludeIdentifier(ActivatableIdentifier),
       }),
-      skill: Required({
+      skills: Required({
         comment: "The skill(s) this application belongs to.",
-        type: IncludeIdentifier(NewSkillApplicationAssociatedSkill),
+        type: Array(SkillIdentifier(), { minItems: 1 }),
+      }),
+      required_skill_rating: Optional({
+        comment:
+          "If an application applies to multiple skills, it may need to ensure the respective skill is on a certain skill rating if the activatable entry cannot ensure this prerequisite.",
+        type: Integer({ minimum: 1 }),
       }),
       translations: NestedLocaleMap(
         Optional,
-        "SkillApplicationTranslation",
+        "NewSkillApplicationTranslation",
         Object({
           name: Required({
             comment: "The name of the application if different from the activatable entry’s name.",
@@ -452,56 +463,28 @@ const NewSkillApplication = TypeAlias(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })
 
-const NewSkillApplicationAssociatedSkill = Enum(import.meta.url, {
-  name: "NewSkillApplicationAssociatedSkill",
-  values: () => ({
-    Single: EnumCase({ type: SkillIdentifier() }),
-    Multiple: EnumCase({ type: IncludeIdentifier(NewSkillApplicationAssociatedSkills) }),
-  }),
-})
-
-const NewSkillApplicationAssociatedSkills = TypeAlias(import.meta.url, {
-  name: "NewSkillApplicationAssociatedSkills",
+export const SkillUse = Entity(import.meta.url, {
+  name: "SkillUse",
+  namePlural: "SkillUses",
+  comment:
+    "Registers uses, which get enabled once this entry is activated. It specifies the skill(s) it belongs to. A translation can be left out if its name equals the name of the origin activatable entry.",
   type: () =>
     Object({
-      list: Required({
-        comment: "The skills this application belongs to.",
-        type: Array(SkillIdentifier(), { minItems: 2 }),
+      parent: Required({
+        comment: "The entry that enables the use.",
+        type: IncludeIdentifier(ActivatableIdentifier),
+      }),
+      skills: Required({
+        comment: "The skill(s) this use belongs to.",
+        type: Array(SkillIdentifier(), { minItems: 1 }),
       }),
       required_skill_rating: Optional({
         comment:
-          "If an application applies to multiple skills, it may need to ensure the respective skill is on a certain skill rating if the activatable entry cannot ensure this prerequisite.",
+          "If a use applies to multiple skills, it may need to ensure the respective skill is on a certain skill rating if the activatable entry cannot ensure this prerequisite.",
         type: Integer({ minimum: 1 }),
-      }),
-    }),
-})
-
-const SkillUses = TypeAlias(import.meta.url, {
-  name: "SkillUses",
-  comment:
-    "Registers uses, which get enabled once this entry is activated. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin activatable entry.",
-  type: () => Array(IncludeIdentifier(SkillUse), { minItems: 1 }),
-})
-
-export const skill_uses = Optional({
-  comment:
-    "Registers uses, which get enabled once this entry is activated. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin activatable entry.",
-  type: IncludeIdentifier(SkillUses),
-})
-
-const SkillUse = TypeAlias(import.meta.url, {
-  name: "SkillUse",
-  type: () =>
-    Object({
-      id: Required({
-        comment: "The use’s identifier. An entry-unique, increasing integer.",
-        type: Integer({ minimum: 1 }),
-      }),
-      skill: Required({
-        comment: "The skill(s) this use belongs to.",
-        type: IncludeIdentifier(SkillUseAssociatedSkill),
       }),
       translations: NestedLocaleMap(
         Optional,
@@ -514,25 +497,20 @@ const SkillUse = TypeAlias(import.meta.url, {
         })
       ),
     }),
+  displayName: {},
 })
 
-const SkillUseAssociatedSkill = Enum(import.meta.url, {
-  name: "SkillUseAssociatedSkill",
-  values: () => ({
-    Single: EnumCase({ type: SkillIdentifier() }),
-    Multiple: EnumCase({ type: IncludeIdentifier(SkillUseAssociatedSkills) }),
-  }),
+const SkillUses = TypeAlias(import.meta.url, {
+  name: "SkillUses",
+  comment:
+    "Registers uses, which get enabled once this entry is activated. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin activatable entry.",
+  type: () => Array(SkillUseIdentifier(), { minItems: 1 }),
 })
 
-const SkillUseAssociatedSkills = TypeAlias(import.meta.url, {
-  name: "SkillUseAssociatedSkills",
-  type: () =>
-    Object({
-      list: Required({
-        comment: "The skills this use belongs to.",
-        type: Array(SkillIdentifier(), { minItems: 2 }),
-      }),
-    }),
+export const skill_uses = Optional({
+  comment:
+    "Registers uses, which get enabled once this entry is activated. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin activatable entry.",
+  type: IncludeIdentifier(SkillUses),
 })
 
 const Penalty = Enum(import.meta.url, {
