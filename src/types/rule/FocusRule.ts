@@ -18,7 +18,7 @@ export const FocusRule = Entity(import.meta.url, {
   namePlural: "FocusRules",
   type: () =>
     Object({
-      subject: Required({
+      subject: Optional({
         comment: "The associated subject.",
         type: SubjectIdentifier(),
       }),
