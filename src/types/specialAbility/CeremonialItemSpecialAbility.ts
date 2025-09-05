@@ -10,7 +10,6 @@ import {
   select_options,
   skill_applications,
   skill_uses,
-  usage_type,
 } from "../_Activatable.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 import { NestedLocaleMap } from "../Locale.js"
@@ -23,7 +22,6 @@ export const CeremonialItemSpecialAbility = Entity(import.meta.url, {
   type: () =>
     Object({
       levels,
-      usage_type,
       select_options,
       skill_applications,
       skill_uses,
