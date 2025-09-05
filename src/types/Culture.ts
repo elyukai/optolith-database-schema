@@ -454,7 +454,7 @@ const CommonName = TypeAlias(import.meta.url, {
         name: Required({
           type: String({ minLength: 1 }),
         }),
-        names: Optional({
+        note: Optional({
           comment: "Additional information about the name, appended in parenthesis.",
           type: String({ minLength: 1 }),
         }),
