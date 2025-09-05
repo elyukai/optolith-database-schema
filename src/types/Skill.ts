@@ -13,7 +13,7 @@ import {
   Required,
   String,
 } from "tsondb/schema/def"
-import { SkillApplicationIdentifier, SkillGroupIdentifier } from "./_Identifier.js"
+import { SkillApplicationIdentifier, SkillGroupIdentifier, SkillIdentifier } from "./_Identifier.js"
 import { ImprovementCost } from "./_ImprovementCost.js"
 import { SkillCheck } from "./_SkillCheck.js"
 import { NestedLocaleMap } from "./Locale.js"
@@ -122,6 +122,10 @@ export const SkillApplication = Entity(import.meta.url, {
   namePlural: "SkillApplications",
   type: () =>
     Object({
+      parent: Required({
+        comment: "The skill this application belongs to.",
+        type: SkillIdentifier(),
+      }),
       translations: NestedLocaleMap(
         Required,
         "SkillApplicationTranslation",
