@@ -1,6 +1,8 @@
 import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/def"
 import {
+  aeCost,
   ap_value,
+  bindingCost,
   cost,
   effect,
   levels,
@@ -10,6 +12,7 @@ import {
   property,
   select_options,
   volume,
+  volume_l10n,
 } from "../_Activatable.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 import { ResponsiveTextOptional } from "../_ResponsiveText.js"
@@ -44,6 +47,9 @@ export const StaffEnchantment = Entity(import.meta.url, {
             comment: "A note, appended to the generated cost string in parenthesis.",
             type: IncludeIdentifier(ResponsiveTextOptional),
           }),
+          bindingCost,
+          aeCost,
+          volume: volume_l10n,
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),

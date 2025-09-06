@@ -756,6 +756,12 @@ export const ArcaneEnergyCost = Enum(import.meta.url, {
   }),
 })
 
+export const aeCost = Optional({
+  comment: "The AE cost.",
+  isDeprecated: true,
+  type: String({ minLength: 1 }),
+})
+
 const FixedArcaneEnergyCost = TypeAlias(import.meta.url, {
   name: "FixedArcaneEnergyCost",
   type: () =>
@@ -1005,6 +1011,12 @@ export const volume = Required({
   type: IncludeIdentifier(Volume),
 })
 
+export const volume_l10n = Required({
+  comment: "The volume points the enchantment needs.",
+  isDeprecated: true,
+  type: String({ minLength: 1 }),
+})
+
 const FixedVolume = TypeAlias(import.meta.url, {
   name: "FixedVolume",
   type: () =>
@@ -1184,6 +1196,12 @@ export const BindingCost = Enum(import.meta.url, {
     Map: EnumCase({ type: IncludeIdentifier(BindingCostMap) }),
     DerivedFromSelection: EnumCase({ type: IncludeIdentifier(BindingCostDerivedFromSelection) }),
   }),
+})
+
+export const bindingCost = Optional({
+  comment: "The binding cost for an enchantment.",
+  isDeprecated: true,
+  type: String({ minLength: 1 }),
 })
 
 const FixedBindingCost = TypeAlias(import.meta.url, {

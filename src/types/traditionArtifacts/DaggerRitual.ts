@@ -10,9 +10,11 @@ import {
   TypeAlias,
 } from "tsondb/schema/def"
 import {
+  aeCost,
   ap_value,
   ArcaneEnergyCost,
   BindingCost,
+  bindingCost,
   effect,
   levels,
   maximum,
@@ -21,6 +23,7 @@ import {
   property,
   select_options,
   volume,
+  volume_l10n,
 } from "../_Activatable.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 import { NestedLocaleMap } from "../Locale.js"
@@ -52,6 +55,9 @@ export const DaggerRitual = Entity(import.meta.url, {
           name,
           name_in_library,
           effect,
+          bindingCost,
+          aeCost,
+          volume: volume_l10n,
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),

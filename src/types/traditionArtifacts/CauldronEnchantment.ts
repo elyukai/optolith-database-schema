@@ -1,6 +1,8 @@
 import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/def"
 import {
+  aeCost,
   ap_value,
+  bindingCost,
   cost,
   effect,
   levels,
@@ -10,6 +12,7 @@ import {
   property,
   select_options,
   volume,
+  volume_l10n,
 } from "../_Activatable.js"
 import { BrewIdentifier } from "../_Identifier.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
@@ -45,6 +48,9 @@ export const CauldronEnchantment = Entity(import.meta.url, {
           name,
           name_in_library,
           effect,
+          bindingCost,
+          aeCost,
+          volume: volume_l10n,
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
