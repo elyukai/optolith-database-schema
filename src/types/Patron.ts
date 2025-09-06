@@ -19,6 +19,7 @@ import {
   PatronCategoryIdentifier,
   SkillIdentifier,
 } from "./_Identifier.js"
+import { SpellworkIdentifier } from "./_IdentifierGroup.js"
 import { ImprovementCost } from "./_ImprovementCost.js"
 import { NestedLocaleMap } from "./Locale.js"
 import { src } from "./source/_PublicationRef.js"
@@ -41,11 +42,6 @@ export const Patron = Entity(import.meta.url, {
           "The patron is only available to a certain set of cultures. It may be available to all, it may be available to only specific ones (intersection) and it may be available to all except specific ones to the listed cultures (difference).",
         type: IncludeIdentifier(PatronCulture),
       }),
-      primary_patron_cultures: Required({
-        comment:
-          "The list of cultures where patrons from this category can be the primary patron of.",
-        type: Array(CultureIdentifier(), { uniqueItems: true }),
-      }),
       powers: Optional({
         comment:
           "The patron-specific powers. Used by animist power Animal Powers I–III and should only be present on animal patrons.",
@@ -60,23 +56,23 @@ export const Patron = Entity(import.meta.url, {
           "The patron-specific improvement cost. Used by several animist forces for animal patrons.",
         type: IncludeIdentifier(ImprovementCost),
       }),
-      common_advantages: Required({
+      common_advantages: Optional({
         comment: `The patron may grant common advantages that are taken into account during character creation.
 
 *Source:* Geisterwald & Knochenklippen, p. 6-7`,
         type: Array(AdvantageIdentifier(), { minItems: 1, uniqueItems: true }),
       }),
-      common_disadvantages: Required({
+      common_disadvantages: Optional({
         comment: `The patron may grant common disadvantages that are taken into account during character creation.
 
 *Source:* Geisterwald & Knochenklippen, p. 6-7`,
         type: Array(DisadvantageIdentifier(), { minItems: 1, uniqueItems: true }),
       }),
-      common_spellworks: Required({
+      common_spellworks: Optional({
         comment: `The animist may learn spellworks common for this patron.
 
 *Source:* Geisterwald & Knochenklippen, p. 6-7`,
-        type: Array(DisadvantageIdentifier(), { minItems: 1, uniqueItems: true }),
+        type: Array(IncludeIdentifier(SpellworkIdentifier), { minItems: 1, uniqueItems: true }),
       }),
       src,
       translations: NestedLocaleMap(
