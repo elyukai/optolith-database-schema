@@ -286,7 +286,7 @@ const SkillApplicationOrUse = TypeAlias(import.meta.url, {
         type: Integer({ minimum: 1 }),
       }),
       translations: NestedLocaleMap(
-        Required,
+        Optional,
         "SkillApplicationOrUseTranslation",
         Object({
           name: Required({
