@@ -1,6 +1,8 @@
 import { Boolean, Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/def"
 import {
   ap_value,
+  ap_value_append,
+  ap_value_l10n,
   input,
   levels,
   maximum,
@@ -48,6 +50,8 @@ export const Advantage = Entity(import.meta.url, {
           name_in_library,
           input,
           rules,
+          ap_value_append,
+          ap_value: ap_value_l10n,
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
