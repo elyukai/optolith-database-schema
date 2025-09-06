@@ -1354,6 +1354,11 @@ export const aspect = Required({
   type: AspectIdentifier(),
 })
 
+export const aspectOptional = Optional({
+  comment: "The blessed aspect.",
+  type: AspectIdentifier(),
+})
+
 const AdvancedSpecialAbility = GenEnum(import.meta.url, {
   name: "AdvancedSpecialAbility",
   comment: "A reference to an advanced special ability.",

@@ -3,7 +3,7 @@ import {
   ap_value,
   ap_value_append,
   ap_value_l10n,
-  aspect,
+  aspectOptional,
   effect,
   levels,
   maximum,
@@ -28,7 +28,7 @@ export const CeremonialItemSpecialAbility = Entity(import.meta.url, {
       skill_applications,
       skill_uses,
       maximum,
-      aspect,
+      aspect: aspectOptional,
       prerequisites: Optional({
         type: IncludeIdentifier(GeneralPrerequisites),
       }),
