@@ -532,6 +532,12 @@ const Penalty = Enum(import.meta.url, {
   }),
 })
 
+export const range_l10n = Optional({
+  comment: "The range of the advantage.",
+  isDeprecated: true,
+  type: String({ minLength: 1 }),
+})
+
 export const penalty = Optional({
   comment: "The penalty the special ability gives when used.",
   type: IncludeIdentifier(Penalty),
