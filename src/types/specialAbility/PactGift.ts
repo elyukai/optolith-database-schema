@@ -154,7 +154,7 @@ const FixedAutomaticEntryTarget = TypeAlias(import.meta.url, {
   name: "FixedAutomaticEntryTarget",
   type: () =>
     Object({
-      is: Required({
+      id: Required({
         type: IncludeIdentifier(ActivatableIdentifier),
       }),
     }),
