@@ -1011,7 +1011,7 @@ export const volume = Required({
   type: IncludeIdentifier(Volume),
 })
 
-export const volume_l10n = Required({
+export const volume_l10n = Optional({
   comment: "The volume points the enchantment needs.",
   isDeprecated: true,
   type: String({ minLength: 1 }),
