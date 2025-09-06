@@ -89,8 +89,8 @@ const PropertiesSelectOptionCategory = TypeAlias(import.meta.url, {
   name: "PropertiesSelectOptionCategory",
   type: () =>
     Object({
-      require_principles: Optional({
-        comment: "Does each property require it's corresponding property knowledge?",
+      require_knowledge: Optional({
+        comment: "Does each property require its corresponding property knowledge?",
         type: Boolean(),
       }),
       require_minimum_spellworks_on: Optional({
@@ -106,7 +106,7 @@ const AspectSelectOptionCategory = TypeAlias(import.meta.url, {
   type: () =>
     Object({
       require_knowledge: Optional({
-        comment: "Does each aspect require it's corresponding aspect knowledge?",
+        comment: "Does each aspect require its corresponding aspect knowledge?",
         type: Boolean(),
       }),
       use_master_of_suffix_as_name: Optional({
