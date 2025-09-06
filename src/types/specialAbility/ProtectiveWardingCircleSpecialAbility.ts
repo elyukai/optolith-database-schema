@@ -31,7 +31,7 @@ export const ProtectiveWardingCircleSpecialAbility = Entity(import.meta.url, {
       prerequisites: Optional({
         type: IncludeIdentifier(GeneralPrerequisites),
       }),
-      ae_cost: Required({
+      cost: Required({
         comment: "The cost in AE.",
         type: Integer({ minimum: 0 }),
       }),
