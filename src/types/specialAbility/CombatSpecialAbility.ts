@@ -10,6 +10,7 @@ import {
   name,
   name_in_library,
   penalty,
+  penalty_l10n,
   rules,
   select_options,
   skill_applications,
@@ -47,6 +48,7 @@ export const CombatSpecialAbility = Entity(import.meta.url, {
           name_in_library,
           input,
           rules,
+          penalty: penalty_l10n,
           ap_value_append,
           ap_value: ap_value_l10n,
           errata: Optional({

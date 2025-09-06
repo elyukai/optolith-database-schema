@@ -537,6 +537,12 @@ export const penalty = Optional({
   type: IncludeIdentifier(Penalty),
 })
 
+export const penalty_l10n = Optional({
+  comment: "The penalty the special ability gives when used.",
+  isDeprecated: true,
+  type: String({ minLength: 1 }),
+})
+
 const SinglePenalty = TypeAlias(import.meta.url, {
   name: "SinglePenalty",
   type: () =>
