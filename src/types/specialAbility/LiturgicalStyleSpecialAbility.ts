@@ -2,6 +2,8 @@ import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/sc
 import {
   advanced,
   ap_value,
+  ap_value_append,
+  ap_value_l10n,
   levels,
   maximum,
   name,
@@ -40,6 +42,8 @@ export const LiturgicalStyleSpecialAbility = Entity(import.meta.url, {
           name,
           name_in_library,
           rules,
+          ap_value_append,
+          ap_value: ap_value_l10n,
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),

@@ -1,5 +1,12 @@
 import { Entity, IncludeIdentifier, Integer, Object, Optional, Required } from "tsondb/schema/def"
-import { effect, name, name_in_library, property } from "../_Activatable.js"
+import {
+  ap_value_append,
+  ap_value_l10n,
+  effect,
+  name,
+  name_in_library,
+  property,
+} from "../_Activatable.js"
 import { GeneralPrerequisites } from "../_Prerequisite.js"
 import { NestedLocaleMap } from "../Locale.js"
 import { Errata } from "../source/_Erratum.js"
@@ -26,6 +33,8 @@ export const MagicalSign = Entity(import.meta.url, {
           name,
           name_in_library,
           effect,
+          ap_value_append,
+          ap_value: ap_value_l10n,
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),

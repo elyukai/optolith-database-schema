@@ -14,6 +14,8 @@ import {
 } from "tsondb/schema/def"
 import {
   ap_value,
+  ap_value_append,
+  ap_value_l10n,
   name,
   name_in_library,
   select_options,
@@ -98,6 +100,8 @@ export const BlessedTradition = Entity(import.meta.url, {
               "The special rules of the tradition. They should be sorted like they are in the book.",
             type: Array(IncludeIdentifier(SpecialRule), { minItems: 1 }),
           }),
+          ap_value_append,
+          ap_value: ap_value_l10n,
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),

@@ -2,6 +2,8 @@ import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/sc
 import {
   aeCost,
   ap_value,
+  ap_value_append,
+  ap_value_l10n,
   bindingCost,
   cost,
   effect,
@@ -45,6 +47,8 @@ export const OrbEnchantment = Entity(import.meta.url, {
           bindingCost,
           aeCost,
           volume: volume_l10n,
+          ap_value_append,
+          ap_value: ap_value_l10n,
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),

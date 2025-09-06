@@ -1645,6 +1645,18 @@ export const ap_value = Required({
   type: IncludeIdentifier(AdventurePointsValue),
 })
 
+export const ap_value_l10n = Optional({
+  comment: "The adventure points value.",
+  isDeprecated: true,
+  type: String({ minLength: 1 }),
+})
+
+export const ap_value_append = Optional({
+  comment: "The string to append to the generated AP value text.",
+  isDeprecated: true,
+  type: String({ minLength: 1 }),
+})
+
 const FixedAdventurePointsValue = TypeAlias(import.meta.url, {
   name: "FixedAdventurePointsValue",
   comment:

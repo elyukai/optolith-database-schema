@@ -1,6 +1,8 @@
 import { Entity, IncludeIdentifier, Object, Optional, Required } from "tsondb/schema/def"
 import {
   ap_value,
+  ap_value_append,
+  ap_value_l10n,
   effect,
   levels,
   maximum,
@@ -33,6 +35,8 @@ export const FamiliarSpecialAbility = Entity(import.meta.url, {
           name,
           name_in_library,
           effect,
+          ap_value_append,
+          ap_value: ap_value_l10n,
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
