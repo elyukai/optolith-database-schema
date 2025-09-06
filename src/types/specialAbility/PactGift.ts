@@ -13,11 +13,11 @@ import {
 } from "tsondb/schema/def"
 import {
   ap_value,
+  effect,
   levels,
   maximum,
   name,
   name_in_library,
-  rules,
   select_options,
 } from "../_Activatable.js"
 import { ActivatableIdentifier } from "../_IdentifierGroup.js"
@@ -54,7 +54,7 @@ export const PactGift = Entity(import.meta.url, {
         Object({
           name,
           name_in_library,
-          rules,
+          effect,
           errata: Optional({
             type: IncludeIdentifier(Errata),
           }),
