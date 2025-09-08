@@ -307,6 +307,8 @@ export const AdvancedSpecialAbilityRestrictedOptionIdentifier = Enum(import.meta
   values: () => ({
     General: EnumCase({ type: GeneralIdentifier() }),
     Skill: EnumCase({ type: SkillIdentifier() }),
+    CloseCombatTechnique: EnumCase({ type: CloseCombatTechniqueIdentifier() }),
+    RangedCombatTechnique: EnumCase({ type: RangedCombatTechniqueIdentifier() }),
     Element: EnumCase({ type: ElementIdentifier() }),
     Aspect: EnumCase({ type: AspectIdentifier() }),
   }),
