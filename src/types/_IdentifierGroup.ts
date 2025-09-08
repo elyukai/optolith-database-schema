@@ -429,6 +429,7 @@ export const RequirableSelectOptionIdentifier = Enum(import.meta.url, {
     Ceremony: EnumCase({ type: CeremonyIdentifier() }),
     Spell: EnumCase({ type: SpellIdentifier() }),
     Ritual: EnumCase({ type: RitualIdentifier() }),
+    TradeSecret: EnumCase({ type: TradeSecretIdentifier() }),
   }),
 })
 
