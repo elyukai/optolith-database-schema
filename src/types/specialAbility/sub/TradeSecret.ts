@@ -38,7 +38,7 @@ export const TradeSecret = Entity(import.meta.url, {
             comment: "The trade secret’s name.",
             type: String({ minLength: 1 }),
           }),
-          description: Required({
+          description: Optional({
             comment: "The description of the trade secret.",
             type: String({ minLength: 1, isMarkdown: true }),
           }),
