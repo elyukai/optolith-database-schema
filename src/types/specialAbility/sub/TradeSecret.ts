@@ -8,7 +8,7 @@ import {
   Required,
   String,
 } from "tsondb/schema/def"
-import { GeneralPrerequisites } from "../../_Prerequisite.js"
+import { PlainGeneralPrerequisites } from "../../_Prerequisite.js"
 import { NestedLocaleMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
@@ -27,7 +27,7 @@ export const TradeSecret = Entity(import.meta.url, {
         type: Boolean(),
       }),
       prerequisites: Optional({
-        type: IncludeIdentifier(GeneralPrerequisites),
+        type: IncludeIdentifier(PlainGeneralPrerequisites),
       }),
       src,
       translations: NestedLocaleMap(
