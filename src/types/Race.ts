@@ -51,7 +51,7 @@ export const Race = Entity(import.meta.url, {
       automatic_advantages: Optional({
         comment:
           "A list of automatically applied advantages. This does only work for advantages with no further configuration such as level or special selection.",
-        type: Array(AdvantageIdentifier(), { minItems: 1 }),
+        type: Array(IncludeIdentifier(AutomaticAdvantage), { minItems: 1 }),
       }),
       strongly_recommended_advantages: Optional({
         comment: "A list of strongly recommended advantages.",
@@ -208,6 +208,19 @@ const SelectableAttributeAdjustment = TypeAlias(import.meta.url, {
         comment:
           "The value by which the selected attribute’s maximum is modified (negative values will lower the maximum).",
         type: Integer(),
+      }),
+    }),
+})
+
+const AutomaticAdvantage = TypeAlias(import.meta.url, {
+  name: "AutomaticAdvantage",
+  comment:
+    "An advantage that is automatically applied to the character after selecting the race. This does only work for advantages with no further configuration such as level or special selection.",
+  type: () =>
+    Object({
+      id: Required({
+        comment: "The automatic advantage.",
+        type: AdvantageIdentifier(),
       }),
     }),
 })
