@@ -170,15 +170,15 @@ This will generate the exact same string as seen above – given it is set for a
         "CostMapTranslation",
         Object(
           {
-            list_prepend: Required({
+            list_prepend: Optional({
               comment: "Place a string between the `for` and the grouped map option labels.",
               type: String({ minLength: 1 }),
             }),
-            list_append: Required({
+            list_append: Optional({
               comment: "Place a string after the grouped map option labels.",
               type: String({ minLength: 1 }),
             }),
-            replacement: Required({
+            replacement: Optional({
               comment:
                 "If the string from the book cannot be generated using the default generation technique, use this string. All options still need to be inserted propertly, since it may be used by in-game tools to provide a selection to players.",
               type: String({ minLength: 1 }),
