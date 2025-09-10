@@ -20,13 +20,13 @@ export const CastingTime = GenEnum(import.meta.url, {
   name: "CastingTime",
   parameters: [Param("NonModifiable")],
   values: NonModifiable => ({
-    Modifiable: EnumCase({ type: IncludeIdentifier(ModifiableCastingRange) }),
+    Modifiable: EnumCase({ type: IncludeIdentifier(ModifiableCastingTime) }),
     NonModifiable: EnumCase({ type: TypeArgument(NonModifiable) }),
   }),
 })
 
-const ModifiableCastingRange = TypeAlias(import.meta.url, {
-  name: "ModifiableCastingRange",
+const ModifiableCastingTime = TypeAlias(import.meta.url, {
+  name: "ModifiableCastingTime",
   type: () =>
     Object({
       initial_modification_level: Required({
