@@ -109,15 +109,15 @@ export const Race = Entity(import.meta.url, {
             comment: "The respective attribute adjustments text from the source book.",
             type: String({ minLength: 1 }),
           }),
-          automatic_advantages: Required({
+          automatic_advantages: Optional({
             comment: "The respective automatic advantages text from the source book.",
             type: String({ minLength: 1 }),
           }),
-          strongly_recommended_advantages: Required({
+          strongly_recommended_advantages: Optional({
             comment: "The respective strongly recommended advantages text from the source book.",
             type: String({ minLength: 1 }),
           }),
-          strongly_recommended_disadvantages: Required({
+          strongly_recommended_disadvantages: Optional({
             comment: "The respective strongly recommended disadvantages text from the source book.",
             type: String({ minLength: 1 }),
           }),
