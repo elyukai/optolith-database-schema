@@ -7,7 +7,7 @@ import {
   Required,
   String,
 } from "tsondb/schema/def"
-import { FastPerformanceParameters, OldParameter } from "./_ActivatableSkill.js"
+import { OldParameter, SlowPerformanceParameters } from "./_ActivatableSkill.js"
 import { ActivatableSkillEffect } from "./_ActivatableSkillEffect.js"
 import { AffectedTargetCategories } from "./_ActivatableSkillTargetCategory.js"
 import { LiturgyTradition } from "./_Blessed.js"
@@ -34,7 +34,7 @@ export const Ceremony = Entity(import.meta.url, {
       }),
       parameters: Required({
         comment: "Measurable parameters of a ceremony.",
-        type: IncludeIdentifier(FastPerformanceParameters),
+        type: IncludeIdentifier(SlowPerformanceParameters),
       }),
       target: Required({
         comment: "The target category – the kind of creature or object – the skill affects.",
