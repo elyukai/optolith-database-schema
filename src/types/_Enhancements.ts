@@ -14,6 +14,7 @@ import {
   TypeAlias,
 } from "tsondb/schema/def"
 import { EnhancementIdentifier } from "./_Identifier.js"
+import { SkillWithEnhancementsIdentifier } from "./_IdentifierGroup.js"
 import { EnhancementPrerequisites } from "./_Prerequisite.js"
 import { NestedLocaleMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
@@ -34,6 +35,10 @@ export const Enhancement = Entity(import.meta.url, {
   namePlural: "Enhancements",
   type: () =>
     Object({
+      parent: Required({
+        comment: "The spellwork or liturgy this enhancement belongs to",
+        type: IncludeIdentifier(SkillWithEnhancementsIdentifier),
+      }),
       skill_rating: Required({
         comment: "The skill rating required to learn this enhancement.",
         type: Integer({
