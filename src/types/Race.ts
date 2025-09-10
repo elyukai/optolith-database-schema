@@ -322,7 +322,6 @@ export const RaceVariant = Entity(import.meta.url, {
         comment: "Configuration for random height generation.",
         type: IncludeIdentifier(RandomHeightGeneration),
       }),
-      src,
       translations: NestedLocaleMap(
         Required,
         "RaceVariantTranslation",
