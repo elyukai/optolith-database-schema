@@ -15,7 +15,11 @@ import { name_in_library } from "../_Activatable.js"
 import { OldParameter } from "../_ActivatableSkill.js"
 import { CheckResultBasedDuration } from "../_ActivatableSkillDuration.js"
 import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"
-import { PropertyIdentifier } from "../_Identifier.js"
+import {
+  MagicalRuneIdentifier,
+  MagicalRuneOptionIdentifier,
+  PropertyIdentifier,
+} from "../_Identifier.js"
 import { CombatTechniqueIdentifier } from "../_IdentifierGroup.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
 import { ResponsiveText, ResponsiveTextOptional } from "../_ResponsiveText.js"
@@ -33,7 +37,7 @@ export const MagicalRune = Entity(import.meta.url, {
         comment: `The options the magical rune has, if any.
 
 If there are multiple options, the magical rune may be activated for each option, that is, multiple times.`,
-        type: Array(IncludeIdentifier(MagicalRuneOption), {
+        type: Array(MagicalRuneOptionIdentifier(), {
           minItems: 1,
         }),
       }),
@@ -69,8 +73,9 @@ If the rune has an option, the option’s name will/should not be included in th
             type: String({ minLength: 1 }),
           }),
           name_in_library,
-          native_name: Required({
-            comment: "The native name of the magical rune.",
+          native_name: Optional({
+            comment:
+              "The native name of the magical rune. It has to be specified unless it is defined by an option.",
             type: String({ minLength: 1 }),
           }),
           effect: Required({
@@ -275,13 +280,14 @@ const MagicalRuneImprovementCost = Enum(import.meta.url, {
   }),
 })
 
-const MagicalRuneOption = TypeAlias(import.meta.url, {
+export const MagicalRuneOption = Entity(import.meta.url, {
   name: "MagicalRuneOption",
+  namePlural: "MagicalRuneOptions",
   type: () =>
     Object({
-      id: Required({
-        comment: "The magical rune option’s identifier. An unique, increasing integer.",
-        type: Integer({ minimum: 1 }),
+      parent: Required({
+        comment: "The magical rune this option belongs to.",
+        type: MagicalRuneIdentifier(),
       }),
       cost: Optional({
         comment: "The option-specific AE cost.",
@@ -311,6 +317,7 @@ The surrounding parenthesis will/should not be included, they will/should be gen
         })
       ),
     }),
+  displayName: {},
 })
 
 const MagicalRuneSuboption = Enum(import.meta.url, {

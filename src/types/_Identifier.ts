@@ -63,7 +63,7 @@ import { GeodeRitual } from "./magicalActions/GeodeRitual.js"
 import { JesterTrick } from "./magicalActions/JesterTrick.js"
 import { MagicalDance } from "./magicalActions/MagicalDance.js"
 import { MagicalMelody } from "./magicalActions/MagicalMelody.js"
-import { MagicalRune } from "./magicalActions/MagicalRune.js"
+import { MagicalRune, MagicalRuneOption } from "./magicalActions/MagicalRune.js"
 import { ZibiljaRitual } from "./magicalActions/ZibiljaRitual.js"
 import { PactCategory, PactDomain, PactType } from "./PactCategory.js"
 import { Patron } from "./Patron.js"
@@ -239,6 +239,7 @@ export const MagicalArtifactIdentifier: () => R = () => R(MagicalArtifact)
 export const MagicalDanceIdentifier: () => R = () => R(MagicalDance)
 export const MagicalMelodyIdentifier: () => R = () => R(MagicalMelody)
 export const MagicalRuneIdentifier: () => R = () => R(MagicalRune)
+export const MagicalRuneOptionIdentifier: () => R = () => R(MagicalRuneOption)
 export const MagicalSignIdentifier: () => R = () => R(MagicalSign)
 export const MagicalSpecialAbilityIdentifier: () => R = () => R(MagicalSpecialAbility)
 export const MagicalTraditionIdentifier: () => R = () => R(MagicalTradition)
