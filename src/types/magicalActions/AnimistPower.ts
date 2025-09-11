@@ -15,7 +15,6 @@ import { name_in_library } from "../_Activatable.js"
 import { OldParameter } from "../_ActivatableSkill.js"
 import { CheckResultBasedDuration, DurationUnitValue } from "../_ActivatableSkillDuration.js"
 import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"
-import { AffectedTargetCategories } from "../_ActivatableSkillTargetCategory.js"
 import { PropertyIdentifier, TribeIdentifier } from "../_Identifier.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
 import { AnimistPowerPrerequisites } from "../_Prerequisite.js"
@@ -37,10 +36,6 @@ export const AnimistPower = Entity(import.meta.url, {
       parameters: Required({
         comment: "Measurable parameters of an animist power.",
         type: IncludeIdentifier(AnimistPowerPerformanceParameters),
-      }),
-      target: Required({
-        comment: "The target category – the kind of creature or object – the skill affects.",
-        type: IncludeIdentifier(AffectedTargetCategories),
       }),
       property: Required({
         comment: "The associated property.",
