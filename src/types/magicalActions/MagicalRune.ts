@@ -29,7 +29,7 @@ export const MagicalRune = Entity(import.meta.url, {
   namePlural: "MagicalRunes",
   type: () =>
     Object({
-      music_tradition: Optional({
+      options: Optional({
         comment: `The options the magical rune has, if any.
 
 If there are multiple options, the magical rune may be activated for each option, that is, multiple times.`,
