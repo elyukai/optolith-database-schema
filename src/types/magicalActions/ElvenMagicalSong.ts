@@ -101,7 +101,7 @@ const ElvenMagicalSongCost = TypeAlias(import.meta.url, {
         comment: "The (temporary) AE cost value.",
         type: Integer({ minimum: 1 }),
       }),
-      interval: Required({
+      interval: Optional({
         comment: "Specified if the AE cost `value` has to be paid for each time interval.",
         type: IncludeIdentifier(DurationUnitValue),
       }),
