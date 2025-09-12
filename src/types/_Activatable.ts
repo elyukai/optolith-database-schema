@@ -469,6 +469,17 @@ export const NewSkillApplication = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  displayNameCustomizer: (
+    instance,
+    instanceDisplayName,
+    _getInstanceById,
+    getDisplayNameForInstanceId,
+    _locales
+  ) =>
+    `${
+      instanceDisplayName ||
+      getDisplayNameForInstanceId((instance as any).parent[(instance as any).parent.kind])
+    }`,
 })
 
 export const SkillUse = Entity(import.meta.url, {
@@ -503,6 +514,17 @@ export const SkillUse = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  displayNameCustomizer: (
+    instance,
+    instanceDisplayName,
+    _getInstanceById,
+    getDisplayNameForInstanceId,
+    _locales
+  ) =>
+    `${
+      instanceDisplayName ||
+      getDisplayNameForInstanceId((instance as any).parent[(instance as any).parent.kind])
+    }`,
 })
 
 const SkillUses = TypeAlias(import.meta.url, {
