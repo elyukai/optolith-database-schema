@@ -17,6 +17,7 @@ import {
   RaceIdentifier,
   WeaponUseIdentifier,
 } from "../../_Identifier.js"
+import { EquipmentIdentifier } from "../../_IdentifierGroup.js"
 import { NestedLocaleMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
@@ -149,6 +150,10 @@ export const WeaponUse = Entity(import.meta.url, {
   namePlural: "WeaponUses",
   type: () =>
     Object({
+      parent: Required({
+        comment: "The item this weapon use belongs to.",
+        type: IncludeIdentifier(EquipmentIdentifier),
+      }),
       values: Required({
         type: IncludeIdentifier(WeaponUseValues),
       }),
