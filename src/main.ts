@@ -67,7 +67,7 @@ import { MusicalInstrument } from "./types/equipment/item/MusicalInstrument.js"
 import { OrienteeringAid } from "./types/equipment/item/OrienteeringAid.js"
 import { Poison } from "./types/equipment/item/Poison.js"
 import { RopeOrChain } from "./types/equipment/item/RopeOrChain.js"
-import { Stationary } from "./types/equipment/item/Stationary.js"
+import { Stationery } from "./types/equipment/item/Stationery.js"
 import { ThievesTool } from "./types/equipment/item/ThievesTool.js"
 import { ToolOfTheTrade } from "./types/equipment/item/ToolOfTheTrade.js"
 import { TravelGearOrTool } from "./types/equipment/item/TravelGearOrTool.js"
@@ -282,7 +282,7 @@ export const schema = Schema(
     SpellSwordEnchantment,
     StaffEnchantment,
     State,
-    Stationary,
+    Stationery,
     Talisman,
     TargetCategory,
     ThievesTool,

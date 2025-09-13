@@ -40,7 +40,7 @@ import { MusicalInstrument } from "./equipment/item/MusicalInstrument.js"
 import { OrienteeringAid } from "./equipment/item/OrienteeringAid.js"
 import { Poison } from "./equipment/item/Poison.js"
 import { RopeOrChain } from "./equipment/item/RopeOrChain.js"
-import { Stationary } from "./equipment/item/Stationary.js"
+import { Stationery } from "./equipment/item/Stationery.js"
 import { ArmorType } from "./equipment/item/sub/ArmorType.js"
 import { Reach } from "./equipment/item/sub/Reach.js"
 import { ThievesTool } from "./equipment/item/ThievesTool.js"
@@ -288,7 +288,7 @@ export const SpellIdentifier: () => R = () => R(Spell)
 export const SpellSwordEnchantmentIdentifier: () => R = () => R(SpellSwordEnchantment)
 export const StaffEnchantmentIdentifier: () => R = () => R(StaffEnchantment)
 export const StateIdentifier: () => R = () => R(State)
-export const StationaryIdentifier: () => R = () => R(Stationary)
+export const StationeryIdentifier: () => R = () => R(Stationery)
 export const SubjectIdentifier: () => R = () => R(Subject)
 export const TargetCategoryIdentifier: () => R = () => R(TargetCategory)
 export const ThievesToolIdentifier: () => R = () => R(ThievesTool)
