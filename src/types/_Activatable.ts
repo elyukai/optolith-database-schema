@@ -179,6 +179,16 @@ export const GeneralSelectOption = Entity(import.meta.url, {
       ),
     }),
   displayName: {},
+  displayNameCustomizer: (
+    instance,
+    instanceDisplayName,
+    _getInstanceById,
+    getDisplayNameForInstanceId,
+    _locales
+  ) =>
+    `${getDisplayNameForInstanceId(
+      (instance as any).parent[(instance as any).parent.kind]
+    )} — ${instanceDisplayName}`,
 })
 
 const ExplicitSkillSelectOption = TypeAlias(import.meta.url, {
