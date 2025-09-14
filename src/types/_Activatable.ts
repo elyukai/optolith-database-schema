@@ -134,12 +134,12 @@ export const GeneralSelectOption = Entity(import.meta.url, {
       skill_applications: Optional({
         comment:
           "Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option.",
-        type: Array(IncludeIdentifier(NewSkillApplications), { minItems: 1 }),
+        type: IncludeIdentifier(NewSkillApplications),
       }),
       skill_uses: Optional({
         comment:
           "Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option.",
-        type: Array(IncludeIdentifier(SkillUses), { minItems: 1 }),
+        type: IncludeIdentifier(SkillUses),
       }),
       prerequisites: Optional({
         comment: "Prerequisites for the select option.",
@@ -202,12 +202,12 @@ const ExplicitSkillSelectOption = TypeAlias(import.meta.url, {
       skill_applications: Optional({
         comment:
           "Registers new applications, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option.",
-        type: Array(IncludeIdentifier(NewSkillApplications), { minItems: 1 }),
+        type: IncludeIdentifier(NewSkillApplications),
       }),
       skill_uses: Optional({
         comment:
           "Registers uses, which get enabled once this entry is activated with its respective select option. It specifies an entry-unique identifier and the skill it belongs to. A translation can be left out if its name equals the name of the origin select option.",
-        type: Array(IncludeIdentifier(SkillUses), { minItems: 1 }),
+        type: IncludeIdentifier(SkillUses),
       }),
       prerequisites: Optional({
         comment: "Prerequisites for the select option.",
