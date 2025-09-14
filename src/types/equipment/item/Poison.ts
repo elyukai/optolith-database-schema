@@ -235,13 +235,21 @@ export const AnimalVenom = TypeAlias(import.meta.url, {
     Object({
       level: Required({
         comment: "The poison’s level.",
-        type: Integer({ minimum: 1, maximum: 6 }),
+        type: IncludeIdentifier(AnimalVenomLevel),
       }),
       is_extractable: Required({
         comment: "If `false`, the poison cannot be extracted.",
         type: Boolean(),
       }),
     }),
+})
+
+const AnimalVenomLevel = Enum(import.meta.url, {
+  name: "AnimalVenomLevel",
+  values: () => ({
+    QualityLevel: EnumCase({ type: null }),
+    Constant: EnumCase({ type: Integer({ minimum: 1, maximum: 6 }) }),
+  }),
 })
 
 export const AlchemicalPoison = TypeAlias(import.meta.url, {
