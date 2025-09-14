@@ -53,7 +53,7 @@ export const Poison = Entity(import.meta.url, {
       }),
       cost: Required({
         comment: "Price for one dose, in silverthalers.",
-        type: Integer({ minimum: 1 }),
+        type: IncludeIdentifier(PoisonCost),
       }),
       src,
       translations: NestedLocaleMap(
@@ -111,6 +111,14 @@ const PoisonDuration = Enum(import.meta.url, {
     Constant: EnumCase({ type: IncludeIdentifier(ConstantPoisonTime) }),
     DiceBased: EnumCase({ type: IncludeIdentifier(DiceBasedPoisonTime) }),
     Indefinite: EnumCase({ type: IncludeIdentifier(IndefinitePoisonTime) }),
+  }),
+})
+
+const PoisonCost = Enum(import.meta.url, {
+  name: "PoisonCost",
+  values: () => ({
+    Worthless: EnumCase({ type: null }),
+    Constant: EnumCase({ type: Integer({ minimum: 1 }) }),
   }),
 })
 
