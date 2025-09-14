@@ -32,8 +32,8 @@ jobs:
           node-version: 22
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-      - run: npm run build:ts
-      - run: npm run build:gen
+      - run: npm run build
+      - run: npm run generate
       - run: npm publish --provenance
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

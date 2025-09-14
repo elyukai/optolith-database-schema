@@ -24,13 +24,12 @@
     "./types/*": "./lib/types/*.js"
   },
   "scripts": {
-    "build:ts": "tsc",
-    "watch:ts": "tsc -w",
-    "build:gen": "tsondb generate",
-    "build": "npm run build:ts && npm run build:gen",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "generate": "tsondb generate",
     "release": "standard-version",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "npm run build:ts"
+    "prepare": "npm run build"
   },
   "author": "Lukas Obermann",
   "license": "MPL-2.0",
