@@ -177,6 +177,10 @@ export const DiceBasedPoisonTime = TypeAlias(import.meta.url, {
       dice: Required({
         type: IncludeIdentifier(Dice),
       }),
+      flat: Optional({
+        comment: "The value to add to the result of the dice roll(s).",
+        type: Integer(),
+      }),
       unit: Required({
         type: IncludeIdentifier(PoisonTimeUnit),
       }),
