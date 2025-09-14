@@ -2,8 +2,8 @@ import {
   Entity,
   Enum,
   EnumCase,
+  Float,
   IncludeIdentifier,
-  Integer,
   Object,
   Optional,
   Required,
@@ -71,7 +71,7 @@ const LimitedBurningTime = TypeAlias(import.meta.url, {
     Object({
       value: Required({
         comment: "The (unitless) time value.",
-        type: Integer({ minimum: { value: 0, isExclusive: true } }),
+        type: Float({ minimum: { value: 0, isExclusive: true } }),
       }),
       unit: Required({
         comment: "The time unit.",
