@@ -155,14 +155,17 @@ export const IndefinitePoisonTime = TypeAlias(import.meta.url, {
   type: () =>
     Object({
       translations: NestedLocaleMap(
-        Required,
+        Optional,
         "IndefinitePoisonTimeTranslation",
-        Object({
-          description: Optional({
-            comment: "A description of the duration.",
-            type: String({ minLength: 1, isMarkdown: true }),
-          }),
-        })
+        Object(
+          {
+            description: Optional({
+              comment: "A description of the duration.",
+              type: String({ minLength: 1, isMarkdown: true }),
+            }),
+          },
+          { minProperties: 1 }
+        )
       ),
     }),
 })
