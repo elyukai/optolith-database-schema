@@ -47,7 +47,7 @@ export const Poison = Entity(import.meta.url, {
         comment: "The normal and degraded poison’s duration.",
         type: GenIncludeIdentifier(Reduceable, [IncludeIdentifier(PoisonDuration)]),
       }),
-      value: Required({
+      value: Optional({
         comment: "The raw (ingredients) value, in silverthalers.",
         type: Integer({ minimum: 1 }),
       }),
