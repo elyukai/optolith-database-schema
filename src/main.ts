@@ -58,7 +58,7 @@ import { Elixir } from "./types/equipment/item/Elixir.js"
 import { EquipmentOfBlessedOnes } from "./types/equipment/item/EquipmentOfBlessedOnes.js"
 import { GemOrPreciousStone } from "./types/equipment/item/GemOrPreciousStone.js"
 import { IlluminationLightSource } from "./types/equipment/item/IlluminationLightSource.js"
-import { IlluminationRefillsOrSupplies } from "./types/equipment/item/IlluminationRefillsOrSupplies.js"
+import { IlluminationRefillOrSupply } from "./types/equipment/item/IlluminationRefillOrSupply.js"
 import { Jewelry } from "./types/equipment/item/Jewelry.js"
 import { Liebesspielzeug } from "./types/equipment/item/Liebesspielzeug.js"
 import { LuxuryGood } from "./types/equipment/item/LuxuryGood.js"
@@ -222,7 +222,7 @@ export const schema = Schema(
     GeodeRitual,
     HairColor,
     IlluminationLightSource,
-    IlluminationRefillsOrSupplies,
+    IlluminationRefillOrSupply,
     InstrumentEnchantment,
     JesterTrick,
     Jewelry,

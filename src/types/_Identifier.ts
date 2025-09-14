@@ -31,7 +31,7 @@ import { Elixir } from "./equipment/item/Elixir.js"
 import { EquipmentOfBlessedOnes } from "./equipment/item/EquipmentOfBlessedOnes.js"
 import { GemOrPreciousStone } from "./equipment/item/GemOrPreciousStone.js"
 import { IlluminationLightSource } from "./equipment/item/IlluminationLightSource.js"
-import { IlluminationRefillsOrSupplies } from "./equipment/item/IlluminationRefillsOrSupplies.js"
+import { IlluminationRefillOrSupply } from "./equipment/item/IlluminationRefillOrSupply.js"
 import { Jewelry } from "./equipment/item/Jewelry.js"
 import { Liebesspielzeug } from "./equipment/item/Liebesspielzeug.js"
 import { LuxuryGood } from "./equipment/item/LuxuryGood.js"
@@ -218,8 +218,7 @@ export const GeodeRitualIdentifier: () => R = () => R(GeodeRitual)
 export const GuidelineIdentifier: () => R = () => R(Guideline)
 export const HairColorIdentifier: () => R = () => R(HairColor)
 export const IlluminationLightSourceIdentifier: () => R = () => R(IlluminationLightSource)
-export const IlluminationRefillsOrSuppliesIdentifier: () => R = () =>
-  R(IlluminationRefillsOrSupplies)
+export const IlluminationRefillsOrSuppliesIdentifier: () => R = () => R(IlluminationRefillOrSupply)
 export const InfluenceIdentifier: () => R = () => R(Influence)
 export const InstrumentEnchantmentIdentifier: () => R = () => R(InstrumentEnchantment)
 export const JesterTrickIdentifier: () => R = () => R(JesterTrick)
