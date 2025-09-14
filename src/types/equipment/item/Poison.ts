@@ -117,9 +117,44 @@ const PoisonDuration = Enum(import.meta.url, {
 const PoisonCost = Enum(import.meta.url, {
   name: "PoisonCost",
   values: () => ({
-    Worthless: EnumCase({ type: null }),
+    None: EnumCase({ type: IncludeIdentifier(NoPoisonCost) }),
     Constant: EnumCase({ type: Integer({ minimum: 1 }) }),
+    Indefinite: EnumCase({ type: IncludeIdentifier(IndefinitePoisonCost) }),
   }),
+})
+
+export const NoPoisonCost = TypeAlias(import.meta.url, {
+  name: "NoPoisonCost",
+  type: () =>
+    Object({
+      translations: NestedLocaleMap(
+        Optional,
+        "NoPoisonCostTranslation",
+        Object({
+          description: Required({
+            comment: "A description of the cost.",
+            type: String({ minLength: 1, isMarkdown: true }),
+          }),
+        })
+      ),
+    }),
+})
+
+export const IndefinitePoisonCost = TypeAlias(import.meta.url, {
+  name: "IndefinitePoisonCost",
+  type: () =>
+    Object({
+      translations: NestedLocaleMap(
+        Required,
+        "IndefinitePoisonCostTranslation",
+        Object({
+          description: Required({
+            comment: "A description of the cost.",
+            type: String({ minLength: 1, isMarkdown: true }),
+          }),
+        })
+      ),
+    }),
 })
 
 export const ConstantPoisonTime = TypeAlias(import.meta.url, {
