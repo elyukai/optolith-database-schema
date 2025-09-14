@@ -21,7 +21,6 @@ import { Reduceable, Resistance } from "../../_DiseasePoison.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
 import { EffectType, LaboratoryLevel, RecipeTradeSecret } from "./_Herbary.js"
-import { Cost } from "./_Item.js"
 
 export const Poison = Entity(import.meta.url, {
   name: "Poison",
@@ -54,7 +53,7 @@ export const Poison = Entity(import.meta.url, {
       }),
       cost: Required({
         comment: "Price for one dose, in silverthalers.",
-        type: IncludeIdentifier(Cost),
+        type: Integer({ minimum: 1 }),
       }),
       src,
       translations: NestedLocaleMap(
@@ -389,8 +388,8 @@ export const IntoxicantAddiction = TypeAlias(import.meta.url, {
   type: () =>
     Object({
       chance: Required({
-        comment: "The chance of getting addicted after an ingestion.",
-        type: Integer(),
+        comment: "The chance of getting addicted after an ingestion in percent.",
+        type: Integer({ minimum: 0, maximum: 100, multipleOf: 5 }),
       }),
       interval: Required({
         comment:
