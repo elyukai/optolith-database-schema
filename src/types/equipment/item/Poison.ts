@@ -5,6 +5,7 @@ import {
   Entity,
   Enum,
   EnumCase,
+  Float,
   GenIncludeIdentifier,
   IncludeIdentifier,
   Integer,
@@ -118,7 +119,7 @@ const PoisonCost = Enum(import.meta.url, {
   name: "PoisonCost",
   values: () => ({
     None: EnumCase({ type: IncludeIdentifier(NoPoisonCost) }),
-    Constant: EnumCase({ type: Integer({ minimum: 1 }) }),
+    Constant: EnumCase({ type: Float({ minimum: { value: 0, isExclusive: true } }) }),
     Indefinite: EnumCase({ type: IncludeIdentifier(IndefinitePoisonCost) }),
   }),
 })
