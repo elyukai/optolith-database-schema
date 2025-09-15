@@ -186,12 +186,12 @@ export const LessonPackage = Entity(import.meta.url, {
           comment: "The associated curriculum.",
           type: CurriculumIdentifier(),
         }),
-        spellwork_changes: Required({
+        spellwork_changes: Optional({
           comment:
             "The spell values difference of the lesson package. This field reflects the changes (difference) to the field of the same name in the profession package. If a spell gets to SR 0 because of this, it will be removed completely.",
           type: Array(IncludeIdentifier(SpellworkChange), { minItems: 1, uniqueItems: true }),
         }),
-        skills: Required({
+        skills: Optional({
           type: Array(IncludeIdentifier(AbilityAdjustment), { minItems: 1, uniqueItems: true }),
         }),
         translations: NestedLocaleMap(
