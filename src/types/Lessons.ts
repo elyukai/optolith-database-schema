@@ -194,7 +194,6 @@ export const LessonPackage = Entity(import.meta.url, {
         skills: Required({
           type: Array(IncludeIdentifier(AbilityAdjustment), { minItems: 1, uniqueItems: true }),
         }),
-        src,
         translations: NestedLocaleMap(
           Required,
           "LessonPackageTranslation",
