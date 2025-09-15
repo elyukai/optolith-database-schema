@@ -59,11 +59,11 @@ export const Curriculum = Entity(import.meta.url, {
         comment: "The institution’s guideline.",
         type: GuidelineIdentifier(),
       }),
-      elective_spellworks: Required({
+      elective_spellworks: Optional({
         comment: "The institution’s elective spellworks package.",
         type: IncludeIdentifier(ElectiveSpellworks),
       }),
-      restricted_spellworks: Required({
+      restricted_spellworks: Optional({
         comment: "The institution’s restricted spellworks package.",
         type: IncludeIdentifier(RestrictedSpellworks),
       }),
