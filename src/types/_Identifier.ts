@@ -212,7 +212,8 @@ export const FatePointSpecialAbilityIdentifier: () => R = () => R(FatePointSpeci
 export const FocusRuleIdentifier: () => R = () => R(FocusRule)
 export const FoolsHatEnchantmentIdentifier: () => R = () => R(FoolsHatEnchantment)
 export const GemOrPreciousStoneIdentifier: () => R = () => R(GemOrPreciousStone)
-export const GeneralIdentifier: () => R = () => R(GeneralSelectOption)
+export const GeneralSelectOptionIdentifier: () => R = () => R(GeneralSelectOption)
+export { GeneralSelectOptionIdentifier as GeneralIdentifier }
 export const GeneralSpecialAbilityIdentifier: () => R = () => R(GeneralSpecialAbility)
 export const GeodeRitualIdentifier: () => R = () => R(GeodeRitual)
 export const GuidelineIdentifier: () => R = () => R(Guideline)
