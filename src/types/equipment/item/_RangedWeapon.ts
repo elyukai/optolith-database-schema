@@ -15,7 +15,7 @@ import {
   TypeAlias,
 } from "tsondb/schema/def"
 import { Dice } from "../../_Dice.js"
-import { AmmunitionIdentifier, RangedCombatTechniqueIdentifier } from "../../_Identifier.js"
+import { AmmunitionIdentifier } from "../../_Identifier.js"
 import { Length } from "./_Weapon.js"
 
 const RangedDamage = Enum(import.meta.url, {
@@ -49,10 +49,6 @@ export const RangedWeapon = TypeAlias(import.meta.url, {
   name: "RangedWeapon",
   type: () =>
     Object({
-      combat_technique: Required({
-        comment: "The combat techniques and dependent values.",
-        type: RangedCombatTechniqueIdentifier(),
-      }),
       damage: Required({
         comment:
           "The damage of a weapon consists of a random part using dice and an optional flat part.",

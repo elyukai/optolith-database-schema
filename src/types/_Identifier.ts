@@ -47,7 +47,7 @@ import { ThievesTool } from "./equipment/item/ThievesTool.js"
 import { ToolOfTheTrade } from "./equipment/item/ToolOfTheTrade.js"
 import { TravelGearOrTool } from "./equipment/item/TravelGearOrTool.js"
 import { Vehicle } from "./equipment/item/Vehicle.js"
-import { Weapon, WeaponUse } from "./equipment/item/Weapon.js"
+import { Weapon } from "./equipment/item/Weapon.js"
 import { WeaponAccessory } from "./equipment/item/WeaponAccessory.js"
 import { ExperienceLevel } from "./ExperienceLevel.js"
 import { EyeColor } from "./EyeColor.js"
@@ -304,5 +304,4 @@ export const WandEnchantmentIdentifier: () => R = () => R(WandEnchantment)
 export const WeaponAccessoryIdentifier: () => R = () => R(WeaponAccessory)
 export const WeaponEnchantmentIdentifier: () => R = () => R(WeaponEnchantment)
 export const WeaponIdentifier: () => R = () => R(Weapon)
-export const WeaponUseIdentifier: () => R = () => R(WeaponUse)
 export const ZibiljaRitualIdentifier: () => R = () => R(ZibiljaRitual)

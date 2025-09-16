@@ -14,7 +14,7 @@ import {
   TypeAlias,
 } from "tsondb/schema/def"
 import { Dice } from "../../_Dice.js"
-import { CloseCombatTechniqueIdentifier, ReachIdentifier } from "../../_Identifier.js"
+import { ReachIdentifier } from "../../_Identifier.js"
 import { Length, PrimaryAttributeDamageThreshold } from "./_Weapon.js"
 
 export const AttackModifier = TypeAlias(import.meta.url, {
@@ -71,10 +71,6 @@ export const MeleeWeapon = TypeAlias(import.meta.url, {
   name: "MeleeWeapon",
   type: () =>
     Object({
-      combat_technique: Required({
-        comment: "The combat techniques and dependent values.",
-        type: CloseCombatTechniqueIdentifier(),
-      }),
       damage: Required({
         comment:
           "The damage of a weapon consists of a random part using dice and an optional flat part.",

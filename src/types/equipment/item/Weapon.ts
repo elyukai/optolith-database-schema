@@ -4,6 +4,7 @@ import {
   Enum,
   EnumCase,
   IncludeIdentifier,
+  NestedEntityMap,
   Object,
   Optional,
   Required,
@@ -15,9 +16,8 @@ import {
   CultureIdentifier,
   MagicalTraditionIdentifier,
   RaceIdentifier,
-  WeaponUseIdentifier,
 } from "../../_Identifier.js"
-import { EquipmentIdentifier } from "../../_IdentifierGroup.js"
+import { CloseCombatTechnique, RangedCombatTechnique } from "../../CombatTechnique.js"
 import { NestedLocaleMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
 import { src } from "../../source/_PublicationRef.js"
@@ -47,9 +47,23 @@ export const Weapon = Entity(import.meta.url, {
           "The structure points of the item. Use an array if the item consists of multiple components that have individual structure points.",
         type: IncludeIdentifier(StructurePoints),
       }),
-      uses: Required({
-        comment: "A list of stat blocks for each combat technique this weapon can be used with.",
-        type: Array(WeaponUseIdentifier(), { minItems: 1 }),
+      melee_uses: Optional({
+        comment:
+          "A list of stat blocks for each close combat technique this weapon can be used with.",
+        type: NestedEntityMap({
+          name: "MeleeWeaponUse",
+          secondaryEntity: CloseCombatTechnique,
+          type: IncludeIdentifier(MeleeWeapon),
+        }),
+      }),
+      ranged_uses: Optional({
+        comment:
+          "A list of stat blocks for each ranged combat technique this weapon can be used with.",
+        type: NestedEntityMap({
+          name: "RangedWeaponUse",
+          secondaryEntity: RangedCombatTechnique,
+          type: IncludeIdentifier(RangedWeapon),
+        }),
       }),
       sanctified_by: Optional({
         comment: "If the weapon is sanctified by a god and thus restricted to it's Blessed Ones.",
@@ -107,9 +121,23 @@ export const ImprovisedWeapon = TypeAlias(import.meta.url, {
   name: "ImprovisedWeapon",
   type: () =>
     Object({
-      uses: Required({
-        comment: "A list of stat blocks for each combat technique this weapon can be used with.",
-        type: Array(WeaponUseIdentifier(), { minItems: 1 }),
+      melee_uses: Optional({
+        comment:
+          "A list of stat blocks for each close combat technique this weapon can be used with.",
+        type: NestedEntityMap({
+          name: "ImprovisedMeleeWeaponUse",
+          secondaryEntity: CloseCombatTechnique,
+          type: IncludeIdentifier(MeleeWeapon),
+        }),
+      }),
+      ranged_uses: Optional({
+        comment:
+          "A list of stat blocks for each ranged combat technique this weapon can be used with.",
+        type: NestedEntityMap({
+          name: "ImprovisedRangedWeaponUse",
+          secondaryEntity: RangedCombatTechnique,
+          type: IncludeIdentifier(RangedWeapon),
+        }),
       }),
       sanctified_by: Optional({
         comment: "If the weapon is sanctified by a god and thus restricted to it's Blessed Ones.",
@@ -143,45 +171,6 @@ export const ImprovisedWeapon = TypeAlias(import.meta.url, {
         )
       ),
     }),
-})
-
-export const WeaponUse = Entity(import.meta.url, {
-  name: "WeaponUse",
-  namePlural: "WeaponUses",
-  comment: "Defines the use of a weapon or an improvised weapon with a specific combat technique.",
-  type: () =>
-    Object({
-      parent: Required({
-        comment: "The item this weapon use belongs to.",
-        type: IncludeIdentifier(EquipmentIdentifier),
-      }),
-      values: Required({
-        type: IncludeIdentifier(WeaponUseValues),
-      }),
-    }),
-  displayName: null,
-  displayNameCustomizer: (
-    instance,
-    instanceDisplayName,
-    _getInstanceById,
-    getDisplayNameForInstanceId,
-    _locales
-  ) =>
-    `${getDisplayNameForInstanceId(
-      (instance as any).parent[(instance as any).parent.kind]
-    )} — ${getDisplayNameForInstanceId(
-      (instance as any).values[(instance as any).values.kind].combat_technique
-    )}`,
-})
-
-const WeaponUseValues = Enum(import.meta.url, {
-  name: "WeaponUseValues",
-  comment:
-    "The item can also be used either as an improvised weapon or as an armor, although this is not the primary use case of the item.",
-  values: () => ({
-    Melee: EnumCase({ type: IncludeIdentifier(MeleeWeapon) }),
-    Ranged: EnumCase({ type: IncludeIdentifier(RangedWeapon) }),
-  }),
 })
 
 export const SanctifiedBy = TypeAlias(import.meta.url, {
