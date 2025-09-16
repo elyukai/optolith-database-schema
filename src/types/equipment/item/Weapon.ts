@@ -159,6 +159,18 @@ export const WeaponUse = Entity(import.meta.url, {
       }),
     }),
   displayName: null,
+  displayNameCustomizer: (
+    instance,
+    instanceDisplayName,
+    _getInstanceById,
+    getDisplayNameForInstanceId,
+    _locales
+  ) =>
+    `${getDisplayNameForInstanceId(
+      (instance as any).parent[(instance as any).parent.kind]
+    )} — ${getDisplayNameForInstanceId(
+      (instance as any).values[(instance as any).values.kind].combat_technique
+    )}`,
 })
 
 const WeaponUseValues = Enum(import.meta.url, {
