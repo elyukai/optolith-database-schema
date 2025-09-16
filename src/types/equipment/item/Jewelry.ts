@@ -4,6 +4,7 @@ import {
   GenTypeAlias,
   IncludeIdentifier,
   Object,
+  Optional,
   Param,
   Required,
   TypeArgument,
@@ -24,7 +25,7 @@ export const Jewelry = Entity(import.meta.url, {
         comment: "The weight in kg.",
         type: GenIncludeIdentifier(JewelryMaterialDifference, [IncludeIdentifier(Weight)]),
       }),
-      complexity: Required({
+      complexity: Optional({
         comment: "The complexity of crafting the item.",
         type: IncludeIdentifier(Complexity),
       }),

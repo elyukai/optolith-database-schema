@@ -38,7 +38,7 @@ export const Weapon = Entity(import.meta.url, {
         comment: "The weight in kg.",
         type: IncludeIdentifier(Weight),
       }),
-      complexity: Required({
+      complexity: Optional({
         comment: "The complexity of crafting the item.",
         type: IncludeIdentifier(Complexity),
       }),
