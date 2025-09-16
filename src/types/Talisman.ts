@@ -42,7 +42,7 @@ export const Talisman = Entity(import.meta.url, {
             comment: "The talisman’s name.",
             type: String({ minLength: 1 }),
           }),
-          rules: Required({
+          effect: Required({
             comment: "The effect description.",
             type: String({ minLength: 1, isMarkdown: true }),
           }),
