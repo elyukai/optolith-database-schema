@@ -3,7 +3,7 @@ import { NestedLocaleMap } from "../../Locale.js"
 
 export const Brew = Entity(import.meta.url, {
   name: "Brew",
-  namePlural: "Breww",
+  namePlural: "Brews",
   type: () =>
     Object({
       translations: NestedLocaleMap(
