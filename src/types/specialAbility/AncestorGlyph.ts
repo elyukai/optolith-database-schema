@@ -18,6 +18,7 @@ import { src } from "../source/_PublicationRef.js"
 export const AncestorGlyph = Entity(import.meta.url, {
   name: "AncestorGlyph",
   namePlural: "AncestorGlyphs",
+  comment: "A type of magical signs, originating from Nostria.",
   type: () =>
     Object({
       levels,

@@ -148,6 +148,7 @@ export const ImprovisedWeapon = TypeAlias(import.meta.url, {
 export const WeaponUse = Entity(import.meta.url, {
   name: "WeaponUse",
   namePlural: "WeaponUses",
+  comment: "Defines the use of a weapon or an improvised weapon with a specific combat technique.",
   type: () =>
     Object({
       parent: Required({

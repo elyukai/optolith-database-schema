@@ -20,6 +20,7 @@ import { src } from "../source/_PublicationRef.js"
 export const AdvancedMagicalSpecialAbility = Entity(import.meta.url, {
   name: "AdvancedMagicalSpecialAbility",
   namePlural: "AdvancedMagicalSpecialAbilities",
+  comment: "Magical Special Abilities that are being unlocked by Magic Style Special Abilities.",
   type: () =>
     Object({
       levels,

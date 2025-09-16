@@ -20,6 +20,7 @@ import { src } from "../source/_PublicationRef.js"
 export const AdvancedKarmaSpecialAbility = Entity(import.meta.url, {
   name: "AdvancedKarmaSpecialAbility",
   namePlural: "AdvancedKarmaSpecialAbilities",
+  comment: "Karma Special Abilities that are being unlocked by Liturgical Style Special Abilities.",
   type: () =>
     Object({
       levels,
