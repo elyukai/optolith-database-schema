@@ -73,5 +73,6 @@ export const PublicationCategory = Enum(import.meta.url, {
     ExpansionRules: EnumCase({ type: null }),
     Sourcebook: EnumCase({ type: null }),
     RegionalSourcebook: EnumCase({ type: null }),
+    Adventure: EnumCase({ type: null }),
   }),
 })
