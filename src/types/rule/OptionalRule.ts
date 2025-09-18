@@ -32,7 +32,7 @@ export const OptionalRule = Entity(import.meta.url, {
           }),
           description: Required({
             comment: "The description of the optional rule.",
-            type: String({ minLength: 1 }),
+            type: String({ minLength: 1, isMarkdown: true }),
           }),
           errata: Optional({
             type: IncludeIdentifier(Errata),
