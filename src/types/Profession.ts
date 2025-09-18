@@ -150,7 +150,7 @@ export const ProfessionVersion = Entity(import.meta.url, {
             comment: "The basic profession’s name.",
             type: IncludeIdentifier(ProfessionName),
           }),
-          specification: Required({
+          specification: Optional({
             comment:
               "A name addition of the profession. This will contain texts like name of the academy or the witch circle. It is enclosed in parenthesis, but the database entry must not contain parenthesis.",
             type: IncludeIdentifier(ProfessionName),
@@ -179,7 +179,7 @@ export const ProfessionVersion = Entity(import.meta.url, {
         })
       ),
     }),
-  displayName: {},
+  displayName: null,
 })
 
 export const ProfessionPackage = Entity(import.meta.url, {
@@ -411,8 +411,9 @@ const MagicalSkillRating = TypeAlias(import.meta.url, {
   type: () =>
     Object({
       id: Required({
-        comment: "The identifier of the magical skill to provide the rating for.",
-        type: IncludeIdentifier(ProfessionMagicalSkillIdentifier),
+        comment:
+          "The identifier(s) of the spell(s) to choose from to provide the rating for. If multiple spells are provided, they must all have the same improvement cost.",
+        type: Array(IncludeIdentifier(ProfessionMagicalSkillIdentifier), { minItems: 1 }),
       }),
       rating_modifier: Required({
         comment:
@@ -599,7 +600,7 @@ const CombatTechniquesOptions = TypeAlias(import.meta.url, {
         comment: `Specify the number of combat techniques that can be selected so that they get increased to a specific CtR. There can be multiple selections with different CtRs.`,
         type: Array(IncludeIdentifier(RatingForCombatTechniquesNumber), { minItems: 1 }),
       }),
-      rest_rating: Optional({
+      rest_rating_modifier: Optional({
         comment: `Define if after the fixed selections the remaining unselected combat techniques will receive a certain rating bonus as well.`,
         type: Integer({ minimum: 1 }),
       }),
