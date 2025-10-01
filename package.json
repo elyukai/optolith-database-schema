@@ -37,12 +37,12 @@
   "dependencies": {
     "@optolith/helpers": "^0.2.2",
     "tsondb": "^0.6.0",
-    "yaml": "^2.7.1"
+    "yaml": "^2.8.1"
   },
   "devDependencies": {
-    "@types/node": "^24.3.1",
+    "@types/node": "^24.6.1",
     "standard-version": "^9.5.0",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
   },
   "repository": "github:elyukai/optolith-database-schema",
   "bugs": {
