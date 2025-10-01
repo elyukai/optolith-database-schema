@@ -21,6 +21,7 @@
     "./cache/*": "./lib/cache/*.js",
     "./config/*": "./lib/config/*.js",
     "./rendering/*": "./lib/rendering/*.js",
+    "./types": "./lib/types/index.js",
     "./types/*": "./lib/types/*.js"
   },
   "scripts": {
@@ -35,7 +36,7 @@
   "license": "MPL-2.0",
   "dependencies": {
     "@optolith/helpers": "^0.2.2",
-    "tsondb": "^0.5.19",
+    "tsondb": "^0.6.0",
     "yaml": "^2.7.1"
   },
   "devDependencies": {
