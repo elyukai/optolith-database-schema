@@ -3,7 +3,6 @@
  */
 
 import {
-  Array,
   Entity,
   IncludeIdentifier,
   Integer,
@@ -13,7 +12,7 @@ import {
   String,
   TypeAlias,
 } from "tsondb/schema/def"
-import { EnhancementIdentifier } from "./_Identifier.js"
+import { ChildEntities } from "../../../tsondb/dist/src/node/schema/types/references/ChildEntitiesType.js"
 import { SkillWithEnhancementsIdentifier } from "./_IdentifierGroup.js"
 import { EnhancementPrerequisites } from "./_Prerequisite.js"
 import { NestedLocaleMap } from "./Locale.js"
@@ -23,11 +22,7 @@ import { PublicationRefs } from "./source/_PublicationRef.js"
 export const Enhancements = TypeAlias(import.meta.url, {
   name: "Enhancements",
   comment: "A list of enhancements.",
-  type: () =>
-    Array(EnhancementIdentifier(), {
-      minItems: 3,
-      maxItems: 5,
-    }),
+  type: () => ChildEntities(Enhancement),
 })
 
 export const Enhancement = Entity(import.meta.url, {
@@ -84,15 +79,19 @@ export const Enhancement = Entity(import.meta.url, {
         })
       ),
     }),
+  parentReferenceKey: "parent",
   displayName: {},
   displayNameCustomizer: (
     instance,
     instanceDisplayName,
+    instanceDisplayNameLocaleId,
     _getInstanceById,
     getDisplayNameForInstanceId,
     _locales
-  ) =>
-    `${getDisplayNameForInstanceId(
+  ) => ({
+    name: `${getDisplayNameForInstanceId(
       (instance as any).parent[(instance as any).parent.kind]
     )} — ${instanceDisplayName}`,
+    localeId: instanceDisplayNameLocaleId,
+  }),
 })

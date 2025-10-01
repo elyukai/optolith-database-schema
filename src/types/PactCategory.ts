@@ -1,13 +1,6 @@
-import {
-  Array,
-  Entity,
-  IncludeIdentifier,
-  Object,
-  Optional,
-  Required,
-  String,
-} from "tsondb/schema/def"
-import { PactCategoryIdentifier, PactDomainIdentifier, PactTypeIdentifier } from "./_Identifier.js"
+import { Entity, IncludeIdentifier, Object, Optional, Required, String } from "tsondb/schema/def"
+import { ChildEntities } from "../../../tsondb/dist/src/node/schema/types/references/ChildEntitiesType.js"
+import { PactCategoryIdentifier } from "./_Identifier.js"
 import { NestedLocaleMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"
 import { src } from "./source/_PublicationRef.js"
@@ -19,11 +12,11 @@ export const PactCategory = Entity(import.meta.url, {
     Object({
       types: Required({
         comment: "Types of creatures in this category.",
-        type: Array(PactTypeIdentifier(), { minItems: 1 }),
+        type: ChildEntities(PactType),
       }),
       domains: Required({
         comment: "Domains in this category.",
-        type: Array(PactDomainIdentifier(), { minItems: 1 }),
+        type: ChildEntities(PactDomain),
       }),
       src,
       translations: NestedLocaleMap(
@@ -63,6 +56,7 @@ export const PactType = Entity(import.meta.url, {
         })
       ),
     }),
+  parentReferenceKey: "parent",
   displayName: {},
 })
 
@@ -86,5 +80,6 @@ export const PactDomain = Entity(import.meta.url, {
         })
       ),
     }),
+  parentReferenceKey: "parent",
   displayName: {},
 })

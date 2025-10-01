@@ -53,17 +53,20 @@ export const SkillModificationLevel = Entity(import.meta.url, {
   displayNameCustomizer: (
     instance,
     _instanceDisplayName,
+    _instanceDisplayNameLocaleId,
     _getInstanceById,
     _getDisplayNameForInstanceId,
-    _locales
-  ) =>
-    `${(instance.fast as any).casting_time} Act. / ${(instance.slow as any).casting_time.value} ${
-      (instance.slow as any).casting_time.unit.kind
-    } (fast/slow) — ${
+    locales
+  ) => ({
+    name: `${(instance.fast as any).casting_time} Act. / ${
+      (instance.slow as any).casting_time.value
+    } ${(instance.slow as any).casting_time.unit.kind} (fast/slow) — ${
       (instance.fast as any).range === (instance.slow as any).range
         ? (instance.fast as any).range
         : (instance.fast as any).range + "/" + (instance.slow as any).range + " (fast/slow)"
     } m — ${(instance.fast as any).cost}/${(instance.slow as any).cost} (fast/slow) AE or KP`,
+    localeId: locales[0],
+  }),
 })
 
 const FastSkillModificationLevelConfig = TypeAlias(import.meta.url, {

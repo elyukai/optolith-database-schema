@@ -3,7 +3,6 @@
  */
 
 import {
-  Array,
   Entity,
   Enum,
   EnumCase,
@@ -12,8 +11,10 @@ import {
   Optional,
   Required,
   String,
+  TypeAlias,
 } from "tsondb/schema/def"
-import { SkillApplicationIdentifier, SkillGroupIdentifier, SkillIdentifier } from "./_Identifier.js"
+import { ChildEntities } from "../../../tsondb/dist/src/node/schema/types/references/ChildEntitiesType.js"
+import { SkillGroupIdentifier, SkillIdentifier } from "./_Identifier.js"
 import { ImprovementCost } from "./_ImprovementCost.js"
 import { SkillCheck } from "./_SkillCheck.js"
 import { NestedLocaleMap } from "./Locale.js"
@@ -94,16 +95,19 @@ export const Skill = Entity(import.meta.url, {
   displayName: {},
 })
 
-export const Applications = Enum(import.meta.url, {
+export const Applications = TypeAlias(import.meta.url, {
   name: "Applications",
   comment: "The skill’s applications",
-  values: () => ({
-    Derived: EnumCase({ type: IncludeIdentifier(ApplicationCategory) }),
-    Explicit: EnumCase({
-      comment: "A list of explicit applications.",
-      type: Array(SkillApplicationIdentifier()),
+  type: () =>
+    Object({
+      derived: Optional({
+        type: IncludeIdentifier(ApplicationCategory),
+      }),
+      explicit: Required({
+        comment: "A list of explicit applications.",
+        type: ChildEntities(SkillApplication),
+      }),
     }),
-  }),
 })
 
 export const ApplicationCategory = Enum(import.meta.url, {
@@ -137,6 +141,7 @@ export const SkillApplication = Entity(import.meta.url, {
         })
       ),
     }),
+  parentReferenceKey: "parent",
   displayName: {},
 })
 

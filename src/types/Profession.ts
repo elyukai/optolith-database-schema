@@ -16,17 +16,18 @@ import {
   TypeAlias,
   TypeArgument,
 } from "tsondb/schema/def"
+import { ChildEntities } from "../../../tsondb/dist/src/node/schema/types/references/ChildEntitiesType.js"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
 import {
   AdvantageIdentifier,
   CantripIdentifier,
   CurriculumIdentifier,
   DisadvantageIdentifier,
+  ExperienceLevelIdentifier,
   GeneralSelectOptionIdentifier,
   MagicalTraditionIdentifier,
   ProfessionIdentifier,
   ProfessionPackageIdentifier,
-  ProfessionVariantIdentifier,
   ProfessionVersionIdentifier,
   SkillGroupIdentifier,
   SkillIdentifier,
@@ -57,7 +58,7 @@ export const Profession = Entity(import.meta.url, {
         comment: `A list of professions representing the same profession but with (slightly) different stats. For example, there may be a profession in a regional sourcebook or in the core rules and a profession in an extension rulebook like Magic of Aventuria, where the profession is basically called the same and almost has the same values, but the version from Magic of Aventuria features a spell style special ability that does not exist in the core rules or regional sourcebook.
 
       The profession representation may feature different values for different explicitly mentioned experience levels. In most cases, there is only one stats package, which targets the experience level *Experienced*.`,
-        type: Array(ProfessionVersionIdentifier(), { minItems: 1 }),
+        type: ChildEntities(ProfessionVersion),
       }),
     }),
   displayName: null,
@@ -109,7 +110,7 @@ export const ProfessionVersion = Entity(import.meta.url, {
       package: Required({
         comment:
           "A list of available race variants where one has to be selected. If no variants are to be selected, a single variant with no name has to be provided which will be used as the missing values for the base race.",
-        type: Array(ProfessionPackageIdentifier(), { minItems: 1 }),
+        type: ChildEntities(ProfessionPackage),
       }),
       suggested_advantages: Optional({
         comment: "A list of typical advantages.",
@@ -179,6 +180,7 @@ export const ProfessionVersion = Entity(import.meta.url, {
         })
       ),
     }),
+  parentReferenceKey: "profession",
   displayName: null,
 })
 
@@ -194,7 +196,7 @@ export const ProfessionPackage = Entity(import.meta.url, {
       experience_level: Optional({
         comment:
           "The associated experience level. By default, profession packages are associated with the experience level *Experienced*.",
-        type: ProfessionVersionIdentifier(),
+        type: ExperienceLevelIdentifier(),
       }),
       ap_value: Required({
         comment: "What does the professional package cost in adventure points?",
@@ -235,9 +237,10 @@ export const ProfessionPackage = Entity(import.meta.url, {
       variants: Optional({
         comment:
           "Provides examples of variants for the profession, which may include changes to AP values and additional or modified skill ratings, special abilities, or combat techniques, as compared to the basic profession. Usually picking a variant is optional, but there are some rare exceptions where picking a variant is required.",
-        type: Array(ProfessionVariantIdentifier(), { minItems: 1 }),
+        type: ChildEntities(ProfessionVariant),
       }),
     }),
+  parentReferenceKey: "profession_version",
   displayName: null,
 })
 
@@ -307,6 +310,7 @@ export const ProfessionVariant = Entity(import.meta.url, {
         })
       ),
     }),
+  parentReferenceKey: "profession_package",
   displayName: {},
 })
 

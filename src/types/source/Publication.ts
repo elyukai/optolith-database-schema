@@ -16,7 +16,8 @@ import { PublicationPrerequisites } from "../_Prerequisite.js"
 export const Publication = Entity(import.meta.url, {
   name: "Publication",
   namePlural: "Publications",
-  comment: "A publication.",
+  comment:
+    "A (usually physical) self-contained document with rules and crunch elements relevant for character creation, character development, and game play.",
   type: () =>
     Object({
       category: Required({

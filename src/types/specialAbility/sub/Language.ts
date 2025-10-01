@@ -1,8 +1,6 @@
 import {
   Array,
   Entity,
-  Enum,
-  EnumCase,
   IncludeIdentifier,
   Integer,
   Object,
@@ -11,8 +9,9 @@ import {
   String,
   TypeAlias,
 } from "tsondb/schema/def"
+import { ChildEntities } from "../../../../../tsondb/dist/src/node/schema/types/references/ChildEntitiesType.js"
 import { AlternativeName } from "../../_AlternativeNames.js"
-import { LanguageIdentifier, LanguageSpecializationIdentifier } from "../../_Identifier.js"
+import { LanguageIdentifier } from "../../_Identifier.js"
 import { LanguagePrerequisites } from "../../_Prerequisite.js"
 import { NestedLocaleMap } from "../../Locale.js"
 import { Errata } from "../../source/_Erratum.js"
@@ -29,9 +28,11 @@ export const Language = Entity(import.meta.url, {
         type: Array(IncludeIdentifier(AssociatedContinent), { minItems: 1 }),
       }),
       specializations: Optional({
-        comment:
-          "Language-specific specializations. Either a list of possible options or a indefinite description of what may be a specialization.",
-        type: IncludeIdentifier(Specializations),
+        type: ChildEntities(LanguageSpecialization),
+      }),
+      customSpecializations: Optional({
+        comment: "If applicable, a description of what may be a specialization.",
+        type: IncludeIdentifier(IndefiniteSpecializations),
       }),
       prerequisites: Optional({
         type: IncludeIdentifier(LanguagePrerequisites),
@@ -67,25 +68,6 @@ export const Language = Entity(import.meta.url, {
   displayName: {},
 })
 
-const Specializations = Enum(import.meta.url, {
-  name: "Specializations",
-  values: () => ({
-    Specific: EnumCase({ type: IncludeIdentifier(SpecificSpecializations) }),
-    Indefinite: EnumCase({ type: IncludeIdentifier(IndefiniteSpecializations) }),
-  }),
-})
-
-const SpecificSpecializations = TypeAlias(import.meta.url, {
-  name: "SpecificSpecializations",
-  type: () =>
-    Object({
-      list: Required({
-        comment: "A list of specific possible specializations.",
-        type: Array(LanguageSpecializationIdentifier(), { minItems: 1 }),
-      }),
-    }),
-})
-
 export const LanguageSpecialization = Entity(import.meta.url, {
   name: "LanguageSpecialization",
   namePlural: "LanguageSpecializations",
@@ -111,6 +93,7 @@ export const LanguageSpecialization = Entity(import.meta.url, {
         })
       ),
     }),
+  parentReferenceKey: "parent",
   displayName: {},
 })
 

@@ -178,17 +178,21 @@ export const GeneralSelectOption = Entity(import.meta.url, {
         })
       ),
     }),
+  parentReferenceKey: "parent",
   displayName: {},
   displayNameCustomizer: (
     instance,
     instanceDisplayName,
+    instanceDisplayNameLocaleId,
     _getInstanceById,
     getDisplayNameForInstanceId,
     _locales
-  ) =>
-    `${getDisplayNameForInstanceId(
+  ) => ({
+    name: `${getDisplayNameForInstanceId(
       (instance as any).parent[(instance as any).parent.kind]
     )} — ${instanceDisplayName}`,
+    localeId: instanceDisplayNameLocaleId,
+  }),
 })
 
 const ExplicitSkillSelectOption = TypeAlias(import.meta.url, {
@@ -478,18 +482,22 @@ export const NewSkillApplication = Entity(import.meta.url, {
         })
       ),
     }),
+  parentReferenceKey: "parent",
   displayName: {},
   displayNameCustomizer: (
     instance,
     instanceDisplayName,
+    instanceDisplayNameLocaleId,
     _getInstanceById,
     getDisplayNameForInstanceId,
     _locales
-  ) =>
-    `${
+  ) => ({
+    name: `${
       instanceDisplayName ||
       getDisplayNameForInstanceId((instance as any).parent[(instance as any).parent.kind])
     }`,
+    localeId: instanceDisplayNameLocaleId,
+  }),
 })
 
 export const SkillUse = Entity(import.meta.url, {
@@ -523,18 +531,22 @@ export const SkillUse = Entity(import.meta.url, {
         })
       ),
     }),
+  parentReferenceKey: "parent",
   displayName: {},
   displayNameCustomizer: (
     instance,
     instanceDisplayName,
+    instanceDisplayNameLocaleId,
     _getInstanceById,
     getDisplayNameForInstanceId,
     _locales
-  ) =>
-    `${
+  ) => ({
+    name: `${
       instanceDisplayName ||
       getDisplayNameForInstanceId((instance as any).parent[(instance as any).parent.kind])
     }`,
+    localeId: instanceDisplayNameLocaleId,
+  }),
 })
 
 const SkillUses = TypeAlias(import.meta.url, {

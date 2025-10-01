@@ -11,15 +11,12 @@ import {
   String,
   TypeAlias,
 } from "tsondb/schema/def"
+import { ChildEntities } from "../../../../tsondb/dist/src/node/schema/types/references/ChildEntitiesType.js"
 import { name_in_library } from "../_Activatable.js"
 import { OldParameter } from "../_ActivatableSkill.js"
 import { CheckResultBasedDuration } from "../_ActivatableSkillDuration.js"
 import { ActivatableSkillEffect } from "../_ActivatableSkillEffect.js"
-import {
-  MagicalRuneIdentifier,
-  MagicalRuneOptionIdentifier,
-  PropertyIdentifier,
-} from "../_Identifier.js"
+import { MagicalRuneIdentifier, PropertyIdentifier } from "../_Identifier.js"
 import { CombatTechniqueIdentifier } from "../_IdentifierGroup.js"
 import { ImprovementCost } from "../_ImprovementCost.js"
 import { ResponsiveText, ResponsiveTextOptional } from "../_ResponsiveText.js"
@@ -33,13 +30,11 @@ export const MagicalRune = Entity(import.meta.url, {
   namePlural: "MagicalRunes",
   type: () =>
     Object({
-      options: Optional({
+      options: Required({
         comment: `The options the magical rune has, if any.
 
 If there are multiple options, the magical rune may be activated for each option, that is, multiple times.`,
-        type: Array(MagicalRuneOptionIdentifier(), {
-          minItems: 1,
-        }),
+        type: ChildEntities(MagicalRuneOption),
       }),
       check: Required({
         comment: "Lists the linked three attributes used to make a skill check.",
@@ -317,6 +312,7 @@ The surrounding parenthesis will/should not be included, they will/should be gen
         })
       ),
     }),
+  parentReferenceKey: "parent",
   displayName: {},
 })
 

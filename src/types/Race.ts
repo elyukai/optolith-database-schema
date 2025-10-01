@@ -363,6 +363,7 @@ export const RaceVariant = Entity(import.meta.url, {
         })
       ),
     }),
+  parentReferenceKey: "race",
   displayName: {},
 })
 
