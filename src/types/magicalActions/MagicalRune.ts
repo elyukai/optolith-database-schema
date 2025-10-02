@@ -1,5 +1,6 @@
 import {
   Array,
+  ChildEntities,
   Entity,
   Enum,
   EnumCase,
@@ -11,7 +12,6 @@ import {
   String,
   TypeAlias,
 } from "tsondb/schema/def"
-import { ChildEntities } from "../../../../tsondb/dist/src/node/schema/types/references/ChildEntitiesType.js"
 import { name_in_library } from "../_Activatable.js"
 import { OldParameter } from "../_ActivatableSkill.js"
 import { CheckResultBasedDuration } from "../_ActivatableSkillDuration.js"

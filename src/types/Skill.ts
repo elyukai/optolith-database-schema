@@ -3,6 +3,7 @@
  */
 
 import {
+  ChildEntities,
   Entity,
   Enum,
   EnumCase,
@@ -13,7 +14,6 @@ import {
   String,
   TypeAlias,
 } from "tsondb/schema/def"
-import { ChildEntities } from "../../../tsondb/dist/src/node/schema/types/references/ChildEntitiesType.js"
 import { SkillGroupIdentifier, SkillIdentifier } from "./_Identifier.js"
 import { ImprovementCost } from "./_ImprovementCost.js"
 import { SkillCheck } from "./_SkillCheck.js"

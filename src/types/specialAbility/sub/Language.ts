@@ -1,5 +1,6 @@
 import {
   Array,
+  ChildEntities,
   Entity,
   IncludeIdentifier,
   Integer,
@@ -9,7 +10,6 @@ import {
   String,
   TypeAlias,
 } from "tsondb/schema/def"
-import { ChildEntities } from "../../../../../tsondb/dist/src/node/schema/types/references/ChildEntitiesType.js"
 import { AlternativeName } from "../../_AlternativeNames.js"
 import { LanguageIdentifier } from "../../_Identifier.js"
 import { LanguagePrerequisites } from "../../_Prerequisite.js"

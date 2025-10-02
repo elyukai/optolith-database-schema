@@ -1,10 +1,6 @@
 node_modules
 lib
 
-# TSONDB
-/data
-/gen
-
 # Swift
 .DS_Store
 /.build

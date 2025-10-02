@@ -1,5 +1,6 @@
 import {
   Array,
+  ChildEntities,
   Entity,
   IncludeIdentifier,
   Object,
@@ -7,7 +8,6 @@ import {
   Required,
   String,
 } from "tsondb/schema/def"
-import { ChildEntities } from "../../../tsondb/dist/src/node/schema/types/references/ChildEntitiesType.js"
 import { OldParameter, SlowPerformanceParameters } from "./_ActivatableSkill.js"
 import { ActivatableSkillEffect } from "./_ActivatableSkillEffect.js"
 import { AffectedTargetCategories } from "./_ActivatableSkillTargetCategory.js"

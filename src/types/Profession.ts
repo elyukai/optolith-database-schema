@@ -1,6 +1,7 @@
 import {
   Array,
   Boolean,
+  ChildEntities,
   Entity,
   Enum,
   EnumCase,
@@ -16,7 +17,6 @@ import {
   TypeAlias,
   TypeArgument,
 } from "tsondb/schema/def"
-import { ChildEntities } from "../../../tsondb/dist/src/node/schema/types/references/ChildEntitiesType.js"
 import { CommonnessRatedAdvantageDisadvantage } from "./_CommonnessRatedAdvantageDisadvantage.js"
 import {
   AdvantageIdentifier,

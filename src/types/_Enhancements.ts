@@ -3,6 +3,7 @@
  */
 
 import {
+  ChildEntities,
   Entity,
   IncludeIdentifier,
   Integer,
@@ -12,7 +13,6 @@ import {
   String,
   TypeAlias,
 } from "tsondb/schema/def"
-import { ChildEntities } from "../../../tsondb/dist/src/node/schema/types/references/ChildEntitiesType.js"
 import { SkillWithEnhancementsIdentifier } from "./_IdentifierGroup.js"
 import { EnhancementPrerequisites } from "./_Prerequisite.js"
 import { NestedLocaleMap } from "./Locale.js"

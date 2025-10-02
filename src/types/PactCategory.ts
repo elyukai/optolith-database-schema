@@ -1,5 +1,12 @@
-import { Entity, IncludeIdentifier, Object, Optional, Required, String } from "tsondb/schema/def"
-import { ChildEntities } from "../../../tsondb/dist/src/node/schema/types/references/ChildEntitiesType.js"
+import {
+  ChildEntities,
+  Entity,
+  IncludeIdentifier,
+  Object,
+  Optional,
+  Required,
+  String,
+} from "tsondb/schema/def"
 import { PactCategoryIdentifier } from "./_Identifier.js"
 import { NestedLocaleMap } from "./Locale.js"
 import { Errata } from "./source/_Erratum.js"

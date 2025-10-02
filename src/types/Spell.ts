@@ -1,5 +1,12 @@
-import { Entity, IncludeIdentifier, Object, Optional, Required, String } from "tsondb/schema/def"
-import { ChildEntities } from "../../../tsondb/dist/src/node/schema/types/references/ChildEntitiesType.js"
+import {
+  ChildEntities,
+  Entity,
+  IncludeIdentifier,
+  Object,
+  Optional,
+  Required,
+  String,
+} from "tsondb/schema/def"
 import { FastPerformanceParameters, OldParameter } from "./_ActivatableSkill.js"
 import { ActivatableSkillEffect } from "./_ActivatableSkillEffect.js"
 import { AffectedTargetCategories } from "./_ActivatableSkillTargetCategory.js"
@@ -91,7 +98,7 @@ export const Spell = Entity(import.meta.url, {
         })
       ),
       enhancements: Required({
-        type: ChildEntities(Enhancement),
+        type: ChildEntities<typeof Enhancement>(Enhancement),
       }),
     }),
   displayName: {},
