@@ -1,6 +1,37 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+
+## [0.18.0](https://github.com/elyukai/optolith-database-schema/compare/v0.17.2...v0.18.0) (2025-10-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* tsondb integration
+* use identifier object instead of plain number for publication prerequisite identifier
+* adjust naming for compiles languages that dont create namespaces per file
+* add blessed tradition type as union type
+
+### Features
+
+* add blessed tradition type as union type ([dd999c1](https://github.com/elyukai/optolith-database-schema/commit/dd999c1387d950fd27169c601f4653a1fd0273d6))
+* add skill application identifier as possible select option identifier ([2523228](https://github.com/elyukai/optolith-database-schema/commit/25232282da57baf82d369bc80be703ae69df6f6d))
+* add translation strings for prerequisites ([a031ad9](https://github.com/elyukai/optolith-database-schema/commit/a031ad93ea305c831fbb52498adecec3f9b3b2e1))
+* adjust naming for compiles languages that dont create namespaces per file ([4236fa3](https://github.com/elyukai/optolith-database-schema/commit/4236fa38040bf034d27e942e66647462a1e15f3c))
+* **swift:** add initializers to all structs ([fc79950](https://github.com/elyukai/optolith-database-schema/commit/fc79950428c62f0ca11d56299854f83a37d693c8))
+* **swift:** add set of available locales and documentation for LocaleMap ([c247c06](https://github.com/elyukai/optolith-database-schema/commit/c247c067e4b38cf8b748fe1ab1228ecbf294b8cc))
+* **swift:** do not generate ignored files ([6dd361a](https://github.com/elyukai/optolith-database-schema/commit/6dd361a16cea4488b4d7d34a86edbf673ea97d4b))
+* **swift:** remove generation date header comment ([9db2fd5](https://github.com/elyukai/optolith-database-schema/commit/9db2fd59894a692a8443592e8247251f55913e73))
+* tsondb integration ([619805c](https://github.com/elyukai/optolith-database-schema/commit/619805ccfb3771962cc5e987f80b51a5dcf56c09)), closes [#35](https://github.com/elyukai/optolith-database-schema/issues/35)
+
+
+### Bug Fixes
+
+* **swift:** add ignored LocaleMap type ([f80bbaa](https://github.com/elyukai/optolith-database-schema/commit/f80bbaa8289c9053ae31867564a072cf7bd506a0))
+* **swift:** identifier objects' initializers must be public ([8f2be47](https://github.com/elyukai/optolith-database-schema/commit/8f2be474440a00c37d4aee8f6eb4cceba2dbf8ee))
+* **swift:** LocaleMap initializer didnt initialize all properties ([f5167bb](https://github.com/elyukai/optolith-database-schema/commit/f5167bb56586e88d970cf893e5ea077bc41e1113))
+* **swift:** remove unnecessary indentation in empty lines ([dbe1902](https://github.com/elyukai/optolith-database-schema/commit/dbe19027a05a9834fc00cc2fcb1892fca1fd74fe))
+* use identifier object instead of plain number for publication prerequisite identifier ([bb7a688](https://github.com/elyukai/optolith-database-schema/commit/bb7a688b019fc95070bb7aaf4246a6d64d0de91a))
 
 ### [0.17.2](https://github.com/elyukai/optolith-database-schema/compare/v0.17.1...v0.17.2) (2024-10-06)
 
