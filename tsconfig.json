@@ -14,5 +14,6 @@
   "include": [
     "src/types/**/*",
     "src/main.ts",
+    "src/test.ts",
   ]
 }

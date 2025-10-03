@@ -50,14 +50,7 @@ export const SkillModificationLevel = Entity(import.meta.url, {
       ),
     }),
   displayName: null,
-  displayNameCustomizer: (
-    instance,
-    _instanceDisplayName,
-    _instanceDisplayNameLocaleId,
-    _getInstanceById,
-    _getDisplayNameForInstanceId,
-    locales
-  ) => ({
+  displayNameCustomizer: ({ instance, locales }) => ({
     name: `${(instance.fast as any).casting_time} Act. / ${
       (instance.slow as any).casting_time.value
     } ${(instance.slow as any).casting_time.unit.kind} (fast/slow) — ${

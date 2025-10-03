@@ -1,5 +1,6 @@
 import {
   Array,
+  ChildEntities,
   Entity,
   Enum,
   EnumCase,
@@ -16,7 +17,6 @@ import {
   CurriculumIdentifier,
   ElementIdentifier,
   GuidelineIdentifier,
-  LessonPackageIdentifier,
   MagicalTraditionIdentifier,
   PropertyIdentifier,
   SkillIdentifier,
@@ -69,8 +69,7 @@ export const Curriculum = Entity(import.meta.url, {
       }),
       lesson_packages: Required({
         comment: "A list of available lesson packages.",
-        type: IncludeIdentifier(LessonPackages),
-        // isTransient: true,
+        type: ChildEntities(LessonPackage),
       }),
       src,
       translations: NestedLocaleMap(
@@ -170,12 +169,6 @@ const RestrictedProperty = TypeAlias(import.meta.url, {
     }),
 })
 
-const LessonPackages = TypeAlias(import.meta.url, {
-  name: "LessonPackages",
-  comment: "A list of available lesson packages.",
-  type: () => Array(LessonPackageIdentifier(), { minItems: 2, maxItems: 2 }),
-})
-
 export const LessonPackage = Entity(import.meta.url, {
   name: "LessonPackage",
   namePlural: "LessonPackages",
@@ -212,6 +205,7 @@ export const LessonPackage = Entity(import.meta.url, {
       },
       { minProperties: 3 }
     ),
+  parentReferenceKey: "curriculum",
   displayName: {},
 })
 

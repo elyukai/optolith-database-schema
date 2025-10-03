@@ -1,5 +1,6 @@
 import {
   Array,
+  ChildEntities,
   Entity,
   Enum,
   EnumCase,
@@ -23,7 +24,6 @@ import {
   EyeColorIdentifier,
   HairColorIdentifier,
   RaceIdentifier,
-  RaceVariantIdentifier,
 } from "./_Identifier.js"
 import { ExperienceLevel } from "./ExperienceLevel.js"
 import { NestedLocaleMap } from "./Locale.js"
@@ -93,8 +93,7 @@ export const Race = Entity(import.meta.url, {
       variants: Required({
         comment:
           "A list of available race variants where one has to be selected. If no variants are to be selected, a single variant with no name has to be provided which will be used as the missing values for the base race.",
-        type: IncludeIdentifier(RaceVariants),
-        // isTransient: true,
+        type: ChildEntities(RaceVariant),
       }),
       src,
       translations: NestedLocaleMap(
@@ -271,13 +270,6 @@ const WeightDiceOffsetStrategy = Enum(import.meta.url, {
     Subtract: EnumCase({ type: null }),
     AddEvenSubtractOdd: EnumCase({ type: null }),
   }),
-})
-
-const RaceVariants = TypeAlias(import.meta.url, {
-  name: "RaceVariants",
-  comment:
-    "A list of available race variants where one has to be selected. If no variants are to be selected, a single variant with no name has to be provided which will be used as the missing values for the base race.",
-  type: () => Array(RaceVariantIdentifier(), { minItems: 1 }),
 })
 
 export const RaceVariant = Entity(import.meta.url, {

@@ -180,14 +180,12 @@ export const GeneralSelectOption = Entity(import.meta.url, {
     }),
   parentReferenceKey: "parent",
   displayName: {},
-  displayNameCustomizer: (
+  displayNameCustomizer: ({
     instance,
     instanceDisplayName,
     instanceDisplayNameLocaleId,
-    _getInstanceById,
     getDisplayNameForInstanceId,
-    _locales
-  ) => ({
+  }) => ({
     name: `${getDisplayNameForInstanceId(
       (instance as any).parent[(instance as any).parent.kind]
     )} — ${instanceDisplayName}`,
@@ -484,14 +482,12 @@ export const NewSkillApplication = Entity(import.meta.url, {
     }),
   parentReferenceKey: "parent",
   displayName: {},
-  displayNameCustomizer: (
+  displayNameCustomizer: ({
     instance,
     instanceDisplayName,
     instanceDisplayNameLocaleId,
-    _getInstanceById,
     getDisplayNameForInstanceId,
-    _locales
-  ) => ({
+  }) => ({
     name: `${
       instanceDisplayName ||
       getDisplayNameForInstanceId((instance as any).parent[(instance as any).parent.kind])
@@ -533,14 +529,12 @@ export const SkillUse = Entity(import.meta.url, {
     }),
   parentReferenceKey: "parent",
   displayName: {},
-  displayNameCustomizer: (
+  displayNameCustomizer: ({
     instance,
     instanceDisplayName,
     instanceDisplayNameLocaleId,
-    _getInstanceById,
     getDisplayNameForInstanceId,
-    _locales
-  ) => ({
+  }) => ({
     name: `${
       instanceDisplayName ||
       getDisplayNameForInstanceId((instance as any).parent[(instance as any).parent.kind])

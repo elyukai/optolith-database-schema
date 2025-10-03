@@ -98,7 +98,7 @@ export const Spell = Entity(import.meta.url, {
         })
       ),
       enhancements: Required({
-        type: ChildEntities<typeof Enhancement>(Enhancement),
+        type: ChildEntities(Enhancement),
       }),
     }),
   displayName: {},

@@ -29,14 +29,14 @@
     "watch": "tsc -w",
     "generate": "tsondb generate",
     "release": "standard-version",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node ./lib/test.js",
     "prepare": "npm run build"
   },
   "author": "Lukas Obermann",
   "license": "MPL-2.0",
   "dependencies": {
     "@optolith/helpers": "^0.2.2",
-    "tsondb": "^0.6.2",
+    "tsondb": "^0.7.4",
     "yaml": "^2.8.1"
   },
   "devDependencies": {

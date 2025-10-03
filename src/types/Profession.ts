@@ -9,7 +9,7 @@ import {
   GenIncludeIdentifier,
   IncludeIdentifier,
   Integer,
-  Object,
+  ObjectType,
   Optional,
   Param,
   Required,
@@ -49,7 +49,7 @@ export const Profession = Entity(import.meta.url, {
   name: "Profession",
   namePlural: "Professions",
   type: () =>
-    Object({
+    ObjectType({
       group: Required({
         comment: "The profession group.",
         type: IncludeIdentifier(ProfessionGroup),
@@ -62,6 +62,36 @@ export const Profession = Entity(import.meta.url, {
       }),
     }),
   displayName: null,
+  displayNameCustomizer: ({
+    instanceId,
+    getDisplayNameForInstanceId,
+    getChildInstancesForInstanceId,
+  }) => {
+    const [firstProfessionVersion, ...otherProfessionVersions] = getChildInstancesForInstanceId(
+      Profession.name,
+      instanceId,
+      ProfessionVersion.name
+    )
+
+    if (!firstProfessionVersion) {
+      return { name: "(Profession with no version)" }
+    }
+
+    const displayName = getDisplayNameForInstanceId(firstProfessionVersion.id) ?? {
+      name: firstProfessionVersion.id,
+    }
+
+    if (otherProfessionVersions.length === 0) {
+      return displayName
+    }
+
+    return {
+      ...displayName,
+      name: `${displayName.name} (+${otherProfessionVersions.length} version${
+        otherProfessionVersions.length > 1 ? "s" : ""
+      })`,
+    }
+  },
 })
 
 const ProfessionGroup = Enum(import.meta.url, {
@@ -85,7 +115,7 @@ export const MundaneProfessionGroup = Enum(import.meta.url, {
 const MagicalProfessionGroup = TypeAlias(import.meta.url, {
   name: "MagicalProfessionGroup",
   type: () =>
-    Object({
+    ObjectType({
       curriculum: Optional({
         comment: "The curriculum/academy associated with this magical profession, if any.",
         type: CurriculumIdentifier(),
@@ -97,7 +127,7 @@ export const ProfessionVersion = Entity(import.meta.url, {
   name: "ProfessionVersion",
   namePlural: "ProfessionVersions",
   type: () =>
-    Object({
+    ObjectType({
       profession: Required({
         comment: "The associated profession.",
         type: ProfessionIdentifier(),
@@ -146,7 +176,7 @@ export const ProfessionVersion = Entity(import.meta.url, {
       translations: NestedLocaleMap(
         Required,
         "ProfessionVersionTranslation",
-        Object({
+        ObjectType({
           name: Required({
             comment: "The basic profession’s name.",
             type: IncludeIdentifier(ProfessionName),
@@ -181,14 +211,37 @@ export const ProfessionVersion = Entity(import.meta.url, {
       ),
     }),
   parentReferenceKey: "profession",
-  displayName: null,
+  displayName: {
+    pathToLocaleMap: "translations",
+    pathInLocaleMap: "name.default",
+  },
+  displayNameCustomizer: ({ instance, instanceId, locales }) => {
+    if (typeof instance.translations === "object" && instance.translations !== null) {
+      const translations = Object.entries(instance.translations)
+      for (const locale of locales) {
+        const translation = translations.find(([key]) => key === locale)
+        if (translation) {
+          const [, value] = translation
+          return {
+            name:
+              value.name.default + (value.specification ? ` (${value.specification.default})` : ""),
+            localeId: locale,
+          }
+        }
+      }
+    }
+
+    return {
+      name: instanceId,
+    }
+  },
 })
 
 export const ProfessionPackage = Entity(import.meta.url, {
   name: "ProfessionPackage",
   namePlural: "ProfessionPackages",
   type: () =>
-    Object({
+    ObjectType({
       profession_version: Required({
         comment: "The associated profession version.",
         type: ProfessionVersionIdentifier(),
@@ -248,7 +301,7 @@ export const ProfessionVariant = Entity(import.meta.url, {
   name: "ProfessionVariant",
   namePlural: "ProfessionVariants",
   type: () =>
-    Object({
+    ObjectType({
       profession_package: Required({
         comment: "The associated profession package.",
         type: ProfessionPackageIdentifier(),
@@ -294,7 +347,7 @@ export const ProfessionVariant = Entity(import.meta.url, {
       translations: NestedLocaleMap(
         Required,
         "ProfessionVariantTranslation",
-        Object({
+        ObjectType({
           name: Required({
             comment: "The profession variant’s name.",
             type: String({ minLength: 1 }),
@@ -333,7 +386,7 @@ const ProfessionSpecialAbility = Enum(import.meta.url, {
 const ConstantProfessionSpecialAbility = TypeAlias(import.meta.url, {
   name: "ConstantProfessionSpecialAbility",
   type: () =>
-    Object({
+    ObjectType({
       id: Required({
         comment: "The identifier of the special ability to grant.",
         type: IncludeIdentifier(SpecialAbilityIdentifier),
@@ -354,7 +407,7 @@ const ConstantProfessionSpecialAbility = TypeAlias(import.meta.url, {
 const ProfessionSpecialAbilitySelection = TypeAlias(import.meta.url, {
   name: "ProfessionSpecialAbilitySelection",
   type: () =>
-    Object({
+    ObjectType({
       options: Required({
         comment: `The list of special abilities to choose from. Must contain at least two entries.`,
         type: Array(IncludeIdentifier(ConstantProfessionSpecialAbility), { minItems: 2 }),
@@ -365,7 +418,7 @@ const ProfessionSpecialAbilitySelection = TypeAlias(import.meta.url, {
 const ProfessionVariantSpecialAbility = TypeAlias(import.meta.url, {
   name: "ProfessionVariantSpecialAbility",
   type: () =>
-    Object({
+    ObjectType({
       action: Required({
         comment:
           "If the selection is added to the base profession or if it removes a selection from the base profession with the same values.",
@@ -381,7 +434,7 @@ const ProfessionVariantSpecialAbility = TypeAlias(import.meta.url, {
 const CombatTechniqueRating = TypeAlias(import.meta.url, {
   name: "CombatTechniqueRating",
   type: () =>
-    Object({
+    ObjectType({
       id: Required({
         comment: "The identifier of the combat technique to provide the rating for.",
         type: IncludeIdentifier(CombatTechniqueIdentifier),
@@ -397,7 +450,7 @@ const CombatTechniqueRating = TypeAlias(import.meta.url, {
 export const SkillRating = TypeAlias(import.meta.url, {
   name: "SkillRating",
   type: () =>
-    Object({
+    ObjectType({
       id: Required({
         comment: "The identifier of the skill to provide the rating for.",
         type: SkillIdentifier(),
@@ -413,7 +466,7 @@ export const SkillRating = TypeAlias(import.meta.url, {
 const MagicalSkillRating = TypeAlias(import.meta.url, {
   name: "MagicalSkillRating",
   type: () =>
-    Object({
+    ObjectType({
       id: Required({
         comment:
           "The identifier(s) of the spell(s) to choose from to provide the rating for. If multiple spells are provided, they must all have the same improvement cost.",
@@ -438,7 +491,7 @@ const ProfessionMagicalSkillIdentifier = Enum(import.meta.url, {
 const ProfessionSpellworkIdentifier = TypeAlias(import.meta.url, {
   name: "ProfessionSpellworkIdentifier",
   type: () =>
-    Object({
+    ObjectType({
       id: Required({
         comment: "The identifier of the spell to provide the rating for.",
         type: IncludeIdentifier(SpellworkIdentifier),
@@ -454,7 +507,7 @@ const ProfessionSpellworkIdentifier = TypeAlias(import.meta.url, {
 const ProfessionMagicalActionIdentifier = TypeAlias(import.meta.url, {
   name: "ProfessionMagicalActionIdentifier",
   type: () =>
-    Object({
+    ObjectType({
       id: Required({
         comment: "The identifier of the magical action to provide the rating for.",
         type: IncludeIdentifier(MagicalActionIdentifier),
@@ -465,7 +518,7 @@ const ProfessionMagicalActionIdentifier = TypeAlias(import.meta.url, {
 const LiturgicalChantRating = TypeAlias(import.meta.url, {
   name: "LiturgicalChantRating",
   type: () =>
-    Object({
+    ObjectType({
       id: Required({
         comment:
           "The identifier(s) of the liturgical chant(s) to choose from to provide the rating for. If multiple liturgical chants are provided, they must all have the same improvement cost.",
@@ -484,7 +537,7 @@ const ProfessionPackageOptions = TypeAlias(import.meta.url, {
   comment:
     "In some areas, the profession package grants a loose set of stats where the player must choose between different options for the profession package.",
   type: () =>
-    Object(
+    ObjectType(
       {
         skill_specialization: Optional({
           type: IncludeIdentifier(SkillSpecializationOptions),
@@ -517,7 +570,7 @@ const ProfessionVariantPackageOptions = TypeAlias(import.meta.url, {
   comment:
     "In some areas, the profession package grants a loose set of stats where the player must choose between different options for the profession package. The variant may override or remove those options.",
   type: () =>
-    Object(
+    ObjectType(
       {
         skill_specialization: Optional({
           type: GenIncludeIdentifier(VariantOptionAction, [
@@ -575,7 +628,7 @@ const SpecificSkillSpecializationOptions = TypeAlias(import.meta.url, {
   name: "SpecificSkillSpecializationOptions",
   comment: `Select an application from a skill or from one of a list of skills where you get a skill specialization for.`,
   type: () =>
-    Object({
+    ObjectType({
       options: Required({
         comment: `Possible skill(s) to get a skill specialization for.`,
         type: Array(SkillIdentifier(), { minItems: 1, uniqueItems: true }),
@@ -587,7 +640,7 @@ const LanguagesScriptsOptions = TypeAlias(import.meta.url, {
   name: "LanguagesScriptsOptions",
   comment: `Buy languages and scripts for a specific amount of AP.`,
   type: () =>
-    Object({
+    ObjectType({
       ap_value: Required({
         comment: "The AP value you can buy languages and scripts for.",
         type: Integer({ minimum: 2 }),
@@ -599,7 +652,7 @@ const CombatTechniquesOptions = TypeAlias(import.meta.url, {
   name: "CombatTechniquesOptions",
   comment: `Select one or more combat techniques you get a CtR bonus for.`,
   type: () =>
-    Object({
+    ObjectType({
       fixed: Required({
         comment: `Specify the number of combat techniques that can be selected so that they get increased to a specific CtR. There can be multiple selections with different CtRs.`,
         type: Array(IncludeIdentifier(RatingForCombatTechniquesNumber), { minItems: 1 }),
@@ -618,7 +671,7 @@ const CombatTechniquesOptions = TypeAlias(import.meta.url, {
 const RatingForCombatTechniquesNumber = TypeAlias(import.meta.url, {
   name: "RatingForCombatTechniquesNumber",
   type: () =>
-    Object({
+    ObjectType({
       number: Required({
         comment: "The number of selectable combat techniques.",
         type: Integer({ minimum: 1 }),
@@ -636,7 +689,7 @@ const CantripsOptions = TypeAlias(import.meta.url, {
   name: "CantripsOptions",
   comment: `Select one or more cantrips you receive.`,
   type: () =>
-    Object({
+    ObjectType({
       number: Required({
         comment: "The number of selectable cantrips.",
         type: Integer({ minimum: 1 }),
@@ -652,7 +705,7 @@ const CursesOptions = TypeAlias(import.meta.url, {
   name: "CursesOptions",
   comment: `Buy curses for a specific amount of AP.`,
   type: () =>
-    Object({
+    ObjectType({
       ap_value: Required({
         comment: "The AP value you can buy curses for.",
         type: Integer({ minimum: 2 }),
@@ -664,7 +717,7 @@ const TerrainKnowledgeOptions = TypeAlias(import.meta.url, {
   name: "TerrainKnowledgeOptions",
   comment: `Select one of a list of possible terrain knowledges`,
   type: () =>
-    Object({
+    ObjectType({
       options: Required({
         comment: "The list of possible terrain knowledges.",
         type: Array(GeneralSelectOptionIdentifier(), { minItems: 2 }),
@@ -676,7 +729,7 @@ const SkillsOptions = TypeAlias(import.meta.url, {
   name: "SkillsOptions",
   comment: `Buy skills for a specific amount of AP.`,
   type: () =>
-    Object({
+    ObjectType({
       group: Optional({
         comment: "If specified, you may only choose from skills of the specified group.",
         type: SkillGroupIdentifier(),
@@ -693,7 +746,7 @@ const ProfessionName = TypeAlias(import.meta.url, {
   comment:
     "The name of the profession that may have sex-specific names. Useful if the term in generell is different (i.e. actor/actress) or if the language uses gendered nouns. The default name is also used in case neither the male nor female name strictly applies.",
   type: () =>
-    Object({
+    ObjectType({
       default: Required({
         comment:
           "The name from the source publication. This is also used if a character has no specified gender or is neither male nor female.",

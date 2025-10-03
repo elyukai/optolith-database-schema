@@ -9,18 +9,18 @@ on:
       - v[0-9]+.[0-9]+.[0-9]+*
 
 jobs:
-  # build:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: actions/setup-node@v4
-  #       with:
-  #         node-version: 22
-  #     - run: npm ci
-  #     - run: npm test
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm ci
+      - run: npm test
 
   publish-npm:
-    # needs: build
+    needs: build
     runs-on: ubuntu-latest
     permissions:
       contents: read

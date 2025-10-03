@@ -81,14 +81,12 @@ export const Enhancement = Entity(import.meta.url, {
     }),
   parentReferenceKey: "parent",
   displayName: {},
-  displayNameCustomizer: (
+  displayNameCustomizer: ({
     instance,
     instanceDisplayName,
     instanceDisplayNameLocaleId,
-    _getInstanceById,
     getDisplayNameForInstanceId,
-    _locales
-  ) => ({
+  }) => ({
     name: `${getDisplayNameForInstanceId(
       (instance as any).parent[(instance as any).parent.kind]
     )} — ${instanceDisplayName}`,
